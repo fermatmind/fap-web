@@ -52089,7 +52089,7 @@
     "branch": "codex/saep-proposed-web-parity06-llms-full-non-trust-orchestration-02",
     "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02: stabilize complete artifact source orchestration",
     "depends_on": [],
-    "commit_sha": "af07703e293f4641ee0afd052a1ac6b580e22b21",
+    "commit_sha": "cbd4b41d1f959a7728484f8bf728bf85e82174bf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1851",
     "checks": {
       "r2_diagnosis": {
@@ -52098,7 +52098,7 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Node 24.14 / pnpm 10.28.1: focused orchestration, prior artifact-stability, fanout, and Enneagram contracts; scoped ESLint; full lint and spacing; typecheck; complete contract suite 4/4 shards; Big Five freeze 29/29; Enneagram freeze 24/24; production-API Next build; YAML/JSON parse; exact nine-file scope; diff checks."
+        "evidence": "Node 24.14 / pnpm 10.28.1: focused orchestration, prior artifact-stability, fanout, Enneagram, and test-authority contracts; scoped ESLint; full lint and spacing; typecheck; complete contract suite 4/4 shards; Big Five freeze 29/29; Enneagram freeze 24/24; production-API Next build; YAML/JSON parse; exact ten-file scope; diff checks."
       },
       "github_required_checks": {
         "status": "pending",
@@ -52106,7 +52106,7 @@
       },
       "exact_head_review": {
         "status": "pass_after_scoped_fixes",
-        "evidence": "Exact-head review findings were repaired in scope: request budgets reach sitemap and Enneagram hard-authority loaders, queued/retry/enrichment work observes the build abort, artifact-only enrichment uses bounded concurrency eight within the five-minute deadline, the operator process terminates fail-closed for legacy loaders, the enabled IQ cohort participates in hard-source retry completeness, and unrelated train metadata drift was removed."
+        "evidence": "Exact-head review findings were repaired in scope: request budgets and abort signals reach sitemap, Enneagram, and test-catalog hard-authority loaders; queued/retry/enrichment work observes the build abort; artifact-only enrichment uses bounded concurrency eight within the five-minute deadline; the operator process terminates fail-closed for remaining legacy loaders; the enabled IQ cohort participates in hard-source retry completeness; and unrelated train metadata drift was removed."
       }
     },
     "failure_reason": null,
@@ -52165,9 +52165,14 @@
         "at": "2026-07-30T18:28:00Z",
         "status": "review_fixes_local_verified",
         "summary": "Propagated the artifact hard-source timeout into Enneagram API requests and raised only operator-artifact enrichment concurrency from four to bounded eight so 323 personality entries remain within the five-minute envelope. Runtime concurrency stays four. Focused and complete contracts, lint, spacing, typecheck, both freeze suites, and production build pass."
+      },
+      {
+        "at": "2026-07-30T18:35:00Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Propagated the budget child AbortSignal into the backend test-catalog fetch so a timed-out first hard-source attempt is cancelled before retry. Focused orchestration and test-authority contracts, scoped lint, typecheck, and diff checks pass after the immediately preceding complete-suite/build validation."
       }
     ],
-    "updated_at": "2026-07-30T18:28:00Z"
+    "updated_at": "2026-07-30T18:35:00Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "merged",
