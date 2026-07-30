@@ -52350,7 +52350,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-freeze-01",
     "depends_on": [
@@ -52384,8 +52384,12 @@
         "evidence": "All changed files are restricted to the W3 Article package, its direct package contract, and PR-train manifest/state. W3-CAREER-GUIDES and the control master remain unchanged; YAML, JSON, focused ESLint, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1854 opened from pushed implementation commit c2a46fe3780eeaa3f4aa0005487298ad7dd6b23d; required CI and security checks are pending."
+        "status": "pass",
+        "evidence": "PR #1854 exact head 75727bcf4ca8b7a9a2078e74eae2435e93023a69 passed all 11 build, contract, freeze, and CodeQL checks with zero failures."
+      },
+      "review_and_merge_policy": {
+        "status": "pass",
+        "evidence": "GitHub reports MERGEABLE/CLEAN with no required review and no actionable automated review finding or comment; exact changed-file scope remains valid."
       }
     },
     "failure_reason": null,
@@ -52412,8 +52416,13 @@
         "at": "2026-07-30T20:38:08Z",
         "status": "github_checks_pending",
         "summary": "Pushed implementation commit c2a46fe3780eeaa3f4aa0005487298ad7dd6b23d and opened ready PR #1854. Required GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-30T20:42:55Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1854 exact head 75727bcf4ca8b7a9a2078e74eae2435e93023a69 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review, no actionable feedback, and exact scope revalidated."
       }
     ],
-    "updated_at": "2026-07-30T20:38:08Z"
+    "updated_at": "2026-07-30T20:42:55Z"
   }
 }
