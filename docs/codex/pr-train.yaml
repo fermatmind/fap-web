@@ -641,7 +641,7 @@ prs:
     base: main
     depends_on: [IQ-FE-2]
     mode: execute
-    status: in_progress
+    status: ready_to_merge
     title: "feat(iq): add take page shell and attempt lifecycle"
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/take/page.tsx
@@ -27797,7 +27797,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: w3_article_missing_locale_runtime
-    status: ready_to_merge
+    status: merged
     allowed_paths:
       - next.config.mjs
       - app/(localized)/[locale]/articles/[slug]/page.tsx
@@ -27824,3 +27824,36 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs
     repository_rule_impact: backend authority is unchanged; absent locale projections now fail closed without cross-locale substitution
+
+  - id: EN-PARITY-W3-ARTICLE-ASSETS-01
+    repo: fap-web
+    branch: codex/en-parity-w3-article-assets-01
+    base: main
+    title: "EN-PARITY-W3-ARTICLE-ASSETS-01: produce the frozen 17-Article English asset package"
+    depends_on: []
+    mode: execute
+    train_scope: w3_article_17_asset_package
+    status: in_progress
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/articles/**
+      - tests/contracts/en-content-parity-w3-article-package.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - control validator
+      - focused contracts
+      - 17-row/SHA validation
+      - lint
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: no runtime authority change; this is a candidate-only Article producer package

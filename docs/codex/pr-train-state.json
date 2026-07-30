@@ -52145,7 +52145,7 @@
     "updated_at": "2026-07-30T17:55:03Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-runtime-absence-01",
     "depends_on": [],
@@ -52190,9 +52190,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-30T15:53:43Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "cms_mutation": false,
     "publish_allowed": false,
@@ -52218,8 +52218,95 @@
         "at": "2026-07-30T15:45:08Z",
         "status": "ready_to_merge",
         "summary": "PR #1849 is MERGEABLE/CLEAN with exact-head scope revalidated and all 11 CI/security checks green. No review is required and no blocking feedback exists; squash merge is permitted after the final ledger head retains required checks."
+      },
+      {
+        "at": "2026-07-30T15:58:03Z",
+        "status": "merged",
+        "summary": "Post-merge revalidation confirmed PR #1849 merged at 2026-07-30T15:53:43Z as 4b71001af825256e7fe871fc0aa93ba15674e8f9; origin/main contains it, local main equals origin/main, the worktree is clean, and the local and remote task branches are deleted."
       }
     ],
-    "updated_at": "2026-07-30T15:45:08Z"
+    "updated_at": "2026-07-30T15:58:03Z"
+  },
+  "EN-PARITY-W3-ARTICLE-ASSETS-01": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-article-assets-01",
+    "depends_on": [],
+    "commit_sha": "ce41054ebf8c74746faeeb9f02bba8ea4d0a258f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1852",
+    "checks": {
+      "source_revision_drift": {
+        "status": "pass",
+        "evidence": "Read-only public API revalidation returned 200 for all 17 zh-CN Articles and matched every frozen Article id, locale, slug, and published revision id."
+      },
+      "target_identity": {
+        "status": "pass",
+        "evidence": "The frozen cohort contains exactly 17 unique source Article ids and slugs: 1-10, 50-53, 55, 58, and 59."
+      },
+      "control_validator": {
+        "status": "pass",
+        "evidence": "node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W3-editorial-cms/articles/master_manifest_patch.candidate.json returned ok=true with zero errors."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "pnpm exec vitest run tests/contracts/en-content-parity-w3-article-package.contract.test.ts tests/contracts/en-content-parity-control-master.contract.test.ts passed 2 files and 29 tests."
+      },
+      "package_integrity": {
+        "status": "pass",
+        "evidence": "Independent 17-row identity and eight-file SHA verification passed for package aca8156c24755a3603825ee8e7f6f21b6a0c0a8a62f7412c4b77400d6a5cc754."
+      },
+      "content_preflight": {
+        "status": "pass_with_deferred_independent_review",
+        "evidence": "All 17 candidates have zero Han leakage, zero generator-control artifacts, exact source/candidate heading-count parity, and no duplicate long paragraph; 13 internal-link rows remain explicitly pending independent editorial review and no QA/import-ready claim is made."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "pnpm exec eslint tests/contracts/en-content-parity-w3-article-package.contract.test.ts passed."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "Changed and force-added ignored package paths are restricted to the declared Article package, its focused contract, and PR-train manifest/state; git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1852 head 2f9506f92c1dcafd18326e1304d72d2089a072ee passed all 11 CI, contract, freeze, build, and CodeQL checks with zero failures."
+      },
+      "review_and_merge_policy": {
+        "status": "pass",
+        "evidence": "GitHub reports MERGEABLE/CLEAN, reviewDecision is empty, and the automated Codex review has no actionable suggestions."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T15:58:03Z",
+        "status": "in_progress",
+        "summary": "Started exact W3 Article asset production from merged main. Scope is candidate-only under articles/: exactly 17 English assets, source/claim/media clearance, standard package files, and an inventory_frozen-to-package_in_progress candidate; all CMS, runtime, master, publication, discoverability, CareerGuide, and deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-30T17:41:29Z",
+        "status": "local_verified",
+        "summary": "Produced the exact 17-row candidate package and standard ten-file handoff at package SHA aca8156c24755a3603825ee8e7f6f21b6a0c0a8a62f7412c4b77400d6a5cc754. Validator, 29 focused contracts, SHA/identity checks, content anomaly preflight, lint, scope validation, and diff checks pass. Internal-link differences remain honestly pending independent review; package status stays package_in_progress and all write/release/deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-30T17:42:37Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit ce41054ebf8c74746faeeb9f02bba8ea4d0a258f and opened PR #1852. GitHub reports MERGEABLE with CI and CodeQL checks queued; no review decision is required."
+      },
+      {
+        "at": "2026-07-30T17:47:38Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1852 head 2f9506f92c1dcafd18326e1304d72d2089a072ee passed all 11 required CI/security checks. Exact changed-file scope and the package validator were revalidated; GitHub is MERGEABLE/CLEAN with no actionable review feedback."
+      }
+    ],
+    "updated_at": "2026-07-30T17:47:38Z"
   }
 }
