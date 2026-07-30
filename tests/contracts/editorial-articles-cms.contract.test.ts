@@ -15,6 +15,27 @@ afterEach(() => {
 });
 
 describe("editorial article CMS contract", () => {
+  it("treats an absent English Article projection as authoritative absence without a zh-CN retry", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      if (!String(input).includes("/v0.5/articles/mbti-basics")) {
+        throw new Error(`Unexpected Article request: ${String(input)}`);
+      }
+
+      return jsonResponse({
+        message: "Article not found.",
+        error: {
+          code: "ARTICLE_NOT_FOUND",
+        },
+      }, 404);
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    await expect(getCmsArticle("mbti-basics", "en")).resolves.toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(String(fetchMock.mock.calls[0]?.[0])).toContain("locale=en");
+    expect(String(fetchMock.mock.calls[0]?.[0])).not.toContain("locale=zh-CN");
+  });
+
   it("maps backend editorial image metadata and variants into the frontend article shape", async () => {
     const coverUrl = "https://api.fermatmind.com/static/articles/covers/how-personality-shapes-attitude-toward-ai.svg";
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {

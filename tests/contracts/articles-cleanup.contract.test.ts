@@ -119,6 +119,17 @@ describe("articles cleanup contract", () => {
     expect(source).toContain("<ArticleResponsiveImage");
   });
 
+  it("article detail fails closed when the requested locale has no CMS projection", () => {
+    const source = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
+
+    expect(source).toContain('import { notFound } from "next/navigation"');
+    expect(source).toContain("getCmsArticleWithLastKnownGood(slug, locale)");
+    expect(source).toContain("if (!article) {");
+    expect(source).toContain("return notFound();");
+    expect(source).not.toContain("getCmsArticleWithLastKnownGood(slug, \"zh\")");
+    expect(source).not.toContain("permanentRedirect");
+  });
+
   it("llms routes use cms article enumeration instead of local blog helpers", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");

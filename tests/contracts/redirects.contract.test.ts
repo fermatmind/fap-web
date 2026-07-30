@@ -39,26 +39,18 @@ describe("legacy redirect hygiene contract", () => {
     );
   });
 
-  it("keeps GSC 404 legacy redirects exact and limited to known live targets", async () => {
+  it("keeps GSC legacy redirects exact without substituting Chinese Articles for absent English projections", async () => {
     const redirects = await loadRedirects();
+
+    const retiredCrossLocaleArticleSources = [
+      "/en/articles/big-five-growth-guide",
+      "/en/articles/mbti-basics",
+      "/en/articles/iq-test-growth-guide",
+    ];
+    expect(redirects.filter((redirect) => retiredCrossLocaleArticleSources.includes(redirect.source))).toEqual([]);
 
     expect(redirects).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({
-          source: "/en/articles/big-five-growth-guide",
-          destination: "/zh/articles/big-five-growth-guide",
-          permanent: true,
-        }),
-        expect.objectContaining({
-          source: "/en/articles/mbti-basics",
-          destination: "/zh/articles/mbti-basics",
-          permanent: true,
-        }),
-        expect.objectContaining({
-          source: "/en/articles/iq-test-growth-guide",
-          destination: "/zh/articles/iq-test-growth-guide",
-          permanent: true,
-        }),
         expect.objectContaining({
           source: "/en/career/guides/from-mbti-to-job-fit",
           destination: "/zh/career/guides/from-mbti-to-job-fit",
