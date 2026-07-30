@@ -156,12 +156,12 @@ async function createGuestSession(apiOrigin) {
     body: {},
   });
 
-  if (!response.ok || !response.payload?.token || !response.payload?.anon_id) {
+  if (!response.ok || !response.payload?.fm_token || !response.payload?.anon_id) {
     throw new Error(`guest auth failed: ${response.status} ${response.payload?.error_code || ""}`.trim());
   }
 
   return {
-    token: response.payload.token,
+    token: response.payload.fm_token,
     anonId: response.payload.anon_id,
   };
 }
