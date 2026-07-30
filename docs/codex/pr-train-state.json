@@ -51875,7 +51875,7 @@
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-runtime-absence-01",
     "depends_on": [],
-    "commit_sha": null,
+    "commit_sha": "2dd638c62e50ee6d660aae90e01ad7d9db4e794f",
     "pr_url": null,
     "checks": {
       "scan_artifacts": {
