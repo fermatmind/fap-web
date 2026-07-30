@@ -52514,7 +52514,7 @@
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
     "depends_on": [],
-    "commit_sha": "65f373d753520e70213237970789e5679323075c",
+    "commit_sha": "7f18da4a21b5cd309b08288b1501de4bc90a1311",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1861",
     "checks": {
       "dependency": {
@@ -52590,8 +52590,13 @@
         "at": "2026-07-30T22:58:00.000Z",
         "status": "review_fix_local_verified",
         "summary": "Exact-head review found a P2 where the zh-only guide could still advertise a known-missing English hreflang. The same-scope repair now reads alternate-locale availability from the CMS/public detail API, keeps only available locale alternates, and adds direct adapter and metadata contracts. Focused contracts pass 41/41; focused/full lint, Node 24 typecheck, production build 206/206, YAML/JSON parsing, diff checks, and exact 13-file scope validation pass."
+      },
+      {
+        "at": "2026-07-30T22:59:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the same-scope P2 locale-availability repair as 7f18da4a21b5cd309b08288b1501de4bc90a1311. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
       }
     ],
-    "updated_at": "2026-07-30T22:58:00.000Z"
+    "updated_at": "2026-07-30T22:59:00.000Z"
   }
 }
