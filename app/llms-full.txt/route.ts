@@ -93,6 +93,7 @@ const MAX_FAQ_ITEMS = 2;
 const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
 const ENRICHMENT_CONCURRENCY = 4;
+const LLMS_FULL_ARTIFACT_ENRICHMENT_CONCURRENCY = 8;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
@@ -195,6 +196,12 @@ export function llmsFullSourceTimeoutMs(
 
 export function llmsFullSourceConcurrency(buildProfile: LlmsFullBuildProfile): number {
   return buildProfile === "artifact" ? LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY : Number.MAX_SAFE_INTEGER;
+}
+
+export function llmsFullEnrichmentConcurrency(buildProfile: LlmsFullBuildProfile): number {
+  return buildProfile === "artifact"
+    ? LLMS_FULL_ARTIFACT_ENRICHMENT_CONCURRENCY
+    : ENRICHMENT_CONCURRENCY;
 }
 
 function createSourceScheduler(concurrency: number, signal?: AbortSignal) {
@@ -1149,7 +1156,10 @@ async function listPersonalityEntries(options: {
         .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     )
     .catch(() => []);
-  const enneagramEntriesPromise = listEnneagramLlmsFullEntries({ signal: options.signal }).catch(() => []);
+  const enneagramEntriesPromise = listEnneagramLlmsFullEntries({
+    signal: options.signal,
+    timeoutMs: options.requestTimeoutMs,
+  }).catch(() => []);
 
   const [mbtiEntries, bigFiveZhEntries, enneagramEntries] = await Promise.all([
     mbtiEntriesPromise,
@@ -1604,7 +1614,7 @@ async function buildLlmsFullTextInternal(
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
     mapWithConcurrency(
       personalityEntries,
-      ENRICHMENT_CONCURRENCY,
+      llmsFullEnrichmentConcurrency(buildProfile),
       (entry) => buildProfile === "artifact"
         ? withLlmsRouteBudget(
           () => enrichPersonalityEntry(entry, siteUrl),
@@ -1616,7 +1626,7 @@ async function buildLlmsFullTextInternal(
     ),
     mapWithConcurrency(
       limitedTopicEntries,
-      ENRICHMENT_CONCURRENCY,
+      llmsFullEnrichmentConcurrency(buildProfile),
       (entry) => buildProfile === "artifact"
         ? withLlmsRouteBudget(
           () => enrichTopicEntry(entry, siteUrl),
@@ -1628,7 +1638,7 @@ async function buildLlmsFullTextInternal(
     ),
     mapWithConcurrency(
       limitedArticleEntries,
-      ENRICHMENT_CONCURRENCY,
+      llmsFullEnrichmentConcurrency(buildProfile),
       (entry) => buildProfile === "artifact"
         ? withLlmsRouteBudget(
           () => enrichArticleEntry(entry, siteUrl),
@@ -1640,7 +1650,7 @@ async function buildLlmsFullTextInternal(
     ),
     mapWithConcurrency(
       limitedGuideEntries,
-      ENRICHMENT_CONCURRENCY,
+      llmsFullEnrichmentConcurrency(buildProfile),
       (entry) => buildProfile === "artifact"
         ? withLlmsRouteBudget(
           () => enrichCareerGuideEntry(entry, siteUrl),

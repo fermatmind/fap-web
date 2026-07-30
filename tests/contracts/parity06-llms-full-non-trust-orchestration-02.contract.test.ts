@@ -14,6 +14,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
   it("keeps runtime budgets unchanged and bounds artifact-only source work", async () => {
     const {
       llmsFullContentPageTimeoutMs,
+      llmsFullEnrichmentConcurrency,
       llmsFullSourceConcurrency,
       llmsFullSourceTimeoutMs,
     } = await import("@/app/llms-full.txt/route");
@@ -23,18 +24,25 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     expect(llmsFullSourceTimeoutMs("runtime", "optional", 1_500)).toBe(1_500);
     expect(llmsFullSourceTimeoutMs("runtime", "enrichment", 350)).toBe(350);
     expect(llmsFullSourceConcurrency("runtime")).toBe(Number.MAX_SAFE_INTEGER);
+    expect(llmsFullEnrichmentConcurrency("runtime")).toBe(4);
 
     expect(llmsFullContentPageTimeoutMs("artifact")).toBe(60_000);
     expect(llmsFullSourceTimeoutMs("artifact", "hard", 8_000)).toBe(60_000);
     expect(llmsFullSourceTimeoutMs("artifact", "optional", 1_500)).toBe(30_000);
     expect(llmsFullSourceTimeoutMs("artifact", "enrichment", 350)).toBe(5_000);
     expect(llmsFullSourceConcurrency("artifact")).toBe(3);
+    expect(llmsFullEnrichmentConcurrency("artifact")).toBe(8);
   });
 
   it("uses a five-minute fail-closed operator deadline without changing the public response deadline", () => {
     const route = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
     const budgets = fs.readFileSync(path.join(ROOT, "lib/seo/llmsRouteBudget.ts"), "utf8");
     const sitemapSource = fs.readFileSync(path.join(ROOT, "lib/seo/backendSitemapSource.ts"), "utf8");
+    const enneagramSource = fs.readFileSync(path.join(ROOT, "lib/seo/enneagramLlmsSource.ts"), "utf8");
+    const personalityAssets = fs.readFileSync(
+      path.join(ROOT, "lib/cms/personality-public-content-assets.ts"),
+      "utf8"
+    );
 
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS = 5 * 60_000");
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS = 2");
@@ -47,6 +55,8 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     expect(route).toContain("scheduleSource(() => loadHardSource(");
     expect(sitemapSource).toContain("requestTimeoutMs?: number");
     expect(sitemapSource).toContain("backendSitemapSourceInFlight.timeoutMs < requestTimeoutMs");
+    expect(enneagramSource).toContain("timeoutMs?: number");
+    expect(personalityAssets).toContain("timeoutMs: options.timeoutMs");
   });
 
   it("propagates a parent deadline to active budgeted work and returns the fail-closed fallback", async () => {

@@ -27533,6 +27533,8 @@ prs:
       - app/llms-full.txt/route.ts
       - lib/seo/llmsRouteBudget.ts
       - lib/seo/backendSitemapSource.ts
+      - lib/seo/enneagramLlmsSource.ts
+      - lib/cms/personality-public-content-assets.ts
       - scripts/seo/generate-llms-full.mjs
       - tests/contracts/parity06-llms-full-non-trust-orchestration-02.contract.test.ts
       - docs/codex/pr-train.yaml
@@ -27543,7 +27545,7 @@ prs:
       - Production deploy, shared artifact cache warm, PM2 action, CMS/DB/Search write, publish, or Checkpoint 118.
     required_local_checks:
       - pnpm exec vitest run tests/contracts/parity06-llms-full-non-trust-orchestration-02.contract.test.ts
-      - pnpm eslint app/llms-full.txt/route.ts lib/seo/llmsRouteBudget.ts lib/seo/backendSitemapSource.ts scripts/seo/generate-llms-full.mjs tests/contracts/parity06-llms-full-non-trust-orchestration-02.contract.test.ts
+      - pnpm eslint app/llms-full.txt/route.ts lib/seo/llmsRouteBudget.ts lib/seo/backendSitemapSource.ts lib/seo/enneagramLlmsSource.ts lib/cms/personality-public-content-assets.ts scripts/seo/generate-llms-full.mjs tests/contracts/parity06-llms-full-non-trust-orchestration-02.contract.test.ts
       - pnpm lint
       - pnpm lint:spacing
       - pnpm typecheck

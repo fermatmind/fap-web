@@ -931,7 +931,7 @@ export async function listEnneagramLlmsCandidates(
 
 export async function listEnneagramLlmsFullCandidates(
   locale: Locale,
-  options: { signal?: AbortSignal } = {}
+  options: { signal?: AbortSignal; timeoutMs?: number } = {}
 ): Promise<EnneagramLlmsFullCandidate[]> {
   const apiLocale = toApiLocale(locale);
   const response = await apiClient.get<PersonalityPublicContentAssetIndexResponse>(
@@ -941,6 +941,7 @@ export async function listEnneagramLlmsFullCandidates(
       skipAuth: true,
       locale,
       signal: options.signal,
+      timeoutMs: options.timeoutMs,
     }
   );
 
