@@ -51976,5 +51976,83 @@
     }
   ],
   "updated_at": "2026-07-30T15:45:18Z"
-}
+},
+  "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-article-runtime-absence-01",
+    "depends_on": [],
+    "commit_sha": "2dd638c62e50ee6d660aae90e01ad7d9db4e794f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1849",
+    "checks": {
+      "scan_artifacts": {
+        "status": "pass",
+        "evidence": "W3 scan SHA-256 manifest matched all 10 registered artifacts; inventories contain 17 Articles and 20 CareerGuides; decomposition contains exactly 20 PR scopes."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This first Article train item declares no dependency and started from fap-web main 8078c9bf587560727969883dc13c81eb5e5a7365."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0: 3 focused contract files passed with 28/28 tests, including authoritative English absence, zero zh-CN retry, Article redirect removal, and unchanged CareerGuide redirects."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "pnpm lint completed with 0 errors after temporarily isolating and restoring ignored local Playwright trace artifacts; a focused eslint rerun on the changed Article contract also passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck passed under Node 24.14.0."
+      },
+      "build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed under Node 24.14.0; Next.js generated 206/206 static pages and postbuild asset sync completed."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "All six changed files are within the declared current scope; YAML, JSON, and git diff checks passed. redirects.contract.test.ts was included because it directly asserted the three redirects removed by this PR."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1849 exact head 0fd95904f592db6c188733bb3674891873bce737 passed build, all four contract shards and aggregate contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL gate, and no-new-code-scanning-alerts."
+      },
+      "review": {
+        "status": "pass",
+        "evidence": "GitHub reports no review requirement and no blocking review. Automated Codex review on the implementation head recorded no actionable findings; the later exact-head delta is ledger-only."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T15:32:04Z",
+        "status": "in_progress",
+        "summary": "Started the exact Article runtime-absence scope from current fap-web main. The scope removes only three W3 Article en-to-zh redirects and locks authoritative missing-locale 404/no-retry behavior; no content, discoverability, CMS, production, or CareerGuide runtime change is permitted."
+      },
+      {
+        "at": "2026-07-30T15:37:34Z",
+        "status": "local_verified",
+        "summary": "Focused contracts, lint, typecheck, production-parameter build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed. The implementation changes no CMS content or discoverability surface."
+      },
+      {
+        "at": "2026-07-30T15:39:15Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1849 at pushed head 45bdb61c73c5a5cd4e886d20c4cc29e3c0f1ba48. Build, four contract shards, Big Five freeze, Enneagram freeze, and CodeQL checks are running."
+      },
+      {
+        "at": "2026-07-30T15:45:08Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1849 is MERGEABLE/CLEAN with exact-head scope revalidated and all 11 CI/security checks green. No review is required and no blocking feedback exists; squash merge is permitted after the final ledger head retains required checks."
+      }
+    ],
+    "updated_at": "2026-07-30T15:45:08Z"
+  }
 }

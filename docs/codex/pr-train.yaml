@@ -27683,3 +27683,39 @@ prs:
     content_authority: backend CMS and public APIs; W1 package is candidate-only producer evidence
     repository_rule_impact: existing_candidate_only_backend_authority_and_no_frontend_fallback_rules_preserved
     next_task: EN-PARITY-W1-MBTI-RESULT-AGENT-01
+
+  - id: EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01
+    repo: fap-web
+    branch: codex/en-parity-w3-article-runtime-absence-01
+    base: main
+    title: "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01: fail closed for missing English Article routes"
+    depends_on: []
+    mode: execute
+    train_scope: w3_article_missing_locale_runtime
+    status: ready_to_merge
+    allowed_paths:
+      - next.config.mjs
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - tests/contracts/editorial-articles-cms.contract.test.ts
+      - tests/contracts/articles-cleanup.contract.test.ts
+      - tests/contracts/redirects.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - focused contracts
+      - lint
+      - typecheck
+      - build
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: backend authority is unchanged; absent locale projections now fail closed without cross-locale substitution
