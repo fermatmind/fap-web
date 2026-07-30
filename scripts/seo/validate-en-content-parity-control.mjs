@@ -47,6 +47,14 @@ const PROTECTED_ASSET_FIELDS = [
   "locales",
   "authority_source",
 ];
+const EXPECTED_QA_CHECKS = [
+  "language_naturalness",
+  "chinese_leakage",
+  "claim_boundary",
+  "asset_duplication",
+  "field_leakage",
+  "page_api_alignment",
+];
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -70,6 +78,10 @@ function sha256File(relativePath) {
 function packageSha256(files) {
   const canonicalEntries = files.map((file) => `${file.path}:${file.sha256}`).join("\n");
   return createHash("sha256").update(canonicalEntries).digest("hex");
+}
+
+function stateIndex(status) {
+  return EXPECTED_STATES.indexOf(status);
 }
 
 function valueType(value) {
@@ -306,13 +318,9 @@ function validateMasterInvariants(manifest) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "launch_ready", `${laneId}: expected launch_ready`, errors);
   }
-  assert(lanes.find((entry) => entry.lane_id === "W1")?.status === "not_started", "W1: expected not_started", errors);
-  assert(lanes.find((entry) => entry.lane_id === "W2")?.status === "not_started", "W2: expected not_started", errors);
-  assert(lanes.find((entry) => entry.lane_id === "W3")?.status === "inventory_frozen", "W3: expected inventory_frozen", errors);
   for (const laneId of ["W4", "W5", "W6", "W7", "W8"]) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "registered", `${laneId}: expected registered launch state`, errors);
-    assert(lane?.status === "not_started", `${laneId}: expected not_started`, errors);
   }
   const qaLane = lanes.find((entry) => entry.lane_id === "W9");
   assert(qaLane?.launch_state === "waiting_for_first_package", "W9 must wait for the first frozen package", errors);
@@ -329,6 +337,41 @@ function validateMasterInvariants(manifest) {
   for (const subscope of w3?.subscopes ?? []) {
     assert(subscope.separate_package_required === true, `${subscope.id}: separate package must be required`, errors);
     assert(subscope.same_pr_allowed === false, `${subscope.id}: same PR must be forbidden`, errors);
+    assert(stateIndex(subscope.status) >= 0 || subscope.status === "blocked", `${subscope.id}: invalid subscope status`, errors);
+    for (const assetId of subscope.asset_ids ?? []) {
+      assert(
+        assets.some((asset) => asset.asset_id === assetId && asset.lane_id === "W3"),
+        `${subscope.id}: unknown or cross-lane asset ${assetId}`,
+        errors
+      );
+    }
+  }
+  const w3SubscopeAssetIds = (w3?.subscopes ?? []).flatMap((subscope) => subscope.asset_ids ?? []);
+  assert(
+    new Set(w3SubscopeAssetIds).size === w3SubscopeAssetIds.length,
+    "W3 subscope asset assignments must be unique",
+    errors
+  );
+  assert(
+    sameValue(
+      [...w3SubscopeAssetIds].sort(),
+      assets
+        .filter((asset) => asset.lane_id === "W3")
+        .map((asset) => asset.asset_id)
+        .sort()
+    ),
+    "W3 subscopes must account for every W3 asset cohort",
+    errors
+  );
+  if ((w3?.subscopes ?? []).some((subscope) => subscope.status === "blocked")) {
+    assert(w3?.status === "blocked", "W3 aggregate status must be blocked when a subscope is blocked", errors);
+  } else {
+    const minimumSubscopeIndex = Math.min(...(w3?.subscopes ?? []).map((subscope) => stateIndex(subscope.status)));
+    assert(
+      stateIndex(w3?.status) === minimumSubscopeIndex,
+      "W3 aggregate status must equal the least-progressed subscope",
+      errors
+    );
   }
 
   const assetIds = assets.map((asset) => asset.asset_id);
@@ -351,6 +394,78 @@ function validateMasterInvariants(manifest) {
         errors
       );
     }
+  }
+  for (const lane of lanes.filter((entry) => entry.lane_kind === "producer")) {
+    const laneAssets = assets.filter((asset) => asset.lane_id === lane.lane_id);
+    const unknownInventoryCount = laneAssets.filter((asset) => asset.expected_en_count === null).length;
+    assert(
+      lane.counts.cohort_count === laneAssets.length,
+      `${lane.lane_id}: lane cohort count must match registered assets`,
+      errors
+    );
+    assert(
+      lane.counts.unknown_inventory_cohorts === unknownInventoryCount,
+      `${lane.lane_id}: unknown inventory count must match registered assets`,
+      errors
+    );
+    if (unknownInventoryCount > 0) {
+      assert(
+        [lane.counts.expected_en_assets, lane.counts.current_en_assets, lane.counts.remaining_en_assets].every(
+          (count) => count === null
+        ),
+        `${lane.lane_id}: aggregate counts must remain null while inventory is unknown`,
+        errors
+      );
+    } else {
+      assert(
+        lane.counts.expected_en_assets ===
+          laneAssets.reduce((total, asset) => total + asset.expected_en_count, 0),
+        `${lane.lane_id}: expected aggregate count must match registered assets`,
+        errors
+      );
+      assert(
+        lane.counts.current_en_assets === laneAssets.reduce((total, asset) => total + asset.current_en_count, 0),
+        `${lane.lane_id}: current aggregate count must match registered assets`,
+        errors
+      );
+      assert(
+        lane.counts.remaining_en_assets ===
+          laneAssets.reduce((total, asset) => total + asset.remaining_en_count, 0),
+        `${lane.lane_id}: remaining aggregate count must match registered assets`,
+        errors
+      );
+    }
+  }
+  const assertInventoryRemainsFrozen = (status, targetAssets, targetId) => {
+    if (status === "blocked" || stateIndex(status) < stateIndex("inventory_frozen")) {
+      return;
+    }
+    assert(
+      targetAssets.every((asset) =>
+        [asset.expected_en_count, asset.current_en_count, asset.remaining_en_count].every(Number.isInteger)
+      ),
+      `${targetId}: progressed master state requires known inventory counts`,
+      errors
+    );
+    assert(
+      targetAssets.every((asset) => asset.parity_state !== "inventory_required"),
+      `${targetId}: progressed master state cannot retain inventory_required assets`,
+      errors
+    );
+  };
+  for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length === 0)) {
+    assertInventoryRemainsFrozen(
+      lane.status,
+      assets.filter((asset) => asset.lane_id === lane.lane_id),
+      lane.lane_id
+    );
+  }
+  for (const subscope of w3?.subscopes ?? []) {
+    assertInventoryRemainsFrozen(
+      subscope.status,
+      assets.filter((asset) => subscope.asset_ids.includes(asset.asset_id)),
+      subscope.id
+    );
   }
 
   assert(
@@ -393,14 +508,46 @@ function validateAssetCollection(assets, location, errors) {
   }
 }
 
-function registeredOutputDirectories(lane) {
+function registeredPackageTarget(lane, subscopeId) {
   if (!lane) {
-    return [];
+    return null;
   }
   if (lane.subscopes?.length > 0) {
-    return lane.subscopes.map((subscope) => `${lane.output_directory}${subscope.output_subdirectory}/`);
+    const subscope = lane.subscopes.find((entry) => entry.id === subscopeId);
+    if (!subscope) {
+      return null;
+    }
+    return {
+      status: subscope.status,
+      outputDirectory: `${lane.output_directory}${subscope.output_subdirectory}/`,
+      assetIds: subscope.asset_ids,
+      sequence: subscope.sequence,
+    };
   }
-  return [lane.output_directory];
+  if (subscopeId !== null) {
+    return null;
+  }
+  return {
+    status: lane.status,
+    outputDirectory: lane.output_directory,
+    assetIds: null,
+    sequence: null,
+  };
+}
+
+function validateSubscopeSequence(lane, packageTarget, proposedStatus, errors) {
+  if (!lane?.subscopes?.length || packageTarget?.sequence <= 1 || proposedStatus === "blocked") {
+    return;
+  }
+  if (stateIndex(proposedStatus) <= stateIndex("inventory_frozen")) {
+    return;
+  }
+  const predecessor = lane.subscopes.find((subscope) => subscope.sequence === packageTarget.sequence - 1);
+  assert(
+    predecessor && stateIndex(predecessor.status) >= stateIndex("package_frozen"),
+    `${lane.lane_id}: predecessor ${predecessor?.id ?? "subscope"} must reach package_frozen before this subscope starts`,
+    errors
+  );
 }
 
 function validatePackageShaManifest(artifact, registeredLane, artifactPath, errors) {
@@ -440,6 +587,11 @@ function validatePackageShaManifest(artifact, registeredLane, artifactPath, erro
     errors
   );
   assert(shaManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: package SHA manifest lane mismatch`, errors);
+  assert(
+    shaManifest.subscope_id === artifact.subscope_id,
+    `${artifact.lane_id}: package SHA manifest subscope mismatch`,
+    errors
+  );
   assert(
     shaManifest.package_id === artifact.package_id,
     `${artifact.lane_id}: package SHA manifest package_id mismatch`,
@@ -495,25 +647,38 @@ function validatePackageShaManifest(artifact, registeredLane, artifactPath, erro
     errors
   );
 
-  const gateReport = shaManifest.files.find((file) => file.path === artifact.gate_evidence.report_path);
-  assert(Boolean(gateReport), `${artifact.lane_id}: gate evidence report must be covered by the package SHA manifest`, errors);
-  assert(
-    gateReport?.sha256 === artifact.gate_evidence.report_sha256,
-    `${artifact.lane_id}: gate evidence report SHA must match the package SHA manifest`,
-    errors
-  );
+  if (artifact.gate_evidence.report_in_package) {
+    const gateReport = shaManifest.files.find((file) => file.path === artifact.gate_evidence.report_path);
+    assert(Boolean(gateReport), `${artifact.lane_id}: gate evidence report must be covered by the package SHA manifest`, errors);
+    assert(
+      gateReport?.sha256 === artifact.gate_evidence.report_sha256,
+      `${artifact.lane_id}: gate evidence report SHA must match the package SHA manifest`,
+      errors
+    );
+  }
 
   try {
     const scopeManifest = JSON.parse(fs.readFileSync(path.join(packageDirectory, "scope_manifest.json"), "utf8"));
+    const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
     assert(scopeManifest.artifact_kind === "lane_package", `${artifact.lane_id}: package scope manifest kind is invalid`, errors);
     assert(scopeManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: package scope manifest lane mismatch`, errors);
+    assert(
+      scopeManifest.subscope_id === artifact.subscope_id,
+      `${artifact.lane_id}: package scope manifest subscope mismatch`,
+      errors
+    );
     assert(
       scopeManifest.package_id === artifact.package_id,
       `${artifact.lane_id}: package scope manifest package_id mismatch`,
       errors
     );
     assert(
-      registeredOutputDirectories(registeredLane).includes(scopeManifest.output_directory),
+      scopeManifest.status === artifact.proposed_status,
+      `${artifact.lane_id}: package scope status must match proposed_status`,
+      errors
+    );
+    assert(
+      scopeManifest.output_directory === packageTarget?.outputDirectory,
       `${artifact.lane_id}: package scope output_directory must match the master registry`,
       errors
     );
@@ -522,26 +687,202 @@ function validatePackageShaManifest(artifact, registeredLane, artifactPath, erro
       `${artifact.lane_id}: cannot read package scope manifest (${error instanceof Error ? error.message : String(error)})`
     );
   }
+  return { packageDirectory, shaManifest };
+}
+
+function validateIndependentQaEvidence(artifact, manifest, errors) {
+  let qaReport;
+  let qaReportPath;
+  try {
+    qaReportPath = path.isAbsolute(artifact.gate_evidence.report_path)
+      ? artifact.gate_evidence.report_path
+      : path.join(ROOT, artifact.gate_evidence.report_path);
+    assert(
+      fs.existsSync(qaReportPath) && fs.statSync(qaReportPath).isFile(),
+      `${artifact.lane_id}: W9 QA report file is missing`,
+      errors
+    );
+    assert(
+      sha256File(qaReportPath) === artifact.gate_evidence.report_sha256,
+      `${artifact.lane_id}: W9 QA report SHA mismatch`,
+      errors
+    );
+    qaReport = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read W9 QA report (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(
+    qaReport.schema_version === "fermatmind.en_content_parity_independent_qa_report.v1",
+    `${artifact.lane_id}: W9 QA report schema version is invalid`,
+    errors
+  );
+  assert(qaReport.artifact_kind === "independent_qa_report", `${artifact.lane_id}: W9 QA report kind is invalid`, errors);
+  assert(
+    qaReport.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01",
+    `${artifact.lane_id}: W9 QA report control ID mismatch`,
+    errors
+  );
+  assertAllPermissionsFalse(qaReport, "$/w9_qa_report", errors);
+  assert(qaReport.qa_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
+  assert(
+    qaReport.output_directory === manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory,
+    `${artifact.lane_id}: W9 QA output directory mismatch`,
+    errors
+  );
+  assert(qaReport.producer_lane_id === artifact.lane_id, `${artifact.lane_id}: W9 QA producer lane mismatch`, errors);
+  assert(qaReport.subscope_id === artifact.subscope_id, `${artifact.lane_id}: W9 QA subscope mismatch`, errors);
+  assert(qaReport.package_sha256 === artifact.package_sha256, `${artifact.lane_id}: W9 QA package SHA mismatch`, errors);
+  assert(qaReport.verdict === "PASS", `${artifact.lane_id}: W9 QA verdict must be PASS`, errors);
+  assert(
+    qaReport.reviewed_row_count === artifact.gate_evidence.row_count,
+    `${artifact.lane_id}: W9 QA reviewed row count must match gate evidence`,
+    errors
+  );
+  assert(
+    sameValue([...(qaReport.reviewed_asset_ids ?? [])].sort(), [...artifact.gate_evidence.asset_ids].sort()),
+    `${artifact.lane_id}: W9 QA reviewed assets must match gate evidence`,
+    errors
+  );
+  assert(
+    sameValue(Object.keys(qaReport.checks ?? {}).sort(), [...EXPECTED_QA_CHECKS].sort()),
+    `${artifact.lane_id}: W9 QA report must include every required check`,
+    errors
+  );
+  for (const check of EXPECTED_QA_CHECKS) {
+    assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+  }
+}
+
+function validateInventoryPayload(artifact, packageContext, errors) {
+  if (!packageContext) {
+    return;
+  }
+  const { packageDirectory } = packageContext;
+  let payloadAssets;
+  let sourceLedger;
+  try {
+    const assetsContents = fs.readFileSync(path.join(packageDirectory, "assets.jsonl"), "utf8").trim();
+    payloadAssets = assetsContents
+      ? assetsContents.split(/\r?\n/).map((line, index) => {
+          try {
+            return JSON.parse(line);
+          } catch (error) {
+            throw new Error(`assets.jsonl line ${index + 1}: ${error instanceof Error ? error.message : String(error)}`);
+          }
+        })
+      : [];
+    sourceLedger = JSON.parse(fs.readFileSync(path.join(packageDirectory, "source_ledger.json"), "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot parse inventory payload (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(
+    sameValue(payloadAssets, artifact.asset_updates),
+    `${artifact.lane_id}: assets.jsonl must exactly match candidate asset_updates`,
+    errors
+  );
+  assert(
+    sourceLedger.schema_version === "fermatmind.en_content_parity_source_ledger.v1",
+    `${artifact.lane_id}: source ledger schema version is invalid`,
+    errors
+  );
+  assert(sourceLedger.lane_id === artifact.lane_id, `${artifact.lane_id}: source ledger lane mismatch`, errors);
+  assert(sourceLedger.subscope_id === artifact.subscope_id, `${artifact.lane_id}: source ledger subscope mismatch`, errors);
+  assert(sourceLedger.package_id === artifact.package_id, `${artifact.lane_id}: source ledger package mismatch`, errors);
+  assert(Array.isArray(sourceLedger.rows), `${artifact.lane_id}: source ledger rows must be an array`, errors);
+  if (!Array.isArray(sourceLedger.rows)) {
+    return;
+  }
+
+  const rowIds = sourceLedger.rows.map((row) => row?.row_id);
+  assert(new Set(rowIds).size === rowIds.length, `${artifact.lane_id}: source ledger row IDs must be unique`, errors);
+  assert(
+    sourceLedger.rows.every(
+      (row) => typeof row?.row_id === "string" && artifact.asset_updates.some((asset) => asset.asset_id === row.asset_id)
+    ),
+    `${artifact.lane_id}: source ledger contains malformed or unregistered asset rows`,
+    errors
+  );
+  assert(
+    sourceLedger.rows.length === artifact.gate_evidence.row_count,
+    `${artifact.lane_id}: source ledger row count must match gate evidence`,
+    errors
+  );
+  for (const asset of artifact.asset_updates) {
+    const actualRows = sourceLedger.rows.filter((row) => row.asset_id === asset.asset_id).length;
+    assert(
+      actualRows === asset.expected_en_count,
+      `${artifact.lane_id}: source ledger count for ${asset.asset_id} must match expected_en_count`,
+      errors
+    );
+  }
 }
 
 function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
-  const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifact.lane_id);
-  assert(Boolean(registeredLane), `${artifact.lane_id}: lane is not registered`, errors);
+  const artifactLaneId =
+    artifact.artifact_kind === "independent_qa_report" ? artifact.qa_lane_id : artifact.lane_id;
+  const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifactLaneId);
+  assert(Boolean(registeredLane), `${artifactLaneId}: lane is not registered`, errors);
+  const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
+
+  if (artifact.artifact_kind === "independent_qa_report") {
+    const producerLane = manifest.lanes.find((lane) => lane.lane_id === artifact.producer_lane_id);
+    const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
+    assert(Boolean(reviewedTarget), `${artifact.producer_lane_id}: QA subscope is not registered`, errors);
+    assert(
+      artifact.output_directory === registeredLane?.output_directory,
+      `${artifact.producer_lane_id}: QA report output directory must match W9`,
+      errors
+    );
+    const reviewedAssetIds = Array.isArray(artifact.reviewed_asset_ids) ? artifact.reviewed_asset_ids : [];
+    const allowedAssetIds =
+      reviewedTarget?.assetIds ??
+      manifest.assets.filter((asset) => asset.lane_id === artifact.producer_lane_id).map((asset) => asset.asset_id);
+    assert(
+      reviewedAssetIds.every((assetId) => allowedAssetIds.includes(assetId)),
+      `${artifact.producer_lane_id}: QA report contains an asset outside the reviewed target`,
+      errors
+    );
+    if (artifact.verdict === "PASS") {
+      assert(
+        EXPECTED_QA_CHECKS.every((check) => artifact.checks[check] === "PASS"),
+        `${artifact.producer_lane_id}: QA PASS requires every check to PASS`,
+        errors
+      );
+    }
+  }
 
   if (artifact.artifact_kind === "lane_package") {
+    assert(Boolean(packageTarget), `${artifact.lane_id}: subscope_id is not registered for this lane`, errors);
+    validateSubscopeSequence(registeredLane, packageTarget, artifact.status, errors);
     assert(
       sameValue(artifact.artifact_files, EXPECTED_HANDOFF_FILES),
       "lane package artifact_files must match the required handoff list",
       errors
     );
     assert(
-      registeredOutputDirectories(registeredLane).includes(artifact.output_directory),
+      artifact.output_directory === packageTarget?.outputDirectory,
       `${artifact.lane_id}: package output_directory must match the master registry`,
       errors
     );
     validateAssetCollection(artifact.assets, "$/assets", errors);
+    const packageAssetIds = artifact.assets.map((asset) => asset.asset_id).sort();
+    if (packageTarget?.assetIds) {
+      assert(
+        sameValue(packageAssetIds, [...packageTarget.assetIds].sort()),
+        `${artifact.lane_id}: package assets must match the registered subscope`,
+        errors
+      );
+    }
     for (const asset of artifact.assets) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match package lane`, errors);
     }
@@ -552,16 +893,21 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       gate: null,
       report_path: null,
       report_sha256: null,
+      report_in_package: null,
+      owner_lane_id: null,
+      verdict: null,
       asset_ids: [],
       row_count: null,
     };
     const assetUpdates = Array.isArray(artifact.asset_updates) ? artifact.asset_updates : [];
+    assert(Boolean(packageTarget), `${artifact.lane_id}: subscope_id is not registered for this lane`, errors);
+    validateSubscopeSequence(registeredLane, packageTarget, artifact.proposed_status, errors);
     assert(
       artifact.base_manifest_sha256 === manifestSha256,
       `${artifact.lane_id}: base_manifest_sha256 must match the current master manifest`,
       errors
     );
-    const currentIndex = EXPECTED_STATES.indexOf(registeredLane?.status);
+    const currentIndex = stateIndex(packageTarget?.status);
     const expectedNextStatus = currentIndex >= 0 ? EXPECTED_STATES[currentIndex + 1] : undefined;
     assert(
       artifact.proposed_status === "blocked" || artifact.proposed_status === expectedNextStatus,
@@ -573,6 +919,23 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: gate evidence must match proposed_status`,
       errors
     );
+    if (artifact.proposed_status === "qa_pass") {
+      assert(gateEvidence.owner_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
+      assert(gateEvidence.report_in_package === false, `${artifact.lane_id}: W9 QA report must remain independent`, errors);
+      assert(gateEvidence.verdict === "PASS", `${artifact.lane_id}: qa_pass evidence verdict must be PASS`, errors);
+    } else {
+      assert(
+        gateEvidence.owner_lane_id === artifact.lane_id,
+        `${artifact.lane_id}: producer transition evidence owner must match the producer lane`,
+        errors
+      );
+      assert(
+        gateEvidence.report_in_package === true,
+        `${artifact.lane_id}: producer transition evidence must be covered by the package`,
+        errors
+      );
+      assert(gateEvidence.verdict === null, `${artifact.lane_id}: non-QA transition verdict must be null`, errors);
+    }
     validateAssetCollection(assetUpdates, "$/asset_updates", errors);
     const updateAssetIds = assetUpdates.map((asset) => asset.asset_id);
     const evidenceAssetIds = Array.isArray(gateEvidence.asset_ids) ? gateEvidence.asset_ids : [];
@@ -581,6 +944,13 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: gate evidence asset IDs must match asset_updates`,
       errors
     );
+    if (packageTarget?.assetIds) {
+      assert(
+        updateAssetIds.every((assetId) => packageTarget.assetIds.includes(assetId)),
+        `${artifact.lane_id}: candidate assets must stay inside the registered subscope`,
+        errors
+      );
+    }
     for (const asset of assetUpdates) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match candidate patch lane`, errors);
       const existingAsset = manifest.assets.find((entry) => entry.asset_id === asset.asset_id);
@@ -607,10 +977,12 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
 
     if (artifact.proposed_status === "inventory_frozen") {
-      const registeredAssetIds = manifest.assets
-        .filter((asset) => asset.lane_id === artifact.lane_id)
-        .map((asset) => asset.asset_id)
-        .sort();
+      const registeredAssetIds = packageTarget?.assetIds
+        ? [...packageTarget.assetIds].sort()
+        : manifest.assets
+            .filter((asset) => asset.lane_id === artifact.lane_id)
+            .map((asset) => asset.asset_id)
+            .sort();
       assert(
         sameValue([...updateAssetIds].sort(), registeredAssetIds),
         `${artifact.lane_id}: inventory_frozen requires every registered lane asset cohort`,
@@ -643,8 +1015,15 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         errors
       );
     }
+    let packageContext;
     if (artifact.gate_evidence && artifact.sha256_manifest_path) {
-      validatePackageShaManifest(artifact, registeredLane, artifactPath, errors);
+      packageContext = validatePackageShaManifest(artifact, registeredLane, artifactPath, errors);
+    }
+    if (artifact.proposed_status === "inventory_frozen") {
+      validateInventoryPayload(artifact, packageContext, errors);
+    }
+    if (artifact.proposed_status === "qa_pass") {
+      validateIndependentQaEvidence(artifact, manifest, errors);
     }
   }
 
@@ -672,8 +1051,9 @@ function validatePromptBundle(bundle) {
   return errors;
 }
 
-function readArtifactArguments(argv) {
+function readArguments(argv) {
   const artifactPaths = [];
+  let manifestPath = DEFAULT_MANIFEST_PATH;
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     if (value === "--artifact") {
@@ -685,15 +1065,27 @@ function readArtifactArguments(argv) {
       index += 1;
       continue;
     }
+    if (value === "--manifest") {
+      const requestedManifestPath = argv[index + 1];
+      if (!requestedManifestPath || requestedManifestPath.startsWith("--")) {
+        throw new Error("--manifest requires a path");
+      }
+      manifestPath = requestedManifestPath;
+      index += 1;
+      continue;
+    }
     throw new Error(`unsupported_argument=${value}`);
   }
-  return artifactPaths;
+  return { artifactPaths, manifestPath };
 }
 
-export function validateControlArtifacts({ artifactPaths = [] } = {}) {
+export function validateControlArtifacts({
+  artifactPaths = [],
+  manifestPath = DEFAULT_MANIFEST_PATH,
+} = {}) {
   const schema = readJson(DEFAULT_SCHEMA_PATH);
-  const manifest = readJson(DEFAULT_MANIFEST_PATH);
-  const manifestSha256 = sha256File(DEFAULT_MANIFEST_PATH);
+  const manifest = readJson(manifestPath);
+  const manifestSha256 = sha256File(manifestPath);
   const prompts = readJson(DEFAULT_PROMPTS_PATH);
   const errors = [
     ...schemaErrors(manifest, schema),
@@ -701,7 +1093,7 @@ export function validateControlArtifacts({ artifactPaths = [] } = {}) {
     ...validatePromptBundle(prompts),
   ];
 
-  const checkedArtifacts = [DEFAULT_MANIFEST_PATH];
+  const checkedArtifacts = [manifestPath];
   for (const artifactPath of artifactPaths) {
     const artifact = readJson(artifactPath);
     checkedArtifacts.push(artifactPath);
@@ -727,8 +1119,8 @@ export function validateControlArtifacts({ artifactPaths = [] } = {}) {
 }
 
 async function main() {
-  const artifactPaths = readArtifactArguments(process.argv.slice(2));
-  const report = validateControlArtifacts({ artifactPaths });
+  const { artifactPaths, manifestPath } = readArguments(process.argv.slice(2));
+  const report = validateControlArtifacts({ artifactPaths, manifestPath });
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
   if (!report.ok) {
     process.exitCode = 1;

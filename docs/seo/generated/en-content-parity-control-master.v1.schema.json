@@ -11,6 +11,9 @@
     },
     {
       "$ref": "#/$defs/master_manifest_patch_candidate"
+    },
+    {
+      "$ref": "#/$defs/independent_qa_report"
     }
   ],
   "$defs": {
@@ -61,6 +64,9 @@
         "gate",
         "report_path",
         "report_sha256",
+        "report_in_package",
+        "owner_lane_id",
+        "verdict",
         "asset_ids",
         "row_count"
       ],
@@ -75,6 +81,23 @@
         "report_sha256": {
           "type": "string",
           "pattern": "^[a-f0-9]{64}$"
+        },
+        "report_in_package": {
+          "type": "boolean"
+        },
+        "owner_lane_id": {
+          "$ref": "#/$defs/lane_id"
+        },
+        "verdict": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "PASS",
+            "BLOCKED",
+            null
+          ]
         },
         "asset_ids": {
           "type": "array",
@@ -164,6 +187,11 @@
         "sequence",
         "resource",
         "output_subdirectory",
+        "asset_ids",
+        "status",
+        "package_sha256",
+        "qa_report_ref",
+        "blockers",
         "separate_package_required",
         "same_pr_allowed"
       ],
@@ -183,6 +211,31 @@
         "output_subdirectory": {
           "type": "string",
           "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "asset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ENPARITY-W3-[A-Z0-9-]+$"
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "package_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "qa_report_ref": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "separate_package_required": {
           "const": true
@@ -843,6 +896,140 @@
         }
       }
     },
+    "independent_qa_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "qa_lane_id",
+        "output_directory",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "verdict",
+        "reviewed_asset_ids",
+        "reviewed_row_count",
+        "checks",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "independent_qa_report"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_independent_qa_report.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "qa_lane_id": {
+          "const": "W9"
+        },
+        "output_directory": {
+          "const": "generated/en-content-parity/W9-independent-qa/"
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "reviewed_asset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ENPARITY-W[1-8]-[A-Z0-9-]+$"
+          }
+        },
+        "reviewed_row_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "language_naturalness",
+            "chinese_leakage",
+            "claim_boundary",
+            "asset_duplication",
+            "field_leakage",
+            "page_api_alignment"
+          ],
+          "properties": {
+            "language_naturalness": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "chinese_leakage": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "claim_boundary": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "asset_duplication": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "field_leakage": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "page_api_alignment": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            }
+          }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
     "lane_package": {
       "type": "object",
       "additionalProperties": false,
@@ -852,6 +1039,7 @@
         "schema_version",
         "control_id",
         "lane_id",
+        "subscope_id",
         "package_id",
         "status",
         "output_directory",
@@ -876,6 +1064,12 @@
         "lane_id": {
           "type": "string",
           "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "package_id": {
           "type": "string",
@@ -917,6 +1111,7 @@
         "schema_version",
         "control_id",
         "lane_id",
+        "subscope_id",
         "package_id",
         "base_manifest_sha256",
         "sha256_manifest_path",
@@ -943,6 +1138,12 @@
         "lane_id": {
           "type": "string",
           "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "package_id": {
           "type": "string",

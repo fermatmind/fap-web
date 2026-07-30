@@ -228,6 +228,13 @@
           "sequence": 1,
           "resource": "Article",
           "output_subdirectory": "articles",
+          "asset_ids": [
+            "ENPARITY-W3-ARTICLES"
+          ],
+          "status": "inventory_frozen",
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -236,6 +243,13 @@
           "sequence": 2,
           "resource": "CareerGuide",
           "output_subdirectory": "career-guides",
+          "asset_ids": [
+            "ENPARITY-W3-CAREER-GUIDES"
+          ],
+          "status": "inventory_frozen",
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
         }

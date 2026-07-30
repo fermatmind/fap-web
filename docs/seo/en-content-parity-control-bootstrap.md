@@ -20,6 +20,8 @@ The ordered path is:
 
 Any stage may enter `blocked`. Skipping a state is forbidden. A file existing is not evidence that a gate passed. Each transition requires its gate report and exact SHA lineage.
 
+The master stores current state and must remain valid after accepted transitions; the validator does not pin lanes to their bootstrap values. For lanes without subscopes, `lane.status` is the transition source. W3 stores state, package SHA, QA reference, and blockers independently on each registered subscope. The W3 lane-level status is the least-progressed subscope status (or `blocked` when either subscope is blocked).
+
 `draft_imported` does not mean public release. Promotion, public release, indexability, sitemap, LLMS, schema, media, cache, and search actions remain independent gates.
 
 ## Lane map and launch order
@@ -59,7 +61,7 @@ Large local packages live under the lane directory in `generated/en-content-pari
 
 `sha256_manifest.json` covers the eight immutable payload files (all required handoff files except the SHA manifest itself and the candidate control envelope). Its deterministic aggregate SHA is computed from the ordered `path:sha256` entries. The candidate must name the real SHA manifest, copy that aggregate SHA, and match its lane and package ID. The validator reads every covered file and rejects missing, changed, reordered, or mismatched payloads.
 
-The candidate patch may propose only the next valid state. It must include transition evidence whose report is covered by the verified package SHA manifest. An `inventory_frozen` proposal additionally requires all registered lane cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. It must keep these values false:
+The candidate patch may propose only the next valid state for its lane or registered `subscope_id`. It must include transition evidence with an explicit evidence owner. Producer-owned evidence must be covered by the verified package SHA manifest. An `inventory_frozen` proposal additionally requires all registered target cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. The validator parses the hashed `assets.jsonl` and `source_ledger.json`; their exact asset objects, unique source rows, per-cohort counts, lane, subscope, and package identity must match the candidate. It must keep these values false:
 
 - CMS write
 - staging write
@@ -69,7 +71,7 @@ The candidate patch may propose only the next valid state. It must include trans
 - search submission
 - master manifest write
 
-Use `node scripts/seo/validate-en-content-parity-control.mjs --artifact <path>` to validate a lane `scope_manifest.json` or `master_manifest_patch.candidate.json` against the shared Schema.
+Use `node scripts/seo/validate-en-content-parity-control.mjs --artifact <path>` to validate a lane `scope_manifest.json`, `master_manifest_patch.candidate.json`, or W9 independent QA report against the shared Schema. Use `--manifest <path>` to validate a proposed progressed master before replacing the authoritative file. Progressed master counts must reconcile with its registered asset cohorts.
 
 ## W3 split rule
 
@@ -78,7 +80,11 @@ W3 is one operator window with two sequential scopes:
 1. `W3-ARTICLES` produces and freezes the 17-Article package only under `generated/en-content-parity/W3-editorial-cms/articles/`.
 2. `W3-CAREER-GUIDES` starts only after the Article package is frozen and produces the separate 20-guide package only under `generated/en-content-parity/W3-editorial-cms/career-guides/`.
 
-The W3 lane root is not itself a valid package directory. The two scopes must never share a PR, import package, SHA manifest, candidate patch, or approval. This preserves the repository rule that one PR equals one scope.
+Each scope has its own `subscope_id`, state-machine position, package SHA, QA reference, and blockers. Advancing `W3-ARTICLES` never advances `W3-CAREER-GUIDES`; both can therefore traverse `package_in_progress → package_frozen → qa_pass` independently. The W3 lane root is not itself a valid package directory. The two scopes must never share a PR, import package, SHA manifest, candidate patch, or approval. This preserves the repository rule that one PR equals one scope.
+
+## Independent QA gate
+
+A producer cannot self-declare `qa_pass`. That transition requires an external W9 report under the registered `generated/en-content-parity/W9-independent-qa/` authority with Schema version `fermatmind.en_content_parity_independent_qa_report.v1`, exact producer lane/subscope/package SHA, matching reviewed asset IDs and row count, and verdict `PASS`. The report must record PASS for language naturalness, Chinese leakage, claim boundary, asset duplication, field leakage, and page/API alignment. Its file SHA is verified independently and it must not be embedded as producer-owned package evidence.
 
 ## Control-window patch acceptance
 
@@ -90,8 +96,8 @@ Before accepting a producer candidate patch, the control window verifies:
 - asset IDs and translation groups are unique;
 - expected, current, and remaining counts reconcile when all are known;
 - protected lane, asset type, translation group, locale pair, and authority-source fields did not drift;
-- `inventory_frozen` includes complete lane inventory evidence and cannot retain unknown counts or `inventory_required` cohorts;
-- independent QA produced an accepted verdict for transitions at or after `qa_pass`;
+- `inventory_frozen` includes complete target inventory evidence, semantically matches the hashed asset/ledger payloads, and cannot retain unknown counts or `inventory_required` cohorts;
+- `qa_pass` is backed by an independent W9 PASS verdict tied to the exact producer package SHA;
 - all permissions remain false unless a separately controlled exact-SHA approval exists.
 
 Producer PASS does not authorize CMS import or public release. Production import always requires explicit human approval naming the exact final artifact SHA and write mode.
