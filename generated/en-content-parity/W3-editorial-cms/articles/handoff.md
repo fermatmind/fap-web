@@ -2,7 +2,7 @@
 
 ## Scope
 
-This producer package contains exactly 17 English Article candidates bound to the frozen CMS Article ids, translation identities, slugs, and published source revision ids. It proposes only `inventory_frozen → package_in_progress`.
+This producer package contains exactly 17 English Article candidates bound to the frozen CMS Article ids, translation identities, slugs, and published source revision ids. It proposes only `package_in_progress → package_frozen`.
 
 ## Completed producer controls
 
@@ -12,11 +12,11 @@ This producer package contains exactly 17 English Article candidates bound to th
 - Claim-boundary preflight preserves non-diagnostic, non-deterministic language and unknown evidence boundaries.
 - China and Gaokao context remains present where material.
 - Candidate media references are omitted pending import-contract and Media Library clearance.
+- Producer review covers all 17 titles, excerpts, full Markdown bodies, links, claim boundaries, and media-omission decisions.
 
 ## Deferred gates
 
-- This is producer self-review, not W9. Naturalness, claim boundary, asset duplication, field leakage, page/API alignment, and every registered row/field still require independent W9 review.
-- Internal-link parity is explicitly pending for rows listed in `source_ledger.json`; no PASS is claimed.
+- This completed producer review is not W9. Naturalness, claim boundary, asset duplication, field leakage, page/API alignment, and every registered row/field still require independent W9 review against the exact frozen SHA.
 - No CMS dry run, draft import, publication, SEO runtime change, sitemap/llms/indexability change, search submission, staging wait, manual deploy, or production deploy is authorized or performed.
 - The master manifest remains unchanged. CONTROL must independently accept the candidate transition.
 

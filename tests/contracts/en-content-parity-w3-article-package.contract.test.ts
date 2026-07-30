@@ -61,19 +61,19 @@ function sha256(value: string | Buffer) {
   return crypto.createHash("sha256").update(value).digest("hex");
 }
 
-describe("W3 Article English candidate package", () => {
-  it("contains the exact standard handoff files and a package_in_progress-only candidate", () => {
+describe("W3 Article English frozen package", () => {
+  it("contains the exact standard handoff files and a package_frozen-only candidate", () => {
     const scope = readJson("scope_manifest.json");
     const candidate = readJson("master_manifest_patch.candidate.json");
 
     expect(scope.artifact_files).toEqual(EXPECTED_FILES);
     expect(scope.lane_id).toBe("W3");
     expect(scope.subscope_id).toBe("W3-ARTICLES");
-    expect(scope.status).toBe("package_in_progress");
-    expect(candidate.proposed_status).toBe("package_in_progress");
+    expect(scope.status).toBe("package_frozen");
+    expect(candidate.proposed_status).toBe("package_frozen");
     expect(candidate.gate_evidence).toMatchObject({
-      gate: "package_in_progress",
-      report_path: "source_ledger.json",
+      gate: "package_frozen",
+      report_path: "editorial_review.json",
       report_in_package: true,
       owner_lane_id: "W3",
       verdict: null,
@@ -111,22 +111,22 @@ describe("W3 Article English candidate package", () => {
     }
   });
 
-  it("records unresolved producer reviews without claiming import or independent QA readiness", () => {
+  it("records completed producer review without claiming import or independent W9 readiness", () => {
     const ledger = readJson("source_ledger.json");
     const editorial = readJson("editorial_review.json");
     const dryRun = readJson("dry_run_readiness.json");
 
-    expect(ledger.reconciliation.link_review_pending_rows).toBeGreaterThan(0);
+    expect(ledger.reconciliation.link_review_pending_rows).toBe(0);
     expect(
-      ledger.rows.some(
+      ledger.rows.every(
         (row: { internal_link_review: { parity_status: string } }) =>
-          row.internal_link_review.parity_status === "pending_editorial_link_review",
+          row.internal_link_review.parity_status === "producer_review_pass",
       ),
     ).toBe(true);
-    expect(editorial.verdict).toBe("PENDING_INDEPENDENT_QA");
+    expect(editorial.verdict).toBe("PASS");
     expect(editorial.review_kind).toContain("not independent W9 QA");
     expect(dryRun.ready).toBe(false);
-    expect(dryRun.status).toBe("package_in_progress_candidate_only");
+    expect(dryRun.status).toBe("package_frozen_qa_pending");
   });
 
   it("hashes the eight immutable payload files in repository-defined order", () => {
