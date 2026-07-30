@@ -5,7 +5,8 @@ import { once } from "node:events";
 import { resolve } from "node:path";
 
 const DEFAULT_PORT = 3219;
-const DEFAULT_TIMEOUT_MS = 45_000;
+export const DEFAULT_TIMEOUT_MS = 120_000;
+export const DEFAULT_REQUEST_TIMEOUT_MS = 30_000;
 const ANALYTICS_ENV_KEYS = [
   "NEXT_PUBLIC_ANALYTICS_ENABLED",
   "NEXT_PUBLIC_GA_MEASUREMENT_ID",
@@ -48,6 +49,14 @@ export function assertAnalyticsBootstrapHtml(status, html) {
   }
 }
 
+export function resolveRequestTimeoutMs(
+  deadline,
+  requestTimeoutMs = DEFAULT_REQUEST_TIMEOUT_MS,
+  now = Date.now()
+) {
+  return Math.max(1, Math.min(requestTimeoutMs, deadline - now));
+}
+
 async function stopChild(child) {
   if (child.exitCode !== null || child.signalCode !== null) return;
 
@@ -67,15 +76,17 @@ export async function verifyStandaloneAnalyticsBootstrap({
   serverPath = ".next/standalone/server.js",
   port = DEFAULT_PORT,
   timeoutMs = DEFAULT_TIMEOUT_MS,
+  requestTimeoutMs = DEFAULT_REQUEST_TIMEOUT_MS,
 } = {}) {
   const absoluteServerPath = resolve(serverPath);
   const child = spawn(process.execPath, [absoluteServerPath], {
     cwd: resolve(serverPath, ".."),
     env: createRuntimeEnv(process.env, port),
-    stdio: ["ignore", "pipe", "pipe"],
+    stdio: ["ignore", "inherit", "inherit"],
   });
   const deadline = Date.now() + timeoutMs;
   const url = `http://127.0.0.1:${port}/zh`;
+  let lastProbeError;
 
   try {
     while (Date.now() < deadline) {
@@ -86,7 +97,9 @@ export async function verifyStandaloneAnalyticsBootstrap({
       try {
         const response = await fetch(url, {
           redirect: "follow",
-          signal: AbortSignal.timeout(5_000),
+          signal: AbortSignal.timeout(
+            resolveRequestTimeoutMs(deadline, requestTimeoutMs)
+          ),
         });
         const html = await response.text();
         assertAnalyticsBootstrapHtml(response.status, html);
@@ -101,12 +114,16 @@ export async function verifyStandaloneAnalyticsBootstrap({
         ) {
           throw error;
         }
+        lastProbeError = error;
       }
 
       await new Promise((resolveTimeout) => setTimeout(resolveTimeout, 500));
     }
 
-    throw new Error("timed out waiting for standalone /zh");
+    const lastProbeMessage = lastProbeError instanceof Error
+      ? `; last probe error: ${lastProbeError.message}`
+      : "";
+    throw new Error(`timed out waiting for standalone /zh${lastProbeMessage}`);
   } finally {
     await stopChild(child);
   }

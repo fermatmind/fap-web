@@ -1,8 +1,11 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import {
+  DEFAULT_REQUEST_TIMEOUT_MS,
+  DEFAULT_TIMEOUT_MS,
   assertAnalyticsBootstrapHtml,
   createRuntimeEnv,
+  resolveRequestTimeoutMs,
 } from "../../scripts/release/verify-standalone-analytics-bootstrap.mjs";
 
 describe("standalone analytics bootstrap contract", () => {
@@ -30,6 +33,14 @@ describe("standalone analytics bootstrap contract", () => {
     expect(() => assertAnalyticsBootstrapHtml(503, "<html></html>")).toThrow(
       "returned HTTP 503"
     );
+  });
+
+  it("allows a bounded cold-start response before the overall smoke deadline", () => {
+    expect(DEFAULT_TIMEOUT_MS).toBe(120_000);
+    expect(DEFAULT_REQUEST_TIMEOUT_MS).toBe(30_000);
+    expect(resolveRequestTimeoutMs(150_000, 30_000, 100_000)).toBe(30_000);
+    expect(resolveRequestTimeoutMs(120_000, 30_000, 100_000)).toBe(20_000);
+    expect(resolveRequestTimeoutMs(100_000, 30_000, 100_001)).toBe(1);
   });
 
   it("runs the no-runtime-env standalone probe after build and before packaging", () => {
