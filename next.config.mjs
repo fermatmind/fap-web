@@ -78,21 +78,6 @@ const gscLegacyRedirects = [
     permanent: true,
   },
   {
-    source: "/en/articles/big-five-growth-guide",
-    destination: "/zh/articles/big-five-growth-guide",
-    permanent: true,
-  },
-  {
-    source: "/en/articles/mbti-basics",
-    destination: "/zh/articles/mbti-basics",
-    permanent: true,
-  },
-  {
-    source: "/en/articles/iq-test-growth-guide",
-    destination: "/zh/articles/iq-test-growth-guide",
-    permanent: true,
-  },
-  {
     source: "/en/career/guides/from-mbti-to-job-fit",
     destination: "/zh/career/guides/from-mbti-to-job-fit",
     permanent: true,
