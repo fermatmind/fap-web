@@ -52514,7 +52514,7 @@
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
     "depends_on": [],
-    "commit_sha": "7f18da4a21b5cd309b08288b1501de4bc90a1311",
+    "commit_sha": "55855baa3103de1a9d01ef410819117beb2297ec",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1861",
     "checks": {
       "dependency": {
@@ -52600,8 +52600,13 @@
         "at": "2026-07-30T23:10:00.000Z",
         "status": "review_fix_local_verified",
         "summary": "Final exact-head review correctly rejected a permanent frontend filter because it would keep hiding the guide after CMS publication. Verified from route source contracts and a local production-server read that public personality/recommendation routes do not consume the legacy MBTI packs, then restored all six legacy pack/test paths unchanged. The final seven-file scope passed 19/19 focused contracts, focused/full lint, Node 24 typecheck, the already completed post-P2 production build at 206/206, YAML/JSON parsing, diff checks, and exact scope validation. The remaining runtime behavior is authority-driven: current routes emit no broken guide link, while future backend-provided links can appear without another frontend release."
+      },
+      {
+        "at": "2026-07-30T23:12:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the authority-preserving final implementation as 55855baa3103de1a9d01ef410819117beb2297ec. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
       }
     ],
-    "updated_at": "2026-07-30T23:10:00.000Z"
+    "updated_at": "2026-07-30T23:12:00.000Z"
   }
 }
