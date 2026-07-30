@@ -74,6 +74,8 @@ describe("production artifact promotion receipt", () => {
   it("promotes only the receipt-bound CI artifact and verifies it before SSH", () => {
     const verifyIndex = workflow.indexOf("- name: Verify promoted artifact before SSH");
     const sshIndex = workflow.indexOf("- name: Set up SSH");
+    const resumeIndex = workflow.indexOf("- name: Resume and verify receipt-bound release archive");
+    const promoteIndex = workflow.indexOf("- name: Promote receipt-bound immutable release");
 
     expect(workflow).toContain("fap-web-staging-receipt-${sha}");
     expect(receiptHelper).toContain("receipt.deploy_run_id !== expectedRunId");
@@ -84,6 +86,14 @@ describe("production artifact promotion receipt", () => {
     expect(workflow).toContain('--expected-git-sha="$DEPLOY_SHA"');
     expect(verifyIndex).toBeGreaterThan(-1);
     expect(sshIndex).toBeGreaterThan(verifyIndex);
+    expect(resumeIndex).toBeGreaterThan(sshIndex);
+    expect(promoteIndex).toBeGreaterThan(resumeIndex);
+    expect(workflow.slice(resumeIndex, promoteIndex)).toContain(
+      "'$RELEASE_ARCHIVE_SHA256'; echo verified",
+    );
+    expect(workflow.slice(resumeIndex, promoteIndex)).toContain(
+      "mv -f '$REMOTE_RELEASE_ARCHIVE_PART' '$REMOTE_RELEASE_ARCHIVE'",
+    );
   });
 
   it("contains no source rebuild, dependency install, or mutable artifact identity", () => {
