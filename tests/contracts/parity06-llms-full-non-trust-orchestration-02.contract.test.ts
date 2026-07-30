@@ -97,6 +97,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
 
     expect(generator).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
     expect(generator).toContain("buildAndCacheLlmsFullText");
+    expect(generator).toContain("process.exit(1)");
     expect(route).toContain("isCompleteLlmsFullText");
     expect(route).toContain("writeLlmsFullResponseCache");
     expect(route).not.toContain("artifactFallbackContent");
