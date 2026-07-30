@@ -52616,14 +52616,14 @@
   },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03",
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "base": "main",
     "branch": "codex/saep-proposed-web-parity06-llms-full-artifact-body-determinism-03",
     "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03: make llms-full artifact body deterministic",
     "depends_on": [],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "85f8071a54bb5ebbc975953c404437bd771b747b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1864",
     "checks": {
       "section_drift_diagnosis": {
         "status": "pass",
@@ -52663,8 +52663,13 @@
         "at": "2026-07-30T23:33:24Z",
         "status": "local_verified",
         "summary": "Completed all manifest local gates in the isolated worktree. Artifact builds now use one enumerated backend/CMS snapshot without detail fetches; public runtime enrichment, completeness predicates, citation closure, URL membership, and cache-write boundaries remain unchanged."
+      },
+      {
+        "at": "2026-07-30T23:37:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-file implementation as 85f8071a54bb5ebbc975953c404437bd771b747b, merged the non-overlapping latest main baseline, and opened PR #1864. Fresh required checks and exact-head review remain mandatory; deploy and cache permissions remain false."
       }
     ],
-    "updated_at": "2026-07-30T23:33:24Z"
+    "updated_at": "2026-07-30T23:37:59Z"
   }
 }
