@@ -395,6 +395,41 @@ describe("career guides frontend boundary contract", () => {
     expect(notFound).toHaveBeenCalled();
   });
 
+  it("fails metadata closed when the requested locale has no CareerGuide projection", async () => {
+    const notFound = vi.fn(() => {
+      throw new Error("not-found");
+    });
+    const getCareerGuideFromCmsBySlugMock = vi.fn(async () => null);
+    const getCareerGuideSeoFromCmsBySlugMock = vi.fn(async () => null);
+
+    vi.doMock("next/navigation", () => ({
+      notFound,
+    }));
+    vi.doMock("@/lib/cms/career-guides", () => ({
+      buildCareerGuideFrontendUrl: vi.fn((locale: string, slug: string) => `/${locale}/career/guides/${slug}`),
+      getCareerGuideFromCmsBySlug: getCareerGuideFromCmsBySlugMock,
+      getCareerGuideSeoFromCmsBySlug: getCareerGuideSeoFromCmsBySlugMock,
+      normalizeCareerGuideSeoPayload: vi.fn(),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+
+    const { generateMetadata } = await import(
+      "@/app/(localized)/[locale]/career/guides/[slug]/page"
+    );
+
+    await expect(
+      generateMetadata({
+        params: Promise.resolve({ locale: "en", slug: "missing-guide" }),
+      })
+    ).rejects.toThrow("not-found");
+
+    expect(getCareerGuideFromCmsBySlugMock).toHaveBeenCalledWith("missing-guide", "en");
+    expect(getCareerGuideSeoFromCmsBySlugMock).not.toHaveBeenCalled();
+    expect(notFound).toHaveBeenCalled();
+  });
+
   it("builds detail metadata from adapter-normalized seo payload", async () => {
     const guide = {
       slug: "from-mbti-to-job-fit",

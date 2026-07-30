@@ -92,7 +92,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { detail: guide, seo } = await loadCareerGuidePublicDetailBundle(slug, locale);
 
   if (!guide) {
-    return { title: "Not Found", robots: { index: false, follow: false } };
+    notFound();
   }
 
   const canonicalPath = buildCanonicalPath(guide.slug, locale);

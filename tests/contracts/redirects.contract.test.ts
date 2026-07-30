@@ -39,33 +39,23 @@ describe("legacy redirect hygiene contract", () => {
     );
   });
 
-  it("keeps GSC legacy redirects exact without substituting Chinese Articles for absent English projections", async () => {
+  it("keeps GSC legacy redirects exact without cross-locale editorial substitution", async () => {
     const redirects = await loadRedirects();
 
-    const retiredCrossLocaleArticleSources = [
+    const retiredCrossLocaleEditorialSources = [
       "/en/articles/big-five-growth-guide",
       "/en/articles/mbti-basics",
       "/en/articles/iq-test-growth-guide",
+      "/en/career/guides/from-mbti-to-job-fit",
+      "/en/career/guides/cross-industry-move-strategy",
+      "/en/career/guides/networking-that-actually-works",
     ];
-    expect(redirects.filter((redirect) => retiredCrossLocaleArticleSources.includes(redirect.source))).toEqual([]);
+    expect(
+      redirects.filter((redirect) => retiredCrossLocaleEditorialSources.includes(redirect.source))
+    ).toEqual([]);
 
     expect(redirects).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({
-          source: "/en/career/guides/from-mbti-to-job-fit",
-          destination: "/zh/career/guides/from-mbti-to-job-fit",
-          permanent: true,
-        }),
-        expect.objectContaining({
-          source: "/en/career/guides/cross-industry-move-strategy",
-          destination: "/zh/career/guides/cross-industry-move-strategy",
-          permanent: true,
-        }),
-        expect.objectContaining({
-          source: "/en/career/guides/networking-that-actually-works",
-          destination: "/zh/career/guides/networking-that-actually-works",
-          permanent: true,
-        }),
         expect.objectContaining({
           source: "/en/career/tests/riasec",
           destination: "/en/tests/holland-career-interest-test-riasec",

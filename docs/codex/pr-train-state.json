@@ -52508,5 +52508,65 @@
       }
     ],
     "updated_at": "2026-07-30T21:19:45Z"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
+    "depends_on": [],
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "This CareerGuide runtime-absence item declares no PR dependency. CONTROL has accepted W3-ARTICLES package_frozen at exact SHA 37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669, so the CareerGuide sequential production gate is also open."
+      },
+      "scope": {
+        "status": "pass",
+        "evidence": "All six changed files are inside this item allowed_paths. The redirects contract is included because it directly asserted the three redirects removed here; no CareerGuide content package, adapter, backend, sitemap, llms, indexability, search, or deploy file changed."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, and redirect contracts passed 19/19 tests. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback, and the three retired cross-locale redirects are absent."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "Focused ESLint passed with zero warnings. Full pnpm lint under Node 24.14.0 passed after temporarily isolating and restoring ignored local .playwright-cli traces; only two unrelated pre-existing generated-script warnings remained and exit status was zero."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck passed under Node 24.14.0 and pnpm 10.28.1."
+      },
+      "build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed under Node 24.14.0; Next.js compiled, generated 206/206 static pages, and completed postbuild asset sync."
+      },
+      "serialization": {
+        "status": "pass",
+        "evidence": "PR-train YAML and state JSON parse successfully; git diff --check passes."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T22:31:19.000Z",
+        "status": "in_progress",
+        "summary": "Started the exact CareerGuide runtime-absence scope from current fap-web main after CONTROL accepted Article package_frozen. This PR removes only three cross-locale redirects and locks authoritative missing-English metadata/page behavior to real notFound; it creates no CareerGuide content and changes no CMS, discoverability, search, or deploy state."
+      },
+      {
+        "at": "2026-07-30T22:36:17.000Z",
+        "status": "local_verified",
+        "summary": "Focused contracts passed 19/19; focused and full lint, Node 24 typecheck, Node 24 production build, YAML/JSON parsing, diff checks, and exact changed-file scope validation passed. Ignored local Playwright traces were temporarily isolated for full lint and restored unchanged."
+      }
+    ],
+    "updated_at": "2026-07-30T22:36:17.000Z"
   }
 }
