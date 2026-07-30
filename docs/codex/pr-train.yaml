@@ -27527,7 +27527,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: parity06_llms_full_non_trust_source_orchestration
-    status: in_progress
+    status: ready_to_merge
     goal: "Keep public runtime latency unchanged while giving operator-generated llms-full artifacts bounded hard/optional source budgets, concurrency-three orchestration, and one shared backend sitemap-source request so complete backend authority can be reproduced without partial cache replacement."
     allowed_paths:
       - app/llms-full.txt/route.ts
