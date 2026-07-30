@@ -1483,6 +1483,24 @@ describe("English content parity control master", () => {
 
   it("uses independent W3 states while preserving the Article-before-CareerGuide sequence", () => {
     const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-states-"));
+    const bootstrapManifest = structuredClone(manifest);
+    const bootstrapW3 = bootstrapManifest.lanes.find((lane) => lane.lane_id === "W3");
+    if (!bootstrapW3) {
+      throw new Error("missing W3 bootstrap fixture");
+    }
+    bootstrapW3.status = "inventory_frozen";
+    bootstrapW3.blocked_from_status = null;
+    for (const subscope of bootstrapW3.subscopes) {
+      subscope.status = "inventory_frozen";
+      subscope.blocked_from_status = null;
+      subscope.package_sha256 = null;
+      subscope.qa_report_ref = null;
+      subscope.gate_lineage = [];
+      subscope.blockers = [];
+    }
+    const bootstrapManifestPath = path.join(tempRoot, "bootstrap-master.json");
+    fs.writeFileSync(bootstrapManifestPath, JSON.stringify(bootstrapManifest));
+    const bootstrapManifestSha256 = sha256AbsoluteFile(bootstrapManifestPath);
     const permissions: Permissions = {
       cms_write_authorized: false,
       staging_write_authorized: false,
@@ -1542,7 +1560,7 @@ describe("English content parity control master", () => {
             lane_id: "W3",
             subscope_id: entry.subscopeId,
             package_id: packageId,
-            base_manifest_sha256: sha256File(MANIFEST_PATH),
+            base_manifest_sha256: bootstrapManifestSha256,
             sha256_manifest_path: packageEvidence.shaManifestPath,
             package_sha256: packageEvidence.packageSha256,
             proposed_status: "package_in_progress",
@@ -1567,10 +1585,14 @@ describe("English content parity control master", () => {
         "--artifact",
         artifactPath,
       ]);
-      const articleOutput = execFileSync("node", [VALIDATOR_PATH, ...articleArguments], {
-        cwd: ROOT,
-        encoding: "utf8",
-      });
+      const articleOutput = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", bootstrapManifestPath, ...articleArguments],
+        {
+          cwd: ROOT,
+          encoding: "utf8",
+        }
+      );
       expect(JSON.parse(articleOutput)).toMatchObject({ ok: true, errors: [] });
 
       const careerArguments = (artifactPathsBySubscope.get("W3-CAREER-GUIDES") ?? []).flatMap(
@@ -1578,11 +1600,15 @@ describe("English content parity control master", () => {
       );
       let careerOutput = "";
       try {
-        execFileSync("node", [VALIDATOR_PATH, ...careerArguments], {
-          cwd: ROOT,
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "pipe"],
-        });
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", bootstrapManifestPath, ...careerArguments],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "pipe"],
+          }
+        );
       } catch (error) {
         careerOutput = (error as { stdout?: string }).stdout ?? "";
       }
@@ -1590,7 +1616,7 @@ describe("English content parity control master", () => {
         "predecessor W3-ARTICLES must reach package_frozen before this subscope starts"
       );
 
-      const blockedPredecessorManifest = structuredClone(manifest);
+      const blockedPredecessorManifest = structuredClone(bootstrapManifest);
       const blockedW3 = blockedPredecessorManifest.lanes.find((lane) => lane.lane_id === "W3");
       const blockedArticles = blockedW3?.subscopes.find(
         (subscope) => subscope.id === "W3-ARTICLES"

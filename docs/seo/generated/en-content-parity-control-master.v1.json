@@ -237,7 +237,7 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "inventory_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
