@@ -17,6 +17,9 @@
     },
     {
       "$ref": "#/$defs/transition_gate_report"
+    },
+    {
+      "$ref": "#/$defs/controlled_transition_approval"
     }
   ],
   "$defs": {
@@ -43,6 +46,10 @@
     "lane_id": {
       "type": "string",
       "pattern": "^W[1-9]$"
+    },
+    "evidence_owner_id": {
+      "type": "string",
+      "pattern": "^(?:W[1-9]|CONTROL)$"
     },
     "content_status": {
       "type": "string",
@@ -89,7 +96,7 @@
           "type": "boolean"
         },
         "owner_lane_id": {
-          "$ref": "#/$defs/lane_id"
+          "$ref": "#/$defs/evidence_owner_id"
         },
         "verdict": {
           "type": [
@@ -99,6 +106,7 @@
           "enum": [
             "PASS",
             "BLOCKED",
+            "APPROVED",
             null
           ]
         },
@@ -132,7 +140,7 @@
           "$ref": "#/$defs/content_status"
         },
         "evidence_owner_lane_id": {
-          "$ref": "#/$defs/lane_id"
+          "$ref": "#/$defs/evidence_owner_id"
         },
         "report_ref": {
           "type": "string",
@@ -228,6 +236,7 @@
         "output_subdirectory",
         "asset_ids",
         "status",
+        "blocked_from_status",
         "package_sha256",
         "qa_report_ref",
         "gate_lineage",
@@ -263,6 +272,16 @@
         },
         "status": {
           "$ref": "#/$defs/content_status"
+        },
+        "blocked_from_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/content_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "package_sha256": {
           "$ref": "#/$defs/sha256_or_null"
@@ -307,6 +326,7 @@
         "dependencies",
         "launch_state",
         "status",
+        "blocked_from_status",
         "output_directory",
         "target_asset_types",
         "subscopes",
@@ -391,6 +411,16 @@
         },
         "status": {
           "$ref": "#/$defs/content_status"
+        },
+        "blocked_from_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/content_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "output_directory": {
           "type": "string",
@@ -1142,6 +1172,73 @@
             "PASS",
             "BLOCKED"
           ]
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "controlled_transition_approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "approval_owner",
+        "approval_ref",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "gate",
+        "verdict",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "controlled_transition_approval"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_controlled_transition_approval.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "approval_owner": {
+          "const": "human_operator"
+        },
+        "approval_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "gate": {
+          "type": "string",
+          "enum": [
+            "draft_imported",
+            "published"
+          ]
+        },
+        "verdict": {
+          "const": "APPROVED"
         },
         "permissions": {
           "$ref": "#/$defs/permissions"

@@ -84,6 +84,12 @@ function stateIndex(status) {
   return EXPECTED_STATES.indexOf(status);
 }
 
+function progressionStatus(target) {
+  return target?.status === "blocked"
+    ? (target.blocked_from_status ?? target.blockedFromStatus)
+    : target?.status;
+}
+
 function valueType(value) {
   if (value === null) {
     return "null";
@@ -304,6 +310,19 @@ function validateMasterInvariants(manifest) {
 
   const knownLaneIds = new Set(laneIds);
   for (const lane of lanes) {
+    if (lane.status === "blocked") {
+      assert(
+        stateIndex(lane.blocked_from_status) >= 0,
+        `${lane.lane_id}: blocked state must retain a valid blocked_from_status`,
+        errors
+      );
+    } else {
+      assert(
+        lane.blocked_from_status === null,
+        `${lane.lane_id}: blocked_from_status must be null while the lane is not blocked`,
+        errors
+      );
+    }
     for (const dependency of lane.dependencies) {
       assert(knownLaneIds.has(dependency), `${lane.lane_id}: unknown dependency ${dependency}`, errors);
       assert(dependency !== lane.lane_id, `${lane.lane_id}: self dependency is forbidden`, errors);
@@ -335,6 +354,19 @@ function validateMasterInvariants(manifest) {
     errors
   );
   for (const subscope of w3?.subscopes ?? []) {
+    if (subscope.status === "blocked") {
+      assert(
+        stateIndex(subscope.blocked_from_status) >= 0,
+        `${subscope.id}: blocked state must retain a valid blocked_from_status`,
+        errors
+      );
+    } else {
+      assert(
+        subscope.blocked_from_status === null,
+        `${subscope.id}: blocked_from_status must be null while the subscope is not blocked`,
+        errors
+      );
+    }
     assert(subscope.separate_package_required === true, `${subscope.id}: separate package must be required`, errors);
     assert(subscope.same_pr_allowed === false, `${subscope.id}: same PR must be forbidden`, errors);
     assert(stateIndex(subscope.status) >= 0 || subscope.status === "blocked", `${subscope.id}: invalid subscope status`, errors);
@@ -436,8 +468,8 @@ function validateMasterInvariants(manifest) {
       );
     }
   }
-  const assertInventoryRemainsFrozen = (status, targetAssets, targetId) => {
-    if (status === "blocked" || stateIndex(status) < stateIndex("inventory_frozen")) {
+  const assertInventoryRemainsFrozen = (target, targetAssets, targetId) => {
+    if (stateIndex(progressionStatus(target)) < stateIndex("inventory_frozen")) {
       return;
     }
     assert(
@@ -455,14 +487,14 @@ function validateMasterInvariants(manifest) {
   };
   for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length === 0)) {
     assertInventoryRemainsFrozen(
-      lane.status,
+      lane,
       assets.filter((asset) => asset.lane_id === lane.lane_id),
       lane.lane_id
     );
   }
   for (const subscope of w3?.subscopes ?? []) {
     assertInventoryRemainsFrozen(
-      subscope.status,
+      subscope,
       assets.filter((asset) => subscope.asset_ids.includes(asset.asset_id)),
       subscope.id
     );
@@ -521,25 +553,22 @@ function targetAssets(manifest, lane, packageTarget) {
 
 function validateGateLineage(target, targetId, ownerLaneId, errors) {
   const lineage = Array.isArray(target?.gate_lineage) ? target.gate_lineage : [];
-  const currentIndex = stateIndex(target?.status);
+  if (target?.status === "blocked") {
+    assert(
+      stateIndex(target?.blocked_from_status) >= 0,
+      `${targetId}: blocked state must retain a valid blocked_from_status`,
+      errors
+    );
+  } else {
+    assert(
+      target?.blocked_from_status === null,
+      `${targetId}: blocked_from_status must be null while the target is not blocked`,
+      errors
+    );
+  }
+  const currentIndex = stateIndex(progressionStatus(target));
   const packageFrozenIndex = stateIndex("package_frozen");
   const qaPassIndex = stateIndex("qa_pass");
-
-  if (target?.status === "blocked") {
-    if (target?.package_sha256 !== null) {
-      assert(
-        /^[a-f0-9]{64}$/.test(target.package_sha256),
-        `${targetId}: blocked target package_sha256 must be a full SHA when present`,
-        errors
-      );
-      assert(
-        lineage.every((entry) => entry.package_sha256 === target.package_sha256),
-        `${targetId}: blocked target gate lineage must retain one immutable package SHA`,
-        errors
-      );
-    }
-    return;
-  }
 
   if (currentIndex < packageFrozenIndex) {
     assert(target?.package_sha256 === null, `${targetId}: package SHA cannot be recorded before package_frozen`, errors);
@@ -568,7 +597,12 @@ function validateGateLineage(target, targetId, ownerLaneId, errors) {
       `${targetId}: gate lineage must retain the immutable package_frozen SHA`,
       errors
     );
-    const expectedOwner = entry.status === "qa_pass" ? "W9" : ownerLaneId;
+    const expectedOwner =
+      entry.status === "qa_pass"
+        ? "W9"
+        : ["draft_imported", "published"].includes(entry.status)
+          ? "CONTROL"
+          : ownerLaneId;
     assert(
       entry.evidence_owner_lane_id === expectedOwner,
       `${targetId}: ${entry.status} evidence owner must be ${expectedOwner}`,
@@ -610,6 +644,7 @@ function registeredPackageTarget(lane, subscopeId) {
       packageSha256: subscope.package_sha256,
       qaReportRef: subscope.qa_report_ref,
       gateLineage: subscope.gate_lineage,
+      blockedFromStatus: subscope.blocked_from_status,
     };
   }
   if (subscopeId !== null) {
@@ -623,6 +658,7 @@ function registeredPackageTarget(lane, subscopeId) {
     packageSha256: lane.package_sha256,
     qaReportRef: lane.qa_report_ref,
     gateLineage: lane.gate_lineage,
+    blockedFromStatus: lane.blocked_from_status,
   };
 }
 
@@ -641,7 +677,15 @@ function validateSubscopeSequence(lane, packageTarget, proposedStatus, errors) {
   );
 }
 
-function validatePackageShaManifest(artifact, registeredLane, manifest, artifactPath, errors) {
+function validatePackageShaManifest(
+  artifact,
+  registeredLane,
+  manifest,
+  manifestSha256,
+  schema,
+  artifactPath,
+  errors
+) {
   let shaManifest;
   let shaManifestPath;
   try {
@@ -749,8 +793,19 @@ function validatePackageShaManifest(artifact, registeredLane, manifest, artifact
   }
 
   try {
-    const scopeManifest = JSON.parse(fs.readFileSync(path.join(packageDirectory, "scope_manifest.json"), "utf8"));
+    const scopeManifestPath = path.join(packageDirectory, "scope_manifest.json");
+    const scopeManifest = JSON.parse(fs.readFileSync(scopeManifestPath, "utf8"));
     const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
+    errors.push(
+      ...schemaErrors(scopeManifest, schema).map(
+        (error) => `${artifact.lane_id}: embedded scope manifest Schema error: ${error}`
+      )
+    );
+    errors.push(
+      ...validateLeafInvariants(scopeManifest, manifest, manifestSha256, scopeManifestPath, schema).map(
+        (error) => `${artifact.lane_id}: embedded scope manifest invariant error: ${error}`
+      )
+    );
     assert(scopeManifest.artifact_kind === "lane_package", `${artifact.lane_id}: package scope manifest kind is invalid`, errors);
     assert(scopeManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: package scope manifest lane mismatch`, errors);
     assert(
@@ -764,7 +819,7 @@ function validatePackageShaManifest(artifact, registeredLane, manifest, artifact
       errors
     );
     const expectedScopeStatus =
-      stateIndex(packageTarget?.status) >= stateIndex("package_frozen")
+      stateIndex(progressionStatus(packageTarget)) >= stateIndex("package_frozen")
         ? "package_frozen"
         : artifact.proposed_status;
     assert(
@@ -793,7 +848,7 @@ function validatePackageShaManifest(artifact, registeredLane, manifest, artifact
     );
     if (
       artifact.proposed_status === "package_frozen" ||
-      stateIndex(packageTarget?.status) >= stateIndex("package_frozen")
+      stateIndex(progressionStatus(packageTarget)) >= stateIndex("package_frozen")
     ) {
       const registeredAssetIds = targetAssets(manifest, registeredLane, packageTarget).map(
         (asset) => asset.asset_id
@@ -955,6 +1010,84 @@ function validateExternalTransitionEvidence(artifact, errors) {
   );
 }
 
+function validateControlledTransitionApproval(artifact, errors) {
+  let approval;
+  let approvalPath;
+  try {
+    approvalPath = path.isAbsolute(artifact.gate_evidence.report_path)
+      ? artifact.gate_evidence.report_path
+      : path.join(ROOT, artifact.gate_evidence.report_path);
+    assert(
+      fs.existsSync(approvalPath) && fs.statSync(approvalPath).isFile(),
+      `${artifact.lane_id}: controlled transition approval file is missing`,
+      errors
+    );
+    assert(
+      sha256File(approvalPath) === artifact.gate_evidence.report_sha256,
+      `${artifact.lane_id}: controlled transition approval SHA mismatch`,
+      errors
+    );
+    approval = JSON.parse(fs.readFileSync(approvalPath, "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read controlled transition approval (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(
+    approval.schema_version === "fermatmind.en_content_parity_controlled_transition_approval.v1",
+    `${artifact.lane_id}: controlled transition approval schema version is invalid`,
+    errors
+  );
+  assert(
+    approval.artifact_kind === "controlled_transition_approval",
+    `${artifact.lane_id}: controlled transition approval kind is invalid`,
+    errors
+  );
+  assert(
+    approval.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01",
+    `${artifact.lane_id}: controlled transition approval control ID mismatch`,
+    errors
+  );
+  assertAllPermissionsFalse(approval, "$/controlled_transition_approval", errors);
+  assert(
+    approval.approval_owner === "human_operator",
+    `${artifact.lane_id}: controlled transition approval must be owned by the human operator`,
+    errors
+  );
+  assert(
+    typeof approval.approval_ref === "string" && approval.approval_ref.length > 0,
+    `${artifact.lane_id}: controlled transition approval_ref is required`,
+    errors
+  );
+  assert(
+    approval.producer_lane_id === artifact.lane_id,
+    `${artifact.lane_id}: controlled transition approval producer lane mismatch`,
+    errors
+  );
+  assert(
+    approval.subscope_id === artifact.subscope_id,
+    `${artifact.lane_id}: controlled transition approval subscope mismatch`,
+    errors
+  );
+  assert(
+    approval.package_sha256 === artifact.package_sha256,
+    `${artifact.lane_id}: controlled transition approval package SHA mismatch`,
+    errors
+  );
+  assert(
+    approval.gate === artifact.proposed_status,
+    `${artifact.lane_id}: controlled transition approval gate mismatch`,
+    errors
+  );
+  assert(
+    approval.verdict === "APPROVED",
+    `${artifact.lane_id}: controlled transition verdict must be APPROVED`,
+    errors
+  );
+}
+
 function validateInventoryPayload(artifact, packageContext, errors) {
   if (!packageContext) {
     return;
@@ -1023,7 +1156,7 @@ function validateInventoryPayload(artifact, packageContext, errors) {
   }
 }
 
-function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath) {
+function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath, schema) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
   const artifactLaneId =
@@ -1031,6 +1164,8 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       ? artifact.qa_lane_id
       : artifact.artifact_kind === "transition_gate_report"
         ? artifact.owner_lane_id
+        : artifact.artifact_kind === "controlled_transition_approval"
+          ? artifact.producer_lane_id
         : artifact.lane_id;
   const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifactLaneId);
   assert(Boolean(registeredLane), `${artifactLaneId}: lane is not registered`, errors);
@@ -1134,11 +1269,18 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: base_manifest_sha256 must match the current master manifest`,
       errors
     );
-    const currentIndex = stateIndex(packageTarget?.status);
-    const expectedNextStatus = currentIndex >= 0 ? EXPECTED_STATES[currentIndex + 1] : undefined;
+    const currentIndex = stateIndex(progressionStatus(packageTarget));
+    const isBlockedRecovery = packageTarget?.status === "blocked";
+    const expectedNextStatus = isBlockedRecovery
+      ? packageTarget.blockedFromStatus
+      : currentIndex >= 0
+        ? EXPECTED_STATES[currentIndex + 1]
+        : undefined;
     assert(
       artifact.proposed_status === "blocked" || artifact.proposed_status === expectedNextStatus,
-      `${artifact.lane_id}: proposed_status must be blocked or the immediate next state ${expectedNextStatus ?? "none"}`,
+      `${artifact.lane_id}: proposed_status must be blocked or ${
+        isBlockedRecovery ? "the retained recovery state" : "the immediate next state"
+      } ${expectedNextStatus ?? "none"}`,
       errors
     );
     assert(
@@ -1150,7 +1292,27 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       assert(gateEvidence.owner_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
       assert(gateEvidence.report_in_package === false, `${artifact.lane_id}: W9 QA report must remain independent`, errors);
       assert(gateEvidence.verdict === "PASS", `${artifact.lane_id}: qa_pass evidence verdict must be PASS`, errors);
-    } else if (currentIndex >= stateIndex("qa_pass") || (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")) {
+    } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
+      assert(
+        gateEvidence.owner_lane_id === "CONTROL",
+        `${artifact.lane_id}: controlled transition evidence owner must be CONTROL`,
+        errors
+      );
+      assert(
+        gateEvidence.report_in_package === false,
+        `${artifact.lane_id}: controlled transition approval must remain outside the immutable package`,
+        errors
+      );
+      assert(
+        gateEvidence.verdict === "APPROVED",
+        `${artifact.lane_id}: controlled transition verdict must be APPROVED`,
+        errors
+      );
+    } else if (
+      isBlockedRecovery ||
+      currentIndex >= stateIndex("qa_pass") ||
+      (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")
+    ) {
       assert(
         gateEvidence.owner_lane_id === artifact.lane_id,
         `${artifact.lane_id}: post-QA transition evidence owner must match the producer lane`,
@@ -1196,6 +1358,11 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     const registeredTargetAssets = targetAssets(manifest, registeredLane, packageTarget);
     const registeredTargetAssetIds = registeredTargetAssets.map((asset) => asset.asset_id);
+    assert(
+      sameValue([...updateAssetIds].sort(), [...registeredTargetAssetIds].sort()),
+      `${artifact.lane_id}: candidate assets must exactly match the complete registered target`,
+      errors
+    );
     if (artifact.proposed_status === "qa_pass") {
       assert(
         sameValue([...updateAssetIds].sort(), [...registeredTargetAssetIds].sort()),
@@ -1249,7 +1416,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       }
     }
 
-    if (artifact.proposed_status === "inventory_frozen") {
+    if (artifact.proposed_status === "inventory_frozen" && !isBlockedRecovery) {
       const registeredAssetIds = packageTarget?.assetIds
         ? [...packageTarget.assetIds].sort()
         : manifest.assets
@@ -1290,14 +1457,25 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     let packageContext;
     if (artifact.gate_evidence && artifact.sha256_manifest_path) {
-      packageContext = validatePackageShaManifest(artifact, registeredLane, manifest, artifactPath, errors);
+      packageContext = validatePackageShaManifest(
+        artifact,
+        registeredLane,
+        manifest,
+        manifestSha256,
+        schema,
+        artifactPath,
+        errors
+      );
     }
-    if (artifact.proposed_status === "inventory_frozen") {
+    if (artifact.proposed_status === "inventory_frozen" && !isBlockedRecovery) {
       validateInventoryPayload(artifact, packageContext, errors);
     }
     if (artifact.proposed_status === "qa_pass") {
       validateIndependentQaEvidence(artifact, manifest, errors);
+    } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
+      validateControlledTransitionApproval(artifact, errors);
     } else if (
+      isBlockedRecovery ||
       currentIndex >= stateIndex("qa_pass") ||
       (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")
     ) {
@@ -1377,7 +1555,7 @@ export function validateControlArtifacts({
     checkedArtifacts.push(artifactPath);
     errors.push(...schemaErrors(artifact, schema).map((error) => `${artifactPath}: ${error}`));
     errors.push(
-      ...validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath).map(
+      ...validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath, schema).map(
         (error) => `${artifactPath}: ${error}`
       )
     );

@@ -116,6 +116,7 @@
       "dependencies": [],
       "launch_state": "launch_ready",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
         "mbti_cross_type_comparison",
@@ -167,6 +168,7 @@
       "dependencies": [],
       "launch_state": "launch_ready",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
         "big_five_public_profile",
@@ -219,6 +221,7 @@
       "dependencies": [],
       "launch_state": "launch_ready",
       "status": "inventory_frozen",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -234,6 +237,7 @@
             "ENPARITY-W3-ARTICLES"
           ],
           "status": "inventory_frozen",
+          "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
           "gate_lineage": [],
@@ -250,6 +254,7 @@
             "ENPARITY-W3-CAREER-GUIDES"
           ],
           "status": "inventory_frozen",
+          "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
           "gate_lineage": [],
@@ -305,6 +310,7 @@
       "dependencies": [],
       "launch_state": "registered",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
       "target_asset_types": [
         "riasec_deep_result_content",
@@ -355,6 +361,7 @@
       "dependencies": [],
       "launch_state": "registered",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W5-enneagram/",
       "target_asset_types": [
         "enneagram_public_profile",
@@ -406,6 +413,7 @@
       "dependencies": [],
       "launch_state": "registered",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W6-iq/",
       "target_asset_types": [
         "iq_result_content",
@@ -458,6 +466,7 @@
       "dependencies": [],
       "launch_state": "registered",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W7-eq/",
       "target_asset_types": [
         "eq_result_content",
@@ -510,6 +519,7 @@
       "dependencies": [],
       "launch_state": "registered",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W8-career-job/",
       "target_asset_types": [
         "career_job_locale_mapping",
@@ -563,6 +573,7 @@
       "dependencies": [],
       "launch_state": "waiting_for_first_package",
       "status": "not_started",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W9-independent-qa/",
       "target_asset_types": [
         "independent_qa_report",
