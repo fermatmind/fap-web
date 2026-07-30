@@ -52510,7 +52510,7 @@
     "updated_at": "2026-07-30T21:19:45Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
     "depends_on": [],
@@ -52605,8 +52605,13 @@
         "at": "2026-07-30T23:12:00.000Z",
         "status": "github_checks_pending",
         "summary": "Committed the authority-preserving final implementation as 55855baa3103de1a9d01ef410819117beb2297ec. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T23:21:00.000Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1861 exact head 8f268fd6ad15278876192aef8202d0adf53516ef passed all 11 CI/security checks. GitHub reports CLEAN/MERGEABLE, the exact changed-file set is the seven authorized paths, all three prior review threads are resolved, zero unresolved threads remain, and repository policy requires no approving review. A final Codex review request was accepted and remains asynchronous; it is not a required check or review gate."
       }
     ],
-    "updated_at": "2026-07-30T23:12:00.000Z"
+    "updated_at": "2026-07-30T23:21:00.000Z"
   }
 }
