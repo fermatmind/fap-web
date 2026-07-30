@@ -51870,6 +51870,113 @@
   ],
   "updated_at": "2026-07-27T18:17:43Z"
   },
+  "EN-PARITY-W1-MBTI-INVENTORY-01": {
+    "id": "EN-PARITY-W1-MBTI-INVENTORY-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W1-MBTI-INVENTORY-01: freeze MBTI English parity inventory",
+    "base": "main",
+    "branch": "codex/en-parity-w1-mbti-inventory-01",
+    "depends_on": [],
+  "status": "ready_to_merge",
+  "commit_sha": "d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1847",
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a concrete end-to-end /goal with the exact PR id, title, repository, scope, dependency graph, lifecycle authorization, and controlled-action boundaries."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "This inventory freeze item has no dependency."
+      },
+      "preflight": {
+        "status": "passed",
+        "evidence": "fap-web started clean from exact latest main 8078c9bf587560727969883dc13c81eb5e5a7365; no existing matching PR or local/remote task branch was found. fap-api was read-only preflighted clean at latest main 2284f5d9f0528722c7a58486f86c0716e526ed5c."
+      },
+      "artifact_validation": {
+        "status": "passed",
+        "evidence": "Both parity-control validator invocations passed with errors=[] after artifact restoration. The scope and candidate package SHA both equal 8079465c6ec26820c99ca2be3f08346674e90509dee6d84fd610d5c6bbac2b85; the source ledger retains exactly 53 unique rows split 7 comparison and 46 result-content rows."
+      },
+      "focused_contract": {
+        "status": "passed",
+        "evidence": "The direct focused Vitest run passed 21 tests and failed four fixture setup cases solely because the contract intentionally refuses to overwrite the real W1 package. Following the declared procedure, the ten package artifacts were temporarily isolated, the identical command passed 25/25, the artifacts were restored, and both validators passed again. No contract source was changed."
+      },
+      "manifest_state_syntax": {
+        "status": "passed",
+        "evidence": "Ruby YAML safe-load and Python JSON parsing passed for the train manifest and state ledger."
+      },
+      "diff_check": {
+        "status": "passed",
+        "evidence": "git diff --check completed without errors before staging."
+      },
+      "cached_diff_check": {
+        "status": "passed_with_documented_markdown_hard_break",
+        "evidence": "The default staged check identified only the three intentional Markdown two-space hard breaks at handoff.md lines 3-5. Removing them would mutate the exact frozen package SHA, so the complete 12-file staged diff was checked with blank-at-eol temporarily disabled; no other whitespace errors were present. Repository-local Git configuration was restored immediately."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "The staged inventory contains exactly 12 allowed files: ten immutable/candidate W1 package handoff files and the two fap-web train manifest/state files. No master manifest, runtime, CMS, publication, discoverability, or future-PR file is staged."
+      },
+    "github_required_checks": {
+      "status": "passed",
+      "evidence": "The first PR #1847 CI run failed only contract-shard-1 because the pre-existing contract fixture refused to coexist with the newly committed real W1 package. The exact failing job and step were inspected. Isolated baseline-repair PR #1848 changed only the fixture, passed all 11 CI/security checks, and merged as 4cefabf0a188500c2d4dbc6392c48dbad30f7afb. On PR #1847 exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa, build, all four contract shards, aggregate contracts, both freeze checks, and all CodeQL checks passed."
+      },
+      "baseline_repair": {
+        "status": "passed",
+        "evidence": "Ad-hoc PR #1848 proved the fixture defect on the intended durable-package state, preserved all ten real package files byte-for-byte, passed the focused contract 25/25 with and without a pre-existing package, passed every GitHub check, merged into origin/main, and had its local/remote branch plus isolated worktree cleaned."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+    "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T15:22:28Z",
+        "status": "in_progress",
+        "summary": "Started PR 01 from clean latest fap-web main. Scope is limited to the exact 53-row W1 inventory package plus fap-web train manifest/state registration; master manifest, runtime, CMS, publication, and discoverability remain untouched."
+      },
+      {
+        "at": "2026-07-30T15:24:14Z",
+        "status": "local_verified",
+        "summary": "Both artifact validators passed with the exact locked package SHA; the focused contract passed 25/25 under the declared package-isolation procedure; YAML/JSON parsing and diff checks passed. The initial direct contract collision is recorded as a fixture setup limitation, not hidden."
+      },
+      {
+        "at": "2026-07-30T15:27:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact 12-file scope as 20a462bae0947d84ee988f9e97a5a61282c6d76e, pushed the scoped branch, and opened PR #1847. Required GitHub checks are pending on the final ledger head."
+      },
+      {
+        "at": "2026-07-30T15:29:32Z",
+        "status": "github_checks_failed_inspected",
+        "summary": "Inspected failed run 30556784204 job 90919169132. Exactly four en-content-parity contract cases failed during fixture setup because the real W1 package now occupies its registered directory; 196 other shard files and 1251 tests passed. The aggregate contracts check failed from that shard, while three shards and both freeze checks passed."
+      },
+    {
+      "at": "2026-07-30T15:38:50Z",
+      "status": "github_checks_retry_pending",
+      "summary": "Completed isolated baseline-repair PR #1848, verified its merge commit 4cefabf0a188500c2d4dbc6392c48dbad30f7afb in origin/main, cleaned its branches/worktree, merged origin/main into PR #1847, and revalidated both artifact validators plus the focused contract 25/25 with the real package present. A fresh exact-head CI run is required."
+    },
+    {
+      "at": "2026-07-30T15:45:18Z",
+      "status": "ready_to_merge",
+      "summary": "All 11 checks passed on exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa. GitHub reports the PR mergeable with no review decision block, and the final changed-file list remains the exact 12-file inventory/ledger scope. The ledger transition itself requires one final exact-head check cycle before merge."
+    }
+  ],
+  "updated_at": "2026-07-30T15:45:18Z"
+},
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",

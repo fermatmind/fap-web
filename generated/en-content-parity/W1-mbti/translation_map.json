@@ -1,0 +1,451 @@
+{
+  "schema_version": "fermatmind.en_content_parity_translation_map.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "package_id": "EN-PARITY-W1-MBTI-INVENTORY-2026-07-30",
+  "mapping_policy": {
+    "comparison_pairing": "slug-preserving locale pair; database translation_group_id is absent and must be added or deterministically enforced before import",
+    "result_pairing": "stable canonical projection/section/surface identity; never user attempt or report identity",
+    "excluded": [
+      "private user payload",
+      "frontend fixtures",
+      "SEO control fields",
+      "generator metadata"
+    ]
+  },
+  "comparison_pairs": [
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:enfp-vs-entp",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:enfp-vs-entp",
+      "slug": "enfp-vs-entp",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:entj-vs-intj",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:entj-vs-intj",
+      "slug": "entj-vs-intj",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:estj-vs-entj",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:estj-vs-entj",
+      "slug": "estj-vs-entj",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:infj-vs-infp",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:infj-vs-infp",
+      "slug": "infj-vs-infp",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:intj-vs-intp",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:intj-vs-intp",
+      "slug": "intj-vs-intp",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:isfp-vs-infp",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:isfp-vs-infp",
+      "slug": "isfp-vs-infp",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    },
+    {
+      "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:istj-vs-isfj",
+      "translation_pair_identity": "cohort:mbti:cross-type-comparison:istj-vs-isfj",
+      "slug": "istj-vs-isfj",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "source_status": "published",
+      "target_status": "absent"
+    }
+  ],
+  "result_pairs": [
+    {
+      "stable_asset_identity": "mbti:result:projection:profile",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:projection:summary-card",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:projection:dimensions",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:access-envelope",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "free_preview_locked_full_and_entitlement",
+      "entitlement_level": "free|preview|locked|full",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:offer-set-and-cta-copy",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "locked_preview_and_upgrade",
+      "entitlement_level": "preview|locked",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:letters_intro",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:letters_intro",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:overview",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:overview",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:trait_overview",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:trait_overview",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:traits.at_difference",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:traits.at_difference",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "missing"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:faq",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:faq",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:traits.why_this_type",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:traits.why_this_type",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:traits.close_call_axes",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:traits.close_call_axes",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:traits.adjacent_type_contrast",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:traits.adjacent_type_contrast",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:traits.decision_style",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:traits.decision_style",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.summary",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.collaboration_fit",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.collaboration_fit",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.work_environment",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.work_environment",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.work_experiments",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.work_experiments",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.advantages",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.advantages",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.weaknesses",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.preferred_roles",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.preferred_roles",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.next_step",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.next_step",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:career.upgrade_suggestions",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:career.upgrade_suggestions",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.summary",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.stability_confidence",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.stability_confidence",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.next_actions",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.next_actions",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.weekly_experiments",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.weekly_experiments",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.strengths",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.strengths",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.weaknesses",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.stress_recovery",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.stress_recovery",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.watchouts",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.watchouts",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.motivators",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.motivators",
+      "entitlement_level": "premium_full",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:growth.drainers",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:growth.drainers",
+      "entitlement_level": "premium_full",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.summary",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.strengths",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.strengths",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.weaknesses",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.communication_style",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.communication_style",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.try_this_week",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.try_this_week",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.rel_advantages",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.rel_advantages",
+      "entitlement_level": "premium_full",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:section:relationships.rel_risks",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_section:relationships.rel_risks",
+      "entitlement_level": "premium_full",
+      "parity_verdict": "structurally_incomplete"
+    },
+    {
+      "stable_asset_identity": "mbti:result:share:public-summary-projection",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "share_public_summary",
+      "entitlement_level": "public_summary_only",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:pdf:reader-content",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "pdf_reader",
+      "entitlement_level": "entitled_report",
+      "parity_verdict": "unable_to_confirm"
+    },
+    {
+      "stable_asset_identity": "mbti:result:history-account-reentry-labels",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "history_and_account_reentry",
+      "entitlement_level": "authenticated_owner",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:renderer-module-and-cta-labels",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "result_module_titles_and_cta_labels",
+      "entitlement_level": "all",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:lifecycle-state-labels",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "processing_empty_error_expired_access_denied",
+      "entitlement_level": "all",
+      "parity_verdict": "complete_control"
+    },
+    {
+      "stable_asset_identity": "mbti:result:share-renderer-and-unavailable-labels",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "surface": "share_card_unavailable_and_expired_states",
+      "entitlement_level": "public_summary_only",
+      "parity_verdict": "complete_control"
+    }
+  ]
+}

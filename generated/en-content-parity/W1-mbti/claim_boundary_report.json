@@ -1,0 +1,48 @@
+{
+  "schema_version": "fermatmind.en_content_parity_claim_boundary_report.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W1-MBTI-INVENTORY-2026-07-30",
+  "verdict": "PASS",
+  "scope": "inventory and source-boundary review only; no final English copy was generated",
+  "allowed_reader_frame": [
+    "preference patterns",
+    "expression and communication tendencies",
+    "self-understanding hypotheses",
+    "career exploration prompts without outcome guarantees"
+  ],
+  "forbidden_claims": [
+    "medical or psychological diagnosis",
+    "fixed identity or destiny",
+    "hiring or admissions screening",
+    "success, income, relationship, or career outcome prediction",
+    "official certification, most-accurate, or authoritative-validation claims without public evidence"
+  ],
+  "findings": [
+    {
+      "severity": "none_confirmed",
+      "cohort": "ENPARITY-W1-MBTI-CROSS-COMPARISONS",
+      "finding": "The reviewed zh-CN public samples use comparison/exploration framing; English copy does not yet exist and must receive row-level editorial review."
+    },
+    {
+      "severity": "gate_required",
+      "cohort": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+      "finding": "Existing disclaimers and projection boundaries are compatible with the allowed frame, but all new English report content requires independent W9 claim review before import."
+    },
+    {
+      "severity": "privacy_boundary",
+      "cohort": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+      "finding": "Private report content must not be copied into public personality pages; share may consume only the backend public-summary projection."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
