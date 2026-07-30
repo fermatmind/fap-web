@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -98,6 +99,10 @@ type MasterManifest = {
 
 function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8")) as T;
+}
+
+function sha256File(relativePath: string): string {
+  return createHash("sha256").update(fs.readFileSync(path.join(ROOT, relativePath))).digest("hex");
 }
 
 function collectPermissionValues(value: unknown): Array<[string, unknown]> {
@@ -208,12 +213,16 @@ describe("English content parity control master", () => {
     expect(dependencyGraphIsAcyclic(manifest.lanes)).toBe(true);
   });
 
-  it("makes only W1, W2, and W3 launch-ready and preserves the W3 split", () => {
+  it("makes only W1, W2, and W3 launch-ready without falsely freezing incomplete inventories", () => {
     const firstWave = manifest.lanes.filter((lane) => ["W1", "W2", "W3"].includes(lane.lane_id));
     expect(manifest.launch_policy.first_wave).toEqual(["W1", "W2", "W3"]);
     expect(manifest.launch_policy.max_concurrent_producer_lanes).toBe(3);
     expect(firstWave.every((lane) => lane.launch_state === "launch_ready")).toBe(true);
-    expect(firstWave.every((lane) => lane.status === "inventory_frozen")).toBe(true);
+    expect(firstWave.map((lane) => [lane.lane_id, lane.status])).toEqual([
+      ["W1", "not_started"],
+      ["W2", "not_started"],
+      ["W3", "inventory_frozen"],
+    ]);
 
     const w3 = manifest.lanes.find((lane) => lane.lane_id === "W3");
     expect(w3?.subscopes).toEqual([
@@ -410,9 +419,9 @@ describe("English content parity control master", () => {
         schema_version: "fermatmind.en_content_parity_master_patch_candidate.v1",
         control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
         lane_id: "W1",
-        base_manifest_sha256: "a".repeat(64),
+        base_manifest_sha256: sha256File(MANIFEST_PATH),
         package_sha256: "b".repeat(64),
-        proposed_status: "package_frozen",
+        proposed_status: "inventory_frozen",
         asset_updates: [asset],
         permissions,
       })
@@ -429,6 +438,101 @@ describe("English content parity control master", () => {
       expect(report.checked_artifacts).toContain(packagePath);
       expect(report.checked_artifacts).toContain(patchPath);
       expect(report.errors).toEqual([]);
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects stale, skipping, colliding, duplicate, and unreconciled leaf submissions", () => {
+    const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-invalid-"));
+    const asset = manifest.assets.find((entry) => entry.lane_id === "W1");
+    expect(asset).toBeDefined();
+    const permissions: Permissions = {
+      cms_write_authorized: false,
+      staging_write_authorized: false,
+      production_import_authorized: false,
+      public_release_authorized: false,
+      seo_runtime_release_authorized: false,
+      search_submission_authorized: false,
+      master_manifest_write_authorized: false,
+    };
+    const artifactFiles = [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md",
+    ];
+    const invalidAssets = [
+      {
+        ...asset,
+        expected_en_count: 7,
+        current_en_count: 7,
+        remaining_en_count: 7,
+      },
+      {
+        ...asset,
+      },
+    ];
+    const invalidPackagePath = path.join(tempDirectory, "scope_manifest.json");
+    const invalidPatchPath = path.join(tempDirectory, "master_manifest_patch.candidate.json");
+
+    fs.writeFileSync(
+      invalidPackagePath,
+      JSON.stringify({
+        $schema: SCHEMA_PATH,
+        artifact_kind: "lane_package",
+        schema_version: "fermatmind.en_content_parity_lane_package.v1",
+        control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+        lane_id: "W1",
+        package_id: "W1-invalid-contract-sample",
+        status: "package_frozen",
+        output_directory: "generated/en-content-parity/W2-big-five/",
+        artifact_files: artifactFiles,
+        assets: invalidAssets,
+        permissions,
+      })
+    );
+    fs.writeFileSync(
+      invalidPatchPath,
+      JSON.stringify({
+        $schema: SCHEMA_PATH,
+        artifact_kind: "master_manifest_patch_candidate",
+        schema_version: "fermatmind.en_content_parity_master_patch_candidate.v1",
+        control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+        lane_id: "W1",
+        base_manifest_sha256: "0".repeat(64),
+        package_sha256: "b".repeat(64),
+        proposed_status: "published",
+        asset_updates: invalidAssets,
+        permissions,
+      })
+    );
+
+    try {
+      let output = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--artifact", invalidPackagePath, "--artifact", invalidPatchPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        output = (error as { stdout?: string }).stdout ?? "";
+      }
+      const report = JSON.parse(output) as { ok: boolean; errors: string[] };
+      expect(report.ok).toBe(false);
+      expect(report.errors.join("\n")).toContain("package output_directory must match the master registry");
+      expect(report.errors.join("\n")).toContain("base_manifest_sha256 must match the current master manifest");
+      expect(report.errors.join("\n")).toContain("proposed_status must be blocked or the immediate next state inventory_frozen");
+      expect(report.errors.join("\n")).toContain("asset IDs must be unique");
+      expect(report.errors.join("\n")).toContain("translation groups must be unique");
+      expect(report.errors.join("\n")).toContain("expected count must equal current plus remaining");
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
     }

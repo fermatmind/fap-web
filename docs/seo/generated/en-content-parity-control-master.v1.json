@@ -115,7 +115,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "not_started",
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
         "mbti_cross_type_comparison",
@@ -165,7 +165,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "not_started",
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
         "big_five_public_profile",

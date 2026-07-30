@@ -26,8 +26,8 @@ Any stage may enter `blocked`. Skipping a state is forbidden. A file existing is
 
 | Lane | Owner | Wave | Initial status | Work boundary |
 | --- | --- | ---: | --- | --- |
-| W1 | MBTI | 1 | `inventory_frozen` | Seven cross-type comparison gaps plus private result surfaces |
-| W2 | Big Five | 1 | `inventory_frozen` | Preserve 52/52 public controls; verify 50 drafts and private result surfaces |
+| W1 | MBTI | 1 | `not_started` | Seven cross-type comparison gaps plus private result surfaces |
+| W2 | Big Five | 1 | `not_started` | Preserve 52/52 public controls; verify 50 drafts and private result surfaces |
 | W3 | Editorial CMS | 1 | `inventory_frozen` | 17 Articles first, then 20 Career Guides as separate packages |
 | W4 | RIASEC | 2 | `not_started` | Fourteen deep result groups and safe variants |
 | W5 | Enneagram | 2 | `not_started` | Preserve 58/58 public controls; result registry only |

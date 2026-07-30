@@ -3,6 +3,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { createHash } from "node:crypto";
 
 const ROOT = process.cwd();
 const DEFAULT_SCHEMA_PATH = "docs/seo/generated/en-content-parity-control-master.v1.schema.json";
@@ -49,6 +50,11 @@ const PERMISSION_KEYS = [
 function readJson(relativePath) {
   const resolvedPath = path.isAbsolute(relativePath) ? relativePath : path.join(ROOT, relativePath);
   return JSON.parse(fs.readFileSync(resolvedPath, "utf8"));
+}
+
+function sha256File(relativePath) {
+  const resolvedPath = path.isAbsolute(relativePath) ? relativePath : path.join(ROOT, relativePath);
+  return createHash("sha256").update(fs.readFileSync(resolvedPath)).digest("hex");
 }
 
 function valueType(value) {
@@ -284,8 +290,10 @@ function validateMasterInvariants(manifest) {
   for (const laneId of EXPECTED_FIRST_WAVE) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "launch_ready", `${laneId}: expected launch_ready`, errors);
-    assert(lane?.status === "inventory_frozen", `${laneId}: expected inventory_frozen`, errors);
   }
+  assert(lanes.find((entry) => entry.lane_id === "W1")?.status === "not_started", "W1: expected not_started", errors);
+  assert(lanes.find((entry) => entry.lane_id === "W2")?.status === "not_started", "W2: expected not_started", errors);
+  assert(lanes.find((entry) => entry.lane_id === "W3")?.status === "inventory_frozen", "W3: expected inventory_frozen", errors);
   for (const laneId of ["W4", "W5", "W6", "W7", "W8"]) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "registered", `${laneId}: expected registered launch state`, errors);
@@ -345,9 +353,36 @@ function validateMasterInvariants(manifest) {
   return errors;
 }
 
-function validateLeafInvariants(artifact) {
+function validateAssetCollection(assets, location, errors) {
+  const assetIds = assets.map((asset) => asset.asset_id);
+  const translationGroups = assets.map((asset) => asset.translation_group);
+  assert(new Set(assetIds).size === assetIds.length, `${location}: asset IDs must be unique`, errors);
+  assert(
+    new Set(translationGroups).size === translationGroups.length,
+    `${location}: translation groups must be unique`,
+    errors
+  );
+
+  for (const asset of assets) {
+    const counts = [asset.expected_en_count, asset.current_en_count, asset.remaining_en_count];
+    const allKnown = counts.every(Number.isInteger);
+    const allUnknown = counts.every((count) => count === null);
+    assert(allKnown || allUnknown, `${location}/${asset.asset_id}: counts must be all known or all null`, errors);
+    if (allKnown) {
+      assert(
+        asset.expected_en_count === asset.current_en_count + asset.remaining_en_count,
+        `${location}/${asset.asset_id}: expected count must equal current plus remaining`,
+        errors
+      );
+    }
+  }
+}
+
+function validateLeafInvariants(artifact, manifest, manifestSha256) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
+  const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifact.lane_id);
+  assert(Boolean(registeredLane), `${artifact.lane_id}: lane is not registered`, errors);
 
   if (artifact.artifact_kind === "lane_package") {
     assert(
@@ -355,14 +390,47 @@ function validateLeafInvariants(artifact) {
       "lane package artifact_files must match the required handoff list",
       errors
     );
+    assert(
+      artifact.output_directory === registeredLane?.output_directory,
+      `${artifact.lane_id}: package output_directory must match the master registry`,
+      errors
+    );
+    validateAssetCollection(artifact.assets, "$/assets", errors);
     for (const asset of artifact.assets) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match package lane`, errors);
     }
   }
 
   if (artifact.artifact_kind === "master_manifest_patch_candidate") {
+    assert(
+      artifact.base_manifest_sha256 === manifestSha256,
+      `${artifact.lane_id}: base_manifest_sha256 must match the current master manifest`,
+      errors
+    );
+    const currentIndex = EXPECTED_STATES.indexOf(registeredLane?.status);
+    const expectedNextStatus = currentIndex >= 0 ? EXPECTED_STATES[currentIndex + 1] : undefined;
+    assert(
+      artifact.proposed_status === "blocked" || artifact.proposed_status === expectedNextStatus,
+      `${artifact.lane_id}: proposed_status must be blocked or the immediate next state ${expectedNextStatus ?? "none"}`,
+      errors
+    );
+    validateAssetCollection(artifact.asset_updates, "$/asset_updates", errors);
     for (const asset of artifact.asset_updates) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match candidate patch lane`, errors);
+      const existingAsset = manifest.assets.find((entry) => entry.asset_id === asset.asset_id);
+      const conflictingTranslationGroup = manifest.assets.find(
+        (entry) => entry.translation_group === asset.translation_group && entry.asset_id !== asset.asset_id
+      );
+      assert(
+        !existingAsset || existingAsset.translation_group === asset.translation_group,
+        `${asset.asset_id}: translation group cannot change from the master registry`,
+        errors
+      );
+      assert(
+        !conflictingTranslationGroup,
+        `${asset.asset_id}: translation group conflicts with ${conflictingTranslationGroup?.asset_id}`,
+        errors
+      );
     }
   }
 
@@ -411,6 +479,7 @@ function readArtifactArguments(argv) {
 export function validateControlArtifacts({ artifactPaths = [] } = {}) {
   const schema = readJson(DEFAULT_SCHEMA_PATH);
   const manifest = readJson(DEFAULT_MANIFEST_PATH);
+  const manifestSha256 = sha256File(DEFAULT_MANIFEST_PATH);
   const prompts = readJson(DEFAULT_PROMPTS_PATH);
   const errors = [
     ...schemaErrors(manifest, schema),
@@ -423,7 +492,7 @@ export function validateControlArtifacts({ artifactPaths = [] } = {}) {
     const artifact = readJson(artifactPath);
     checkedArtifacts.push(artifactPath);
     errors.push(...schemaErrors(artifact, schema).map((error) => `${artifactPath}: ${error}`));
-    errors.push(...validateLeafInvariants(artifact).map((error) => `${artifactPath}: ${error}`));
+    errors.push(...validateLeafInvariants(artifact, manifest, manifestSha256).map((error) => `${artifactPath}: ${error}`));
   }
 
   return {
