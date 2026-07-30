@@ -52424,5 +52424,66 @@
       }
     ],
     "updated_at": "2026-07-30T20:42:55Z"
+  },
+  "EN-PARITY-W3-ARTICLE-W9-QA-01": {
+    "status": "blocked",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-article-w9-qa-01",
+    "depends_on": [
+      "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
+    ],
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Current main is 54f6f615d79522d59eae7ab41ee88b6db7092c00, the CONTROL merge that accepted W3-ARTICLES package_frozen with exact package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750."
+      },
+      "package_integrity": {
+        "status": "pass",
+        "evidence": "The standard ten-file package is complete; all eight immutable payload SHA values recompute exactly; the aggregate package SHA is 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750; the registered asset set, 17 source identities/revisions, and all-false permissions match."
+      },
+      "w9_coverage": {
+        "status": "pass",
+        "evidence": "Independent W9 reviewed 17/17 registered rows and recorded all six required checks for each row under generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/."
+      },
+      "language_naturalness": {
+        "status": "fail",
+        "evidence": "12/17 rows contain explicit reader-visible English defects, including broken quotation/agreement, repeated phrases, missing determiners, duplicated RIASEC/RIASEC, and non-idiomatic machine-translation constructions."
+      },
+      "other_required_qa_checks": {
+        "status": "pass",
+        "evidence": "Chinese leakage, claim boundary, asset duplication, internal-field leakage, and page/API alignment passed for all 17 registered rows."
+      },
+      "qa_report_sha": {
+        "status": "pass",
+        "evidence": "The strict independent QA report SHA256 is 3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192 and names the exact frozen package SHA."
+      },
+      "control_validator": {
+        "status": "pass",
+        "evidence": "validate-en-content-parity-control accepted the strict W9 BLOCKED report against current master with zero errors. The already-consumed producer package_frozen candidate is intentionally stale against the advanced master and was not treated as a new transition."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "JSON parsing, allowed-path review, producer-payload and CONTROL-master zero-diff assertions, report/package SHA checks, and git diff --check passed."
+      }
+    },
+    "failure_reason": "Independent W9 language_naturalness is BLOCKED for 12 of 17 Article rows. qa_pass is not authorized; the producer payload must not be repaired in this W9 scope.",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T21:10:06Z",
+        "status": "blocked",
+        "summary": "Completed independent 17/17 W9 review of exact frozen package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750. Package integrity and five required QA checks pass, but language_naturalness is BLOCKED on 12 reader-visible rows. The W9 report is BLOCKED, qa_pass is not authorized, and no producer payload, CONTROL master, CMS, publication, indexability, search, or deploy state was changed."
+      }
+    ],
+    "updated_at": "2026-07-30T21:10:06Z"
   }
 }
