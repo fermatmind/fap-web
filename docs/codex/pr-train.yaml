@@ -27642,7 +27642,7 @@ prs:
     mode: execute
     train_scope: en_parity_w1_mbti_inventory_freeze
     risk_level: L1
-    status: local_verified
+    status: github_checks_pending
     goal: "Commit the exact validated W1 MBTI English parity inventory package and candidate-only control handoff without producing English copy or changing runtime, CMS, publication, or discoverability state."
     allowed_paths:
       - generated/en-content-parity/W1-mbti/**

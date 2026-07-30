@@ -51877,9 +51877,9 @@
     "base": "main",
     "branch": "codex/en-parity-w1-mbti-inventory-01",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "20a462bae0947d84ee988f9e97a5a61282c6d76e",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1847",
     "checks": {
       "authorization": {
         "status": "passed",
@@ -51916,6 +51916,10 @@
       "changed_file_scope": {
         "status": "passed",
         "evidence": "The staged inventory contains exactly 12 allowed files: ten immutable/candidate W1 package handoff files and the two fap-web train manifest/state files. No master manifest, runtime, CMS, publication, discoverability, or future-PR file is staged."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1847 is open from exact implementation commit 20a462bae0947d84ee988f9e97a5a61282c6d76e; exact-head required checks must pass before merge."
       }
     },
     "failure_reason": null,
@@ -51945,8 +51949,13 @@
         "at": "2026-07-30T15:24:14Z",
         "status": "local_verified",
         "summary": "Both artifact validators passed with the exact locked package SHA; the focused contract passed 25/25 under the declared package-isolation procedure; YAML/JSON parsing and diff checks passed. The initial direct contract collision is recorded as a fixture setup limitation, not hidden."
+      },
+      {
+        "at": "2026-07-30T15:27:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact 12-file scope as 20a462bae0947d84ee988f9e97a5a61282c6d76e, pushed the scoped branch, and opened PR #1847. Required GitHub checks are pending on the final ledger head."
       }
     ],
-    "updated_at": "2026-07-30T15:24:14Z"
+    "updated_at": "2026-07-30T15:27:00Z"
   }
 }
