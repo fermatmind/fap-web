@@ -14,6 +14,13 @@ This producer package contains exactly 17 English Article candidates bound to th
 - Candidate media references are omitted pending import-contract and Media Library clearance.
 - Producer review covers all 17 titles, excerpts, full Markdown bodies, links, claim boundaries, and media-omission decisions.
 
+## W9-directed producer rework
+
+- Prior frozen package SHA: `7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750`.
+- Independent W9 BLOCKED report SHA: `3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192`.
+- Repaired rows: W3-ARTICLE-01, W3-ARTICLE-02, W3-ARTICLE-04, W3-ARTICLE-05, W3-ARTICLE-06, W3-ARTICLE-08, W3-ARTICLE-09, W3-ARTICLE-51, W3-ARTICLE-52, W3-ARTICLE-53, W3-ARTICLE-55, W3-ARTICLE-59.
+- All 17 rows were re-reviewed; PR review residual-language findings in rows 53, 55, and 58 were also repaired before re-freeze, 3 duplicated RIASEC tokens and the remaining Sunshine Gaokao proper-name typo were removed across the package. The rebuilt package requires a fresh independent W9 window and cannot reuse the prior report.
+
 ## Deferred gates
 
 - This completed producer review is not W9. Naturalness, claim boundary, asset duplication, field leakage, page/API alignment, and every registered row/field still require independent W9 review against the exact frozen SHA.
