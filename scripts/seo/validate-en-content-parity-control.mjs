@@ -47,6 +47,17 @@ const PROTECTED_ASSET_FIELDS = [
   "locales",
   "authority_source",
 ];
+const FROZEN_INVENTORY_COUNT_FIELDS = [
+  "expected_en_count",
+  "current_en_count",
+  "remaining_en_count",
+];
+const IN_PACKAGE_GATE_REPORT_FILES = {
+  inventory_frozen: "source_ledger.json",
+  package_in_progress: "source_ledger.json",
+  package_frozen: "editorial_review.json",
+  blocked: "claim_boundary_report.json",
+};
 const EXPECTED_QA_CHECKS = [
   "language_naturalness",
   "chinese_leakage",
@@ -83,6 +94,42 @@ function packageSha256(files) {
 function isPathInside(candidatePath, authorityDirectory) {
   const relativePath = path.relative(authorityDirectory, candidatePath);
   return relativePath !== "" && !relativePath.startsWith(`..${path.sep}`) && relativePath !== ".." && !path.isAbsolute(relativePath);
+}
+
+function validateArtifactAuthorityPath(
+  artifactPath,
+  authorityDirectory,
+  expectedFileName,
+  errorPrefix,
+  errors
+) {
+  const resolvedArtifactPath = path.isAbsolute(artifactPath)
+    ? artifactPath
+    : path.join(ROOT, artifactPath);
+  assert(
+    path.basename(resolvedArtifactPath) === expectedFileName,
+    `${errorPrefix} must use ${expectedFileName}`,
+    errors
+  );
+  const registeredDirectory = path.resolve(ROOT, authorityDirectory);
+  assert(
+    path.dirname(path.resolve(resolvedArtifactPath)) === registeredDirectory,
+    `${errorPrefix} must reside directly inside the registered output directory`,
+    errors
+  );
+  try {
+    const realAuthorityDirectory = fs.realpathSync(registeredDirectory);
+    const realArtifactPath = fs.realpathSync(resolvedArtifactPath);
+    assert(
+      path.dirname(realArtifactPath) === realAuthorityDirectory,
+      `${errorPrefix} must reside directly inside the registered output directory`,
+      errors
+    );
+  } catch (error) {
+    errors.push(
+      `${errorPrefix} authority path cannot be verified (${error instanceof Error ? error.message : String(error)})`
+    );
+  }
 }
 
 function stateIndex(status) {
@@ -311,6 +358,17 @@ function validateMasterInvariants(manifest) {
   assert(sameValue(producerIds, EXPECTED_PRODUCER_IDS), "exactly W1 through W8 must be producer lanes", errors);
   assert(sameValue(qaIds, ["W9"]), "W9 must be the only independent QA lane", errors);
   assert(new Set(outputDirectories).size === outputDirectories.length, "lane output directories must be unique", errors);
+  assert(
+    manifest.authority.controlled_transition_approval_directory ===
+      "generated/en-content-parity/CONTROL-approvals/",
+    "CONTROL approval authority directory drifted",
+    errors
+  );
+  assert(
+    !outputDirectories.includes(manifest.authority.controlled_transition_approval_directory),
+    "CONTROL approval authority directory must not overlap a lane output directory",
+    errors
+  );
   assert(!hasDependencyCycle(lanes), "lane dependency graph must be acyclic", errors);
 
   const knownLaneIds = new Set(laneIds);
@@ -676,7 +734,7 @@ function validateSubscopeSequence(lane, packageTarget, proposedStatus, errors) {
   }
   const predecessor = lane.subscopes.find((subscope) => subscope.sequence === packageTarget.sequence - 1);
   assert(
-    predecessor && stateIndex(predecessor.status) >= stateIndex("package_frozen"),
+    predecessor && stateIndex(progressionStatus(predecessor)) >= stateIndex("package_frozen"),
     `${lane.lane_id}: predecessor ${predecessor?.id ?? "subscope"} must reach package_frozen before this subscope starts`,
     errors
   );
@@ -750,6 +808,26 @@ function validatePackageShaManifest(
   );
 
   const packageDirectory = path.dirname(shaManifestPath);
+  const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
+  const registeredPackageDirectory = path.resolve(ROOT, packageTarget?.outputDirectory ?? "");
+  assert(
+    path.resolve(packageDirectory) === registeredPackageDirectory,
+    `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
+    errors
+  );
+  try {
+    const realPackageDirectory = fs.realpathSync(packageDirectory);
+    const realRegisteredDirectory = fs.realpathSync(registeredPackageDirectory);
+    assert(
+      realPackageDirectory === realRegisteredDirectory,
+      `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
+      errors
+    );
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: package output authority path cannot be verified (${error instanceof Error ? error.message : String(error)})`
+    );
+  }
   for (const file of shaManifest.files) {
     if (!file || typeof file.path !== "string" || typeof file.sha256 !== "string") {
       errors.push(`${artifact.lane_id}: package SHA manifest contains a malformed file entry`);
@@ -800,7 +878,6 @@ function validatePackageShaManifest(
   try {
     const scopeManifestPath = path.join(packageDirectory, "scope_manifest.json");
     const scopeManifest = JSON.parse(fs.readFileSync(scopeManifestPath, "utf8"));
-    const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
     errors.push(
       ...schemaErrors(scopeManifest, schema).map(
         (error) => `${artifact.lane_id}: embedded scope manifest Schema error: ${error}`
@@ -873,6 +950,80 @@ function validatePackageShaManifest(
     );
   }
   return { packageDirectory, shaManifest };
+}
+
+function validateInPackageGateEvidence(artifact, packageContext, errors) {
+  if (!packageContext || !artifact.gate_evidence.report_in_package) {
+    return;
+  }
+  const expectedReportPath = IN_PACKAGE_GATE_REPORT_FILES[artifact.proposed_status];
+  assert(
+    artifact.gate_evidence.report_path === expectedReportPath,
+    `${artifact.lane_id}: ${artifact.proposed_status} evidence must use ${expectedReportPath ?? "a registered gate report"}`,
+    errors
+  );
+  if (!expectedReportPath) {
+    return;
+  }
+
+  let report;
+  try {
+    report = JSON.parse(
+      fs.readFileSync(path.join(packageContext.packageDirectory, expectedReportPath), "utf8")
+    );
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot parse ${artifact.proposed_status} gate report (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  if (expectedReportPath === "source_ledger.json") {
+    assert(
+      report.schema_version === "fermatmind.en_content_parity_source_ledger.v1",
+      `${artifact.lane_id}: source ledger schema version is invalid`,
+      errors
+    );
+    assert(report.lane_id === artifact.lane_id, `${artifact.lane_id}: source ledger lane mismatch`, errors);
+    assert(report.subscope_id === artifact.subscope_id, `${artifact.lane_id}: source ledger subscope mismatch`, errors);
+    assert(report.package_id === artifact.package_id, `${artifact.lane_id}: source ledger package mismatch`, errors);
+    assert(Array.isArray(report.rows), `${artifact.lane_id}: source ledger rows must be an array`, errors);
+    if (Array.isArray(report.rows)) {
+      assert(
+        report.rows.length === artifact.gate_evidence.row_count,
+        `${artifact.lane_id}: source ledger row count must match gate evidence`,
+        errors
+      );
+    }
+    return;
+  }
+
+  const expectedSchemaVersion =
+    expectedReportPath === "editorial_review.json"
+      ? "fermatmind.en_content_parity_editorial_review.v1"
+      : "fermatmind.en_content_parity_claim_boundary_report.v1";
+  const expectedVerdict = expectedReportPath === "editorial_review.json" ? "PASS" : "BLOCKED";
+  assert(
+    report.schema_version === expectedSchemaVersion,
+    `${artifact.lane_id}: ${expectedReportPath} schema version is invalid`,
+    errors
+  );
+  assert(report.lane_id === artifact.lane_id, `${artifact.lane_id}: ${expectedReportPath} lane mismatch`, errors);
+  assert(
+    report.subscope_id === artifact.subscope_id,
+    `${artifact.lane_id}: ${expectedReportPath} subscope mismatch`,
+    errors
+  );
+  assert(
+    report.package_id === artifact.package_id,
+    `${artifact.lane_id}: ${expectedReportPath} package mismatch`,
+    errors
+  );
+  assert(
+    report.verdict === expectedVerdict,
+    `${artifact.lane_id}: ${artifact.proposed_status} gate report verdict must be ${expectedVerdict}`,
+    errors
+  );
 }
 
 function validateIndependentQaEvidence(artifact, manifest, errors) {
@@ -1026,7 +1177,7 @@ function validateExternalTransitionEvidence(artifact, errors) {
   );
 }
 
-function validateControlledTransitionApproval(artifact, errors) {
+function validateControlledTransitionApproval(artifact, manifest, errors) {
   let approval;
   let approvalPath;
   try {
@@ -1044,6 +1195,15 @@ function validateControlledTransitionApproval(artifact, errors) {
       errors
     );
     approval = JSON.parse(fs.readFileSync(approvalPath, "utf8"));
+    const controlAuthorityDirectory = fs.realpathSync(
+      path.join(ROOT, manifest.authority.controlled_transition_approval_directory)
+    );
+    const realApprovalPath = fs.realpathSync(approvalPath);
+    assert(
+      isPathInside(realApprovalPath, controlAuthorityDirectory),
+      `${artifact.lane_id}: controlled transition approval must reside inside the registered CONTROL authority directory`,
+      errors
+    );
   } catch (error) {
     errors.push(
       `${artifact.lane_id}: cannot read controlled transition approval (${error instanceof Error ? error.message : String(error)})`
@@ -1267,6 +1427,15 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: package output_directory must match the master registry`,
       errors
     );
+    if (packageTarget?.outputDirectory) {
+      validateArtifactAuthorityPath(
+        artifactPath,
+        packageTarget.outputDirectory,
+        "scope_manifest.json",
+        `${artifact.lane_id}: lane package`,
+        errors
+      );
+    }
     validateAssetCollection(artifact.assets, "$/assets", errors);
     const packageAssetIds = artifact.assets.map((asset) => asset.asset_id).sort();
     if (packageTarget?.assetIds) {
@@ -1422,6 +1591,20 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         errors
       );
     }
+    if (currentIndex >= stateIndex("inventory_frozen")) {
+      for (const asset of assetUpdates) {
+        const registeredAsset = registeredTargetAssets.find(
+          (entry) => entry.asset_id === asset.asset_id
+        );
+        for (const countField of FROZEN_INVENTORY_COUNT_FIELDS) {
+          assert(
+            !registeredAsset || asset[countField] === registeredAsset[countField],
+            `${asset.asset_id}: frozen inventory count ${countField} cannot change after inventory_frozen`,
+            errors
+          );
+        }
+      }
+    }
     for (const asset of assetUpdates) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match candidate patch lane`, errors);
       const existingAsset = manifest.assets.find((entry) => entry.asset_id === asset.asset_id);
@@ -1501,10 +1684,11 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     if (artifact.proposed_status === "inventory_frozen" && !isBlockedRecovery) {
       validateInventoryPayload(artifact, packageContext, errors);
     }
+    validateInPackageGateEvidence(artifact, packageContext, errors);
     if (artifact.proposed_status === "qa_pass") {
       validateIndependentQaEvidence(artifact, manifest, errors);
     } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
-      validateControlledTransitionApproval(artifact, errors);
+      validateControlledTransitionApproval(artifact, manifest, errors);
     } else if (
       isBlockedRecovery ||
       currentIndex >= stateIndex("qa_pass") ||

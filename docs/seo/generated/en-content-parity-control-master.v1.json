@@ -56,7 +56,8 @@
     "frontend_role": "render_interact_and_adapt_only",
     "empty_response_behavior": "fail_closed_no_editorial_fallback",
     "search_projection_policy": "candidate_only_separate_release_gate",
-    "production_import_policy": "explicit_human_approval_exact_artifact_sha_required"
+    "production_import_policy": "explicit_human_approval_exact_artifact_sha_required",
+    "controlled_transition_approval_directory": "generated/en-content-parity/CONTROL-approvals/"
   },
   "state_machine": {
     "ordered_states": [

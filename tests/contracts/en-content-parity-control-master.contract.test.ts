@@ -168,6 +168,37 @@ function makeW9QaDirectory(): string {
   return fs.mkdtempSync(path.join(authorityDirectory, "contract-"));
 }
 
+function makeControlApprovalDirectory(): string {
+  const authorityDirectory = path.join(ROOT, "generated/en-content-parity/CONTROL-approvals");
+  fs.mkdirSync(authorityDirectory, { recursive: true });
+  return fs.mkdtempSync(path.join(authorityDirectory, "contract-"));
+}
+
+function makeRegisteredPackageDirectory(outputDirectory: string): string {
+  const packageDirectory = path.join(ROOT, outputDirectory);
+  fs.mkdirSync(packageDirectory, { recursive: true });
+  for (const fileName of ARTIFACT_FILES) {
+    if (fs.existsSync(path.join(packageDirectory, fileName))) {
+      throw new Error(`refusing to overwrite existing package artifact: ${outputDirectory}${fileName}`);
+    }
+  }
+  return packageDirectory;
+}
+
+function cleanupRegisteredPackageDirectory(
+  packageDirectory: string,
+  extraFileNames: string[] = []
+): void {
+  for (const fileName of [...ARTIFACT_FILES, ...extraFileNames]) {
+    fs.rmSync(path.join(packageDirectory, fileName), { force: true });
+  }
+  try {
+    fs.rmdirSync(packageDirectory);
+  } catch {
+    // Preserve a pre-existing or non-empty generated directory.
+  }
+}
+
 function writePackagePayload(
   tempDirectory: string,
   scopeManifest: Record<string, unknown>,
@@ -198,8 +229,26 @@ function writePackagePayload(
         rows: ledgerRows,
       }),
     ],
-    ["claim_boundary_report.json", JSON.stringify({ lane_id: laneId, verdict: "PASS" })],
-    ["editorial_review.json", JSON.stringify({ lane_id: laneId, verdict: "PENDING" })],
+    [
+      "claim_boundary_report.json",
+      JSON.stringify({
+        schema_version: "fermatmind.en_content_parity_claim_boundary_report.v1",
+        lane_id: laneId,
+        subscope_id: subscopeId,
+        package_id: packageId,
+        verdict: "PASS",
+      }),
+    ],
+    [
+      "editorial_review.json",
+      JSON.stringify({
+        schema_version: "fermatmind.en_content_parity_editorial_review.v1",
+        lane_id: laneId,
+        subscope_id: subscopeId,
+        package_id: packageId,
+        verdict: "PASS",
+      }),
+    ],
     ["dry_run_readiness.json", JSON.stringify({ lane_id: laneId, ready: false })],
     ["handoff.md", `# ${packageId}\n`],
   ]);
@@ -604,7 +653,10 @@ describe("English content parity control master", () => {
   it("retains and restores the pre-block state through an explicit recovery transition", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-block-recovery-"));
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
-    const candidatePath = path.join(tempDirectory, "master_manifest_patch.candidate.json");
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W3-editorial-cms/articles/"
+    );
+    const candidatePath = path.join(packageDirectory, "master_manifest_patch.candidate.json");
     const recoveryReportPath = path.join(tempDirectory, "recovery-report.json");
     const progressedManifest = structuredClone(manifest);
     const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
@@ -642,7 +694,7 @@ describe("English content parity control master", () => {
       assets: [articleAsset],
       permissions,
     };
-    const packageEvidence = writePackagePayload(tempDirectory, scopeManifest, [articleAsset]);
+    const packageEvidence = writePackagePayload(packageDirectory, scopeManifest, [articleAsset]);
     fs.writeFileSync(
       recoveryReportPath,
       JSON.stringify({
@@ -697,6 +749,7 @@ describe("English content parity control master", () => {
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory);
     }
   });
 
@@ -865,8 +918,12 @@ describe("English content parity control master", () => {
   it("accepts qa_pass only with an exact-SHA external W9 PASS report", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-gate-"));
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
-    const candidatePath = path.join(tempDirectory, "master_manifest_patch.candidate.json");
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W1-mbti/"
+    );
+    const candidatePath = path.join(packageDirectory, "master_manifest_patch.candidate.json");
     const qaAuthorityDirectory = makeW9QaDirectory();
+    const controlApprovalDirectory = makeControlApprovalDirectory();
     const qaReportPath = path.join(qaAuthorityDirectory, "w9-independent-qa-report.json");
     const progressedManifest = structuredClone(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
@@ -929,8 +986,8 @@ describe("English content parity control master", () => {
       assets: frozenAssets,
       permissions,
     };
-    const packageEvidence = writePackagePayload(tempDirectory, scopeManifest, frozenAssets);
-    const frozenReportRef = path.join(tempDirectory, "source_ledger.json");
+    const packageEvidence = writePackagePayload(packageDirectory, scopeManifest, frozenAssets);
+    const frozenReportRef = path.join(packageDirectory, "source_ledger.json");
     w1.package_sha256 = packageEvidence.packageSha256;
     w1.qa_report_ref = null;
     w1.gate_lineage = [
@@ -1008,7 +1065,7 @@ describe("English content parity control master", () => {
           "--manifest",
           progressedManifestPath,
           "--artifact",
-          path.join(tempDirectory, "scope_manifest.json"),
+          path.join(packageDirectory, "scope_manifest.json"),
           "--artifact",
           qaReportPath,
           "--artifact",
@@ -1018,7 +1075,7 @@ describe("English content parity control master", () => {
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
 
-      const coLocatedQaReportPath = path.join(tempDirectory, "producer-authored-w9-report.json");
+      const coLocatedQaReportPath = path.join(packageDirectory, "producer-authored-w9-report.json");
       fs.copyFileSync(qaReportPath, coLocatedQaReportPath);
       const coLocatedCandidate = JSON.parse(fs.readFileSync(candidatePath, "utf8")) as {
         gate_evidence: { report_path: string; report_sha256: string };
@@ -1131,7 +1188,7 @@ describe("English content parity control master", () => {
       });
       fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
-      const approvalPath = path.join(tempDirectory, "draft-import-approval.json");
+      const approvalPath = path.join(controlApprovalDirectory, "draft-import-approval.json");
       fs.writeFileSync(
         approvalPath,
         JSON.stringify({
@@ -1163,6 +1220,34 @@ describe("English content parity control master", () => {
         },
       };
       fs.writeFileSync(candidatePath, JSON.stringify(draftImportCandidate));
+      const coLocatedApprovalPath = path.join(packageDirectory, "producer-authored-control-approval.json");
+      fs.copyFileSync(approvalPath, coLocatedApprovalPath);
+      fs.writeFileSync(
+        candidatePath,
+        JSON.stringify({
+          ...draftImportCandidate,
+          gate_evidence: {
+            ...draftImportCandidate.gate_evidence,
+            report_path: coLocatedApprovalPath,
+            report_sha256: sha256AbsoluteFile(coLocatedApprovalPath),
+          },
+        })
+      );
+      let coLocatedApprovalOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        coLocatedApprovalOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(coLocatedApprovalOutput).errors.join("\n")).toContain(
+        "controlled transition approval must reside inside the registered CONTROL authority directory"
+      );
+
+      fs.writeFileSync(candidatePath, JSON.stringify(draftImportCandidate));
       const controlledOutput = execFileSync(
         "node",
         [
@@ -1180,13 +1265,21 @@ describe("English content parity control master", () => {
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
       fs.rmSync(qaAuthorityDirectory, { recursive: true, force: true });
+      fs.rmSync(controlApprovalDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory, [
+        "producer-authored-w9-report.json",
+        "producer-authored-control-approval.json",
+      ]);
     }
   });
 
   it("uses the same Schema to validate a lane package and candidate master patch", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-"));
-    const packagePath = path.join(tempDirectory, "scope_manifest.json");
-    const patchPath = path.join(tempDirectory, "master_manifest_patch.candidate.json");
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W1-mbti/"
+    );
+    const packagePath = path.join(packageDirectory, "scope_manifest.json");
+    const patchPath = path.join(packageDirectory, "master_manifest_patch.candidate.json");
     const inventoryAssets = manifest.assets
       .filter((entry) => entry.lane_id === "W1")
       .map((asset) =>
@@ -1225,7 +1318,7 @@ describe("English content parity control master", () => {
       assets: inventoryAssets,
       permissions,
     };
-    const packageEvidence = writePackagePayload(tempDirectory, scopeManifest, inventoryAssets);
+    const packageEvidence = writePackagePayload(packageDirectory, scopeManifest, inventoryAssets);
     fs.writeFileSync(
       patchPath,
       JSON.stringify({
@@ -1285,6 +1378,7 @@ describe("English content parity control master", () => {
       );
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory);
     }
   });
 
@@ -1317,7 +1411,10 @@ describe("English content parity control master", () => {
       assets: [articleAsset],
       permissions,
     });
-    const validPackagePath = path.join(tempDirectory, "valid-scope.json");
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W3-editorial-cms/articles/"
+    );
+    const validPackagePath = path.join(packageDirectory, "scope_manifest.json");
     const invalidPackagePath = path.join(tempDirectory, "invalid-scope.json");
     fs.writeFileSync(validPackagePath, JSON.stringify(makePackage("generated/en-content-parity/W3-editorial-cms/articles/")));
     fs.writeFileSync(invalidPackagePath, JSON.stringify(makePackage("generated/en-content-parity/W3-editorial-cms/")));
@@ -1344,6 +1441,7 @@ describe("English content parity control master", () => {
       );
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory);
     }
   });
 
@@ -1371,6 +1469,7 @@ describe("English content parity control master", () => {
       },
     ];
     const artifactPathsBySubscope = new Map<string, string[]>();
+    const packageDirectories: string[] = [];
 
     try {
       for (const entry of cases) {
@@ -1378,8 +1477,8 @@ describe("English content parity control master", () => {
         if (!asset) {
           throw new Error(`missing ${entry.assetId} fixture`);
         }
-        const tempDirectory = path.join(tempRoot, entry.subscopeId);
-        fs.mkdirSync(tempDirectory);
+        const tempDirectory = makeRegisteredPackageDirectory(entry.outputDirectory);
+        packageDirectories.push(tempDirectory);
         const packageId = `${entry.subscopeId}-contract-sample`;
         const scopeManifest = {
           $schema: SCHEMA_PATH,
@@ -1454,8 +1553,388 @@ describe("English content parity control master", () => {
       expect(JSON.parse(careerOutput).errors.join("\n")).toContain(
         "predecessor W3-ARTICLES must reach package_frozen before this subscope starts"
       );
+
+      const blockedPredecessorManifest = structuredClone(manifest);
+      const blockedW3 = blockedPredecessorManifest.lanes.find((lane) => lane.lane_id === "W3");
+      const blockedArticles = blockedW3?.subscopes.find(
+        (subscope) => subscope.id === "W3-ARTICLES"
+      );
+      if (!blockedW3 || !blockedArticles) {
+        throw new Error("missing blocked W3 predecessor fixture");
+      }
+      blockedW3.status = "blocked";
+      blockedW3.blocked_from_status = "inventory_frozen";
+      blockedArticles.status = "blocked";
+      blockedArticles.blocked_from_status = "package_frozen";
+      blockedArticles.package_sha256 = "a".repeat(64);
+      blockedArticles.gate_lineage = [
+        {
+          status: "package_frozen",
+          evidence_owner_lane_id: "W3",
+          report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+          report_sha256: "b".repeat(64),
+          package_sha256: "a".repeat(64),
+          accepted_at: "2026-07-30T12:00:00.000Z",
+        },
+      ];
+      const blockedPredecessorManifestPath = path.join(
+        tempRoot,
+        "blocked-predecessor-master.json"
+      );
+      fs.writeFileSync(
+        blockedPredecessorManifestPath,
+        JSON.stringify(blockedPredecessorManifest)
+      );
+      const careerCandidatePath = (
+        artifactPathsBySubscope.get("W3-CAREER-GUIDES") ?? []
+      )[1];
+      if (!careerCandidatePath) {
+        throw new Error("missing W3 Career Guide candidate fixture");
+      }
+      const careerCandidate = JSON.parse(
+        fs.readFileSync(careerCandidatePath, "utf8")
+      ) as { base_manifest_sha256: string };
+      careerCandidate.base_manifest_sha256 = sha256AbsoluteFile(
+        blockedPredecessorManifestPath
+      );
+      fs.writeFileSync(careerCandidatePath, JSON.stringify(careerCandidate));
+      const blockedPredecessorOutput = execFileSync(
+        "node",
+        [
+          VALIDATOR_PATH,
+          "--manifest",
+          blockedPredecessorManifestPath,
+          "--artifact",
+          careerCandidatePath,
+        ],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(blockedPredecessorOutput)).toMatchObject({
+        ok: true,
+        errors: [],
+      });
     } finally {
       fs.rmSync(tempRoot, { recursive: true, force: true });
+      for (const packageDirectory of packageDirectories) {
+        cleanupRegisteredPackageDirectory(packageDirectory);
+      }
+    }
+  });
+
+  it("preserves inventory counts after inventory_frozen", () => {
+    const tempDirectory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "en-parity-control-frozen-counts-")
+    );
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W1-mbti/"
+    );
+    const progressedManifest = structuredClone(manifest);
+    const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
+    if (!w1) {
+      throw new Error("missing W1 frozen inventory fixture");
+    }
+    const frozenAssets = progressedManifest.assets
+      .filter((asset) => asset.lane_id === "W1")
+      .map((asset) =>
+        asset.parity_state === "inventory_required"
+          ? {
+              ...asset,
+              expected_en_count: 16,
+              current_en_count: 0,
+              remaining_en_count: 16,
+              parity_state: "en_missing",
+            }
+          : asset
+      );
+    progressedManifest.assets = progressedManifest.assets.map(
+      (asset) =>
+        frozenAssets.find((frozenAsset) => frozenAsset.asset_id === asset.asset_id) ??
+        asset
+    );
+    w1.status = "inventory_frozen";
+    w1.counts = {
+      cohort_count: frozenAssets.length,
+      expected_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.expected_en_count ?? 0),
+        0
+      ),
+      current_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.current_en_count ?? 0),
+        0
+      ),
+      remaining_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.remaining_en_count ?? 0),
+        0
+      ),
+      unknown_inventory_cohorts: 0,
+    };
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+    const changedAssets = frozenAssets.map((asset, index) =>
+      index === 0
+        ? {
+            ...asset,
+            expected_en_count: (asset.expected_en_count ?? 0) + 1,
+            remaining_en_count: (asset.remaining_en_count ?? 0) + 1,
+          }
+        : asset
+    );
+    const permissions: Permissions = {
+      cms_write_authorized: false,
+      staging_write_authorized: false,
+      production_import_authorized: false,
+      public_release_authorized: false,
+      seo_runtime_release_authorized: false,
+      search_submission_authorized: false,
+      master_manifest_write_authorized: false,
+    };
+    const scopeManifest = {
+      $schema: SCHEMA_PATH,
+      artifact_kind: "lane_package",
+      schema_version: "fermatmind.en_content_parity_lane_package.v1",
+      control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+      lane_id: "W1",
+      subscope_id: null,
+      package_id: "W1-frozen-count-drift",
+      status: "package_in_progress",
+      output_directory: "generated/en-content-parity/W1-mbti/",
+      artifact_files: ARTIFACT_FILES,
+      assets: changedAssets,
+      permissions,
+    };
+    const packageEvidence = writePackagePayload(
+      packageDirectory,
+      scopeManifest,
+      changedAssets
+    );
+    const candidatePath = path.join(
+      packageDirectory,
+      "master_manifest_patch.candidate.json"
+    );
+    fs.writeFileSync(
+      candidatePath,
+      JSON.stringify({
+        $schema: SCHEMA_PATH,
+        artifact_kind: "master_manifest_patch_candidate",
+        schema_version: "fermatmind.en_content_parity_master_patch_candidate.v1",
+        control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+        lane_id: "W1",
+        subscope_id: null,
+        package_id: "W1-frozen-count-drift",
+        base_manifest_sha256: sha256AbsoluteFile(progressedManifestPath),
+        sha256_manifest_path: packageEvidence.shaManifestPath,
+        package_sha256: packageEvidence.packageSha256,
+        proposed_status: "package_in_progress",
+        gate_evidence: {
+          gate: "package_in_progress",
+          report_path: "source_ledger.json",
+          report_sha256: packageEvidence.reportSha256,
+          report_in_package: true,
+          owner_lane_id: "W1",
+          verdict: null,
+          asset_ids: changedAssets.map((asset) => asset.asset_id),
+          row_count: changedAssets.reduce(
+            (total, asset) => total + (asset.expected_en_count ?? 0),
+            0
+          ),
+        },
+        asset_updates: changedAssets,
+        permissions,
+      })
+    );
+
+    try {
+      let output = "";
+      try {
+        execFileSync(
+          "node",
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            progressedManifestPath,
+            "--artifact",
+            candidatePath,
+          ],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "pipe"],
+          }
+        );
+      } catch (error) {
+        output = (error as { stdout?: string }).stdout ?? "";
+      }
+      const errors = (JSON.parse(output) as { errors: string[] }).errors.join("\n");
+      expect(errors).toContain(
+        "frozen inventory count expected_en_count cannot change after inventory_frozen"
+      );
+      expect(errors).toContain(
+        "frozen inventory count remaining_en_count cannot change after inventory_frozen"
+      );
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory);
+    }
+  });
+
+  it("requires the transition-specific in-package gate report semantics", () => {
+    const tempDirectory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "en-parity-control-package-gate-")
+    );
+    const packageDirectory = makeRegisteredPackageDirectory(
+      "generated/en-content-parity/W1-mbti/"
+    );
+    const progressedManifest = structuredClone(manifest);
+    const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
+    if (!w1) {
+      throw new Error("missing W1 package gate fixture");
+    }
+    const frozenAssets = progressedManifest.assets
+      .filter((asset) => asset.lane_id === "W1")
+      .map((asset) =>
+        asset.parity_state === "inventory_required"
+          ? {
+              ...asset,
+              expected_en_count: 16,
+              current_en_count: 0,
+              remaining_en_count: 16,
+              parity_state: "en_missing",
+            }
+          : asset
+      );
+    progressedManifest.assets = progressedManifest.assets.map(
+      (asset) =>
+        frozenAssets.find((frozenAsset) => frozenAsset.asset_id === asset.asset_id) ??
+        asset
+    );
+    w1.status = "package_in_progress";
+    w1.counts = {
+      cohort_count: frozenAssets.length,
+      expected_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.expected_en_count ?? 0),
+        0
+      ),
+      current_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.current_en_count ?? 0),
+        0
+      ),
+      remaining_en_assets: frozenAssets.reduce(
+        (total, asset) => total + (asset.remaining_en_count ?? 0),
+        0
+      ),
+      unknown_inventory_cohorts: 0,
+    };
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+    const permissions: Permissions = {
+      cms_write_authorized: false,
+      staging_write_authorized: false,
+      production_import_authorized: false,
+      public_release_authorized: false,
+      seo_runtime_release_authorized: false,
+      search_submission_authorized: false,
+      master_manifest_write_authorized: false,
+    };
+    const scopeManifest = {
+      $schema: SCHEMA_PATH,
+      artifact_kind: "lane_package",
+      schema_version: "fermatmind.en_content_parity_lane_package.v1",
+      control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+      lane_id: "W1",
+      subscope_id: null,
+      package_id: "W1-package-gate",
+      status: "package_frozen",
+      output_directory: "generated/en-content-parity/W1-mbti/",
+      artifact_files: ARTIFACT_FILES,
+      assets: frozenAssets,
+      permissions,
+    };
+    const packageEvidence = writePackagePayload(
+      packageDirectory,
+      scopeManifest,
+      frozenAssets
+    );
+    const candidatePath = path.join(
+      packageDirectory,
+      "master_manifest_patch.candidate.json"
+    );
+    const expectedRowCount = frozenAssets.reduce(
+      (total, asset) => total + (asset.expected_en_count ?? 0),
+      0
+    );
+    const candidate = {
+      $schema: SCHEMA_PATH,
+      artifact_kind: "master_manifest_patch_candidate",
+      schema_version: "fermatmind.en_content_parity_master_patch_candidate.v1",
+      control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+      lane_id: "W1",
+      subscope_id: null,
+      package_id: "W1-package-gate",
+      base_manifest_sha256: sha256AbsoluteFile(progressedManifestPath),
+      sha256_manifest_path: packageEvidence.shaManifestPath,
+      package_sha256: packageEvidence.packageSha256,
+      proposed_status: "package_frozen",
+      gate_evidence: {
+        gate: "package_frozen",
+        report_path: "handoff.md",
+        report_sha256: sha256AbsoluteFile(path.join(packageDirectory, "handoff.md")),
+        report_in_package: true,
+        owner_lane_id: "W1",
+        verdict: null,
+        asset_ids: frozenAssets.map((asset) => asset.asset_id),
+        row_count: expectedRowCount,
+      },
+      asset_updates: frozenAssets,
+      permissions,
+    };
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      let invalidOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            progressedManifestPath,
+            "--artifact",
+            candidatePath,
+          ],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "pipe"],
+          }
+        );
+      } catch (error) {
+        invalidOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(invalidOutput).errors.join("\n")).toContain(
+        "package_frozen evidence must use editorial_review.json"
+      );
+
+      candidate.gate_evidence.report_path = "editorial_review.json";
+      candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(
+        path.join(packageDirectory, "editorial_review.json")
+      );
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      const validOutput = execFileSync(
+        "node",
+        [
+          VALIDATOR_PATH,
+          "--manifest",
+          progressedManifestPath,
+          "--artifact",
+          candidatePath,
+        ],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(validOutput)).toMatchObject({ ok: true, errors: [] });
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+      cleanupRegisteredPackageDirectory(packageDirectory);
     }
   });
 
@@ -1546,6 +2025,9 @@ describe("English content parity control master", () => {
       const report = JSON.parse(output) as { ok: boolean; errors: string[] };
       expect(report.ok).toBe(false);
       expect(report.errors.join("\n")).toContain("package output_directory must match the master registry");
+      expect(report.errors.join("\n")).toContain(
+        "package files must reside directly inside the registered output directory"
+      );
       expect(report.errors.join("\n")).toContain("base_manifest_sha256 must match the current master manifest");
       expect(report.errors.join("\n")).toContain("proposed_status must be blocked or the immediate next state inventory_frozen");
       expect(report.errors.join("\n")).toContain("asset IDs must be unique");
