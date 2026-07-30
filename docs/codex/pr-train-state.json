@@ -52510,12 +52510,12 @@
     "updated_at": "2026-07-30T21:19:45Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
     "depends_on": [],
     "commit_sha": "c12ee5e7665f341772c5f2a2711fa83c851ec105",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1861",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52570,8 +52570,13 @@
         "at": "2026-07-30T22:36:58.000Z",
         "status": "local_verified",
         "summary": "Committed the locally verified runtime implementation and current train metadata as c12ee5e7665f341772c5f2a2711fa83c851ec105. All production, CMS, publication, search, and deploy execution flags remain false."
+      },
+      {
+        "at": "2026-07-30T22:37:41.000Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1861 from the locally verified branch. Required build, contract shards/aggregate, freeze checks, and CodeQL are pending; no staging or deploy wait is included."
       }
     ],
-    "updated_at": "2026-07-30T22:36:58.000Z"
+    "updated_at": "2026-07-30T22:37:41.000Z"
   }
 }
