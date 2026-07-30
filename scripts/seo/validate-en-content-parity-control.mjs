@@ -766,11 +766,17 @@ function validatePackageShaManifest(
       `${artifact.lane_id}: candidate patch must use the registered handoff filename`,
       errors
     );
-    assert(
-      path.dirname(candidatePath) === path.dirname(shaManifestPath),
-      `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
-      errors
-    );
+    const isIndependentQaBlocker =
+      artifact.proposed_status === "blocked" &&
+      artifact.gate_evidence?.owner_lane_id === "W9" &&
+      artifact.gate_evidence?.report_in_package === false;
+    if (!isIndependentQaBlocker) {
+      assert(
+        path.dirname(candidatePath) === path.dirname(shaManifestPath),
+        `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
+        errors
+      );
+    }
     shaManifest = JSON.parse(fs.readFileSync(shaManifestPath, "utf8"));
   } catch (error) {
     errors.push(
@@ -1026,7 +1032,7 @@ function validateInPackageGateEvidence(artifact, packageContext, errors) {
   );
 }
 
-function validateIndependentQaEvidence(artifact, manifest, errors) {
+function validateIndependentQaEvidence(artifact, manifest, artifactPath, expectedVerdict, errors) {
   let qaReport;
   let qaReportPath;
   try {
@@ -1083,7 +1089,11 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
   assert(qaReport.producer_lane_id === artifact.lane_id, `${artifact.lane_id}: W9 QA producer lane mismatch`, errors);
   assert(qaReport.subscope_id === artifact.subscope_id, `${artifact.lane_id}: W9 QA subscope mismatch`, errors);
   assert(qaReport.package_sha256 === artifact.package_sha256, `${artifact.lane_id}: W9 QA package SHA mismatch`, errors);
-  assert(qaReport.verdict === "PASS", `${artifact.lane_id}: W9 QA verdict must be PASS`, errors);
+  assert(
+    qaReport.verdict === expectedVerdict,
+    `${artifact.lane_id}: W9 QA verdict must be ${expectedVerdict}`,
+    errors
+  );
   assert(
     qaReport.reviewed_row_count === artifact.gate_evidence.row_count,
     `${artifact.lane_id}: W9 QA reviewed row count must match gate evidence`,
@@ -1099,8 +1109,108 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
     `${artifact.lane_id}: W9 QA report must include every required check`,
     errors
   );
-  for (const check of EXPECTED_QA_CHECKS) {
-    assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+  if (expectedVerdict === "PASS") {
+    for (const check of EXPECTED_QA_CHECKS) {
+      assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+    }
+  } else {
+    assert(
+      EXPECTED_QA_CHECKS.some((check) => qaReport.checks?.[check] === "BLOCKED"),
+      `${artifact.lane_id}: W9 BLOCKED verdict requires at least one blocked QA check`,
+      errors
+    );
+  }
+
+  if (expectedVerdict !== "BLOCKED") {
+    return;
+  }
+
+  try {
+    const qaAuthorityDirectory = fs.realpathSync(
+      path.join(ROOT, manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory ?? "")
+    );
+    const candidatePath = fs.realpathSync(
+      path.isAbsolute(artifactPath) ? artifactPath : path.join(ROOT, artifactPath)
+    );
+    assert(
+      isPathInside(candidatePath, qaAuthorityDirectory),
+      `${artifact.lane_id}: W9 blocker candidate must reside inside the registered W9 authority directory`,
+      errors
+    );
+    const rowEvidence = artifact.gate_evidence.row_evidence;
+    assert(Boolean(rowEvidence), `${artifact.lane_id}: W9 blocker candidate must bind row evidence`, errors);
+    if (!rowEvidence) {
+      return;
+    }
+    const rowEvidencePath = path.isAbsolute(rowEvidence.path)
+      ? rowEvidence.path
+      : path.join(ROOT, rowEvidence.path);
+    assert(
+      fs.existsSync(rowEvidencePath) && fs.statSync(rowEvidencePath).isFile(),
+      `${artifact.lane_id}: W9 row evidence file is missing`,
+      errors
+    );
+    assert(
+      sha256File(rowEvidencePath) === rowEvidence.sha256,
+      `${artifact.lane_id}: W9 row evidence SHA mismatch`,
+      errors
+    );
+    const realRowEvidencePath = fs.realpathSync(rowEvidencePath);
+    assert(
+      isPathInside(realRowEvidencePath, qaAuthorityDirectory),
+      `${artifact.lane_id}: W9 row evidence must reside inside the registered W9 authority directory`,
+      errors
+    );
+    const rowEvidenceArtifact = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
+    assert(
+      rowEvidenceArtifact.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+      `${artifact.lane_id}: W9 row evidence schema version is invalid`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01",
+      `${artifact.lane_id}: W9 row evidence control ID mismatch`,
+      errors
+    );
+    assert(rowEvidenceArtifact.qa_lane_id === "W9", `${artifact.lane_id}: W9 row evidence owner mismatch`, errors);
+    assert(
+      rowEvidenceArtifact.producer_lane_id === artifact.lane_id,
+      `${artifact.lane_id}: W9 row evidence producer lane mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.subscope_id === artifact.subscope_id,
+      `${artifact.lane_id}: W9 row evidence subscope mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.package_id === artifact.package_id,
+      `${artifact.lane_id}: W9 row evidence package ID mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.package_sha256 === artifact.package_sha256,
+      `${artifact.lane_id}: W9 row evidence package SHA mismatch`,
+      errors
+    );
+    assert(rowEvidenceArtifact.verdict === "BLOCKED", `${artifact.lane_id}: W9 row evidence verdict must be BLOCKED`, errors);
+    assert(
+      rowEvidenceArtifact.reviewed_row_count === artifact.gate_evidence.row_count,
+      `${artifact.lane_id}: W9 row evidence row count must match gate evidence`,
+      errors
+    );
+    assert(
+      sameValue(
+        [...(rowEvidenceArtifact.reviewed_asset_ids ?? [])].sort(),
+        [...artifact.gate_evidence.asset_ids].sort()
+      ),
+      `${artifact.lane_id}: W9 row evidence assets must match gate evidence`,
+      errors
+    );
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot validate W9 blocker row evidence (${error instanceof Error ? error.message : String(error)})`
+    );
   }
 }
 
@@ -1607,6 +1717,17 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         errors
       );
     } else if (
+      currentIndex >= stateIndex("package_frozen") &&
+      artifact.proposed_status === "blocked" &&
+      gateEvidence.owner_lane_id === "W9"
+    ) {
+      assert(
+        gateEvidence.report_in_package === false,
+        `${artifact.lane_id}: W9 blocker evidence must remain outside the immutable package`,
+        errors
+      );
+      assert(gateEvidence.verdict === "BLOCKED", `${artifact.lane_id}: W9 blocker verdict must be BLOCKED`, errors);
+    } else if (
       isBlockedRecovery ||
       currentIndex >= stateIndex("qa_pass") ||
       (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")
@@ -1784,7 +1905,13 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     validateInPackageGateEvidence(artifact, packageContext, errors);
     if (artifact.proposed_status === "qa_pass") {
-      validateIndependentQaEvidence(artifact, manifest, errors);
+      validateIndependentQaEvidence(artifact, manifest, artifactPath, "PASS", errors);
+    } else if (
+      currentIndex >= stateIndex("package_frozen") &&
+      artifact.proposed_status === "blocked" &&
+      gateEvidence.owner_lane_id === "W9"
+    ) {
+      validateIndependentQaEvidence(artifact, manifest, artifactPath, "BLOCKED", errors);
     } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
       validateControlledTransitionApproval(artifact, manifest, errors);
     } else if (

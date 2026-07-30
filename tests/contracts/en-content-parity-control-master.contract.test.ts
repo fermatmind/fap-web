@@ -899,6 +899,62 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("accepts a W9-owned blocker candidate only with exact report and row-evidence SHAs", () => {
+    const candidateDirectory = makeW9QaDirectory();
+    const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+    const checkedInCandidatePath = path.join(
+      ROOT,
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/master_manifest_patch.candidate.json"
+    );
+    const candidate = JSON.parse(fs.readFileSync(checkedInCandidatePath, "utf8")) as {
+      proposed_status: string;
+      gate_evidence: {
+        owner_lane_id: string;
+        verdict: string;
+        row_count: number;
+        row_evidence: { path: string; sha256: string };
+      };
+      permissions: Permissions;
+    };
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--artifact", candidatePath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      expect(candidate).toMatchObject({
+        proposed_status: "blocked",
+        gate_evidence: {
+          owner_lane_id: "W9",
+          verdict: "BLOCKED",
+          row_count: 17,
+        },
+      });
+      expect(Object.values(candidate.permissions)).toEqual(
+        Array(Object.keys(candidate.permissions).length).fill(false)
+      );
+
+      candidate.gate_evidence.row_evidence.sha256 = "0".repeat(64);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      let failedOutput = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        failedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(failedOutput).errors.join("\n")).toContain("W9 row evidence SHA mismatch");
+    } finally {
+      fs.rmSync(candidateDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
     const invalidApprovalDirectory = makeControlApprovalDirectory();
