@@ -52433,7 +52433,7 @@
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
     "commit_sha": "5a4ad5ae515bf18b739e4d13ab38d9d905d6c490",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1856",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52487,8 +52487,13 @@
         "at": "2026-07-30T21:14:36Z",
         "status": "blocked",
         "summary": "Committed the focused W9 BLOCKED evidence as 5a4ad5ae515bf18b739e4d13ab38d9d905d6c490 after strict report validation, 17/17 coverage, exact package/report SHA checks, JSON/YAML parsing, scope validation, and producer/master immutability checks passed."
+      },
+      {
+        "at": "2026-07-30T21:15:22Z",
+        "status": "blocked",
+        "summary": "Opened PR #1856 for the focused W9 BLOCKED evidence. GitHub reports MERGEABLE/CLEAN with required checks not yet populated; qa_pass and all write/release permissions remain false."
       }
     ],
-    "updated_at": "2026-07-30T21:14:36Z"
+    "updated_at": "2026-07-30T21:15:22Z"
   }
 }
