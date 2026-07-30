@@ -52350,14 +52350,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-freeze-01",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "c2a46fe3780eeaa3f4aa0005487298ad7dd6b23d",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1854",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52382,6 +52382,10 @@
       "scope_validation": {
         "status": "pass",
         "evidence": "All changed files are restricted to the W3 Article package, its direct package contract, and PR-train manifest/state. W3-CAREER-GUIDES and the control master remain unchanged; YAML, JSON, focused ESLint, and git diff checks pass."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1854 opened from pushed implementation commit c2a46fe3780eeaa3f4aa0005487298ad7dd6b23d; required CI and security checks are pending."
       }
     },
     "failure_reason": null,
@@ -52403,8 +52407,13 @@
         "at": "2026-07-30T20:35:58Z",
         "status": "local_verified",
         "summary": "Completed the 17/17 producer review and froze aggregate package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750. Control validation, focused package contracts, exact eight-file SHA recomputation, structure/link/numeric/claim/media/privacy checks, focused lint, YAML/JSON parsing, diff checks, and exact scope validation pass. Independent W9, importer, human approval, CMS, publication, discoverability, search, and deploy remain pending or unauthorized."
+      },
+      {
+        "at": "2026-07-30T20:38:08Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit c2a46fe3780eeaa3f4aa0005487298ad7dd6b23d and opened ready PR #1854. Required GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-30T20:35:58Z"
+    "updated_at": "2026-07-30T20:38:08Z"
   }
 }
