@@ -221,8 +221,8 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
-      "blocked_from_status": null,
+      "status": "blocked",
+      "blocked_from_status": "inventory_frozen",
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -237,8 +237,8 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_frozen",
-          "blocked_from_status": null,
+          "status": "blocked",
+          "blocked_from_status": "package_frozen",
           "package_sha256": "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
           "qa_report_ref": null,
           "gate_lineage": [
@@ -251,7 +251,9 @@
               "accepted_at": "2026-07-30T20:50:31.000Z"
             }
           ],
-          "blockers": [],
+          "blockers": [
+            "Independent W9 report 3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192 blocks qa_pass: 12 of 17 Article rows require producer language-naturalness repair."
+          ],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -289,8 +291,10 @@
       "package_sha256": null,
       "qa_report_ref": null,
       "gate_lineage": [],
-      "blockers": [],
-      "next_action": "Submit the exact frozen W3-ARTICLES package to fresh independent W9 QA; keep W3-CAREER-GUIDES queued until Article QA is accepted.",
+      "blockers": [
+        "W3-ARTICLES is blocked at package_frozen by the independent W9 report stored under generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/."
+      ],
+      "next_action": "Repair only the 12 W9-blocked Article rows in a producer scope, rebuild and re-freeze the complete exact package, then repeat fresh independent W9 QA; keep W3-CAREER-GUIDES queued.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
