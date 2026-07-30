@@ -221,8 +221,8 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
-      "blocked_from_status": null,
+      "status": "blocked",
+      "blocked_from_status": "inventory_frozen",
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -237,8 +237,8 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_frozen",
-          "blocked_from_status": null,
+          "status": "blocked",
+          "blocked_from_status": "package_frozen",
           "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
           "qa_report_ref": null,
           "gate_lineage": [
@@ -251,7 +251,9 @@
               "accepted_at": "2026-07-30T22:19:50.000Z"
             }
           ],
-          "blockers": [],
+          "blockers": [
+            "Independent W9 report c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4 blocks qa_pass for frozen package 37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669: 16 of 17 Article rows require producer repair for language naturalness, asset duplication, or internal field leakage."
+          ],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -289,8 +291,10 @@
       "package_sha256": null,
       "qa_report_ref": null,
       "gate_lineage": [],
-      "blockers": [],
-      "next_action": "Submit the exact frozen W3-ARTICLES package to fresh independent W9 QA, and begin W3-CAREER-GUIDES package production as a separate sequential scope without combining either package or gate lineage.",
+      "blockers": [
+        "W3-ARTICLES is blocked at package_frozen by independent W9 evidence stored under generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/."
+      ],
+      "next_action": "CONTROL must accept a separate evidence-bound reset of W3-ARTICLES to package_in_progress before producer repair and a new exact-SHA freeze/fresh W9 cycle. Continue W3-CAREER-GUIDES only as its own independent sequential scope without combining package or gate lineage.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
