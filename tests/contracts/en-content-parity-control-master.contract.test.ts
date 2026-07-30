@@ -36,6 +36,15 @@ type Permissions = {
   master_manifest_write_authorized: false;
 };
 
+type GateLineageEntry = {
+  status: string;
+  evidence_owner_lane_id: string;
+  report_ref: string;
+  report_sha256: string;
+  package_sha256: string;
+  accepted_at: string;
+};
+
 type Lane = {
   lane_id: string;
   lane_kind: "producer" | "independent_qa";
@@ -50,6 +59,9 @@ type Lane = {
     remaining_en_assets: number | null;
     unknown_inventory_cohorts: number;
   };
+  package_sha256: string | null;
+  qa_report_ref: string | null;
+  gate_lineage: GateLineageEntry[];
   subscopes: Array<{
     id: string;
     sequence: number;
@@ -59,6 +71,7 @@ type Lane = {
     status: string;
     package_sha256: string | null;
     qa_report_ref: string | null;
+    gate_lineage: GateLineageEntry[];
     blockers: string[];
     separate_package_required: true;
     same_pr_allowed: false;
@@ -546,12 +559,143 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("rejects a progressed master that omits frozen-package and QA gate lineage", () => {
+    const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-missing-lineage-"));
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    const progressedManifest = structuredClone(manifest);
+    const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    if (!w3 || !articles) {
+      throw new Error("missing W3 Article subscope fixture");
+    }
+    articles.status = "qa_pass";
+    w3.status = "inventory_frozen";
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+    try {
+      let output = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--manifest", progressedManifestPath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        output = (error as { stdout?: string }).stdout ?? "";
+      }
+      const report = JSON.parse(output) as { ok: boolean; errors: string[] };
+      expect(report.ok).toBe(false);
+      expect(report.errors.join("\n")).toContain("package_frozen and later states require package_sha256");
+      expect(report.errors.join("\n")).toContain("gate lineage must contain every achieved state");
+      expect(report.errors.join("\n")).toContain("qa_pass and later states require qa_report_ref");
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("validates the standalone W9 independent QA report contract", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-"));
     const qaReportPath = path.join(tempDirectory, "independent-qa-report.json");
-    const asset = manifest.assets.find((entry) => entry.lane_id === "W1");
-    if (!asset) {
-      throw new Error("missing W1 asset fixture");
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    const progressedManifest = structuredClone(manifest);
+    const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
+    const assets = progressedManifest.assets
+      .filter((entry) => entry.lane_id === "W1")
+      .map((asset) =>
+        asset.expected_en_count === null
+          ? {
+              ...asset,
+              expected_en_count: 1,
+              current_en_count: 0,
+              remaining_en_count: 1,
+              parity_state: "en_missing",
+            }
+          : asset
+      );
+    if (!w1 || assets.length === 0) {
+      throw new Error("missing W1 asset fixtures");
+    }
+    progressedManifest.assets = progressedManifest.assets.map(
+      (asset) => assets.find((frozenAsset) => frozenAsset.asset_id === asset.asset_id) ?? asset
+    );
+    const expectedRows = assets.reduce((total, asset) => total + (asset.expected_en_count ?? 0), 0);
+    w1.status = "package_frozen";
+    w1.package_sha256 = "a".repeat(64);
+    w1.counts = {
+      cohort_count: assets.length,
+      expected_en_assets: expectedRows,
+      current_en_assets: assets.reduce((total, asset) => total + (asset.current_en_count ?? 0), 0),
+      remaining_en_assets: assets.reduce((total, asset) => total + (asset.remaining_en_count ?? 0), 0),
+      unknown_inventory_cohorts: 0,
+    };
+    w1.gate_lineage = [
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W1",
+        report_ref: "fixture://package-frozen",
+        report_sha256: "b".repeat(64),
+        package_sha256: "a".repeat(64),
+        accepted_at: "2026-07-30T12:00:00.000Z",
+      },
+    ];
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+    const permissions: Permissions = {
+      cms_write_authorized: false,
+      staging_write_authorized: false,
+      production_import_authorized: false,
+      public_release_authorized: false,
+      seo_runtime_release_authorized: false,
+      search_submission_authorized: false,
+      master_manifest_write_authorized: false,
+    };
+    fs.writeFileSync(
+      qaReportPath,
+      JSON.stringify({
+        $schema: SCHEMA_PATH,
+        artifact_kind: "independent_qa_report",
+        schema_version: "fermatmind.en_content_parity_independent_qa_report.v1",
+        control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+        qa_lane_id: "W9",
+        output_directory: "generated/en-content-parity/W9-independent-qa/",
+        producer_lane_id: "W1",
+        subscope_id: null,
+        package_sha256: "a".repeat(64),
+        verdict: "PASS",
+        reviewed_asset_ids: assets.map((asset) => asset.asset_id),
+        reviewed_row_count: expectedRows,
+        checks: {
+          language_naturalness: "PASS",
+          chinese_leakage: "PASS",
+          claim_boundary: "PASS",
+          asset_duplication: "PASS",
+          field_leakage: "PASS",
+          page_api_alignment: "PASS",
+        },
+        permissions,
+      })
+    );
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", qaReportPath],
+        {
+        cwd: ROOT,
+        encoding: "utf8",
+        }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects W9 PASS reports that review only a subset of the registered target", () => {
+    const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-subset-"));
+    const qaReportPath = path.join(tempDirectory, "independent-qa-report.json");
+    const assets = manifest.assets.filter((entry) => entry.lane_id === "W1");
+    if (assets.length < 2) {
+      throw new Error("W1 subset fixture requires at least two assets");
     }
     const permissions: Permissions = {
       cms_write_authorized: false,
@@ -575,8 +719,8 @@ describe("English content parity control master", () => {
         subscope_id: null,
         package_sha256: "a".repeat(64),
         verdict: "PASS",
-        reviewed_asset_ids: [asset.asset_id],
-        reviewed_row_count: asset.expected_en_count ?? 0,
+        reviewed_asset_ids: [assets[0].asset_id],
+        reviewed_row_count: 0,
         checks: {
           language_naturalness: "PASS",
           chinese_leakage: "PASS",
@@ -590,11 +734,20 @@ describe("English content parity control master", () => {
     );
 
     try {
-      const output = execFileSync("node", [VALIDATOR_PATH, "--artifact", qaReportPath], {
-        cwd: ROOT,
-        encoding: "utf8",
-      });
-      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      let output = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--artifact", qaReportPath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        output = (error as { stdout?: string }).stdout ?? "";
+      }
+      const report = JSON.parse(output) as { ok: boolean; errors: string[] };
+      expect(report.ok).toBe(false);
+      expect(report.errors.join("\n")).toContain("QA report must review every registered target asset exactly once");
+      expect(report.errors.join("\n")).toContain("QA report row count must cover the complete registered target");
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
     }
@@ -642,7 +795,6 @@ describe("English content parity control master", () => {
       remaining_en_assets: remainingTotal,
       unknown_inventory_cohorts: 0,
     };
-    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
     const permissions: Permissions = {
       cms_write_authorized: false,
@@ -661,13 +813,27 @@ describe("English content parity control master", () => {
       lane_id: "W1",
       subscope_id: null,
       package_id: "W1-w9-gate",
-      status: "qa_pass",
+      status: "package_frozen",
       output_directory: "generated/en-content-parity/W1-mbti/",
       artifact_files: ARTIFACT_FILES,
       assets: frozenAssets,
       permissions,
     };
     const packageEvidence = writePackagePayload(tempDirectory, scopeManifest, frozenAssets);
+    const frozenReportRef = path.join(tempDirectory, "source_ledger.json");
+    w1.package_sha256 = packageEvidence.packageSha256;
+    w1.qa_report_ref = null;
+    w1.gate_lineage = [
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W1",
+        report_ref: frozenReportRef,
+        report_sha256: packageEvidence.reportSha256,
+        package_sha256: packageEvidence.packageSha256,
+        accepted_at: "2026-07-30T12:00:00.000Z",
+      },
+    ];
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const qaChecks = {
       language_naturalness: "PASS",
       chinese_leakage: "PASS",
@@ -741,6 +907,86 @@ describe("English content parity control master", () => {
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+
+      w1.status = "qa_pass";
+      w1.qa_report_ref = qaReportPath;
+      w1.gate_lineage.push({
+        status: "qa_pass",
+        evidence_owner_lane_id: "W9",
+        report_ref: qaReportPath,
+        report_sha256: sha256AbsoluteFile(qaReportPath),
+        package_sha256: packageEvidence.packageSha256,
+        accepted_at: "2026-07-30T12:05:00.000Z",
+      });
+      fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+      const transitionReportPath = path.join(tempDirectory, "dry-run-gate-report.json");
+      fs.writeFileSync(
+        transitionReportPath,
+        JSON.stringify({
+          $schema: SCHEMA_PATH,
+          artifact_kind: "transition_gate_report",
+          schema_version: "fermatmind.en_content_parity_transition_gate_report.v1",
+          control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+          owner_lane_id: "W1",
+          producer_lane_id: "W1",
+          subscope_id: null,
+          package_sha256: packageEvidence.packageSha256,
+          gate: "dry_run_ready",
+          verdict: "PASS",
+          permissions,
+        })
+      );
+      const dryRunCandidate = {
+        $schema: SCHEMA_PATH,
+        artifact_kind: "master_manifest_patch_candidate",
+        schema_version: "fermatmind.en_content_parity_master_patch_candidate.v1",
+        control_id: "EN-PARITY-CONTROL-BOOTSTRAP-01",
+        lane_id: "W1",
+        subscope_id: null,
+        package_id: "W1-w9-gate",
+        base_manifest_sha256: sha256AbsoluteFile(progressedManifestPath),
+        sha256_manifest_path: packageEvidence.shaManifestPath,
+        package_sha256: packageEvidence.packageSha256,
+        proposed_status: "dry_run_ready",
+        gate_evidence: {
+          gate: "dry_run_ready",
+          report_path: transitionReportPath,
+          report_sha256: sha256AbsoluteFile(transitionReportPath),
+          report_in_package: false,
+          owner_lane_id: "W1",
+          verdict: "PASS",
+          asset_ids: frozenAssets.map((asset) => asset.asset_id),
+          row_count: expectedTotal,
+        },
+        asset_updates: frozenAssets,
+        permissions,
+      };
+      fs.writeFileSync(candidatePath, JSON.stringify(dryRunCandidate));
+      const dryRunOutput = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(dryRunOutput)).toMatchObject({ ok: true, errors: [] });
+
+      fs.writeFileSync(
+        candidatePath,
+        JSON.stringify({ ...dryRunCandidate, package_sha256: "b".repeat(64) })
+      );
+      let immutableOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        immutableOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(immutableOutput).errors.join("\n")).toContain(
+        "package_frozen SHA is immutable for every later transition"
+      );
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
     }

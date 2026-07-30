@@ -14,6 +14,9 @@
     },
     {
       "$ref": "#/$defs/independent_qa_report"
+    },
+    {
+      "$ref": "#/$defs/transition_gate_report"
     }
   ],
   "$defs": {
@@ -113,6 +116,42 @@
         }
       }
     },
+    "gate_lineage_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidence_owner_lane_id",
+        "report_ref",
+        "report_sha256",
+        "package_sha256",
+        "accepted_at"
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "evidence_owner_lane_id": {
+          "$ref": "#/$defs/lane_id"
+        },
+        "report_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "report_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "accepted_at": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
     "permissions": {
       "type": "object",
       "additionalProperties": false,
@@ -191,6 +230,7 @@
         "status",
         "package_sha256",
         "qa_report_ref",
+        "gate_lineage",
         "blockers",
         "separate_package_required",
         "same_pr_allowed"
@@ -230,6 +270,13 @@
         "qa_report_ref": {
           "$ref": "#/$defs/nullable_string"
         },
+        "gate_lineage": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/gate_lineage_entry"
+          }
+        },
         "blockers": {
           "type": "array",
           "items": {
@@ -267,6 +314,7 @@
         "source_inventory_refs",
         "package_sha256",
         "qa_report_ref",
+        "gate_lineage",
         "blockers",
         "next_action",
         "permissions"
@@ -380,6 +428,13 @@
         },
         "qa_report_ref": {
           "$ref": "#/$defs/nullable_string"
+        },
+        "gate_lineage": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/gate_lineage_entry"
+          }
         },
         "blockers": {
           "type": "array",
@@ -1024,6 +1079,69 @@
               ]
             }
           }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "transition_gate_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "owner_lane_id",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "gate",
+        "verdict",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "transition_gate_report"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_transition_gate_report.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "owner_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "gate": {
+          "$ref": "#/$defs/content_status"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
         },
         "permissions": {
           "$ref": "#/$defs/permissions"

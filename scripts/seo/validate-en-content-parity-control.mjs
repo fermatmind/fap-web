@@ -466,6 +466,10 @@ function validateMasterInvariants(manifest) {
       assets.filter((asset) => subscope.asset_ids.includes(asset.asset_id)),
       subscope.id
     );
+    validateGateLineage(subscope, subscope.id, "W3", errors);
+  }
+  for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length === 0)) {
+    validateGateLineage(lane, lane.lane_id, lane.lane_id, errors);
   }
 
   assert(
@@ -508,6 +512,87 @@ function validateAssetCollection(assets, location, errors) {
   }
 }
 
+function targetAssets(manifest, lane, packageTarget) {
+  const registeredAssetIds =
+    packageTarget?.assetIds ??
+    manifest.assets.filter((asset) => asset.lane_id === lane?.lane_id).map((asset) => asset.asset_id);
+  return manifest.assets.filter((asset) => registeredAssetIds.includes(asset.asset_id));
+}
+
+function validateGateLineage(target, targetId, ownerLaneId, errors) {
+  const lineage = Array.isArray(target?.gate_lineage) ? target.gate_lineage : [];
+  const currentIndex = stateIndex(target?.status);
+  const packageFrozenIndex = stateIndex("package_frozen");
+  const qaPassIndex = stateIndex("qa_pass");
+
+  if (target?.status === "blocked") {
+    if (target?.package_sha256 !== null) {
+      assert(
+        /^[a-f0-9]{64}$/.test(target.package_sha256),
+        `${targetId}: blocked target package_sha256 must be a full SHA when present`,
+        errors
+      );
+      assert(
+        lineage.every((entry) => entry.package_sha256 === target.package_sha256),
+        `${targetId}: blocked target gate lineage must retain one immutable package SHA`,
+        errors
+      );
+    }
+    return;
+  }
+
+  if (currentIndex < packageFrozenIndex) {
+    assert(target?.package_sha256 === null, `${targetId}: package SHA cannot be recorded before package_frozen`, errors);
+    assert(target?.qa_report_ref === null, `${targetId}: QA report cannot be recorded before qa_pass`, errors);
+    assert(lineage.length === 0, `${targetId}: gate lineage cannot start before package_frozen`, errors);
+    return;
+  }
+
+  assert(
+    typeof target?.package_sha256 === "string" && /^[a-f0-9]{64}$/.test(target.package_sha256),
+    `${targetId}: package_frozen and later states require package_sha256`,
+    errors
+  );
+  const expectedLineageStatuses = EXPECTED_STATES.slice(packageFrozenIndex, currentIndex + 1);
+  assert(
+    sameValue(
+      lineage.map((entry) => entry.status),
+      expectedLineageStatuses
+    ),
+    `${targetId}: gate lineage must contain every achieved state from package_frozen without gaps`,
+    errors
+  );
+  for (const entry of lineage) {
+    assert(
+      entry.package_sha256 === target.package_sha256,
+      `${targetId}: gate lineage must retain the immutable package_frozen SHA`,
+      errors
+    );
+    const expectedOwner = entry.status === "qa_pass" ? "W9" : ownerLaneId;
+    assert(
+      entry.evidence_owner_lane_id === expectedOwner,
+      `${targetId}: ${entry.status} evidence owner must be ${expectedOwner}`,
+      errors
+    );
+  }
+
+  if (currentIndex >= qaPassIndex) {
+    const qaEntry = lineage.find((entry) => entry.status === "qa_pass");
+    assert(
+      typeof target?.qa_report_ref === "string" && target.qa_report_ref.length > 0,
+      `${targetId}: qa_pass and later states require qa_report_ref`,
+      errors
+    );
+    assert(
+      qaEntry?.report_ref === target?.qa_report_ref,
+      `${targetId}: qa_report_ref must match the retained qa_pass lineage report`,
+      errors
+    );
+  } else {
+    assert(target?.qa_report_ref === null, `${targetId}: QA report cannot be recorded before qa_pass`, errors);
+  }
+}
+
 function registeredPackageTarget(lane, subscopeId) {
   if (!lane) {
     return null;
@@ -522,6 +607,9 @@ function registeredPackageTarget(lane, subscopeId) {
       outputDirectory: `${lane.output_directory}${subscope.output_subdirectory}/`,
       assetIds: subscope.asset_ids,
       sequence: subscope.sequence,
+      packageSha256: subscope.package_sha256,
+      qaReportRef: subscope.qa_report_ref,
+      gateLineage: subscope.gate_lineage,
     };
   }
   if (subscopeId !== null) {
@@ -532,6 +620,9 @@ function registeredPackageTarget(lane, subscopeId) {
     outputDirectory: lane.output_directory,
     assetIds: null,
     sequence: null,
+    packageSha256: lane.package_sha256,
+    qaReportRef: lane.qa_report_ref,
+    gateLineage: lane.gate_lineage,
   };
 }
 
@@ -550,7 +641,7 @@ function validateSubscopeSequence(lane, packageTarget, proposedStatus, errors) {
   );
 }
 
-function validatePackageShaManifest(artifact, registeredLane, artifactPath, errors) {
+function validatePackageShaManifest(artifact, registeredLane, manifest, artifactPath, errors) {
   let shaManifest;
   let shaManifestPath;
   try {
@@ -672,9 +763,13 @@ function validatePackageShaManifest(artifact, registeredLane, artifactPath, erro
       `${artifact.lane_id}: package scope manifest package_id mismatch`,
       errors
     );
+    const expectedScopeStatus =
+      stateIndex(packageTarget?.status) >= stateIndex("package_frozen")
+        ? "package_frozen"
+        : artifact.proposed_status;
     assert(
-      scopeManifest.status === artifact.proposed_status,
-      `${artifact.lane_id}: package scope status must match proposed_status`,
+      scopeManifest.status === expectedScopeStatus,
+      `${artifact.lane_id}: package scope status must be ${expectedScopeStatus}`,
       errors
     );
     assert(
@@ -682,6 +777,36 @@ function validatePackageShaManifest(artifact, registeredLane, artifactPath, erro
       `${artifact.lane_id}: package scope output_directory must match the master registry`,
       errors
     );
+    assert(
+      sameValue(scopeManifest.assets, artifact.asset_updates),
+      `${artifact.lane_id}: package scope assets must exactly match candidate asset_updates`,
+      errors
+    );
+    const assetsContents = fs.readFileSync(path.join(packageDirectory, "assets.jsonl"), "utf8").trim();
+    const payloadAssets = assetsContents
+      ? assetsContents.split(/\r?\n/).map((line) => JSON.parse(line))
+      : [];
+    assert(
+      sameValue(payloadAssets, artifact.asset_updates),
+      `${artifact.lane_id}: assets.jsonl must exactly match candidate asset_updates`,
+      errors
+    );
+    if (
+      artifact.proposed_status === "package_frozen" ||
+      stateIndex(packageTarget?.status) >= stateIndex("package_frozen")
+    ) {
+      const registeredAssetIds = targetAssets(manifest, registeredLane, packageTarget).map(
+        (asset) => asset.asset_id
+      );
+      assert(
+        sameValue(
+          artifact.asset_updates.map((asset) => asset.asset_id).sort(),
+          [...registeredAssetIds].sort()
+        ),
+        `${artifact.lane_id}: package_frozen requires the complete registered target asset set`,
+        errors
+      );
+    }
   } catch (error) {
     errors.push(
       `${artifact.lane_id}: cannot read package scope manifest (${error instanceof Error ? error.message : String(error)})`
@@ -757,6 +882,79 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
   }
 }
 
+function validateExternalTransitionEvidence(artifact, errors) {
+  let gateReport;
+  let gateReportPath;
+  try {
+    gateReportPath = path.isAbsolute(artifact.gate_evidence.report_path)
+      ? artifact.gate_evidence.report_path
+      : path.join(ROOT, artifact.gate_evidence.report_path);
+    assert(
+      fs.existsSync(gateReportPath) && fs.statSync(gateReportPath).isFile(),
+      `${artifact.lane_id}: external transition report file is missing`,
+      errors
+    );
+    assert(
+      sha256File(gateReportPath) === artifact.gate_evidence.report_sha256,
+      `${artifact.lane_id}: external transition report SHA mismatch`,
+      errors
+    );
+    gateReport = JSON.parse(fs.readFileSync(gateReportPath, "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read external transition report (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(
+    gateReport.schema_version === "fermatmind.en_content_parity_transition_gate_report.v1",
+    `${artifact.lane_id}: external transition report schema version is invalid`,
+    errors
+  );
+  assert(
+    gateReport.artifact_kind === "transition_gate_report",
+    `${artifact.lane_id}: external transition report kind is invalid`,
+    errors
+  );
+  assert(
+    gateReport.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01",
+    `${artifact.lane_id}: external transition report control ID mismatch`,
+    errors
+  );
+  assertAllPermissionsFalse(gateReport, "$/transition_gate_report", errors);
+  assert(
+    gateReport.owner_lane_id === artifact.lane_id,
+    `${artifact.lane_id}: external transition report owner must match producer lane`,
+    errors
+  );
+  assert(
+    gateReport.producer_lane_id === artifact.lane_id,
+    `${artifact.lane_id}: external transition report producer lane mismatch`,
+    errors
+  );
+  assert(
+    gateReport.subscope_id === artifact.subscope_id,
+    `${artifact.lane_id}: external transition report subscope mismatch`,
+    errors
+  );
+  assert(
+    gateReport.package_sha256 === artifact.package_sha256,
+    `${artifact.lane_id}: external transition report package SHA mismatch`,
+    errors
+  );
+  assert(
+    gateReport.gate === artifact.proposed_status,
+    `${artifact.lane_id}: external transition report gate mismatch`,
+    errors
+  );
+  assert(
+    gateReport.verdict === artifact.gate_evidence.verdict,
+    `${artifact.lane_id}: external transition report verdict mismatch`,
+    errors
+  );
+}
+
 function validateInventoryPayload(artifact, packageContext, errors) {
   if (!packageContext) {
     return;
@@ -829,7 +1027,11 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
   const artifactLaneId =
-    artifact.artifact_kind === "independent_qa_report" ? artifact.qa_lane_id : artifact.lane_id;
+    artifact.artifact_kind === "independent_qa_report"
+      ? artifact.qa_lane_id
+      : artifact.artifact_kind === "transition_gate_report"
+        ? artifact.owner_lane_id
+        : artifact.lane_id;
   const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifactLaneId);
   assert(Boolean(registeredLane), `${artifactLaneId}: lane is not registered`, errors);
   const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
@@ -838,6 +1040,16 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     const producerLane = manifest.lanes.find((lane) => lane.lane_id === artifact.producer_lane_id);
     const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
     assert(Boolean(reviewedTarget), `${artifact.producer_lane_id}: QA subscope is not registered`, errors);
+    assert(
+      stateIndex(reviewedTarget?.status) >= stateIndex("package_frozen"),
+      `${artifact.producer_lane_id}: W9 cannot review a target before package_frozen`,
+      errors
+    );
+    assert(
+      artifact.package_sha256 === reviewedTarget?.packageSha256,
+      `${artifact.producer_lane_id}: W9 report must name the registered frozen package SHA`,
+      errors
+    );
     assert(
       artifact.output_directory === registeredLane?.output_directory,
       `${artifact.producer_lane_id}: QA report output directory must match W9`,
@@ -848,8 +1060,23 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       reviewedTarget?.assetIds ??
       manifest.assets.filter((asset) => asset.lane_id === artifact.producer_lane_id).map((asset) => asset.asset_id);
     assert(
-      reviewedAssetIds.every((assetId) => allowedAssetIds.includes(assetId)),
-      `${artifact.producer_lane_id}: QA report contains an asset outside the reviewed target`,
+      sameValue([...reviewedAssetIds].sort(), [...allowedAssetIds].sort()),
+      `${artifact.producer_lane_id}: QA report must review every registered target asset exactly once`,
+      errors
+    );
+    const reviewedAssets = manifest.assets.filter((asset) => allowedAssetIds.includes(asset.asset_id));
+    assert(
+      reviewedAssets.every((asset) => Number.isInteger(asset.expected_en_count)),
+      `${artifact.producer_lane_id}: W9 review requires a fully frozen target inventory`,
+      errors
+    );
+    const expectedReviewedRows = reviewedAssets.reduce(
+      (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+      0
+    );
+    assert(
+      artifact.reviewed_row_count === expectedReviewedRows,
+      `${artifact.producer_lane_id}: QA report row count must cover the complete registered target`,
       errors
     );
     if (artifact.verdict === "PASS") {
@@ -923,6 +1150,22 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       assert(gateEvidence.owner_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
       assert(gateEvidence.report_in_package === false, `${artifact.lane_id}: W9 QA report must remain independent`, errors);
       assert(gateEvidence.verdict === "PASS", `${artifact.lane_id}: qa_pass evidence verdict must be PASS`, errors);
+    } else if (currentIndex >= stateIndex("qa_pass") || (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")) {
+      assert(
+        gateEvidence.owner_lane_id === artifact.lane_id,
+        `${artifact.lane_id}: post-QA transition evidence owner must match the producer lane`,
+        errors
+      );
+      assert(
+        gateEvidence.report_in_package === false,
+        `${artifact.lane_id}: post-freeze transition evidence must remain outside the immutable package`,
+        errors
+      );
+      assert(
+        gateEvidence.verdict === (artifact.proposed_status === "blocked" ? "BLOCKED" : "PASS"),
+        `${artifact.lane_id}: external transition evidence verdict is invalid`,
+        errors
+      );
     } else {
       assert(
         gateEvidence.owner_lane_id === artifact.lane_id,
@@ -948,6 +1191,36 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       assert(
         updateAssetIds.every((assetId) => packageTarget.assetIds.includes(assetId)),
         `${artifact.lane_id}: candidate assets must stay inside the registered subscope`,
+        errors
+      );
+    }
+    const registeredTargetAssets = targetAssets(manifest, registeredLane, packageTarget);
+    const registeredTargetAssetIds = registeredTargetAssets.map((asset) => asset.asset_id);
+    if (artifact.proposed_status === "qa_pass") {
+      assert(
+        sameValue([...updateAssetIds].sort(), [...registeredTargetAssetIds].sort()),
+        `${artifact.lane_id}: qa_pass requires W9 coverage of every registered target asset`,
+        errors
+      );
+      assert(
+        gateEvidence.row_count ===
+          registeredTargetAssets.reduce(
+            (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+            0
+          ),
+        `${artifact.lane_id}: qa_pass row count must cover the complete registered target`,
+        errors
+      );
+    }
+    if (currentIndex >= stateIndex("package_frozen")) {
+      assert(
+        artifact.package_sha256 === packageTarget?.packageSha256,
+        `${artifact.lane_id}: package_frozen SHA is immutable for every later transition`,
+        errors
+      );
+      assert(
+        sameValue(assetUpdates, registeredTargetAssets),
+        `${artifact.lane_id}: frozen package assets cannot change after package_frozen`,
         errors
       );
     }
@@ -1017,13 +1290,18 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     let packageContext;
     if (artifact.gate_evidence && artifact.sha256_manifest_path) {
-      packageContext = validatePackageShaManifest(artifact, registeredLane, artifactPath, errors);
+      packageContext = validatePackageShaManifest(artifact, registeredLane, manifest, artifactPath, errors);
     }
     if (artifact.proposed_status === "inventory_frozen") {
       validateInventoryPayload(artifact, packageContext, errors);
     }
     if (artifact.proposed_status === "qa_pass") {
       validateIndependentQaEvidence(artifact, manifest, errors);
+    } else if (
+      currentIndex >= stateIndex("qa_pass") ||
+      (currentIndex >= stateIndex("package_frozen") && artifact.proposed_status === "blocked")
+    ) {
+      validateExternalTransitionEvidence(artifact, errors);
     }
   }
 

@@ -135,6 +135,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Run the W1 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
       "permissions": {
@@ -186,6 +187,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Run the W2 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
       "permissions": {
@@ -234,6 +236,7 @@
           "status": "inventory_frozen",
           "package_sha256": null,
           "qa_report_ref": null,
+          "gate_lineage": [],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -249,6 +252,7 @@
           "status": "inventory_frozen",
           "package_sha256": null,
           "qa_report_ref": null,
+          "gate_lineage": [],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -269,6 +273,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Run W3-ARTICLES first; W3-CAREER-GUIDES remains queued until the Article package is frozen.",
       "permissions": {
@@ -319,6 +324,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
       "permissions": {
@@ -368,6 +374,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
       "permissions": {
@@ -419,6 +426,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
       "permissions": {
@@ -469,6 +477,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Hold until wave 2 packages are available for QA and capacity is free.",
       "permissions": {
@@ -523,6 +532,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
       "next_action": "Hold until wave 2 packages are available for QA, then create the first control_previous plus new_50 audit batch.",
       "permissions": {
@@ -571,6 +581,7 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [
         "No producer package has reached package_frozen."
       ],
