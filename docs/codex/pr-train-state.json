@@ -52081,6 +52081,55 @@
     ],
     "updated_at": "2026-07-30T16:08:43Z"
   },
+  "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
+    "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
+    "status": "in_progress",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-parity06-llms-full-non-trust-orchestration-02",
+    "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02: stabilize complete artifact source orchestration",
+    "depends_on": [],
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "r2_diagnosis": {
+        "status": "pass",
+        "evidence": "Production-bound R2 proved serial backend/CMS hard authority complete and set-stable 5/5 while the controlled-concurrency probe was complete 4/5 and cold artifact generation was complete 2/3. The fail-closed evidence assigns the remaining omission to Web source budget/orchestration."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24.14 / pnpm 10.28.1: focused orchestration, prior artifact-stability, and fanout contracts 12/12; scoped ESLint; full lint and spacing; typecheck; complete contract suite 4/4 shards; Big Five freeze 29/29; Enneagram freeze 24/24; production-API Next build; YAML/JSON parse; exact six-file scope; diff checks."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "cache_warm_allowed": false,
+    "search_channel_action": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T16:58:00Z",
+        "status": "in_progress",
+        "summary": "Started the exact six-file scope from current origin/main after R2 confirmed stable serial backend/CMS authority and a Web-only concurrency/budget omission. No deployment, cache warm, content mutation, or Checkpoint 118 is authorized."
+      },
+      {
+        "at": "2026-07-30T17:37:44Z",
+        "status": "local_verified",
+        "summary": "Completed all manifest local gates in a clean isolated worktree. Runtime budgets remain unchanged; artifact-only hard/optional/enrichment budgets, bounded concurrency, hard-source retry, build deadline, and shared in-flight sitemap authority are covered by focused and full contracts. Production R1 remains a post-deploy hard gate."
+      }
+    ],
+    "updated_at": "2026-07-30T17:37:44Z"
+  },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",

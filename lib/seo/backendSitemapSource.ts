@@ -44,6 +44,7 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
 let careerJobPathCache: string[] | null = null;
 let bigFivePublicAssetPathCache: string[] | null = null;
 let enneagramPublicAssetPathCache: string[] | null = null;
+let backendSitemapSourceInFlight: Promise<BackendSitemapSourcePayload> | null = null;
 
 function normalizePath(path: string): string {
   const value = String(path || "").trim() || "/";
@@ -209,8 +210,8 @@ function createTimeoutSignal(parentSignal: AbortSignal | undefined): { signal: A
   };
 }
 
-async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendSitemapSourcePayload> {
-  const timeoutSignal = createTimeoutSignal(signal);
+async function fetchBackendSitemapSourceRequest(): Promise<BackendSitemapSourcePayload> {
+  const timeoutSignal = createTimeoutSignal(undefined);
 
   try {
     const response = await fetch(buildApiUrl("/v0.5/seo/sitemap-source"), {
@@ -228,6 +229,39 @@ async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendS
   } finally {
     timeoutSignal.cleanup();
   }
+}
+
+function waitForBackendSitemapSource(
+  request: Promise<BackendSitemapSourcePayload>,
+  signal?: AbortSignal
+): Promise<BackendSitemapSourcePayload> {
+  if (!signal) {
+    return request;
+  }
+  if (signal.aborted) {
+    return Promise.reject(new DOMException("The operation was aborted.", "AbortError"));
+  }
+
+  return new Promise((resolve, reject) => {
+    const abort = () => reject(new DOMException("The operation was aborted.", "AbortError"));
+    signal.addEventListener("abort", abort, { once: true });
+    request.then(resolve, reject).finally(() => signal.removeEventListener("abort", abort));
+  });
+}
+
+async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendSitemapSourcePayload> {
+  if (!backendSitemapSourceInFlight) {
+    const request = fetchBackendSitemapSourceRequest();
+    backendSitemapSourceInFlight = request;
+    const clear = () => {
+      if (backendSitemapSourceInFlight === request) {
+        backendSitemapSourceInFlight = null;
+      }
+    };
+    void request.then(clear, clear);
+  }
+
+  return waitForBackendSitemapSource(backendSitemapSourceInFlight, signal);
 }
 
 export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourcePayload): string[] {
