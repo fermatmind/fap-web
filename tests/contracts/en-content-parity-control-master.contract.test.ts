@@ -662,6 +662,9 @@ describe("English content parity control master", () => {
       throw new Error("missing W3 Article subscope fixture");
     }
     articles.status = "qa_pass";
+    articles.package_sha256 = null;
+    articles.qa_report_ref = null;
+    articles.gate_lineage = [];
     w3.status = "inventory_frozen";
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
@@ -701,6 +704,11 @@ describe("English content parity control master", () => {
     if (!w3 || !articles || !articleAsset) {
       throw new Error("missing W3 Article recovery fixture");
     }
+    articles.status = "inventory_frozen";
+    articles.blocked_from_status = null;
+    articles.package_sha256 = null;
+    articles.qa_report_ref = null;
+    articles.gate_lineage = [];
     w3.status = "blocked";
     w3.blocked_from_status = "inventory_frozen";
     articles.status = "blocked";
