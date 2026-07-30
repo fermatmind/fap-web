@@ -19,6 +19,7 @@ type BackendSitemapSourcePayload = {
 type BackendSitemapCareerJobPathOptions = {
   limit?: number;
   signal?: AbortSignal;
+  requestTimeoutMs?: number;
 };
 
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
@@ -44,6 +45,10 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
 let careerJobPathCache: string[] | null = null;
 let bigFivePublicAssetPathCache: string[] | null = null;
 let enneagramPublicAssetPathCache: string[] | null = null;
+let backendSitemapSourceInFlight: {
+  promise: Promise<BackendSitemapSourcePayload>;
+  timeoutMs: number;
+} | null = null;
 
 function normalizePath(path: string): string {
   const value = String(path || "").trim() || "/";
@@ -188,29 +193,20 @@ function limitCandidatePaths(paths: string[], limit: number | undefined): string
   return paths.slice(0, normalizedLimit);
 }
 
-function createTimeoutSignal(parentSignal: AbortSignal | undefined): { signal: AbortSignal; cleanup: () => void } {
+function createTimeoutSignal(timeoutMs: number): { signal: AbortSignal; cleanup: () => void } {
   const controller = new AbortController();
-  const abortFromParent = () => controller.abort();
-
-  if (parentSignal?.aborted) {
-    controller.abort();
-  } else {
-    parentSignal?.addEventListener("abort", abortFromParent, { once: true });
-  }
-
-  const timer = setTimeout(() => controller.abort(), BACKEND_SITEMAP_SOURCE_TIMEOUT_MS);
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   return {
     signal: controller.signal,
     cleanup: () => {
       clearTimeout(timer);
-      parentSignal?.removeEventListener("abort", abortFromParent);
     },
   };
 }
 
-async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendSitemapSourcePayload> {
-  const timeoutSignal = createTimeoutSignal(signal);
+async function fetchBackendSitemapSourceRequest(timeoutMs: number): Promise<BackendSitemapSourcePayload> {
+  const timeoutSignal = createTimeoutSignal(timeoutMs);
 
   try {
     const response = await fetch(buildApiUrl("/v0.5/seo/sitemap-source"), {
@@ -228,6 +224,42 @@ async function fetchBackendSitemapSource(signal?: AbortSignal): Promise<BackendS
   } finally {
     timeoutSignal.cleanup();
   }
+}
+
+function waitForBackendSitemapSource(
+  request: Promise<BackendSitemapSourcePayload>,
+  signal?: AbortSignal
+): Promise<BackendSitemapSourcePayload> {
+  if (!signal) {
+    return request;
+  }
+  if (signal.aborted) {
+    return Promise.reject(new DOMException("The operation was aborted.", "AbortError"));
+  }
+
+  return new Promise((resolve, reject) => {
+    const abort = () => reject(new DOMException("The operation was aborted.", "AbortError"));
+    signal.addEventListener("abort", abort, { once: true });
+    request.then(resolve, reject).finally(() => signal.removeEventListener("abort", abort));
+  });
+}
+
+async function fetchBackendSitemapSource(
+  signal?: AbortSignal,
+  requestTimeoutMs = BACKEND_SITEMAP_SOURCE_TIMEOUT_MS
+): Promise<BackendSitemapSourcePayload> {
+  if (!backendSitemapSourceInFlight || backendSitemapSourceInFlight.timeoutMs < requestTimeoutMs) {
+    const request = fetchBackendSitemapSourceRequest(requestTimeoutMs);
+    backendSitemapSourceInFlight = { promise: request, timeoutMs: requestTimeoutMs };
+    const clear = () => {
+      if (backendSitemapSourceInFlight?.promise === request) {
+        backendSitemapSourceInFlight = null;
+      }
+    };
+    void request.then(clear, clear);
+  }
+
+  return waitForBackendSitemapSource(backendSitemapSourceInFlight.promise, signal);
 }
 
 export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourcePayload): string[] {
@@ -324,7 +356,7 @@ export async function listBackendSitemapCareerJobPaths(
     return careerJobPathCache;
   }
 
-  const payload = await fetchBackendSitemapSource(options.signal);
+  const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
   const filteredPaths = limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
 
   if (shouldUseCache) {
@@ -342,7 +374,7 @@ export async function listBackendSitemapBigFiveCanonicalPaths(
     return bigFivePublicAssetPathCache;
   }
 
-  const payload = await fetchBackendSitemapSource(options.signal);
+  const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
   const authorityCohort = extractBackendSitemapBigFiveAuthorityCohort(payload);
   if (!isCompleteBackendSitemapBigFiveCohort(authorityCohort)) {
     throw new Error(`Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received ${authorityCohort.length}.`);
@@ -370,7 +402,7 @@ export async function listBackendSitemapEnneagramPublicAssetPaths(
     return enneagramPublicAssetPathCache;
   }
 
-  const payload = await fetchBackendSitemapSource(options.signal);
+  const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
   const filteredPaths = limitCandidatePaths(extractBackendSitemapEnneagramPublicAssetPaths(payload), options.limit);
 
   if (shouldUseCache) {
@@ -388,7 +420,7 @@ export async function listBackendSitemapEnneagramZhPaths(
     return limitCandidatePaths(paths.filter((path) => path.startsWith("/zh/")), options.limit);
   }
 
-  const payload = await fetchBackendSitemapSource(options.signal);
+  const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
   return limitCandidatePaths(extractBackendSitemapEnneagramZhPaths(payload), options.limit);
 }
 
@@ -396,7 +428,7 @@ export async function listBackendSitemapMbtiPersonalityPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
   try {
-    const payload = await fetchBackendSitemapSource(options.signal);
+    const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
     const canonicalPaths = extractBackendSitemapMbtiPersonalityPaths(payload);
 
     if (canonicalPaths.length === 0) {

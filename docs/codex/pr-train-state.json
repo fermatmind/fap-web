@@ -52081,6 +52081,104 @@
     ],
     "updated_at": "2026-07-30T16:08:43Z"
   },
+  "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
+    "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-parity06-llms-full-non-trust-orchestration-02",
+    "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02: stabilize complete artifact source orchestration",
+    "depends_on": [],
+    "commit_sha": "cbd4b41d1f959a7728484f8bf728bf85e82174bf",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1851",
+    "checks": {
+      "r2_diagnosis": {
+        "status": "pass",
+        "evidence": "Production-bound R2 proved serial backend/CMS hard authority complete and set-stable 5/5 while the controlled-concurrency probe was complete 4/5 and cold artifact generation was complete 2/3. The fail-closed evidence assigns the remaining omission to Web source budget/orchestration."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24.14 / pnpm 10.28.1: focused orchestration, prior artifact-stability, fanout, Enneagram, and test-authority contracts; scoped ESLint; full lint and spacing; typecheck; complete contract suite 4/4 shards; Big Five freeze 29/29; Enneagram freeze 24/24; production-API Next build; YAML/JSON parse; exact ten-file scope; diff checks."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "Exact head 7a929ebd76c3463cda1d11cb23e3f429a5f0bca2: build, four contract shards and aggregate, Big Five freeze, Enneagram freeze, CodeQL analyze/result, and no-new-code-scanning-alerts all succeeded."
+      },
+      "exact_head_review": {
+        "status": "pass_after_scoped_fixes",
+        "evidence": "Exact-head review findings were repaired in scope: request budgets and abort signals reach sitemap, Enneagram, and test-catalog hard-authority loaders; queued/retry/enrichment work observes the build abort; artifact-only enrichment uses bounded concurrency eight within the five-minute deadline; the operator process terminates fail-closed for remaining legacy loaders; the enabled IQ cohort participates in hard-source retry completeness; and unrelated train metadata drift was removed."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "cache_warm_allowed": false,
+    "search_channel_action": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T16:58:00Z",
+        "status": "in_progress",
+        "summary": "Started the bounded llms-full orchestration scope from current origin/main after R2 confirmed stable serial backend/CMS authority and a Web-only concurrency/budget omission. No deployment, cache warm, content mutation, or Checkpoint 118 is authorized."
+      },
+      {
+        "at": "2026-07-30T17:37:44Z",
+        "status": "local_verified",
+        "summary": "Completed all manifest local gates in a clean isolated worktree. Runtime budgets remain unchanged; artifact-only hard/optional/enrichment budgets, bounded concurrency, hard-source retry, build deadline, and shared in-flight sitemap authority are covered by focused and full contracts. Production R1 remains a post-deploy hard gate."
+      },
+      {
+        "at": "2026-07-30T17:39:00Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit b246ac2c509ee03ca56c09edc8b12dfc3a05eb1f and opened PR #1851. Required checks and exact-head review are pending; no production action is authorized."
+      },
+      {
+        "at": "2026-07-30T17:55:03Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Resolved the P1 timeout propagation and P2 deadline cancellation findings within the declared six-file scope. Focused current/prior/fanout/personality contracts, complete contract suite, lint, spacing, typecheck, both freeze suites, and production-API build pass."
+      },
+      {
+        "at": "2026-07-30T17:56:24Z",
+        "status": "github_checks_pending",
+        "summary": "Integrated latest origin/main after #1852 merged; the review-fix implementation commit is 8a7f6b7ef61e5e1a6ff56af7544c9e215a7aefc9, and focused plus newly introduced mainline contracts pass."
+      },
+      {
+        "at": "2026-07-30T18:00:31Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 1454cc9bc60da965b62844e9d7a71be9fa5b6fc3 passed all required checks and CodeQL, mergeability, and the then-current review threads. A later ledger-head review found one remaining operator-process cancellation issue."
+      },
+      {
+        "at": "2026-07-30T18:04:00Z",
+        "status": "review_fix_in_progress",
+        "summary": "The latest P2 showed that legacy zero-argument loaders cannot consume AbortSignal. Added the operator-only generator to the same llms-full orchestration scope so any fail-closed build error terminates the process and cannot leave legacy fetches alive; no runtime or cache-write authority changes."
+      },
+      {
+        "at": "2026-07-30T18:16:25Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Removed an unrelated IQ train status drift and aligned the hard test-source retry predicate with the existing conditional IQ completeness gate. Focused tests, scoped lint, typecheck, and the complete four-shard contract suite pass; prior full lint, spacing, freeze suites, and production build remain valid for the same implementation."
+      },
+      {
+        "at": "2026-07-30T18:28:00Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Propagated the artifact hard-source timeout into Enneagram API requests and raised only operator-artifact enrichment concurrency from four to bounded eight so 323 personality entries remain within the five-minute envelope. Runtime concurrency stays four. Focused and complete contracts, lint, spacing, typecheck, both freeze suites, and production build pass."
+      },
+      {
+        "at": "2026-07-30T18:35:00Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Propagated the budget child AbortSignal into the backend test-catalog fetch so a timed-out first hard-source attempt is cancelled before retry. Focused orchestration and test-authority contracts, scoped lint, typecheck, and diff checks pass after the immediately preceding complete-suite/build validation."
+      },
+      {
+        "at": "2026-07-30T18:41:00Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 7a929ebd76c3463cda1d11cb23e3f429a5f0bca2 passed all required CI/security checks, exact ten-file scope review, MERGEABLE status, and zero unresolved review threads. Recording the mandatory ready_to_merge transition before final ledger-tail verification."
+      }
+    ],
+    "updated_at": "2026-07-30T18:41:00Z"
+  },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "merged",
     "repo": "fap-web",

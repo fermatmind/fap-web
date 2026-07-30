@@ -66,5 +66,7 @@ try {
       2
     )}\n`
   );
-  process.exitCode = 1;
+  // This is an operator-only artifact process. A fail-closed build deadline must
+  // terminate any legacy loader that does not yet consume AbortSignal.
+  process.exit(1);
 }

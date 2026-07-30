@@ -12,6 +12,12 @@ export const LLMS_FULL_TEST_SOURCE_TIMEOUT_MS = 8_000;
 export const LLMS_FULL_RESPONSE_DEADLINE_MS = 12_000;
 export const LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS = 8_000;
 export const LLMS_FULL_ENRICHMENT_TIMEOUT_MS = 350;
+export const LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS = 60_000;
+export const LLMS_FULL_ARTIFACT_OPTIONAL_SOURCE_TIMEOUT_MS = 30_000;
+export const LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS = 5_000;
+export const LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS = 5 * 60_000;
+export const LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY = 3;
+export const LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS = 2;
 
 export const LLMS_ROUTE_ARTICLE_MAX_PAGES = 5;
 
@@ -38,19 +44,30 @@ export function limitLlmsRouteEntries<T>(items: readonly T[], limit: number): T[
 export async function withLlmsRouteBudget<T>(
   load: (signal: AbortSignal) => Promise<T>,
   fallback: T,
-  options: { timeoutMs?: number } = {}
+  options: { timeoutMs?: number; signal?: AbortSignal } = {}
 ): Promise<T> {
   const timeoutMs = options.timeoutMs ?? LLMS_ROUTE_SOURCE_TIMEOUT_MS;
   const controller = new AbortController();
   let timeout: ReturnType<typeof setTimeout> | undefined;
+  let resolveBudget: ((value: T) => void) | undefined;
+  const abort = () => {
+    resolveBudget?.(fallback);
+    controller.abort();
+  };
 
   try {
+    if (options.signal?.aborted) {
+      abort();
+      return fallback;
+    }
+    options.signal?.addEventListener("abort", abort, { once: true });
+
     return await Promise.race([
       load(controller.signal),
       new Promise<T>((resolve) => {
+        resolveBudget = resolve;
         timeout = setTimeout(() => {
-          resolve(fallback);
-          controller.abort();
+          abort();
         }, timeoutMs);
       }),
     ]);
@@ -60,5 +77,6 @@ export async function withLlmsRouteBudget<T>(
     if (timeout) {
       clearTimeout(timeout);
     }
+    options.signal?.removeEventListener("abort", abort);
   }
 }

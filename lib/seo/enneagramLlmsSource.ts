@@ -216,7 +216,9 @@ export async function listEnneagramLlmsPaths(options: { signal?: AbortSignal } =
   return [];
 }
 
-export async function listEnneagramLlmsFullEntries(options: { signal?: AbortSignal } = {}): Promise<EnneagramLlmsFullEntry[]> {
+export async function listEnneagramLlmsFullEntries(
+  options: { signal?: AbortSignal; timeoutMs?: number } = {}
+): Promise<EnneagramLlmsFullEntry[]> {
   let candidates: EnneagramLlmsFullCandidate[];
   try {
     const [en, zh] = await Promise.all([
