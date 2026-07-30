@@ -71,6 +71,32 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     expect(childAborted).toBe(true);
   });
 
+  it("retries the hard test source when an enabled IQ cohort is incomplete", async () => {
+    vi.stubEnv("FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT", "true");
+    vi.stubEnv("FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT", "true");
+    const { hasRequiredTestSource } = await import("@/app/llms-full.txt/route");
+    const corePaths = [
+      "/en/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/mbti-personality-test-16-personality-types",
+      "/en/tests/big-five-personality-test-ocean-model",
+      "/zh/tests/big-five-personality-test-ocean-model",
+      "/en/tests/enneagram-personality-test-nine-types",
+      "/zh/tests/enneagram-personality-test-nine-types",
+      "/en/tests/holland-career-interest-test-riasec",
+      "/zh/tests/holland-career-interest-test-riasec",
+      "/en/tests/eq-test-emotional-intelligence-assessment",
+      "/zh/tests/eq-test-emotional-intelligence-assessment",
+    ];
+    const iqPaths = [
+      "/en/tests/iq-test-intelligence-quotient-assessment",
+      "/zh/tests/iq-test-intelligence-quotient-assessment",
+    ];
+
+    expect(corePaths).toHaveLength(10);
+    expect(hasRequiredTestSource(corePaths.map((path) => ({ path })))).toBe(false);
+    expect(hasRequiredTestSource([...corePaths, ...iqPaths].map((path) => ({ path })))).toBe(true);
+  });
+
   it("shares one backend sitemap request across concurrent cohort consumers", async () => {
     const fetchMock = vi.fn(async () => new Response(JSON.stringify({ items: [] }), {
       status: 200,

@@ -1078,13 +1078,19 @@ function hasRequiredTrustContentPages(
     .every((path) => paths.has(path));
 }
 
-function hasRequiredCoreTests(entries: readonly { path: string; llmsFullEligible?: boolean }[]): boolean {
+export function hasRequiredTestSource(entries: readonly { path: string; llmsFullEligible?: boolean }[]): boolean {
   const paths = new Set(
     entries
       .filter((entry) => entry.llmsFullEligible !== false)
       .map((entry) => normalizePath(entry.path))
   );
-  return LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS.every((path) => paths.has(path));
+  if (!LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS.every((path) => paths.has(path))) {
+    return false;
+  }
+
+  return !shouldRequireCompleteTestCohort()
+    || !shouldRequireIqLlmsFullCohort()
+    || LLMS_FULL_REQUIRED_IQ_ASSESSMENT_TEST_PATHS.every((path) => paths.has(path));
 }
 
 function hasCompleteCareerJobs(paths: readonly string[]): boolean {
@@ -1379,7 +1385,7 @@ async function buildLlmsFullTextInternal(
           ? { timeoutMs: LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS, signal: abortSignal }
           : { timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS }
       ),
-      hasRequiredCoreTests,
+      hasRequiredTestSource,
       abortSignal
     )),
     scheduleSource(() => loadHardSource(
