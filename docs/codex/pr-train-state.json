@@ -52263,7 +52263,7 @@
     "updated_at": "2026-07-30T15:58:03Z"
   },
   "EN-PARITY-W3-ARTICLE-ASSETS-01": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-assets-01",
     "depends_on": [],
@@ -52312,9 +52312,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-30T17:52:10Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "cms_mutation": false,
     "publish_allowed": false,
@@ -52340,8 +52340,71 @@
         "at": "2026-07-30T17:47:38Z",
         "status": "ready_to_merge",
         "summary": "PR #1852 head 2f9506f92c1dcafd18326e1304d72d2089a072ee passed all 11 required CI/security checks. Exact changed-file scope and the package validator were revalidated; GitHub is MERGEABLE/CLEAN with no actionable review feedback."
+      },
+      {
+        "at": "2026-07-30T19:48:28Z",
+        "status": "merged",
+        "summary": "Reconciled GitHub truth for PR #1852: merged at 2026-07-30T17:52:10Z as 51d3ad5174a50d5fab90cc23d53b7cd8e7bef0ca, origin/main contains the merge, the prior local cleanup completed, and the local and remote task branches are absent."
       }
     ],
-    "updated_at": "2026-07-30T17:47:38Z"
+    "updated_at": "2026-07-30T19:48:28Z"
+  },
+  "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-article-package-freeze-01",
+    "depends_on": [
+      "EN-PARITY-W3-ARTICLE-ASSETS-01"
+    ],
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #1852 is MERGED as 51d3ad5174a50d5fab90cc23d53b7cd8e7bef0ca and that merge is present in the current origin/main base."
+      },
+      "producer_review": {
+        "status": "pass",
+        "evidence": "Completed 17/17 producer review of every title, excerpt, full Markdown body, source identity/revision, heading/list/blockquote structure, numeric source fact, internal link, claim boundary, and media-omission decision. Zero Han, generator-control text, or private-field leakage remains; independent W9 is still pending."
+      },
+      "control_validator": {
+        "status": "pass",
+        "evidence": "validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against current master with zero errors."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "The W3 Article package contract passed 4/4 tests for exact files, 17 identities/revisions, completed producer review, deferred W9/import state, permissions, and SHA integrity."
+      },
+      "package_integrity": {
+        "status": "pass",
+        "evidence": "Independent recomputation matched all eight immutable payload SHAs and aggregate package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "All changed files are restricted to the W3 Article package, its direct package contract, and PR-train manifest/state. W3-CAREER-GUIDES and the control master remain unchanged; YAML, JSON, focused ESLint, and git diff checks pass."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T19:48:28Z",
+        "status": "in_progress",
+        "summary": "Started the exact 17-Article package-freeze scope from accepted package_in_progress main. The producer must review every title, excerpt, body, link, claim boundary, and media omission before proposing only package_in_progress to package_frozen; all CMS, publication, discoverability, search, and deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-30T20:35:58Z",
+        "status": "local_verified",
+        "summary": "Completed the 17/17 producer review and froze aggregate package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750. Control validation, focused package contracts, exact eight-file SHA recomputation, structure/link/numeric/claim/media/privacy checks, focused lint, YAML/JSON parsing, diff checks, and exact scope validation pass. Independent W9, importer, human approval, CMS, publication, discoverability, search, and deploy remain pending or unauthorized."
+      }
+    ],
+    "updated_at": "2026-07-30T20:35:58Z"
   }
 }

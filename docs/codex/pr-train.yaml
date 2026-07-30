@@ -27837,7 +27837,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: w3_article_17_asset_package
-    status: in_progress
+    status: merged
     allowed_paths:
       - generated/en-content-parity/W3-editorial-cms/articles/**
       - tests/contracts/en-content-parity-w3-article-package.contract.test.ts
@@ -27861,3 +27861,38 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs
     repository_rule_impact: no runtime authority change; this is a candidate-only Article producer package
+
+  - id: EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01
+    repo: fap-web
+    branch: codex/en-parity-w3-article-package-freeze-01
+    base: main
+    title: "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01: freeze the reviewed 17-Article package SHA"
+    depends_on:
+      - EN-PARITY-W3-ARTICLE-ASSETS-01
+    mode: execute
+    train_scope: w3_article_17_package_freeze
+    status: in_progress
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/articles/**
+      - tests/contracts/en-content-parity-w3-article-package.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - control validator
+      - focused package contract
+      - 17/17 producer review
+      - exact eight-file SHA coverage
+      - lint
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: no runtime authority change; this freezes the reviewed candidate-only Article package for independent W9 QA

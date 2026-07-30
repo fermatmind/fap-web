@@ -5,15 +5,14 @@
   "subscope_id": "W3-ARTICLES",
   "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-2026-07-31",
   "ready": false,
-  "status": "package_in_progress_candidate_only",
+  "status": "package_frozen_qa_pending",
   "blockers": [
-    "The package is not frozen and has no immutable package authorization.",
     "Independent W9 QA has not reviewed every registered row and field.",
-    "Internal-link and media import contracts remain pending review.",
+    "The draft-only importer contract and Media Library authority remain pending independent review.",
     "No separately controlled dry-run importer execution is authorized in this scope.",
     "No exact-SHA human approval exists for CMS draft import or public release."
   ],
-  "next_gate": "producer_revision_then_package_frozen_candidate_after_independent_W9_requirements_are_satisfied",
+  "next_gate": "independent_W9_QA_for_exact_frozen_package_SHA",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,
