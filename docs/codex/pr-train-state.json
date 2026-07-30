@@ -51871,12 +51871,12 @@
   "updated_at": "2026-07-27T18:17:43Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-runtime-absence-01",
     "depends_on": [],
     "commit_sha": "2dd638c62e50ee6d660aae90e01ad7d9db4e794f",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1849",
     "checks": {
       "scan_artifacts": {
         "status": "pass",
@@ -51926,8 +51926,13 @@
         "at": "2026-07-30T15:37:34Z",
         "status": "local_verified",
         "summary": "Focused contracts, lint, typecheck, production-parameter build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed. The implementation changes no CMS content or discoverability surface."
+      },
+      {
+        "at": "2026-07-30T15:39:15Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1849 at pushed head 45bdb61c73c5a5cd4e886d20c4cc29e3c0f1ba48. Build, four contract shards, Big Five freeze, Enneagram freeze, and CodeQL checks are running."
       }
     ],
-    "updated_at": "2026-07-30T15:37:34Z"
+    "updated_at": "2026-07-30T15:39:15Z"
   }
 }

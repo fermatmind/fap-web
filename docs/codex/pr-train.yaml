@@ -641,7 +641,7 @@ prs:
     base: main
     depends_on: [IQ-FE-2]
     mode: execute
-    status: local_verified
+    status: in_progress
     title: "feat(iq): add take page shell and attempt lifecycle"
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/take/page.tsx
@@ -27640,7 +27640,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: w3_article_missing_locale_runtime
-    status: in_progress
+    status: github_checks_pending
     allowed_paths:
       - next.config.mjs
       - app/(localized)/[locale]/articles/[slug]/page.tsx
