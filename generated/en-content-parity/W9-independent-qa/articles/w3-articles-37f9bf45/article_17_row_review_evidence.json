@@ -1,0 +1,441 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
+  "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+  "producer_editorial_evidence_sha256": "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+  "reviewed_at": "2026-07-31T06:37:48+08:00",
+  "review_kind": "fresh independent W9 review; prior W9 evidence was consulted only for authority-directory and artifact-shape reference, and no prior verdict or producer self-review conclusion was reused",
+  "verdict": "BLOCKED",
+  "reviewed_row_count": 17,
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "coverage": {
+    "registered_article_identities": "17/17",
+    "candidate_titles": "17/17",
+    "candidate_excerpts": "17/17",
+    "candidate_full_markdown_bodies": "17/17",
+    "all_source_ledger_rows": "17/17",
+    "internal_link_sets": "17/17",
+    "media_policies": "17/17",
+    "claim_boundary_rows": "17/17",
+    "applicable_page_api_boundary": "17/17"
+  },
+  "package_integrity": {
+    "required_file_count": 10,
+    "required_files_exact": true,
+    "required_files": [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md"
+    ],
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "5e689dd02aaa613bbc28601361b71c133826166d4a175fd6d805bffcca3ed991",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "7d6b9aa1d8c929b31216f0006b398b775aca0c7170d3ae89b75108d4e7588543",
+      "source_ledger.json": "4015f635e4e4d135b4fc2627e852a56a6577b264c9fca4652d8c5f1d5a696219",
+      "claim_boundary_report.json": "32bce36a32e69a601a5cef9828f2305cd1dd9ebb2b9de5081ff5ee5fe9f04b48",
+      "editorial_review.json": "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+      "dry_run_readiness.json": "a75694d6f175957db238889fe60e850ecce97d69af246e864d87a2493a924491",
+      "handoff.md": "a0cb7a88ef7a7c19bc25fb90a0da2531067858a275461b306c18b0a6a06d84b7"
+    },
+    "aggregate_package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+    "aggregate_recomputed_match": true,
+    "registered_asset_set": [
+      {
+        "asset_id": "ENPARITY-W3-ARTICLES",
+        "expected_en_count": 17
+      }
+    ],
+    "source_identity_count": 17,
+    "source_identities": [
+      "Article:1@revision:446",
+      "Article:2@revision:445",
+      "Article:3@revision:383",
+      "Article:4@revision:58",
+      "Article:5@revision:444",
+      "Article:6@revision:443",
+      "Article:7@revision:442",
+      "Article:8@revision:72",
+      "Article:9@revision:441",
+      "Article:10@revision:440",
+      "Article:50@revision:57",
+      "Article:51@revision:73",
+      "Article:52@revision:64",
+      "Article:53@revision:65",
+      "Article:55@revision:75",
+      "Article:58@revision:78",
+      "Article:59@revision:79"
+    ],
+    "translation_pair_count": 17,
+    "permissions_all_false": true,
+    "control_lineage": {
+      "master_status": "package_frozen",
+      "master_package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+      "package_frozen_evidence_owner_lane_id": "W3",
+      "package_frozen_report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+      "package_frozen_report_sha256": "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+      "accepted_at": "2026-07-30T22:19:50.000Z"
+    },
+    "result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "BLOCKED",
+    "field_leakage": "BLOCKED",
+    "page_api_alignment": "PASS"
+  },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because 16 of 17 full reader-visible candidates retain sentence fragments, non-idiomatic translationese, malformed prose, or broken Markdown/link presentation. Article:3 is the only row without a blocking reader-language finding.",
+    "chinese_leakage": "PASS: an independent Han-script scan of all 17 candidate titles, excerpts, and complete Markdown bodies returned zero candidate rows with Han characters.",
+    "claim_boundary": "PASS: all 17 candidates keep assessment results as bounded hypotheses or exploratory inputs; they explicitly reject diagnosis, hiring/admissions screening, fixed identity, guaranteed outcomes, unsupported percentile/norm claims, and official endorsement. Gaokao guidance repeatedly defers to official provincial, university, and Sunshine Gaokao sources.",
+    "asset_duplication": "BLOCKED: Article:50, 51, 52, 53, 55, 58, and 59 promise reader-visible tables, lists, matrices, or plans that are absent from the complete Markdown body. The omission is material even though heading counts match. Media references are consistently omitted pending separate importer and Media Library clearance, with no duplicated candidate media.",
+    "field_leakage": "BLOCKED: reader-visible copy leaks producer/editorial control language including 'current content package', 'active claims', 'FermatMind Chinese Enneagram pillar page', and future-product reporting instructions. Article:8, 9, and 10 also contain malformed Markdown/source-link constructions.",
+    "page_api_alignment": "PASS only for the applicable pre-import boundary: all 17 identities, source revision IDs, slugs, zh-CN source routes, expected /en routes, candidate_only_not_imported status, import_ready=false state, and localized CTA link shapes align. The live English API has no imported candidate to read back, so this report does not claim live English page/content parity. A read-only source-page sample returned HTTP 200 and the matching Article:1 title/excerpt; the direct API was intermittently unavailable with OpenResty 502 and was not treated as candidate readback evidence."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The identity, topic, 28-heading structure, five localized links, claim limits, and media-omission policy align, but the body retains unedited constructions such as 'Weekly record one instance' and inconsistent dimension terminology ('responsibility' for Conscientiousness), so the full English body is not publication-ready."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The OCEAN identity, 23-heading structure, six localized links, and boundaries align. Blocking prose remains, including an unexplained gendered 'he', 'A position may have resources and costs' where a score is meant, and the fragment 'Can only propose environmental preferences...'."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Title, excerpt, and the complete 11-heading body are readable and coherent. The Article:3 identity, tool-audit narrative, four source references, privacy boundary, Unknown product-evidence language, and no-media policy align without a blocking omission or leaked implementation field."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The EQ topic, 27-heading structure, 30 localized links, and non-diagnostic boundary align, but the complete body retains publication-blocking phrases including 'empathy tendency', 'record a real-time feedback', 'social smoothness', and the FAQ fragment 'Not equal.'"
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The four-week reasoning-practice scope, 20-heading structure, three localized links, transfer limits, and no-media policy align. The full body still contains fragments and translationese such as 'Objective is to establish a baseline', 'Post-mortem minimal correction', and 'Cannot guarantee.'"
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The Article:6 identity, 17-heading structure, three localized links, privacy rules, and measurement limits align. Blocking language remains in the complete body: 'one should regress through four layers', performance on 'a specific item, time, and environment', the fragment 'Cannot predict alone', and a logically incorrect reference to different tests used under 'similar conditions'."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The 30-question product identity, 19-heading structure, five localized links, Unknown psychometric values, and non-credentialing boundary align. The body remains unedited in places, including malformed observation questions and the FAQ fragments 'NOT an official...' and 'Should be understood as a performance...'."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "BLOCKED",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The MBTI identity, 30-heading structure, claim limits, and localized destinations align at the ledger level. The rendered Markdown is not equivalent: the Related Reading item for MBTI/RIASEC is split into raw label text plus a detached '](/en/articles/mbti-vs-holland-career-choice)' line. Prose also includes 'Type 16 personality' and 'offers a more direct guidance'."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "BLOCKED",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The four-week experiment identity, 24-heading structure, and bounded behavioral frame align. The source section contains the malformed construction 'https://www.themyersbriggs.com/en-us[MBTI facts](/support/mbti-facts)' and misspells Myers-Briggs as 'Myers-Brinds'; FAQ responses also retain missing subjects such as 'Recommend selecting...' and 'May be used...'."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "BLOCKED",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The four-preference identity, 19-heading structure, two internal routes, and non-hiring boundary align. The complete body repeats the malformed Myers-Briggs URL/Markdown construction, and several FAQs remain sentence fragments such as 'May be related...' and 'Should not use type...'."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "BLOCKED",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The body says 'FermatMind IQ test performance should be focused on the following tasks' and 'This table intentionally omits...' but supplies no task table. Reader copy leaks editorial controls ('current content package', 'active claims', and future authority instructions), and plural 'Online IQ tests' is followed by singular 'It'. The omission makes full source equivalence fail."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "BLOCKED",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The full English body calls itself the 'FermatMind Chinese Enneagram pillar page' and includes future-product reporting instructions. It promises a nine-type table but provides no nine-type entries, ends 'A better approach is to use type as a question for action:' without the actions, and leaves the 'What Can...Observe' and 'Cannot Determine' sections without their promised lists."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The complete body omits content after 'A more reasonable approach would be:', 'For example:', 'A safer approach...', 'Use the table below...', and 'The true value...'. Entire peer sections for the three-model role table and common mistakes are empty. The body also contains 'Maje course requirements' and a broken 'social discussion / Heat level' line."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The title/excerpt and official-information caveats are bounded, but the body promises six exclusion categories and a major-exclusion table without supplying either. The hard-conditions, RIASEC, curriculum, three-category, family-conflict, and common-mistakes sections omit their substantive lists/tables, making the full-body asset incomplete despite matching heading counts."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The body promises three ready-to-use tables but includes none. It also omits the official-source list, hard-condition table, concern/resistance table, status table, and weekly validation table, and contains the malformed Markdown blockquote prefix '> > > > Quick usage'. These omissions defeat source equivalence and publication readability."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The full body asks readers to create and complete a university-program-group table but supplies no table. It promises six transfer checks, four follow-up questions, three actionable conclusions, scenario tables, four post-reassignment actions, and first-semester records without listing them. The omissions are material to the reassignment checklist."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "BLOCKED",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The body announces a Computer Science/AI breakdown, a seven-day validation plan, and a three-column retain/verify/exclude table but supplies none of them. It also retains translationese such as 'Same poor math skills can carry...' and abrupt stage-assessment fragments. The candidate is therefore incomplete even though its claim limits and localized links are intact."
+    }
+  ],
+  "blocking_summary": {
+    "blocked_row_count": 16,
+    "passed_row_count": 1,
+    "passed_rows": [
+      "W3-ARTICLE-03"
+    ],
+    "blocked_rows": [
+      "W3-ARTICLE-01",
+      "W3-ARTICLE-02",
+      "W3-ARTICLE-04",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-07",
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-09",
+      "W3-ARTICLE-10",
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-53",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
+      "W3-ARTICLE-59"
+    ],
+    "blocked_checks": [
+      "language_naturalness",
+      "asset_duplication",
+      "field_leakage"
+    ],
+    "material_omission_rows": [
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-53",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
+      "W3-ARTICLE-59"
+    ],
+    "broken_link_rows": [
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-09",
+      "W3-ARTICLE-10"
+    ],
+    "qa_pass_authorized": false,
+    "producer_payload_modified": false,
+    "control_master_modified": false,
+    "required_next_action": "CONTROL must independently accept this exact-SHA W9 BLOCKED evidence before any package rework reset. W3 must then rebuild the complete 17-row package, restore every omitted table/list/plan, remove reader-visible editorial controls and malformed links, complete a fresh full-body language edit, freeze a new aggregate SHA, and submit that new exact frozen SHA to another independent W9 review."
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
