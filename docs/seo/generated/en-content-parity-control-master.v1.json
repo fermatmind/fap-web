@@ -290,7 +290,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Run W3-ARTICLES first; W3-CAREER-GUIDES remains queued until the Article package is frozen.",
+      "next_action": "Submit the exact frozen W3-ARTICLES package to fresh independent W9 QA; keep W3-CAREER-GUIDES queued until Article QA is accepted.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
