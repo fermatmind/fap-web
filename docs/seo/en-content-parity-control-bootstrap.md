@@ -84,7 +84,7 @@ Each scope has its own `subscope_id`, state-machine position, package SHA, QA re
 
 ## Independent QA gate
 
-A producer cannot self-declare `qa_pass`. That transition requires an external W9 report under the registered `generated/en-content-parity/W9-independent-qa/` authority with Schema version `fermatmind.en_content_parity_independent_qa_report.v1`, exact producer lane/subscope/package SHA, the complete registered target asset set and row count, and verdict `PASS`. Subset QA cannot advance the lane. The report must record PASS for language naturalness, Chinese leakage, claim boundary, asset duplication, field leakage, and page/API alignment. Its file SHA is verified independently and it must not be embedded as producer-owned package evidence.
+A producer cannot self-declare `qa_pass`. That transition requires an external W9 report physically stored under the registered `generated/en-content-parity/W9-independent-qa/` authority with Schema version `fermatmind.en_content_parity_independent_qa_report.v1`, exact producer lane/subscope/package SHA, the complete registered target asset set and row count, and verdict `PASS`. A producer-co-located file cannot masquerade as W9 merely by declaring W9 fields. Subset QA cannot advance the lane. The report must record PASS for language naturalness, Chinese leakage, claim boundary, asset duplication, field leakage, and page/API alignment. Its real file path and SHA are verified independently and it must not be embedded as producer-owned package evidence.
 
 ## Control-window patch acceptance
 

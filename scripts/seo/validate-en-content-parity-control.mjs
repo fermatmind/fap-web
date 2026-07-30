@@ -80,6 +80,11 @@ function packageSha256(files) {
   return createHash("sha256").update(canonicalEntries).digest("hex");
 }
 
+function isPathInside(candidatePath, authorityDirectory) {
+  const relativePath = path.relative(authorityDirectory, candidatePath);
+  return relativePath !== "" && !relativePath.startsWith(`..${path.sep}`) && relativePath !== ".." && !path.isAbsolute(relativePath);
+}
+
 function stateIndex(status) {
   return EXPECTED_STATES.indexOf(status);
 }
@@ -888,6 +893,17 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
       errors
     );
     qaReport = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+    const qaAuthorityDirectory = path.join(
+      ROOT,
+      manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory ?? ""
+    );
+    const realQaAuthorityDirectory = fs.realpathSync(qaAuthorityDirectory);
+    const realQaReportPath = fs.realpathSync(qaReportPath);
+    assert(
+      isPathInside(realQaReportPath, realQaAuthorityDirectory),
+      `${artifact.lane_id}: W9 QA report must reside inside the registered W9 authority directory`,
+      errors
+    );
   } catch (error) {
     errors.push(
       `${artifact.lane_id}: cannot read W9 QA report (${error instanceof Error ? error.message : String(error)})`
@@ -1190,6 +1206,21 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.producer_lane_id}: QA report output directory must match W9`,
       errors
     );
+    try {
+      const qaAuthorityDirectory = fs.realpathSync(path.join(ROOT, registeredLane?.output_directory ?? ""));
+      const realArtifactPath = fs.realpathSync(
+        path.isAbsolute(artifactPath) ? artifactPath : path.join(ROOT, artifactPath)
+      );
+      assert(
+        isPathInside(realArtifactPath, qaAuthorityDirectory),
+        `${artifact.producer_lane_id}: independent QA artifact must reside inside the registered W9 authority directory`,
+        errors
+      );
+    } catch (error) {
+      errors.push(
+        `${artifact.producer_lane_id}: cannot verify W9 authority path (${error instanceof Error ? error.message : String(error)})`
+      );
+    }
     const reviewedAssetIds = Array.isArray(artifact.reviewed_asset_ids) ? artifact.reviewed_asset_ids : [];
     const allowedAssetIds =
       reviewedTarget?.assetIds ??

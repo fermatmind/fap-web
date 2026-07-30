@@ -187,7 +187,7 @@
 - Producer windows must not write CMS, production data, SEO runtime, sitemap, llms, indexability, or public release state. Every write and release permission remains false until a separately controlled exact-SHA approval authorizes that action.
 - W3 Articles and Career Guides are sequential, independent scopes. They require separate output directories, packages, SHAs, candidate patches, imports, and PRs.
 - `package_frozen` fixes the complete target asset set and package SHA. Every later transition must retain that exact SHA and append external gate lineage; rebuilding or swapping the package requires returning to package production and repeating independent QA.
-- `qa_pass` requires a W9 report that reviews every registered target asset and row, records all required checks as PASS, and names the exact frozen package SHA. Producer self-QA is not accepted.
+- `qa_pass` requires a W9 report physically stored under the registered W9 authority directory that reviews every registered target asset and row, records all required checks as PASS, and names the exact frozen package SHA. Producer self-QA or a producer-co-located file declaring itself as W9 is not accepted.
 - Entering `blocked` must retain `blocked_from_status`; recovery may return only to that retained state and must clear `blocked_from_status` before normal forward transitions resume.
 - `draft_imported` and `published` require separately hashed human-operator approval evidence tied to the exact frozen package SHA. Producer-authored package reports cannot authorize CMS import or public release.
 - Draft import, editorial approval, publication, live QA, sitemap/llms/indexability, and search submission are separate gates. Draft import never implies public release.

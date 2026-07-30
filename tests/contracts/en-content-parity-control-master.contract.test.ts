@@ -162,6 +162,12 @@ function packageSha256(files: Array<{ path: string; sha256: string }>): string {
   return createHash("sha256").update(canonicalEntries).digest("hex");
 }
 
+function makeW9QaDirectory(): string {
+  const authorityDirectory = path.join(ROOT, "generated/en-content-parity/W9-independent-qa");
+  fs.mkdirSync(authorityDirectory, { recursive: true });
+  return fs.mkdtempSync(path.join(authorityDirectory, "contract-"));
+}
+
 function writePackagePayload(
   tempDirectory: string,
   scopeManifest: Record<string, unknown>,
@@ -696,7 +702,8 @@ describe("English content parity control master", () => {
 
   it("validates the standalone W9 independent QA report contract", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-"));
-    const qaReportPath = path.join(tempDirectory, "independent-qa-report.json");
+    const qaAuthorityDirectory = makeW9QaDirectory();
+    const qaReportPath = path.join(qaAuthorityDirectory, "independent-qa-report.json");
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     const progressedManifest = structuredClone(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
@@ -788,6 +795,7 @@ describe("English content parity control master", () => {
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      fs.rmSync(qaAuthorityDirectory, { recursive: true, force: true });
     }
   });
 
@@ -858,7 +866,8 @@ describe("English content parity control master", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-gate-"));
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     const candidatePath = path.join(tempDirectory, "master_manifest_patch.candidate.json");
-    const qaReportPath = path.join(tempDirectory, "w9-independent-qa-report.json");
+    const qaAuthorityDirectory = makeW9QaDirectory();
+    const qaReportPath = path.join(qaAuthorityDirectory, "w9-independent-qa-report.json");
     const progressedManifest = structuredClone(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     if (!w1) {
@@ -1009,6 +1018,28 @@ describe("English content parity control master", () => {
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
 
+      const coLocatedQaReportPath = path.join(tempDirectory, "producer-authored-w9-report.json");
+      fs.copyFileSync(qaReportPath, coLocatedQaReportPath);
+      const coLocatedCandidate = JSON.parse(fs.readFileSync(candidatePath, "utf8")) as {
+        gate_evidence: { report_path: string; report_sha256: string };
+      };
+      coLocatedCandidate.gate_evidence.report_path = coLocatedQaReportPath;
+      coLocatedCandidate.gate_evidence.report_sha256 = sha256AbsoluteFile(coLocatedQaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(coLocatedCandidate));
+      let coLocatedOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        coLocatedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(coLocatedOutput).errors.join("\n")).toContain(
+        "W9 QA report must reside inside the registered W9 authority directory"
+      );
+
       w1.status = "qa_pass";
       w1.qa_report_ref = qaReportPath;
       w1.gate_lineage.push({
@@ -1148,6 +1179,7 @@ describe("English content parity control master", () => {
       expect(JSON.parse(controlledOutput)).toMatchObject({ ok: true, errors: [] });
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      fs.rmSync(qaAuthorityDirectory, { recursive: true, force: true });
     }
   });
 
