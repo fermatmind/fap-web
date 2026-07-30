@@ -15,6 +15,16 @@ type AnalyticsScriptConfig = {
 export type AnalyticsScriptsProps = {
   nonce?: string;
   suppressServerBootstrap?: boolean;
+  env?: Partial<NodeJS.ProcessEnv>;
+};
+
+const BUILD_TIME_ANALYTICS_ENV: Partial<NodeJS.ProcessEnv> = {
+  NEXT_PUBLIC_ANALYTICS_ENABLED: process.env.NEXT_PUBLIC_ANALYTICS_ENABLED,
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+  NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID,
+  NEXT_PUBLIC_BAIDU_TONGJI_ID: process.env.NEXT_PUBLIC_BAIDU_TONGJI_ID,
+  NEXT_PUBLIC_ANALYTICS_ENV: process.env.NEXT_PUBLIC_ANALYTICS_ENV,
+  NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: process.env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS,
 };
 
 function normalizeEnvValue(value: string | undefined): string {
@@ -48,7 +58,9 @@ function safeInlineAnalyticsIdParts(value: string): string {
   return value ? `joinIdParts(${safeInlineJsonArray(value.split("-"))})` : '""';
 }
 
-export function getAnalyticsScriptConfig(env: Partial<NodeJS.ProcessEnv> = process.env): AnalyticsScriptConfig {
+export function getAnalyticsScriptConfig(
+  env: Partial<NodeJS.ProcessEnv> = BUILD_TIME_ANALYTICS_ENV
+): AnalyticsScriptConfig {
   return {
     enabled: env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true",
     gaMeasurementId: normalizeGaMeasurementId(normalizeEnvValue(env.NEXT_PUBLIC_GA_MEASUREMENT_ID)),
@@ -223,8 +235,9 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
 export function AnalyticsScripts({
   nonce,
   suppressServerBootstrap = false,
+  env = BUILD_TIME_ANALYTICS_ENV,
 }: AnalyticsScriptsProps = {}) {
-  const config = getAnalyticsScriptConfig();
+  const config = getAnalyticsScriptConfig(env);
   if (
     suppressServerBootstrap
     || !config.enabled

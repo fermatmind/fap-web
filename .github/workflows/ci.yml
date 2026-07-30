@@ -55,6 +55,9 @@ jobs:
 
       - run: pnpm build
 
+      - name: Verify standalone analytics bootstrap without runtime public env
+        run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
+
       - name: Package and verify immutable standalone release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
