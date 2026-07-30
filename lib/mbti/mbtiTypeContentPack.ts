@@ -167,17 +167,6 @@ function localizeMbtiFreeTestLabel(locale: Locale): string {
   return localizeLabel(locale, "MBTI免费测试", "Free MBTI test");
 }
 
-const UNAVAILABLE_ENGLISH_CAREER_GUIDE_PATH = "/en/career/guides/from-mbti-to-job-fit";
-
-function suppressUnavailableEnglishCareerGuideLinks(locale: Locale, links: RenderedLink[]): RenderedLink[] {
-  if (locale === "zh") {
-    return links;
-  }
-
-  return links.filter((link) => link.href !== UNAVAILABLE_ENGLISH_CAREER_GUIDE_PATH
-    && link.href !== "/career/guides/from-mbti-to-job-fit");
-}
-
 function localizeLink(locale: Locale, key: string, zh: string, en: string, href: string): RenderedLink {
   return {
     key,
@@ -187,12 +176,12 @@ function localizeLink(locale: Locale, key: string, zh: string, en: string, href:
 }
 
 function buildSharedGuideLinks(locale: Locale): RenderedLink[] {
-  return suppressUnavailableEnglishCareerGuideLinks(locale, [
+  return [
     localizeLink(locale, "mbti-basics", "MBTI 基础指南", "MBTI basics guide", localizedPath("/articles/mbti-basics", locale)),
     localizeLink(locale, "mbti-growth-guide", "成长建议指南", "MBTI growth guide", localizedPath("/articles/mbti-growth-guide", locale)),
     localizeLink(locale, "mbti-narrative-portrait", "类型叙事画像", "Narrative portrait", localizedPath("/articles/mbti-narrative-portrait", locale)),
     localizeLink(locale, "mbti-job-fit-guide", "职业匹配指南", "MBTI job fit guide", localizedPath("/career/guides/from-mbti-to-job-fit", locale)),
-  ]);
+  ];
 }
 
 function buildSharedArticleLinks(locale: Locale): RenderedLink[] {
@@ -235,7 +224,7 @@ function buildSceneNextLinks(
   const guidanceHref = localizedPath("/career/guides/from-mbti-to-job-fit", locale);
 
   if (scene === "career") {
-    return suppressUnavailableEnglishCareerGuideLinks(locale, [
+    return [
       support.recommendationBacklink,
       localizeLink(
         locale,
@@ -245,7 +234,7 @@ function buildSceneNextLinks(
         guidanceHref
       ),
       support.testEntryLink,
-    ]);
+    ];
   }
 
   if (scene === "team") {
@@ -363,12 +352,12 @@ function buildRecommendationSupportLinks(typeCode: string, variant: MbtiVariant,
   const support = buildSupportLinks(typeCode, variant, locale);
   return {
     topicBacklink: support.topicBacklink,
-    nextSteps: suppressUnavailableEnglishCareerGuideLinks(locale, [
+    nextSteps: [
       support.recommendationBacklink,
       support.topicBacklink,
       support.testEntryLink,
       localizeLink(locale, "mbti-job-fit-guide", "职业匹配指南", "MBTI job fit guide", localizedPath("/career/guides/from-mbti-to-job-fit", locale)),
-    ]),
+    ],
     linkedGuides: support.linkedGuides,
     linkedArticles: support.linkedArticles,
   };
@@ -427,11 +416,11 @@ function adaptLegacyIntpPersonalityContent(
     why: scene.why,
     variantDeltaA: scene.variantDelta,
     variantDeltaT: scene.variantDelta,
-    nextLinks: suppressUnavailableEnglishCareerGuideLinks(locale, scene.nextLinks.map((link) => ({
+    nextLinks: scene.nextLinks.map((link) => ({
       key: link.key,
       label: link.label,
       href: link.href,
-    }))),
+    })),
   });
 
   return {
@@ -468,7 +457,7 @@ function adaptLegacyIntpPersonalityContent(
       recommendationBacklink:
         variant === "a" ? legacy.recommendationBacklink : legacy.recommendationBacklink,
       testEntryLink: legacy.testEntryLink,
-      linkedGuides: suppressUnavailableEnglishCareerGuideLinks(locale, legacy.linkedGuides),
+      linkedGuides: legacy.linkedGuides,
       linkedArticles: legacy.linkedArticles,
     },
   };
@@ -499,8 +488,8 @@ function adaptLegacyIntpRecommendationContent(
     },
     support: {
       topicBacklink: legacy.topicBacklink,
-      nextSteps: suppressUnavailableEnglishCareerGuideLinks(locale, legacy.nextSteps),
-      linkedGuides: suppressUnavailableEnglishCareerGuideLinks(locale, legacy.linkedGuides),
+      nextSteps: legacy.nextSteps,
+      linkedGuides: legacy.linkedGuides,
       linkedArticles: legacy.linkedArticles,
     },
   };

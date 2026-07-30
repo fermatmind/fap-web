@@ -52523,11 +52523,11 @@
       },
       "scope": {
         "status": "pass",
-        "evidence": "All 13 runtime, CMS adapter, train, MBTI link-emission, and direct-test files are inside the expanded current-item allowed_paths. GitHub P1 evidence required suppressing the single unavailable English CTA, while exact-head P2 evidence required omitting hreflang alternates whose locale projection is absent from the CMS/public API. No replacement content, CareerGuide package, backend, sitemap, llms, indexability, search, or deploy file changed."
+        "evidence": "All seven runtime, CMS adapter, direct-contract, and train files are inside the current-item allowed_paths. The final implementation removes cross-locale redirects, fails missing English detail/metadata closed, and omits hreflang alternates whose locale projection is absent from the CMS/public API. Legacy MBTI content packs were proven not to feed the public personality or recommendation routes and were restored unchanged; authority-provided links can therefore appear automatically when the backend projection publishes them. No replacement content, CareerGuide package, backend, sitemap, llms, indexability, search, or deploy file changed."
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, redirect, MBTI entry-surface, and MBTI scene-depth contracts passed 41/41 tests. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback; the three retired cross-locale redirects are absent; and English MBTI entry/scene payloads no longer emit the unavailable CareerGuide path."
+        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, and redirect contracts passed 19/19 tests on the final seven-file scope. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback; the three retired cross-locale redirects are absent; and zh-only guides omit missing English hreflang."
       },
       "lint": {
         "status": "pass",
@@ -52595,8 +52595,13 @@
         "at": "2026-07-30T22:59:00.000Z",
         "status": "github_checks_pending",
         "summary": "Committed the same-scope P2 locale-availability repair as 7f18da4a21b5cd309b08288b1501de4bc90a1311. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T23:10:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Final exact-head review correctly rejected a permanent frontend filter because it would keep hiding the guide after CMS publication. Verified from route source contracts and a local production-server read that public personality/recommendation routes do not consume the legacy MBTI packs, then restored all six legacy pack/test paths unchanged. The final seven-file scope passed 19/19 focused contracts, focused/full lint, Node 24 typecheck, the already completed post-P2 production build at 206/206, YAML/JSON parsing, diff checks, and exact scope validation. The remaining runtime behavior is authority-driven: current routes emit no broken guide link, while future backend-provided links can appear without another frontend release."
       }
     ],
-    "updated_at": "2026-07-30T22:59:00.000Z"
+    "updated_at": "2026-07-30T23:10:00.000Z"
   }
 }

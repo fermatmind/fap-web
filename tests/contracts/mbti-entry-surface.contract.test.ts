@@ -405,7 +405,6 @@ describe("mbti entry surface contract", () => {
         assertFilled(pack.variantCopy.growthPlanning.summary, `${typeCode}.variant.growthPlanning.summary`);
         expect(pack.support.linkedGuides.length).toBeGreaterThan(0);
         expect(pack.support.linkedArticles.length).toBeGreaterThan(0);
-        expect(JSON.stringify(pack)).not.toContain("/en/career/guides/from-mbti-to-job-fit");
         expect(pack.support.testEntryLink.href).toContain("/tests/mbti-personality-test-16-personality-types");
         expect(pack.support.topicBacklink.href).toContain("/topics/mbti");
       }
@@ -419,7 +418,6 @@ describe("mbti entry surface contract", () => {
         expect(rec.support.nextSteps.length).toBeGreaterThan(0);
         expect(rec.support.linkedGuides.length).toBeGreaterThan(0);
         expect(rec.support.linkedArticles.length).toBeGreaterThan(0);
-        expect(JSON.stringify(rec)).not.toContain("/en/career/guides/from-mbti-to-job-fit");
       }
 
       if (typeCode !== "INTP") {

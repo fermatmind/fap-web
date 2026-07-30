@@ -59,20 +59,6 @@ describe("mbti scene depth contract", () => {
     expect(modules.some((sceneModule) => sceneModule.sceneKey === "growth_planning")).toBe(true);
   });
 
-  it("does not expose the unavailable English CareerGuide from MBTI scene modules", () => {
-    const unavailablePath = "/en/career/guides/from-mbti-to-job-fit";
-    const modules = [
-      ...buildMbtiTopicScenarioDeepModules("en"),
-      ...MBTI_SCENE_DEEP_PRIORITY_TYPES.flatMap((typeCode) => [
-        ...buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode }),
-        ...buildMbtiRecommendationScenarioDeepModules({ locale: "en", typeCode }),
-      ]),
-    ];
-
-    expect(modules.flatMap((sceneModule) => sceneModule.links).map((link) => link.href))
-      .not.toContain(unavailablePath);
-  });
-
   it("enforces type-priority scene depth matrix on personality detail", () => {
     for (const typeCode of MBTI_SCENE_DEEP_PRIORITY_TYPES) {
       const modules = buildMbtiPersonalityScenarioDeepModules({ locale: "en", typeCode });
