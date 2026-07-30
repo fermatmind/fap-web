@@ -57,7 +57,9 @@ Every producer package must contain:
 
 Large local packages live under the lane directory in `generated/en-content-parity/` and are not committed by default. The control manifest records reviewed package SHAs and durable artifact references.
 
-The candidate patch may propose only the next valid state. It must keep these values false:
+`sha256_manifest.json` covers the eight immutable payload files (all required handoff files except the SHA manifest itself and the candidate control envelope). Its deterministic aggregate SHA is computed from the ordered `path:sha256` entries. The candidate must name the real SHA manifest, copy that aggregate SHA, and match its lane and package ID. The validator reads every covered file and rejects missing, changed, reordered, or mismatched payloads.
+
+The candidate patch may propose only the next valid state. It must include transition evidence whose report is covered by the verified package SHA manifest. An `inventory_frozen` proposal additionally requires all registered lane cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. It must keep these values false:
 
 - CMS write
 - staging write
@@ -73,10 +75,10 @@ Use `node scripts/seo/validate-en-content-parity-control.mjs --artifact <path>` 
 
 W3 is one operator window with two sequential scopes:
 
-1. `W3-ARTICLES` produces and freezes the 17-Article package.
-2. `W3-CAREER-GUIDES` starts only after the Article package is frozen and produces the separate 20-guide package.
+1. `W3-ARTICLES` produces and freezes the 17-Article package only under `generated/en-content-parity/W3-editorial-cms/articles/`.
+2. `W3-CAREER-GUIDES` starts only after the Article package is frozen and produces the separate 20-guide package only under `generated/en-content-parity/W3-editorial-cms/career-guides/`.
 
-The two scopes must never share a PR, import package, SHA manifest, candidate patch, or approval. This preserves the repository rule that one PR equals one scope.
+The W3 lane root is not itself a valid package directory. The two scopes must never share a PR, import package, SHA manifest, candidate patch, or approval. This preserves the repository rule that one PR equals one scope.
 
 ## Control-window patch acceptance
 
@@ -84,10 +86,11 @@ Before accepting a producer candidate patch, the control window verifies:
 
 - the patch targets the current master manifest SHA;
 - the lane ID and output directory match the registry;
-- every required file exists and matches `sha256_manifest.json`;
+- all eight immutable payload files exist and match `sha256_manifest.json`, and the candidate package SHA matches its deterministic aggregate;
 - asset IDs and translation groups are unique;
 - expected, current, and remaining counts reconcile when all are known;
-- protected source, identity, and revision fields did not drift;
+- protected lane, asset type, translation group, locale pair, and authority-source fields did not drift;
+- `inventory_frozen` includes complete lane inventory evidence and cannot retain unknown counts or `inventory_required` cohorts;
 - independent QA produced an accepted verdict for transitions at or after `qa_pass`;
 - all permissions remain false unless a separately controlled exact-SHA approval exists.
 

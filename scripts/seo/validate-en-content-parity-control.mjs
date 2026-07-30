@@ -37,6 +37,16 @@ const EXPECTED_HANDOFF_FILES = [
   "master_manifest_patch.candidate.json",
   "handoff.md",
 ];
+const IMMUTABLE_PACKAGE_PAYLOAD_FILES = EXPECTED_HANDOFF_FILES.filter(
+  (file) => file !== "sha256_manifest.json" && file !== "master_manifest_patch.candidate.json"
+);
+const PROTECTED_ASSET_FIELDS = [
+  "lane_id",
+  "asset_type",
+  "translation_group",
+  "locales",
+  "authority_source",
+];
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -55,6 +65,11 @@ function readJson(relativePath) {
 function sha256File(relativePath) {
   const resolvedPath = path.isAbsolute(relativePath) ? relativePath : path.join(ROOT, relativePath);
   return createHash("sha256").update(fs.readFileSync(resolvedPath)).digest("hex");
+}
+
+function packageSha256(files) {
+  const canonicalEntries = files.map((file) => `${file.path}:${file.sha256}`).join("\n");
+  return createHash("sha256").update(canonicalEntries).digest("hex");
 }
 
 function valueType(value) {
@@ -378,7 +393,138 @@ function validateAssetCollection(assets, location, errors) {
   }
 }
 
-function validateLeafInvariants(artifact, manifest, manifestSha256) {
+function registeredOutputDirectories(lane) {
+  if (!lane) {
+    return [];
+  }
+  if (lane.subscopes?.length > 0) {
+    return lane.subscopes.map((subscope) => `${lane.output_directory}${subscope.output_subdirectory}/`);
+  }
+  return [lane.output_directory];
+}
+
+function validatePackageShaManifest(artifact, registeredLane, artifactPath, errors) {
+  let shaManifest;
+  let shaManifestPath;
+  try {
+    shaManifestPath = path.isAbsolute(artifact.sha256_manifest_path)
+      ? artifact.sha256_manifest_path
+      : path.join(ROOT, artifact.sha256_manifest_path);
+    assert(
+      path.basename(shaManifestPath) === "sha256_manifest.json",
+      `${artifact.lane_id}: sha256_manifest_path must name sha256_manifest.json`,
+      errors
+    );
+    const candidatePath = path.isAbsolute(artifactPath) ? artifactPath : path.join(ROOT, artifactPath);
+    assert(
+      path.basename(candidatePath) === "master_manifest_patch.candidate.json",
+      `${artifact.lane_id}: candidate patch must use the registered handoff filename`,
+      errors
+    );
+    assert(
+      path.dirname(candidatePath) === path.dirname(shaManifestPath),
+      `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
+      errors
+    );
+    shaManifest = JSON.parse(fs.readFileSync(shaManifestPath, "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read sha256 manifest (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(
+    shaManifest.schema_version === "fermatmind.en_content_parity_package_sha256_manifest.v1",
+    `${artifact.lane_id}: package SHA manifest schema version is invalid`,
+    errors
+  );
+  assert(shaManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: package SHA manifest lane mismatch`, errors);
+  assert(
+    shaManifest.package_id === artifact.package_id,
+    `${artifact.lane_id}: package SHA manifest package_id mismatch`,
+    errors
+  );
+  assert(Array.isArray(shaManifest.files), `${artifact.lane_id}: package SHA manifest files must be an array`, errors);
+  if (!Array.isArray(shaManifest.files)) {
+    return;
+  }
+
+  const filePaths = shaManifest.files.map((file) => file?.path);
+  assert(
+    sameValue(filePaths, IMMUTABLE_PACKAGE_PAYLOAD_FILES),
+    `${artifact.lane_id}: package SHA manifest must cover the eight immutable payload files in order`,
+    errors
+  );
+
+  const packageDirectory = path.dirname(shaManifestPath);
+  for (const file of shaManifest.files) {
+    if (!file || typeof file.path !== "string" || typeof file.sha256 !== "string") {
+      errors.push(`${artifact.lane_id}: package SHA manifest contains a malformed file entry`);
+      continue;
+    }
+    assert(
+      /^[a-f0-9]{64}$/.test(file.sha256),
+      `${artifact.lane_id}: package SHA manifest contains an invalid SHA for ${file.path}`,
+      errors
+    );
+    if (!IMMUTABLE_PACKAGE_PAYLOAD_FILES.includes(file.path)) {
+      continue;
+    }
+    const payloadPath = path.join(packageDirectory, file.path);
+    if (!fs.existsSync(payloadPath) || !fs.statSync(payloadPath).isFile()) {
+      errors.push(`${artifact.lane_id}: package payload file is missing: ${file.path}`);
+      continue;
+    }
+    assert(
+      sha256File(payloadPath) === file.sha256,
+      `${artifact.lane_id}: package payload SHA mismatch: ${file.path}`,
+      errors
+    );
+  }
+
+  const recomputedPackageSha256 = packageSha256(shaManifest.files);
+  assert(
+    shaManifest.package_sha256 === recomputedPackageSha256,
+    `${artifact.lane_id}: package SHA manifest aggregate does not match its file entries`,
+    errors
+  );
+  assert(
+    artifact.package_sha256 === recomputedPackageSha256,
+    `${artifact.lane_id}: package_sha256 must match the verified handoff package`,
+    errors
+  );
+
+  const gateReport = shaManifest.files.find((file) => file.path === artifact.gate_evidence.report_path);
+  assert(Boolean(gateReport), `${artifact.lane_id}: gate evidence report must be covered by the package SHA manifest`, errors);
+  assert(
+    gateReport?.sha256 === artifact.gate_evidence.report_sha256,
+    `${artifact.lane_id}: gate evidence report SHA must match the package SHA manifest`,
+    errors
+  );
+
+  try {
+    const scopeManifest = JSON.parse(fs.readFileSync(path.join(packageDirectory, "scope_manifest.json"), "utf8"));
+    assert(scopeManifest.artifact_kind === "lane_package", `${artifact.lane_id}: package scope manifest kind is invalid`, errors);
+    assert(scopeManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: package scope manifest lane mismatch`, errors);
+    assert(
+      scopeManifest.package_id === artifact.package_id,
+      `${artifact.lane_id}: package scope manifest package_id mismatch`,
+      errors
+    );
+    assert(
+      registeredOutputDirectories(registeredLane).includes(scopeManifest.output_directory),
+      `${artifact.lane_id}: package scope output_directory must match the master registry`,
+      errors
+    );
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read package scope manifest (${error instanceof Error ? error.message : String(error)})`
+    );
+  }
+}
+
+function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
   const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifact.lane_id);
@@ -391,7 +537,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256) {
       errors
     );
     assert(
-      artifact.output_directory === registeredLane?.output_directory,
+      registeredOutputDirectories(registeredLane).includes(artifact.output_directory),
       `${artifact.lane_id}: package output_directory must match the master registry`,
       errors
     );
@@ -402,6 +548,14 @@ function validateLeafInvariants(artifact, manifest, manifestSha256) {
   }
 
   if (artifact.artifact_kind === "master_manifest_patch_candidate") {
+    const gateEvidence = artifact.gate_evidence ?? {
+      gate: null,
+      report_path: null,
+      report_sha256: null,
+      asset_ids: [],
+      row_count: null,
+    };
+    const assetUpdates = Array.isArray(artifact.asset_updates) ? artifact.asset_updates : [];
     assert(
       artifact.base_manifest_sha256 === manifestSha256,
       `${artifact.lane_id}: base_manifest_sha256 must match the current master manifest`,
@@ -414,8 +568,20 @@ function validateLeafInvariants(artifact, manifest, manifestSha256) {
       `${artifact.lane_id}: proposed_status must be blocked or the immediate next state ${expectedNextStatus ?? "none"}`,
       errors
     );
-    validateAssetCollection(artifact.asset_updates, "$/asset_updates", errors);
-    for (const asset of artifact.asset_updates) {
+    assert(
+      gateEvidence.gate === artifact.proposed_status,
+      `${artifact.lane_id}: gate evidence must match proposed_status`,
+      errors
+    );
+    validateAssetCollection(assetUpdates, "$/asset_updates", errors);
+    const updateAssetIds = assetUpdates.map((asset) => asset.asset_id);
+    const evidenceAssetIds = Array.isArray(gateEvidence.asset_ids) ? gateEvidence.asset_ids : [];
+    assert(
+      sameValue([...evidenceAssetIds].sort(), [...updateAssetIds].sort()),
+      `${artifact.lane_id}: gate evidence asset IDs must match asset_updates`,
+      errors
+    );
+    for (const asset of assetUpdates) {
       assert(asset.lane_id === artifact.lane_id, `${asset.asset_id}: lane_id must match candidate patch lane`, errors);
       const existingAsset = manifest.assets.find((entry) => entry.asset_id === asset.asset_id);
       const conflictingTranslationGroup = manifest.assets.find(
@@ -431,6 +597,54 @@ function validateLeafInvariants(artifact, manifest, manifestSha256) {
         `${asset.asset_id}: translation group conflicts with ${conflictingTranslationGroup?.asset_id}`,
         errors
       );
+      for (const protectedField of PROTECTED_ASSET_FIELDS) {
+        assert(
+          !existingAsset || sameValue(existingAsset[protectedField], asset[protectedField]),
+          `${asset.asset_id}: protected field ${protectedField} cannot change from the master registry`,
+          errors
+        );
+      }
+    }
+
+    if (artifact.proposed_status === "inventory_frozen") {
+      const registeredAssetIds = manifest.assets
+        .filter((asset) => asset.lane_id === artifact.lane_id)
+        .map((asset) => asset.asset_id)
+        .sort();
+      assert(
+        sameValue([...updateAssetIds].sort(), registeredAssetIds),
+        `${artifact.lane_id}: inventory_frozen requires every registered lane asset cohort`,
+        errors
+      );
+      assert(
+        assetUpdates.every((asset) =>
+          [asset.expected_en_count, asset.current_en_count, asset.remaining_en_count].every(Number.isInteger)
+        ),
+        `${artifact.lane_id}: inventory_frozen requires known counts for every asset cohort`,
+        errors
+      );
+      assert(
+        assetUpdates.every((asset) => asset.parity_state !== "inventory_required"),
+        `${artifact.lane_id}: inventory_frozen cannot retain inventory_required assets`,
+        errors
+      );
+      const inventoryRowCount = assetUpdates.reduce(
+        (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+        0
+      );
+      assert(
+        gateEvidence.report_path === "source_ledger.json",
+        `${artifact.lane_id}: inventory_frozen evidence must use source_ledger.json`,
+        errors
+      );
+      assert(
+        gateEvidence.row_count === inventoryRowCount,
+        `${artifact.lane_id}: inventory evidence row_count must equal the reconciled expected inventory`,
+        errors
+      );
+    }
+    if (artifact.gate_evidence && artifact.sha256_manifest_path) {
+      validatePackageShaManifest(artifact, registeredLane, artifactPath, errors);
     }
   }
 
@@ -492,7 +706,11 @@ export function validateControlArtifacts({ artifactPaths = [] } = {}) {
     const artifact = readJson(artifactPath);
     checkedArtifacts.push(artifactPath);
     errors.push(...schemaErrors(artifact, schema).map((error) => `${artifactPath}: ${error}`));
-    errors.push(...validateLeafInvariants(artifact, manifest, manifestSha256).map((error) => `${artifactPath}: ${error}`));
+    errors.push(
+      ...validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath).map(
+        (error) => `${artifactPath}: ${error}`
+      )
+    );
   }
 
   return {
