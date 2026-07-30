@@ -15,6 +15,10 @@ SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
 SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 REVISION_PATH="${REVISION_PATH:-/revision}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
+HTTP_CONNECT_TIMEOUT_SEC="${HTTP_CONNECT_TIMEOUT_SEC:-5}"
+HTTP_REQUEST_TIMEOUT_SEC="${HTTP_REQUEST_TIMEOUT_SEC:-20}"
+APP_READY_TIMEOUT_SEC="${APP_READY_TIMEOUT_SEC:-60}"
+APP_READY_POLL_INTERVAL_SEC="${APP_READY_POLL_INTERVAL_SEC:-1}"
 RUN_SITEMAP_HEALTH="${RUN_SITEMAP_HEALTH:-1}"
 DEPLOY_SHA="${DEPLOY_SHA:-}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
@@ -96,12 +100,42 @@ probe_headers() {
   local headers
 
   if [[ "$follow_redirects" == "1" ]]; then
-    headers="$(curl -fsSIL "$url")"
+    headers="$(curl -fsSIL \
+      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+      "$url")"
   else
-    headers="$(curl -fsSI "$url")"
+    headers="$(curl -fsSI \
+      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+      "$url")"
   fi
 
   printf '%s\n' "$headers" | head -n 20
+}
+
+wait_for_local_app_ready() {
+  local deadline
+  local probe_url
+
+  deadline="$(( $(date +%s) + APP_READY_TIMEOUT_SEC ))"
+  probe_url="http://${APP_HOST}:${APP_PORT}/zh"
+
+  while (( $(date +%s) <= deadline )); do
+    if ss -ltn | grep -Eq ":${APP_PORT}([[:space:]]|$)" \
+      && curl -fsS \
+        --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+        --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+        -o /dev/null \
+        "$probe_url"; then
+      log "local application readiness passed: ${probe_url}"
+      return 0
+    fi
+    sleep "$APP_READY_POLL_INTERVAL_SEC"
+  done
+
+  log "local application readiness timed out after ${APP_READY_TIMEOUT_SEC}s: ${probe_url}"
+  return 1
 }
 
 write_deployed_revision() {
@@ -133,7 +167,10 @@ require_deployed_revision_endpoint() {
   local expected_revision="$2"
   local payload
 
-  if ! payload="$(curl -fsS --max-time 20 "$url")"; then
+  if ! payload="$(curl -fsS \
+    --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+    --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+    "$url")"; then
     log "deployed revision endpoint request failed: ${url}"
     return 1
   fi
@@ -167,7 +204,12 @@ require_analytics_bootstrap_contract() {
 
   for path in $ANALYTICS_PUBLIC_PATHS; do
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-public.XXXXXX")"
-    status="$(curl -sSL --max-time 20 -o "$body_file" -w '%{http_code}' "${base_url%/}${path}")"
+    status="$(curl -sSL \
+      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+      -o "$body_file" \
+      -w '%{http_code}' \
+      "${base_url%/}${path}")"
     if [[ "$status" != "200" ]] || ! grep -q 'fm-analytics-bootstrap' "$body_file"; then
       rm -f "$body_file"
       log "analytics public smoke failed: phase=${phase} path=${path} status=${status}"
@@ -179,7 +221,12 @@ require_analytics_bootstrap_contract() {
 
   for path in $ANALYTICS_PRIVATE_PATHS; do
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-private.XXXXXX")"
-    status="$(curl -sSL --max-time 20 -o "$body_file" -w '%{http_code}' "${base_url%/}${path}")"
+    status="$(curl -sSL \
+      --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+      --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+      -o "$body_file" \
+      -w '%{http_code}' \
+      "${base_url%/}${path}")"
     if [[ "$status" =~ ^5 ]] || grep -Eiq 'fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu' "$body_file"; then
       rm -f "$body_file"
       log "analytics private smoke failed: phase=${phase} path=${path} status=${status}"
@@ -293,6 +340,15 @@ fi
 require_bin curl
 require_bin ss
 
+[[ "$HTTP_CONNECT_TIMEOUT_SEC" =~ ^[1-9][0-9]*$ ]] \
+  || { log "HTTP_CONNECT_TIMEOUT_SEC must be a positive integer"; exit 1; }
+[[ "$HTTP_REQUEST_TIMEOUT_SEC" =~ ^[1-9][0-9]*$ ]] \
+  || { log "HTTP_REQUEST_TIMEOUT_SEC must be a positive integer"; exit 1; }
+[[ "$APP_READY_TIMEOUT_SEC" =~ ^[1-9][0-9]*$ ]] \
+  || { log "APP_READY_TIMEOUT_SEC must be a positive integer"; exit 1; }
+[[ "$APP_READY_POLL_INTERVAL_SEC" =~ ^[1-9][0-9]*$ ]] \
+  || { log "APP_READY_POLL_INTERVAL_SEC must be a positive integer"; exit 1; }
+
 PATH_NODE_BIN="$(command -v node)"
 PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"
 EXPECTED_NODE_VERSION="$(require_node_major "runtime node" "$EXPECTED_NODE_BIN")"
@@ -358,7 +414,7 @@ else
   systemctl is-active --quiet "$SYSTEMD_SERVICE"
   systemctl status "$SYSTEMD_SERVICE" --no-pager -l | sed -n '1,80p'
 fi
-ss -ltnp | grep ":${APP_PORT}" >/dev/null
+wait_for_local_app_ready
 ss -ltnp | grep ":${APP_PORT}"
 write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
 
