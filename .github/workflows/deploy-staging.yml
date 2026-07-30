@@ -19,7 +19,7 @@ jobs:
   deploy:
     name: Deploy fap-web staging
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     concurrency:
       group: deploy-web-staging-${{ github.repository }}
       cancel-in-progress: false
