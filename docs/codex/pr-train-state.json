@@ -52090,8 +52090,8 @@
     "depends_on": [
       "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "02f688b37e12df7e42fcdb72815595c29244ed1a",
+    "status": "ready_to_merge",
+    "commit_sha": "27ee36796279f63c093f0f0fa4576cc41dd01a23",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1881",
     "checks": {
       "authorization": {
@@ -52137,6 +52137,10 @@
       "changed_file_scope": {
         "status": "passed",
         "evidence": "The intended PR contains only the four new exact-lineage W9 files and the two required train metadata files. No old BLOCKED evidence, package, master manifest, runtime, CMS, publication, discoverability, or deployment file is included."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #1881 exact checked head 27ee36796279f63c093f0f0fa4576cc41dd01a23 passed build, all four contract shards, aggregate contracts, both freeze checks, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review-decision block."
       }
     },
     "failure_reason": null,
@@ -52146,7 +52150,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -52171,9 +52175,14 @@
         "at": "2026-07-31T10:18:30Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact six-file W9 scope as 02f688b37e12df7e42fcdb72815595c29244ed1a, pushed the task branch, and opened PR #1881. Required GitHub checks are pending; the package, control master, runtime, CMS, publication, discoverability, and deployment remain untouched."
+      },
+      {
+        "at": "2026-07-31T10:23:26Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1881 exact head 27ee36796279f63c093f0f0fa4576cc41dd01a23 passed all required CI/security checks. GitHub reports CLEAN/MERGEABLE, the exact changed-file list remains the authorized six-file W9 scope, and there is no review requirement. This final ledger transition must retain green checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-31T10:18:30Z"
+    "updated_at": "2026-07-31T10:23:26Z"
   },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
