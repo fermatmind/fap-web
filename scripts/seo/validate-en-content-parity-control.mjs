@@ -76,16 +76,16 @@ const EXPECTED_W9_ROW_CHECKS = [
   "asset_media_duplication_omission",
   "page_api_alignment_applicable",
 ];
-const W9_ROW_TO_AGGREGATE_CHECKS = {
-  language_naturalness: "language_naturalness",
-  chinese_leakage: "chinese_leakage",
-  claim_boundary: "claim_boundary",
-  asset_media_duplication_omission: "asset_duplication",
-  field_leakage: "field_leakage",
-  page_api_alignment_applicable: "page_api_alignment",
+const W9_AGGREGATE_TO_ROW_CHECKS = {
+  language_naturalness: ["language_naturalness"],
+  chinese_leakage: ["chinese_leakage"],
+  claim_boundary: ["claim_boundary"],
+  asset_duplication: ["source_equivalence_identity", "asset_media_duplication_omission"],
+  field_leakage: ["internal_link_equivalence", "field_leakage"],
+  page_api_alignment: ["page_api_alignment_applicable"],
 };
-const DIRECT_W9_ROW_TO_AGGREGATE_CHECKS = Object.fromEntries(
-  EXPECTED_QA_CHECKS.map((check) => [check, check])
+const DIRECT_W9_AGGREGATE_TO_ROW_CHECKS = Object.fromEntries(
+  EXPECTED_QA_CHECKS.map((check) => [check, [check]])
 );
 const PERMISSION_KEYS = [
   "cms_write_authorized",
@@ -368,7 +368,7 @@ function validateBlockedAggregateRows(
   qaReport,
   rowEvidence,
   expectedRowChecks,
-  rowToAggregateChecks,
+  aggregateToRowChecks,
   label,
   errors
 ) {
@@ -406,8 +406,10 @@ function validateBlockedAggregateRows(
       errors
     );
   }
-  for (const [rowCheck, aggregateCheck] of Object.entries(rowToAggregateChecks)) {
-    const expectedAggregateVerdict = rowReviews.some((row) => row?.checks?.[rowCheck] === "BLOCKED")
+  for (const [aggregateCheck, rowChecks] of Object.entries(aggregateToRowChecks)) {
+    const expectedAggregateVerdict = rowReviews.some((row) =>
+      rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+    )
       ? "BLOCKED"
       : "PASS";
     assert(
@@ -1317,7 +1319,7 @@ function validateIndependentQaEvidence(
       qaReport,
       rowEvidenceArtifact,
       EXPECTED_W9_ROW_CHECKS,
-      W9_ROW_TO_AGGREGATE_CHECKS,
+      W9_AGGREGATE_TO_ROW_CHECKS,
       artifact.lane_id,
       errors
     );
@@ -1508,8 +1510,10 @@ function validateIndependentQaEvidence(
         errors
       );
     }
-    for (const [rowCheck, aggregateCheck] of Object.entries(W9_ROW_TO_AGGREGATE_CHECKS)) {
-      const expectedAggregateVerdict = rowReviews.some((row) => row?.checks?.[rowCheck] === "BLOCKED")
+    for (const [aggregateCheck, rowChecks] of Object.entries(W9_AGGREGATE_TO_ROW_CHECKS)) {
+      const expectedAggregateVerdict = rowReviews.some((row) =>
+        rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+      )
         ? "BLOCKED"
         : "PASS";
       assert(
@@ -2144,7 +2148,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         report,
         rowEvidence,
         EXPECTED_QA_CHECKS,
-        DIRECT_W9_ROW_TO_AGGREGATE_CHECKS,
+        DIRECT_W9_AGGREGATE_TO_ROW_CHECKS,
         `${artifact.producer_lane_id}: package rework`,
         errors
       );
