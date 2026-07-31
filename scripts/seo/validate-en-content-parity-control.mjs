@@ -335,6 +335,30 @@ function assertAllPermissionsFalse(value, location, errors) {
   }
 }
 
+function assertBoundPermissionsMatch(candidatePermissions, evidence, location, label, errors) {
+  const permissions = evidence?.permissions;
+  const hasPermissionsObject =
+    permissions !== null && typeof permissions === "object" && !Array.isArray(permissions);
+  assert(hasPermissionsObject, `${label}: permissions object is required`, errors);
+  if (!hasPermissionsObject) {
+    return;
+  }
+
+  assert(
+    sameValue(Object.keys(permissions).sort(), [...PERMISSION_KEYS].sort()),
+    `${label}: permissions must include exactly the controlled permission keys`,
+    errors
+  );
+  for (const key of PERMISSION_KEYS) {
+    assert(permissions[key] === false, `${location}/${key}: permission must remain false`, errors);
+  }
+  assert(
+    sameValue(permissions, candidatePermissions),
+    `${label}: permissions must exactly match the blocker candidate`,
+    errors
+  );
+}
+
 function hasDependencyCycle(lanes) {
   const dependencies = new Map(lanes.map((lane) => [lane.lane_id, lane.dependencies]));
   const visiting = new Set();
@@ -1103,6 +1127,13 @@ function validateIndependentQaEvidence(
     errors
   );
   assertAllPermissionsFalse(qaReport, "$/w9_qa_report", errors);
+  assertBoundPermissionsMatch(
+    artifact.permissions,
+    qaReport,
+    "$/w9_qa_report/permissions",
+    `${artifact.lane_id}: W9 QA report`,
+    errors
+  );
   assert(qaReport.qa_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
   assert(
     qaReport.output_directory === manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory,
@@ -1132,6 +1163,13 @@ function validateIndependentQaEvidence(
     `${artifact.lane_id}: W9 QA report must include every required check`,
     errors
   );
+  for (const check of EXPECTED_QA_CHECKS) {
+    assert(
+      ["PASS", "BLOCKED"].includes(qaReport.checks?.[check]),
+      `${artifact.lane_id}: W9 QA check ${check} must be PASS or BLOCKED`,
+      errors
+    );
+  }
   if (expectedVerdict === "PASS") {
     for (const check of EXPECTED_QA_CHECKS) {
       assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
@@ -1202,6 +1240,14 @@ function validateIndependentQaEvidence(
       errors
     );
     const rowEvidenceArtifact = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
+    assertAllPermissionsFalse(rowEvidenceArtifact, "$/w9_row_evidence", errors);
+    assertBoundPermissionsMatch(
+      artifact.permissions,
+      rowEvidenceArtifact,
+      "$/w9_row_evidence/permissions",
+      `${artifact.lane_id}: W9 row evidence`,
+      errors
+    );
     assert(
       rowEvidenceArtifact.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
       `${artifact.lane_id}: W9 row evidence schema version is invalid`,

@@ -967,6 +967,20 @@ describe("English content parity control master", () => {
     "row verdict mismatch",
     "aggregate check mismatch",
     "row ID and identity pairing mismatch",
+    "report permission true",
+    "report permission missing",
+    "report permission drift",
+    "row evidence permission true",
+    "row evidence permission missing",
+    "row evidence permission drift",
+    ...[
+      "language_naturalness",
+      "chinese_leakage",
+      "claim_boundary",
+      "asset_duplication",
+      "field_leakage",
+      "page_api_alignment",
+    ].map((check) => `invalid QA verdict for ${check}`),
   ])("rejects a W9 blocker candidate with %s", (failureMode) => {
     const candidateDirectory = makeW9QaDirectory();
     const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
@@ -990,13 +1004,15 @@ describe("English content parity control master", () => {
       fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
     ) as {
       reviewed_row_count: number;
-      checks: Record<string, "PASS" | "BLOCKED">;
+      checks: Record<string, string>;
+      permissions: Record<string, boolean>;
     };
     const rowEvidence = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
     ) as {
       reviewed_row_count: number;
-      required_checks: Record<string, "PASS" | "BLOCKED">;
+      required_checks: Record<string, string>;
+      permissions: Record<string, boolean>;
       row_reviews: Array<{
         row_id: string;
         source_identity: string;
@@ -1033,10 +1049,26 @@ describe("English content parity control master", () => {
     } else if (failureMode === "aggregate check mismatch") {
       qaReport.checks.language_naturalness = "PASS";
       rowEvidence.required_checks.language_naturalness = "PASS";
-    } else {
+    } else if (failureMode === "row ID and identity pairing mismatch") {
       const firstIdentity = rowEvidence.row_reviews[0]!.source_identity;
       rowEvidence.row_reviews[0]!.source_identity = rowEvidence.row_reviews[1]!.source_identity;
       rowEvidence.row_reviews[1]!.source_identity = firstIdentity;
+    } else if (failureMode === "report permission true") {
+      qaReport.permissions.public_release_authorized = true;
+    } else if (failureMode === "report permission missing") {
+      delete qaReport.permissions.public_release_authorized;
+    } else if (failureMode === "report permission drift") {
+      qaReport.permissions.report_only_authorized = false;
+    } else if (failureMode === "row evidence permission true") {
+      rowEvidence.permissions.production_import_authorized = true;
+    } else if (failureMode === "row evidence permission missing") {
+      delete rowEvidence.permissions.production_import_authorized;
+    } else if (failureMode === "row evidence permission drift") {
+      rowEvidence.permissions.row_evidence_only_authorized = false;
+    } else if (failureMode.startsWith("invalid QA verdict for ")) {
+      const check = failureMode.replace("invalid QA verdict for ", "");
+      qaReport.checks[check] = "NOT_REVIEWED";
+      rowEvidence.required_checks[check] = "NOT_REVIEWED";
     }
 
     fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
@@ -1078,8 +1110,26 @@ describe("English content parity control master", () => {
         expect(errors).toContain("every W9 row review verdict must match its row checks");
       } else if (failureMode === "aggregate check mismatch") {
         expect(errors).toContain("W9 aggregate check language_naturalness must match the row reviews");
-      } else {
+      } else if (failureMode === "row ID and identity pairing mismatch") {
         expect(errors).toContain("every W9 row review must preserve its frozen row ID and identity pairing");
+      } else if (failureMode === "report permission true") {
+        expect(errors).toContain("$/w9_qa_report/permissions/public_release_authorized: permission must remain false");
+      } else if (failureMode === "report permission missing" || failureMode === "report permission drift") {
+        expect(errors).toContain("W9 QA report: permissions must include exactly the controlled permission keys");
+        expect(errors).toContain("W9 QA report: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "row evidence permission true") {
+        expect(errors).toContain(
+          "$/w9_row_evidence/permissions/production_import_authorized: permission must remain false"
+        );
+      } else if (
+        failureMode === "row evidence permission missing" ||
+        failureMode === "row evidence permission drift"
+      ) {
+        expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
+        expect(errors).toContain("W9 row evidence: permissions must exactly match the blocker candidate");
+      } else if (failureMode.startsWith("invalid QA verdict for ")) {
+        const check = failureMode.replace("invalid QA verdict for ", "");
+        expect(errors).toContain(`W9 QA check ${check} must be PASS or BLOCKED`);
       }
     } finally {
       fs.rmSync(candidateDirectory, { recursive: true, force: true });
