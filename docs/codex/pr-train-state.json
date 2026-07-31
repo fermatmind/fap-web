@@ -52350,7 +52350,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-repair-03",
     "depends_on": [
@@ -52381,19 +52381,19 @@
       },
       "lint": {
         "status": "pass_with_external_sidecar",
-        "evidence": "Scoped clean-checkout-equivalent ESLint excluding only the pre-existing ignored .playwright-cli trace directory passed with zero errors. Canonical pnpm lint failure is isolated to two no-this-alias errors in an ignored local trace and recorded in generated/pr-train-sidecar-issues without staging it."
+        "evidence": "Scoped clean-checkout-equivalent ESLint excluding only the pre-existing ignored .playwright-cli trace directory passed with zero errors. Canonical pnpm lint failure is isolated to two no-this-alias errors in that ignored local trace; the identical external blocker class is already recorded by the existing BIG5-EN52-104 sidecar entry, so this PR does not mutate sidecar files."
       },
       "scope_validation": {
         "status": "pass",
         "evidence": "Staged scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1875 required GitHub checks are running against package commit 904ea5d76801754265aca8ac82e0d6bf4a97bd73."
+        "status": "pass",
+        "evidence": "PR #1875 head ee0eb28e295f2d4ff6786f34a113a8a49e054283 passed all 11 required CI and security checks."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "PR #1875 is open and currently MERGEABLE; exact-head checks and review-thread inspection remain pending."
+        "status": "pass",
+        "evidence": "PR #1875 is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact changed-file scope and all-false permission boundaries revalidate."
       }
     },
     "failure_reason": null,
@@ -52494,10 +52494,15 @@
       {
         "at": "2026-07-31T08:36:12Z",
         "status": "local_verified",
-        "summary": "Completed W9-directed rework-03 for all 15 blocked Article rows. Restored complete source-equivalent matrices, repaired the exact language and field-leakage findings, and rebuilt the ten-file candidate package at SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161. Control validation, 66/66 focused contracts, clean-checkout-equivalent scoped lint, package-integrity audit, scope validation, and git diff checks pass. The ignored local Playwright trace lint pollution is recorded as a non-blocking sidecar; all CMS/publication/SEO/search/deploy permissions remain false."
+        "summary": "Completed W9-directed rework-03 for all 15 blocked Article rows. Restored complete source-equivalent matrices, repaired the exact language and field-leakage findings, and rebuilt the ten-file candidate package at SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161. Control validation, 66/66 focused contracts, clean-checkout-equivalent scoped lint, package-integrity audit, scope validation, and git diff checks pass. The ignored local Playwright trace pollution matches the pre-existing BIG5-EN52-104 sidecar blocker class; all CMS/publication/SEO/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-31T08:50:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1875 head ee0eb28e295f2d4ff6786f34a113a8a49e054283 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact package SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161, changed-file scope, and all-false permissions revalidate."
       }
     ],
-    "updated_at": "2026-07-31T08:36:12Z"
+    "updated_at": "2026-07-31T08:50:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
