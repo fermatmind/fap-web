@@ -1385,6 +1385,9 @@ describe("English content parity control master", () => {
         row_id: string;
         source_identity: string;
         checks: Record<string, string>;
+        title_excerpt_full_body_reviewed?: boolean;
+        verdict?: "PASS" | "BLOCKED";
+        evidence?: string;
       }>;
     };
     const checkedInFrozenLedger = JSON.parse(
@@ -1402,6 +1405,10 @@ describe("English content parity control master", () => {
       "unique row identity drift",
       "row and projection double forgery",
       "row permission drift",
+      "missing substantive row fields",
+      "empty substantive row evidence",
+      "row verdict mismatch",
+      "aggregate check mismatch",
     ]) {
       const approval = structuredClone(checkedInApproval);
       const report = structuredClone(checkedInReport);
@@ -1425,6 +1432,7 @@ describe("English content parity control master", () => {
           for (const check of Object.keys(rowReview.checks)) {
             rowReview.checks[check] = "PASS";
           }
+          rowReview.verdict = "PASS";
         }
       } else if (failureMode === "unique row identity drift") {
         rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
@@ -1439,6 +1447,18 @@ describe("English content parity control master", () => {
         });
       } else if (failureMode === "row permission drift") {
         rowEvidence.permissions.production_import_authorized = true;
+      } else if (failureMode === "missing substantive row fields") {
+        delete rowEvidence.row_reviews[0].title_excerpt_full_body_reviewed;
+        delete rowEvidence.row_reviews[0].verdict;
+        delete rowEvidence.row_reviews[0].evidence;
+      } else if (failureMode === "empty substantive row evidence") {
+        rowEvidence.row_reviews[0].evidence = " ";
+      } else if (failureMode === "row verdict mismatch") {
+        rowEvidence.row_reviews[0].verdict =
+          rowEvidence.row_reviews[0].verdict === "BLOCKED" ? "PASS" : "BLOCKED";
+      } else if (failureMode === "aggregate check mismatch") {
+        report.checks.language_naturalness = "PASS";
+        rowEvidence.required_checks.language_naturalness = "PASS";
       }
       fs.writeFileSync(reportPath, JSON.stringify(report));
       fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
@@ -1491,6 +1511,22 @@ describe("English content parity control master", () => {
       } else if (failureMode === "row and projection double forgery") {
         expect(blockerErrors).toContain(
           "package rework frozen projection must exactly match the hashed source ledger"
+        );
+      } else if (failureMode === "missing substantive row fields") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review must confirm title, excerpt, and full body review"
+        );
+      } else if (failureMode === "empty substantive row evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review must include substantive evidence"
+        );
+      } else if (failureMode === "row verdict mismatch") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review verdict must match its row checks"
+        );
+      } else if (failureMode === "aggregate check mismatch") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 aggregate check language_naturalness must match the row reviews"
         );
       } else {
         expect(blockerErrors).toContain(

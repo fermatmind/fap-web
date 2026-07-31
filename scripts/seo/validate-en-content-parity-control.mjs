@@ -84,9 +84,6 @@ const W9_AGGREGATE_TO_ROW_CHECKS = {
   field_leakage: ["internal_link_equivalence", "field_leakage"],
   page_api_alignment: ["page_api_alignment_applicable"],
 };
-const DIRECT_W9_AGGREGATE_TO_ROW_CHECKS = Object.fromEntries(
-  EXPECTED_QA_CHECKS.map((check) => [check, [check]])
-);
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -415,6 +412,37 @@ function validateBlockedAggregateRows(
     assert(
       qaReport?.checks?.[aggregateCheck] === expectedAggregateVerdict,
       `${label}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
+      errors
+    );
+  }
+}
+
+function validateBlockedRowSubstance(rowEvidence, expectedRowChecks, label, errors) {
+  const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+  assert(
+    Array.isArray(rowEvidence?.row_reviews),
+    `${label}: W9 row_reviews must be an array`,
+    errors
+  );
+  for (const rowReview of rowReviews) {
+    assert(
+      rowReview?.title_excerpt_full_body_reviewed === true,
+      `${label}: every W9 row review must confirm title, excerpt, and full body review`,
+      errors
+    );
+    const expectedRowVerdict = expectedRowChecks.some(
+      (check) => rowReview?.checks?.[check] === "BLOCKED"
+    )
+      ? "BLOCKED"
+      : "PASS";
+    assert(
+      rowReview?.verdict === expectedRowVerdict,
+      `${label}: every W9 row review verdict must match its row checks`,
+      errors
+    );
+    assert(
+      typeof rowReview?.evidence === "string" && rowReview.evidence.trim().length > 0,
+      `${label}: every W9 row review must include substantive evidence`,
       errors
     );
   }
@@ -1440,6 +1468,12 @@ function validateIndependentQaEvidence(
       `${artifact.lane_id}: W9 row review identities must exactly cover the frozen target identities`,
       errors
     );
+    validateBlockedRowSubstance(
+      rowEvidenceArtifact,
+      EXPECTED_W9_ROW_CHECKS,
+      artifact.lane_id,
+      errors
+    );
     for (const rowReview of rowReviews) {
       assert(
         typeof rowReview?.row_id === "string" && rowReview.row_id.length > 0,
@@ -2147,8 +2181,14 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       validateBlockedAggregateRows(
         report,
         rowEvidence,
-        EXPECTED_QA_CHECKS,
-        DIRECT_W9_AGGREGATE_TO_ROW_CHECKS,
+        EXPECTED_W9_ROW_CHECKS,
+        W9_AGGREGATE_TO_ROW_CHECKS,
+        `${artifact.producer_lane_id}: package rework`,
+        errors
+      );
+      validateBlockedRowSubstance(
+        rowEvidence,
+        EXPECTED_W9_ROW_CHECKS,
         `${artifact.producer_lane_id}: package rework`,
         errors
       );
