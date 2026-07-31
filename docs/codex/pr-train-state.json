@@ -52490,7 +52490,7 @@
     "updated_at": "2026-07-31T06:56:35Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "blocked",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-01",
     "depends_on": [
@@ -52540,12 +52540,12 @@
         "evidence": "Node 24.18.1 focused en-content-parity control contract passes 62/62. Complete JSON/YAML parsing, both control validators, exact eight-file SHA recomputation, 17/17 unique coverage, aggregate row-check consistency, producer/master/CareerGuide immutability assertions, exact allowed-path review, and diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1872 is open from the exact W9 branch; GitHub required checks are pending."
+        "status": "pass",
+        "evidence": "PR #1872 exact head b25c805bd841f5c7f656ba201a9a190d04e52950 passed build, four contract shards plus contracts aggregation, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, no-new-code-scanning-alerts, and CodeQL."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "PR #1872 exact-head review, mergeability, and required-check verification are pending."
+        "status": "pass",
+        "evidence": "GitHub reports PR #1872 MERGEABLE/CLEAN at exact remote head b25c805bd841f5c7f656ba201a9a190d04e52950. There are zero review threads and zero reviews; the only issue comment is a non-actionable Codex review quota notice."
       }
     },
     "failure_reason": "Fresh independent W9 is BLOCKED for 15 of 17 Article rows: 10 fail language naturalness, 13 fail source equivalence, and 2 expose field/control text. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
@@ -52597,9 +52597,14 @@
         "at": "2026-07-31T07:37:24Z",
         "status": "blocked_pr_open",
         "summary": "Committed the fresh independent W9 BLOCKED evidence as 06a3a8a67a7988a96f029936185a258ca03668d5 and opened PR #1872 with exact title and scope. GitHub required checks, exact-head review, and mergeability verification are pending; qa_pass and every write/release permission remain false."
+      },
+      {
+        "at": "2026-07-31T07:44:02Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1872 exact head b25c805bd841f5c7f656ba201a9a190d04e52950 passed every required GitHub check and is MERGEABLE/CLEAN. Zero review threads or reviews are present. Exact-head validators, payload/package/artifact SHA checks, 17-row coverage, 9-file frozen snapshot comparison, allowed-path scope, and producer/CONTROL/CareerGuide immutability checks all pass; the independent evidence verdict remains BLOCKED and qa_pass remains unauthorized."
       }
     ],
-    "updated_at": "2026-07-31T07:37:24Z"
+    "updated_at": "2026-07-31T07:44:02Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
