@@ -1235,6 +1235,8 @@ describe("English content parity control master", () => {
       w9_report_sha256: string;
       w9_row_evidence_ref: string;
       w9_row_evidence_sha256: string;
+      w9_frozen_ledger_ref: string;
+      w9_frozen_ledger_sha256: string;
     };
     const checkedInReport = JSON.parse(
       fs.readFileSync(path.join(ROOT, checkedInApproval.w9_report_ref), "utf8")
@@ -1254,7 +1256,8 @@ describe("English content parity control master", () => {
     for (const failureMode of [
       "all aggregate and row checks PASS",
       "missing row evidence",
-      "row identity drift",
+      "missing frozen ledger",
+      "unique row identity drift",
       "row permission drift",
     ]) {
       const approval = structuredClone(checkedInApproval);
@@ -1275,9 +1278,8 @@ describe("English content parity control master", () => {
             rowReview.checks[check] = "PASS";
           }
         }
-      } else if (failureMode === "row identity drift") {
-        rowEvidence.row_reviews.at(-1)!.source_identity =
-          rowEvidence.row_reviews[0]!.source_identity;
+      } else if (failureMode === "unique row identity drift") {
+        rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
       } else if (failureMode === "row permission drift") {
         rowEvidence.permissions.production_import_authorized = true;
       }
@@ -1293,6 +1295,13 @@ describe("English content parity control master", () => {
         failureMode === "missing row evidence"
           ? "0".repeat(64)
           : sha256AbsoluteFile(rowEvidencePath);
+      if (failureMode === "missing frozen ledger") {
+        approval.w9_frozen_ledger_ref = path.join(
+          invalidW9Directory,
+          "missing-frozen-ledger.json"
+        );
+        approval.w9_frozen_ledger_sha256 = "0".repeat(64);
+      }
       fs.writeFileSync(invalidApprovalPath, JSON.stringify(approval));
 
       let blockerOutput = "";
@@ -1312,9 +1321,11 @@ describe("English content parity control master", () => {
         );
       } else if (failureMode === "missing row evidence") {
         expect(blockerErrors).toContain("cannot verify package rework W9 evidence");
-      } else if (failureMode === "row identity drift") {
+      } else if (failureMode === "missing frozen ledger") {
+        expect(blockerErrors).toContain("cannot verify package rework W9 evidence");
+      } else if (failureMode === "unique row identity drift") {
         expect(blockerErrors).toContain(
-          "package rework W9 row identities must be complete and unique"
+          "package rework W9 rows must exactly match the frozen ledger row ID and identity pairs"
         );
       } else {
         expect(blockerErrors).toContain(

@@ -1886,12 +1886,16 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       const rowEvidencePath = path.isAbsolute(artifact.w9_row_evidence_ref)
         ? artifact.w9_row_evidence_ref
         : path.join(ROOT, artifact.w9_row_evidence_ref);
+      const frozenLedgerPath = path.isAbsolute(artifact.w9_frozen_ledger_ref)
+        ? artifact.w9_frozen_ledger_ref
+        : path.join(ROOT, artifact.w9_frozen_ledger_ref);
       const w9Lane = manifest.lanes.find((lane) => lane.lane_id === "W9");
       const realQaAuthorityDirectory = fs.realpathSync(
         path.join(ROOT, w9Lane?.output_directory ?? "")
       );
       const realReportPath = fs.realpathSync(reportPath);
       const realRowEvidencePath = fs.realpathSync(rowEvidencePath);
+      const realFrozenLedgerPath = fs.realpathSync(frozenLedgerPath);
       assert(
         isPathInside(realReportPath, realQaAuthorityDirectory),
         `${artifact.producer_lane_id}: package rework reset W9 report must remain in W9 authority`,
@@ -1912,8 +1916,19 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         `${artifact.producer_lane_id}: package rework reset W9 row evidence SHA mismatch`,
         errors
       );
+      assert(
+        isPathInside(realFrozenLedgerPath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework reset frozen ledger must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(frozenLedgerPath) === artifact.w9_frozen_ledger_sha256,
+        `${artifact.producer_lane_id}: package rework reset frozen ledger SHA mismatch`,
+        errors
+      );
       const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
       const rowEvidence = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
+      const frozenLedger = JSON.parse(fs.readFileSync(frozenLedgerPath, "utf8"));
       errors.push(
         ...schemaErrors(report, schema).map(
           (error) => `${artifact.producer_lane_id}: package rework W9 Schema error: ${error}`
@@ -1925,6 +1940,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         )
       );
       assertAllPermissionsFalse(rowEvidence, "$/package_rework_w9_row_evidence", errors);
+      assertAllPermissionsFalse(frozenLedger, "$/package_rework_w9_frozen_ledger", errors);
       assertBoundPermissionsMatch(
         artifact.permissions,
         report,
@@ -1937,6 +1953,13 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         rowEvidence,
         "$/package_rework_w9_row_evidence/permissions",
         `${artifact.producer_lane_id}: package rework W9 row evidence`,
+        errors
+      );
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        frozenLedger,
+        "$/package_rework_w9_frozen_ledger/permissions",
+        `${artifact.producer_lane_id}: package rework W9 frozen ledger`,
         errors
       );
       assert(
@@ -1958,6 +1981,18 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
           rowEvidence.package_sha256 === artifact.blocked_package_sha256 &&
           rowEvidence.verdict === "BLOCKED",
         `${artifact.producer_lane_id}: package rework reset requires exact W9 BLOCKED row evidence`,
+        errors
+      );
+      assert(
+        frozenLedger.schema_version ===
+          "fermatmind.en_content_parity_frozen_source_ledger_identity_projection.v1" &&
+          frozenLedger.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
+          frozenLedger.producer_lane_id === artifact.producer_lane_id &&
+          frozenLedger.subscope_id === artifact.subscope_id &&
+          frozenLedger.package_sha256 === artifact.blocked_package_sha256 &&
+          frozenLedger.source_ledger_sha256 ===
+            rowEvidence.package_integrity?.immutable_payload_sha256?.["source_ledger.json"],
+        `${artifact.producer_lane_id}: package rework reset frozen ledger must match the blocked package`,
         errors
       );
       const expectedAssetIds = resetTarget?.assetIds ?? [];
@@ -1982,6 +2017,10 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       const rowReviews = Array.isArray(rowEvidence.row_reviews) ? rowEvidence.row_reviews : [];
       const rowIds = rowReviews.map((row) => row?.row_id);
       const rowIdentities = rowReviews.map((row) => row?.source_identity);
+      const frozenRows = Array.isArray(frozenLedger.rows) ? frozenLedger.rows : [];
+      const frozenRowIdentityById = new Map(
+        frozenRows.map((row) => [row?.row_id, row?.source_identity])
+      );
       assert(
         rowReviews.length === expectedRowCount,
         `${artifact.producer_lane_id}: package rework W9 row evidence must cover every target row`,
@@ -1997,6 +2036,19 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         rowIdentities.every((identity) => typeof identity === "string" && identity.length > 0) &&
           new Set(rowIdentities).size === rowIdentities.length,
         `${artifact.producer_lane_id}: package rework W9 row identities must be complete and unique`,
+        errors
+      );
+      assert(
+        frozenRows.length === expectedRowCount &&
+          frozenRowIdentityById.size === expectedRowCount &&
+          rowReviews.every(
+            (row) => frozenRowIdentityById.get(row?.row_id) === row?.source_identity
+          ) &&
+          sameValue(
+            [...rowIds].sort(),
+            [...frozenRowIdentityById.keys()].sort()
+          ),
+        `${artifact.producer_lane_id}: package rework W9 rows must exactly match the frozen ledger row ID and identity pairs`,
         errors
       );
       assert(
