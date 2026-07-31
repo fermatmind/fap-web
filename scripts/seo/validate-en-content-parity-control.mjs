@@ -68,6 +68,7 @@ const EXPECTED_QA_CHECKS = [
 ];
 const EXPECTED_W9_ROW_CHECKS = [
   "language_naturalness",
+  "chinese_leakage",
   "source_equivalence_identity",
   "claim_boundary",
   "internal_link_equivalence",
@@ -77,6 +78,7 @@ const EXPECTED_W9_ROW_CHECKS = [
 ];
 const W9_ROW_TO_AGGREGATE_CHECKS = {
   language_naturalness: "language_naturalness",
+  chinese_leakage: "chinese_leakage",
   claim_boundary: "claim_boundary",
   asset_media_duplication_omission: "asset_duplication",
   field_leakage: "field_leakage",

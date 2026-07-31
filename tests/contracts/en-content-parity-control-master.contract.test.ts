@@ -973,6 +973,9 @@ describe("English content parity control master", () => {
     "row evidence permission true",
     "row evidence permission missing",
     "row evidence permission drift",
+    "aggregate Chinese leakage without blocked row",
+    "missing row Chinese leakage",
+    "invalid row Chinese leakage verdict",
     ...[
       "language_naturalness",
       "chinese_leakage",
@@ -1018,7 +1021,7 @@ describe("English content parity control master", () => {
         source_identity: string;
         title_excerpt_full_body_reviewed?: boolean;
         verdict?: "PASS" | "BLOCKED";
-        checks?: Record<string, "PASS" | "BLOCKED">;
+        checks?: Record<string, string>;
         evidence?: string;
       }>;
     };
@@ -1065,6 +1068,13 @@ describe("English content parity control master", () => {
       delete rowEvidence.permissions.production_import_authorized;
     } else if (failureMode === "row evidence permission drift") {
       rowEvidence.permissions.row_evidence_only_authorized = false;
+    } else if (failureMode === "aggregate Chinese leakage without blocked row") {
+      qaReport.checks.chinese_leakage = "BLOCKED";
+      rowEvidence.required_checks.chinese_leakage = "BLOCKED";
+    } else if (failureMode === "missing row Chinese leakage") {
+      delete rowEvidence.row_reviews[0]!.checks!.chinese_leakage;
+    } else if (failureMode === "invalid row Chinese leakage verdict") {
+      rowEvidence.row_reviews[0]!.checks!.chinese_leakage = "NOT_REVIEWED";
     } else if (failureMode.startsWith("invalid QA verdict for ")) {
       const check = failureMode.replace("invalid QA verdict for ", "");
       qaReport.checks[check] = "NOT_REVIEWED";
@@ -1127,6 +1137,12 @@ describe("English content parity control master", () => {
       ) {
         expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
         expect(errors).toContain("W9 row evidence: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "aggregate Chinese leakage without blocked row") {
+        expect(errors).toContain("W9 aggregate check chinese_leakage must match the row reviews");
+      } else if (failureMode === "missing row Chinese leakage") {
+        expect(errors).toContain("every W9 row review must include every required row check");
+      } else if (failureMode === "invalid row Chinese leakage verdict") {
+        expect(errors).toContain("every W9 row review check must be PASS or BLOCKED");
       } else if (failureMode.startsWith("invalid QA verdict for ")) {
         const check = failureMode.replace("invalid QA verdict for ", "");
         expect(errors).toContain(`W9 QA check ${check} must be PASS or BLOCKED`);
