@@ -52696,7 +52696,7 @@
       },
       "inventory_package": {
         "status": "pass",
-        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Cross-device renderer evidence is bound to exact fap-web baseline paths. All 66 backend source locators and the baseline are pinned to fap-api post-merge SHA 012392aaf0d83375414f8eb9ad010f6c7c577714. Both control validators pass; the eight-file SHA aggregate is 7c722d36b9c4c862050a9aa691c5c304b9456e7787c993321502e461677deb37."
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Cross-device renderer evidence is bound to exact fap-web baseline paths. All 68 backend source locators and the baseline are pinned to fap-api post-merge SHA 012392aaf0d83375414f8eb9ad010f6c7c577714. Both control validators pass; the eight-file SHA aggregate is 0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292."
       },
       "local_validation": {
         "status": "pass",
@@ -52773,8 +52773,13 @@
         "at": "2026-07-31T04:56:40Z",
         "status": "github_checks_pending",
         "summary": "Exact-head review found 66 mutable fap-api origin/main locators and an inconsistent abbreviated post-merge baseline. Replaced every backend locator and all current backend baseline fields with full verified post-merge SHA 012392aaf0d83375414f8eb9ad010f6c7c577714; every unique referenced path exists at that revision. Rebuilt the package as 7c722d36b9c4c862050a9aa691c5c304b9456e7787c993321502e461677deb37."
+      },
+      {
+        "at": "2026-07-31T05:03:00Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review found the final two analytics handoff evidence locators lacked a revision. Bound both to verified fap-api SHA 012392aaf0d83375414f8eb9ad010f6c7c577714, bringing all 68 backend locators onto one reproducible snapshot, and rebuilt the package as 0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292."
       }
     ],
-    "updated_at": "2026-07-31T04:56:40Z"
+    "updated_at": "2026-07-31T05:03:00Z"
   }
 }

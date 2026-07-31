@@ -6160,8 +6160,8 @@
       "fixture_mock_runtime_classification": "analytics_handoff_is_internal_evidence_only_not_reader_content",
       "source_evidence": [
         "operator-goal:fixed-inventory-unit-16:analytics_reader_labels",
-        "fap-api:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/big5_result_page_analytics_handoff_v0_1.json",
-        "fap-api:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/README.md"
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/big5_result_page_analytics_handoff_v0_1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/README.md"
       ],
       "proposed_owning_repository": "fap-api",
       "blocker": "The operator-frozen identity has no current backend reader-copy field or reader-facing projection. The existing analytics handoff proves only internal aggregate metric definitions and explicitly adds no frontend copy. PR 3 may create a draft-review-only content asset only if the existing content-package contract can represent this identity; otherwise it must stop and split a contract PR. Internal metric IDs remain excluded from reader content."
