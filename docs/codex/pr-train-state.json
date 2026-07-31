@@ -52356,7 +52356,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "043919aa89c089024ada1fda0395cb8486aaf261",
+    "commit_sha": "5e1aca943ba8d088830b96def08efa1cd992cd49",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
     "checks": {
       "dependency": {
@@ -52377,7 +52377,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3."
+        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a."
       },
       "lint": {
         "status": "pass",
@@ -52389,7 +52389,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior heads; the same-scope fragment audit and Article 7 review repair changed the package to exact SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3, so required checks must rerun on the new head."
+        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior heads; the same-scope Article 51 review repair changed the package to exact SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a, so required checks must rerun on the new head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52475,9 +52475,14 @@
         "at": "2026-07-31T06:43:48Z",
         "status": "github_checks_pending",
         "summary": "Latest exact-head review identified remaining Article:7@revision:442 malformed inference and FAQ fragments. Rewrote those as complete reader-facing sentences and extended the same fragment audit to Article:1 and Article:6, then re-froze the ten-file package at exact SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
+      },
+      {
+        "at": "2026-07-31T06:51:41Z",
+        "status": "github_checks_pending",
+        "summary": "Latest exact-head review identified an editorial fragment in Article:51@revision:73. Rewrote it as a direct complete explanation that Enneagram research support is mixed and generally more limited than Big Five evidence, then re-froze the ten-file package at exact SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-07-31T06:43:48Z"
+    "updated_at": "2026-07-31T06:51:41Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
