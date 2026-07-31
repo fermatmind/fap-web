@@ -177,6 +177,38 @@ function makeControlApprovalDirectory(): string {
   return fs.mkdtempSync(path.join(authorityDirectory, "contract-"));
 }
 
+function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
+  directory: string;
+  manifestPath: string;
+  manifestSha256: string;
+} {
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-pre-block-"));
+  const manifestPath = path.join(directory, "master.json");
+  const preBlockManifest = structuredClone(sourceManifest);
+  const w3 = preBlockManifest.lanes.find((lane) => lane.lane_id === "W3");
+  const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+  if (!w3 || !articles) {
+    throw new Error("missing W3 Article pre-block fixture");
+  }
+
+  w3.status = "inventory_frozen";
+  w3.blocked_from_status = null;
+  w3.blockers = [];
+  w3.next_action =
+    "Submit the exact frozen W3-ARTICLES package to fresh independent W9 QA, and begin W3-CAREER-GUIDES package production as a separate sequential scope without combining either package or gate lineage.";
+  articles.status = "package_frozen";
+  articles.blocked_from_status = null;
+  articles.gate_lineage = articles.gate_lineage.filter((entry) => entry.status !== "blocked");
+  articles.blockers = [];
+
+  fs.writeFileSync(manifestPath, JSON.stringify(preBlockManifest));
+  return {
+    directory,
+    manifestPath,
+    manifestSha256: sha256AbsoluteFile(manifestPath),
+  };
+}
+
 function makeRegisteredPackageDirectory(outputDirectory: string): string {
   const packageDirectory = path.join(ROOT, outputDirectory);
   fs.mkdirSync(packageDirectory, { recursive: true });
@@ -691,6 +723,78 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("requires structured W9 lineage when a frozen package enters blocked", () => {
+    const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-blocked-lineage-"));
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    const progressedManifest = structuredClone(manifest);
+    const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    if (!articles) {
+      throw new Error("missing W3 Article blocked-lineage fixture");
+    }
+    const blockedEntry = articles.gate_lineage.find((entry) => entry.status === "blocked");
+    expect(blockedEntry).toMatchObject({
+      evidence_owner_lane_id: "W9",
+      report_ref:
+        "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/independent_qa_report.json",
+      report_sha256: "c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4",
+      package_sha256: "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+    });
+    articles.gate_lineage = articles.gate_lineage.filter((entry) => entry.status !== "blocked");
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+    try {
+      let output = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--manifest", progressedManifestPath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        output = (error as { stdout?: string }).stdout ?? "";
+      }
+      const report = JSON.parse(output) as { ok: boolean; errors: string[] };
+      expect(report.ok).toBe(false);
+      expect(report.errors.join("\n")).toContain(
+        "gate lineage must contain every achieved state from package_frozen without gaps"
+      );
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it("allows producer-owned structured lineage for producer-originated blockers", () => {
+    const tempDirectory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "en-parity-control-producer-blocked-lineage-")
+    );
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    const progressedManifest = structuredClone(manifest);
+    const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    const blockedEntry = articles?.gate_lineage.find((entry) => entry.status === "blocked");
+    if (!blockedEntry) {
+      throw new Error("missing W3 Article producer-blocked lineage fixture");
+    }
+    blockedEntry.evidence_owner_lane_id = "W3";
+    blockedEntry.report_ref =
+      "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json";
+    blockedEntry.report_sha256 =
+      "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3";
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", progressedManifestPath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("retains and restores the pre-block state through an explicit recovery transition", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-block-recovery-"));
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
@@ -845,6 +949,14 @@ describe("English content parity control master", () => {
         package_sha256: "a".repeat(64),
         accepted_at: "2026-07-30T12:00:00.000Z",
       },
+      {
+        status: "blocked",
+        evidence_owner_lane_id: "W9",
+        report_ref: "fixture://w9-blocker",
+        report_sha256: "c".repeat(64),
+        package_sha256: "a".repeat(64),
+        accepted_at: "2026-07-30T12:05:00.000Z",
+      },
     ];
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const permissions: Permissions = {
@@ -901,12 +1013,14 @@ describe("English content parity control master", () => {
 
   it("accepts a W9-owned blocker candidate only with exact report and row-evidence SHAs", () => {
     const candidateDirectory = makeW9QaDirectory();
+    const baseManifest = makeW3ArticlesPreBlockManifest(manifest);
     const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
     const checkedInCandidatePath = path.join(
       ROOT,
       "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/master_manifest_patch.candidate.json"
     );
     const candidate = JSON.parse(fs.readFileSync(checkedInCandidatePath, "utf8")) as {
+      base_manifest_sha256: string;
       proposed_status: string;
       gate_evidence: {
         owner_lane_id: string;
@@ -935,6 +1049,7 @@ describe("English content parity control master", () => {
     rowEvidence.required_checks = Object.fromEntries(
       Object.entries(rowEvidence.required_checks).reverse()
     );
+    candidate.base_manifest_sha256 = baseManifest.manifestSha256;
     fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
     fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
     candidate.gate_evidence.report_path = qaReportPath;
@@ -946,7 +1061,13 @@ describe("English content parity control master", () => {
     try {
       const output = execFileSync(
         "node",
-        [VALIDATOR_PATH, "--artifact", candidatePath],
+        [
+          VALIDATOR_PATH,
+          "--manifest",
+          baseManifest.manifestPath,
+          "--artifact",
+          candidatePath,
+        ],
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
@@ -966,17 +1087,28 @@ describe("English content parity control master", () => {
       fs.writeFileSync(candidatePath, JSON.stringify(candidate));
       let failedOutput = "";
       try {
-        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
-          cwd: ROOT,
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "pipe"],
-        });
+        execFileSync(
+          "node",
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            baseManifest.manifestPath,
+            "--artifact",
+            candidatePath,
+          ],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "pipe"],
+          }
+        );
       } catch (error) {
         failedOutput = (error as { stdout?: string }).stdout ?? "";
       }
       expect(JSON.parse(failedOutput).errors.join("\n")).toContain("W9 row evidence SHA mismatch");
     } finally {
       fs.rmSync(candidateDirectory, { recursive: true, force: true });
+      fs.rmSync(baseManifest.directory, { recursive: true, force: true });
     }
   });
 
@@ -984,6 +1116,7 @@ describe("English content parity control master", () => {
     "accepts a W9 blocker caused only by the %s row check",
     (blockedRowCheck) => {
       const candidateDirectory = makeW9QaDirectory();
+      const baseManifest = makeW3ArticlesPreBlockManifest(manifest);
       const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
       const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
       const rowEvidencePath = path.join(
@@ -997,6 +1130,7 @@ describe("English content parity control master", () => {
       const candidate = JSON.parse(
         fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
       ) as {
+        base_manifest_sha256: string;
         gate_evidence: {
           report_path: string;
           report_sha256: string;
@@ -1033,6 +1167,7 @@ describe("English content parity control master", () => {
           : "field_leakage";
       qaReport.checks[aggregateCheck] = "BLOCKED";
       rowEvidence.required_checks[aggregateCheck] = "BLOCKED";
+      candidate.base_manifest_sha256 = baseManifest.manifestSha256;
       fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
       fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
       candidate.gate_evidence.report_path = qaReportPath;
@@ -1042,13 +1177,24 @@ describe("English content parity control master", () => {
       fs.writeFileSync(candidatePath, JSON.stringify(candidate));
 
       try {
-        const output = execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
-          cwd: ROOT,
-          encoding: "utf8",
-        });
+        const output = execFileSync(
+          "node",
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            baseManifest.manifestPath,
+            "--artifact",
+            candidatePath,
+          ],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+          }
+        );
         expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
       } finally {
         fs.rmSync(candidateDirectory, { recursive: true, force: true });
+        fs.rmSync(baseManifest.directory, { recursive: true, force: true });
       }
     }
   );
@@ -1328,6 +1474,17 @@ describe("English content parity control master", () => {
         package_sha256:
           "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
         accepted_at: "2026-07-30T20:50:31.000Z",
+      },
+      {
+        status: "blocked",
+        evidence_owner_lane_id: "W9",
+        report_ref:
+          "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/independent_qa_report.json",
+        report_sha256:
+          "3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192",
+        package_sha256:
+          "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
+        accepted_at: "2026-07-30T21:00:00.000Z",
       },
     ];
     fs.writeFileSync(blockedManifestPath, JSON.stringify(blockedManifest));
@@ -2363,6 +2520,14 @@ describe("English content parity control master", () => {
           report_sha256: "b".repeat(64),
           package_sha256: "a".repeat(64),
           accepted_at: "2026-07-30T12:00:00.000Z",
+        },
+        {
+          status: "blocked",
+          evidence_owner_lane_id: "W9",
+          report_ref: "fixture://w9-blocker",
+          report_sha256: "c".repeat(64),
+          package_sha256: "a".repeat(64),
+          accepted_at: "2026-07-30T12:05:00.000Z",
         },
       ];
       const blockedPredecessorManifestPath = path.join(

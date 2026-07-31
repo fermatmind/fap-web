@@ -813,6 +813,9 @@ function validateGateLineage(target, targetId, ownerLaneId, errors) {
     errors
   );
   const expectedLineageStatuses = EXPECTED_STATES.slice(packageFrozenIndex, currentIndex + 1);
+  if (target?.status === "blocked") {
+    expectedLineageStatuses.push("blocked");
+  }
   assert(
     sameValue(
       lineage.map((entry) => entry.status),
@@ -827,6 +830,14 @@ function validateGateLineage(target, targetId, ownerLaneId, errors) {
       `${targetId}: gate lineage must retain the immutable package_frozen SHA`,
       errors
     );
+    if (entry.status === "blocked") {
+      assert(
+        ["W9", ownerLaneId].includes(entry.evidence_owner_lane_id),
+        `${targetId}: blocked evidence owner must be W9 or ${ownerLaneId}`,
+        errors
+      );
+      continue;
+    }
     const expectedOwner =
       entry.status === "qa_pass"
         ? "W9"
