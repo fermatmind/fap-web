@@ -52683,7 +52683,7 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
@@ -52696,21 +52696,21 @@
       },
       "inventory_package": {
         "status": "pass",
-        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen backend reader-content units. Cross-device and analytics units now identify missing backend reader copy while excluding frontend labels and internal metric IDs. Both control validators pass; the eight-file SHA aggregate is a436d2c5d311a94485d2730f99c818fba35d15d4ea4188ac2c8f8cebabf6bfe6."
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Both control validators pass; the eight-file SHA aggregate is 0f4b194095caf90a987828872bec646dd1f68751e6d80eaf38562a5862ddb971."
       },
       "local_validation": {
         "status": "pass",
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Repaired exact head d5a4110576896410e91ed198381291b10fbbb46c passed CI run 30603913507 (build, four contract shards, aggregate contracts, Big Five freeze, and Enneagram freeze) and CodeQL run 30603913479. Codex reviewed that exact head; all findings were addressed or clarified and their threads resolved."
+        "status": "pending",
+        "evidence": "Prior heads passed required checks. The truthful analytics inventory reclassification rebuilt the package and requires a fresh exact-head check and review cycle."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52753,8 +52753,13 @@
         "at": "2026-07-31T04:25:12Z",
         "status": "ready_to_merge",
         "summary": "Repaired exact head d5a4110576896410e91ed198381291b10fbbb46c passed every required CI and CodeQL check. Exact-head review completed; the two ledger-location findings are corrected in this metadata tail, prior threads are resolved, and the package remains a436d2c5d311a94485d2730f99c818fba35d15d4ea4188ac2c8f8cebabf6bfe6."
+      },
+      {
+        "at": "2026-07-31T04:31:19Z",
+        "status": "github_checks_pending",
+        "summary": "Final-head review correctly found no existing backend reader-copy authority for analytics_reader_labels. Preserved the operator-frozen identity but reclassified it truthfully as a planned backend draft-content unit with backend/API/frontend fields not present before the package. Bound the evidence to the backend analytics handoff that proves internal aggregate metrics only, and retained the mandatory stop/split rule if PR 3 discovers the existing package contract cannot represent it. Rebuilt the package as 0f4b194095caf90a987828872bec646dd1f68751e6d80eaf38562a5862ddb971."
       }
     ],
-    "updated_at": "2026-07-31T04:25:12Z"
+    "updated_at": "2026-07-31T04:31:19Z"
   }
 }

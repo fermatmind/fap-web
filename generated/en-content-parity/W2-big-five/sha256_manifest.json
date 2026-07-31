@@ -20,7 +20,7 @@
     },
     {
       "path": "source_ledger.json",
-      "sha256": "938fc448f4a1ecd8214f1054cd678f3fb8c7508af3745138e2febc2c439280eb"
+      "sha256": "da0c690e61716e7e7a4be6cc8a13bb3d06c559b894331d498d5b11c955f61535"
     },
     {
       "path": "claim_boundary_report.json",
@@ -36,8 +36,8 @@
     },
     {
       "path": "handoff.md",
-      "sha256": "ace2fbdacf2ed36a363d0b7d88f62f7c1a0ab2bc68eaaaa82a7fbe49fc08502e"
+      "sha256": "7efd26a528d504555e4a4e761ed64b9a3c20cce0f2ed975a6cf1e79c103fb07d"
     }
   ],
-  "package_sha256": "a436d2c5d311a94485d2730f99c818fba35d15d4ea4188ac2c8f8cebabf6bfe6"
+  "package_sha256": "0f4b194095caf90a987828872bec646dd1f68751e6d80eaf38562a5862ddb971"
 }

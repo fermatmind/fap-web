@@ -155,9 +155,9 @@ All 50 rows pass schema, title/summary/sections/FAQ completeness, text-only, cla
 | `big5.result_content.result_report_cta` | result | draft_skeleton_labels_only | structurally_incomplete | fap-api |
 | `big5.result_content.empty_error_expired_access_denied` | result | unknown | unknown | fap-api |
 | `big5.result_content.mobile_desktop_consumption` | cross_device_reader_copy | frontend_renderer_only_no_backend_reader_asset | english_missing | fap-api |
-| `big5.result_content.analytics_reader_labels` | analytics_reader_surface | internal_metric_ids_only_reader_labels_missing | english_missing | fap-api |
+| `big5.result_content.analytics_reader_labels` | planned_backend_reader_label_unit | missing_no_current_reader_surface | english_missing | fap-api |
 
-Completed=0, missing/structurally incomplete/unknown=16. The frozen count includes backend reader-copy requirements for cross-device consumption and analytics reader-facing labels; frontend renderer labels and internal metric IDs are evidence of consumers/telemetry only and are excluded from completion. Fixtures, mocks, computed scores, selector rows, and private payloads are also excluded.
+Completed=0, missing/structurally incomplete/unknown=16. The frozen count includes backend reader-copy requirements for cross-device consumption plus the operator-frozen analytics reader-label identity. The latter has no current backend field or reader-facing projection; the existing analytics handoff proves only internal aggregate metric definitions. PR 3 may create draft-review-only copy only if the existing content-package contract can represent the identity, otherwise it must stop and split a contract PR. Frontend renderer labels, internal metric IDs, fixtures, mocks, computed scores, selector rows, and private payloads are excluded from completion.
 
 ## Redirect-only aliases
 
