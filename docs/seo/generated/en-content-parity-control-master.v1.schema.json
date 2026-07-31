@@ -124,6 +124,27 @@
         "row_count": {
           "type": "integer",
           "minimum": 0
+        },
+        "row_evidence": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "sha256"
+          ],
+          "properties": {
+            "path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
         }
       }
     },
@@ -1266,6 +1287,10 @@
         "blocked_package_sha256",
         "w9_report_ref",
         "w9_report_sha256",
+        "w9_row_evidence_ref",
+        "w9_row_evidence_sha256",
+        "w9_frozen_ledger_ref",
+        "w9_frozen_ledger_sha256",
         "proposed_status",
         "clear_fields",
         "permissions"
@@ -1306,6 +1331,22 @@
           "minLength": 1
         },
         "w9_report_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "w9_row_evidence_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "w9_row_evidence_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "w9_frozen_ledger_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "w9_frozen_ledger_sha256": {
           "type": "string",
           "pattern": "^[a-f0-9]{64}$"
         },

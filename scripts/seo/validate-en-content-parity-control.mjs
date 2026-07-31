@@ -66,6 +66,24 @@ const EXPECTED_QA_CHECKS = [
   "field_leakage",
   "page_api_alignment",
 ];
+const EXPECTED_W9_ROW_CHECKS = [
+  "language_naturalness",
+  "chinese_leakage",
+  "source_equivalence_identity",
+  "claim_boundary",
+  "internal_link_equivalence",
+  "field_leakage",
+  "asset_media_duplication_omission",
+  "page_api_alignment_applicable",
+];
+const W9_AGGREGATE_TO_ROW_CHECKS = {
+  language_naturalness: ["language_naturalness"],
+  chinese_leakage: ["chinese_leakage"],
+  claim_boundary: ["claim_boundary"],
+  asset_duplication: ["source_equivalence_identity", "asset_media_duplication_omission"],
+  field_leakage: ["internal_link_equivalence", "field_leakage"],
+  page_api_alignment: ["page_api_alignment_applicable"],
+};
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -170,6 +188,25 @@ function typeMatches(value, expected) {
 
 function sameValue(left, right) {
   return JSON.stringify(left) === JSON.stringify(right);
+}
+
+function sameRecordValues(left, right) {
+  if (
+    left === null ||
+    right === null ||
+    typeof left !== "object" ||
+    typeof right !== "object" ||
+    Array.isArray(left) ||
+    Array.isArray(right)
+  ) {
+    return false;
+  }
+  const leftKeys = Object.keys(left).sort();
+  const rightKeys = Object.keys(right).sort();
+  return (
+    sameValue(leftKeys, rightKeys) &&
+    leftKeys.every((key) => sameValue(left[key], right[key]))
+  );
 }
 
 function resolveRef(rootSchema, ref) {
@@ -316,6 +353,136 @@ function assertAllPermissionsFalse(value, location, errors) {
       errors.push(`${location}/${key}: permission must remain false`);
     }
     assertAllPermissionsFalse(child, `${location}/${key}`, errors);
+  }
+}
+
+function assertBoundPermissionsMatch(candidatePermissions, evidence, location, label, errors) {
+  const permissions = evidence?.permissions;
+  const hasPermissionsObject =
+    permissions !== null && typeof permissions === "object" && !Array.isArray(permissions);
+  assert(hasPermissionsObject, `${label}: permissions object is required`, errors);
+  if (!hasPermissionsObject) {
+    return;
+  }
+
+  assert(
+    sameValue(Object.keys(permissions).sort(), [...PERMISSION_KEYS].sort()),
+    `${label}: permissions must include exactly the controlled permission keys`,
+    errors
+  );
+  for (const key of PERMISSION_KEYS) {
+    assert(permissions[key] === false, `${location}/${key}: permission must remain false`, errors);
+  }
+  assert(
+    PERMISSION_KEYS.every((key) => permissions[key] === candidatePermissions?.[key]),
+    `${label}: permissions must exactly match the blocker candidate`,
+    errors
+  );
+}
+
+function validateBlockedAggregateRows(
+  qaReport,
+  rowEvidence,
+  expectedRowChecks,
+  aggregateToRowChecks,
+  label,
+  errors
+) {
+  assert(
+    sameValue(Object.keys(qaReport?.checks ?? {}).sort(), [...EXPECTED_QA_CHECKS].sort()),
+    `${label}: W9 QA report must include every required check`,
+    errors
+  );
+  assert(
+    EXPECTED_QA_CHECKS.every((check) => ["PASS", "BLOCKED"].includes(qaReport?.checks?.[check])),
+    `${label}: every W9 QA check must be PASS or BLOCKED`,
+    errors
+  );
+  assert(
+    EXPECTED_QA_CHECKS.some((check) => qaReport?.checks?.[check] === "BLOCKED"),
+    `${label}: W9 BLOCKED verdict requires at least one blocked QA check`,
+    errors
+  );
+  assert(
+    sameRecordValues(rowEvidence?.required_checks, qaReport?.checks),
+    `${label}: W9 row evidence aggregate checks must match the independent QA report`,
+    errors
+  );
+
+  const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+  for (const rowReview of rowReviews) {
+    assert(
+      sameValue(Object.keys(rowReview?.checks ?? {}).sort(), [...expectedRowChecks].sort()),
+      `${label}: every W9 row review must include every required row check`,
+      errors
+    );
+    assert(
+      expectedRowChecks.every((check) => ["PASS", "BLOCKED"].includes(rowReview?.checks?.[check])),
+      `${label}: every W9 row review check must be PASS or BLOCKED`,
+      errors
+    );
+  }
+  for (const [aggregateCheck, rowChecks] of Object.entries(aggregateToRowChecks)) {
+    const expectedAggregateVerdict = rowReviews.some((row) =>
+      rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+    )
+      ? "BLOCKED"
+      : "PASS";
+    assert(
+      qaReport?.checks?.[aggregateCheck] === expectedAggregateVerdict,
+      `${label}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
+      errors
+    );
+  }
+}
+
+function validateBlockedRowSubstance(rowEvidence, expectedRowChecks, label, errors) {
+  const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+  assert(
+    Array.isArray(rowEvidence?.row_reviews),
+    `${label}: W9 row_reviews must be an array`,
+    errors
+  );
+  for (const rowReview of rowReviews) {
+    assert(
+      rowReview?.title_excerpt_full_body_reviewed === true,
+      `${label}: every W9 row review must confirm title, excerpt, and full body review`,
+      errors
+    );
+    const expectedRowVerdict = expectedRowChecks.some(
+      (check) => rowReview?.checks?.[check] === "BLOCKED"
+    )
+      ? "BLOCKED"
+      : "PASS";
+    assert(
+      rowReview?.verdict === expectedRowVerdict,
+      `${label}: every W9 row review verdict must match its row checks`,
+      errors
+    );
+    assert(
+      typeof rowReview?.evidence === "string" && rowReview.evidence.trim().length > 0,
+      `${label}: every W9 row review must include substantive evidence`,
+      errors
+    );
+  }
+}
+
+function validateAggregateEvidence(rowEvidence, label, errors) {
+  assert(
+    sameValue(
+      Object.keys(rowEvidence?.check_evidence ?? {}).sort(),
+      [...EXPECTED_QA_CHECKS].sort()
+    ),
+    `${label}: W9 row evidence must include substantive evidence for every aggregate check`,
+    errors
+  );
+  for (const check of EXPECTED_QA_CHECKS) {
+    assert(
+      typeof rowEvidence?.check_evidence?.[check] === "string" &&
+        rowEvidence.check_evidence[check].trim().length > 0,
+      `${label}: W9 aggregate check ${check} must include substantive evidence`,
+      errors
+    );
   }
 }
 
@@ -766,11 +933,17 @@ function validatePackageShaManifest(
       `${artifact.lane_id}: candidate patch must use the registered handoff filename`,
       errors
     );
-    assert(
-      path.dirname(candidatePath) === path.dirname(shaManifestPath),
-      `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
-      errors
-    );
+    const isIndependentQaBlocker =
+      artifact.proposed_status === "blocked" &&
+      artifact.gate_evidence?.owner_lane_id === "W9" &&
+      artifact.gate_evidence?.report_in_package === false;
+    if (!isIndependentQaBlocker) {
+      assert(
+        path.dirname(candidatePath) === path.dirname(shaManifestPath),
+        `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
+        errors
+      );
+    }
     shaManifest = JSON.parse(fs.readFileSync(shaManifestPath, "utf8"));
   } catch (error) {
     errors.push(
@@ -1026,7 +1199,15 @@ function validateInPackageGateEvidence(artifact, packageContext, errors) {
   );
 }
 
-function validateIndependentQaEvidence(artifact, manifest, errors) {
+function validateIndependentQaEvidence(
+  artifact,
+  manifest,
+  schema,
+  artifactPath,
+  packageContext,
+  expectedVerdict,
+  errors
+) {
   let qaReport;
   let qaReportPath;
   try {
@@ -1062,6 +1243,11 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
     return;
   }
 
+  errors.push(
+    ...schemaErrors(qaReport, schema).map(
+      (error) => `${artifact.lane_id}: W9 QA report Schema error: ${error}`
+    )
+  );
   assert(
     qaReport.schema_version === "fermatmind.en_content_parity_independent_qa_report.v1",
     `${artifact.lane_id}: W9 QA report schema version is invalid`,
@@ -1074,6 +1260,13 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
     errors
   );
   assertAllPermissionsFalse(qaReport, "$/w9_qa_report", errors);
+  assertBoundPermissionsMatch(
+    artifact.permissions,
+    qaReport,
+    "$/w9_qa_report/permissions",
+    `${artifact.lane_id}: W9 QA report`,
+    errors
+  );
   assert(qaReport.qa_lane_id === "W9", `${artifact.lane_id}: qa_pass evidence owner must be W9`, errors);
   assert(
     qaReport.output_directory === manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory,
@@ -1083,7 +1276,11 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
   assert(qaReport.producer_lane_id === artifact.lane_id, `${artifact.lane_id}: W9 QA producer lane mismatch`, errors);
   assert(qaReport.subscope_id === artifact.subscope_id, `${artifact.lane_id}: W9 QA subscope mismatch`, errors);
   assert(qaReport.package_sha256 === artifact.package_sha256, `${artifact.lane_id}: W9 QA package SHA mismatch`, errors);
-  assert(qaReport.verdict === "PASS", `${artifact.lane_id}: W9 QA verdict must be PASS`, errors);
+  assert(
+    qaReport.verdict === expectedVerdict,
+    `${artifact.lane_id}: W9 QA verdict must be ${expectedVerdict}`,
+    errors
+  );
   assert(
     qaReport.reviewed_row_count === artifact.gate_evidence.row_count,
     `${artifact.lane_id}: W9 QA reviewed row count must match gate evidence`,
@@ -1100,7 +1297,295 @@ function validateIndependentQaEvidence(artifact, manifest, errors) {
     errors
   );
   for (const check of EXPECTED_QA_CHECKS) {
-    assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+    assert(
+      ["PASS", "BLOCKED"].includes(qaReport.checks?.[check]),
+      `${artifact.lane_id}: W9 QA check ${check} must be PASS or BLOCKED`,
+      errors
+    );
+  }
+  if (expectedVerdict === "PASS") {
+    for (const check of EXPECTED_QA_CHECKS) {
+      assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+    }
+  } else {
+    assert(
+      EXPECTED_QA_CHECKS.some((check) => qaReport.checks?.[check] === "BLOCKED"),
+      `${artifact.lane_id}: W9 BLOCKED verdict requires at least one blocked QA check`,
+      errors
+    );
+  }
+
+  if (expectedVerdict !== "BLOCKED") {
+    return;
+  }
+
+  try {
+    const producerLane = manifest.lanes.find((lane) => lane.lane_id === artifact.lane_id);
+    const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
+    const registeredTargetAssets = targetAssets(manifest, producerLane, reviewedTarget);
+    const expectedReviewedRowCount = registeredTargetAssets.reduce(
+      (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+      0
+    );
+    assert(
+      artifact.gate_evidence.row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 blocker row count must cover the complete registered target`,
+      errors
+    );
+    assert(
+      qaReport.reviewed_row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 blocker report row count must cover the complete registered target`,
+      errors
+    );
+    const qaAuthorityDirectory = fs.realpathSync(
+      path.join(ROOT, manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory ?? "")
+    );
+    const candidatePath = fs.realpathSync(
+      path.isAbsolute(artifactPath) ? artifactPath : path.join(ROOT, artifactPath)
+    );
+    assert(
+      isPathInside(candidatePath, qaAuthorityDirectory),
+      `${artifact.lane_id}: W9 blocker candidate must reside inside the registered W9 authority directory`,
+      errors
+    );
+    const rowEvidence = artifact.gate_evidence.row_evidence;
+    assert(Boolean(rowEvidence), `${artifact.lane_id}: W9 blocker candidate must bind row evidence`, errors);
+    if (!rowEvidence) {
+      return;
+    }
+    const rowEvidencePath = path.isAbsolute(rowEvidence.path)
+      ? rowEvidence.path
+      : path.join(ROOT, rowEvidence.path);
+    assert(
+      fs.existsSync(rowEvidencePath) && fs.statSync(rowEvidencePath).isFile(),
+      `${artifact.lane_id}: W9 row evidence file is missing`,
+      errors
+    );
+    assert(
+      sha256File(rowEvidencePath) === rowEvidence.sha256,
+      `${artifact.lane_id}: W9 row evidence SHA mismatch`,
+      errors
+    );
+    const realRowEvidencePath = fs.realpathSync(rowEvidencePath);
+    assert(
+      isPathInside(realRowEvidencePath, qaAuthorityDirectory),
+      `${artifact.lane_id}: W9 row evidence must reside inside the registered W9 authority directory`,
+      errors
+    );
+    const rowEvidenceArtifact = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
+    assertAllPermissionsFalse(rowEvidenceArtifact, "$/w9_row_evidence", errors);
+    assertBoundPermissionsMatch(
+      artifact.permissions,
+      rowEvidenceArtifact,
+      "$/w9_row_evidence/permissions",
+      `${artifact.lane_id}: W9 row evidence`,
+      errors
+    );
+    validateBlockedAggregateRows(
+      qaReport,
+      rowEvidenceArtifact,
+      EXPECTED_W9_ROW_CHECKS,
+      W9_AGGREGATE_TO_ROW_CHECKS,
+      artifact.lane_id,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+      `${artifact.lane_id}: W9 row evidence schema version is invalid`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01",
+      `${artifact.lane_id}: W9 row evidence control ID mismatch`,
+      errors
+    );
+    assert(rowEvidenceArtifact.qa_lane_id === "W9", `${artifact.lane_id}: W9 row evidence owner mismatch`, errors);
+    assert(
+      rowEvidenceArtifact.producer_lane_id === artifact.lane_id,
+      `${artifact.lane_id}: W9 row evidence producer lane mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.subscope_id === artifact.subscope_id,
+      `${artifact.lane_id}: W9 row evidence subscope mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.package_id === artifact.package_id,
+      `${artifact.lane_id}: W9 row evidence package ID mismatch`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.package_sha256 === artifact.package_sha256,
+      `${artifact.lane_id}: W9 row evidence package SHA mismatch`,
+      errors
+    );
+    assert(rowEvidenceArtifact.verdict === "BLOCKED", `${artifact.lane_id}: W9 row evidence verdict must be BLOCKED`, errors);
+    assert(
+      rowEvidenceArtifact.reviewed_row_count === artifact.gate_evidence.row_count,
+      `${artifact.lane_id}: W9 row evidence row count must match gate evidence`,
+      errors
+    );
+    assert(
+      rowEvidenceArtifact.reviewed_row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 row evidence row count must cover the complete registered target`,
+      errors
+    );
+    assert(
+      sameValue(
+        [...(rowEvidenceArtifact.reviewed_asset_ids ?? [])].sort(),
+        [...artifact.gate_evidence.asset_ids].sort()
+      ),
+      `${artifact.lane_id}: W9 row evidence assets must match gate evidence`,
+      errors
+    );
+    const sourceLedgerPath = path.join(packageContext?.packageDirectory ?? "", "source_ledger.json");
+    assert(
+      Boolean(packageContext) && fs.existsSync(sourceLedgerPath) && fs.statSync(sourceLedgerPath).isFile(),
+      `${artifact.lane_id}: frozen source ledger is unavailable for W9 row coverage validation`,
+      errors
+    );
+    const sourceLedger = JSON.parse(fs.readFileSync(sourceLedgerPath, "utf8"));
+    const frozenRows = Array.isArray(sourceLedger.rows) ? sourceLedger.rows : [];
+    const frozenRowIdentityById = new Map(
+      frozenRows.map((row) => [
+        row?.row_id,
+        `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`,
+      ])
+    );
+    const frozenIdentities = frozenRows.map(
+      (row) => `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`
+    );
+    assert(
+      frozenRows.length === expectedReviewedRowCount,
+      `${artifact.lane_id}: frozen source ledger row count must match the registered target`,
+      errors
+    );
+    assert(
+      new Set(frozenIdentities).size === frozenIdentities.length,
+      `${artifact.lane_id}: frozen source ledger identities must be unique`,
+      errors
+    );
+    assert(
+      frozenRowIdentityById.size === frozenRows.length,
+      `${artifact.lane_id}: frozen source ledger row IDs must be unique`,
+      errors
+    );
+    const rowReviews = Array.isArray(rowEvidenceArtifact.row_reviews)
+      ? rowEvidenceArtifact.row_reviews
+      : [];
+    const reviewedRowIds = rowReviews.map((row) => row?.row_id);
+    const reviewedIdentities = rowReviews.map((row) => row?.source_identity);
+    assert(
+      Array.isArray(rowEvidenceArtifact.row_reviews),
+      `${artifact.lane_id}: W9 row evidence must include a row_reviews array`,
+      errors
+    );
+    assert(
+      rowReviews.length === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 row_reviews must contain every registered target row`,
+      errors
+    );
+    assert(
+      new Set(reviewedRowIds).size === reviewedRowIds.length,
+      `${artifact.lane_id}: W9 row review IDs must be unique`,
+      errors
+    );
+    assert(
+      new Set(reviewedIdentities).size === reviewedIdentities.length,
+      `${artifact.lane_id}: W9 row review identities must be unique`,
+      errors
+    );
+    assert(
+      sameValue([...reviewedRowIds].sort(), [...frozenRowIdentityById.keys()].sort()),
+      `${artifact.lane_id}: W9 row review IDs must exactly cover the frozen target row IDs`,
+      errors
+    );
+    assert(
+      sameValue([...reviewedIdentities].sort(), [...frozenIdentities].sort()),
+      `${artifact.lane_id}: W9 row review identities must exactly cover the frozen target identities`,
+      errors
+    );
+    validateBlockedRowSubstance(
+      rowEvidenceArtifact,
+      EXPECTED_W9_ROW_CHECKS,
+      artifact.lane_id,
+      errors
+    );
+    for (const rowReview of rowReviews) {
+      assert(
+        typeof rowReview?.row_id === "string" && rowReview.row_id.length > 0,
+        `${artifact.lane_id}: every W9 row review must include a non-empty row_id`,
+        errors
+      );
+      assert(
+        frozenRowIdentityById.get(rowReview?.row_id) === rowReview?.source_identity,
+        `${artifact.lane_id}: every W9 row review must preserve its frozen row ID and identity pairing`,
+        errors
+      );
+      assert(
+        rowReview?.title_excerpt_full_body_reviewed === true,
+        `${artifact.lane_id}: every W9 row review must confirm title, excerpt, and full body review`,
+        errors
+      );
+      assert(
+        ["PASS", "BLOCKED"].includes(rowReview?.verdict),
+        `${artifact.lane_id}: every W9 row review must include a valid verdict`,
+        errors
+      );
+      assert(
+        sameValue(Object.keys(rowReview?.checks ?? {}).sort(), [...EXPECTED_W9_ROW_CHECKS].sort()),
+        `${artifact.lane_id}: every W9 row review must include every required row check`,
+        errors
+      );
+      assert(
+        EXPECTED_W9_ROW_CHECKS.every((check) => ["PASS", "BLOCKED"].includes(rowReview?.checks?.[check])),
+        `${artifact.lane_id}: every W9 row review check must be PASS or BLOCKED`,
+        errors
+      );
+      const expectedRowVerdict = EXPECTED_W9_ROW_CHECKS.some(
+        (check) => rowReview?.checks?.[check] === "BLOCKED"
+      )
+        ? "BLOCKED"
+        : "PASS";
+      assert(
+        rowReview?.verdict === expectedRowVerdict,
+        `${artifact.lane_id}: every W9 row review verdict must match its row checks`,
+        errors
+      );
+      assert(
+        typeof rowReview?.evidence === "string" && rowReview.evidence.trim().length > 0,
+        `${artifact.lane_id}: every W9 row review must include substantive evidence`,
+        errors
+      );
+    }
+    assert(
+      rowReviews.some((row) => row?.verdict === "BLOCKED"),
+      `${artifact.lane_id}: W9 BLOCKED evidence requires at least one blocked row review`,
+      errors
+    );
+    assert(
+      sameRecordValues(rowEvidenceArtifact.required_checks, qaReport.checks),
+      `${artifact.lane_id}: W9 row evidence aggregate checks must match the independent QA report`,
+      errors
+    );
+    validateAggregateEvidence(rowEvidenceArtifact, artifact.lane_id, errors);
+    for (const [aggregateCheck, rowChecks] of Object.entries(W9_AGGREGATE_TO_ROW_CHECKS)) {
+      const expectedAggregateVerdict = rowReviews.some((row) =>
+        rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+      )
+        ? "BLOCKED"
+        : "PASS";
+      assert(
+        qaReport.checks?.[aggregateCheck] === expectedAggregateVerdict,
+        `${artifact.lane_id}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
+        errors
+      );
+    }
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot validate W9 blocker row evidence (${error instanceof Error ? error.message : String(error)})`
+    );
   }
 }
 
@@ -1447,7 +1932,6 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.producer_lane_id}: package rework reset must clear the failed frozen fields`,
       errors
     );
-
     const approvalDirectory = manifest.authority?.controlled_transition_approval_directory ?? "";
     try {
       const realApprovalDirectory = fs.realpathSync(path.join(ROOT, approvalDirectory));
@@ -1469,11 +1953,19 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       const reportPath = path.isAbsolute(artifact.w9_report_ref)
         ? artifact.w9_report_ref
         : path.join(ROOT, artifact.w9_report_ref);
+      const rowEvidencePath = path.isAbsolute(artifact.w9_row_evidence_ref)
+        ? artifact.w9_row_evidence_ref
+        : path.join(ROOT, artifact.w9_row_evidence_ref);
+      const frozenLedgerPath = path.isAbsolute(artifact.w9_frozen_ledger_ref)
+        ? artifact.w9_frozen_ledger_ref
+        : path.join(ROOT, artifact.w9_frozen_ledger_ref);
       const w9Lane = manifest.lanes.find((lane) => lane.lane_id === "W9");
       const realQaAuthorityDirectory = fs.realpathSync(
         path.join(ROOT, w9Lane?.output_directory ?? "")
       );
       const realReportPath = fs.realpathSync(reportPath);
+      const realRowEvidencePath = fs.realpathSync(rowEvidencePath);
+      const realFrozenLedgerPath = fs.realpathSync(frozenLedgerPath);
       assert(
         isPathInside(realReportPath, realQaAuthorityDirectory),
         `${artifact.producer_lane_id}: package rework reset W9 report must remain in W9 authority`,
@@ -1484,7 +1976,55 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         `${artifact.producer_lane_id}: package rework reset W9 report SHA mismatch`,
         errors
       );
+      assert(
+        isPathInside(realRowEvidencePath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework reset W9 row evidence must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(rowEvidencePath) === artifact.w9_row_evidence_sha256,
+        `${artifact.producer_lane_id}: package rework reset W9 row evidence SHA mismatch`,
+        errors
+      );
+      assert(
+        isPathInside(realFrozenLedgerPath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework reset frozen ledger must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(frozenLedgerPath) === artifact.w9_frozen_ledger_sha256,
+        `${artifact.producer_lane_id}: package rework reset frozen ledger SHA mismatch`,
+        errors
+      );
       const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+      const rowEvidence = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
+      const frozenLedger = JSON.parse(fs.readFileSync(frozenLedgerPath, "utf8"));
+      const frozenShaManifestPath = path.isAbsolute(frozenLedger.sha256_manifest_ref)
+        ? frozenLedger.sha256_manifest_ref
+        : path.join(ROOT, frozenLedger.sha256_manifest_ref ?? "");
+      const frozenSourceLedgerPath = path.isAbsolute(frozenLedger.source_ledger_ref)
+        ? frozenLedger.source_ledger_ref
+        : path.join(ROOT, frozenLedger.source_ledger_ref ?? "");
+      const realFrozenShaManifestPath = fs.realpathSync(frozenShaManifestPath);
+      const realFrozenSourceLedgerPath = fs.realpathSync(frozenSourceLedgerPath);
+      assert(
+        isPathInside(realFrozenShaManifestPath, realQaAuthorityDirectory) &&
+          isPathInside(realFrozenSourceLedgerPath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework frozen package evidence must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(frozenShaManifestPath) === frozenLedger.sha256_manifest_sha256,
+        `${artifact.producer_lane_id}: package rework frozen SHA manifest mismatch`,
+        errors
+      );
+      assert(
+        sha256File(frozenSourceLedgerPath) === frozenLedger.source_ledger_sha256,
+        `${artifact.producer_lane_id}: package rework frozen source ledger SHA mismatch`,
+        errors
+      );
+      const frozenShaManifest = JSON.parse(fs.readFileSync(frozenShaManifestPath, "utf8"));
+      const frozenSourceLedger = JSON.parse(fs.readFileSync(frozenSourceLedgerPath, "utf8"));
       errors.push(
         ...schemaErrors(report, schema).map(
           (error) => `${artifact.producer_lane_id}: package rework W9 Schema error: ${error}`
@@ -1495,6 +2035,29 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
           (error) => `${artifact.producer_lane_id}: package rework W9 invariant error: ${error}`
         )
       );
+      assertAllPermissionsFalse(rowEvidence, "$/package_rework_w9_row_evidence", errors);
+      assertAllPermissionsFalse(frozenLedger, "$/package_rework_w9_frozen_ledger", errors);
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        report,
+        "$/package_rework_w9_report/permissions",
+        `${artifact.producer_lane_id}: package rework W9 report`,
+        errors
+      );
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        rowEvidence,
+        "$/package_rework_w9_row_evidence/permissions",
+        `${artifact.producer_lane_id}: package rework W9 row evidence`,
+        errors
+      );
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        frozenLedger,
+        "$/package_rework_w9_frozen_ledger/permissions",
+        `${artifact.producer_lane_id}: package rework W9 frozen ledger`,
+        errors
+      );
       assert(
         report.artifact_kind === "independent_qa_report" &&
           report.qa_lane_id === "W9" &&
@@ -1503,6 +2066,161 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
           report.package_sha256 === artifact.blocked_package_sha256 &&
           report.verdict === "BLOCKED",
         `${artifact.producer_lane_id}: package rework reset requires an exact-SHA W9 BLOCKED report`,
+        errors
+      );
+      assert(
+        rowEvidence.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1" &&
+          rowEvidence.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
+          rowEvidence.qa_lane_id === "W9" &&
+          rowEvidence.producer_lane_id === artifact.producer_lane_id &&
+          rowEvidence.subscope_id === artifact.subscope_id &&
+          rowEvidence.package_sha256 === artifact.blocked_package_sha256 &&
+          rowEvidence.verdict === "BLOCKED",
+        `${artifact.producer_lane_id}: package rework reset requires exact W9 BLOCKED row evidence`,
+        errors
+      );
+      assert(
+        frozenLedger.schema_version ===
+          "fermatmind.en_content_parity_frozen_source_ledger_identity_projection.v1" &&
+          frozenLedger.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
+          frozenLedger.producer_lane_id === artifact.producer_lane_id &&
+          frozenLedger.subscope_id === artifact.subscope_id &&
+          frozenLedger.package_sha256 === artifact.blocked_package_sha256 &&
+          frozenLedger.sha256_manifest_sha256 === sha256File(frozenShaManifestPath) &&
+          frozenLedger.source_ledger_sha256 ===
+            rowEvidence.package_integrity?.immutable_payload_sha256?.["source_ledger.json"],
+        `${artifact.producer_lane_id}: package rework reset frozen ledger must match the blocked package`,
+        errors
+      );
+      const frozenManifestFiles = Array.isArray(frozenShaManifest.files)
+        ? frozenShaManifest.files
+        : [];
+      const frozenSourceLedgerEntry = frozenManifestFiles.find(
+        (file) => file?.path === "source_ledger.json"
+      );
+      const recomputedFrozenPackageSha256 = packageSha256(frozenManifestFiles);
+      assert(
+        frozenShaManifest.schema_version ===
+          "fermatmind.en_content_parity_package_sha256_manifest.v1" &&
+          frozenShaManifest.lane_id === artifact.producer_lane_id &&
+          frozenShaManifest.subscope_id === artifact.subscope_id &&
+          sameValue(
+            frozenManifestFiles.map((file) => file?.path),
+            IMMUTABLE_PACKAGE_PAYLOAD_FILES
+          ) &&
+          frozenShaManifest.package_sha256 === recomputedFrozenPackageSha256 &&
+          recomputedFrozenPackageSha256 === artifact.blocked_package_sha256 &&
+          frozenSourceLedgerEntry?.sha256 === frozenLedger.source_ledger_sha256,
+        `${artifact.producer_lane_id}: package rework frozen source ledger must be bound by the blocked package SHA manifest`,
+        errors
+      );
+      assert(
+        frozenSourceLedger.schema_version ===
+          "fermatmind.en_content_parity_source_ledger.v1" &&
+          frozenSourceLedger.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
+          frozenSourceLedger.lane_id === artifact.producer_lane_id &&
+          frozenSourceLedger.subscope_id === artifact.subscope_id &&
+          frozenSourceLedger.package_id === frozenShaManifest.package_id,
+        `${artifact.producer_lane_id}: package rework frozen source ledger identity is invalid`,
+        errors
+      );
+      const expectedAssetIds = resetTarget?.assetIds ?? [];
+      const expectedRowCount = manifest.assets
+        .filter((asset) => expectedAssetIds.includes(asset.asset_id))
+        .reduce(
+          (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+          0
+        );
+      assert(
+        report.reviewed_row_count === expectedRowCount &&
+          rowEvidence.reviewed_row_count === expectedRowCount,
+        `${artifact.producer_lane_id}: package rework W9 evidence must cover the complete registered target`,
+        errors
+      );
+      assert(
+        sameValue([...(report.reviewed_asset_ids ?? [])].sort(), [...expectedAssetIds].sort()) &&
+          sameValue([...(rowEvidence.reviewed_asset_ids ?? [])].sort(), [...expectedAssetIds].sort()),
+        `${artifact.producer_lane_id}: package rework W9 evidence assets must match the registered target`,
+        errors
+      );
+      const rowReviews = Array.isArray(rowEvidence.row_reviews) ? rowEvidence.row_reviews : [];
+      const rowIds = rowReviews.map((row) => row?.row_id);
+      const rowIdentities = rowReviews.map((row) => row?.source_identity);
+      const projectedRows = Array.isArray(frozenLedger.rows) ? frozenLedger.rows : [];
+      const frozenRows = Array.isArray(frozenSourceLedger.rows) ? frozenSourceLedger.rows : [];
+      const actualFrozenRowIdentityById = new Map(
+        frozenRows.map((row) => [
+          row?.row_id,
+          `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`,
+        ])
+      );
+      const frozenRowIdentityById = new Map(
+        projectedRows.map((row) => [row?.row_id, row?.source_identity])
+      );
+      assert(
+        frozenRows.length === expectedRowCount &&
+          actualFrozenRowIdentityById.size === frozenRows.length &&
+          projectedRows.length === frozenRows.length &&
+          projectedRows.every(
+            (row) => actualFrozenRowIdentityById.get(row?.row_id) === row?.source_identity
+          ),
+        `${artifact.producer_lane_id}: package rework frozen projection must exactly match the hashed source ledger`,
+        errors
+      );
+      assert(
+        rowReviews.length === expectedRowCount,
+        `${artifact.producer_lane_id}: package rework W9 row evidence must cover every target row`,
+        errors
+      );
+      assert(
+        rowIds.every((rowId) => typeof rowId === "string" && rowId.length > 0) &&
+          new Set(rowIds).size === rowIds.length,
+        `${artifact.producer_lane_id}: package rework W9 row IDs must be complete and unique`,
+        errors
+      );
+      assert(
+        rowIdentities.every((identity) => typeof identity === "string" && identity.length > 0) &&
+          new Set(rowIdentities).size === rowIdentities.length,
+        `${artifact.producer_lane_id}: package rework W9 row identities must be complete and unique`,
+        errors
+      );
+      assert(
+        frozenRows.length === expectedRowCount &&
+          frozenRowIdentityById.size === expectedRowCount &&
+          rowReviews.every(
+            (row) => frozenRowIdentityById.get(row?.row_id) === row?.source_identity
+          ) &&
+          sameValue(
+            [...rowIds].sort(),
+            [...frozenRowIdentityById.keys()].sort()
+          ),
+        `${artifact.producer_lane_id}: package rework W9 rows must exactly match the frozen ledger row ID and identity pairs`,
+        errors
+      );
+      assert(
+        rowReviews.every(
+          (row) => typeof row?.finding === "string" && row.finding.trim().length > 0
+        ),
+        `${artifact.producer_lane_id}: package rework W9 row evidence must include substantive findings`,
+        errors
+      );
+      validateBlockedAggregateRows(
+        report,
+        rowEvidence,
+        EXPECTED_W9_ROW_CHECKS,
+        W9_AGGREGATE_TO_ROW_CHECKS,
+        `${artifact.producer_lane_id}: package rework`,
+        errors
+      );
+      validateBlockedRowSubstance(
+        rowEvidence,
+        EXPECTED_W9_ROW_CHECKS,
+        `${artifact.producer_lane_id}: package rework`,
+        errors
+      );
+      validateAggregateEvidence(
+        rowEvidence,
+        `${artifact.producer_lane_id}: package rework`,
         errors
       );
     } catch (error) {
@@ -1606,6 +2324,17 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         `${artifact.lane_id}: controlled transition verdict must be APPROVED`,
         errors
       );
+    } else if (
+      currentIndex >= stateIndex("package_frozen") &&
+      artifact.proposed_status === "blocked" &&
+      gateEvidence.owner_lane_id === "W9"
+    ) {
+      assert(
+        gateEvidence.report_in_package === false,
+        `${artifact.lane_id}: W9 blocker evidence must remain outside the immutable package`,
+        errors
+      );
+      assert(gateEvidence.verdict === "BLOCKED", `${artifact.lane_id}: W9 blocker verdict must be BLOCKED`, errors);
     } else if (
       isBlockedRecovery ||
       currentIndex >= stateIndex("qa_pass") ||
@@ -1784,7 +2513,29 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     validateInPackageGateEvidence(artifact, packageContext, errors);
     if (artifact.proposed_status === "qa_pass") {
-      validateIndependentQaEvidence(artifact, manifest, errors);
+      validateIndependentQaEvidence(
+        artifact,
+        manifest,
+        schema,
+        artifactPath,
+        packageContext,
+        "PASS",
+        errors
+      );
+    } else if (
+      currentIndex >= stateIndex("package_frozen") &&
+      artifact.proposed_status === "blocked" &&
+      gateEvidence.owner_lane_id === "W9"
+    ) {
+      validateIndependentQaEvidence(
+        artifact,
+        manifest,
+        schema,
+        artifactPath,
+        packageContext,
+        "BLOCKED",
+        errors
+      );
     } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
       validateControlledTransitionApproval(artifact, manifest, errors);
     } else if (
