@@ -1092,10 +1092,9 @@ function validatePackageShaManifest(
         scopeManifest,
         manifest,
         manifestSha256,
-        usesIndependentQaFrozenSnapshot
-          ? path.join(registeredPackageDirectory, "scope_manifest.json")
-          : scopeManifestPath,
-        schema
+        scopeManifestPath,
+        schema,
+        { skipArtifactAuthorityPath: usesIndependentQaFrozenSnapshot }
       ).map(
         (error) => `${artifact.lane_id}: embedded scope manifest invariant error: ${error}`
       )
@@ -1856,7 +1855,14 @@ function validateInventoryPayload(artifact, packageContext, errors) {
   }
 }
 
-function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath, schema) {
+function validateLeafInvariants(
+  artifact,
+  manifest,
+  manifestSha256,
+  artifactPath,
+  schema,
+  { skipArtifactAuthorityPath = false } = {}
+) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
   const artifactLaneId =
@@ -2275,7 +2281,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: package output_directory must match the master registry`,
       errors
     );
-    if (packageTarget?.outputDirectory) {
+    if (packageTarget?.outputDirectory && !skipArtifactAuthorityPath) {
       validateArtifactAuthorityPath(
         artifactPath,
         packageTarget.outputDirectory,

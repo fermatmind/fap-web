@@ -1119,6 +1119,15 @@ describe("English content parity control master", () => {
     candidate.gate_evidence.row_evidence.path = rowEvidencePath;
     candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
     fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+    const liveProducerScopeManifestPath = path.join(
+      ROOT,
+      "generated/en-content-parity/W3-editorial-cms/articles/scope_manifest.json"
+    );
+    const liveProducerScopeManifestBackupPath = path.join(
+      candidateDirectory,
+      "live-producer-scope-manifest.backup.json"
+    );
+    fs.renameSync(liveProducerScopeManifestPath, liveProducerScopeManifestBackupPath);
 
     try {
       const output = execFileSync(
@@ -1169,6 +1178,7 @@ describe("English content parity control master", () => {
       }
       expect(JSON.parse(failedOutput).errors.join("\n")).toContain("W9 row evidence SHA mismatch");
     } finally {
+      fs.renameSync(liveProducerScopeManifestBackupPath, liveProducerScopeManifestPath);
       fs.rmSync(candidateDirectory, { recursive: true, force: true });
       fs.rmSync(baseManifest.directory, { recursive: true, force: true });
     }
