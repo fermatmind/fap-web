@@ -813,6 +813,9 @@ function validateGateLineage(target, targetId, ownerLaneId, errors) {
     errors
   );
   const expectedLineageStatuses = EXPECTED_STATES.slice(packageFrozenIndex, currentIndex + 1);
+  if (target?.status === "blocked") {
+    expectedLineageStatuses.push("blocked");
+  }
   assert(
     sameValue(
       lineage.map((entry) => entry.status),
@@ -828,7 +831,7 @@ function validateGateLineage(target, targetId, ownerLaneId, errors) {
       errors
     );
     const expectedOwner =
-      entry.status === "qa_pass"
+      ["qa_pass", "blocked"].includes(entry.status)
         ? "W9"
         : ["draft_imported", "published"].includes(entry.status)
           ? "CONTROL"
