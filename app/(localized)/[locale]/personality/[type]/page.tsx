@@ -8,6 +8,7 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
+import { CrossTypeDetailedSections } from "@/components/personality/CrossTypeDetailedSections";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -728,12 +729,7 @@ function buildComparisonQuickJudgmentRows(comparison: PersonalityComparisonViewM
       return structuredRows;
     }
 
-    return comparison.crossTypeSections.map((section) => ({
-      key: `cross-${section.id}`,
-      cue: section.title,
-      left: section.body.join(" "),
-      right: "",
-    }));
+    return [];
   }
 
   return comparison.comparisonBlocks
@@ -1246,13 +1242,16 @@ function PersonalityComparisonPage({
   const turbulentLabel = comparison.variants?.t.runtimeTypeCode ?? comparison.rightType ?? "";
   const quickAnswerBody = comparisonQuickAnswerBody(comparison);
   const quickJudgmentRows = buildComparisonQuickJudgmentRows(comparison);
-  const misreadCards = buildComparisonMisreadCards(comparison);
-  const scenarioCards = buildComparisonScenarioCards(comparison);
+  const hasDetailedCrossTypeSections =
+    isCrossTypeComparison(comparison) &&
+    comparison.crossTypeSections.some((section) => section.groups.length > 0 || section.items.length > 0);
+  const misreadCards = hasDetailedCrossTypeSections ? [] : buildComparisonMisreadCards(comparison);
+  const scenarioCards = hasDetailedCrossTypeSections ? [] : buildComparisonScenarioCards(comparison);
   const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
   const comparisonFaqItems = buildVisibleComparisonFaqItems(comparison);
   const secondaryAnswerSurface = buildComparisonSecondaryAnswerSurface(comparison);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
-  const nextReadingSections = isCrossTypeComparison(comparison)
+  const nextReadingSections = isCrossTypeComparison(comparison) && !hasDetailedCrossTypeSections
     ? comparison.crossTypeSections.filter(
         (section) => section.id === "next_reading" && section.body.length > 0
       )
@@ -1350,6 +1349,10 @@ function PersonalityComparisonPage({
               {comparison.rightType ? <CrossTypeBaseCard typeCode={comparison.rightType} locale={locale} /> : null}
             </section>
           )}
+
+          {hasDetailedCrossTypeSections ? (
+            <CrossTypeDetailedSections sections={comparison.crossTypeSections} />
+          ) : null}
 
           <ComparisonTemplateCardsSection
             id="comparison-misread-risks"

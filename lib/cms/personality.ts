@@ -156,6 +156,8 @@ type CmsPersonalityCrossTypeSectionApiRecord = {
   title?: string | null;
   body?: unknown;
   rows?: unknown;
+  groups?: unknown;
+  items?: unknown;
 };
 
 type CmsPersonalityCrossTypeFaqApiRecord = {
@@ -585,6 +587,11 @@ export type PersonalityCrossTypeSectionViewModel = {
   title: string;
   body: string[];
   rows: Array<Record<string, string>>;
+  groups: Array<{
+    title: string;
+    items: string[];
+  }>;
+  items: string[];
 };
 
 export type PersonalityCrossTypeFaqViewModel = {
@@ -1022,12 +1029,28 @@ function normalizeCrossTypeSection(section: CmsPersonalityCrossTypeSectionApiRec
         })
         .filter((row): row is Record<string, string> => row !== null)
     : [];
+  const groups = Array.isArray(section.groups)
+    ? section.groups
+        .map((group) => {
+          const record = asRecord(group);
+          if (!record) {
+            return null;
+          }
 
-  if (!id || !title || (body.length === 0 && rows.length === 0)) {
+          const groupTitle = fallbackText(typeof record.title === "string" ? record.title : "");
+          const groupItems = normalizeStringArray(record.items);
+
+          return groupTitle && groupItems.length > 0 ? { title: groupTitle, items: groupItems } : null;
+        })
+        .filter((group): group is { title: string; items: string[] } => group !== null)
+    : [];
+  const items = normalizeStringArray(section.items);
+
+  if (!id || !title || (body.length === 0 && rows.length === 0 && groups.length === 0 && items.length === 0)) {
     return null;
   }
 
-  return { id, title, body, rows };
+  return { id, title, body, rows, groups, items };
 }
 
 function normalizeCrossTypeFaq(item: CmsPersonalityCrossTypeFaqApiRecord): PersonalityCrossTypeFaqViewModel | null {

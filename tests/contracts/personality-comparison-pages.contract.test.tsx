@@ -1,10 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
+import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { CrossTypeDetailedSections } from "@/components/personality/CrossTypeDetailedSections";
 import {
   getPersonalityComparisonBySlug,
   type CmsPersonalityProfileSummary,
+  type PersonalityCrossTypeSectionViewModel,
 } from "@/lib/cms/personality";
 import {
   buildPersonalityComparisonSlugsFromProfiles,
@@ -163,6 +166,27 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
               body: ["INTJ 更重视路径推进，INTP 更重视前提检验。"],
             },
             {
+              id: "stress_and_growth",
+              title: "压力与成长",
+              body: ["两种类型会从不同入口处理压力。"],
+              groups: [
+                {
+                  title: "INTJ 在压力下",
+                  items: ["先收紧计划。", "再检查关键路径。"],
+                },
+                {
+                  title: "INTP 在压力下",
+                  items: ["先重开假设。", "再寻找模型漏洞。"],
+                },
+              ],
+            },
+            {
+              id: "misconceptions",
+              title: "常见误解",
+              body: [],
+              items: ["安静不等于没有观点。", "开放不等于没有方向。"],
+            },
+            {
               id: "next_reading",
               title: "下一步阅读",
               body: ["继续查看 INTJ、INTP 的单独页面、A/T 页面和 MBTI 测试页。"],
@@ -209,10 +233,81 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
       title: "下一步阅读",
       body: ["继续查看 INTJ、INTP 的单独页面、A/T 页面和 MBTI 测试页。"],
     });
+    expect(comparison?.crossTypeSections.find((section) => section.id === "stress_and_growth")?.groups).toEqual([
+      {
+        title: "INTJ 在压力下",
+        items: ["先收紧计划。", "再检查关键路径。"],
+      },
+      {
+        title: "INTP 在压力下",
+        items: ["先重开假设。", "再寻找模型漏洞。"],
+      },
+    ]);
+    expect(comparison?.crossTypeSections.find((section) => section.id === "misconceptions")?.items).toEqual([
+      "安静不等于没有观点。",
+      "开放不等于没有方向。",
+    ]);
     expect(comparison?.crossTypeFaq[0]?.question).toBe("INTJ 和 INTP 最大区别是什么？");
     expect(comparison?.crossTypeInternalLinks[0]?.href).toBe("/zh/personality/intj");
     expect(comparison?.claimBoundary).toBe("这是人格线索对比，不是诊断或职业结论。");
     expect(comparison?.sourceRefs).toContain("mbti.cross_type_comparison.authority.v1");
+  });
+
+  it("renders every detailed cross-type paragraph, group, and item exactly once", () => {
+    const sections: PersonalityCrossTypeSectionViewModel[] = [
+      {
+        id: "quick_answer",
+        title: "Quick answer",
+        body: ["Quick answer paragraph one.", "Quick answer paragraph two."],
+        rows: [],
+        groups: [],
+        items: [],
+      },
+      {
+        id: "shared_traits",
+        title: "Shared traits",
+        body: ["Shared traits paragraph."],
+        rows: [],
+        groups: [],
+        items: [],
+      },
+      {
+        id: "core_difference",
+        title: "Core difference",
+        body: ["Core difference paragraph."],
+        rows: [],
+        groups: [],
+        items: [],
+      },
+      {
+        id: "stress_and_growth",
+        title: "Stress and growth",
+        body: ["Stress context paragraph."],
+        rows: [],
+        groups: [
+          { title: "First type under stress", items: ["First stress cue.", "First growth cue."] },
+          { title: "Second type under stress", items: ["Second stress cue.", "Second growth cue."] },
+        ],
+        items: [],
+      },
+      {
+        id: "misconceptions",
+        title: "Misconceptions",
+        body: [],
+        rows: [],
+        groups: [],
+        items: ["First misconception.", "Second misconception."],
+      },
+    ];
+    const markup = renderToStaticMarkup(<CrossTypeDetailedSections sections={sections} />);
+    const expectedVisibleText = [
+      ...sections.flatMap((section) => [section.title, ...section.body, ...section.items]),
+      ...sections.flatMap((section) => section.groups.flatMap((group) => [group.title, ...group.items])),
+    ];
+
+    for (const text of expectedVisibleText) {
+      expect(markup.split(`>${text}<`)).toHaveLength(2);
+    }
   });
 
   it("keeps English comparison hreflang held until the backend returns English authority", () => {
@@ -406,12 +501,15 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain("isCrossTypeComparison(comparison)");
     expect(pageSource).toContain('data-testid="personality-cross-type-bases"');
     expect(pageSource).toContain("CrossTypeInternalLinks");
+    expect(pageSource).toContain("CrossTypeDetailedSections");
 
     expect(adapterSource).toContain("/v0.5/personality/comparisons/");
     expect(adapterSource).toContain("comparison_public_projection_v1");
     expect(adapterSource).toContain('"mbti_cross_type"');
     expect(adapterSource).toContain("crossTypeSections");
     expect(adapterSource).toContain("rows: Array<Record<string, string>>");
+    expect(adapterSource).toContain("groups:");
+    expect(adapterSource).toContain("items: string[]");
     expect(adapterSource).toContain("normalizeAnswerSurface(response.answer_surface_v1");
 
     expect(sitemapSource).toContain("buildPersonalityComparisonPathsFromAuthority");
