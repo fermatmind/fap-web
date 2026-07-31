@@ -1,0 +1,429 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
+  "package_sha256": "499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a",
+  "review_kind": "fresh_independent_full_target_w9",
+  "reviewed_at": "2026-07-31T07:26:18Z",
+  "verdict": "BLOCKED",
+  "reviewed_row_count": 17,
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "coverage": {
+    "titles_reviewed": 17,
+    "excerpts_reviewed": 17,
+    "full_bodies_reviewed": 17,
+    "live_source_article_id_and_revision_pairs_matched": 17,
+    "registered_rows_covered": 17,
+    "coverage_result": "PASS"
+  },
+  "package_integrity": {
+    "required_file_count": 10,
+    "required_files": [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md"
+    ],
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "5e689dd02aaa613bbc28601361b71c133826166d4a175fd6d805bffcca3ed991",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "7d6b9aa1d8c929b31216f0006b398b775aca0c7170d3ae89b75108d4e7588543",
+      "source_ledger.json": "6c1fc487706b36b15d6dfed5c23e4c7a589c4a7093601d66eea3e2557a7536bb",
+      "claim_boundary_report.json": "0e6a754769d2939efc0bf8af6b3734b82ad850edc0cda19687c09e072cfe38a4e",
+      "editorial_review.json": "731f69efedb4cf0c8ca9161b75154f24f0e8cc3eb4139d4835777deec0cbeb4e",
+      "dry_run_readiness.json": "a75694d6f175957db238889fe60e850ecce97d69af246e864d87a2493a924491",
+      "handoff.md": "dc84fe072df6c32829b83f97ddb15172a059d9121e5dc53e927229123ab50017"
+    },
+    "aggregate_package_sha256": "499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a",
+    "registered_asset_set": [
+      {
+        "asset_id": "ENPARITY-W3-ARTICLES",
+        "expected_en_count": 17
+      }
+    ],
+    "source_identity_count": 17,
+    "source_identities": [
+      "Article:1@revision:446",
+      "Article:2@revision:445",
+      "Article:3@revision:383",
+      "Article:4@revision:58",
+      "Article:5@revision:444",
+      "Article:6@revision:443",
+      "Article:7@revision:442",
+      "Article:8@revision:72",
+      "Article:9@revision:441",
+      "Article:10@revision:440",
+      "Article:50@revision:57",
+      "Article:51@revision:73",
+      "Article:52@revision:64",
+      "Article:53@revision:65",
+      "Article:55@revision:75",
+      "Article:58@revision:78",
+      "Article:59@revision:79"
+    ],
+    "permissions_all_false": true,
+    "result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "BLOCKED",
+    "field_leakage": "BLOCKED",
+    "page_api_alignment": "PASS"
+  },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because complete title, excerpt, and full-body review found reader-visible translation errors or non-native constructions in 10 of 17 rows.",
+    "chinese_leakage": "PASS because every candidate title, excerpt, and complete body was scanned and read; zero Han characters were present in the English candidate fields.",
+    "claim_boundary": "PASS because all 17 rows keep personality, reasoning, emotional-intelligence, and major-exploration claims conditional and explicitly reject diagnosis, hiring, admission, income, or guaranteed-outcome use.",
+    "asset_duplication": "BLOCKED because 13 rows fail source equivalence, including 12 rows where complete source decision tables or review matrices are absent from the candidate body. The 17 identities remain unique and the explicit Media Library omission policy is internally consistent, but a frozen Article asset cannot pass while substantive source blocks are missing.",
+    "field_leakage": "BLOCKED because Article:2 and Article:50 contain reader-visible producer/SEO control language, including instructions about what articles or websites must add and phrases such as `high-intent search query` and `active expansion ... is not supported unless explicitly documented`.",
+    "page_api_alignment": "PASS only for the applicable pre-import boundary: the live zh-CN public API independently returned the exact registered Article IDs and published revision IDs, the candidate routes remain /en counterparts, target publication status is candidate_only_not_imported, and import_ready is false. This does not claim live imported English parity."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Locator `## Relationship`: `You're too low-key, so hard to get along with` mistranslates the source's low-Agreeableness example into unrelated `low-key` language; `Avoid using personal judgment` also loses the source's explicit personality-score boundary. Required correction: restore Agreeableness terminology and the score-based boundary in natural reader-facing English, then re-review the full row."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "BLOCKED",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Locator `## First check which tool produced the results`: `Articles and other websites must never add data that does not exist, even through the authority of the product` is non-native and exposes a producer-control instruction to readers. Required correction: express only the reader-facing inference limit without referring to article/website production rules."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Source locators `读报告后，先做一次“报告审计”` and `把标签变成七天观察，而不是人格判决` contain a 7-row report-audit table and a 4-row two-column observation table; the candidate has zero Markdown tables and replaces both with prose. Required correction: restore complete source-equivalent audit and observation matrices."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has eight decision tables totaling 54 Markdown rows, including purpose, dimensions, score interpretation, misuse, EQ-vs-IQ, and action matrices; the candidate has zero. Locator `## What's the difference between EQ and IQ?` also says `IQ tends to perform better ...; EQ tends to excel`, assigning agency to constructs in unnatural English. Required correction: restore all eight matrices and rewrite the comparison natively."
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Locator `## How to Record Process Metrics` says `Suggested use of a simple table:` and then immediately continues with prose; the source contains the promised date/question-count/accuracy/median-time/error/strategy/state table. Required correction: restore the complete process-metrics table."
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Title, excerpt, and complete body read naturally enough for publication; all 21 headings, 22 list items, three localized links, source identity, uncertainty limits, privacy boundary, and candidate-only route alignment are preserved."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Title, excerpt, and complete body preserve the 30-question, approximately 20-minute, matrix/graphic-reasoning scope; all 21 headings, 34 list items, four reviewed links, Unknown psychometric fields, and non-clinical/non-credential boundary align."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Source locators `MBTI 四个字母分别代表什么？` and `MBTI 和大五人格有什么区别？` contain 6-row and 5-row comparison tables; the candidate has zero tables, leaving the first locator without the source's core E/I, S/N, T/F, and J/P comparison matrix. Required correction: restore both complete source-equivalent tables."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Locators `### S-Leaning Experiment` and `### Relationship` retain machine-translated instructions: `Face familiar processes, pose each week a question ...` and `Use \"I naturally handle this\" instead of \"You of this type always do.\"` Required correction: rewrite the affected exercises as idiomatic, semantically explicit reader instructions."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Locator `## How to Determine if a Type Description Fits You` announces an `evidence–counter-evidence–tentative conclusion table`, but no table follows; the exact source contains an 8-row evidence-recording matrix. Required correction: restore the complete matrix."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "BLOCKED",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Only one of four source tables is retained: the 9-row online-vs-formal, 7-row score-interpretation, and 5-row IQ-vs-EQ matrices are missing. Reader-visible control language remains at `How high is high? is a high-intent search query` and `active expansion into ... is not supported unless explicitly documented`. Required correction: restore the three matrices and replace SEO/producer instructions with native reader-facing limits."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has 11 tables totaling 88 Markdown rows; the candidate retains only three tables (26 rows), omitting the result-reading, motivation/fear/desire, label-to-question, model-comparison, and observation-plan matrices. Locator `What does my body protect automatically under stress?` is also semantically malformed. Required correction: restore every source matrix and rewrite this as what the reader is automatically trying to protect."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The candidate retains five of eight source matrices and omits the source's full responsibility-division table under `How should parents and students divide responsibilities effectively?`, as well as complete question-layer and misuse matrices. `XueXin Network` is not natural official English naming. Required correction: restore all three omitted matrices and use clear English or the official service name with context."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has nine tables totaling 64 Markdown rows; the candidate has six tables totaling 39 rows. Missing source blocks include the 8-row first-elimination matrix, 6-row MBTI use matrix, and 10-row common-mistakes matrix. Required correction: restore all source decision content, not shortened replacements."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has 11 tables totaling 82 Markdown rows; the candidate retains six tables totaling 35 rows, replacing both complete 8-row family-case matrices and several official-source/MBTI matrices with shorter prose. Locator `What specific tasks will this major be involved in the future?` is non-idiomatic. Required correction: restore the omitted matrices and rewrite the work-activity question naturally."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has 18 tables totaling 114 Markdown rows; the candidate retains seven tables totaling 38 rows. Core red-line, application-model, transfer-risk, communication-script, and post-reassignment action matrices are missing. `risk of being downgraded`, `fear of being dropped from admission`, and `being reassigned out of the major` mistranslate the admission mechanics. Required correction: restore all source matrices and use precise reassignment/removal-from-consideration language."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact source has 11 tables totaling 88 Markdown rows; the candidate retains only three tables totaling 22 rows, omitting the math-risk, course-reality, work-activity, case, and parent-question matrices. The body opens `Can be placed in Pending Verification` without a subject and later says `AI/computers shouldn't simply retain such individuals`. Required correction: restore all omitted matrices and fully rewrite the machine-translated passages."
+    }
+  ],
+  "blocking_summary": {
+    "blocked_row_count": 15,
+    "passing_rows": [
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-07"
+    ],
+    "blocked_rows": [
+      "W3-ARTICLE-01",
+      "W3-ARTICLE-02",
+      "W3-ARTICLE-03",
+      "W3-ARTICLE-04",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-09",
+      "W3-ARTICLE-10",
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-53",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
+      "W3-ARTICLE-59"
+    ],
+    "blocked_checks": {
+      "language_naturalness": 10,
+      "source_equivalence_identity": 13,
+      "field_leakage": 2
+    },
+    "qa_pass_authorized": false,
+    "producer_payload_modified": false,
+    "control_master_modified": false,
+    "career_guide_scope_modified": false,
+    "required_next_action": "A separate CONTROL-only decision may accept this blocker. Any rework requires returning W3-ARTICLES to package production, rebuilding a new complete package SHA, and repeating fresh independent W9 QA."
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
