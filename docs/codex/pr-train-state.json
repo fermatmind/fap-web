@@ -52687,7 +52687,7 @@
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
-    "commit_sha": "e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75",
+    "commit_sha": "38a023e34f64060ed73b65192e9ca17eadcbadfb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1866",
     "checks": {
       "dependency": {
