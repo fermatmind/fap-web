@@ -52427,6 +52427,16 @@
         "summary": "PR #1854 exact head 75727bcf4ca8b7a9a2078e74eae2435e93023a69 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review, no actionable feedback, and exact scope revalidated."
       },
       {
+        "at": "2026-07-30T20:47:37Z",
+        "status": "merged",
+        "summary": "Reconciled the first freeze run: GitHub reports PR #1854 MERGED as 9be36a4bb74528410f89d40dfc8f05172567b048, origin/main contains that merge, and the original codex/en-parity-w3-article-package-freeze-01 branch is absent locally and remotely."
+      },
+      {
+        "at": "2026-07-31T05:25:35Z",
+        "status": "reset_to_package_in_progress",
+        "summary": "CONTROL PR #1867 merged as 520ca0ebbb5156c5b83c7c935412a0b49a7f83db and reset W3-ARTICLES from the blocked frozen SHA to package_in_progress for exact-SHA producer rework. origin/main contains the reset merge, and the codex/en-parity-control-w3-articles-reset-02 branch is absent locally and remotely."
+      },
+      {
         "at": "2026-07-31T05:46:53Z",
         "status": "local_verified",
         "summary": "Reworked and re-froze the 17-Article candidate package after fresh independent W9 blocked 16 rows. Exact rebuilt package SHA is 32edb0be91edab262e86c193bc689e70767018e119e5e5d2cd808d6d01e6e062; local validator, 4/4 focused contract, package-integrity audit, lint, scope validation, and git diff checks pass. No CMS, publication, SEO runtime, search, or deploy action is authorized."
@@ -52462,7 +52472,7 @@
         "summary": "Latest exact-head review identified two producer-control instructions in Article:4@revision:58. Rewrote both as direct reader-facing EQ interpretation limits, audited all explicit 17-row W9 blocker phrases against the current package, and re-froze the ten-file package at exact SHA 072be1e3ecd8f53c7b5bc220a192b1509b848845f968a00b7382393048b79b79. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-07-31T06:31:44Z"
+    "updated_at": "2026-07-31T06:37:22Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
