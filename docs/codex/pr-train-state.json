@@ -52356,7 +52356,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "60c5fcc51d701696f1c4e0e4de8fd5a19d6b42a4",
+    "commit_sha": "043919aa89c089024ada1fda0395cb8486aaf261",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
     "checks": {
       "dependency": {
@@ -52377,7 +52377,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 072be1e3ecd8f53c7b5bc220a192b1509b848845f968a00b7382393048b79b79."
+        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3."
       },
       "lint": {
         "status": "pass",
@@ -52389,7 +52389,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior heads; the same-scope Article 4 review repair changed the package to exact SHA 072be1e3ecd8f53c7b5bc220a192b1509b848845f968a00b7382393048b79b79, so required checks must rerun on the new head."
+        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior heads; the same-scope fragment audit and Article 7 review repair changed the package to exact SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3, so required checks must rerun on the new head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52470,9 +52470,14 @@
         "at": "2026-07-31T06:31:44Z",
         "status": "github_checks_pending",
         "summary": "Latest exact-head review identified two producer-control instructions in Article:4@revision:58. Rewrote both as direct reader-facing EQ interpretation limits, audited all explicit 17-row W9 blocker phrases against the current package, and re-froze the ten-file package at exact SHA 072be1e3ecd8f53c7b5bc220a192b1509b848845f968a00b7382393048b79b79. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
+      },
+      {
+        "at": "2026-07-31T06:43:48Z",
+        "status": "github_checks_pending",
+        "summary": "Latest exact-head review identified remaining Article:7@revision:442 malformed inference and FAQ fragments. Rewrote those as complete reader-facing sentences and extended the same fragment audit to Article:1 and Article:6, then re-froze the ten-file package at exact SHA 72e525537d1c92332e245a2b29433475550b7e1e81fc77c24aeaebb3ced214b3. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-07-31T06:37:22Z"
+    "updated_at": "2026-07-31T06:43:48Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
