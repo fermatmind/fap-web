@@ -1,0 +1,296 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "asset_id": "ENPARITY-W1-MBTI-CROSS-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "source_repository": {
+    "worktree": "/tmp/fap-api-w1-mbti-comparison-w9-source-deec",
+    "commit_sha": "c6d2825790311908795b158d138954dfe89c6313"
+  },
+  "renderer_repository": {
+    "worktree": "/tmp/fap-web-w1-mbti-comparison-w9",
+    "reviewed_commit_sha": "41dcfbf12ee2158c4cd6e8bb34b8d21725b4418c",
+    "renderer_repair_merge_sha": "2f388c321e77f5c7e935c5678499c697c9924d9b",
+    "renderer_repair_is_ancestor": true
+  },
+  "verdict": "PASS",
+  "reviewed_asset_ids": [
+    "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
+  ],
+  "reviewed_row_count": 7,
+  "title_excerpt_full_body_reviewed_for_every_row": true,
+  "required_checks": {
+    "language_naturalness": "PASS",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "PASS"
+  },
+  "package_integrity": {
+    "aggregate_algorithm": "SHA-256 over UTF-8 concatenation of path + NUL + lowercase file SHA-256 + LF in package_manifest.files order",
+    "aggregate_result": "MATCH",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "d1a5fc44f45a260eadc77c8d8e64aa311d1e253a0fc6897606cad204b8b9accb",
+        "result": "MATCH"
+      },
+      {
+        "path": "assets.json",
+        "sha256": "eebde8f8237c1fcdc58516197253c5bc5a7d516cde65ba5e91f96f9f8086d87b",
+        "result": "MATCH"
+      },
+      {
+        "path": "translation_map.json",
+        "sha256": "a17e516f56f0542de8961dfcf54f0e5ed4a981ffa5964c896f9e2acccf374ed4",
+        "result": "MATCH"
+      },
+      {
+        "path": "claim_boundary_report.json",
+        "sha256": "1c95958f94ad7c5c517512c7c9832e2d8403b6e172d7647ec329d6f79c901239",
+        "result": "MATCH"
+      },
+      {
+        "path": "editorial_review.json",
+        "sha256": "ce17bac1f83c72d60ab841ba1e586e4216d30585886bbb423cf018f8d90b5672",
+        "result": "MATCH"
+      }
+    ]
+  },
+  "validation_evidence": {
+    "backend_package_and_dry_run_tests": "PASS: 12 tests, 1235 assertions",
+    "frontend_comparison_contract": "PASS: 7 tests at exact reviewed web commit",
+    "current_control_validator": "PASS: 9 lanes, 13 asset cohorts, no errors",
+    "synthetic_package_frozen_exact_report": "PASS: validator accepted this exact immutable-SHA W9 report against a non-persisted package_frozen manifest stream",
+    "synthetic_qa_pass_candidate_contract": "PASS: focused exact-SHA external W9 PASS candidate test passed; 1 test passed and 61 unrelated tests skipped",
+    "exact_package_renderer_shape": "PASS: all 7 assets; detailed projections exact-once and compact quick rows complete",
+    "manual_review": "PASS: title, description/summary, SEO fields, every section paragraph/row/group/item, every FAQ, internal-link intent, and claim boundary reviewed source-to-target for 7/7 rows"
+  },
+  "independence": {
+    "producer_self_qa_used_as_verdict": false,
+    "prior_w9_output_read_or_reused": false,
+    "prior_w9_reviewer_contacted": false,
+    "review_basis": "Exact immutable package, registered source authorities, current control inventory, current frontend renderer at reviewed SHA, and independent manual plus automated checks"
+  },
+  "row_reviews": [
+    {
+      "row_id": "W1-COMP-01-ENFP-VS-ENTP",
+      "slug": "enfp-vs-entp",
+      "source_identity": "backend/docs/seo/import-packages/mbti-cross-type-comparison-content-assets-draft-20260702/comparisons/FermatMind_ENFP_vs_ENTP_CMS_READY.json@sha256:725c9f4764040604e08d6b1a78939c5cdd5a4d642208eded6ebfafee0f99e147",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:enfp-vs-entp",
+      "counts": {
+        "source_sections": 8,
+        "target_sections": 8,
+        "source_faq": 8,
+        "target_faq": 8,
+        "target_body_paragraphs": 24,
+        "target_groups": 2,
+        "target_group_items": 8,
+        "target_section_items": 8,
+        "target_mirrored_rows": 16,
+        "target_internal_links": 8
+      },
+      "renderer_projection": "Detailed renderer emitted 8 sections, 24 paragraphs, 2 groups, and 16 list items exactly once; 0 mirrored rows qualified for the quick table.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Natural and complete value-guided versus logic-guided comparison; all source section and FAQ intents retained, links remain public-safe, and bounded language avoids identity, ability, career, or relationship prediction."
+    },
+    {
+      "row_id": "W1-COMP-02-ENTJ-VS-INTJ",
+      "slug": "entj-vs-intj",
+      "source_identity": "backend/content_assets/personality_public/mbti-index52-comparison-projection-repair-2026-07-27.json#records[slug=entj-vs-intj]@sha256:75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:entj-vs-intj",
+      "counts": {
+        "source_sections": 6,
+        "target_sections": 6,
+        "source_faq": 5,
+        "target_faq": 5,
+        "target_body_paragraphs": 5,
+        "target_structured_rows": 4,
+        "target_internal_links": 5
+      },
+      "renderer_projection": "Compact route selected; all 4 dimension rows qualified once for the quick-judgment table and detailed rendering remained off.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Execution-oriented ENTJ versus internally convergent INTJ distinction remains conditional, readable, and behavior-based; no unsupported outcome or suitability claim was introduced."
+    },
+    {
+      "row_id": "W1-COMP-03-ESTJ-VS-ENTJ",
+      "slug": "estj-vs-entj",
+      "source_identity": "backend/docs/seo/import-packages/mbti-cross-type-comparison-content-assets-draft-20260702/comparisons/FermatMind_ESTJ_vs_ENTJ_CMS_READY.json@sha256:3a7febb8c31848938c63e3a76375d6b2d2b48665b6bf3cf2afdd53d0cf39fe75",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:estj-vs-entj",
+      "counts": {
+        "source_sections": 8,
+        "target_sections": 8,
+        "source_faq": 8,
+        "target_faq": 8,
+        "target_body_paragraphs": 28,
+        "target_groups": 2,
+        "target_group_items": 8,
+        "target_section_items": 6,
+        "target_mirrored_rows": 14,
+        "target_internal_links": 8
+      },
+      "renderer_projection": "Detailed renderer emitted 8 sections, 28 paragraphs, 2 groups, and 14 list items exactly once; 0 mirrored rows qualified for the quick table.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Present-structure versus future-system emphasis is preserved without ranking either type; work, relationship, stress, and growth sections retain their source intent and practical boundaries."
+    },
+    {
+      "row_id": "W1-COMP-04-INFJ-VS-INFP",
+      "slug": "infj-vs-infp",
+      "source_identity": "backend/content_assets/personality_public/mbti-index52-comparison-projection-repair-2026-07-27.json#records[slug=infj-vs-infp]@sha256:75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:infj-vs-infp",
+      "counts": {
+        "source_sections": 6,
+        "target_sections": 6,
+        "source_faq": 5,
+        "target_faq": 5,
+        "target_body_paragraphs": 5,
+        "target_structured_rows": 4,
+        "target_internal_links": 5
+      },
+      "renderer_projection": "Compact route selected; all 4 dimension rows qualified once for the quick-judgment table and detailed rendering remained off.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Pattern-convergence versus personal-value distinction is expressed as a reflection hypothesis rather than fixed identity; the compact field mapping and links are complete."
+    },
+    {
+      "row_id": "W1-COMP-05-INTJ-VS-INTP",
+      "slug": "intj-vs-intp",
+      "source_identity": "backend/content_assets/personality_public/mbti-index52-comparison-projection-repair-2026-07-27.json#records[slug=intj-vs-intp]@sha256:75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:intj-vs-intp",
+      "counts": {
+        "source_sections": 6,
+        "target_sections": 6,
+        "source_faq": 5,
+        "target_faq": 5,
+        "target_body_paragraphs": 5,
+        "target_structured_rows": 4,
+        "target_internal_links": 5
+      },
+      "renderer_projection": "Compact route selected; all 4 dimension rows qualified once for the quick-judgment table and detailed rendering remained off.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Strategic closure versus model exploration is natural English, behaviorally anchored, non-diagnostic, and structurally aligned to the compact comparison API."
+    },
+    {
+      "row_id": "W1-COMP-06-ISFP-VS-INFP",
+      "slug": "isfp-vs-infp",
+      "source_identity": "backend/docs/seo/import-packages/mbti-cross-type-comparison-content-assets-draft-20260702/comparisons/FermatMind_ISFP_vs_INFP_CMS_READY.json@sha256:3c25e03b72812921964b9efcb0391af96793c4081f54a02bbf0c33f08e591ac5",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:isfp-vs-infp",
+      "counts": {
+        "source_sections": 8,
+        "target_sections": 8,
+        "source_faq": 8,
+        "target_faq": 8,
+        "target_body_paragraphs": 25,
+        "target_groups": 2,
+        "target_group_items": 8,
+        "target_section_items": 6,
+        "target_mirrored_rows": 14,
+        "target_internal_links": 8
+      },
+      "renderer_projection": "Detailed renderer emitted 8 sections, 25 paragraphs, 2 groups, and 14 list items exactly once; 0 mirrored rows qualified for the quick table.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Present sensory expression versus imagined meaning is preserved with explicit overlap and uncertainty; all long-form fields, FAQ, and public links are complete and safely bounded."
+    },
+    {
+      "row_id": "W1-COMP-07-ISTJ-VS-ISFJ",
+      "slug": "istj-vs-isfj",
+      "source_identity": "backend/content_assets/personality_public/mbti-index52-comparison-projection-repair-2026-07-27.json#records[slug=istj-vs-isfj]@sha256:75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+      "target_identity": "mbti_cross_type_comparison_authorities:org0:en:istj-vs-isfj",
+      "counts": {
+        "source_sections": 6,
+        "target_sections": 6,
+        "source_faq": 5,
+        "target_faq": 5,
+        "target_body_paragraphs": 5,
+        "target_structured_rows": 4,
+        "target_internal_links": 5
+      },
+      "renderer_projection": "Compact route selected; all 4 dimension rows qualified once for the quick-judgment table and detailed rendering remained off.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Procedure-and-standard versus continuity-and-care emphasis is presented without competence or relationship ranking; compact rows, FAQ, and the ESFJ profile link retain source intent."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

@@ -52081,6 +52081,95 @@
     ],
     "updated_at": "2026-07-30T16:08:43Z"
   },
+  "EN-PARITY-W1-MBTI-COMPARISON-W9-QA-01": {
+    "id": "EN-PARITY-W1-MBTI-COMPARISON-W9-QA-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W1-MBTI-COMPARISON-W9-QA-01: independently QA all 7 English comparison assets",
+    "base": "main",
+    "branch": "codex/en-parity-w1-mbti-comparison-w9-qa-01",
+    "depends_on": [
+      "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-01"
+    ],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a continuous execution /goal with this exact PR id, repository, dependency, independent-review scope, lifecycle authorization, and controlled-action boundaries."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "fap-api comparison asset PR #3424 and all exact-package correction PRs through #3458 are merged. The reviewed source commit is c6d2825790311908795b158d138954dfe89c6313 and the immutable package SHA is deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2."
+      },
+      "independence": {
+        "status": "passed",
+        "evidence": "A fresh gpt-5.6-sol high-reasoning W9 reviewer used only the exact package, registered authorities, current control inventory, and repaired frontend renderer. It did not read, list, search, stat, hash, or reuse prior W1 comparison W9 outputs and did not contact prior reviewers."
+      },
+      "package_integrity": {
+        "status": "passed",
+        "evidence": "The package aggregate independently recomputes to deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2 and all 5/5 declared package files match their manifest hashes."
+      },
+      "w9_review": {
+        "status": "passed",
+        "evidence": "All 7/7 registered assets received full source-to-English review across titles, summary/SEO fields, every section paragraph, row, group, item, FAQ, internal link, claim boundary, private/media leakage, duplication, and page/API alignment. Every row check and all six aggregate checks are PASS."
+      },
+      "renderer_alignment": {
+        "status": "passed",
+        "evidence": "The reviewed fap-web SHA 41dcfbf12ee2158c4cd6e8bb34b8d21725b4418c contains renderer repair merge 2f388c321e77f5c7e935c5678499c697c9924d9b. Exact-package validation passed 7/7: three detailed projections render every paragraph/group/item exactly once with zero mirrored-row fallback, and four compact assets render all four structured quick rows once."
+      },
+      "focused_tests": {
+        "status": "passed",
+        "evidence": "Backend package and dry-run suites passed 12 tests / 1235 assertions. The frontend comparison contract passed 7/7 at the exact reviewed web SHA. The current control validator passed."
+      },
+      "control_candidate_validation": {
+        "status": "passed",
+        "evidence": "A non-persisted synthetic package_frozen manifest stream accepted this exact immutable-SHA W9 report, and the exact-SHA qa_pass candidate focused contract passed. No control master or candidate state was written."
+      },
+      "qa_artifact_integrity": {
+        "status": "passed",
+        "evidence": "Exactly four new W9 files were generated. The manifest hashes match independent_qa_report.json 3b2fc2d61f5153a9e59a25da0d3c5de26e12bc3d44dd1c4c1e109628c455b51b, comparison_7_row_review_evidence.json 7baa0152c29ef0513fd27c431654afbdd679c924bbb9bfb8052a56fd2e991725, and review_notes.md 472497967a54979da74d43c4f6b670259c2a53f7d2ac91cfb48ce0770daa62af."
+      },
+      "permissions": {
+        "status": "passed",
+        "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions are all false."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "The intended PR contains only the four new exact-lineage W9 files and the two required train metadata files. No old BLOCKED evidence, package, master manifest, runtime, CMS, publication, discoverability, or deployment file is included."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-31T10:15:21Z",
+        "status": "in_progress",
+        "summary": "Started the independent W9 scope from clean latest fap-web main. The exact backend package and the repaired frontend renderer are read-only inputs; old W1 comparison QA evidence, package mutation, control state, CMS, publication, discoverability, and deployment remain excluded."
+      },
+      {
+        "at": "2026-07-31T10:15:21Z",
+        "status": "local_verified",
+        "summary": "Fresh independent 7/7 review verdict is PASS. Package/file hashes, every content and safety check, backend 12/1235, frontend 7/7, exact renderer shape, current and synthetic control validators, four-file hashes, JSON/YAML parsing, diff, and exact path scope pass; every write/release permission remains false."
+      }
+    ],
+    "updated_at": "2026-07-31T10:15:21Z"
+  },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
     "status": "ready_to_merge",
