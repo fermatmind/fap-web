@@ -52683,12 +52683,12 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "0f5cde29e01529bf7f0f88bb648bf2f41e39a135",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1866",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52704,7 +52704,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR has not been opened."
+        "evidence": "PR 1866 is open; waiting for the required checks and exact-head review."
       }
     },
     "scope_validation": {
@@ -52733,8 +52733,13 @@
         "at": "2026-07-31T03:52:00Z",
         "status": "local_verified",
         "summary": "Validated the exact ten-file W2 inventory package. The candidate legally advances not_started to inventory_frozen, binds 118 source rows and package SHA 5438d43184751d854061cc68044e68f40e4408f9471315f368d32c5b1579933c, and preserves all seven write/release permissions as false. Focused contract passes 26/26; both control validators and all structural/SHA/scope checks pass."
+      },
+      {
+        "at": "2026-07-31T03:55:12Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the inventory package as 0f5cde29e01529bf7f0f88bb648bf2f41e39a135, pushed the scoped branch, and opened PR 1866. Required checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-31T03:52:00Z"
+    "updated_at": "2026-07-31T03:55:12Z"
   }
 }
