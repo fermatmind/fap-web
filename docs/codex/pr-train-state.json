@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-31T10:22:42Z",
+  "updated_at": "2026-07-31T10:26:36Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52350,14 +52350,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-repair-04",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "bad6b5555618f6eaa7f8cc99359748b349de1d59",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1882",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52389,11 +52389,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Required GitHub checks have not started for the rework-04 PR."
+        "evidence": "PR #1882 required GitHub checks are pending."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head review and mergeability checks are pending PR creation."
+        "evidence": "PR #1882 exact-head review and mergeability checks are pending."
       }
     },
     "failure_reason": null,
@@ -52510,9 +52510,14 @@
         "at": "2026-07-31T10:22:42Z",
         "status": "local_verified",
         "summary": "Completed W9-directed rework-04 for all 13 blocked Article rows and rebuilt the ten-file candidate package at SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157. Live source and candidate match at 86 Markdown table groups and 610 table lines; all stored W9 blocker examples are absent. Control validation, 66/66 focused contracts, repository lint excluding only the pre-existing ignored trace directory, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-31T10:26:36Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed producer implementation commit bad6b5555618f6eaa7f8cc99359748b349de1d59 and opened ready PR #1882 for exact rework-04 package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157. Required GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-31T10:22:42Z"
+    "updated_at": "2026-07-31T10:26:36Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
