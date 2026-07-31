@@ -18184,7 +18184,7 @@ prs:
       - IQ-SESSION-QUESTION-DELIVERY-05A
     mode: execute
     train_scope: iq_owner_original_30_launch
-    status: local_verified
+    status: implementation_in_progress
     title: "feat(iq): consume owner current-question delivery"
     goal: "Wire the IQ take page to fetch Owner Original 30 questions through attempt-bound current-question delivery while keeping legacy full-bank question fetches for other IQ forms."
     in_scope:
@@ -28027,7 +28027,7 @@ prs:
       - EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01
     mode: execute
     train_scope: en_parity_w2_big5_inventory
-    status: ready_to_merge
+    status: github_checks_pending
     scope:
       - Consume the merged exact-SHA sanitized PR 1 evidence and freeze the complete 52 public-profile, 50 historical-revision, and 16 result-content W2 inventory.
       - Submit only a validated inventory_frozen candidate patch; do not modify the authoritative master manifest or any runtime/content authority surface.

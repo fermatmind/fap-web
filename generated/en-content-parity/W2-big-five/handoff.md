@@ -154,10 +154,10 @@ All 50 rows pass schema, title/summary/sections/FAQ completeness, text-only, cla
 | `big5.result_content.history_account_reentry` | history | zh_staging_candidate_only | english_missing | fap-api |
 | `big5.result_content.result_report_cta` | result | draft_skeleton_labels_only | structurally_incomplete | fap-api |
 | `big5.result_content.empty_error_expired_access_denied` | result | unknown | unknown | fap-api |
-| `big5.result_content.mobile_desktop_consumption` | frontend_consumer | frontend_renderer_only | not_backend_content_asset | fap-web |
-| `big5.result_content.analytics_reader_labels` | analytics | metric_ids_only | unknown | fap-api |
+| `big5.result_content.mobile_desktop_consumption` | cross_device_reader_copy | frontend_renderer_only_no_backend_reader_asset | english_missing | fap-api |
+| `big5.result_content.analytics_reader_labels` | analytics_reader_surface | internal_metric_ids_only_reader_labels_missing | english_missing | fap-api |
 
-Completed=0, missing/structurally incomplete/unknown=16. Fixtures, mocks, computed scores, selector rows, private payloads, and frontend labels are excluded from completion.
+Completed=0, missing/structurally incomplete/unknown=16. The frozen count includes backend reader-copy requirements for cross-device consumption and analytics reader-facing labels; frontend renderer labels and internal metric IDs are evidence of consumers/telemetry only and are excluded from completion. Fixtures, mocks, computed scores, selector rows, and private payloads are also excluded.
 
 ## Redirect-only aliases
 
@@ -165,26 +165,26 @@ Verified 20/20 locale paths; canonical cohort effect is `0`.
 
 | Alias path | Target | Status |
 | --- | --- | --- |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
-| `undefined` | `undefined` | 301 |
+| `/en/personality/big-five/emotional-stability` | `/en/personality/big-five/neuroticism-low` | 301 |
+| `/zh/personality/big-five/emotional-stability` | `/zh/personality/big-five/neuroticism-low` | 301 |
+| `/en/personality/big-five/high-agreeableness` | `/en/personality/big-five/agreeableness-high` | 301 |
+| `/zh/personality/big-five/high-agreeableness` | `/zh/personality/big-five/agreeableness-high` | 301 |
+| `/en/personality/big-five/high-conscientiousness` | `/en/personality/big-five/conscientiousness-high` | 301 |
+| `/zh/personality/big-five/high-conscientiousness` | `/zh/personality/big-five/conscientiousness-high` | 301 |
+| `/en/personality/big-five/high-extraversion` | `/en/personality/big-five/extraversion-high` | 301 |
+| `/zh/personality/big-five/high-extraversion` | `/zh/personality/big-five/extraversion-high` | 301 |
+| `/en/personality/big-five/high-neuroticism` | `/en/personality/big-five/neuroticism-high` | 301 |
+| `/zh/personality/big-five/high-neuroticism` | `/zh/personality/big-five/neuroticism-high` | 301 |
+| `/en/personality/big-five/high-openness` | `/en/personality/big-five/openness-high` | 301 |
+| `/zh/personality/big-five/high-openness` | `/zh/personality/big-five/openness-high` | 301 |
+| `/en/personality/big-five/low-agreeableness` | `/en/personality/big-five/agreeableness-low` | 301 |
+| `/zh/personality/big-five/low-agreeableness` | `/zh/personality/big-five/agreeableness-low` | 301 |
+| `/en/personality/big-five/low-conscientiousness` | `/en/personality/big-five/conscientiousness-low` | 301 |
+| `/zh/personality/big-five/low-conscientiousness` | `/zh/personality/big-five/conscientiousness-low` | 301 |
+| `/en/personality/big-five/low-extraversion` | `/en/personality/big-five/extraversion-low` | 301 |
+| `/zh/personality/big-five/low-extraversion` | `/zh/personality/big-five/extraversion-low` | 301 |
+| `/en/personality/big-five/low-openness` | `/en/personality/big-five/openness-low` | 301 |
+| `/zh/personality/big-five/low-openness` | `/zh/personality/big-five/openness-low` | 301 |
 
 Aliases remain deterministic one-hop redirects and are excluded from canonical routes, sitemap, hreflang, llms, and llms-full cohorts.
 

@@ -1284,14 +1284,14 @@
       "translation_identity": "big5-result:mobile_desktop_consumption:zh-CN:en",
       "source_locale": "zh-CN",
       "target_locale": "en",
-      "parity_verdict": "not_backend_content_asset"
+      "parity_verdict": "english_missing"
     },
     {
       "stable_asset_identity": "big5.result_content.analytics_reader_labels",
       "translation_identity": "big5-result:analytics_reader_labels:zh-CN:en",
       "source_locale": "zh-CN",
       "target_locale": "en",
-      "parity_verdict": "unknown"
+      "parity_verdict": "english_missing"
     }
   ],
   "redirect_only_aliases": {

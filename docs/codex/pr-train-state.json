@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -52696,21 +52696,21 @@
       },
       "inventory_package": {
         "status": "pass",
-        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content units. Both control validators pass; the eight-file SHA aggregate is 5438d43184751d854061cc68044e68f40e4408f9471315f368d32c5b1579933c."
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen backend reader-content units. Cross-device and analytics units now identify missing backend reader copy while excluding frontend labels and internal metric IDs. Both control validators pass; the eight-file SHA aggregate is a436d2c5d311a94485d2730f99c818fba35d15d4ea4188ac2c8f8cebabf6bfe6."
       },
       "local_validation": {
         "status": "pass",
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact head 1b2d591b5fc309ce57484733c0aa649b389d0406 passed CI run 30602840699 (build, four contract shards, aggregate contracts, Big Five freeze, and Enneagram freeze) and CodeQL run 30602840687. Codex reviewed the exact head with no suggestions."
+        "status": "pending",
+        "evidence": "Prior exact heads passed required checks. Review fixes are in progress and the repaired head must pass a fresh required-check and exact-head review cycle."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52743,8 +52743,13 @@
         "at": "2026-07-31T04:04:26Z",
         "status": "ready_to_merge",
         "summary": "PR 1866 exact head 1b2d591b5fc309ce57484733c0aa649b389d0406 passed every required CI and CodeQL check. Codex reviewed that exact head with no suggestions; changed-file scope remains exact and the PR is ready for its final metadata-head checks before squash merge."
+      },
+      {
+        "at": "2026-07-31T04:17:10Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review found one unrelated IQ manifest drift, an undefined alias handoff table, and ambiguous ownership/classification for the frozen cross-device and analytics reader-label units. Reverted the IQ drift, rendered all 20 exact alias targets, and clarified that both frozen units require backend English reader copy while frontend labels and internal metric IDs remain excluded. Rebuilt the package as a436d2c5d311a94485d2730f99c818fba35d15d4ea4188ac2c8f8cebabf6bfe6; fresh local and GitHub validation is required."
       }
     ],
-    "updated_at": "2026-07-31T04:04:26Z"
+    "updated_at": "2026-07-31T04:17:10Z"
   }
 }
