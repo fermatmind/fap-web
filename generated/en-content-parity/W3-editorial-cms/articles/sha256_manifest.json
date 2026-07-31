@@ -1,12 +1,13 @@
 {
   "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-02-2026-07-31",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "5e689dd02aaa613bbc28601361b71c133826166d4a175fd6d805bffcca3ed991"
+      "sha256": "9a4721591996d492af5e14c78018cdb916e51d0952498079c198875d943715e9"
     },
     {
       "path": "assets.jsonl",
@@ -14,28 +15,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "7d6b9aa1d8c929b31216f0006b398b775aca0c7170d3ae89b75108d4e7588543"
+      "sha256": "6d777da87bbabc056989292c30c55e545d590bf6acd80b5d54db670779623936"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "4015f635e4e4d135b4fc2627e852a56a6577b264c9fca4652d8c5f1d5a696219"
+      "sha256": "eb9b0494da1b53b01a6015780479926b50a5b835872d81347bcd367d583052c0"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "32bce36a32e69a601a5cef9828f2305cd1dd9ebb2b9de5081ff5ee5fe9f04b48"
+      "sha256": "82de865347cbded475166789dd4d07629c566e9a10864b83b87a1a9b2ad23a0b"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3"
+      "sha256": "3329ac913f1850200e7cdcdf2e2f5ca4602ea35c05bd4cfde537df6453ee32e4"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "a75694d6f175957db238889fe60e850ecce97d69af246e864d87a2493a924491"
+      "sha256": "47a52ec3bbad8470996bce0cccd47ba4a1005373fd68e1b8418a3e9b5cc2c9dd"
     },
     {
       "path": "handoff.md",
-      "sha256": "a0cb7a88ef7a7c19bc25fb90a0da2531067858a275461b306c18b0a6a06d84b7"
+      "sha256": "dc84fe072df6c32829b83f97ddb15172a059d9121e5dc53e927229123ab50017"
     }
   ],
-  "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669"
+  "package_sha256": "1a3feebda48b60d6e06680d0e922848888e09d26da6c012bffbfed7ff55fe507"
 }

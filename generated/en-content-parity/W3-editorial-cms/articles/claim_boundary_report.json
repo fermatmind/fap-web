@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-02-2026-07-31",
   "verdict": "PASS",
   "scope": "producer claim-boundary preflight after W9-directed language repair for 17 candidate English Article assets; not independent W9 QA",
   "allowed_reader_frame": [
@@ -28,15 +28,19 @@
         4,
         5,
         6,
+        7,
         8,
         9,
+        10,
+        50,
         51,
         52,
         53,
         55,
+        58,
         59
       ],
-      "finding": "Producer repaired the 12 reader-visible language findings in the exact W9 BLOCKED report; a fresh independent W9 must review the complete rebuilt 17-row package."
+      "finding": "Producer repaired all 16 W9-blocked rows, including reader-visible language, malformed Markdown, leaked producer controls, and material table/list omissions; a fresh independent W9 must review the complete rebuilt 17-row package."
     },
     {
       "severity": "gate_required",
@@ -91,7 +95,7 @@
         58,
         59
       ],
-      "finding": "Producer review confirmed exact source-link equivalence after deterministic zh-CN-to-en locale localization, with no missing or added candidate links."
+      "finding": "Producer review confirmed the frozen source identities and localized internal-link sets remain unchanged; fresh W9 must independently verify source equivalence."
     }
   ],
   "permissions": {
