@@ -52350,7 +52350,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-repair-02",
     "depends_on": [
@@ -52388,12 +52388,12 @@
         "evidence": "Changes are restricted to the W3 Article package and its existing PR-train manifest/state entry; the control master, W3-CAREER-GUIDES, producer authority boundaries, and all CMS/publication/search/deploy permissions remain unchanged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior heads; the same-scope Article 51 review repair changed the package to exact SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a, so required checks must rerun on the new head."
+        "status": "pass",
+        "evidence": "PR #1868 head b259e91fd2c358bc2238fabd9b14f5fca885aa99 passed all 11 required CI and security checks after the final Article 51 repair. The final ready-to-merge ledger-only commit must retain the same validated package payload."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "Pending exact-head PR review and mergeability verification."
+        "status": "pass",
+        "evidence": "GitHub reports PR #1868 MERGEABLE/CLEAN. All actionable content and ledger review findings were repaired or answered with repository evidence; exact changed-file scope and all-false permissions were revalidated."
       }
     },
     "failure_reason": null,
@@ -52480,9 +52480,14 @@
         "at": "2026-07-31T06:51:41Z",
         "status": "github_checks_pending",
         "summary": "Latest exact-head review identified an editorial fragment in Article:51@revision:73. Rewrote it as a direct complete explanation that Enneagram research support is mixed and generally more limited than Big Five evidence, then re-froze the ten-file package at exact SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
+      },
+      {
+        "at": "2026-07-31T06:56:35Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1868 head b259e91fd2c358bc2238fabd9b14f5fca885aa99 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN, exact package SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a revalidates, scope is exact, all permissions remain false, and no unresolved actionable review finding remains."
       }
     ],
-    "updated_at": "2026-07-31T06:51:41Z"
+    "updated_at": "2026-07-31T06:56:35Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
