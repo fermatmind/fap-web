@@ -52683,7 +52683,7 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
@@ -52696,21 +52696,21 @@
       },
       "inventory_package": {
         "status": "pass",
-        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Cross-device renderer evidence is bound to exact fap-web baseline paths. Both control validators pass; the eight-file SHA aggregate is d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff."
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Cross-device renderer evidence is bound to exact fap-web baseline paths. All 66 backend source locators and the baseline are pinned to fap-api post-merge SHA 012392aaf0d83375414f8eb9ad010f6c7c577714. Both control validators pass; the eight-file SHA aggregate is 7c722d36b9c4c862050a9aa691c5c304b9456e7787c993321502e461677deb37."
       },
       "local_validation": {
         "status": "pass",
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Final package head e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75 passed CI run 30604667438 (build, four contract shards, aggregate contracts, Big Five freeze, and Enneagram freeze) and CodeQL run 30604667437. Codex reviewed that exact head; the only finding was this pending ledger pointer, corrected in the metadata tail."
+        "status": "pending",
+        "evidence": "Prior exact heads passed required checks. Pinning all backend evidence to the exact post-merge SHA rebuilt the package and requires a fresh exact-head check and review cycle."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52768,8 +52768,13 @@
         "at": "2026-07-31T04:42:23Z",
         "status": "ready_to_merge",
         "summary": "Final package head e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75 passed all required CI and CodeQL checks and exact-head Codex review. The frozen package is d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff; this metadata tail records the validated head and advances the PR to ready_to_merge without changing package payloads."
+      },
+      {
+        "at": "2026-07-31T04:56:40Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review found 66 mutable fap-api origin/main locators and an inconsistent abbreviated post-merge baseline. Replaced every backend locator and all current backend baseline fields with full verified post-merge SHA 012392aaf0d83375414f8eb9ad010f6c7c577714; every unique referenced path exists at that revision. Rebuilt the package as 7c722d36b9c4c862050a9aa691c5c304b9456e7787c993321502e461677deb37."
       }
     ],
-    "updated_at": "2026-07-31T04:42:23Z"
+    "updated_at": "2026-07-31T04:56:40Z"
   }
 }

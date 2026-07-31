@@ -10,13 +10,13 @@
     "frozen_historical_baseline_preserved": true,
     "fap_web_head": "485cf6d362d3907dc564dd7f0834a505d084ce55",
     "fap_web_origin_main": "485cf6d362d3907dc564dd7f0834a505d084ce55",
-    "fap_api_head": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
-    "fap_api_origin_main": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
+    "fap_api_head": "012392aaf0d83375414f8eb9ad010f6c7c577714",
+    "fap_api_origin_main": "012392aaf0d83375414f8eb9ad010f6c7c577714",
     "fap_api_local_main_behind_origin_main": false,
     "master_manifest_sha256": "a6349c530ef86b2d20d73bc1cf779db1984bd9c4fdb8de39c34efd235a0613ce",
     "fap_api_pr1_merge_sha": "2b2c971c6077fa4101a54826c6b3703eb5b6b3e1",
     "fap_api_pr1_implementation_sha": "f15e81992ab291a8b578fbe19f2e1846a19aa48c",
-    "fap_api_origin_main_observed_after_merge": "012392aaf",
+    "fap_api_origin_main_observed_after_merge": "012392aaf0d83375414f8eb9ad010f6c7c577714",
     "draft_inventory_artifact_sha256": "7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd",
     "production_observation_sha256": "29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4",
     "historical_revision_qa_sha256": "109e995dd9c900b978d5ceaca1f7851607d4332c8bf9a734c705bd32982dd11e"
@@ -238,7 +238,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -293,7 +293,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -348,7 +348,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -403,7 +403,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -458,7 +458,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -513,7 +513,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -568,7 +568,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -623,7 +623,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -678,7 +678,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -733,7 +733,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -788,7 +788,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -843,7 +843,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -898,7 +898,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -953,7 +953,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1008,7 +1008,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1063,7 +1063,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1118,7 +1118,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1173,7 +1173,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1228,7 +1228,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1283,7 +1283,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1338,7 +1338,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1393,7 +1393,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1448,7 +1448,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1503,7 +1503,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1558,7 +1558,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1613,7 +1613,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1668,7 +1668,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1723,7 +1723,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1778,7 +1778,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1833,7 +1833,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1888,7 +1888,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1943,7 +1943,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -1998,7 +1998,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2053,7 +2053,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2108,7 +2108,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2163,7 +2163,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2218,7 +2218,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2273,7 +2273,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2328,7 +2328,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2383,7 +2383,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2438,7 +2438,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2493,7 +2493,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2548,7 +2548,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2603,7 +2603,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2658,7 +2658,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2713,7 +2713,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2768,7 +2768,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2823,7 +2823,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2878,7 +2878,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2933,7 +2933,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -2988,7 +2988,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -3043,7 +3043,7 @@
       "publication_state": "published",
       "text_only_policy": "PASS",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/AuthorityV3/Release/BigFiveEn52RuntimeVerifier.php",
         "fap-api:2b2c971c6077fa4101a54826c6b3703eb5b6b3e1:backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
         "production_observation_sha256:29f62379ce1e36c59831862bef102b920c65cf3179bda0cfdea8d9a7cf1fa6e4"
       ],
@@ -5723,7 +5723,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/docs/seo/generated/result-en-parity-06-bigfive-v2-en-assets.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/docs/seo/generated/result-en-parity-06-bigfive-v2-en-assets.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5752,7 +5752,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2Contract.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2Contract.php",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5781,7 +5781,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_assets/big5/result_page_v2/qa/free_full_report_runtime_qa_readiness/v0_1/big5_free_full_report_runtime_qa_readiness_summary_v0_1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/free_full_report_runtime_qa_readiness/v0_1/big5_free_full_report_runtime_qa_readiness_summary_v0_1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5810,7 +5810,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/ResultPageV2/Composer/BigFiveV2PilotPayloadComposer.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/Composer/BigFiveV2PilotPayloadComposer.php",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5839,7 +5839,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5868,7 +5868,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5897,7 +5897,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2SourceAuthorityMap.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2SourceAuthorityMap.php",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5926,7 +5926,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5955,7 +5955,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -5984,7 +5984,7 @@
       "public_private_classification": "public_safe_projection_only",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_assets/big5/result_page_v2/qa/share_pdf_history_compare_safe_content/v0_1/big5_share_pdf_history_compare_safe_content_qa_v0_1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/share_pdf_history_compare_safe_content/v0_1/big5_share_pdf_history_compare_safe_content_qa_v0_1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -6013,7 +6013,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_assets/big5/result_page_v2/qa/pdf_surface_policy/v0_1/big5_pdf_surface_policy_summary_v0_1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/pdf_surface_policy/v0_1/big5_pdf_surface_policy_summary_v0_1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -6042,7 +6042,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/ResultPageV2/History/BigFiveV2HistorySnapshotAdapter.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/History/BigFiveV2HistorySnapshotAdapter.php",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -6071,7 +6071,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api:origin/main:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
@@ -6100,7 +6100,7 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api:origin/main:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2CompatibilityTransformer.php",
+        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2CompatibilityTransformer.php",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
