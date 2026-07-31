@@ -52496,8 +52496,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "06a3a8a67a7988a96f029936185a258ca03668d5",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1872",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52541,11 +52541,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "No current-run PR has been opened."
+        "evidence": "PR #1872 is open from the exact W9 branch; GitHub required checks are pending."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head review and mergeability checks are pending."
+        "evidence": "PR #1872 exact-head review, mergeability, and required-check verification are pending."
       }
     },
     "failure_reason": "Fresh independent W9 is BLOCKED for 15 of 17 Article rows: 10 fail language naturalness, 13 fail source equivalence, and 2 expose field/control text. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
@@ -52592,9 +52592,14 @@
         "at": "2026-07-31T07:33:00Z",
         "status": "blocked_local_verified",
         "summary": "Strict report and blocked-candidate validators pass; Node 24.18.1 focused contracts pass 62/62; all JSON/YAML, exact package/report/evidence/candidate SHA, 17/17 coverage, aggregate row-check, immutable-snapshot, producer/master/CareerGuide zero-diff, scope, and diff validations pass. The evidence remains BLOCKED and qa_pass remains unauthorized."
+      },
+      {
+        "at": "2026-07-31T07:37:24Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the fresh independent W9 BLOCKED evidence as 06a3a8a67a7988a96f029936185a258ca03668d5 and opened PR #1872 with exact title and scope. GitHub required checks, exact-head review, and mergeability verification are pending; qa_pass and every write/release permission remain false."
       }
     ],
-    "updated_at": "2026-07-31T07:33:00Z"
+    "updated_at": "2026-07-31T07:37:24Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
