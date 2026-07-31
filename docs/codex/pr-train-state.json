@@ -52616,7 +52616,7 @@
   },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03",
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "base": "main",
     "branch": "codex/saep-proposed-web-parity06-llms-full-artifact-body-determinism-03",
@@ -52634,12 +52634,12 @@
         "evidence": "Node 24.14 / pnpm 10.28.1: focused determinism, prior orchestration, runtime enrichment, fanout, and environment-baseline contracts pass; scoped and full lint, spacing, typecheck, complete four-shard contract suite, Big Five 29/29, Enneagram 24/24, production-API Next build, YAML/JSON parse, exact six-file scope, and diff checks pass. The initial full-contract attempt used an over-narrow PATH; every resulting baseline failure passed under the complete PATH before the full suite was rerun successfully."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "PR #1864 exact implementation head fc155abfa32800e4e3ee97ed7d60aa80432a0ce1 passed build, all four contract shards and aggregate contracts, Big Five and Enneagram freezes, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts."
       },
       "exact_head_review": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "GitHub reports CLEAN/MERGEABLE and the exact six authorized paths. Codex reviewed fc155abfa32800e4e3ee97ed7d60aa80432a0ce1; its single P2 requested retaining nondeterministic detail-only fields in the shared artifact, which conflicts with the explicitly approved enumeration-snapshot artifact contract. The boundary was documented in-thread, the public runtime enrichment remains unchanged, and the thread is resolved. Zero unresolved threads remain."
       }
     },
     "failure_reason": null,
@@ -52668,8 +52668,13 @@
         "at": "2026-07-30T23:37:59Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact six-file implementation as 85f8071a54bb5ebbc975953c404437bd771b747b, merged the non-overlapping latest main baseline, and opened PR #1864. Fresh required checks and exact-head review remain mandatory; deploy and cache permissions remain false."
+      },
+      {
+        "at": "2026-07-31T00:47:40Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1864 exact implementation head fc155abfa32800e4e3ee97ed7d60aa80432a0ce1 passed all 11 CI/security checks, remained CLEAN/MERGEABLE, and completed exact-head Codex review. The sole review thread requested restoring the diagnosed nondeterministic detail enrichment; the approved enumeration-snapshot boundary was documented and the thread resolved. Exact scope is six authorized files with zero unresolved threads. This ledger-only tail must pass fresh required checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-30T23:37:59Z"
+    "updated_at": "2026-07-31T00:47:40Z"
   }
 }
