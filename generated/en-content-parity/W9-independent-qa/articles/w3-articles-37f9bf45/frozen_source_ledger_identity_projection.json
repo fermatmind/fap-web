@@ -1,0 +1,90 @@
+{
+  "schema_version": "fermatmind.en_content_parity_frozen_source_ledger_identity_projection.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+  "sha256_manifest_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/frozen_package/sha256_manifest.json",
+  "sha256_manifest_sha256": "45c2e11a21d6fbee14212d32f8a7a4ba1b0eaf7d112aa1505bfe062b0cf412d0",
+  "source_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/frozen_package/source_ledger.json",
+  "source_ledger_sha256": "4015f635e4e4d135b4fc2627e852a56a6577b264c9fca4652d8c5f1d5a696219",
+  "rows": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446"
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445"
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383"
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58"
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444"
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443"
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442"
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72"
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441"
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440"
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57"
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73"
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64"
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65"
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75"
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78"
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79"
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

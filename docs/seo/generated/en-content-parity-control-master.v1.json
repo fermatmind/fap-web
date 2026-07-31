@@ -221,8 +221,8 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "blocked",
-      "blocked_from_status": "inventory_frozen",
+      "status": "inventory_frozen",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -237,31 +237,12 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "blocked",
-          "blocked_from_status": "package_frozen",
-          "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+          "status": "package_in_progress",
+          "blocked_from_status": null,
+          "package_sha256": null,
           "qa_report_ref": null,
-          "gate_lineage": [
-            {
-              "status": "package_frozen",
-              "evidence_owner_lane_id": "W3",
-              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
-              "report_sha256": "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
-              "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
-              "accepted_at": "2026-07-30T22:19:50.000Z"
-            },
-            {
-              "status": "blocked",
-              "evidence_owner_lane_id": "W9",
-              "report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/independent_qa_report.json",
-              "report_sha256": "c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4",
-              "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
-              "accepted_at": "2026-07-31T04:57:53.000Z"
-            }
-          ],
-          "blockers": [
-            "Independent W9 report c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4 blocks qa_pass for frozen package 37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669: 16 of 17 Article rows require producer repair for language naturalness, asset duplication, or internal field leakage."
-          ],
+          "gate_lineage": [],
+          "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -299,10 +280,8 @@
       "package_sha256": null,
       "qa_report_ref": null,
       "gate_lineage": [],
-      "blockers": [
-        "W3-ARTICLES is blocked at package_frozen by independent W9 evidence stored under generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/."
-      ],
-      "next_action": "CONTROL must accept a separate evidence-bound reset of W3-ARTICLES to package_in_progress before producer repair and a new exact-SHA freeze/fresh W9 cycle. Continue W3-CAREER-GUIDES only as its own independent sequential scope without combining package or gate lineage.",
+      "blockers": [],
+      "next_action": "Rebuild the complete W3-ARTICLES package, re-freeze it, and repeat fresh independent W9 QA. Continue W3-CAREER-GUIDES only as its own independent sequential scope without combining package or gate lineage.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
