@@ -52676,5 +52676,65 @@
       }
     ],
     "updated_at": "2026-07-31T00:47:40Z"
+  },
+  "EN-PARITY-W2-BIG5-INVENTORY-01": {
+    "id": "EN-PARITY-W2-BIG5-INVENTORY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/en-parity-w2-big5-inventory-01",
+    "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
+    "status": "local_verified",
+    "depends_on": [
+      "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
+    ],
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "fap-api PR 3421 merged as 2b2c971c6077fa4101a54826c6b3703eb5b6b3e1; fap-api origin/main contains the merge commit and PR 1 post-merge cleanup/revalidation passed."
+      },
+      "inventory_package": {
+        "status": "pass",
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content units. Both control validators pass; the eight-file SHA aggregate is 5438d43184751d854061cc68044e68f40e4408f9471315f368d32c5b1579933c."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR has not been opened."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-31T03:48:52Z",
+        "status": "implementation_in_progress",
+        "summary": "Started from exact fap-web origin/main 485cf6d362d3907dc564dd7f0834a505d084ce55 in an isolated worktree after PR 1 merged and post-merge revalidated. Rebuilt only the W2 generated inventory package from sanitized evidence; no master manifest, runtime, CMS, production, SEO, search, or deploy action occurred."
+      },
+      {
+        "at": "2026-07-31T03:52:00Z",
+        "status": "local_verified",
+        "summary": "Validated the exact ten-file W2 inventory package. The candidate legally advances not_started to inventory_frozen, binds 118 source rows and package SHA 5438d43184751d854061cc68044e68f40e4408f9471315f368d32c5b1579933c, and preserves all seven write/release permissions as false. Focused contract passes 26/26; both control validators and all structural/SHA/scope checks pass."
+      }
+    ],
+    "updated_at": "2026-07-31T03:52:00Z"
   }
 }

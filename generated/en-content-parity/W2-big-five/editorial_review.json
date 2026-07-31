@@ -1,0 +1,70 @@
+{
+  "schema_version": "fermatmind.en_content_parity_editorial_review.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W2",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
+  "generated_at": "2026-07-31T03:42:00Z",
+  "verdict": "PASS",
+  "review_mode": "inventory_freeze_only_no_reader_copy_generated",
+  "public_control": {
+    "verdict": "PASS",
+    "rows_reviewed": 52,
+    "generation_required": false
+  },
+  "draft_reconciliation": {
+    "verdict": "PASS",
+    "rows_reviewed": 50,
+    "independent_current_drafts": 0,
+    "dispositions": {
+      "stale_working_revision": 50
+    }
+  },
+  "result_content": {
+    "verdict": "INVENTORIED_NOT_PRODUCED",
+    "rows_reviewed": 16,
+    "completed": 0,
+    "remaining": 16
+  },
+  "pr_execution_map": [
+    {
+      "pr_id": "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01",
+      "repository": "fap-api",
+      "status": "merged",
+      "merge_sha": "2b2c971c6077fa4101a54826c6b3703eb5b6b3e1",
+      "output": "Sanitized exact-50 historical revision evidence; zero independent current drafts."
+    },
+    {
+      "pr_id": "EN-PARITY-W2-BIG5-INVENTORY-01",
+      "repository": "fap-web",
+      "status": "current_scope",
+      "output": "Frozen 118-row W2 inventory and validated inventory_frozen candidate."
+    },
+    {
+      "pr_id": "EN-PARITY-W2-BIG5-RESULT-ASSETS-01",
+      "repository": "fap-api",
+      "status": "dependency_pending",
+      "depends_on": [
+        "EN-PARITY-W2-BIG5-INVENTORY-01"
+      ],
+      "output": "Produce the 16 backend-authoritative English result assets as draft-review-only content."
+    }
+  ],
+  "not_required": [
+    "Big Five 52-page public-profile generation",
+    "Big Five public-profile media",
+    "Big Five redirect-only alias content generation",
+    "Frontend editorial fallback",
+    "Sitemap/llms/canonical/indexability changes",
+    "CMS import, promotion, publication, deploy, or Search Channel action"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
