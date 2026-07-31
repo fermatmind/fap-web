@@ -961,6 +961,12 @@ describe("English content parity control master", () => {
     "duplicate row identity",
     "missing row identity",
     "unknown row identity",
+    "missing substantive row fields",
+    "empty substantive row evidence",
+    "incomplete row checks",
+    "row verdict mismatch",
+    "aggregate check mismatch",
+    "row ID and identity pairing mismatch",
   ])("rejects a W9 blocker candidate with %s", (failureMode) => {
     const candidateDirectory = makeW9QaDirectory();
     const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
@@ -982,12 +988,23 @@ describe("English content parity control master", () => {
     };
     const qaReport = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
-    ) as { reviewed_row_count: number };
+    ) as {
+      reviewed_row_count: number;
+      checks: Record<string, "PASS" | "BLOCKED">;
+    };
     const rowEvidence = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
     ) as {
       reviewed_row_count: number;
-      row_reviews: Array<{ source_identity: string }>;
+      required_checks: Record<string, "PASS" | "BLOCKED">;
+      row_reviews: Array<{
+        row_id: string;
+        source_identity: string;
+        title_excerpt_full_body_reviewed?: boolean;
+        verdict?: "PASS" | "BLOCKED";
+        checks?: Record<string, "PASS" | "BLOCKED">;
+        evidence?: string;
+      }>;
     };
 
     if (failureMode === "zero self-reported counts") {
@@ -1000,8 +1017,26 @@ describe("English content parity control master", () => {
       rowEvidence.row_reviews.at(-1)!.source_identity = rowEvidence.row_reviews[0]!.source_identity;
     } else if (failureMode === "missing row identity") {
       rowEvidence.row_reviews.pop();
-    } else {
+    } else if (failureMode === "unknown row identity") {
       rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
+    } else if (failureMode === "missing substantive row fields") {
+      delete rowEvidence.row_reviews[0]!.title_excerpt_full_body_reviewed;
+      delete rowEvidence.row_reviews[0]!.verdict;
+      delete rowEvidence.row_reviews[0]!.checks;
+      delete rowEvidence.row_reviews[0]!.evidence;
+    } else if (failureMode === "empty substantive row evidence") {
+      rowEvidence.row_reviews[0]!.evidence = "   ";
+    } else if (failureMode === "incomplete row checks") {
+      delete rowEvidence.row_reviews[0]!.checks!.claim_boundary;
+    } else if (failureMode === "row verdict mismatch") {
+      rowEvidence.row_reviews[0]!.verdict = "PASS";
+    } else if (failureMode === "aggregate check mismatch") {
+      qaReport.checks.language_naturalness = "PASS";
+      rowEvidence.required_checks.language_naturalness = "PASS";
+    } else {
+      const firstIdentity = rowEvidence.row_reviews[0]!.source_identity;
+      rowEvidence.row_reviews[0]!.source_identity = rowEvidence.row_reviews[1]!.source_identity;
+      rowEvidence.row_reviews[1]!.source_identity = firstIdentity;
     }
 
     fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
@@ -1030,8 +1065,21 @@ describe("English content parity control master", () => {
         expect(errors).toContain("W9 row_reviews must contain every registered target row");
       } else if (failureMode === "duplicate row identity") {
         expect(errors).toContain("W9 row review identities must be unique");
-      } else {
+      } else if (failureMode === "unknown row identity") {
         expect(errors).toContain("W9 row review identities must exactly cover the frozen target identities");
+      } else if (failureMode === "missing substantive row fields") {
+        expect(errors).toContain("every W9 row review must confirm title, excerpt, and full body review");
+        expect(errors).toContain("every W9 row review must include substantive evidence");
+      } else if (failureMode === "empty substantive row evidence") {
+        expect(errors).toContain("every W9 row review must include substantive evidence");
+      } else if (failureMode === "incomplete row checks") {
+        expect(errors).toContain("every W9 row review must include every required row check");
+      } else if (failureMode === "row verdict mismatch") {
+        expect(errors).toContain("every W9 row review verdict must match its row checks");
+      } else if (failureMode === "aggregate check mismatch") {
+        expect(errors).toContain("W9 aggregate check language_naturalness must match the row reviews");
+      } else {
+        expect(errors).toContain("every W9 row review must preserve its frozen row ID and identity pairing");
       }
     } finally {
       fs.rmSync(candidateDirectory, { recursive: true, force: true });

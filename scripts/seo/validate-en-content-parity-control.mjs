@@ -66,6 +66,22 @@ const EXPECTED_QA_CHECKS = [
   "field_leakage",
   "page_api_alignment",
 ];
+const EXPECTED_W9_ROW_CHECKS = [
+  "language_naturalness",
+  "source_equivalence_identity",
+  "claim_boundary",
+  "internal_link_equivalence",
+  "field_leakage",
+  "asset_media_duplication_omission",
+  "page_api_alignment_applicable",
+];
+const W9_ROW_TO_AGGREGATE_CHECKS = {
+  language_naturalness: "language_naturalness",
+  claim_boundary: "claim_boundary",
+  asset_media_duplication_omission: "asset_duplication",
+  field_leakage: "field_leakage",
+  page_api_alignment_applicable: "page_api_alignment",
+};
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -1244,6 +1260,12 @@ function validateIndependentQaEvidence(
     );
     const sourceLedger = JSON.parse(fs.readFileSync(sourceLedgerPath, "utf8"));
     const frozenRows = Array.isArray(sourceLedger.rows) ? sourceLedger.rows : [];
+    const frozenRowIdentityById = new Map(
+      frozenRows.map((row) => [
+        row?.row_id,
+        `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`,
+      ])
+    );
     const frozenIdentities = frozenRows.map(
       (row) => `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`
     );
@@ -1255,6 +1277,11 @@ function validateIndependentQaEvidence(
     assert(
       new Set(frozenIdentities).size === frozenIdentities.length,
       `${artifact.lane_id}: frozen source ledger identities must be unique`,
+      errors
+    );
+    assert(
+      frozenRowIdentityById.size === frozenRows.length,
+      `${artifact.lane_id}: frozen source ledger row IDs must be unique`,
       errors
     );
     const rowReviews = Array.isArray(rowEvidenceArtifact.row_reviews)
@@ -1283,10 +1310,95 @@ function validateIndependentQaEvidence(
       errors
     );
     assert(
+      sameValue([...reviewedRowIds].sort(), [...frozenRowIdentityById.keys()].sort()),
+      `${artifact.lane_id}: W9 row review IDs must exactly cover the frozen target row IDs`,
+      errors
+    );
+    assert(
       sameValue([...reviewedIdentities].sort(), [...frozenIdentities].sort()),
       `${artifact.lane_id}: W9 row review identities must exactly cover the frozen target identities`,
       errors
     );
+    for (const rowReview of rowReviews) {
+      assert(
+        typeof rowReview?.row_id === "string" && rowReview.row_id.length > 0,
+        `${artifact.lane_id}: every W9 row review must include a non-empty row_id`,
+        errors
+      );
+      assert(
+        frozenRowIdentityById.get(rowReview?.row_id) === rowReview?.source_identity,
+        `${artifact.lane_id}: every W9 row review must preserve its frozen row ID and identity pairing`,
+        errors
+      );
+      assert(
+        rowReview?.title_excerpt_full_body_reviewed === true,
+        `${artifact.lane_id}: every W9 row review must confirm title, excerpt, and full body review`,
+        errors
+      );
+      assert(
+        ["PASS", "BLOCKED"].includes(rowReview?.verdict),
+        `${artifact.lane_id}: every W9 row review must include a valid verdict`,
+        errors
+      );
+      assert(
+        sameValue(Object.keys(rowReview?.checks ?? {}).sort(), [...EXPECTED_W9_ROW_CHECKS].sort()),
+        `${artifact.lane_id}: every W9 row review must include every required row check`,
+        errors
+      );
+      assert(
+        EXPECTED_W9_ROW_CHECKS.every((check) => ["PASS", "BLOCKED"].includes(rowReview?.checks?.[check])),
+        `${artifact.lane_id}: every W9 row review check must be PASS or BLOCKED`,
+        errors
+      );
+      const expectedRowVerdict = EXPECTED_W9_ROW_CHECKS.some(
+        (check) => rowReview?.checks?.[check] === "BLOCKED"
+      )
+        ? "BLOCKED"
+        : "PASS";
+      assert(
+        rowReview?.verdict === expectedRowVerdict,
+        `${artifact.lane_id}: every W9 row review verdict must match its row checks`,
+        errors
+      );
+      assert(
+        typeof rowReview?.evidence === "string" && rowReview.evidence.trim().length > 0,
+        `${artifact.lane_id}: every W9 row review must include substantive evidence`,
+        errors
+      );
+    }
+    assert(
+      rowReviews.some((row) => row?.verdict === "BLOCKED"),
+      `${artifact.lane_id}: W9 BLOCKED evidence requires at least one blocked row review`,
+      errors
+    );
+    assert(
+      sameValue(rowEvidenceArtifact.required_checks, qaReport.checks),
+      `${artifact.lane_id}: W9 row evidence aggregate checks must match the independent QA report`,
+      errors
+    );
+    assert(
+      sameValue(Object.keys(rowEvidenceArtifact.check_evidence ?? {}).sort(), [...EXPECTED_QA_CHECKS].sort()),
+      `${artifact.lane_id}: W9 row evidence must include substantive evidence for every aggregate check`,
+      errors
+    );
+    for (const check of EXPECTED_QA_CHECKS) {
+      assert(
+        typeof rowEvidenceArtifact.check_evidence?.[check] === "string" &&
+          rowEvidenceArtifact.check_evidence[check].trim().length > 0,
+        `${artifact.lane_id}: W9 aggregate check ${check} must include substantive evidence`,
+        errors
+      );
+    }
+    for (const [rowCheck, aggregateCheck] of Object.entries(W9_ROW_TO_AGGREGATE_CHECKS)) {
+      const expectedAggregateVerdict = rowReviews.some((row) => row?.checks?.[rowCheck] === "BLOCKED")
+        ? "BLOCKED"
+        : "PASS";
+      assert(
+        qaReport.checks?.[aggregateCheck] === expectedAggregateVerdict,
+        `${artifact.lane_id}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
+        errors
+      );
+    }
   } catch (error) {
     errors.push(
       `${artifact.lane_id}: cannot validate W9 blocker row evidence (${error instanceof Error ? error.message : String(error)})`
