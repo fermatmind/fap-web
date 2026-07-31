@@ -52613,5 +52613,68 @@
       }
     ],
     "updated_at": "2026-07-30T23:21:00.000Z"
+  },
+  "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03": {
+    "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03",
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-parity06-llms-full-artifact-body-determinism-03",
+    "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-ARTIFACT-BODY-DETERMINISM-03: make llms-full artifact body deterministic",
+    "depends_on": [],
+    "commit_sha": "85f8071a54bb5ebbc975953c404437bd771b747b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1864",
+    "checks": {
+      "section_drift_diagnosis": {
+        "status": "pass",
+        "evidence": "Three isolated cold builds at deployed Web SHA dda86bd192e5f080dd6321006df17434b043cb8d retained the same 2529-URL canonical set. Only Articles (23 entries), Personality (28 entries), and Topics (4 entries) changed body hashes; Career and all non-enrichment sections were stable. No artifact body or production mutation was retained."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24.14 / pnpm 10.28.1: focused determinism, prior orchestration, runtime enrichment, fanout, and environment-baseline contracts pass; scoped and full lint, spacing, typecheck, complete four-shard contract suite, Big Five 29/29, Enneagram 24/24, production-API Next build, YAML/JSON parse, exact six-file scope, and diff checks pass. The initial full-contract attempt used an over-narrow PATH; every resulting baseline failure passed under the complete PATH before the full suite was rerun successfully."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1864 exact implementation head fc155abfa32800e4e3ee97ed7d60aa80432a0ce1 passed build, all four contract shards and aggregate contracts, Big Five and Enneagram freezes, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts."
+      },
+      "exact_head_review": {
+        "status": "pass",
+        "evidence": "GitHub reports CLEAN/MERGEABLE and the exact six authorized paths. Codex reviewed fc155abfa32800e4e3ee97ed7d60aa80432a0ce1; its single P2 requested retaining nondeterministic detail-only fields in the shared artifact, which conflicts with the explicitly approved enumeration-snapshot artifact contract. The boundary was documented in-thread, the public runtime enrichment remains unchanged, and the thread is resolved. Zero unresolved threads remain."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "cache_warm_allowed": false,
+    "search_channel_action": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T23:22:42Z",
+        "status": "in_progress",
+        "summary": "Started the isolated artifact body determinism scope after exact deployed-SHA evidence confined three-round normalized body drift to detail-enriched Articles, Personality, and Topics while preserving one stable 2529-URL canonical set. No deployment, cache warm, content mutation, or Checkpoint 118 is authorized."
+      },
+      {
+        "at": "2026-07-30T23:33:24Z",
+        "status": "local_verified",
+        "summary": "Completed all manifest local gates in the isolated worktree. Artifact builds now use one enumerated backend/CMS snapshot without detail fetches; public runtime enrichment, completeness predicates, citation closure, URL membership, and cache-write boundaries remain unchanged."
+      },
+      {
+        "at": "2026-07-30T23:37:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-file implementation as 85f8071a54bb5ebbc975953c404437bd771b747b, merged the non-overlapping latest main baseline, and opened PR #1864. Fresh required checks and exact-head review remain mandatory; deploy and cache permissions remain false."
+      },
+      {
+        "at": "2026-07-31T00:47:40Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1864 exact implementation head fc155abfa32800e4e3ee97ed7d60aa80432a0ce1 passed all 11 CI/security checks, remained CLEAN/MERGEABLE, and completed exact-head Codex review. The sole review thread requested restoring the diagnosed nondeterministic detail enrichment; the approved enumeration-snapshot boundary was documented and the thread resolved. Exact scope is six authorized files with zero unresolved threads. This ledger-only tail must pass fresh required checks before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-31T00:47:40Z"
   }
 }

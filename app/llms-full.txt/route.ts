@@ -47,7 +47,6 @@ import {
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
   LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS,
-  LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS,
   LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS,
   LLMS_FULL_ARTIFACT_OPTIONAL_SOURCE_TIMEOUT_MS,
@@ -93,7 +92,6 @@ const MAX_FAQ_ITEMS = 2;
 const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
 const ENRICHMENT_CONCURRENCY = 4;
-const LLMS_FULL_ARTIFACT_ENRICHMENT_CONCURRENCY = 8;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
@@ -175,7 +173,7 @@ export function llmsFullContentPageTimeoutMs(buildProfile: LlmsFullBuildProfile 
     : LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS;
 }
 
-export type LlmsFullSourceClass = "hard" | "optional" | "enrichment";
+export type LlmsFullSourceClass = "hard" | "optional";
 
 export function llmsFullSourceTimeoutMs(
   buildProfile: LlmsFullBuildProfile,
@@ -188,9 +186,6 @@ export function llmsFullSourceTimeoutMs(
   if (sourceClass === "hard") {
     return LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS;
   }
-  if (sourceClass === "enrichment") {
-    return LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS;
-  }
   return LLMS_FULL_ARTIFACT_OPTIONAL_SOURCE_TIMEOUT_MS;
 }
 
@@ -198,10 +193,20 @@ export function llmsFullSourceConcurrency(buildProfile: LlmsFullBuildProfile): n
   return buildProfile === "artifact" ? LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY : Number.MAX_SAFE_INTEGER;
 }
 
-export function llmsFullEnrichmentConcurrency(buildProfile: LlmsFullBuildProfile): number {
-  return buildProfile === "artifact"
-    ? LLMS_FULL_ARTIFACT_ENRICHMENT_CONCURRENCY
-    : ENRICHMENT_CONCURRENCY;
+export function llmsFullEnrichmentConcurrency(): number {
+  return ENRICHMENT_CONCURRENCY;
+}
+
+export async function resolveLlmsFullEntryGroups<T>(
+  buildProfile: LlmsFullBuildProfile,
+  enumerated: T,
+  enrichRuntimeEntries: () => Promise<T>
+): Promise<T> {
+  if (buildProfile === "artifact") {
+    return enumerated;
+  }
+
+  return enrichRuntimeEntries();
 }
 
 function createSourceScheduler(concurrency: number, signal?: AbortSignal) {
@@ -1611,56 +1616,49 @@ async function buildLlmsFullTextInternal(
     ...careers,
   ]);
 
-  const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
-    mapWithConcurrency(
-      personalityEntries,
-      llmsFullEnrichmentConcurrency(buildProfile),
-      (entry) => buildProfile === "artifact"
-        ? withLlmsRouteBudget(
-          () => enrichPersonalityEntry(entry, siteUrl),
-          entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
-        )
-        : withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
-      abortSignal
-    ),
-    mapWithConcurrency(
-      limitedTopicEntries,
-      llmsFullEnrichmentConcurrency(buildProfile),
-      (entry) => buildProfile === "artifact"
-        ? withLlmsRouteBudget(
-          () => enrichTopicEntry(entry, siteUrl),
-          entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
-        )
-        : withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
-      abortSignal
-    ),
-    mapWithConcurrency(
-      limitedArticleEntries,
-      llmsFullEnrichmentConcurrency(buildProfile),
-      (entry) => buildProfile === "artifact"
-        ? withLlmsRouteBudget(
-          () => enrichArticleEntry(entry, siteUrl),
-          entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
-        )
-        : withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
-      abortSignal
-    ),
-    mapWithConcurrency(
-      limitedGuideEntries,
-      llmsFullEnrichmentConcurrency(buildProfile),
-      (entry) => buildProfile === "artifact"
-        ? withLlmsRouteBudget(
-          () => enrichCareerGuideEntry(entry, siteUrl),
-          entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
-        )
-        : withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
-      abortSignal
-    ),
-  ]);
+  const {
+    personality: enrichedPersonalityEntries,
+    topics: enrichedTopicEntries,
+    articles: enrichedArticles,
+    guides: enrichedGuideEntries,
+  } = await resolveLlmsFullEntryGroups(
+    buildProfile,
+    {
+      personality: personalityEntries,
+      topics: limitedTopicEntries,
+      articles: limitedArticleEntries,
+      guides: limitedGuideEntries,
+    },
+    async () => {
+      const [personality, topics, articles, guides] = await Promise.all([
+        mapWithConcurrency(
+          personalityEntries,
+          llmsFullEnrichmentConcurrency(),
+          (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+          abortSignal
+        ),
+        mapWithConcurrency(
+          limitedTopicEntries,
+          llmsFullEnrichmentConcurrency(),
+          (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+          abortSignal
+        ),
+        mapWithConcurrency(
+          limitedArticleEntries,
+          llmsFullEnrichmentConcurrency(),
+          (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+          abortSignal
+        ),
+        mapWithConcurrency(
+          limitedGuideEntries,
+          llmsFullEnrichmentConcurrency(),
+          (entry) => withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+          abortSignal
+        ),
+      ]);
+      return { personality, topics, articles, guides };
+    }
+  );
 
   const enrichedCareerPathMap = new Map(enrichedGuideEntries.map((entry) => [`${entry.locale}:${entry.path}`, entry]));
   const enrichedCareers = careers.map((entry) => enrichedCareerPathMap.get(`${entry.locale}:${entry.path}`) ?? entry);
