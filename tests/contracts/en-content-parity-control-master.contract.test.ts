@@ -912,10 +912,29 @@ describe("English content parity control master", () => {
         owner_lane_id: string;
         verdict: string;
         row_count: number;
+        report_path: string;
+        report_sha256: string;
         row_evidence: { path: string; sha256: string };
       };
       permissions: Permissions;
     };
+    const checkedInDirectory = path.dirname(checkedInCandidatePath);
+    const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
+    const rowEvidencePath = path.join(candidateDirectory, "article_17_row_review_evidence.json");
+    const qaReport = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
+    ) as { permissions: Record<string, boolean> };
+    const rowEvidence = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
+    ) as { permissions: Record<string, boolean> };
+    qaReport.permissions = Object.fromEntries(Object.entries(qaReport.permissions).reverse());
+    rowEvidence.permissions = Object.fromEntries(Object.entries(rowEvidence.permissions).reverse());
+    fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+    fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+    candidate.gate_evidence.report_path = qaReportPath;
+    candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+    candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+    candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
     fs.writeFileSync(candidatePath, JSON.stringify(candidate));
 
     try {
@@ -976,6 +995,8 @@ describe("English content parity control master", () => {
     "aggregate Chinese leakage without blocked row",
     "missing row Chinese leakage",
     "invalid row Chinese leakage verdict",
+    "report schema missing",
+    "report schema unexpected property",
     ...[
       "language_naturalness",
       "chinese_leakage",
@@ -1006,9 +1027,11 @@ describe("English content parity control master", () => {
     const qaReport = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
     ) as {
+      $schema?: string;
       reviewed_row_count: number;
       checks: Record<string, string>;
       permissions: Record<string, boolean>;
+      unexpected_contract_field?: boolean;
     };
     const rowEvidence = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
@@ -1075,6 +1098,10 @@ describe("English content parity control master", () => {
       delete rowEvidence.row_reviews[0]!.checks!.chinese_leakage;
     } else if (failureMode === "invalid row Chinese leakage verdict") {
       rowEvidence.row_reviews[0]!.checks!.chinese_leakage = "NOT_REVIEWED";
+    } else if (failureMode === "report schema missing") {
+      delete qaReport.$schema;
+    } else if (failureMode === "report schema unexpected property") {
+      qaReport.unexpected_contract_field = true;
     } else if (failureMode.startsWith("invalid QA verdict for ")) {
       const check = failureMode.replace("invalid QA verdict for ", "");
       qaReport.checks[check] = "NOT_REVIEWED";
@@ -1124,25 +1151,34 @@ describe("English content parity control master", () => {
         expect(errors).toContain("every W9 row review must preserve its frozen row ID and identity pairing");
       } else if (failureMode === "report permission true") {
         expect(errors).toContain("$/w9_qa_report/permissions/public_release_authorized: permission must remain false");
-      } else if (failureMode === "report permission missing" || failureMode === "report permission drift") {
+      } else if (failureMode === "report permission missing") {
         expect(errors).toContain("W9 QA report: permissions must include exactly the controlled permission keys");
         expect(errors).toContain("W9 QA report: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "report permission drift") {
+        expect(errors).toContain("W9 QA report: permissions must include exactly the controlled permission keys");
       } else if (failureMode === "row evidence permission true") {
         expect(errors).toContain(
           "$/w9_row_evidence/permissions/production_import_authorized: permission must remain false"
         );
       } else if (
-        failureMode === "row evidence permission missing" ||
-        failureMode === "row evidence permission drift"
+        failureMode === "row evidence permission missing"
       ) {
         expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
         expect(errors).toContain("W9 row evidence: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "row evidence permission drift") {
+        expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
       } else if (failureMode === "aggregate Chinese leakage without blocked row") {
         expect(errors).toContain("W9 aggregate check chinese_leakage must match the row reviews");
       } else if (failureMode === "missing row Chinese leakage") {
         expect(errors).toContain("every W9 row review must include every required row check");
       } else if (failureMode === "invalid row Chinese leakage verdict") {
         expect(errors).toContain("every W9 row review check must be PASS or BLOCKED");
+      } else if (failureMode === "report schema missing") {
+        expect(errors).toContain("W9 QA report Schema error: $: oneOf matched 0 branches");
+        expect(errors).toContain("missing required property $schema");
+      } else if (failureMode === "report schema unexpected property") {
+        expect(errors).toContain("W9 QA report Schema error: $: oneOf matched 0 branches");
+        expect(errors).toContain("unexpected property unexpected_contract_field");
       } else if (failureMode.startsWith("invalid QA verdict for ")) {
         const check = failureMode.replace("invalid QA verdict for ", "");
         expect(errors).toContain(`W9 QA check ${check} must be PASS or BLOCKED`);

@@ -358,7 +358,7 @@ function assertBoundPermissionsMatch(candidatePermissions, evidence, location, l
     assert(permissions[key] === false, `${location}/${key}: permission must remain false`, errors);
   }
   assert(
-    sameValue(permissions, candidatePermissions),
+    PERMISSION_KEYS.every((key) => permissions[key] === candidatePermissions?.[key]),
     `${label}: permissions must exactly match the blocker candidate`,
     errors
   );
@@ -1134,6 +1134,7 @@ function validateInPackageGateEvidence(artifact, packageContext, errors) {
 function validateIndependentQaEvidence(
   artifact,
   manifest,
+  schema,
   artifactPath,
   packageContext,
   expectedVerdict,
@@ -1174,6 +1175,11 @@ function validateIndependentQaEvidence(
     return;
   }
 
+  errors.push(
+    ...schemaErrors(qaReport, schema).map(
+      (error) => `${artifact.lane_id}: W9 QA report Schema error: ${error}`
+    )
+  );
   assert(
     qaReport.schema_version === "fermatmind.en_content_parity_independent_qa_report.v1",
     `${artifact.lane_id}: W9 QA report schema version is invalid`,
@@ -2432,13 +2438,29 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     validateInPackageGateEvidence(artifact, packageContext, errors);
     if (artifact.proposed_status === "qa_pass") {
-      validateIndependentQaEvidence(artifact, manifest, artifactPath, packageContext, "PASS", errors);
+      validateIndependentQaEvidence(
+        artifact,
+        manifest,
+        schema,
+        artifactPath,
+        packageContext,
+        "PASS",
+        errors
+      );
     } else if (
       currentIndex >= stateIndex("package_frozen") &&
       artifact.proposed_status === "blocked" &&
       gateEvidence.owner_lane_id === "W9"
     ) {
-      validateIndependentQaEvidence(artifact, manifest, artifactPath, packageContext, "BLOCKED", errors);
+      validateIndependentQaEvidence(
+        artifact,
+        manifest,
+        schema,
+        artifactPath,
+        packageContext,
+        "BLOCKED",
+        errors
+      );
     } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
       validateControlledTransitionApproval(artifact, manifest, errors);
     } else if (
