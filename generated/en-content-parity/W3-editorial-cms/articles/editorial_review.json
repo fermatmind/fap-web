@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-02-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
   "verdict": "PASS",
   "review_kind": "completed 17/17 producer re-review after exact-SHA W9 BLOCKED evidence; not independent W9 QA and not human editorial approval",
   "completed_checks": [
