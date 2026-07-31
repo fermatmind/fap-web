@@ -1,0 +1,32 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_sha256_manifest.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "reviewed_package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "hash_algorithm": "sha256",
+  "files": [
+    {
+      "path": "independent_qa_report.json",
+      "sha256": "3b2fc2d61f5153a9e59a25da0d3c5de26e12bc3d44dd1c4c1e109628c455b51b"
+    },
+    {
+      "path": "comparison_7_row_review_evidence.json",
+      "sha256": "7baa0152c29ef0513fd27c431654afbdd679c924bbb9bfb8052a56fd2e991725"
+    },
+    {
+      "path": "review_notes.md",
+      "sha256": "472497967a54979da74d43c4f6b670259c2a53f7d2ac91cfb48ce0770daa62af"
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
