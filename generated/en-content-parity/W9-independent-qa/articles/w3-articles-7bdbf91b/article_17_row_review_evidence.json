@@ -73,6 +73,14 @@
     "field_leakage": "PASS",
     "page_api_alignment": "PASS"
   },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because complete title, excerpt, and body review found non-idiomatic or malformed reader-visible English in 12 of the 17 frozen article rows.",
+    "chinese_leakage": "PASS because review of every frozen title, excerpt, and complete body found no reader-visible Chinese text in the English candidates.",
+    "claim_boundary": "PASS because all 17 frozen rows retain bounded self-understanding and career-exploration language without diagnostic, hiring, admissions, or guaranteed-outcome claims.",
+    "asset_duplication": "PASS because all 17 frozen source identities map one-to-one to the reviewed rows and no row check found duplicated or omitted media or asset content.",
+    "field_leakage": "PASS because all 17 complete bodies and internal-link shapes were reviewed without finding producer-control fields, private values, or inequivalent internal-link leakage.",
+    "page_api_alignment": "PASS for the applicable frozen pre-import boundary because every reviewed row preserves its registered source identity and candidate route alignment; this does not claim live imported English parity."
+  },
   "row_reviews": [
     {
       "row_id": "W3-ARTICLE-01",
@@ -80,12 +88,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible body contains broken quotation and agreement: `\" I want to increase Conscientiousness\" \"I want to decrease negative emotionality\" sounds ...`."
+      "finding": "Reader-visible body contains broken quotation and agreement: `\" I want to increase Conscientiousness\" \"I want to decrease negative emotionality\" sounds ...`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible body contains broken quotation and agreement: `\" I want to increase Conscientiousness\" \"I want to decrease negative emotionality\" sounds ...`."
     },
     {
       "row_id": "W3-ARTICLE-02",
@@ -93,12 +106,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible body repeats a phrase and lacks a determiner: `a fixed \"a fixed type\"` and `Big Five personality profile does not ...`."
+      "finding": "Reader-visible body repeats a phrase and lacks a determiner: `a fixed \"a fixed type\"` and `Big Five personality profile does not ...`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible body repeats a phrase and lacks a determiner: `a fixed \"a fixed type\"` and `Big Five personality profile does not ...`."
     },
     {
       "row_id": "W3-ARTICLE-03",
@@ -106,12 +124,17 @@
       "checks": {
         "language_naturalness": "PASS",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Title, excerpt, and complete body are readable; bounded test interpretation and source identity align."
+      "finding": "Title, excerpt, and complete body are readable; bounded test interpretation and source identity align.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "evidence": "Title, excerpt, and complete body are readable; bounded test interpretation and source identity align."
     },
     {
       "row_id": "W3-ARTICLE-04",
@@ -119,12 +142,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt begins `Emotional intelligence test can help ...`, omitting the required article and reading as an unedited machine translation."
+      "finding": "Reader-visible excerpt begins `Emotional intelligence test can help ...`, omitting the required article and reading as an unedited machine translation.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt begins `Emotional intelligence test can help ...`, omitting the required article and reading as an unedited machine translation."
     },
     {
       "row_id": "W3-ARTICLE-05",
@@ -132,12 +160,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt uses non-idiomatic wording including `goal post-test` and `error retrospection`."
+      "finding": "Reader-visible excerpt uses non-idiomatic wording including `goal post-test` and `error retrospection`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt uses non-idiomatic wording including `goal post-test` and `error retrospection`."
     },
     {
       "row_id": "W3-ARTICLE-06",
@@ -145,12 +178,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt says a result represents performance `in a specific question, time, and environment`, which is materially non-idiomatic."
+      "finding": "Reader-visible excerpt says a result represents performance `in a specific question, time, and environment`, which is materially non-idiomatic.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt says a result represents performance `in a specific question, time, and environment`, which is materially non-idiomatic."
     },
     {
       "row_id": "W3-ARTICLE-07",
@@ -158,12 +196,17 @@
       "checks": {
         "language_naturalness": "PASS",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Title, excerpt, and complete body are readable; the 30-question scope and non-clinical boundary remain explicit."
+      "finding": "Title, excerpt, and complete body are readable; the 30-question scope and non-clinical boundary remain explicit.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "evidence": "Title, excerpt, and complete body are readable; the 30-question scope and non-clinical boundary remain explicit."
     },
     {
       "row_id": "W3-ARTICLE-08",
@@ -171,12 +214,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt begins `MBTI personality test can help ...`, omitting the required article and retaining translationese."
+      "finding": "Reader-visible excerpt begins `MBTI personality test can help ...`, omitting the required article and retaining translationese.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt begins `MBTI personality test can help ...`, omitting the required article and retaining translationese."
     },
     {
       "row_id": "W3-ARTICLE-09",
@@ -184,12 +232,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible body contains the non-idiomatic clause `abilities should not be assigned based on types or personnel filtered accordingly`."
+      "finding": "Reader-visible body contains the non-idiomatic clause `abilities should not be assigned based on types or personnel filtered accordingly`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible body contains the non-idiomatic clause `abilities should not be assigned based on types or personnel filtered accordingly`."
     },
     {
       "row_id": "W3-ARTICLE-10",
@@ -197,12 +250,17 @@
       "checks": {
         "language_naturalness": "PASS",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Title, excerpt, and complete body are readable; preference language remains hypothetical and context-bound."
+      "finding": "Title, excerpt, and complete body are readable; preference language remains hypothetical and context-bound.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "evidence": "Title, excerpt, and complete body are readable; preference language remains hypothetical and context-bound."
     },
     {
       "row_id": "W3-ARTICLE-50",
@@ -210,12 +268,17 @@
       "checks": {
         "language_naturalness": "PASS",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Title, excerpt, and complete body are readable; formal-assessment and online-test boundaries remain visible."
+      "finding": "Title, excerpt, and complete body are readable; formal-assessment and online-test boundaries remain visible.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "evidence": "Title, excerpt, and complete body are readable; formal-assessment and online-test boundaries remain visible."
     },
     {
       "row_id": "W3-ARTICLE-51",
@@ -223,12 +286,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt uses the unnatural product phrase `Nine Type Personality Test`; the body also contains `Type  9` with doubled spacing."
+      "finding": "Reader-visible excerpt uses the unnatural product phrase `Nine Type Personality Test`; the body also contains `Type  9` with doubled spacing.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt uses the unnatural product phrase `Nine Type Personality Test`; the body also contains `Type  9` with doubled spacing."
     },
     {
       "row_id": "W3-ARTICLE-52",
@@ -236,12 +304,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt is an unedited question fragment (`Before Gaokao college applications: How to use ...?`) followed by a disconnected sentence."
+      "finding": "Reader-visible excerpt is an unedited question fragment (`Before Gaokao college applications: How to use ...?`) followed by a disconnected sentence.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt is an unedited question fragment (`Before Gaokao college applications: How to use ...?`) followed by a disconnected sentence."
     },
     {
       "row_id": "W3-ARTICLE-53",
@@ -249,12 +322,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt contains the duplicated term `RIASEC/RIASEC`."
+      "finding": "Reader-visible excerpt contains the duplicated term `RIASEC/RIASEC`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt contains the duplicated term `RIASEC/RIASEC`."
     },
     {
       "row_id": "W3-ARTICLE-55",
@@ -262,12 +340,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible excerpt uses the semantically and grammatically awkward instruction `eliminate rigid restrictions using ... admission quotas`."
+      "finding": "Reader-visible excerpt uses the semantically and grammatically awkward instruction `eliminate rigid restrictions using ... admission quotas`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible excerpt uses the semantically and grammatically awkward instruction `eliminate rigid restrictions using ... admission quotas`."
     },
     {
       "row_id": "W3-ARTICLE-58",
@@ -275,12 +358,17 @@
       "checks": {
         "language_naturalness": "PASS",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Title, excerpt, and complete body are readable; reassignment guidance remains conditional on official rules and family constraints."
+      "finding": "Title, excerpt, and complete body are readable; reassignment guidance remains conditional on official rules and family constraints.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "evidence": "Title, excerpt, and complete body are readable; reassignment guidance remains conditional on official rules and family constraints."
     },
     {
       "row_id": "W3-ARTICLE-59",
@@ -288,12 +376,17 @@
       "checks": {
         "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
-        "asset_duplication": "PASS",
+        "internal_link_equivalence": "PASS",
         "field_leakage": "PASS",
-        "page_api_alignment": "PASS"
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
       },
-      "finding": "Reader-visible body contains multiple unedited constructions, including `Xiao Zhou is not a foundational deficiency` and `Can enter \"pending verification\"`."
+      "finding": "Reader-visible body contains multiple unedited constructions, including `Xiao Zhou is not a foundational deficiency` and `Can enter \"pending verification\"`.",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "evidence": "Reader-visible body contains multiple unedited constructions, including `Xiao Zhou is not a foundational deficiency` and `Can enter \"pending verification\"`."
     }
   ],
   "blocking_summary": {

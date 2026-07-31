@@ -115,6 +115,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -131,6 +132,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -147,6 +149,7 @@
       "verdict": "PASS",
       "checks": {
         "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -163,6 +166,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -179,6 +183,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -195,6 +200,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -211,6 +217,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -227,6 +234,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "BLOCKED",
@@ -243,6 +251,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "BLOCKED",
@@ -259,6 +268,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "BLOCKED",
@@ -275,6 +285,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -291,6 +302,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -307,6 +319,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -323,6 +336,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -339,6 +353,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -355,6 +370,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",
@@ -371,6 +387,7 @@
       "verdict": "BLOCKED",
       "checks": {
         "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
         "source_equivalence_identity": "BLOCKED",
         "claim_boundary": "PASS",
         "internal_link_equivalence": "PASS",

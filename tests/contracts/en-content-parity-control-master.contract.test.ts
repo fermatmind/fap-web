@@ -899,9 +899,402 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("accepts a W9-owned blocker candidate only with exact report and row-evidence SHAs", () => {
+    const candidateDirectory = makeW9QaDirectory();
+    const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+    const checkedInCandidatePath = path.join(
+      ROOT,
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/master_manifest_patch.candidate.json"
+    );
+    const candidate = JSON.parse(fs.readFileSync(checkedInCandidatePath, "utf8")) as {
+      proposed_status: string;
+      gate_evidence: {
+        owner_lane_id: string;
+        verdict: string;
+        row_count: number;
+        report_path: string;
+        report_sha256: string;
+        row_evidence: { path: string; sha256: string };
+      };
+      permissions: Permissions;
+    };
+    const checkedInDirectory = path.dirname(checkedInCandidatePath);
+    const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
+    const rowEvidencePath = path.join(candidateDirectory, "article_17_row_review_evidence.json");
+    const qaReport = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
+    ) as { permissions: Record<string, boolean> };
+    const rowEvidence = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
+    ) as {
+      permissions: Record<string, boolean>;
+      required_checks: Record<string, string>;
+    };
+    qaReport.permissions = Object.fromEntries(Object.entries(qaReport.permissions).reverse());
+    rowEvidence.permissions = Object.fromEntries(Object.entries(rowEvidence.permissions).reverse());
+    rowEvidence.required_checks = Object.fromEntries(
+      Object.entries(rowEvidence.required_checks).reverse()
+    );
+    fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+    fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+    candidate.gate_evidence.report_path = qaReportPath;
+    candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+    candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+    candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--artifact", candidatePath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      expect(candidate).toMatchObject({
+        proposed_status: "blocked",
+        gate_evidence: {
+          owner_lane_id: "W9",
+          verdict: "BLOCKED",
+          row_count: 17,
+        },
+      });
+      expect(Object.values(candidate.permissions)).toEqual(
+        Array(Object.keys(candidate.permissions).length).fill(false)
+      );
+
+      candidate.gate_evidence.row_evidence.sha256 = "0".repeat(64);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      let failedOutput = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        failedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(failedOutput).errors.join("\n")).toContain("W9 row evidence SHA mismatch");
+    } finally {
+      fs.rmSync(candidateDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it.each(["source_equivalence_identity", "internal_link_equivalence"])(
+    "accepts a W9 blocker caused only by the %s row check",
+    (blockedRowCheck) => {
+      const candidateDirectory = makeW9QaDirectory();
+      const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+      const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
+      const rowEvidencePath = path.join(
+        candidateDirectory,
+        "article_17_row_review_evidence.json"
+      );
+      const checkedInDirectory = path.join(
+        ROOT,
+        "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45"
+      );
+      const candidate = JSON.parse(
+        fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
+      ) as {
+        gate_evidence: {
+          report_path: string;
+          report_sha256: string;
+          row_evidence: { path: string; sha256: string };
+        };
+      };
+      const qaReport = JSON.parse(
+        fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
+      ) as { checks: Record<string, string> };
+      const rowEvidence = JSON.parse(
+        fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
+      ) as {
+        required_checks: Record<string, string>;
+        row_reviews: Array<{
+          verdict: "PASS" | "BLOCKED";
+          checks: Record<string, string>;
+        }>;
+      };
+      for (const check of Object.keys(qaReport.checks)) {
+        qaReport.checks[check] = "PASS";
+        rowEvidence.required_checks[check] = "PASS";
+      }
+      for (const rowReview of rowEvidence.row_reviews) {
+        rowReview.verdict = "PASS";
+        for (const check of Object.keys(rowReview.checks)) {
+          rowReview.checks[check] = "PASS";
+        }
+      }
+      rowEvidence.row_reviews[0]!.checks[blockedRowCheck] = "BLOCKED";
+      rowEvidence.row_reviews[0]!.verdict = "BLOCKED";
+      const aggregateCheck =
+        blockedRowCheck === "source_equivalence_identity"
+          ? "asset_duplication"
+          : "field_leakage";
+      qaReport.checks[aggregateCheck] = "BLOCKED";
+      rowEvidence.required_checks[aggregateCheck] = "BLOCKED";
+      fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      candidate.gate_evidence.report_path = qaReportPath;
+      candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+      candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+      try {
+        const output = execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
+          cwd: ROOT,
+          encoding: "utf8",
+        });
+        expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      } finally {
+        fs.rmSync(candidateDirectory, { recursive: true, force: true });
+      }
+    }
+  );
+
+  it.each([
+    "zero self-reported counts",
+    "empty row reviews",
+    "duplicate row identity",
+    "missing row identity",
+    "unknown row identity",
+    "missing substantive row fields",
+    "empty substantive row evidence",
+    "incomplete row checks",
+    "row verdict mismatch",
+    "aggregate check mismatch",
+    "source equivalence aggregate mismatch",
+    "internal link aggregate mismatch",
+    "row ID and identity pairing mismatch",
+    "report permission true",
+    "report permission missing",
+    "report permission drift",
+    "row evidence permission true",
+    "row evidence permission missing",
+    "row evidence permission drift",
+    "aggregate Chinese leakage without blocked row",
+    "missing row Chinese leakage",
+    "invalid row Chinese leakage verdict",
+    "report schema missing",
+    "report schema unexpected property",
+    ...[
+      "language_naturalness",
+      "chinese_leakage",
+      "claim_boundary",
+      "asset_duplication",
+      "field_leakage",
+      "page_api_alignment",
+    ].map((check) => `invalid QA verdict for ${check}`),
+  ])("rejects a W9 blocker candidate with %s", (failureMode) => {
+    const candidateDirectory = makeW9QaDirectory();
+    const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+    const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
+    const rowEvidencePath = path.join(candidateDirectory, "article_17_row_review_evidence.json");
+    const checkedInDirectory = path.join(
+      ROOT,
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45"
+    );
+    const candidate = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
+    ) as {
+      gate_evidence: {
+        report_path: string;
+        report_sha256: string;
+        row_count: number;
+        row_evidence: { path: string; sha256: string };
+      };
+    };
+    const qaReport = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
+    ) as {
+      $schema?: string;
+      reviewed_row_count: number;
+      checks: Record<string, string>;
+      permissions: Record<string, boolean>;
+      unexpected_contract_field?: boolean;
+    };
+    const rowEvidence = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
+    ) as {
+      reviewed_row_count: number;
+      required_checks: Record<string, string>;
+      permissions: Record<string, boolean>;
+      row_reviews: Array<{
+        row_id: string;
+        source_identity: string;
+        title_excerpt_full_body_reviewed?: boolean;
+        verdict?: "PASS" | "BLOCKED";
+        checks?: Record<string, string>;
+        evidence?: string;
+      }>;
+    };
+
+    if (failureMode === "zero self-reported counts") {
+      candidate.gate_evidence.row_count = 0;
+      qaReport.reviewed_row_count = 0;
+      rowEvidence.reviewed_row_count = 0;
+    } else if (failureMode === "empty row reviews") {
+      rowEvidence.row_reviews = [];
+    } else if (failureMode === "duplicate row identity") {
+      rowEvidence.row_reviews.at(-1)!.source_identity = rowEvidence.row_reviews[0]!.source_identity;
+    } else if (failureMode === "missing row identity") {
+      rowEvidence.row_reviews.pop();
+    } else if (failureMode === "unknown row identity") {
+      rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
+    } else if (failureMode === "missing substantive row fields") {
+      delete rowEvidence.row_reviews[0]!.title_excerpt_full_body_reviewed;
+      delete rowEvidence.row_reviews[0]!.verdict;
+      delete rowEvidence.row_reviews[0]!.checks;
+      delete rowEvidence.row_reviews[0]!.evidence;
+    } else if (failureMode === "empty substantive row evidence") {
+      rowEvidence.row_reviews[0]!.evidence = "   ";
+    } else if (failureMode === "incomplete row checks") {
+      delete rowEvidence.row_reviews[0]!.checks!.claim_boundary;
+    } else if (failureMode === "row verdict mismatch") {
+      rowEvidence.row_reviews[0]!.verdict = "PASS";
+    } else if (failureMode === "aggregate check mismatch") {
+      qaReport.checks.language_naturalness = "PASS";
+      rowEvidence.required_checks.language_naturalness = "PASS";
+    } else if (failureMode === "source equivalence aggregate mismatch") {
+      for (const rowReview of rowEvidence.row_reviews) {
+        rowReview.checks!.source_equivalence_identity = "PASS";
+        rowReview.checks!.asset_media_duplication_omission = "PASS";
+      }
+      rowEvidence.row_reviews[0]!.checks!.source_equivalence_identity = "BLOCKED";
+      qaReport.checks.asset_duplication = "PASS";
+      rowEvidence.required_checks.asset_duplication = "PASS";
+    } else if (failureMode === "internal link aggregate mismatch") {
+      for (const rowReview of rowEvidence.row_reviews) {
+        rowReview.checks!.internal_link_equivalence = "PASS";
+        rowReview.checks!.field_leakage = "PASS";
+      }
+      rowEvidence.row_reviews[0]!.checks!.internal_link_equivalence = "BLOCKED";
+      qaReport.checks.field_leakage = "PASS";
+      rowEvidence.required_checks.field_leakage = "PASS";
+    } else if (failureMode === "row ID and identity pairing mismatch") {
+      const firstIdentity = rowEvidence.row_reviews[0]!.source_identity;
+      rowEvidence.row_reviews[0]!.source_identity = rowEvidence.row_reviews[1]!.source_identity;
+      rowEvidence.row_reviews[1]!.source_identity = firstIdentity;
+    } else if (failureMode === "report permission true") {
+      qaReport.permissions.public_release_authorized = true;
+    } else if (failureMode === "report permission missing") {
+      delete qaReport.permissions.public_release_authorized;
+    } else if (failureMode === "report permission drift") {
+      qaReport.permissions.report_only_authorized = false;
+    } else if (failureMode === "row evidence permission true") {
+      rowEvidence.permissions.production_import_authorized = true;
+    } else if (failureMode === "row evidence permission missing") {
+      delete rowEvidence.permissions.production_import_authorized;
+    } else if (failureMode === "row evidence permission drift") {
+      rowEvidence.permissions.row_evidence_only_authorized = false;
+    } else if (failureMode === "aggregate Chinese leakage without blocked row") {
+      qaReport.checks.chinese_leakage = "BLOCKED";
+      rowEvidence.required_checks.chinese_leakage = "BLOCKED";
+    } else if (failureMode === "missing row Chinese leakage") {
+      delete rowEvidence.row_reviews[0]!.checks!.chinese_leakage;
+    } else if (failureMode === "invalid row Chinese leakage verdict") {
+      rowEvidence.row_reviews[0]!.checks!.chinese_leakage = "NOT_REVIEWED";
+    } else if (failureMode === "report schema missing") {
+      delete qaReport.$schema;
+    } else if (failureMode === "report schema unexpected property") {
+      qaReport.unexpected_contract_field = true;
+    } else if (failureMode.startsWith("invalid QA verdict for ")) {
+      const check = failureMode.replace("invalid QA verdict for ", "");
+      qaReport.checks[check] = "NOT_REVIEWED";
+      rowEvidence.required_checks[check] = "NOT_REVIEWED";
+    }
+
+    fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+    fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+    candidate.gate_evidence.report_path = qaReportPath;
+    candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+    candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+    candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      let failedOutput = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        failedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      const errors = (JSON.parse(failedOutput) as { errors: string[] }).errors.join("\n");
+      if (failureMode === "zero self-reported counts") {
+        expect(errors).toContain("W9 blocker row count must cover the complete registered target");
+      } else if (failureMode === "empty row reviews" || failureMode === "missing row identity") {
+        expect(errors).toContain("W9 row_reviews must contain every registered target row");
+      } else if (failureMode === "duplicate row identity") {
+        expect(errors).toContain("W9 row review identities must be unique");
+      } else if (failureMode === "unknown row identity") {
+        expect(errors).toContain("W9 row review identities must exactly cover the frozen target identities");
+      } else if (failureMode === "missing substantive row fields") {
+        expect(errors).toContain("every W9 row review must confirm title, excerpt, and full body review");
+        expect(errors).toContain("every W9 row review must include substantive evidence");
+      } else if (failureMode === "empty substantive row evidence") {
+        expect(errors).toContain("every W9 row review must include substantive evidence");
+      } else if (failureMode === "incomplete row checks") {
+        expect(errors).toContain("every W9 row review must include every required row check");
+      } else if (failureMode === "row verdict mismatch") {
+        expect(errors).toContain("every W9 row review verdict must match its row checks");
+      } else if (failureMode === "aggregate check mismatch") {
+        expect(errors).toContain("W9 aggregate check language_naturalness must match the row reviews");
+      } else if (
+        failureMode === "source equivalence aggregate mismatch"
+      ) {
+        expect(errors).toContain("W9 aggregate check asset_duplication must match the row reviews");
+      } else if (failureMode === "internal link aggregate mismatch") {
+        expect(errors).toContain("W9 aggregate check field_leakage must match the row reviews");
+      } else if (failureMode === "row ID and identity pairing mismatch") {
+        expect(errors).toContain("every W9 row review must preserve its frozen row ID and identity pairing");
+      } else if (failureMode === "report permission true") {
+        expect(errors).toContain("$/w9_qa_report/permissions/public_release_authorized: permission must remain false");
+      } else if (failureMode === "report permission missing") {
+        expect(errors).toContain("W9 QA report: permissions must include exactly the controlled permission keys");
+        expect(errors).toContain("W9 QA report: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "report permission drift") {
+        expect(errors).toContain("W9 QA report: permissions must include exactly the controlled permission keys");
+      } else if (failureMode === "row evidence permission true") {
+        expect(errors).toContain(
+          "$/w9_row_evidence/permissions/production_import_authorized: permission must remain false"
+        );
+      } else if (
+        failureMode === "row evidence permission missing"
+      ) {
+        expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
+        expect(errors).toContain("W9 row evidence: permissions must exactly match the blocker candidate");
+      } else if (failureMode === "row evidence permission drift") {
+        expect(errors).toContain("W9 row evidence: permissions must include exactly the controlled permission keys");
+      } else if (failureMode === "aggregate Chinese leakage without blocked row") {
+        expect(errors).toContain("W9 aggregate check chinese_leakage must match the row reviews");
+      } else if (failureMode === "missing row Chinese leakage") {
+        expect(errors).toContain("every W9 row review must include every required row check");
+      } else if (failureMode === "invalid row Chinese leakage verdict") {
+        expect(errors).toContain("every W9 row review check must be PASS or BLOCKED");
+      } else if (failureMode === "report schema missing") {
+        expect(errors).toContain("W9 QA report Schema error: $: oneOf matched 0 branches");
+        expect(errors).toContain("missing required property $schema");
+      } else if (failureMode === "report schema unexpected property") {
+        expect(errors).toContain("W9 QA report Schema error: $: oneOf matched 0 branches");
+        expect(errors).toContain("unexpected property unexpected_contract_field");
+      } else if (failureMode.startsWith("invalid QA verdict for ")) {
+        const check = failureMode.replace("invalid QA verdict for ", "");
+        expect(errors).toContain(`W9 QA check ${check} must be PASS or BLOCKED`);
+      }
+    } finally {
+      fs.rmSync(candidateDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
     const invalidApprovalDirectory = makeControlApprovalDirectory();
+    const invalidW9Directory = makeW9QaDirectory();
     const blockedManifestPath = path.join(tempDirectory, "blocked-master.json");
     const reworkManifestPath = path.join(tempDirectory, "rework-master.json");
     const reworkApprovalPath =
@@ -974,6 +1367,219 @@ describe("English content parity control master", () => {
       "package rework reset W9 report SHA mismatch"
     );
 
+    const checkedInApproval = JSON.parse(
+      fs.readFileSync(reworkApprovalPath, "utf8")
+    ) as {
+      w9_report_ref: string;
+      w9_report_sha256: string;
+      w9_row_evidence_ref: string;
+      w9_row_evidence_sha256: string;
+      w9_frozen_ledger_ref: string;
+      w9_frozen_ledger_sha256: string;
+    };
+    const checkedInReport = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_report_ref), "utf8")
+    ) as {
+      checks: Record<string, string>;
+    };
+    const checkedInRowEvidence = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_row_evidence_ref), "utf8")
+    ) as {
+      required_checks: Record<string, string>;
+      check_evidence?: Record<string, string>;
+      permissions: Record<string, boolean>;
+      row_reviews: Array<{
+        row_id: string;
+        source_identity: string;
+        checks: Record<string, string>;
+        title_excerpt_full_body_reviewed?: boolean;
+        verdict?: "PASS" | "BLOCKED";
+        evidence?: string;
+      }>;
+    };
+    const checkedInFrozenLedger = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_frozen_ledger_ref), "utf8")
+    ) as {
+      rows: Array<{
+        row_id: string;
+        source_identity: string;
+      }>;
+    };
+    const reorderedApproval = structuredClone(checkedInApproval);
+    const reorderedRowEvidence = structuredClone(checkedInRowEvidence);
+    reorderedRowEvidence.required_checks = Object.fromEntries(
+      Object.entries(reorderedRowEvidence.required_checks).reverse()
+    );
+    const reorderedRowEvidencePath = path.join(
+      invalidW9Directory,
+      "reordered-required-checks-row-evidence.json"
+    );
+    const reorderedApprovalPath = path.join(
+      invalidApprovalDirectory,
+      "reordered-required-checks-approval.json"
+    );
+    fs.writeFileSync(reorderedRowEvidencePath, JSON.stringify(reorderedRowEvidence));
+    reorderedApproval.w9_row_evidence_ref = reorderedRowEvidencePath;
+    reorderedApproval.w9_row_evidence_sha256 = sha256AbsoluteFile(reorderedRowEvidencePath);
+    fs.writeFileSync(reorderedApprovalPath, JSON.stringify(reorderedApproval));
+    const reorderedOutput = execFileSync(
+      "node",
+      [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", reorderedApprovalPath],
+      { cwd: ROOT, encoding: "utf8" }
+    );
+    expect(JSON.parse(reorderedOutput)).toMatchObject({ ok: true, errors: [] });
+
+    for (const failureMode of [
+      "all aggregate and row checks PASS",
+      "missing row evidence",
+      "missing frozen ledger",
+      "unique row identity drift",
+      "row and projection double forgery",
+      "row permission drift",
+      "missing substantive row fields",
+      "empty substantive row evidence",
+      "row verdict mismatch",
+      "aggregate check mismatch",
+      "missing aggregate evidence",
+      "empty aggregate evidence",
+    ]) {
+      const approval = structuredClone(checkedInApproval);
+      const report = structuredClone(checkedInReport);
+      const rowEvidence = structuredClone(checkedInRowEvidence);
+      const frozenLedger = structuredClone(checkedInFrozenLedger);
+      const reportPath = path.join(invalidW9Directory, `${failureMode.replaceAll(" ", "-")}-report.json`);
+      const rowEvidencePath = path.join(
+        invalidW9Directory,
+        `${failureMode.replaceAll(" ", "-")}-row-evidence.json`
+      );
+      const frozenLedgerPath = path.join(
+        invalidW9Directory,
+        `${failureMode.replaceAll(" ", "-")}-frozen-ledger.json`
+      );
+      if (failureMode === "all aggregate and row checks PASS") {
+        for (const check of Object.keys(report.checks)) {
+          report.checks[check] = "PASS";
+          rowEvidence.required_checks[check] = "PASS";
+        }
+        for (const rowReview of rowEvidence.row_reviews) {
+          for (const check of Object.keys(rowReview.checks)) {
+            rowReview.checks[check] = "PASS";
+          }
+          rowReview.verdict = "PASS";
+        }
+      } else if (failureMode === "unique row identity drift") {
+        rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
+      } else if (failureMode === "row and projection double forgery") {
+        rowEvidence.row_reviews.forEach((rowReview, index) => {
+          rowReview.row_id = `W3-FORGED-${String(index + 1).padStart(2, "0")}`;
+          rowReview.source_identity = `Article:${900 + index}@revision:${1900 + index}`;
+          frozenLedger.rows[index] = {
+            row_id: rowReview.row_id,
+            source_identity: rowReview.source_identity,
+          };
+        });
+      } else if (failureMode === "row permission drift") {
+        rowEvidence.permissions.production_import_authorized = true;
+      } else if (failureMode === "missing substantive row fields") {
+        delete rowEvidence.row_reviews[0].title_excerpt_full_body_reviewed;
+        delete rowEvidence.row_reviews[0].verdict;
+        delete rowEvidence.row_reviews[0].evidence;
+      } else if (failureMode === "empty substantive row evidence") {
+        rowEvidence.row_reviews[0].evidence = " ";
+      } else if (failureMode === "row verdict mismatch") {
+        rowEvidence.row_reviews[0].verdict =
+          rowEvidence.row_reviews[0].verdict === "BLOCKED" ? "PASS" : "BLOCKED";
+      } else if (failureMode === "aggregate check mismatch") {
+        report.checks.language_naturalness = "PASS";
+        rowEvidence.required_checks.language_naturalness = "PASS";
+      } else if (failureMode === "missing aggregate evidence") {
+        delete rowEvidence.check_evidence;
+      } else if (failureMode === "empty aggregate evidence") {
+        rowEvidence.check_evidence!.language_naturalness = " ";
+      }
+      fs.writeFileSync(reportPath, JSON.stringify(report));
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      fs.writeFileSync(frozenLedgerPath, JSON.stringify(frozenLedger));
+      approval.w9_report_ref = reportPath;
+      approval.w9_report_sha256 = sha256AbsoluteFile(reportPath);
+      approval.w9_row_evidence_ref =
+        failureMode === "missing row evidence"
+          ? path.join(invalidW9Directory, "missing-row-evidence.json")
+          : rowEvidencePath;
+      approval.w9_row_evidence_sha256 =
+        failureMode === "missing row evidence"
+          ? "0".repeat(64)
+          : sha256AbsoluteFile(rowEvidencePath);
+      if (failureMode === "missing frozen ledger") {
+        approval.w9_frozen_ledger_ref = path.join(
+          invalidW9Directory,
+          "missing-frozen-ledger.json"
+        );
+        approval.w9_frozen_ledger_sha256 = "0".repeat(64);
+      } else if (failureMode === "row and projection double forgery") {
+        approval.w9_frozen_ledger_ref = frozenLedgerPath;
+        approval.w9_frozen_ledger_sha256 = sha256AbsoluteFile(frozenLedgerPath);
+      }
+      fs.writeFileSync(invalidApprovalPath, JSON.stringify(approval));
+
+      let blockerOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", invalidApprovalPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        blockerOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      const blockerErrors = (JSON.parse(blockerOutput) as { errors: string[] }).errors.join("\n");
+      if (failureMode === "all aggregate and row checks PASS") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 BLOCKED verdict requires at least one blocked QA check"
+        );
+      } else if (failureMode === "missing row evidence") {
+        expect(blockerErrors).toContain("cannot verify package rework W9 evidence");
+      } else if (failureMode === "missing frozen ledger") {
+        expect(blockerErrors).toContain("cannot verify package rework W9 evidence");
+      } else if (failureMode === "unique row identity drift") {
+        expect(blockerErrors).toContain(
+          "package rework W9 rows must exactly match the frozen ledger row ID and identity pairs"
+        );
+      } else if (failureMode === "row and projection double forgery") {
+        expect(blockerErrors).toContain(
+          "package rework frozen projection must exactly match the hashed source ledger"
+        );
+      } else if (failureMode === "missing substantive row fields") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review must confirm title, excerpt, and full body review"
+        );
+      } else if (failureMode === "empty substantive row evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review must include substantive evidence"
+        );
+      } else if (failureMode === "row verdict mismatch") {
+        expect(blockerErrors).toContain(
+          "package rework: every W9 row review verdict must match its row checks"
+        );
+      } else if (failureMode === "aggregate check mismatch") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 aggregate check language_naturalness must match the row reviews"
+        );
+      } else if (failureMode === "missing aggregate evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 row evidence must include substantive evidence for every aggregate check"
+        );
+      } else if (failureMode === "empty aggregate evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 aggregate check language_naturalness must include substantive evidence"
+        );
+      } else {
+        expect(blockerErrors).toContain(
+          "$/package_rework_w9_row_evidence/permissions/production_import_authorized: permission must remain false"
+        );
+      }
+    }
+
     w3.status = "inventory_frozen";
     w3.blocked_from_status = null;
     w3.blockers = [];
@@ -1004,6 +1610,7 @@ describe("English content parity control master", () => {
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
       fs.rmSync(invalidApprovalDirectory, { recursive: true, force: true });
+      fs.rmSync(invalidW9Directory, { recursive: true, force: true });
     }
   });
 
