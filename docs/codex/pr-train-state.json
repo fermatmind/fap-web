@@ -52505,14 +52505,14 @@
     "updated_at": "2026-07-31T08:50:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "blocked_local_verified",
+    "status": "blocked_pr_open",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-01",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "9d226798bb5f0c9121896feee4c68bd0ca5b4f86",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1877",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52556,11 +52556,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "No PR has been opened for the exact 2aa27aa6 frozen-package W9 evidence yet."
+        "evidence": "PR #1877 is open at exact initial head 9d226798bb5f0c9121896feee4c68bd0ca5b4f86; required build, contract, freeze, and CodeQL checks are queued or in progress."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head mergeability, review threads, review state, and scope revalidation are pending."
+        "evidence": "GitHub reports PR #1877 MERGEABLE with checks pending. Exact-final-head review threads, review state, mergeability, and scope revalidation remain pending."
       }
     },
     "failure_reason": "Fresh independent W9 is BLOCKED for 13 of 17 Article rows: 12 fail language naturalness, 13 fail semantic source equivalence, and 4 fail claim boundary. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
@@ -52627,9 +52627,14 @@
         "at": "2026-07-31T09:23:01Z",
         "status": "blocked_local_verified",
         "summary": "Both strict control validators pass; Node 24.18.1 focused contracts pass 66/66; exact package/report/evidence/candidate SHA, 17/17 coverage, 86/610 table coverage, aggregate row checks, byte-identical frozen snapshot, permissions, producer/CONTROL/CareerGuide immutability, JSON, and diff validations pass. The verdict remains BLOCKED and qa_pass remains unauthorized."
+      },
+      {
+        "at": "2026-07-31T09:24:07Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed and pushed the exact-package W9 BLOCKED evidence, then opened PR #1877 with the manifest title and exact scope. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
       }
     ],
-    "updated_at": "2026-07-31T09:23:01Z"
+    "updated_at": "2026-07-31T09:24:07Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
