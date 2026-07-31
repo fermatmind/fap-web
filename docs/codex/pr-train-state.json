@@ -52683,11 +52683,11 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
-    "commit_sha": "0f5cde29e01529bf7f0f88bb648bf2f41e39a135",
+    "commit_sha": "1b2d591b5fc309ce57484733c0aa649b389d0406",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1866",
     "checks": {
       "dependency": {
@@ -52703,14 +52703,14 @@
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR 1866 is open; waiting for the required checks and exact-head review."
+        "status": "pass",
+        "evidence": "Exact head 1b2d591b5fc309ce57484733c0aa649b389d0406 passed CI run 30602840699 (build, four contract shards, aggregate contracts, Big Five freeze, and Enneagram freeze) and CodeQL run 30602840687. Codex reviewed the exact head with no suggestions."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52738,8 +52738,13 @@
         "at": "2026-07-31T03:55:12Z",
         "status": "github_checks_pending",
         "summary": "Committed the inventory package as 0f5cde29e01529bf7f0f88bb648bf2f41e39a135, pushed the scoped branch, and opened PR 1866. Required checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-31T04:04:26Z",
+        "status": "ready_to_merge",
+        "summary": "PR 1866 exact head 1b2d591b5fc309ce57484733c0aa649b389d0406 passed every required CI and CodeQL check. Codex reviewed that exact head with no suggestions; changed-file scope remains exact and the PR is ready for its final metadata-head checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-31T03:55:12Z"
+    "updated_at": "2026-07-31T04:04:26Z"
   }
 }
