@@ -52683,7 +52683,7 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
@@ -52703,14 +52703,18 @@
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Prior exact heads passed required checks. Pinning all backend evidence to the exact post-merge SHA rebuilt the package and requires a fresh exact-head check and review cycle."
+        "status": "pass",
+        "evidence": "PR 1866 exact metadata head 2bdb995f3c1c15a049c5fb79ae2e2f587b22a438 passed CI run 30605830506 and CodeQL run 30605830554: build, four contract shards, aggregate contracts, Big Five and Enneagram freezes, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts all succeeded."
+      },
+      "exact_head_review": {
+        "status": "pass",
+        "evidence": "Codex reviewed exact head 2bdb995f3c1c15a049c5fb79ae2e2f587b22a438 and reported no major issues. GitHub reports CLEAN/MERGEABLE; all prior review threads are resolved and zero unresolved threads remain."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52778,8 +52782,13 @@
         "at": "2026-07-31T05:03:00Z",
         "status": "github_checks_pending",
         "summary": "Exact-head review found the final two analytics handoff evidence locators lacked a revision. Bound both to verified fap-api SHA 012392aaf0d83375414f8eb9ad010f6c7c577714, bringing all 68 backend locators onto one reproducible snapshot, and rebuilt the package as 0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292."
+      },
+      {
+        "at": "2026-07-31T05:14:09Z",
+        "status": "ready_to_merge",
+        "summary": "Final package repair head da7c7242370850bccd66c091e6fa2121a2cbd58e and metadata head 2bdb995f3c1c15a049c5fb79ae2e2f587b22a438 passed all required CI and CodeQL checks. Codex reviewed the exact metadata head with no findings; GitHub reports CLEAN/MERGEABLE and zero unresolved threads. The immutable package SHA is 0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292."
       }
     ],
-    "updated_at": "2026-07-31T05:03:00Z"
+    "updated_at": "2026-07-31T05:14:09Z"
   }
 }
