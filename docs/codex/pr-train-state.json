@@ -52350,14 +52350,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-repair-02",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "d2a2b272edc764e70b2ce4947ba735dbff87805d",
-    "pr_url": null,
+    "commit_sha": "55549aac9101093594095ee2e92aee583ac04f83",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52389,7 +52389,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Pending commit, push, PR creation, and GitHub required checks."
+        "evidence": "PR #1868 is open; required GitHub checks are pending on the pushed exact scope."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52430,9 +52430,14 @@
         "at": "2026-07-31T05:46:53Z",
         "status": "local_verified",
         "summary": "Reworked and re-froze the 17-Article candidate package after fresh independent W9 blocked 16 rows. Exact rebuilt package SHA is 1a3feebda48b60d6e06680d0e922848888e09d26da6c012bffbfed7ff55fe507; local validator, 4/4 focused contract, package-integrity audit, lint, scope validation, and git diff checks pass. No CMS, publication, SEO runtime, search, or deploy action is authorized."
+      },
+      {
+        "at": "2026-07-31T05:48:41Z",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1868 for the exact W3 Article rework-02 package SHA 1a3feebda48b60d6e06680d0e922848888e09d26da6c012bffbfed7ff55fe507. Required GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-31T05:46:53Z"
+    "updated_at": "2026-07-31T05:48:41Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
