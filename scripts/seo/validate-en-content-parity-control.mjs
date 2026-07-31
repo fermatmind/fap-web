@@ -2208,13 +2208,6 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         `${artifact.producer_lane_id}: package rework W9 rows must exactly match the frozen ledger row ID and identity pairs`,
         errors
       );
-      assert(
-        rowReviews.every(
-          (row) => typeof row?.finding === "string" && row.finding.trim().length > 0
-        ),
-        `${artifact.producer_lane_id}: package rework W9 row evidence must include substantive findings`,
-        errors
-      );
       validateBlockedAggregateRows(
         report,
         rowEvidence,

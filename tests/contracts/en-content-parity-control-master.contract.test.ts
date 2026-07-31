@@ -198,7 +198,18 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
     "Submit the exact frozen W3-ARTICLES package to fresh independent W9 QA, and begin W3-CAREER-GUIDES package production as a separate sequential scope without combining either package or gate lineage.";
   articles.status = "package_frozen";
   articles.blocked_from_status = null;
-  articles.gate_lineage = articles.gate_lineage.filter((entry) => entry.status !== "blocked");
+  articles.package_sha256 = "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669";
+  articles.qa_report_ref = null;
+  articles.gate_lineage = [
+    {
+      status: "package_frozen",
+      evidence_owner_lane_id: "W3",
+      report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+      report_sha256: "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+      package_sha256: "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+      accepted_at: "2026-07-30T22:19:50.000Z",
+    },
+  ];
   articles.blockers = [];
 
   fs.writeFileSync(manifestPath, JSON.stringify(preBlockManifest));
@@ -729,9 +740,38 @@ describe("English content parity control master", () => {
     const progressedManifest = structuredClone(manifest);
     const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
     const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
-    if (!articles) {
+    if (!w3 || !articles) {
       throw new Error("missing W3 Article blocked-lineage fixture");
     }
+    w3.status = "blocked";
+    w3.blocked_from_status = "inventory_frozen";
+    articles.status = "blocked";
+    articles.blocked_from_status = "package_frozen";
+    articles.package_sha256 =
+      "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669";
+    articles.gate_lineage = [
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W3",
+        report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+        report_sha256:
+          "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+        package_sha256:
+          "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+        accepted_at: "2026-07-30T22:19:50.000Z",
+      },
+      {
+        status: "blocked",
+        evidence_owner_lane_id: "W9",
+        report_ref:
+          "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/independent_qa_report.json",
+        report_sha256:
+          "c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4",
+        package_sha256:
+          "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+        accepted_at: "2026-07-31T04:57:53.000Z",
+      },
+    ];
     const blockedEntry = articles.gate_lineage.find((entry) => entry.status === "blocked");
     expect(blockedEntry).toMatchObject({
       evidence_owner_lane_id: "W9",
@@ -772,15 +812,37 @@ describe("English content parity control master", () => {
     const progressedManifest = structuredClone(manifest);
     const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
     const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
-    const blockedEntry = articles?.gate_lineage.find((entry) => entry.status === "blocked");
-    if (!blockedEntry) {
+    if (!w3 || !articles) {
       throw new Error("missing W3 Article producer-blocked lineage fixture");
     }
-    blockedEntry.evidence_owner_lane_id = "W3";
-    blockedEntry.report_ref =
-      "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json";
-    blockedEntry.report_sha256 =
-      "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3";
+    w3.status = "blocked";
+    w3.blocked_from_status = "inventory_frozen";
+    articles.status = "blocked";
+    articles.blocked_from_status = "package_frozen";
+    articles.package_sha256 =
+      "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669";
+    articles.gate_lineage = [
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W3",
+        report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+        report_sha256:
+          "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+        package_sha256:
+          "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+        accepted_at: "2026-07-30T22:19:50.000Z",
+      },
+      {
+        status: "blocked",
+        evidence_owner_lane_id: "W3",
+        report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+        report_sha256:
+          "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3",
+        package_sha256:
+          "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
+        accepted_at: "2026-07-31T04:57:53.000Z",
+      },
+    ];
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
     try {
@@ -1234,6 +1296,7 @@ describe("English content parity control master", () => {
     ].map((check) => `invalid QA verdict for ${check}`),
   ])("rejects a W9 blocker candidate with %s", (failureMode) => {
     const candidateDirectory = makeW9QaDirectory();
+    const baseManifest = makeW3ArticlesPreBlockManifest(manifest);
     const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
     const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
     const rowEvidencePath = path.join(candidateDirectory, "article_17_row_review_evidence.json");
@@ -1244,6 +1307,7 @@ describe("English content parity control master", () => {
     const candidate = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
     ) as {
+      base_manifest_sha256: string;
       gate_evidence: {
         report_path: string;
         report_sha256: string;
@@ -1357,16 +1421,27 @@ describe("English content parity control master", () => {
     candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
     candidate.gate_evidence.row_evidence.path = rowEvidencePath;
     candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+    candidate.base_manifest_sha256 = baseManifest.manifestSha256;
     fs.writeFileSync(candidatePath, JSON.stringify(candidate));
 
     try {
       let failedOutput = "";
       try {
-        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
-          cwd: ROOT,
-          encoding: "utf8",
-          stdio: ["ignore", "pipe", "pipe"],
-        });
+        execFileSync(
+          "node",
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            baseManifest.manifestPath,
+            "--artifact",
+            candidatePath,
+          ],
+          {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "pipe"],
+          }
+        );
       } catch (error) {
         failedOutput = (error as { stdout?: string }).stdout ?? "";
       }
@@ -1434,6 +1509,7 @@ describe("English content parity control master", () => {
       }
     } finally {
       fs.rmSync(candidateDirectory, { recursive: true, force: true });
+      fs.rmSync(baseManifest.directory, { recursive: true, force: true });
     }
   });
 
@@ -1552,6 +1628,7 @@ describe("English content parity control master", () => {
         title_excerpt_full_body_reviewed?: boolean;
         verdict?: "PASS" | "BLOCKED";
         evidence?: string;
+        finding?: string;
       }>;
     };
     const checkedInFrozenLedger = JSON.parse(
@@ -1567,6 +1644,9 @@ describe("English content parity control master", () => {
     reorderedRowEvidence.required_checks = Object.fromEntries(
       Object.entries(reorderedRowEvidence.required_checks).reverse()
     );
+    for (const rowReview of reorderedRowEvidence.row_reviews) {
+      delete rowReview.finding;
+    }
     const reorderedRowEvidencePath = path.join(
       invalidW9Directory,
       "reordered-required-checks-row-evidence.json"
