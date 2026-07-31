@@ -116,20 +116,55 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "not_started",
+      "status": "inventory_frozen",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
         "mbti_cross_type_comparison",
         "mbti_result_content"
       ],
-      "subscopes": [],
+      "subscopes": [
+        {
+          "id": "W1-MBTI-COMPARISONS",
+          "sequence": 1,
+          "resource": "MbtiCrossTypeComparisonAuthority",
+          "output_subdirectory": "comparisons",
+          "asset_ids": [
+            "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
+          ],
+          "status": "inventory_frozen",
+          "blocked_from_status": null,
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "gate_lineage": [],
+          "blockers": [],
+          "separate_package_required": true,
+          "same_pr_allowed": false
+        },
+        {
+          "id": "W1-MBTI-RESULT-CONTENT",
+          "sequence": 2,
+          "resource": "MbtiResultContentAuthority",
+          "output_subdirectory": "result-content",
+          "asset_ids": [
+            "ENPARITY-W1-MBTI-RESULT-CONTENT"
+          ],
+          "status": "inventory_frozen",
+          "blocked_from_status": null,
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "gate_lineage": [],
+          "blockers": [],
+          "separate_package_required": true,
+          "same_pr_allowed": false
+        }
+      ],
       "counts": {
         "cohort_count": 2,
-        "expected_en_assets": null,
-        "current_en_assets": null,
-        "remaining_en_assets": null,
-        "unknown_inventory_cohorts": 1
+        "expected_en_assets": 53,
+        "current_en_assets": 24,
+        "remaining_en_assets": 29,
+        "unknown_inventory_cohorts": 0
       },
       "source_inventory_refs": [
         "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
@@ -139,7 +174,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Run the W1 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
+      "next_action": "Accept and freeze the comparison package first; keep the result-content package and every later gate independent.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
@@ -625,10 +660,11 @@
       "remaining_en_count": 7,
       "parity_state": "en_missing",
       "evidence": [
-        "Seven zh-CN cross-type comparison records were observed in the public comparison projection.",
-        "The prior deep scan classified the English content assets for this cohort as missing."
+        "The current backend authority contains exactly seven published zh-CN cross-type comparison records: enfp-vs-entp, entj-vs-intj, estj-vs-entj, infj-vs-infp, intj-vs-intp, isfp-vs-infp, and istj-vs-isfj.",
+        "Read-only live checks returned 200 for every zh-CN page/API pair and 404 for every English page/API pair.",
+        "The dedicated MbtiCrossTypeComparisonAuthority model is the current storage authority; its public read model is explicitly restricted to zh-CN."
       ],
-      "notes": "Route existence is not proof of English reader-content parity."
+      "notes": "All seven English assets are absent, not drafts or route-only shells. The master authority label is retained as a protected field even though the current implementation uses a dedicated comparison authority table rather than PersonalityPublicContentAsset."
     },
     {
       "asset_id": "ENPARITY-W1-MBTI-RESULT-CONTENT",
@@ -640,14 +676,16 @@
         "en"
       ],
       "authority_source": "backend MBTI result and report content packs",
-      "expected_en_count": null,
-      "current_en_count": null,
-      "remaining_en_count": null,
-      "parity_state": "inventory_required",
+      "expected_en_count": 46,
+      "current_en_count": 24,
+      "remaining_en_count": 22,
+      "parity_state": "en_draft_requires_verification",
       "evidence": [
-        "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md reports missing agent-stack readiness."
+        "The frozen inventory contains 5 projection-level asset families, 35 canonical MBTI section families, and 6 reader-surface/renderer families.",
+        "Twenty-four families have an English CMS, runtime-contract, or renderer-label control; twenty are structurally incomplete, one is missing, and one PDF family cannot be confirmed without a lawful private fixture.",
+        "The backend has no English MBTI report content pack under the locale-scoped package authority; code fallbacks are not counted as completed English editorial assets."
       ],
-      "notes": "W1 must freeze row-level scope before generating content."
+      "notes": "remaining_en_count includes 20 structurally incomplete families, one missing family, and one unable-to-confirm PDF family. Draft count is zero. Existing public 32-type A/T profiles are controls, not generation targets."
     },
     {
       "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
