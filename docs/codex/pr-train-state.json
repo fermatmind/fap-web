@@ -52687,7 +52687,7 @@
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
-    "commit_sha": "d5a4110576896410e91ed198381291b10fbbb46c",
+    "commit_sha": "5d3cd73d78fddfd6fe3bda8631db836d7d963a6a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1866",
     "checks": {
       "dependency": {
@@ -52696,7 +52696,7 @@
       },
       "inventory_package": {
         "status": "pass",
-        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Both control validators pass; the eight-file SHA aggregate is 0f4b194095caf90a987828872bec646dd1f68751e6d80eaf38562a5862ddb971."
+        "evidence": "The package contains exactly 118 unique rows: 52 paired public controls, 50 exact historical revision slots reconciled from PR 1 with zero independent current drafts, and 16 frozen result-content identities. The operator-frozen analytics reader-label identity is explicitly recorded as having no current backend field or reader projection; internal metric IDs are excluded and PR 3 must stop for a separate contract PR if the existing package cannot represent it. Cross-device renderer evidence is bound to exact fap-web baseline paths. Both control validators pass; the eight-file SHA aggregate is d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff."
       },
       "local_validation": {
         "status": "pass",
@@ -52758,8 +52758,13 @@
         "at": "2026-07-31T04:31:19Z",
         "status": "github_checks_pending",
         "summary": "Final-head review correctly found no existing backend reader-copy authority for analytics_reader_labels. Preserved the operator-frozen identity but reclassified it truthfully as a planned backend draft-content unit with backend/API/frontend fields not present before the package. Bound the evidence to the backend analytics handoff that proves internal aggregate metrics only, and retained the mandatory stop/split rule if PR 3 discovers the existing package contract cannot represent it. Rebuilt the package as 0f4b194095caf90a987828872bec646dd1f68751e6d80eaf38562a5862ddb971."
+      },
+      {
+        "at": "2026-07-31T04:37:10Z",
+        "status": "github_checks_pending",
+        "summary": "Recorded analytics repair head 5d3cd73d78fddfd6fe3bda8631db836d7d963a6a and replaced the invalid cross-repository mobile/desktop evidence locator with exact fap-web baseline paths at 485cf6d362d3907dc564dd7f0834a505d084ce55. Rebuilt the package as d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff."
       }
     ],
-    "updated_at": "2026-07-31T04:31:19Z"
+    "updated_at": "2026-07-31T04:37:10Z"
   }
 }

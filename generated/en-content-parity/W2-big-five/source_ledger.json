@@ -5713,7 +5713,7 @@
       "backend_authority_owner": "backend_big_five_result_content",
       "backend_field_path": "core_body",
       "api_projection_field_path": "result_page_v2.modules",
-      "frontend_consumer_path": "components/result/big-five and result adapters",
+      "frontend_consumer_path": "components/result/big5/Big5ResultPageV2Shell.tsx; lib/big5/resultPageV2.ts",
       "zh_cn_presence": true,
       "en_presence": "draft_skeleton",
       "translation_identity": "big5-result:free_preview:zh-CN:en",
@@ -6129,7 +6129,8 @@
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "renderer_evidence_excluded_from_reader_content",
       "source_evidence": [
-        "fap-api:origin/main:fap-web:components/result and lib/big-five consumers",
+        "fap-web@485cf6d362d3907dc564dd7f0834a505d084ce55:components/result/big5/Big5ResultPageV2Shell.tsx",
+        "fap-web@485cf6d362d3907dc564dd7f0834a505d084ce55:lib/big5/resultPageV2.ts",
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
       ],
       "proposed_owning_repository": "fap-api",
