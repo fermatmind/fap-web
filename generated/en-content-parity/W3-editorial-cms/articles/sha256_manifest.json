@@ -3,11 +3,11 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-03-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-04-2026-07-31",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "2076c4438944917b4e179d65a14cc4eda5a78af6eeee0e28de11bbc907644feb"
+      "sha256": "ecd3814e6f4618ef683fe77570d1480092a7cf89b4636a9b3eb31b70989b0742"
     },
     {
       "path": "assets.jsonl",
@@ -15,28 +15,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "eb71548c4886d679e300a8e3cea624d4fa6299b88757bfa6b4a43fb051efc35b"
+      "sha256": "0665570baa1420dd3d9139c9959defe00ec65d6a6fc13af9167cec0a5013bc32"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "a288d7dace42934e9a71c3a096010a1726d4073abd0b4e8bb8c2809cf4258393"
+      "sha256": "aea6be5c37deff776081a35fdf8972dab890d1ebf3f6f1b52925188c17561e8a"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "87b8a5775e02b6eff20f224de238ac97bf96bd9bee60fd4c9fa2a5a47a2d9d0f"
+      "sha256": "6b500ef51549257d9fc4cda7cda86c2a0f6ac54734ef8ab2ace11424250f2c69"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "b8ba11ed4c39e12797068a1ac0137bbb0362c29bfd8441dc9207031738e6a841"
+      "sha256": "bd98114440a80fe2edb040eeb5412f1072e519f3313b580aabaf8b523dbfb9da"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "ef00eddcf5f82ae6325f8f1407a6993be120d376e864a694ac47bfe3e4568d3d"
+      "sha256": "ba57c4d8583ee917357916c52950cb37aec81a47c19df058d2b57b6807e7351f"
     },
     {
       "path": "handoff.md",
-      "sha256": "1f99cf26bbc8b6fa8bf93945f791ca3e8f6b4660ef61a76996fafb1d56878234"
+      "sha256": "e8a96dbe26fee6cf5b65d4369a29fbb2a4b999052576dd7a065545c37d41b55e"
     }
   ],
-  "package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161"
+  "package_sha256": "213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157"
 }

@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-03-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-04-2026-07-31",
   "mapping_policy": {
     "pairing": "Article id plus immutable source translation_group_id; preserve the reviewed slug across locale",
     "source_revision": "Each candidate is bound to the exact published source revision recorded in the frozen inventory.",
