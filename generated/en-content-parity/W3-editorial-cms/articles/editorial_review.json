@@ -7,22 +7,21 @@
   "verdict": "PASS",
   "review_kind": "completed 17/17 producer re-review after exact-SHA W9 BLOCKED evidence; not independent W9 QA and not human editorial approval",
   "completed_checks": [
-    "17 exact Article and source-revision identities",
-    "12 exact W9-blocked reader-visible language findings repaired",
-    "PR review residual-language findings repaired in rows 53, 55, and 58 before re-freeze",
-    "removed 3 duplicated RIASEC tokens across the complete 17-row package",
-    "normalized the remaining Sunshine Gaokao proper-name typo across the complete package",
+    "17 exact Article and source-revision identities retained",
+    "16 W9-blocked rows repaired against the exact independent row evidence",
+    "reader-visible translation fragments and malformed Markdown repaired",
+    "material source tables and checklists restored in Articles 50, 51, 52, 53, 55, 58, and 59",
+    "producer-control and future-authority instructions removed from reader copy",
     "all 17 rows re-reviewed after repair without changing source identity",
     "candidate title, excerpt, and Markdown body present for every row",
     "zero Han-script leakage across candidate reader-visible fields",
     "source/candidate heading-count parity for every row",
-    "producer claim-boundary preflight after language repair",
-    "candidate media omission policy",
-    "17/17 internal-link equivalence and destination-shape review",
-    "17/17 claim-boundary and China/Gaokao context review"
+    "producer claim-boundary preflight after rework-02",
+    "candidate media omission policy retained",
+    "17/17 internal-link destination sets retained for fresh independent verification"
   ],
   "pending_checks": [
-    "fresh independent W9 language, source-equivalence, link, media, and claim-boundary QA across every row and field for the rebuilt exact frozen SHA",
+    "fresh independent W9 language, source-equivalence, link, media, claim-boundary, field-leakage, and asset-completeness QA across every row and field for this exact frozen SHA",
     "page/API alignment after a separately authorized dry run",
     "independent importer and Media Library authority clearance",
     "human editorial approval tied to the later exact frozen package SHA"

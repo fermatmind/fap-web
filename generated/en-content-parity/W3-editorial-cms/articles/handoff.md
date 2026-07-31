@@ -11,22 +11,24 @@ This producer package contains exactly 17 English Article candidates bound to th
 - Source/candidate Markdown heading counts match for all 17 rows.
 - Claim-boundary preflight preserves non-diagnostic, non-deterministic language and unknown evidence boundaries.
 - China and Gaokao context remains present where material.
-- Candidate media references are omitted pending import-contract and Media Library clearance.
-- Producer review covers all 17 titles, excerpts, full Markdown bodies, links, claim boundaries, and media-omission decisions.
+- Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework
+## W9-directed producer rework-02
 
-- Prior frozen package SHA: `7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750`.
-- Independent W9 BLOCKED report SHA: `3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192`.
-- Repaired rows: W3-ARTICLE-01, W3-ARTICLE-02, W3-ARTICLE-04, W3-ARTICLE-05, W3-ARTICLE-06, W3-ARTICLE-08, W3-ARTICLE-09, W3-ARTICLE-51, W3-ARTICLE-52, W3-ARTICLE-53, W3-ARTICLE-55, W3-ARTICLE-59.
-- All 17 rows were re-reviewed; PR review residual-language findings in rows 53, 55, and 58 were also repaired before re-freeze, 3 duplicated RIASEC tokens and the remaining Sunshine Gaokao proper-name typo were removed across the package. The rebuilt package requires a fresh independent W9 window and cannot reuse the prior report.
+- Blocked frozen package SHA: `37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669`.
+- Independent W9 BLOCKED report SHA: `c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4`.
+- Independent 17-row evidence SHA: `d7d921a87f3ad427193842ef9e2d29e2a870162ead154466e437bae14178198e`.
+- Repaired rows: W3-ARTICLE-01, 02, 04, 05, 06, 07, 08, 09, 10, 50, 51, 52, 53, 55, 58, and 59.
+- Article 3 remained content-identical because independent W9 passed that row.
+- The repair restores omitted source-equivalent tables and checklists, fixes malformed Markdown and reader-visible translation fragments, and removes producer-control leakage.
+- The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates
 
-- This completed producer review is not W9. Naturalness, claim boundary, asset duplication, field leakage, page/API alignment, and every registered row/field still require independent W9 review against the exact frozen SHA.
+- Producer review is not W9. Naturalness, source equivalence, claims, assets, field leakage, links, media policy, and applicable page/API alignment still require fresh independent W9 review against the exact frozen SHA.
 - No CMS dry run, draft import, publication, SEO runtime change, sitemap/llms/indexability change, search submission, staging wait, manual deploy, or production deploy is authorized or performed.
 - The master manifest remains unchanged. CONTROL must independently accept the candidate transition.
 
 ## Package integrity
 
-`sha256_manifest.json` covers the eight immutable payload files in the repository-defined order. Rebuilding any immutable payload changes the aggregate package SHA and requires the producer/QA sequence to restart.
+`sha256_manifest.json` covers the eight immutable payload files in repository-defined order. Rebuilding any immutable payload changes the aggregate package SHA and restarts producer/QA lineage.
