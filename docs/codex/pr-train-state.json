@@ -50774,8 +50774,8 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-    "status": "merged",
-    "commit_sha": "5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b",
+  "status": "merged",
+  "commit_sha": "5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50792,31 +50792,31 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "The deterministic generator and focused Approval48/Gate47 contracts cover the exact runtime shape, artifact integrity, llms-full release invariant, and llms-full readback invariant. Candidate payloads use the exact comparison_public_projection_v1 keys consumed by the frontend adapter. The contract captures committed package/hash/markdown bytes before generator execution, proves that tampered or missing checked-in artifacts fail, and binds the distinct approval statements to their correct historical package hashes. The prior approval is retained as immutable history but invalidated for the current package. Repaired pending-reapproval package SHA-256: 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae."
+      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts cover the exact runtime shape, artifact integrity, llms-full release invariant, and llms-full readback invariant. Candidate payloads use the exact comparison_public_projection_v1 keys consumed by the frontend adapter. The contract captures committed package/hash/markdown bytes before generator execution, proves that tampered or missing checked-in artifacts fail, and binds the distinct approval statements to their correct historical package hashes. The prior approval is retained as immutable history but invalidated for the current package. Repaired pending-reapproval package SHA-256: 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. Package SHA-256 remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. The user-owned .workbuddy path remains untouched and excluded."
+      "evidence": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. Package SHA-256 remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. The user-owned .workbuddy path remains untouched and excluded."
       },
-      "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found only that commit_sha still referenced the pre-R2 head. Post-merge reconciliation verified PR #1801 squash-merged as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b and that merge remains contained by origin/main."
+    "github_required_checks": {
+      "status": "pass",
+      "evidence": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found only that commit_sha still referenced the pre-R2 head. Post-merge reconciliation verified PR #1801 squash-merged as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b and that merge remains contained by origin/main."
       },
       "operator_editorial_approval": {
         "status": "pass",
-        "evidence": "The operator explicitly approved exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. Deterministic R2 authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 matches that package and permits PR48 merge plus PR49 implementation only. Production CMS/DB writes, publication/indexability changes, sitemap/llms changes, and search submission remain unauthorized."
+      "evidence": "The operator explicitly approved exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. Deterministic R2 authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 matches that package and permits PR48 merge plus PR49 implementation only. Production CMS/DB writes, publication/indexability changes, sitemap/llms changes, and search submission remain unauthorized."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
-      "post_merge_revalidated": true
+    "github_checks_green": true,
+    "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": "2026-07-23T05:34:27Z",
-    "remote_branch_deleted": true,
-    "local_cleanup_executed": true,
+  "merged_at": "2026-07-23T05:34:27Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -50869,103 +50869,103 @@
         "status": "github_checks_pending_reapproval",
         "summary": "Committed the locally verified runtime-shape repair as 119bbc06bba2eb54ad648517e4b783b53d69e50f and rebound commit_sha to that exact repaired content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review must pass before requesting reapproval."
       },
-      {
-        "at": "2026-07-23T01:19:01Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "The repaired head passed all seven required checks and the four prior review threads were resolved, then exact-head review found two metadata P2s. Restored the unrelated DISCOVERABILITY-STAGING-DEINDEX-FIX-01 lint command, applied the ignored-trace lint command only to Approval 48, and restored Gate 47's exact merged/cleanup state from its verified PR48 predecessor. The repaired package remains byte-stable at ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c; focused Approval48/Gate47 contracts pass 20/20, exact lint has zero errors, and structured/diff checks pass. Fresh exact-head checks/review remain required before reapproval."
-      },
-      {
-        "at": "2026-07-23T01:36:50Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "After all seven checks passed on the synchronized head, exact-head review found one remaining P2: candidate_payload still used source slug rather than the comparison_slug required by the frontend public-projection adapter. The generator now explicitly maps every candidate into the runtime comparison_public_projection_v1 shape before hashing, with cross-type route/type identity, canonical, section body, FAQ, internal-link, claim, and locked noindex fields. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f is pending new exact editorial approval. Focused contracts pass 20/20, full contracts 767 files / 4435 tests, freezes 29/29 and 24/24, lint/spacing/typecheck, build 190/190, structured-file, diff, and scope gates pass. No production or authority-layer mutation occurred."
-      },
-      {
-        "at": "2026-07-23T01:37:28Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "Committed the fully verified public-projection repair as 2e5eb6e31935f95e2920c145e81cf6bba83b1ce3 and rebound commit_sha to that exact content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review remain mandatory."
-      },
-      {
-        "at": "2026-07-23T01:54:07Z",
-        "status": "operator_editorial_reapproval_pending",
-        "summary": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks and remained CLEAN/MERGEABLE. Codex reviewed that exact commit and reported no major issues; every review thread is resolved. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f remains blocked pending new exact operator editorial approval. This ledger-only closeout head must pass its own final checks/review; no production or authority-layer mutation occurred."
-      },
-      {
-        "at": "2026-07-23T02:05:30Z",
-        "status": "operator_editorial_reapproval_pending",
-        "summary": "Ledger-only closeout head 8140a90ac349d4b36987c94876e3838f1ccefed6 passed all seven required checks, remained CLEAN/MERGEABLE, and received an exact-head Codex review. Rebound commit_sha to that checked closeout head so the operator and train tooling cannot validate against the earlier content-only commit. The resulting child commit records only this SHA binding and does not change package bytes, content candidates, scope, or authority boundaries."
-      },
-      {
-        "at": "2026-07-23T02:19:31Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "Checked head 6b257cd1d38cb18387961f9fcf32688ec33e826a passed all seven required checks, but exact-head review found two valid P2s. The contract now captures committed package/hash/markdown bytes before generator execution and fails if regeneration differs, closing the stale/tampered-artifact gap. The ledger binds commit_sha to the checked predecessor while honestly marking the child repair head pending, since a Git commit cannot contain its own final SHA. Package and candidate hashes remain byte-stable; fresh exact-head checks/review are required."
-      },
-      {
-        "at": "2026-07-23T02:37:00Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "Exact head 13adaad315fd14c79dc3411c771bd010ef632112 passed all seven required checks and Codex reported no major issues, but review found the PR48 manifest YAML parse command should explicitly enable aliases used by the train document. Replaced only that required check with YAML.safe_load(..., aliases: true); both legacy and alias-aware commands pass locally, and the new command is portable across Psych safe-load defaults. Package bytes and candidate hashes remain unchanged; fresh exact-head checks/review are required."
-      },
-      {
-        "at": "2026-07-23T03:23:30Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "Rebound commit_sha to exact checked head ea0d922833d792d52d387ccd8a1b900ab9b6b858, which passed all seven required checks after the alias-aware PR48 gate, unrelated-entry restoration, and reapproval auto-merge lock. Exact-head review then required the artifact guard to fail before generation when any package/hash/rollback file is absent. The contract now requires all three committed artifacts before invoking the generator and adds an explicit missing-artifact regression. The resulting child remains honestly pending fresh checks; package and candidate hashes are unchanged."
-      },
-      {
-        "at": "2026-07-23T03:46:00Z",
-        "status": "operator_editorial_approval_recorded_local_checks_pending",
-        "summary": "The operator explicitly approved exact repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f for exactly the three named slugs. The approved package bytes remain immutable; a separate deterministic authorization envelope binds the statement and scope as SHA-256 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b. It permits PR48 merge and PR49 implementation only, while production content writes and every publication/indexability/sitemap/llms/search mutation remain false. Focused Node 24 authorization contracts pass 9/9; complete manifest checks are pending."
-      },
-      {
-        "at": "2026-07-23T03:51:30Z",
-        "status": "local_checks_passed_operator_approved",
-        "summary": "All PR48 manifest gates pass after recording the exact repaired-package approval: focused Approval48/Gate47 22/22, full contracts 767 files / 4437 tests, freezes 29/29 and 24/24, lint with zero errors, spacing, typecheck, production build 206/206, deterministic generation, YAML/JSON, diff, and exact 11/11 allowed-path scope. The approved package remains byte-identical at f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f and the authorization envelope remains 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b. No production or authority-layer mutation occurred."
-      },
-      {
-        "at": "2026-07-23T04:02:00Z",
-        "status": "review_fix_local_checks_pending_reapproval",
-        "summary": "All seven required checks passed on exact approved-envelope head b950d8c83b8b0ffb907a60414fd48232d196fb61, then exact-head Codex review found one valid P2: content-phase readback locked llms.txt but did not explicitly lock the separately modeled llms-full surface. Added llms_full_eligible=false for every exact record and direct contract coverage. This changes only the readback contract while leaving candidate content SHA 509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1 unchanged, but necessarily changes the full package SHA to b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b. The prior f5a0d286 authorization is retained as immutable history and explicitly mismatches the current package; fresh local checks and exact reapproval are required."
-      },
-      {
-        "at": "2026-07-23T04:16:47Z",
-        "status": "review_fix_local_pass_pending_reapproval",
-        "summary": "Fresh local validation passes on the exact llms-full readback repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. Deterministic generation keeps the candidate content release SHA byte-stable at 509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1 while producing current package SHA-256 b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b. The immutable f5a0d286 authorization does not match this repaired package; merge and PR49 remain blocked pending new exact editorial approval."
-      },
-      {
-        "at": "2026-07-23T04:29:22Z",
-        "status": "second_review_fix_local_checks_pending_reapproval",
-        "summary": "All seven required checks passed on b724425fc06015eefa718485e8ed843053a4b513, then exact-head Codex review found two valid P2 evidence-chain gaps. The content-release payload now requires keep_out_of_llms_full=true, matching the explicit readback exclusion, and the hash manifest now binds the original 1c7e94 approval statement hash rather than duplicating the later repaired-package statement hash. Record content hashes remain unchanged; the repaired content-release candidate SHA-256 is 0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6 and the current package SHA-256 is 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh local checks and exact reapproval are required before merge or PR49."
-      },
-      {
-        "at": "2026-07-23T04:35:10Z",
-        "status": "second_review_fix_local_pass_pending_reapproval",
-        "summary": "Fresh local validation passes on the exact llms-full release/evidence-chain repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package is deterministically locked at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae; the immutable f5a0d286 authorization does not match it. Merge and PR49 remain blocked pending new exact editorial approval."
-      },
-      {
-        "at": "2026-07-23T04:57:38Z",
-        "status": "operator_editorial_reapproval_pending",
-        "summary": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks, remained MERGEABLE, and completed Codex review. Two duplicate P2 comments correctly identified that commit_sha still pointed to an obsolete pre-repair head; this ledger-only closeout binds the state to the exact checked repaired content head. Package bytes remain unchanged at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh exact operator editorial approval is the only remaining gate before PR48 merge and PR49 implementation."
-      },
-      {
-        "at": "2026-07-23T05:09:55Z",
-        "status": "operator_editorial_approval_recorded_local_checks_pending",
-        "summary": "The operator explicitly approved exact repaired package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for exactly the three named slugs. The repaired package remains byte-immutable; a separate R2 envelope binds the exact statement and scope as authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 while retaining the prior f5a0 authorization as immutable history. It permits PR48 merge and PR49 implementation only; production CMS/DB, publication/indexability, sitemap/llms, and search actions remain false. Fresh local checks are pending."
-      },
-      {
-        "at": "2026-07-23T05:15:36Z",
-        "status": "local_checks_passed_operator_approved",
-        "summary": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and the matching R2 authorization remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670. No production or authority-layer mutation occurred."
-      },
-      {
-        "at": "2026-07-23T05:27:50Z",
-        "status": "ready_to_merge",
-        "summary": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found one valid P2: commit_sha still referenced the pre-R2 head. This ledger-only closeout binds the approval state to the exact checked R2 head. Package SHA-256 remains 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670; PR48 is ready to merge after this closeout head passes required checks."
-      },
-      {
-        "at": "2026-07-27T18:17:43Z",
-        "status": "merged",
-        "summary": "Post-merge reconciliation verified GitHub PR #1801 is MERGED at 2026-07-23T05:34:27Z as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b, that the merge is contained by current fap-web origin/main, and that codex/mbti-cross-approval-48 is absent locally and remotely. Exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 remain unchanged; this source-control reconciliation performs no production or search mutation."
-      }
-    ],
-    "updated_at": "2026-07-27T18:17:43Z"
+    {
+      "at": "2026-07-23T01:19:01Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "The repaired head passed all seven required checks and the four prior review threads were resolved, then exact-head review found two metadata P2s. Restored the unrelated DISCOVERABILITY-STAGING-DEINDEX-FIX-01 lint command, applied the ignored-trace lint command only to Approval 48, and restored Gate 47's exact merged/cleanup state from its verified PR48 predecessor. The repaired package remains byte-stable at ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c; focused Approval48/Gate47 contracts pass 20/20, exact lint has zero errors, and structured/diff checks pass. Fresh exact-head checks/review remain required before reapproval."
+    },
+    {
+      "at": "2026-07-23T01:36:50Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "After all seven checks passed on the synchronized head, exact-head review found one remaining P2: candidate_payload still used source slug rather than the comparison_slug required by the frontend public-projection adapter. The generator now explicitly maps every candidate into the runtime comparison_public_projection_v1 shape before hashing, with cross-type route/type identity, canonical, section body, FAQ, internal-link, claim, and locked noindex fields. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f is pending new exact editorial approval. Focused contracts pass 20/20, full contracts 767 files / 4435 tests, freezes 29/29 and 24/24, lint/spacing/typecheck, build 190/190, structured-file, diff, and scope gates pass. No production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T01:37:28Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Committed the fully verified public-projection repair as 2e5eb6e31935f95e2920c145e81cf6bba83b1ce3 and rebound commit_sha to that exact content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review remain mandatory."
+    },
+    {
+      "at": "2026-07-23T01:54:07Z",
+      "status": "operator_editorial_reapproval_pending",
+      "summary": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks and remained CLEAN/MERGEABLE. Codex reviewed that exact commit and reported no major issues; every review thread is resolved. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f remains blocked pending new exact operator editorial approval. This ledger-only closeout head must pass its own final checks/review; no production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T02:05:30Z",
+      "status": "operator_editorial_reapproval_pending",
+      "summary": "Ledger-only closeout head 8140a90ac349d4b36987c94876e3838f1ccefed6 passed all seven required checks, remained CLEAN/MERGEABLE, and received an exact-head Codex review. Rebound commit_sha to that checked closeout head so the operator and train tooling cannot validate against the earlier content-only commit. The resulting child commit records only this SHA binding and does not change package bytes, content candidates, scope, or authority boundaries."
+    },
+    {
+      "at": "2026-07-23T02:19:31Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Checked head 6b257cd1d38cb18387961f9fcf32688ec33e826a passed all seven required checks, but exact-head review found two valid P2s. The contract now captures committed package/hash/markdown bytes before generator execution and fails if regeneration differs, closing the stale/tampered-artifact gap. The ledger binds commit_sha to the checked predecessor while honestly marking the child repair head pending, since a Git commit cannot contain its own final SHA. Package and candidate hashes remain byte-stable; fresh exact-head checks/review are required."
+    },
+    {
+      "at": "2026-07-23T02:37:00Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Exact head 13adaad315fd14c79dc3411c771bd010ef632112 passed all seven required checks and Codex reported no major issues, but review found the PR48 manifest YAML parse command should explicitly enable aliases used by the train document. Replaced only that required check with YAML.safe_load(..., aliases: true); both legacy and alias-aware commands pass locally, and the new command is portable across Psych safe-load defaults. Package bytes and candidate hashes remain unchanged; fresh exact-head checks/review are required."
+    },
+    {
+      "at": "2026-07-23T03:23:30Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Rebound commit_sha to exact checked head ea0d922833d792d52d387ccd8a1b900ab9b6b858, which passed all seven required checks after the alias-aware PR48 gate, unrelated-entry restoration, and reapproval auto-merge lock. Exact-head review then required the artifact guard to fail before generation when any package/hash/rollback file is absent. The contract now requires all three committed artifacts before invoking the generator and adds an explicit missing-artifact regression. The resulting child remains honestly pending fresh checks; package and candidate hashes are unchanged."
+    },
+    {
+      "at": "2026-07-23T03:46:00Z",
+      "status": "operator_editorial_approval_recorded_local_checks_pending",
+      "summary": "The operator explicitly approved exact repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f for exactly the three named slugs. The approved package bytes remain immutable; a separate deterministic authorization envelope binds the statement and scope as SHA-256 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b. It permits PR48 merge and PR49 implementation only, while production content writes and every publication/indexability/sitemap/llms/search mutation remain false. Focused Node 24 authorization contracts pass 9/9; complete manifest checks are pending."
+    },
+    {
+      "at": "2026-07-23T03:51:30Z",
+      "status": "local_checks_passed_operator_approved",
+      "summary": "All PR48 manifest gates pass after recording the exact repaired-package approval: focused Approval48/Gate47 22/22, full contracts 767 files / 4437 tests, freezes 29/29 and 24/24, lint with zero errors, spacing, typecheck, production build 206/206, deterministic generation, YAML/JSON, diff, and exact 11/11 allowed-path scope. The approved package remains byte-identical at f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f and the authorization envelope remains 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b. No production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T04:02:00Z",
+      "status": "review_fix_local_checks_pending_reapproval",
+      "summary": "All seven required checks passed on exact approved-envelope head b950d8c83b8b0ffb907a60414fd48232d196fb61, then exact-head Codex review found one valid P2: content-phase readback locked llms.txt but did not explicitly lock the separately modeled llms-full surface. Added llms_full_eligible=false for every exact record and direct contract coverage. This changes only the readback contract while leaving candidate content SHA 509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1 unchanged, but necessarily changes the full package SHA to b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b. The prior f5a0d286 authorization is retained as immutable history and explicitly mismatches the current package; fresh local checks and exact reapproval are required."
+    },
+    {
+      "at": "2026-07-23T04:16:47Z",
+      "status": "review_fix_local_pass_pending_reapproval",
+      "summary": "Fresh local validation passes on the exact llms-full readback repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. Deterministic generation keeps the candidate content release SHA byte-stable at 509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1 while producing current package SHA-256 b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b. The immutable f5a0d286 authorization does not match this repaired package; merge and PR49 remain blocked pending new exact editorial approval."
+    },
+    {
+      "at": "2026-07-23T04:29:22Z",
+      "status": "second_review_fix_local_checks_pending_reapproval",
+      "summary": "All seven required checks passed on b724425fc06015eefa718485e8ed843053a4b513, then exact-head Codex review found two valid P2 evidence-chain gaps. The content-release payload now requires keep_out_of_llms_full=true, matching the explicit readback exclusion, and the hash manifest now binds the original 1c7e94 approval statement hash rather than duplicating the later repaired-package statement hash. Record content hashes remain unchanged; the repaired content-release candidate SHA-256 is 0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6 and the current package SHA-256 is 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh local checks and exact reapproval are required before merge or PR49."
+    },
+    {
+      "at": "2026-07-23T04:35:10Z",
+      "status": "second_review_fix_local_pass_pending_reapproval",
+      "summary": "Fresh local validation passes on the exact llms-full release/evidence-chain repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package is deterministically locked at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae; the immutable f5a0d286 authorization does not match it. Merge and PR49 remain blocked pending new exact editorial approval."
+    },
+    {
+      "at": "2026-07-23T04:57:38Z",
+      "status": "operator_editorial_reapproval_pending",
+      "summary": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks, remained MERGEABLE, and completed Codex review. Two duplicate P2 comments correctly identified that commit_sha still pointed to an obsolete pre-repair head; this ledger-only closeout binds the state to the exact checked repaired content head. Package bytes remain unchanged at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh exact operator editorial approval is the only remaining gate before PR48 merge and PR49 implementation."
+    },
+    {
+      "at": "2026-07-23T05:09:55Z",
+      "status": "operator_editorial_approval_recorded_local_checks_pending",
+      "summary": "The operator explicitly approved exact repaired package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for exactly the three named slugs. The repaired package remains byte-immutable; a separate R2 envelope binds the exact statement and scope as authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 while retaining the prior f5a0 authorization as immutable history. It permits PR48 merge and PR49 implementation only; production CMS/DB, publication/indexability, sitemap/llms, and search actions remain false. Fresh local checks are pending."
+    },
+    {
+      "at": "2026-07-23T05:15:36Z",
+      "status": "local_checks_passed_operator_approved",
+      "summary": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and the matching R2 authorization remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670. No production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T05:27:50Z",
+      "status": "ready_to_merge",
+      "summary": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found one valid P2: commit_sha still referenced the pre-R2 head. This ledger-only closeout binds the approval state to the exact checked R2 head. Package SHA-256 remains 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670; PR48 is ready to merge after this closeout head passes required checks."
+    },
+    {
+      "at": "2026-07-27T18:17:43Z",
+      "status": "merged",
+      "summary": "Post-merge reconciliation verified GitHub PR #1801 is MERGED at 2026-07-23T05:34:27Z as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b, that the merge is contained by current fap-web origin/main, and that codex/mbti-cross-approval-48 is absent locally and remotely. Exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 remain unchanged; this source-control reconciliation performs no production or search mutation."
+    }
+  ],
+  "updated_at": "2026-07-27T18:17:43Z"
   },
   "SEO-CORE-TEST-DETAIL-500-INCIDENT-01": {
     "id": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01",
@@ -51622,46 +51622,46 @@
         "status": "github_checks_pending",
         "summary": "Committed the exact nine-path INDEX-52 scope at 6da071130975702ba4eeb2cf9cf68ed6a0f19d36, pushed codex/mbti-index-52, and opened PR #1816. All local manifest checks passed before push; GitHub required and security checks are pending."
       },
-      {
-        "at": "2026-07-26T15:37:06Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
-      },
-      {
-        "at": "2026-07-27T01:07:53Z",
-        "status": "production_readback_passed",
-        "summary": "The exact authorized fap-web production deploy run 30228413313 activated merged main SHA cc568495b81d0624a3e04392b583f525126cb200 and public /revision confirmed that SHA. Independent readback proved all authoritative cross-comparison section titles, bodies, structured rows, revision markers, and next_reading values visible. Strict run 1 spanned 2026-07-27T01:02:03.343Z through 2026-07-27T01:04:46.788Z; strict run 2 spanned 2026-07-27T01:04:56.634Z through 2026-07-27T01:07:53.401Z. Both passed all twelve gates at 55/55 with identical evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5, zero API timeouts, zero private URL leaks, and final decision ALLOW_MBTI_55_COMPLETE. No CMS, database, publication, indexability, sitemap, llms, or search mutation occurred."
-      },
-      {
-        "at": "2026-07-27T01:14:39Z",
-        "status": "local_checks_passed",
-        "summary": "Rebased the INDEX-52 review fixes onto exact origin/main cc568495b81d0624a3e04392b583f525126cb200 and addressed all six review findings inside the authorized scope. On Node 24.14.0, focused INDEX-52 contracts pass 10/10, full lint passes with zero warnings, typecheck passes, four complete contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON parsing, CSV formula safety, git diff --check, and exact eight-path scope validation pass. Fresh GitHub required and security checks remain pending until the review-fix commit is pushed."
-      },
-      {
-        "at": "2026-07-27T01:22:17Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE and the exact changed-file scope remains eight authorized INDEX-52 paths. A final ledger-only ready-to-merge commit will rerun and must retain the required and security checks before merge."
-      },
-      {
-        "at": "2026-07-27T03:16:59Z",
-        "status": "local_checks_passed",
-        "summary": "Addressed all six new current review findings without weakening the gate: the builder now fingerprints and validates the runtime-selected profile/comparison projections, checks every complete reader-visible profile content block with renderer-equivalent normalization, merges answer-surface FAQ exactly like runtime, recognizes plural private result routes, binds JSON-LD page and breadcrumb identity to each canonical, and uses serial production readback to avoid load-induced false failures. Final run 1 spanned 2026-07-27T03:04:04.954Z through 2026-07-27T03:08:13.015Z and run 2 spanned 2026-07-27T03:08:20.820Z through 2026-07-27T03:10:08.019Z; both passed all twelve metrics at 55/55 with signature d68e381e066266834a1dbe1f058e0250647801ba27a401ca5067d4df12e2cf08, zero timeouts, and zero private leaks. On Node 24.14.0, focused contracts pass 10/10, zero-warning full lint and typecheck pass, four full contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON, diff, CSV safety, and exact scope checks pass; fresh GitHub checks remain pending."
-      },
-      {
-        "at": "2026-07-27T03:23:55Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1816 exact review-hardened head a4551d807702e4e0bbe820df6b845b3b780b67d5 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. The final ledger-only ready-to-merge head must retain all required and security checks before merge."
-      },
-      {
-        "at": "2026-07-27T04:04:14Z",
-        "status": "local_checks_passed",
-        "summary": "Addressed the six latest review findings inside the authorized INDEX-52 scope: the gate now reuses the shared discoverability deny predicate, fingerprints the complete runtime-selected comparison projection including A/T variants and blocks, verifies every runtime-rendered answer-surface block, and binds two passes to a one-use validation session consumed before run-2 network access. Restored two unrelated train statuses exactly to origin/main. One intermediate session correctly failed closed at 54/55 after an intj-a read error and could not be reused. Fresh session fa6d80a2-c1e5-4953-9c15-7e06200f4218 then passed both runs at 55/55 with identical evidence/source/authority signatures, zero timeouts, and zero private leaks. Node 24.14.0 focused contracts, zero-warning lint, typecheck, all 772 files / 4,485 contract tests, production build 206/206, parsers, diff, and scope checks pass; fresh GitHub checks remain pending."
-      },
-      {
-        "at": "2026-07-27T04:11:57Z",
-        "status": "local_checks_passed",
-        "summary": "Rebased the complete INDEX-52 branch onto latest origin/main after PR #1821 added the PARITY-06 llms-full stability boundary. Conflict resolution preserved both independent train entries and restored unrelated IQ/Career states exactly to main. The aggregate PR diff remains nine authorized INDEX-52 paths. On Node 24.14.0, focused contracts pass 10/10, zero-warning lint and typecheck pass, complete contracts pass 773 files / 4,489 tests including the new PARITY-06 contract, and production build completes 206/206 with standalone assets synced. Fresh GitHub checks remain pending on the rebased head."
-      },
+    {
+      "at": "2026-07-26T15:37:06Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
+    },
+    {
+      "at": "2026-07-27T01:07:53Z",
+      "status": "production_readback_passed",
+      "summary": "The exact authorized fap-web production deploy run 30228413313 activated merged main SHA cc568495b81d0624a3e04392b583f525126cb200 and public /revision confirmed that SHA. Independent readback proved all authoritative cross-comparison section titles, bodies, structured rows, revision markers, and next_reading values visible. Strict run 1 spanned 2026-07-27T01:02:03.343Z through 2026-07-27T01:04:46.788Z; strict run 2 spanned 2026-07-27T01:04:56.634Z through 2026-07-27T01:07:53.401Z. Both passed all twelve gates at 55/55 with identical evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5, zero API timeouts, zero private URL leaks, and final decision ALLOW_MBTI_55_COMPLETE. No CMS, database, publication, indexability, sitemap, llms, or search mutation occurred."
+    },
+    {
+      "at": "2026-07-27T01:14:39Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the INDEX-52 review fixes onto exact origin/main cc568495b81d0624a3e04392b583f525126cb200 and addressed all six review findings inside the authorized scope. On Node 24.14.0, focused INDEX-52 contracts pass 10/10, full lint passes with zero warnings, typecheck passes, four complete contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON parsing, CSV formula safety, git diff --check, and exact eight-path scope validation pass. Fresh GitHub required and security checks remain pending until the review-fix commit is pushed."
+    },
+    {
+      "at": "2026-07-27T01:22:17Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE and the exact changed-file scope remains eight authorized INDEX-52 paths. A final ledger-only ready-to-merge commit will rerun and must retain the required and security checks before merge."
+    },
+    {
+      "at": "2026-07-27T03:16:59Z",
+      "status": "local_checks_passed",
+      "summary": "Addressed all six new current review findings without weakening the gate: the builder now fingerprints and validates the runtime-selected profile/comparison projections, checks every complete reader-visible profile content block with renderer-equivalent normalization, merges answer-surface FAQ exactly like runtime, recognizes plural private result routes, binds JSON-LD page and breadcrumb identity to each canonical, and uses serial production readback to avoid load-induced false failures. Final run 1 spanned 2026-07-27T03:04:04.954Z through 2026-07-27T03:08:13.015Z and run 2 spanned 2026-07-27T03:08:20.820Z through 2026-07-27T03:10:08.019Z; both passed all twelve metrics at 55/55 with signature d68e381e066266834a1dbe1f058e0250647801ba27a401ca5067d4df12e2cf08, zero timeouts, and zero private leaks. On Node 24.14.0, focused contracts pass 10/10, zero-warning full lint and typecheck pass, four full contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON, diff, CSV safety, and exact scope checks pass; fresh GitHub checks remain pending."
+    },
+    {
+      "at": "2026-07-27T03:23:55Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact review-hardened head a4551d807702e4e0bbe820df6b845b3b780b67d5 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. The final ledger-only ready-to-merge head must retain all required and security checks before merge."
+    },
+    {
+      "at": "2026-07-27T04:04:14Z",
+      "status": "local_checks_passed",
+      "summary": "Addressed the six latest review findings inside the authorized INDEX-52 scope: the gate now reuses the shared discoverability deny predicate, fingerprints the complete runtime-selected comparison projection including A/T variants and blocks, verifies every runtime-rendered answer-surface block, and binds two passes to a one-use validation session consumed before run-2 network access. Restored two unrelated train statuses exactly to origin/main. One intermediate session correctly failed closed at 54/55 after an intj-a read error and could not be reused. Fresh session fa6d80a2-c1e5-4953-9c15-7e06200f4218 then passed both runs at 55/55 with identical evidence/source/authority signatures, zero timeouts, and zero private leaks. Node 24.14.0 focused contracts, zero-warning lint, typecheck, all 772 files / 4,485 contract tests, production build 206/206, parsers, diff, and scope checks pass; fresh GitHub checks remain pending."
+    },
+    {
+      "at": "2026-07-27T04:11:57Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the complete INDEX-52 branch onto latest origin/main after PR #1821 added the PARITY-06 llms-full stability boundary. Conflict resolution preserved both independent train entries and restored unrelated IQ/Career states exactly to main. The aggregate PR diff remains nine authorized INDEX-52 paths. On Node 24.14.0, focused contracts pass 10/10, zero-warning lint and typecheck pass, complete contracts pass 773 files / 4,489 tests including the new PARITY-06 contract, and production build completes 206/206 with standalone assets synced. Fresh GitHub checks remain pending on the rebased head."
+    },
       {
         "at": "2026-07-27T04:32:26Z",
         "status": "production_readback_blocked",
@@ -51789,7 +51789,7 @@
     ],
     "train_scope": "mbti_full_55_url_gsc_read_only_monitoring_windows",
     "title": "MBTI-GSC-53: monitor complete 55-URL MBTI cohort",
-    "commit_sha": "4d81f495ea9120d6e9ef32094efb568e925f2e0a",
+  "commit_sha": "4d81f495ea9120d6e9ef32094efb568e925f2e0a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1823",
     "checks": {
       "authorization": {
@@ -51810,19 +51810,19 @@
       },
       "github_required_checks": {
         "status": "passed",
-        "evidence": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts. Exact-head Codex review found no major issues. Post-merge reconciliation verified PR #1823 squash-merged as 4d81f495ea9120d6e9ef32094efb568e925f2e0a and that merge remains contained by origin/main."
+      "evidence": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts. Exact-head Codex review found no major issues. Post-merge reconciliation verified PR #1823 squash-merged as 4d81f495ea9120d6e9ef32094efb568e925f2e0a and that merge remains contained by origin/main."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": true
+    "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": "2026-07-27T17:32:01Z",
-    "remote_branch_deleted": true,
-    "local_cleanup_executed": true,
+  "merged_at": "2026-07-27T17:32:01Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -51857,18 +51857,18 @@
         "status": "github_checks_pending",
         "summary": "Pushed both reviewed fixes as exact implementation head ed04389823a93ab475eabb9e00d7a4bbdcc31b7d; exact-head GitHub checks and a fresh Codex review remain required before merge."
       },
-      {
-        "at": "2026-07-27T17:25:41Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE; Codex found no major issues on the exact head, and both earlier findings are resolved. The final ledger-only head must retain required checks before squash merge."
-      },
-      {
-        "at": "2026-07-27T18:17:43Z",
-        "status": "merged",
-        "summary": "Post-merge reconciliation verified GitHub PR #1823 is MERGED at 2026-07-27T17:32:01Z as 4d81f495ea9120d6e9ef32094efb568e925f2e0a, that the merge is contained by current fap-web origin/main, and that codex/mbti-gsc-53 is absent locally and remotely. The 55-URL 7/14/28-day observations remain read-only and not due; this reconciliation performs zero GSC reads, URL Inspection writes, sitemap submissions, request indexing, or search mutations."
-      }
-    ],
-    "updated_at": "2026-07-27T18:17:43Z"
+    {
+      "at": "2026-07-27T17:25:41Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE; Codex found no major issues on the exact head, and both earlier findings are resolved. The final ledger-only head must retain required checks before squash merge."
+    },
+    {
+      "at": "2026-07-27T18:17:43Z",
+      "status": "merged",
+      "summary": "Post-merge reconciliation verified GitHub PR #1823 is MERGED at 2026-07-27T17:32:01Z as 4d81f495ea9120d6e9ef32094efb568e925f2e0a, that the merge is contained by current fap-web origin/main, and that codex/mbti-gsc-53 is absent locally and remotely. The 55-URL 7/14/28-day observations remain read-only and not due; this reconciliation performs zero GSC reads, URL Inspection writes, sitemap submissions, request indexing, or search mutations."
+    }
+  ],
+  "updated_at": "2026-07-27T18:17:43Z"
   },
   "EN-PARITY-W1-MBTI-INVENTORY-01": {
     "id": "EN-PARITY-W1-MBTI-INVENTORY-01",
@@ -51877,8 +51877,8 @@
     "base": "main",
     "branch": "codex/en-parity-w1-mbti-inventory-01",
     "depends_on": [],
-    "status": "merged_cleanup_complete",
-    "commit_sha": "fc985df4ff5192b7e92b38cd2a0d11117f393968",
+  "status": "merged_cleanup_complete",
+  "commit_sha": "fc985df4ff5192b7e92b38cd2a0d11117f393968",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1847",
     "checks": {
       "authorization": {
@@ -51917,9 +51917,9 @@
         "status": "passed",
         "evidence": "The staged inventory contains exactly 12 allowed files: ten immutable/candidate W1 package handoff files and the two fap-web train manifest/state files. No master manifest, runtime, CMS, publication, discoverability, or future-PR file is staged."
       },
-      "github_required_checks": {
-        "status": "passed",
-        "evidence": "The first PR #1847 CI run failed only contract-shard-1 because the pre-existing contract fixture refused to coexist with the newly committed real W1 package. The exact failing job and step were inspected. Isolated baseline-repair PR #1848 changed only the fixture, passed all 11 CI/security checks, and merged as 4cefabf0a188500c2d4dbc6392c48dbad30f7afb. On PR #1847 exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa, build, all four contract shards, aggregate contracts, both freeze checks, and all CodeQL checks passed."
+    "github_required_checks": {
+      "status": "passed",
+      "evidence": "The first PR #1847 CI run failed only contract-shard-1 because the pre-existing contract fixture refused to coexist with the newly committed real W1 package. The exact failing job and step were inspected. Isolated baseline-repair PR #1848 changed only the fixture, passed all 11 CI/security checks, and merged as 4cefabf0a188500c2d4dbc6392c48dbad30f7afb. On PR #1847 exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa, build, all four contract shards, aggregate contracts, both freeze checks, and all CodeQL checks passed."
       },
       "baseline_repair": {
         "status": "passed",
@@ -51927,14 +51927,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": "2026-07-30T15:50:28Z",
-    "remote_branch_deleted": true,
-    "local_cleanup_executed": true,
+  "merged_at": "2026-07-30T15:50:28Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
-      "post_merge_revalidated": true
+    "github_checks_green": true,
+    "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -51964,24 +51964,24 @@
         "status": "github_checks_failed_inspected",
         "summary": "Inspected failed run 30556784204 job 90919169132. Exactly four en-content-parity contract cases failed during fixture setup because the real W1 package now occupies its registered directory; 196 other shard files and 1251 tests passed. The aggregate contracts check failed from that shard, while three shards and both freeze checks passed."
       },
-      {
-        "at": "2026-07-30T15:38:50Z",
-        "status": "github_checks_retry_pending",
-        "summary": "Completed isolated baseline-repair PR #1848, verified its merge commit 4cefabf0a188500c2d4dbc6392c48dbad30f7afb in origin/main, cleaned its branches/worktree, merged origin/main into PR #1847, and revalidated both artifact validators plus the focused contract 25/25 with the real package present. A fresh exact-head CI run is required."
-      },
-      {
-        "at": "2026-07-30T15:45:18Z",
-        "status": "ready_to_merge",
-        "summary": "All 11 checks passed on exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa. GitHub reports the PR mergeable with no review decision block, and the final changed-file list remains the exact 12-file inventory/ledger scope. The ledger transition itself requires one final exact-head check cycle before merge."
-      },
-      {
-        "at": "2026-07-30T15:56:27Z",
-        "status": "merged_cleanup_complete",
-        "summary": "PR #1847 passed all 11 checks again on final head 5f115efd92209bc1d9aa3986b429a71bdb3bc4f5 and squash-merged as fc985df4ff5192b7e92b38cd2a0d11117f393968 at 2026-07-30T15:50:28Z. origin/main contains the merge, local main equals origin/main, the worktree was clean, both task branches were absent, and both frozen parity validators passed post-merge."
-      }
-    ],
-    "updated_at": "2026-07-30T15:56:27Z"
-  },
+    {
+      "at": "2026-07-30T15:38:50Z",
+      "status": "github_checks_retry_pending",
+      "summary": "Completed isolated baseline-repair PR #1848, verified its merge commit 4cefabf0a188500c2d4dbc6392c48dbad30f7afb in origin/main, cleaned its branches/worktree, merged origin/main into PR #1847, and revalidated both artifact validators plus the focused contract 25/25 with the real package present. A fresh exact-head CI run is required."
+    },
+    {
+      "at": "2026-07-30T15:45:18Z",
+      "status": "ready_to_merge",
+      "summary": "All 11 checks passed on exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa. GitHub reports the PR mergeable with no review decision block, and the final changed-file list remains the exact 12-file inventory/ledger scope. The ledger transition itself requires one final exact-head check cycle before merge."
+    },
+    {
+      "at": "2026-07-30T15:56:27Z",
+      "status": "merged_cleanup_complete",
+      "summary": "PR #1847 passed all 11 checks again on final head 5f115efd92209bc1d9aa3986b429a71bdb3bc4f5 and squash-merged as fc985df4ff5192b7e92b38cd2a0d11117f393968 at 2026-07-30T15:50:28Z. origin/main contains the merge, local main equals origin/main, the worktree was clean, both task branches were absent, and both frozen parity validators passed post-merge."
+    }
+  ],
+  "updated_at": "2026-07-30T15:56:27Z"
+},
   "EN-PARITY-W1-MBTI-RESULT-AGENT-01": {
     "id": "EN-PARITY-W1-MBTI-RESULT-AGENT-01",
     "repo": "fap-web",
