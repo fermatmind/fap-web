@@ -955,6 +955,89 @@ describe("English content parity control master", () => {
     }
   });
 
+  it.each([
+    "zero self-reported counts",
+    "empty row reviews",
+    "duplicate row identity",
+    "missing row identity",
+    "unknown row identity",
+  ])("rejects a W9 blocker candidate with %s", (failureMode) => {
+    const candidateDirectory = makeW9QaDirectory();
+    const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+    const qaReportPath = path.join(candidateDirectory, "independent_qa_report.json");
+    const rowEvidencePath = path.join(candidateDirectory, "article_17_row_review_evidence.json");
+    const checkedInDirectory = path.join(
+      ROOT,
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45"
+    );
+    const candidate = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
+    ) as {
+      gate_evidence: {
+        report_path: string;
+        report_sha256: string;
+        row_count: number;
+        row_evidence: { path: string; sha256: string };
+      };
+    };
+    const qaReport = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "independent_qa_report.json"), "utf8")
+    ) as { reviewed_row_count: number };
+    const rowEvidence = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
+    ) as {
+      reviewed_row_count: number;
+      row_reviews: Array<{ source_identity: string }>;
+    };
+
+    if (failureMode === "zero self-reported counts") {
+      candidate.gate_evidence.row_count = 0;
+      qaReport.reviewed_row_count = 0;
+      rowEvidence.reviewed_row_count = 0;
+    } else if (failureMode === "empty row reviews") {
+      rowEvidence.row_reviews = [];
+    } else if (failureMode === "duplicate row identity") {
+      rowEvidence.row_reviews.at(-1)!.source_identity = rowEvidence.row_reviews[0]!.source_identity;
+    } else if (failureMode === "missing row identity") {
+      rowEvidence.row_reviews.pop();
+    } else {
+      rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
+    }
+
+    fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+    fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+    candidate.gate_evidence.report_path = qaReportPath;
+    candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+    candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+    candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      let failedOutput = "";
+      try {
+        execFileSync("node", [VALIDATOR_PATH, "--artifact", candidatePath], {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "pipe"],
+        });
+      } catch (error) {
+        failedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      const errors = (JSON.parse(failedOutput) as { errors: string[] }).errors.join("\n");
+      if (failureMode === "zero self-reported counts") {
+        expect(errors).toContain("W9 blocker row count must cover the complete registered target");
+      } else if (failureMode === "empty row reviews" || failureMode === "missing row identity") {
+        expect(errors).toContain("W9 row_reviews must contain every registered target row");
+      } else if (failureMode === "duplicate row identity") {
+        expect(errors).toContain("W9 row review identities must be unique");
+      } else {
+        expect(errors).toContain("W9 row review identities must exactly cover the frozen target identities");
+      }
+    } finally {
+      fs.rmSync(candidateDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
     const invalidApprovalDirectory = makeControlApprovalDirectory();

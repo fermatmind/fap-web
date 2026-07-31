@@ -1032,7 +1032,14 @@ function validateInPackageGateEvidence(artifact, packageContext, errors) {
   );
 }
 
-function validateIndependentQaEvidence(artifact, manifest, artifactPath, expectedVerdict, errors) {
+function validateIndependentQaEvidence(
+  artifact,
+  manifest,
+  artifactPath,
+  packageContext,
+  expectedVerdict,
+  errors
+) {
   let qaReport;
   let qaReportPath;
   try {
@@ -1126,6 +1133,23 @@ function validateIndependentQaEvidence(artifact, manifest, artifactPath, expecte
   }
 
   try {
+    const producerLane = manifest.lanes.find((lane) => lane.lane_id === artifact.lane_id);
+    const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
+    const registeredTargetAssets = targetAssets(manifest, producerLane, reviewedTarget);
+    const expectedReviewedRowCount = registeredTargetAssets.reduce(
+      (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+      0
+    );
+    assert(
+      artifact.gate_evidence.row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 blocker row count must cover the complete registered target`,
+      errors
+    );
+    assert(
+      qaReport.reviewed_row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 blocker report row count must cover the complete registered target`,
+      errors
+    );
     const qaAuthorityDirectory = fs.realpathSync(
       path.join(ROOT, manifest.lanes.find((lane) => lane.lane_id === "W9")?.output_directory ?? "")
     );
@@ -1200,11 +1224,67 @@ function validateIndependentQaEvidence(artifact, manifest, artifactPath, expecte
       errors
     );
     assert(
+      rowEvidenceArtifact.reviewed_row_count === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 row evidence row count must cover the complete registered target`,
+      errors
+    );
+    assert(
       sameValue(
         [...(rowEvidenceArtifact.reviewed_asset_ids ?? [])].sort(),
         [...artifact.gate_evidence.asset_ids].sort()
       ),
       `${artifact.lane_id}: W9 row evidence assets must match gate evidence`,
+      errors
+    );
+    const sourceLedgerPath = path.join(packageContext?.packageDirectory ?? "", "source_ledger.json");
+    assert(
+      Boolean(packageContext) && fs.existsSync(sourceLedgerPath) && fs.statSync(sourceLedgerPath).isFile(),
+      `${artifact.lane_id}: frozen source ledger is unavailable for W9 row coverage validation`,
+      errors
+    );
+    const sourceLedger = JSON.parse(fs.readFileSync(sourceLedgerPath, "utf8"));
+    const frozenRows = Array.isArray(sourceLedger.rows) ? sourceLedger.rows : [];
+    const frozenIdentities = frozenRows.map(
+      (row) => `${row?.stable_asset_identity}@revision:${row?.source_revision_id}`
+    );
+    assert(
+      frozenRows.length === expectedReviewedRowCount,
+      `${artifact.lane_id}: frozen source ledger row count must match the registered target`,
+      errors
+    );
+    assert(
+      new Set(frozenIdentities).size === frozenIdentities.length,
+      `${artifact.lane_id}: frozen source ledger identities must be unique`,
+      errors
+    );
+    const rowReviews = Array.isArray(rowEvidenceArtifact.row_reviews)
+      ? rowEvidenceArtifact.row_reviews
+      : [];
+    const reviewedRowIds = rowReviews.map((row) => row?.row_id);
+    const reviewedIdentities = rowReviews.map((row) => row?.source_identity);
+    assert(
+      Array.isArray(rowEvidenceArtifact.row_reviews),
+      `${artifact.lane_id}: W9 row evidence must include a row_reviews array`,
+      errors
+    );
+    assert(
+      rowReviews.length === expectedReviewedRowCount,
+      `${artifact.lane_id}: W9 row_reviews must contain every registered target row`,
+      errors
+    );
+    assert(
+      new Set(reviewedRowIds).size === reviewedRowIds.length,
+      `${artifact.lane_id}: W9 row review IDs must be unique`,
+      errors
+    );
+    assert(
+      new Set(reviewedIdentities).size === reviewedIdentities.length,
+      `${artifact.lane_id}: W9 row review identities must be unique`,
+      errors
+    );
+    assert(
+      sameValue([...reviewedIdentities].sort(), [...frozenIdentities].sort()),
+      `${artifact.lane_id}: W9 row review identities must exactly cover the frozen target identities`,
       errors
     );
   } catch (error) {
@@ -1905,13 +1985,13 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     }
     validateInPackageGateEvidence(artifact, packageContext, errors);
     if (artifact.proposed_status === "qa_pass") {
-      validateIndependentQaEvidence(artifact, manifest, artifactPath, "PASS", errors);
+      validateIndependentQaEvidence(artifact, manifest, artifactPath, packageContext, "PASS", errors);
     } else if (
       currentIndex >= stateIndex("package_frozen") &&
       artifact.proposed_status === "blocked" &&
       gateEvidence.owner_lane_id === "W9"
     ) {
-      validateIndependentQaEvidence(artifact, manifest, artifactPath, "BLOCKED", errors);
+      validateIndependentQaEvidence(artifact, manifest, artifactPath, packageContext, "BLOCKED", errors);
     } else if (["draft_imported", "published"].includes(artifact.proposed_status)) {
       validateControlledTransitionApproval(artifact, manifest, errors);
     } else if (
