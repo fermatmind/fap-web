@@ -45,6 +45,8 @@ const RESULT_SECTION_ORDER = [
   "letters_intro",
   "overview",
   "trait_overview",
+  "traits.at_difference",
+  "faq",
   "traits.why_this_type",
   "traits.close_call_axes",
   "traits.adjacent_type_contrast",
