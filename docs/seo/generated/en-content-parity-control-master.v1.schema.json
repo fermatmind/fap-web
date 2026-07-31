@@ -291,7 +291,7 @@
           "uniqueItems": true,
           "items": {
             "type": "string",
-            "pattern": "^ENPARITY-W3-[A-Z0-9-]+$"
+              "pattern": "^ENPARITY-W[1-8]-[A-Z0-9-]+$"
           }
         },
         "status": {

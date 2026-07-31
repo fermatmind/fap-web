@@ -20,7 +20,7 @@ The ordered path is:
 
 Any stage may enter `blocked`. Skipping a state is forbidden. A file existing is not evidence that a gate passed. Each transition requires its gate report and exact SHA lineage.
 
-The master stores current state and must remain valid after accepted transitions; the validator does not pin lanes to their bootstrap values. Entering `blocked` records the prior gate in `blocked_from_status`. A recovery candidate may return only to that retained state, uses external recovery evidence, and clears `blocked_from_status`; it cannot skip forward from `blocked`. For lanes without subscopes, `lane.status` is the transition source. W3 stores state, package SHA, QA reference, blockers, and recovery position independently on each registered subscope. The W3 lane-level status is the least-progressed subscope status (or `blocked` when either subscope is blocked).
+The master stores current state and must remain valid after accepted transitions; the validator does not pin lanes to their bootstrap values. Entering `blocked` records the prior gate in `blocked_from_status`. A recovery candidate may return only to that retained state, uses external recovery evidence, and clears `blocked_from_status`; it cannot skip forward from `blocked`. For lanes without subscopes, `lane.status` is the transition source. W1 and W3 store state, package SHA, QA reference, blockers, and recovery position independently on each registered subscope. A split lane's status is the least-progressed subscope status (or `blocked` when any subscope is blocked).
 
 `draft_imported` does not mean public release. Promotion, public release, indexability, sitemap, LLMS, schema, media, cache, and search actions remain independent gates.
 
@@ -28,7 +28,7 @@ The master stores current state and must remain valid after accepted transitions
 
 | Lane | Owner | Wave | Initial status | Work boundary |
 | --- | --- | ---: | --- | --- |
-| W1 | MBTI | 1 | `not_started` | Seven cross-type comparison gaps plus private result surfaces |
+| W1 | MBTI | 1 | `inventory_frozen` | Seven cross-type comparisons and 46 result-content families as separate packages |
 | W2 | Big Five | 1 | `not_started` | Preserve 52/52 public controls; verify 50 drafts and private result surfaces |
 | W3 | Editorial CMS | 1 | `inventory_frozen` | 17 Articles first, then 20 Career Guides as separate packages |
 | W4 | RIASEC | 2 | `not_started` | Fourteen deep result groups and safe variants |
@@ -61,7 +61,7 @@ Large local packages live under the lane directory in `generated/en-content-pari
 
 `sha256_manifest.json` covers the eight immutable payload files (all required handoff files except the SHA manifest itself and the candidate control envelope). Its deterministic aggregate SHA is computed from the ordered `path:sha256` entries. The candidate must name the real SHA manifest, copy that aggregate SHA, and match its lane and package ID. The validator reads every covered file and rejects missing, changed, reordered, or mismatched payloads.
 
-The candidate patch may propose only the next valid state for its lane or registered `subscope_id`. It must include transition evidence with an explicit evidence owner. Producer packages and their candidate/SHA files must physically reside in the exact registered lane or W3 subscope output directory; declaring the correct path from another directory is rejected. Producer-owned evidence before freeze must be covered by the verified package SHA manifest and use the transition-specific report: `source_ledger.json` for inventory/package start, `editorial_review.json` with a `PASS` verdict for `package_frozen`, or `claim_boundary_report.json` with a `BLOCKED` verdict for an early blocker. The embedded `scope_manifest.json` is independently checked against the shared Schema and complete lane-package invariants; hashing an incomplete scope does not make it acceptable. Every candidate asset ID must exactly equal the registered target set. Inventory counts become immutable at `inventory_frozen`; `package_frozen` fixes the complete asset set and aggregate package SHA; every later candidate must reuse that exact package and keep `scope_manifest.json` at `package_frozen`. Post-QA transitions use separately hashed external gate reports and append evidence to `gate_lineage`; they do not rewrite the frozen payload. `draft_imported` and `published` additionally require a `fermatmind.en_content_parity_controlled_transition_approval.v1` artifact owned by the human operator, stored under the registered `generated/en-content-parity/CONTROL-approvals/` authority directory, with an approval reference and exact frozen package SHA. An `inventory_frozen` proposal additionally requires all registered target cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. The validator parses the hashed `assets.jsonl` and `source_ledger.json`; their exact asset objects, unique source rows, per-cohort counts, lane, subscope, and package identity must match the candidate. It must keep these values false:
+The candidate patch may propose only the next valid state for its lane or registered `subscope_id`. It must include transition evidence with an explicit evidence owner. Producer packages and their candidate/SHA files must physically reside in the exact registered lane or subscope output directory; declaring the correct path from another directory is rejected. Producer-owned evidence before freeze must be covered by the verified package SHA manifest and use the transition-specific report: `source_ledger.json` for inventory/package start, `editorial_review.json` with a `PASS` verdict for `package_frozen`, or `claim_boundary_report.json` with a `BLOCKED` verdict for an early blocker. The embedded `scope_manifest.json` is independently checked against the shared Schema and complete lane-package invariants; hashing an incomplete scope does not make it acceptable. Every candidate asset ID must exactly equal the registered target set. Inventory counts become immutable at `inventory_frozen`; `package_frozen` fixes the complete asset set and aggregate package SHA; every later candidate must reuse that exact package and keep `scope_manifest.json` at `package_frozen`. Post-QA transitions use separately hashed external gate reports and append evidence to `gate_lineage`; they do not rewrite the frozen payload. `draft_imported` and `published` additionally require a `fermatmind.en_content_parity_controlled_transition_approval.v1` artifact owned by the human operator, stored under the registered `generated/en-content-parity/CONTROL-approvals/` authority directory, with an approval reference and exact frozen package SHA. An `inventory_frozen` proposal additionally requires all registered target cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. The validator parses the hashed `assets.jsonl` and `source_ledger.json`; their exact asset objects, unique source rows, per-cohort counts, lane, subscope, and package identity must match the candidate. It must keep these values false:
 
 - CMS write
 - staging write
@@ -73,7 +73,14 @@ The candidate patch may propose only the next valid state for its lane or regist
 
 Use `node scripts/seo/validate-en-content-parity-control.mjs --artifact <path>` to validate a lane `scope_manifest.json`, `master_manifest_patch.candidate.json`, or W9 independent QA report against the shared Schema. Use `--manifest <path>` to validate a proposed progressed master before replacing the authoritative file. Progressed master counts must reconcile with its registered asset cohorts.
 
-## W3 split rule
+## W1 and W3 split rules
+
+W1 has two independently frozen packages:
+
+1. `W1-MBTI-COMPARISONS` owns only `ENPARITY-W1-MBTI-CROSS-COMPARISONS`.
+2. `W1-MBTI-RESULT-CONTENT` owns only `ENPARITY-W1-MBTI-RESULT-CONTENT`.
+
+They must not share a package SHA, W9 report, import receipt, approval, publication/activation gate, or PR. Advancing comparison content never advances private result content.
 
 W3 is one operator window with two sequential scopes:
 

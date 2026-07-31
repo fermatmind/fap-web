@@ -52,6 +52,46 @@ const FROZEN_INVENTORY_COUNT_FIELDS = [
   "current_en_count",
   "remaining_en_count",
 ];
+const EXPECTED_SPLIT_SUBSCOPES_BY_LANE = new Map([
+  [
+    "W1",
+    [
+      {
+        id: "W1-MBTI-COMPARISONS",
+        sequence: 1,
+        resource: "MbtiCrossTypeComparisonAuthority",
+        output_subdirectory: "comparisons",
+        asset_ids: ["ENPARITY-W1-MBTI-CROSS-COMPARISONS"],
+      },
+      {
+        id: "W1-MBTI-RESULT-CONTENT",
+        sequence: 2,
+        resource: "MbtiResultContentAuthority",
+        output_subdirectory: "result-content",
+        asset_ids: ["ENPARITY-W1-MBTI-RESULT-CONTENT"],
+      },
+    ],
+  ],
+  [
+    "W3",
+    [
+      {
+        id: "W3-ARTICLES",
+        sequence: 1,
+        resource: "Article",
+        output_subdirectory: "articles",
+        asset_ids: ["ENPARITY-W3-ARTICLES"],
+      },
+      {
+        id: "W3-CAREER-GUIDES",
+        sequence: 2,
+        resource: "CareerGuide",
+        output_subdirectory: "career-guides",
+        asset_ids: ["ENPARITY-W3-CAREER-GUIDES"],
+      },
+    ],
+  ],
+]);
 const IN_PACKAGE_GATE_REPORT_FILES = {
   inventory_frozen: "source_ledger.json",
   package_in_progress: "source_ledger.json",
@@ -574,66 +614,90 @@ function validateMasterInvariants(manifest) {
   const qaLane = lanes.find((entry) => entry.lane_id === "W9");
   assert(qaLane?.launch_state === "waiting_for_first_package", "W9 must wait for the first frozen package", errors);
 
-  const w3 = lanes.find((entry) => entry.lane_id === "W3");
-  assert(
-    sameValue(
-      w3?.subscopes?.map((scope) => scope.id),
-      ["W3-ARTICLES", "W3-CAREER-GUIDES"]
-    ),
-    "W3 must contain the ordered Article and CareerGuide subscopes",
-    errors
-  );
-  for (const subscope of w3?.subscopes ?? []) {
-    if (subscope.status === "blocked") {
+  for (const [laneId, expectedSubscopes] of EXPECTED_SPLIT_SUBSCOPES_BY_LANE) {
+    const lane = lanes.find((entry) => entry.lane_id === laneId);
+    assert(
+      sameValue(
+        lane?.subscopes?.map((scope) => ({
+          id: scope.id,
+          sequence: scope.sequence,
+          resource: scope.resource,
+          output_subdirectory: scope.output_subdirectory,
+          asset_ids: scope.asset_ids,
+        })),
+        expectedSubscopes
+      ),
+      `${laneId} must retain its complete ordered independent package registry`,
+      errors
+    );
+  }
+  for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length > 0)) {
+    const subscopeOutputDirectories = lane.subscopes.map(
+      (subscope) => subscope.output_subdirectory
+    );
+    assert(
+      new Set(subscopeOutputDirectories).size === subscopeOutputDirectories.length,
+      `${lane.lane_id} subscope output directories must be unique`,
+      errors
+    );
+    for (const subscope of lane.subscopes) {
+      if (subscope.status === "blocked") {
+        assert(
+          stateIndex(subscope.blocked_from_status) >= 0,
+          `${subscope.id}: blocked state must retain a valid blocked_from_status`,
+          errors
+        );
+      } else {
+        assert(
+          subscope.blocked_from_status === null,
+          `${subscope.id}: blocked_from_status must be null while the subscope is not blocked`,
+          errors
+        );
+      }
+      assert(subscope.separate_package_required === true, `${subscope.id}: separate package must be required`, errors);
+      assert(subscope.same_pr_allowed === false, `${subscope.id}: same PR must be forbidden`, errors);
+      assert(stateIndex(subscope.status) >= 0 || subscope.status === "blocked", `${subscope.id}: invalid subscope status`, errors);
+      for (const assetId of subscope.asset_ids ?? []) {
+        assert(
+          assets.some((asset) => asset.asset_id === assetId && asset.lane_id === lane.lane_id),
+          `${subscope.id}: unknown or cross-lane asset ${assetId}`,
+          errors
+        );
+      }
+    }
+    const subscopeAssetIds = lane.subscopes.flatMap((subscope) => subscope.asset_ids ?? []);
+    assert(
+      new Set(subscopeAssetIds).size === subscopeAssetIds.length,
+      `${lane.lane_id} subscope asset assignments must be unique`,
+      errors
+    );
+    assert(
+      sameValue(
+        [...subscopeAssetIds].sort(),
+        assets
+          .filter((asset) => asset.lane_id === lane.lane_id)
+          .map((asset) => asset.asset_id)
+          .sort()
+      ),
+      `${lane.lane_id} subscopes must account for every lane asset cohort`,
+      errors
+    );
+    if (lane.subscopes.some((subscope) => subscope.status === "blocked")) {
       assert(
-        stateIndex(subscope.blocked_from_status) >= 0,
-        `${subscope.id}: blocked state must retain a valid blocked_from_status`,
+        lane.status === "blocked",
+        `${lane.lane_id} aggregate status must be blocked when a subscope is blocked`,
         errors
       );
     } else {
+      const minimumSubscopeIndex = Math.min(
+        ...lane.subscopes.map((subscope) => stateIndex(subscope.status))
+      );
       assert(
-        subscope.blocked_from_status === null,
-        `${subscope.id}: blocked_from_status must be null while the subscope is not blocked`,
+        stateIndex(lane.status) === minimumSubscopeIndex,
+        `${lane.lane_id} aggregate status must equal the least-progressed subscope`,
         errors
       );
     }
-    assert(subscope.separate_package_required === true, `${subscope.id}: separate package must be required`, errors);
-    assert(subscope.same_pr_allowed === false, `${subscope.id}: same PR must be forbidden`, errors);
-    assert(stateIndex(subscope.status) >= 0 || subscope.status === "blocked", `${subscope.id}: invalid subscope status`, errors);
-    for (const assetId of subscope.asset_ids ?? []) {
-      assert(
-        assets.some((asset) => asset.asset_id === assetId && asset.lane_id === "W3"),
-        `${subscope.id}: unknown or cross-lane asset ${assetId}`,
-        errors
-      );
-    }
-  }
-  const w3SubscopeAssetIds = (w3?.subscopes ?? []).flatMap((subscope) => subscope.asset_ids ?? []);
-  assert(
-    new Set(w3SubscopeAssetIds).size === w3SubscopeAssetIds.length,
-    "W3 subscope asset assignments must be unique",
-    errors
-  );
-  assert(
-    sameValue(
-      [...w3SubscopeAssetIds].sort(),
-      assets
-        .filter((asset) => asset.lane_id === "W3")
-        .map((asset) => asset.asset_id)
-        .sort()
-    ),
-    "W3 subscopes must account for every W3 asset cohort",
-    errors
-  );
-  if ((w3?.subscopes ?? []).some((subscope) => subscope.status === "blocked")) {
-    assert(w3?.status === "blocked", "W3 aggregate status must be blocked when a subscope is blocked", errors);
-  } else {
-    const minimumSubscopeIndex = Math.min(...(w3?.subscopes ?? []).map((subscope) => stateIndex(subscope.status)));
-    assert(
-      stateIndex(w3?.status) === minimumSubscopeIndex,
-      "W3 aggregate status must equal the least-progressed subscope",
-      errors
-    );
   }
 
   const assetIds = assets.map((asset) => asset.asset_id);
@@ -722,13 +786,15 @@ function validateMasterInvariants(manifest) {
       lane.lane_id
     );
   }
-  for (const subscope of w3?.subscopes ?? []) {
-    assertInventoryRemainsFrozen(
-      subscope,
-      assets.filter((asset) => subscope.asset_ids.includes(asset.asset_id)),
-      subscope.id
-    );
-    validateGateLineage(subscope, subscope.id, "W3", errors);
+  for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length > 0)) {
+    for (const subscope of lane.subscopes) {
+      assertInventoryRemainsFrozen(
+        subscope,
+        assets.filter((asset) => subscope.asset_ids.includes(asset.asset_id)),
+        subscope.id
+      );
+      validateGateLineage(subscope, subscope.id, lane.lane_id, errors);
+    }
   }
   for (const lane of lanes.filter((entry) => entry.lane_kind === "producer" && entry.subscopes.length === 0)) {
     validateGateLineage(lane, lane.lane_id, lane.lane_id, errors);
@@ -904,7 +970,7 @@ function registeredPackageTarget(lane, subscopeId) {
 }
 
 function validateSubscopeSequence(lane, packageTarget, proposedStatus, errors) {
-  if (!lane?.subscopes?.length || packageTarget?.sequence <= 1 || proposedStatus === "blocked") {
+  if (!lane?.subscopes?.length || !packageTarget || packageTarget.sequence <= 1 || proposedStatus === "blocked") {
     return;
   }
   if (stateIndex(proposedStatus) <= stateIndex("inventory_frozen")) {
@@ -2546,7 +2612,12 @@ function validateLeafInvariants(
         errors
       );
     }
-    if (artifact.proposed_status === "inventory_frozen" && !isBlockedRecovery) {
+    if (
+      ["inventory_frozen", "package_in_progress", "package_frozen"].includes(
+        artifact.proposed_status
+      ) &&
+      !isBlockedRecovery
+    ) {
       validateInventoryPayload(artifact, packageContext, errors);
     }
     validateInPackageGateEvidence(artifact, packageContext, errors);
