@@ -764,6 +764,37 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("allows producer-owned structured lineage for producer-originated blockers", () => {
+    const tempDirectory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "en-parity-control-producer-blocked-lineage-")
+    );
+    const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
+    const progressedManifest = structuredClone(manifest);
+    const w3 = progressedManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    const blockedEntry = articles?.gate_lineage.find((entry) => entry.status === "blocked");
+    if (!blockedEntry) {
+      throw new Error("missing W3 Article producer-blocked lineage fixture");
+    }
+    blockedEntry.evidence_owner_lane_id = "W3";
+    blockedEntry.report_ref =
+      "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json";
+    blockedEntry.report_sha256 =
+      "91f26ce51490e07a57e12a4f464818e0b9d1cbb469471eee85e4f595682ccfd3";
+    fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", progressedManifestPath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
+    }
+  });
+
   it("retains and restores the pre-block state through an explicit recovery transition", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-block-recovery-"));
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
