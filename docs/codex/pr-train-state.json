@@ -52683,11 +52683,11 @@
     "base": "main",
     "branch": "codex/en-parity-w2-big5-inventory-01",
     "title": "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory",
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "depends_on": [
       "EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01"
     ],
-    "commit_sha": "5d3cd73d78fddfd6fe3bda8631db836d7d963a6a",
+    "commit_sha": "e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1866",
     "checks": {
       "dependency": {
@@ -52703,14 +52703,14 @@
         "evidence": "Node 24: scope and candidate validators PASS; focused en-content-parity control contract passes 26/26; every JSON/YAML parses; exact ten-file set, eight-file SHA coverage, source-ledger count/unique IDs, assets/candidate equality, permissions, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Prior heads passed required checks. The truthful analytics inventory reclassification rebuilt the package and requires a fresh exact-head check and review cycle."
+        "status": "pass",
+        "evidence": "Final package head e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75 passed CI run 30604667438 (build, four contract shards, aggregate contracts, Big Five freeze, and Enneagram freeze) and CodeQL run 30604667437. Codex reviewed that exact head; the only finding was this pending ledger pointer, corrected in the metadata tail."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -52763,8 +52763,13 @@
         "at": "2026-07-31T04:37:10Z",
         "status": "github_checks_pending",
         "summary": "Recorded analytics repair head 5d3cd73d78fddfd6fe3bda8631db836d7d963a6a and replaced the invalid cross-repository mobile/desktop evidence locator with exact fap-web baseline paths at 485cf6d362d3907dc564dd7f0834a505d084ce55. Rebuilt the package as d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff."
+      },
+      {
+        "at": "2026-07-31T04:42:23Z",
+        "status": "ready_to_merge",
+        "summary": "Final package head e4e2ba6a5c74af481fc8301a3aa35c5fe31cee75 passed all required CI and CodeQL checks and exact-head Codex review. The frozen package is d49a6c972824ec3662cc4bade96a6fcbca851fb3e63f94c327c3e3a8e43508ff; this metadata tail records the validated head and advances the PR to ready_to_merge without changing package payloads."
       }
     ],
-    "updated_at": "2026-07-31T04:37:10Z"
+    "updated_at": "2026-07-31T04:42:23Z"
   }
 }
