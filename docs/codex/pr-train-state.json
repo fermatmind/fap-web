@@ -52350,13 +52350,13 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "baseline_repair_in_progress",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-repair-02",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "55549aac9101093594095ee2e92aee583ac04f83",
+    "commit_sha": "2b1751fee9ba4a9b31cb7d63b20293da4094274f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
     "checks": {
       "dependency": {
@@ -52388,15 +52388,15 @@
         "evidence": "Changes are restricted to the W3 Article package and its existing PR-train manifest/state entry; the control master, W3-CAREER-GUIDES, producer authority boundaries, and all CMS/publication/search/deploy permissions remain unchanged."
       },
       "github_required_checks": {
-        "status": "fail",
-        "evidence": "PR #1868 contract-shard-1 failed 3 tests in en-content-parity-control-master.contract.test.ts. Inspection shows the historical W9 blocker fixtures point at the mutable current producer sha256_manifest_path, so a legitimate package rebuild makes the old exact-SHA W9 fixture read the new package. The producer package itself passes its validator and package contract."
+        "status": "pending",
+        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. This branch is rebased onto that main commit; required checks must rerun against the new exact head."
       },
       "review_and_merge_policy": {
         "status": "pending",
         "evidence": "Pending exact-head PR review and mergeability verification."
       }
     },
-    "failure_reason": "Required contract-shard-1 is blocked by a pre-existing fixture coupling between historical W9 evidence and the mutable W3 producer package path. A separate minimal baseline-repair PR will make those fixtures use the existing frozen-package snapshot before this PR is revalidated.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -52440,9 +52440,14 @@
         "at": "2026-07-31T05:52:55Z",
         "status": "baseline_repair_in_progress",
         "summary": "Inspected PR #1868 contract-shard-1 before repair. Three historical W9 acceptance fixtures fail because their checked-in candidate references the mutable producer sha256_manifest path while asserting the prior exact package SHA. This is a pre-existing test-fixture isolation defect exposed by the new package; a separate minimal baseline repair is being created under repository standing authorization."
+      },
+      {
+        "at": "2026-07-31T06:09:16Z",
+        "status": "github_checks_pending",
+        "summary": "Baseline fixture isolation PR #1869 passed all 11 required checks and merged as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. Rebased the W3 Article package branch onto that exact main commit; local revalidation and fresh required GitHub checks are pending."
       }
     ],
-    "updated_at": "2026-07-31T05:52:55Z"
+    "updated_at": "2026-07-31T06:09:16Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
