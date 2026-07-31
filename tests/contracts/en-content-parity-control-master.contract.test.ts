@@ -926,9 +926,15 @@ describe("English content parity control master", () => {
     ) as { permissions: Record<string, boolean> };
     const rowEvidence = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "article_17_row_review_evidence.json"), "utf8")
-    ) as { permissions: Record<string, boolean> };
+    ) as {
+      permissions: Record<string, boolean>;
+      required_checks: Record<string, string>;
+    };
     qaReport.permissions = Object.fromEntries(Object.entries(qaReport.permissions).reverse());
     rowEvidence.permissions = Object.fromEntries(Object.entries(rowEvidence.permissions).reverse());
+    rowEvidence.required_checks = Object.fromEntries(
+      Object.entries(rowEvidence.required_checks).reverse()
+    );
     fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
     fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
     candidate.gate_evidence.report_path = qaReportPath;
@@ -1398,6 +1404,30 @@ describe("English content parity control master", () => {
         source_identity: string;
       }>;
     };
+    const reorderedApproval = structuredClone(checkedInApproval);
+    const reorderedRowEvidence = structuredClone(checkedInRowEvidence);
+    reorderedRowEvidence.required_checks = Object.fromEntries(
+      Object.entries(reorderedRowEvidence.required_checks).reverse()
+    );
+    const reorderedRowEvidencePath = path.join(
+      invalidW9Directory,
+      "reordered-required-checks-row-evidence.json"
+    );
+    const reorderedApprovalPath = path.join(
+      invalidApprovalDirectory,
+      "reordered-required-checks-approval.json"
+    );
+    fs.writeFileSync(reorderedRowEvidencePath, JSON.stringify(reorderedRowEvidence));
+    reorderedApproval.w9_row_evidence_ref = reorderedRowEvidencePath;
+    reorderedApproval.w9_row_evidence_sha256 = sha256AbsoluteFile(reorderedRowEvidencePath);
+    fs.writeFileSync(reorderedApprovalPath, JSON.stringify(reorderedApproval));
+    const reorderedOutput = execFileSync(
+      "node",
+      [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", reorderedApprovalPath],
+      { cwd: ROOT, encoding: "utf8" }
+    );
+    expect(JSON.parse(reorderedOutput)).toMatchObject({ ok: true, errors: [] });
+
     for (const failureMode of [
       "all aggregate and row checks PASS",
       "missing row evidence",

@@ -190,6 +190,25 @@ function sameValue(left, right) {
   return JSON.stringify(left) === JSON.stringify(right);
 }
 
+function sameRecordValues(left, right) {
+  if (
+    left === null ||
+    right === null ||
+    typeof left !== "object" ||
+    typeof right !== "object" ||
+    Array.isArray(left) ||
+    Array.isArray(right)
+  ) {
+    return false;
+  }
+  const leftKeys = Object.keys(left).sort();
+  const rightKeys = Object.keys(right).sort();
+  return (
+    sameValue(leftKeys, rightKeys) &&
+    leftKeys.every((key) => sameValue(left[key], right[key]))
+  );
+}
+
 function resolveRef(rootSchema, ref) {
   if (!ref.startsWith("#/")) {
     throw new Error(`unsupported_schema_ref=${ref}`);
@@ -385,7 +404,7 @@ function validateBlockedAggregateRows(
     errors
   );
   assert(
-    sameValue(rowEvidence?.required_checks, qaReport?.checks),
+    sameRecordValues(rowEvidence?.required_checks, qaReport?.checks),
     `${label}: W9 row evidence aggregate checks must match the independent QA report`,
     errors
   );
@@ -1527,7 +1546,7 @@ function validateIndependentQaEvidence(
       errors
     );
     assert(
-      sameValue(rowEvidenceArtifact.required_checks, qaReport.checks),
+      sameRecordValues(rowEvidenceArtifact.required_checks, qaReport.checks),
       `${artifact.lane_id}: W9 row evidence aggregate checks must match the independent QA report`,
       errors
     );
