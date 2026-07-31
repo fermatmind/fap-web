@@ -52356,7 +52356,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "2b1751fee9ba4a9b31cb7d63b20293da4094274f",
+    "commit_sha": "1585271e2af76c13a0c9bcb44b3a1f85666b4533",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
     "checks": {
       "dependency": {
@@ -52377,7 +52377,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 32edb0be91edab262e86c193bc689e70767018e119e5e5d2cd808d6d01e6e062."
+        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 88a7c67e26baff16a1e485590d8e75b046d4778c5db68fbf809980dbcc9c8215."
       },
       "lint": {
         "status": "pass",
@@ -52389,7 +52389,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. This branch is rebased onto that main commit; required checks must rerun against the new exact head."
+        "evidence": "The isolated historical W9 fixture repair merged through PR #1869 as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. All 11 checks passed on the prior rebased head; the same-scope Article 2 review repair changed the package to exact SHA 88a7c67e26baff16a1e485590d8e75b046d4778c5db68fbf809980dbcc9c8215, so required checks must rerun on the new head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52445,9 +52445,14 @@
         "at": "2026-07-31T06:09:16Z",
         "status": "github_checks_pending",
         "summary": "Baseline fixture isolation PR #1869 passed all 11 required checks and merged as 82ccf7b251de3646e6fcd7919c4ea13890ecf17c. Rebased the W3 Article package branch onto that exact main commit; local revalidation and fresh required GitHub checks are pending."
+      },
+      {
+        "at": "2026-07-31T06:18:21Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review identified remaining W9-blocked language in Article:2@revision:445. Repaired the gendered pronoun and fragment-style Cannot Infer/Conclude passages, confirmed all three stored W9 examples are absent or corrected, and re-froze the ten-file package at exact SHA 88a7c67e26baff16a1e485590d8e75b046d4778c5db68fbf809980dbcc9c8215. Control validation and 65/65 focused contracts pass; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-07-31T06:09:16Z"
+    "updated_at": "2026-07-31T06:18:21Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked",
