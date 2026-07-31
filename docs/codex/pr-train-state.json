@@ -52352,48 +52352,48 @@
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-repair-02",
+    "branch": "codex/en-parity-w3-article-package-repair-03",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "5e1aca943ba8d088830b96def08efa1cd992cd49",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1868",
+    "commit_sha": "904ea5d76801754265aca8ac82e0d6bf4a97bd73",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1875",
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "CONTROL reset PR #1867 is merged as 520ca0ebbb5156c5b83c7c935412a0b49a7f83db; current main retains W3-ARTICLES at package_in_progress and keeps W3-CAREER-GUIDES unchanged."
+        "evidence": "CONTROL blocker PR #1873 merged as e1d4bb29386a2135b25c72537d244d308bf2444d, and exact-SHA reset PR #1874 merged as d986fa87aa708c4a4d81c67dfdb945c7dab95a1d. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Reworked all 16 rows blocked by the fresh W9 report; restored source-equivalent tables/checklists in Articles 50, 51, 52, 53, 55, 58, and 59; repaired language and Markdown in the remaining blocked rows; Article 3 remains content-identical."
+        "evidence": "Repaired all 15 rows blocked by fresh W9 report 5e2dbbafcbb22713fc15b07e38f46ee8c9b0ebbe2737dd4697db89f94b825d61. Restored every source table and exact row count in Articles 3, 4, 5, 8, 10, 50, 51, 52, 53, 55, 58, and 59; repaired the exact language, source-equivalence, field-leakage, and Gaokao reassignment terminology findings; Articles 6 and 7 remain content-identical."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against the current master with zero errors."
+        "evidence": "validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against current master SHA ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d with zero errors."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "The W3 Article package contract passed 4/4 tests after the scoped pending_W9 enum repair."
+        "evidence": "The focused control and W3 Article package contracts passed 66/66 tests on Node 24."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Independent recomputation matched the exact ten-file set, all eight immutable payload SHAs, 17 source identities, heading parity, localized internal-link sets, all-false permissions, and aggregate package SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, source/candidate table counts and Markdown row counts, zero Han leakage, all-false permissions, and aggregate package SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161 revalidate."
       },
       "lint": {
-        "status": "pass",
-        "evidence": "pnpm lint completed successfully."
+        "status": "pass_with_external_sidecar",
+        "evidence": "Scoped clean-checkout-equivalent ESLint excluding only the pre-existing ignored .playwright-cli trace directory passed with zero errors. Canonical pnpm lint failure is isolated to two no-this-alias errors in that ignored local trace; the identical external blocker class is already recorded by the existing BIG5-EN52-104 sidecar entry, so this PR does not mutate sidecar files."
       },
       "scope_validation": {
         "status": "pass",
-        "evidence": "Changes are restricted to the W3 Article package and its existing PR-train manifest/state entry; the control master, W3-CAREER-GUIDES, producer authority boundaries, and all CMS/publication/search/deploy permissions remain unchanged."
+        "evidence": "Staged scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1868 head b259e91fd2c358bc2238fabd9b14f5fca885aa99 passed all 11 required CI and security checks after the final Article 51 repair. The final ready-to-merge ledger-only commit must retain the same validated package payload."
+        "evidence": "PR #1875 head ee0eb28e295f2d4ff6786f34a113a8a49e054283 passed all 11 required CI and security checks."
       },
       "review_and_merge_policy": {
         "status": "pass",
-        "evidence": "GitHub reports PR #1868 MERGEABLE/CLEAN. All actionable content and ledger review findings were repaired or answered with repository evidence; exact changed-file scope and all-false permissions were revalidated."
+        "evidence": "PR #1875 is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact changed-file scope and all-false permission boundaries revalidate."
       }
     },
     "failure_reason": null,
@@ -52485,9 +52485,24 @@
         "at": "2026-07-31T06:56:35Z",
         "status": "ready_to_merge",
         "summary": "PR #1868 head b259e91fd2c358bc2238fabd9b14f5fca885aa99 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN, exact package SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a revalidates, scope is exact, all permissions remain false, and no unresolved actionable review finding remains."
+      },
+      {
+        "at": "2026-07-31T08:11:28Z",
+        "status": "reset_to_package_in_progress",
+        "summary": "Fresh W9 evidence PR #1872 merged as 54bb67d9c0b029f1beb33a11d9b3bd01f88a3334 with 15/17 rows BLOCKED. CONTROL accepted the blocker in PR #1873 and merged the exact-SHA package rework reset in PR #1874 as d986fa87aa708c4a4d81c67dfdb945c7dab95a1d, returning W3-ARTICLES to package_in_progress without changing W3-CAREER-GUIDES or any write/release permission."
+      },
+      {
+        "at": "2026-07-31T08:36:12Z",
+        "status": "local_verified",
+        "summary": "Completed W9-directed rework-03 for all 15 blocked Article rows. Restored complete source-equivalent matrices, repaired the exact language and field-leakage findings, and rebuilt the ten-file candidate package at SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161. Control validation, 66/66 focused contracts, clean-checkout-equivalent scoped lint, package-integrity audit, scope validation, and git diff checks pass. The ignored local Playwright trace pollution matches the pre-existing BIG5-EN52-104 sidecar blocker class; all CMS/publication/SEO/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-31T08:50:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1875 head ee0eb28e295f2d4ff6786f34a113a8a49e054283 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact package SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161, changed-file scope, and all-false permissions revalidate."
       }
     ],
-    "updated_at": "2026-07-31T06:56:35Z"
+    "updated_at": "2026-07-31T08:50:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
