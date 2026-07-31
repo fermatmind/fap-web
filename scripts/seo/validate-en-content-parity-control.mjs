@@ -994,19 +994,39 @@ function validatePackageShaManifest(
   const packageDirectory = path.dirname(shaManifestPath);
   const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
   const registeredPackageDirectory = path.resolve(ROOT, packageTarget?.outputDirectory ?? "");
+  const isIndependentQaBlocker =
+    artifact.proposed_status === "blocked" &&
+    artifact.gate_evidence?.owner_lane_id === "W9" &&
+    artifact.gate_evidence?.report_in_package === false;
+  const qaLane = manifest.lanes.find((lane) => lane.lane_id === "W9");
+  const qaAuthorityDirectory = path.resolve(ROOT, qaLane?.output_directory ?? "");
+  const usesIndependentQaFrozenSnapshot =
+    isIndependentQaBlocker &&
+    path.basename(path.resolve(packageDirectory)) === "frozen_package" &&
+    isPathInside(path.resolve(packageDirectory), qaAuthorityDirectory);
   assert(
-    path.resolve(packageDirectory) === registeredPackageDirectory,
-    `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
+    usesIndependentQaFrozenSnapshot || path.resolve(packageDirectory) === registeredPackageDirectory,
+    `${artifact.lane_id}: package files must reside directly inside the registered output directory or an independent W9 frozen_package directory`,
     errors
   );
   try {
     const realPackageDirectory = fs.realpathSync(packageDirectory);
-    const realRegisteredDirectory = fs.realpathSync(registeredPackageDirectory);
-    assert(
-      realPackageDirectory === realRegisteredDirectory,
-      `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
-      errors
-    );
+    if (usesIndependentQaFrozenSnapshot) {
+      const realQaAuthorityDirectory = fs.realpathSync(qaAuthorityDirectory);
+      assert(
+        path.basename(realPackageDirectory) === "frozen_package" &&
+          isPathInside(realPackageDirectory, realQaAuthorityDirectory),
+        `${artifact.lane_id}: independent W9 frozen package path is outside QA authority`,
+        errors
+      );
+    } else {
+      const realRegisteredDirectory = fs.realpathSync(registeredPackageDirectory);
+      assert(
+        realPackageDirectory === realRegisteredDirectory,
+        `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
+        errors
+      );
+    }
   } catch (error) {
     errors.push(
       `${artifact.lane_id}: package output authority path cannot be verified (${error instanceof Error ? error.message : String(error)})`
@@ -1068,7 +1088,14 @@ function validatePackageShaManifest(
       )
     );
     errors.push(
-      ...validateLeafInvariants(scopeManifest, manifest, manifestSha256, scopeManifestPath, schema).map(
+      ...validateLeafInvariants(
+        scopeManifest,
+        manifest,
+        manifestSha256,
+        scopeManifestPath,
+        schema,
+        { skipArtifactAuthorityPath: usesIndependentQaFrozenSnapshot }
+      ).map(
         (error) => `${artifact.lane_id}: embedded scope manifest invariant error: ${error}`
       )
     );
@@ -1828,7 +1855,14 @@ function validateInventoryPayload(artifact, packageContext, errors) {
   }
 }
 
-function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath, schema) {
+function validateLeafInvariants(
+  artifact,
+  manifest,
+  manifestSha256,
+  artifactPath,
+  schema,
+  { skipArtifactAuthorityPath = false } = {}
+) {
   const errors = [];
   assertAllPermissionsFalse(artifact, "$", errors);
   const artifactLaneId =
@@ -2247,7 +2281,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.lane_id}: package output_directory must match the master registry`,
       errors
     );
-    if (packageTarget?.outputDirectory) {
+    if (packageTarget?.outputDirectory && !skipArtifactAuthorityPath) {
       validateArtifactAuthorityPath(
         artifactPath,
         packageTarget.outputDirectory,

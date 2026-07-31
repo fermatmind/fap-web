@@ -1,32 +1,26 @@
 {
-  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
-  "artifact_kind": "master_manifest_patch_candidate",
-  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "$schema": "../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "lane_package",
+  "schema_version": "fermatmind.en_content_parity_lane_package.v1",
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
   "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
-  "base_manifest_sha256": "a6349c530ef86b2d20d73bc1cf779db1984bd9c4fdb8de39c34efd235a0613ce",
-  "sha256_manifest_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/frozen_package/sha256_manifest.json",
-  "package_sha256": "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669",
-  "proposed_status": "blocked",
-  "gate_evidence": {
-    "gate": "blocked",
-    "report_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/independent_qa_report.json",
-    "report_sha256": "c719183f9cba94d50b61bb4064c35754bcb36e8224f9270039267c6dd4d2b0e4",
-    "report_in_package": false,
-    "owner_lane_id": "W9",
-    "verdict": "BLOCKED",
-    "asset_ids": [
-      "ENPARITY-W3-ARTICLES"
-    ],
-    "row_count": 17,
-    "row_evidence": {
-      "path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-37f9bf45/article_17_row_review_evidence.json",
-      "sha256": "d7d921a87f3ad427193842ef9e2d29e2a870162ead154466e437bae14178198e"
-    }
-  },
-  "asset_updates": [
+  "status": "package_frozen",
+  "output_directory": "generated/en-content-parity/W3-editorial-cms/articles/",
+  "artifact_files": [
+    "scope_manifest.json",
+    "assets.jsonl",
+    "translation_map.json",
+    "source_ledger.json",
+    "claim_boundary_report.json",
+    "editorial_review.json",
+    "dry_run_readiness.json",
+    "sha256_manifest.json",
+    "master_manifest_patch.candidate.json",
+    "handoff.md"
+  ],
+  "assets": [
     {
       "asset_id": "ENPARITY-W3-ARTICLES",
       "lane_id": "W3",
