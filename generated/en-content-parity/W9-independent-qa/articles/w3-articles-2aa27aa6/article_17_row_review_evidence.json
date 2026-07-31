@@ -1,0 +1,465 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "review_kind": "fresh_independent_full_target_w9",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-03-2026-07-31",
+  "package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161",
+  "reviewed_at": "2026-07-31T09:20:00Z",
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "reviewed_row_count": 17,
+  "verdict": "BLOCKED",
+  "coverage": {
+    "titles_reviewed": 17,
+    "excerpts_reviewed": 17,
+    "full_bodies_reviewed": 17,
+    "live_source_article_id_and_revision_pairs_matched": 17,
+    "registered_rows_covered": 17,
+    "source_markdown_table_groups_reviewed": 86,
+    "source_markdown_table_lines_reviewed": 610,
+    "candidate_markdown_table_groups_reviewed": 86,
+    "candidate_markdown_table_lines_reviewed": 610,
+    "candidate_han_character_count": 0,
+    "coverage_result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "BLOCKED",
+    "asset_duplication": "BLOCKED",
+    "field_leakage": "PASS",
+    "page_api_alignment": "PASS"
+  },
+  "package_integrity": {
+    "required_file_count": 10,
+    "required_files": [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md"
+    ],
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "2076c4438944917b4e179d65a14cc4eda5a78af6eeee0e28de11bbc907644feb",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "eb71548c4886d679e300a8e3cea624d4fa6299b88757bfa6b4a43fb051efc35b",
+      "source_ledger.json": "a288d7dace42934e9a71c3a096010a1726d4073abd0b4e8bb8c2809cf4258393",
+      "claim_boundary_report.json": "87b8a5775e02b6eff20f224de238ac97bf96bd9bee60fd4c9fa2a5a47a2d9d0f",
+      "editorial_review.json": "b8ba11ed4c39e12797068a1ac0137bbb0362c29bfd8441dc9207031738e6a841",
+      "dry_run_readiness.json": "ef00eddcf5f82ae6325f8f1407a6993be120d376e864a694ac47bfe3e4568d3d",
+      "handoff.md": "1f99cf26bbc8b6fa8bf93945f791ca3e8f6b4660ef61a76996fafb1d56878234"
+    },
+    "sha256_manifest_sha256": "d207894ffd9c1e899d4f5b7985da1e0bbb818deb9fed53d5db2a6f489616be8f",
+    "aggregate_package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161",
+    "registered_asset_set": [
+      {
+        "asset_id": "ENPARITY-W3-ARTICLES",
+        "expected_en_count": 17
+      }
+    ],
+    "source_identity_count": 17,
+    "source_identities": [
+      "Article:1@revision:446",
+      "Article:2@revision:445",
+      "Article:3@revision:383",
+      "Article:4@revision:58",
+      "Article:5@revision:444",
+      "Article:6@revision:443",
+      "Article:7@revision:442",
+      "Article:8@revision:72",
+      "Article:9@revision:441",
+      "Article:10@revision:440",
+      "Article:50@revision:57",
+      "Article:51@revision:73",
+      "Article:52@revision:64",
+      "Article:53@revision:65",
+      "Article:55@revision:75",
+      "Article:58@revision:78",
+      "Article:59@revision:79"
+    ],
+    "frozen_snapshot_byte_identical_to_producer_package": true,
+    "permissions_all_false": true,
+    "result": "PASS"
+  },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because fresh title, excerpt, and complete-body review found reader-visible literal translation, incorrect domain terminology, or non-grammatical table cells in 12 of 17 rows.",
+    "chinese_leakage": "PASS because all 17 candidate titles, excerpts, and complete bodies contain zero Han characters.",
+    "claim_boundary": "BLOCKED because four rows make or distort factual/product-boundary claims: Article:7 describes the product as assessing ability rather than observing task performance; Article:51 corrupts the exact 144-question instrument field; Article:53 describes an already completed 2026 consultation event in future tense; and Article:58 turns a conditional admissions outcome into an initial categorical answer.",
+    "asset_duplication": "BLOCKED under the control validator's aggregate completeness contract because 13 rows fail semantic source equivalence. All 17 Article/revision identities are unique, the exact 86 source table groups and 610 Markdown table lines are structurally represented, unique localized internal-route sets are preserved, and the explicit Media Library omission policy is applied consistently without local duplication, but structural presence does not make mistranslated source blocks complete.",
+    "field_leakage": "PASS because all 17 complete candidate bodies were reviewed and the prior producer, SEO, generator, website-production, and control-field phrases are absent from reader-visible content.",
+    "page_api_alignment": "PASS only for the applicable pre-import boundary: the live zh-CN public API independently returned all 17 exact registered Article IDs and published revision IDs, while all 17 target en API records and public routes remain absent, target publication status is candidate_only_not_imported, and import_ready is false. This does not claim live English parity."
+  },
+  "external_fact_review": [
+    {
+      "row_id": "W3-ARTICLE-53",
+      "claim": "The candidate says the 2026 Ministry of Education Cloud Consultation Week will run June 22-28.",
+      "finding": "BLOCKED: as of the 2026-07-31 review, the official event had already run June 22-28, so the candidate's future tense is stale.",
+      "official_sources": [
+        "https://gaokao.chsi.com.cn/gkxx/gzdt/202606/20260618/2293826055.html",
+        "https://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/202604/t20260428_1435016.html"
+      ]
+    }
+  ],
+  "blocking_summary": {
+    "blocked_row_count": 13,
+    "passing_rows": [
+      "W3-ARTICLE-01",
+      "W3-ARTICLE-02",
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-09"
+    ],
+    "blocked_rows": [
+      "W3-ARTICLE-03",
+      "W3-ARTICLE-04",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-07",
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-10",
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-53",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
+      "W3-ARTICLE-59"
+    ],
+    "blocked_checks": {
+      "language_naturalness": 12,
+      "source_equivalence_identity": 13,
+      "asset_duplication": 13,
+      "claim_boundary": 4
+    },
+    "qa_pass_authorized": false,
+    "producer_payload_modified": false,
+    "control_master_modified": false,
+    "career_guide_scope_modified": false,
+    "required_next_action": "A separate CONTROL-only decision may accept this blocker and move package_frozen to blocked. Rework requires a CONTROL-only reset to package_in_progress, followed by a new complete frozen package SHA and fresh independent W9 QA."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "slug": "big-five-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 28 source headings, five localized internal routes, title, excerpt, and complete body preserve the behavioral-experiment framing and explicit non-diagnostic, non-employment, non-admissions boundaries in reader-native English."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "slug": "big-five-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 22 source headings, localized routes, unknown-field handling, title, excerpt, and complete body are source-equivalent and reader-facing; no prior website-production or SEO-control text remains."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "slug": "big-five-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "In the report-audit matrix, source `分数类型` is rendered as `Fraction type`, and cells such as `Marked as \"to be verified\"` remain non-native. Required correction: use `Score type` and retranslate every cell in both restored matrices while preserving their 7-row and 4-row structures."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "slug": "eq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The eight restored matrices retain literal or non-grammatical cells, including `Alternatives to psychological counseling`, `Only suitable as a reference for others' clue sensitivity`, `Having high emotional intelligence means being able to speak`, and `Human communication`. Required correction: retranslate every matrix as natural reader-facing English without expanding the source claims."
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "slug": "iq-test-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Reader-visible taxonomy and process text remains fragmentary or semantically distorted: `Performance: Stop searching...`, `Status and Environmental Impact`, `Average sleep`, `Correct rate`, and the Quick Answer phrase `proficiency ... cannot be used to guarantee concurrent improvement`. Required correction: perform a natural editorial rewrite of the full row and its restored matrix while retaining the source's task-performance limits."
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "slug": "iq-test-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 21 source headings, three localized routes, title, excerpt, and full body preserve the source's score, strategy, privacy, uncertainty, and non-diagnostic boundaries in readable English."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "slug": "iq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "BLOCKED",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The excerpt and Quick Answer say the product is `designed to assess matrix and graphic reasoning abilities` and to `assess your ability`; the exact source only supports observing performance on matrix and graphic reasoning tasks. Required correction: replace ability-assessment claims with current task-performance language throughout, then recheck the product boundary."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "slug": "mbti-basics",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The two restored matrices corrupt standard MBTI terms: `Sensing / Intuition` is paired with `feeling preference / intuition preference`; `Thinking/Feeling` becomes `thinking preference/emotional preference`; `Judging/Perceiving` becomes `judgment preference/perception preference`; and the comparison matrix contains `Judgment skills` and `recruitment adaptation`. Required correction: use standard Sensing/Intuition, Thinking/Feeling, and Judging/Perceiving preference terminology and retranslate both matrices."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "slug": "mbti-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The title, excerpt, complete four-week behavior-experiment body, localized routes, and limitations are readable and source-equivalent; the row treats preferences as hypotheses rather than fixed identity or outcomes."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "slug": "mbti-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The restored evidence matrix uses `Project` and `Next` for source fields that mean `Item` and `Next step`; the body says `Avoid immediately retaking the assessment to achieve ideal results prior to retake`, which is redundant and unclear. Required correction: repair the matrix labels and give the retest instruction a single natural, source-equivalent meaning."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "slug": "iq-test-score-and-limits-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All four source tables are structurally restored, but cells remain literal or ungrammatical: `Possible clues to ability`, `There may be standard scores`, `Formal tests also require compliance scenarios and professional explanations`, raw score as `Task performance in this question`, and FAQ text `but Do not infer`. Required correction: retranslate all four matrices and FAQ text into natural English while retaining the online-test limits."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "slug": "enneagram-personality-test-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "BLOCKED",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The exact product field `144 题 forced-choice` is corrupted to `Question 144 forced-choice form` instead of `144-question forced-choice form`. Across the 11 restored matrices, `Genres`, `The description is not like me`, `Second highest type of approach`, and `Either \"strong or bad\"` remain semantically wrong. Required correction: repair the exact instrument field and retranslate every matrix before any product-description claim can pass."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The eight restored matrices use incorrect admissions and career terminology, including `Almost impossible to decide`, `Realistic / Highly realistic`, `Investigative / Highly research-oriented`, `Official volunteer information`, `Hard Condition Contraction`, and `The MBTI display preference structure is clear`; the FAQ also lacks a subject. Required correction: use standard Gaokao application and RIASEC terms and retranslate all eight matrices."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "BLOCKED",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The row says the 2026 Cloud Consultation Week `will` run June 22-28, but official sources show it had already occurred by this 2026-07-31 review. Its nine matrices also include `one point per section` for 一分一段, `Is family reality allowed?`, `What to look for | What to look for`, `Reservation`, `Don't make noise`, and `fill in volunteers`. Required correction: use durable or past tense for the dated fact and retranslate all admissions matrices with reader-native Gaokao terminology."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Across 11 restored matrices, key cells are mistranslated: `I feel stable at home...` for a family position, `News dissemination`, `one-point and one-section table`, `provincial volunteer system`, `line generation` for linear algebra, `Normal College Stability`, `whether tasks can be exposed`, `reserve`, and `seat rank`. Required correction: restore exact admissions, discipline, and course terminology across all 11 matrices."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "BLOCKED",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The 18 restored matrices contain `volunteer model`, `cannot bear them`, `Don't treat it as an affordable item`, `normal school`, duplicate `Marketing, marketing`, `School system`, and malformed transfer questions. The FAQ opens with a categorical `Yes` to whether accepting reassignment leads to an unwanted major before adding that it depends on program-group rules. Required correction: restore standard application/reassignment terminology and make every outcome explicitly conditional on the official rules."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "BLOCKED",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The 11 restored matrices retain severe literal translation: `basic faults`, `can it be replenished`, `Evidence of replenishability`, `If you are not good at mathematics, the computer will definitely not be able to learn it`, repeated `line generation` for linear algebra, `Types of people who are bad at math`, `Freshman high mathematics`, `Fix short videos and parent slogans`, and `Popular courses cannot be replaced and personal tolerance`. Required correction: retranslate all 11 matrices with standard linear-algebra, college-math, course, and work-activity terminology."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
