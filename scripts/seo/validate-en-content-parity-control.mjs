@@ -84,6 +84,9 @@ const W9_ROW_TO_AGGREGATE_CHECKS = {
   field_leakage: "field_leakage",
   page_api_alignment_applicable: "page_api_alignment",
 };
+const DIRECT_W9_ROW_TO_AGGREGATE_CHECKS = Object.fromEntries(
+  EXPECTED_QA_CHECKS.map((check) => [check, check])
+);
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -359,6 +362,60 @@ function assertBoundPermissionsMatch(candidatePermissions, evidence, location, l
     `${label}: permissions must exactly match the blocker candidate`,
     errors
   );
+}
+
+function validateBlockedAggregateRows(
+  qaReport,
+  rowEvidence,
+  expectedRowChecks,
+  rowToAggregateChecks,
+  label,
+  errors
+) {
+  assert(
+    sameValue(Object.keys(qaReport?.checks ?? {}).sort(), [...EXPECTED_QA_CHECKS].sort()),
+    `${label}: W9 QA report must include every required check`,
+    errors
+  );
+  assert(
+    EXPECTED_QA_CHECKS.every((check) => ["PASS", "BLOCKED"].includes(qaReport?.checks?.[check])),
+    `${label}: every W9 QA check must be PASS or BLOCKED`,
+    errors
+  );
+  assert(
+    EXPECTED_QA_CHECKS.some((check) => qaReport?.checks?.[check] === "BLOCKED"),
+    `${label}: W9 BLOCKED verdict requires at least one blocked QA check`,
+    errors
+  );
+  assert(
+    sameValue(rowEvidence?.required_checks, qaReport?.checks),
+    `${label}: W9 row evidence aggregate checks must match the independent QA report`,
+    errors
+  );
+
+  const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+  for (const rowReview of rowReviews) {
+    assert(
+      sameValue(Object.keys(rowReview?.checks ?? {}).sort(), [...expectedRowChecks].sort()),
+      `${label}: every W9 row review must include every required row check`,
+      errors
+    );
+    assert(
+      expectedRowChecks.every((check) => ["PASS", "BLOCKED"].includes(rowReview?.checks?.[check])),
+      `${label}: every W9 row review check must be PASS or BLOCKED`,
+      errors
+    );
+  }
+  for (const [rowCheck, aggregateCheck] of Object.entries(rowToAggregateChecks)) {
+    const expectedAggregateVerdict = rowReviews.some((row) => row?.checks?.[rowCheck] === "BLOCKED")
+      ? "BLOCKED"
+      : "PASS";
+    assert(
+      qaReport?.checks?.[aggregateCheck] === expectedAggregateVerdict,
+      `${label}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
+      errors
+    );
+  }
 }
 
 function hasDependencyCycle(lanes) {
@@ -1250,6 +1307,14 @@ function validateIndependentQaEvidence(
       `${artifact.lane_id}: W9 row evidence`,
       errors
     );
+    validateBlockedAggregateRows(
+      qaReport,
+      rowEvidenceArtifact,
+      EXPECTED_W9_ROW_CHECKS,
+      W9_ROW_TO_AGGREGATE_CHECKS,
+      artifact.lane_id,
+      errors
+    );
     assert(
       rowEvidenceArtifact.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
       `${artifact.lane_id}: W9 row evidence schema version is invalid`,
@@ -1797,7 +1862,6 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       `${artifact.producer_lane_id}: package rework reset must clear the failed frozen fields`,
       errors
     );
-
     const approvalDirectory = manifest.authority?.controlled_transition_approval_directory ?? "";
     try {
       const realApprovalDirectory = fs.realpathSync(path.join(ROOT, approvalDirectory));
@@ -1819,11 +1883,15 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       const reportPath = path.isAbsolute(artifact.w9_report_ref)
         ? artifact.w9_report_ref
         : path.join(ROOT, artifact.w9_report_ref);
+      const rowEvidencePath = path.isAbsolute(artifact.w9_row_evidence_ref)
+        ? artifact.w9_row_evidence_ref
+        : path.join(ROOT, artifact.w9_row_evidence_ref);
       const w9Lane = manifest.lanes.find((lane) => lane.lane_id === "W9");
       const realQaAuthorityDirectory = fs.realpathSync(
         path.join(ROOT, w9Lane?.output_directory ?? "")
       );
       const realReportPath = fs.realpathSync(reportPath);
+      const realRowEvidencePath = fs.realpathSync(rowEvidencePath);
       assert(
         isPathInside(realReportPath, realQaAuthorityDirectory),
         `${artifact.producer_lane_id}: package rework reset W9 report must remain in W9 authority`,
@@ -1834,7 +1902,18 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         `${artifact.producer_lane_id}: package rework reset W9 report SHA mismatch`,
         errors
       );
+      assert(
+        isPathInside(realRowEvidencePath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework reset W9 row evidence must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(rowEvidencePath) === artifact.w9_row_evidence_sha256,
+        `${artifact.producer_lane_id}: package rework reset W9 row evidence SHA mismatch`,
+        errors
+      );
       const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+      const rowEvidence = JSON.parse(fs.readFileSync(rowEvidencePath, "utf8"));
       errors.push(
         ...schemaErrors(report, schema).map(
           (error) => `${artifact.producer_lane_id}: package rework W9 Schema error: ${error}`
@@ -1845,6 +1924,21 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
           (error) => `${artifact.producer_lane_id}: package rework W9 invariant error: ${error}`
         )
       );
+      assertAllPermissionsFalse(rowEvidence, "$/package_rework_w9_row_evidence", errors);
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        report,
+        "$/package_rework_w9_report/permissions",
+        `${artifact.producer_lane_id}: package rework W9 report`,
+        errors
+      );
+      assertBoundPermissionsMatch(
+        artifact.permissions,
+        rowEvidence,
+        "$/package_rework_w9_row_evidence/permissions",
+        `${artifact.producer_lane_id}: package rework W9 row evidence`,
+        errors
+      );
       assert(
         report.artifact_kind === "independent_qa_report" &&
           report.qa_lane_id === "W9" &&
@@ -1853,6 +1947,71 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
           report.package_sha256 === artifact.blocked_package_sha256 &&
           report.verdict === "BLOCKED",
         `${artifact.producer_lane_id}: package rework reset requires an exact-SHA W9 BLOCKED report`,
+        errors
+      );
+      assert(
+        rowEvidence.schema_version === "fermatmind.en_content_parity_independent_qa_row_evidence.v1" &&
+          rowEvidence.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
+          rowEvidence.qa_lane_id === "W9" &&
+          rowEvidence.producer_lane_id === artifact.producer_lane_id &&
+          rowEvidence.subscope_id === artifact.subscope_id &&
+          rowEvidence.package_sha256 === artifact.blocked_package_sha256 &&
+          rowEvidence.verdict === "BLOCKED",
+        `${artifact.producer_lane_id}: package rework reset requires exact W9 BLOCKED row evidence`,
+        errors
+      );
+      const expectedAssetIds = resetTarget?.assetIds ?? [];
+      const expectedRowCount = manifest.assets
+        .filter((asset) => expectedAssetIds.includes(asset.asset_id))
+        .reduce(
+          (total, asset) => total + (Number.isInteger(asset.expected_en_count) ? asset.expected_en_count : 0),
+          0
+        );
+      assert(
+        report.reviewed_row_count === expectedRowCount &&
+          rowEvidence.reviewed_row_count === expectedRowCount,
+        `${artifact.producer_lane_id}: package rework W9 evidence must cover the complete registered target`,
+        errors
+      );
+      assert(
+        sameValue([...(report.reviewed_asset_ids ?? [])].sort(), [...expectedAssetIds].sort()) &&
+          sameValue([...(rowEvidence.reviewed_asset_ids ?? [])].sort(), [...expectedAssetIds].sort()),
+        `${artifact.producer_lane_id}: package rework W9 evidence assets must match the registered target`,
+        errors
+      );
+      const rowReviews = Array.isArray(rowEvidence.row_reviews) ? rowEvidence.row_reviews : [];
+      const rowIds = rowReviews.map((row) => row?.row_id);
+      const rowIdentities = rowReviews.map((row) => row?.source_identity);
+      assert(
+        rowReviews.length === expectedRowCount,
+        `${artifact.producer_lane_id}: package rework W9 row evidence must cover every target row`,
+        errors
+      );
+      assert(
+        rowIds.every((rowId) => typeof rowId === "string" && rowId.length > 0) &&
+          new Set(rowIds).size === rowIds.length,
+        `${artifact.producer_lane_id}: package rework W9 row IDs must be complete and unique`,
+        errors
+      );
+      assert(
+        rowIdentities.every((identity) => typeof identity === "string" && identity.length > 0) &&
+          new Set(rowIdentities).size === rowIdentities.length,
+        `${artifact.producer_lane_id}: package rework W9 row identities must be complete and unique`,
+        errors
+      );
+      assert(
+        rowReviews.every(
+          (row) => typeof row?.finding === "string" && row.finding.trim().length > 0
+        ),
+        `${artifact.producer_lane_id}: package rework W9 row evidence must include substantive findings`,
+        errors
+      );
+      validateBlockedAggregateRows(
+        report,
+        rowEvidence,
+        EXPECTED_QA_CHECKS,
+        DIRECT_W9_ROW_TO_AGGREGATE_CHECKS,
+        `${artifact.producer_lane_id}: package rework`,
         errors
       );
     } catch (error) {

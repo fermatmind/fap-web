@@ -9,6 +9,8 @@
   "blocked_package_sha256": "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
   "w9_report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/independent_qa_report.json",
   "w9_report_sha256": "3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192",
+  "w9_row_evidence_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/article_17_row_review_evidence.json",
+  "w9_row_evidence_sha256": "26ca923ee7ce246c8082d07cbc8608b316f177d7d4eb8a7161dcd08ee571814d",
   "proposed_status": "package_in_progress",
   "clear_fields": [
     "package_sha256",

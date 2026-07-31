@@ -1155,6 +1155,7 @@ describe("English content parity control master", () => {
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
     const invalidApprovalDirectory = makeControlApprovalDirectory();
+    const invalidW9Directory = makeW9QaDirectory();
     const blockedManifestPath = path.join(tempDirectory, "blocked-master.json");
     const reworkManifestPath = path.join(tempDirectory, "rework-master.json");
     const reworkApprovalPath =
@@ -1227,6 +1228,101 @@ describe("English content parity control master", () => {
       "package rework reset W9 report SHA mismatch"
     );
 
+    const checkedInApproval = JSON.parse(
+      fs.readFileSync(reworkApprovalPath, "utf8")
+    ) as {
+      w9_report_ref: string;
+      w9_report_sha256: string;
+      w9_row_evidence_ref: string;
+      w9_row_evidence_sha256: string;
+    };
+    const checkedInReport = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_report_ref), "utf8")
+    ) as {
+      checks: Record<string, string>;
+    };
+    const checkedInRowEvidence = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_row_evidence_ref), "utf8")
+    ) as {
+      required_checks: Record<string, string>;
+      permissions: Record<string, boolean>;
+      row_reviews: Array<{
+        source_identity: string;
+        checks: Record<string, string>;
+      }>;
+    };
+    for (const failureMode of [
+      "all aggregate and row checks PASS",
+      "missing row evidence",
+      "row identity drift",
+      "row permission drift",
+    ]) {
+      const approval = structuredClone(checkedInApproval);
+      const report = structuredClone(checkedInReport);
+      const rowEvidence = structuredClone(checkedInRowEvidence);
+      const reportPath = path.join(invalidW9Directory, `${failureMode.replaceAll(" ", "-")}-report.json`);
+      const rowEvidencePath = path.join(
+        invalidW9Directory,
+        `${failureMode.replaceAll(" ", "-")}-row-evidence.json`
+      );
+      if (failureMode === "all aggregate and row checks PASS") {
+        for (const check of Object.keys(report.checks)) {
+          report.checks[check] = "PASS";
+          rowEvidence.required_checks[check] = "PASS";
+        }
+        for (const rowReview of rowEvidence.row_reviews) {
+          for (const check of Object.keys(rowReview.checks)) {
+            rowReview.checks[check] = "PASS";
+          }
+        }
+      } else if (failureMode === "row identity drift") {
+        rowEvidence.row_reviews.at(-1)!.source_identity =
+          rowEvidence.row_reviews[0]!.source_identity;
+      } else if (failureMode === "row permission drift") {
+        rowEvidence.permissions.production_import_authorized = true;
+      }
+      fs.writeFileSync(reportPath, JSON.stringify(report));
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      approval.w9_report_ref = reportPath;
+      approval.w9_report_sha256 = sha256AbsoluteFile(reportPath);
+      approval.w9_row_evidence_ref =
+        failureMode === "missing row evidence"
+          ? path.join(invalidW9Directory, "missing-row-evidence.json")
+          : rowEvidencePath;
+      approval.w9_row_evidence_sha256 =
+        failureMode === "missing row evidence"
+          ? "0".repeat(64)
+          : sha256AbsoluteFile(rowEvidencePath);
+      fs.writeFileSync(invalidApprovalPath, JSON.stringify(approval));
+
+      let blockerOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", invalidApprovalPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        blockerOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      const blockerErrors = (JSON.parse(blockerOutput) as { errors: string[] }).errors.join("\n");
+      if (failureMode === "all aggregate and row checks PASS") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 BLOCKED verdict requires at least one blocked QA check"
+        );
+      } else if (failureMode === "missing row evidence") {
+        expect(blockerErrors).toContain("cannot verify package rework W9 evidence");
+      } else if (failureMode === "row identity drift") {
+        expect(blockerErrors).toContain(
+          "package rework W9 row identities must be complete and unique"
+        );
+      } else {
+        expect(blockerErrors).toContain(
+          "$/package_rework_w9_row_evidence/permissions/production_import_authorized: permission must remain false"
+        );
+      }
+    }
+
     w3.status = "inventory_frozen";
     w3.blocked_from_status = null;
     w3.blockers = [];
@@ -1257,6 +1353,7 @@ describe("English content parity control master", () => {
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
       fs.rmSync(invalidApprovalDirectory, { recursive: true, force: true });
+      fs.rmSync(invalidW9Directory, { recursive: true, force: true });
     }
   });
 
