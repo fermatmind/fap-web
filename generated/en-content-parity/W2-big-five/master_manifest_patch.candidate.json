@@ -1,0 +1,101 @@
+{
+  "$schema": "../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W2",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
+  "base_manifest_sha256": "a6349c530ef86b2d20d73bc1cf779db1984bd9c4fdb8de39c34efd235a0613ce",
+  "sha256_manifest_path": "generated/en-content-parity/W2-big-five/sha256_manifest.json",
+  "package_sha256": "0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292",
+  "proposed_status": "inventory_frozen",
+  "gate_evidence": {
+    "gate": "inventory_frozen",
+    "report_path": "source_ledger.json",
+    "report_sha256": "facbf57a362a430cdc8b5f6545db4a227e1268d285e2c27beed3c935ea9cf6e2",
+    "report_in_package": true,
+    "owner_lane_id": "W2",
+    "verdict": null,
+    "asset_ids": [
+      "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT"
+    ],
+    "row_count": 118
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "lane_id": "W2",
+      "asset_type": "big_five_public_profile",
+      "translation_group": "cohort:big-five:public-profile",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset published projection",
+      "expected_en_count": 52,
+      "current_en_count": 52,
+      "remaining_en_count": 0,
+      "parity_state": "paired_complete",
+      "evidence": [
+        "The frozen public control contains all 52 canonical English/zh-CN logical identities; public-profile generation remains NOT_REQUIRED.",
+        "Merged fap-api evidence at 2b2c971c6077fa4101a54826c6b3703eb5b6b3e1 proves the exact 52-row English authority catalog, including 50 non-hub rows plus the model and facet hubs.",
+        "All 20 locale-specific redirect-only alias paths remain excluded from the canonical cohort, and the English public assets remain text-only."
+      ],
+      "notes": "Completed immutable control. This package preserves the 52/52 result and does not regenerate or rewrite public profile content."
+    },
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "lane_id": "W2",
+      "asset_type": "big_five_draft_projection",
+      "translation_group": "cohort:big-five:english-draft-verification",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS working revision and published projection",
+      "expected_en_count": 50,
+      "current_en_count": 50,
+      "remaining_en_count": 0,
+      "parity_state": "paired_complete",
+      "evidence": [
+        "fap-api PR 3421 merged as 2b2c971c6077fa4101a54826c6b3703eb5b6b3e1; implementation f15e81992ab291a8b578fbe19f2e1846a19aa48c.",
+        "The sanitized durable evidence (7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd) proves exactly 50 registered historical immutable revision rows and zero independent current drafts.",
+        "Every current working pointer equals its locked published revision; all 50 historical slots are inactive, superseded, text-only, claim-boundary compliant, and classified stale_working_revision."
+      ],
+      "notes": "current_en_count means the 50 registered historical revision slots were independently reconciled, not that 50 active drafts exist. Active independent draft count is zero; public page count is not used as draft evidence."
+    },
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "lane_id": "W2",
+      "asset_type": "big_five_result_content",
+      "translation_group": "cohort:big-five:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend Big Five v2 result and report content",
+      "expected_en_count": 16,
+      "current_en_count": 0,
+      "remaining_en_count": 16,
+      "parity_state": "en_draft_requires_verification",
+      "evidence": [
+        "Sixteen backend-owned result/report/share/PDF/history reader-content surface or module units are frozen row by row.",
+        "No unit is counted complete from a fixture, mock, computed score, selector row, private payload, or frontend label/fallback.",
+        "All 16 remain for the separately scoped backend draft-review-only result asset package; inventory completeness does not authorize import, runtime use, publication, or deploy."
+      ],
+      "notes": "Count unit is one required reader-content surface/module group. PR 3 must bind this exact frozen inventory package SHA and keep every write/release permission false."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

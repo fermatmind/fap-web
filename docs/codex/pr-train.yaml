@@ -28017,3 +28017,62 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs
     repository_rule_impact: strengthens fail-closed locale behavior without changing backend content authority
+
+  - id: EN-PARITY-W2-BIG5-INVENTORY-01
+    repo: fap-web
+    branch: codex/en-parity-w2-big5-inventory-01
+    base: main
+    title: "EN-PARITY-W2-BIG5-INVENTORY-01: freeze Big Five English parity inventory"
+    depends_on:
+      - EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01
+    mode: execute
+    train_scope: en_parity_w2_big5_inventory
+    status: ready_to_merge
+    scope:
+      - Consume the merged exact-SHA sanitized PR 1 evidence and freeze the complete 52 public-profile, 50 historical-revision, and 16 result-content W2 inventory.
+      - Submit only a validated inventory_frozen candidate patch; do not modify the authoritative master manifest or any runtime/content authority surface.
+    allowed_paths:
+      - generated/en-content-parity/W2-big-five/scope_manifest.json
+      - generated/en-content-parity/W2-big-five/assets.jsonl
+      - generated/en-content-parity/W2-big-five/translation_map.json
+      - generated/en-content-parity/W2-big-five/source_ledger.json
+      - generated/en-content-parity/W2-big-five/claim_boundary_report.json
+      - generated/en-content-parity/W2-big-five/editorial_review.json
+      - generated/en-content-parity/W2-big-five/dry_run_readiness.json
+      - generated/en-content-parity/W2-big-five/sha256_manifest.json
+      - generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json
+      - generated/en-content-parity/W2-big-five/handoff.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify docs/seo/generated/en-content-parity-control-master.v1.json or its Schema.
+      - Modify app/**, components/**, lib/**, public/**, sitemap, llms, canonical, robots, JSON-LD, or public editorial content.
+      - Write CMS/staging/production data, import, publish, promote, deploy, or submit to Search Channel.
+      - Produce the sixteen future result assets in this inventory PR.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/scope_manifest.json
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - all JSON parse
+      - exact eight-file SHA manifest recomputation
+      - source ledger row/count/unique-id validation
+      - assets.jsonl and candidate asset_updates exact equality
+      - YAML and state JSON parse
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: generated control handoff only; backend authority and frontend no-fallback rules remain unchanged

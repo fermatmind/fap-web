@@ -1,0 +1,39 @@
+{
+  "schema_version": "fermatmind.en_content_parity_claim_boundary_report.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W2",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
+  "generated_at": "2026-07-31T03:42:00Z",
+  "verdict": "PASS",
+  "claim_checks": {
+    "continuous_trait_language": "PASS",
+    "no_high_is_better_low_is_worse": "PASS",
+    "no_precise_career_matching": "PASS",
+    "no_hiring_or_admission_fit": "PASS",
+    "no_intelligence_morality_or_clinical_grade": "PASS",
+    "no_outcome_guarantee": "PASS",
+    "no_unsupported_reliability_validity_norm_percentile_claim": "PASS",
+    "no_fixed_identity": "PASS",
+    "no_private_result_field_leakage": "PASS"
+  },
+  "leakage_summary": {
+    "public_profile_chinese_leakage_rows": 0,
+    "public_profile_media_exposure_rows": 0,
+    "historical_draft_chinese_leakage_rows": 0,
+    "historical_draft_media_exposure_rows": 0,
+    "private_field_leak_hits": 0,
+    "result_asset_unknown_or_missing_rows": 16
+  },
+  "blockers": [],
+  "notes": "PASS applies to inventory freeze only. The 16 result units still require separately reviewed English content and do not gain runtime/import/release authority.",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
