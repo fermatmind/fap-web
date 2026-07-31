@@ -467,6 +467,25 @@ function validateBlockedRowSubstance(rowEvidence, expectedRowChecks, label, erro
   }
 }
 
+function validateAggregateEvidence(rowEvidence, label, errors) {
+  assert(
+    sameValue(
+      Object.keys(rowEvidence?.check_evidence ?? {}).sort(),
+      [...EXPECTED_QA_CHECKS].sort()
+    ),
+    `${label}: W9 row evidence must include substantive evidence for every aggregate check`,
+    errors
+  );
+  for (const check of EXPECTED_QA_CHECKS) {
+    assert(
+      typeof rowEvidence?.check_evidence?.[check] === "string" &&
+        rowEvidence.check_evidence[check].trim().length > 0,
+      `${label}: W9 aggregate check ${check} must include substantive evidence`,
+      errors
+    );
+  }
+}
+
 function hasDependencyCycle(lanes) {
   const dependencies = new Map(lanes.map((lane) => [lane.lane_id, lane.dependencies]));
   const visiting = new Set();
@@ -1550,19 +1569,7 @@ function validateIndependentQaEvidence(
       `${artifact.lane_id}: W9 row evidence aggregate checks must match the independent QA report`,
       errors
     );
-    assert(
-      sameValue(Object.keys(rowEvidenceArtifact.check_evidence ?? {}).sort(), [...EXPECTED_QA_CHECKS].sort()),
-      `${artifact.lane_id}: W9 row evidence must include substantive evidence for every aggregate check`,
-      errors
-    );
-    for (const check of EXPECTED_QA_CHECKS) {
-      assert(
-        typeof rowEvidenceArtifact.check_evidence?.[check] === "string" &&
-          rowEvidenceArtifact.check_evidence[check].trim().length > 0,
-        `${artifact.lane_id}: W9 aggregate check ${check} must include substantive evidence`,
-        errors
-      );
-    }
+    validateAggregateEvidence(rowEvidenceArtifact, artifact.lane_id, errors);
     for (const [aggregateCheck, rowChecks] of Object.entries(W9_AGGREGATE_TO_ROW_CHECKS)) {
       const expectedAggregateVerdict = rowReviews.some((row) =>
         rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
@@ -2208,6 +2215,11 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       validateBlockedRowSubstance(
         rowEvidence,
         EXPECTED_W9_ROW_CHECKS,
+        `${artifact.producer_lane_id}: package rework`,
+        errors
+      );
+      validateAggregateEvidence(
+        rowEvidence,
         `${artifact.producer_lane_id}: package rework`,
         errors
       );

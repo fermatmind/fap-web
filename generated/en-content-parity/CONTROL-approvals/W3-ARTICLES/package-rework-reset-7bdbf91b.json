@@ -10,7 +10,7 @@
   "w9_report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/independent_qa_report.json",
   "w9_report_sha256": "3be77c1328b27ced327e269d8df40d33c623649a8ceb2cd1e9707510e40df192",
   "w9_row_evidence_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/article_17_row_review_evidence.json",
-  "w9_row_evidence_sha256": "6361d5069fcd51f7e8ea7736c887c9113cab4e4eb1042aa8cf91ef2a92643b92",
+  "w9_row_evidence_sha256": "3a0baa87a36a6225029cf3f43414180fbb51e50804fcf4caf2518ad572006647",
   "w9_frozen_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/frozen_source_ledger_identity_projection.json",
   "w9_frozen_ledger_sha256": "b8f4dba73769159521422b959f265df093dd6dcf8620972fa9a72d495eeb8f5e",
   "proposed_status": "package_in_progress",

@@ -1386,6 +1386,7 @@ describe("English content parity control master", () => {
       fs.readFileSync(path.join(ROOT, checkedInApproval.w9_row_evidence_ref), "utf8")
     ) as {
       required_checks: Record<string, string>;
+      check_evidence?: Record<string, string>;
       permissions: Record<string, boolean>;
       row_reviews: Array<{
         row_id: string;
@@ -1439,6 +1440,8 @@ describe("English content parity control master", () => {
       "empty substantive row evidence",
       "row verdict mismatch",
       "aggregate check mismatch",
+      "missing aggregate evidence",
+      "empty aggregate evidence",
     ]) {
       const approval = structuredClone(checkedInApproval);
       const report = structuredClone(checkedInReport);
@@ -1489,6 +1492,10 @@ describe("English content parity control master", () => {
       } else if (failureMode === "aggregate check mismatch") {
         report.checks.language_naturalness = "PASS";
         rowEvidence.required_checks.language_naturalness = "PASS";
+      } else if (failureMode === "missing aggregate evidence") {
+        delete rowEvidence.check_evidence;
+      } else if (failureMode === "empty aggregate evidence") {
+        rowEvidence.check_evidence!.language_naturalness = " ";
       }
       fs.writeFileSync(reportPath, JSON.stringify(report));
       fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
@@ -1557,6 +1564,14 @@ describe("English content parity control master", () => {
       } else if (failureMode === "aggregate check mismatch") {
         expect(blockerErrors).toContain(
           "package rework: W9 aggregate check language_naturalness must match the row reviews"
+        );
+      } else if (failureMode === "missing aggregate evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 row evidence must include substantive evidence for every aggregate check"
+        );
+      } else if (failureMode === "empty aggregate evidence") {
+        expect(blockerErrors).toContain(
+          "package rework: W9 aggregate check language_naturalness must include substantive evidence"
         );
       } else {
         expect(blockerErrors).toContain(

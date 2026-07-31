@@ -73,6 +73,14 @@
     "field_leakage": "PASS",
     "page_api_alignment": "PASS"
   },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because complete title, excerpt, and body review found non-idiomatic or malformed reader-visible English in 12 of the 17 frozen article rows.",
+    "chinese_leakage": "PASS because review of every frozen title, excerpt, and complete body found no reader-visible Chinese text in the English candidates.",
+    "claim_boundary": "PASS because all 17 frozen rows retain bounded self-understanding and career-exploration language without diagnostic, hiring, admissions, or guaranteed-outcome claims.",
+    "asset_duplication": "PASS because all 17 frozen source identities map one-to-one to the reviewed rows and no row check found duplicated or omitted media or asset content.",
+    "field_leakage": "PASS because all 17 complete bodies and internal-link shapes were reviewed without finding producer-control fields, private values, or inequivalent internal-link leakage.",
+    "page_api_alignment": "PASS for the applicable frozen pre-import boundary because every reviewed row preserves its registered source identity and candidate route alignment; this does not claim live imported English parity."
+  },
   "row_reviews": [
     {
       "row_id": "W3-ARTICLE-01",
