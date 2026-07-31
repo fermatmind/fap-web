@@ -272,11 +272,20 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_in_progress",
+          "status": "package_frozen",
           "blocked_from_status": null,
-          "package_sha256": null,
+          "package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161",
           "qa_report_ref": null,
-          "gate_lineage": [],
+          "gate_lineage": [
+            {
+              "status": "package_frozen",
+              "evidence_owner_lane_id": "W3",
+              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+              "report_sha256": "b8ba11ed4c39e12797068a1ac0137bbb0362c29bfd8441dc9207031738e6a841",
+              "package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161",
+              "accepted_at": "2026-07-31T08:55:55.000Z"
+            }
+          ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -316,7 +325,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Rebuild the complete W3-ARTICLES package, re-freeze it, and repeat fresh independent W9 QA. Continue W3-CAREER-GUIDES only as its own independent sequential scope without combining package or gate lineage.",
+      "next_action": "Submit exact W3-ARTICLES package SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161 to fresh independent W9 QA; keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
