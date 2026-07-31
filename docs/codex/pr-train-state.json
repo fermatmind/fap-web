@@ -52511,59 +52511,59 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "06a3a8a67a7988a96f029936185a258ca03668d5",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1872",
+    "commit_sha": "68d9564c5c24540cc41c970e138bed847c9385c3",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1877",
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "GitHub reports producer PR #1868 merged as 5f46aa842d77470e440bd11de66e6e876c89bf45 and CONTROL PR #1871 merged as b6d2ee836ef63e8eeaef07ddc47c13c8ba817c18. Current origin/main is the latter exact commit and registers W3-ARTICLES at package_frozen SHA 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "GitHub reports producer PR #1875 merged as 3cf5b570c2cd0295cd8822574f0743da4b750fe3 and CONTROL merged at 5d8aa0461f41e88c9d304d3b61f4af1d5b9eded9. Current origin/main is that exact CONTROL commit and registers W3-ARTICLES at package_frozen SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161 while W3-CAREER-GUIDES remains unchanged."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "The standard ten-file package is complete; all eight immutable payload SHA values recompute exactly; the validator-order aggregate is 499dffdfccc9a2fd50daf823c345e5a4ed24edb486e2fc505d2a169b419dd27a; all 17 Article/revision identities are unique; and all permissions remain false. A byte-identical frozen snapshot is stored under the new W9 authority directory."
+        "evidence": "The standard ten-file package is complete; all eight immutable payload SHA values recompute exactly; the validator-order aggregate is 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161; all 17 Article/revision identities are unique; and all permissions remain false. A byte-identical frozen snapshot is stored under the new W9 authority directory."
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies; independently read the exact live zh-CN source revisions; and recorded all eight required row checks with locator, quote or field, reason, and required correction for each blocker under generated/en-content-parity/W9-independent-qa/articles/w3-articles-499dffdf/."
+        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies; read every source Markdown table/matrix (86 groups / 610 lines); independently matched all exact live zh-CN source revisions; and recorded eight checks plus actionable evidence for every row under generated/en-content-parity/W9-independent-qa/articles/w3-articles-2aa27aa6/."
       },
       "language_naturalness": {
         "status": "fail",
-        "evidence": "10/17 rows retain reader-visible semantic mistranslations or non-native English, including low Agreeableness rendered as low-key, IQ/EQ constructs assigned human agency, major reassignment rendered as downgrading, subjectless instructions, and other machine-translated passages."
+        "evidence": "12/17 rows retain reader-visible literal translation, non-native grammar, or incorrect MBTI, RIASEC, Gaokao, admissions, Enneagram, linear-algebra, and assessment terminology."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "fail",
-        "evidence": "13/17 rows fail source equivalence. Twelve candidates omit one or more complete source tables or decision matrices; aggregate Markdown table coverage falls from 86 source groups / 610 rows to 31 candidate groups / 201 rows across the reviewed cohort. Article:1 also mistranslates a source trait example."
+        "evidence": "13/17 rows fail semantic source equivalence even though structural coverage is now complete at 86 source and candidate Markdown table groups / 610 lines. Blocking defects include ability-vs-task-performance claims, a corrupted exact 144-question field, stale event tense, distorted admissions conditionals, and incorrect domain vocabulary."
       },
       "field_leakage": {
-        "status": "fail",
-        "evidence": "Article:2 and Article:50 expose reader-visible producer/SEO control language, including article/website production instructions, `high-intent search query`, and `active expansion ... is not supported unless explicitly documented`."
+        "status": "pass",
+        "evidence": "All 17 complete candidate bodies were reviewed; prior producer, SEO, generator, website-production, and control-field phrases are absent from reader-visible content."
       },
       "other_required_qa_checks": {
-        "status": "pass",
-        "evidence": "Chinese leakage, claim boundary, internal-link equivalence, explicit Media Library omission policy, unique identity mapping, and applicable pre-import page/API alignment pass. This does not claim live English parity."
+        "status": "fail",
+        "evidence": "Chinese leakage, internal-link equivalence, explicit Media Library omission policy, unique identity mapping, and applicable pre-import page/API alignment pass. Asset duplication/completeness is BLOCKED under the control aggregate because 13 rows fail semantic source equivalence, and claim boundary is BLOCKED on four rows. This does not claim live English parity."
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent report SHA256 is 5e2dbbafcbb22713fc15b07e38f46ee8c9b0ebbe2737dd4697db89f94b825d61; 17-row evidence SHA256 is 9f06f241011079840a4a2d51a6e8b9feba662426445a1fe0c4ec7c9a1924ef56; blocked candidate SHA256 is ad84cbf48ed70ee8a3761caef9dc2fcc94619bb2146d9c213678ac9656a54284."
+        "evidence": "Independent report SHA256 is 98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26; 17-row evidence SHA256 is acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac; blocked candidate SHA256 is d6ce47204d108d29cf22d350c628642f900eb5788ee88cd6e26e3b18fddda935."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "validate-en-content-parity-control accepts both the strict independent BLOCKED report and the package_frozen-to-blocked W9 candidate against current master with zero errors."
+        "evidence": "Node 24.18.1 validate-en-content-parity-control accepts both the strict independent BLOCKED report and the package_frozen-to-blocked W9 candidate against current master with zero errors."
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Node 24.18.1 focused en-content-parity control contract passes 62/62. Complete JSON/YAML parsing, both control validators, exact eight-file SHA recomputation, 17/17 unique coverage, aggregate row-check consistency, producer/master/CareerGuide immutability assertions, exact allowed-path review, and diff checks pass."
+        "evidence": "Node 24.18.1 focused en-content-parity control and W3 Article package contracts pass 66/66. Complete JSON parsing, both control validators, exact eight-file package SHA recomputation, 17/17 unique coverage, 86/610 table coverage, aggregate row-check consistency, byte-identical frozen snapshot, producer/master/CareerGuide immutability, permissions, and git diff checks pass."
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1872 exact head b25c805bd841f5c7f656ba201a9a190d04e52950 passed build, four contract shards plus contracts aggregation, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, no-new-code-scanning-alerts, and CodeQL."
+        "evidence": "PR #1877 exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3 passed build, four contract shards plus contracts aggregation, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, no-new-code-scanning-alerts, and CodeQL."
       },
       "review_and_merge_policy": {
         "status": "pass",
-        "evidence": "GitHub reports PR #1872 MERGEABLE/CLEAN at exact remote head b25c805bd841f5c7f656ba201a9a190d04e52950. There are zero review threads and zero reviews; the only issue comment is a non-actionable Codex review quota notice."
+        "evidence": "GitHub reports PR #1877 MERGEABLE/CLEAN at exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3. There are zero review threads and zero reviews; the only issue comment is a non-actionable Codex review quota notice. Exact scope and all W9 artifact validators pass."
       }
     },
-    "failure_reason": "Fresh independent W9 is BLOCKED for 15 of 17 Article rows: 10 fail language naturalness, 13 fail source equivalence, and 2 expose field/control text. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
+    "failure_reason": "Fresh independent W9 is BLOCKED for 13 of 17 Article rows: 12 fail language naturalness, 13 fail semantic source equivalence, and 4 fail claim boundary. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -52617,9 +52617,29 @@
         "at": "2026-07-31T07:44:02Z",
         "status": "ready_to_merge",
         "summary": "PR #1872 exact head b25c805bd841f5c7f656ba201a9a190d04e52950 passed every required GitHub check and is MERGEABLE/CLEAN. Zero review threads or reviews are present. Exact-head validators, payload/package/artifact SHA checks, 17-row coverage, 9-file frozen snapshot comparison, allowed-path scope, and producer/CONTROL/CareerGuide immutability checks all pass; the independent evidence verdict remains BLOCKED and qa_pass remains unauthorized."
+      },
+      {
+        "at": "2026-07-31T09:20:00Z",
+        "status": "blocked_local_validation_pending",
+        "summary": "Completed a fresh independent 17/17 review of exact frozen package SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161, including every title, excerpt, full body, 86 source table groups / 610 lines, exact source identity, link, field, media, claim, and applicable page/API check. Thirteen rows are BLOCKED; qa_pass and every write/release permission remain false. Local validation is pending."
+      },
+      {
+        "at": "2026-07-31T09:23:01Z",
+        "status": "blocked_local_verified",
+        "summary": "Both strict control validators pass; Node 24.18.1 focused contracts pass 66/66; exact package/report/evidence/candidate SHA, 17/17 coverage, 86/610 table coverage, aggregate row checks, byte-identical frozen snapshot, permissions, producer/CONTROL/CareerGuide immutability, JSON, and diff validations pass. The verdict remains BLOCKED and qa_pass remains unauthorized."
+      },
+      {
+        "at": "2026-07-31T09:24:07Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed and pushed the exact-package W9 BLOCKED evidence, then opened PR #1877 with the manifest title and exact scope. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
+      },
+      {
+        "at": "2026-07-31T09:29:03Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1877 exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3 passed every required GitHub check and is MERGEABLE/CLEAN. Zero review threads or reviews are present. Exact-head validators, package/artifact SHA checks, 17-row and 86/610 coverage, frozen-snapshot comparison, permissions, allowed-path scope, and producer/CONTROL/CareerGuide immutability all pass; the evidence verdict remains BLOCKED and qa_pass remains unauthorized."
       }
     ],
-    "updated_at": "2026-07-31T07:44:02Z"
+    "updated_at": "2026-07-31T09:29:03Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
