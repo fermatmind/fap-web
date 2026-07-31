@@ -1,0 +1,31 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "package_rework_reset",
+  "schema_version": "fermatmind.en_content_parity_package_rework_reset.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "control_owner": "CONTROL",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "blocked_package_sha256": "2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161",
+  "w9_report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2aa27aa6/independent_qa_report.json",
+  "w9_report_sha256": "98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26",
+  "w9_row_evidence_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2aa27aa6/article_17_row_review_evidence.json",
+  "w9_row_evidence_sha256": "acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac",
+  "w9_frozen_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2aa27aa6/frozen_source_ledger_identity_projection.json",
+  "w9_frozen_ledger_sha256": "cdc68976fbf726879d5780e3bc319227b9209ab0687e990deaf411389620caab",
+  "proposed_status": "package_in_progress",
+  "clear_fields": [
+    "package_sha256",
+    "qa_report_ref",
+    "gate_lineage"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
