@@ -1249,8 +1249,17 @@ describe("English content parity control master", () => {
       required_checks: Record<string, string>;
       permissions: Record<string, boolean>;
       row_reviews: Array<{
+        row_id: string;
         source_identity: string;
         checks: Record<string, string>;
+      }>;
+    };
+    const checkedInFrozenLedger = JSON.parse(
+      fs.readFileSync(path.join(ROOT, checkedInApproval.w9_frozen_ledger_ref), "utf8")
+    ) as {
+      rows: Array<{
+        row_id: string;
+        source_identity: string;
       }>;
     };
     for (const failureMode of [
@@ -1258,15 +1267,21 @@ describe("English content parity control master", () => {
       "missing row evidence",
       "missing frozen ledger",
       "unique row identity drift",
+      "row and projection double forgery",
       "row permission drift",
     ]) {
       const approval = structuredClone(checkedInApproval);
       const report = structuredClone(checkedInReport);
       const rowEvidence = structuredClone(checkedInRowEvidence);
+      const frozenLedger = structuredClone(checkedInFrozenLedger);
       const reportPath = path.join(invalidW9Directory, `${failureMode.replaceAll(" ", "-")}-report.json`);
       const rowEvidencePath = path.join(
         invalidW9Directory,
         `${failureMode.replaceAll(" ", "-")}-row-evidence.json`
+      );
+      const frozenLedgerPath = path.join(
+        invalidW9Directory,
+        `${failureMode.replaceAll(" ", "-")}-frozen-ledger.json`
       );
       if (failureMode === "all aggregate and row checks PASS") {
         for (const check of Object.keys(report.checks)) {
@@ -1280,11 +1295,21 @@ describe("English content parity control master", () => {
         }
       } else if (failureMode === "unique row identity drift") {
         rowEvidence.row_reviews.at(-1)!.source_identity = "Article:999@revision:999";
+      } else if (failureMode === "row and projection double forgery") {
+        rowEvidence.row_reviews.forEach((rowReview, index) => {
+          rowReview.row_id = `W3-FORGED-${String(index + 1).padStart(2, "0")}`;
+          rowReview.source_identity = `Article:${900 + index}@revision:${1900 + index}`;
+          frozenLedger.rows[index] = {
+            row_id: rowReview.row_id,
+            source_identity: rowReview.source_identity,
+          };
+        });
       } else if (failureMode === "row permission drift") {
         rowEvidence.permissions.production_import_authorized = true;
       }
       fs.writeFileSync(reportPath, JSON.stringify(report));
       fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      fs.writeFileSync(frozenLedgerPath, JSON.stringify(frozenLedger));
       approval.w9_report_ref = reportPath;
       approval.w9_report_sha256 = sha256AbsoluteFile(reportPath);
       approval.w9_row_evidence_ref =
@@ -1301,6 +1326,9 @@ describe("English content parity control master", () => {
           "missing-frozen-ledger.json"
         );
         approval.w9_frozen_ledger_sha256 = "0".repeat(64);
+      } else if (failureMode === "row and projection double forgery") {
+        approval.w9_frozen_ledger_ref = frozenLedgerPath;
+        approval.w9_frozen_ledger_sha256 = sha256AbsoluteFile(frozenLedgerPath);
       }
       fs.writeFileSync(invalidApprovalPath, JSON.stringify(approval));
 
@@ -1326,6 +1354,10 @@ describe("English content parity control master", () => {
       } else if (failureMode === "unique row identity drift") {
         expect(blockerErrors).toContain(
           "package rework W9 rows must exactly match the frozen ledger row ID and identity pairs"
+        );
+      } else if (failureMode === "row and projection double forgery") {
+        expect(blockerErrors).toContain(
+          "package rework frozen projection must exactly match the hashed source ledger"
         );
       } else {
         expect(blockerErrors).toContain(

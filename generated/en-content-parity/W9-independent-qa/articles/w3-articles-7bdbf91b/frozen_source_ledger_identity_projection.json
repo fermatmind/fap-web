@@ -4,6 +4,9 @@
   "producer_lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
   "package_sha256": "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
+  "sha256_manifest_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/frozen_package/sha256_manifest.json",
+  "sha256_manifest_sha256": "6b0ac195baa25c033484dcccf954313897d8c2aa5f604faf7aa9b76734991b51",
+  "source_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/frozen_package/source_ledger.json",
   "source_ledger_sha256": "e03cfaad6b4450b62497aea20a9c806dc2dcc613958ae88606d07cb230490d4e",
   "rows": [
     { "row_id": "W3-ARTICLE-01", "source_identity": "Article:1@revision:446" },

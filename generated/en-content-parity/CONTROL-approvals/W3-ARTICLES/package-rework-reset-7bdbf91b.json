@@ -12,7 +12,7 @@
   "w9_row_evidence_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/article_17_row_review_evidence.json",
   "w9_row_evidence_sha256": "26ca923ee7ce246c8082d07cbc8608b316f177d7d4eb8a7161dcd08ee571814d",
   "w9_frozen_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/frozen_source_ledger_identity_projection.json",
-  "w9_frozen_ledger_sha256": "7c70e9d301507304843e1192591fbac55249fcaf04d955276a7e40eeb7656358",
+  "w9_frozen_ledger_sha256": "b8f4dba73769159521422b959f265df093dd6dcf8620972fa9a72d495eeb8f5e",
   "proposed_status": "package_in_progress",
   "clear_fields": [
     "package_sha256",
