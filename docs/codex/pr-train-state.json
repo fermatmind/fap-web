@@ -52356,8 +52356,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "904ea5d76801754265aca8ac82e0d6bf4a97bd73",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1875",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52389,11 +52389,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Required GitHub checks have not started for the rework-03 PR."
+        "evidence": "PR #1875 required GitHub checks are running against package commit 904ea5d76801754265aca8ac82e0d6bf4a97bd73."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head review and mergeability checks are pending PR creation."
+        "evidence": "PR #1875 is open and currently MERGEABLE; exact-head checks and review-thread inspection remain pending."
       }
     },
     "failure_reason": null,
