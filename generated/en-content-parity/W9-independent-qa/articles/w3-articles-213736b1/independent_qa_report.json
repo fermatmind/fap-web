@@ -1,0 +1,33 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "independent_qa_report",
+  "schema_version": "fermatmind.en_content_parity_independent_qa_report.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "output_directory": "generated/en-content-parity/W9-independent-qa/",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_sha256": "213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157",
+  "verdict": "BLOCKED",
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "reviewed_row_count": 17,
+  "checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "PASS"
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

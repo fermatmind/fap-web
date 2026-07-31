@@ -52628,46 +52628,46 @@
     "updated_at": "2026-07-31T10:31:41Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "ready_to_merge",
+    "status": "blocked_local_verified",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-w9-qa-01",
+    "branch": "codex/en-parity-w3-article-w9-qa-rework-04",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "68d9564c5c24540cc41c970e138bed847c9385c3",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1877",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "GitHub reports producer PR #1875 merged as 3cf5b570c2cd0295cd8822574f0743da4b750fe3 and CONTROL merged at 5d8aa0461f41e88c9d304d3b61f4af1d5b9eded9. Current origin/main is that exact CONTROL commit and registers W3-ARTICLES at package_frozen SHA 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161 while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Producer PR #1882 and CONTROL PR #1883 are merged. CONTROL commit 9b7e5bf40de31359c2b126eeae690313165389e1 registers W3-ARTICLES at package_frozen SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157 with producer editorial evidence SHA bd98114440a80fe2edb040eeb5412f1072e519f3313b580aabaf8b523dbfb9da. This W9 branch was rebased onto current origin/main 53cce2d55d26fab9e3ec31b4fb984c02063fec7e; the intervening commit is unrelated MBTI scope and does not change the frozen package, control master, or W3-CAREER-GUIDES."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "The standard ten-file package is complete; all eight immutable payload SHA values recompute exactly; the validator-order aggregate is 2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161; all 17 Article/revision identities are unique; and all permissions remain false. A byte-identical frozen snapshot is stored under the new W9 authority directory."
+        "evidence": "The standard ten-file package is complete; all eight immutable payload SHA values recompute exactly; the validator-order aggregate is 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157; all 17 Article/revision identities are unique; and all permissions remain false. A byte-identical frozen snapshot is stored under generated/en-content-parity/W9-independent-qa/articles/w3-articles-213736b1/."
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies; read every source Markdown table/matrix (86 groups / 610 lines); independently matched all exact live zh-CN source revisions; and recorded eight checks plus actionable evidence for every row under generated/en-content-parity/W9-independent-qa/articles/w3-articles-2aa27aa6/."
+        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies; read every source Markdown table/matrix (86 groups / 610 lines); independently matched all exact live zh-CN Article and published-revision identities; and recorded eight checks plus actionable evidence for every row under generated/en-content-parity/W9-independent-qa/articles/w3-articles-213736b1/."
       },
       "language_naturalness": {
         "status": "fail",
-        "evidence": "12/17 rows retain reader-visible literal translation, non-native grammar, or incorrect MBTI, RIASEC, Gaokao, admissions, Enneagram, linear-algebra, and assessment terminology."
+        "evidence": "7/17 rows retain reader-visible grammar, duplication, possessive, or terminology defects: W3-ARTICLE-03, W3-ARTICLE-51, W3-ARTICLE-52, W3-ARTICLE-53, W3-ARTICLE-55, W3-ARTICLE-58, and W3-ARTICLE-59. The remaining 10 rows pass all eight required row checks."
       },
       "source_equivalence_and_asset_completeness": {
-        "status": "fail",
-        "evidence": "13/17 rows fail semantic source equivalence even though structural coverage is now complete at 86 source and candidate Markdown table groups / 610 lines. Blocking defects include ability-vs-task-performance claims, a corrupted exact 144-question field, stale event tense, distorted admissions conditionals, and incorrect domain vocabulary."
+        "status": "pass",
+        "evidence": "All 17 rows pass semantic source equivalence and structural completeness. Source and candidate each contain 86 Markdown table groups / 610 table lines; all registered titles, excerpts, full bodies, and frozen identities are present. The seven blockers are limited to language naturalness and do not remove source meaning or assets."
       },
       "field_leakage": {
         "status": "pass",
         "evidence": "All 17 complete candidate bodies were reviewed; prior producer, SEO, generator, website-production, and control-field phrases are absent from reader-visible content."
       },
       "other_required_qa_checks": {
-        "status": "fail",
-        "evidence": "Chinese leakage, internal-link equivalence, explicit Media Library omission policy, unique identity mapping, and applicable pre-import page/API alignment pass. Asset duplication/completeness is BLOCKED under the control aggregate because 13 rows fail semantic source equivalence, and claim boundary is BLOCKED on four rows. This does not claim live English parity."
+        "status": "pass",
+        "evidence": "Chinese leakage, internal-link equivalence including the two documented malformed-source corrections, explicit Media Library omission policy, unique identity mapping, applicable candidate-only page/API alignment, asset duplication/completeness, and claim boundary all pass. W3-ARTICLE-53's dated June 22-28, 2026 Gaokao event fact was independently verified against the official Sunshine Gaokao source. This does not claim live English parity."
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent report SHA256 is 98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26; 17-row evidence SHA256 is acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac; blocked candidate SHA256 is d6ce47204d108d29cf22d350c628642f900eb5788ee88cd6e26e3b18fddda935."
+        "evidence": "Independent report SHA256 is ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844; 17-row evidence SHA256 is 490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc; blocked candidate SHA256 is 306956b286ee6107653742de4cb6892709d875ff7931c33e2de202919590d5cd; source identity projection SHA256 is 0da04750832c1b88d8c5e5e21d2def8eb63b2a4e05650d1087deaca0760b4846."
       },
       "control_validator": {
         "status": "pass",
@@ -52675,18 +52675,18 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Node 24.18.1 focused en-content-parity control and W3 Article package contracts pass 66/66. Complete JSON parsing, both control validators, exact eight-file package SHA recomputation, 17/17 unique coverage, 86/610 table coverage, aggregate row-check consistency, byte-identical frozen snapshot, producer/master/CareerGuide immutability, permissions, and git diff checks pass."
+        "evidence": "On latest origin/main, Node 24.18.1 focused en-content-parity control and W3 Article package contracts pass 66/66. Both strict control validators, exact eight-file package SHA recomputation, 17/17 unique coverage, exact seven-row blocker aggregation, 86/610 table coverage, zero Han leakage, byte-identical frozen snapshot, all-false permissions, and artifact SHA checks pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1877 exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3 passed build, four contract shards plus contracts aggregation, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, no-new-code-scanning-alerts, and CodeQL."
+        "status": "pending",
+        "evidence": "The rework-04 W9 evidence PR has not yet been opened."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "GitHub reports PR #1877 MERGEABLE/CLEAN at exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3. There are zero review threads and zero reviews; the only issue comment is a non-actionable Codex review quota notice. Exact scope and all W9 artifact validators pass."
+        "status": "pending",
+        "evidence": "The rework-04 W9 evidence PR has not yet been opened; required checks, exact-head review, scope revalidation, and mergeability verification remain pending."
       }
     },
-    "failure_reason": "Fresh independent W9 is BLOCKED for 13 of 17 Article rows: 12 fail language naturalness, 13 fail semantic source equivalence, and 4 fail claim boundary. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
+    "failure_reason": "Fresh independent W9 is BLOCKED for 7 of 17 Article rows solely on language naturalness: W3-ARTICLE-03, W3-ARTICLE-51, W3-ARTICLE-52, W3-ARTICLE-53, W3-ARTICLE-55, W3-ARTICLE-58, and W3-ARTICLE-59. qa_pass is not authorized; the frozen producer payload must not be repaired in this W9 scope.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -52760,9 +52760,19 @@
         "at": "2026-07-31T09:29:03Z",
         "status": "ready_to_merge",
         "summary": "PR #1877 exact checked head 68d9564c5c24540cc41c970e138bed847c9385c3 passed every required GitHub check and is MERGEABLE/CLEAN. Zero review threads or reviews are present. Exact-head validators, package/artifact SHA checks, 17-row and 86/610 coverage, frozen-snapshot comparison, permissions, allowed-path scope, and producer/CONTROL/CareerGuide immutability all pass; the evidence verdict remains BLOCKED and qa_pass remains unauthorized."
+      },
+      {
+        "at": "2026-07-31T11:09:55Z",
+        "status": "blocked_local_validation_pending",
+        "summary": "Started fresh independent W9 rework-04 review from the CONTROL-registered exact package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157 and producer evidence SHA bd98114440a80fe2edb040eeb5412f1072e519f3313b580aabaf8b523dbfb9da. Completed 17/17 review over all 86 source table groups / 610 lines. Seven rows are BLOCKED solely on language naturalness; qa_pass and all write/release permissions remain false."
+      },
+      {
+        "at": "2026-07-31T11:09:55Z",
+        "status": "blocked_local_verified",
+        "summary": "Rebased the isolated W9 branch onto latest origin/main 53cce2d55d26fab9e3ec31b4fb984c02063fec7e and reran validation. Both strict control validators pass; Node 24.18.1 focused contracts pass 66/66; exact package and artifact SHAs, 17/17 identities, exact seven-row blocker aggregation, 86/610 table coverage, zero Han leakage, byte-identical snapshot, and all-false permissions pass. The evidence remains BLOCKED and qa_pass remains unauthorized."
       }
     ],
-    "updated_at": "2026-07-31T09:29:03Z"
+    "updated_at": "2026-07-31T11:09:55Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
