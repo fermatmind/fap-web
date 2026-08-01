@@ -1191,7 +1191,7 @@ describe("English content parity control master", () => {
     const qaAuthorityDirectory = makeW9QaDirectory();
     const qaReportPath = path.join(qaAuthorityDirectory, "independent-qa-report.json");
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     const assets = progressedManifest.assets
