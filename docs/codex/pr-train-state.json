@@ -54699,7 +54699,7 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-REVALIDATION-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "94faafa618ed7224030f5c897932f226f1e8609d",
     "pr_url": null,
     "checks": {
@@ -55015,8 +55015,8 @@
         "evidence": "Master-only control validation passed; focused control-master contract passed 63/63; full ESLint passed. JSON/JSONL/YAML parsing, exact 360 activity + 360 occupation = 720 identity reconciliation, mapping/ledger uniqueness, no-CJK scan, boundary/permission checks, seven immutable payload SHA values, and aggregate SHA 4b8e9ac0eb0741b81745aa45809139cb22b5e731de5987c456b1ff09dd0acd9b recomputation passed. Package remains unpublished_candidate and pending independent W9."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1951 is open from the locally verified implementation commit; required checks are pending."
+        "status": "pass",
+        "evidence": "PR #1951 exact checked head 8b2a6d9f087c57f5636af5007b8e85fec4088023 passed build, four contract shards and aggregate contracts, both freeze suites, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement."
       }
     },
     "failure_reason": null,
@@ -55026,7 +55026,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -55056,8 +55056,13 @@
         "at": "2026-08-01T22:42:00+08:00",
         "status": "github_checks_pending",
         "summary": "Opened PR #1951 for the locally verified G05 producer package. Required GitHub checks remain pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T22:50:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1951 exact checked head 8b2a6d9f087c57f5636af5007b8e85fec4088023 passed all required GitHub checks and is CLEAN. Base remains ca636a5e3647d382a6255f3b52efd7f6ffdf7192; exact scope and W4 master boundary remain clean. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T22:42:00+08:00"
+    "updated_at": "2026-08-01T22:50:00+08:00"
   }
 }
