@@ -53337,8 +53337,8 @@
     "depends_on": [
       "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "d3c8e542955c3cc9ca3e34668901350b5937723c",
+    "status": "github_checks_pending",
+    "commit_sha": "36aee098dfc3ff6ce340153ea20e3474fc36e8a0",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53351,11 +53351,11 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Post-transition master validator passes, focused parity contract passes 62/62 on Node 24, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
+        "evidence": "Post-transition master validator passes, focused parity contract passes 63/63 on Node 24 after rebase, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1899 exact head f9356bd003e39daf2cce1a55bd80d7b92824ba2f passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+        "status": "pending",
+        "evidence": "External W1 CONTROL PR #1900 advanced main while PR #1899 checks were running. CONTROL A was rebased; the prior exact-head checks cannot be reused and required CI, freeze, and CodeQL checks are pending on the new head."
       }
     },
     "failure_reason": null,
@@ -53393,8 +53393,13 @@
         "at": "2026-08-01T05:53:00Z",
         "status": "ready_to_merge",
         "summary": "PR #1899 exact head f9356bd003e39daf2cce1a55bd80d7b92824ba2f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; exact changed-file scope remains limited to W2 CONTROL acceptance, its contract, and train metadata."
+      },
+      {
+        "at": "2026-08-01T05:56:52Z",
+        "status": "github_checks_pending",
+        "summary": "External W1 CONTROL PR #1900 advanced main. Rebased CONTROL A onto latest main without changing the W2 transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending on the new exact head."
       }
     ],
-    "updated_at": "2026-08-01T05:53:00Z"
+    "updated_at": "2026-08-01T05:56:52Z"
   }
 }
