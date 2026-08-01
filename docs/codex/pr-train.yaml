@@ -28373,6 +28373,30 @@ prs:
     content_authority: backend
     repository_rule_impact: immutable W9 source evidence only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: EN-PARITY-W9-W2-INDEPENDENT-QA-01
+    repo: fap-web
+    branch: codex/en-parity-w9-w2-independent-qa-01
+    base: main
+    title: "EN-PARITY-W9-W2-INDEPENDENT-QA-01: independently QA all 118 Big Five English parity rows"
+    depends_on: [EN-PARITY-W9-W2-SOURCE-INTAKE-01]
+    mode: execute
+    train_scope: w2_big5_w9_independent_qa
+    status: in_progress
+    scope: ["Record only the fresh independent W9 review of the exact immutable W2 118-row source snapshot: 52 public profiles, 50 historical verification rows, and 16 result/report/share/PDF/history units."]
+    allowed_paths: [generated/en-content-parity/W9-independent-qa/W2-big-five/**, tests/contracts/en-content-parity-w9-w2-independent-qa.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not: ["Modify the W2 package, control master or candidate, other lanes, app/runtime, CMS/database, import, publication, SEO runtime, sitemap, llms, deploy, or public content fallback."]
+    required_local_checks: ["exact W2 frozen package and source-snapshot SHA verification", "118-row uniqueness and 52/50/16 cohort reconciliation", "eight row-check coverage and six aggregate-check reconciliation", "focused W2 intake, W2 independent-QA, and control-master Vitest", "node scripts/seo/validate-en-content-parity-control.mjs", "JSON/YAML parse", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: independent W9 evidence only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01
     repo: fap-web
     branch: codex/en-parity-w2-big5-package-frozen-01
