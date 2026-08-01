@@ -14,10 +14,10 @@ describe("MBTI result section registry", () => {
       ...(projection.sections ?? []),
       {
         key: "faq",
-        render: "bullets",
+        render: "faq",
         title: "Frequently asked questions",
         payload: {
-          items: [{ question: "Synthetic question", answer: "Synthetic answer" }],
+          items: [{ key: "synthetic-question", question: "Synthetic question", answer: "Synthetic answer" }],
         },
       },
       {
@@ -39,8 +39,9 @@ describe("MBTI result section registry", () => {
     expect(viewModel.sections.find((section) => section.key === "traits.at_difference")?.bodyMd).toBe(
       "Synthetic A/T difference body."
     );
+    expect(viewModel.sections.find((section) => section.key === "faq")?.render).toBe("faq");
     expect(viewModel.sections.find((section) => section.key === "faq")?.payload).toMatchObject({
-      items: [{ question: "Synthetic question", answer: "Synthetic answer" }],
+      items: [{ key: "synthetic-question", question: "Synthetic question", answer: "Synthetic answer" }],
     });
   });
 });

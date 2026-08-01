@@ -82,6 +82,7 @@ const RESULT_SECTION_ORDER = [
 const SUPPORTED_RESULT_SECTION_RENDERS = [
   "rich_text",
   "bullets",
+  "faq",
   "letters_intro",
   "trait_dimension_grid",
   "preferred_role_list",
