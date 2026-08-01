@@ -55349,13 +55349,14 @@
     "base": "main",
     "branch": "codex/en-parity-w3-article-53-source-evidence-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01"],
-    "status": "committed",
-    "commit_sha": "b85dfd6e38bdd86b29661d0c5ca0e7a6f9d7e6f9",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "ab682c37aac181eec8a4fa4652210f2355024f85",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1969",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The continuous W3 Producer /goal explicitly authorizes this exact manifest and ledger entry."},
       "dependency": {"status": "pass", "evidence": "PR #1966 is merged as 3d38fbaf946cfc832e8b407097cc971f7e20cf0f and origin/main carries W3-ARTICLES=package_in_progress with the retained failed-W9 evidence externally bound."},
-      "local_validation": {"status": "pass", "evidence": "Focused Article:53 source-evidence contract passed 4/4; focused ESLint, JSON/YAML parse, exact allowed-path audit, diff checks, two-run evidence package SHA recomputation, primary-source URL/owner/title/retrieval/fingerprint/disposition mapping, Article:53 identity invariants, 16-row reader-visible preservation projection, and all-false permissions pass. Evidence package SHA: 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061."}
+      "local_validation": {"status": "pass", "evidence": "Focused Article:53 source-evidence contract passed 4/4; focused ESLint, JSON/YAML parse, exact allowed-path audit, diff checks, two-run evidence package SHA recomputation, primary-source URL/owner/title/retrieval/fingerprint/disposition mapping, Article:53 identity invariants, 16-row reader-visible preservation projection, and all-false permissions pass. Evidence package SHA: 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061."},
+      "github_required_checks": {"status": "pending", "evidence": "PR #1969 was rebased to origin/main a42a1052a61c980edf0db2a70ea7e7c45485a330 after unrelated W4 CONTROL work changed the master SHA from dd9eb5f2e8c79202c36aaa93cc9fd4108a7a1960d8ea7ef0226a5b0e4169f59d to 5dfa51907860aaee4dabef952e15c4a6cabaa7d72cd47225089d15470b685039. Article:53 evidence and W3 state did not drift; a fresh exact-head required-check and review cycle is pending."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55372,8 +55373,10 @@
     "history": [
       {"at": "2026-08-01T17:12:29Z", "status": "in_progress", "summary": "Started from origin/main 3d38fbaf946cfc832e8b407097cc971f7e20cf0f after confirming PR #1966 is merged, W3-ARTICLES is package_in_progress, W3-CAREER-GUIDES remains inventory_frozen, all permissions are false, and no matching open PR exists. Scope is Article:53 source evidence only; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."},
       {"at": "2026-08-01T17:18:53Z", "status": "local_verified", "summary": "Recorded two primary official sources for the 2026 Cloud Consultation Week and Undergraduate Major Catalogue boundary, with source availability/fingerprint facts and a candidate-only Article:53 section replacement. The canonical 17-row package remains untouched; Article:53 identity and the 16 non-target reader-visible projections validate unchanged. Focused contract, ESLint, JSON/YAML, SHA, scope, and diff checks pass."},
-      {"at": "2026-08-01T17:20:00Z", "status": "committed", "summary": "Committed the exact Article:53-only evidence scope as b85dfd6e38bdd86b29661d0c5ca0e7a6f9d7e6f9. The next ledger-only head will register the PR URL before exact-head review and required-check polling; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."}
+      {"at": "2026-08-01T17:20:00Z", "status": "committed", "summary": "Committed the exact Article:53-only evidence scope as b85dfd6e38bdd86b29661d0c5ca0e7a6f9d7e6f9. The next ledger-only head will register the PR URL before exact-head review and required-check polling; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."},
+      {"at": "2026-08-01T17:20:56Z", "status": "github_checks_pending", "summary": "Opened ready PR #1969 at head f837cb0822b3f161ed39d1cca7b98af85f70b5a6. Required build, contract shards, Big Five/Enneagram freeze checks, and CodeQL are queued or running. This ledger-only head will be pushed before exact-head review and a fresh complete check cycle."},
+      {"at": "2026-08-01T17:25:44Z", "status": "github_checks_pending", "summary": "Rebased the scoped branch onto origin/main a42a1052a61c980edf0db2a70ea7e7c45485a330 after unrelated W4 CONTROL work changed the master file SHA. W3-ARTICLES remains package_in_progress, W3-CAREER-GUIDES remains inventory_frozen, all permissions remain false, Article:53 evidence package SHA remains 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061, and the focused contract/ESLint/JSON/YAML/scope/diff checks were rerun successfully. Fresh exact-head remote checks and review are required."}
     ],
-    "updated_at": "2026-08-01T17:20:00Z"
+    "updated_at": "2026-08-01T17:25:44Z"
   }
 }
