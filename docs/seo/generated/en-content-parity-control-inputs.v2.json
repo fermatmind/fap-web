@@ -1,0 +1,7 @@
+{
+  "$schema": "./en-content-parity-control-master.v2.schema.json",
+  "schema_version": "fermatmind.en_content_parity_control_inputs.v2",
+  "artifact_kind": "control_materialization_inputs",
+  "lane_manifests": [],
+  "receipt_chains": []
+}

@@ -2,27 +2,29 @@
 
 Control ID: `EN-PARITY-CONTROL-BOOTSTRAP-01`
 
+> V2 supersession: this file retains the V1 bootstrap as immutable audit history. The active authority is the generated read-only `docs/seo/generated/en-content-parity-control-master.v2.json`, validated by `scripts/seo/validate-en-content-parity-control-v2.mjs`. V2 removes human content approvals and state-only CONTROL PRs; it does not relax deployment, database, secrets, destructive-operation, or SEO-discoverability gates.
+
 This document establishes the single control window for sitewide zh-CN/en content parity. It is an orchestration contract only. It does not generate reader copy, change runtime behavior, write CMS data, publish content, or change sitemap, `llms.txt`, canonical, noindex, robots, JSON-LD, or search submission behavior.
 
 ## Authority and ownership
 
 - Backend CMS/public APIs remain the authority for articles, career guides, personality profiles, assessment result content, career jobs, publication state, and public enumeration.
 - Frontend remains a renderer, interaction layer, and API adapter. Missing backend content must fail closed; it must not be replaced with frontend editorial fallback copy.
-- The only master manifest is `docs/seo/generated/en-content-parity-control-master.v1.json`.
-- Only the control window may update the master manifest. Producer and QA windows return a `master_manifest_patch.candidate.json`; the control window validates and applies it in a later scoped change.
+- The V1 master at `docs/seo/generated/en-content-parity-control-master.v1.json` is immutable audit history.
+- The V2 master at `docs/seo/generated/en-content-parity-control-master.v2.json` is the only active authority and is deterministically generated from SHA-bound lane-local manifests and trusted backend promotion receipts registered by `docs/seo/generated/en-content-parity-control-inputs.v2.json`. Producer, QA, and control windows do not hand-edit it.
 - Existing career orchestration state under `generated/fermatmind-content-agent-state/` is referenced in place. It must not be copied, reset, or replaced by this control.
 
 ## State machine
 
 The ordered path is:
 
-`not_started → inventory_frozen → package_in_progress → package_frozen → qa_pass → dry_run_ready → draft_imported → editorial_approved → published → live_qa_pass`
+`not_started → inventory_frozen → package_in_progress → package_frozen → qa_pass → dry_run_ready → draft_imported → published → live_qa_pass`
 
-Any stage may enter `blocked`. Skipping a state is forbidden. A file existing is not evidence that a gate passed. Each transition requires its gate report and exact SHA lineage.
+Any stage may enter `blocked`. Skipping a state is forbidden. A file existing is not evidence that a gate passed. V2 uses lane-local evidence and trusted machine receipts; it does not use human approval artifacts.
 
 The master stores current state and must remain valid after accepted transitions; the validator does not pin lanes to their bootstrap values. Entering `blocked` records the prior gate in `blocked_from_status`. A recovery candidate may return only to that retained state, uses external recovery evidence, and clears `blocked_from_status`; it cannot skip forward from `blocked`. For lanes without subscopes, `lane.status` is the transition source. W1 and W3 store state, package SHA, QA reference, blockers, and recovery position independently on each registered subscope. A split lane's status is the least-progressed subscope status (or `blocked` when any subscope is blocked).
 
-`draft_imported` does not mean public release. Promotion, public release, indexability, sitemap, LLMS, schema, media, cache, and search actions remain independent gates.
+`draft_imported` does not mean public release. Publication follows only after exact readback succeeds. Indexability, sitemap, LLMS, schema, media, cache, search actions, and production deployment remain independent gates.
 
 ## Lane map and launch order
 
@@ -61,7 +63,9 @@ Large local packages live under the lane directory in `generated/en-content-pari
 
 `sha256_manifest.json` covers the eight immutable payload files (all required handoff files except the SHA manifest itself and the candidate control envelope). Its deterministic aggregate SHA is computed from the ordered `path:sha256` entries. The candidate must name the real SHA manifest, copy that aggregate SHA, and match its lane and package ID. The validator reads every covered file and rejects missing, changed, reordered, or mismatched payloads. When the immutable content package is produced in the registered backend authority repository, the candidate may instead preserve that backend package SHA through `external_package_evidence`. The registered package directory must then contain an exact, non-symlinked `external_package/` snapshot; the validator verifies the manifest SHA, every declared payload SHA, the ordered backend manifest chain, repository/commit/path lineage, package identity, registered asset identity, lifecycle state, and row-count field. The local eight-file control envelope remains independently hashed and cannot substitute for or rewrite the backend package digest.
 
-The candidate patch may propose only the next valid state for its lane or registered `subscope_id`. It must include transition evidence with an explicit evidence owner. Producer packages and their candidate/SHA files must physically reside in the exact registered lane or subscope output directory; declaring the correct path from another directory is rejected. Producer-owned evidence before freeze must be covered by the verified package SHA manifest and use the transition-specific report: `source_ledger.json` for inventory/package start, `editorial_review.json` with a `PASS` verdict for `package_frozen`, or `claim_boundary_report.json` with a `BLOCKED` verdict for an early blocker. The embedded `scope_manifest.json` is independently checked against the shared Schema and complete lane-package invariants; hashing an incomplete scope does not make it acceptable. Every candidate asset ID must exactly equal the registered target set. Inventory counts become immutable at `inventory_frozen`; `package_frozen` fixes the complete asset set and aggregate package SHA; every later candidate must reuse that exact package and keep `scope_manifest.json` at `package_frozen`. Post-QA transitions use separately hashed external gate reports and append evidence to `gate_lineage`; they do not rewrite the frozen payload. `draft_imported` and `published` additionally require a `fermatmind.en_content_parity_controlled_transition_approval.v1` artifact owned by the human operator, stored under the registered `generated/en-content-parity/CONTROL-approvals/` authority directory, with an approval reference and exact frozen package SHA. An `inventory_frozen` proposal additionally requires all registered target cohorts, reconciled non-null counts, a non-`inventory_required` parity state, and a row count matching the expected inventory. The validator parses the hashed `assets.jsonl` and `source_ledger.json`; their exact asset objects, unique source rows, per-cohort counts, lane, subscope, and package identity must match the candidate. It must keep these values false:
+The following candidate-patch contract is retained only for V1 audit and in-flight legacy work. New V2 Producer PRs carry lane-local manifests and run independent W9 QA on the exact PR head/package SHA in that same PR. They do not require a later state-acceptance PR. After `qa_pass` and `dry_run_ready`, the trusted backend workflow records import, publication, and live-QA facts through the three chained V2 receipts. The exact package SHA remains unchanged across those receipts.
+
+V1 artifacts must continue to keep these legacy permissions false:
 
 - CMS write
 - staging write
@@ -91,9 +95,13 @@ Each scope has its own `subscope_id`, state-machine position, package SHA, QA re
 
 ## Independent QA gate
 
-A producer cannot self-declare `qa_pass`. That transition requires an external W9 report physically stored under the registered `generated/en-content-parity/W9-independent-qa/` authority with Schema version `fermatmind.en_content_parity_independent_qa_report.v1`, exact producer lane/subscope/package SHA, the complete registered target asset set and row count, and verdict `PASS`. A producer-co-located file cannot masquerade as W9 merely by declaring W9 fields. Subset QA cannot advance the lane. The report must record PASS for language naturalness, Chinese leakage, claim boundary, asset duplication, field leakage, and page/API alignment. Its real file path and SHA are verified independently and it must not be embedded as producer-owned package evidence.
+A producer cannot self-declare `qa_pass`. W9 remains logically independent and runs as a required check against the exact Producer PR head, exact package SHA, complete registered target set, and row count. A BLOCKED verdict fails the current Producer PR; repair and the full W9 rerun stay in that PR. V2 does not create a separate W9 evidence PR, CONTROL BLOCKED PR, reset PR, or refreeze-acceptance PR.
 
-## Control-window patch acceptance
+Every lane manifest carries a gap-free `transition_trace` for each ordered state crossed in that Producer PR. A new `package_frozen` transition must bind a V2 package-freeze artifact whose digest is deterministically computed from the registered lane/subscope, complete asset IDs/count, and every non-symlinked payload path/SHA; `{}` or a declared-only package SHA is never freeze evidence. A new `qa_pass` manifest must bind the physical V2 W9 report bytes, report SHA, complete registered asset IDs/count, producer lane/subscope, exact package SHA, and immutable reviewed-source commit; required PR CI proves that reviewed producer commit is an ancestor of the originating exact fap-web PR head. Once the exact manifest binding is merged, later PRs byte-compare it with the base branch instead of applying an ancestry rule that squash merge cannot preserve. Migrated V1 `qa_pass` targets may retain their already accepted QA lineage when moving to `dry_run_ready`; they do not need to fabricate a replacement V2 QA transition. The complete named W9 check set and verdict must be `PASS` for every new V2 QA transition. `dry_run_ready` additionally requires the exact fap-api preflight receipt with its independent backend source commit, zero writes/releases/mutations, registered row-count equality, pinned policy SHA, valid receipt content SHA, and exact-byte recovery from the trusted workflow artifact on first registration. Lane manifests cannot override asset-registry counts. Promotion states are forbidden in lane manifests and come only from the complete authenticated receipt chain present in the trusted workflow artifact, whose row count must also equal the registered target. Required contract CI receives a read-only GitHub token so it can verify public cross-repository workflow runs and receipt artifacts without a user secret. After a binding and its exact bytes are merged, the base branch becomes the durable provenance attestation so validation no longer depends on artifact retention. Required PR validation also compares the generated authority with the base branch and rejects replacing a verified receipt state with an older prefix for the same package.
+
+For completeness, the V2 freeze artifact uses a dedicated package root containing only `sha256_manifest.json` and its declared payloads. The validator rejects undeclared files and symlinks, byte-checks every payload, parses every JSONL record, rejects missing or duplicate `asset_id` identities, binds the sorted identity-set SHA, and requires the resulting unique records to equal the registered target count.
+
+## V1 control-window patch acceptance (audit only)
 
 Before accepting a producer candidate patch, the control window verifies:
 
@@ -107,12 +115,12 @@ Before accepting a producer candidate patch, the control window verifies:
 - `package_frozen` and every later state retain one immutable package SHA and a gap-free gate lineage;
 - `qa_pass` is backed by an independent W9 PASS verdict covering the full target and tied to the exact producer package SHA;
 - `blocked` retains its prior state and can recover only to that exact gate with external recovery evidence;
-- `draft_imported` and `published` carry separately hashed human-operator approvals for the exact frozen package SHA;
+- historical `draft_imported` and `published` may retain separately hashed human-operator approvals as legacy audit lineage only;
 - `dry_run_ready` additionally binds the non-symlinked raw fap-api plan, exact source commit, plan Schema/SHA, package SHA, complete row count, and every no-write/no-release flag;
 - later import, editorial, publication, and live-QA gates use external exact-SHA reports without rebuilding the W9-reviewed package;
-- all permissions remain false unless a separately controlled exact-SHA approval exists.
+- all V1 permissions remain false.
 
-Producer PASS does not authorize CMS import or public release. Production import always requires explicit human approval naming the exact final artifact SHA and write mode.
+For V2, a concrete end-to-end content `/goal` is standing authorization for the trusted backend promotion workflow after W9 and dry-run pass. No chat confirmation, human approval file, or approval phrase is required. The workflow must emit, in order, an exact-package `cms_draft_import_receipt`, `cms_publication_receipt`, and `cms_live_qa_receipt`; the validator recovers the exact receipt bytes from the successful trusted GitHub workflow artifact before accepting them. One verified receipt records `draft_imported`, two record `published`, and three record `live_qa_pass`; any mismatch or failed step stops subsequent phases without erasing the last verified prefix. Production deploy, migration, secrets/permissions, destructive operations, and SEO discoverability remain outside that authorization.
 
 ## First-wave prompts
 

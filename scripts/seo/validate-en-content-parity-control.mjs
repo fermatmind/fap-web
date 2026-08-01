@@ -5,6 +5,8 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { createHash } from "node:crypto";
 
+import { validateV2Control } from "./validate-en-content-parity-control-v2.mjs";
+
 const ROOT = process.cwd();
 const DEFAULT_SCHEMA_PATH = "docs/seo/generated/en-content-parity-control-master.v1.schema.json";
 const DEFAULT_MANIFEST_PATH = "docs/seo/generated/en-content-parity-control-master.v1.json";
@@ -3229,6 +3231,12 @@ export function validateControlArtifacts({
     );
   }
 
+  const v2Report = manifestPath === DEFAULT_MANIFEST_PATH ? validateV2Control() : null;
+  if (v2Report) {
+    checkedArtifacts.push(v2Report.authority);
+    errors.push(...v2Report.errors.map((error) => `V2 authority: ${error}`));
+  }
+
   return {
     ok: errors.length === 0,
     schema: DEFAULT_SCHEMA_PATH,
@@ -3238,6 +3246,14 @@ export function validateControlArtifacts({
     qa_lane_count: manifest.lanes.filter((lane) => lane.lane_kind === "independent_qa").length,
     asset_cohort_count: manifest.assets.length,
     first_wave: manifest.launch_policy.first_wave,
+    v2_authority: v2Report
+      ? {
+          path: v2Report.authority,
+          legacy_v1: v2Report.legacy_v1,
+          lane_count: v2Report.lane_count,
+          ok: v2Report.ok,
+        }
+      : null,
     errors,
   };
 }
