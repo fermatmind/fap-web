@@ -1655,6 +1655,13 @@ describe("English content parity control master", () => {
     fs.writeFileSync(candidatePath, JSON.stringify(candidate));
 
     try {
+      const standaloneOutput = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(standaloneOutput)).toMatchObject({ ok: true, errors: [] });
+
       const output = execFileSync(
         "node",
         [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
@@ -1692,6 +1699,19 @@ describe("English content parity control master", () => {
 
       delete qaReport.page_api_alignment_status;
       fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+      let standaloneFailedOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        standaloneFailedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(standaloneFailedOutput).errors.join("\n")).toContain(
+        "NOT_APPLICABLE page/API check requires matching report status"
+      );
       candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
       fs.writeFileSync(candidatePath, JSON.stringify(candidate));
       let failedOutput = "";

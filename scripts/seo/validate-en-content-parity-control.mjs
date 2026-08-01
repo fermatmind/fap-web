@@ -2348,6 +2348,20 @@ function validateLeafInvariants(
       `${artifact.producer_lane_id}: QA report row count must cover the complete registered target`,
       errors
     );
+    const pageApiVerdict = artifact.checks?.page_api_alignment;
+    const pageApiStatus = artifact.page_api_alignment_status;
+    assert(
+      pageApiVerdict !== "NOT_APPLICABLE" || pageApiStatus === "NOT_APPLICABLE",
+      `${artifact.producer_lane_id}: NOT_APPLICABLE page/API check requires matching report status`,
+      errors
+    );
+    assert(
+      pageApiVerdict === "NOT_APPLICABLE" ||
+        pageApiStatus === undefined ||
+        pageApiStatus === pageApiVerdict,
+      `${artifact.producer_lane_id}: page/API report status must match its aggregate check`,
+      errors
+    );
     if (artifact.verdict === "PASS") {
       assert(
         EXPECTED_QA_CHECKS.every((check) => artifact.checks[check] === "PASS"),
