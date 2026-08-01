@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -52587,7 +52587,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row, 16 reader-content-identical rows, and aggregate package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row, 16 reader-content-identical rows, exact repaired-row list [59], and aggregate package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b revalidate."
       },
       "lint": {
         "status": "pass",
@@ -52598,12 +52598,12 @@
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1905 head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 passed all 11 required CI and security checks. The ready-state ledger commit receives one final required-check cycle before merge."
+        "status": "pending",
+        "evidence": "PR #1905 requires fresh required checks after correcting the immutable claim-boundary repaired-row list and rebinding exact package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "GitHub reports head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 MERGEABLE/CLEAN with no required review decision, no reviews, and zero review threads. Exact scope remains limited to the registered W3 Article producer package and train metadata."
+        "status": "pending",
+        "evidence": "The exact-head P2 finding is corrected in scope; review-thread resolution, fresh exact-head review, checks, and mergeability verification remain pending."
       }
     },
     "failure_reason": null,
@@ -52800,9 +52800,19 @@
         "at": "2026-08-01T06:24:07Z",
         "status": "ready_to_merge",
         "summary": "PR #1905 head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 passed all 11 required checks and is MERGEABLE/CLEAN with zero review threads. Exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900, one-row reader-content scope, 16 unchanged rows, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T06:29:30Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review found the immutable claim-boundary report still listed the prior seven repaired rows while its finding correctly stated that rework-06 changed only Article 59. Reduced that repaired-row list to [59], recomputed claim-boundary SHA 63832e23eadc13d84bf3919bc68d0cc8f8a5f9e477609dc486b1dbe0152e3054 and package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b, and retained the one-row reader-content scope. Fresh local and GitHub validation are pending."
+      },
+      {
+        "at": "2026-08-01T06:30:11Z",
+        "status": "github_checks_pending",
+        "summary": "The scoped repaired-row correction revalidates: strict candidate validation passes, focused contracts pass 67/67, the claim-boundary repaired-row list is exactly [59], all eight immutable payload hashes and aggregate package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b recompute, JSON and diff checks pass, and scope remains exact. Fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:24:07Z"
+    "updated_at": "2026-08-01T06:30:11Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",

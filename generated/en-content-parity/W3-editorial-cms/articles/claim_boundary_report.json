@@ -23,12 +23,6 @@
     {
       "severity": "gate_required",
       "rows": [
-        3,
-        51,
-        52,
-        53,
-        55,
-        58,
         59
       ],
       "finding": "Producer repaired only W3-ARTICLE-59 for the exact reader-visible subject-verb agreement defect recorded by W9; the other 16 rows remain reader-content-identical, and a fresh independent W9 must review the complete rebuilt 17-row package."
