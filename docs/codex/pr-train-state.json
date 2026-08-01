@@ -54790,5 +54790,35 @@
       {"at": "2026-08-01T20:54:00+08:00", "status": "ready_to_merge", "summary": "Exact checked head ce3ef96286cb7e07ef42ae65c1cff0aea6c7316e passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact scope and candidate-boundary revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."}
     ],
     "updated_at": "2026-08-01T20:54:00+08:00"
+  },
+  "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01": {
+    "id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 produce 20 base rows with deterministic 120-code emphasis",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-top3-assets-01",
+    "depends_on": ["EN-PARITY-W4-RIASEC-PAIR-ASSETS-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "serial_predecessor": {"status":"pass","evidence":"Fixed-queue predecessor EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 merged in fap-web PR #1948 as b4f73504405a24eb83f745a637ffff4221257922; post-merge pair package reconciliation passed before this branch was created."},
+      "source_authority": {"status":"pass","evidence":"fap-api origin/main 738878b2fa00d825e7fbcd936cb98d91ba61e772 contains the 20-row zh-CN top3 source with SHA256 5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7."},
+      "local_validation": {"status":"pass","evidence":"Master-only control validation, focused control-master contract 63/63, and pnpm lint . passed. JSON/JSONL/YAML parsing, 20 source/base/map/ledger rows, 20 x 6 = 120 deterministic ordered-code coverage, no duplicate ordered reader assets, no-CJK scan, boundary/permission checks, and six-payload aggregate SHA d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c recomputation passed."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only":true,"local_validation_passed":true,"github_checks_green":false,"post_merge_revalidated":false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."}],
+    "updated_at": "2026-08-01T21:24:00+08:00"
   }
 }

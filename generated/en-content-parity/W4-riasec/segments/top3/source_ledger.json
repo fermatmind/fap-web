@@ -1,0 +1,11 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_top3_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-2026-08-01",
+  "authority": {"repository":"fap-api","commit":"738878b2fa00d825e7fbcd936cb98d91ba61e772","path":"backend/content_assets/riasec/top3_code_chain_strategy_v1.zh-CN.jsonl","sha256":"5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7","locale":"zh-CN"},
+  "producer": {"repository":"fap-web","commit":"b4f73504405a24eb83f745a637ffff4221257922","control_status":"inventory_frozen"},
+  "rows": [
+    {"source_line":1,"key":"R_I_A"},{"source_line":2,"key":"R_I_S"},{"source_line":3,"key":"R_I_E"},{"source_line":4,"key":"R_I_C"},{"source_line":5,"key":"R_A_S"},{"source_line":6,"key":"R_A_E"},{"source_line":7,"key":"R_A_C"},{"source_line":8,"key":"R_S_E"},{"source_line":9,"key":"R_S_C"},{"source_line":10,"key":"R_E_C"},
+    {"source_line":11,"key":"I_A_S"},{"source_line":12,"key":"I_A_E"},{"source_line":13,"key":"I_A_C"},{"source_line":14,"key":"I_S_E"},{"source_line":15,"key":"I_S_C"},{"source_line":16,"key":"I_E_C"},{"source_line":17,"key":"A_S_E"},{"source_line":18,"key":"A_S_C"},{"source_line":19,"key":"A_E_C"},{"source_line":20,"key":"S_E_C"}
+  ],
+  "reconciliation": {"unordered_base_rows":20,"source_rows":20,"english_base_rows":20,"ordered_code_projection":"deterministic permutations only","ordered_code_count":120,"authored_ordered_reader_rows":0}
+}

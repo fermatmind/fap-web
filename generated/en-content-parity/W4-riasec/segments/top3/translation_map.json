@@ -1,0 +1,12 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_top3_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "candidate_only",
+  "target_asset_id_rule": "ENPARITY-W4-RIASEC-G04-TOP3- plus unordered_top3_key with underscores replaced by hyphens",
+  "mappings": [
+    {"source_line":1,"unordered_top3_key":"R_I_A"},{"source_line":2,"unordered_top3_key":"R_I_S"},{"source_line":3,"unordered_top3_key":"R_I_E"},{"source_line":4,"unordered_top3_key":"R_I_C"},{"source_line":5,"unordered_top3_key":"R_A_S"},{"source_line":6,"unordered_top3_key":"R_A_E"},{"source_line":7,"unordered_top3_key":"R_A_C"},{"source_line":8,"unordered_top3_key":"R_S_E"},{"source_line":9,"unordered_top3_key":"R_S_C"},{"source_line":10,"unordered_top3_key":"R_E_C"},
+    {"source_line":11,"unordered_top3_key":"I_A_S"},{"source_line":12,"unordered_top3_key":"I_A_E"},{"source_line":13,"unordered_top3_key":"I_A_C"},{"source_line":14,"unordered_top3_key":"I_S_E"},{"source_line":15,"unordered_top3_key":"I_S_C"},{"source_line":16,"unordered_top3_key":"I_E_C"},{"source_line":17,"unordered_top3_key":"A_S_E"},{"source_line":18,"unordered_top3_key":"A_S_C"},{"source_line":19,"unordered_top3_key":"A_E_C"},{"source_line":20,"unordered_top3_key":"S_E_C"}
+  ]
+}
