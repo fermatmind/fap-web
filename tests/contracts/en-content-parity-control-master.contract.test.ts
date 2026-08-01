@@ -589,6 +589,35 @@ describe("English content parity control master", () => {
       unknown_inventory_cohorts: 0,
     });
 
+    const w2 = manifest.lanes.find((lane) => lane.lane_id === "W2");
+    expect(w2?.status).toBe("inventory_frozen");
+    expect(w2?.blocked_from_status).toBeNull();
+    expect(w2?.package_sha256).toBeNull();
+    expect(w2?.qa_report_ref).toBeNull();
+    expect(w2?.gate_lineage).toEqual([]);
+    expect(w2?.blockers).toEqual([]);
+    expect(w2?.counts).toEqual({
+      cohort_count: 3,
+      expected_en_assets: 118,
+      current_en_assets: 118,
+      remaining_en_assets: 0,
+      unknown_inventory_cohorts: 0,
+    });
+    expect(w2?.next_action).toBe(
+      "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts."
+    );
+    expect(
+      manifest.assets
+        .filter((asset) => asset.lane_id === "W2")
+        .map((asset) => [asset.asset_id, asset.expected_en_count, asset.current_en_count, asset.remaining_en_count])
+    ).toEqual([
+      ["ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES", 52, 52, 0],
+      ["ENPARITY-W2-BIG-FIVE-DRAFTS", 50, 50, 0],
+      ["ENPARITY-W2-BIG-FIVE-RESULT-CONTENT", 16, 16, 0],
+    ]);
+    expect(manifest.assets.find((asset) => asset.asset_id === "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT"))
+      .toMatchObject({ parity_state: "en_draft_requires_verification" });
+
     const w3 = manifest.lanes.find((lane) => lane.lane_id === "W3");
     expect(
       w3?.subscopes.map((subscope) => ({
