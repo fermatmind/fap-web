@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T10:45:18.091Z",
+  "updated_at": "2026-08-01T10:50:28.472Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52579,15 +52579,15 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Strict candidate validation passes after the Article 55 exact-head naturalness correction."
+        "evidence": "Strict candidate validation passes after the Article 09 exact-head naturalness correction."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Focused control and W3 Article package contracts pass 67/67 after the Article 55 correction."
+        "evidence": "Focused control and W3 Article package contracts pass 67/67 after the Article 09 correction."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Article 55-corrected exact ten-file/eight-payload package recomputes to aggregate 759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd; the direct replacement is present and the ambiguous prior phrase is absent."
+        "evidence": "Article 09-corrected exact ten-file/eight-payload package recomputes to aggregate 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b; the natural replacement is present and the prior phrase is absent."
       },
       "lint": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Fresh required checks pending after Article 55 correction."
+        "evidence": "Fresh required checks pending after Article 09 correction."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Latest Article 55 exact-head review finding is being corrected."
+        "evidence": "Article 09 thread resolution and fresh exact-head review pending."
       }
     },
     "failure_reason": null,
@@ -52910,9 +52910,19 @@
         "at": "2026-08-01T10:45:18.091Z",
         "status": "review_correction_local_verified",
         "summary": "Article 55 correction revalidates: strict candidate validation, 67/67 focused contracts, exact SHA recomputation, phrase assertion, JSON parsing, and git diff checks pass. New exact package SHA is 759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd; fresh GitHub checks and review-thread resolution are pending."
+      },
+      {
+        "at": "2026-08-01T10:49:42.023Z",
+        "status": "review_correction_local_verified",
+        "summary": "Exact-head review correctly found “expand into large social gatherings” non-idiomatic in Article 09. Rewrote it as “expand your social circle through large gatherings” and rebuilt aggregate package SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b. Fresh local validation is pending; all other payload boundaries remain unchanged."
+      },
+      {
+        "at": "2026-08-01T10:50:28.472Z",
+        "status": "review_correction_local_verified",
+        "summary": "Article 09 correction revalidates: strict candidate validation, 67/67 focused contracts, exact SHA recomputation, phrase assertion, JSON parsing, and git diff checks pass. New exact package SHA is 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b; fresh GitHub checks and review-thread resolution are pending."
       }
     ],
-    "updated_at": "2026-08-01T10:45:18.091Z"
+    "updated_at": "2026-08-01T10:50:28.472Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",

@@ -8,7 +8,7 @@
   "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-08-2026-08-01",
   "base_manifest_sha256": "585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1",
   "sha256_manifest_path": "generated/en-content-parity/W3-editorial-cms/articles/sha256_manifest.json",
-  "package_sha256": "759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd",
+  "package_sha256": "54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b",
   "proposed_status": "package_frozen",
   "gate_evidence": {
     "gate": "package_frozen",
