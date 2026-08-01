@@ -55230,19 +55230,19 @@
     "base": "main",
     "branch": "codex/en-parity-w9-w3-articles-reset-evidence-supplement-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-QA-BLOCKED-01"],
-    "status": "github_checks_pending",
-    "commit_sha": "31b130120ac028c9637130262a70fb07333f9be9",
+    "status": "ready_to_merge",
+    "commit_sha": "a5dfc87178a81bccbfd2817f10eb73aa19d43804",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1964",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1960 is merged as aed6f0fb42bee398c4525818543f2fb79bc8c770 and origin/main retains the exact blocked W3-ARTICLES package and W9 lineage."},
       "local_validation": {"status": "pass", "evidence": "The frozen SHA manifest and source ledger are byte-identical to the Producer package and hash to 68ea36d17b80ed049df053e80876bdec12f8895cd4f94c1b90bc7c56fea998c1 and 6c9afee493506d7f066bf9e130dd8d165dd75e8bf51e56635ab7f44404266850. The 17-row unique identity projection hashes to 8215a091ccf3f06abf69c7c289a20686e7caa2a2524a02d225a1e9180b228e96; master/W9 validators, 2/2 focused tests, focused ESLint, JSON/YAML parse, immutable existing report/matrix checks, all-false permissions, scope and diff checks pass."},
-      "github_required_checks": {"status": "pending", "evidence": "PR #1964 is open from locally verified implementation commit 31b130120ac028c9637130262a70fb07333f9be9; required checks are pending."}
+      "github_required_checks": {"status": "pass", "evidence": "PR #1964 exact implementation head a5dfc87178a81bccbfd2817f10eb73aa19d43804 passed every required GitHub check; exact-head Codex review is complete and its only P1 thread is resolved."}
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55254,9 +55254,10 @@
       {"at": "2026-08-01T16:14:18Z", "status": "in_progress", "summary": "Started a W9-only immutable evidence supplement for frozen W3-ARTICLES package 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Scope adds only the exact Producer SHA/source-ledger snapshot and 17-row identity projection required by the existing reset validator; no existing QA evidence, master state, Article content, Career Guide, CMS, runtime, SEO, release, search, or deploy state may change."},
       {"at": "2026-08-01T16:16:09Z", "status": "local_verified", "summary": "Validated a byte-exact frozen Producer manifest/source-ledger snapshot and 17 unique projected identities under W9 authority. Existing QA report f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1, row matrix 1a7c5619d083846c9cc57670e29a48fc2245c8647cfccb5613aaa01a4ea78e17, verdict, and QA package SHA remain unchanged; all focused checks pass."},
       {"at": "2026-08-01T16:18:00Z", "status": "github_checks_pending", "summary": "Opened PR #1964 from implementation commit 31b130120ac028c9637130262a70fb07333f9be9. Required checks and exact-head review are pending; CONTROL reset, Article repair, CMS/import, release, search, and deploy remain deferred."},
-      {"at": "2026-08-01T16:22:51Z", "status": "github_checks_pending", "summary": "Resolved the exact-head P1 by removing the future-mutable Producer directory from the frozen-evidence contract. The test now validates only pinned frozen SHA values, the snapshot manifest's internal source-ledger binding, 17 identities, immutable W9 report/matrix hashes, and all-false permissions; focused tests and lint pass."}
+      {"at": "2026-08-01T16:22:51Z", "status": "github_checks_pending", "summary": "Resolved the exact-head P1 by removing the future-mutable Producer directory from the frozen-evidence contract. The test now validates only pinned frozen SHA values, the snapshot manifest's internal source-ledger binding, 17 identities, immutable W9 report/matrix hashes, and all-false permissions; focused tests and lint pass."},
+      {"at": "2026-08-01T16:27:15Z", "status": "ready_to_merge", "summary": "Exact implementation head a5dfc87178a81bccbfd2817f10eb73aa19d43804 passed all required checks and exact-head review with zero unresolved threads. Scope remains the three frozen evidence files, focused read-only contract, and train bookkeeping only; this ledger-only head must pass its own final check cycle before squash merge."}
     ],
-    "updated_at": "2026-08-01T16:22:51Z"
+    "updated_at": "2026-08-01T16:27:15Z"
   },
   "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01": {
     "id":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01","repo":"fap-web","title":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 produce aspirations and disagree English rows","base":"main","branch":"codex/en-parity-w4-riasec-calibration-assets-01","depends_on":["EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01"],"status":"ready_to_merge","commit_sha":"ec3e285b1dc7adb02fef4d1ba240afe01572e1de","pr_url":"https://github.com/fermatmind/fap-web/pull/1955",
