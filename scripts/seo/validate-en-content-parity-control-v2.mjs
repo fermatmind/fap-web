@@ -148,6 +148,20 @@ function readRegisteredFile(relativePath) {
   }
 }
 
+function bindingEstablishedInBase(collection, binding, boundPaths) {
+  const baseRef = process.env.EN_PARITY_BASE_REF ?? "origin/main";
+  try {
+    const baseInputs = JSON.parse(execFileSync("git", ["show", `${baseRef}:${V2_INPUTS_PATH}`], { encoding: "utf8" }));
+    if (!(baseInputs[collection] ?? []).some((candidate) => sameValue(candidate, binding))) return false;
+    return boundPaths.every((relativePath) => {
+      const baseBytes = execFileSync("git", ["show", `${baseRef}:${relativePath}`]);
+      return sha256Bytes(baseBytes) === sha256Bytes(readRegisteredFile(relativePath));
+    });
+  } catch {
+    return false;
+  }
+}
+
 function readAbsoluteRegularNoFollow(absolutePath) {
   const descriptor = fs.openSync(absolutePath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
   try {
@@ -234,6 +248,70 @@ export function verifyGithubWorkflowProvenance(entries) {
   } finally {
     fs.rmSync(temporaryDirectory, { recursive: true, force: true });
   }
+}
+
+function verifyPreflightWorkflowProvenance(entry) {
+  const receipt = entry.receipt ?? JSON.parse(entry.bytes);
+  const runId = String(receipt.workflow_run_id ?? "");
+  const run = JSON.parse(
+    execFileSync("gh", ["api", `repos/fermatmind/fap-api/actions/runs/${runId}`], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    }),
+  );
+  const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
+  const comparison = JSON.parse(
+    execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${run.head_sha}`], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    }),
+  );
+  if (!["ahead", "identical"].includes(comparison.status)) throw new Error("preflight_source_predates_minimum_executor_commit");
+  const artifactName = `content-promotion-${receipt.lane}-${runId}-${receipt.workflow_run_attempt}`;
+  const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "fap-content-preflight-provenance-"));
+  try {
+    execFileSync(
+      "gh",
+      ["run", "download", runId, "--repo", "fermatmind/fap-api", "--name", artifactName, "--dir", temporaryDirectory],
+      { stdio: ["ignore", "pipe", "pipe"] },
+    );
+    const matches = walkFiles(temporaryDirectory).filter((file) => path.basename(file) === "preflight.json");
+    if (matches.length !== 1) throw new Error("trusted_artifact_preflight_count_invalid");
+    if (sha256Bytes(readAbsoluteRegularNoFollow(matches[0])) !== sha256Bytes(entry.bytes)) {
+      throw new Error("trusted_artifact_preflight_mismatch");
+    }
+    if (
+      String(run.path ?? "").split("@")[0] !== ".github/workflows/content-promotion-automation.yml" ||
+      run.event !== "workflow_dispatch" ||
+      run.head_branch !== "main" ||
+      run.head_sha !== receipt.source_commit ||
+      run.conclusion !== "success" ||
+      String(run.id) !== runId ||
+      run.run_attempt !== receipt.workflow_run_attempt
+    ) {
+      throw new Error("trusted_preflight_workflow_identity_mismatch");
+    }
+  } finally {
+    fs.rmSync(temporaryDirectory, { recursive: true, force: true });
+  }
+}
+
+function baseAttestedReceiptProvenance(entries) {
+  const first = entries[0].receipt ?? JSON.parse(entries[0].bytes);
+  return {
+    verified: true,
+    repository: "fermatmind/fap-api",
+    workflow_path: ".github/workflows/content-promotion-automation.yml",
+    event: "workflow_dispatch",
+    head_branch: "main",
+    head_sha: first.source_commit,
+    conclusion: "success",
+    run_id: first.workflow_run_id,
+    run_attempt: first.workflow_run_attempt,
+    complete_receipt_count: entries.length,
+    artifact_receipt_sha256s: entries.map((entry) => sha256Bytes(entry.bytes)),
+    durable_attestation: "exact_bytes_already_verified_on_base",
+  };
 }
 
 function sameValue(left, right) {
@@ -574,6 +652,13 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
       assert(sha256Bytes(bytes) === binding.sha256, `${binding.path}: lane manifest SHA mismatch`, errors);
       const laneManifest = JSON.parse(bytes.toString("utf8"));
       errors.push(...schemaErrors(laneManifest, schema).map((error) => `${binding.path}: Schema ${error}`));
+      if (laneManifest.status === "dry_run_ready" && !bindingEstablishedInBase("lane_manifests", binding, [binding.path])) {
+        const dryRunLineage = laneManifest.gate_lineage?.find((entry) => entry.status === "dry_run_ready");
+        if (!dryRunLineage) throw new Error("dry_run_lineage_missing");
+        const preflightBytes = readRegisteredFile(dryRunLineage.report_ref).toString("utf8");
+        if (sha256Bytes(preflightBytes) !== dryRunLineage.report_sha256) throw new Error("dry_run_report_sha_mismatch");
+        verifyPreflightWorkflowProvenance({ bytes: preflightBytes });
+      }
     } catch (error) {
       errors.push(`${binding.path}: lane manifest cannot be verified (${error instanceof Error ? error.message : String(error)})`);
     }
@@ -584,7 +669,13 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
         path: receiptPath,
         bytes: readRegisteredFile(receiptPath).toString("utf8"),
       }));
-      const registeredProvenance = verifyGithubWorkflowProvenance(registeredEntries);
+      const registeredProvenance = bindingEstablishedInBase(
+        "receipt_chains",
+        chain,
+        chain.receipt_paths,
+      )
+        ? baseAttestedReceiptProvenance(registeredEntries)
+        : verifyGithubWorkflowProvenance(registeredEntries);
       const registeredReport = validateReceiptChain({
         entries: registeredEntries,
         lane: chain.lane_id,

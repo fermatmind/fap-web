@@ -670,6 +670,100 @@ describe("English content parity automation control V2", () => {
     expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1").status).toBe("published");
   });
 
+  it("lets a migrated qa_pass lane retain its V1 QA lineage when entering dry-run", () => {
+    const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
+    const v2 = migrateV1ToV2(v1, "6".repeat(64));
+    const w2 = v2.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W2");
+    const directory = fs.mkdtempSync(path.join(ROOT, ".v2-migrated-qa-dry-run-test-"));
+    try {
+      const preflightPath = path.join(directory, "preflight.json");
+      const preflight = receiptBytes({
+        schema_version: "fermatmind.content_promotion_receipt.v2",
+        receipt_kind: "content_promotion_preflight_receipt",
+        result: "SUCCEEDED",
+        phase: "preflight",
+        adapter: "big_five",
+        lane: "W2",
+        subscope: null,
+        source_repository: "fermatmind/fap-api",
+        source_commit: "8e738763162ff7c1507e28fa30d1b8cb7154de85",
+        package_path: "content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1",
+        package_sha256: w2.package_sha256,
+        executor_release_sha256: "2".repeat(64),
+        release_policy_sha256: POLICY_SHA,
+        workflow_run_id: "30715225574",
+        workflow_run_attempt: 1,
+        idempotency_key: "3".repeat(64),
+        expected_count: 118,
+        written_count: 0,
+        readback_count: 118,
+        published_count: 0,
+        previous_receipt_sha256: null,
+        rollback_reference: null,
+        locale_check: "PASS",
+        cjk_leakage_check: "PASS",
+        identity_check: "PASS",
+        privacy_redaction: true,
+        private_payload_read_count: 0,
+        server_topology_exposed: false,
+        indexability_mutation_count: 0,
+        sitemap_mutation_count: 0,
+        llms_mutation_count: 0,
+        search_mutation_count: 0,
+        deploy_mutation_count: 0,
+      });
+      fs.writeFileSync(preflightPath, preflight.bytes);
+      const preflightRef = path.relative(ROOT, preflightPath);
+      const manifest = {
+        $schema: "./en-content-parity-control-master.v2.schema.json",
+        schema_version: "fermatmind.en_content_parity_lane_manifest.v2",
+        artifact_kind: "lane_manifest",
+        lane_id: "W2",
+        subscope: null,
+        status: "dry_run_ready",
+        blocked_from_status: null,
+        package_sha256: w2.package_sha256,
+        qa_report_ref: w2.qa_report_ref,
+        gate_lineage: [...w2.gate_lineage, {
+          status: "dry_run_ready",
+          evidence_owner_lane_id: "fap-api",
+          report_ref: preflightRef,
+          report_sha256: sha256(preflight.bytes),
+          package_sha256: w2.package_sha256,
+          accepted_at: "2026-08-02T00:00:00Z",
+        }],
+        legacy_lineage: w2.legacy_lineage,
+        blockers: [],
+        transition_trace: [{
+          from_status: "qa_pass",
+          to_status: "dry_run_ready",
+          evidence_ref: preflightRef,
+          evidence_sha256: sha256(preflight.bytes),
+          recorded_at: "2026-08-02T00:00:00Z",
+        }],
+        reviewed_source_commit: null,
+        expected_count: null,
+      };
+      const manifestPath = path.join(directory, "lane.json");
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const inputs = {
+        schema_version: "fermatmind.en_content_parity_control_inputs.v2",
+        artifact_kind: "control_materialization_inputs",
+        lane_manifests: [{
+          lane_id: "W2",
+          subscope: null,
+          path: path.relative(ROOT, manifestPath),
+          sha256: sha256(fs.readFileSync(manifestPath)),
+        }],
+        receipt_chains: [],
+      };
+      expect(applyMaterializationInputs(v2, inputs).lanes.find((lane: { lane_id: string }) => lane.lane_id === "W2").status)
+        .toBe("dry_run_ready");
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
   it("rejects replacing a verified receipt state with an older prefix for the same package", () => {
     const previous = migrateV1ToV2(JSON.parse(fs.readFileSync(V1_PATH, "utf8")), "6".repeat(64));
     const current = structuredClone(previous);

@@ -155,6 +155,20 @@ function stateIndex(status) {
   return V2_ORDERED_STATES.indexOf(status);
 }
 
+function laneManifestBindingExistsInBase(binding) {
+  if ((process.env.EN_PARITY_CURRENT_PR_HEAD ?? "") === "") return false;
+  const baseRef = process.env.EN_PARITY_BASE_REF ?? "origin/main";
+  try {
+    const baseInputs = JSON.parse(execFileSync("git", ["show", `${baseRef}:${V2_INPUTS_PATH}`], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    }));
+    return baseInputs.lane_manifests?.some((candidate) => canonicalJson(candidate) === canonicalJson(binding)) ?? false;
+  } catch {
+    return false;
+  }
+}
+
 function registeredTargetContract(v2, base, laneId) {
   const assetIds = Array.isArray(base.asset_ids)
     ? [...base.asset_ids]
@@ -266,7 +280,7 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
   }
 }
 
-function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
+function assertLaneManifestTransition(base, manifest, key, registeredTarget, verifyReviewedCommit) {
   if (!LANE_MANIFEST_STATES.includes(manifest.status)) {
     throw new Error(`lane_manifest_status_not_allowed=${key}:${manifest.status}`);
   }
@@ -336,8 +350,9 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
     );
   }
   const qaRequired = targetIndex >= stateIndex("qa_pass");
+  const qaTransitionRequired = expectedStatuses.includes("qa_pass");
   const qaLineage = manifestLineage.filter((entry) => entry.status === "qa_pass");
-  if (qaRequired) {
+  if (qaTransitionRequired) {
     const qaTransition = manifest.transition_trace.find((entry) => entry.to_status === "qa_pass");
     if (
       qaLineage.length !== 1 ||
@@ -370,7 +385,7 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
       throw new Error(`lane_manifest_independent_w9_report_invalid=${key}`);
     }
     const currentPrHead = process.env.EN_PARITY_CURRENT_PR_HEAD ?? "";
-    if (currentPrHead !== "") {
+    if (verifyReviewedCommit && currentPrHead !== "") {
       try {
         execFileSync("git", ["merge-base", "--is-ancestor", report.reviewed_source_commit, currentPrHead], {
           stdio: "ignore",
@@ -378,6 +393,13 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
       } catch {
         throw new Error(`lane_manifest_w9_reviewed_commit_not_in_pr=${key}`);
       }
+    }
+  } else if (qaRequired) {
+    if (
+      manifest.qa_report_ref !== base.qa_report_ref ||
+      canonicalJson(qaLineage) !== canonicalJson(baseLineage.filter((entry) => entry.status === "qa_pass"))
+    ) {
+      throw new Error(`lane_manifest_retained_qa_lineage_drift=${key}`);
     }
   } else if (manifest.qa_report_ref !== null) {
     throw new Error(`lane_manifest_qa_reference_before_qa=${key}`);
@@ -447,7 +469,13 @@ export function applyMaterializationInputs(v2, inputs) {
       throw new Error(`split_lane_root_manifest_forbidden=${binding.lane_id}`);
     }
     const target = targetFor(v2, binding.lane_id, binding.subscope);
-    assertLaneManifestTransition(target, manifest, key, registeredTargetContract(v2, target, binding.lane_id));
+    assertLaneManifestTransition(
+      target,
+      manifest,
+      key,
+      registeredTargetContract(v2, target, binding.lane_id),
+      !laneManifestBindingExistsInBase(binding),
+    );
     for (const field of [
       "status",
       "blocked_from_status",
