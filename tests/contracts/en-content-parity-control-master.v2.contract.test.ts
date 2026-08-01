@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 import {
   RELEASE_POLICY,
   V2_ORDERED_STATES,
+  applyMaterializationInputs,
   canonicalJson,
   mapV1Status,
   migrateV1ToV2,
@@ -97,7 +98,37 @@ const expected = {
   packageSha256: PACKAGE_SHA,
   expectedCount: 7,
   releasePolicySha256: POLICY_SHA,
+  targetStatus: "live_qa_pass" as const,
 };
+
+function trustedProvenance(chain: ReturnType<typeof validReceiptChain>) {
+  const first = chain[0].receipt as Record<string, unknown>;
+  return {
+    verified: true,
+    repository: "fermatmind/fap-api",
+    workflow_path: ".github/workflows/content-promotion-automation.yml",
+    event: "workflow_dispatch",
+    head_branch: "main",
+    head_sha: first.source_commit,
+    conclusion: "success",
+    run_id: first.workflow_run_id,
+    run_attempt: first.workflow_run_attempt,
+    artifact_name: `content-promotion-${first.lane}-${first.workflow_run_id}-${first.workflow_run_attempt}`,
+    artifact_receipt_sha256s: chain.map((entry) => sha256(entry.bytes)),
+  };
+}
+
+function validateChain(
+  chain: ReturnType<typeof validReceiptChain>,
+  targetStatus: "draft_imported" | "published" | "live_qa_pass" = "live_qa_pass",
+) {
+  return validateReceiptChain({
+    entries: chain,
+    ...expected,
+    targetStatus,
+    provenance: trustedProvenance(chain),
+  });
+}
 
 describe("English content parity automation control V2", () => {
   it("materializes a deterministic V1 shadow without losing lane state", () => {
@@ -153,7 +184,9 @@ describe("English content parity automation control V2", () => {
   });
 
   it("accepts only the exact chained backend import, publication and live-QA receipts", () => {
-    expect(validateReceiptChain({ entries: validReceiptChain(), ...expected })).toEqual({ ok: true, errors: [] });
+    expect(validateChain(validReceiptChain())).toEqual({ ok: true, errors: [] });
+    expect(validateChain(validReceiptChain().slice(0, 1), "draft_imported")).toEqual({ ok: true, errors: [] });
+    expect(validateChain(validReceiptChain().slice(0, 2), "published")).toEqual({ ok: true, errors: [] });
   });
 
   it.each([
@@ -176,21 +209,69 @@ describe("English content parity automation control V2", () => {
       return chain;
     }],
   ])("rejects %s", (_name, mutate) => {
-    expect(validateReceiptChain({ entries: mutate(validReceiptChain()), ...expected }).ok).toBe(false);
+    expect(validateChain(mutate(validReceiptChain())).ok).toBe(false);
   });
 
   it("rejects human approval evidence as a promotion receipt", () => {
     const chain = validReceiptChain();
     chain[0] = receiptBytes({ ...chain[0].receipt, receipt_kind: "controlled_transition_approval" });
-    expect(validateReceiptChain({ entries: chain, ...expected }).ok).toBe(false);
+    expect(validateChain(chain).ok).toBe(false);
+  });
+
+  it("rejects locally fabricated receipt bytes without trusted GitHub provenance", () => {
+    const chain = validReceiptChain();
+    expect(validateReceiptChain({ entries: chain, ...expected, provenance: null }).ok).toBe(false);
   });
 
   it("keeps lane-local receipt validity independent of unrelated master changes", () => {
-    const before = validateReceiptChain({ entries: validReceiptChain(), ...expected });
+    const before = validateChain(validReceiptChain());
     const v2 = JSON.parse(fs.readFileSync(V2_PATH, "utf8"));
     v2.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8").next_action = "unrelated lane update";
-    const after = validateReceiptChain({ entries: validReceiptChain(), ...expected });
+    const after = validateChain(validReceiptChain());
     expect(before).toEqual({ ok: true, errors: [] });
     expect(after).toEqual(before);
+  });
+
+  it("materializes an exact SHA-bound lane manifest instead of discarding it", () => {
+    const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
+    const inputs: {
+      schema_version: string;
+      artifact_kind: string;
+      lane_manifests: Array<Record<string, unknown>>;
+      receipt_chains: Array<Record<string, unknown>>;
+    } = {
+      schema_version: "fermatmind.en_content_parity_control_inputs.v2",
+      artifact_kind: "control_materialization_inputs",
+      lane_manifests: [],
+      receipt_chains: [],
+    };
+    const v2 = migrateV1ToV2(v1, "6".repeat(64), inputs, "7".repeat(64));
+    const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-test-"));
+    try {
+      const manifestPath = path.join(directory, "lane.json");
+      const relativePath = path.relative(ROOT, manifestPath);
+      const laneManifest = {
+        $schema: "./en-content-parity-control-master.v2.schema.json",
+        schema_version: "fermatmind.en_content_parity_lane_manifest.v2",
+        artifact_kind: "lane_manifest",
+        lane_id: "W8",
+        subscope: null,
+        status: "package_in_progress",
+        blocked_from_status: null,
+        package_sha256: null,
+        qa_report_ref: null,
+        gate_lineage: [],
+        legacy_lineage: [],
+        blockers: [],
+      };
+      fs.writeFileSync(manifestPath, `${JSON.stringify(laneManifest, null, 2)}\n`);
+      inputs.lane_manifests.push({ lane_id: "W8", subscope: null, path: relativePath, sha256: sha256(fs.readFileSync(manifestPath)) });
+      const materialized = applyMaterializationInputs(v2, inputs);
+      const w8 = materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8");
+      expect(w8.status).toBe("package_in_progress");
+      expect(w8.lane_manifest_ref).toBe(relativePath);
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
   });
 });

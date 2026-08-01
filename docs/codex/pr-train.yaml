@@ -29753,6 +29753,7 @@ prs:
       - docs/seo/en-content-parity-control-bootstrap.md
       - docs/seo/generated/en-content-parity-control-master.v2.json
       - docs/seo/generated/en-content-parity-control-master.v2.schema.json
+      - docs/seo/generated/en-content-parity-control-inputs.v2.json
       - scripts/seo/build-en-content-parity-control-v2.mjs
       - scripts/seo/validate-en-content-parity-control-v2.mjs
       - scripts/seo/validate-en-content-parity-control.mjs

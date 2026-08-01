@@ -11,7 +11,9 @@
     "empty_response_behavior": "fail_closed_no_editorial_fallback",
     "master_mode": "generated_read_only_summary",
     "materialization_inputs": [
-      "lane_manifests",
+      "docs/seo/generated/en-content-parity-control-master.v1.json",
+      "docs/seo/generated/en-content-parity-control-inputs.v2.json",
+      "bound_lane_manifests",
       "trusted_backend_promotion_receipts"
     ],
     "v1_mode": "immutable_audit_only",
@@ -46,6 +48,12 @@
       "search_submission_authorized": false,
       "master_manifest_write_authorized": false
     }
+  },
+  "materialization": {
+    "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
+    "inputs_sha256": "5da80171364013b1aa229d429d403f2190e6ce9c5cee2ddd2f564d7f3c6a02cc",
+    "lane_manifest_count": 0,
+    "receipt_chain_count": 0
   },
   "state_machine": {
     "ordered_states": [

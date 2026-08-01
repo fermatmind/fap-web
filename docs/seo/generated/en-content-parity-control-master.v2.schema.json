@@ -4,7 +4,9 @@
   "title": "FermatMind English content parity automation control V2",
   "oneOf": [
     { "$ref": "#/$defs/master" },
-    { "$ref": "#/$defs/promotion_receipt" }
+    { "$ref": "#/$defs/promotion_receipt" },
+    { "$ref": "#/$defs/lane_manifest" },
+    { "$ref": "#/$defs/control_inputs" }
   ],
   "$defs": {
     "sha1": { "type": "string", "pattern": "^[a-f0-9]{40}$" },
@@ -229,6 +231,94 @@
         "receipt_content_sha256": { "$ref": "#/$defs/sha256" }
       }
     },
+    "lane_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schema_version",
+        "artifact_kind",
+        "lane_id",
+        "subscope",
+        "status",
+        "blocked_from_status",
+        "package_sha256",
+        "qa_report_ref",
+        "gate_lineage",
+        "legacy_lineage",
+        "blockers"
+      ],
+      "properties": {
+        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "schema_version": { "const": "fermatmind.en_content_parity_lane_manifest.v2" },
+        "artifact_kind": { "const": "lane_manifest" },
+        "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
+        "subscope": { "type": ["string", "null"] },
+        "status": { "$ref": "#/$defs/content_status" },
+        "blocked_from_status": { "anyOf": [{ "$ref": "#/$defs/content_status" }, { "type": "null" }] },
+        "package_sha256": { "$ref": "#/$defs/sha256_or_null" },
+        "qa_report_ref": { "type": ["string", "null"] },
+        "gate_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
+        "legacy_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
+        "blockers": { "type": "array", "items": { "type": "string" } },
+        "counts": { "type": "object" }
+      }
+    },
+    "control_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["$schema", "schema_version", "artifact_kind", "lane_manifests", "receipt_chains"],
+      "properties": {
+        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "schema_version": { "const": "fermatmind.en_content_parity_control_inputs.v2" },
+        "artifact_kind": { "const": "control_materialization_inputs" },
+        "lane_manifests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["lane_id", "subscope", "path", "sha256"],
+            "properties": {
+              "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
+              "subscope": { "type": ["string", "null"] },
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "receipt_chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lane_id",
+              "subscope",
+              "target_status",
+              "package_sha256",
+              "expected_count",
+              "release_policy_sha256",
+              "receipt_paths"
+            ],
+            "properties": {
+              "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
+              "subscope": { "type": ["string", "null"] },
+              "target_status": { "enum": ["draft_imported", "published", "live_qa_pass"] },
+              "package_sha256": { "$ref": "#/$defs/sha256" },
+              "expected_count": { "type": "integer", "minimum": 1 },
+              "release_policy_sha256": { "$ref": "#/$defs/sha256" },
+              "receipt_paths": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 3,
+                "items": { "type": "string", "minLength": 1 },
+                "uniqueItems": true
+              }
+            }
+          }
+        }
+      }
+    },
     "master": {
       "type": "object",
       "additionalProperties": false,
@@ -241,6 +331,7 @@
         "generated_at",
         "authority",
         "migration",
+        "materialization",
         "state_machine",
         "release_policy_template",
         "qa_policy",
@@ -263,6 +354,17 @@
         "generated_at": { "type": "string" },
         "authority": { "type": "object" },
         "migration": { "type": "object" },
+        "materialization": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["inputs_path", "inputs_sha256", "lane_manifest_count", "receipt_chain_count"],
+          "properties": {
+            "inputs_path": { "const": "docs/seo/generated/en-content-parity-control-inputs.v2.json" },
+            "inputs_sha256": { "$ref": "#/$defs/sha256" },
+            "lane_manifest_count": { "type": "integer", "minimum": 0 },
+            "receipt_chain_count": { "type": "integer", "minimum": 0 }
+          }
+        },
         "state_machine": {
           "type": "object",
           "required": ["ordered_states", "blocked_state", "skip_transitions_allowed", "state_control_pr_required"],

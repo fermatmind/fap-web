@@ -8,6 +8,7 @@ import { pathToFileURL } from "node:url";
 const ROOT = process.cwd();
 const V1_PATH = "docs/seo/generated/en-content-parity-control-master.v1.json";
 const V2_PATH = "docs/seo/generated/en-content-parity-control-master.v2.json";
+export const V2_INPUTS_PATH = "docs/seo/generated/en-content-parity-control-inputs.v2.json";
 
 export const V2_ORDERED_STATES = [
   "not_started",
@@ -102,7 +103,77 @@ function migrateTarget(target, isProducer) {
   };
 }
 
-export function migrateV1ToV2(v1, v1Sha256) {
+function readBoundJson(relativePath, expectedSha256) {
+  if (path.isAbsolute(relativePath) || relativePath.split("/").includes("..")) {
+    throw new Error(`unsafe_materialization_input_path=${relativePath}`);
+  }
+  const absolutePath = path.join(ROOT, relativePath);
+  const realPath = fs.realpathSync(absolutePath);
+  if (realPath !== absolutePath || fs.lstatSync(absolutePath).isSymbolicLink()) {
+    throw new Error(`symlinked_materialization_input=${relativePath}`);
+  }
+  const bytes = fs.readFileSync(absolutePath);
+  if (sha256Bytes(bytes) !== expectedSha256) throw new Error(`materialization_input_sha_mismatch=${relativePath}`);
+  return JSON.parse(bytes.toString("utf8"));
+}
+
+function targetFor(v2, laneId, subscope) {
+  const lane = v2.lanes.find((item) => item.lane_id === laneId);
+  if (!lane) throw new Error(`unknown_materialization_lane=${laneId}`);
+  if (subscope === null) return lane;
+  const target = lane.subscopes.find((item) => item.id === subscope);
+  if (!target) throw new Error(`unknown_materialization_subscope=${laneId}:${subscope}`);
+  return target;
+}
+
+export function applyMaterializationInputs(v2, inputs) {
+  if (
+    inputs.schema_version !== "fermatmind.en_content_parity_control_inputs.v2" ||
+    inputs.artifact_kind !== "control_materialization_inputs"
+  ) {
+    throw new Error("control_materialization_inputs_contract_invalid");
+  }
+  const occupiedTargets = new Set();
+  for (const binding of inputs.lane_manifests) {
+    const key = `${binding.lane_id}:${binding.subscope ?? "-"}`;
+    if (occupiedTargets.has(key)) throw new Error(`duplicate_lane_manifest_binding=${key}`);
+    occupiedTargets.add(key);
+    const manifest = readBoundJson(binding.path, binding.sha256);
+    if (
+      manifest.schema_version !== "fermatmind.en_content_parity_lane_manifest.v2" ||
+      manifest.lane_id !== binding.lane_id ||
+      manifest.subscope !== binding.subscope
+    ) {
+      throw new Error(`lane_manifest_identity_mismatch=${binding.path}`);
+    }
+    const target = targetFor(v2, binding.lane_id, binding.subscope);
+    for (const field of [
+      "status",
+      "blocked_from_status",
+      "package_sha256",
+      "qa_report_ref",
+      "gate_lineage",
+      "legacy_lineage",
+      "blockers",
+      "counts",
+    ]) {
+      if (Object.hasOwn(manifest, field)) target[field] = manifest[field];
+    }
+    target.lane_manifest_ref = binding.path;
+  }
+  for (const chain of inputs.receipt_chains) {
+    const target = targetFor(v2, chain.lane_id, chain.subscope);
+    if (target.package_sha256 !== chain.package_sha256) {
+      throw new Error(`receipt_chain_package_mismatch=${chain.lane_id}:${chain.subscope ?? "-"}`);
+    }
+    target.status = chain.target_status;
+    target.promotion_receipts = [...chain.receipt_paths];
+  }
+  return v2;
+}
+
+/** @param {any} v1 @param {string} v1Sha256 @param {any|null} inputs @param {string|null} inputsSha256 */
+export function migrateV1ToV2(v1, v1Sha256, inputs = null, inputsSha256 = null) {
   const lanes = v1.lanes.map((lane) => {
     const isProducer = lane.lane_kind === "producer";
     const migrated = migrateTarget(lane, isProducer);
@@ -123,7 +194,7 @@ export function migrateV1ToV2(v1, v1Sha256) {
       frontend_role: "render_interact_and_adapt_only",
       empty_response_behavior: "fail_closed_no_editorial_fallback",
       master_mode: "generated_read_only_summary",
-      materialization_inputs: ["lane_manifests", "trusted_backend_promotion_receipts"],
+      materialization_inputs: [V1_PATH, V2_INPUTS_PATH, "bound_lane_manifests", "trusted_backend_promotion_receipts"],
       v1_mode: "immutable_audit_only",
       v1_path: V1_PATH,
       v1_sha256: v1Sha256,
@@ -139,6 +210,12 @@ export function migrateV1ToV2(v1, v1Sha256) {
       counts_package_qa_and_lineage_preserved: true,
       human_approval_lineage_mode: "legacy_audit_only_not_transition_evidence",
       v1_permissions_snapshot: v1.permissions,
+    },
+    materialization: {
+      inputs_path: V2_INPUTS_PATH,
+      inputs_sha256: inputsSha256,
+      lane_manifest_count: inputs?.lane_manifests?.length ?? 0,
+      receipt_chain_count: inputs?.receipt_chains?.length ?? 0,
     },
     state_machine: {
       ordered_states: [...V2_ORDERED_STATES],
@@ -207,7 +284,12 @@ export function migrateV1ToV2(v1, v1Sha256) {
 export function buildV2() {
   const v1Bytes = fs.readFileSync(path.join(ROOT, V1_PATH));
   const v1 = JSON.parse(v1Bytes.toString("utf8"));
-  return migrateV1ToV2(v1, sha256Bytes(v1Bytes));
+  const inputsBytes = fs.readFileSync(path.join(ROOT, V2_INPUTS_PATH));
+  const inputs = JSON.parse(inputsBytes.toString("utf8"));
+  return applyMaterializationInputs(
+    migrateV1ToV2(v1, sha256Bytes(v1Bytes), inputs, sha256Bytes(inputsBytes)),
+    inputs,
+  );
 }
 
 function main() {

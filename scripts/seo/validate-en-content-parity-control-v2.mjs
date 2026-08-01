@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { execFileSync } from "node:child_process";
 
 import {
   RELEASE_POLICY,
+  V2_INPUTS_PATH,
   V2_ORDERED_STATES,
   buildV2,
   canonicalJson,
@@ -94,6 +97,8 @@ function validateSchemaNode(value, schema, rootSchema, instancePath, errors) {
     errors.push(`${instancePath}: below minimum`);
   }
   if (Array.isArray(value)) {
+    if (schema.minItems !== undefined && value.length < schema.minItems) errors.push(`${instancePath}: too few items`);
+    if (schema.maxItems !== undefined && value.length > schema.maxItems) errors.push(`${instancePath}: too many items`);
     if (schema.uniqueItems) {
       const items = value.map((entry) => canonicalJson(entry));
       if (new Set(items).size !== items.length) errors.push(`${instancePath}: duplicate array item`);
@@ -124,6 +129,73 @@ function schemaErrors(value, schema) {
 
 function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
+}
+
+function walkFiles(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const entryPath = path.join(directory, entry.name);
+    return entry.isDirectory() ? walkFiles(entryPath) : [entryPath];
+  });
+}
+
+export function verifyGithubWorkflowProvenance(entries) {
+  if (!Array.isArray(entries) || entries.length === 0) throw new Error("receipt_provenance_requires_entries");
+  const receipts = entries.map((entry) => entry.receipt ?? JSON.parse(entry.bytes));
+  const first = receipts[0];
+  const runId = String(first.workflow_run_id ?? "");
+  const run = JSON.parse(
+    execFileSync(
+      "gh",
+      ["api", `repos/fermatmind/fap-api/actions/runs/${runId}`],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+    ),
+  );
+  const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
+  const comparison = JSON.parse(
+    execFileSync(
+      "gh",
+      ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${run.head_sha}`],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+    ),
+  );
+  if (!["ahead", "identical"].includes(comparison.status)) {
+    throw new Error("workflow_source_predates_minimum_executor_commit");
+  }
+  const artifactName = `content-promotion-${first.lane}-${runId}-${first.workflow_run_attempt}`;
+  const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "fap-content-promotion-provenance-"));
+  try {
+    execFileSync(
+      "gh",
+      ["run", "download", runId, "--repo", "fermatmind/fap-api", "--name", artifactName, "--dir", temporaryDirectory],
+      { stdio: ["ignore", "pipe", "pipe"] },
+    );
+    const files = walkFiles(temporaryDirectory);
+    const names = ["draft-import.json", "publication.json", "live-qa.json"];
+    const artifactReceiptSha256s = entries.map((entry, index) => {
+      const matches = files.filter((file) => path.basename(file) === names[index]);
+      if (matches.length !== 1) throw new Error(`trusted_artifact_receipt_missing=${names[index]}`);
+      const artifactBytes = fs.readFileSync(matches[0]);
+      if (sha256Bytes(artifactBytes) !== sha256Bytes(entry.bytes)) {
+        throw new Error(`trusted_artifact_receipt_mismatch=${names[index]}`);
+      }
+      return sha256Bytes(artifactBytes);
+    });
+    return {
+      verified: true,
+      repository: "fermatmind/fap-api",
+      workflow_path: String(run.path ?? "").split("@")[0],
+      event: run.event,
+      head_branch: run.head_branch,
+      head_sha: run.head_sha,
+      conclusion: run.conclusion,
+      run_id: String(run.id),
+      run_attempt: run.run_attempt,
+      artifact_name: artifactName,
+      artifact_receipt_sha256s: artifactReceiptSha256s,
+    };
+  } finally {
+    fs.rmSync(temporaryDirectory, { recursive: true, force: true });
+  }
 }
 
 function sameValue(left, right) {
@@ -190,6 +262,12 @@ export function validateV2Master({ v1 = readJson(V1_PATH), v2 = readJson(V2_PATH
   assert(v2.authority?.v1_mode === "immutable_audit_only", "V1 must be immutable audit-only", errors);
   assert(v2.authority?.v1_path === V1_PATH, "V1 audit path mismatch", errors);
   assert(v2.authority?.v1_sha256 === sha256Bytes(v1Bytes), "V1 audit SHA mismatch", errors);
+  const inputsBytes = fs.readFileSync(path.join(ROOT, V2_INPUTS_PATH));
+  const inputs = JSON.parse(inputsBytes.toString("utf8"));
+  assert(v2.materialization?.inputs_path === V2_INPUTS_PATH, "V2 inputs path mismatch", errors);
+  assert(v2.materialization?.inputs_sha256 === sha256Bytes(inputsBytes), "V2 inputs SHA mismatch", errors);
+  assert(v2.materialization?.lane_manifest_count === inputs.lane_manifests.length, "lane manifest count mismatch", errors);
+  assert(v2.materialization?.receipt_chain_count === inputs.receipt_chains.length, "receipt chain count mismatch", errors);
   assert(
     sameValue(v2.state_machine?.ordered_states, V2_ORDERED_STATES),
     "V2 state machine mismatch",
@@ -299,6 +377,8 @@ function validateReceiptShape(receipt, label, errors, schema) {
  *   packageSha256: string,
  *   expectedCount: number,
  *   releasePolicySha256: string,
+ *   targetStatus: "draft_imported"|"published"|"live_qa_pass",
+ *   provenance: Record<string, unknown>|null,
  *   schema?: Record<string, unknown>
  * }} input
  */
@@ -309,18 +389,26 @@ export function validateReceiptChain({
   packageSha256,
   expectedCount,
   releasePolicySha256,
+  targetStatus,
+  provenance,
   schema = readJson(V2_SCHEMA_PATH),
 }) {
   const errors = [];
-  assert(Array.isArray(entries) && entries.length === 3, "receipt chain must contain exactly three receipts", errors);
-  if (!Array.isArray(entries) || entries.length !== 3) return { ok: false, errors };
+  const targetReceiptCount = { draft_imported: 1, published: 2, live_qa_pass: 3 }[targetStatus];
+  assert(Boolean(targetReceiptCount), "receipt target status is invalid", errors);
+  assert(
+    Array.isArray(entries) && entries.length === targetReceiptCount,
+    `receipt chain length does not match ${targetStatus}`,
+    errors,
+  );
+  if (!Array.isArray(entries) || entries.length !== targetReceiptCount) return { ok: false, errors };
   const receipts = entries.map((entry, index) => {
     const receipt = entry.receipt ?? JSON.parse(entry.bytes);
     validateReceiptShape(receipt, `receipt[${index}]`, errors, schema);
     return receipt;
   });
-  assert(sameValue(receipts.map((item) => item.receipt_kind), RECEIPT_KINDS), "receipt kinds are out of order", errors);
-  assert(sameValue(receipts.map((item) => item.phase), RECEIPT_PHASES), "receipt phases are out of order", errors);
+  assert(sameValue(receipts.map((item) => item.receipt_kind), RECEIPT_KINDS.slice(0, entries.length)), "receipt kinds are out of order", errors);
+  assert(sameValue(receipts.map((item) => item.phase), RECEIPT_PHASES.slice(0, entries.length)), "receipt phases are out of order", errors);
   for (const [index, receipt] of receipts.entries()) {
     assert(receipt.lane === lane, `receipt[${index}]: cross-lane receipt`, errors);
     assert(receipt.subscope === subscope, `receipt[${index}]: cross-subscope receipt`, errors);
@@ -342,24 +430,80 @@ export function validateReceiptChain({
     }
   }
   assert(receipts[0].published_count === 0, "draft import receipt published content", errors);
-  assert(receipts[1].published_count === expectedCount, "publication count mismatch", errors);
-  assert(receipts[2].published_count === expectedCount, "live QA public count mismatch", errors);
+  if (receipts[1]) assert(receipts[1].published_count === expectedCount, "publication count mismatch", errors);
+  if (receipts[2]) assert(receipts[2].published_count === expectedCount, "live QA public count mismatch", errors);
+  assert(provenance?.verified === true, "trusted GitHub workflow provenance is required", errors);
+  assert(provenance?.repository === "fermatmind/fap-api", "workflow provenance repository mismatch", errors);
+  assert(
+    provenance?.workflow_path === ".github/workflows/content-promotion-automation.yml",
+    "workflow provenance path mismatch",
+    errors,
+  );
+  assert(provenance?.event === "workflow_dispatch", "workflow provenance event mismatch", errors);
+  assert(provenance?.head_branch === "main", "workflow provenance branch mismatch", errors);
+  assert(provenance?.head_sha === receipts[0].source_commit, "workflow provenance source commit mismatch", errors);
+  assert(provenance?.conclusion === "success", "workflow provenance did not succeed", errors);
+  assert(provenance?.run_id === receipts[0].workflow_run_id, "workflow provenance run ID mismatch", errors);
+  assert(provenance?.run_attempt === receipts[0].workflow_run_attempt, "workflow provenance attempt mismatch", errors);
+  assert(
+    sameValue(provenance?.artifact_receipt_sha256s, entries.map((entry) => sha256Bytes(entry.bytes))),
+    "workflow artifact receipt bytes mismatch",
+    errors,
+  );
   return { ok: errors.length === 0, errors };
 }
 
-export function validateV2Control({ receiptEntries = [], expected = null } = {}) {
+export function validateV2Control({ receiptEntries = [], expected = null, provenance = null } = {}) {
   const schema = readJson(V2_SCHEMA_PATH);
   const master = readJson(V2_PATH);
+  const inputs = readJson(V2_INPUTS_PATH);
   const masterReport = validateV2Master({ v2: master });
   const errors = [
     ...schemaErrors(master, schema).map((error) => `V2 master Schema ${error}`),
+    ...schemaErrors(inputs, schema).map((error) => `V2 inputs Schema ${error}`),
     ...masterReport.errors,
   ];
   assert(schema?.$id?.endsWith("en-content-parity-control-master.v2.schema.json"), "V2 Schema ID mismatch", errors);
+  for (const binding of inputs.lane_manifests) {
+    try {
+      const absolutePath = path.join(ROOT, binding.path);
+      const bytes = fs.readFileSync(absolutePath);
+      assert(fs.realpathSync(absolutePath) === absolutePath, `${binding.path}: lane manifest path is not canonical`, errors);
+      assert(!fs.lstatSync(absolutePath).isSymbolicLink(), `${binding.path}: lane manifest cannot be a symlink`, errors);
+      assert(sha256Bytes(bytes) === binding.sha256, `${binding.path}: lane manifest SHA mismatch`, errors);
+      const laneManifest = JSON.parse(bytes.toString("utf8"));
+      errors.push(...schemaErrors(laneManifest, schema).map((error) => `${binding.path}: Schema ${error}`));
+    } catch (error) {
+      errors.push(`${binding.path}: lane manifest cannot be verified (${error instanceof Error ? error.message : String(error)})`);
+    }
+  }
+  for (const chain of inputs.receipt_chains) {
+    try {
+      const registeredEntries = chain.receipt_paths.map((receiptPath) => ({
+        path: receiptPath,
+        bytes: fs.readFileSync(path.join(ROOT, receiptPath), "utf8"),
+      }));
+      const registeredProvenance = verifyGithubWorkflowProvenance(registeredEntries);
+      const registeredReport = validateReceiptChain({
+        entries: registeredEntries,
+        lane: chain.lane_id,
+        subscope: chain.subscope,
+        packageSha256: chain.package_sha256,
+        expectedCount: chain.expected_count,
+        releasePolicySha256: chain.release_policy_sha256,
+        targetStatus: chain.target_status,
+        provenance: registeredProvenance,
+        schema,
+      });
+      errors.push(...registeredReport.errors.map((error) => `${chain.lane_id}: registered receipt chain ${error}`));
+    } catch (error) {
+      errors.push(`${chain.lane_id}: registered receipt provenance failed (${error instanceof Error ? error.message : String(error)})`);
+    }
+  }
   let receiptReport = null;
   if (receiptEntries.length > 0) {
     if (!expected) errors.push("receipt validation requires expected lane/package/count/policy bindings");
-    else receiptReport = validateReceiptChain({ entries: receiptEntries, ...expected });
+    else receiptReport = validateReceiptChain({ entries: receiptEntries, provenance, ...expected });
     if (receiptReport) errors.push(...receiptReport.errors);
   }
   return {
@@ -379,7 +523,7 @@ function readArguments(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     const value = argv[index];
     const next = argv[index + 1];
-    if (["--receipt", "--lane", "--subscope", "--package-sha256", "--expected-count", "--release-policy-sha256"].includes(value)) {
+    if (["--receipt", "--lane", "--subscope", "--package-sha256", "--expected-count", "--release-policy-sha256", "--target-status"].includes(value)) {
       if (!next || next.startsWith("--")) throw new Error(`${value}_requires_value`);
       if (value === "--receipt") receiptPaths.push(next);
       if (value === "--lane") expected.lane = next;
@@ -387,6 +531,7 @@ function readArguments(argv) {
       if (value === "--package-sha256") expected.packageSha256 = next;
       if (value === "--expected-count") expected.expectedCount = Number(next);
       if (value === "--release-policy-sha256") expected.releasePolicySha256 = next;
+      if (value === "--target-status") expected.targetStatus = next;
       index += 1;
       continue;
     }
@@ -401,7 +546,20 @@ function main() {
     path: receiptPath,
     bytes: fs.readFileSync(path.resolve(ROOT, receiptPath), "utf8"),
   }));
-  const report = validateV2Control({ receiptEntries, expected });
+  let provenance = null;
+  let provenanceError = null;
+  if (receiptEntries.length > 0) {
+    try {
+      provenance = verifyGithubWorkflowProvenance(receiptEntries);
+    } catch (error) {
+      provenanceError = error instanceof Error ? error.message : String(error);
+    }
+  }
+  const report = validateV2Control({ receiptEntries, expected, provenance });
+  if (provenanceError) {
+    report.ok = false;
+    report.errors.push(`trusted GitHub workflow provenance failed (${provenanceError})`);
+  }
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
   if (!report.ok) process.exitCode = 1;
 }

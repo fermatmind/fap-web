@@ -11,7 +11,7 @@ This document establishes the single control window for sitewide zh-CN/en conten
 - Backend CMS/public APIs remain the authority for articles, career guides, personality profiles, assessment result content, career jobs, publication state, and public enumeration.
 - Frontend remains a renderer, interaction layer, and API adapter. Missing backend content must fail closed; it must not be replaced with frontend editorial fallback copy.
 - The V1 master at `docs/seo/generated/en-content-parity-control-master.v1.json` is immutable audit history.
-- The V2 master at `docs/seo/generated/en-content-parity-control-master.v2.json` is the only active authority and is deterministically generated from lane-local manifests and trusted backend promotion receipts. Producer, QA, and control windows do not hand-edit it.
+- The V2 master at `docs/seo/generated/en-content-parity-control-master.v2.json` is the only active authority and is deterministically generated from SHA-bound lane-local manifests and trusted backend promotion receipts registered by `docs/seo/generated/en-content-parity-control-inputs.v2.json`. Producer, QA, and control windows do not hand-edit it.
 - Existing career orchestration state under `generated/fermatmind-content-agent-state/` is referenced in place. It must not be copied, reset, or replaced by this control.
 
 ## State machine
@@ -116,7 +116,7 @@ Before accepting a producer candidate patch, the control window verifies:
 - later import, editorial, publication, and live-QA gates use external exact-SHA reports without rebuilding the W9-reviewed package;
 - all V1 permissions remain false.
 
-For V2, a concrete end-to-end content `/goal` is standing authorization for the trusted backend promotion workflow after W9 and dry-run pass. No chat confirmation, human approval file, or approval phrase is required. The workflow must emit, in order, an exact-package `cms_draft_import_receipt`, `cms_publication_receipt`, and `cms_live_qa_receipt`; any mismatch or failed step stops subsequent phases. Production deploy, migration, secrets/permissions, destructive operations, and SEO discoverability remain outside that authorization.
+For V2, a concrete end-to-end content `/goal` is standing authorization for the trusted backend promotion workflow after W9 and dry-run pass. No chat confirmation, human approval file, or approval phrase is required. The workflow must emit, in order, an exact-package `cms_draft_import_receipt`, `cms_publication_receipt`, and `cms_live_qa_receipt`; the validator recovers the exact receipt bytes from the successful trusted GitHub workflow artifact before accepting them. One verified receipt records `draft_imported`, two record `published`, and three record `live_qa_pass`; any mismatch or failed step stops subsequent phases without erasing the last verified prefix. Production deploy, migration, secrets/permissions, destructive operations, and SEO discoverability remain outside that authorization.
 
 ## First-wave prompts
 
