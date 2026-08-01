@@ -421,7 +421,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_in_progress",
+      "status": "package_frozen",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
       "target_asset_types": [
@@ -440,11 +440,20 @@
       "source_inventory_refs": [
         "docs/codex/riasec-full-content-pack-asset-inventory.md"
       ],
-      "package_sha256": null,
+      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
       "qa_report_ref": null,
-      "gate_lineage": [],
+      "gate_lineage": [
+        {
+          "status": "package_frozen",
+          "evidence_owner_lane_id": "W4",
+          "report_ref": "generated/en-content-parity/W4-riasec/editorial_review.json",
+          "report_sha256": "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5",
+          "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+          "accepted_at": "2026-08-01T18:52:23Z"
+        }
+      ],
       "blockers": [],
-      "next_action": "Only use retained W9 exact-SHA repair evidence to repair 126 G06 language-naturalness rows and 4 G02 duplicate-copy rows, rebuild the complete 1550-row package under a new SHA, re-freeze it, and run fresh independent W9 QA across all 1550 rows; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
+      "next_action": "Run a fresh independent W9 QA review of all 1550 rows bound to package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

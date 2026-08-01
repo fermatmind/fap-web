@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 const ROOT = process.cwd();
 const VALIDATOR_PATH = path.join(ROOT, "scripts/seo/validate-w4-riasec-w9-qa.mjs");
 const PACKAGE_SHA = "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33";
+const REPAIRED_PACKAGE_SHA = "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb";
 const RESET_ARTIFACT = "generated/en-content-parity/CONTROL-approvals/W4-RIASEC/package-rework-reset-944ddac.json";
 const REPORT = "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/independent_qa_report.json";
 
@@ -36,6 +37,26 @@ function createResetFixture(): string {
     fs.mkdirSync(path.dirname(target), { recursive: true });
     fs.cpSync(source, target, { recursive: true });
   }
+  const master = readJson<{
+    lanes: Array<{
+      lane_id: string;
+      status: string;
+      package_sha256: string | null;
+      qa_report_ref: string | null;
+      blocked_from_status: string | null;
+      gate_lineage: unknown[];
+      blockers: unknown[];
+    }>;
+  }>(fixtureRoot, "docs/seo/generated/en-content-parity-control-master.v1.json");
+  const w4 = master.lanes.find((lane) => lane.lane_id === "W4");
+  if (!w4) throw new Error("missing W4 fixture lane");
+  w4.status = "package_in_progress";
+  w4.package_sha256 = null;
+  w4.qa_report_ref = null;
+  w4.blocked_from_status = null;
+  w4.gate_lineage = [];
+  w4.blockers = [];
+  writeJson(fixtureRoot, "docs/seo/generated/en-content-parity-control-master.v1.json", master);
   return fixtureRoot;
 }
 
@@ -49,7 +70,7 @@ function validatorFailure(fixtureRoot: string): string {
 }
 
 describe("EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-01", () => {
-  it("validates all 1550 W4 RIASEC rows after an exact CONTROL-only failed-package reset", () => {
+  it("keeps the historical BLOCKED W9 evidence immutable after a repaired W4 package re-freeze", () => {
     const result = JSON.parse(execFileSync("node", ["scripts/seo/validate-w4-riasec-w9-qa.mjs"], { encoding: "utf8" }));
     expect(result).toMatchObject({
       ok: true,
@@ -59,8 +80,31 @@ describe("EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-01", () => {
       language_blocked_rows: 126,
       duplicate_blocked_rows: 4,
       verdict: "BLOCKED",
-      control_reset: true,
+      control_reset: false,
+      historical_evidence_only: true,
     });
+    const master = readJson<{ lanes: Array<{ lane_id: string; package_sha256: string | null }> }>(ROOT, "docs/seo/generated/en-content-parity-control-master.v1.json");
+    expect(master.lanes.find((lane) => lane.lane_id === "W4")?.package_sha256).toBe(REPAIRED_PACKAGE_SHA);
+  });
+
+  it("validates all 1550 W4 RIASEC rows after an exact CONTROL-only failed-package reset", () => {
+    const fixtureRoot = createResetFixture();
+    try {
+      const result = JSON.parse(execFileSync("node", [VALIDATOR_PATH], { cwd: fixtureRoot, encoding: "utf8" }));
+      expect(result).toMatchObject({
+        ok: true,
+        package_sha256: PACKAGE_SHA,
+        rows: 1550,
+        blocked_rows: 130,
+        language_blocked_rows: 126,
+        duplicate_blocked_rows: 4,
+        verdict: "BLOCKED",
+        control_reset: true,
+        historical_evidence_only: false,
+      });
+    } finally {
+      fs.rmSync(fixtureRoot, { recursive: true, force: true });
+    }
   });
 
   it("rejects incomplete or tampered W4 CONTROL reset evidence", () => {
