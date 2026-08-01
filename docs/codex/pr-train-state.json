@@ -54998,8 +54998,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "5a6cb3777e69553b892ce013bbea2d007df42cf0",
     "pr_url": null,
     "checks": {
       "serial_predecessor": {
@@ -55013,6 +55013,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Master-only control validation passed; focused control-master contract passed 63/63; full ESLint passed. JSON/JSONL/YAML parsing, exact 360 activity + 360 occupation = 720 identity reconciliation, mapping/ledger uniqueness, no-CJK scan, boundary/permission checks, seven immutable payload SHA values, and aggregate SHA 4b8e9ac0eb0741b81745aa45809139cb22b5e731de5987c456b1ff09dd0acd9b recomputation passed. Package remains unpublished_candidate and pending independent W9."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR not yet opened from the locally verified implementation commit."
       }
     },
     "failure_reason": null,
@@ -55047,8 +55051,13 @@
         "at": "2026-08-01T22:35:00+08:00",
         "status": "local_verified",
         "summary": "Rebased onto current fap-web origin/main ca636a5e3647d382a6255f3b52efd7f6ffdf7192 after an unrelated W3 CONTROL merge, retained both ledger entries, rebound the producer source commit, and regenerated the seven-payload package aggregate SHA. W4 master remains untouched."
+      },
+      {
+        "at": "2026-08-01T22:42:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Prepared the locally verified G05 producer package for its single PR. Required GitHub checks remain pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
       }
     ],
-    "updated_at": "2026-08-01T22:35:00+08:00"
+    "updated_at": "2026-08-01T22:42:00+08:00"
   }
 }
