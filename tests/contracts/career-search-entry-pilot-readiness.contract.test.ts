@@ -149,9 +149,9 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(publicHtmlStats(rendered, "en").thin_or_shell).toBe(false);
   });
 
-  it("does not count template or hidden subtrees as visible public evidence", () => {
+  it("does not count nested template or hidden subtrees as visible public evidence", () => {
     const concealed = "approved authority marker ".repeat(120);
-    const shell = `<html><body><template>${concealed}</template><div hidden>${concealed}</div><section aria-hidden="true">${concealed}</section><div class="layout hidden md:block">${concealed}</div><div style="display: none">${concealed}</div><div style="visibility:hidden">${concealed}</div><main>short shell</main></body></html>`;
+    const shell = `<html><body><template><div>${concealed}</div></template><div hidden><div>${concealed}</div>${concealed}</div><section aria-hidden="true"><section>${concealed}</section>${concealed}</section><div class="layout hidden md:block"><div>${concealed}</div>${concealed}</div><div style="display: none"><div>${concealed}</div>${concealed}</div><div style="visibility:hidden"><div>${concealed}</div>${concealed}</div><main>short shell</main></body></html>`;
     expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
   });
 

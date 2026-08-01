@@ -3,6 +3,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { JSDOM } from "jsdom";
 
 export const TASK_ID = "CAREER-SEARCH-ENTRY-PILOT-READINESS-01";
 export const SCHEMA_VERSION = "career.search_entry_pilot_readiness.v1";
@@ -251,20 +252,27 @@ function detailStats(detail, locale) {
   };
 }
 
+function hiddenOrNonContentElement(element) {
+  const tag = element.tagName.toLowerCase();
+  if (["head", "script", "style", "template", "noscript"].includes(tag)) return true;
+  if (element.hasAttribute("hidden") || element.getAttribute("aria-hidden")?.toLowerCase() === "true") return true;
+  if ((element.getAttribute("class") || "").split(/\s+/).includes("hidden")) return true;
+  const style = element.getAttribute("style") || "";
+  return /(?:^|;)\s*(?:display\s*:\s*none|visibility\s*:\s*hidden)\s*(?:;|$)/i.test(style);
+}
+
+function visibleRenderedText(html) {
+  const { window } = new JSDOM(String(html));
+  const walk = (node) => {
+    if (node.nodeType === window.Node.TEXT_NODE) return node.nodeValue || "";
+    if (node.nodeType !== window.Node.ELEMENT_NODE || hiddenOrNonContentElement(node)) return "";
+    return [...node.childNodes].map(walk).join(" ");
+  };
+  return [...window.document.body.childNodes].map(walk).join(" ").replace(/\s+/g, " ").trim();
+}
+
 export function publicHtmlStats(html, locale) {
-  const visibleText = String(html)
-    .replace(/<head\b[^>]*>[\s\S]*?<\/head\b[^>]*>/gi, " ")
-    .replace(/<template\b[^>]*>[\s\S]*?<\/template\b[^>]*>/gi, " ")
-    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*(?:[\t\n\f\r ]hidden(?:[\t\n\f\r =]|\/?\s*>)|[\t\n\f\r ]aria-hidden\s*=\s*["']true["']))[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
-    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*[\t\n\f\r ]class\s*=\s*["'][^"']*\bhidden\b[^"']*["'])[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
-    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*[\t\n\f\r ]style\s*=\s*["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)[^"']*["'])[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, " ")
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, " ")
-    .replace(/<!--([\s\S]*?)-->/g, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/gi, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  const visibleText = visibleRenderedText(html);
   const cjkChars = (visibleText.match(/[\u3400-\u9fff]/g) || []).length;
   return {
     normalized_text: normalizeVisibleText(visibleText),
