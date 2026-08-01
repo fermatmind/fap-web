@@ -93,7 +93,7 @@
     "result": "PASS"
   },
   "check_evidence": {
-    "language_naturalness": "BLOCKED on W3-ARTICLE-55, W3-ARTICLE-58, and W3-ARTICLE-59. Article 55 contains the unidiomatic reader-facing script `I'll acknowledge that it's not yet ready for keeping it`. Article 58 contains the non-native or incomplete phrases `isn't about having boldness`, `Satisfied/to be checked`, `No concept`, and `Unable to accept long-term and medical training`. Article 59 contains additional defects, including `The students focus on college life: will they fail calculus, can their code never run smoothly, do they not understand algorithms`, the mid-sentence capitalization and non-native construction `If the answer is a complete unwillingness, Do not keep AI or computer science`, the table header `What to use to judge`, and the ambiguous action `Correct impressions formed from short videos or family slogans`. The other 14 rows pass language naturalness, and all three blocked rows pass their other seven row-level checks.",
+    "language_naturalness": "BLOCKED on 13 rows: W3-ARTICLE-02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59. Fresh exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, or mistranslated-term defects in every blocked row. W3-ARTICLE-01, 05, 06, and 09 pass language naturalness. All 13 blocked rows pass their other seven row-level checks, and W9 did not modify the producer payload.",
     "chinese_leakage": "PASS because all 17 candidate titles, excerpts, and complete bodies contain zero Han characters.",
     "claim_boundary": "PASS because all 17 rows retain non-diagnostic, non-screening, non-admissions-prediction, and non-guarantee boundaries; Article:7 describes task performance, Article:51 preserves the exact 144-question field, Article:53 uses correct past tense, and Article:58 makes reassignment outcomes conditional on official rules.",
     "asset_duplication": "PASS because all 17 Article/revision identities are unique, the exact 86 source table groups and 610 Markdown table lines are represented, localized internal-route sets are preserved with documented malformed-source corrections, and the explicit Media Library omission policy is applied consistently without local duplication.",
@@ -111,36 +111,36 @@
     }
   ],
   "blocking_summary": {
-    "blocked_row_count": 3,
+    "blocked_row_count": 13,
     "passing_rows": [
       "W3-ARTICLE-01",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-09"
+    ],
+    "blocked_rows": [
       "W3-ARTICLE-02",
       "W3-ARTICLE-03",
       "W3-ARTICLE-04",
-      "W3-ARTICLE-05",
-      "W3-ARTICLE-06",
       "W3-ARTICLE-07",
       "W3-ARTICLE-08",
-      "W3-ARTICLE-09",
       "W3-ARTICLE-10",
       "W3-ARTICLE-50",
       "W3-ARTICLE-51",
       "W3-ARTICLE-52",
-      "W3-ARTICLE-53"
-    ],
-    "blocked_rows": [
+      "W3-ARTICLE-53",
       "W3-ARTICLE-55",
       "W3-ARTICLE-58",
       "W3-ARTICLE-59"
     ],
     "blocked_checks": {
-      "language_naturalness": 3
+      "language_naturalness": 13
     },
     "qa_pass_authorized": false,
     "producer_payload_modified": false,
     "control_master_modified": false,
     "career_guide_scope_modified": false,
-    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs Articles 55, 58, and 59 and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
+    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs all 13 blocked rows (Articles 02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59) and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
   },
   "row_reviews": [
     {
@@ -166,9 +166,9 @@
       "source_identity": "Article:2@revision:445",
       "slug": "big-five-narrative-portrait",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -177,16 +177,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "All 22 source headings, localized routes, unknown-field handling, title, excerpt, and complete body are source-equivalent and reader-facing; no prior website-production or SEO-control text remains."
+      "evidence": "BLOCKED only on language naturalness: the complete body contains `The following only demonstrates the writing style, not dividing people into six categories`, `repeated attempts for certainty`, and `personal boundaries for decline`. All 22 source headings, localized routes, identity, source equivalence, claims, links, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-03",
       "source_identity": "Article:3@revision:383",
       "slug": "big-five-tool-guide",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -195,16 +195,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: the excerpt now says `confirmatory evidence and counterexamples`; the title, complete ten-heading body, both source-equivalent matrices (11 Markdown table lines), exact Article:3@revision:383 identity, and zero-link/media-omission boundaries were re-reviewed and remain natural and aligned."
+      "evidence": "BLOCKED only on language naturalness: the complete body mistranslates the BFI-2-XS limitation as not assessing `lateral traits`, which is not the relevant English assessment term. The title, excerpt, ten headings, two source-equivalent matrices (11 Markdown table lines), exact Article:3@revision:383 identity, claims, links, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-04",
       "source_identity": "Article:4@revision:58",
       "slug": "eq-test-tool-guide",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -213,7 +213,7 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: all 28 headings and eight source matrices (54 Markdown table lines) now use natural EQ terminology, preserve every localized route and exact Article:4@revision:58 identity, and keep explicit non-diagnostic, non-hiring, and non-success-prediction boundaries."
+      "evidence": "BLOCKED only on language naturalness: the complete body contains `lack the space to recover themselves` and the mismatched label pair `successful/failure`. All 28 headings, eight source matrices (54 Markdown table lines), localized routes, exact Article:4@revision:58 identity, claims, links, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-05",
@@ -256,9 +256,9 @@
       "source_identity": "Article:7@revision:442",
       "slug": "iq-test-tool-guide",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -267,16 +267,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: the excerpt and complete 21-heading body now describe observing performance on matrix and figural-reasoning tasks rather than assessing ability; the 30-question scope, four localized routes, exact Article:7@revision:442 identity, and non-clinical/non-credentialing boundary remain explicit."
+      "evidence": "BLOCKED only on language naturalness: the complete body reduces an intended percentile comparison to `more than X people` and says the product `consists of 30 questions, recommended to allow approximately 20 minutes`. The 21 headings, task-performance framing, 30-question scope, four localized routes, exact Article:7@revision:442 identity, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-08",
       "source_identity": "Article:8@revision:72",
       "slug": "mbti-basics",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -285,7 +285,7 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: all 24 headings and both source matrices (11 Markdown table lines) now use standard Extraversion/Introversion, Sensing/Intuition, Thinking/Feeling, and Judging/Perceiving terminology; exact identity, localized routes, and the non-ability/non-career-verdict boundary align."
+      "evidence": "BLOCKED only on language naturalness: the complete body asks `in what environment am I most likely to exhaust?` and says interactive fields are acceptable `provided they have clearer boundaries to restore`. All 24 headings, two source matrices (11 Markdown table lines), standard MBTI terminology, identity, localized routes, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-09",
@@ -310,9 +310,9 @@
       "source_identity": "Article:10@revision:440",
       "slug": "mbti-narrative-portrait",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -321,16 +321,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: the complete 19-heading narrative, eight-line evidence matrix, retest instruction, exact Article:10@revision:440 identity, and two localized routes are natural and source-equivalent; the documented malformed source-link correction does not remove valid content."
+      "evidence": "BLOCKED only on language naturalness: the complete body says readers cannot `eliminate careers` based on type and that `Preference for type does not equate to ability`. The 19 headings, eight-line evidence matrix, retest instruction, exact Article:10@revision:440 identity, routes, source equivalence, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-50",
       "source_identity": "Article:50@revision:57",
       "slug": "iq-test-score-and-limits-explained",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -339,16 +339,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: all 24 headings and four source matrices (27 Markdown table lines) now distinguish task performance from formal intelligence assessment in natural English; exact Article:50@revision:57 identity, localized routes, and no-norm/no-diagnosis boundaries align."
+      "evidence": "BLOCKED only on language naturalness: the complete body asks whether online tests `safely indicate my boundaries` and refers to `the following expression areas`. All 24 headings, four source matrices (27 Markdown table lines), task-performance boundary, exact Article:50@revision:57 identity, routes, source equivalence, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-51",
       "source_identity": "Article:51@revision:73",
       "slug": "enneagram-personality-test-explained",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -357,16 +357,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: a fresh full-row review confirms consistent `Enneagram personality test` naming, correct `an Enneagram` grammar, exact 105-question and 144-question product fields, all 32 headings, 11 source matrices (88 Markdown table lines), routes, identity, and claim boundaries."
+      "evidence": "BLOCKED only on language naturalness: the complete body says `9 types each focus on different areas of interest`, defines core fear as `what you most unwillingly face`, and says concepts are `not appropriate for being used as a diagnosis or psychological etiology`. The exact 105- and 144-question fields, all 32 headings, 11 source matrices (88 Markdown table lines), routes, identity, source equivalence, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-52",
       "source_identity": "Article:52@revision:64",
       "slug": "college-major-choice-holland-mbti-career-test",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -375,16 +375,16 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: the duplicated eligibility wording is removed. A fresh full-row review confirms all 28 headings, eight source matrices (60 Markdown table lines), standard RIASEC terms, 13 localized routes, exact Article:52@revision:64 identity, natural language, and decision boundaries align."
+      "evidence": "BLOCKED only on language naturalness: the complete body contains `Which majors sound appealing on the surface but whose actual curricula I might actually resist?`, `Distinguish the intensity of contact between different levels of contact`, and `find students to interview learning experience`. All 28 headings, eight source matrices (60 Markdown table lines), RIASEC terms, 13 localized routes, exact Article:52@revision:64 identity, source equivalence, claims, leakage, media, and applicable page/API alignment otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-53",
       "source_identity": "Article:53@revision:65",
       "slug": "gaokao-score-major-shortlist-riasec-checklist",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -393,7 +393,7 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: all duplicated subject-combination wording and the malformed Business Administration question are repaired. A fresh full-row review confirms all 21 headings, nine source matrices (64 Markdown table lines), ten localized routes, exact Article:53@revision:65 identity, conditional admissions boundaries, and the independently reverified June 22-28 Cloud Consultation Week fact."
+      "evidence": "BLOCKED only on language naturalness: the complete body asks `Is this major long-term with people, teaching, service, communication or support?`, says `It is worthy of priority to verify specific tasks`, and asks `Do you have business analysis, management, operation, project practice`. All 21 headings, nine source matrices (64 Markdown table lines), ten routes, exact Article:53@revision:65 identity, source equivalence, claims, leakage, media, applicable page/API alignment, and the independently reverified June 22-28 fact otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-55",
