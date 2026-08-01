@@ -38643,7 +38643,7 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
     "merged_at": null,
@@ -53339,7 +53339,7 @@
     ],
     "status": "ready_to_merge",
     "commit_sha": "0c6b5c88927b7398faa0a826ea5f86e39600bf69",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1899",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -53359,9 +53359,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-01T06:21:46Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -53418,8 +53418,83 @@
         "at": "2026-08-01T06:16:52Z",
         "status": "ready_to_merge",
         "summary": "PR #1899 exact head a8e422df10a5de9760b32bf047ac8ae44c605047 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; the W2 transition is ready for squash merge."
+      },
+      {
+        "at": "2026-08-01T06:21:46Z",
+        "status": "merged",
+        "summary": "GitHub reports PR #1899 merged by squash as 1074f1fc0d888e1bb7ecc346ed325eeb304907a6; origin/main contains the merge and both local and remote task branches were deleted during post-merge closeout."
       }
     ],
-    "updated_at": "2026-08-01T06:16:52Z"
+    "updated_at": "2026-08-01T06:21:46Z"
+  },
+  "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01": {
+    "id": "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01: bind the complete Big Five package candidate",
+    "base": "main",
+    "branch": "codex/en-parity-w2-big5-package-in-progress-01",
+    "depends_on": [
+      "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "e6b305a656ddfb66d04a5b1d8a41ba18cde743e6",
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "CONTROL PR #1899 merged as 1074f1fc0d888e1bb7ecc346ed325eeb304907a6 and current master confirms W2 inventory_frozen with 52/50/16 counts, null package/QA fields, empty lineage, and all permissions false."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Read-only backend validator passes 16 units/16 assets at child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; candidate validator and focused parity contract pass 63/63. The 118-row 52/50/16 reconciliation, boundaries, and exact eight-file package SHA c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350 pass."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1907 rebase-repair head e6b305a656ddfb66d04a5b1d8a41ba18cde743e6 passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T06:25:18Z",
+        "status": "in_progress",
+        "summary": "Started Producer B from synchronized main after CONTROL A merged. The scope advances only the candidate/package metadata from inventory_frozen to package_in_progress without changing frozen W2 counts, protected fields, master, or write/release authority."
+      },
+      {
+        "at": "2026-08-01T06:25:18Z",
+        "status": "local_verified",
+        "summary": "Candidate validation, focused 63/63 contract, backend child validator, 118-row 52/50/16 reconciliation, SHA binding, and boundary scans pass. The new pre-freeze package SHA is c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350; W9 and all write/release gates remain false."
+      },
+      {
+        "at": "2026-08-01T06:26:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed Producer B package-in-progress candidate at d2ac8f2c70b845c454f97f87f9bd26fe862ef132; required CI, freeze, and CodeQL checks are pending before merge."
+      },
+      {
+        "at": "2026-08-01T06:31:38Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1907 exact head 313ac2dd9b8e43ef77846b55da79c8c784c3824f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; the Producer B candidate is ready for squash merge."
+      },
+      {
+        "at": "2026-08-01T14:37:15+08:00",
+        "status": "github_checks_pending",
+        "summary": "External CONTROL PR #1908 merged a W1 master update after Producer B's prior green head. Rebased this same Producer B branch onto origin/main and re-bound only base_manifest_sha256 to the current master SHA b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3; candidate validation, focused 63/63 contract, and the exact eight-file package SHA binding remained PASS. The prior check run is stale, so current-head required checks are pending."
+      },
+      {
+        "at": "2026-08-01T14:42:12+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1907 rebase-repair head e6b305a656ddfb66d04a5b1d8a41ba18cde743e6 passed all 11 required CI and security checks. GitHub reports CLEAN with no required review decision; the current candidate remains path-scoped and ready for squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T14:42:12+08:00"
   }
 }
