@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "local_checks_passed",
-    "commit_sha": null,
+    "commit_sha": "cb68a6804ff79a7e672487904584c247a56cca98",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -53150,8 +53150,13 @@
         "at": "2026-08-01T04:49:24Z",
         "status": "local_checks_passed",
         "summary": "A final canonical Node 24 live collection bound explicit current content/SEO SHA equality and preserved the exact GO target set. Artifact 3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585, focused contract 17/17, lint, typecheck, metadata, self-hash, diff, and exact scope all pass."
+      },
+      {
+        "at": "2026-08-01T04:49:55Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact six allowed paths and committed the locally verified implementation as cb68a6804ff79a7e672487904584c247a56cca98. This metadata tail binds the implementation commit before push."
       }
     ],
-    "updated_at": "2026-08-01T04:49:24Z"
+    "updated_at": "2026-08-01T04:49:55Z"
   }
 }
