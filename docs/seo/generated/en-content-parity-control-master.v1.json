@@ -132,7 +132,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
           ],
-          "status": "qa_pass",
+          "status": "dry_run_ready",
           "blocked_from_status": null,
           "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/independent_qa_report.json",
@@ -152,6 +152,14 @@
               "report_sha256": "3b2fc2d61f5153a9e59a25da0d3c5de26e12bc3d44dd1c4c1e109628c455b51b",
               "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
               "accepted_at": "2026-08-01T06:41:17Z"
+            },
+            {
+              "status": "dry_run_ready",
+              "evidence_owner_lane_id": "W1",
+              "report_ref": "generated/en-content-parity/W1-mbti/comparisons/dry_run_evidence/transition_gate_report.json",
+              "report_sha256": "9b0922bffb441409e5812eb2b69d4e56f340b1e13e2af844eacb73000be00ac9",
+              "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+              "accepted_at": "2026-08-01T07:11:16Z"
             }
           ],
           "blockers": [],
