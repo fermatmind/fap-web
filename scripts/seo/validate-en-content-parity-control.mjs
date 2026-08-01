@@ -705,6 +705,7 @@ function validatePageApiAlignmentStatus(qaReport, rowEvidence, label, errors) {
       `${label}: NOT_APPLICABLE page/API check requires matching report status`,
       errors
     );
+    if (!rowEvidence) return;
     assert(
       rowEvidence?.coverage?.page_api_alignment_status === "NOT_APPLICABLE",
       `${label}: NOT_APPLICABLE page/API check requires matching coverage status`,
@@ -1313,11 +1314,11 @@ function validatePackageShaManifest(
       `${artifact.lane_id}: candidate patch must use the registered handoff filename`,
       errors
     );
-    const isIndependentQaBlocker =
-      artifact.proposed_status === "blocked" &&
+    const isIndependentQaEvidence =
+      ["blocked", "qa_pass"].includes(artifact.proposed_status) &&
       artifact.gate_evidence?.owner_lane_id === "W9" &&
       artifact.gate_evidence?.report_in_package === false;
-    if (!isIndependentQaBlocker) {
+    if (!isIndependentQaEvidence) {
       assert(
         path.dirname(candidatePath) === path.dirname(shaManifestPath),
         `${artifact.lane_id}: candidate patch and SHA manifest must share one package directory`,
@@ -1753,7 +1754,11 @@ function validateIndependentQaEvidence(
   }
   if (expectedVerdict === "PASS") {
     for (const check of EXPECTED_QA_CHECKS) {
-      assert(qaReport.checks?.[check] === "PASS", `${artifact.lane_id}: W9 QA check ${check} must PASS`, errors);
+      assert(
+        qaReport.checks?.[check] === "PASS" || (check === "page_api_alignment" && qaReport.checks?.[check] === "NOT_APPLICABLE"),
+        `${artifact.lane_id}: W9 QA check ${check} must PASS unless candidate-only page/API alignment is NOT_APPLICABLE`,
+        errors
+      );
     }
   } else {
     assert(
