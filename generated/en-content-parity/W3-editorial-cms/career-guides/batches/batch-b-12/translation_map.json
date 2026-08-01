@@ -1,0 +1,132 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_batch_b_translation_map.v1",
+  "package_id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-2026-08-02",
+  "partial_batch": {
+    "batch_id": "batch-b-12",
+    "guide_codes": [
+      "annual-career-review-system",
+      "build-five-year-career-roadmap",
+      "career-risk-management",
+      "career-transition-playbook",
+      "cross-industry-move-strategy",
+      "how-to-choose-college-major",
+      "how-to-find-right-career-direction",
+      "improve-workplace-competitiveness",
+      "interview-strategy-by-role",
+      "leader-track-vs-expert-track",
+      "prevent-burnout-while-growing",
+      "salary-negotiation-framework"
+    ],
+    "registered_row_count": 20,
+    "batch_row_count": 12,
+    "aggregate_ready": false,
+    "master_transition_allowed": false
+  },
+  "rows": [
+    {
+      "guide_code": "annual-career-review-system",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:annual-career-review-system",
+      "source_title": "年度职业复盘系统",
+      "candidate_title": "Build an Annual Career Review System"
+    },
+    {
+      "guide_code": "build-five-year-career-roadmap",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:build-five-year-career-roadmap",
+      "source_title": "如何制定五年职业路线图",
+      "candidate_title": "Build a Flexible Five-Year Career Roadmap"
+    },
+    {
+      "guide_code": "career-risk-management",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:career-risk-management",
+      "source_title": "职业风险管理指南",
+      "candidate_title": "Manage Career Risk With Better Signals"
+    },
+    {
+      "guide_code": "career-transition-playbook",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:career-transition-playbook",
+      "source_title": "职业转型行动手册",
+      "candidate_title": "Create a Practical Career Transition Playbook"
+    },
+    {
+      "guide_code": "cross-industry-move-strategy",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:cross-industry-move-strategy",
+      "source_title": "跨行业转型策略",
+      "candidate_title": "Plan a Cross-Industry Move"
+    },
+    {
+      "guide_code": "how-to-choose-college-major",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:how-to-choose-college-major",
+      "source_title": "如何选择大学专业",
+      "candidate_title": "Choose a College Major as an Exploration Decision"
+    },
+    {
+      "guide_code": "how-to-find-right-career-direction",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:how-to-find-right-career-direction",
+      "source_title": "如何找到适合自己的职业方向",
+      "candidate_title": "Find a Career Direction Through Evidence"
+    },
+    {
+      "guide_code": "improve-workplace-competitiveness",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:improve-workplace-competitiveness",
+      "source_title": "如何提升职场竞争力",
+      "candidate_title": "Strengthen Workplace Contribution"
+    },
+    {
+      "guide_code": "interview-strategy-by-role",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:interview-strategy-by-role",
+      "source_title": "按岗位定制面试策略",
+      "candidate_title": "Prepare for Interviews by Understanding the Role"
+    },
+    {
+      "guide_code": "leader-track-vs-expert-track",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:leader-track-vs-expert-track",
+      "source_title": "管理路径与专家路径如何选择",
+      "candidate_title": "Compare Leadership and Expert Career Tracks"
+    },
+    {
+      "guide_code": "prevent-burnout-while-growing",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:prevent-burnout-while-growing",
+      "source_title": "成长阶段如何预防职业倦怠",
+      "candidate_title": "Support Sustainable Growth at Work"
+    },
+    {
+      "guide_code": "salary-negotiation-framework",
+      "source_locale": "zh-CN",
+      "target_locale": "en",
+      "translation_pair_identity": "career-guide:salary-negotiation-framework",
+      "source_title": "薪资谈判实战框架",
+      "candidate_title": "Prepare for a Salary Negotiation Conversation"
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

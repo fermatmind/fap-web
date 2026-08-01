@@ -55627,8 +55627,8 @@
       "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01",
       "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "4fe29401f530478b2cc75f8b7b04844095465ab4",
+    "status": "merged",
+    "commit_sha": "356123a723ea033cd466a864e5e3ef052552e65d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1980",
     "checks": {
       "dependency": {
@@ -55645,18 +55645,18 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1980 head 3231ef8fe9a11292b9f4dd04122829220d237137 passed build, all four contract shards and contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN; the automated review has no actionable finding."
+        "evidence": "PR #1980 final head 356123a723ea033cd466a864e5e3ef052552e65d passed build, all four contract shards and contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reported CLEAN; the automated review had no actionable finding."
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-01T20:40:39Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
-      "post_merge_revalidated": false
+      "github_checks_green": true,
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -55695,8 +55695,44 @@
         "at": "2026-08-02T04:38:00Z",
         "status": "ready_to_merge",
         "summary": "PR #1980 exact checked head 3231ef8fe9a11292b9f4dd04122829220d237137 passed every required GitHub check, is CLEAN against base 89fc715fea7836e2c02ef7a486a889473f7bee88, and has no review requirement or actionable comment. Final source/package SHA, W3 state, frozen Articles lineage, and all-false permission reconciliation pass. The ledger readiness head will complete its own fresh required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T20:40:39Z",
+        "status": "merged",
+        "summary": "GitHub confirms PR #1980 squash merged as 62fc12db10f53c84a955a507e994863b4248adbc. origin/main contains the merge, the remote and local Batch A branch were deleted, and post-merge Batch A plus control validation reconfirmed the 8/20 witness without changing master Career Guides pre-freeze state."
       }
     ],
-    "updated_at": "2026-08-02T04:38:00Z"
+    "updated_at": "2026-08-01T20:40:39Z"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01": {
+    "id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01: produce 12 Career Guide English parity assets",
+    "base": "main",
+    "branch": "codex/en-parity-w3-career-guide-assets-batch-b-01",
+    "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "GitHub confirms Batch A PR #1980 is merged as 62fc12db10f53c84a955a507e994863b4248adbc and origin/main retains W3-CAREER-GUIDES=package_in_progress with null package/QA fields, empty lineage, and all-false permissions."},
+      "source_authority": {"status": "pass", "evidence": "Read-only fap-api origin/main f9b560e593a672e1e7c42aee810521593d88fdbf career_guides.en.json SHA 474b3ca869e3f32033089f48967458f977f7bf3cffd4d42c29eae689362bb416 and career_guides.zh-CN.json SHA 3664183d9685dc67fd2b44d231837e5638ad64410f9e7b6b70110d9fd93d5b31 match the frozen boundary snapshot."},
+      "local_validation": {"status": "pass", "evidence": "2026-08-02: builder and Batch B validator pass for the exact twelve rows and package SHA 53458328d70d3035c7f29deb1038ba3edf96295db72cae4ca0ce61aace33b9d9; partial-candidate control validation passes; focused contracts pass 67/67; focused ESLint, JSON/JSONL/YAML parse, immutable SHA recomputation, 12/12 source identity/structure/use, Markdown/link, Han-leakage, claim-boundary, all-false-permission, and diff checks pass."},
+      "github_required_checks": {"status": "pending", "evidence": "No PR has been opened."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-02T05:00:00Z", "status": "in_progress", "summary": "Started only the fixed twelve-row Batch B producer package from latest origin/main after reconciling merged Batch A. The partial candidate is an auditable package_in_progress witness only; master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, and deploy state remain outside scope."},{"at": "2026-08-02T05:04:00Z", "status": "local_verified", "summary": "Produced exactly batch-b-12: annual-career-review-system, build-five-year-career-roadmap, career-risk-management, career-transition-playbook, cross-industry-move-strategy, how-to-choose-college-major, how-to-find-right-career-direction, improve-workplace-competitiveness, interview-strategy-by-role, leader-track-vs-expert-track, prevent-burnout-while-growing, and salary-negotiation-framework. The 12/20 witness binds fap-api source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a; master state and every permission remain unchanged."}],
+    "updated_at": "2026-08-02T05:04:00Z"
   }
 }

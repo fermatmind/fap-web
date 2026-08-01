@@ -1,0 +1,43 @@
+{
+  "schema_version": "fermatmind.en_content_parity_dry_run_readiness.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-CAREER-GUIDES",
+  "package_id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-2026-08-02",
+  "partial_batch": {
+    "batch_id": "batch-b-12",
+    "guide_codes": [
+      "annual-career-review-system",
+      "build-five-year-career-roadmap",
+      "career-risk-management",
+      "career-transition-playbook",
+      "cross-industry-move-strategy",
+      "how-to-choose-college-major",
+      "how-to-find-right-career-direction",
+      "improve-workplace-competitiveness",
+      "interview-strategy-by-role",
+      "leader-track-vs-expert-track",
+      "prevent-burnout-while-growing",
+      "salary-negotiation-framework"
+    ],
+    "registered_row_count": 20,
+    "batch_row_count": 12,
+    "aggregate_ready": false,
+    "master_transition_allowed": false
+  },
+  "ready": false,
+  "status": "partial_batch_candidate_only",
+  "blockers": [
+    "A complete 20-row package is required before package freeze.",
+    "Independent W9 QA, CMS import, publication, indexability, and search release are separately unauthorized."
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

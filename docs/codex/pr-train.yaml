@@ -29732,3 +29732,51 @@ prs:
     deploy_allowed: false
     content_authority: fap-api CareerGuide baseline is source structure/use authority; backend CMS remains runtime authority
     repository_rule_impact: partial producer witness only; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01
+    repo: fap-web
+    branch: codex/en-parity-w3-career-guide-assets-batch-b-01
+    base: main
+    title: "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01: produce 12 Career Guide English parity assets"
+    depends_on: [EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01]
+    mode: execute
+    train_scope: w3_career_guides_batch_b_partial_producer_package
+    status: in_progress
+    scope:
+      - Produce only the exact twelve registered English CareerGuide candidates in batches/batch-b-12 as a partial package_in_progress witness.
+      - Extend the CONTROL validator only for this fixed 12/20 Batch B witness while preserving Batch A and all master-state restrictions.
+      - Bind the package to fap-api origin/main f9b560e593a672e1e7c42aee810521593d88fdbf and the frozen Career Guide claim-boundary package.
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/career-guides/batches/batch-b-12/**
+      - scripts/seo/build-w3-career-guides-batch-b.mjs
+      - scripts/seo/validate-w3-career-guides-batch-b.mjs
+      - scripts/seo/validate-en-content-parity-control.mjs
+      - tests/contracts/en-content-parity-w3-career-guide-batch-b.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, Batch A, the complete 20-row root package, W3 Articles, W9, CMS, database, runtime, SEO, sitemap, llms, import, publication, search, or deploy state.
+      - Treat the Batch B package SHA as a master package SHA, QA evidence, gate lineage, import approval, or release approval.
+      - Grant any write, import, runtime, release, SEO, search, deployment, or master-authoring permission.
+    required_local_checks:
+      - node scripts/seo/build-w3-career-guides-batch-b.mjs
+      - node scripts/seo/validate-w3-career-guides-batch-b.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W3-editorial-cms/career-guides/batches/batch-b-12/master_manifest_patch.candidate.json
+      - focused partial-package and control-master contracts
+      - focused ESLint
+      - JSON, JSONL, and YAML parse
+      - exact 12/12 identity, source-structure/use, Markdown, link, Han-leakage, claim-boundary, and all-false permission audit
+      - exact immutable payload and package SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api CareerGuide baseline is source structure/use authority; backend CMS remains runtime authority
+    repository_rule_impact: partial producer witness only; no authority, runtime, import, publication, discoverability, or deployment change
