@@ -6,7 +6,7 @@
   "lane_id": "W1",
   "subscope_id": "W1-MBTI-RESULT-CONTENT",
   "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
-  "status": "package_in_progress",
+  "status": "package_frozen",
   "output_directory": "generated/en-content-parity/W1-mbti/result-content/",
   "artifact_files": [
     "scope_manifest.json",
