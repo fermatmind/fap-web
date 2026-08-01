@@ -580,7 +580,7 @@ describe("English content parity control master", () => {
         same_pr_allowed: false,
       },
     ]);
-    expect(w1?.status).toBe("inventory_frozen");
+    expect(w1?.status).toBe("package_in_progress");
     expect(w1?.counts).toEqual({
       cohort_count: 2,
       expected_en_assets: 53,
@@ -590,11 +590,11 @@ describe("English content parity control master", () => {
     });
 
     const w2 = manifest.lanes.find((lane) => lane.lane_id === "W2");
-    expect(w2?.status).toBe("package_in_progress");
+    expect(w2?.status).toBe("package_frozen");
     expect(w2?.blocked_from_status).toBeNull();
-    expect(w2?.package_sha256).toBeNull();
+    expect(w2?.package_sha256).toBe("a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b");
     expect(w2?.qa_report_ref).toBeNull();
-    expect(w2?.gate_lineage).toEqual([]);
+    expect(w2?.gate_lineage).toHaveLength(1);
     expect(w2?.blockers).toEqual([]);
     expect(w2?.counts).toEqual({
       cohort_count: 3,
@@ -604,7 +604,7 @@ describe("English content parity control master", () => {
       unknown_inventory_cohorts: 0,
     });
     expect(w2?.next_action).toBe(
-      "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate."
+      "Submit the exact frozen W2 package SHA to independent W9 QA; do not rebuild or replace the package without returning to package production."
     );
     expect(
       manifest.assets
@@ -871,7 +871,7 @@ describe("English content parity control master", () => {
     if (!w1) {
       throw new Error("missing W1 lane fixture");
     }
-    w1.status = "inventory_frozen";
+    w1.status = "package_in_progress";
     let expectedTotal = 0;
     let currentTotal = 0;
     let remainingTotal = 0;
@@ -3085,6 +3085,7 @@ describe("English content parity control master", () => {
     const frozenAssets = progressedManifest.assets
       .filter((asset) => asset.asset_id === "ENPARITY-W1-MBTI-CROSS-COMPARISONS");
     comparisons.status = "package_in_progress";
+    w1.status = "package_in_progress";
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const permissions: Permissions = {
@@ -3210,6 +3211,7 @@ describe("English content parity control master", () => {
       throw new Error("missing W1 external package fixture");
     }
     comparisons.status = "package_in_progress";
+    w1.status = "package_in_progress";
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const frozenAssets = progressedManifest.assets.filter(

@@ -116,7 +116,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
@@ -174,7 +174,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-RESULT-CONTENT"
           ],
-          "status": "inventory_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
@@ -228,7 +228,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_in_progress",
+      "status": "package_frozen",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
@@ -248,11 +248,20 @@
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
         "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json"
       ],
-      "package_sha256": null,
+      "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
       "qa_report_ref": null,
-      "gate_lineage": [],
+      "gate_lineage": [
+        {
+          "status": "package_frozen",
+          "evidence_owner_lane_id": "W2",
+          "report_ref": "generated/en-content-parity/W2-big-five/editorial_review.json",
+          "report_sha256": "4082803c1cc4dc3dd4f185b663f7f635455418e5cd1438e9fdea3f752f799471",
+          "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+          "accepted_at": "2026-08-01T07:23:51Z"
+        }
+      ],
       "blockers": [],
-      "next_action": "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate.",
+      "next_action": "Submit the exact frozen W2 package SHA to independent W9 QA; do not rebuild or replace the package without returning to package production.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
@@ -297,20 +306,11 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
-          "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
+          "package_sha256": null,
           "qa_report_ref": null,
-          "gate_lineage": [
-            {
-              "status": "package_frozen",
-              "evidence_owner_lane_id": "W3",
-              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
-              "report_sha256": "9faf285500947c013c04bf2902b580bf09568cc9751fbc586903bffe9f9c3d9b",
-              "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
-              "accepted_at": "2026-08-01T06:57:31Z"
-            }
-          ],
+          "gate_lineage": [],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -350,7 +350,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Submit exact W3-ARTICLES package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b to fresh independent W9 QA; keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
+      "next_action": "Repair the three W9-blocked Article 59 language errors, rebuild the complete W3-ARTICLES package, re-freeze it under a new exact SHA, and repeat fresh independent W9 QA. Keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
