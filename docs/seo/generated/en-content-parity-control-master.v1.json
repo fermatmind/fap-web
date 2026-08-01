@@ -220,7 +220,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
@@ -244,7 +244,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts.",
+      "next_action": "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

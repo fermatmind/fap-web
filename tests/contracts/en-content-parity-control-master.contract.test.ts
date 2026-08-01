@@ -590,7 +590,7 @@ describe("English content parity control master", () => {
     });
 
     const w2 = manifest.lanes.find((lane) => lane.lane_id === "W2");
-    expect(w2?.status).toBe("inventory_frozen");
+    expect(w2?.status).toBe("package_in_progress");
     expect(w2?.blocked_from_status).toBeNull();
     expect(w2?.package_sha256).toBeNull();
     expect(w2?.qa_report_ref).toBeNull();
@@ -604,7 +604,7 @@ describe("English content parity control master", () => {
       unknown_inventory_cohorts: 0,
     });
     expect(w2?.next_action).toBe(
-      "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts."
+      "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate."
     );
     expect(
       manifest.assets

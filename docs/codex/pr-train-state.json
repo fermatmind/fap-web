@@ -53546,5 +53546,29 @@
       }
     ],
     "updated_at": "2026-08-01T14:42:12+08:00"
+  },
+  "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01": {
+    "id": "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01: accept Big Five package production",
+    "base": "main",
+    "branch": "codex/en-parity-control-w2-package-in-progress-01",
+    "depends_on": ["EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {"dependency":{"status":"pass","evidence":"Producer B PR #1907 merged as 54bd6ccfe5f374530ce7059df02112bfd65548ad; minimal external-master candidate rebase repair PR #1911 merged as d5a1c50d920e9c06c3fab5339037e8246fb54d27."},"pre_transition_candidate":{"status":"pass","evidence":"Candidate validator passes against exact current master SHA 04b53efe242496bd9cbd388f1ac79236bc9e9c77d8e21586b9b92837496e5a10."},"local_validation":{"status":"pass","evidence":"Master validator and focused 63/63 parity contract pass; W2 is package_in_progress with immutable 52/50/16 counts, null package/QA fields, empty lineage, and all permissions false."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [{"at":"2026-08-01T14:56:00+08:00","status":"local_verified","summary":"Validated current W2 candidate after the external-master rebase repair and applied only inventory_frozen to package_in_progress; no package SHA, QA, lineage, permission, CMS, runtime, or release change."}],
+    "updated_at": "2026-08-01T14:56:00+08:00"
   }
 }
