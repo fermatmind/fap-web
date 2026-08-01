@@ -29733,6 +29733,58 @@ prs:
     content_authority: fap-api CareerGuide baseline is source structure/use authority; backend CMS remains runtime authority
     repository_rule_impact: partial producer witness only; no authority, runtime, import, publication, discoverability, or deployment change
 
+  - id: EN-PARITY-CONTROL-AUTOMATION-V2-01
+    repo: fap-web
+    branch: codex/en-parity-control-automation-v2-01
+    base: main
+    title: "EN-PARITY-CONTROL-AUTOMATION-V2-01: replace human content approvals with verified automation receipts"
+    depends_on: []
+    mode: execute
+    train_scope: english_content_promotion_control_automation_v2
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Add the deterministic V2 English parity master and Schema while retaining V1 as immutable audit history.
+      - Replace human approval and state-only CONTROL transitions with exact chained backend import, publication, and live-QA receipts.
+      - Move independent W9 QA into the same Producer PR as a required exact-head/package check and keep package identity lane-local.
+      - Update the repository rule and bootstrap contract without importing, publishing, deploying, or opening SEO discoverability.
+    allowed_paths:
+      - AGENTS.md
+      - docs/seo/en-content-parity-control-bootstrap.md
+      - docs/seo/generated/en-content-parity-control-master.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.schema.json
+      - scripts/seo/build-en-content-parity-control-v2.mjs
+      - scripts/seo/validate-en-content-parity-control-v2.mjs
+      - scripts/seo/validate-en-content-parity-control.mjs
+      - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify the V1 master or Schema, lane Producer packages, CMS data, backend runtime, sitemap, llms, canonical, indexability, Search Channel, secrets, database, or deployment configuration.
+      - Dispatch the backend promotion workflow, import or publish content, trigger deployment, or treat V1 human approval evidence as a V2 transition dependency.
+    required_local_checks:
+      - node scripts/seo/build-en-content-parity-control-v2.mjs --check
+      - node scripts/seo/validate-en-content-parity-control-v2.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.v2.contract.test.ts tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec eslint scripts/seo/build-en-content-parity-control-v2.mjs scripts/seo/validate-en-content-parity-control-v2.mjs scripts/seo/validate-en-content-parity-control.mjs tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - JSON and YAML parse
+      - exact changed-file scope validation
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api remains the CMS and package-execution authority; fap-web V2 is a generated read-only control summary
+    repository_rule_impact: replaces repeated human content approvals and status-only CONTROL PRs with trusted exact-package automation receipts; production deploy and SEO discoverability remain separately gated
+
   - id: EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01
     repo: fap-web
     branch: codex/en-parity-w3-career-guide-assets-batch-b-01

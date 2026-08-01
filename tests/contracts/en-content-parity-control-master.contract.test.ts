@@ -554,12 +554,15 @@ function w1ComparisonsInventoryFixture(source: MasterManifest): MasterManifest {
 describe("English content parity control master", () => {
   const manifest = readJson<MasterManifest>(MANIFEST_PATH);
 
-  it("keeps one master manifest with the frozen cross-repository and live baseline", () => {
+  it("keeps V1 as the sole audit master alongside the generated V2 authority", () => {
     const generatedFiles = fs
       .readdirSync(path.join(ROOT, "docs/seo/generated"))
       .filter((name) => /^en-content-parity-control-master\.v\d+\.json$/.test(name));
 
-    expect(generatedFiles).toEqual(["en-content-parity-control-master.v1.json"]);
+    expect(generatedFiles).toEqual([
+      "en-content-parity-control-master.v1.json",
+      "en-content-parity-control-master.v2.json",
+    ]);
     expect(manifest.artifact_kind).toBe("master_manifest");
     expect(manifest.control_id).toBe("EN-PARITY-CONTROL-BOOTSTRAP-01");
     expect(manifest.is_master).toBe(true);

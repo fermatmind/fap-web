@@ -55796,5 +55796,60 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-02T06:20:00Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance from latest origin/main after reconciling merged PR #1983, its exact current-master candidate binding, the complete 20-row immutable package, W3 Articles isolation, and all-false permissions. No producer payload, W9 evidence, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."},{"at": "2026-08-02T06:30:00Z", "status": "local_verified", "summary": "Accepted only W3-CAREER-GUIDES package_in_progress to package_frozen at SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c with its exact in-package editorial-review SHA 137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402. W3 aggregate is package_frozen solely by the least-progressed-subscope invariant and retains null package/QA fields with empty aggregate lineage; frozen Articles evidence and all permissions are unchanged."},{"at": "2026-08-02T06:34:00Z", "status": "committed", "summary": "Committed the isolated CONTROL acceptance as 496ad608b8b2a52a2a6cf35725385d32d7966f6c after all required local checks passed. Pending push and one ready PR; no W9, CMS/import, runtime, publication, discoverability, search, or deploy action is included."},{"at": "2026-08-02T06:38:00Z", "status": "github_checks_pending", "summary": "Opened ready PR #1985. Required GitHub checks, review, and final exact-head/base scope reconciliation are pending; W9, CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."},{"at": "2026-08-02T06:48:00Z", "status": "ci_repair_local_verified", "summary": "Initial CI exposed the stale producer-only assertion in the existing Career Guides freeze validator and contract. Updated only those registered same-scope files to allow the original pre-acceptance state or the exact CONTROL-frozen package/lineage state. Freeze and control validators pass; focused contracts pass 66/66; focused ESLint, scope, and diff checks pass. Fresh required checks are pending."},{"at": "2026-08-02T07:02:00Z", "status": "ci_repair_local_verified", "summary": "The first retry exposed equivalent stale pre-acceptance assertions in the registered Batch A and Batch B validators. Updated only those validators to recognize the exact independent CONTROL package_frozen lineage while preserving partial-candidate non-transitioning rules. Batch A, Batch B, freeze, and control validators pass; focused contracts pass 71/71; ESLint, JSON/YAML, SHA/lineage, permissions, scope, and diff checks pass. Fresh required checks are pending."},{"at": "2026-08-02T07:32:00Z", "status": "ready_to_merge", "summary": "PR #1985 exact head 7eaf696c4e54d43275282666ae7dacf6efd0d5ea is CLEAN against unchanged base bdf6b91714237acd4d69439e597234857108f785. Build, four contract shards, aggregate contracts, Big Five, Enneagram, CodeQL, and zero-new-alerts all pass; no review decision, actionable comment, or scope drift remains. This readiness ledger commit must complete its own required-check cycle before squash merge."}],
     "updated_at": "2026-08-02T07:32:00Z"
+  },
+  "EN-PARITY-CONTROL-AUTOMATION-V2-01": {
+    "id": "EN-PARITY-CONTROL-AUTOMATION-V2-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-AUTOMATION-V2-01: replace human content approvals with verified automation receipts",
+    "base": "main",
+    "branch": "codex/en-parity-control-automation-v2-01",
+    "depends_on": [],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Backend prerequisite PR #3488 is merged as 8e738763162ff7c1507e28fa30d1b8cb7154de85 and origin/main in fap-api contains its exact-package executor contract. No production deploy or CMS write is part of this PR."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 77/77; focused ESLint, Node syntax, JSON/YAML parse, exact changed-file scope, and diff checks pass. V2 preserves nine lanes, thirteen assets, all counts/package/QA lineage, isolates legacy human approvals, and validates the exact three-receipt backend chain."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T21:36:44Z",
+        "status": "in_progress",
+        "summary": "Started the exact V2 control scope after verifying backend PR #3488 merged. This PR only adds the deterministic V2 summary, Schema, validators, contracts, rules, and shadow migration; it does not dispatch promotion, write CMS, publish content, alter discoverability, or deploy."
+      },
+      {
+        "at": "2026-08-01T21:40:00Z",
+        "status": "local_verified",
+        "summary": "V2 generation and dual V1/V2 validators pass. Focused contracts pass 77/77, including migration equivalence, human-approval isolation, same-PR W9 policy, valid receipt chaining, and fail-closed missing/forged/cross-lane/cross-package/count/duplicate cases. Focused ESLint, JSON/YAML parse, exact allowlist, and diff checks pass."
+      }
+    ],
+    "updated_at": "2026-08-01T21:40:00Z"
   }
 }

@@ -1,0 +1,236 @@
+#!/usr/bin/env node
+
+import { createHash } from "node:crypto";
+import fs from "node:fs";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+
+const ROOT = process.cwd();
+const V1_PATH = "docs/seo/generated/en-content-parity-control-master.v1.json";
+const V2_PATH = "docs/seo/generated/en-content-parity-control-master.v2.json";
+
+export const V2_ORDERED_STATES = [
+  "not_started",
+  "inventory_frozen",
+  "package_in_progress",
+  "package_frozen",
+  "qa_pass",
+  "dry_run_ready",
+  "draft_imported",
+  "published",
+  "live_qa_pass",
+];
+
+export const RELEASE_POLICY = Object.freeze({
+  cms_draft_import: "auto_after_dry_run_pass",
+  public_publish: "auto_after_import_readback_pass",
+  live_qa: "automatic",
+  seo_discoverability: "separate_gate",
+  production_deploy: "separate_exact_sha_gate",
+});
+
+const BACKEND_PROMOTION_CONTRACT = Object.freeze({
+  source_repository: "fermatmind/fap-api",
+  minimum_executor_commit: "8e738763162ff7c1507e28fa30d1b8cb7154de85",
+  command: "content:promote-exact-package",
+  trusted_workflow_path: ".github/workflows/content-promotion-automation.yml",
+  receipt_schema_version: "fermatmind.content_promotion_receipt.v2",
+  release_policy_sha256: "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
+});
+
+function canonicalize(value) {
+  if (Array.isArray(value)) return value.map(canonicalize);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.keys(value)
+        .sort()
+        .map((key) => [key, canonicalize(value[key])]),
+    );
+  }
+  return value;
+}
+
+export function canonicalJson(value) {
+  return JSON.stringify(canonicalize(value));
+}
+
+export function sha256Bytes(bytes) {
+  return createHash("sha256").update(bytes).digest("hex");
+}
+
+export function mapV1Status(status) {
+  return status === "editorial_approved" ? "draft_imported" : status;
+}
+
+function isLegacyHumanApprovalLineage(entry) {
+  return (
+    entry?.status === "editorial_approved" ||
+    String(entry?.report_ref ?? "").includes("/CONTROL-approvals/") ||
+    (["draft_imported", "published"].includes(entry?.status) && entry?.evidence_owner_lane_id === "CONTROL")
+  );
+}
+
+function migrateLineage(entries = []) {
+  const gateLineage = [];
+  const legacyLineage = [];
+  for (const entry of entries) {
+    const migrated = { ...entry, status: mapV1Status(entry.status) };
+    if (isLegacyHumanApprovalLineage(entry)) {
+      legacyLineage.push({
+        ...migrated,
+        legacy_source: "v1_human_approval_audit_only",
+        transition_dependency_allowed: false,
+      });
+    } else {
+      gateLineage.push(migrated);
+    }
+  }
+  return { gateLineage, legacyLineage };
+}
+
+function migrateTarget(target, isProducer) {
+  const { gateLineage, legacyLineage } = migrateLineage(target.gate_lineage);
+  return {
+    ...target,
+    status: mapV1Status(target.status),
+    blocked_from_status: target.blocked_from_status === null ? null : mapV1Status(target.blocked_from_status),
+    gate_lineage: gateLineage,
+    legacy_lineage: legacyLineage,
+    lane_manifest_ref: null,
+    promotion_receipts: [],
+    release_policy: isProducer ? { ...RELEASE_POLICY } : null,
+  };
+}
+
+export function migrateV1ToV2(v1, v1Sha256) {
+  const lanes = v1.lanes.map((lane) => {
+    const isProducer = lane.lane_kind === "producer";
+    const migrated = migrateTarget(lane, isProducer);
+    migrated.subscopes = (lane.subscopes ?? []).map((subscope) => migrateTarget(subscope, isProducer));
+    delete migrated.permissions;
+    return migrated;
+  });
+
+  return {
+    $schema: "./en-content-parity-control-master.v2.schema.json",
+    schema_version: "fermatmind.en_content_parity_control.v2",
+    artifact_kind: "generated_read_only_master",
+    control_id: "EN-PARITY-CONTROL-AUTOMATION-V2-01",
+    is_master: true,
+    generated_at: v1.generated_at,
+    authority: {
+      content_source_of_truth: "backend_cms_public_api",
+      frontend_role: "render_interact_and_adapt_only",
+      empty_response_behavior: "fail_closed_no_editorial_fallback",
+      master_mode: "generated_read_only_summary",
+      materialization_inputs: ["lane_manifests", "trusted_backend_promotion_receipts"],
+      v1_mode: "immutable_audit_only",
+      v1_path: V1_PATH,
+      v1_sha256: v1Sha256,
+      backend_promotion_contract: { ...BACKEND_PROMOTION_CONTRACT },
+    },
+    migration: {
+      source_schema_version: v1.schema_version,
+      source_control_id: v1.control_id,
+      status_mapping: { editorial_approved: "draft_imported" },
+      lane_count: lanes.length,
+      asset_count: v1.assets.length,
+      blocked_state_preserved: true,
+      counts_package_qa_and_lineage_preserved: true,
+      human_approval_lineage_mode: "legacy_audit_only_not_transition_evidence",
+      v1_permissions_snapshot: v1.permissions,
+    },
+    state_machine: {
+      ordered_states: [...V2_ORDERED_STATES],
+      blocked_state: "blocked",
+      skip_transitions_allowed: false,
+      state_facts_source: "lane_manifests_and_trusted_backend_receipts",
+      state_control_pr_required: false,
+    },
+    release_policy_template: { ...RELEASE_POLICY },
+    qa_policy: {
+      owner_lane_id: "W9",
+      execution_mode: "independent_required_check_in_same_producer_pr",
+      exact_pr_head_and_package_sha_required: true,
+      blocked_behavior: "fail_current_producer_pr_and_repair_in_same_pr",
+      separate_w9_evidence_pr_allowed: false,
+      blocked_control_reset_pr_allowed: false,
+      refreeze_acceptance_pr_allowed: false,
+    },
+    receipt_contract: {
+      accepted_receipt_kinds: [
+        "cms_draft_import_receipt",
+        "cms_publication_receipt",
+        "cms_live_qa_receipt",
+      ],
+      source_repository: "fermatmind/fap-api",
+      exact_package_sha_required: true,
+      exact_lane_and_subscope_required: true,
+      exact_count_required: true,
+      immutable_previous_receipt_chain_required: true,
+      trusted_workflow_identity_required: true,
+      human_approval_evidence_allowed: false,
+    },
+    baseline: v1.baseline,
+    existing_state_reference: v1.existing_state_reference,
+    launch_policy: v1.launch_policy,
+    handoff_contract: {
+      producer_package_and_w9_same_pr: true,
+      leaf_may_edit_master: false,
+      master_materialization: "automatic_read_only_generation",
+      legacy_master_manifest_patch_candidate_required: false,
+    },
+    lanes,
+    assets: v1.assets,
+    guardrails: {
+      producer_direct_cms_write_allowed: false,
+      trusted_backend_draft_import_allowed: true,
+      trusted_backend_publication_allowed: true,
+      trusted_backend_live_qa_allowed: true,
+      seo_discoverability_allowed: false,
+      search_submission_allowed: false,
+      production_deploy_allowed: false,
+      database_migration_allowed: false,
+      secrets_or_permission_change_allowed: false,
+      destructive_operation_allowed: false,
+    },
+    repository_rule_impact: {
+      runtime_behavior_changed: false,
+      content_authority_changed: false,
+      public_exposure_changed: false,
+      control_workflow_changed: true,
+      notes: "V2 replaces repeated human and state-acceptance PRs with trusted backend receipts; it does not itself import, publish, deploy, or open discoverability.",
+    },
+  };
+}
+
+export function buildV2() {
+  const v1Bytes = fs.readFileSync(path.join(ROOT, V1_PATH));
+  const v1 = JSON.parse(v1Bytes.toString("utf8"));
+  return migrateV1ToV2(v1, sha256Bytes(v1Bytes));
+}
+
+function main() {
+  const write = process.argv.includes("--write");
+  const check = process.argv.includes("--check");
+  if (write === check) throw new Error("choose_exactly_one_of=--write|--check");
+  const bytes = `${JSON.stringify(buildV2(), null, 2)}\n`;
+  const target = path.join(ROOT, V2_PATH);
+  if (write) {
+    fs.writeFileSync(target, bytes, { flag: "w" });
+    process.stdout.write(`${JSON.stringify({ ok: true, path: V2_PATH, sha256: sha256Bytes(bytes) })}\n`);
+    return;
+  }
+  const actual = fs.readFileSync(target, "utf8");
+  if (actual !== bytes) throw new Error("v2_master_not_deterministically_generated");
+  process.stdout.write(`${JSON.stringify({ ok: true, path: V2_PATH, sha256: sha256Bytes(actual) })}\n`);
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  try {
+    main();
+  } catch (error) {
+    process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
+    process.exitCode = 1;
+  }
+}
