@@ -54831,9 +54831,9 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "6d256b92d9529e79f26b4430797738caff2565e8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -54872,8 +54872,13 @@
         "at": "2026-08-01T12:39:43Z",
         "status": "local_verified",
         "summary": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. All focused validation passes; W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all write/release permissions remain false."
+      },
+      {
+        "at": "2026-08-01T12:41:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the CONTROL-only acceptance as 6d256b92d9529e79f26b4430797738caff2565e8 and opened PR #1949. Required GitHub checks are pending; final merge remains conditional on exact scope, review policy, and a fresh master-file compare-and-swap check."
       }
     ],
-    "updated_at": "2026-08-01T12:39:43Z"
+    "updated_at": "2026-08-01T12:41:03Z"
   }
 }
