@@ -53296,7 +53296,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "fdcafb6f04090c3f93b7d5b2dab3ea32d3e74ab0",
+    "commit_sha": "031f9bda24d363eac19860744c77d69e2387f1be",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53481,8 +53481,13 @@
         "at": "2026-08-01T06:15:00Z",
         "status": "github_checks_pending",
         "summary": "After all required checks and CodeQL passed on 7092a2ab, exact-head review found rendered-body lineage, SEO canonical, and FAQ entity-structure gaps. Added hashed approved hero/definition/FAQ marker binding, exact SEO-authority canonical equality, and Question/acceptedAnswer validation. Focused contract passes 31/31; a fresh strict run remains GO with 29 complete candidates, target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact 1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f."
+      },
+      {
+        "at": "2026-08-01T06:17:57Z",
+        "status": "github_checks_pending",
+        "summary": "Committed rendered-lineage, exact SEO canonical, and structured FAQ validation as 031f9bda24d363eac19860744c77d69e2387f1be after focused 31/31, lint, typecheck, syntax, self-hash, ledger, marker/SEO/FAQ, and diff checks passed. This metadata tail binds the reachable implementation commit."
       }
     ],
-    "updated_at": "2026-08-01T06:15:00Z"
+    "updated_at": "2026-08-01T06:17:57Z"
   }
 }
