@@ -1,0 +1,19 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_top3_package_manifest.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "unordered_base_row_count": 20,
+  "ordered_code_coverage_count": 120,
+  "authored_ordered_reader_row_count": 0,
+  "payloads": [
+    {"path":"assets.jsonl","sha256":"08017348a81896be1f7a40d54f3782012b4a0d8522066c9b8bf4e25c51ded0dc"},
+    {"path":"translation_map.json","sha256":"380deffa7bdc88424baa82f4540bcc45b355e70b193686b0d0cc82d1bed5e00e"},
+    {"path":"source_ledger.json","sha256":"0bc2262d89687e52c54496bd4cae7eac599fa1f8f1e758efa0cf6ec8ee0f48b3"},
+    {"path":"ordered_emphasis_contract.json","sha256":"65022bfed6dc546c33516f82884800f9c8a2dce1e83fa2c50eeefa1393c49109"},
+    {"path":"claim_boundary_report.json","sha256":"285728840c2515b487dbcce4010b1cbc65636f0ef8b4948deca387f53711a3f3"},
+    {"path":"editorial_review.json","sha256":"0c80395719016db9e95d8cac7066390ddd35bbbc64f4fd0a93c22bb112e98f6a"}
+  ],
+  "aggregate_sha256":"d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c",
+  "aggregate_method":"sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
+  "permissions":{"cms_write_authorized":false,"staging_write_authorized":false,"production_import_authorized":false,"public_release_authorized":false,"seo_runtime_release_authorized":false,"search_submission_authorized":false,"master_manifest_write_authorized":false}
+}

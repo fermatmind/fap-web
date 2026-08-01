@@ -1,0 +1,11 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_top3_ordered_emphasis.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-2026-08-01",
+  "base_asset_count": 20,
+  "ordered_code_count": 120,
+  "derivation": "For every unordered three-dimension base key, generate each of its six unique permutations. The first ordered dimension is the first activity prompt; the second and third are supporting prompts. The order changes exploration sequence only, never identity, ability, career fit, or recommendation.",
+  "base_keys": ["R_I_A","R_I_S","R_I_E","R_I_C","R_A_S","R_A_E","R_A_C","R_S_E","R_S_C","R_E_C","I_A_S","I_A_E","I_A_C","I_S_E","I_S_C","I_E_C","A_S_E","A_S_C","A_E_C","S_E_C"],
+  "per_base_permutation_count": 6,
+  "coverage_assertion": "20 unordered bases x 6 permutations = 120 ordered codes; no additional reader-copy asset is created for an ordered permutation.",
+  "permissions": {"cms_write_authorized":false,"staging_write_authorized":false,"production_import_authorized":false,"public_release_authorized":false,"seo_runtime_release_authorized":false,"search_submission_authorized":false,"master_manifest_write_authorized":false}
+}
