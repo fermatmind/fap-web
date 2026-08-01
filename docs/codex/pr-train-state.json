@@ -53338,7 +53338,7 @@
       "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
     ],
     "status": "github_checks_pending",
-    "commit_sha": "364a5393eb65d4da217fcd248cdbfd5744ef5f77",
+    "commit_sha": "0c6b5c88927b7398faa0a826ea5f86e39600bf69",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53355,7 +53355,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "External W3 CONTROL PR #1902 advanced the unique master while PR #1899 checks ran. CONTROL A was rebased onto the new master; fresh required CI, freeze, and CodeQL checks are pending on the new exact head."
+        "evidence": "External W1/W3 CONTROL PRs #1901 and #1903 advanced the unique master while PR #1899 checks ran. CONTROL A was rebased onto the new master; fresh required CI, freeze, and CodeQL checks are pending on the new exact head."
       }
     },
     "failure_reason": null,
@@ -53408,8 +53408,13 @@
         "at": "2026-08-01T06:06:05Z",
         "status": "github_checks_pending",
         "summary": "External W3 CONTROL PR #1902 advanced the unique master and required another rebase. CONTROL A now rests on latest main with the same W2 inventory_frozen transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T06:11:50Z",
+        "status": "github_checks_pending",
+        "summary": "External W1/W3 CONTROL PRs #1901 and #1903 advanced the unique master and required another rebase. CONTROL A now rests on latest main with the same W2 inventory_frozen transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:06:05Z"
+    "updated_at": "2026-08-01T06:11:50Z"
   }
 }
