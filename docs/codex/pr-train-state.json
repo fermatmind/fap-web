@@ -55098,7 +55098,7 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-quality-assets-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-140Q-ASSETS-01"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "0db2aa365b2a1f7e96af8e2003688c30660f5a78",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1953",
     "checks": {
@@ -55111,15 +55111,15 @@
         "evidence": "fap-api origin/main 660280d00a57e58bd8bc76608e19de2492c03f53 provides the four G08 authority assets and current RIASEC registry; source SHA256 values are recorded in the segment source ledger."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1953 is open at package commit 0db2aa365b2a1f7e96af8e2003688c30660f5a78; required GitHub checks are pending."
+        "status": "pass",
+        "evidence": "PR #1953 head 7730c69480d8e246ee990b01a6cbcbcc86daed55 passed build, all contract shards and aggregate, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement."
       }
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55142,8 +55142,13 @@
         "at": "2026-08-01T23:52:00+08:00",
         "status": "github_checks_pending",
         "summary": "Opened PR #1953 from locally verified package commit 0db2aa365b2a1f7e96af8e2003688c30660f5a78. Required GitHub checks are pending; no W9 PASS, package freeze, master, runtime, CMS/import, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-02T00:00:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1953 checked head 7730c69480d8e246ee990b01a6cbcbcc86daed55 passed all required GitHub checks and is CLEAN. Final package, scope, control-master, and all-false-permission revalidation pass. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T23:52:00+08:00"
+    "updated_at": "2026-08-02T00:00:00+08:00"
   }
 }
