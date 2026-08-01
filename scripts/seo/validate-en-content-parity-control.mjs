@@ -2368,6 +2368,12 @@ function validateLeafInvariants(
         `${artifact.producer_lane_id}: QA PASS requires every check to PASS`,
         errors
       );
+    } else if (artifact.verdict === "BLOCKED") {
+      assert(
+        EXPECTED_QA_CHECKS.some((check) => artifact.checks?.[check] === "BLOCKED"),
+        `${artifact.producer_lane_id}: W9 BLOCKED verdict requires at least one blocked QA check`,
+        errors
+      );
     }
   }
 

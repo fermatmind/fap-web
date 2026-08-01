@@ -1662,6 +1662,28 @@ describe("English content parity control master", () => {
       );
       expect(JSON.parse(standaloneOutput)).toMatchObject({ ok: true, errors: [] });
 
+      const noBlockerQaReport = structuredClone(qaReport);
+      for (const check of Object.keys(noBlockerQaReport.checks)) {
+        if (noBlockerQaReport.checks[check] === "BLOCKED") {
+          noBlockerQaReport.checks[check] = "PASS";
+        }
+      }
+      fs.writeFileSync(qaReportPath, JSON.stringify(noBlockerQaReport));
+      let noBlockerOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        noBlockerOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(noBlockerOutput).errors.join("\n")).toContain(
+        "W9 BLOCKED verdict requires at least one blocked QA check"
+      );
+      fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+
       const output = execFileSync(
         "node",
         [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
