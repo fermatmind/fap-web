@@ -28295,6 +28295,60 @@ prs:
     content_authority: backend
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: CAREER-SEARCH-ENTRY-PILOT-READINESS-01
+    repo: fap-web
+    branch: codex/career-search-entry-pilot-readiness-01
+    base: main
+    title: "CAREER-SEARCH-ENTRY-PILOT-READINESS-01 select bounded career canary"
+    depends_on: []
+    mode: read_only_pilot_readiness
+    train_scope: career_search_entry_task12_followup
+    status: in_progress
+    scope:
+      - Consume the completed Task 12 PASS_APPLY_READBACK authority and select exactly 10 slugs / 20 EN-ZH canonical URLs for a bounded PR4 canary.
+      - Require live backend detail and SEO authority, public page, canonical, robots, sitemap, reviewer/content/SEO evidence, visible thickness, and FAQ/schema alignment.
+      - Prefer stable rows, then sort by quality score descending and canonical slug ascending; emit HOLD without lowering the gate when fewer than ten rows pass.
+    allowed_paths:
+      - scripts/seo/generate-career-search-entry-pilot-readiness.mjs
+      - tests/contracts/career-search-entry-pilot-readiness.contract.test.ts
+      - docs/seo/career-search-entry-pilot-readiness-01.md
+      - docs/seo/generated/career-search-entry-pilot-readiness-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - frontend or backend runtime changes
+      - CMS or database mutation
+      - sitemap or llms mutation
+      - Search Channel operation or URL submission
+      - deploy or rollback
+      - unsupported fit, salary, hiring, or success guarantee
+    required_local_checks:
+      - pnpm vitest run tests/contracts/career-search-entry-pilot-readiness.contract.test.ts
+      - pnpm lint
+      - pnpm typecheck
+      - git diff --check
+    cross_repo_prerequisites:
+      - "Backend Batch Review run 30678387519 passed before this PR started."
+      - "Backend Task 12 completed PASS_APPLY_READBACK with operator evidence 2546dbd6 before this PR started."
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge and post-merge GO revalidation, execute CAREER-SEARCH-ENTRY-CHANNEL-CANARY-01 using only the frozen exact target-set and artifact SHAs."
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: read-only control evidence only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W9-W2-SOURCE-INTAKE-01
     repo: fap-web
     branch: codex/en-parity-w9-w2-source-intake-01
