@@ -6,7 +6,7 @@
   "lane_id": "W2",
   "subscope_id": null,
   "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
-  "base_manifest_sha256": "55be9502909f3a58dcea6943590b8d07ac8e548297cdaa8315ba44edf45fd6b1",
+  "base_manifest_sha256": "b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3",
   "sha256_manifest_path": "generated/en-content-parity/W2-big-five/sha256_manifest.json",
   "package_sha256": "c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350",
   "proposed_status": "package_in_progress",

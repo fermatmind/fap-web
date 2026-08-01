@@ -53436,8 +53436,8 @@
     "depends_on": [
       "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "d2ac8f2c70b845c454f97f87f9bd26fe862ef132",
+    "status": "github_checks_pending",
+    "commit_sha": "83ac858ef673c66bb8c4742e09fa8716a8e99710",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53449,8 +53449,8 @@
         "evidence": "Read-only backend validator passes 16 units/16 assets at child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; candidate validator and focused parity contract pass 63/63. The 118-row 52/50/16 reconciliation, boundaries, and exact eight-file package SHA c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350 pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1907 exact head 313ac2dd9b8e43ef77846b55da79c8c784c3824f passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+        "status": "pending",
+        "evidence": "The prior green run covered pre-rebase head 313ac2dd9b8e43ef77846b55da79c8c784c3824f. External CONTROL PR #1908 changed origin/main master SHA to b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3, so Producer B was rebased and its candidate base SHA was re-bound; required CI and security checks must rerun for the new head."
       }
     },
     "failure_reason": null,
@@ -53483,8 +53483,13 @@
         "at": "2026-08-01T06:31:38Z",
         "status": "ready_to_merge",
         "summary": "PR #1907 exact head 313ac2dd9b8e43ef77846b55da79c8c784c3824f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; the Producer B candidate is ready for squash merge."
+      },
+      {
+        "at": "2026-08-01T14:37:15+08:00",
+        "status": "github_checks_pending",
+        "summary": "External CONTROL PR #1908 merged a W1 master update after Producer B's prior green head. Rebased this same Producer B branch onto origin/main and re-bound only base_manifest_sha256 to the current master SHA b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3; candidate validation, focused 63/63 contract, and the exact eight-file package SHA binding remained PASS. The prior check run is stale, so current-head required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:31:38Z"
+    "updated_at": "2026-08-01T14:37:15+08:00"
   }
 }
