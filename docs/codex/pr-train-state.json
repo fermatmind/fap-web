@@ -52560,14 +52560,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-06",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
     "commit_sha": "3fefb47cce77554eecbdbb51e8693f688ae5e714",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1905",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52599,7 +52599,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The rework-06 producer PR has not yet been opened; all required CI and security checks remain pending."
+        "evidence": "PR #1905 is open for implementation commit 3fefb47cce77554eecbdbb51e8693f688ae5e714 with exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900; required CI and security checks are pending on the pushed exact head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52790,9 +52790,14 @@
         "at": "2026-08-01T06:18:07Z",
         "status": "local_verified",
         "summary": "Committed the scoped Article 59 repair as 3fefb47cce77554eecbdbb51e8693f688ae5e714, merged concurrent W1 CONTROL PR #1904 from origin/main without scope overlap, and rebound only the non-immutable candidate base to master SHA 13509eedf944f9628672f460094dd4fd88045e08c26527caf6b2c10966e6c317. Exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900 is unchanged; validator, 67/67 focused contracts, package integrity, and scope revalidate."
+      },
+      {
+        "at": "2026-08-01T06:18:55Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the isolated rework-06 branch and opened ready PR #1905 for exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
       }
     ],
-    "updated_at": "2026-08-01T06:18:07Z"
+    "updated_at": "2026-08-01T06:18:55Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
