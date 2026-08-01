@@ -281,8 +281,8 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "blocked",
-      "blocked_from_status": "inventory_frozen",
+      "status": "inventory_frozen",
+      "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -297,31 +297,12 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "blocked",
-          "blocked_from_status": "package_frozen",
-          "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
+          "status": "package_in_progress",
+          "blocked_from_status": null,
+          "package_sha256": null,
           "qa_report_ref": null,
-          "gate_lineage": [
-            {
-              "status": "package_frozen",
-              "evidence_owner_lane_id": "W3",
-              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
-              "report_sha256": "9faf285500947c013c04bf2902b580bf09568cc9751fbc586903bffe9f9c3d9b",
-              "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
-              "accepted_at": "2026-08-01T06:57:31Z"
-            },
-            {
-              "status": "blocked",
-              "evidence_owner_lane_id": "W9",
-              "report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-f1b27eed/independent_qa_report.json",
-              "report_sha256": "0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b",
-              "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
-              "accepted_at": "2026-08-01T07:32:23Z"
-            }
-          ],
-          "blockers": [
-            "Independent W9 report 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b blocks qa_pass for frozen package f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b: W3-ARTICLE-59 requires producer repair for three reader-visible translation errors (`continue to understand`, table header `Put conditions`, and `decide on retain ...`); the other 16 Article rows pass all checks."
-          ],
+          "gate_lineage": [],
+          "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -360,7 +341,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "CONTROL must accept a separate evidence-bound reset of W3-ARTICLES to package_in_progress before producer repair of Article 59 and a new exact-SHA freeze/fresh W9 cycle. Keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
+      "next_action": "Repair the three W9-blocked Article 59 language errors, rebuild the complete W3-ARTICLES package, re-freeze it under a new exact SHA, and repeat fresh independent W9 QA. Keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
