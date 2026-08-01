@@ -53995,8 +53995,13 @@
         "at": "2026-08-01T08:01:00Z",
         "status": "github_checks_pending",
         "summary": "Committed hidden-evidence exclusion, exact FAQ authority binding, ordered breadcrumb validation, and the final same-code HOLD artifact as 9fea3a415c9d656d53f5fd381dd8e698d5d98b6a after focused 51/51, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T08:02:28Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main 4fd91f2d after a concurrent control-ledger advance. The PR diff remains exactly the six authorized paths; post-merge focused 51/51, lint, typecheck, exact-scope, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T08:01:00Z"
+    "updated_at": "2026-08-01T08:02:28Z"
   }
 }
