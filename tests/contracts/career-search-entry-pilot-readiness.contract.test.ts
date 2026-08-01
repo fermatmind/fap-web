@@ -172,6 +172,30 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       deploy_or_rollback_performed: false,
     });
   });
+
+  it("returns HOLD with zero targets when a nominal selection has duplicate slugs or URLs", () => {
+    const values = Array.from({ length: 10 }, (_, index) => candidate(index + 1));
+    values[9] = candidate(9);
+    const artifact = buildArtifact({ candidates: values, observedAt: OBSERVED_AT, source: { fixture: true } });
+    expect(artifact).toMatchObject({
+      result: "HOLD",
+      targets: [],
+      target_set_sha256: null,
+      rollback_batch_id: null,
+      hold_reason: "invalid_exact_target_shape:10/20",
+    });
+    expect(artifact.evidence_summary.exact_target_shape).toBe(false);
+  });
+
+  it("rejects a missing locale authority projection without throwing", () => {
+    const value = candidate(1);
+    value.locales.zh.review.review_state = "unknown";
+    value.locales.zh.review.reviewed_at = "";
+    value.locales.zh.review.backend_private_package_match_projected = false;
+    const result = evaluateCandidateEvidence(value);
+    expect(result.eligible_for_pilot).toBe(false);
+    expect(result.rejection_reasons).toContain("zh_approved_package_projection_mismatch");
+  });
 });
 
 describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {

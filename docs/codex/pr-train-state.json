@@ -53086,11 +53086,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 41 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 17 tests. Coverage includes deterministic rerun, exact 10/20 bounds, bilingual pairing, held/noindex/canonical/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 19 tests. Coverage includes deterministic rerun, exact 10/20 bounds, bilingual pairing, malformed exact-shape HOLD, missing-locale safe rejection, held/noindex/canonical/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
       },
       "lint": {
         "status": "pass",
@@ -53110,7 +53110,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "P1 removed the tautological expected-live SHA comparison and now requires the backend's list/detail approved projection, which is emitted only while the exact private content/SEO/visible-claims/index-entry package matches its approved_all attestation. The SEO-status P2 now preserves actual dedicated endpoint status/source and validates explicitly counted detail-contract fallbacks. The ledger P2 is satisfied because both c7b614cf and the earlier cb68a680 are ancestors of the published branch head."
+        "evidence": "P1 removed the tautological expected-live SHA comparison and now requires the backend's list/detail approved projection. The SEO-status P2 preserves actual endpoint status/source. The latest exact-shape P1 now forces HOLD with zero targets and null operational lineage for every malformed 10/20 proposal; the missing-locale P2 now rejects safely without throwing. The ledger P2 is satisfied by the actual GitHub branch ancestry; Codex review uses a synthetic squash checkout that does not preserve that ancestry."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53124,14 +53124,14 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T05:14:09.472Z",
+      "observed_at": "2026-08-01T05:25:27.181Z",
       "result": "GO",
-      "eligible_candidates": 42,
+      "eligible_candidates": 41,
       "target_slugs": 10,
       "target_urls": 20,
-      "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-      "artifact_sha256": "7b3547b51933520f7b3b75b0c5720ee40db354546d54f2decf5f75f03dce272b",
-      "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
+      "target_set_sha256": "cad42a566c4cb187018bd20922493d596c66096ee47ce7656f4715fb37feca18",
+      "artifact_sha256": "b2294a5b707ef0c3fe32e2589a2ab72ed80d354302fb5e05ec078671cbb8f89c",
+      "rollback_batch_id": "career-search-entry-pilot-cad42a566c4cb187"
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -53194,8 +53194,13 @@
         "at": "2026-08-01T05:17:30Z",
         "status": "github_checks_pending",
         "summary": "Committed the SEO authority-source repair as 77fdc07c9252ed271894609078b88046588dbd78. This metadata tail binds the reachable implementation head before push and fresh exact-head review/checks."
+      },
+      {
+        "at": "2026-08-01T05:27:57Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired exact-shape fail-closed behavior and missing-locale authority handling from exact-head review. Canonical Node 24 focused contract passes 19/19. A fresh complete read-only observation remains GO with 41 complete candidates and exact target set cad42a566c4cb187018bd20922493d596c66096ee47ce7656f4715fb37feca18; one non-200 candidate was excluded without gate reduction or operational write."
       }
     ],
-    "updated_at": "2026-08-01T05:17:30Z"
+    "updated_at": "2026-08-01T05:27:57Z"
   }
 }

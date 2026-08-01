@@ -5,13 +5,13 @@
 `GO` for one bounded 10-slug / 20-URL career Search Channel canary package.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T05:14:09.472Z`.
+- Read-only observation: `2026-08-01T05:25:27.181Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
-- Complete gate passes: 42; rejected without gate reduction: 8.
+- Complete gate passes: 41; rejected without gate reduction: 9.
 - Selected SEO authority sources: 18 dedicated endpoint responses and 2 explicitly recorded detail `seo_contract` fallbacks.
-- Target-set SHA-256: `89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682`.
-- Artifact SHA-256: `7b3547b51933520f7b3b75b0c5720ee40db354546d54f2decf5f75f03dce272b`.
-- Rollback batch ID: `career-search-entry-pilot-89f3f026b30574ba`.
+- Target-set SHA-256: `cad42a566c4cb187018bd20922493d596c66096ee47ce7656f4715fb37feca18`.
+- Artifact SHA-256: `b2294a5b707ef0c3fe32e2589a2ab72ed80d354302fb5e05ec078671cbb8f89c`.
+- Rollback batch ID: `career-search-entry-pilot-cad42a566c4cb187`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
 
@@ -29,8 +29,8 @@ Selection is deterministic: `stable` first, then quality score descending, then 
 | 6 | approved_candidate | 60 | `aerospace-engineers` |
 | 7 | approved_candidate | 60 | `agricultural-and-food-scientists` |
 | 8 | approved_candidate | 60 | `agricultural-engineers` |
-| 9 | approved_candidate | 60 | `anthropologists-and-archeologists` |
-| 10 | approved_candidate | 60 | `appraisers-and-assessors-of-real-estate` |
+| 9 | approved_candidate | 60 | `appraisers-and-assessors-of-real-estate` |
+| 10 | approved_candidate | 60 | `architectural-and-engineering-managers` |
 
 Each slug is bound to exactly these two canonical URL shapes:
 

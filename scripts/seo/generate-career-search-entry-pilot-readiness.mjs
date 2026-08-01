@@ -174,8 +174,9 @@ function qualityScore(detail) {
 function reviewerEvidence(detail, authorityItem, observedAt) {
   const trust = record(detail.trust_manifest);
   const detailAuthority = record(detail.search_entry_authority);
-  const listAuthority = record(authorityItem.search_entry_authority);
-  const listTrust = record(authorityItem.trust_summary);
+  const listItem = record(authorityItem);
+  const listAuthority = record(listItem.search_entry_authority);
+  const listTrust = record(listItem.trust_summary);
   const reviewedAt = string(trust.last_reviewed_at || trust.reviewed_at);
   const listReviewedAt = string(listTrust.last_reviewed_at);
   const reviewState = string(detailAuthority.review_state || trust.review_state);
@@ -277,7 +278,7 @@ export function validateExactTargetShape(targets) {
 export function buildArtifact({ candidates, observedAt, source }) {
   const evaluated = candidates.map((candidate) => evaluateCandidateEvidence(candidate));
   const selection = selectPilot(evaluated);
-  const targets = selection.selected.map((candidate) => ({
+  const proposedTargets = selection.selected.map((candidate) => ({
     slug: candidate.slug,
     tier: candidate.tier,
     quality_score: candidate.quality_score,
@@ -309,9 +310,13 @@ export function buildArtifact({ candidates, observedAt, source }) {
       }];
     })),
   }));
-  const urls = targets.flatMap((target) => target.urls);
-  const exactShape = validateExactTargetShape(targets);
-  const targetSetSha = sha256({ slugs: targets.map((target) => target.slug), urls });
+  const proposedUrls = proposedTargets.flatMap((target) => target.urls);
+  const exactShape = validateExactTargetShape(proposedTargets);
+  const result = selection.result === "GO" && exactShape.valid ? "GO" : "HOLD";
+  const holdReason = selection.reason || (exactShape.valid ? null : `invalid_exact_target_shape:${exactShape.slug_count}/${exactShape.url_count}`);
+  const targets = result === "GO" ? proposedTargets : [];
+  const urls = result === "GO" ? proposedUrls : [];
+  const targetSetSha = result === "GO" ? sha256({ slugs: targets.map((target) => target.slug), urls }) : null;
   const body = {
     schema_version: SCHEMA_VERSION,
     task: TASK_ID,
@@ -341,11 +346,11 @@ export function buildArtifact({ candidates, observedAt, source }) {
       tier_counts: Object.fromEntries(Object.keys(TIER_RANK).map((tier) => [tier, evaluated.filter((item) => item.tier === tier).length])),
       rejection_reason_counts: evaluated.flatMap((item) => item.rejection_reasons).reduce((counts, reason) => ({ ...counts, [reason]: (counts[reason] || 0) + 1 }), {}),
     },
-    result: selection.result,
-    hold_reason: selection.reason,
+    result,
+    hold_reason: holdReason,
     targets,
     target_set_sha256: targetSetSha,
-    rollback_batch_id: selection.result === "GO" ? `career-search-entry-pilot-${targetSetSha.slice(0, 16)}` : null,
+    rollback_batch_id: result === "GO" ? `career-search-entry-pilot-${targetSetSha.slice(0, 16)}` : null,
     evidence_summary: {
       slug_count: targets.length,
       url_count: urls.length,
