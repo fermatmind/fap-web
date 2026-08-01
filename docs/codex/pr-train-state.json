@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T10:33:25.514Z",
+  "updated_at": "2026-08-01T10:38:53.204Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52560,7 +52560,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "review_correction_local_verified",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-08",
     "depends_on": [
@@ -52579,15 +52579,15 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Strict candidate validation passes against current control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1 for the adjacent package_in_progress to package_frozen transition."
+        "evidence": "Strict candidate validation passes after exact-head review correction against current control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "The focused control and W3 Article package contracts passed 67/67 tests on Node 24."
+        "evidence": "Focused control and W3 Article package contracts pass 67/67 after exact-head review correction."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly 17 reader-content-changed rows [1,2,3,4,5,6,7,8,9,10,50,51,52,53,55,58,59], 17/17 rework-08 provenance, and aggregate package SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f revalidate."
+        "evidence": "Review-corrected exact ten-file package and eight immutable payload SHAs recompute to aggregate 19dc3b199088fa4552d219ade4d90ff446ab70ec52c26de34203beb6b0bcab47; Article 52 known residual is absent and all four Article 58 eligibility labels are correct."
       },
       "lint": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Merged concurrent W4 PR #1944 from origin/main; fresh PR #1945 required checks are pending."
+        "evidence": "Fresh required checks are pending after review correction."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head review is pending after current-main merge."
+        "evidence": "Two exact-head review findings are being corrected within the Article package scope."
       }
     },
     "failure_reason": null,
@@ -52890,9 +52890,19 @@
         "at": "2026-08-01T10:33:25.514Z",
         "status": "github_checks_pending",
         "summary": "Merged concurrent W4 inventory revalidation PR #1944 from origin/main, resolving the only shared-ledger conflict in favor of the newer W3 dependency timestamp while preserving the complete W4 entry. The control master SHA remains 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1, so the non-immutable Article candidate requires no rebind; exact package SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f is unchanged. Strict validation and 67/67 focused contracts pass; fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T10:38:03.983Z",
+        "status": "review_correction_local_verified",
+        "summary": "Exact-head review correctly found one remaining Article 52 business-task question and four Article 58 eligibility-column labels. Rewrote the Article 52 cell as a grammatical question, restored all four Article 58 cells to eligibility-oriented labels, and rebuilt aggregate package SHA 19dc3b199088fa4552d219ade4d90ff446ab70ec52c26de34203beb6b0bcab47. Fresh local validation is pending; no other reader content, identity, CareerGuide, control master, or permission state changed."
+      },
+      {
+        "at": "2026-08-01T10:38:53.204Z",
+        "status": "review_correction_local_verified",
+        "summary": "Both exact-head review findings are repaired. Strict candidate validation, 67/67 focused contracts, exact SHA recomputation, Article 52 residual scan, Article 58 4/4 eligibility-label assertion, JSON/YAML parsing, scope validation, and git diff checks pass. New exact package SHA is 19dc3b199088fa4552d219ade4d90ff446ab70ec52c26de34203beb6b0bcab47; fresh GitHub checks and review-thread resolution are pending."
       }
     ],
-    "updated_at": "2026-08-01T10:33:25.514Z"
+    "updated_at": "2026-08-01T10:38:53.204Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
