@@ -54798,13 +54798,14 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-top3-assets-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-PAIR-ASSETS-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "2aeeb7fb9762bdfa82126afbb071d23c44df1167",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1950",
     "checks": {
       "serial_predecessor": {"status":"pass","evidence":"Fixed-queue predecessor EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 merged in fap-web PR #1948 as b4f73504405a24eb83f745a637ffff4221257922; post-merge pair package reconciliation passed before this branch was created."},
       "source_authority": {"status":"pass","evidence":"fap-api origin/main 738878b2fa00d825e7fbcd936cb98d91ba61e772 contains the 20-row zh-CN top3 source with SHA256 5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7."},
-      "local_validation": {"status":"pass","evidence":"Master-only control validation, focused control-master contract 63/63, and pnpm lint . passed. JSON/JSONL/YAML parsing, 20 source/base/map/ledger rows, 20 x 6 = 120 deterministic ordered-code coverage, no duplicate ordered reader assets, no-CJK scan, boundary/permission checks, and six-payload aggregate SHA d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c recomputation passed."}
+      "local_validation": {"status":"pass","evidence":"Master-only control validation, focused control-master contract 63/63, and pnpm lint . passed. JSON/JSONL/YAML parsing, 20 source/base/map/ledger rows, 20 x 6 = 120 deterministic ordered-code coverage, no duplicate ordered reader assets, no-CJK scan, boundary/permission checks, and six-payload aggregate SHA d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c recomputation passed."},
+      "github_required_checks": {"status":"pending","evidence":"PR #1950 is open from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167; required checks must rerun after this ledger-head update."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -54818,7 +54819,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."}],
-    "updated_at": "2026-08-01T21:24:00+08:00"
+    "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."},{"at":"2026-08-01T21:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1950 from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."}],
+    "updated_at": "2026-08-01T21:27:00+08:00"
   }
 }
