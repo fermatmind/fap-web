@@ -840,6 +840,7 @@ describe("English content parity control master", () => {
     });
     expect(w3?.next_action).toContain(packageSha256);
     expect(w3?.next_action).toContain("fresh independent W9 QA");
+    expect(w3?.next_action).toContain("begin W3-CAREER-GUIDES package production");
   });
 
   it("keeps asset IDs and translation groups unique and reconciles every known count", () => {

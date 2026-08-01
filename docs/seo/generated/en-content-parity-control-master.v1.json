@@ -392,7 +392,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Run fresh independent W9 QA across all 17 W3-ARTICLES rows against exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Keep W3-CAREER-GUIDES inventory_frozen and separate from the Article package and QA lineage.",
+      "next_action": "Run fresh independent W9 QA across all 17 W3-ARTICLES rows against exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. In parallel, begin W3-CAREER-GUIDES package production from its accepted inventory_frozen baseline as a separate package and PR; never combine the Article and Career Guide packages or gate lineages.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

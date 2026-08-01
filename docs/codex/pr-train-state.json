@@ -54831,8 +54831,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "github_checks_pending_rebased",
-    "commit_sha": "71aed0b99101713a8e91843d5c5b972e7d214584",
+    "status": "review_fix_in_progress",
+    "commit_sha": "b6be455832e28ee05c516b42dcc25b622e42b48e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
@@ -54849,7 +54849,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The previously checked head passed all required checks, but PR #1948 merged an unrelated W4 producer ledger/package commit into main. This branch was rebased without master-file drift; fresh checks are required for the rebased head."
+        "evidence": "The rebased head passed all required checks, but exact-head review identified an in-scope next_action omission. Fresh checks are required after directing the now-unlocked Career Guide producer scope to begin separately alongside Article W9."
       }
     },
     "failure_reason": null,
@@ -54887,8 +54887,13 @@
         "at": "2026-08-01T12:54:07Z",
         "status": "github_checks_pending_rebased",
         "summary": "Rebased onto origin/main b4f73504405a24eb83f745a637ffff4221257922 after unrelated W4 PR #1948 merged. The master SHA remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3; W4 ledger/package facts are preserved, the CONTROL scope remains four allowed files, and all focused validation passes. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T12:58:54Z",
+        "status": "review_fix_in_progress",
+        "summary": "Exact-head review correctly found that the accepted Article freeze unlocks the sequential Career Guide producer scope. Updated only W3 next_action and its focused assertion to start fresh Article W9 and separate Career Guide package production in parallel, without changing Career Guide state, package lineage, permissions, or any producer payload."
       }
     ],
-    "updated_at": "2026-08-01T12:54:07Z"
+    "updated_at": "2026-08-01T12:58:54Z"
   }
 }
