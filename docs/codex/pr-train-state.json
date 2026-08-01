@@ -53072,7 +53072,7 @@
       "EN-PARITY-W2-BIG5-INVENTORY-01",
       "EN-PARITY-W2-BIG5-RESULT-ASSETS-01"
     ],
-    "status": "local_verified",
+    "status": "ready_to_merge",
     "commit_sha": "9c1d135086fd9edc2c7a243bc210e61f2fe29d82",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1893",
     "checks": {
@@ -53089,8 +53089,12 @@
         "evidence": "Read-only backend package validator passes with 16 units / 16 assets and child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81. The W2 candidate validator passes against master SHA ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d; focused parity contract passes 62/62 on Node 24. 118 unique ledger rows reconcile as 52/50/16, all eight immutable payload hashes and aggregate package SHA 6e4f29588fe5a94538e6fb4dd0aa354a5a8c97648512e5f2d8320b534bce9ef0 recompute, JSON/JSONL/YAML parsing and boundary scans pass, and no write/release permission is enabled."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1893 opened from exact implementation head 9c1d135086fd9edc2c7a243bc210e61f2fe29d82. Build, four contract shards, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL are queued or running."
+        "status": "pass",
+        "evidence": "PR #1893 exact head 4af23123d66ad142a3fbba2a1277e6dd27df6d4d passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+      },
+      "review_and_merge_policy": {
+        "status": "pass",
+        "evidence": "GitHub reports the exact checked head MERGEABLE/CLEAN with no required review decision. Scope remains limited to the registered W2 package and this PR-train metadata."
       }
     },
     "failure_reason": null,
@@ -53118,8 +53122,13 @@
         "at": "2026-08-01T05:03:35Z",
         "status": "github_checks_pending",
         "summary": "Committed implementation head 9c1d135086fd9edc2c7a243bc210e61f2fe29d82 and opened PR #1893. Required CI, freeze, and CodeQL checks are pending; no review is required at open time."
+      },
+      {
+        "at": "2026-08-01T05:08:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1893 exact head 4af23123d66ad142a3fbba2a1277e6dd27df6d4d passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; exact changed-file scope is revalidated before merge."
       }
     ],
-    "updated_at": "2026-08-01T05:03:35Z"
+    "updated_at": "2026-08-01T05:08:00Z"
   }
 }
