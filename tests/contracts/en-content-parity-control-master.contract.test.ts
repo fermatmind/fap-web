@@ -538,16 +538,45 @@ describe("English content parity control master", () => {
     expect(dependencyGraphIsAcyclic(manifest.lanes)).toBe(true);
   });
 
-  it("keeps W1, W2, and W3 launch-ready while allowing the master state to progress", () => {
+  it("keeps W1 through W4 launch-ready while later producer lanes remain registered", () => {
     const firstWave = manifest.lanes.filter((lane) => ["W1", "W2", "W3"].includes(lane.lane_id));
+    const launchReadyProducers = manifest.lanes.filter((lane) =>
+      ["W1", "W2", "W3", "W4"].includes(lane.lane_id)
+    );
+    const registeredProducers = manifest.lanes.filter((lane) =>
+      ["W5", "W6", "W7", "W8"].includes(lane.lane_id)
+    );
     expect(manifest.launch_policy.first_wave).toEqual(["W1", "W2", "W3"]);
     expect(manifest.launch_policy.max_concurrent_producer_lanes).toBe(3);
     expect(firstWave.every((lane) => lane.launch_state === "launch_ready")).toBe(true);
+    expect(launchReadyProducers.every((lane) => lane.launch_state === "launch_ready")).toBe(true);
+    expect(registeredProducers.every((lane) => lane.launch_state === "registered")).toBe(true);
     expect(
       firstWave.every(
         (lane) => manifest.state_machine.ordered_states.includes(lane.status) || lane.status === "blocked"
       )
     ).toBe(true);
+
+    const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
+    expect(w4).toMatchObject({
+      launch_state: "launch_ready",
+      status: "not_started",
+      blocked_from_status: null,
+      counts: {
+        cohort_count: 1,
+        expected_en_assets: 14,
+        current_en_assets: 0,
+        remaining_en_assets: 14,
+        unknown_inventory_cohorts: 0,
+      },
+      package_sha256: null,
+      qa_report_ref: null,
+      gate_lineage: [],
+      blockers: [],
+      next_action:
+        "Execute EN-PARITY-W4-RIASEC-INVENTORY-01 against the latest fap-web and fap-api main SHAs; freeze only the canonical 14-group inventory candidate before any content production.",
+    });
+    expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
 
     const w1 = manifest.lanes.find((lane) => lane.lane_id === "W1");
     expect(
