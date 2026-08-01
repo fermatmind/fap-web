@@ -129,7 +129,7 @@ describe("English content parity automation control V2", () => {
       accepted_at: "2026-08-02T00:00:00Z",
     }];
     const migrated = migrateV1ToV2(v1, "6".repeat(64));
-    const migratedLane = migrated.lanes.find((item) => item.lane_id === "W8")!;
+    const migratedLane = migrated.lanes.find((item: { lane_id: string }) => item.lane_id === "W8")!;
     expect(migratedLane.status).toBe("draft_imported");
     expect(migratedLane.gate_lineage).toEqual([]);
     expect(migratedLane.legacy_lineage).toHaveLength(1);

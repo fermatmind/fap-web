@@ -291,6 +291,17 @@ function validateReceiptShape(receipt, label, errors, schema) {
   );
 }
 
+/**
+ * @param {{
+ *   entries: Array<{bytes:string, receipt?:Record<string, unknown>}>,
+ *   lane: string,
+ *   subscope?: string|null,
+ *   packageSha256: string,
+ *   expectedCount: number,
+ *   releasePolicySha256: string,
+ *   schema?: Record<string, unknown>
+ * }} input
+ */
 export function validateReceiptChain({
   entries,
   lane,
