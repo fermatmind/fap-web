@@ -28074,7 +28074,7 @@ prs:
 
   - id: EN-PARITY-W3-ARTICLE-W9-QA-01
     repo: fap-web
-    branch: codex/en-parity-w3-article-w9-qa-rework-06
+    branch: codex/en-parity-w3-article-w9-qa-rework-07
     base: main
     title: "EN-PARITY-W3-ARTICLE-W9-QA-01: independently QA the frozen Article package"
     depends_on:
