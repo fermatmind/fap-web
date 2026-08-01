@@ -1,0 +1,389 @@
+{
+    "artifact": "EN-PARITY-W1-MBTI-COMPARISON-IMPORTER-DRY-RUN-RECEIPT",
+    "schema_version": "fermatmind.en_parity.comparison_import_dry_run_receipt.v1",
+    "status": "pass",
+    "ok": true,
+    "mode": "dry_run",
+    "dry_run_only": true,
+    "write_supported_in_this_pr": false,
+    "writes_committed": false,
+    "database_write_attempted": false,
+    "cms_write_attempted": false,
+    "publish_attempted": false,
+    "activation_attempted": false,
+    "indexability_attempted": false,
+    "search_submission_attempted": false,
+    "package": {
+        "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+        "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+        "inventory_package_sha256": "8079465c6ec26820c99ca2be3f08346674e90509dee6d84fd610d5c6bbac2b85",
+        "asset_count": 7,
+        "source": "repository_frozen_w1_mbti_comparison_package",
+        "reader_copy_in_receipt": false,
+        "local_path_in_receipt": false
+    },
+    "target_contract": {
+        "authority": "MbtiCrossTypeComparisonAuthority",
+        "table": "mbti_cross_type_comparison_authorities",
+        "org_id": 0,
+        "target_locale": "en",
+        "source_locale": "zh-CN",
+        "comparison_type": "mbti_cross_type",
+        "target_state": "inactive_draft",
+        "source_locale_overwrite_allowed": false,
+        "public_release_allowed": false,
+        "indexability_release_allowed": false
+    },
+    "replay_contract": {
+        "deterministic": true,
+        "identity_fields": [
+            "org_id",
+            "locale",
+            "slug"
+        ],
+        "same_package_same_plan": true,
+        "duplicate_row_creation_allowed": false,
+        "write_execution_deferred_to_pr": "EN-PARITY-W1-MBTI-COMPARISON-DRAFT-IMPORT-01"
+    },
+    "row_count": 7,
+    "rows": [
+        {
+            "position": 1,
+            "row_id": "W1-COMP-01-ENFP-VS-ENTP",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:enfp-vs-entp",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "enfp-vs-entp"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "enfp-vs-entp"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:enfp-vs-entp",
+                "left_type_code": "ENFP",
+                "right_type_code": "ENTP",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "enfp-vs-entp",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:enfp-vs-entp",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 2,
+            "row_id": "W1-COMP-02-ENTJ-VS-INTJ",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:entj-vs-intj",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "entj-vs-intj"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "entj-vs-intj"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:entj-vs-intj",
+                "left_type_code": "ENTJ",
+                "right_type_code": "INTJ",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "entj-vs-intj",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:entj-vs-intj",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 3,
+            "row_id": "W1-COMP-03-ESTJ-VS-ENTJ",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:estj-vs-entj",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "estj-vs-entj"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "estj-vs-entj"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:estj-vs-entj",
+                "left_type_code": "ESTJ",
+                "right_type_code": "ENTJ",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "estj-vs-entj",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:estj-vs-entj",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 4,
+            "row_id": "W1-COMP-04-INFJ-VS-INFP",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:infj-vs-infp",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "infj-vs-infp"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "infj-vs-infp"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:infj-vs-infp",
+                "left_type_code": "INFJ",
+                "right_type_code": "INFP",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "infj-vs-infp",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:infj-vs-infp",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 5,
+            "row_id": "W1-COMP-05-INTJ-VS-INTP",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:intj-vs-intp",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "intj-vs-intp"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "intj-vs-intp"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:intj-vs-intp",
+                "left_type_code": "INTJ",
+                "right_type_code": "INTP",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "intj-vs-intp",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:intj-vs-intp",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 6,
+            "row_id": "W1-COMP-06-ISFP-VS-INFP",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:isfp-vs-infp",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "isfp-vs-infp"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "isfp-vs-infp"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:isfp-vs-infp",
+                "left_type_code": "ISFP",
+                "right_type_code": "INFP",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "isfp-vs-infp",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:isfp-vs-infp",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        },
+        {
+            "position": 7,
+            "row_id": "W1-COMP-07-ISTJ-VS-ISFJ",
+            "translation_pair_identity": "cohort:mbti:cross-type-comparison:istj-vs-isfj",
+            "source": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "zh-CN",
+                    "slug": "istj-vs-isfj"
+                },
+                "read_only": true,
+                "overwrite_allowed": false
+            },
+            "target": {
+                "authority": "MbtiCrossTypeComparisonAuthority",
+                "lookup": {
+                    "org_id": 0,
+                    "locale": "en",
+                    "slug": "istj-vs-isfj"
+                },
+                "stable_asset_identity": "mbti_cross_type_comparison_authorities:org0:en:istj-vs-isfj",
+                "left_type_code": "ISTJ",
+                "right_type_code": "ISFJ",
+                "comparison_type": "mbti_cross_type"
+            },
+            "locale_pairing": {
+                "source_locale": "zh-CN",
+                "target_locale": "en",
+                "pairing_key": "istj-vs-isfj",
+                "deterministic": true
+            },
+            "planned_state": {
+                "review_status": "pending_independent_w9",
+                "publish_status": "draft",
+                "indexability_status": "blocked",
+                "is_public": false,
+                "is_indexable": false,
+                "sitemap_eligible": false,
+                "llms_eligible": false,
+                "search_submission_eligible": false,
+                "published_at": null
+            },
+            "idempotency_key": "mbti-comparison:org0:en:istj-vs-isfj",
+            "action": "would_upsert_inactive_draft_en_target",
+            "reader_copy_in_plan": false,
+            "write_executed": false
+        }
+    ],
+    "errors": [],
+    "warnings": []
+}
