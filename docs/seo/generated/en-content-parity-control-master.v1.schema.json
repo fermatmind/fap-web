@@ -1133,10 +1133,23 @@
               "type": "string",
               "enum": [
                 "PASS",
-                "BLOCKED"
+                "BLOCKED",
+                "NOT_APPLICABLE"
               ]
             }
           }
+        },
+        "page_api_alignment_status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "independent_review_basis": {
+          "type": "string",
+          "minLength": 1
         },
         "permissions": {
           "$ref": "#/$defs/permissions"

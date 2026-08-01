@@ -126,6 +126,8 @@ const W9_AGGREGATE_TO_ROW_CHECKS = {
   field_leakage: ["internal_link_equivalence", "field_leakage"],
   page_api_alignment: ["page_api_alignment_applicable"],
 };
+const QA_CHECK_VERDICTS = ["PASS", "BLOCKED"];
+const PAGE_API_ALIGNMENT_VERDICTS = [...QA_CHECK_VERDICTS, "NOT_APPLICABLE"];
 const PERMISSION_KEYS = [
   "cms_write_authorized",
   "staging_write_authorized",
@@ -595,6 +597,56 @@ function assertBoundPermissionsMatch(candidatePermissions, evidence, location, l
   );
 }
 
+function validQaCheckVerdict(check, verdict) {
+  const allowed = check === "page_api_alignment" ? PAGE_API_ALIGNMENT_VERDICTS : QA_CHECK_VERDICTS;
+  return allowed.includes(verdict);
+}
+
+function expectedAggregateVerdict(aggregateCheck, rowChecks, rowReviews) {
+  if (
+    aggregateCheck === "page_api_alignment" &&
+    rowReviews.length > 0 &&
+    rowReviews.every((row) => row?.page_api_alignment_status === "NOT_APPLICABLE")
+  ) {
+    return "NOT_APPLICABLE";
+  }
+  return rowReviews.some((row) =>
+    rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+  )
+    ? "BLOCKED"
+    : "PASS";
+}
+
+function validatePageApiAlignmentStatus(qaReport, rowEvidence, label, errors) {
+  const aggregateVerdict = qaReport?.checks?.page_api_alignment;
+  const reportStatus = qaReport?.page_api_alignment_status;
+  if (aggregateVerdict === "NOT_APPLICABLE") {
+    assert(
+      reportStatus === "NOT_APPLICABLE",
+      `${label}: NOT_APPLICABLE page/API check requires matching report status`,
+      errors
+    );
+    assert(
+      rowEvidence?.coverage?.page_api_alignment_status === "NOT_APPLICABLE",
+      `${label}: NOT_APPLICABLE page/API check requires matching coverage status`,
+      errors
+    );
+    const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+    assert(
+      rowReviews.length > 0 &&
+        rowReviews.every((row) => row?.page_api_alignment_status === "NOT_APPLICABLE"),
+      `${label}: NOT_APPLICABLE page/API check requires every row to be candidate-only`,
+      errors
+    );
+    return;
+  }
+  assert(
+    reportStatus === undefined || reportStatus === aggregateVerdict,
+    `${label}: page/API report status must match its aggregate check`,
+    errors
+  );
+}
+
 function validateBlockedAggregateRows(
   qaReport,
   rowEvidence,
@@ -609,8 +661,8 @@ function validateBlockedAggregateRows(
     errors
   );
   assert(
-    EXPECTED_QA_CHECKS.every((check) => ["PASS", "BLOCKED"].includes(qaReport?.checks?.[check])),
-    `${label}: every W9 QA check must be PASS or BLOCKED`,
+    EXPECTED_QA_CHECKS.every((check) => validQaCheckVerdict(check, qaReport?.checks?.[check])),
+    `${label}: every W9 QA check must use an allowed verdict`,
     errors
   );
   assert(
@@ -625,6 +677,7 @@ function validateBlockedAggregateRows(
   );
 
   const rowReviews = Array.isArray(rowEvidence?.row_reviews) ? rowEvidence.row_reviews : [];
+  validatePageApiAlignmentStatus(qaReport, rowEvidence, label, errors);
   for (const rowReview of rowReviews) {
     assert(
       sameValue(Object.keys(rowReview?.checks ?? {}).sort(), [...expectedRowChecks].sort()),
@@ -638,13 +691,9 @@ function validateBlockedAggregateRows(
     );
   }
   for (const [aggregateCheck, rowChecks] of Object.entries(aggregateToRowChecks)) {
-    const expectedAggregateVerdict = rowReviews.some((row) =>
-      rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
-    )
-      ? "BLOCKED"
-      : "PASS";
+    const expectedVerdict = expectedAggregateVerdict(aggregateCheck, rowChecks, rowReviews);
     assert(
-      qaReport?.checks?.[aggregateCheck] === expectedAggregateVerdict,
+      qaReport?.checks?.[aggregateCheck] === expectedVerdict,
       `${label}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
       errors
     );
@@ -1594,8 +1643,10 @@ function validateIndependentQaEvidence(
   );
   for (const check of EXPECTED_QA_CHECKS) {
     assert(
-      ["PASS", "BLOCKED"].includes(qaReport.checks?.[check]),
-      `${artifact.lane_id}: W9 QA check ${check} must be PASS or BLOCKED`,
+      validQaCheckVerdict(check, qaReport.checks?.[check]),
+      `${artifact.lane_id}: W9 QA check ${check} must be ${
+        check === "page_api_alignment" ? "PASS, BLOCKED, or NOT_APPLICABLE" : "PASS or BLOCKED"
+      }`,
       errors
     );
   }
@@ -1867,13 +1918,9 @@ function validateIndependentQaEvidence(
     );
     validateAggregateEvidence(rowEvidenceArtifact, artifact.lane_id, errors);
     for (const [aggregateCheck, rowChecks] of Object.entries(W9_AGGREGATE_TO_ROW_CHECKS)) {
-      const expectedAggregateVerdict = rowReviews.some((row) =>
-        rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
-      )
-        ? "BLOCKED"
-        : "PASS";
+      const expectedVerdict = expectedAggregateVerdict(aggregateCheck, rowChecks, rowReviews);
       assert(
-        qaReport.checks?.[aggregateCheck] === expectedAggregateVerdict,
+        qaReport.checks?.[aggregateCheck] === expectedVerdict,
         `${artifact.lane_id}: W9 aggregate check ${aggregateCheck} must match the row reviews`,
         errors
       );
