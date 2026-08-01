@@ -112,6 +112,7 @@ function trustedProvenance(chain: ReturnType<typeof validReceiptChain>) {
     event: "workflow_dispatch",
     head_branch: "main",
     head_sha: first.source_commit,
+    status: "completed",
     conclusion: "success",
     run_id: first.workflow_run_id,
     run_attempt: first.workflow_run_attempt,
@@ -198,6 +199,16 @@ describe("English content parity automation control V2", () => {
     expect(validateChain(validReceiptChain())).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 1), "draft_imported")).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 2), "published")).toEqual({ ok: true, errors: [] });
+  });
+
+  it("preserves a verified prefix when a later workflow phase fails", () => {
+    const prefix = validReceiptChain().slice(0, 2);
+    expect(validateReceiptChain({
+      entries: prefix,
+      ...expected,
+      targetStatus: "published",
+      provenance: { ...trustedProvenance(prefix), conclusion: "failure" },
+    })).toEqual({ ok: true, errors: [] });
   });
 
   it("rejects a truncated registered prefix and an unpinned release policy", () => {
@@ -399,9 +410,10 @@ describe("English content parity automation control V2", () => {
       const packageRoot = path.join(directory, "package");
       fs.mkdirSync(packageRoot);
       const payloadPath = path.join(packageRoot, "assets.jsonl");
+      const recordIds = Array.from({ length: 1046 }, (_, index) => `career-job-${index + 1}`);
       fs.writeFileSync(
         payloadPath,
-        Array.from({ length: 1046 }, (_, index) => JSON.stringify({ asset_id: `career-job-${index + 1}` })).join("\n") + "\n",
+        recordIds.map((assetId) => JSON.stringify({ asset_id: assetId })).join("\n") + "\n",
       );
       const packageRootRef = path.relative(ROOT, packageRoot);
       const payloads = [{
@@ -414,6 +426,8 @@ describe("English content parity automation control V2", () => {
         schema_version: "fermatmind.en_content_parity_package_payload_manifest.v2",
         artifact_kind: "package_payload_manifest",
         package_root: packageRootRef,
+        record_identity_field: "asset_id",
+        record_ids_sha256: sha256(canonicalJson([...recordIds].sort())),
         payloads,
       };
       fs.writeFileSync(packageManifestPath, `${JSON.stringify(packageManifest, null, 2)}\n`);
@@ -425,6 +439,8 @@ describe("English content parity automation control V2", () => {
         package_root: packageRootRef,
         package_manifest_ref: path.relative(ROOT, packageManifestPath),
         package_manifest_sha256: sha256(fs.readFileSync(packageManifestPath)),
+        record_identity_field: "asset_id",
+        record_ids_sha256: sha256(canonicalJson([...recordIds].sort())),
         payloads,
       };
       const packageSha = sha256(canonicalJson(packageIdentity));
@@ -546,6 +562,27 @@ describe("English content parity automation control V2", () => {
       expect(() => applyMaterializationInputs(structuredClone(v2), forgedCountInputs)).toThrow(
         "lane_manifest_counts_forbidden=W8",
       );
+      const originalPayloadBytes = fs.readFileSync(payloadPath);
+      fs.writeFileSync(
+        payloadPath,
+        Array.from({ length: 1046 }, () => JSON.stringify({ asset_id: "duplicate-career-job" })).join("\n") + "\n",
+      );
+      payloads[0].sha256 = sha256(fs.readFileSync(payloadPath));
+      fs.writeFileSync(packageManifestPath, `${JSON.stringify(packageManifest, null, 2)}\n`);
+      packageEvidence.package_manifest_sha256 = sha256(fs.readFileSync(packageManifestPath));
+      fs.writeFileSync(evidencePaths[2], `${JSON.stringify(packageEvidence, null, 2)}\n`);
+      manifest.gate_lineage[0].report_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
+      manifest.transition_trace[2].evidence_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const duplicateIdentityInputs = structuredClone(inputs);
+      duplicateIdentityInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(() => applyMaterializationInputs(structuredClone(v2), duplicateIdentityInputs)).toThrow(
+        "lane_manifest_package_record_identity_set_invalid=W8",
+      );
+      fs.writeFileSync(payloadPath, originalPayloadBytes);
+      payloads[0].sha256 = sha256(originalPayloadBytes);
+      fs.writeFileSync(packageManifestPath, `${JSON.stringify(packageManifest, null, 2)}\n`);
+      packageEvidence.package_manifest_sha256 = sha256(fs.readFileSync(packageManifestPath));
       fs.writeFileSync(evidencePaths[2], "{}\n");
       manifest.gate_lineage[0].report_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
       manifest.transition_trace[2].evidence_sha256 = sha256(fs.readFileSync(evidencePaths[2]));

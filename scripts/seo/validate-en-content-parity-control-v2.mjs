@@ -238,6 +238,7 @@ export function verifyGithubWorkflowProvenance(entries) {
       event: run.event,
       head_branch: run.head_branch,
       head_sha: run.head_sha,
+      status: run.status,
       conclusion: run.conclusion,
       run_id: String(run.id),
       run_attempt: run.run_attempt,
@@ -285,7 +286,8 @@ function verifyPreflightWorkflowProvenance(entry) {
       run.event !== "workflow_dispatch" ||
       run.head_branch !== "main" ||
       run.head_sha !== receipt.source_commit ||
-      run.conclusion !== "success" ||
+      run.status !== "completed" ||
+      !["success", "failure"].includes(run.conclusion) ||
       String(run.id) !== runId ||
       run.run_attempt !== receipt.workflow_run_attempt
     ) {
@@ -305,6 +307,7 @@ function baseAttestedReceiptProvenance(entries) {
     event: "workflow_dispatch",
     head_branch: "main",
     head_sha: first.source_commit,
+    status: "completed",
     conclusion: "success",
     run_id: first.workflow_run_id,
     run_attempt: first.workflow_run_attempt,
@@ -621,7 +624,14 @@ export function validateReceiptChain({
   assert(provenance?.event === "workflow_dispatch", "workflow provenance event mismatch", errors);
   assert(provenance?.head_branch === "main", "workflow provenance branch mismatch", errors);
   assert(provenance?.head_sha === receipts[0].source_commit, "workflow provenance source commit mismatch", errors);
-  assert(provenance?.conclusion === "success", "workflow provenance did not succeed", errors);
+  assert(provenance?.status === "completed", "workflow provenance is not complete", errors);
+  assert(
+    targetStatus === "live_qa_pass"
+      ? provenance?.conclusion === "success"
+      : ["success", "failure"].includes(provenance?.conclusion),
+    "workflow conclusion is incompatible with the verified receipt prefix",
+    errors,
+  );
   assert(provenance?.run_id === receipts[0].workflow_run_id, "workflow provenance run ID mismatch", errors);
   assert(provenance?.run_attempt === receipts[0].workflow_run_attempt, "workflow provenance attempt mismatch", errors);
   assert(provenance?.complete_receipt_count === entries.length, "workflow artifact receipt chain was truncated", errors);

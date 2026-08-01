@@ -272,6 +272,8 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     typeof evidence.package_root !== "string" ||
     evidence.package_manifest_ref !== `${evidence.package_root}/sha256_manifest.json` ||
     !/^[a-f0-9]{64}$/.test(evidence.package_manifest_sha256 ?? "") ||
+    evidence.record_identity_field !== "asset_id" ||
+    !/^[a-f0-9]{64}$/.test(evidence.record_ids_sha256 ?? "") ||
     !Array.isArray(payloads) ||
     payloads.length === 0 ||
     new Set(payloads.map((payload) => payload.path)).size !== payloads.length
@@ -283,6 +285,8 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     packageManifest.schema_version !== "fermatmind.en_content_parity_package_payload_manifest.v2" ||
     packageManifest.artifact_kind !== "package_payload_manifest" ||
     packageManifest.package_root !== evidence.package_root ||
+    packageManifest.record_identity_field !== evidence.record_identity_field ||
+    packageManifest.record_ids_sha256 !== evidence.record_ids_sha256 ||
     canonicalJson(packageManifest.payloads) !== canonicalJson(payloads) ||
     canonicalJson(listPackageFiles(evidence.package_root)) !==
       canonicalJson([evidence.package_manifest_ref, ...payloads.map((payload) => payload.path)].sort())
@@ -290,6 +294,7 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     throw new Error(`lane_manifest_package_manifest_invalid=${key}`);
   }
   let coveredRows = 0;
+  const recordIds = [];
   for (const payload of payloads) {
     if (
       typeof payload?.path !== "string" ||
@@ -305,10 +310,29 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
       if (!payload.path.endsWith(".jsonl")) throw new Error(`lane_manifest_package_row_payload_invalid=${key}`);
       const actualRows = bytes.toString("utf8").split(/\r?\n/).filter((line) => line.trim() !== "").length;
       if (actualRows !== payload.row_count) throw new Error(`lane_manifest_package_row_count_invalid=${key}`);
+      for (const line of bytes.toString("utf8").split(/\r?\n/).filter((item) => item.trim() !== "")) {
+        let record;
+        try {
+          record = JSON.parse(line);
+        } catch {
+          throw new Error(`lane_manifest_package_jsonl_invalid=${key}`);
+        }
+        const recordId = record?.[evidence.record_identity_field];
+        if (typeof recordId !== "string" || recordId.trim() === "") {
+          throw new Error(`lane_manifest_package_record_identity_invalid=${key}`);
+        }
+        recordIds.push(recordId);
+      }
       coveredRows += actualRows;
     }
   }
   if (coveredRows !== registeredTarget.expectedCount) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
+  if (
+    new Set(recordIds).size !== registeredTarget.expectedCount ||
+    sha256Bytes(canonicalJson([...recordIds].sort())) !== evidence.record_ids_sha256
+  ) {
+    throw new Error(`lane_manifest_package_record_identity_set_invalid=${key}`);
+  }
   const packageIdentity = {
     lane_id: evidence.lane_id,
     subscope_id: evidence.subscope_id,
@@ -317,6 +341,8 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     package_root: evidence.package_root,
     package_manifest_ref: evidence.package_manifest_ref,
     package_manifest_sha256: evidence.package_manifest_sha256,
+    record_identity_field: evidence.record_identity_field,
+    record_ids_sha256: evidence.record_ids_sha256,
     payloads,
   };
   if (
