@@ -6,7 +6,7 @@
   "lane_id": "W1",
   "subscope_id": "W1-MBTI-COMPARISONS",
   "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
-  "base_manifest_sha256": "326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f",
+  "base_manifest_sha256": "6dc07237c7abe35f93574232c279a6690dc637a58a721c42c4852942058ce79b",
   "sha256_manifest_path": "generated/en-content-parity/W1-mbti/comparisons/sha256_manifest.json",
   "package_sha256": "5328b327be954d69ce080cbca0917cd82f8b643f34c4cea1b20f270e6c6ea0c9",
   "proposed_status": "package_in_progress",
