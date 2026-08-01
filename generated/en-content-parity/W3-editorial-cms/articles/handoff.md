@@ -13,14 +13,14 @@ This producer package contains exactly 17 English Article candidates bound to th
 - China and Gaokao context remains present where material.
 - Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework-04
+## W9-directed producer rework-05
 
-- Blocked frozen package SHA: `2aa27aa67f15368517ede3c319650bca1309a2cf0c44efc2d98bbd5cdb647161`.
-- Independent W9 BLOCKED report SHA: `98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26`.
-- Independent 17-row evidence SHA: `acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac`.
-- Repaired rows: W3-ARTICLE-03, 04, 05, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59.
-- Articles 1, 2, 6, and 9 remain content-identical because independent W9 passed those rows.
-- The repair retranslates all 29 non-Gaokao matrices identified by W9, fixes the 13 rows' language and source-equivalence findings, narrows Article 7 capability wording to current task performance, repairs the completed 2026 event timeline, and makes Article 58 reassignment outcomes explicitly conditional on the applicable rules.
+- Blocked frozen package SHA: `213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157`.
+- Independent W9 BLOCKED report SHA: `ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844`.
+- Independent 17-row evidence SHA: `490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc`.
+- Repaired rows: W3-ARTICLE-03, 51, 52, 53, 55, 58, and 59.
+- Articles 1, 2, 4, 5, 6, 7, 8, 9, 10, and 50 remain content-identical because independent W9 passed those rows.
+- The repair addresses only W9's recorded reader-visible language findings: one Article 3 excerpt construction, inconsistent Article 51 Enneagram naming, duplicated admissions terms in five Gaokao rows, one Article 53 question, two possessives, and one Article 58 curriculum phrase.
 - The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates

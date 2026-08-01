@@ -3,9 +3,9 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W2",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
-  "generated_at": "2026-07-31T03:42:00Z",
-  "status": "INVENTORY_FROZEN_ONLY",
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "generated_at": "2026-08-01T04:55:38Z",
+  "status": "INVENTORY_FROZEN_READY",
   "ready_for_inventory_frozen": true,
   "ready_for_package_in_progress": false,
   "ready_for_package_frozen": false,
@@ -15,21 +15,14 @@
   "ready_for_production": false,
   "blockers": [
     {
-      "blocker_id": "W2-RESULT-ASSETS-NOT-PRODUCED",
-      "cohort": "result_content",
-      "severity": "next_gate",
-      "finding": "All 16 result-content units are inventoried but no reviewed English package is frozen.",
-      "required_resolution": "Complete EN-PARITY-W2-BIG5-RESULT-ASSETS-01 against this exact merged inventory package SHA."
-    },
-    {
       "blocker_id": "W2-EXTERNAL-GATES-NOT-AUTHORIZED",
       "cohort": "lane",
       "severity": "future_gate",
-      "finding": "Independent W9 QA, controlled import approval, editorial approval, and release approval do not exist.",
-      "required_resolution": "Use separate exact-SHA gates after package production; this inventory PR cannot authorize them."
+      "finding": "Independent W9 QA, controlled import approval, human editorial approval, runtime authorization, production authorization, and release approval do not exist.",
+      "required_resolution": "After CONTROL accepts this completed inventory candidate, submit only the immediate package_in_progress candidate."
     }
   ],
-  "next_gate": "package_in_progress_after_control_window_accepts_inventory_frozen_candidate",
+  "next_gate": "package_in_progress_after_control_accepts_inventory_frozen_candidate",
   "zero_write_confirmation": {
     "cms_writes": 0,
     "staging_writes": 0,
