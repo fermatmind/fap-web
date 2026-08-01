@@ -28039,7 +28039,7 @@ prs:
 
   - id: EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01
     repo: fap-web
-    branch: codex/en-parity-w3-article-package-rework-06
+    branch: codex/en-parity-w3-article-package-rework-07
     base: main
     title: "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01: freeze the reviewed 17-Article package SHA"
     depends_on:

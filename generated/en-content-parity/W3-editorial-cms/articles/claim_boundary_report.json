@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-06-2026-08-01",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-07-2026-08-01",
   "verdict": "PASS",
   "scope": "producer claim-boundary preflight after W9-directed language repair for 17 candidate English Article assets; not independent W9 QA",
   "allowed_reader_frame": [
@@ -25,7 +25,7 @@
       "rows": [
         59
       ],
-      "finding": "Producer repaired only W3-ARTICLE-59 for the exact reader-visible subject-verb agreement defect recorded by W9; the other 16 rows remain reader-content-identical, and a fresh independent W9 must review the complete rebuilt 17-row package."
+      "finding": "Producer repaired only W3-ARTICLE-59 for the three exact reader-visible language-naturalness defects recorded by W9; the other 16 rows remain reader-content-identical, and a fresh independent W9 must review the complete rebuilt 17-row package."
     },
     {
       "severity": "gate_required",

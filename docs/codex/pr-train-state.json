@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-31T10:31:41Z",
+  "updated_at": "2026-08-01T08:21:15Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52562,24 +52562,24 @@
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-rework-06",
+    "branch": "codex/en-parity-w3-article-package-rework-07",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "afcf542e75171728f2ec8bc39e4c59546534c834",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1905",
+    "commit_sha": "560b07326c5e7bf232838dc74b6d33e8563dceea",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1927",
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh W9 evidence PR #1897 merged as 92e2a0c3bf9d5630c2ee55f4ce9920ce5449d60d with only W3-ARTICLE-59 language naturalness BLOCKED. CONTROL accepted the blocker in PR #1902 as 8cb0edfa4147cd16ec700b3d9e61fcab1d4d8146 and merged reset PR #1903 as c4510b6a318d18c4e383142dc977e8e555cd237f. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Fresh W9 evidence PR #1918 merged as 34b1dfc81519e36eb83f262df30ec94d1af29da2 with only W3-ARTICLE-59 language naturalness BLOCKED. CONTROL accepted the blocker in PR #1924 and merged reset PR #1926 as 559e955935fbcb9eea51819e9963590d44f6f426. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired only W3-ARTICLE-59 against W9 report 5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2 and row evidence 0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1 by changing `Field related to AI` to `Fields related to AI`. The other 16 rows remain reader-content-identical to the reviewed frozen snapshot."
+        "evidence": "Repaired only W3-ARTICLE-59 against W9 report 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b and row evidence aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e. The three exact language-naturalness defects are absent and their natural English replacements are present; the other 16 rows remain reader-content-identical."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "After merging concurrent W2 CONTROL and W1 freeze PRs from origin/main, validate-en-content-parity-control accepts the package_in_progress-to-package_frozen candidate against current master SHA 55be9502909f3a58dcea6943590b8d07ac8e548297cdaa8315ba44edf45fd6b1 with zero errors."
+        "evidence": "After merging W1 CONTROL qa_pass PR #1930, the candidate was rebound to current master SHA b834de1c61490b860e876f539b41e690bf3a3bd7d7a2129045648fc40c7561af and strict validation passes. Immutable package SHA remains 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89."
       },
       "focused_contract": {
         "status": "pass",
@@ -52587,23 +52587,23 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row, 16 reader-content-identical rows, exact repaired-row list [59], and aggregate package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row [59], 16 reader-content-identical rows, exact repaired-row list [59], and aggregate package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 revalidate."
       },
       "lint": {
         "status": "pass",
-        "evidence": "Repository pnpm lint completed with zero errors; the informational Babel deoptimization note for the pre-existing ignored .playwright-cli trace is outside this PR scope."
+        "evidence": "Repository pnpm lint passed on the serial retry. The initial concurrent attempt hit a transient ENOENT while focused contract tests removed their temporary contract directory; no source defect was involved."
       },
       "scope_validation": {
         "status": "pass",
-        "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
+        "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state item. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1905 exact head 52cb02cafae63e199872375e3f144110be28ee75 passed all 11 required CI and security checks after the one-row evidence correction and concurrent-main merge. The final ready-state ledger commit receives one last required-check cycle before merge."
+        "evidence": "PR #1927 exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e passed all 11 required CI and security checks after the latest master rebind and commit binding."
       },
       "review_and_merge_policy": {
         "status": "pass",
-        "evidence": "GitHub reports exact head 52cb02cafae63e199872375e3f144110be28ee75 MERGEABLE/CLEAN. The Article repaired-row finding is corrected to [59], and concurrent-main conflict resolution restored the unrelated Career item exactly to origin/main; both review threads are ready to resolve."
+        "evidence": "GitHub reports exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e MERGEABLE/CLEAN with no review requirement. `git merge-base --is-ancestor 560b07326c5e7bf232838dc74b6d33e8563dceea c5cbbbdac9e53b2ae968c3e250160354b963e91e` exits 0, proving the bound candidate-rebind commit is reachable from the open PR head; the contrary automated review premise is factually false."
       }
     },
     "failure_reason": null,
@@ -52825,9 +52825,49 @@
         "at": "2026-08-01T06:45:12Z",
         "status": "ready_to_merge",
         "summary": "Exact-head review found commit_sha still referenced the initial Article 59 repair before the immutable repaired-row correction. Rebound commit_sha to afcf542e75171728f2ec8bc39e4c59546534c834, the exact commit containing corrected repaired-row list [59] and package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b. No producer payload or package byte changed in this ledger-only repair."
+      },
+      {
+        "at": "2026-08-01T07:48:32Z",
+        "status": "in_progress",
+        "summary": "CONTROL reset PR #1926 restored W3-ARTICLES to package_in_progress after fresh W9 blocked only Article 59 on three language-naturalness defects. Started isolated producer rework-07 on Article 59; the other 16 reader-content rows, W3-CAREER-GUIDES, and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T07:50:43Z",
+        "status": "local_verified",
+        "summary": "Completed producer rework-07 for only W3-ARTICLE-59 and rebuilt the complete ten-file package at exact SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. Strict control validation, 67/67 focused contracts, repository lint, exact eight-file SHA and 17-identity audits, 86/610 table preservation, all-false permissions, scope validation, YAML/JSON parsing, and git diff checks pass; the other 16 rows remain reader-content-identical."
+      },
+      {
+        "at": "2026-08-01T07:52:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the isolated rework-07 package as 76e836858f73c1c99664a5cc57769895960c6bc8, pushed the scoped branch, and opened ready PR #1927 for exact package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T08:01:55Z",
+        "status": "github_checks_pending",
+        "summary": "Merged W1 CONTROL PR #1928 from origin/main and rebound only the non-immutable W3 candidate base to master SHA c42b7464b97245721c2b1faaaec0e315f2fa664714dfaba5d558971a2333fa9f. Exact Article package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 and reader-content scope remain unchanged. Also advanced this item's updated_at to match the latest transition, resolving exact-head ledger review; fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T08:06:24Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1927 exact head 3c525f03c96fadd1edd54ce8a557129d06de8437 passed all 11 required checks and is MERGEABLE/CLEAN. Both automated review findings are resolved; exact package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89, one-row reader-content scope, candidate base, and all-false permissions revalidate. This final ready-state ledger commit receives one last required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T08:10:54Z",
+        "status": "github_checks_pending",
+        "summary": "Exact-head review correctly found commit_sha still pointed to the pre-rebind implementation commit. Rebound commit_sha to 3c525f03c96fadd1edd54ce8a557129d06de8437, which contains the validated c42b7464 candidate-base binding and rework-07 ledger state. Also merged unrelated W1 W9 evidence PR #1929 from origin/main; W3 package SHA and reader-content scope remain unchanged. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T08:16:08Z",
+        "status": "github_checks_pending",
+        "summary": "Merged W1 CONTROL qa_pass PR #1930, committed the pure W3 candidate-base rebind as 560b07326c5e7bf232838dc74b6d33e8563dceea against master SHA b834de1c61490b860e876f539b41e690bf3a3bd7d7a2129045648fc40c7561af, and rebound ledger commit_sha to that exact gate-metadata commit. Article package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 is unchanged; fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T08:21:15Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1927 exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e passed all 11 required checks and is MERGEABLE/CLEAN. Exact package SHA, candidate base, one-row reader-content scope, all-false permissions, and commit lineage revalidate. Git ancestry proves bound candidate commit 560b07326c5e7bf232838dc74b6d33e8563dceea is reachable from the current head; the contrary review finding is resolved as a factual false positive. This ready-state commit receives the final required-check cycle before auto-merge."
       }
     ],
-    "updated_at": "2026-08-01T06:45:12Z"
+    "updated_at": "2026-08-01T08:21:15Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
@@ -54035,8 +54075,13 @@
         "at": "2026-08-01T08:27:00Z",
         "status": "github_checks_pending",
         "summary": "Committed the behavior-preserving CodeQL disambiguation as 08a10f4545d6c317189a7c5930cf54e6f99336ba after focused 60/60, lint, typecheck, syntax, exact-scope, and diff checks passed. The accepted read-only artifact remains bound to the same selector behavior."
+      },
+      {
+        "at": "2026-08-01T08:28:00Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main 05f5901b and resolved the append-only state conflict by preserving the complete PR3 ledger plus all current main entries. Fresh post-merge validation is required before push."
       }
     ],
-    "updated_at": "2026-08-01T08:27:00Z"
+    "updated_at": "2026-08-01T08:28:00Z"
   }
 }
