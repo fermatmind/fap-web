@@ -53600,7 +53600,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "2938fa08cb4bb0667411e5fdc9289d90c8fa52ea",
+    "commit_sha": "a63864bbd67eaaf13ddd7c5c50cf0de9c6e58e5e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53820,8 +53820,13 @@
         "at": "2026-08-01T07:05:47Z",
         "status": "github_checks_pending",
         "summary": "After all 11 checks passed on d54e863f, exact-head review found X-Robots none/nofollow, intervening-word guarantee, and whole-document canonical gaps. Repaired all three plus the missing-link base-URL edge. Fresh strict crawler-head observation truthfully emits HOLD with 4/10 complete rows and zero targets (artifact 1dc296998b78981791744ffccb6a83b11658e1af0e017562c96ba6a235907efc); independent single-concurrency diagnosis also held at 9/10. Focused 39/39, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:09:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the crawler-metadata fail-closed repair and truthful HOLD artifact as a63864bbd67eaaf13ddd7c5c50cf0de9c6e58e5e, then merged exact origin/main 21fb6514 while preserving both append-only ledgers. Post-merge focused 39/39, lint, typecheck, artifact self-hash, YAML/JSON, exact six-path scope, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T07:05:47Z"
+    "updated_at": "2026-08-01T07:09:59Z"
   }
 }
