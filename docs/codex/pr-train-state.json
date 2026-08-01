@@ -52876,7 +52876,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439",
+  "commit_sha": "efb8bfae8d5baaf0a02f91fd0046524dd429618b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1938",
     "checks": {
       "dependency": {
@@ -53097,9 +53097,14 @@
       "at": "2026-08-01T09:06:43Z",
       "status": "blocked_review_correction_local_verified",
       "summary": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks and was MERGEABLE/CLEAN before exact-head review correctly identified the omitted Article 55 language blocker and the rework-06/rework-07 manifest branch mismatch. Expanded the independent blocker set to exactly Articles 55 and 59, preserved the byte-identical producer payload and all-false permissions, and repaired the manifest branch. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. The prior ledger follow-up already populated commit_sha; correction-commit binding, review-thread resolution, and fresh required checks remain pending."
+    },
+    {
+      "at": "2026-08-01T09:08:38Z",
+      "status": "blocked_pr_open",
+      "summary": "Committed the exact-head review correction as efb8bfae8d5baaf0a02f91fd0046524dd429618b and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Article 55 and Article 59 language naturalness; producer payload and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
     }
   ],
-  "updated_at": "2026-08-01T09:06:43Z"
+  "updated_at": "2026-08-01T09:08:38Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
