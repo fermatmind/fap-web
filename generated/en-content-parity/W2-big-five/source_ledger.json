@@ -3,8 +3,8 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W2",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
-  "generated_at": "2026-07-31T03:42:00Z",
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "generated_at": "2026-08-01T04:55:38Z",
   "baseline": {
     "bootstrap_merge_sha": "8078c9bf587560727969883dc13c81eb5e5a7365",
     "frozen_historical_baseline_preserved": true,
@@ -5715,19 +5715,35 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big5/Big5ResultPageV2Shell.tsx; lib/big5/resultPageV2.ts",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:free_preview:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/docs/seo/generated/result-en-parity-06-bigfive-v2-en-assets.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.free_preview",
+      "unit": "free_preview",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "title",
+        "body",
+        "bullets"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-free_preview",
+      "content_row_sha256": "2185404025db64c3aa7d010c0de4643be69f9d3e44dc9fe56a2cc85a8b1af2b3",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-locked_result",
@@ -5744,19 +5760,35 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": "unknown",
-      "en_presence": "unknown",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:locked_result:zh-CN:en",
-      "current_parity_verdict": "unknown",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2Contract.php",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Sanitized evidence does not prove complete reviewed English reader copy."
+      "backend_asset_id": "big5.en.w2.locked_result",
+      "unit": "locked_result",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "title",
+        "body",
+        "cta"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-locked_result",
+      "content_row_sha256": "32d633bcb837171e1be508848c8a097f1dd5f3fb8aedea2d382518de0578eac9",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-paid_full_report",
@@ -5773,19 +5805,36 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:paid_full_report:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/free_full_report_runtime_qa_readiness/v0_1/big5_free_full_report_runtime_qa_readiness_summary_v0_1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.paid_full_report",
+      "unit": "paid_full_report",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "title",
+        "intro",
+        "section_intro",
+        "closing"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-paid_full_report",
+      "content_row_sha256": "103200b8a608d12df44947133473fa6a8b447243b64b09579b76c64b44abb5d7",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-entitlement_levels",
@@ -5802,19 +5851,41 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": "unknown",
-      "en_presence": "unknown",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:entitlement_levels:zh-CN:en",
-      "current_parity_verdict": "unknown",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/Composer/BigFiveV2PilotPayloadComposer.php",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Sanitized evidence does not prove complete reviewed English reader copy."
+      "backend_asset_id": "big5.en.w2.entitlement_levels",
+      "unit": "entitlement_levels",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "levels",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-entitlement_levels",
+      "content_row_sha256": "3db2e0ea158cdb65a9fc0e93249c9412584b6c3e03d74e7e5416b2cdf9ffc265",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "levels.key": [
+          "preview",
+          "core",
+          "full"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-five_dimension_explanations",
@@ -5831,19 +5902,42 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:five_dimension_explanations:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.five_dimension_explanations",
+      "unit": "five_dimension_explanations",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "dimensions"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-five_dimension_explanations",
+      "content_row_sha256": "24e55fc29a9eba995fc45b5b68311da0e34ef70f03f8703c503e39e8eb17ad8a",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "dimensions.code": [
+          "O",
+          "C",
+          "E",
+          "A",
+          "N"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-facet_subscale_explanations",
@@ -5860,19 +5954,68 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:facet_subscale_explanations:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.facet_subscale_explanations",
+      "unit": "facet_subscale_explanations",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "intro",
+        "facets"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-facet_subscale_explanations",
+      "content_row_sha256": "ddc350ca9ff9ff67dfb21c717c6e84150310044fcf45de723e684818d8a065d6",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "facets.code": [
+          "O1",
+          "O2",
+          "O3",
+          "O4",
+          "O5",
+          "O6",
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "A1",
+          "A2",
+          "A3",
+          "A4",
+          "A5",
+          "A6",
+          "N1",
+          "N2",
+          "N3",
+          "N4",
+          "N5",
+          "N6"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-score_range_boundary_copy",
@@ -5889,19 +6032,42 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:score_range_boundary_copy:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2SourceAuthorityMap.php",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.score_range_boundary_copy",
+      "unit": "score_range_boundary_copy",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "intro",
+        "ranges",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-score_range_boundary_copy",
+      "content_row_sha256": "7930652301d6cb133fdd95780358d72de897aad0be3d767a10c266a8606d00d1",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "ranges.key": [
+          "lower",
+          "middle",
+          "higher"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-action_growth_advice",
@@ -5918,19 +6084,43 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:action_growth_advice:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.action_growth_advice",
+      "unit": "action_growth_advice",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "title",
+        "actions",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-action_growth_advice",
+      "content_row_sha256": "5d0b41e0a6b164d0880a4fd7e049fdfeab82aa17463813ef645302fe8f326a49",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "actions.context": [
+          "awareness",
+          "flexibility",
+          "environment",
+          "review"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-workplace_relationship_copy",
@@ -5947,19 +6137,35 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "draft_skeleton",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:workplace_relationship_copy:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.workplace_relationship_copy",
+      "unit": "workplace_relationship_copy",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "workplace",
+        "relationships",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-workplace_relationship_copy",
+      "content_row_sha256": "314d70f97602f27216b179e11fbd6beca195e931a9f1b77588f89115909b584a",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-share_public_summary",
@@ -5976,19 +6182,43 @@
       "api_projection_field_path": "share_safe_summary",
       "frontend_consumer_path": "app/[locale]/share and components/share",
       "zh_cn_presence": true,
-      "en_presence": "zh_staging_candidate_only",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:share_public_summary:zh-CN:en",
-      "current_parity_verdict": "english_missing",
-      "chinese_leakage": "not_applicable_missing_en",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
+      "chinese_leakage": "not_observed_in_sanitized_evidence",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "public_safe_projection_only",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/share_pdf_history_compare_safe_content/v0_1/big5_share_pdf_history_compare_safe_content_qa_v0_1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Only zh-CN staging-safe candidate evidence exists; no reviewed English runtime package."
+      "backend_asset_id": "big5.en.w2.share_public_summary",
+      "unit": "share_public_summary",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "title",
+        "summary",
+        "privacy_note",
+        "allowed_fields"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-share_public_summary",
+      "content_row_sha256": "5093d6928cc95d162f6fcf1021c1695248c609bae1116c329759545518d6d4d0",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "allowed_fields": [
+          "title",
+          "summary",
+          "privacy_note"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-pdf_reader_content",
@@ -6005,19 +6235,38 @@
       "api_projection_field_path": "pdf_payload",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": true,
-      "en_presence": "zh_staging_candidate_only",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:pdf_reader_content:zh-CN:en",
-      "current_parity_verdict": "english_missing",
-      "chinese_leakage": "not_applicable_missing_en",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
+      "chinese_leakage": "not_observed_in_sanitized_evidence",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/pdf_surface_policy/v0_1/big5_pdf_surface_policy_summary_v0_1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Only zh-CN staging-safe candidate evidence exists; no reviewed English runtime package."
+      "backend_asset_id": "big5.en.w2.pdf_reader_content",
+      "unit": "pdf_reader_content",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "cover_title",
+        "reader_note",
+        "method_note",
+        "footer",
+        "public_url_allowed",
+        "indexable"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-pdf_reader_content",
+      "content_row_sha256": "64214f4a5672c78beac93be4349d4d8169fe020c1d559850a73cd66bedd54fcb",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-history_account_reentry",
@@ -6034,19 +6283,37 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "app/[locale]/history and result center",
       "zh_cn_presence": true,
-      "en_presence": "zh_staging_candidate_only",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:history_account_reentry:zh-CN:en",
-      "current_parity_verdict": "english_missing",
-      "chinese_leakage": "not_applicable_missing_en",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
+      "chinese_leakage": "not_observed_in_sanitized_evidence",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/History/BigFiveV2HistorySnapshotAdapter.php",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Only zh-CN staging-safe candidate evidence exists; no reviewed English runtime package."
+      "backend_asset_id": "big5.en.w2.history_account_reentry",
+      "unit": "history_account_reentry",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "history_title",
+        "history_body",
+        "reentry_cta",
+        "missing_state",
+        "privacy_note"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-history_account_reentry",
+      "content_row_sha256": "31370c6a195feb446997594127ad39d38d64a4752a9fff281a28e279e8741337",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-result_report_cta",
@@ -6063,19 +6330,42 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": "unknown",
-      "en_presence": "draft_skeleton_labels_only",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:result_report_cta:zh-CN:en",
-      "current_parity_verdict": "structurally_incomplete",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "draft_or_staging_artifact_not_runtime",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_packs/BIG5_OCEAN/v2/drafts/en_parity/result_page_v2_en_asset_catalog_draft.v1.json",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "English draft skeleton exists but full reviewed prose, checksums, selector fixtures, and release approval are absent."
+      "backend_asset_id": "big5.en.w2.result_report_cta",
+      "unit": "result_report_cta",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "ctas",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-result_report_cta",
+      "content_row_sha256": "3f0ff8e9e9ac36aeb247ba3f3df15b53c5d1ead4944728827d4a398a9a5a1120",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "ctas.key": [
+          "explore_dimensions",
+          "review_facets",
+          "try_reflection",
+          "return_history"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-empty_error_expired_access_denied",
@@ -6092,19 +6382,42 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": "unknown",
-      "en_presence": "unknown",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:empty_error_expired_access_denied:zh-CN:en",
-      "current_parity_verdict": "unknown",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "contract_or_renderer_evidence",
       "source_evidence": [
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/app/Services/BigFive/ResultPageV2/BigFiveResultPageV2CompatibilityTransformer.php",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "Sanitized evidence does not prove complete reviewed English reader copy."
+      "backend_asset_id": "big5.en.w2.empty_error_expired_access_denied",
+      "unit": "empty_error_expired_access_denied",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "states",
+        "fail_closed"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-empty_error_expired_access_denied",
+      "content_row_sha256": "22e70cac3c9587b112096069ba6aff9581b651ef6bdca2da2d120732f31507e7",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "states.key": [
+          "empty",
+          "error",
+          "expired",
+          "access_denied"
+        ]
+      }
     },
     {
       "row_id": "W2-RESULT-mobile_desktop_consumption",
@@ -6121,20 +6434,36 @@
       "api_projection_field_path": "result_page_v2.modules",
       "frontend_consumer_path": "components/result/big-five and result adapters",
       "zh_cn_presence": "unknown",
-      "en_presence": "frontend_renderer_only_no_backend_reader_asset",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:mobile_desktop_consumption:zh-CN:en",
-      "current_parity_verdict": "english_missing",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "renderer_evidence_excluded_from_reader_content",
       "source_evidence": [
-        "fap-web@485cf6d362d3907dc564dd7f0834a505d084ce55:components/result/big5/Big5ResultPageV2Shell.tsx",
-        "fap-web@485cf6d362d3907dc564dd7f0834a505d084ce55:lib/big5/resultPageV2.ts",
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "This frozen unit requires backend-authoritative English reader copy consumable across mobile and desktop; existing frontend renderer labels do not count."
+      "backend_asset_id": "big5.en.w2.mobile_desktop_consumption",
+      "unit": "mobile_desktop_consumption",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "shared_reader_copy",
+        "mobile_guidance",
+        "desktop_guidance",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-mobile_desktop_consumption",
+      "content_row_sha256": "7cf979a9692bebd0ee10e4c0f6c3cf4206533baf3ffc9ac59f204e6b7f4f9b90",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false
     },
     {
       "row_id": "W2-RESULT-analytics_reader_labels",
@@ -6151,20 +6480,48 @@
       "api_projection_field_path": "not_present_pre_package",
       "frontend_consumer_path": "not_present_pre_package",
       "zh_cn_presence": "not_established",
-      "en_presence": "missing_no_current_reader_surface",
+      "en_presence": "draft_review_only",
       "translation_identity": "big5-result:analytics_reader_labels:zh-CN:en",
-      "current_parity_verdict": "english_missing",
+      "current_parity_verdict": "draft_review_asset_complete_pending_w9",
       "chinese_leakage": "not_observed_in_sanitized_evidence",
-      "claim_boundary_verdict": "PASS_FOR_SCAN; runtime/editorial approval remains required",
+      "claim_boundary_verdict": "PASS_FOR_DRAFT_REVIEW_ASSET; W9, human editorial approval, runtime, import, production, publication, and deploy remain required.",
       "public_private_classification": "private_result_surface",
       "fixture_mock_runtime_classification": "analytics_handoff_is_internal_evidence_only_not_reader_content",
       "source_evidence": [
-        "operator-goal:fixed-inventory-unit-16:analytics_reader_labels",
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/big5_result_page_analytics_handoff_v0_1.json",
-        "fap-api@012392aaf0d83375414f8eb9ad010f6c7c577714:backend/content_assets/big5/result_page_v2/qa/analytics_handoff/v0_1/README.md"
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+        "fap-api@44350a696d8d1123fa2ea7831708d709831cf34b:backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/inventory_row_reconciliation.json",
+        "backend package SHA-256 aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81"
       ],
       "proposed_owning_repository": "fap-api",
-      "blocker": "The operator-frozen identity has no current backend reader-copy field or reader-facing projection. The existing analytics handoff proves only internal aggregate metric definitions and explicitly adds no frontend copy. PR 3 may create a draft-review-only content asset only if the existing content-package contract can represent this identity; otherwise it must stop and split a contract PR. Internal metric IDs remain excluded from reader content."
+      "backend_asset_id": "big5.en.w2.analytics_reader_labels",
+      "unit": "analytics_reader_labels",
+      "backend_package_path": "backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/content_assets.jsonl",
+      "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+      "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+      "required_content_keys": [
+        "section_label",
+        "reader_notice",
+        "events",
+        "internal_metric_ids",
+        "personal_result_fields",
+        "boundary"
+      ],
+      "source_inventory_row_identity": "W2-RESULT-analytics_reader_labels",
+      "content_row_sha256": "ae6cb8e5a6175fe01f695eaa12c42a95138ae946dfcf16cb740236c5a814adaf",
+      "runtime_use": "draft_review_only",
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "production_use_allowed": false,
+      "required_item_identities": {
+        "events.key": [
+          "section_opened",
+          "reflection_started",
+          "reflection_completed",
+          "report_returned"
+        ],
+        "internal_metric_ids": [],
+        "personal_result_fields": []
+      }
     }
   ]
 }

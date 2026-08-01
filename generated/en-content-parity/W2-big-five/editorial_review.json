@@ -3,10 +3,10 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W2",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
-  "generated_at": "2026-07-31T03:42:00Z",
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "generated_at": "2026-08-01T04:55:38Z",
   "verdict": "PASS",
-  "review_mode": "inventory_freeze_only_no_reader_copy_generated",
+  "review_mode": "producer_inventory_freeze_readiness_only_not_w9_or_human_editorial_approval",
   "public_control": {
     "verdict": "PASS",
     "rows_reviewed": 52,
@@ -21,10 +21,17 @@
     }
   },
   "result_content": {
-    "verdict": "INVENTORIED_NOT_PRODUCED",
+    "verdict": "PASS_FOR_INVENTORY_FREEZE_READINESS_ONLY",
     "rows_reviewed": 16,
-    "completed": 0,
-    "remaining": 16
+    "completed": 16,
+    "remaining": 0,
+    "backend_merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b",
+    "backend_package_sha256": "aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81",
+    "runtime_use": "draft_review_only",
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "producer_chinese_leakage_check": "PASS: 0 of 16 draft-review rows contain Chinese leakage in sanitized evidence; independent W9 remains required.",
+    "notes": "Producer inventory review only; this is not W9 and not human editorial approval."
   },
   "pr_execution_map": [
     {
@@ -37,17 +44,18 @@
     {
       "pr_id": "EN-PARITY-W2-BIG5-INVENTORY-01",
       "repository": "fap-web",
-      "status": "current_scope",
-      "output": "Frozen 118-row W2 inventory and validated inventory_frozen candidate."
+      "status": "predecessor_evidence",
+      "output": "Predecessor 118-row inventory package SHA 0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292."
     },
     {
       "pr_id": "EN-PARITY-W2-BIG5-RESULT-ASSETS-01",
       "repository": "fap-api",
-      "status": "dependency_pending",
+      "status": "merged",
       "depends_on": [
         "EN-PARITY-W2-BIG5-INVENTORY-01"
       ],
-      "output": "Produce the 16 backend-authoritative English result assets as draft-review-only content."
+      "output": "Exact 16-unit backend draft-review-only result package SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81.",
+      "merge_sha": "44350a696d8d1123fa2ea7831708d709831cf34b"
     }
   ],
   "not_required": [

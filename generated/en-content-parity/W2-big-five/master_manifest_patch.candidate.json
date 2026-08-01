@@ -5,15 +5,15 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W2",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
-  "base_manifest_sha256": "a6349c530ef86b2d20d73bc1cf779db1984bd9c4fdb8de39c34efd235a0613ce",
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "base_manifest_sha256": "ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d",
   "sha256_manifest_path": "generated/en-content-parity/W2-big-five/sha256_manifest.json",
-  "package_sha256": "0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292",
+  "package_sha256": "ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1",
   "proposed_status": "inventory_frozen",
   "gate_evidence": {
     "gate": "inventory_frozen",
     "report_path": "source_ledger.json",
-    "report_sha256": "facbf57a362a430cdc8b5f6545db4a227e1268d285e2c27beed3c935ea9cf6e2",
+    "report_sha256": "5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f",
     "report_in_package": true,
     "owner_lane_id": "W2",
     "verdict": null,
@@ -78,15 +78,15 @@
       ],
       "authority_source": "backend Big Five v2 result and report content",
       "expected_en_count": 16,
-      "current_en_count": 0,
-      "remaining_en_count": 16,
+      "current_en_count": 16,
+      "remaining_en_count": 0,
       "parity_state": "en_draft_requires_verification",
       "evidence": [
-        "Sixteen backend-owned result/report/share/PDF/history reader-content surface or module units are frozen row by row.",
-        "No unit is counted complete from a fixture, mock, computed score, selector row, private payload, or frontend label/fallback.",
-        "All 16 remain for the separately scoped backend draft-review-only result asset package; inventory completeness does not authorize import, runtime use, publication, or deploy."
+        "fap-api PR 3451 merged as 44350a696d8d1123fa2ea7831708d709831cf34b and supplies exactly 16 backend-authoritative English result/report/share/PDF/history content assets.",
+        "The exact backend child package SHA is aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; every W2 result row is bound to its unit, asset_id, required content keys, and content-row SHA.",
+        "All 16 assets are draft_review_only. Independent W9 QA, human editorial approval, import, runtime use, production use, publication, and deploy remain unauthorized."
       ],
-      "notes": "Count unit is one required reader-content surface/module group. PR 3 must bind this exact frozen inventory package SHA and keep every write/release permission false."
+      "notes": "All sixteen registered result-content units are complete as backend draft-review assets pending independent W9 verification. This does not authorize runtime selection, import, production use, publication, or deployment."
     }
   ],
   "permissions": {
