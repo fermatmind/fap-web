@@ -54821,5 +54821,94 @@
     "deploy_allowed": false,
     "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."},{"at":"2026-08-01T21:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1950 from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."},{"at":"2026-08-01T21:35:00+08:00","status":"ready_to_merge","summary":"Exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact 20-base/120-ordered and scope revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."}],
     "updated_at": "2026-08-01T21:35:00+08:00"
+  },
+  "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01: accept W3 Articles package freeze",
+    "base": "main",
+    "branch": "codex/en-parity-control-w3-articles-package-frozen-01",
+    "depends_on": [
+      "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "c6051eab5b585734d99ee3c91ad470ac7f4fe0ec",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #1947 is merged as d38a03ace28cefdd7d1c59b855cb574bf71a8ce9 and origin/main contains the merge commit."
+      },
+      "pre_transition_candidate": {
+        "status": "pass",
+        "evidence": "The W3-ARTICLES candidate validates against pre-transition master SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3 and binds exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1949 exact rebased head 2dca0975d41234cc44cb3e84a50049078a0f1801 passed all 11 applicable build, contract, freeze, and CodeQL checks. GitHub reports CLEAN/MERGEABLE and no unresolved review threads remain."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T12:36:10Z",
+        "status": "in_progress",
+        "summary": "Started CONTROL-only acceptance of the exact W3-ARTICLES rework-09 candidate after confirming PR #1947 merged and the candidate base SHA matches the current master. No producer package, W9, Career Guide, CMS, runtime, import, publication, search, or deploy state is authorized to change."
+      },
+      {
+        "at": "2026-08-01T12:39:43Z",
+        "status": "local_verified",
+        "summary": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. All focused validation passes; W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all write/release permissions remain false."
+      },
+      {
+        "at": "2026-08-01T12:41:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the CONTROL-only acceptance as 6d256b92d9529e79f26b4430797738caff2565e8 and opened PR #1949. Required GitHub checks are pending; final merge remains conditional on exact scope, review policy, and a fresh master-file compare-and-swap check."
+      },
+      {
+        "at": "2026-08-01T12:46:34Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1949 exact checked head 2c148ca6006c6c3dcee9eb370708a2b34dfaf11f passed all 11 applicable checks and is MERGEABLE/CLEAN with zero unresolved review threads. Exact scope and master CAS remain clean; this ledger-only ready-state commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T12:54:07Z",
+        "status": "github_checks_pending_rebased",
+        "summary": "Rebased onto origin/main b4f73504405a24eb83f745a637ffff4221257922 after unrelated W4 PR #1948 merged. The master SHA remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3; W4 ledger/package facts are preserved, the CONTROL scope remains four allowed files, and all focused validation passes. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T12:58:54Z",
+        "status": "review_fix_in_progress",
+        "summary": "Exact-head review correctly found that the accepted Article freeze unlocks the sequential Career Guide producer scope. Updated only W3 next_action and its focused assertion to start fresh Article W9 and separate Career Guide package production in parallel, without changing Career Guide state, package lineage, permissions, or any producer payload."
+      },
+      {
+        "at": "2026-08-01T13:03:39Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1949 exact review-fix head d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb passed all 11 applicable checks. The actionable next_action review is fixed and resolved, exact scope is clean, and master CAS remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T13:13:14Z",
+        "status": "github_checks_pending_rebased",
+        "summary": "Rebased onto origin/main 5b1630d1156a2bd0193d9926205becd02734e15a after unrelated W4 PR #1950 merged. The unique master SHA remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3, the exact candidate remains valid, concurrent W4 ledger facts are preserved, and all focused validation passes. Fresh exact-head required checks are pending."
+      },
+      {
+        "at": "2026-08-01T13:18:19Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1949 exact rebased head 2dca0975d41234cc44cb3e84a50049078a0f1801 passed all 11 applicable required checks and is CLEAN/MERGEABLE with zero unresolved review threads. Exact scope and master CAS remain clean; this ledger-only ready-state commit receives the final required-check cycle before squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T13:18:19Z"
   }
 }

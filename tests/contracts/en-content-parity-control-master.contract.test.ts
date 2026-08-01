@@ -758,6 +758,91 @@ describe("English content parity control master", () => {
     ).toBe(true);
   });
 
+  it("accepts the exact W3 Article package freeze without unlocking QA or write gates", () => {
+    const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
+    const reportPath = "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json";
+    const reportSha256 = "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334";
+    const candidate = readJson<{
+      base_manifest_sha256: string;
+      package_sha256: string;
+      proposed_status: string;
+      gate_evidence: {
+        report_path: string;
+        report_sha256: string;
+        owner_lane_id: string;
+        row_count: number;
+      };
+      permissions: Permissions;
+    }>("generated/en-content-parity/W3-editorial-cms/articles/master_manifest_patch.candidate.json");
+    const w3 = manifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    const careerGuides = w3?.subscopes.find((subscope) => subscope.id === "W3-CAREER-GUIDES");
+
+    expect(candidate).toMatchObject({
+      base_manifest_sha256: "8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3",
+      package_sha256: packageSha256,
+      proposed_status: "package_frozen",
+      gate_evidence: {
+        report_path: "editorial_review.json",
+        report_sha256: reportSha256,
+        owner_lane_id: "W3",
+        row_count: 17,
+      },
+    });
+    expect(Object.values(candidate.permissions)).toEqual(Array(7).fill(false));
+    expect(sha256File(reportPath)).toBe(reportSha256);
+    expect(w3).toMatchObject({
+      launch_state: "launch_ready",
+      status: "inventory_frozen",
+      counts: {
+        cohort_count: 2,
+        expected_en_assets: 37,
+        current_en_assets: 0,
+        remaining_en_assets: 37,
+        unknown_inventory_cohorts: 0,
+      },
+      package_sha256: null,
+      qa_report_ref: null,
+      gate_lineage: [],
+      blockers: [],
+    });
+    expect(articles).toMatchObject({
+      status: "package_frozen",
+      blocked_from_status: null,
+      package_sha256: packageSha256,
+      qa_report_ref: null,
+      blockers: [],
+    });
+    expect(articles?.gate_lineage).toEqual([
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W3",
+        report_ref: reportPath,
+        report_sha256: reportSha256,
+        package_sha256: packageSha256,
+        accepted_at: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/),
+      },
+    ]);
+    expect(careerGuides).toEqual({
+      id: "W3-CAREER-GUIDES",
+      sequence: 2,
+      resource: "CareerGuide",
+      output_subdirectory: "career-guides",
+      asset_ids: ["ENPARITY-W3-CAREER-GUIDES"],
+      status: "inventory_frozen",
+      blocked_from_status: null,
+      package_sha256: null,
+      qa_report_ref: null,
+      gate_lineage: [],
+      blockers: [],
+      separate_package_required: true,
+      same_pr_allowed: false,
+    });
+    expect(w3?.next_action).toContain(packageSha256);
+    expect(w3?.next_action).toContain("fresh independent W9 QA");
+    expect(w3?.next_action).toContain("begin W3-CAREER-GUIDES package production");
+  });
+
   it("keeps asset IDs and translation groups unique and reconciles every known count", () => {
     const assetIds = manifest.assets.map((asset) => asset.asset_id);
     const translationGroups = manifest.assets.map((asset) => asset.translation_group);
