@@ -53333,7 +53333,7 @@
       },
       "github_required_checks": {
         "status": "pending_recheck",
-        "evidence": "Build, contracts, both freeze checks, and CodeQL analyze passed on the prior head. Alert 184 was repaired and canonical Node 24 focused contract, lint, typecheck, syntax, JSON, and diff checks pass on code head c7b614cfbb486c852adbdf3c1efd8430fbff75c6; fresh exact-head GitHub checks are required."
+        "evidence": "Prior heads passed build, contracts, both freeze checks, and CodeQL. After all review repairs and merging current origin/main 304fd146, canonical Node 24 focused contract 25/25, lint, typecheck, YAML/JSON, diff, and exact six-path scope pass; fresh exact-head GitHub checks are required."
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
@@ -53441,8 +53441,13 @@
         "at": "2026-08-01T05:36:29Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact canonical and manual-redirect implementation as a97463bc31beda228f112cd907a9326f83c70d80 after focused 25/25, lint, typecheck, syntax, self-hash, ledger, final-URL, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T05:39:45Z",
+        "status": "github_checks_pending",
+        "summary": "Merged current origin/main 304fd146 and resolved the two append-only PR-train conflicts by preserving both the newly merged W2/W9/W3 entries and this PR3 entry. The resulting PR diff remains exactly the six authorized paths; focused 25/25, lint, typecheck, YAML/JSON, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T05:36:29Z"
+    "updated_at": "2026-08-01T05:39:45Z"
   }
 }
