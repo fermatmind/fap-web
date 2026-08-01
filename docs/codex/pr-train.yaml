@@ -28647,3 +28647,47 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: Producer inventory metadata only; backend RIASEC authority, private-result noindex boundary, and frontend no-fallback rules remain unchanged.
+
+  - id: EN-PARITY-W4-RIASEC-INVENTORY-REVALIDATION-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-inventory-revalidation-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-INVENTORY-REVALIDATION-01 rebind W4 inventory evidence to current authority SHAs"
+    depends_on: [EN-PARITY-W4-RIASEC-INVENTORY-01]
+    mode: execute
+    train_scope: w4_riasec_inventory_evidence_revalidation
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Revalidate and rebind the already merged W4 14-group/1550-row inventory package to current fap-web control-master and fap-api source SHAs.
+      - Recompute the scan evidence, source ledger, eight immutable payload SHA manifest, aggregate package SHA, and candidate binding without changing the frozen inventory contents.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master/schema, app runtime, components, lib, fap-api runtime, CMS, database, import, publication, deploy, sitemap, llms, indexability, or Search Channel state.
+      - Add English reader copy, frontend editorial fallback, private-result data, W9 PASS, package_frozen, or any write/release authority.
+      - Change the 14 logical groups, 1550 atomic identities, 15 unordered pairs, or 3/2/2 safe-surface reconciliation.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm lint .
+      - JSON/JSONL parse; 14-group and 1550-row uniqueness; 15 unordered-pair normalization; 3/2/2 surface reconciliation; SHA coverage and candidate binding
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: Rebinds producer evidence only; backend RIASEC authority, private-result noindex boundary, and frontend no-fallback rules remain unchanged.

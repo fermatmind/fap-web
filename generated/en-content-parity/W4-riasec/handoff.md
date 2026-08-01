@@ -19,8 +19,8 @@ The source ledger has exactly 14 logical rows because it binds to the control-ma
 
 ## Authority boundary
 
-- fap-web commit: 8d94a84da9564a0a3a6cef25bffaefa0f5984b17.
-- fap-api source snapshot: e5997548beb7da3f9850b7d382a015e175b0397d; revalidated delta contains no RIASEC/Holland/interest path.
+- fap-web commit: b65e0c78f1b665ae50cfaa5b62bf385ce05fdbbe.
+- fap-api source snapshot: a202c8175ad0cfda59585d9adb20e1b2d8b929a2; revalidated delta contains no RIASEC/Holland/interest path.
 - Backend registry/projection/report snapshot remains the content authority. This package does not change it.
 - Missing or unreviewed English remains fail-closed; no frontend translation or editorial fallback is permitted.
 
