@@ -576,12 +576,12 @@ function apiUrl(origin, route) {
   return `${origin}/api${route}`;
 }
 
-export function resolveSeoAuthority({ endpointStatus, endpointSeo, detailStatus, detailSeo }) {
+export function selectSeoSurface({ endpointStatus, endpointSeo, detailStatus, detailSeo }) {
   const endpointUsable = endpointStatus === 200 && Object.keys(record(endpointSeo)).length > 0;
   const detailUsable = detailStatus === 200 && Object.keys(record(detailSeo)).length > 0;
-  if (endpointUsable) return { seo: endpointSeo, status: 200, source: "career_seo_endpoint" };
-  if (detailUsable) return { seo: detailSeo, status: 200, source: "career_detail_seo_contract" };
-  return { seo: {}, status: endpointStatus, source: "unresolved" };
+  if (endpointUsable) return { surface: endpointSeo, status: 200, source: "career_seo_endpoint" };
+  if (detailUsable) return { surface: detailSeo, status: 200, source: "career_detail_seo_contract" };
+  return { surface: {}, status: endpointStatus, source: "unresolved" };
 }
 
 async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, observedAt }) {
@@ -596,8 +596,8 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const seoPayload = record(seoResult.payload);
   const endpointSeo = record(seoPayload.seo_surface_v1);
   const detailSeo = record(detail.seo_contract);
-  const resolvedSeo = resolveSeoAuthority({ endpointStatus: seoResult.status, endpointSeo, detailStatus: detailResult.status, detailSeo });
-  const seo = resolvedSeo.seo;
+  const resolvedSeo = selectSeoSurface({ endpointStatus: seoResult.status, endpointSeo, detailStatus: detailResult.status, detailSeo });
+  const seo = resolvedSeo.surface;
   const effectiveSeoStatus = resolvedSeo.status;
   const stats = detailStats(detail, locale);
   const renderedStats = publicHtmlStats(pageResult.payload, locale);

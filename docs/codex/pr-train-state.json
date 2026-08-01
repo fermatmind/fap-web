@@ -53757,7 +53757,7 @@
       },
       "github_required_checks": {
         "status": "pending_recheck",
-        "evidence": "All 11 required checks passed on 7757d72e. The three newest exact-head review repairs and truthful HOLD artifact now require fresh exact-head GitHub checks."
+        "evidence": "All functional exact-head checks passed on e87f8da6, but CodeQL alert 188 misclassified the SEO selector return as password authority because of its authentication-like helper name. The behavior-preserving rename and fresh exact-head scan are pending."
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
@@ -54025,8 +54025,13 @@
         "at": "2026-08-01T08:21:01Z",
         "status": "github_checks_pending",
         "summary": "Merged exact latest origin/main b1f7589c after another concurrent control-ledger advance. The PR diff remains exactly the six authorized paths; post-merge focused 60/60, lint, typecheck, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T08:26:41Z",
+        "status": "github_checks_pending",
+        "summary": "All functional checks passed on e87f8da6, while CodeQL alert 188 interpreted resolveSeoAuthority output as password material at the generic observation SHA. Renamed the pure selector and its return field to selectSeoSurface/surface without behavior change; focused 60/60, lint, typecheck, and diff checks pass before a fresh exact-head scan."
       }
     ],
-    "updated_at": "2026-08-01T08:21:01Z"
+    "updated_at": "2026-08-01T08:26:41Z"
   }
 }
