@@ -54831,8 +54831,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "review_fix_in_progress",
-    "commit_sha": "b6be455832e28ee05c516b42dcc25b622e42b48e",
+    "status": "ready_to_merge",
+    "commit_sha": "d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
@@ -54848,8 +54848,8 @@
         "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "The rebased head passed all required checks, but exact-head review identified an in-scope next_action omission. Fresh checks are required after directing the now-unlocked Career Guide producer scope to begin separately alongside Article W9."
+        "status": "pass",
+        "evidence": "PR #1949 exact review-fix head d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb passed all 11 applicable build, contract, freeze, and CodeQL checks. The actionable review thread is resolved and no unresolved threads remain."
       }
     },
     "failure_reason": null,
@@ -54892,8 +54892,13 @@
         "at": "2026-08-01T12:58:54Z",
         "status": "review_fix_in_progress",
         "summary": "Exact-head review correctly found that the accepted Article freeze unlocks the sequential Career Guide producer scope. Updated only W3 next_action and its focused assertion to start fresh Article W9 and separate Career Guide package production in parallel, without changing Career Guide state, package lineage, permissions, or any producer payload."
+      },
+      {
+        "at": "2026-08-01T13:03:39Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1949 exact review-fix head d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb passed all 11 applicable checks. The actionable next_action review is fixed and resolved, exact scope is clean, and master CAS remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T12:58:54Z"
+    "updated_at": "2026-08-01T13:03:39Z"
   }
 }
