@@ -1,0 +1,26 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_activity_examples_editorial_review.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-2026-08-01",
+  "review_kind": "producer self-check only; machine-translation candidates; not independent W9 QA or editorial approval",
+  "verdict": "PENDING_INDEPENDENT_W9",
+  "completed_self_checks": [
+    "720 source identities mapped once",
+    "360 activity and 360 occupation examples retained as separate physical candidate rows",
+    "English candidate rows contain no CJK",
+    "examples-only claim boundary and all-false permissions preserved"
+  ],
+  "next_gates": [
+    "independent W9 row-level language and claim review",
+    "controlled package freeze",
+    "separate human import approval if authorized later"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

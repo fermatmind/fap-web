@@ -1,0 +1,21 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_activity_examples_machine_translation_evidence.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-2026-08-01",
+  "method": "Google Translate public endpoint; source strings translated individually and retained only in fap-api authority source files",
+  "candidate_counts": {
+    "activity_titles": 360,
+    "activity_task_anchors": 360,
+    "occupation_titles": 360,
+    "total_translation_requests": 1080
+  },
+  "review_requirement": "Every English row remains a machine-translation candidate pending independent W9 review.",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

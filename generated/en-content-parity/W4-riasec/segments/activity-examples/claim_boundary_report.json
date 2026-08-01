@@ -1,0 +1,41 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_activity_examples_claim_boundary_report.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "scope": {
+    "activity_rows": 360,
+    "occupation_rows": 360,
+    "total_rows": 720
+  },
+  "boundaries": [
+    "examples_only",
+    "interest_exploration_only",
+    "not_personality_identity",
+    "not_ability_or_skill_measure",
+    "not_career_recommendation",
+    "not_job_fit",
+    "not_success_prediction",
+    "not_hiring_or_screening_use",
+    "missing_content_fails_closed",
+    "frontend_fallback_forbidden"
+  ],
+  "prohibited": [
+    "career_match",
+    "occupation_ranking",
+    "fit_score",
+    "qualification_inference",
+    "success_prediction",
+    "hiring_suitability",
+    "screening_use",
+    "60q_140q_accuracy_claim"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

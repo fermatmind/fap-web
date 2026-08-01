@@ -1,0 +1,49 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_activity_examples_package_manifest.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "row_count": 720,
+  "activity_row_count": 360,
+  "occupation_row_count": 360,
+  "payloads": [
+    {
+      "path": "assets.jsonl",
+      "sha256": "8aba5bc912bb8c8f167978ad1cf6bef04c0bcf876a644f40366aed3faba59eae"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "50ed9d44a5d9a220bc2c7a51769a4e48ddd02eb64e7565099c18f5fc4c8fca5a"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "297734fa68e3c4d46d7d208f4d153de17b584be1e1a1ad5daf4c6178bf394b75"
+    },
+    {
+      "path": "machine_translation_evidence.json",
+      "sha256": "ead18cd35592765fbda166f9b6ae366e9773d89f85aa8cd321d3a04cf9d054f5"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "01825c904ec9d622c341bae0242d77d8042111e1f7849cc6e3cc4926fad394bd"
+    },
+    {
+      "path": "translation_cache.json",
+      "sha256": "2af3d77821732f08af2127b06dae18c48f4a4e7c8932a0fa159cfb2cf48cc02b"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "473e4bc24298903844cbaf2683fa9725abf9ce3eba6163e3bd5dc76af2fe2f10"
+    }
+  ],
+  "aggregate_sha256": "4b8e9ac0eb0741b81745aa45809139cb22b5e731de5987c456b1ff09dd0acd9b",
+  "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

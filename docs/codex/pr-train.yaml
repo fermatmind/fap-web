@@ -28862,3 +28862,43 @@ prs:
     deploy_allowed: false
     content_authority: producer candidate package only; fap-api top3 authority unchanged
     repository_rule_impact: adds review-gated W4 English candidate evidence and deterministic ordered emphasis only; no authority transfer, runtime behavior, or discoverability state changes
+
+  - id: EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-activity-assets-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01 produce 720 examples-only activity and occupation English rows"
+    depends_on: [EN-PARITY-W4-RIASEC-TOP3-ASSETS-01]
+    mode: execute
+    train_scope: w4_riasec_activity_examples_candidate_segment
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Produce exactly 360 activity-task and 360 occupation-activity English candidate rows for W4-G05 from frozen fap-api source identities.
+      - Bind machine-translation candidate evidence, source ledger, claim-boundary self-check, pending independent W9 review, and immutable payload SHA evidence.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/segments/activity-examples/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master/schema, app runtime, components, lib, fap-api runtime, CMS, database, importer, publication, deploy, sitemap, llms, indexability, or Search Channel state.
+      - Add G06-G14 assets, frontend editorial fallback, private-result data, W9 PASS, package_frozen, or any write/release authority.
+      - Treat machine translation as independent editorial approval or production-ready content.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm lint .
+      - JSON/JSONL parse; exact 360/360/720 identity reconciliation; mapping/ledger uniqueness; no-CJK and claim-boundary scan; payload and aggregate SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api activity and occupation authority unchanged
+    repository_rule_impact: adds review-gated W4 English candidate evidence only; no authority transfer, runtime behavior, or discoverability state changes
