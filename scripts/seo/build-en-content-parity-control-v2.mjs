@@ -108,11 +108,15 @@ function readBoundJson(relativePath, expectedSha256) {
     throw new Error(`unsafe_materialization_input_path=${relativePath}`);
   }
   const absolutePath = path.join(ROOT, relativePath);
-  const realPath = fs.realpathSync(absolutePath);
-  if (realPath !== absolutePath || fs.lstatSync(absolutePath).isSymbolicLink()) {
-    throw new Error(`symlinked_materialization_input=${relativePath}`);
+  const descriptor = fs.openSync(absolutePath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+  let bytes;
+  try {
+    if (!fs.fstatSync(descriptor).isFile()) throw new Error(`materialization_input_not_regular=${relativePath}`);
+    bytes = fs.readFileSync(descriptor);
+  } finally {
+    fs.closeSync(descriptor);
   }
-  const bytes = fs.readFileSync(absolutePath);
+  if (fs.realpathSync(absolutePath) !== absolutePath) throw new Error(`materialization_input_not_canonical=${relativePath}`);
   if (sha256Bytes(bytes) !== expectedSha256) throw new Error(`materialization_input_sha_mismatch=${relativePath}`);
   return JSON.parse(bytes.toString("utf8"));
 }

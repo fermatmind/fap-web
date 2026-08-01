@@ -131,6 +131,22 @@ function readJson(relativePath) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 }
 
+function readRegisteredFile(relativePath) {
+  if (path.isAbsolute(relativePath) || relativePath.split("/").includes("..")) {
+    throw new Error(`unsafe_registered_path=${relativePath}`);
+  }
+  const absolutePath = path.join(ROOT, relativePath);
+  const descriptor = fs.openSync(absolutePath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+  try {
+    if (!fs.fstatSync(descriptor).isFile()) throw new Error(`registered_path_not_regular=${relativePath}`);
+    const bytes = fs.readFileSync(descriptor);
+    if (fs.realpathSync(absolutePath) !== absolutePath) throw new Error(`registered_path_not_canonical=${relativePath}`);
+    return bytes;
+  } finally {
+    fs.closeSync(descriptor);
+  }
+}
+
 function walkFiles(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.join(directory, entry.name);
@@ -466,10 +482,7 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
   assert(schema?.$id?.endsWith("en-content-parity-control-master.v2.schema.json"), "V2 Schema ID mismatch", errors);
   for (const binding of inputs.lane_manifests) {
     try {
-      const absolutePath = path.join(ROOT, binding.path);
-      const bytes = fs.readFileSync(absolutePath);
-      assert(fs.realpathSync(absolutePath) === absolutePath, `${binding.path}: lane manifest path is not canonical`, errors);
-      assert(!fs.lstatSync(absolutePath).isSymbolicLink(), `${binding.path}: lane manifest cannot be a symlink`, errors);
+      const bytes = readRegisteredFile(binding.path);
       assert(sha256Bytes(bytes) === binding.sha256, `${binding.path}: lane manifest SHA mismatch`, errors);
       const laneManifest = JSON.parse(bytes.toString("utf8"));
       errors.push(...schemaErrors(laneManifest, schema).map((error) => `${binding.path}: Schema ${error}`));
@@ -481,7 +494,7 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
     try {
       const registeredEntries = chain.receipt_paths.map((receiptPath) => ({
         path: receiptPath,
-        bytes: fs.readFileSync(path.join(ROOT, receiptPath), "utf8"),
+        bytes: readRegisteredFile(receiptPath).toString("utf8"),
       }));
       const registeredProvenance = verifyGithubWorkflowProvenance(registeredEntries);
       const registeredReport = validateReceiptChain({
