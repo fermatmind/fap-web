@@ -53072,7 +53072,7 @@
       "EN-PARITY-W2-BIG5-INVENTORY-01",
       "EN-PARITY-W2-BIG5-RESULT-ASSETS-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "260ab99be097e96ba7d663e7f4f65a074b6d9a94",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1893",
     "checks": {
@@ -53089,12 +53089,12 @@
         "evidence": "Read-only backend package validator passes with 16 units / 16 assets and child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81. The W2 candidate validator passes against master SHA ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d; focused parity contract passes 62/62 on Node 24. 118 unique ledger rows reconcile as 52/50/16, all sixteen result rows record no Chinese leakage in sanitized evidence, all eight immutable payload hashes and aggregate package SHA ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1 recompute, JSON/JSONL/YAML parsing and boundary scans pass, and no write/release permission is enabled."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1893 has a scoped review-fix commit 260ab99be097e96ba7d663e7f4f65a074b6d9a94. Required CI, freeze, and CodeQL checks must pass on the updated head before merge."
+        "status": "pass",
+        "evidence": "PR #1893 exact head af5e231622a3ef2aa1f9cf34aeb7dc4a5c5a931f passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "A scoped review thread is awaiting the corrected package and fresh required checks; review/merge policy must be revalidated on the updated head."
+        "status": "pass",
+        "evidence": "GitHub reports the exact checked head MERGEABLE/CLEAN with no required review decision and the only review thread resolved. Scope remains limited to the registered W2 package and this PR-train metadata."
       }
     },
     "failure_reason": null,
@@ -53132,8 +53132,13 @@
         "at": "2026-08-01T05:19:27Z",
         "status": "github_checks_pending",
         "summary": "Addressed the review finding within scope at 260ab99be097e96ba7d663e7f4f65a074b6d9a94: share, PDF, and history result rows now record no Chinese leakage in sanitized draft-review evidence; the package and candidate are rebound to SHA ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1. Independent W9 remains required. Fresh required checks and review resolution are pending."
+      },
+      {
+        "at": "2026-08-01T05:24:15Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1893 exact head af5e231622a3ef2aa1f9cf34aeb7dc4a5c5a931f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN, no review is required, and the only review thread is resolved. Exact changed-file scope remains limited to the registered W2 package and PR-train metadata."
       }
     ],
-    "updated_at": "2026-08-01T05:19:27Z"
+    "updated_at": "2026-08-01T05:24:15Z"
   }
 }
