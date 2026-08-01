@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "77fdc07c9252ed271894609078b88046588dbd78",
+    "commit_sha": "72e43f7143ed25710238612197d7c98c2609b057",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53199,8 +53199,13 @@
         "at": "2026-08-01T05:27:57Z",
         "status": "github_checks_pending",
         "summary": "Repaired exact-shape fail-closed behavior and missing-locale authority handling from exact-head review. Canonical Node 24 focused contract passes 19/19. A fresh complete read-only observation remains GO with 41 complete candidates and exact target set cad42a566c4cb187018bd20922493d596c66096ee47ce7656f4715fb37feca18; one non-200 candidate was excluded without gate reduction or operational write."
+      },
+      {
+        "at": "2026-08-01T05:30:01Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact-shape and missing-locale review repair as 72e43f7143ed25710238612197d7c98c2609b057 after all required local checks passed. This metadata tail binds the reachable implementation head before push and fresh exact-head GitHub checks."
       }
     ],
-    "updated_at": "2026-08-01T05:27:57Z"
+    "updated_at": "2026-08-01T05:30:01Z"
   }
 }
