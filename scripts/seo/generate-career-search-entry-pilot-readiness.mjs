@@ -145,7 +145,23 @@ export function inspectHtml(html, expectedUrl) {
     const answer = record(entity.acceptedAnswer);
     return entity["@type"] === "Question" && string(entity.name) && answer["@type"] === "Answer" && string(answer.text);
   });
+  const faqPairs = validFaqEntities.map((item) => ({
+    question: normalizeVisibleText(item.name),
+    answer: normalizeVisibleText(record(item.acceptedAnswer).text),
+  }));
   const faqQuestionCount = validFaqEntities.length;
+  const breadcrumbPages = jsonLdObjects.filter((item) => item["@type"] === "BreadcrumbList");
+  const breadcrumbValid = breadcrumbPages.length === 1 && (() => {
+    const items = array(breadcrumbPages[0].itemListElement);
+    if (items.length < 2) return false;
+    const urls = items.map((item, index) => {
+      const entry = record(item);
+      const rawItem = typeof entry.item === "string" ? entry.item : string(record(entry.item)["@id"] || record(entry.item).url);
+      if (entry["@type"] !== "ListItem" || entry.position !== index + 1 || !string(entry.name) || !rawItem) return "";
+      return resolveAbsoluteUrl(rawItem, expectedUrl);
+    });
+    return urls.every(Boolean) && urls.at(-1) === expectedUrl;
+  })();
   const types = [...new Set(jsonLdObjects.flatMap((item) => array(item["@type"]).length ? item["@type"] : [item["@type"]]).filter(Boolean))].sort();
   const canonical = canonicalTag ? resolveAbsoluteUrl(attribute(canonicalTag, "href"), expectedUrl) : "";
   return {
@@ -165,7 +181,9 @@ export function inspectHtml(html, expectedUrl) {
     },
     jsonld_types: types,
     faq_question_count: faqQuestionCount,
+    faq_pairs: faqPairs,
     faq_entities_valid: faqEntities.length > 0 && faqEntities.length === validFaqEntities.length,
+    breadcrumb_valid: breadcrumbValid,
     jsonld_parse_ok: !jsonLdObjects.some((item) => item.__parse_error),
   };
 }
@@ -204,12 +222,17 @@ function detailStats(detail, locale) {
     ...faqItems.flatMap((item) => [record(item).question, record(item).answer]),
   ];
   const renderMarkers = [...new Set(markerValues.map(normalizeVisibleText).filter((value) => value.length >= 24))];
+  const faqPairs = faqItems.map((item) => ({
+    question: normalizeVisibleText(record(item).question),
+    answer: normalizeVisibleText(record(item).answer),
+  }));
   return {
     visible_text_chars: visibleText.length,
     cjk_chars: (visibleText.match(/[\u3400-\u9fff]/g) || []).length,
     faq_count: faqItems.length,
     thin_or_shell: visibleText.length < 1800 || (locale === "zh" && (visibleText.match(/[\u3400-\u9fff]/g) || []).length < 300) || faqItems.length < 2,
     guarantee_matches: unsupportedGuaranteeMatches(visibleText),
+    faq_pairs: faqPairs,
     render_markers: renderMarkers,
     content_sha256: sha256({
       content_body_md: detail.content_body_md ?? null,
@@ -223,6 +246,8 @@ function detailStats(detail, locale) {
 export function publicHtmlStats(html, locale) {
   const visibleText = String(html)
     .replace(/<head\b[^>]*>[\s\S]*?<\/head\b[^>]*>/gi, " ")
+    .replace(/<template\b[^>]*>[\s\S]*?<\/template\b[^>]*>/gi, " ")
+    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*(?:[\t\n\f\r ]hidden(?:[\t\n\f\r =]|\/?\s*>)|[\t\n\f\r ]aria-hidden\s*=\s*["']true["']))[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
     .replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, " ")
     .replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, " ")
     .replace(/<!--([\s\S]*?)-->/g, " ")
@@ -326,6 +351,8 @@ export function evaluateCandidateEvidence(candidate) {
     if (evidence.thin_or_shell) reasons.push(`${prefix}thin_or_shell`);
     if (!evidence.html.jsonld_parse_ok) reasons.push(`${prefix}jsonld_parse_error`);
     if (!evidence.html.faq_entities_valid) reasons.push(`${prefix}faq_entities_invalid`);
+    if (!evidence.faq_schema_authority_match) reasons.push(`${prefix}faq_schema_authority_mismatch`);
+    if (!evidence.html.breadcrumb_valid) reasons.push(`${prefix}breadcrumb_schema_invalid`);
     if (!evidence.html.jsonld_types.includes("FAQPage") || !evidence.html.jsonld_types.includes("BreadcrumbList")) {
       reasons.push(`${prefix}required_schema_missing`);
     }
@@ -412,6 +439,9 @@ export function buildArtifact({ candidates, observedAt, source }) {
         faq_count: evidence.faq_count,
         schema_faq_count: evidence.html.faq_question_count,
         schema_faq_entities_valid: evidence.html.faq_entities_valid,
+        faq_schema_authority_match: evidence.faq_schema_authority_match,
+        faq_schema_pair_sha256: evidence.faq_schema_pair_sha256,
+        breadcrumb_schema_valid: evidence.html.breadcrumb_valid,
         jsonld_types: evidence.html.jsonld_types,
         authority_visible_text_chars: evidence.authority_visible_text_chars,
         visible_text_chars: evidence.visible_text_chars,
@@ -478,6 +508,8 @@ export function buildArtifact({ candidates, observedAt, source }) {
       all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
       all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
       all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.schema_faq_entities_valid && item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
+      all_faq_schema_authority_exact: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.faq_schema_authority_match)),
+      all_breadcrumb_schema_valid: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.breadcrumb_schema_valid)),
       all_rendered_authority_markers_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.render_authority_match)),
       all_public_guarantee_scans_clear: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.unsupported_public_guarantee_matches.length === 0)),
       exact_target_shape: exactShape.valid,
@@ -555,6 +587,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const renderedStats = publicHtmlStats(pageResult.payload, locale);
   const renderAuthorityMatch = stats.render_markers.length >= 3 && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
   const html = inspectHtml(pageResult.payload, url);
+  const faqSchemaAuthorityMatch = canonicalJson(html.faq_pairs) === canonicalJson(stats.faq_pairs);
   const seoCanonical = resolveAbsoluteUrl(string(seo.canonical_url || seo.canonical_path || seo.canonical_target), args.siteUrl);
   const seoSha256 = effectiveSeoStatus === 200 ? sha256(seo) : "";
   return {
@@ -583,6 +616,8 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     seo_sha256: seoSha256,
     metadata_matches_authority: metadataMatchesSeoAuthority(html.metadata, seo),
     metadata_observation_sha256: sha256(html.metadata),
+    faq_schema_authority_match: faqSchemaAuthorityMatch,
+    faq_schema_pair_sha256: sha256(html.faq_pairs),
     review: reviewerEvidence(detail, authorityItem, observedAt),
     content_version: string(record(detail.trust_manifest).content_version || record(detail.provenance_meta).content_version),
     quality_score: qualityScore(detail),

@@ -35,6 +35,8 @@ type LocaleEvidence = {
   seo_sha256: string;
   metadata_matches_authority: boolean;
   metadata_observation_sha256: string;
+  faq_schema_authority_match: boolean;
+  faq_schema_pair_sha256: string;
   review: { review_state: string; reviewer_status: string; reviewed_at: string; stale: boolean; backend_private_package_match_projected: boolean; public_projection_sha256: string };
   content_version: string;
   content_sha256: string;
@@ -67,7 +69,10 @@ function html(url: string, title = url.split("/").at(-1) || "career"): string {
   return `<html><head><title>${title} | FermatMind</title><link rel="canonical" href="${url}"/><meta name="robots" content="index, follow"/><meta name="description" content="${description}"/><meta property="og:title" content="${title}"/><meta property="og:description" content="${description}"/><meta name="twitter:title" content="${title}"/><meta name="twitter:description" content="${description}"/><script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "BreadcrumbList", itemListElement: [] },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Careers", item: new URL(`/${url.includes("/zh/") ? "zh" : "en"}/career/jobs`, url).href },
+        { "@type": "ListItem", position: 2, name: title, item: url },
+      ] },
       { "@type": "FAQPage", mainEntity: [1, 2, 3].map((position) => ({ "@type": "Question", name: `Question ${position}`, acceptedAnswer: { "@type": "Answer", text: `Answer ${position}` } })) },
     ],
   })}</script></head><body></body></html>`;
@@ -93,6 +98,8 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     seo_sha256: seoSha,
     metadata_matches_authority: true,
     metadata_observation_sha256: sha256({ locale, slug, kind: "metadata" }),
+    faq_schema_authority_match: true,
+    faq_schema_pair_sha256: sha256({ locale, slug, kind: "faq-schema-pairs" }),
     review: { review_state: "approved", reviewer_status: "approved", reviewed_at: "2026-07-31T23:56:27.000Z", stale: false, backend_private_package_match_projected: true, public_projection_sha256: sha256({ locale, slug, kind: "review" }) },
     content_version: "reviewed.v1",
     content_sha256: contentSha,
@@ -135,6 +142,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
     const rendered = `<html><body><main>${"visible career evidence ".repeat(100)}</main></body></html>`;
     expect(publicHtmlStats(rendered, "en").thin_or_shell).toBe(false);
+  });
+
+  it("does not count template or hidden subtrees as visible public evidence", () => {
+    const concealed = "approved authority marker ".repeat(120);
+    const shell = `<html><body><template>${concealed}</template><div hidden>${concealed}</div><section aria-hidden="true">${concealed}</section><main>short shell</main></body></html>`;
+    expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
   });
 
   it("preserves exact sitemap loc values for membership checks", () => {
@@ -188,6 +201,22 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       twitter_title: "Career 01",
       twitter_description: "Career 01 description",
     });
+  });
+
+  it("requires an ordered breadcrumb ending at the exact career URL", () => {
+    const url = "https://fermatmind.com/en/career/jobs/career-01";
+    expect(inspectHtml(html(url), url).breadcrumb_valid).toBe(true);
+    const wrongDestination = html(url).replace(`\"item\":\"${url}\"`, `\"item\":\"${url}/other\"`);
+    expect(inspectHtml(wrongDestination, url).breadcrumb_valid).toBe(false);
+  });
+
+  it("extracts normalized FAQ question and answer pairs for authority comparison", () => {
+    const url = "https://fermatmind.com/en/career/jobs/career-01";
+    expect(inspectHtml(html(url), url).faq_pairs).toEqual([
+      { question: "question 1", answer: "answer 1" },
+      { question: "question 2", answer: "answer 2" },
+      { question: "question 3", answer: "answer 3" },
+    ]);
   });
 
   it("rejects duplicate live metadata instead of accepting the first value", () => {
@@ -289,6 +318,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
     ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],
     ["malformed FAQ entity", (value: Candidate) => { value.locales.en.html.faq_entities_valid = false; }, "en_faq_entities_invalid"],
+    ["FAQ schema authority drift", (value: Candidate) => { value.locales.en.faq_schema_authority_match = false; }, "en_faq_schema_authority_mismatch"],
+    ["invalid breadcrumb schema", (value: Candidate) => { value.locales.zh.html.breadcrumb_valid = false; }, "zh_breadcrumb_schema_invalid"],
     ["conflicting robots meta", (value: Candidate) => { value.locales.en.html.robots_values = ["index,follow", "noindex,follow"]; value.locales.en.html.robots = "index,follow|noindex,follow"; value.locales.en.html.index_follow = false; }, "en_not_index_follow"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
     ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
@@ -358,6 +389,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
         all_sitemap_bilingual: true,
         all_reviewer_content_seo_evidence_current: true,
         all_faq_schema_aligned: true,
+        all_faq_schema_authority_exact: true,
+        all_breadcrumb_schema_valid: true,
       });
       expect(
         artifact.targets.every((target: { locale_evidence: Record<string, { backend_private_package_match_projected: boolean; review_public_projection_sha256: string }> }) =>

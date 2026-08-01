@@ -53737,11 +53737,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after binding crawler-visible metadata to current SEO authority, scanning public rendered copy independently for guarantees, requiring exactly one head canonical, and rejecting every non-indexable X-Robots directive."
+        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after excluding hidden public evidence, binding normalized FAQ schema pairs to backend authority, validating ordered exact-destination breadcrumbs, binding crawler-visible metadata to current SEO authority, and rejecting every non-indexable crawler directive."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 46 tests. Coverage includes exact attribute-name parsing, predicate-bound guarantee negation, duplicate metadata rejection, duplicate-canonical rejection, both supported HOLD reason forms, live metadata binding, independent public-body scanning, Googlebot identity, X-Robots rejection, and deterministic selection."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 51 tests. Coverage includes hidden/template public-evidence exclusion, normalized FAQ authority binding, ordered exact-destination breadcrumb validation, exact attribute-name parsing, predicate-bound guarantee negation, duplicate crawler metadata rejection, both supported HOLD reason forms, Googlebot identity, and deterministic selection."
       },
       "lint": {
         "status": "pass",
@@ -53757,11 +53757,11 @@
       },
       "github_required_checks": {
         "status": "pending_recheck",
-        "evidence": "All 11 required checks passed on d54e863f. The three newest exact-head review repairs and truthful HOLD artifact now require fresh exact-head GitHub checks."
+        "evidence": "All 11 required checks passed on 7757d72e. The three newest exact-head review repairs and truthful HOLD artifact now require fresh exact-head GitHub checks."
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "All newest exact-head findings are repaired fail-closed: HTML attribute names must be exact rather than data-* suffixes, negation must bind to the guarantee predicate, each crawler metadata field must occur exactly once, exactly one head canonical is required, and committed artifacts accept both supported HOLD reason forms."
+        "evidence": "All newest exact-head findings are repaired fail-closed: template and hidden subtrees cannot provide visible evidence, normalized FAQ schema question/answer pairs must exactly match backend authority, and exactly one ordered BreadcrumbList must end at the exact locale career URL."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53775,13 +53775,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T07:41:44.524Z",
+      "observed_at": "2026-08-01T07:56:50.146Z",
       "result": "HOLD",
       "eligible_candidates": 0,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-      "artifact_sha256": "99fb88a8f6e524bf7202c9d1ca278d6adc3bc88060902122ef8b83473707aed7",
+      "artifact_sha256": "ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44",
       "rollback_batch_id": null
     },
     "production_write_execution": false,
@@ -53985,8 +53985,13 @@
         "at": "2026-08-01T07:48:11Z",
         "status": "github_checks_pending",
         "summary": "Merged latest origin/main 559e9559 after another concurrent ledger advance, preserving the exact pilot entry and all newly merged control entries. The PR diff remains exactly six authorized paths; post-merge focused 46/46, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T07:59:00Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the three newest exact-head findings by excluding template and hidden subtrees from public evidence, binding normalized FAQ schema pairs exactly to backend authority, and requiring one ordered BreadcrumbList ending at the exact locale career URL. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T07:56:50.146Z, and artifact ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44; focused 51/51, lint, and typecheck pass."
       }
     ],
-    "updated_at": "2026-08-01T07:48:11Z"
+    "updated_at": "2026-08-01T07:59:00Z"
   }
 }

@@ -5,12 +5,12 @@
 `HOLD`; no career Search Channel canary package is authorized.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T07:41:44.524Z`.
+- Read-only observation: `2026-08-01T07:56:50.146Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
 - Complete gate passes: 0; rejected without gate reduction: 50.
 - Hold reason: `insufficient_eligible_candidates:0/10`.
 - Target-set SHA-256: `null`.
-- Artifact SHA-256: `99fb88a8f6e524bf7202c9d1ca278d6adc3bc88060902122ef8b83473707aed7`.
+- Artifact SHA-256: `ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44`.
 - Rollback batch ID: `null`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -36,9 +36,10 @@ The following gates remain mandatory for every future selected URL; the frozen r
 - backend-approved review projection in both the list and detail responses; the backend emits `approved` only while the current private six-target-per-slug content, SEO, visible-claims, and index-entry package still matches the immutable `approved_all` attestation;
 - locale-aligned content and SEO contract versions, plus frozen per-locale content/SEO observation SHAs and a public review-projection SHA;
 - exact SEO-authority canonical equality with the locale target, independently of the rendered page canonical;
-- visible-content thickness measured from the public rendered HTML body above the fixed floor, independently of API authority payload size, so no thin/shell page is selected;
+- visible-content thickness measured from the public rendered HTML body above the fixed floor, independently of API authority payload size; crawler metadata, scripts, styles, comments, templates, and exact `hidden` / `aria-hidden=\"true\"` subtrees cannot satisfy this gate;
 - approved hero, definition, and FAQ authority markers present in the rendered body, with only marker hashes and counts frozen in the artifact;
-- rendered `FAQPage` and `BreadcrumbList`, with every FAQ entity a structured `Question` plus `acceptedAnswer` and the valid question count equal to visible backend authority;
+- rendered `FAQPage` with every FAQ entity a structured `Question` plus `acceptedAnswer`, the valid question count equal to visible backend authority, and the normalized ordered question/answer pairs exactly equal to that authority;
+- exactly one rendered `BreadcrumbList` with at least two ordered, consecutively positioned `ListItem` entries and a final item URL exactly equal to the locale career URL;
 - no positive unsupported salary, income, hiring, employment, or career-success guarantee, with negation scoped to the same clause as the matched guarantee.
 - no such unsupported guarantee in the independently rendered public body, even when all approved authority markers remain present.
 
