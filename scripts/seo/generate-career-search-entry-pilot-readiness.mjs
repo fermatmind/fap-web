@@ -115,7 +115,13 @@ export function inspectHtml(html, expectedUrl) {
     }
   }
   const faqPages = jsonLdObjects.filter((item) => item["@type"] === "FAQPage");
-  const faqQuestionCount = faqPages.reduce((sum, item) => sum + array(item.mainEntity).length, 0);
+  const faqEntities = faqPages.flatMap((item) => array(item.mainEntity));
+  const validFaqEntities = faqEntities.filter((item) => {
+    const entity = record(item);
+    const answer = record(entity.acceptedAnswer);
+    return entity["@type"] === "Question" && string(entity.name) && answer["@type"] === "Answer" && string(answer.text);
+  });
+  const faqQuestionCount = validFaqEntities.length;
   const types = [...new Set(jsonLdObjects.flatMap((item) => array(item["@type"]).length ? item["@type"] : [item["@type"]]).filter(Boolean))].sort();
   const canonical = resolveAbsoluteUrl(attribute(canonicalTag || "", "href"), expectedUrl);
   return {
@@ -125,8 +131,13 @@ export function inspectHtml(html, expectedUrl) {
     index_follow: normalizeRobots(attribute(robotsTag || "", "content")) === "index,follow",
     jsonld_types: types,
     faq_question_count: faqQuestionCount,
+    faq_entities_valid: faqEntities.length > 0 && faqEntities.length === validFaqEntities.length,
     jsonld_parse_ok: !jsonLdObjects.some((item) => item.__parse_error),
   };
+}
+
+function normalizeVisibleText(value) {
+  return string(value).normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}\u3400-\u9fff]+/gu, " ").replace(/\s+/g, " ").trim();
 }
 
 function recursiveText(value) {
@@ -144,14 +155,22 @@ function unsupportedGuaranteeMatches(value) {
 
 function detailStats(detail, locale) {
   const displayPage = record(record(detail.display_surface_v1).page);
-  const faqItems = array(record(record(displayPage.content).faq_block).items);
+  const displayContent = record(displayPage.content);
+  const faqItems = array(record(displayContent.faq_block).items);
   const visibleText = [string(detail.content_body_md), recursiveText(detail.content_sections), recursiveText(displayPage)].join("\n");
+  const markerValues = [
+    record(displayContent.hero).quick_answer,
+    displayContent.definition_block,
+    ...faqItems.flatMap((item) => [record(item).question, record(item).answer]),
+  ];
+  const renderMarkers = [...new Set(markerValues.map(normalizeVisibleText).filter((value) => value.length >= 24))];
   return {
     visible_text_chars: visibleText.length,
     cjk_chars: (visibleText.match(/[\u3400-\u9fff]/g) || []).length,
     faq_count: faqItems.length,
     thin_or_shell: visibleText.length < 1800 || (locale === "zh" && (visibleText.match(/[\u3400-\u9fff]/g) || []).length < 300) || faqItems.length < 2,
     guarantee_matches: unsupportedGuaranteeMatches(visibleText),
+    render_markers: renderMarkers,
     content_sha256: sha256({
       content_body_md: detail.content_body_md ?? null,
       content_sections: detail.content_sections ?? null,
@@ -173,6 +192,7 @@ export function publicHtmlStats(html, locale) {
     .trim();
   const cjkChars = (visibleText.match(/[\u3400-\u9fff]/g) || []).length;
   return {
+    normalized_text: normalizeVisibleText(visibleText),
     visible_text_chars: visibleText.length,
     cjk_chars: cjkChars,
     thin_or_shell: visibleText.length < 1800 || (locale === "zh" && cjkChars < 300),
@@ -247,12 +267,15 @@ export function evaluateCandidateEvidence(candidate) {
     if (!evidence.seo_sha256 || !evidence.seo.metadata_fingerprint) reasons.push(`${prefix}seo_sha_missing`);
     if (evidence.thin_or_shell) reasons.push(`${prefix}thin_or_shell`);
     if (!evidence.html.jsonld_parse_ok) reasons.push(`${prefix}jsonld_parse_error`);
+    if (!evidence.html.faq_entities_valid) reasons.push(`${prefix}faq_entities_invalid`);
     if (!evidence.html.jsonld_types.includes("FAQPage") || !evidence.html.jsonld_types.includes("BreadcrumbList")) {
       reasons.push(`${prefix}required_schema_missing`);
     }
     if (evidence.faq_count < 2 || evidence.html.faq_question_count !== evidence.faq_count) {
       reasons.push(`${prefix}faq_schema_mismatch`);
     }
+    if (!evidence.render_authority_match) reasons.push(`${prefix}rendered_authority_marker_mismatch`);
+    if (evidence.seo.canonical !== evidence.url) reasons.push(`${prefix}seo_canonical_mismatch`);
     if (evidence.guarantee_matches.length > 0) reasons.push(`${prefix}unsupported_guarantee_claim`);
   }
   if (en.review.reviewed_at !== zh.review.reviewed_at) reasons.push("reviewer_evidence_locale_drift");
@@ -321,12 +344,17 @@ export function buildArtifact({ candidates, observedAt, source }) {
         content_version: evidence.content_version,
         content_sha256: evidence.content_sha256,
         seo_metadata_fingerprint: evidence.seo.metadata_fingerprint,
+        seo_canonical: evidence.seo.canonical,
         seo_sha256: evidence.seo_sha256,
         faq_count: evidence.faq_count,
         schema_faq_count: evidence.html.faq_question_count,
+        schema_faq_entities_valid: evidence.html.faq_entities_valid,
         jsonld_types: evidence.html.jsonld_types,
         authority_visible_text_chars: evidence.authority_visible_text_chars,
         visible_text_chars: evidence.visible_text_chars,
+        render_authority_marker_count: evidence.render_authority_marker_count,
+        render_authority_marker_sha256: evidence.render_authority_marker_sha256,
+        render_authority_match: evidence.render_authority_match,
         unsupported_guarantee_matches: evidence.guarantee_matches,
       }];
     })),
@@ -378,12 +406,14 @@ export function buildArtifact({ candidates, observedAt, source }) {
       bilingual_pairs_complete: targets.every((target) => target.urls.length === 2),
       all_detail_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200 && item.page_final_url === target.urls[item === target.locale_evidence.en ? 0 : 1])),
       all_seo_authority_resolved: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_authority_status === 200 && ["career_seo_endpoint", "career_detail_seo_contract"].includes(item.seo_source))),
+      all_seo_canonical_exact: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_canonical === target.urls[item === target.locale_evidence.en ? 0 : 1])),
       dedicated_seo_endpoint_200_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_endpoint_status === 200).length,
       detail_seo_contract_fallback_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_source === "career_detail_seo_contract").length,
       all_self_canonical_index_follow: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
       all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
       all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
-      all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
+      all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.schema_faq_entities_valid && item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
+      all_rendered_authority_markers_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.render_authority_match)),
       exact_target_shape: exactShape.valid,
     },
     negative_guarantees: {
@@ -450,6 +480,8 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const effectiveSeoStatus = Object.keys(seo).length > 0 && detailResult.status === 200 ? 200 : seoResult.status;
   const stats = detailStats(detail, locale);
   const renderedStats = publicHtmlStats(pageResult.payload, locale);
+  const renderAuthorityMatch = stats.render_markers.length >= 3 && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
+  const seoCanonical = resolveAbsoluteUrl(string(seo.canonical_url || seo.canonical_path || seo.canonical_target), args.siteUrl);
   const seoSha256 = effectiveSeoStatus === 200 ? sha256(seo) : "";
   return {
     url,
@@ -466,6 +498,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
       metadata_fingerprint: string(seo.metadata_fingerprint),
       robots_policy: string(seo.robots_policy),
       index_eligible: seo.index_eligible === true,
+      canonical: seoCanonical,
     },
     seo_sha256: seoSha256,
     review: reviewerEvidence(detail, authorityItem, observedAt),
@@ -477,6 +510,9 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     visible_text_chars: renderedStats.visible_text_chars,
     cjk_chars: renderedStats.cjk_chars,
     thin_or_shell: stats.thin_or_shell || renderedStats.thin_or_shell,
+    render_authority_marker_count: stats.render_markers.length,
+    render_authority_marker_sha256: sha256(stats.render_markers),
+    render_authority_match: renderAuthorityMatch,
   };
 }
 

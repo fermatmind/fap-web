@@ -5,13 +5,13 @@
 `GO` for one bounded 10-slug / 20-URL career Search Channel canary package.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T05:48:01.643Z`.
+- Read-only observation: `2026-08-01T06:15:11.998Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
-- Complete gate passes: 42; rejected without gate reduction: 8.
+- Complete gate passes: 29; rejected without gate reduction: 21.
 - Selected SEO authority sources: 18 dedicated endpoint responses and 2 explicitly recorded detail `seo_contract` fallbacks.
-- Target-set SHA-256: `89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682`.
-- Artifact SHA-256: `b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11`.
-- Rollback batch ID: `career-search-entry-pilot-89f3f026b30574ba`.
+- Target-set SHA-256: `452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c`.
+- Artifact SHA-256: `1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f`.
+- Rollback batch ID: `career-search-entry-pilot-452c677f70249438`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
 
@@ -29,8 +29,8 @@ Selection is deterministic: `stable` first, then quality score descending, then 
 | 6 | approved_candidate | 60 | `aerospace-engineers` |
 | 7 | approved_candidate | 60 | `agricultural-and-food-scientists` |
 | 8 | approved_candidate | 60 | `agricultural-engineers` |
-| 9 | approved_candidate | 60 | `anthropologists-and-archeologists` |
-| 10 | approved_candidate | 60 | `appraisers-and-assessors-of-real-estate` |
+| 9 | approved_candidate | 60 | `compensation-and-benefits-managers` |
+| 10 | approved_candidate | 60 | `compensation-benefits-and-job-analysis-specialists` |
 
 Each slug is bound to exactly these two canonical URL shapes:
 
@@ -50,8 +50,10 @@ Every selected URL passed all of the following in the same read-only run:
 - approved, non-stale reviewer evidence with locale-aligned review timestamp;
 - backend-approved review projection in both the list and detail responses; the backend emits `approved` only while the current private six-target-per-slug content, SEO, visible-claims, and index-entry package still matches the immutable `approved_all` attestation;
 - locale-aligned content and SEO contract versions, plus frozen per-locale content/SEO observation SHAs and a public review-projection SHA;
+- exact SEO-authority canonical equality with the locale target, independently of the rendered page canonical;
 - visible-content thickness measured from the public rendered HTML body above the fixed floor, independently of API authority payload size, so no thin/shell page is selected;
-- rendered `FAQPage` and `BreadcrumbList`, with FAQ item count equal to visible backend authority;
+- approved hero, definition, and FAQ authority markers present in the rendered body, with only marker hashes and counts frozen in the artifact;
+- rendered `FAQPage` and `BreadcrumbList`, with every FAQ entity a structured `Question` plus `acceptedAnswer` and the valid question count equal to visible backend authority;
 - no positive unsupported salary, income, hiring, employment, or career-success guarantee.
 
 The private approved target/package SHAs intentionally remain backend-only. PR3 does not copy a live SHA into an "expected" field. It relies on the backend's fail-closed public projection of that private comparison, then freezes independent read-only observation SHAs for PR4 lineage. The generator treats absent, stale, mismatched, or malformed projection evidence as failure. If fewer than 10 candidates pass, it emits `HOLD`, returns no target set, and exits non-zero.

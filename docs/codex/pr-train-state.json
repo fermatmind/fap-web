@@ -53313,11 +53313,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing exact sitemap locs, bilingual tier equality, rendered public-body thickness, and the backend's current private-package-match projection."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 29 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing approved rendered-body markers, exact SEO/page/sitemap URLs, valid FAQ entities, bilingual tier equality, public-body thickness, and the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 28 tests. Coverage includes rendered public-body shell detection, exact sitemap locs, bilingual authority-tier drift, deterministic rerun, exact 10/20 bounds, bilingual pairing, malformed exact-shape HOLD, missing-locale safe rejection, exact canonical comparison, manual redirects, final-URL rejection, held/noindex/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 31 tests. Coverage adds rendered-authority marker binding, exact SEO canonical, and structured FAQ entity validation to the prior shell, URL, authority, review, schema, deterministic selection, and fail-closed HOLD cases."
       },
       "lint": {
         "status": "pass",
@@ -53337,7 +53337,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; canonical and sitemap comparisons retain exact URL distinctions; fetch uses manual redirects and exact final URL; visible thickness comes from rendered public body; bilingual authority tiers must match. The ledger commit is reachable in the actual GitHub branch ancestry."
+        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; page, SEO, and sitemap comparisons retain exact URL distinctions; redirects are manual; public thickness and approved hero/definition/FAQ markers bind rendered authority; bilingual tiers match; FAQ entities require Question and acceptedAnswer structure."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53351,14 +53351,14 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T05:48:01.643Z",
+      "observed_at": "2026-08-01T06:15:11.998Z",
       "result": "GO",
-      "eligible_candidates": 42,
+      "eligible_candidates": 29,
       "target_slugs": 10,
       "target_urls": 20,
-      "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-      "artifact_sha256": "b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11",
-      "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
+      "target_set_sha256": "452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c",
+      "artifact_sha256": "1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f",
+      "rollback_batch_id": "career-search-entry-pilot-452c677f70249438"
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -53476,8 +53476,13 @@
         "at": "2026-08-01T06:04:25Z",
         "status": "github_checks_pending",
         "summary": "Committed the complete tolerant-closing-tag repair as fdcafb6f04090c3f93b7d5b2dab3ea32d3e74ab0 after focused 28/28, lint, typecheck, syntax, and diff checks passed. This metadata tail binds the reachable implementation commit before the next exact-head scan."
+      },
+      {
+        "at": "2026-08-01T06:15:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all required checks and CodeQL passed on 7092a2ab, exact-head review found rendered-body lineage, SEO canonical, and FAQ entity-structure gaps. Added hashed approved hero/definition/FAQ marker binding, exact SEO-authority canonical equality, and Question/acceptedAnswer validation. Focused contract passes 31/31; a fresh strict run remains GO with 29 complete candidates, target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact 1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f."
       }
     ],
-    "updated_at": "2026-08-01T06:04:25Z"
+    "updated_at": "2026-08-01T06:15:00Z"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "career.search_entry_pilot_readiness.v1",
   "task": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
-  "observed_at": "2026-08-01T05:48:01.643Z",
+  "observed_at": "2026-08-01T06:15:11.998Z",
   "mode": "read_only_backend_authority_and_public_surface_observation",
   "source": {
     "site_url": "https://fermatmind.com",
@@ -37,19 +37,23 @@
   },
   "inventory": {
     "observed_candidate_count": 50,
-    "eligible_candidate_count": 42,
-    "rejected_candidate_count": 8,
+    "eligible_candidate_count": 29,
+    "rejected_candidate_count": 21,
     "tier_counts": {
       "stable": 4,
       "approved_candidate": 46
     },
     "rejection_reason_counts": {
+      "en_faq_entities_invalid": 2,
       "en_faq_schema_mismatch": 2,
       "en_not_index_follow": 2,
+      "en_rendered_authority_marker_mismatch": 15,
       "en_required_schema_missing": 2,
       "en_thin_or_shell": 2,
+      "zh_faq_entities_invalid": 3,
       "zh_faq_schema_mismatch": 3,
       "zh_not_index_follow": 3,
+      "zh_rendered_authority_marker_mismatch": 16,
       "zh_required_schema_missing": 3,
       "zh_thin_or_shell": 3,
       "en_unsupported_guarantee_claim": 5,
@@ -85,9 +89,11 @@
           "content_version": "career_first_wave.publish_seed.v1",
           "content_sha256": "c1964543743952418a64c31c5bdf0606d7bd25cec189cf45ce28b4f77f668921",
           "seo_metadata_fingerprint": "d06f7f8cf698da78b4035b36fea2ddcf75d73a35",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/data-scientists",
           "seo_sha256": "93261698f648de57c29fb8727491933f4a091e494f16c913c10a5e0b550db179",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -96,7 +102,10 @@
             "Question"
           ],
           "authority_visible_text_chars": 16378,
-          "visible_text_chars": 18043,
+          "visible_text_chars": 18072,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "d993e9fd97f2ee7f7e29a94b5e7a50e596398e6b45688da96ab90ea1211402b2",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -116,9 +125,11 @@
           "content_version": "career_first_wave.publish_seed.v1",
           "content_sha256": "b9303c33584f52bdc09a6e7edb8043ceb88436310384b1777cf7a2e4f69dd2e3",
           "seo_metadata_fingerprint": "eff987a4a211cfd9090336e0681d40cd15f4400c",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/data-scientists",
           "seo_sha256": "441b3412b36944fbde049a8185075b89be3537b168458c2e05400bd39e6b0123",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -128,6 +139,9 @@
           ],
           "authority_visible_text_chars": 10431,
           "visible_text_chars": 7704,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "a5197dfc14dca04b36c75786f64fdca507a868656d39733974ba92f70850a7e9",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -158,9 +172,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "b22aca80ca198349a8ab5f50ab05fbb66e639519685c8e2e4035990f44422352",
           "seo_metadata_fingerprint": "1b89ea3c3b7fce537a7f8ba59df4a4bbe7eda751",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/actuaries",
           "seo_sha256": "99d82529fa7480416ab5d37329b9360f5ba1f6c18b14357f665fb5107ea4dd09",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -169,7 +185,10 @@
             "Question"
           ],
           "authority_visible_text_chars": 12004,
-          "visible_text_chars": 15976,
+          "visible_text_chars": 15999,
+          "render_authority_marker_count": 7,
+          "render_authority_marker_sha256": "e5e911cbbf317ab2960ec03cd11703bde441dcbee99d71d71be2555699601892",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -189,9 +208,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "6b98cd97835a243eeeca62bde41b3246f88bb51ae2d664896306258293c84f23",
           "seo_metadata_fingerprint": "3768690fbaeced8d0cd7e5ee7038f1331f1ce9db",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/actuaries",
           "seo_sha256": "554aae03cb20931b34f708535666ca27b779fb58330f3621d5f79edbc03606a6",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -201,6 +222,9 @@
           ],
           "authority_visible_text_chars": 5416,
           "visible_text_chars": 6196,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "7fee336c10d9b8f086318cff26af95425c3f39362882827c6d29eb3d0d17ba14",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -231,9 +255,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "5cf8f34e381ea6b53e8261fc355c1ac920a7508c151cc17e4ce8042eb3fd9ee0",
           "seo_metadata_fingerprint": "f54cac922a106f598386fd9a22baa81324d81638",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/administrative-services-managers",
           "seo_sha256": "be71a4993d2f354091ee75fdf92772cd1c517a66357448a9cc8b94ca83e61668",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -242,7 +268,10 @@
             "Question"
           ],
           "authority_visible_text_chars": 12536,
-          "visible_text_chars": 16123,
+          "visible_text_chars": 16077,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "d2d9ee7979bf62b3b93443835fbddc1a78b2d71c0df983c718cc037a67c62fe7",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -262,9 +291,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "57f15476b5a16659a6748b66766ed398924770592a6851fc4240a3014d7fc04a",
           "seo_metadata_fingerprint": "ca74363b04d5d0fbebd6b3b6ba7a595d2f09822e",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/administrative-services-managers",
           "seo_sha256": "cf956292c2c86dc54215cd363b292f1279883eb4085dd6453a47be473395b8fa",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -274,6 +305,9 @@
           ],
           "authority_visible_text_chars": 5692,
           "visible_text_chars": 6296,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "3ff24ff0f4044119b23e9401ceb6a68e7a020dcba62f29bde797200074a77648",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -304,9 +338,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "2fe116a8ce822465704c0fd7495513fe613c1ab68f7ae70a629bdb14dae1c700",
           "seo_metadata_fingerprint": "40cbf60a4ed464b698491072c0f2dc635499e291",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/advertising-promotions-and-marketing-managers",
           "seo_sha256": "d69c27ad37ae44ce0508790bf846b126dee52110c76c962b70564df8ec7ea59c",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -315,7 +351,10 @@
             "Question"
           ],
           "authority_visible_text_chars": 12739,
-          "visible_text_chars": 18099,
+          "visible_text_chars": 18160,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "d06759f3001d63a1b0ca611e23e407ce21e5742a65c1470d8e41552e864e09db",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -335,9 +374,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "c3270fe8c8fbbe97be9a5e8e5de1517554fae2a7c955bfe409e7f1aba8ad8cb7",
           "seo_metadata_fingerprint": "fb7f36818807d262a4cf5bd35965025f8383ccc9",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/advertising-promotions-and-marketing-managers",
           "seo_sha256": "04e82764ffd4a4ed1375bef97797d9ec74ee6412e6cf609bae6f497b3df3afb4",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -347,6 +388,9 @@
           ],
           "authority_visible_text_chars": 8196,
           "visible_text_chars": 6882,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "01bb8865195bc6241e786427df9abbb722f0ebafbe43ffe8d4802d45f55a38bd",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -377,9 +421,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "024c2742e3a9bd736e9316ca68bebdc5989ecfbe9c50b3085243ead7690ed75e",
           "seo_metadata_fingerprint": "07d8710960aa1fe40dbc08fe0598656d6679a69c",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/aerospace-engineering-and-operations-technicians",
           "seo_sha256": "a7e9ed5fa4af6f277589e1d0ea495dfad79b3d5b4abd0d3cd82dddafcdb630ba",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -389,6 +435,9 @@
           ],
           "authority_visible_text_chars": 13253,
           "visible_text_chars": 19042,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "ad4d328888657fd5b48c8a2cf92c5ce2e62f8d3ae126e35059e1d23fada6cc52",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -408,9 +457,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "6c91e48f4c3476a81413ad47a196f8c3771e0944b81a53cc471fe3402e96ec79",
           "seo_metadata_fingerprint": "73711a0f7fe53a0a72ee7480ac3c50c91f6b68c5",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/aerospace-engineering-and-operations-technicians",
           "seo_sha256": "7920022e3acc99994da2da8e8ccf1d051e6f7c4fb5c0f27439cdbaeaa1dc004f",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -420,6 +471,9 @@
           ],
           "authority_visible_text_chars": 5952,
           "visible_text_chars": 7141,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "b2caa1b0f24fc42f491fd5031ee8be969a5b882ab8629a63631995f6262edf3a",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -450,9 +504,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "7288147553e92d46f47510f8f141e352dcc8acfc44e4eb3d37c77a1740805e7a",
           "seo_metadata_fingerprint": "647711dc78719cd8afc64166e311fa01f08c5cd4",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/aerospace-engineers",
           "seo_sha256": "b9c089e0b41d8214d74dc6cd2d200207b04dd400e3708434d11e24186a2e1abd",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -461,7 +517,10 @@
             "Question"
           ],
           "authority_visible_text_chars": 12025,
-          "visible_text_chars": 15998,
+          "visible_text_chars": 16031,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "9821c76b3ebb68493663bcdd6363a8864726f16d4b0b5d80fb4ce7b0d378496f",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -481,9 +540,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "83aaaa908b8515b951a4de62614dcb162152ef2da95fce8c9b87c03f37acd716",
           "seo_metadata_fingerprint": "3e461e6547f6490fb75959f3ed3af7c545b254a1",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/aerospace-engineers",
           "seo_sha256": "fbf0c830da0aa095a91038d5baa01bfdc3fba13ea2518088a1eb6bf90d45ce42",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -493,6 +554,9 @@
           ],
           "authority_visible_text_chars": 5687,
           "visible_text_chars": 6401,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "70cf0fbcc56fedad68640df2d3a13bab778a0c177aa2e3b45d6cee9b69b8ca94",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -523,9 +587,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "5b6d17106ca062cc312607c50a68b02d581f2fb6e0fb33a03cdebd6f39779cf2",
           "seo_metadata_fingerprint": "13d4df1a3416f7fca25576caf6e5196bbd12a852",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/agricultural-and-food-scientists",
           "seo_sha256": "40b7a46733fd0f775542a840b69b1a32d4b6eb812019ddab1f1dd27bec27655f",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -535,6 +601,9 @@
           ],
           "authority_visible_text_chars": 12789,
           "visible_text_chars": 17203,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "517e0bb3dbd73f8494622e0e252d64f3d1404eb97a2182e5fd8837bdd97e3dff",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -554,9 +623,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "f380598513312cd5d6675af383b9b361d4f5db2ab19ec1b25b406edd8ad419cd",
           "seo_metadata_fingerprint": "33487725df7cec6f29f46dd176cc02b001d51b1a",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/agricultural-and-food-scientists",
           "seo_sha256": "a9c3243631ef04406794930e9e77aea3f3035edc9a75ab474e1ab52bdc113caa",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -566,6 +637,9 @@
           ],
           "authority_visible_text_chars": 5921,
           "visible_text_chars": 6669,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "163870a65d719008047de605841c938c3645e13da34f301d76c31ea6f38ac3f6",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
@@ -596,9 +670,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "34a1fb5088258f1c8103ba121e0d303fbe5bc2ea2ca60c71b60fa37751054862",
           "seo_metadata_fingerprint": "5ccda3859323944188793d80a38a44ad995c70b4",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/agricultural-engineers",
           "seo_sha256": "2d36dd27327382f322466eb0764d56733884f65f504d000032c1fe3bff575bdf",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -608,6 +684,9 @@
           ],
           "authority_visible_text_chars": 11961,
           "visible_text_chars": 16920,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "34b55835c9e2a86f2e692a63c39671882ee434bb93b68b0b1f7b72e5293eab98",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -627,9 +706,11 @@
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "3b402cf5dcc50edf8a1141e72d01bcbd0346ba6168515f29422cb97d4618b90d",
           "seo_metadata_fingerprint": "b91ea49e4fb0e9fd37aed73d5aaca7652410c9f6",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/agricultural-engineers",
           "seo_sha256": "fe9b1bde6a874748ae24c686c60304de69571f66810d25f07d646748d70a3c5b",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -638,18 +719,21 @@
             "Question"
           ],
           "authority_visible_text_chars": 5543,
-          "visible_text_chars": 6528,
+          "visible_text_chars": 6551,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "04d71d9d223b7ff8f498aeeff3423563d5d24a5dfe1316a1ccf6f8dbb466a805",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
     },
     {
-      "slug": "anthropologists-and-archeologists",
+      "slug": "compensation-and-benefits-managers",
       "tier": "approved_candidate",
       "quality_score": 60,
       "urls": [
-        "https://fermatmind.com/en/career/jobs/anthropologists-and-archeologists",
-        "https://fermatmind.com/zh/career/jobs/anthropologists-and-archeologists"
+        "https://fermatmind.com/en/career/jobs/compensation-and-benefits-managers",
+        "https://fermatmind.com/zh/career/jobs/compensation-and-benefits-managers"
       ],
       "locale_evidence": {
         "en": {
@@ -658,8 +742,8 @@
           "seo_endpoint_status": 200,
           "seo_source": "career_seo_endpoint",
           "page_status": 200,
-          "page_final_url": "https://fermatmind.com/en/career/jobs/anthropologists-and-archeologists",
-          "canonical": "https://fermatmind.com/en/career/jobs/anthropologists-and-archeologists",
+          "page_final_url": "https://fermatmind.com/en/career/jobs/compensation-and-benefits-managers",
+          "canonical": "https://fermatmind.com/en/career/jobs/compensation-and-benefits-managers",
           "robots": "index,follow",
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
@@ -667,11 +751,13 @@
           "backend_private_package_match_projected": true,
           "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "c287281505bf382a6f3e88a827106e8686bbc31a1b4a40b51c7db458710137a4",
-          "seo_metadata_fingerprint": "0767db19af373a4444ac8acdaad688353d6711d0",
-          "seo_sha256": "1f7d018f41c9c4fbd8bc1ad4e0460353cff50a684c4db2f510b25577bd69aa13",
+          "content_sha256": "5f5b189170df1fbdef546b965d6d86f5cf6f225cd7bc8667e1fa9db5e4cbdfac",
+          "seo_metadata_fingerprint": "632165499b4b9997919f97461d6bfe194c425276",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/compensation-and-benefits-managers",
+          "seo_sha256": "12638a2f9cde9f34125989ee9a18b673796705721098cc86dcff884d6c378496",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -679,8 +765,11 @@
             "ListItem",
             "Question"
           ],
-          "authority_visible_text_chars": 12685,
-          "visible_text_chars": 13607,
+          "authority_visible_text_chars": 13700,
+          "visible_text_chars": 18631,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "8cd6d78540fb63b2772d533381be4a16f7b32820b46d8298fa2f09a44c4fbdbb",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -689,8 +778,8 @@
           "seo_endpoint_status": 200,
           "seo_source": "career_seo_endpoint",
           "page_status": 200,
-          "page_final_url": "https://fermatmind.com/zh/career/jobs/anthropologists-and-archeologists",
-          "canonical": "https://fermatmind.com/zh/career/jobs/anthropologists-and-archeologists",
+          "page_final_url": "https://fermatmind.com/zh/career/jobs/compensation-and-benefits-managers",
+          "canonical": "https://fermatmind.com/zh/career/jobs/compensation-and-benefits-managers",
           "robots": "index,follow",
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
@@ -698,11 +787,13 @@
           "backend_private_package_match_projected": true,
           "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "c166919472829e247d8b071dd2ab6d66daa367e06d040405edcafd64f4972f25",
-          "seo_metadata_fingerprint": "dcf4051eaf78658c25552ac4f1a0c1cbd01b9e23",
-          "seo_sha256": "6a2f5df2b0a3d5af7ad3420581a562b0f189dd1173905214e0885159f238436b",
+          "content_sha256": "21fe365b29f6abfa0de3308520f4577429e73ce4bbeb8d9e91e451406a32ace1",
+          "seo_metadata_fingerprint": "33f17dcc9338ba3cb4ebbf952d1d30bc77e0bdf0",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/compensation-and-benefits-managers",
+          "seo_sha256": "1784651319b4bea94a66c064012f8344085878a68f43f8a527c8b02ba8264a7a",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -710,19 +801,22 @@
             "ListItem",
             "Question"
           ],
-          "authority_visible_text_chars": 7365,
-          "visible_text_chars": 6557,
+          "authority_visible_text_chars": 7146,
+          "visible_text_chars": 7414,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "3504add1e4d6e6a737322185704436dc333dcf1f259a1ef6ed58fe94b6865557",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
     },
     {
-      "slug": "appraisers-and-assessors-of-real-estate",
+      "slug": "compensation-benefits-and-job-analysis-specialists",
       "tier": "approved_candidate",
       "quality_score": 60,
       "urls": [
-        "https://fermatmind.com/en/career/jobs/appraisers-and-assessors-of-real-estate",
-        "https://fermatmind.com/zh/career/jobs/appraisers-and-assessors-of-real-estate"
+        "https://fermatmind.com/en/career/jobs/compensation-benefits-and-job-analysis-specialists",
+        "https://fermatmind.com/zh/career/jobs/compensation-benefits-and-job-analysis-specialists"
       ],
       "locale_evidence": {
         "en": {
@@ -731,8 +825,8 @@
           "seo_endpoint_status": 200,
           "seo_source": "career_seo_endpoint",
           "page_status": 200,
-          "page_final_url": "https://fermatmind.com/en/career/jobs/appraisers-and-assessors-of-real-estate",
-          "canonical": "https://fermatmind.com/en/career/jobs/appraisers-and-assessors-of-real-estate",
+          "page_final_url": "https://fermatmind.com/en/career/jobs/compensation-benefits-and-job-analysis-specialists",
+          "canonical": "https://fermatmind.com/en/career/jobs/compensation-benefits-and-job-analysis-specialists",
           "robots": "index,follow",
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
@@ -740,11 +834,13 @@
           "backend_private_package_match_projected": true,
           "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "17a808c69409070c17e7ad366333e854a009835c0f81334d270b8f25ead5f35f",
-          "seo_metadata_fingerprint": "bd62650343d7405cb7c9d15bceac75b98ac0043c",
-          "seo_sha256": "bce2650f795a75525c128c8842b1f288e8a052b3596a61c4801537c1ec43322a",
+          "content_sha256": "2c5dbed9ffb62614ecce4b4df3c260990280ef75e4cf462f8926bd40eb177aa9",
+          "seo_metadata_fingerprint": "24b4619ea0ff079b443e1e98bba107f691b88478",
+          "seo_canonical": "https://fermatmind.com/en/career/jobs/compensation-benefits-and-job-analysis-specialists",
+          "seo_sha256": "b37b4f5f4583f4dce92f57645bb8a9c079201e49792a69c4f04ea841a53480cd",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -752,8 +848,11 @@
             "ListItem",
             "Question"
           ],
-          "authority_visible_text_chars": 13123,
-          "visible_text_chars": 14331,
+          "authority_visible_text_chars": 14244,
+          "visible_text_chars": 19339,
+          "render_authority_marker_count": 8,
+          "render_authority_marker_sha256": "14b84f8f2e426cca02ef0b4811929ff5e00d2f627ddbffe2947b3776ee56c6c2",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         },
         "zh": {
@@ -762,8 +861,8 @@
           "seo_endpoint_status": 200,
           "seo_source": "career_seo_endpoint",
           "page_status": 200,
-          "page_final_url": "https://fermatmind.com/zh/career/jobs/appraisers-and-assessors-of-real-estate",
-          "canonical": "https://fermatmind.com/zh/career/jobs/appraisers-and-assessors-of-real-estate",
+          "page_final_url": "https://fermatmind.com/zh/career/jobs/compensation-benefits-and-job-analysis-specialists",
+          "canonical": "https://fermatmind.com/zh/career/jobs/compensation-benefits-and-job-analysis-specialists",
           "robots": "index,follow",
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
@@ -771,11 +870,13 @@
           "backend_private_package_match_projected": true,
           "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "1eeaecd965c6e888f1cb5eb06309eb348f815fbd13c91b5303ca6c70b52375aa",
-          "seo_metadata_fingerprint": "452e697dede340afcfa10eea5aaee5181b445fb6",
-          "seo_sha256": "235a20c17861fc1b2cac26e7ebfa6a2d18abc6e1269af84304b72eff352b054d",
+          "content_sha256": "a91de8ddb00ff6793c461da27b8dc92e18da85788512326892dd00cc48a0a3b6",
+          "seo_metadata_fingerprint": "854af603dbb074c2acbdfd394e9a304f094f5178",
+          "seo_canonical": "https://fermatmind.com/zh/career/jobs/compensation-benefits-and-job-analysis-specialists",
+          "seo_sha256": "2a014b86d68329e819016a608df70900e21b1f2430eb1a7cb5c9d0e87aaaa256",
           "faq_count": 3,
           "schema_faq_count": 3,
+          "schema_faq_entities_valid": true,
           "jsonld_types": [
             "Answer",
             "BreadcrumbList",
@@ -783,27 +884,32 @@
             "ListItem",
             "Question"
           ],
-          "authority_visible_text_chars": 7625,
-          "visible_text_chars": 6894,
+          "authority_visible_text_chars": 7430,
+          "visible_text_chars": 7802,
+          "render_authority_marker_count": 5,
+          "render_authority_marker_sha256": "6e6a256d6873e714d27756d6ae82c41f9946e45e8124aa1f7403d38f31111269",
+          "render_authority_match": true,
           "unsupported_guarantee_matches": []
         }
       }
     }
   ],
-  "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-  "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba",
+  "target_set_sha256": "452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c",
+  "rollback_batch_id": "career-search-entry-pilot-452c677f70249438",
   "evidence_summary": {
     "slug_count": 10,
     "url_count": 20,
     "bilingual_pairs_complete": true,
     "all_detail_api_and_pages_200": true,
     "all_seo_authority_resolved": true,
+    "all_seo_canonical_exact": true,
     "dedicated_seo_endpoint_200_count": 18,
     "detail_seo_contract_fallback_count": 2,
     "all_self_canonical_index_follow": true,
     "all_sitemap_bilingual": true,
     "all_reviewer_content_seo_evidence_current": true,
     "all_faq_schema_aligned": true,
+    "all_rendered_authority_markers_current": true,
     "exact_target_shape": true
   },
   "negative_guarantees": {
@@ -824,14 +930,27 @@
       "tier": "stable",
       "quality_score": 86,
       "reasons": [
+        "en_faq_entities_invalid",
         "en_faq_schema_mismatch",
         "en_not_index_follow",
+        "en_rendered_authority_marker_mismatch",
         "en_required_schema_missing",
         "en_thin_or_shell",
+        "zh_faq_entities_invalid",
         "zh_faq_schema_mismatch",
         "zh_not_index_follow",
+        "zh_rendered_authority_marker_mismatch",
         "zh_required_schema_missing",
         "zh_thin_or_shell"
+      ]
+    },
+    {
+      "slug": "anthropologists-and-archeologists",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
       ]
     },
     {
@@ -844,12 +963,111 @@
       ]
     },
     {
+      "slug": "architectural-and-engineering-managers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "atmospheric-scientists-including-meteorologists",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "biochemists-and-biophysicists",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "biomedical-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "biological-technicians",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "budget-analysts",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "cartographers-and-photogrammetrists",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "chemical-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "chemical-technicians",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
       "slug": "chemists-and-materials-scientists",
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
         "en_unsupported_guarantee_claim",
         "zh_unsupported_guarantee_claim"
+      ]
+    },
+    {
+      "slug": "civil-engineering-technicians",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
+    },
+    {
+      "slug": "civil-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
       ]
     },
     {
@@ -884,8 +1102,10 @@
       "tier": "stable",
       "quality_score": 86,
       "reasons": [
+        "zh_faq_entities_invalid",
         "zh_faq_schema_mismatch",
         "zh_not_index_follow",
+        "zh_rendered_authority_marker_mismatch",
         "zh_required_schema_missing",
         "zh_thin_or_shell"
       ]
@@ -895,16 +1115,29 @@
       "tier": "stable",
       "quality_score": 86,
       "reasons": [
+        "en_faq_entities_invalid",
         "en_faq_schema_mismatch",
         "en_not_index_follow",
+        "en_rendered_authority_marker_mismatch",
         "en_required_schema_missing",
         "en_thin_or_shell",
+        "zh_faq_entities_invalid",
         "zh_faq_schema_mismatch",
         "zh_not_index_follow",
+        "zh_rendered_authority_marker_mismatch",
         "zh_required_schema_missing",
         "zh_thin_or_shell"
       ]
+    },
+    {
+      "slug": "appraisers-and-assessors-of-real-estate",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch"
+      ]
     }
   ],
-  "artifact_sha256": "b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11"
+  "artifact_sha256": "1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f"
 }

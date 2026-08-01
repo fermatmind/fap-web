@@ -28,7 +28,7 @@ type LocaleEvidence = {
   page_final_url: string;
   sitemap_included: boolean;
   html: ReturnType<typeof inspectHtml>;
-  seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean };
+  seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean; canonical: string };
   seo_sha256: string;
   review: { review_state: string; reviewer_status: string; reviewed_at: string; stale: boolean; backend_private_package_match_projected: boolean; public_projection_sha256: string };
   content_version: string;
@@ -36,6 +36,9 @@ type LocaleEvidence = {
   quality_score: number;
   visible_text_chars: number;
   authority_visible_text_chars: number;
+  render_authority_marker_count: number;
+  render_authority_marker_sha256: string;
+  render_authority_match: boolean;
   cjk_chars: number;
   faq_count: number;
   thin_or_shell: boolean;
@@ -58,7 +61,7 @@ function html(url: string): string {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "BreadcrumbList", itemListElement: [] },
-      { "@type": "FAQPage", mainEntity: [1, 2, 3].map((position) => ({ "@type": "Question", position })) },
+      { "@type": "FAQPage", mainEntity: [1, 2, 3].map((position) => ({ "@type": "Question", name: `Question ${position}`, acceptedAnswer: { "@type": "Answer", text: `Answer ${position}` } })) },
     ],
   })}</script></head><body></body></html>`;
 }
@@ -77,7 +80,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     page_final_url: url,
     sitemap_included: true,
     html: inspectHtml(html(url), url),
-    seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true },
+    seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true, canonical: url },
     seo_sha256: seoSha,
     review: { review_state: "approved", reviewer_status: "approved", reviewed_at: "2026-07-31T23:56:27.000Z", stale: false, backend_private_package_match_projected: true, public_projection_sha256: sha256({ locale, slug, kind: "review" }) },
     content_version: "reviewed.v1",
@@ -85,6 +88,9 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     quality_score: 60,
     visible_text_chars: 2400,
     authority_visible_text_chars: 2400,
+    render_authority_marker_count: 8,
+    render_authority_marker_sha256: sha256({ locale, slug, kind: "render-markers" }),
+    render_authority_match: true,
     cjk_chars: locale === "zh" ? 500 : 0,
     faq_count: 3,
     thin_or_shell: false,
@@ -201,6 +207,9 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
     ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
+    ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
+    ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],
+    ["malformed FAQ entity", (value: Candidate) => { value.locales.en.html.faq_entities_valid = false; }, "en_faq_entities_invalid"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
     ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
     ["SEO SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
@@ -263,6 +272,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
       bilingual_pairs_complete: true,
       all_detail_api_and_pages_200: true,
       all_seo_authority_resolved: true,
+      all_seo_canonical_exact: true,
       all_self_canonical_index_follow: true,
       all_sitemap_bilingual: true,
       all_reviewer_content_seo_evidence_current: true,
