@@ -608,7 +608,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_in_progress",
+      status: "package_frozen",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,
@@ -617,14 +617,26 @@ describe("English content parity control master", () => {
         remaining_en_assets: 14,
         unknown_inventory_cohorts: 0,
       },
-      package_sha256: null,
+      package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
       qa_report_ref: null,
-      gate_lineage: [],
+      gate_lineage: [
+        {
+          status: "package_frozen",
+          evidence_owner_lane_id: "W4",
+          report_ref: "generated/en-content-parity/W4-riasec/editorial_review.json",
+          report_sha256: "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5",
+          package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+          accepted_at: "2026-08-01T18:52:23Z",
+        },
+      ],
       blockers: [],
       next_action:
-        "Only use retained W9 exact-SHA repair evidence to repair 126 G06 language-naturalness rows and 4 G02 duplicate-copy rows, rebuild the complete 1550-row package under a new SHA, re-freeze it, and run fresh independent W9 QA across all 1550 rows; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
+        "Run a fresh independent W9 QA review of all 1550 rows bound to package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
     });
     expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
+    expect(JSON.stringify({ package_sha256: w4?.package_sha256, gate_lineage: w4?.gate_lineage })).not.toContain(
+      "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33"
+    );
 
     const w4ReworkReset = readJson<{
       $schema: string;
