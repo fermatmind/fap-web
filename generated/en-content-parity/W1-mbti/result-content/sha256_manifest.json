@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "6a98e91ef1412153fad7959dfed76f87d01ce0dca8f840a9bdbea04ee6c85561"
+      "sha256": "d059810117a052ebb9c5c38b2f5fb012fb829d6d4548c71c26c9f8ab6cdd87a5"
     },
     {
       "path": "assets.jsonl",
@@ -37,5 +37,5 @@
       "sha256": "1d108bf0c6fe16a805e09a1eeb925a6b3f29c613c97225db3c30871fdaa1779f"
     }
   ],
-  "package_sha256": "509ac0d2872c2bebd7d58b35943c2f6a555a282327dcde74b84698226d4f5576"
+  "package_sha256": "0963eac916fdfa4c93f6ac578d09daab98030b4f322d35bbbcd8d62eb0c65944"
 }
