@@ -1,0 +1,42 @@
+{
+  "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-05-2026-08-01",
+  "files": [
+    {
+      "path": "scope_manifest.json",
+      "sha256": "387ee6d08e3c90350cad272ae3d2f95e899a64c6d22e06d2a83d2dc53a6eaf72"
+    },
+    {
+      "path": "assets.jsonl",
+      "sha256": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "6ef0160137aaf26188ae887cf5a5a8ba586a65b8ed53c2d72539c6ebc9758ebd"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "0991877b3949ede133e2f0892df46734cd9a97b65713a2e1790fb3366762f2af"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "76cf0c76a265750574ef256f6252a52e06ea034219cf591e2ef50dcd35ae8160"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "442c6804c81d1af8190d98f602a1f3f96bfad3da2eb73127e12b70ec088d8047"
+    },
+    {
+      "path": "dry_run_readiness.json",
+      "sha256": "fba7830e43d6005556989fe8475dc4909a58e86aa823d23c4a08abfe206436d9"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "f884d9ef3c45a43f7a6bf9c1e9355bc24334e7e22bce391913cf67c82d6f3187"
+    }
+  ],
+  "package_sha256": "8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d"
+}
