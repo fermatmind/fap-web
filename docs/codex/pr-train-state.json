@@ -52566,7 +52566,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "096f757d49af72676b33947c08a3c71d2bd2d5ef",
+    "commit_sha": "885503e802ad3f07dc7569a927c6a06927689a3f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1945",
     "checks": {
       "dependency": {
@@ -52930,9 +52930,14 @@
         "at": "2026-08-01T11:03:30Z",
         "status": "ready_to_merge",
         "summary": "Merged concurrent CONTROL W4 inventory-freeze main commit 671536a7 without conflict and rebound only the mutable W3 Article candidate base to current control-master SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3. Set the canonical top-level status to ready_to_merge. Exact Article package SHA, immutable payloads, W3-CAREER-GUIDES, and all-false permissions are unchanged; final validation and required checks are pending."
+      },
+      {
+        "at": "2026-08-01T11:04:30Z",
+        "status": "ready_to_merge",
+        "summary": "Bound commit_sha to 885503e802ad3f07dc7569a927c6a06927689a3f, the exact ancestor commit containing the current-master candidate rebind and canonical ready_to_merge status. Strict validation and focused contracts pass; the final ledger-only head receives required checks before merge."
       }
     ],
-    "updated_at": "2026-08-01T11:03:30Z"
+    "updated_at": "2026-08-01T11:04:30Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
