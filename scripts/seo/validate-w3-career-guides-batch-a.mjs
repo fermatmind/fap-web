@@ -62,7 +62,9 @@ try {
   const w3 = master.lanes.find((entry) => entry.lane_id === "W3");
   const careerGuides = w3?.subscopes.find((entry) => entry.id === "W3-CAREER-GUIDES");
   const articles = w3?.subscopes.find((entry) => entry.id === "W3-ARTICLES");
-  assert(careerGuides.status === "package_in_progress" && careerGuides.package_sha256 === null && careerGuides.qa_report_ref === null && careerGuides.gate_lineage.length === 0, "Master Career Guides must remain pre-freeze");
+  const preAcceptance = careerGuides.status === "package_in_progress" && careerGuides.package_sha256 === null && careerGuides.qa_report_ref === null && careerGuides.gate_lineage.length === 0;
+  const acceptedFreeze = careerGuides.status === "package_frozen" && careerGuides.package_sha256 === "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c" && careerGuides.qa_report_ref === null && careerGuides.gate_lineage.length === 1 && careerGuides.gate_lineage[0].status === "package_frozen" && careerGuides.gate_lineage[0].evidence_owner_lane_id === "W3" && careerGuides.gate_lineage[0].report_ref === "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json" && careerGuides.gate_lineage[0].report_sha256 === "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402" && careerGuides.gate_lineage[0].package_sha256 === "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c";
+  assert(preAcceptance || acceptedFreeze, "Master Career Guides must retain the pre-acceptance state or the exact separate CONTROL acceptance");
   assert(articles.status === "package_frozen" && articles.package_sha256 === "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a", "Articles frozen package must remain unchanged");
   assert(JSON.stringify(master.permissions).includes("true") === false, "Master permissions must all be false");
   assert(JSON.stringify(candidate.permissions).includes("true") === false && JSON.stringify(scope.permissions).includes("true") === false, "Package permissions must all be false");
