@@ -52889,11 +52889,11 @@
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. Sixteen rows pass every check; Article 59 is BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
+        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. Fifteen rows pass every check; Articles 55 and 59 are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
       },
       "language_naturalness": {
         "status": "fail",
-        "evidence": "W3-ARTICLE-59 is BLOCKED after fresh full-body review found additional reader-visible defects: unidiomatic parallel questions beginning `The students focus on college life`, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. The other 16 rows pass language naturalness, and Article 59 passes the other seven row-level checks. W9 did not modify the producer payload."
+        "evidence": "W3-ARTICLE-55 is BLOCKED for `I'll acknowledge that it's not yet ready for keeping it`. W3-ARTICLE-59 is BLOCKED for unidiomatic parallel questions beginning `The students focus on college life`, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. The other 15 rows pass language naturalness, and both blocked rows pass the other seven row-level checks. W9 did not modify the producer payload."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "pass",
@@ -52909,7 +52909,7 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; 17-row evidence SHA256 is c67bf315c0da847970fac4d30fd00dfcb19fccc4c2901c08b84067161e4d2041; blocked candidate SHA256 is bc70a6a4ba5efe1c783dc71931e6ff2214c3c8cee21190e01be7524f4523d61a after rebinding only its non-immutable current-master field; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
+        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; corrected 17-row evidence SHA256 is 455cec488a5f377de9777587b9fd130989e18e0686db2cdb5ca2cfc37a95135d; corrected blocked candidate SHA256 is a3c04746814a5b6084a02badb600ff14259b4b0b27ba6bb8b5f7b6477c3a7647; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
       },
       "control_validator": {
         "status": "pass",
@@ -52917,18 +52917,18 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "On current origin/main, Node 24.18.1 focused control and W3 Article package contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 16 PASS plus one Article 59 language-only BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 live identity/title/cover matches, 86/610 structural coverage, zero Han, unique media, all-false permissions, and JSON parsing pass. Final scope and git diff checks remain before commit."
+        "evidence": "After the exact-head review correction, Node 24.18.1 focused control and W3 Article package contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 15 PASS plus Articles 55 and 59 blocked only on language naturalness, complete byte-identical producer snapshot, 17/17 live identity/title/cover matches, 86/610 structural coverage, zero Han, unique media, all-false permissions, JSON parsing, and git diff checks pass."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Ready PR #1938 is open at exact implementation commit 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439. Required CI, contract, freeze, and CodeQL checks are queued or in progress."
+        "evidence": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks before exact-head review expanded the blocker set to Articles 55 and 59. Fresh required checks are pending after the scoped evidence correction."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "GitHub reports ready PR #1938 OPEN and MERGEABLE at exact implementation commit 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439. Required checks, exact-head review, scope revalidation, and final mergeability verification remain pending."
+        "evidence": "GitHub review correctly identified an omitted Article 55 language blocker and a rework-06/rework-07 manifest branch mismatch; both are being corrected in scope. The commit_sha thread is already factually addressed by the existing ledger follow-up. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
       }
     },
-    "failure_reason": "Fresh review found additional reader-visible English defects in frozen W3-ARTICLE-59, including unidiomatic parallel questions, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. W9 must report BLOCKED and cannot modify the producer payload.",
+    "failure_reason": "Fresh review found reader-visible English defects in frozen W3-ARTICLE-55 and W3-ARTICLE-59. Article 55 says `I'll acknowledge that it's not yet ready for keeping it`; Article 59 retains unidiomatic parallel questions, a capitalization/construction error, a non-native table header, and an ambiguous action phrase. W9 must report BLOCKED and cannot modify the producer payload.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -53088,13 +53088,18 @@
         "status": "blocked_local_verified",
         "summary": "Rebased the isolated W9 branch onto current origin/main 4c98a7004bde842471d55977fe404e55a97f1094, preserving concurrent W1/W2 manifest, ledger, CONTROL, and contract work. Rebound only the non-immutable W9 blocked candidate to master SHA f59d8f1013df4c187b956e93d2b605efb4e48427985443d189456360b00c8698; both validators and 67/67 focused contracts pass again. The W3 package SHA, frozen snapshot, W9 BLOCKED verdict, and all-false permissions are unchanged."
       },
-      {
-        "at": "2026-08-01T08:56:33Z",
-        "status": "blocked_pr_open",
-        "summary": "Committed and pushed the fresh rework-07 independent W9 BLOCKED evidence as 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439, then opened ready PR #1938. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
-      }
-    ],
-    "updated_at": "2026-08-01T08:56:33Z"
+    {
+      "at": "2026-08-01T08:56:33Z",
+      "status": "blocked_pr_open",
+      "summary": "Committed and pushed the fresh rework-07 independent W9 BLOCKED evidence as 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439, then opened ready PR #1938. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
+    },
+    {
+      "at": "2026-08-01T09:06:43Z",
+      "status": "blocked_review_correction_local_verified",
+      "summary": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks and was MERGEABLE/CLEAN before exact-head review correctly identified the omitted Article 55 language blocker and the rework-06/rework-07 manifest branch mismatch. Expanded the independent blocker set to exactly Articles 55 and 59, preserved the byte-identical producer payload and all-false permissions, and repaired the manifest branch. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. The prior ledger follow-up already populated commit_sha; correction-commit binding, review-thread resolution, and fresh required checks remain pending."
+    }
+  ],
+  "updated_at": "2026-08-01T09:06:43Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
