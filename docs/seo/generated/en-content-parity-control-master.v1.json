@@ -323,8 +323,8 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
-      "blocked_from_status": null,
+      "status": "blocked",
+      "blocked_from_status": "inventory_frozen",
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
         "article",
@@ -339,8 +339,8 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_frozen",
-          "blocked_from_status": null,
+          "status": "blocked",
+          "blocked_from_status": "package_frozen",
           "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
           "qa_report_ref": null,
           "gate_lineage": [
@@ -351,9 +351,19 @@
               "report_sha256": "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334",
               "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
               "accepted_at": "2026-08-01T12:36:10Z"
+            },
+            {
+              "status": "blocked",
+              "evidence_owner_lane_id": "W9",
+              "report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/qa_report.json",
+              "report_sha256": "f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1",
+              "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+              "accepted_at": "2026-08-01T15:25:49Z"
             }
           ],
-          "blockers": [],
+          "blockers": [
+            "Article:53 contains 2026 time-sensitive external facts without independently verifiable official or immutable evidence; W9 blocks qa_pass for the exact frozen package."
+          ],
           "separate_package_required": true,
           "same_pr_allowed": false
         },
@@ -392,7 +402,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Run fresh independent W9 QA across all 17 W3-ARTICLES rows against exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. In parallel, begin W3-CAREER-GUIDES package production from its accepted inventory_frozen baseline as a separate package and PR; never combine the Article and Career Guide packages or gate lineages.",
+      "next_action": "Run a separate CONTROL-only W3-ARTICLES rework reset before any Producer repair of Article:53, then rebuild, re-freeze, and repeat fresh 17/17 W9 QA. W3-CAREER-GUIDES remains an independent parallel scope and must not share its package or gate lineage.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

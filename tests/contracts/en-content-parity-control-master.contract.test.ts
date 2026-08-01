@@ -800,10 +800,19 @@ describe("English content parity control master", () => {
     ).toBe(true);
   });
 
-  it("accepts the exact W3 Article package freeze without unlocking QA or write gates", () => {
+  it("accepts exact W9 BLOCKED evidence for the frozen W3 Article package without unlocking gates", () => {
     const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
     const reportPath = "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json";
     const reportSha256 = "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334";
+    const w9ReportPath =
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/qa_report.json";
+    const w9ReportSha256 = "f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1";
+    const w9RowMatrixPath =
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/qa_row_matrix.json";
+    const w9RowMatrixSha256 = "1a7c5619d083846c9cc57670e29a48fc2245c8647cfccb5613aaa01a4ea78e17";
+    const w9CandidatePath =
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/master_manifest_patch.candidate.json";
+    const w9CandidateSha256 = "1dfeb9382feb8566e78f53f6a109d9dfc63674621f442c57fd09d98fc93d1693";
     const candidate = readJson<{
       base_manifest_sha256: string;
       package_sha256: string;
@@ -833,9 +842,13 @@ describe("English content parity control master", () => {
     });
     expect(Object.values(candidate.permissions)).toEqual(Array(7).fill(false));
     expect(sha256File(reportPath)).toBe(reportSha256);
+    expect(sha256File(w9ReportPath)).toBe(w9ReportSha256);
+    expect(sha256File(w9RowMatrixPath)).toBe(w9RowMatrixSha256);
+    expect(sha256File(w9CandidatePath)).toBe(w9CandidateSha256);
     expect(w3).toMatchObject({
       launch_state: "launch_ready",
-      status: "inventory_frozen",
+      status: "blocked",
+      blocked_from_status: "inventory_frozen",
       counts: {
         cohort_count: 2,
         expected_en_assets: 37,
@@ -849,11 +862,11 @@ describe("English content parity control master", () => {
       blockers: [],
     });
     expect(articles).toMatchObject({
-      status: "package_frozen",
-      blocked_from_status: null,
+      status: "blocked",
+      blocked_from_status: "package_frozen",
       package_sha256: packageSha256,
       qa_report_ref: null,
-      blockers: [],
+      blockers: [expect.stringContaining("Article:53")],
     });
     expect(articles?.gate_lineage).toEqual([
       {
@@ -861,6 +874,14 @@ describe("English content parity control master", () => {
         evidence_owner_lane_id: "W3",
         report_ref: reportPath,
         report_sha256: reportSha256,
+        package_sha256: packageSha256,
+        accepted_at: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/),
+      },
+      {
+        status: "blocked",
+        evidence_owner_lane_id: "W9",
+        report_ref: w9ReportPath,
+        report_sha256: w9ReportSha256,
         package_sha256: packageSha256,
         accepted_at: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/),
       },
@@ -880,9 +901,10 @@ describe("English content parity control master", () => {
       separate_package_required: true,
       same_pr_allowed: false,
     });
-    expect(w3?.next_action).toContain(packageSha256);
-    expect(w3?.next_action).toContain("fresh independent W9 QA");
-    expect(w3?.next_action).toContain("begin W3-CAREER-GUIDES package production");
+    expect(w3?.next_action).toContain("CONTROL-only W3-ARTICLES rework reset");
+    expect(w3?.next_action).toContain("fresh 17/17 W9 QA");
+    expect(w3?.next_action).toContain("W3-CAREER-GUIDES remains an independent parallel scope");
+    expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
 
   it("keeps asset IDs and translation groups unique and reconciles every known count", () => {
