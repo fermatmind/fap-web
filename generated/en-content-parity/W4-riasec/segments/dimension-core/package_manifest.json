@@ -1,0 +1,41 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_package_manifest.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "row_count": 42,
+  "g01_row_count": 24,
+  "g02_row_count": 18,
+  "payloads": [
+    {
+      "path": "assets.jsonl",
+      "sha256": "3c1b83bde3457792bcfc80d6e4c76b9f9f5e6c13690ad8c921e624dc8b4ba9fb"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "00d1fbb8d5c9fba2d95e2d7031ae441022400ccdc9694a3100c00ef4e63fafad"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "b863a8b01ccd9510f11aacca67a9b620343f2d448b2abf6a97b1f77b6a369ea4"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "559fe2e7fa10652f4ba24715bff7b8b0456b3f372b9db6253734d772df3a805f"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "b3f5ed55bbffb1fa615ed5e0fa49895e836a0e7bde7e577a3870223afd893747"
+    }
+  ],
+  "aggregate_sha256": "311ac2c33559241b7e2fa3e6e16e54ec3042cdcbf727bb06411af48c39ef9fe2",
+  "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

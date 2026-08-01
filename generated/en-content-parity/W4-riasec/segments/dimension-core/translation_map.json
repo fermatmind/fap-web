@@ -1,0 +1,261 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "candidate_only",
+  "mappings": [
+    {
+      "source_identity": "A:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-A-base-interpretation-dac4a7fd9216",
+      "translation_group": "cohort:riasec:dimension:A:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "A:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-A-high-reading-8cc8d094f38d",
+      "translation_group": "cohort:riasec:dimension:A:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "A:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-A-low-safe-reading-8831c8a21bda",
+      "translation_group": "cohort:riasec:dimension:A:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "A:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-A-medium-reading-4c37db585a5b",
+      "translation_group": "cohort:riasec:dimension:A:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "C:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-C-base-interpretation-9fcea75bf3fe",
+      "translation_group": "cohort:riasec:dimension:C:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "C:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-C-high-reading-952b3cd52f91",
+      "translation_group": "cohort:riasec:dimension:C:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "C:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-C-low-safe-reading-d1c75d501635",
+      "translation_group": "cohort:riasec:dimension:C:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "C:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-C-medium-reading-d4b87088990f",
+      "translation_group": "cohort:riasec:dimension:C:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "E:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-E-base-interpretation-da31e8023335",
+      "translation_group": "cohort:riasec:dimension:E:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "E:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-E-high-reading-a8d6020e42be",
+      "translation_group": "cohort:riasec:dimension:E:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "E:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-E-low-safe-reading-45b12dac6ff6",
+      "translation_group": "cohort:riasec:dimension:E:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "E:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-E-medium-reading-cb00f8b0fbba",
+      "translation_group": "cohort:riasec:dimension:E:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "I:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-I-base-interpretation-4a99fd1103f2",
+      "translation_group": "cohort:riasec:dimension:I:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "I:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-I-high-reading-609891cdadc1",
+      "translation_group": "cohort:riasec:dimension:I:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "I:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-I-low-safe-reading-6a555f4ad1a2",
+      "translation_group": "cohort:riasec:dimension:I:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "I:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-I-medium-reading-3323b250a3fc",
+      "translation_group": "cohort:riasec:dimension:I:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "R:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-R-base-interpretation-abf5ec52a6dd",
+      "translation_group": "cohort:riasec:dimension:R:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "R:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-R-high-reading-23758d961078",
+      "translation_group": "cohort:riasec:dimension:R:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "R:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-R-low-safe-reading-9ca08b2a4bb6",
+      "translation_group": "cohort:riasec:dimension:R:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "R:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-R-medium-reading-7f2972a75eff",
+      "translation_group": "cohort:riasec:dimension:R:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "S:base_interpretation",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-S-base-interpretation-0ece58f2ab58",
+      "translation_group": "cohort:riasec:dimension:S:base_interpretation",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "S:high_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-S-high-reading-b97a4e55edbe",
+      "translation_group": "cohort:riasec:dimension:S:high_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "S:low_safe_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-S-low-safe-reading-80eec9f6d571",
+      "translation_group": "cohort:riasec:dimension:S:low_safe_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "S:medium_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G01-S-medium-reading-52a7d8249d1a",
+      "translation_group": "cohort:riasec:dimension:S:medium_reading",
+      "group_id": "W4-G01"
+    },
+    {
+      "source_identity": "A:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-A-core-drive-386cc359fdea",
+      "translation_group": "cohort:riasec:dimension:A:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "A:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-A-possible-cost-decfed6c2ded",
+      "translation_group": "cohort:riasec:dimension:A:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "A:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-A-possible-shadow-friction-48d4128df5b2",
+      "translation_group": "cohort:riasec:dimension:A:possible_shadow_friction",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "C:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-C-core-drive-2d1590f2289e",
+      "translation_group": "cohort:riasec:dimension:C:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "C:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-C-possible-cost-3dd0a2c2c02c",
+      "translation_group": "cohort:riasec:dimension:C:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "C:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-C-possible-shadow-friction-8434498e63d4",
+      "translation_group": "cohort:riasec:dimension:C:possible_shadow_friction",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "E:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-E-core-drive-3e519dc494c8",
+      "translation_group": "cohort:riasec:dimension:E:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "E:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-E-possible-cost-b1b36c4c1a28",
+      "translation_group": "cohort:riasec:dimension:E:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "E:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-E-possible-shadow-friction-17dc0ae60d90",
+      "translation_group": "cohort:riasec:dimension:E:possible_shadow_friction",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "I:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-I-core-drive-8eeb28619401",
+      "translation_group": "cohort:riasec:dimension:I:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "I:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-I-possible-cost-c79c3c394920",
+      "translation_group": "cohort:riasec:dimension:I:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "I:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-I-possible-shadow-friction-20fad4d976c9",
+      "translation_group": "cohort:riasec:dimension:I:possible_shadow_friction",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "R:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-R-core-drive-5807f0ca8536",
+      "translation_group": "cohort:riasec:dimension:R:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "R:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-R-possible-cost-f0018424bbf2",
+      "translation_group": "cohort:riasec:dimension:R:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "R:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-R-possible-shadow-friction-8ee2059d0645",
+      "translation_group": "cohort:riasec:dimension:R:possible_shadow_friction",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "S:core_drive",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-S-core-drive-2ffdfb3d72c6",
+      "translation_group": "cohort:riasec:dimension:S:core_drive",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "S:possible_cost",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-S-possible-cost-ffa8aa458333",
+      "translation_group": "cohort:riasec:dimension:S:possible_cost",
+      "group_id": "W4-G02"
+    },
+    {
+      "source_identity": "S:possible_shadow_friction",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G02-S-possible-shadow-friction-da5f3d2cde38",
+      "translation_group": "cohort:riasec:dimension:S:possible_shadow_friction",
+      "group_id": "W4-G02"
+    }
+  ]
+}
