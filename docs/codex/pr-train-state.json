@@ -52982,7 +52982,7 @@
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
     "commit_sha": null,
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1951",
     "checks": {
       "dependency": {
         "status": "pending",
@@ -55016,7 +55016,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR not yet opened from the locally verified implementation commit."
+        "evidence": "PR #1951 is open from the locally verified implementation commit; required checks are pending."
       }
     },
     "failure_reason": null,
@@ -55055,7 +55055,7 @@
       {
         "at": "2026-08-01T22:42:00+08:00",
         "status": "github_checks_pending",
-        "summary": "Prepared the locally verified G05 producer package for its single PR. Required GitHub checks remain pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
+        "summary": "Opened PR #1951 for the locally verified G05 producer package. Required GitHub checks remain pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
       }
     ],
     "updated_at": "2026-08-01T22:42:00+08:00"
