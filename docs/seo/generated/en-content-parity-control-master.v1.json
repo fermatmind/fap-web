@@ -412,7 +412,7 @@
         "Do not create a parallel RIASEC stack, CMS write, SEO release, or frontend editorial fallback."
       ],
       "dependencies": [],
-      "launch_state": "registered",
+      "launch_state": "launch_ready",
       "status": "not_started",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
@@ -436,7 +436,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
+      "next_action": "Execute EN-PARITY-W4-RIASEC-INVENTORY-01 against the latest fap-web and fap-api main SHAs; freeze only the canonical 14-group inventory candidate before any content production.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

@@ -53809,5 +53809,78 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-01T16:25:00+08:00", "status": "local_verified", "summary": "Created a non-symlinked immutable intake from the exact CONTROL, backend, historical, and renderer commits. No W9 conclusion, master candidate, content change, CMS/database write, runtime mutation, import, publication, or deploy was performed."}, {"at": "2026-08-01T16:27:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1932 at implementation commit 4c31e489de4e40c1916746875ab11f973e86de50; required GitHub checks are pending."}],
     "updated_at": "2026-08-01T16:27:00+08:00"
+  },
+  "EN-PARITY-CONTROL-W4-LAUNCH-READY-01": {
+    "id": "EN-PARITY-CONTROL-W4-LAUNCH-READY-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W4-LAUNCH-READY-01: authorize W4 RIASEC inventory freeze",
+    "base": "main",
+    "branch": "codex/en-parity-control-w4-launch-ready-01",
+    "depends_on": [],
+    "status": "pending_external_merge",
+    "commit_sha": "07ead3228de883239516b4c72c7dfc532763cecb",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1934",
+    "checks": {
+      "preflight": {
+        "status": "pass",
+        "evidence": "Latest accepted base ae1370e3fe508914296e42b97f0de8703a10ceed retains W1 dry_run_ready, W2 package_frozen at exact SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, W3 inventory_frozen, and W4 registered/not_started with all permissions false; producer capacity is available for W4 inventory work."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Master validator passed with zero errors; focused en-content-parity master contract passed 63/63; focused ESLint passed with zero warnings; JSON/YAML parse, exact W4 launch/count/package/QA/lineage/blocker/permission reconciliation, changed-file scope validation, and git diff --check all passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1934 pre-rebase head 2a6ba6b95d49182945d8cdcdf992dcced2b2e78d passed all 11 CI and security checks. The final head rebased onto ae1370e3fe508914296e42b97f0de8703a10ceed must pass a fresh complete check run before merge."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T08:37:45Z",
+        "status": "in_progress",
+        "summary": "Started the CONTROL-only W4 launch authorization from latest main; no inventory freeze, producer package, CMS, runtime, SEO, import, publication, or deploy action is authorized."
+      },
+      {
+        "at": "2026-08-01T08:39:48Z",
+        "status": "local_verified",
+        "summary": "Validated W4 launch_ready/not_started with unchanged 14/0/14 counts, null package and QA fields, empty lineage and blockers, all-false permissions, unchanged W1-W3 and W5-W9 business state, and focused contract coverage."
+      },
+      {
+        "at": "2026-08-01T08:41:10Z",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1934 from exact authored commit 5234d3801d2939e6267f2499d91a84b6acd98515; required GitHub checks are pending and concurrent CONTROL changes will be rebased before merge if needed."
+      },
+      {
+        "at": "2026-08-01T08:42:54Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased after concurrent CONTROL PR #1933 merged as 762954708838844a3a80178acdcfd023408e096e; retained its generated W1 dry-run evidence, replayed only the W4 control scope as authored commit 1dc198bfa4ee63a56e3b743eaf4e76fb9f6b6ce1, and reran validator, focused 63/63 contract, ESLint, non-W4 lane identity, and exact scope checks successfully."
+      },
+      {
+        "at": "2026-08-01T08:50:43Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased after W9-W2 source intake PR #1932 and concurrent W1 dry-run CONTROL PR #1935 entered main at 4c98a7004bde842471d55977fe404e55a97f1094; preserved their train metadata and W1/W9 evidence exactly, replayed only W4 authored commit aa92deeaa65e61b399e75f6e8dfad9e43d23db0a, and reran validator, focused 63/63 contract, ESLint, JSON/YAML, non-W4 lane identity, and exact scope checks successfully."
+      },
+      {
+        "at": "2026-08-01T08:55:57Z",
+        "status": "pending_external_merge",
+        "summary": "Rebased after W1 comparison approval PR #1936 entered main at ae1370e3fe508914296e42b97f0de8703a10ceed; preserved its approval evidence and all non-W4 lane state, replayed only W4 authored commit ea6f9b55f066cd909b3d74f8640230a48f6f5794, and reran validator, focused 63/63 contract, ESLint, JSON/YAML, non-W4 lane identity, and exact scope checks. Merge remains gated on a fresh complete GitHub check run for the final head."
+      },
+      {
+        "at": "2026-08-01T09:03:12Z",
+        "status": "pending_external_merge",
+        "summary": "Rebased after W1 result approval PR #1937 entered main at 21e961aac4d8ffa970715cb2b3a5d463386965ba; preserved both W1 approval envelopes and every non-W4 lane exactly, replayed only W4 authored commit 07ead3228de883239516b4c72c7dfc532763cecb, and reran validator, focused 63/63 contract, ESLint, JSON, non-W4 lane identity, and exact scope checks. Final-head GitHub checks remain mandatory before auto-merge."
+      }
+    ],
+    "updated_at": "2026-08-01T09:03:12Z"
   }
 }
