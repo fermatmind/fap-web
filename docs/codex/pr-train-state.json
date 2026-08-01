@@ -53619,5 +53619,21 @@
     "deploy_allowed": false,
     "history": [{"at":"2026-08-01T15:10:00+08:00","status":"local_verified","summary":"Froze the exact 118-row W2 producer package at a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b; producer review is PASS but is not W9 or human editorial approval, and all write/release permissions remain false."}],
     "updated_at": "2026-08-01T15:15:00+08:00"
+  },
+  "EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01: accept the frozen Big Five English parity package",
+    "base": "main",
+    "branch": "codex/en-parity-control-w2-package-frozen-01",
+    "depends_on": ["EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "2ead8caecf8733746a90f2ab2fc6d50acae360a1",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1922",
+    "checks": {"dependency":{"status":"pass","evidence":"Producer C PR #1917 merged as 494db2d28d925be3468f87f54522bc2b7e664578; external candidate rebase repair PR #1920 merged as 7798fd969c11e763d4598653432271237c2f34fe."},"pre_transition_candidate":{"status":"pass","evidence":"Candidate validator passes against current pre-transition master."},"local_validation":{"status":"pass","evidence":"Master validator and focused 63/63 contract pass; W2 is package_frozen with exact SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, one package_frozen lineage entry bound to review SHA 4082803c1cc4dc3dd4f185b663f7f635455418e5cd1438e9fdea3f752f799471, 118/118/0 counts, null qa_report_ref, and all permissions false."},"github_required_checks":{"status":"pass","evidence":"PR #1922 head d2f773eafdfb50d9a6ea4f4db090753fc7af27dc passed build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze; CodeQL and code-scanning checks also passed before rebase onto unchanged master content."}},
+    "failure_reason": null,"merged_at": null,"remote_branch_deleted": false,"local_cleanup_executed": false,
+    "production_write_execution": false,"database_mutation": false,"cms_mutation": false,"publish_allowed": false,"search_channel_action": false,"deploy_allowed": false,
+    "history": [{"at":"2026-08-01T15:27:00+08:00","status":"local_verified","summary":"Applied only W2 package_in_progress to package_frozen using the exact Producer C SHA and producer review evidence. W9, QA report, import, runtime, production, publication, and deploy remain unexecuted and unauthorized."},{"at":"2026-08-01T15:32:07+08:00","status":"ready_to_merge","summary":"Required GitHub checks passed for PR #1922 before the clean rebase onto unchanged master content; merge only after the rebased head passes the required checks."}],
+    "updated_at":"2026-08-01T15:32:07+08:00"
   }
 }
