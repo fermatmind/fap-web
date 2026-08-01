@@ -990,16 +990,25 @@ describe("English content parity control master", () => {
       blockers: [],
     });
     expect(articles).toMatchObject({
-      status: "package_frozen",
+      status: "qa_pass",
       blocked_from_status: null,
       package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
-      qa_report_ref: null,
+      qa_report_ref:
+        "generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/independent_qa_report.json",
       gate_lineage: [
         {
           status: "package_frozen",
           evidence_owner_lane_id: "W3",
           report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
           report_sha256: "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+          package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+        },
+        {
+          status: "qa_pass",
+          evidence_owner_lane_id: "W9",
+          report_ref:
+            "generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/independent_qa_report.json",
+          report_sha256: "a286486e040b410a28224732e6a4cf61d42255db43e92bba3905bdf0af52caf4",
           package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
         },
       ],
@@ -1031,9 +1040,7 @@ describe("English content parity control master", () => {
     expect(w3?.package_sha256).toBeNull();
     expect(w3?.qa_report_ref).toBeNull();
     expect(w3?.gate_lineage).toEqual([]);
-    expect(w3?.next_action).toContain("EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01");
     expect(w3?.next_action).toContain("EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01");
-    expect(w3?.next_action).toContain("d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a");
     expect(w3?.next_action).toContain("0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c");
     expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
@@ -1351,6 +1358,7 @@ describe("English content parity control master", () => {
     articles.blocked_from_status = "package_frozen";
     articles.package_sha256 =
       "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669";
+    articles.qa_report_ref = null;
     articles.gate_lineage = [
       {
         status: "package_frozen",
@@ -1423,6 +1431,7 @@ describe("English content parity control master", () => {
     articles.blocked_from_status = "package_frozen";
     articles.package_sha256 =
       "37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669";
+    articles.qa_report_ref = null;
     articles.gate_lineage = [
       {
         status: "package_frozen",
@@ -2295,6 +2304,7 @@ describe("English content parity control master", () => {
     blockedArticles.blocked_from_status = "package_frozen";
     blockedArticles.package_sha256 =
       "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750";
+    blockedArticles.qa_report_ref = null;
     blockedArticles.gate_lineage = [
       {
         status: "package_frozen",
