@@ -4,25 +4,17 @@
   "lane_id": "W2",
   "subscope_id": null,
   "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
-  "generated_at": "2026-08-01T04:55:38Z",
-  "status": "PACKAGE_IN_PROGRESS_READY",
+  "generated_at": "2026-08-01T07:05:00Z",
+  "status": "PACKAGE_FROZEN_READY_FOR_INDEPENDENT_W9",
   "ready_for_inventory_frozen": true,
   "ready_for_package_in_progress": true,
-  "ready_for_package_frozen": false,
-  "ready_for_w9": false,
+  "ready_for_package_frozen": true,
+  "ready_for_w9": true,
   "ready_for_import": false,
   "ready_for_runtime": false,
   "ready_for_production": false,
-  "blockers": [
-    {
-      "blocker_id": "W2-EXTERNAL-GATES-NOT-AUTHORIZED",
-      "cohort": "lane",
-      "severity": "future_gate",
-      "finding": "Independent W9 QA, controlled import approval, human editorial approval, runtime authorization, production authorization, and release approval do not exist.",
-      "required_resolution": "After CONTROL accepts this package_in_progress candidate, submit only the immediate package_frozen candidate with a final exact SHA."
-    }
-  ],
-  "next_gate": "package_frozen_after_control_accepts_package_in_progress_candidate",
+  "blockers": [],
+  "next_gate": "independent_W9_QA_for_exact_frozen_package_SHA",
   "zero_write_confirmation": {
     "cms_writes": 0,
     "staging_writes": 0,

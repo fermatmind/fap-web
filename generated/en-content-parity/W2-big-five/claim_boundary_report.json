@@ -4,7 +4,7 @@
   "lane_id": "W2",
   "subscope_id": null,
   "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
-  "generated_at": "2026-08-01T04:55:38Z",
+  "generated_at": "2026-08-01T07:05:00Z",
   "verdict": "PASS",
   "claim_checks": {
     "continuous_trait_language": "PASS",
@@ -28,7 +28,7 @@
     "result_asset_chinese_leakage_rows": 0
   },
   "blockers": [],
-  "notes": "PASS applies only to completed W2 inventory freeze. The sixteen result assets are complete as backend draft-review-only evidence and still require independent W9 QA, human editorial approval, import authorization, runtime authorization, production authorization, publication authorization, and deploy authorization.",
+  "notes": "PASS applies only to the exact W2 package freeze. The sixteen result assets are complete as backend draft-review-only evidence and still require independent W9 QA, human editorial approval, import authorization, runtime authorization, production authorization, publication authorization, and deploy authorization.",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

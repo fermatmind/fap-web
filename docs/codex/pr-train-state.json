@@ -53590,5 +53590,29 @@
     "deploy_allowed": false,
     "history": [{"at":"2026-08-01T14:56:00+08:00","status":"local_verified","summary":"Validated current W2 candidate after the external-master rebase repair and applied only inventory_frozen to package_in_progress; no package SHA, QA, lineage, permission, CMS, runtime, or release change."}],
     "updated_at": "2026-08-01T15:01:00+08:00"
+  },
+  "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01: freeze the complete Big Five English parity package",
+    "base": "main",
+    "branch": "codex/en-parity-w2-big5-package-frozen-01",
+    "depends_on": ["EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "af539d9eabdda0f08226bdb0dd3ff4067ef50937",
+    "pr_url": null,
+    "checks": {"dependency":{"status":"pass","evidence":"CONTROL B PR #1914 merged as 21fb65140482a73883e6b27c7d2a1b3a8c32cd88 and main reports W2 package_in_progress with 52/50/16, null package/QA fields, empty lineage, and all permissions false."},"local_validation":{"status":"pass","evidence":"Backend child validator passed twice with stable child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; exact eight-file SHA recomputation passed twice with final SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b; candidate validator and focused 63/63 contract passed."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [{"at":"2026-08-01T15:10:00+08:00","status":"local_verified","summary":"Froze the exact 118-row W2 producer package at a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b; producer review is PASS but is not W9 or human editorial approval, and all write/release permissions remain false."}],
+    "updated_at": "2026-08-01T15:15:00+08:00"
   }
 }
