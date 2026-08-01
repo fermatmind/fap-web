@@ -53337,8 +53337,8 @@
     "depends_on": [
       "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53352,6 +53352,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Post-transition master validator passes, focused parity contract passes 62/62 on Node 24, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "The CONTROL A implementation commit aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4 awaits required CI, freeze, and CodeQL checks."
       }
     },
     "failure_reason": null,
@@ -53374,8 +53378,13 @@
         "at": "2026-08-01T05:42:43Z",
         "status": "local_verified",
         "summary": "Applied only W2 not_started to inventory_frozen acceptance: counts are 118/118/0 across 52/50/16, package and QA fields remain null, lineage and blockers remain empty, and every permission remains false."
+      },
+      {
+        "at": "2026-08-01T05:43:54Z",
+        "status": "github_checks_pending",
+        "summary": "Committed CONTROL A implementation at aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4; required CI, freeze, and CodeQL checks are pending before merge."
       }
     ],
-    "updated_at": "2026-08-01T05:42:43Z"
+    "updated_at": "2026-08-01T05:43:54Z"
   }
 }
