@@ -1,0 +1,50 @@
+{
+  "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+  "files": [
+    {
+      "path": "qa_scope_manifest.json",
+      "sha256": "e75547a5a0dc73c37c63e94d1a08a8e386453a25277952c1c9f8e626e39879d7"
+    },
+    {
+      "path": "career_guide_20_row_review_evidence.json",
+      "sha256": "f6907cc43083924c0fdc2095889eb1b5cbe5d7f155166325b7707b2233264dcd"
+    },
+    {
+      "path": "independent_qa_report.json",
+      "sha256": "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815"
+    },
+    {
+      "path": "source_equivalence_report.json",
+      "sha256": "73eb14f2a13d9f1eab99cb6c6bc8b70e97449ca81687637cf7de0e0a976777a1"
+    },
+    {
+      "path": "language_naturalness_report.json",
+      "sha256": "e592b0970d57fd589e9112fa72c8569f98572cf70b29cbba9ddbb6e525893f0a"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "3f6f89d9fac23996eae403dc067cb3a067a9c31f7d11c0c643f46bf01886c376"
+    },
+    {
+      "path": "link_markdown_report.json",
+      "sha256": "bc29e7db91e080b4eb39e844675a44c91b1831ddea85d890aa20a819a2bac499"
+    },
+    {
+      "path": "asset_duplication_report.json",
+      "sha256": "538cf951b00048977560f9e272f814c7eab35ae9db6ad44926a9f4278273524d"
+    },
+    {
+      "path": "field_leakage_report.json",
+      "sha256": "8f7553f9887491e988c77a5aa1ceee85fbc96a0197cc69eef0ab7c1e174f9a30"
+    },
+    {
+      "path": "master_manifest_patch.candidate.json",
+      "sha256": "2715885e7ac858b10efaf338330eebd71148895b985aee177dd5632edb0a32ac"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "c33f83a558bbda30b0e09336a7c9e45ae179ed47bce93bb35b89c22b703b677c"
+    }
+  ],
+  "qa_package_sha256": "c639bef4eee900fa22877bc5abd6c95642a067c27f9b6b5ed2d86b72f7726dd7"
+}
