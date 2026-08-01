@@ -372,7 +372,7 @@ async function mapLimit(items, limit, mapper) {
   async function worker() {
     while (next < items.length) {
       const index = next++;
-      results[index] = await mapper(items[index], index);
+      results[index] = await mapper(items[index]);
     }
   }
   await Promise.all(Array.from({ length: Math.min(limit, items.length) }, worker));

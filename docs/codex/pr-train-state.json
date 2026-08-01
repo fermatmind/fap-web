@@ -53105,8 +53105,8 @@
         "evidence": "Generator syntax, artifact/state JSON, manifest YAML, git diff --check, artifact self-hash, and the exact six-path allowlist all passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "repair_in_progress",
+        "evidence": "Build, contracts, both freeze checks, and CodeQL analyze passed. The aggregate gate found alert 184 (js/superfluous-trailing-arguments) at mapLimit; the unused index argument is removed in the same scope and fresh exact-head checks are required."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53160,8 +53160,13 @@
         "at": "2026-08-01T04:50:57Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact scoped branch and opened PR 1891 with what, why, validation, repository-rule impact, evidence hashes, and deferred PR4 boundaries. Required GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-08-01T04:55:55Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "Build, contracts, both freeze gates, and CodeQL analysis passed, but no-new-code-scanning-alerts correctly reported alert 184 for an unused index argument passed to mapLimit's one-argument mapper. Removed only that superfluous argument; local and fresh exact-head GitHub validation are required."
       }
     ],
-    "updated_at": "2026-08-01T04:50:57Z"
+    "updated_at": "2026-08-01T04:55:55Z"
   }
 }
