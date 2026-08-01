@@ -3028,7 +3028,7 @@ describe("English content parity control master", () => {
     const packageDirectory = makeRegisteredPackageDirectory(
       "generated/en-content-parity/W1-mbti/comparisons/"
     );
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     if (!w1 || !comparisons) {
@@ -3155,7 +3155,7 @@ describe("English content parity control master", () => {
     const packageDirectory = makeRegisteredPackageDirectory(
       "generated/en-content-parity/W1-mbti/comparisons/"
     );
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     if (!w1 || !comparisons) {
