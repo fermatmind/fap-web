@@ -53720,7 +53720,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "c607bb3560f818bb8ae4cdf846f8cb6fce07adff",
+    "commit_sha": "08a10f4545d6c317189a7c5930cf54e6f99336ba",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -54030,8 +54030,13 @@
         "at": "2026-08-01T08:26:41Z",
         "status": "github_checks_pending",
         "summary": "All functional checks passed on e87f8da6, while CodeQL alert 188 interpreted resolveSeoAuthority output as password material at the generic observation SHA. Renamed the pure selector and its return field to selectSeoSurface/surface without behavior change; focused 60/60, lint, typecheck, and diff checks pass before a fresh exact-head scan."
+      },
+      {
+        "at": "2026-08-01T08:27:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the behavior-preserving CodeQL disambiguation as 08a10f4545d6c317189a7c5930cf54e6f99336ba after focused 60/60, lint, typecheck, syntax, exact-scope, and diff checks passed. The accepted read-only artifact remains bound to the same selector behavior."
       }
     ],
-    "updated_at": "2026-08-01T08:26:41Z"
+    "updated_at": "2026-08-01T08:27:00Z"
   }
 }
