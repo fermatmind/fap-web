@@ -52560,7 +52560,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "review_correction_local_verified",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-08",
     "depends_on": [
@@ -52579,7 +52579,7 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Strict candidate validation passes after the Article 09 exact-head naturalness correction."
+        "evidence": "Strict candidate validation passes after the Article 09 correction and current-master rebind to SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3."
       },
       "focused_contract": {
         "status": "pass",
@@ -52925,9 +52925,14 @@
         "at": "2026-08-01T10:55:47Z",
         "status": "ready_to_merge",
         "summary": "PR #1945 exact package head 096f757d49af72676b33947c08a3c71d2bd2d5ef passed all 11 required checks and is MERGEABLE/CLEAN. Rebound commit_sha to that validated head and reset the dependent W9 rework-08 execution fields so stale rework-07 results cannot be mistaken for fresh QA. Exact package SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b and producer payload remain unchanged. This ledger-only ready-state commit receives the final required-check cycle."
+      },
+      {
+        "at": "2026-08-01T11:03:30Z",
+        "status": "ready_to_merge",
+        "summary": "Merged concurrent CONTROL W4 inventory-freeze main commit 671536a7 without conflict and rebound only the mutable W3 Article candidate base to current control-master SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3. Set the canonical top-level status to ready_to_merge. Exact Article package SHA, immutable payloads, W3-CAREER-GUIDES, and all-false permissions are unchanged; final validation and required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T10:55:47Z"
+    "updated_at": "2026-08-01T11:03:30Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
