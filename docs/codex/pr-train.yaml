@@ -28457,3 +28457,48 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-CONTROL-W4-LAUNCH-READY-01
+    repo: fap-web
+    branch: codex/en-parity-control-w4-launch-ready-01
+    base: main
+    title: "EN-PARITY-CONTROL-W4-LAUNCH-READY-01: authorize W4 RIASEC inventory freeze"
+    depends_on: []
+    mode: execute
+    train_scope: w4_riasec_launch_ready_control
+    status: in_progress
+    scope:
+      - Set only W4 launch_state from registered to launch_ready while retaining not_started and the frozen 14/0/14 logical-group counts.
+      - Update the focused CONTROL validator and contract so W1-W4 are launch_ready while W5-W8 remain registered.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - scripts/seo/validate-en-content-parity-control.mjs
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify W1-W3 or W5-W9 business state, the master schema, W4 producer artifacts, CMS, database, runtime, sitemap, llms, indexability, publication, or deploy state.
+      - Assign package_sha256, qa_report_ref, gate_lineage, inventory_frozen, W9 acceptance, or any write/release authority to W4.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec eslint scripts/seo/validate-en-content-parity-control.mjs tests/contracts/en-content-parity-control-master.contract.test.ts --max-warnings=0
+      - JSON and YAML parse; exact W4 launch/count/package/QA/lineage/blocker/permission reconciliation
+      - exact changed-file scope validation
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL launch authorization only; backend authority and frontend no-fallback rules remain unchanged
