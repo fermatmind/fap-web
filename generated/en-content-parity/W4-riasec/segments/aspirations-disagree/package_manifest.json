@@ -20,7 +20,7 @@
     },
     {
       "path": "source_ledger.json",
-      "sha256": "bcb04864b1cdc0229baedbb3e9b02860e1ef495f5c3841a2f1a8c40a6d7543ab"
+      "sha256": "f61db0b7865dd53b77c5f5c80f31914425ae513788a06fb786cc59828cdbfbed"
     },
     {
       "path": "translation_cache.json",
@@ -31,7 +31,7 @@
       "sha256": "89ab5da4819fcd118a186b83feac7e94baa0c0757dc90d745a01ac0e90138d7c"
     }
   ],
-  "aggregate_sha256": "b2ec976c2c1ef3df18a2c738aba3b89c8434e3142dd32775b4bfc414aa6f74db",
+  "aggregate_sha256": "ae09d38b3cd7739594faf08d1c08e2498e71c52db4cd0e0d82547b5bfcd9fc0a",
   "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
   "permissions": {
     "cms_write_authorized": false,

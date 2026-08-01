@@ -5,7 +5,7 @@ import { join } from 'node:path';
 const root = new URL('.', import.meta.url).pathname;
 const apiRoot = process.env.FAP_API_ROOT ?? '/Users/rainie/Desktop/GitHub/fap-api';
 const apiCommit = '660280d00a57e58bd8bc76608e19de2492c03f53';
-const webCommit = '412349b5d347d746d103c219c4b0359fb7d43c47';
+const webCommit = 'e093d89e9362b77b29d7e64dbaa79f20a8f1f4ea';
 const packageId = 'EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-2026-08-01';
 const permissions = { cms_write_authorized:false, staging_write_authorized:false, production_import_authorized:false, public_release_authorized:false, seo_runtime_release_authorized:false, search_submission_authorized:false, master_manifest_write_authorized:false };
 const sha = value => createHash('sha256').update(value).digest('hex');

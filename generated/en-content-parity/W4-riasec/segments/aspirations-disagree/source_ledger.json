@@ -21,7 +21,7 @@
   },
   "producer": {
     "repository": "fap-web",
-    "commit": "412349b5d347d746d103c219c4b0359fb7d43c47",
+    "commit": "e093d89e9362b77b29d7e64dbaa79f20a8f1f4ea",
     "control_status": "inventory_frozen"
   },
   "rows": [
