@@ -1,0 +1,5074 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_activity_examples_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-2026-08-01",
+  "authority": {
+    "repository": "fap-api",
+    "commit": "b942ff12ffedb63b019311001cbff21beb776fa2",
+    "locale": "zh-CN",
+    "sources": [
+      {
+        "path": "backend/content_assets/riasec/activity_task_examples_v1.zh-CN.jsonl",
+        "sha256": "71ab33481ee2ba5a7172eb3577254787beee0121976fac8d0bc4efaa92ebfb4d",
+        "row_count": 360
+      },
+      {
+        "path": "backend/content_assets/riasec/occupation_examples_boundary_v1.zh-CN.jsonl",
+        "sha256": "a94403c1f07e37af9bfb64cd8a107321716499fb52fc5e223870e159eecfcd7a",
+        "row_count": 360
+      }
+    ]
+  },
+  "producer": {
+    "repository": "fap-web",
+    "commit": "ca636a5e3647d382a6255f3b52efd7f6ffdf7192",
+    "control_status": "inventory_frozen"
+  },
+  "rows": [
+    {
+      "source_line": 1,
+      "source_identity": "activity:r_field_observe_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 2,
+      "source_identity": "activity:r_proto_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 3,
+      "source_identity": "activity:r_debug_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 4,
+      "source_identity": "activity:r_tool_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 5,
+      "source_identity": "activity:r_material_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 6,
+      "source_identity": "activity:r_implementation_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 7,
+      "source_identity": "activity:r_maintenance_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 8,
+      "source_identity": "activity:r_spatial_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 9,
+      "source_identity": "activity:r_physical_test_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 10,
+      "source_identity": "activity:r_checklist_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-1",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 11,
+      "source_identity": "activity:r_field_observe_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 12,
+      "source_identity": "activity:r_proto_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 13,
+      "source_identity": "activity:r_debug_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 14,
+      "source_identity": "activity:r_tool_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 15,
+      "source_identity": "activity:r_material_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 16,
+      "source_identity": "activity:r_implementation_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 17,
+      "source_identity": "activity:r_maintenance_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 18,
+      "source_identity": "activity:r_spatial_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 19,
+      "source_identity": "activity:r_physical_test_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 20,
+      "source_identity": "activity:r_checklist_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-2",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 21,
+      "source_identity": "activity:r_field_observe_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 22,
+      "source_identity": "activity:r_proto_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 23,
+      "source_identity": "activity:r_debug_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 24,
+      "source_identity": "activity:r_tool_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 25,
+      "source_identity": "activity:r_material_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 26,
+      "source_identity": "activity:r_implementation_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 27,
+      "source_identity": "activity:r_maintenance_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 28,
+      "source_identity": "activity:r_spatial_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 29,
+      "source_identity": "activity:r_physical_test_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 30,
+      "source_identity": "activity:r_checklist_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-3",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 31,
+      "source_identity": "activity:i_question_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 32,
+      "source_identity": "activity:i_evidence_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 33,
+      "source_identity": "activity:i_hypothesis_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 34,
+      "source_identity": "activity:i_compare_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 35,
+      "source_identity": "activity:i_model_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 36,
+      "source_identity": "activity:i_read_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 37,
+      "source_identity": "activity:i_synthesize_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 38,
+      "source_identity": "activity:i_test_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 39,
+      "source_identity": "activity:i_risk_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 40,
+      "source_identity": "activity:i_criteria_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-1",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 41,
+      "source_identity": "activity:i_question_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 42,
+      "source_identity": "activity:i_evidence_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 43,
+      "source_identity": "activity:i_hypothesis_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 44,
+      "source_identity": "activity:i_compare_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 45,
+      "source_identity": "activity:i_model_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 46,
+      "source_identity": "activity:i_read_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 47,
+      "source_identity": "activity:i_synthesize_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 48,
+      "source_identity": "activity:i_test_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 49,
+      "source_identity": "activity:i_risk_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 50,
+      "source_identity": "activity:i_criteria_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-2",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 51,
+      "source_identity": "activity:i_question_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 52,
+      "source_identity": "activity:i_evidence_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 53,
+      "source_identity": "activity:i_hypothesis_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 54,
+      "source_identity": "activity:i_compare_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 55,
+      "source_identity": "activity:i_model_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 56,
+      "source_identity": "activity:i_read_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 57,
+      "source_identity": "activity:i_synthesize_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 58,
+      "source_identity": "activity:i_test_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 59,
+      "source_identity": "activity:i_risk_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 60,
+      "source_identity": "activity:i_criteria_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-3",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 61,
+      "source_identity": "activity:a_reframe_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 62,
+      "source_identity": "activity:a_visual_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 63,
+      "source_identity": "activity:a_story_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 64,
+      "source_identity": "activity:a_style_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 65,
+      "source_identity": "activity:a_title_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 66,
+      "source_identity": "activity:a_concept_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 67,
+      "source_identity": "activity:a_edit_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 68,
+      "source_identity": "activity:a_proto_content_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 69,
+      "source_identity": "activity:a_sensory_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 70,
+      "source_identity": "activity:a_open_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-1",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 71,
+      "source_identity": "activity:a_reframe_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 72,
+      "source_identity": "activity:a_visual_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 73,
+      "source_identity": "activity:a_story_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 74,
+      "source_identity": "activity:a_style_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 75,
+      "source_identity": "activity:a_title_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 76,
+      "source_identity": "activity:a_concept_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 77,
+      "source_identity": "activity:a_edit_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 78,
+      "source_identity": "activity:a_proto_content_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 79,
+      "source_identity": "activity:a_sensory_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 80,
+      "source_identity": "activity:a_open_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-2",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 81,
+      "source_identity": "activity:a_reframe_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 82,
+      "source_identity": "activity:a_visual_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 83,
+      "source_identity": "activity:a_story_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 84,
+      "source_identity": "activity:a_style_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 85,
+      "source_identity": "activity:a_title_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 86,
+      "source_identity": "activity:a_concept_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 87,
+      "source_identity": "activity:a_edit_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 88,
+      "source_identity": "activity:a_proto_content_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 89,
+      "source_identity": "activity:a_sensory_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 90,
+      "source_identity": "activity:a_open_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-3",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 91,
+      "source_identity": "activity:s_listen_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 92,
+      "source_identity": "activity:s_explain_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 93,
+      "source_identity": "activity:s_coach_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 94,
+      "source_identity": "activity:s_feedback_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 95,
+      "source_identity": "activity:s_support_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 96,
+      "source_identity": "activity:s_coord_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 97,
+      "source_identity": "activity:s_train_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 98,
+      "source_identity": "activity:s_service_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 99,
+      "source_identity": "activity:s_empathy_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 100,
+      "source_identity": "activity:s_group_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-1",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 101,
+      "source_identity": "activity:s_listen_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 102,
+      "source_identity": "activity:s_explain_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 103,
+      "source_identity": "activity:s_coach_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 104,
+      "source_identity": "activity:s_feedback_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 105,
+      "source_identity": "activity:s_support_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 106,
+      "source_identity": "activity:s_coord_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 107,
+      "source_identity": "activity:s_train_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 108,
+      "source_identity": "activity:s_service_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 109,
+      "source_identity": "activity:s_empathy_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 110,
+      "source_identity": "activity:s_group_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-2",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 111,
+      "source_identity": "activity:s_listen_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 112,
+      "source_identity": "activity:s_explain_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 113,
+      "source_identity": "activity:s_coach_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 114,
+      "source_identity": "activity:s_feedback_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 115,
+      "source_identity": "activity:s_support_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 116,
+      "source_identity": "activity:s_coord_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 117,
+      "source_identity": "activity:s_train_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 118,
+      "source_identity": "activity:s_service_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 119,
+      "source_identity": "activity:s_empathy_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 120,
+      "source_identity": "activity:s_group_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-3",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 121,
+      "source_identity": "activity:e_pitch_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 122,
+      "source_identity": "activity:e_resource_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 123,
+      "source_identity": "activity:e_goal_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 124,
+      "source_identity": "activity:e_present_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 125,
+      "source_identity": "activity:e_negotiate_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 126,
+      "source_identity": "activity:e_launch_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 127,
+      "source_identity": "activity:e_priority_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 128,
+      "source_identity": "activity:e_stakeholder_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 129,
+      "source_identity": "activity:e_decision_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 130,
+      "source_identity": "activity:e_followup_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-1",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 131,
+      "source_identity": "activity:e_pitch_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 132,
+      "source_identity": "activity:e_resource_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 133,
+      "source_identity": "activity:e_goal_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 134,
+      "source_identity": "activity:e_present_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 135,
+      "source_identity": "activity:e_negotiate_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 136,
+      "source_identity": "activity:e_launch_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 137,
+      "source_identity": "activity:e_priority_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 138,
+      "source_identity": "activity:e_stakeholder_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 139,
+      "source_identity": "activity:e_decision_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 140,
+      "source_identity": "activity:e_followup_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-2",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 141,
+      "source_identity": "activity:e_pitch_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 142,
+      "source_identity": "activity:e_resource_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 143,
+      "source_identity": "activity:e_goal_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 144,
+      "source_identity": "activity:e_present_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 145,
+      "source_identity": "activity:e_negotiate_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 146,
+      "source_identity": "activity:e_launch_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 147,
+      "source_identity": "activity:e_priority_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 148,
+      "source_identity": "activity:e_stakeholder_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 149,
+      "source_identity": "activity:e_decision_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 150,
+      "source_identity": "activity:e_followup_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-3",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 151,
+      "source_identity": "activity:c_sort_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 152,
+      "source_identity": "activity:c_process_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 153,
+      "source_identity": "activity:c_check_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 154,
+      "source_identity": "activity:c_track_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 155,
+      "source_identity": "activity:c_doc_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 156,
+      "source_identity": "activity:c_archive_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 157,
+      "source_identity": "activity:c_standard_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 158,
+      "source_identity": "activity:c_repeat_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 159,
+      "source_identity": "activity:c_handoff_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 160,
+      "source_identity": "activity:c_audit_1",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-1",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 161,
+      "source_identity": "activity:c_sort_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 162,
+      "source_identity": "activity:c_process_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 163,
+      "source_identity": "activity:c_check_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 164,
+      "source_identity": "activity:c_track_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 165,
+      "source_identity": "activity:c_doc_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 166,
+      "source_identity": "activity:c_archive_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 167,
+      "source_identity": "activity:c_standard_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 168,
+      "source_identity": "activity:c_repeat_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 169,
+      "source_identity": "activity:c_handoff_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 170,
+      "source_identity": "activity:c_audit_2",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-2",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 171,
+      "source_identity": "activity:c_sort_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 172,
+      "source_identity": "activity:c_process_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 173,
+      "source_identity": "activity:c_check_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 174,
+      "source_identity": "activity:c_track_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 175,
+      "source_identity": "activity:c_doc_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 176,
+      "source_identity": "activity:c_archive_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 177,
+      "source_identity": "activity:c_standard_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 178,
+      "source_identity": "activity:c_repeat_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 179,
+      "source_identity": "activity:c_handoff_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 180,
+      "source_identity": "activity:c_audit_3",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-3",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 181,
+      "source_identity": "activity:r_field_observe_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 182,
+      "source_identity": "activity:r_proto_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 183,
+      "source_identity": "activity:r_debug_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 184,
+      "source_identity": "activity:r_tool_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 185,
+      "source_identity": "activity:r_material_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 186,
+      "source_identity": "activity:r_implementation_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 187,
+      "source_identity": "activity:r_maintenance_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 188,
+      "source_identity": "activity:r_spatial_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 189,
+      "source_identity": "activity:r_physical_test_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 190,
+      "source_identity": "activity:r_checklist_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 191,
+      "source_identity": "activity:r_field_observe_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 192,
+      "source_identity": "activity:r_proto_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 193,
+      "source_identity": "activity:r_debug_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 194,
+      "source_identity": "activity:r_tool_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 195,
+      "source_identity": "activity:r_material_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 196,
+      "source_identity": "activity:r_implementation_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 197,
+      "source_identity": "activity:r_maintenance_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 198,
+      "source_identity": "activity:r_spatial_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 199,
+      "source_identity": "activity:r_physical_test_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 200,
+      "source_identity": "activity:r_checklist_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 201,
+      "source_identity": "activity:r_field_observe_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-FIELD-OBSERVE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 202,
+      "source_identity": "activity:r_proto_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PROTO-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 203,
+      "source_identity": "activity:r_debug_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-DEBUG-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 204,
+      "source_identity": "activity:r_tool_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-TOOL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 205,
+      "source_identity": "activity:r_material_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MATERIAL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 206,
+      "source_identity": "activity:r_implementation_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-IMPLEMENTATION-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 207,
+      "source_identity": "activity:r_maintenance_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-MAINTENANCE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 208,
+      "source_identity": "activity:r_spatial_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-SPATIAL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 209,
+      "source_identity": "activity:r_physical_test_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-PHYSICAL-TEST-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 210,
+      "source_identity": "activity:r_checklist_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-R-CHECKLIST-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 211,
+      "source_identity": "activity:i_question_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 212,
+      "source_identity": "activity:i_evidence_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 213,
+      "source_identity": "activity:i_hypothesis_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 214,
+      "source_identity": "activity:i_compare_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 215,
+      "source_identity": "activity:i_model_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 216,
+      "source_identity": "activity:i_read_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 217,
+      "source_identity": "activity:i_synthesize_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 218,
+      "source_identity": "activity:i_test_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 219,
+      "source_identity": "activity:i_risk_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 220,
+      "source_identity": "activity:i_criteria_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 221,
+      "source_identity": "activity:i_question_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 222,
+      "source_identity": "activity:i_evidence_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 223,
+      "source_identity": "activity:i_hypothesis_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 224,
+      "source_identity": "activity:i_compare_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 225,
+      "source_identity": "activity:i_model_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 226,
+      "source_identity": "activity:i_read_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 227,
+      "source_identity": "activity:i_synthesize_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 228,
+      "source_identity": "activity:i_test_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 229,
+      "source_identity": "activity:i_risk_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 230,
+      "source_identity": "activity:i_criteria_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 231,
+      "source_identity": "activity:i_question_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-QUESTION-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 232,
+      "source_identity": "activity:i_evidence_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-EVIDENCE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 233,
+      "source_identity": "activity:i_hypothesis_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-HYPOTHESIS-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 234,
+      "source_identity": "activity:i_compare_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-COMPARE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 235,
+      "source_identity": "activity:i_model_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-MODEL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 236,
+      "source_identity": "activity:i_read_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-READ-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 237,
+      "source_identity": "activity:i_synthesize_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-SYNTHESIZE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 238,
+      "source_identity": "activity:i_test_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-TEST-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 239,
+      "source_identity": "activity:i_risk_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-RISK-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 240,
+      "source_identity": "activity:i_criteria_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-I-CRITERIA-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 241,
+      "source_identity": "activity:a_reframe_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 242,
+      "source_identity": "activity:a_visual_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 243,
+      "source_identity": "activity:a_story_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 244,
+      "source_identity": "activity:a_style_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 245,
+      "source_identity": "activity:a_title_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 246,
+      "source_identity": "activity:a_concept_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 247,
+      "source_identity": "activity:a_edit_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 248,
+      "source_identity": "activity:a_proto_content_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 249,
+      "source_identity": "activity:a_sensory_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 250,
+      "source_identity": "activity:a_open_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 251,
+      "source_identity": "activity:a_reframe_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 252,
+      "source_identity": "activity:a_visual_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 253,
+      "source_identity": "activity:a_story_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 254,
+      "source_identity": "activity:a_style_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 255,
+      "source_identity": "activity:a_title_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 256,
+      "source_identity": "activity:a_concept_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 257,
+      "source_identity": "activity:a_edit_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 258,
+      "source_identity": "activity:a_proto_content_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 259,
+      "source_identity": "activity:a_sensory_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 260,
+      "source_identity": "activity:a_open_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 261,
+      "source_identity": "activity:a_reframe_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-REFRAME-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 262,
+      "source_identity": "activity:a_visual_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-VISUAL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 263,
+      "source_identity": "activity:a_story_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STORY-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 264,
+      "source_identity": "activity:a_style_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-STYLE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 265,
+      "source_identity": "activity:a_title_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-TITLE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 266,
+      "source_identity": "activity:a_concept_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-CONCEPT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 267,
+      "source_identity": "activity:a_edit_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-EDIT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 268,
+      "source_identity": "activity:a_proto_content_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-PROTO-CONTENT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 269,
+      "source_identity": "activity:a_sensory_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-SENSORY-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 270,
+      "source_identity": "activity:a_open_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-A-OPEN-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 271,
+      "source_identity": "activity:s_listen_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 272,
+      "source_identity": "activity:s_explain_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 273,
+      "source_identity": "activity:s_coach_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 274,
+      "source_identity": "activity:s_feedback_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 275,
+      "source_identity": "activity:s_support_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 276,
+      "source_identity": "activity:s_coord_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 277,
+      "source_identity": "activity:s_train_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 278,
+      "source_identity": "activity:s_service_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 279,
+      "source_identity": "activity:s_empathy_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 280,
+      "source_identity": "activity:s_group_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 281,
+      "source_identity": "activity:s_listen_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 282,
+      "source_identity": "activity:s_explain_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 283,
+      "source_identity": "activity:s_coach_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 284,
+      "source_identity": "activity:s_feedback_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 285,
+      "source_identity": "activity:s_support_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 286,
+      "source_identity": "activity:s_coord_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 287,
+      "source_identity": "activity:s_train_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 288,
+      "source_identity": "activity:s_service_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 289,
+      "source_identity": "activity:s_empathy_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 290,
+      "source_identity": "activity:s_group_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 291,
+      "source_identity": "activity:s_listen_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-LISTEN-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 292,
+      "source_identity": "activity:s_explain_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EXPLAIN-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 293,
+      "source_identity": "activity:s_coach_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COACH-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 294,
+      "source_identity": "activity:s_feedback_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-FEEDBACK-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 295,
+      "source_identity": "activity:s_support_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SUPPORT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 296,
+      "source_identity": "activity:s_coord_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-COORD-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 297,
+      "source_identity": "activity:s_train_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-TRAIN-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 298,
+      "source_identity": "activity:s_service_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-SERVICE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 299,
+      "source_identity": "activity:s_empathy_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-EMPATHY-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 300,
+      "source_identity": "activity:s_group_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-S-GROUP-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 301,
+      "source_identity": "activity:e_pitch_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 302,
+      "source_identity": "activity:e_resource_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 303,
+      "source_identity": "activity:e_goal_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 304,
+      "source_identity": "activity:e_present_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 305,
+      "source_identity": "activity:e_negotiate_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 306,
+      "source_identity": "activity:e_launch_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 307,
+      "source_identity": "activity:e_priority_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 308,
+      "source_identity": "activity:e_stakeholder_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 309,
+      "source_identity": "activity:e_decision_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 310,
+      "source_identity": "activity:e_followup_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 311,
+      "source_identity": "activity:e_pitch_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 312,
+      "source_identity": "activity:e_resource_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 313,
+      "source_identity": "activity:e_goal_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 314,
+      "source_identity": "activity:e_present_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 315,
+      "source_identity": "activity:e_negotiate_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 316,
+      "source_identity": "activity:e_launch_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 317,
+      "source_identity": "activity:e_priority_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 318,
+      "source_identity": "activity:e_stakeholder_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 319,
+      "source_identity": "activity:e_decision_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 320,
+      "source_identity": "activity:e_followup_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 321,
+      "source_identity": "activity:e_pitch_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PITCH-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 322,
+      "source_identity": "activity:e_resource_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-RESOURCE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 323,
+      "source_identity": "activity:e_goal_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-GOAL-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 324,
+      "source_identity": "activity:e_present_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRESENT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 325,
+      "source_identity": "activity:e_negotiate_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-NEGOTIATE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 326,
+      "source_identity": "activity:e_launch_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-LAUNCH-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 327,
+      "source_identity": "activity:e_priority_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-PRIORITY-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 328,
+      "source_identity": "activity:e_stakeholder_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-STAKEHOLDER-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 329,
+      "source_identity": "activity:e_decision_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-DECISION-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 330,
+      "source_identity": "activity:e_followup_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-E-FOLLOWUP-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 331,
+      "source_identity": "activity:c_sort_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 332,
+      "source_identity": "activity:c_process_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 333,
+      "source_identity": "activity:c_check_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 334,
+      "source_identity": "activity:c_track_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 335,
+      "source_identity": "activity:c_doc_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 336,
+      "source_identity": "activity:c_archive_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 337,
+      "source_identity": "activity:c_standard_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 338,
+      "source_identity": "activity:c_repeat_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 339,
+      "source_identity": "activity:c_handoff_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 340,
+      "source_identity": "activity:c_audit_1_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-1-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 341,
+      "source_identity": "activity:c_sort_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 342,
+      "source_identity": "activity:c_process_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 343,
+      "source_identity": "activity:c_check_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 344,
+      "source_identity": "activity:c_track_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 345,
+      "source_identity": "activity:c_doc_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 346,
+      "source_identity": "activity:c_archive_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 347,
+      "source_identity": "activity:c_standard_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 348,
+      "source_identity": "activity:c_repeat_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 349,
+      "source_identity": "activity:c_handoff_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 350,
+      "source_identity": "activity:c_audit_2_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-2-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 351,
+      "source_identity": "activity:c_sort_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-SORT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 352,
+      "source_identity": "activity:c_process_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-PROCESS-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 353,
+      "source_identity": "activity:c_check_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-CHECK-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 354,
+      "source_identity": "activity:c_track_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-TRACK-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 355,
+      "source_identity": "activity:c_doc_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-DOC-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 356,
+      "source_identity": "activity:c_archive_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-ARCHIVE-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 357,
+      "source_identity": "activity:c_standard_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-STANDARD-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 358,
+      "source_identity": "activity:c_repeat_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-REPEAT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 359,
+      "source_identity": "activity:c_handoff_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-HANDOFF-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 360,
+      "source_identity": "activity:c_audit_3_commercial_variant",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-ACT-C-AUDIT-3-COMMERCIAL-VARIANT",
+      "kind": "activity_task_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 1,
+      "source_identity": "occupation:occ_example_001",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-001",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 2,
+      "source_identity": "occupation:occ_example_002",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-002",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 3,
+      "source_identity": "occupation:occ_example_003",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-003",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 4,
+      "source_identity": "occupation:occ_example_004",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-004",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 5,
+      "source_identity": "occupation:occ_example_005",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-005",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 6,
+      "source_identity": "occupation:occ_example_006",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-006",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 7,
+      "source_identity": "occupation:occ_example_007",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-007",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 8,
+      "source_identity": "occupation:occ_example_008",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-008",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 9,
+      "source_identity": "occupation:occ_example_009",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-009",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 10,
+      "source_identity": "occupation:occ_example_010",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-010",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 11,
+      "source_identity": "occupation:occ_example_011",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-011",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 12,
+      "source_identity": "occupation:occ_example_012",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-012",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 13,
+      "source_identity": "occupation:occ_example_013",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-013",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 14,
+      "source_identity": "occupation:occ_example_014",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-014",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 15,
+      "source_identity": "occupation:occ_example_015",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-015",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 16,
+      "source_identity": "occupation:occ_example_016",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-016",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 17,
+      "source_identity": "occupation:occ_example_017",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-017",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 18,
+      "source_identity": "occupation:occ_example_018",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-018",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 19,
+      "source_identity": "occupation:occ_example_019",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-019",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 20,
+      "source_identity": "occupation:occ_example_020",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-020",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 21,
+      "source_identity": "occupation:occ_example_021",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-021",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 22,
+      "source_identity": "occupation:occ_example_022",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-022",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 23,
+      "source_identity": "occupation:occ_example_023",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-023",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 24,
+      "source_identity": "occupation:occ_example_024",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-024",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 25,
+      "source_identity": "occupation:occ_example_025",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-025",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 26,
+      "source_identity": "occupation:occ_example_026",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-026",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 27,
+      "source_identity": "occupation:occ_example_027",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-027",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 28,
+      "source_identity": "occupation:occ_example_028",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-028",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 29,
+      "source_identity": "occupation:occ_example_029",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-029",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 30,
+      "source_identity": "occupation:occ_example_030",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-030",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 31,
+      "source_identity": "occupation:occ_example_031",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-031",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 32,
+      "source_identity": "occupation:occ_example_032",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-032",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 33,
+      "source_identity": "occupation:occ_example_033",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-033",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 34,
+      "source_identity": "occupation:occ_example_034",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-034",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 35,
+      "source_identity": "occupation:occ_example_035",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-035",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 36,
+      "source_identity": "occupation:occ_example_036",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-036",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 37,
+      "source_identity": "occupation:occ_example_037",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-037",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 38,
+      "source_identity": "occupation:occ_example_038",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-038",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 39,
+      "source_identity": "occupation:occ_example_039",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-039",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 40,
+      "source_identity": "occupation:occ_example_040",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-040",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 41,
+      "source_identity": "occupation:occ_example_041",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-041",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 42,
+      "source_identity": "occupation:occ_example_042",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-042",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 43,
+      "source_identity": "occupation:occ_example_043",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-043",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 44,
+      "source_identity": "occupation:occ_example_044",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-044",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 45,
+      "source_identity": "occupation:occ_example_045",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-045",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 46,
+      "source_identity": "occupation:occ_example_046",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-046",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 47,
+      "source_identity": "occupation:occ_example_047",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-047",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 48,
+      "source_identity": "occupation:occ_example_048",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-048",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 49,
+      "source_identity": "occupation:occ_example_049",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-049",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 50,
+      "source_identity": "occupation:occ_example_050",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-050",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 51,
+      "source_identity": "occupation:occ_example_051",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-051",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 52,
+      "source_identity": "occupation:occ_example_052",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-052",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 53,
+      "source_identity": "occupation:occ_example_053",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-053",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 54,
+      "source_identity": "occupation:occ_example_054",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-054",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 55,
+      "source_identity": "occupation:occ_example_055",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-055",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 56,
+      "source_identity": "occupation:occ_example_056",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-056",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 57,
+      "source_identity": "occupation:occ_example_057",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-057",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 58,
+      "source_identity": "occupation:occ_example_058",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-058",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 59,
+      "source_identity": "occupation:occ_example_059",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-059",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 60,
+      "source_identity": "occupation:occ_example_060",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-060",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 61,
+      "source_identity": "occupation:occ_example_061",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-061",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 62,
+      "source_identity": "occupation:occ_example_062",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-062",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 63,
+      "source_identity": "occupation:occ_example_063",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-063",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 64,
+      "source_identity": "occupation:occ_example_064",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-064",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 65,
+      "source_identity": "occupation:occ_example_065",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-065",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 66,
+      "source_identity": "occupation:occ_example_066",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-066",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 67,
+      "source_identity": "occupation:occ_example_067",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-067",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 68,
+      "source_identity": "occupation:occ_example_068",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-068",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 69,
+      "source_identity": "occupation:occ_example_069",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-069",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 70,
+      "source_identity": "occupation:occ_example_070",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-070",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 71,
+      "source_identity": "occupation:occ_example_071",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-071",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 72,
+      "source_identity": "occupation:occ_example_072",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-072",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 73,
+      "source_identity": "occupation:occ_example_073",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-073",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 74,
+      "source_identity": "occupation:occ_example_074",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-074",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 75,
+      "source_identity": "occupation:occ_example_075",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-075",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 76,
+      "source_identity": "occupation:occ_example_076",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-076",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 77,
+      "source_identity": "occupation:occ_example_077",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-077",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 78,
+      "source_identity": "occupation:occ_example_078",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-078",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 79,
+      "source_identity": "occupation:occ_example_079",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-079",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 80,
+      "source_identity": "occupation:occ_example_080",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-080",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 81,
+      "source_identity": "occupation:occ_example_081",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-081",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 82,
+      "source_identity": "occupation:occ_example_082",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-082",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 83,
+      "source_identity": "occupation:occ_example_083",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-083",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 84,
+      "source_identity": "occupation:occ_example_084",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-084",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 85,
+      "source_identity": "occupation:occ_example_085",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-085",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 86,
+      "source_identity": "occupation:occ_example_086",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-086",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 87,
+      "source_identity": "occupation:occ_example_087",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-087",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 88,
+      "source_identity": "occupation:occ_example_088",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-088",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 89,
+      "source_identity": "occupation:occ_example_089",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-089",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 90,
+      "source_identity": "occupation:occ_example_090",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-090",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 91,
+      "source_identity": "occupation:occ_example_091",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-091",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 92,
+      "source_identity": "occupation:occ_example_092",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-092",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 93,
+      "source_identity": "occupation:occ_example_093",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-093",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 94,
+      "source_identity": "occupation:occ_example_094",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-094",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 95,
+      "source_identity": "occupation:occ_example_095",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-095",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 96,
+      "source_identity": "occupation:occ_example_096",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-096",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 97,
+      "source_identity": "occupation:occ_example_097",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-097",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 98,
+      "source_identity": "occupation:occ_example_098",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-098",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 99,
+      "source_identity": "occupation:occ_example_099",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-099",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 100,
+      "source_identity": "occupation:occ_example_100",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-100",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 101,
+      "source_identity": "occupation:occ_example_101",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-101",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 102,
+      "source_identity": "occupation:occ_example_102",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-102",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 103,
+      "source_identity": "occupation:occ_example_103",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-103",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 104,
+      "source_identity": "occupation:occ_example_104",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-104",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 105,
+      "source_identity": "occupation:occ_example_105",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-105",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 106,
+      "source_identity": "occupation:occ_example_106",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-106",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 107,
+      "source_identity": "occupation:occ_example_107",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-107",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 108,
+      "source_identity": "occupation:occ_example_108",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-108",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 109,
+      "source_identity": "occupation:occ_example_109",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-109",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 110,
+      "source_identity": "occupation:occ_example_110",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-110",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 111,
+      "source_identity": "occupation:occ_example_111",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-111",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 112,
+      "source_identity": "occupation:occ_example_112",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-112",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 113,
+      "source_identity": "occupation:occ_example_113",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-113",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 114,
+      "source_identity": "occupation:occ_example_114",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-114",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 115,
+      "source_identity": "occupation:occ_example_115",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-115",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 116,
+      "source_identity": "occupation:occ_example_116",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-116",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 117,
+      "source_identity": "occupation:occ_example_117",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-117",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 118,
+      "source_identity": "occupation:occ_example_118",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-118",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 119,
+      "source_identity": "occupation:occ_example_119",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-119",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 120,
+      "source_identity": "occupation:occ_example_120",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-120",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 121,
+      "source_identity": "occupation:occ_example_121",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-121",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 122,
+      "source_identity": "occupation:occ_example_122",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-122",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 123,
+      "source_identity": "occupation:occ_example_123",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-123",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 124,
+      "source_identity": "occupation:occ_example_124",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-124",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 125,
+      "source_identity": "occupation:occ_example_125",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-125",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 126,
+      "source_identity": "occupation:occ_example_126",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-126",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 127,
+      "source_identity": "occupation:occ_example_127",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-127",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 128,
+      "source_identity": "occupation:occ_example_128",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-128",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 129,
+      "source_identity": "occupation:occ_example_129",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-129",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 130,
+      "source_identity": "occupation:occ_example_130",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-130",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 131,
+      "source_identity": "occupation:occ_example_131",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-131",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 132,
+      "source_identity": "occupation:occ_example_132",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-132",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 133,
+      "source_identity": "occupation:occ_example_133",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-133",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 134,
+      "source_identity": "occupation:occ_example_134",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-134",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 135,
+      "source_identity": "occupation:occ_example_135",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-135",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 136,
+      "source_identity": "occupation:occ_example_136",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-136",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 137,
+      "source_identity": "occupation:occ_example_137",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-137",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 138,
+      "source_identity": "occupation:occ_example_138",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-138",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 139,
+      "source_identity": "occupation:occ_example_139",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-139",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 140,
+      "source_identity": "occupation:occ_example_140",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-140",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 141,
+      "source_identity": "occupation:occ_example_141",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-141",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 142,
+      "source_identity": "occupation:occ_example_142",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-142",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 143,
+      "source_identity": "occupation:occ_example_143",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-143",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 144,
+      "source_identity": "occupation:occ_example_144",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-144",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 145,
+      "source_identity": "occupation:occ_example_145",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-145",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 146,
+      "source_identity": "occupation:occ_example_146",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-146",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 147,
+      "source_identity": "occupation:occ_example_147",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-147",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 148,
+      "source_identity": "occupation:occ_example_148",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-148",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 149,
+      "source_identity": "occupation:occ_example_149",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-149",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 150,
+      "source_identity": "occupation:occ_example_150",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-150",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 151,
+      "source_identity": "occupation:occ_example_151",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-151",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 152,
+      "source_identity": "occupation:occ_example_152",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-152",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 153,
+      "source_identity": "occupation:occ_example_153",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-153",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 154,
+      "source_identity": "occupation:occ_example_154",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-154",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 155,
+      "source_identity": "occupation:occ_example_155",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-155",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 156,
+      "source_identity": "occupation:occ_example_156",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-156",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 157,
+      "source_identity": "occupation:occ_example_157",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-157",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 158,
+      "source_identity": "occupation:occ_example_158",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-158",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 159,
+      "source_identity": "occupation:occ_example_159",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-159",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 160,
+      "source_identity": "occupation:occ_example_160",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-160",
+      "kind": "occupation_activity_example",
+      "dimension": "S"
+    },
+    {
+      "source_line": 161,
+      "source_identity": "occupation:occ_example_161",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-161",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 162,
+      "source_identity": "occupation:occ_example_162",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-162",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 163,
+      "source_identity": "occupation:occ_example_163",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-163",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 164,
+      "source_identity": "occupation:occ_example_164",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-164",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 165,
+      "source_identity": "occupation:occ_example_165",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-165",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 166,
+      "source_identity": "occupation:occ_example_166",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-166",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 167,
+      "source_identity": "occupation:occ_example_167",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-167",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 168,
+      "source_identity": "occupation:occ_example_168",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-168",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 169,
+      "source_identity": "occupation:occ_example_169",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-169",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 170,
+      "source_identity": "occupation:occ_example_170",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-170",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 171,
+      "source_identity": "occupation:occ_example_171",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-171",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 172,
+      "source_identity": "occupation:occ_example_172",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-172",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 173,
+      "source_identity": "occupation:occ_example_173",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-173",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 174,
+      "source_identity": "occupation:occ_example_174",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-174",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 175,
+      "source_identity": "occupation:occ_example_175",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-175",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 176,
+      "source_identity": "occupation:occ_example_176",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-176",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 177,
+      "source_identity": "occupation:occ_example_177",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-177",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 178,
+      "source_identity": "occupation:occ_example_178",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-178",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 179,
+      "source_identity": "occupation:occ_example_179",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-179",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 180,
+      "source_identity": "occupation:occ_example_180",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-180",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 181,
+      "source_identity": "occupation:occ_example_181",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-181",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 182,
+      "source_identity": "occupation:occ_example_182",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-182",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 183,
+      "source_identity": "occupation:occ_example_183",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-183",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 184,
+      "source_identity": "occupation:occ_example_184",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-184",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 185,
+      "source_identity": "occupation:occ_example_185",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-185",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 186,
+      "source_identity": "occupation:occ_example_186",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-186",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 187,
+      "source_identity": "occupation:occ_example_187",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-187",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 188,
+      "source_identity": "occupation:occ_example_188",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-188",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 189,
+      "source_identity": "occupation:occ_example_189",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-189",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 190,
+      "source_identity": "occupation:occ_example_190",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-190",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 191,
+      "source_identity": "occupation:occ_example_191",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-191",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 192,
+      "source_identity": "occupation:occ_example_192",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-192",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 193,
+      "source_identity": "occupation:occ_example_193",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-193",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 194,
+      "source_identity": "occupation:occ_example_194",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-194",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 195,
+      "source_identity": "occupation:occ_example_195",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-195",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 196,
+      "source_identity": "occupation:occ_example_196",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-196",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 197,
+      "source_identity": "occupation:occ_example_197",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-197",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 198,
+      "source_identity": "occupation:occ_example_198",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-198",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 199,
+      "source_identity": "occupation:occ_example_199",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-199",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 200,
+      "source_identity": "occupation:occ_example_200",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-200",
+      "kind": "occupation_activity_example",
+      "dimension": "E"
+    },
+    {
+      "source_line": 201,
+      "source_identity": "occupation:occ_example_201",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-201",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 202,
+      "source_identity": "occupation:occ_example_202",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-202",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 203,
+      "source_identity": "occupation:occ_example_203",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-203",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 204,
+      "source_identity": "occupation:occ_example_204",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-204",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 205,
+      "source_identity": "occupation:occ_example_205",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-205",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 206,
+      "source_identity": "occupation:occ_example_206",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-206",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 207,
+      "source_identity": "occupation:occ_example_207",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-207",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 208,
+      "source_identity": "occupation:occ_example_208",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-208",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 209,
+      "source_identity": "occupation:occ_example_209",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-209",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 210,
+      "source_identity": "occupation:occ_example_210",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-210",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 211,
+      "source_identity": "occupation:occ_example_211",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-211",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 212,
+      "source_identity": "occupation:occ_example_212",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-212",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 213,
+      "source_identity": "occupation:occ_example_213",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-213",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 214,
+      "source_identity": "occupation:occ_example_214",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-214",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 215,
+      "source_identity": "occupation:occ_example_215",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-215",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 216,
+      "source_identity": "occupation:occ_example_216",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-216",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 217,
+      "source_identity": "occupation:occ_example_217",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-217",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 218,
+      "source_identity": "occupation:occ_example_218",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-218",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 219,
+      "source_identity": "occupation:occ_example_219",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-219",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 220,
+      "source_identity": "occupation:occ_example_220",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-220",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 221,
+      "source_identity": "occupation:occ_example_221",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-221",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 222,
+      "source_identity": "occupation:occ_example_222",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-222",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 223,
+      "source_identity": "occupation:occ_example_223",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-223",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 224,
+      "source_identity": "occupation:occ_example_224",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-224",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 225,
+      "source_identity": "occupation:occ_example_225",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-225",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 226,
+      "source_identity": "occupation:occ_example_226",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-226",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 227,
+      "source_identity": "occupation:occ_example_227",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-227",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 228,
+      "source_identity": "occupation:occ_example_228",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-228",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 229,
+      "source_identity": "occupation:occ_example_229",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-229",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 230,
+      "source_identity": "occupation:occ_example_230",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-230",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 231,
+      "source_identity": "occupation:occ_example_231",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-231",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 232,
+      "source_identity": "occupation:occ_example_232",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-232",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 233,
+      "source_identity": "occupation:occ_example_233",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-233",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 234,
+      "source_identity": "occupation:occ_example_234",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-234",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 235,
+      "source_identity": "occupation:occ_example_235",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-235",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 236,
+      "source_identity": "occupation:occ_example_236",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-236",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 237,
+      "source_identity": "occupation:occ_example_237",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-237",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 238,
+      "source_identity": "occupation:occ_example_238",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-238",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 239,
+      "source_identity": "occupation:occ_example_239",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-239",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 240,
+      "source_identity": "occupation:occ_example_240",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-240",
+      "kind": "occupation_activity_example",
+      "dimension": "C"
+    },
+    {
+      "source_line": 241,
+      "source_identity": "occupation:occ_example_commercial_001",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-001",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 242,
+      "source_identity": "occupation:occ_example_commercial_002",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-002",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 243,
+      "source_identity": "occupation:occ_example_commercial_003",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-003",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 244,
+      "source_identity": "occupation:occ_example_commercial_004",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-004",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 245,
+      "source_identity": "occupation:occ_example_commercial_005",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-005",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 246,
+      "source_identity": "occupation:occ_example_commercial_006",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-006",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 247,
+      "source_identity": "occupation:occ_example_commercial_007",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-007",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 248,
+      "source_identity": "occupation:occ_example_commercial_008",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-008",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 249,
+      "source_identity": "occupation:occ_example_commercial_009",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-009",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 250,
+      "source_identity": "occupation:occ_example_commercial_010",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-010",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 251,
+      "source_identity": "occupation:occ_example_commercial_011",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-011",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 252,
+      "source_identity": "occupation:occ_example_commercial_012",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-012",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 253,
+      "source_identity": "occupation:occ_example_commercial_013",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-013",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 254,
+      "source_identity": "occupation:occ_example_commercial_014",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-014",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 255,
+      "source_identity": "occupation:occ_example_commercial_015",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-015",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 256,
+      "source_identity": "occupation:occ_example_commercial_016",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-016",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 257,
+      "source_identity": "occupation:occ_example_commercial_017",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-017",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 258,
+      "source_identity": "occupation:occ_example_commercial_018",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-018",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 259,
+      "source_identity": "occupation:occ_example_commercial_019",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-019",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 260,
+      "source_identity": "occupation:occ_example_commercial_020",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-020",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 261,
+      "source_identity": "occupation:occ_example_commercial_021",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-021",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 262,
+      "source_identity": "occupation:occ_example_commercial_022",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-022",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 263,
+      "source_identity": "occupation:occ_example_commercial_023",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-023",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 264,
+      "source_identity": "occupation:occ_example_commercial_024",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-024",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 265,
+      "source_identity": "occupation:occ_example_commercial_025",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-025",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 266,
+      "source_identity": "occupation:occ_example_commercial_026",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-026",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 267,
+      "source_identity": "occupation:occ_example_commercial_027",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-027",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 268,
+      "source_identity": "occupation:occ_example_commercial_028",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-028",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 269,
+      "source_identity": "occupation:occ_example_commercial_029",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-029",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 270,
+      "source_identity": "occupation:occ_example_commercial_030",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-030",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 271,
+      "source_identity": "occupation:occ_example_commercial_031",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-031",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 272,
+      "source_identity": "occupation:occ_example_commercial_032",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-032",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 273,
+      "source_identity": "occupation:occ_example_commercial_033",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-033",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 274,
+      "source_identity": "occupation:occ_example_commercial_034",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-034",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 275,
+      "source_identity": "occupation:occ_example_commercial_035",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-035",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 276,
+      "source_identity": "occupation:occ_example_commercial_036",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-036",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 277,
+      "source_identity": "occupation:occ_example_commercial_037",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-037",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 278,
+      "source_identity": "occupation:occ_example_commercial_038",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-038",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 279,
+      "source_identity": "occupation:occ_example_commercial_039",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-039",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 280,
+      "source_identity": "occupation:occ_example_commercial_040",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-040",
+      "kind": "occupation_activity_example",
+      "dimension": "R"
+    },
+    {
+      "source_line": 281,
+      "source_identity": "occupation:occ_example_commercial_041",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-041",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 282,
+      "source_identity": "occupation:occ_example_commercial_042",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-042",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 283,
+      "source_identity": "occupation:occ_example_commercial_043",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-043",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 284,
+      "source_identity": "occupation:occ_example_commercial_044",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-044",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 285,
+      "source_identity": "occupation:occ_example_commercial_045",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-045",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 286,
+      "source_identity": "occupation:occ_example_commercial_046",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-046",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 287,
+      "source_identity": "occupation:occ_example_commercial_047",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-047",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 288,
+      "source_identity": "occupation:occ_example_commercial_048",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-048",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 289,
+      "source_identity": "occupation:occ_example_commercial_049",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-049",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 290,
+      "source_identity": "occupation:occ_example_commercial_050",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-050",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 291,
+      "source_identity": "occupation:occ_example_commercial_051",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-051",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 292,
+      "source_identity": "occupation:occ_example_commercial_052",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-052",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 293,
+      "source_identity": "occupation:occ_example_commercial_053",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-053",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 294,
+      "source_identity": "occupation:occ_example_commercial_054",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-054",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 295,
+      "source_identity": "occupation:occ_example_commercial_055",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-055",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 296,
+      "source_identity": "occupation:occ_example_commercial_056",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-056",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 297,
+      "source_identity": "occupation:occ_example_commercial_057",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-057",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 298,
+      "source_identity": "occupation:occ_example_commercial_058",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-058",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 299,
+      "source_identity": "occupation:occ_example_commercial_059",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-059",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 300,
+      "source_identity": "occupation:occ_example_commercial_060",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-060",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 301,
+      "source_identity": "occupation:occ_example_commercial_061",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-061",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 302,
+      "source_identity": "occupation:occ_example_commercial_062",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-062",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 303,
+      "source_identity": "occupation:occ_example_commercial_063",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-063",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 304,
+      "source_identity": "occupation:occ_example_commercial_064",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-064",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 305,
+      "source_identity": "occupation:occ_example_commercial_065",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-065",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 306,
+      "source_identity": "occupation:occ_example_commercial_066",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-066",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 307,
+      "source_identity": "occupation:occ_example_commercial_067",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-067",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 308,
+      "source_identity": "occupation:occ_example_commercial_068",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-068",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 309,
+      "source_identity": "occupation:occ_example_commercial_069",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-069",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 310,
+      "source_identity": "occupation:occ_example_commercial_070",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-070",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 311,
+      "source_identity": "occupation:occ_example_commercial_071",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-071",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 312,
+      "source_identity": "occupation:occ_example_commercial_072",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-072",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 313,
+      "source_identity": "occupation:occ_example_commercial_073",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-073",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 314,
+      "source_identity": "occupation:occ_example_commercial_074",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-074",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 315,
+      "source_identity": "occupation:occ_example_commercial_075",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-075",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 316,
+      "source_identity": "occupation:occ_example_commercial_076",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-076",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 317,
+      "source_identity": "occupation:occ_example_commercial_077",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-077",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 318,
+      "source_identity": "occupation:occ_example_commercial_078",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-078",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 319,
+      "source_identity": "occupation:occ_example_commercial_079",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-079",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 320,
+      "source_identity": "occupation:occ_example_commercial_080",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-080",
+      "kind": "occupation_activity_example",
+      "dimension": "I"
+    },
+    {
+      "source_line": 321,
+      "source_identity": "occupation:occ_example_commercial_081",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-081",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 322,
+      "source_identity": "occupation:occ_example_commercial_082",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-082",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 323,
+      "source_identity": "occupation:occ_example_commercial_083",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-083",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 324,
+      "source_identity": "occupation:occ_example_commercial_084",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-084",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 325,
+      "source_identity": "occupation:occ_example_commercial_085",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-085",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 326,
+      "source_identity": "occupation:occ_example_commercial_086",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-086",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 327,
+      "source_identity": "occupation:occ_example_commercial_087",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-087",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 328,
+      "source_identity": "occupation:occ_example_commercial_088",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-088",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 329,
+      "source_identity": "occupation:occ_example_commercial_089",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-089",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 330,
+      "source_identity": "occupation:occ_example_commercial_090",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-090",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 331,
+      "source_identity": "occupation:occ_example_commercial_091",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-091",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 332,
+      "source_identity": "occupation:occ_example_commercial_092",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-092",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 333,
+      "source_identity": "occupation:occ_example_commercial_093",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-093",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 334,
+      "source_identity": "occupation:occ_example_commercial_094",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-094",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 335,
+      "source_identity": "occupation:occ_example_commercial_095",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-095",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 336,
+      "source_identity": "occupation:occ_example_commercial_096",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-096",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 337,
+      "source_identity": "occupation:occ_example_commercial_097",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-097",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 338,
+      "source_identity": "occupation:occ_example_commercial_098",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-098",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 339,
+      "source_identity": "occupation:occ_example_commercial_099",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-099",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 340,
+      "source_identity": "occupation:occ_example_commercial_100",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-100",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 341,
+      "source_identity": "occupation:occ_example_commercial_101",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-101",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 342,
+      "source_identity": "occupation:occ_example_commercial_102",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-102",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 343,
+      "source_identity": "occupation:occ_example_commercial_103",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-103",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 344,
+      "source_identity": "occupation:occ_example_commercial_104",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-104",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 345,
+      "source_identity": "occupation:occ_example_commercial_105",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-105",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 346,
+      "source_identity": "occupation:occ_example_commercial_106",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-106",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 347,
+      "source_identity": "occupation:occ_example_commercial_107",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-107",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 348,
+      "source_identity": "occupation:occ_example_commercial_108",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-108",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 349,
+      "source_identity": "occupation:occ_example_commercial_109",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-109",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 350,
+      "source_identity": "occupation:occ_example_commercial_110",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-110",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 351,
+      "source_identity": "occupation:occ_example_commercial_111",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-111",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 352,
+      "source_identity": "occupation:occ_example_commercial_112",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-112",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 353,
+      "source_identity": "occupation:occ_example_commercial_113",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-113",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 354,
+      "source_identity": "occupation:occ_example_commercial_114",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-114",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 355,
+      "source_identity": "occupation:occ_example_commercial_115",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-115",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 356,
+      "source_identity": "occupation:occ_example_commercial_116",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-116",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 357,
+      "source_identity": "occupation:occ_example_commercial_117",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-117",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 358,
+      "source_identity": "occupation:occ_example_commercial_118",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-118",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 359,
+      "source_identity": "occupation:occ_example_commercial_119",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-119",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    },
+    {
+      "source_line": 360,
+      "source_identity": "occupation:occ_example_commercial_120",
+      "asset_id": "ENPARITY-W4-RIASEC-G05-OCC-COMMERCIAL-120",
+      "kind": "occupation_activity_example",
+      "dimension": "A"
+    }
+  ],
+  "reconciliation": {
+    "activity_source_rows": 360,
+    "occupation_source_rows": 360,
+    "english_candidate_rows": 720,
+    "identity_overlap": 0
+  }
+}

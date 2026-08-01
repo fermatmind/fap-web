@@ -54760,22 +54760,44 @@
     "title": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 produce 15 unordered pair-blend English rows",
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-pair-assets-01",
-    "depends_on": ["EN-PARITY-W4-RIASEC-INVENTORY-01"],
+    "depends_on": [
+      "EN-PARITY-W4-RIASEC-INVENTORY-01"
+    ],
     "status": "github_checks_pending",
     "commit_sha": "5bb2a8dda93aa33ac1034f36b9e4579f698b4326",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1948",
     "checks": {
-      "inventory_dependency": {"status": "pass", "evidence": "W4 inventory CONTROL acceptance is merged as 671536a7134fd9438f0614c6dd68fc9adeaf54e7; origin/main records W4 as inventory_frozen with all write/release permissions false."},
-      "serial_predecessor": {"status": "pass", "evidence": "The fixed queue predecessor EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 is merged in fap-api PR #3474 as 1d689c3409e6628455e669f6cbbe6fbb7fa72f1e before this branch was created."},
-      "source_authority": {"status": "pass", "evidence": "fap-api origin/main 1d689c3409e6628455e669f6cbbe6fbb7fa72f1e contains the 15-row zh-CN pair source with SHA256 f75848ed7e21c80402fa21666703c99f0ae00448039c3a4b3ca93bb707110f9b."},
-      "local_validation": {"status": "pass", "evidence": "Master-only control validation passed; focused control-master contract passed 63/63; pnpm lint . passed; JSON/JSONL and YAML parsing passed; 15 source rows, 15 English rows, 15 mapping rows, and 15 ledger rows reconcile in canonical unordered-pair order; all asset and package permissions are false; assets contain no CJK; five immutable payload SHA values and aggregate SHA 3c1e51c1e97888383435c131d0368b87a40f27f7499ad2b6d887a2921bf29cbc recompute exactly."},
-      "github_required_checks": {"status": "pass", "evidence": "PR #1948 exact checked head ce3ef96286cb7e07ef42ae65c1cff0aea6c7316e passed build, four contract shards and aggregate contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and summary, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."}
+      "inventory_dependency": {
+        "status": "pass",
+        "evidence": "W4 inventory CONTROL acceptance is merged as 671536a7134fd9438f0614c6dd68fc9adeaf54e7; origin/main records W4 as inventory_frozen with all write/release permissions false."
+      },
+      "serial_predecessor": {
+        "status": "pass",
+        "evidence": "The fixed queue predecessor EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 is merged in fap-api PR #3474 as 1d689c3409e6628455e669f6cbbe6fbb7fa72f1e before this branch was created."
+      },
+      "source_authority": {
+        "status": "pass",
+        "evidence": "fap-api origin/main 1d689c3409e6628455e669f6cbbe6fbb7fa72f1e contains the 15-row zh-CN pair source with SHA256 f75848ed7e21c80402fa21666703c99f0ae00448039c3a4b3ca93bb707110f9b."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Master-only control validation passed; focused control-master contract passed 63/63; pnpm lint . passed; JSON/JSONL and YAML parsing passed; 15 source rows, 15 English rows, 15 mapping rows, and 15 ledger rows reconcile in canonical unordered-pair order; all asset and package permissions are false; assets contain no CJK; five immutable payload SHA values and aggregate SHA 3c1e51c1e97888383435c131d0368b87a40f27f7499ad2b6d887a2921bf29cbc recompute exactly."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1948 exact checked head ce3ef96286cb7e07ef42ae65c1cff0aea6c7316e passed build, four contract shards and aggregate contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and summary, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."
+      }
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -54784,10 +54806,26 @@
     "url_submission": false,
     "deploy_allowed": false,
     "history": [
-      {"at": "2026-08-01T20:30:00+08:00", "status": "in_progress", "summary": "Started the fixed-queue G03 producer package on clean fap-web origin/main d38a03ace28cefdd7d1c59b855cb574bf71a8ce9 after the merged fap-api dimension predecessor. Scope is 15 unordered English pair candidates plus immutable evidence only; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},
-      {"at": "2026-08-01T20:45:00+08:00", "status": "local_verified", "summary": "Produced and validated all 15 normalized G03 English pair candidates. Master-only control validation, focused 63/63 contract, lint, JSON/JSONL/YAML parsing, no-CJK scan, boundary/permission checks, payload SHA recomputation, diff checks, and exact scope validation pass. The package remains unpublished_candidate and pending independent W9; no control master or runtime state changed."},
-      {"at": "2026-08-01T20:48:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1948 from implementation commit 5bb2a8dda93aa33ac1034f36b9e4579f698b4326. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."},
-      {"at": "2026-08-01T20:54:00+08:00", "status": "ready_to_merge", "summary": "Exact checked head ce3ef96286cb7e07ef42ae65c1cff0aea6c7316e passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact scope and candidate-boundary revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."}
+      {
+        "at": "2026-08-01T20:30:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the fixed-queue G03 producer package on clean fap-web origin/main d38a03ace28cefdd7d1c59b855cb574bf71a8ce9 after the merged fap-api dimension predecessor. Scope is 15 unordered English pair candidates plus immutable evidence only; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."
+      },
+      {
+        "at": "2026-08-01T20:45:00+08:00",
+        "status": "local_verified",
+        "summary": "Produced and validated all 15 normalized G03 English pair candidates. Master-only control validation, focused 63/63 contract, lint, JSON/JSONL/YAML parsing, no-CJK scan, boundary/permission checks, payload SHA recomputation, diff checks, and exact scope validation pass. The package remains unpublished_candidate and pending independent W9; no control master or runtime state changed."
+      },
+      {
+        "at": "2026-08-01T20:48:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1948 from implementation commit 5bb2a8dda93aa33ac1034f36b9e4579f698b4326. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T20:54:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "Exact checked head ce3ef96286cb7e07ef42ae65c1cff0aea6c7316e passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact scope and candidate-boundary revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."
+      }
     ],
     "updated_at": "2026-08-01T20:54:00+08:00"
   },
@@ -54797,21 +54835,40 @@
     "title": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 produce 20 base rows with deterministic 120-code emphasis",
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-top3-assets-01",
-    "depends_on": ["EN-PARITY-W4-RIASEC-PAIR-ASSETS-01"],
+    "depends_on": [
+      "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01"
+    ],
     "status": "github_checks_pending",
     "commit_sha": "2aeeb7fb9762bdfa82126afbb071d23c44df1167",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1950",
     "checks": {
-      "serial_predecessor": {"status":"pass","evidence":"Fixed-queue predecessor EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 merged in fap-web PR #1948 as b4f73504405a24eb83f745a637ffff4221257922; post-merge pair package reconciliation passed before this branch was created."},
-      "source_authority": {"status":"pass","evidence":"fap-api origin/main 738878b2fa00d825e7fbcd936cb98d91ba61e772 contains the 20-row zh-CN top3 source with SHA256 5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7."},
-      "local_validation": {"status":"pass","evidence":"Master-only control validation, focused control-master contract 63/63, and pnpm lint . passed. JSON/JSONL/YAML parsing, 20 source/base/map/ledger rows, 20 x 6 = 120 deterministic ordered-code coverage, no duplicate ordered reader assets, no-CJK scan, boundary/permission checks, and six-payload aggregate SHA d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c recomputation passed."},
-      "github_required_checks": {"status":"pass","evidence":"PR #1950 exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed build, four contract shards and aggregate contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and summary, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."}
+      "serial_predecessor": {
+        "status": "pass",
+        "evidence": "Fixed-queue predecessor EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 merged in fap-web PR #1948 as b4f73504405a24eb83f745a637ffff4221257922; post-merge pair package reconciliation passed before this branch was created."
+      },
+      "source_authority": {
+        "status": "pass",
+        "evidence": "fap-api origin/main 738878b2fa00d825e7fbcd936cb98d91ba61e772 contains the 20-row zh-CN top3 source with SHA256 5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Master-only control validation, focused control-master contract 63/63, and pnpm lint . passed. JSON/JSONL/YAML parsing, 20 source/base/map/ledger rows, 20 x 6 = 120 deterministic ordered-code coverage, no duplicate ordered reader assets, no-CJK scan, boundary/permission checks, and six-payload aggregate SHA d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c recomputation passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1950 exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed build, four contract shards and aggregate contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and summary, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."
+      }
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only":true,"local_validation_passed":true,"github_checks_green":true,"post_merge_revalidated":false},
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -54819,7 +54876,28 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."},{"at":"2026-08-01T21:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1950 from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."},{"at":"2026-08-01T21:35:00+08:00","status":"ready_to_merge","summary":"Exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact 20-base/120-ordered and scope revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."}],
+    "history": [
+      {
+        "at": "2026-08-01T21:10:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."
+      },
+      {
+        "at": "2026-08-01T21:24:00+08:00",
+        "status": "local_verified",
+        "summary": "Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."
+      },
+      {
+        "at": "2026-08-01T21:27:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1950 from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T21:35:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "Exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact 20-base/120-ordered and scope revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."
+      }
+    ],
     "updated_at": "2026-08-01T21:35:00+08:00"
   },
   "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01": {
@@ -54910,5 +54988,67 @@
       }
     ],
     "updated_at": "2026-08-01T13:18:19Z"
+  },
+  "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01": {
+    "id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01 produce 720 examples-only activity and occupation English rows",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-activity-assets-01",
+    "depends_on": [
+      "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01"
+    ],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "serial_predecessor": {
+        "status": "pass",
+        "evidence": "Fixed-queue predecessor EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 is merged in fap-web as 5b1630d1156a2bd0193d9926205becd02734e15a before this branch was created."
+      },
+      "source_authority": {
+        "status": "pass",
+        "evidence": "fap-api origin/main b942ff12ffedb63b019311001cbff21beb776fa2 retains the 360-row activity source SHA256 71ab33481ee2ba5a7172eb3577254787beee0121976fac8d0bc4efaa92ebfb4d and 360-row occupation source SHA256 a94403c1f07e37af9bfb64cd8a107321716499fb52fc5e223870e159eecfcd7a."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Master-only control validation passed; focused control-master contract passed 63/63; full ESLint passed. JSON/JSONL/YAML parsing, exact 360 activity + 360 occupation = 720 identity reconciliation, mapping/ledger uniqueness, no-CJK scan, boundary/permission checks, seven immutable payload SHA values, and aggregate SHA 4b8e9ac0eb0741b81745aa45809139cb22b5e731de5987c456b1ff09dd0acd9b recomputation passed. Package remains unpublished_candidate and pending independent W9."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T22:10:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the fixed-queue G05 producer package from clean fap-web origin/main 5b1630d1156a2bd0193d9926205becd02734e15a after the merged G04 predecessor. Scope is exactly 360 activity-task and 360 occupation-activity English machine-translation candidates plus immutable evidence only; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."
+      },
+      {
+        "at": "2026-08-01T22:28:00+08:00",
+        "status": "local_verified",
+        "summary": "Produced and validated exactly 720 physical G05 English candidates: 360 activity-task and 360 occupation-activity identities. The candidates are machine translations explicitly marked pending independent W9; control validation, focused 63/63 contract, ESLint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, seven-payload SHA recomputation, diff checks, and exact scope validation pass. No master, W9 PASS, package freeze, import, runtime, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T22:35:00+08:00",
+        "status": "local_verified",
+        "summary": "Rebased onto current fap-web origin/main ca636a5e3647d382a6255f3b52efd7f6ffdf7192 after an unrelated W3 CONTROL merge, retained both ledger entries, rebound the producer source commit, and regenerated the seven-payload package aggregate SHA. W4 master remains untouched."
+      }
+    ],
+    "updated_at": "2026-08-01T22:35:00+08:00"
   }
 }
