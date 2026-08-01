@@ -1,0 +1,37 @@
+{
+  "schema_version": "fermatmind.en_content_parity_dry_run_readiness.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W2",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "generated_at": "2026-08-01T07:05:00Z",
+  "status": "PACKAGE_FROZEN_READY_FOR_INDEPENDENT_W9",
+  "ready_for_inventory_frozen": true,
+  "ready_for_package_in_progress": true,
+  "ready_for_package_frozen": true,
+  "ready_for_w9": true,
+  "ready_for_import": false,
+  "ready_for_runtime": false,
+  "ready_for_production": false,
+  "blockers": [],
+  "next_gate": "independent_W9_QA_for_exact_frozen_package_SHA",
+  "zero_write_confirmation": {
+    "cms_writes": 0,
+    "staging_writes": 0,
+    "production_imports": 0,
+    "public_releases": 0,
+    "seo_runtime_releases": 0,
+    "search_submissions": 0,
+    "master_manifest_writes": 0,
+    "private_attempts_accessed": 0
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
