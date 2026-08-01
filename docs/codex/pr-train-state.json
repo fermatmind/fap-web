@@ -55159,7 +55159,7 @@
     "branch": "codex/en-parity-w9-w3-articles-independent-qa-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01"],
     "status": "github_checks_pending_rebased",
-    "commit_sha": "83351e9125a4bf5f0e0899bfe1a2ac32a8c15a83",
+    "commit_sha": "83351e916ac633afa2d9e319476758124f455405",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1954",
     "checks": {
       "dependency": {"status": "pass", "evidence": "CONTROL W3-ARTICLES package freeze is merged on origin/main at 02c028e1c81712fa242c8fe4496f74a4ce673f46 and retains package_frozen with exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e."},
