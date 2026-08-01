@@ -1,0 +1,94 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_scan_manifest.v1",
+  "artifact_kind": "planning_only_readonly_scan",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "lane_name": "RIASEC English parity",
+  "priority": "L3",
+  "wave": 2,
+  "scan_date": "2026-08-01",
+  "output_directory": "generated/en-content-parity/W4-riasec/scan/",
+  "repository_preflight": {
+    "fap_web": {
+      "head": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+      "origin_main": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+      "branch": "main",
+      "clean": true
+    },
+    "fap_api": {
+      "source_snapshot_commit": "e5997548beb7da3f9850b7d382a015e175b0397d",
+      "local_checkout_unchanged": "980a38b524c182107b1ee831e3cd5bd5265c0931",
+      "clean": true
+    }
+  },
+  "bootstrap_merge_sha": "8078c9bf587560727969883dc13c81eb5e5a7365",
+  "master_manifest_path": "docs/seo/generated/en-content-parity-control-master.v1.json",
+  "master_manifest_sha256": "7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1",
+  "current_control_state": {
+    "launch_state": "launch_ready",
+    "status": "not_started",
+    "next_action": "Execute EN-PARITY-W4-RIASEC-INVENTORY-01 against the latest fap-web and fap-api main SHAs; freeze only the canonical 14-group inventory candidate before any content production."
+  },
+  "scan_verdict": "INVENTORY_FREEZE_EVIDENCE_REFRESHED",
+  "canonical_group_map_confirmed": true,
+  "logical_group_count": 14,
+  "expanded_inventory_row_count": 1550,
+  "zh_atomic_rows_present": 1550,
+  "en_physical_rows_present": 7,
+  "en_physical_rows_missing": 1543,
+  "en_parity_ready_rows": 0,
+  "en_parity_gap_rows": 1550,
+  "parity_ready_logical_group_count": 0,
+  "manifest_count_reconciliation": "expected_en_count/current_en_count/remaining_en_count are logical-group completion counts (14/0/14), not physical or atomic row counts.",
+  "primary_blockers": [
+    "Inventory candidate is created but CONTROL acceptance is still required before master status changes.",
+    "Inventory candidate is created but CONTROL acceptance is still required before master status changes.",
+    "Deep, activity, and feedback backend authorities are zh-CN-only and can leak Chinese into an en projection.",
+    "Seven existing English safe-variant rows are draft_human_review_required and runtime availability does not gate on review status.",
+    "No W4 package SHA or W9 independent QA exists."
+  ],
+  "generated_files": [
+    "w4_scan_manifest.json",
+    "canonical_14_group_map.json",
+    "expanded_asset_inventory.jsonl",
+    "pair_coverage_matrix.json",
+    "form_surface_matrix.json",
+    "source_authority_ledger.json",
+    "claim_boundary_findings.json",
+    "frontend_backend_gap_map.json",
+    "pr_decomposition.json",
+    "w4_pr_dependency_dag.md",
+    "handoff.md",
+    "sha256_manifest.json"
+  ],
+  "sensitive_data_boundary": {
+    "env_read": false,
+    "private_attempt_accessed": false,
+    "raw_score_or_vector_accessed": false,
+    "percentile_accessed": false,
+    "selector_trace_accessed": false,
+    "report_token_or_private_pdf_url_accessed": false,
+    "user_order_payment_data_accessed": false
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  },
+  "formal_package_outputs_created_after_launch_ready": [
+    "scope_manifest.json",
+    "assets.jsonl",
+    "translation_map.json",
+    "source_ledger.json",
+    "claim_boundary_report.json",
+    "editorial_review.json",
+    "dry_run_readiness.json",
+    "sha256_manifest.json",
+    "master_manifest_patch.candidate.json",
+    "handoff.md"
+  ]
+}

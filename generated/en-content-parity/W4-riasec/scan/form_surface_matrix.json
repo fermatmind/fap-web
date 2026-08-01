@@ -1,0 +1,275 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_form_surface_matrix.v1",
+  "lane_id": "W4",
+  "forms": [
+    "riasec_60",
+    "riasec_140"
+  ],
+  "surfaces": [
+    "private_result",
+    "report_snapshot",
+    "public_share",
+    "private_pdf",
+    "private_history",
+    "exploration_overlay"
+  ],
+  "private_result_indexability": "noindex",
+  "rows": [
+    {
+      "group_id": "W4-G01",
+      "canonical_group_name": "six_dimension_deep_interpretation",
+      "expected_expanded_rows": 24,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G02",
+      "canonical_group_name": "core_drive_cost_shadow",
+      "expected_expanded_rows": 18,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G03",
+      "canonical_group_name": "pair_blend_15_unordered",
+      "expected_expanded_rows": 15,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G04",
+      "canonical_group_name": "top3_code_activity_composition",
+      "expected_expanded_rows": 20,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G05",
+      "canonical_group_name": "career_activity_families_examples_only",
+      "expected_expanded_rows": 720,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "activity_explorer",
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G06",
+      "canonical_group_name": "140q_task_environment_role_narrative",
+      "expected_expanded_rows": 126,
+      "supported_forms": [
+        "riasec_140"
+      ],
+      "surfaces": [
+        "pdf",
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "140Q contextual detail only; no accuracy hierarchy and no 60Q raw-score comparison",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G07",
+      "canonical_group_name": "140q_tension_structural_difference",
+      "expected_expanded_rows": 7,
+      "supported_forms": [
+        "riasec_140"
+      ],
+      "surfaces": [
+        "history",
+        "pdf",
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "140Q contextual detail only; no accuracy hierarchy and no 60Q raw-score comparison",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G08",
+      "canonical_group_name": "low_quality_cautious_and_interpretation_state",
+      "expected_expanded_rows": 24,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G09",
+      "canonical_group_name": "aspirations_calibration",
+      "expected_expanded_rows": 70,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G10",
+      "canonical_group_name": "disagree_path",
+      "expected_expanded_rows": 45,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_result",
+        "report_snapshot"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G11",
+      "canonical_group_name": "feedback_action_lab_response",
+      "expected_expanded_rows": 474,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "exploration_overlay",
+        "private_result"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G12",
+      "canonical_group_name": "share_safe_variant",
+      "expected_expanded_rows": 3,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "public_share"
+      ],
+      "share_rows": 3,
+      "pdf_rows": 0,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "public-summary-safe only"
+    },
+    {
+      "group_id": "W4-G13",
+      "canonical_group_name": "pdf_safe_variant",
+      "expected_expanded_rows": 2,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_pdf"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 2,
+      "history_rows": 0,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    },
+    {
+      "group_id": "W4-G14",
+      "canonical_group_name": "history_safe_variant",
+      "expected_expanded_rows": 2,
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "surfaces": [
+        "private_history"
+      ],
+      "share_rows": 0,
+      "pdf_rows": 0,
+      "history_rows": 2,
+      "form_boundary": "shared interest interpretation where applicable",
+      "public_safety": "private or snapshot-bound; no public indexing implication"
+    }
+  ],
+  "surface_totals": {
+    "share_rows": 3,
+    "pdf_rows": 2,
+    "history_rows": 2
+  }
+}

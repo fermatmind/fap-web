@@ -54332,5 +54332,40 @@
       }
     ],
     "updated_at": "2026-08-01T17:32:00+08:00"
+  },
+  "EN-PARITY-W4-RIASEC-INVENTORY-01": {
+    "id": "EN-PARITY-W4-RIASEC-INVENTORY-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-INVENTORY-01 freeze canonical 14-group and 1550-row RIASEC English inventory",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-inventory-01",
+    "depends_on": [],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "preflight": {
+        "status": "pass",
+        "evidence": "W4 is launch_ready/not_started at fap-web origin/main c3688ac568c2d8de7f542bc5ca11c2a00b42d59e with 14/0/14 logical-group counts, null package/QA fields, empty lineage, and all permissions false. The fap-api source snapshot is e5997548beb7da3f9850b7d382a015e175b0397d; its delta from the prior scan source contains no RIASEC/Holland/interest paths."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T17:20:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the launch-ready W4 inventory freeze from latest fap-web main. Scope is limited to the 14 logical groups, 1550 atomic identities, candidate envelope, and train metadata; no reader copy, runtime, CMS, import, publication, or deploy work is authorized."
+      }
+    ],
+    "updated_at": "2026-08-01T17:20:00+08:00"
   }
 }

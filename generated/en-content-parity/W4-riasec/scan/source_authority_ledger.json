@@ -1,0 +1,371 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_source_authority_ledger.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "repositories": {
+    "fap-web": {
+      "head": "8078c9bf587560727969883dc13c81eb5e5a7365",
+      "origin_main": "8078c9bf587560727969883dc13c81eb5e5a7365",
+      "clean_at_preflight": true
+    },
+    "fap-api": {
+      "head": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
+      "origin_main": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
+      "clean_at_preflight": true
+    },
+    "fap_web": {
+      "head": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+      "origin_main": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+      "clean_at_preflight": true
+    },
+    "fap_api": {
+      "source_snapshot_commit": "e5997548beb7da3f9850b7d382a015e175b0397d",
+      "local_checkout_unchanged": "980a38b524c182107b1ee831e3cd5bd5265c0931",
+      "clean_at_preflight": true
+    }
+  },
+  "sources": [
+    {
+      "repo": "fap-web",
+      "relative_path": "docs/seo/generated/en-content-parity-control-master.v1.json",
+      "evidence_class": "control_master",
+      "sha256": "7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-web",
+      "relative_path": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+      "evidence_class": "control_schema",
+      "sha256": "bf9750a08add59feff745bc8aea7ce28c89ceeeb464e7050e852ebc80ec704e6",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-web",
+      "relative_path": "docs/codex/riasec-full-content-pack-asset-inventory.md",
+      "evidence_class": "historical_inventory",
+      "sha256": "648f5eb61bd6a7ff833e311601a232ee43b23a81065d4dbf760f47f6636dc372",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-web",
+      "relative_path": "docs/codex/riasec-full-content-pack-14-smoke-acceptance.md",
+      "evidence_class": "historical_smoke_gate",
+      "sha256": "f8a2d91e4d86d849d56ff5bcdfdbdd6b68a26a4f0e8ffff5ff82bfee638d8791",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-web",
+      "relative_path": "lib/riasec/resultAssembler.ts",
+      "evidence_class": "frontend_consumer",
+      "sha256": "3ff04b411d3f04daa90fdeddba28f4ad580feb1d46c3e266d986f7bb24aa8651",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-web",
+      "relative_path": "components/result/riasec/RiasecResultShell.tsx",
+      "evidence_class": "frontend_renderer",
+      "sha256": "c4b7acdc3e872c1b0cf01542919c6c42c57ebe8845c5cff2ebeab691e4614134",
+      "authority_state": "revalidated_current_repo_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecContentRegistrySlotContract.php",
+      "evidence_class": "slot_contract",
+      "sha256": "fc76d60575c30bd55d48539c42c30f8fca7f9099fcdd45011772817379ef8aca",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+      "evidence_class": "deep_registry",
+      "sha256": "aee35b152a883fcf51f5468a8307b7bb4988f419584eb941035dadea1c0cf238",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+      "evidence_class": "public_projection",
+      "sha256": "fd7b546ef5df10d72023850f3aced2fc3444665b22a33e3bed794cccf49aa3b6",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Report/RiasecReportComposer.php",
+      "evidence_class": "report_composer",
+      "sha256": "448d3c7af502a0980d06be1cc6b784847aea38e9e7304820ff35f3d6757dd19d",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecActivityExplorerService.php",
+      "evidence_class": "activity_authority",
+      "sha256": "a80abcb368e9caedc2daf37692f0e0c452a52b314df4216e111753882feb8a40",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php",
+      "evidence_class": "feedback_authority",
+      "sha256": "fbce0139698cd12a497a1a37009aa676b2d6e47cf624b2f770c27851df29f3bd",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/app/Services/Riasec/RiasecLifecycleCopyService.php",
+      "evidence_class": "lifecycle_authority",
+      "sha256": "cbdfa1cce916a2258fc334f6a6ad8ede8e37fef1cb502f105113b52064c0509b",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/dimension_deep_copy_v1.zh-CN.r3.json",
+      "evidence_class": "reader_asset",
+      "sha256": "1bd0a0c3530d00298a686468cc431df86897fa1607f3fadaaffe08afe7ace59f",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/pair_blend_15_pairs_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "f75848ed7e21c80402fa21666703c99f0ae00448039c3a4b3ca93bb707110f9b",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/top3_code_chain_strategy_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "5d5d4a03e7cca68fb347def9394e7217c455c28e7460c74b2ac378977bfc12e7",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/activity_task_examples_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "71ab33481ee2ba5a7172eb3577254787beee0121976fac8d0bc4efaa92ebfb4d",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/occupation_examples_boundary_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "a94403c1f07e37af9bfb64cd8a107321716499fb52fc5e223870e159eecfcd7a",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/140q_task_environment_role_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "e3461f36b5650d51c538dc6945beb62b653a5cec3a5886d519c1e72a3c4b336f",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/low_quality_cautious_reading_v1.zh-CN.json",
+      "evidence_class": "reader_asset",
+      "sha256": "3c68967f79e158552463668875cff003d821a9302d1659f7f6d9d8ccb1b1762d",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/profile_shape_copy_v1.zh-CN.json",
+      "evidence_class": "reader_asset",
+      "sha256": "c6a14141cb06f03494c6ed8004dc53e36e934105a474db13a354e6c57cc0ccb0",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/top_code_confidence_copy_v1.zh-CN.json",
+      "evidence_class": "reader_asset",
+      "sha256": "6db4d7179dd673595e6a899c0f1630252216c8fe6e57dc0f0633c2339919f966",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/near_tie_alternate_code_copy_v1.zh-CN.json",
+      "evidence_class": "reader_asset",
+      "sha256": "6173bdcc0610863f4effc524f839f42f8ad89ab0f131f476e086d6afecb1ac30",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/aspirations_calibration_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "2c1078f96f4d8015c081ef6bf791315788740bf6245b531ce4652db0b0d6da3d",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/disagree_path_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "7db2e4be5ac7436a06b634fa63df62c49b9cc7223a0c3c1a266506db0d9cff48",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/feedback_action_lab_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "a576991e41f8b2c4640d60948d4150cecd0fe249462a2e431a5535b1a597898b",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/next_exploration_nodes_v1.zh-CN.jsonl",
+      "evidence_class": "reader_asset",
+      "sha256": "80de05d79a328f2d96554c20327a9bdaa8c02da108180297b859f7b6ae08b5d0",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/share_pdf_history_v1.zh-CN.json",
+      "evidence_class": "reader_asset",
+      "sha256": "b5af9655853d404654e20648887069a72234fd90929011d247dd7bb097f78910",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    },
+    {
+      "repo": "fap-api",
+      "relative_path": "backend/content_assets/riasec/share_pdf_history_v1.en.json",
+      "evidence_class": "reader_asset",
+      "sha256": "87286b66f95c5636f96e7c4ce591c0a669fb4d883aa758c449627558f12a14fe",
+      "authority_state": "revalidated_origin_main_evidence",
+      "private_data_accessed": false
+    }
+  ],
+  "merged_history_evidence": [
+    {
+      "repo": "fap-api",
+      "pr": 1465,
+      "scope": "six-dimension zh asset import",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 1509,
+      "scope": "lifecycle share/PDF/history assets",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 1669,
+      "scope": "historical RIASEC English lifecycle candidates",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2642,
+      "scope": "dimension deep science repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2643,
+      "scope": "pair deep science repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2644,
+      "scope": "140Q layer science repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2645,
+      "scope": "quality science repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2646,
+      "scope": "structural difference repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2647,
+      "scope": "aspirations repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2648,
+      "scope": "disagree repair",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-api",
+      "pr": 2650,
+      "scope": "full RIASEC content final QA",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-web",
+      "pr": 788,
+      "scope": "frontend deep-slot renderer",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-web",
+      "pr": 851,
+      "scope": "frontend full-content hardening",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-web",
+      "pr": 852,
+      "scope": "frontend fixture and claim freeze",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-web",
+      "pr": 853,
+      "scope": "full-content smoke acceptance",
+      "state": "merged"
+    },
+    {
+      "repo": "fap-web",
+      "pr": 1341,
+      "scope": "read-only route/API/PDF/share review",
+      "state": "merged"
+    }
+  ],
+  "excluded_authority": [
+    "External Desktop assets were not read and are candidate-only.",
+    "Career-fit 1046 assets are not RIASEC result-content rows.",
+    "FAQ, professional method boundary, and technical note English rows exist but are outside the canonical W4 14-group cohort.",
+    "Private attempts, scores, vectors, percentiles, tokens, payment/order data, and environment files were not accessed."
+  ],
+  "inventory_freeze_revalidation": {
+    "fap_api_origin_main_commit": "e5997548beb7da3f9850b7d382a015e175b0397d",
+    "prior_scan_api_commit": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
+    "riasec_path_delta": 0,
+    "private_data_accessed": false
+  }
+}
