@@ -31,8 +31,10 @@ type LocaleEvidence = {
   x_robots_tag: string;
   sitemap_included: boolean;
   html: ReturnType<typeof inspectHtml>;
-  seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean; canonical: string };
+  seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean; canonical: string; title: string; description: string; og_payload: { title: string; description: string }; twitter_payload: { title: string; description: string } };
   seo_sha256: string;
+  metadata_matches_authority: boolean;
+  metadata_observation_sha256: string;
   review: { review_state: string; reviewer_status: string; reviewed_at: string; stale: boolean; backend_private_package_match_projected: boolean; public_projection_sha256: string };
   content_version: string;
   content_sha256: string;
@@ -46,6 +48,7 @@ type LocaleEvidence = {
   faq_count: number;
   thin_or_shell: boolean;
   guarantee_matches: string[];
+  public_guarantee_matches: string[];
 };
 
 type Candidate = {
@@ -59,8 +62,9 @@ type Candidate = {
   locales: { en: LocaleEvidence; zh: LocaleEvidence };
 };
 
-function html(url: string): string {
-  return `<html><head><link rel="canonical" href="${url}"/><meta name="robots" content="index, follow"/><script type="application/ld+json">${JSON.stringify({
+function html(url: string, title = url.split("/").at(-1) || "career"): string {
+  const description = `${title} description`;
+  return `<html><head><title>${title} | FermatMind</title><link rel="canonical" href="${url}"/><meta name="robots" content="index, follow"/><meta name="description" content="${description}"/><meta property="og:title" content="${title}"/><meta property="og:description" content="${description}"/><meta name="twitter:title" content="${title}"/><meta name="twitter:description" content="${description}"/><script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "BreadcrumbList", itemListElement: [] },
@@ -85,8 +89,10 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     x_robots_tag: "",
     sitemap_included: true,
     html: inspectHtml(html(url), url),
-    seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true, canonical: url },
+    seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true, canonical: url, title: slug, description: `${slug} description`, og_payload: { title: slug, description: `${slug} description` }, twitter_payload: { title: slug, description: `${slug} description` } },
     seo_sha256: seoSha,
+    metadata_matches_authority: true,
+    metadata_observation_sha256: sha256({ locale, slug, kind: "metadata" }),
     review: { review_state: "approved", reviewer_status: "approved", reviewed_at: "2026-07-31T23:56:27.000Z", stale: false, backend_private_package_match_projected: true, public_projection_sha256: sha256({ locale, slug, kind: "review" }) },
     content_version: "reviewed.v1",
     content_sha256: contentSha,
@@ -100,6 +106,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     faq_count: 3,
     thin_or_shell: false,
     guarantee_matches: [],
+    public_guarantee_matches: [],
   };
 }
 
@@ -159,6 +166,18 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
   });
 
+  it("extracts the exact live title, description, Open Graph, and Twitter metadata", () => {
+    const url = "https://fermatmind.com/en/career/jobs/career-01";
+    expect(inspectHtml(html(url, "Career 01"), url).metadata).toEqual({
+      title: "Career 01 | FermatMind",
+      description: "Career 01 description",
+      og_title: "Career 01",
+      og_description: "Career 01 description",
+      twitter_title: "Career 01",
+      twitter_description: "Career 01 description",
+    });
+  });
+
   it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue({
       status: 302,
@@ -186,6 +205,13 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     "We guarantee you a job.",
   ])("detects a guarantee with intervening words: %s", (claim) => {
     expect(unsupportedGuaranteeMatches(claim)).toHaveLength(1);
+  });
+
+  it("scans rendered public body copy for guarantees independently of API content", () => {
+    const rendered = `<html><body><main>${"career evidence ".repeat(150)} We guarantee that you will get a job.</main></body></html>`;
+    const matches = publicHtmlStats(rendered, "en").guarantee_matches;
+    expect(matches).toHaveLength(1);
+    expect(matches[0]).toContain("We guarantee that you will get a job");
   });
 
   it("is deterministic and orders stable, then quality descending, then slug", () => {
@@ -237,6 +263,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
     ["X-Robots-Tag noindex", (value: Candidate) => { value.locales.en.x_robots_tag = "noindex, nofollow"; }, "en_x_robots_not_indexable"],
     ["X-Robots-Tag none", (value: Candidate) => { value.locales.en.x_robots_tag = "none"; }, "en_x_robots_not_indexable"],
+    ["stale live metadata", (value: Candidate) => { value.locales.en.metadata_matches_authority = false; }, "en_metadata_authority_mismatch"],
+    ["rendered public guarantee", (value: Candidate) => { value.locales.en.public_guarantee_matches = ["We guarantee that you will get a job"]; }, "en_unsupported_public_guarantee_claim"],
     ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
     ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
     ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],

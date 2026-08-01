@@ -98,6 +98,20 @@ function attribute(tag, name) {
   return match ? match[1] : "";
 }
 
+function decodeHtmlEntities(value) {
+  const named = { amp: "&", apos: "'", gt: ">", lt: "<", nbsp: " ", quot: '"' };
+  return String(value).replace(/&(?:#(\d+)|#x([0-9a-f]+)|([a-z]+));/gi, (match, decimal, hexadecimal, entity) => {
+    if (decimal) return String.fromCodePoint(Number(decimal));
+    if (hexadecimal) return String.fromCodePoint(Number.parseInt(hexadecimal, 16));
+    return named[entity.toLowerCase()] ?? match;
+  }).trim();
+}
+
+function metaContent(tags, key, value) {
+  const tag = tags.find((item) => attribute(item, key).toLowerCase() === value);
+  return tag ? decodeHtmlEntities(attribute(tag, "content")) : "";
+}
+
 function flattenJsonLd(value, output = []) {
   if (Array.isArray(value)) value.forEach((item) => flattenJsonLd(item, output));
   else if (value && typeof value === "object") {
@@ -114,6 +128,7 @@ export function inspectHtml(html, expectedUrl) {
   const canonicalTag = linkTags.find((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
   const robotsTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
   const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
+  const titleMatch = head.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i);
   const jsonLdObjects = [];
   for (const match of String(html).matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try {
@@ -138,6 +153,14 @@ export function inspectHtml(html, expectedUrl) {
     robots: robotsValues.length === 1 ? robotsValues[0] : robotsValues.join("|"),
     robots_values: robotsValues,
     index_follow: robotsValues.length === 1 && robotsValues[0] === "index,follow",
+    metadata: {
+      title: decodeHtmlEntities(titleMatch?.[1] || ""),
+      description: metaContent(metaTags, "name", "description"),
+      og_title: metaContent(metaTags, "property", "og:title"),
+      og_description: metaContent(metaTags, "property", "og:description"),
+      twitter_title: metaContent(metaTags, "name", "twitter:title"),
+      twitter_description: metaContent(metaTags, "name", "twitter:description"),
+    },
     jsonld_types: types,
     faq_question_count: faqQuestionCount,
     faq_entities_valid: faqEntities.length > 0 && faqEntities.length === validFaqEntities.length,
@@ -206,7 +229,22 @@ export function publicHtmlStats(html, locale) {
     visible_text_chars: visibleText.length,
     cjk_chars: cjkChars,
     thin_or_shell: visibleText.length < 1800 || (locale === "zh" && cjkChars < 300),
+    guarantee_matches: unsupportedGuaranteeMatches(visibleText),
   };
+}
+
+function metadataMatchesSeoAuthority(metadata, seo) {
+  const authority = {
+    title: string(seo.title),
+    description: string(seo.description),
+    og_title: string(record(seo.og_payload).title),
+    og_description: string(record(seo.og_payload).description),
+    twitter_title: string(record(seo.twitter_payload).title),
+    twitter_description: string(record(seo.twitter_payload).description),
+  };
+  const expected = { ...authority, title: authority.title ? `${authority.title} | FermatMind` : "" };
+  return Object.values(expected).every(Boolean)
+    && Object.entries(expected).every(([key, value]) => metadata[key] === value);
 }
 
 export function exactSitemapLocs(payload) {
@@ -269,6 +307,7 @@ export function evaluateCandidateEvidence(candidate) {
     if (xRobotsDisallowsIndex(evidence.x_robots_tag)) reasons.push(`${prefix}x_robots_not_indexable`);
     if (!evidence.html.self_canonical) reasons.push(`${prefix}canonical_mismatch`);
     if (!evidence.html.index_follow) reasons.push(`${prefix}not_index_follow`);
+    if (!evidence.metadata_matches_authority) reasons.push(`${prefix}metadata_authority_mismatch`);
     if (normalizeRobots(evidence.seo.robots_policy) !== "index,follow" || evidence.seo.index_eligible !== true) {
       reasons.push(`${prefix}seo_not_indexable`);
     }
@@ -289,6 +328,7 @@ export function evaluateCandidateEvidence(candidate) {
     if (!evidence.render_authority_match) reasons.push(`${prefix}rendered_authority_marker_mismatch`);
     if (evidence.seo.canonical !== evidence.url) reasons.push(`${prefix}seo_canonical_mismatch`);
     if (evidence.guarantee_matches.length > 0) reasons.push(`${prefix}unsupported_guarantee_claim`);
+    if (evidence.public_guarantee_matches.length > 0) reasons.push(`${prefix}unsupported_public_guarantee_claim`);
   }
   if (en.review.reviewed_at !== zh.review.reviewed_at) reasons.push("reviewer_evidence_locale_drift");
   if (en.content_version !== zh.content_version) reasons.push("content_version_locale_drift");
@@ -360,6 +400,8 @@ export function buildArtifact({ candidates, observedAt, source }) {
         seo_metadata_fingerprint: evidence.seo.metadata_fingerprint,
         seo_canonical: evidence.seo.canonical,
         seo_sha256: evidence.seo_sha256,
+        metadata_matches_authority: evidence.metadata_matches_authority,
+        metadata_observation_sha256: evidence.metadata_observation_sha256,
         faq_count: evidence.faq_count,
         schema_faq_count: evidence.html.faq_question_count,
         schema_faq_entities_valid: evidence.html.faq_entities_valid,
@@ -370,6 +412,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
         render_authority_marker_sha256: evidence.render_authority_marker_sha256,
         render_authority_match: evidence.render_authority_match,
         unsupported_guarantee_matches: evidence.guarantee_matches,
+        unsupported_public_guarantee_matches: evidence.public_guarantee_matches,
       }];
     })),
   }));
@@ -424,10 +467,12 @@ export function buildArtifact({ candidates, observedAt, source }) {
       dedicated_seo_endpoint_200_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_endpoint_status === 200).length,
       detail_seo_contract_fallback_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_source === "career_detail_seo_contract").length,
       all_self_canonical_index_follow: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
+      all_live_metadata_matches_authority: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.metadata_matches_authority)),
       all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
       all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
       all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.schema_faq_entities_valid && item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
       all_rendered_authority_markers_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.render_authority_match)),
+      all_public_guarantee_scans_clear: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.unsupported_public_guarantee_matches.length === 0)),
       exact_target_shape: exactShape.valid,
     },
     negative_guarantees: {
@@ -502,6 +547,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const stats = detailStats(detail, locale);
   const renderedStats = publicHtmlStats(pageResult.payload, locale);
   const renderAuthorityMatch = stats.render_markers.length >= 3 && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
+  const html = inspectHtml(pageResult.payload, url);
   const seoCanonical = resolveAbsoluteUrl(string(seo.canonical_url || seo.canonical_path || seo.canonical_target), args.siteUrl);
   const seoSha256 = effectiveSeoStatus === 200 ? sha256(seo) : "";
   return {
@@ -515,15 +561,21 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     page_final_url: pageResult.final_url,
     x_robots_tag: pageResult.x_robots_tag,
     sitemap_included: sitemapLocs.has(url),
-    html: inspectHtml(pageResult.payload, url),
+    html,
     seo: {
       metadata_contract_version: string(seo.metadata_contract_version),
       metadata_fingerprint: string(seo.metadata_fingerprint),
       robots_policy: string(seo.robots_policy),
       index_eligible: seo.index_eligible === true,
       canonical: seoCanonical,
+      title: string(seo.title),
+      description: string(seo.description),
+      og_payload: record(seo.og_payload),
+      twitter_payload: record(seo.twitter_payload),
     },
     seo_sha256: seoSha256,
+    metadata_matches_authority: metadataMatchesSeoAuthority(html.metadata, seo),
+    metadata_observation_sha256: sha256(html.metadata),
     review: reviewerEvidence(detail, authorityItem, observedAt),
     content_version: string(record(detail.trust_manifest).content_version || record(detail.provenance_meta).content_version),
     quality_score: qualityScore(detail),
@@ -533,6 +585,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     visible_text_chars: renderedStats.visible_text_chars,
     cjk_chars: renderedStats.cjk_chars,
     thin_or_shell: stats.thin_or_shell || renderedStats.thin_or_shell,
+    public_guarantee_matches: renderedStats.guarantee_matches,
     render_authority_marker_count: stats.render_markers.length,
     render_authority_marker_sha256: sha256(stats.render_markers),
     render_authority_match: renderAuthorityMatch,

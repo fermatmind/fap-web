@@ -5,12 +5,12 @@
 `HOLD`; no career Search Channel canary package is authorized.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T06:53:17.481Z`.
+- Read-only observation: `2026-08-01T07:18:39.115Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
-- Complete gate passes: 4; rejected without gate reduction: 46.
-- Hold reason: `insufficient_eligible_candidates:4/10`.
+- Complete gate passes: 1; rejected without gate reduction: 49.
+- Hold reason: `insufficient_eligible_candidates:1/10`.
 - Target-set SHA-256: `null`.
-- Artifact SHA-256: `1dc296998b78981791744ffccb6a83b11658e1af0e017562c96ba6a235907efc`.
+- Artifact SHA-256: `6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438`.
 - Rollback batch ID: `null`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -28,6 +28,7 @@ The following gates remain mandatory for every future selected URL; the frozen r
 - detail API HTTP 200 and current backend `search_entry_authority` eligibility;
 - exact detail payload `identity.canonical_slug` equality with the requested authority row;
 - current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; actual dedicated SEO-endpoint status is preserved separately, while an approved detail `seo_contract` fallback is explicitly labeled and counted rather than rewritten as an endpoint 200;
+- exact crawler-visible title, description, Open Graph title/description, and Twitter title/description equality with the current backend SEO authority, with only a live metadata observation SHA frozen;
 - public page HTTP 200, exact `<head>` self-canonical, and exactly one non-conflicting `<head>` `index,follow` robots meta in the explicit Googlebot view;
 - no non-indexable `X-Robots-Tag` response directive (`noindex`, `nofollow`, or `none`);
 - backend sitemap-source membership for both locales;
@@ -39,6 +40,7 @@ The following gates remain mandatory for every future selected URL; the frozen r
 - approved hero, definition, and FAQ authority markers present in the rendered body, with only marker hashes and counts frozen in the artifact;
 - rendered `FAQPage` and `BreadcrumbList`, with every FAQ entity a structured `Question` plus `acceptedAnswer` and the valid question count equal to visible backend authority;
 - no positive unsupported salary, income, hiring, employment, or career-success guarantee, with negation scoped to the same clause as the matched guarantee.
+- no such unsupported guarantee in the independently rendered public body, even when all approved authority markers remain present.
 
 The private approved target/package SHAs intentionally remain backend-only. PR3 does not copy a live SHA into an "expected" field. It relies on the backend's fail-closed public projection of that private comparison, then freezes independent read-only observation SHAs for PR4 lineage. The generator treats absent, stale, mismatched, or malformed projection evidence as failure. If fewer than 10 candidates pass, it emits `HOLD`, returns no target set, and exits non-zero.
 
