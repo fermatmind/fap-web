@@ -52560,7 +52560,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-06",
     "depends_on": [
@@ -52598,12 +52598,12 @@
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1905 is open for implementation commit 3fefb47cce77554eecbdbb51e8693f688ae5e714 with exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900; required CI and security checks are pending on the pushed exact head."
+        "status": "pass",
+        "evidence": "PR #1905 head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 passed all 11 required CI and security checks. The ready-state ledger commit receives one final required-check cycle before merge."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "Exact-head review, changed-file scope revalidation, mergeability, and required checks remain pending."
+        "status": "pass",
+        "evidence": "GitHub reports head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 MERGEABLE/CLEAN with no required review decision, no reviews, and zero review threads. Exact scope remains limited to the registered W3 Article producer package and train metadata."
       }
     },
     "failure_reason": null,
@@ -52795,9 +52795,14 @@
         "at": "2026-08-01T06:18:55Z",
         "status": "github_checks_pending",
         "summary": "Pushed the isolated rework-06 branch and opened ready PR #1905 for exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T06:24:07Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1905 head fdac00c215ab48fcd3cd0f03b168c82e35e5cb14 passed all 11 required checks and is MERGEABLE/CLEAN with zero review threads. Exact package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900, one-row reader-content scope, 16 unchanged rows, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T06:18:55Z"
+    "updated_at": "2026-08-01T06:24:07Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
