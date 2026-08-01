@@ -1,0 +1,153 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_quality_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "candidate_only",
+  "mappings": [
+    {
+      "source_identity": "confidence:high_confidence",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-HIGH-CONFIDENCE",
+      "translation_group": "cohort:riasec:quality:confidence:high_confidence",
+      "asset_kind": "top_code_confidence_reading"
+    },
+    {
+      "source_identity": "confidence:moderate_confidence",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-MODERATE-CONFIDENCE",
+      "translation_group": "cohort:riasec:quality:confidence:moderate_confidence",
+      "asset_kind": "top_code_confidence_reading"
+    },
+    {
+      "source_identity": "confidence:near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:confidence:near_tie",
+      "asset_kind": "top_code_confidence_reading"
+    },
+    {
+      "source_identity": "confidence:broad_profile",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-BROAD-PROFILE",
+      "translation_group": "cohort:riasec:quality:confidence:broad_profile",
+      "asset_kind": "top_code_confidence_reading"
+    },
+    {
+      "source_identity": "confidence:low_clarity",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-LOW-CLARITY",
+      "translation_group": "cohort:riasec:quality:confidence:low_clarity",
+      "asset_kind": "top_code_confidence_reading"
+    },
+    {
+      "source_identity": "near_tie:top1_top2_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-TOP1-TOP2-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:top1_top2_near_tie",
+      "asset_kind": "near_tie_safe_reading"
+    },
+    {
+      "source_identity": "near_tie:top2_top3_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-TOP2-TOP3-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:top2_top3_near_tie",
+      "asset_kind": "near_tie_safe_reading"
+    },
+    {
+      "source_identity": "near_tie:multi_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-MULTI-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:multi_near_tie",
+      "asset_kind": "near_tie_safe_reading"
+    },
+    {
+      "source_identity": "near_tie:alternate_code_available",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-ALTERNATE-CODE-AVAILABLE",
+      "translation_group": "cohort:riasec:quality:near_tie:alternate_code_available",
+      "asset_kind": "near_tie_safe_reading"
+    },
+    {
+      "source_identity": "profile_shape:clear_code",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-CLEAR-CODE",
+      "translation_group": "cohort:riasec:quality:profile_shape:clear_code",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "profile_shape:blended_code",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-BLENDED-CODE",
+      "translation_group": "cohort:riasec:quality:profile_shape:blended_code",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "profile_shape:broad_profile",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-BROAD-PROFILE",
+      "translation_group": "cohort:riasec:quality:profile_shape:broad_profile",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "profile_shape:near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:profile_shape:near_tie",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "profile_shape:low_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-LOW-QUALITY",
+      "translation_group": "cohort:riasec:quality:profile_shape:low_quality",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "profile_shape:low_clarity",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-LOW-CLARITY",
+      "translation_group": "cohort:riasec:quality:profile_shape:low_clarity",
+      "asset_kind": "profile_shape_reading"
+    },
+    {
+      "source_identity": "quality:top_notice",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-TOP-NOTICE",
+      "translation_group": "cohort:riasec:quality:quality:top_notice",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:user_not_blamed_message",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-USER-NOT-BLAMED-MESSAGE",
+      "translation_group": "cohort:riasec:quality:quality:user_not_blamed_message",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:what_happened_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-WHAT-HAPPENED-EXPLANATION",
+      "translation_group": "cohort:riasec:quality:quality:what_happened_explanation",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:hidden_modules_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-HIDDEN-MODULES-EXPLANATION",
+      "translation_group": "cohort:riasec:quality:quality:hidden_modules_explanation",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:retake_guidance",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-RETAKE-GUIDANCE",
+      "translation_group": "cohort:riasec:quality:quality:retake_guidance",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:share_pdf_boundary",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-SHARE-PDF-BOUNDARY",
+      "translation_group": "cohort:riasec:quality:quality:share_pdf_boundary",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:next_step",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-NEXT-STEP",
+      "translation_group": "cohort:riasec:quality:quality:next_step",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:cautious_reading_notice",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-CAUTIOUS-READING-NOTICE",
+      "translation_group": "cohort:riasec:quality:quality:cautious_reading_notice",
+      "asset_kind": "quality_copy_runtime_slot"
+    },
+    {
+      "source_identity": "quality:minimal_quality_boundary_60q",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-MINIMAL-QUALITY-BOUNDARY-60Q",
+      "translation_group": "cohort:riasec:quality:quality:minimal_quality_boundary_60q",
+      "asset_kind": "quality_copy_runtime_slot"
+    }
+  ]
+}

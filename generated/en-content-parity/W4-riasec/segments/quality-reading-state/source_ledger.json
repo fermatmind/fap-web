@@ -1,0 +1,217 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_quality_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-2026-08-01",
+  "authority": {
+    "repository": "fap-api",
+    "commit": "660280d00a57e58bd8bc76608e19de2492c03f53",
+    "locale": "zh-CN",
+    "sources": [
+      {
+        "path": "backend/content_assets/riasec/low_quality_cautious_reading_v1.zh-CN.json",
+        "sha256": "3c68967f79e158552463668875cff003d821a9302d1659f7f6d9d8ccb1b1762d",
+        "source_kind": "backend_authority"
+      },
+      {
+        "path": "backend/content_assets/riasec/profile_shape_copy_v1.zh-CN.json",
+        "sha256": "c6a14141cb06f03494c6ed8004dc53e36e934105a474db13a354e6c57cc0ccb0",
+        "source_kind": "backend_authority"
+      },
+      {
+        "path": "backend/content_assets/riasec/top_code_confidence_copy_v1.zh-CN.json",
+        "sha256": "6db4d7179dd673595e6a899c0f1630252216c8fe6e57dc0f0633c2339919f966",
+        "source_kind": "backend_authority"
+      },
+      {
+        "path": "backend/content_assets/riasec/near_tie_alternate_code_copy_v1.zh-CN.json",
+        "sha256": "6173bdcc0610863f4effc524f839f42f8ad89ab0f131f476e086d6afecb1ac30",
+        "source_kind": "backend_authority"
+      }
+    ],
+    "registry": {
+      "path": "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+      "slots": 9
+    }
+  },
+  "producer": {
+    "repository": "fap-web",
+    "commit": "02c028e1c81712fa242c8fe4496f74a4ce673f46",
+    "control_status": "inventory_frozen"
+  },
+  "rows": [
+    {
+      "source_row": 1,
+      "source_identity": "confidence:high_confidence",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-HIGH-CONFIDENCE",
+      "translation_group": "cohort:riasec:quality:confidence:high_confidence",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 2,
+      "source_identity": "confidence:moderate_confidence",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-MODERATE-CONFIDENCE",
+      "translation_group": "cohort:riasec:quality:confidence:moderate_confidence",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 3,
+      "source_identity": "confidence:near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:confidence:near_tie",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 4,
+      "source_identity": "confidence:broad_profile",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-BROAD-PROFILE",
+      "translation_group": "cohort:riasec:quality:confidence:broad_profile",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 5,
+      "source_identity": "confidence:low_clarity",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-CONFIDENCE-LOW-CLARITY",
+      "translation_group": "cohort:riasec:quality:confidence:low_clarity",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 6,
+      "source_identity": "near_tie:top1_top2_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-TOP1-TOP2-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:top1_top2_near_tie",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 7,
+      "source_identity": "near_tie:top2_top3_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-TOP2-TOP3-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:top2_top3_near_tie",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 8,
+      "source_identity": "near_tie:multi_near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-MULTI-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:near_tie:multi_near_tie",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 9,
+      "source_identity": "near_tie:alternate_code_available",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-NEAR-TIE-ALTERNATE-CODE-AVAILABLE",
+      "translation_group": "cohort:riasec:quality:near_tie:alternate_code_available",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 10,
+      "source_identity": "profile_shape:clear_code",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-CLEAR-CODE",
+      "translation_group": "cohort:riasec:quality:profile_shape:clear_code",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 11,
+      "source_identity": "profile_shape:blended_code",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-BLENDED-CODE",
+      "translation_group": "cohort:riasec:quality:profile_shape:blended_code",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 12,
+      "source_identity": "profile_shape:broad_profile",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-BROAD-PROFILE",
+      "translation_group": "cohort:riasec:quality:profile_shape:broad_profile",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 13,
+      "source_identity": "profile_shape:near_tie",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-NEAR-TIE",
+      "translation_group": "cohort:riasec:quality:profile_shape:near_tie",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 14,
+      "source_identity": "profile_shape:low_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-LOW-QUALITY",
+      "translation_group": "cohort:riasec:quality:profile_shape:low_quality",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 15,
+      "source_identity": "profile_shape:low_clarity",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-PROFILE-SHAPE-LOW-CLARITY",
+      "translation_group": "cohort:riasec:quality:profile_shape:low_clarity",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 16,
+      "source_identity": "quality:top_notice",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-TOP-NOTICE",
+      "translation_group": "cohort:riasec:quality:quality:top_notice",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 17,
+      "source_identity": "quality:user_not_blamed_message",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-USER-NOT-BLAMED-MESSAGE",
+      "translation_group": "cohort:riasec:quality:quality:user_not_blamed_message",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 18,
+      "source_identity": "quality:what_happened_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-WHAT-HAPPENED-EXPLANATION",
+      "translation_group": "cohort:riasec:quality:quality:what_happened_explanation",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 19,
+      "source_identity": "quality:hidden_modules_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-HIDDEN-MODULES-EXPLANATION",
+      "translation_group": "cohort:riasec:quality:quality:hidden_modules_explanation",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 20,
+      "source_identity": "quality:retake_guidance",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-RETAKE-GUIDANCE",
+      "translation_group": "cohort:riasec:quality:quality:retake_guidance",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 21,
+      "source_identity": "quality:share_pdf_boundary",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-SHARE-PDF-BOUNDARY",
+      "translation_group": "cohort:riasec:quality:quality:share_pdf_boundary",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 22,
+      "source_identity": "quality:next_step",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-NEXT-STEP",
+      "translation_group": "cohort:riasec:quality:quality:next_step",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 23,
+      "source_identity": "quality:cautious_reading_notice",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-CAUTIOUS-READING-NOTICE",
+      "translation_group": "cohort:riasec:quality:quality:cautious_reading_notice",
+      "group_id": "W4-G08"
+    },
+    {
+      "source_row": 24,
+      "source_identity": "quality:minimal_quality_boundary_60q",
+      "asset_id": "ENPARITY-W4-RIASEC-G08-QUALITY-MINIMAL-QUALITY-BOUNDARY-60Q",
+      "translation_group": "cohort:riasec:quality:quality:minimal_quality_boundary_60q",
+      "group_id": "W4-G08"
+    }
+  ],
+  "reconciliation": {
+    "group_id": "W4-G08",
+    "zh_authority_rows": 24,
+    "english_candidate_rows": 24,
+    "identity_unique": true,
+    "private_data_accessed": false
+  }
+}
