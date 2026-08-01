@@ -1,0 +1,9 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_pair_editorial_review.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-2026-08-01",
+  "review_kind": "producer self-check only; not independent W9 QA or editorial approval",
+  "verdict": "PENDING_INDEPENDENT_W9",
+  "completed_self_checks": ["15 of 15 unordered source pairs mapped once", "English candidate rows contain no CJK characters", "each row states an interest/activity boundary", "each row avoids a career, ability, hiring, income, and success conclusion", "all permissions remain false"],
+  "next_gates": ["independent W9 row review", "controlled package freeze", "separate human import approval if authorized later"],
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}
