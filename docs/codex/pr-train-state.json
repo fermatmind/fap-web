@@ -53787,13 +53787,13 @@
     "base": "main",
     "branch": "codex/en-parity-control-w4-launch-ready-01",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "aa92deeaa65e61b399e75f6e8dfad9e43d23db0a",
+    "status": "pending_external_merge",
+    "commit_sha": "ea6f9b55f066cd909b3d74f8640230a48f6f5794",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1934",
     "checks": {
       "preflight": {
         "status": "pass",
-        "evidence": "origin/main aaf3ff5ddce3c2632a633d0952727faec3fdd085 reports W1 qa_pass, W2 package_frozen at exact SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, W3 inventory_frozen, and W4 registered/not_started with all permissions false; producer capacity is available for W4 inventory work."
+        "evidence": "Latest accepted base ae1370e3fe508914296e42b97f0de8703a10ceed retains W1 dry_run_ready, W2 package_frozen at exact SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, W3 inventory_frozen, and W4 registered/not_started with all permissions false; producer capacity is available for W4 inventory work."
       },
       "local_validation": {
         "status": "pass",
@@ -53801,7 +53801,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": null
+        "evidence": "PR #1934 pre-rebase head 2a6ba6b95d49182945d8cdcdf992dcced2b2e78d passed all 11 CI and security checks. The final head rebased onto ae1370e3fe508914296e42b97f0de8703a10ceed must pass a fresh complete check run before merge."
       }
     },
     "failure_reason": null,
@@ -53839,8 +53839,13 @@
         "at": "2026-08-01T08:50:43Z",
         "status": "github_checks_pending",
         "summary": "Rebased after W9-W2 source intake PR #1932 and concurrent W1 dry-run CONTROL PR #1935 entered main at 4c98a7004bde842471d55977fe404e55a97f1094; preserved their train metadata and W1/W9 evidence exactly, replayed only W4 authored commit aa92deeaa65e61b399e75f6e8dfad9e43d23db0a, and reran validator, focused 63/63 contract, ESLint, JSON/YAML, non-W4 lane identity, and exact scope checks successfully."
+      },
+      {
+        "at": "2026-08-01T08:55:57Z",
+        "status": "pending_external_merge",
+        "summary": "Rebased after W1 comparison approval PR #1936 entered main at ae1370e3fe508914296e42b97f0de8703a10ceed; preserved its approval evidence and all non-W4 lane state, replayed only W4 authored commit ea6f9b55f066cd909b3d74f8640230a48f6f5794, and reran validator, focused 63/63 contract, ESLint, JSON/YAML, non-W4 lane identity, and exact scope checks. Merge remains gated on a fresh complete GitHub check run for the final head."
       }
     ],
-    "updated_at": "2026-08-01T08:50:43Z"
+    "updated_at": "2026-08-01T08:55:57Z"
   }
 }
