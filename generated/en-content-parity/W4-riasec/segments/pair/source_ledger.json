@@ -1,0 +1,12 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_pair_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-2026-08-01",
+  "authority": {"repository": "fap-api", "commit": "1d689c3409e6628455e669f6cbbe6fbb7fa72f1e", "path": "backend/content_assets/riasec/pair_blend_15_pairs_v1.zh-CN.jsonl", "sha256": "f75848ed7e21c80402fa21666703c99f0ae00448039c3a4b3ca93bb707110f9b", "locale": "zh-CN"},
+  "producer": {"repository": "fap-web", "commit": "d38a03ace28cefdd7d1c59b855cb574bf71a8ce9", "control_status": "inventory_frozen"},
+  "rows": [
+    {"source_line": 1, "pair_key": "R_I", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-I"}, {"source_line": 2, "pair_key": "R_A", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-A"}, {"source_line": 3, "pair_key": "R_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-S"}, {"source_line": 4, "pair_key": "R_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-E"}, {"source_line": 5, "pair_key": "R_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-C"},
+    {"source_line": 6, "pair_key": "I_A", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-A"}, {"source_line": 7, "pair_key": "I_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-S"}, {"source_line": 8, "pair_key": "I_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-E"}, {"source_line": 9, "pair_key": "I_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-C"}, {"source_line": 10, "pair_key": "A_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-S"},
+    {"source_line": 11, "pair_key": "A_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-E"}, {"source_line": 12, "pair_key": "A_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-C"}, {"source_line": 13, "pair_key": "S_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-S-E"}, {"source_line": 14, "pair_key": "S_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-S-C"}, {"source_line": 15, "pair_key": "E_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-E-C"}
+  ],
+  "reconciliation": {"expected_rows": 15, "source_rows": 15, "target_rows": 15, "pair_normalization": "R_I,R_A,R_S,R_E,R_C,I_A,I_S,I_E,I_C,A_S,A_E,A_C,S_E,S_C,E_C", "legacy_partial_3_of_15_conclusion": "not_used"}
+}

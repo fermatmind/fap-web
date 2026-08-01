@@ -1,0 +1,16 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_pair_package_manifest.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "row_count": 15,
+  "payloads": [
+    {"path": "assets.jsonl", "sha256": "73f25affd59c05b7831d01b4bcf6bcd28fb3c5276a1e6a3ca4ea851bd5101727"},
+    {"path": "translation_map.json", "sha256": "cb996e4f2455bb7d51b31304f15b517e71c05d693a5bd4800140563a66a2a7bf"},
+    {"path": "source_ledger.json", "sha256": "24e9f41f806bebe7c1b3ee9b351e90628f28b42397b1d5fed617db50ddd0e9a8"},
+    {"path": "claim_boundary_report.json", "sha256": "00192667c847b033d362d1ef1e3004d765f59e508fffdfa911a4598c417cc92f"},
+    {"path": "editorial_review.json", "sha256": "d853ca73ed02259783df7663e440a013ebc76502f0388c7fec4d603f86841419"}
+  ],
+  "aggregate_sha256": "3c1e51c1e97888383435c131d0368b87a40f27f7499ad2b6d887a2921bf29cbc",
+  "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}

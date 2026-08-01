@@ -28737,3 +28737,42 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: CONTROL inventory acceptance only; backend RIASEC authority, private-result noindex boundary, and frontend no-fallback rules remain unchanged.
+
+  - id: EN-PARITY-W4-RIASEC-PAIR-ASSETS-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-pair-assets-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 produce 15 unordered pair-blend English rows"
+    depends_on: [EN-PARITY-W4-RIASEC-INVENTORY-01]
+    mode: execute
+    train_scope: w4_riasec_pair_candidate_segment
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Produce exactly 15 English candidate rows for W4-G03 pair_blend_15_unordered from frozen fap-api source identities.
+      - Bind translation mapping, source ledger, claim-boundary self-check, pending independent W9 review, and immutable payload SHA evidence.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/segments/pair/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master/schema, app runtime, components, lib, fap-api runtime, CMS, database, importer, publication, deploy, sitemap, llms, indexability, or Search Channel state.
+      - Add G04-G14 assets, frontend editorial fallback, private-result data, W9 PASS, package_frozen, or any write/release authority.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm lint .
+      - JSON/JSONL parse; exact 15-pair normalization; mapping/ledger uniqueness; no-CJK and claim-boundary scan; payload and aggregate SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api pair authority unchanged
+    repository_rule_impact: adds review-gated W4 English candidate evidence only; no authority transfer, runtime behavior, or discoverability state changes

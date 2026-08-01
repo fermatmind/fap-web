@@ -1,0 +1,24 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_pair_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "candidate_only",
+  "mappings": [
+    {"source_line": 1, "pair_key": "R_I", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-I", "translation_group": "cohort:riasec:pair-blend:R_I"},
+    {"source_line": 2, "pair_key": "R_A", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-A", "translation_group": "cohort:riasec:pair-blend:R_A"},
+    {"source_line": 3, "pair_key": "R_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-S", "translation_group": "cohort:riasec:pair-blend:R_S"},
+    {"source_line": 4, "pair_key": "R_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-E", "translation_group": "cohort:riasec:pair-blend:R_E"},
+    {"source_line": 5, "pair_key": "R_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-R-C", "translation_group": "cohort:riasec:pair-blend:R_C"},
+    {"source_line": 6, "pair_key": "I_A", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-A", "translation_group": "cohort:riasec:pair-blend:I_A"},
+    {"source_line": 7, "pair_key": "I_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-S", "translation_group": "cohort:riasec:pair-blend:I_S"},
+    {"source_line": 8, "pair_key": "I_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-E", "translation_group": "cohort:riasec:pair-blend:I_E"},
+    {"source_line": 9, "pair_key": "I_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-I-C", "translation_group": "cohort:riasec:pair-blend:I_C"},
+    {"source_line": 10, "pair_key": "A_S", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-S", "translation_group": "cohort:riasec:pair-blend:A_S"},
+    {"source_line": 11, "pair_key": "A_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-E", "translation_group": "cohort:riasec:pair-blend:A_E"},
+    {"source_line": 12, "pair_key": "A_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-A-C", "translation_group": "cohort:riasec:pair-blend:A_C"},
+    {"source_line": 13, "pair_key": "S_E", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-S-E", "translation_group": "cohort:riasec:pair-blend:S_E"},
+    {"source_line": 14, "pair_key": "S_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-S-C", "translation_group": "cohort:riasec:pair-blend:S_C"},
+    {"source_line": 15, "pair_key": "E_C", "target_asset_id": "ENPARITY-W4-RIASEC-G03-PAIR-E-C", "translation_group": "cohort:riasec:pair-blend:E_C"}
+  ]
+}
