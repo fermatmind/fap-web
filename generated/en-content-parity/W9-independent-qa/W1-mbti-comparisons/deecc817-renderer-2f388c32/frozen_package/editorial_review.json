@@ -1,0 +1,12 @@
+{
+  "schema_version": "fermatmind.en_content_parity_editorial_review.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "verdict": "PASS",
+  "reviewer_role": "producer_editorial_review",
+  "row_count": 7,
+  "source_package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "independent_w9_substitution": false,
+  "note": "This producer-owned review supports package_frozen only; it cannot authorize qa_pass, import, publication, or release."
+}

@@ -1,0 +1,66 @@
+{
+  "$schema": "../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "base_manifest_sha256": "b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3",
+  "sha256_manifest_path": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/frozen_package/sha256_manifest.json",
+  "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "proposed_status": "qa_pass",
+  "external_package_evidence": {
+    "schema_version": "fermatmind.en_content_parity_external_package_evidence.v1",
+    "source_repository": "fap-api",
+    "source_commit_sha": "c6d2825790311908795b158d138954dfe89c6313",
+    "source_package_path": "backend/content_assets/en-content-parity/W1-mbti/comparisons/w9-correction-deecc817",
+    "manifest_sha256": "dcdd1a20448301c5cd00667727e6d4be7bf5090efd5ce5cf90a192a0224021ba",
+    "row_count_field": "asset_count",
+    "package_sha256_algorithm": "manifest_files_path_nul_sha256_newline_v1"
+  },
+  "gate_evidence": {
+    "gate": "qa_pass",
+    "report_path": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/independent_qa_report.json",
+    "report_sha256": "3b2fc2d61f5153a9e59a25da0d3c5de26e12bc3d44dd1c4c1e109628c455b51b",
+    "report_in_package": false,
+    "owner_lane_id": "W9",
+    "verdict": "PASS",
+    "asset_ids": [
+      "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
+    ],
+    "row_count": 7
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W1-MBTI-CROSS-COMPARISONS",
+      "lane_id": "W1",
+      "asset_type": "mbti_cross_type_comparison",
+      "translation_group": "cohort:mbti:cross-type-comparison",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset and public comparison API",
+      "expected_en_count": 7,
+      "current_en_count": 0,
+      "remaining_en_count": 7,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The current backend authority contains exactly seven published zh-CN cross-type comparison records: enfp-vs-entp, entj-vs-intj, estj-vs-entj, infj-vs-infp, intj-vs-intp, isfp-vs-infp, and istj-vs-isfj.",
+        "Read-only live checks returned 200 for every zh-CN page/API pair and 404 for every English page/API pair.",
+        "The dedicated MbtiCrossTypeComparisonAuthority model is the current storage authority; its public read model is explicitly restricted to zh-CN."
+      ],
+      "notes": "All seven English assets are absent, not drafts or route-only shells. The master authority label is retained as a protected field even though the current implementation uses a dedicated comparison authority table rather than PersonalityPublicContentAsset."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

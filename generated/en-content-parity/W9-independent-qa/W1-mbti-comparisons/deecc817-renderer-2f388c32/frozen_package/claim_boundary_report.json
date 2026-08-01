@@ -1,0 +1,23 @@
+{
+  "schema_version": "fermatmind.en_content_parity_claim_boundary_report.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "verdict": "PASS",
+  "row_count": 7,
+  "checks": {
+    "preference_not_diagnosis": "PASS",
+    "no_fixed_identity_claim": "PASS",
+    "no_recruitment_or_outcome_claim": "PASS",
+    "no_official_certification_claim": "PASS"
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

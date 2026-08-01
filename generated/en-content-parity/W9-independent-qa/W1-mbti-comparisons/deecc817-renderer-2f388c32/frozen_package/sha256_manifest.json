@@ -1,0 +1,17 @@
+{
+  "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "files": [
+    { "path": "scope_manifest.json", "sha256": "5ebcdf0cc3ca1e6b025e5eff72bd69913ef44f4ae3cb53aed649c1b3b3c7bacd" },
+    { "path": "assets.jsonl", "sha256": "34c78136a61ccb71f669f8802e10ee3c52241e2b9f1a8af4d688f128bb08f1ca" },
+    { "path": "translation_map.json", "sha256": "9e2ec7194da42f2b5cb80f06d9a04849211230874fa35193106ad26bbed186ae" },
+    { "path": "source_ledger.json", "sha256": "0a6b3425e0f892050e73a786aa2c1d0440c8e499aae017f8bf54f6fefe434a4c" },
+    { "path": "claim_boundary_report.json", "sha256": "15121e57b794c154582b28242fb63a2a93aae484dbb14ca99ae1c60148cab68c" },
+    { "path": "editorial_review.json", "sha256": "684af198c5dc0040d4022d9cad3a9abde7364cd5ba7e156cc9c4b650cb5f26a4" },
+    { "path": "dry_run_readiness.json", "sha256": "469457c52e0fd235fb85f94e27c96b943e72b38997e8419d1b58b33171fc71db" },
+    { "path": "handoff.md", "sha256": "3a37aa3ab51ce0dca8500e741c2b5ee491796ec1c5c16e8ae7bdfdcba09f0710" }
+  ],
+  "package_sha256": "4c22ddc515088b002989c7be563e3898144972dab37808ba6be9b3cbcd9fae21"
+}

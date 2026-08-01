@@ -1,0 +1,13 @@
+{
+  "schema_version": "fermatmind.en_content_parity_dry_run_readiness.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "dry_run_plan_sha256": "8ff1170e7505db02e447b4db92974e3c9d9464cd45d3f43acd7995a5a5365adb",
+  "row_count": 7,
+  "ready": true,
+  "writes_committed": false,
+  "cms_write_attempted": false,
+  "public_release_attempted": false
+}
