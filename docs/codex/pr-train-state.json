@@ -55773,7 +55773,7 @@
     "branch": "codex/en-parity-control-w3-career-guides-package-frozen-01",
     "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01"],
     "status": "committed",
-    "commit_sha": null,
+    "commit_sha": "496ad608b8b2a52a2a6cf35725385d32d7966f6c",
     "pr_url": null,
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit W3 Career Guides package-freeze CONTROL goal authorizes this manifest and state registration."},
