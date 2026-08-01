@@ -419,5 +419,17 @@
     "required_checks_affected": false,
     "recommended_follow_up": "Clean or globally ignore the local trace directory only in a separately authorized workspace-maintenance task; do not change repository lint policy in this PR.",
     "observed_at": "2026-07-19T06:53:00Z"
+  },
+  {
+    "id": "external-master-update-invalidated-w2-inventory-candidate-20260801",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "branch": "codex/en-parity-w2-big5-inventory-candidate-rebase-01",
+    "blocker_type": "external_control_master_update_invalidated_producer_candidate",
+    "evidence": "After Producer PR A merged, external CONTROL PR #1895 advanced origin/main to 304fd146bd5c9406ee9b9f7348e4f4d9a09da14d and changed the master file SHA-256 from ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d to 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f. The W2 inventory candidate validator rejected the stale base SHA before the CONTROL transition.",
+    "why_not_current_pr_scope": "The master change was merged by an external CONTROL PR after W2 Producer PR A; this repair only rebinds the already-validated W2 candidate to the current pre-transition master and does not change master, W2 content payloads, asset counts, or package SHA.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Merge this minimal candidate-rebase repair, rerun the candidate validator on the exact current master, then execute only EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01. Avoid concurrent CONTROL merges until that acceptance is complete.",
+    "observed_at": "2026-08-01T05:31:00Z"
   }
 ]

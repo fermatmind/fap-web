@@ -349,3 +349,14 @@
 - whether required checks are affected: no; GitHub required checks use a clean checkout without the ignored local trace directory.
 - recommended follow-up: clean or globally ignore the local trace directory only in a separately authorized workspace-maintenance task if desired; do not change repository lint policy in this PR.
 - observed at: 2026-07-19T06:53:00Z
+
+## W2 Inventory Candidate Invalidated by External Master Update
+
+- repo: fermatmind/fap-web
+- PR id / branch: EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01 / codex/en-parity-w2-big5-inventory-candidate-rebase-01
+- blocker type: external CONTROL master update invalidated producer candidate
+- evidence: After W2 Producer PR A merged, external CONTROL PR #1895 advanced `origin/main` to `304fd146bd5c9406ee9b9f7348e4f4d9a09da14d` and changed the master SHA-256 from `ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d` to `326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f`. The W2 candidate validator therefore rejected its stale base SHA before CONTROL A could transition the lane.
+- why not current PR scope: the master update was external to W2 Producer A. This repair changes only the candidate base binding; W2 content payloads, asset counts, package SHA, and the master itself remain unchanged.
+- whether required checks are affected: yes; candidate validation blocks CONTROL A until the exact current base is bound.
+- recommended follow-up: merge the minimal rebase repair, rerun the candidate validator, then execute only CONTROL A. Avoid concurrent CONTROL master merges until acceptance completes.
+- observed at: 2026-08-01T05:31:00Z
