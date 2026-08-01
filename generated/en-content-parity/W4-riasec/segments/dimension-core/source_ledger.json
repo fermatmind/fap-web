@@ -9,7 +9,7 @@
   },
   "producer": {
     "repository": "fap-web",
-    "commit": "f9015f2f3554496edc0452ba3a69b88007ce1d8b",
+    "commit": "58636ff9dbae1f125f83e902d1f84ffb09977474",
     "control_status": "inventory_frozen"
   },
   "rows": [
