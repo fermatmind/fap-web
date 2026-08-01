@@ -54187,5 +54187,75 @@
       }
     ],
     "updated_at": "2026-08-01T09:03:12Z"
+  },
+  "EN-PARITY-W9-W2-INDEPENDENT-QA-01": {
+    "id": "EN-PARITY-W9-W2-INDEPENDENT-QA-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W9-W2-INDEPENDENT-QA-01: independently QA all 118 Big Five English parity rows",
+    "base": "main",
+    "branch": "codex/en-parity-w9-w2-independent-qa-01",
+    "depends_on": [
+      "EN-PARITY-W9-W2-SOURCE-INTAKE-01"
+    ],
+    "status": "github_checks_pending",
+    "commit_sha": "c85d9f80b017d5126b2348511169364f7fad0345",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1939",
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "PR #1932 is merged; origin/main contains merge commit effae9ae5e8d05bacb6a988b418f3a925c057795 and the exact immutable W2 source snapshot remains bound to package SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b."
+      },
+      "independence": {
+        "status": "passed",
+        "evidence": "A fresh gpt-5.6-terra high-reasoning W9 reviewer was forked without producer context and reviewed only the exact immutable source snapshot plus registered authority and renderer contracts; producer semantic review was not read."
+      },
+      "w9_review": {
+        "status": "passed",
+        "evidence": "The independent W9 conclusion is PASS: all 118 deterministic rows (52 public, 50 historical, 16 result) have all eight checks PASS, for 944/944 PASS values and zero BLOCKED rows. Historical findings are restricted to historical completeness; result findings are PASS_FOR_PREIMPORT_CONTRACT."
+      },
+      "local_validation": {
+        "status": "passed",
+        "evidence": "Focused W2 source-intake, W2 independent-QA, and control-master Vitest passed 65/65; ESLint passed for the new contract and deterministic report writer; the current control validator passed; YAML/JSON parsing, W9 output hash manifest, 118-row 52/50/16 reconciliation, and diff checks passed."
+      },
+      "permissions": {
+        "status": "passed",
+        "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions remain false."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T16:35:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the isolated W9 review scope from latest origin/main. Only the exact immutable W2 snapshot, W9 evidence, focused contract, and train metadata are in scope; the package, control master, runtime, CMS, import, publication, discoverability, and deployment remain excluded."
+      },
+      {
+        "at": "2026-08-01T17:11:00+08:00",
+        "status": "local_verified",
+        "summary": "Fresh independent W9 verdict is PASS. The W9 report and 118 structured rows are stored outside the immutable source-snapshot root; all 944 row checks, six aggregate checks, source hashes, focused 65/65 contracts, ESLint, validator, JSON/YAML, diff, and exact path-scope validation pass."
+      },
+      {
+        "at": "2026-08-01T17:13:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1939 at commit c85d9f80b017d5126b2348511169364f7fad0345. Required GitHub checks are pending; the immutable source snapshot, control master, CMS, import, runtime, publication, discoverability, and deployment remain untouched."
+      }
+    ],
+    "updated_at": "2026-08-01T17:13:00+08:00"
   }
 }

@@ -1,0 +1,18 @@
+{
+  "schema_version": "fermatmind.en_content_parity_w9_qa_sha256_manifest.v1",
+  "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+  "files": [
+    {
+      "path": "w2_118_row_review_evidence.json",
+      "sha256": "15b7f5fe68225c4aa60e8b9c7ca5645d3972b554244f5ed1342aabf30a09203b"
+    },
+    {
+      "path": "independent_qa_report.json",
+      "sha256": "3b685f35fdcba089c325b376f7406ef44b5b5abb30a05fc27f8d5c0f1102c2e2"
+    },
+    {
+      "path": "review_notes.md",
+      "sha256": "a5b2e9ac4c65293b4fc548da9f244d76687d51da54c17f180f6a9faae28c886c"
+    }
+  ]
+}
