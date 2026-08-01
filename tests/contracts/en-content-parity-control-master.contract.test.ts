@@ -602,7 +602,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_in_progress",
+      status: "package_frozen",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,
@@ -611,12 +611,21 @@ describe("English content parity control master", () => {
         remaining_en_assets: 14,
         unknown_inventory_cohorts: 0,
       },
-      package_sha256: null,
+      package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
       qa_report_ref: null,
-      gate_lineage: [],
+      gate_lineage: [
+        {
+          status: "package_frozen",
+          evidence_owner_lane_id: "W4",
+          report_ref: "generated/en-content-parity/W4-riasec/editorial_review.json",
+          report_sha256: "d6355b1ceb820c4371edf478ec03d6ea123171099b102cc7b37472d05cbd9a22",
+          package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+          accepted_at: "2026-08-01T16:23:25Z",
+        },
+      ],
       blockers: [],
       next_action:
-        "Execute EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01 against the frozen W4 inventory and the latest fap-web and fap-api authority SHAs; add locale defenses only, with no frontend interpretation fallback.",
+        "Request independent W9 QA for the exact frozen W4 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33; do not begin importer, CMS import, runtime activation, or release.",
     });
     expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
 
