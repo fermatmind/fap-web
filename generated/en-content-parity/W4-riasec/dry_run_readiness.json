@@ -3,17 +3,15 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
   "ready": false,
-  "status": "inventory_frozen_only",
+  "status": "package_frozen_pending_w9",
   "blockers": [
-    "No final English reader-content package exists.",
-    "No W9 independent QA report exists for a frozen W4 package SHA.",
-    "Deep, activity, and feedback backend resolution remains zh-CN fixed and needs a separate locale-aware runtime PR.",
-    "The frontend lacks an envelope/slot/page locale-equality defense.",
-    "No exact-package importer, human approval, draft import, pilot, or live QA authorization exists."
+    "Independent W9 QA has not passed this exact frozen package SHA.",
+    "No exact-package importer dry-run or human import approval exists.",
+    "No CMS, staging, production, runtime, SEO, or release permission exists."
   ],
-  "next_gate": "package_in_progress_after_control_accepts_inventory_frozen_candidate",
+  "next_gate": "independent_w9_qa",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

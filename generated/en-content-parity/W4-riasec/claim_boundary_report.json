@@ -3,31 +3,26 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
   "verdict": "PASS",
-  "scope": "inventory and source-boundary review only; no English reader copy was generated",
+  "scope": "producer package integrity and claim-boundary review of 1550 unpublished English candidates; not independent W9 QA or publication approval",
   "allowed_reader_frame": [
     "career-interest direction and exploration hypotheses",
     "work activities and examples-to-explore",
-    "cautious interpretation and action experiments",
-    "form-aware contextual detail without accuracy hierarchy"
+    "cautious interpretation and low-risk action experiments",
+    "140Q contextual detail without accuracy hierarchy"
   ],
   "forbidden_claims": [
     "ability, fixed identity, or destiny claims",
-    "precise career match, job-fit score, ranking, hiring, admissions, income, or success prediction",
-    "60Q versus 140Q raw-score comparison or accuracy superiority claim",
-    "private attempt, score, vector, percentile, selector, report token, or payment data"
+    "precise career match, job fit, hiring, admissions, income, or success prediction",
+    "140Q superiority or 60Q raw-score comparison",
+    "private attempts, scores, vectors, percentiles, selectors, reports, tokens, orders, or payment data"
   ],
   "findings": [
     {
-      "severity": "gate_required",
+      "severity": "pending_independent_qa",
       "cohort": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
-      "finding": "All 1550 English atomic rows remain unreviewed; production requires independent W9 review and must omit missing English slots rather than fall back to Chinese."
-    },
-    {
-      "severity": "privacy_boundary",
-      "cohort": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
-      "finding": "Share, PDF, and history variants remain separate 3/2/2 inventories; no raw feedback or private result fields enter this candidate package."
+      "finding": "All 1550 candidates remain unpublished, runtime-disabled, and pending W9 independent review."
     }
   ],
   "permissions": {

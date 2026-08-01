@@ -3,20 +3,20 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
-  "verdict": "NOT_STARTED",
-  "review_kind": "producer inventory self-check; not independent W9 QA, content review, or editorial approval",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "verdict": "PASS",
+  "review_kind": "producer package-integrity self-check only; not independent W9 QA, editorial approval, import approval, or release approval",
   "completed_checks": [
-    "14 logical-group identity and 1550 atomic-row uniqueness",
-    "15 unordered pair completeness and normalization",
-    "60Q/140Q and share/PDF/history surface reconciliation",
-    "authority classification, private-field exclusion, and claim-boundary preflight"
+    "14 logical groups and 1550 atomic candidate row reconciliation",
+    "atomic row ID and translation-group uniqueness",
+    "15 unordered pairs; 20 base top3 rows with deterministic 120 ordered projection; 3/2/2 safe variants",
+    "candidate lifecycle and all-false permissions",
+    "claim-boundary and private-field exclusion preflight"
   ],
   "pending_checks": [
-    "English authoring and language naturalness",
-    "row-level Chinese leakage and review-status gating",
-    "psychometrics and product review",
-    "independent W9 QA against an exact frozen English package"
+    "independent W9 full row-level content QA bound to this exact package SHA",
+    "human editorial, psychometrics, and product approval",
+    "exact-package dry-run importer, CMS import, runtime pilot, and live QA"
   ],
   "permissions": {
     "cms_write_authorized": false,
