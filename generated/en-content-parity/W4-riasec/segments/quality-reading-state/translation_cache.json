@@ -1,0 +1,151 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_quality_translation_cache.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-2026-08-01",
+  "source_text_retained": false,
+  "rows": [
+    {
+      "source_identity": "confidence:high_confidence",
+      "title": "A stronger reading signal",
+      "summary": "The first dimension stands noticeably apart from the later dimensions, giving this result a clearer reading entry point. You can begin with the three-letter code, while using the second and third dimensions to add task conditions. This is not an accuracy rating, an ability judgment, or a career-prospect judgment.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "confidence:moderate_confidence",
+      "title": "A standard reading",
+      "summary": "The main signal is readable, but it should not be written as a single conclusion. Start with the Top 2 combination, then look at Top 3 activity signals. Treat the difference as reading strength, not as higher or lower ability.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "confidence:near_tie",
+      "title": "Nearly tied signals",
+      "summary": "When the first two or three dimensions are close, do not rush to fix one letter order. Read this as several interest signals worth observing, and compare specific activities through small experiments rather than deciding which is stronger.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "confidence:broad_profile",
+      "title": "A broad interest profile",
+      "summary": "When several dimensions are close, put less emphasis on one code and show more observable activities and low-risk choices. A flatter distribution only means the signals are spread out; it does not mean the result is invalid or that the person lacks ability.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "confidence:low_clarity",
+      "title": "Read with care",
+      "summary": "This result is best used as an initial signal. Start with the relative six-dimension distribution. Do not give a strong activity-pattern interpretation or treat low clarity as a problem with the respondent.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "near_tie:top1_top2_near_tie",
+      "title": "The first two dimensions are close",
+      "summary": "Read the current code first, while also referring to the activity pattern with the first two dimensions reversed. You are not another code; the two interest entry points are simply close.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "near_tie:top2_top3_near_tie",
+      "title": "The second and third dimensions are close",
+      "summary": "The third dimension is not a decorative detail. It may shape whether this activity pattern is oriented toward materials, expression, real people, goals, or order.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "near_tie:multi_near_tie",
+      "title": "Several dimensions are close",
+      "summary": "Look at activities before letters. When several dimensions are close, a useful next step is a small task that helps you observe which activities draw you in.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "near_tie:alternate_code_available",
+      "title": "An alternate code can be consulted",
+      "summary": "An alternate code is a reading aid, not a second answer. It helps you understand how the emphasis of an activity pattern changes when the order differs.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:clear_code",
+      "title": "A clearer main signal",
+      "summary": "The six-dimension distribution shows one relatively leading interest entry point. You can begin with the three-letter order, while keeping the second and third dimensions as additional signals to observe. This is not a fixed identity, an ability conclusion, or a career conclusion.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:blended_code",
+      "title": "Several signals work together",
+      "summary": "The first two or three interest signals are all worth reading. Compare the activities suggested by Top 2 and Top 3, then use small tasks to observe which kinds of activity you want to continue. Do not summarize the whole result with only the first letter.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:broad_profile",
+      "title": "A broad distribution of interests",
+      "summary": "When several dimensions are close, the result is more like an interest map to test than a single path. Narrow it through activities and small experiments: which tasks make you want to continue, and which only seem appealing at first?",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:near_tie",
+      "title": "Leading signals are close",
+      "summary": "Letter order is only the reading order for this score pattern. It is not an identity ranking, an ability ranking, or a final answer. Read the alternate-code interpretation as well, then observe one or two real tasks.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:low_quality",
+      "title": "Read with care",
+      "summary": "This result is not suitable for a strong interpretation. The page should protect the user first: soften the three-letter code, hide occupation examples, and suggest a retake or a view limited to the relative six-dimension pattern.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "profile_shape:low_clarity",
+      "title": "The main signal is not concentrated enough",
+      "summary": "The result is not invalid, but the gaps across the six dimensions are not enough to support a strong reading. It is better to start with candidate activities and observation questions than to form a direction conclusion immediately.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:top_notice",
+      "title": "This result needs to be read with care",
+      "summary": "This result needs a careful reading. You can keep it as an initial interest signal without treating the three-letter code as a fixed identity or a career judgment.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:user_not_blamed_message",
+      "title": "This is not an evaluation of you",
+      "summary": "Answering too quickly, being distracted, finding the questions hard to picture, missing items, or being in an unsettled state can all affect how readable a result is.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:what_happened_explanation",
+      "title": "Why the reading is being softened",
+      "summary": "When answer quality or result clarity is not sufficient, the system does not present a strong interpretation, so that initial signals are not mistaken for fixed conclusions.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:hidden_modules_explanation",
+      "title": "The page will reduce strong interpretations",
+      "summary": "The page will reduce strong interpretations, occupation examples, and deep combination follow-through so that unstable signals are not read as a directional conclusion.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:retake_guidance",
+      "title": "A suggestion for retaking later",
+      "summary": "If you were distracted, rushed, or could not picture the questions clearly, you can retake the assessment later when you feel more settled. This improves the answering conditions; it is not blame and it does not require a longer version.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:share_pdf_boundary",
+      "title": "Share and PDF boundary",
+      "summary": "A cautious-reading result should show its boundary in sharing and PDF by default. It should not show strong activity-pattern combinations, occupation examples, or a public Holland Code summary.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:next_step",
+      "title": "A next step",
+      "summary": "Save the cautious-reading version first, or retake the assessment later when you feel more settled. A longer version is not recommended as the next step right now.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:cautious_reading_notice",
+      "title": "A light reference",
+      "summary": "This result can be read, but strong conclusions should be softened into signals to observe. Use a small experiment to check activity attraction before making a career judgment.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    },
+    {
+      "source_identity": "quality:minimal_quality_boundary_60q",
+      "title": "Minimum quality boundary for 60Q",
+      "summary": "For 60Q, a strong downgrade is used only when there are clear conditions such as missing items or insufficient completion. Other weaker signals only prompt a cautious reading; they are not a low-quality personality judgment.",
+      "method": "source_anchored_English_candidate_pending_independent_w9"
+    }
+  ]
+}
