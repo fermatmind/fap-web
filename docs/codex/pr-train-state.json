@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T07:52:03Z",
+  "updated_at": "2026-08-01T08:01:55Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52579,7 +52579,7 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "validate-en-content-parity-control accepts the package_in_progress-to-package_frozen candidate against current master with zero errors."
+        "evidence": "After merging W1 CONTROL PR #1928, validate-en-content-parity-control accepts the candidate rebound to current master SHA c42b7464b97245721c2b1faaaec0e315f2fa664714dfaba5d558971a2333fa9f; immutable package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 is unchanged."
       },
       "focused_contract": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1927 required checks are running."
+        "evidence": "Fresh required checks are pending after the concurrent-main merge and candidate-base rebind."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head scope and review revalidation will run after required checks pass."
+        "evidence": "The item-level updated_at review finding is repaired; exact-head review will be repeated after fresh checks."
       }
     },
     "failure_reason": null,
@@ -52840,9 +52840,14 @@
         "at": "2026-08-01T07:52:03Z",
         "status": "github_checks_pending",
         "summary": "Committed the isolated rework-07 package as 76e836858f73c1c99664a5cc57769895960c6bc8, pushed the scoped branch, and opened ready PR #1927 for exact package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T08:01:55Z",
+        "status": "github_checks_pending",
+        "summary": "Merged W1 CONTROL PR #1928 from origin/main and rebound only the non-immutable W3 candidate base to master SHA c42b7464b97245721c2b1faaaec0e315f2fa664714dfaba5d558971a2333fa9f. Exact Article package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 and reader-content scope remain unchanged. Also advanced this item's updated_at to match the latest transition, resolving exact-head ledger review; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:45:12Z"
+    "updated_at": "2026-08-01T08:01:55Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
