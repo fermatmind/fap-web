@@ -53876,8 +53876,13 @@
         "at": "2026-08-01T07:23:12Z",
         "status": "github_checks_pending",
         "summary": "Committed exact live-metadata authority binding and independent rendered-claim scanning as 0ad5c5000135226c17cb2b8c64c8bd06c5f66df7 after focused 43/43, lint, typecheck, syntax, self-hash, YAML/JSON, exact-scope, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T07:26:10Z",
+        "status": "github_checks_pending",
+        "summary": "Merged latest origin/main 7798fd96 after an immediate concurrent ledger advance and preserved both append-only ledgers. The PR diff remains exactly the six authorized paths; post-merge focused 43/43, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T07:23:12Z"
+    "updated_at": "2026-08-01T07:26:10Z"
   }
 }
