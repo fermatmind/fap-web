@@ -53296,7 +53296,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "a97463bc31beda228f112cd907a9326f83c70d80",
+    "commit_sha": "9b874515c8644b953c2f3c5006f97a453c174129",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53451,8 +53451,13 @@
         "at": "2026-08-01T05:50:00Z",
         "status": "github_checks_pending",
         "summary": "After all 11 checks passed on 8343b636, exact-head review found three further fail-closed gaps. Repaired public HTML thickness measurement, exact raw sitemap membership, and bilingual authority-tier equality. Focused contract passes 28/28; a fresh strict read-only run remains GO with 42 complete candidates, exact target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682, and artifact b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11."
+      },
+      {
+        "at": "2026-08-01T05:51:25Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the rendered-public-thickness, exact-sitemap, and bilingual-tier repairs as 9b874515c8644b953c2f3c5006f97a453c174129 after focused 28/28, lint, typecheck, syntax, self-hash, ledger, public-thickness, diff, and exact-scope checks passed. This metadata tail binds the reachable implementation commit."
       }
     ],
-    "updated_at": "2026-08-01T05:50:00Z"
+    "updated_at": "2026-08-01T05:51:25Z"
   }
 }
