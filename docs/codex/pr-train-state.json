@@ -54821,5 +54821,59 @@
     "deploy_allowed": false,
     "history": [{"at":"2026-08-01T21:10:00+08:00","status":"in_progress","summary":"Started the fixed-queue G04 producer package from pair merge b4f73504405a24eb83f745a637ffff4221257922. Scope is exactly 20 unordered English top3 base candidates plus deterministic 120-code emphasis evidence; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T21:24:00+08:00","status":"local_verified","summary":"Produced and validated exactly 20 unordered English top3 base candidates and deterministic coverage of all 120 ordered codes without 120 duplicate reader rows. Master-only control validation, 63/63 focused contract, lint, JSON/JSONL/YAML parsing, no-CJK and boundary checks, payload SHA recomputation, diff checks, and exact scope validation pass; W9, package freeze, import, runtime, and release remain deferred."},{"at":"2026-08-01T21:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1950 from implementation commit 2aeeb7fb9762bdfa82126afbb071d23c44df1167. Required GitHub checks are pending; no W9 PASS, package freeze, import, runtime, CMS, publication, discoverability, or deploy action occurred."},{"at":"2026-08-01T21:35:00+08:00","status":"ready_to_merge","summary":"Exact checked head 56060ecf0df0e67986dc5231fddad3b6cf8b0250 passed all required GitHub checks. GitHub is CLEAN/MERGEABLE; exact 20-base/120-ordered and scope revalidation remain clean. This ready-to-merge ledger-only head must itself pass the required check set before squash merge."}],
     "updated_at": "2026-08-01T21:35:00+08:00"
+  },
+  "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01: accept W3 Articles package freeze",
+    "base": "main",
+    "branch": "codex/en-parity-control-w3-articles-package-frozen-01",
+    "depends_on": [
+      "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
+    ],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #1947 is merged as d38a03ace28cefdd7d1c59b855cb574bf71a8ce9 and origin/main contains the merge commit."
+      },
+      "pre_transition_candidate": {
+        "status": "pass",
+        "evidence": "The W3-ARTICLES candidate validates against pre-transition master SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3 and binds exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T12:36:10Z",
+        "status": "in_progress",
+        "summary": "Started CONTROL-only acceptance of the exact W3-ARTICLES rework-09 candidate after confirming PR #1947 merged and the candidate base SHA matches the current master. No producer package, W9, Career Guide, CMS, runtime, import, publication, search, or deploy state is authorized to change."
+      },
+      {
+        "at": "2026-08-01T12:39:43Z",
+        "status": "local_verified",
+        "summary": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. All focused validation passes; W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all write/release permissions remain false."
+      }
+    ],
+    "updated_at": "2026-08-01T12:39:43Z"
   }
 }

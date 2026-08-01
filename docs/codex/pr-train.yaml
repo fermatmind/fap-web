@@ -28104,6 +28104,52 @@ prs:
     content_authority: CMS/backend public APIs
     repository_rule_impact: no authority change; records independent W9 gate evidence only
 
+  - id: EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-articles-package-frozen-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01: accept W3 Articles package freeze"
+    depends_on:
+      - EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01
+    mode: execute
+    train_scope: w3_articles_package_frozen_control_acceptance
+    status: in_progress
+    scope:
+      - Accept only the exact W3-ARTICLES package_frozen candidate and bind its immutable package and editorial-review evidence SHA.
+      - Preserve W3-CAREER-GUIDES, W3 aggregate counts, every other lane, and all W9/import/runtime/release gates.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify the producer package, W9 evidence, W3 Career Guides, other lanes, CMS, database, runtime, SEO, import, publication, search, or deploy state.
+    required_local_checks:
+      - candidate validator pre-transition
+      - master validator post-transition
+      - focused parity contract
+      - exact W3 Article package, report SHA, lineage, count, and permission reconciliation
+      - focused ESLint
+      - JSON and YAML parse
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01
     repo: fap-web
     branch: codex/en-parity-w3-career-guide-runtime-absence-01
