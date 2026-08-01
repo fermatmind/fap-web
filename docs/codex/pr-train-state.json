@@ -52830,14 +52830,14 @@
     "updated_at": "2026-08-01T06:45:12Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-06",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "143bc4addad3db4a4a21cd028c52826d21cf8658",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1918",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -53012,9 +53012,14 @@
         "at": "2026-08-01T07:09:24Z",
         "status": "local_verified",
         "summary": "Completed fresh independent W9 rework-06 QA against CONTROL-frozen package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b. All 17 titles, excerpts, complete bodies, identities, 86 table groups / 610 table lines, and all eight row checks PASS. The immutable frozen snapshot, report, complete row evidence, source identity projection, and qa_pass candidate are stored under w3-articles-f1b27eed. Both strict artifacts validate, focused contracts pass 67/67, exact SHA and scope audits pass, and all CMS/import/release/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-08-01T07:11:46Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the complete fresh W9 PASS evidence as 143bc4addad3db4a4a21cd028c52826d21cf8658, pushed the isolated rework-06 branch, and opened ready PR #1918. Required GitHub checks and exact-head review are pending; producer payload, CONTROL master, W3-CAREER-GUIDES, and every write/release permission remain unchanged."
       }
     ],
-    "updated_at": "2026-08-01T07:09:24Z"
+    "updated_at": "2026-08-01T07:11:46Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
