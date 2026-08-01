@@ -52560,13 +52560,13 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-09",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
+    "commit_sha": "900a6f252e40a3d9e025c1194d2d015c99ec1298",
     "pr_url": null,
     "checks": {
       "dependency": {
