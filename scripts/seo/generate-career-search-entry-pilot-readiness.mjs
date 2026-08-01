@@ -80,19 +80,6 @@ function normalizeRobots(value) {
   return string(value).toLowerCase().replace(/\s+/g, "");
 }
 
-function normalizeAbsoluteUrl(value, siteUrl) {
-  try {
-    const parsed = new URL(value, siteUrl);
-    parsed.hash = "";
-    parsed.search = "";
-    parsed.hostname = parsed.hostname.toLowerCase().replace(/^www\./, "");
-    parsed.pathname = parsed.pathname.replace(/\/{2,}/g, "/").replace(/\/$/, "") || "/";
-    return parsed.toString().replace(/\/$/, parsed.pathname === "/" ? "/" : "");
-  } catch {
-    return "";
-  }
-}
-
 function resolveAbsoluteUrl(value, baseUrl) {
   try {
     return new URL(value, baseUrl).href;
@@ -174,6 +161,28 @@ function detailStats(detail, locale) {
   };
 }
 
+export function publicHtmlStats(html, locale) {
+  const visibleText = String(html)
+    .replace(/<head\b[^>]*>[\s\S]*?<\/head>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<!--([\s\S]*?)-->/g, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const cjkChars = (visibleText.match(/[\u3400-\u9fff]/g) || []).length;
+  return {
+    visible_text_chars: visibleText.length,
+    cjk_chars: cjkChars,
+    thin_or_shell: visibleText.length < 1800 || (locale === "zh" && cjkChars < 300),
+  };
+}
+
+export function exactSitemapLocs(payload) {
+  return new Set(array(record(payload).items).map((item) => string(record(item).loc)).filter(Boolean));
+}
+
 function qualityScore(detail) {
   const score = Number(record(record(detail.score_bundle).confidence_score).value);
   return Number.isFinite(score) ? score : 0;
@@ -214,6 +223,7 @@ export function evaluateCandidateEvidence(candidate) {
   const en = candidate.locales.en;
   const zh = candidate.locales.zh;
   if (!(tier in TIER_RANK)) reasons.push("unsupported_search_entry_tier");
+  if (candidate.authority_tiers?.en !== tier || candidate.authority_tiers?.zh !== tier) reasons.push("search_entry_tier_locale_drift");
   if (!candidate.search_entry_eligible) reasons.push("search_entry_ineligible");
   if (candidate.held) reasons.push("held_slug");
   if (!candidate.sitemap_bilingual) reasons.push("sitemap_bilingual_mismatch");
@@ -315,6 +325,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
         faq_count: evidence.faq_count,
         schema_faq_count: evidence.html.faq_question_count,
         jsonld_types: evidence.html.jsonld_types,
+        authority_visible_text_chars: evidence.authority_visible_text_chars,
         visible_text_chars: evidence.visible_text_chars,
         unsupported_guarantee_matches: evidence.guarantee_matches,
       }];
@@ -438,6 +449,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const seo = Object.keys(endpointSeo).length > 0 ? endpointSeo : detailSeo;
   const effectiveSeoStatus = Object.keys(seo).length > 0 && detailResult.status === 200 ? 200 : seoResult.status;
   const stats = detailStats(detail, locale);
+  const renderedStats = publicHtmlStats(pageResult.payload, locale);
   const seoSha256 = effectiveSeoStatus === 200 ? sha256(seo) : "";
   return {
     url,
@@ -460,6 +472,11 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     content_version: string(record(detail.trust_manifest).content_version || record(detail.provenance_meta).content_version),
     quality_score: qualityScore(detail),
     ...stats,
+    authority_visible_text_chars: stats.visible_text_chars,
+    authority_cjk_chars: stats.cjk_chars,
+    visible_text_chars: renderedStats.visible_text_chars,
+    cjk_chars: renderedStats.cjk_chars,
+    thin_or_shell: stats.thin_or_shell || renderedStats.thin_or_shell,
   };
 }
 
@@ -476,7 +493,7 @@ async function collectLive(args) {
   const enItems = array(record(enListResult.payload).items);
   const zhBySlug = new Map(array(record(zhListResult.payload).items).map((item) => [string(record(item.identity).canonical_slug), item]));
   const eligible = enItems.filter((item) => record(item.search_entry_authority).search_entry_eligible === true);
-  const sitemapLocs = new Set(array(record(sitemapResult.payload).items).map((item) => normalizeAbsoluteUrl(record(item).loc, args.siteUrl)).filter(Boolean));
+  const sitemapLocs = exactSitemapLocs(sitemapResult.payload);
   if (eligible.length !== 50 || sitemapLocs.size < EXACT_URL_COUNT) {
     throw new Error(`Authority snapshot incomplete: eligible=${eligible.length}/50, sitemap_locs=${sitemapLocs.size}`);
   }
@@ -484,15 +501,19 @@ async function collectLive(args) {
     const slug = string(record(item.identity).canonical_slug);
     const authority = record(item.search_entry_authority);
     const zhItem = zhBySlug.get(slug);
+    const enTier = string(item.search_entry_tier || authority.search_entry_tier);
+    const zhAuthority = record(zhItem?.search_entry_authority);
+    const zhTier = string(record(zhItem).search_entry_tier || zhAuthority.search_entry_tier);
     const [en, zh] = await Promise.all([
       collectLocale({ slug, locale: "en", authorityItem: item, args, sitemapLocs, observedAt }),
       collectLocale({ slug, locale: "zh", authorityItem: zhItem, args, sitemapLocs, observedAt }),
     ]);
     return {
       slug,
-      tier: string(item.search_entry_tier || authority.search_entry_tier),
-      search_entry_eligible: authority.search_entry_eligible === true && record(zhItem?.search_entry_authority).search_entry_eligible === true,
-      held: authority.held_slug === true || record(zhItem?.search_entry_authority).held_slug === true,
+      tier: enTier,
+      authority_tiers: { en: enTier, zh: zhTier },
+      search_entry_eligible: authority.search_entry_eligible === true && zhAuthority.search_entry_eligible === true,
+      held: authority.held_slug === true || zhAuthority.held_slug === true,
       sitemap_bilingual: en.sitemap_included && zh.sitemap_included,
       quality_score: Math.min(en.quality_score, zh.quality_score),
       locales: { en, zh },

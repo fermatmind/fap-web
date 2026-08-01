@@ -5,8 +5,10 @@ import {
   buildArtifact,
   canonicalJson,
   evaluateCandidateEvidence,
+  exactSitemapLocs,
   fetchStatus,
   inspectHtml,
+  publicHtmlStats,
   selectPilot,
   sha256,
   validateExactTargetShape,
@@ -33,6 +35,7 @@ type LocaleEvidence = {
   content_sha256: string;
   quality_score: number;
   visible_text_chars: number;
+  authority_visible_text_chars: number;
   cjk_chars: number;
   faq_count: number;
   thin_or_shell: boolean;
@@ -46,6 +49,7 @@ type Candidate = {
   held: boolean;
   sitemap_bilingual: boolean;
   quality_score: number;
+  authority_tiers: { en: string; zh: string };
   locales: { en: LocaleEvidence; zh: LocaleEvidence };
 };
 
@@ -80,6 +84,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     content_sha256: contentSha,
     quality_score: 60,
     visible_text_chars: 2400,
+    authority_visible_text_chars: 2400,
     cjk_chars: locale === "zh" ? 500 : 0,
     faq_count: 3,
     thin_or_shell: false,
@@ -96,6 +101,7 @@ function candidate(index: number, overrides: Partial<Candidate> = {}): Candidate
     held: false,
     sitemap_bilingual: true,
     quality_score: 100 - index,
+    authority_tiers: { en: index <= 2 ? "stable" : "approved_candidate", zh: index <= 2 ? "stable" : "approved_candidate" },
     locales: { en: localeEvidence(slug, "en"), zh: localeEvidence(slug, "zh") },
     ...overrides,
   };
@@ -106,6 +112,26 @@ function evaluated(count = 12) {
 }
 
 describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
+  it("measures visible thickness from rendered body text, excluding head and scripts", () => {
+    const shell = `<html><head><title>${"metadata ".repeat(500)}</title></head><body><main>short shell</main><script>${"payload ".repeat(500)}</script></body></html>`;
+    expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
+    const rendered = `<html><body><main>${"visible career evidence ".repeat(100)}</main></body></html>`;
+    expect(publicHtmlStats(rendered, "en").thin_or_shell).toBe(false);
+  });
+
+  it("preserves exact sitemap loc values for membership checks", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const variants = [
+      `${expected}/`,
+      `${expected}?source=sitemap`,
+      "https://www.fermatmind.com/en/career/jobs/career-01",
+      "/en/career/jobs/career-01",
+    ];
+    const locs = exactSitemapLocs({ items: variants.map((loc) => ({ loc })) });
+    expect(locs.has(expected)).toBe(false);
+    expect([...locs]).toEqual(variants);
+  });
+
   it.each([
     "https://www.fermatmind.com/en/career/jobs/career-01",
     "https://fermatmind.com/en/career/jobs/career-01/",
@@ -174,6 +200,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
+    ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
     ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
     ["SEO SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],

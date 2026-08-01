@@ -53313,11 +53313,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 41 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing exact sitemap locs, bilingual tier equality, rendered public-body thickness, and the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 25 tests. Coverage includes deterministic rerun, exact 10/20 bounds, bilingual pairing, malformed exact-shape HOLD, missing-locale safe rejection, exact canonical comparison, manual redirect handling, final-URL rejection, held/noindex/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 28 tests. Coverage includes rendered public-body shell detection, exact sitemap locs, bilingual authority-tier drift, deterministic rerun, exact 10/20 bounds, bilingual pairing, malformed exact-shape HOLD, missing-locale safe rejection, exact canonical comparison, manual redirects, final-URL rejection, held/noindex/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
       },
       "lint": {
         "status": "pass",
@@ -53337,7 +53337,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "Review repairs are fail-closed: backend list/detail approved projection replaces tautological SHA comparison; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale authority rejects safely; canonical comparison preserves www, query, repeated-slash, and trailing-slash differences; fetch uses manual redirects and final URL must equal the exact target. The ledger commit is reachable in the actual GitHub branch ancestry; Codex review's synthetic squash checkout does not preserve that ancestry."
+        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; canonical and sitemap comparisons retain exact URL distinctions; fetch uses manual redirects and exact final URL; visible thickness comes from rendered public body; bilingual authority tiers must match. The ledger commit is reachable in the actual GitHub branch ancestry."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53351,13 +53351,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T05:32:17.718Z",
+      "observed_at": "2026-08-01T05:48:01.643Z",
       "result": "GO",
-      "eligible_candidates": 41,
+      "eligible_candidates": 42,
       "target_slugs": 10,
       "target_urls": 20,
       "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-      "artifact_sha256": "f6ba47f818c6e61fd0bbdfb358ff01e119e0f926bedc435e7f8815255c944959",
+      "artifact_sha256": "b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11",
       "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
     },
     "production_write_execution": false,
@@ -53446,8 +53446,13 @@
         "at": "2026-08-01T05:39:45Z",
         "status": "github_checks_pending",
         "summary": "Merged current origin/main 304fd146 and resolved the two append-only PR-train conflicts by preserving both the newly merged W2/W9/W3 entries and this PR3 entry. The resulting PR diff remains exactly the six authorized paths; focused 25/25, lint, typecheck, YAML/JSON, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T05:50:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 8343b636, exact-head review found three further fail-closed gaps. Repaired public HTML thickness measurement, exact raw sitemap membership, and bilingual authority-tier equality. Focused contract passes 28/28; a fresh strict read-only run remains GO with 42 complete candidates, exact target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682, and artifact b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11."
       }
     ],
-    "updated_at": "2026-08-01T05:39:45Z"
+    "updated_at": "2026-08-01T05:50:00Z"
   }
 }
