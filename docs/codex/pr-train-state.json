@@ -52567,7 +52567,7 @@
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
     "commit_sha": "900a6f252e40a3d9e025c1194d2d015c99ec1298",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1947",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52599,7 +52599,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Implementation commit 900a6f252e40a3d9e025c1194d2d015c99ec1298 is ready to push; the rework-09 PR has not yet been opened."
+        "evidence": "PR #1947 is open for rework-09. Required GitHub checks are pending on the exact branch head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52955,9 +52955,14 @@
         "at": "2026-08-01T12:05:00Z",
         "status": "github_checks_pending",
         "summary": "Committed the rework-09 package implementation as 900a6f252e40a3d9e025c1194d2d015c99ec1298. The scoped PR will carry exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e; required GitHub checks and exact-head review remain pending."
+      },
+      {
+        "at": "2026-08-01T12:08:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1947 for the exact rework-09 package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Required GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-08-01T12:05:00Z"
+    "updated_at": "2026-08-01T12:08:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
