@@ -580,7 +580,7 @@ describe("English content parity control master", () => {
         same_pr_allowed: false,
       },
     ]);
-    expect(w1?.status).toBe("qa_pass");
+    expect(w1?.status).toBe("dry_run_ready");
     expect(w1?.counts).toEqual({
       cohort_count: 2,
       expected_en_assets: 53,
@@ -871,7 +871,7 @@ describe("English content parity control master", () => {
     if (!w1) {
       throw new Error("missing W1 lane fixture");
     }
-    w1.status = "qa_pass";
+    w1.status = "dry_run_ready";
     let expectedTotal = 0;
     let currentTotal = 0;
     let remainingTotal = 0;
@@ -2442,6 +2442,7 @@ describe("English content parity control master", () => {
       );
 
       comparisons.status = "dry_run_ready";
+      w1.status = "dry_run_ready";
       comparisons.gate_lineage.push({
         status: "dry_run_ready",
         evidence_owner_lane_id: "W1",
