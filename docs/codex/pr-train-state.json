@@ -55385,12 +55385,13 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-dimension-duplicate-repair-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "9158bc06c5bc073493f5128222ca1db455b72473",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1973",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1970 is MERGED as 08ad59768bda60d9bda95ca4b9cf12ac7ad21cbf and origin/main contains that merge commit before this branch was created."},
-      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator and full lint passed (Node 20 emitted only the repository engine warning). JSON/YAML parsing, diff and exact scope checks pass. Exactly four copy fields changed, all 42 identities and all non-copy fields remain unchanged, the 24/18/42 reconciliation holds, the two W9-blocked duplicate SHA values are absent, and five payload SHA values plus aggregate 640e56dad5ff9e51c09a41212895d5030c2851c3dbf2f0ee8f3bdf05f8ff0390 recompute identically twice."}
+      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator and full lint passed (Node 20 emitted only the repository engine warning). JSON/YAML parsing, diff and exact scope checks pass. Exactly four copy fields changed, all 42 identities and all non-copy fields remain unchanged, the 24/18/42 reconciliation holds, the two W9-blocked duplicate SHA values are absent, and five payload SHA values plus aggregate 640e56dad5ff9e51c09a41212895d5030c2851c3dbf2f0ee8f3bdf05f8ff0390 recompute identically twice."},
+      "github_required_checks": {"status": "pending", "evidence": "PR #1973 is open from implementation head 9158bc06c5bc073493f5128222ca1db455b72473; required GitHub checks are pending."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55405,7 +55406,7 @@
     "url_submission": false,
     "deploy_allowed": false,
     "history": [{"at": "2026-08-02T02:01:00+08:00", "status": "in_progress", "summary": "Started after PR #1970 is verified MERGED and origin/main contains merge commit 08ad59768bda60d9bda95ca4b9cf12ac7ad21cbf. Scope is exactly the four W4-G02 R/S cost/shadow copy overrides and segment evidence; the other 38 rows, control master, runtime, CMS/import, publication, discoverability, and deploy remain unchanged."},{"at": "2026-08-02T02:01:54+08:00", "status": "local_verified", "summary": "Applied only the four W9-directed R/S cost and shadow-friction copies and rebuilt from existing candidate assets without translation drift. Focused control contract (65/65), control validator, full lint, JSON/YAML parse, exact scope, identity, 24/18/42, duplicate-SHA, five-payload-SHA, repeatable aggregate-SHA, and diff checks pass; all permissions remain false."}],
-    "updated_at": "2026-08-02T02:01:54+08:00"
+    "updated_at": "2026-08-02T02:03:30+08:00"
   },
   "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01": {
     "id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
