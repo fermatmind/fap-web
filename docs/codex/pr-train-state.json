@@ -55323,8 +55323,8 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-package-refreeze-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01", "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01"],
-    "status": "github_checks_pending",
-    "commit_sha": "00e8e13d66db874babbe1f3d9d3591593d7a83da",
+    "status": "merged",
+    "commit_sha": "d16333b2dc234eb2e1d08baa237346ca7d271274",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1974",
     "checks": {
       "dependencies": {"status": "pass", "evidence": "PR #1970 and PR #1973 are MERGED; origin/main contains both merge commits before this re-freeze branch was created."},
@@ -55333,10 +55333,10 @@
       "github_required_checks": {"status": "pass", "evidence": "PR #1974 head 1544646135d40c0adf072f8bbd069507e200a773 passed build, all four contract shards and aggregate, Big Five and Enneagram freeze checks, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement."}
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
+    "merged_at": "2026-08-02T02:36:20+08:00",
+    "remote_branch_deleted": true,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55344,8 +55344,8 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T02:18:00+08:00", "status": "in_progress", "summary": "Started from origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 after verifying both bounded producer repairs are merged. Scope is the root immutable 1550-row package and focused contract only; reader segments, control master, W9, CMS/import, runtime, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T02:22:00+08:00", "status": "local_verified", "summary": "Re-froze the root 1550-row candidate package as f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The eight immutable payload SHA values recompute identically twice, all nine current segment aggregates are bound, 14/1550, 15 pairs, and 3/2/2 surfaces reconcile, and the exact pre/post reader comparison contains only 126 W4-G06 summary and four W4-G02 copy changes. Focused control contract (65/65), validator, ESLint, parse, scope, and diff checks pass; W9, import, runtime, publication, discoverability, and deploy remain deferred."},{"at": "2026-08-02T02:23:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1974 from implementation commit 00e8e13d66db874babbe1f3d9d3591593d7a83da. This ledger-only head records pending required GitHub checks; W9, CONTROL, CMS/import, runtime, publication, discoverability, and deploy remain deferred."},{"at": "2026-08-02T02:27:00+08:00", "status": "github_checks_failed", "summary": "The first required-contract cycle failed in contract-shard-4 because the retained W9 reset-mode validator still treated the current producer root package as 944ddac after a permitted re-freeze. No content, authority, W9 evidence, or permission changed."},{"at": "2026-08-02T02:28:00+08:00", "status": "github_checks_retry_pending", "summary": "Scoped verifier repair now validates the immutable W9 frozen projection during CONTROL reset mode instead of the current producer root. The standalone W9 validator, its 2-test contract, focused control contract (65/65), focused ESLint, control validator, and diff checks pass; a fresh complete GitHub cycle is required."},{"at": "2026-08-02T02:33:00+08:00", "status": "ready_to_merge", "summary": "PR #1974 head 1544646135d40c0adf072f8bbd069507e200a773 passed all required GitHub checks and is CLEAN with no review requirement. Final base and exact-scope revalidation against origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 pass; this ready-state ledger head must complete its own fresh check cycle before squash merge."}],
-    "updated_at": "2026-08-02T02:33:00+08:00"
+    "history": [{"at": "2026-08-02T02:18:00+08:00", "status": "in_progress", "summary": "Started from origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 after verifying both bounded producer repairs are merged. Scope is the root immutable 1550-row package and focused contract only; reader segments, control master, W9, CMS/import, runtime, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T02:22:00+08:00", "status": "local_verified", "summary": "Re-froze the root 1550-row candidate package as f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The eight immutable payload SHA values recompute identically twice, all nine current segment aggregates are bound, 14/1550, 15 pairs, and 3/2/2 surfaces reconcile, and the exact pre/post reader comparison contains only 126 W4-G06 summary and four W4-G02 copy changes. Focused control contract (65/65), validator, ESLint, parse, scope, and diff checks pass; W9, import, runtime, publication, discoverability, and deploy remain deferred."},{"at": "2026-08-02T02:23:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1974 from implementation commit 00e8e13d66db874babbe1f3d9d3591593d7a83da. This ledger-only head records pending required GitHub checks; W9, CONTROL, CMS/import, runtime, publication, discoverability, and deploy remain deferred."},{"at": "2026-08-02T02:27:00+08:00", "status": "github_checks_failed", "summary": "The first required-contract cycle failed in contract-shard-4 because the retained W9 reset-mode validator still treated the current producer root package as 944ddac after a permitted re-freeze. No content, authority, W9 evidence, or permission changed."},{"at": "2026-08-02T02:28:00+08:00", "status": "github_checks_retry_pending", "summary": "Scoped verifier repair now validates the immutable W9 frozen projection during CONTROL reset mode instead of the current producer root. The standalone W9 validator, its 2-test contract, focused control contract (65/65), focused ESLint, control validator, and diff checks pass; a fresh complete GitHub cycle is required."},{"at": "2026-08-02T02:33:00+08:00", "status": "ready_to_merge", "summary": "PR #1974 head 1544646135d40c0adf072f8bbd069507e200a773 passed all required GitHub checks and is CLEAN with no review requirement. Final base and exact-scope revalidation against origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 pass; this ready-state ledger head must complete its own fresh check cycle before squash merge."},{"at": "2026-08-02T02:36:20+08:00", "status": "merged", "summary": "Reconciled from origin/main: squash merge commit d16333b2dc234eb2e1d08baa237346ca7d271274 is present, the remote branch is deleted, and local cleanup was not executed in this worktree."}],
+    "updated_at": "2026-08-02T02:36:20+08:00"
   },
   "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01": {
     "id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
@@ -55585,5 +55585,35 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-01T19:45:00Z", "status": "in_progress", "summary": "Started CONTROL-only W3 Career Guides package-start transition from origin/main a2a241d0eca8743cd5d364b4010823313b4e4a25. Existing control-master invariants require empty gate_lineage before package_frozen; the inventory-to-package-start audit is retained in this ledger. No Career Guide content, Article state, W9, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."}, {"at": "2026-08-01T19:45:59Z", "status": "local_verified", "summary": "Local CONTROL validation passed. W3 aggregate and W3-CAREER-GUIDES are package_in_progress; Career Guides retains null package/QA fields and empty pre-freeze lineage; W3-ARTICLES retains exact frozen SHA and lineage; all permissions remain false."}, {"at": "2026-08-01T19:46:39Z", "status": "committed", "summary": "Committed CONTROL transition as b1e75b932b6dae0ecd5bcadf381585f192eae311; pending push and PR creation."}, {"at": "2026-08-01T19:47:27Z", "status": "github_checks_pending", "summary": "Opened PR #1978. Required GitHub checks are queued; merge remains blocked pending green checks and any required review."}, {"at": "2026-08-01T19:52:19Z", "status": "ready_to_merge", "summary": "All required GitHub checks pass, PR is CLEAN, automated review has no actionable feedback, and final base/head, scope, frozen Article SHA/lineage, empty Career Guide pre-freeze lineage, and all-false permissions reconciled."}],
     "updated_at": "2026-08-01T19:52:19Z"
+  },
+  "EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02": {
+    "id": "EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02 independently review the repaired exact 1550-row frozen package",
+    "base": "main",
+    "branch": "codex/en-parity-w9-w4-riasec-independent-qa-02",
+    "depends_on": ["EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "PR #1974 is reconciled as merged in origin/main and CONTROL PR #1976 accepts W4 as package_frozen at exact SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb."},
+      "preflight": {"status": "pass", "evidence": "W4 is package_frozen with null qa_report_ref, all permissions false, and the retained 944ddac W9 evidence remains historical BLOCKED evidence only."},
+      "local_validation": {"status": "pass", "evidence": "The W9 builder and validator pass twice against exact package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The evidence reports 14 logical groups, all 1550 rows, 15 pairs, 3/2/2 safe surfaces, eight immutable producer payloads, seven current evidence files, all required checks PASS with page/API NOT_APPLICABLE, and qa_pass_authorized=false. Focused Vitest passes 3/3, focused ESLint and JSON/YAML parsing pass, and the retained historical BLOCKED evidence SHA validation passes. pnpm's repository integrity hook is blocked by pre-existing ignored-build approval policy; direct installed Vitest/ESLint execution was used for the focused checks."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-02T04:06:52+08:00", "status": "in_progress", "summary": "Started independent W9 review from origin/main f5cbf2361c6729b6311c80282d6c9bd004d3f422 after verifying #1976 accepted the exact repaired W4 SHA. Scope is limited to the new W9 evidence directory, W9 build/validation contract, and necessary train ledger reconciliation; master, producer package, historical W9 evidence, CMS, runtime, import, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T04:08:25+08:00", "status": "local_verified", "summary": "Generated a new seven-file W9 evidence package under w4-riasec-f3f2463f. The exact 1550-row review returns PASS across language naturalness, Chinese leakage, source identity, claim boundary, internal-link, field-leakage, and duplicate/omission checks; page/API is candidate-only NOT_APPLICABLE and qa_pass_authorized remains false. The new and historical evidence validators pass; focused Vitest passes 3/3; direct focused ESLint and JSON parsing pass. pnpm itself remains blocked before command execution by the repository's ignored-build approval policy, with no dependency or approval change made."}],
+    "updated_at": "2026-08-02T04:08:25+08:00"
   }
 }
