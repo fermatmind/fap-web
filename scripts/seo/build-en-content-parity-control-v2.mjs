@@ -157,10 +157,70 @@ function registeredTargetContract(v2, base, laneId) {
     : v2.assets.filter((asset) => asset.lane_id === laneId).map((asset) => asset.asset_id);
   const assets = assetIds.map((assetId) => v2.assets.find((asset) => asset.asset_id === assetId));
   if (assets.some((asset) => !asset)) throw new Error(`registered_target_asset_missing=${laneId}`);
+  const sumOrNull = (field) => assets.every((asset) => Number.isInteger(asset[field]))
+    ? assets.reduce((total, asset) => total + asset[field], 0)
+    : null;
   return {
     assetIds,
-    expectedCount: assets.reduce((total, asset) => total + asset.expected_en_count, 0),
+    expectedCount: sumOrNull("expected_en_count"),
+    counts: {
+      cohort_count: assets.length,
+      expected_en_assets: sumOrNull("expected_en_count"),
+      current_en_assets: sumOrNull("current_en_count"),
+      remaining_en_assets: sumOrNull("remaining_en_count"),
+      unknown_inventory_cohorts: assets.filter((asset) => !Number.isInteger(asset.expected_en_count)).length,
+    },
   };
+}
+
+function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
+  const content = { ...evidence };
+  delete content.receipt_content_sha256;
+  const zeroMutationFields = [
+    "private_payload_read_count",
+    "indexability_mutation_count",
+    "sitemap_mutation_count",
+    "llms_mutation_count",
+    "search_mutation_count",
+    "deploy_mutation_count",
+  ];
+  if (
+    evidence.schema_version !== "fermatmind.content_promotion_receipt.v2" ||
+    evidence.receipt_kind !== "content_promotion_preflight_receipt" ||
+    evidence.result !== "SUCCEEDED" ||
+    evidence.phase !== "preflight" ||
+    evidence.lane !== manifest.lane_id ||
+    evidence.subscope !== manifest.subscope ||
+    evidence.source_repository !== "fermatmind/fap-api" ||
+    evidence.source_commit !== manifest.reviewed_source_commit ||
+    !/^[a-z0-9_]{1,96}$/.test(evidence.adapter ?? "") ||
+    !/^(content_assets\/en-content-parity|content_packs|content_baselines|database\/seeders\/data)\//.test(
+      evidence.package_path ?? "",
+    ) ||
+    String(evidence.package_path ?? "").includes("..") ||
+    evidence.package_sha256 !== manifest.package_sha256 ||
+    evidence.release_policy_sha256 !== BACKEND_PROMOTION_CONTRACT.release_policy_sha256 ||
+    evidence.expected_count !== registeredTarget.expectedCount ||
+    evidence.written_count !== 0 ||
+    evidence.readback_count !== registeredTarget.expectedCount ||
+    evidence.published_count !== 0 ||
+    evidence.previous_receipt_sha256 !== null ||
+    evidence.rollback_reference !== null ||
+    evidence.locale_check !== "PASS" ||
+    evidence.cjk_leakage_check !== "PASS" ||
+    evidence.identity_check !== "PASS" ||
+    evidence.privacy_redaction !== true ||
+    evidence.server_topology_exposed !== false ||
+    zeroMutationFields.some((field) => evidence[field] !== 0) ||
+    !/^[1-9][0-9]{0,19}$/.test(evidence.workflow_run_id ?? "") ||
+    !Number.isInteger(evidence.workflow_run_attempt) ||
+    evidence.workflow_run_attempt < 1 ||
+    !/^[a-f0-9]{64}$/.test(evidence.idempotency_key ?? "") ||
+    !/^[a-f0-9]{64}$/.test(evidence.executor_release_sha256 ?? "") ||
+    evidence.receipt_content_sha256 !== sha256Bytes(canonicalJson(content))
+  ) {
+    throw new Error(`lane_manifest_dry_run_evidence_invalid=${key}`);
+  }
 }
 
 function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
@@ -169,6 +229,10 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
   }
   if (manifest.blocked_from_status !== null || manifest.blockers.length !== 0) {
     throw new Error(`lane_manifest_cannot_materialize_blocked_state=${key}`);
+  }
+  if (Object.hasOwn(manifest, "counts")) throw new Error(`lane_manifest_counts_forbidden=${key}`);
+  if (base.counts && canonicalJson(base.counts) !== canonicalJson(registeredTarget.counts)) {
+    throw new Error(`registered_target_counts_invalid=${key}`);
   }
   const baseIndex = stateIndex(base.status);
   const targetIndex = stateIndex(manifest.status);
@@ -260,6 +324,25 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
   } else if (manifest.reviewed_source_commit !== null || manifest.expected_count !== null) {
     throw new Error(`lane_manifest_w9_binding_before_qa=${key}`);
   }
+  const dryRunRequired = targetIndex >= stateIndex("dry_run_ready");
+  if (dryRunRequired) {
+    const dryRunLineage = manifestLineage.filter((entry) => entry.status === "dry_run_ready");
+    const dryRunTransition = manifest.transition_trace.find((entry) => entry.to_status === "dry_run_ready");
+    if (
+      dryRunLineage.length !== 1 ||
+      dryRunLineage[0].evidence_owner_lane_id !== "fap-api" ||
+      dryRunTransition?.evidence_ref !== dryRunLineage[0].report_ref ||
+      dryRunTransition?.evidence_sha256 !== dryRunLineage[0].report_sha256
+    ) {
+      throw new Error(`lane_manifest_dry_run_lineage_invalid=${key}`);
+    }
+    assertDryRunEvidence(
+      readBoundJson(dryRunLineage[0].report_ref, dryRunLineage[0].report_sha256),
+      manifest,
+      registeredTarget,
+      key,
+    );
+  }
 }
 
 function recomputeSplitLaneStatuses(v2) {
@@ -313,7 +396,6 @@ export function applyMaterializationInputs(v2, inputs) {
       "gate_lineage",
       "legacy_lineage",
       "blockers",
-      "counts",
     ]) {
       if (Object.hasOwn(manifest, field)) target[field] = manifest[field];
     }
@@ -336,6 +418,9 @@ export function applyMaterializationInputs(v2, inputs) {
     }
     if (target.package_sha256 !== chain.package_sha256) {
       throw new Error(`receipt_chain_package_mismatch=${key}`);
+    }
+    if (chain.expected_count !== registeredTargetContract(v2, target, chain.lane_id).expectedCount) {
+      throw new Error(`receipt_chain_registered_count_mismatch=${key}`);
     }
     target.status = chain.target_status;
     target.promotion_receipts = [...chain.receipt_paths];

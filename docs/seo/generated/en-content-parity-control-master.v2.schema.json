@@ -288,8 +288,7 @@
         "blockers": { "type": "array", "items": { "type": "string" } },
         "transition_trace": { "type": "array", "items": { "$ref": "#/$defs/lane_transition" } },
         "reviewed_source_commit": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{40}$" }, { "type": "null" }] },
-        "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
-        "counts": { "type": "object" }
+        "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] }
       }
     },
     "control_inputs": {

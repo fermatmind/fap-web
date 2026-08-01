@@ -489,6 +489,23 @@ describe("English content parity automation control V2", () => {
       );
       manifest.expected_count = 1046;
       fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const forgedCountManifest = {
+        ...manifest,
+        counts: {
+          cohort_count: 1,
+          expected_en_assets: 7,
+          current_en_assets: 7,
+          remaining_en_assets: 0,
+          unknown_inventory_cohorts: 0,
+        },
+      };
+      fs.writeFileSync(manifestPath, `${JSON.stringify(forgedCountManifest, null, 2)}\n`);
+      const forgedCountInputs = structuredClone(inputs);
+      forgedCountInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(() => applyMaterializationInputs(structuredClone(v2), forgedCountInputs)).toThrow(
+        "lane_manifest_counts_forbidden=W8",
+      );
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
       const originalExpectedHead = process.env.EN_PARITY_CURRENT_PR_HEAD;
       process.env.EN_PARITY_CURRENT_PR_HEAD = reviewedSourceCommit;
       let materialized;
@@ -503,6 +520,82 @@ describe("English content parity automation control V2", () => {
         package_sha256: PACKAGE_SHA,
         qa_report_ref: reportRef,
       });
+
+      const preflightPath = path.join(directory, "preflight.json");
+      const preflightRef = path.relative(ROOT, preflightPath);
+      const preflight = receiptBytes({
+        schema_version: "fermatmind.content_promotion_receipt.v2",
+        receipt_kind: "content_promotion_preflight_receipt",
+        result: "SUCCEEDED",
+        phase: "preflight",
+        adapter: "career_jobs",
+        lane: "W8",
+        subscope: null,
+        source_repository: "fermatmind/fap-api",
+        source_commit: reviewedSourceCommit,
+        package_path: "content_assets/en-content-parity/W8-career-jobs",
+        package_sha256: PACKAGE_SHA,
+        executor_release_sha256: "2".repeat(64),
+        release_policy_sha256: POLICY_SHA,
+        workflow_run_id: "30715225574",
+        workflow_run_attempt: 1,
+        idempotency_key: "3".repeat(64),
+        expected_count: 1046,
+        written_count: 0,
+        readback_count: 1046,
+        published_count: 0,
+        previous_receipt_sha256: null,
+        rollback_reference: null,
+        locale_check: "PASS",
+        cjk_leakage_check: "PASS",
+        identity_check: "PASS",
+        privacy_redaction: true,
+        private_payload_read_count: 0,
+        server_topology_exposed: false,
+        indexability_mutation_count: 0,
+        sitemap_mutation_count: 0,
+        llms_mutation_count: 0,
+        search_mutation_count: 0,
+        deploy_mutation_count: 0,
+      });
+      fs.writeFileSync(preflightPath, preflight.bytes);
+      manifest.status = "dry_run_ready";
+      manifest.gate_lineage.push({
+        status: "dry_run_ready",
+        evidence_owner_lane_id: "fap-api",
+        report_ref: preflightRef,
+        report_sha256: sha256(preflight.bytes),
+        package_sha256: PACKAGE_SHA,
+        accepted_at: "2026-08-02T00:02:00Z",
+      });
+      manifest.transition_trace.push({
+        from_status: "qa_pass",
+        to_status: "dry_run_ready",
+        evidence_ref: preflightRef,
+        evidence_sha256: sha256(preflight.bytes),
+        recorded_at: "2026-08-02T00:02:00Z",
+      });
+      const dryRunLineage = manifest.gate_lineage.at(-1);
+      const dryRunTransition = manifest.transition_trace.at(-1);
+      if (!dryRunLineage || !dryRunTransition) throw new Error("dry run test fixture is incomplete");
+      fs.writeFileSync(preflightPath, "{}\n");
+      dryRunLineage.report_sha256 = sha256(fs.readFileSync(preflightPath));
+      dryRunTransition.evidence_sha256 = sha256(fs.readFileSync(preflightPath));
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const invalidDryRunInputs = structuredClone(inputs);
+      invalidDryRunInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(() => applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), invalidDryRunInputs)).toThrow(
+        "lane_manifest_dry_run_evidence_invalid=W8",
+      );
+
+      fs.writeFileSync(preflightPath, preflight.bytes);
+      dryRunLineage.report_sha256 = sha256(preflight.bytes);
+      dryRunTransition.evidence_sha256 = sha256(preflight.bytes);
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const validDryRunInputs = structuredClone(inputs);
+      validDryRunInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), validDryRunInputs)
+        .lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8").status).toBe("dry_run_ready");
     } finally {
       fs.rmSync(directory, { recursive: true, force: true });
     }
@@ -520,7 +613,7 @@ describe("English content parity automation control V2", () => {
         lane_id: "W1",
         subscope: subscope.id,
         package_sha256: subscope.package_sha256,
-        expected_count: index + 1,
+        expected_count: [7, 46][index],
         release_policy_sha256: POLICY_SHA,
         target_status: "published",
         receipt_paths: [`receipt-${index}-draft.json`, `receipt-${index}-publication.json`],
@@ -530,6 +623,11 @@ describe("English content parity automation control V2", () => {
       ...inputs,
       receipt_chains: [inputs.receipt_chains[0], inputs.receipt_chains[0]],
     })).toThrow(/duplicate_receipt_chain_binding/);
+    const wrongCountInputs = structuredClone(inputs);
+    wrongCountInputs.receipt_chains[0].expected_count = 1;
+    expect(() => applyMaterializationInputs(structuredClone(v2), wrongCountInputs)).toThrow(
+      "receipt_chain_registered_count_mismatch=W1:W1-MBTI-COMPARISONS",
+    );
     const materialized = applyMaterializationInputs(v2, inputs);
     expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1").status).toBe("published");
   });
