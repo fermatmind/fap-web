@@ -29925,11 +29925,14 @@ prs:
       - Accept only the exact 17/17 PASS W9 report, row evidence, and frozen W3-ARTICLES package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a.
       - Preserve the original Article package_frozen lineage, frozen Career Guides evidence, W3 aggregate separation, and all-false permissions.
       - Reconcile the merged Articles W9 PR train ledger only.
+      - Update only the registered Career Guide batch validators to recognize the exact accepted Article qa_pass evidence without relaxing any package or permission guard.
     allowed_paths:
       - docs/seo/generated/en-content-parity-control-master.v1.json
       - tests/contracts/en-content-parity-control-master.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - scripts/seo/validate-w3-career-guides-batch-a.mjs
+      - scripts/seo/validate-w3-career-guides-batch-b.mjs
     do_not:
       - Modify W9 evidence, producer packages, Career Guides, CMS, runtime, import, publication, SEO, sitemap, llms, search, or deployment.
       - Change an aggregate package SHA, aggregate QA report, aggregate lineage, or any permission.
