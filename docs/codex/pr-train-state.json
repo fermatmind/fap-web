@@ -55316,6 +55316,36 @@
     "checks":{"serial_predecessor":{"status":"pass","evidence":"W4 inventory is merged and CONTROL accepted inventory_frozen."},"source_authority":{"status":"pass","evidence":"fap-api origin/main 660280d00a57e58bd8bc76608e19de2492c03f53 supplies the frozen 42 dimension rows."}},"failure_reason":null,"merged_at":null,"remote_branch_deleted":false,"local_cleanup_executed":false,"scope_validation":{"allowed_paths_only":true,"local_validation_passed":true,"github_checks_green":false,"post_merge_revalidated":false},"production_write_execution":false,"database_mutation":false,"cms_mutation":false,"publish_allowed":false,"search_channel_action":false,"url_submission":false,"deploy_allowed":false,
     "history":[{"at":"2026-08-01T23:25:00+08:00","status":"local_verified","summary":"Produced and validated exactly 42 candidates (24 G01 and 18 G02); control contracts, lint, master validation, no-CJK, all-false permissions and aggregate af75991ad0eef29ff7669014fa3d5618f8c78e20d0a3a17d71b5ac37002395fd pass."}],"updated_at":"2026-08-01T23:25:00+08:00"
   },
+  "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01": {
+    "id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01 re-freeze the repaired exact 1550-row producer package",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-package-refreeze-01",
+    "depends_on": ["EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01", "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependencies": {"status": "pass", "evidence": "PR #1970 and PR #1973 are MERGED; origin/main contains both merge commits before this re-freeze branch was created."},
+      "package_rebuild": {"status": "pass", "evidence": "The eight immutable payload SHA values and f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb aggregate recompute identically twice. The package binds current aggregates for all nine segments, reconciles 14 logical groups and 1550 unique atomic rows, 15 pairs, and 3/2/2 safe surfaces; fresh W9 remains required and all permissions remain false."},
+      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator, focused ESLint, JSON/YAML parse, exact allowed-path audit, package SHA two-run, and diff checks pass. Against frozen 71954730 segment assets, exactly 126 W4-G06 summary fields and four W4-G02 copy fields differ; all 1550 identities remain stable."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-02T02:18:00+08:00", "status": "in_progress", "summary": "Started from origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 after verifying both bounded producer repairs are merged. Scope is the root immutable 1550-row package and focused contract only; reader segments, control master, W9, CMS/import, runtime, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T02:22:00+08:00", "status": "local_verified", "summary": "Re-froze the root 1550-row candidate package as f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The eight immutable payload SHA values recompute identically twice, all nine current segment aggregates are bound, 14/1550, 15 pairs, and 3/2/2 surfaces reconcile, and the exact pre/post reader comparison contains only 126 W4-G06 summary and four W4-G02 copy changes. Focused control contract (65/65), validator, ESLint, parse, scope, and diff checks pass; W9, import, runtime, publication, discoverability, and deploy remain deferred."}],
+    "updated_at": "2026-08-02T02:22:00+08:00"
+  },
   "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01": {
     "id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
     "repo": "fap-web",

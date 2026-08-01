@@ -687,8 +687,8 @@ describe("English content parity control master", () => {
       permissions: Permissions;
     };
     expect(w4Candidate).toMatchObject({
-      base_manifest_sha256: "8e0b79e5db6b8bfeac0cd3bf899e70cb93e4fed8815a92b6cab23eca03102ed1",
-      package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+      base_manifest_sha256: "5dfa51907860aaee4dabef952e15c4a6cabaa7d72cd47225089d15470b685039",
+      package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
       proposed_status: "package_frozen",
       gate_evidence: {
         row_count: 14,

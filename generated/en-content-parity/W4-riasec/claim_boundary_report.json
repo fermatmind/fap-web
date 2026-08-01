@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "verdict": "PASS",
   "scope": "producer package integrity and claim-boundary review of 1550 unpublished English candidates; not independent W9 QA or publication approval",
   "allowed_reader_frame": [
@@ -25,6 +25,11 @@
       "finding": "All 1550 candidates remain unpublished, runtime-disabled, and pending W9 independent review."
     }
   ],
+  "repair_evidence": {
+    "prior_blocked_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "repaired_groups": {"W4-G06": 126, "W4-G02": 4},
+    "fresh_independent_w9_required": true
+  },
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

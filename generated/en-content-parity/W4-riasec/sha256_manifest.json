@@ -2,11 +2,11 @@
   "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "5276250117b79f72db175381efa3e2be50ac86e6c6b77bc4fd27204c60091ee1"
+      "sha256": "6cd7f2332c1f4ce46c898ec769d017b518c974f0a2e7155461e418587b2d96b3"
     },
     {
       "path": "assets.jsonl",
@@ -14,28 +14,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "d328459748e098416a9e2dd4b1776cf8687e010cd12608c5ec753c31129cdc1a"
+      "sha256": "a57d6781ce0d6751668181b10a66ff111abba1f78da310852273beafc60e0294"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "0c135ce41b046d7a82c84ed29d33a560fb646f00a821e417c539c64c06a25ce8"
+      "sha256": "f6c69257f9ab125c1b4885aa47aca326a76b9ec3a9c1ba603e5b7e0b191d898b"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "fe54b011b653ae60ce031cd9ad6f975d76c42408f37a2b99d8697fa61a5f56f9"
+      "sha256": "715ffd948eb71759f10f6f4691b3a27820982cfd00b052f57e4df491e348e726"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "d6355b1ceb820c4371edf478ec03d6ea123171099b102cc7b37472d05cbd9a22"
+      "sha256": "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "e06d954c4692cb06c8fbfd96f5e89354bbb9803fb3a4cca150671de5169c2bc2"
+      "sha256": "a68b36968035e08900be4d7adfe1647641b08f91e347b19c734b6bb106a38ccf"
     },
     {
       "path": "handoff.md",
-      "sha256": "da2c3889eb3d3ec385153d1a6c928569d113d0b6fae8e75141b1ec75ef7a6a0b"
+      "sha256": "faf3d0195f7672befdba1009ac7acd498acf949af034bb9738359c5c709c8577"
     }
   ],
-  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33"
+  "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb"
 }
