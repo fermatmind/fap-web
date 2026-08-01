@@ -1,0 +1,19 @@
+{
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W4",
+  "subscope_id": "W4-RIASEC",
+  "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+  "permissions": {
+    "cms_write_authorized": false,
+    "master_manifest_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "search_submission_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "staging_write_authorized": false
+  },
+  "verdict": "PASS",
+  "checked_row_count": 1550,
+  "blocked_row_ids": []
+}

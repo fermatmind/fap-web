@@ -29271,6 +29271,42 @@ prs:
     content_authority: producer candidate package only; fap-api lifecycle authority unchanged
     repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change
 
+  - id: EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w9-w4-riasec-independent-qa-02
+    base: main
+    depends_on: [EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01]
+    mode: execute
+    train_scope: w9_independent_full_qa_for_w4_riasec_repaired_frozen_package
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02 independently review the repaired exact 1550-row frozen package"
+    scope:
+      - Produce a complete independent W9 review for every one of the exact 1550 W4 RIASEC rows bound to package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb.
+      - Retain and SHA-validate the historical 944ddac BLOCKED W9 evidence without modifying it.
+    allowed_paths: [generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/row_review_evidence.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/frozen_package_identity_projection.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/language_naturalness_report.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/asset_duplication_report.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/qa_sha256_manifest.json, generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/handoff.md, scripts/seo/build-w4-riasec-w9-qa.mjs, scripts/seo/validate-w4-riasec-w9-qa.mjs, tests/contracts/en-content-parity-w9-w4-riasec-independent-qa.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json]
+    do_not:
+      - Modify the control master, the W4 producer package, historical 944ddac W9 evidence, CMS, runtime, importer, publication, SEO, sitemap, llms, indexability, Search Channel, deployment, or private data.
+      - Produce a master manifest candidate, self-accept qa_pass, grant a write/release permission, or attempt page/API, CMS, or live verification.
+    required_local_checks:
+      - node scripts/seo/build-w4-riasec-w9-qa.mjs
+      - node scripts/seo/validate-w4-riasec-w9-qa.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-w9-w4-riasec-independent-qa.contract.test.ts --reporter=dot
+      - Focused ESLint; JSON/YAML parse; exact 14/1550, 15 pairs, 3/2/2 surfaces, eight immutable producer-payload SHA, seven current-evidence-file, and retained historical-evidence SHA validation
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: independent W9 candidate-only evidence; backend and CONTROL authority unchanged
+    repository_rule_impact: independent QA evidence only; no runtime or authority transfer
+
   - id: EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01
     repo: fap-web
     repo_path: <workspace>/fap-web

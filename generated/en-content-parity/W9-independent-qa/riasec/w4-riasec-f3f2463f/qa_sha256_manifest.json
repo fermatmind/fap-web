@@ -1,0 +1,30 @@
+{
+  "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+  "files": [
+    {
+      "path": "independent_qa_report.json",
+      "sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882"
+    },
+    {
+      "path": "row_review_evidence.json",
+      "sha256": "7bc4684fc98083d10df8f3e8b79d1084aabad09f346a1ae70012be007aa8bfc0"
+    },
+    {
+      "path": "frozen_package_identity_projection.json",
+      "sha256": "a9ee4f5db33b399813fe53fb4751ec9ebffc60a8ec61ffcabb305ad2d0029be2"
+    },
+    {
+      "path": "language_naturalness_report.json",
+      "sha256": "0c36d3db15aba94f0acf0a55c3e3812a6bbaa5ed65d02fc15b05ac068e1bedef"
+    },
+    {
+      "path": "asset_duplication_report.json",
+      "sha256": "2c7116ddf1be967d6f22aefeab6b60c40698cfc94f665bb5a078ec677877bc2c"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "b9efe1ec3a167414701eeedd962a3544527ae0929f5073efd6980f406b23b4f3"
+    }
+  ],
+  "qa_package_sha256": "b1472c21370893c905f12492a7b14995e25a85c46da70afadf269526000c2ff7"
+}

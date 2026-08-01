@@ -1,107 +1,75 @@
 import { createHash } from "node:crypto";
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
-const evidenceRoot = join(root, "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac");
-const blockedPackageSha = "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33";
-const resetArtifactPath = join(root, "generated/en-content-parity/CONTROL-approvals/W4-RIASEC/package-rework-reset-944ddac.json");
-const resetArtifactRef = "generated/en-content-parity/CONTROL-approvals/W4-RIASEC/package-rework-reset-944ddac.json";
-const reportRef = "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/independent_qa_report.json";
-const rowEvidenceRef = "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/row_review_evidence.json";
-const frozenProjectionRef = "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/frozen_package_identity_projection.json";
-const reportSha = "eb722ec622b2f55734e0a0126a757b57ee0f0c63eecddb4189d1c9b28d16a694";
-const rowEvidenceSha = "b0b366808c7259b7ec389824e65a1fc0328a28b3529adf05dd2fece797a97ca9";
-const frozenProjectionSha = "d80a3764f5d0c20ae14814c061bbf85bbe071f5c8d3259e54a47b7d8f3f97de7";
+const packageRoot = join(root, "generated/en-content-parity/W4-riasec");
+const masterPath = join(root, "docs/seo/generated/en-content-parity-control-master.v1.json");
+const historicalRoot = join(root, "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac");
+const currentRoot = join(root, "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f");
+const historicalPackageSha = "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33";
+const currentPackageSha = "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb";
+const historicalEvidence = {
+  report: "eb722ec622b2f55734e0a0126a757b57ee0f0c63eecddb4189d1c9b28d16a694",
+  rows: "b0b366808c7259b7ec389824e65a1fc0328a28b3529adf05dd2fece797a97ca9",
+  projection: "d80a3764f5d0c20ae14814c061bbf85bbe071f5c8d3259e54a47b7d8f3f97de7",
+};
 const permissionKeys = ["cms_write_authorized", "master_manifest_write_authorized", "production_import_authorized", "public_release_authorized", "search_submission_authorized", "seo_runtime_release_authorized", "staging_write_authorized"];
 const requiredChecks = ["language_naturalness", "chinese_leakage", "source_equivalence_identity", "claim_boundary", "internal_link_equivalence", "field_leakage", "asset_media_duplication_omission", "page_api_alignment_applicable"];
-const sha = (file) => createHash("sha256").update(readFileSync(file)).digest("hex");
+const expectedCurrentFiles = ["asset_duplication_report.json", "frozen_package_identity_projection.json", "handoff.md", "independent_qa_report.json", "language_naturalness_report.json", "qa_sha256_manifest.json", "row_review_evidence.json"];
+const sha = (value) => createHash("sha256").update(typeof value === "string" || Buffer.isBuffer(value) ? value : JSON.stringify(value)).digest("hex");
 const json = (file) => JSON.parse(readFileSync(file, "utf8"));
+const aggregate = (files) => sha(files.map((file) => `${file.path}:${file.sha256}`).join("\n"));
 const assert = (condition, message) => { if (!condition) throw new Error(message); };
-const packageAggregate = (files) => createHash("sha256").update(files.map((file) => `${file.path}:${file.sha256}`).join("\n")).digest("hex");
-const allPermissionsFalse = (permissions) => JSON.stringify(Object.keys(permissions ?? {}).sort()) === JSON.stringify(permissionKeys) && Object.values(permissions).every((value) => value === false);
+const allPermissionsFalse = (value) => JSON.stringify(Object.keys(value ?? {}).sort()) === JSON.stringify(permissionKeys) && Object.values(value ?? {}).every((item) => item === false);
+
+function validateHistoricalEvidence() {
+  const report = json(join(historicalRoot, "independent_qa_report.json"));
+  const rows = json(join(historicalRoot, "row_review_evidence.json"));
+  const projection = json(join(historicalRoot, "frozen_package_identity_projection.json"));
+  const manifest = json(join(historicalRoot, "qa_sha256_manifest.json"));
+  assert(report.package_sha256 === historicalPackageSha && report.verdict === "BLOCKED" && report.reviewed_row_count === 1550, "historical W9 report identity or verdict drifted");
+  assert(rows.package_sha256 === historicalPackageSha && rows.verdict === "BLOCKED" && rows.row_reviews.length === 1550, "historical W9 row evidence drifted");
+  assert(projection.package_sha256 === historicalPackageSha && projection.reference_only === true && projection.package_copied_or_modified === false, "historical W9 frozen projection drifted");
+  assert(sha(readFileSync(join(historicalRoot, "independent_qa_report.json"))) === historicalEvidence.report && sha(readFileSync(join(historicalRoot, "row_review_evidence.json"))) === historicalEvidence.rows && sha(readFileSync(join(historicalRoot, "frozen_package_identity_projection.json"))) === historicalEvidence.projection, "historical W9 evidence SHA mismatch");
+  assert(manifest.package_sha256 === historicalPackageSha && manifest.files.length === 7 && manifest.files.every((file) => sha(readFileSync(join(historicalRoot, file.path))) === file.sha256) && manifest.qa_package_sha256 === aggregate(manifest.files), "historical W9 manifest drifted");
+  assert(!["master_manifest_patch.candidate.json", "frozen_package"].some((name) => { try { readFileSync(join(historicalRoot, name)); return true; } catch { return false; } }), "historical W9 evidence must not contain a candidate or copied producer package");
+  return { package_sha256: historicalPackageSha, verdict: report.verdict, rows: rows.row_reviews.length };
+}
+
+function validateCurrentEvidence() {
+  const master = json(masterPath);
+  const w4 = master.lanes.find((lane) => lane.lane_id === "W4");
+  const packageManifest = json(join(packageRoot, "sha256_manifest.json"));
+  const map = json(join(packageRoot, "translation_map.json"));
+  const report = json(join(currentRoot, "independent_qa_report.json"));
+  const rows = json(join(currentRoot, "row_review_evidence.json"));
+  const projection = json(join(currentRoot, "frozen_package_identity_projection.json"));
+  const language = json(join(currentRoot, "language_naturalness_report.json"));
+  const duplicates = json(join(currentRoot, "asset_duplication_report.json"));
+  const manifest = json(join(currentRoot, "qa_sha256_manifest.json"));
+  assert(w4?.status === "package_frozen" && w4.package_sha256 === currentPackageSha && w4.qa_report_ref === null && allPermissionsFalse(w4.permissions), "W4 must remain CONTROL-frozen and unaccepted while W9 evidence is generated");
+  assert(packageManifest.package_sha256 === currentPackageSha && packageManifest.files.length === 8 && aggregate(packageManifest.files) === currentPackageSha && packageManifest.files.every((file) => sha(readFileSync(join(packageRoot, file.path))) === file.sha256), "current W4 frozen package identity drifted");
+  assert(JSON.stringify(readdirSync(currentRoot).filter((name) => !name.startsWith(".")).sort()) === JSON.stringify(expectedCurrentFiles), "current W9 evidence file set drifted");
+  assert(report.package_sha256 === currentPackageSha && report.verdict === "PASS" && report.reviewed_row_count === 1550 && report.qa_pass_authorized === false, "current W9 report must be a full PASS without self-acceptance");
+  assert(rows.package_sha256 === currentPackageSha && rows.verdict === "PASS" && rows.row_reviews.length === 1550 && rows.required_checks.length === requiredChecks.length, "current W9 row evidence identity or coverage drifted");
+  assert(map.atomic_rows.length === 1550 && JSON.stringify(rows.row_reviews.map((row) => row.row_id)) === JSON.stringify(map.atomic_rows.map((row) => row.row_id)) && new Set(rows.row_reviews.map((row) => row.row_id)).size === 1550, "current W9 must preserve exact frozen row coverage and order");
+  assert(rows.row_reviews.every((row) => JSON.stringify(Object.keys(row.checks).sort()) === JSON.stringify([...requiredChecks].sort()) && row.page_api_alignment_status === "NOT_APPLICABLE" && row.checks.page_api_alignment_applicable === "PASS" && row.verdict === "PASS" && Object.values(row.checks).every((value) => value === "PASS")), "current W9 row checks or candidate-only applicability drifted");
+  assert(Object.entries(report.checks).every(([check, value]) => check === "page_api_alignment_applicable" ? value === "NOT_APPLICABLE" : value === "PASS"), "current W9 aggregate checks drifted");
+  assert(rows.coverage.registered_atomic_rows === 1550 && rows.coverage.reviewed_atomic_rows === 1550 && rows.coverage.logical_groups === 14 && rows.coverage.normalized_unordered_pairs === 15 && JSON.stringify(rows.coverage.share_pdf_history) === JSON.stringify({ share: 3, pdf: 2, history: 2 }) && rows.coverage.page_api_alignment_status === "NOT_APPLICABLE", "current W9 coverage reconciliation drifted");
+  assert(projection.package_sha256 === currentPackageSha && projection.reference_only === true && projection.package_copied_or_modified === false && projection.immutable_payloads.length === 8 && projection.immutable_payloads.every((payload) => payload.matches) && projection.atomic_row_identity_projection.length === 1550, "current W9 frozen identity projection drifted");
+  assert(language.package_sha256 === currentPackageSha && language.verdict === "PASS" && language.checked_row_count === 1550 && language.blocked_row_ids.length === 0, "current W9 language report drifted");
+  assert(duplicates.package_sha256 === currentPackageSha && duplicates.verdict === "PASS" && duplicates.duplicate_copy_groups.length === 0 && duplicates.affected_row_ids.length === 0 && duplicates.omitted_row_ids.length === 0, "current W9 duplicate or omission report drifted");
+  assert(allPermissionsFalse(report.permissions) && allPermissionsFalse(rows.permissions) && allPermissionsFalse(projection.permissions) && allPermissionsFalse(language.permissions) && allPermissionsFalse(duplicates.permissions), "current W9 permissions must remain false");
+  assert(manifest.package_sha256 === currentPackageSha && manifest.files.length === 6 && manifest.files.every((file) => sha(readFileSync(join(currentRoot, file.path))) === file.sha256) && manifest.qa_package_sha256 === aggregate(manifest.files), "current W9 evidence SHA manifest drifted");
+  assert(!["master_manifest_patch.candidate.json", "frozen_package"].some((name) => { try { readFileSync(join(currentRoot, name)); return true; } catch { return false; } }), "current W9 evidence must not contain a master candidate or copied producer package");
+  return { package_sha256: currentPackageSha, verdict: report.verdict, rows: rows.row_reviews.length };
+}
 
 export function validateW4RiasecW9Qa() {
-  const master = json(join(root, "docs/seo/generated/en-content-parity-control-master.v1.json"));
-  const report = json(join(evidenceRoot, "independent_qa_report.json"));
-  const evidence = json(join(evidenceRoot, "row_review_evidence.json"));
-  const projection = json(join(evidenceRoot, "frozen_package_identity_projection.json"));
-  const repairPlan = json(join(evidenceRoot, "repair_batch_plan.json"));
-  const qaManifest = json(join(evidenceRoot, "qa_sha256_manifest.json"));
-  const w4 = master.lanes.find((lane) => lane.lane_id === "W4");
-  const resetMode = w4?.status === "package_in_progress";
-  if (resetMode) {
-    assert(existsSync(resetArtifactPath), `W4 reset mode requires CONTROL artifact: ${resetArtifactRef}`);
-    const reset = json(resetArtifactPath);
-    assert(
-      reset.$schema === "docs/seo/generated/en-content-parity-control-master.v1.schema.json" &&
-        reset.artifact_kind === "package_rework_reset" &&
-        reset.schema_version === "fermatmind.en_content_parity_package_rework_reset.v1" &&
-        reset.control_id === "EN-PARITY-CONTROL-BOOTSTRAP-01" &&
-        reset.control_owner === "CONTROL" &&
-        reset.producer_lane_id === "W4" &&
-        reset.subscope_id === null &&
-        reset.blocked_package_sha256 === blockedPackageSha &&
-        reset.w9_report_ref === reportRef &&
-        reset.w9_report_sha256 === reportSha &&
-        reset.w9_row_evidence_ref === rowEvidenceRef &&
-        reset.w9_row_evidence_sha256 === rowEvidenceSha &&
-        reset.w9_frozen_ledger_ref === frozenProjectionRef &&
-        reset.w9_frozen_ledger_sha256 === frozenProjectionSha &&
-        reset.proposed_status === "package_in_progress" &&
-        JSON.stringify([...reset.clear_fields ?? []].sort()) === JSON.stringify(["gate_lineage", "package_sha256", "qa_report_ref"]) &&
-        allPermissionsFalse(reset.permissions),
-      "W4 reset CONTROL artifact binding or permissions drifted"
-    );
-    assert(
-      sha(join(root, reset.w9_report_ref)) === reset.w9_report_sha256 &&
-        sha(join(root, reset.w9_row_evidence_ref)) === reset.w9_row_evidence_sha256 &&
-        sha(join(root, reset.w9_frozen_ledger_ref)) === reset.w9_frozen_ledger_sha256,
-      "W4 reset CONTROL artifact evidence SHA mismatch"
-    );
-    assert(
-      w4?.package_sha256 === null &&
-        w4?.qa_report_ref === null &&
-        w4?.blocked_from_status === null &&
-        w4?.gate_lineage?.length === 0 &&
-        w4?.blockers?.length === 0,
-      "W4 reset master must clear the failed package SHA, lineage, and blockers"
-    );
-  } else {
-    assert(w4?.status === "package_frozen", "W4-RIASEC must remain package_frozen unless the exact CONTROL reset is valid");
-    assert(w4?.qa_report_ref === null, "W4 frozen master must not bind a historical BLOCKED W9 report");
-    assert(w4?.package_sha256 && w4.package_sha256 !== blockedPackageSha, "W4 frozen master must not re-accept the historical BLOCKED package");
-  }
-  assert(JSON.stringify([w4.counts.expected_en_assets, w4.counts.current_en_assets, w4.counts.remaining_en_assets]) === JSON.stringify([14, 0, 14]), "W4 logical counts drifted");
-  assert(w4?.launch_state === "launch_ready" && allPermissionsFalse(w4?.permissions), "W4 master launch state or permissions drifted");
-  const mapIds = projection.atomic_row_identity_projection.map((row) => row.row_id);
-  assert(mapIds.length === 1550 && new Set(mapIds).size === 1550, "frozen atomic row identity projection drifted");
-  assert(report.package_sha256 === blockedPackageSha && report.verdict === "BLOCKED" && report.reviewed_row_count === 1550, "W9 report identity or verdict drifted");
-  assert(evidence.package_sha256 === blockedPackageSha && evidence.verdict === "BLOCKED" && evidence.row_reviews.length === 1550, "W9 evidence coverage drifted");
-  assert(JSON.stringify(evidence.row_reviews.map((row) => row.row_id)) === JSON.stringify(mapIds), "row evidence must preserve frozen atomic order");
-  assert(new Set(evidence.row_reviews.map((row) => row.row_id)).size === 1550, "row evidence IDs must be unique");
-  assert(evidence.row_reviews.every((row) => JSON.stringify(Object.keys(row.checks).sort()) === JSON.stringify([...requiredChecks].sort())), "every row must contain all W9 checks");
-  assert(evidence.row_reviews.every((row) => row.page_api_alignment_status === "NOT_APPLICABLE" && row.checks.page_api_alignment_applicable === "PASS"), "page/API applicability must be explicit and candidate-only");
-  assert(evidence.row_reviews.every((row) => row.verdict === (Object.values(row.checks).includes("BLOCKED") ? "BLOCKED" : "PASS") && typeof row.evidence === "string" && row.evidence.length > 30), "row verdict/evidence mismatch");
-  const blocked = evidence.row_reviews.filter((row) => row.verdict === "BLOCKED");
-  assert(blocked.length === 130, "blocked row count must remain 130");
-  assert(blocked.filter((row) => row.checks.language_naturalness === "BLOCKED").length === 126, "language blocker coverage must remain 126");
-  assert(blocked.filter((row) => row.checks.asset_media_duplication_omission === "BLOCKED").length === 4, "duplicate blocker coverage must remain 4");
-  assert(report.checks.language_naturalness === "BLOCKED" && report.checks.asset_duplication === "BLOCKED" && report.checks.page_api_alignment === "NOT_APPLICABLE", "aggregate report checks drifted");
-  assert(projection.package_sha256 === blockedPackageSha && projection.reference_only === true && projection.package_copied_or_modified === false, "frozen reference boundary drifted");
-  assert(projection.atomic_row_identity_projection.length === 1550, "identity projection must cover every atomic row");
-  assert(
-    repairPlan.package_sha256 === blockedPackageSha &&
-      repairPlan.verdict === "BLOCKED" &&
-      repairPlan.minimum_rework_batches.length === 2 &&
-      repairPlan.required_control_precondition === "Separate CONTROL-only failed-package reset from package_frozen to package_in_progress; do not alter this W9 evidence or the frozen producer package.",
-    "minimal rework plan or CONTROL reset precondition drifted"
-  );
-  assert(allPermissionsFalse(report.permissions) && allPermissionsFalse(evidence.permissions) && allPermissionsFalse(repairPlan.permissions), "all W9 permissions must remain false");
-  assert(!["master_manifest_patch.candidate.json", "frozen_package"].some((name) => { try { readFileSync(join(evidenceRoot, name)); return true; } catch { return false; } }), "BLOCKED W9 evidence must not create a candidate or copied frozen package");
-  assert(qaManifest.files.length === 7 && qaManifest.files.every((file) => sha(join(evidenceRoot, file.path)) === file.sha256), "W9 evidence SHA manifest mismatch");
-  assert(qaManifest.qa_package_sha256 === packageAggregate(qaManifest.files), "W9 evidence aggregate SHA mismatch");
-  return { ok: true, package_sha256: blockedPackageSha, rows: 1550, blocked_rows: 130, language_blocked_rows: 126, duplicate_blocked_rows: 4, verdict: "BLOCKED", control_reset: resetMode, historical_evidence_only: !resetMode };
+  const historical = validateHistoricalEvidence();
+  const current = validateCurrentEvidence();
+  return { ok: true, historical, current, qa_pass_authorized: false };
 }
 
 try {
