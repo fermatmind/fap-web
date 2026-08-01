@@ -163,9 +163,9 @@ function detailStats(detail, locale) {
 
 export function publicHtmlStats(html, locale) {
   const visibleText = String(html)
-    .replace(/<head\b[^>]*>[\s\S]*?<\/head>/gi, " ")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<head\b[^>]*>[\s\S]*?<\/head\s*>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, " ")
     .replace(/<!--([\s\S]*?)-->/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/gi, " ")

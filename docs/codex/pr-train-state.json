@@ -53456,8 +53456,13 @@
         "at": "2026-08-01T05:51:25Z",
         "status": "github_checks_pending",
         "summary": "Committed the rendered-public-thickness, exact-sitemap, and bilingual-tier repairs as 9b874515c8644b953c2f3c5006f97a453c174129 after focused 28/28, lint, typecheck, syntax, self-hash, ledger, public-thickness, diff, and exact-scope checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T05:57:00Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "All functional required checks passed on head 405327c1, but CodeQL alert 185 correctly found that public-body filtering did not match whitespace before script/head/style closing-tag brackets. Extended all three end-tag patterns to accept whitespace and added malformed closing-tag contract coverage; fresh local and GitHub checks are required."
       }
     ],
-    "updated_at": "2026-08-01T05:51:25Z"
+    "updated_at": "2026-08-01T05:57:00Z"
   }
 }
