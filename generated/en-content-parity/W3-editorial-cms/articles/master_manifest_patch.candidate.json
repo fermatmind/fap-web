@@ -6,7 +6,7 @@
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
   "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-06-2026-08-01",
-  "base_manifest_sha256": "d79b110e10486e62ae583ba350752c26752451219babd865144abe82da20b530",
+  "base_manifest_sha256": "13509eedf944f9628672f460094dd4fd88045e08c26527caf6b2c10966e6c317",
   "sha256_manifest_path": "generated/en-content-parity/W3-editorial-cms/articles/sha256_manifest.json",
   "package_sha256": "2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900",
   "proposed_status": "package_frozen",
