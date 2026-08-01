@@ -55804,9 +55804,9 @@
     "base": "main",
     "branch": "codex/en-parity-control-automation-v2-01",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "234f632f61066f474e71089f39c534d0873c08e1",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1984",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -55814,7 +55814,7 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 77/77; focused ESLint, Node syntax, JSON/YAML parse, exact changed-file scope, and diff checks pass. V2 preserves nine lanes, thirteen assets, all counts/package/QA lineage, isolates legacy human approvals, and validates the exact three-receipt backend chain."
+        "evidence": "After rebasing onto origin/main 363fbb927c61122ba47e32a1456cbb210950302d, deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 84/84; focused ESLint, typecheck, JSON/YAML parse, exact changed-file scope, and diff checks pass. V2 preserves the latest W3 Career Guides package_frozen state while enforcing complete registered W9 cohorts, reviewed-source ancestry, complete authenticated receipt chains, and the pinned release-policy SHA."
       },
       "github_required_checks": {
         "status": "pending",
@@ -55848,8 +55848,13 @@
         "at": "2026-08-01T21:40:00Z",
         "status": "local_verified",
         "summary": "V2 generation and dual V1/V2 validators pass. Focused contracts pass 77/77, including migration equivalence, human-approval isolation, same-PR W9 policy, valid receipt chaining, and fail-closed missing/forged/cross-lane/cross-package/count/duplicate cases. Focused ESLint, JSON/YAML parse, exact allowlist, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T22:44:08Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Resolved the four latest exact-head review findings by replacing impossible self-reference with immutable reviewed-source ancestry, binding W9 to the complete registered asset/count cohort and named PASS checks, rejecting truncated authenticated receipt artifacts, and pinning every chain to the V2 authority release-policy SHA. Rebased onto merged W3 Career Guides CONTROL state, regenerated the V2 shadow, and passed 84/84 focused contracts plus all required local checks. PR #1984 requires a force-with-lease push and fresh required checks."
       }
     ],
-    "updated_at": "2026-08-01T21:40:00Z"
+    "updated_at": "2026-08-01T22:44:08Z"
   }
 }
