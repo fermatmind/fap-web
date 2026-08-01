@@ -29337,3 +29337,44 @@ prs:
     deploy_allowed: false
     content_authority: producer candidate package only; fap-api dimension authority unchanged
     repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change
+
+  - id: EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01
+    repo: fap-web
+    branch: codex/en-parity-w3-article-53-source-evidence-01
+    base: main
+    title: "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01: resolve the Article:53 time-sensitive source boundary"
+    depends_on: [EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01]
+    mode: execute
+    train_scope: w3_article_53_primary_source_evidence_only
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Freeze primary official evidence and an exact candidate-only repair patch for Article:53@revision:65, covering only the retained 2026 Cloud Consultation Week and undergraduate-major catalogue/new-entry assertions.
+      - Preserve the 16 non-Article:53 reader-visible projections and Article:53 identity, revision, translation group, slug, and route; do not modify the canonical 17-row package or create a package_frozen candidate.
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/articles/rework-10/article-53-source-evidence/**
+      - scripts/seo/validate-w3-article-53-source-evidence.mjs
+      - tests/contracts/en-content-parity-w3-article-53-source-evidence.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify the control master, canonical W3 Article package, W9 authority, Career Guides, CMS, database, importer, runtime, SEO, sitemap, llms, publication, search, or deployment state.
+      - Treat this source-evidence artifact as a package SHA, package_frozen candidate, CONTROL transition, W9 PASS, import approval, or release approval.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-w3-article-53-source-evidence.contract.test.ts --reporter=dot
+      - pnpm exec eslint tests/contracts/en-content-parity-w3-article-53-source-evidence.contract.test.ts --max-warnings=0
+      - JSON/YAML parse; official source URL/owner/title/retrieval/fingerprint/disposition mapping, Article:53-only identity invariants, no unresolved unsupported 2026 claim, 16-row reader-visible projection preservation, all-false permissions, and repeatable evidence package SHA
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: primary official source evidence plus a producer-only candidate patch; backend CMS Article authority unchanged
+    repository_rule_impact: immutable candidate evidence only; no CMS authority transfer, runtime behavior, import, publication, discoverability, or deployment change

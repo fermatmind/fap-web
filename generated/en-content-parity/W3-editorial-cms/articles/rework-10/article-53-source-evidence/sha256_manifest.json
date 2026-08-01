@@ -1,0 +1,24 @@
+{
+  "schema_version": "fermatmind.w3_article_53_source_evidence_sha256.v1",
+  "artifact_kind": "producer_source_evidence_sha256_manifest",
+  "producer_pr_id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
+  "files": [
+    {
+      "path": "source_evidence_ledger.json",
+      "sha256": "95798e36957865c130e79b17c4adeab4b02ed16fee3705837ac7aa8eb219d7f3"
+    },
+    {
+      "path": "claim_disposition.json",
+      "sha256": "dce00ad88839d5f69fe923c502e5466eed1fd7f3e5382fabeb80820cf536dc60"
+    },
+    {
+      "path": "article_53_repair_patch.candidate.json",
+      "sha256": "b4890d260951239a0bc4afb4a1c0f9a42ff043debb01813a4cbfe784939d9655"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "586c11bcfc9c7dabea130e1f9785267a2d437e2cc65ccb503c5b0b4f2f53d343"
+    }
+  ],
+  "package_sha256": "480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061"
+}

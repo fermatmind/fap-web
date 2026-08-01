@@ -1,0 +1,45 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "schema_version": "fermatmind.w3_article_53_repair_patch.v1",
+  "artifact_kind": "producer_repair_patch_candidate",
+  "producer_pr_id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
+  "consumer_pr_id": "EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01",
+  "stable_asset_identity": "Article:53",
+  "source_identity": "Article:53@revision:65",
+  "translation_pair_identity": "tg_article_gaokao_score_major_shortlist_riasec_2026v1",
+  "slug": "gaokao-score-major-shortlist-riasec-checklist",
+  "base_failed_package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "canonical_package_modified": false,
+  "patch": {
+    "field": "candidate_content_md",
+    "operation": "replace_exact_section",
+    "section_heading": "## The 2026 Context: More Majors, More Anxiety",
+    "expected_previous_section_sha256": "80458ccb2ac98a759b420da83157278cbdbea3684c2ea00b36ddbb87ff939fad",
+    "replacement_section_sha256": "c04099596dba5908998647a86605915223c7de550a4f1b675322624cd776e01a",
+    "replacement_section_md": "## The 2026 Context: Start With Official Information\n\nThe Ministry of Education announced that the 2026 Gaokao Cloud Consultation Week would run on the Sunshine Gaokao information platform from June 22 through June 28. Treat that platform, provincial examination authorities, university admissions regulations, subject requirements, and official application systems as the primary sources for current admissions information.\n\nThe Ministry of Education also published the *Undergraduate Major Catalogue (2026)*, including new entries such as embodied intelligence and brain-machine science and technology. A newly listed major is still a prompt to examine course content, training conditions, and current institutional requirements; it is not evidence that the major will suit a particular student.\n\nNewness does not determine suitability, popularity does not determine value, and an income narrative does not guarantee long-term viability. In an information-heavy application season, first remove options that do not meet your real constraints instead of collecting more major names.\n",
+    "supporting_evidence_ids": [
+      "EDU-2026-CLOUD-CONSULTATION-WEEK",
+      "MOE-2026-UNDERGRADUATE-MAJOR-CATALOGUE"
+    ]
+  },
+  "identity_invariants": {
+    "article_id": 53,
+    "source_revision_id": 65,
+    "translation_pair_identity": "tg_article_gaokao_score_major_shortlist_riasec_2026v1",
+    "slug": "gaokao-score-major-shortlist-riasec-checklist",
+    "expected_target_route": "/en/articles/gaokao-score-major-shortlist-riasec-checklist"
+  },
+  "non_target_reader_visible_projection": {
+    "row_count": 16,
+    "sha256": "159bfc12f92d886b1425e8faac7554101a705a04dedc70d868256a95b15acaca"
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
