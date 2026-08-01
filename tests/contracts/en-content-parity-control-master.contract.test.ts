@@ -2168,6 +2168,33 @@ describe("English content parity control master", () => {
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
 
+      const qaFrozenPackageDirectory = path.join(qaAuthorityDirectory, "frozen_package");
+      fs.cpSync(packageDirectory, qaFrozenPackageDirectory, { recursive: true });
+      const qaFrozenCandidatePath = path.join(
+        qaFrozenPackageDirectory,
+        "master_manifest_patch.candidate.json"
+      );
+      const qaFrozenCandidate = JSON.parse(
+        fs.readFileSync(qaFrozenCandidatePath, "utf8")
+      ) as { sha256_manifest_path: string };
+      qaFrozenCandidate.sha256_manifest_path = path.join(
+        qaFrozenPackageDirectory,
+        "sha256_manifest.json"
+      );
+      fs.writeFileSync(qaFrozenCandidatePath, JSON.stringify(qaFrozenCandidate));
+      const frozenSnapshotOutput = execFileSync(
+        "node",
+        [
+          VALIDATOR_PATH,
+          "--manifest",
+          progressedManifestPath,
+          "--artifact",
+          qaFrozenCandidatePath,
+        ],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(frozenSnapshotOutput)).toMatchObject({ ok: true, errors: [] });
+
       const coLocatedQaReportPath = path.join(packageDirectory, "producer-authored-w9-report.json");
       fs.copyFileSync(qaReportPath, coLocatedQaReportPath);
       const coLocatedCandidate = JSON.parse(fs.readFileSync(candidatePath, "utf8")) as {
