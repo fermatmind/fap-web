@@ -52560,34 +52560,34 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "merged",
+    "status": "local_verified",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-rework-05",
+    "branch": "codex/en-parity-w3-article-package-rework-06",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "a5a6ef0e1c3d758c408f26ca030f492bc4ddc696",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1889",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh independent W9 evidence PR #1885 merged as 1ddfa5d0305a88315e4cfbbfc0f22608680cdf55 with 7/17 rows BLOCKED. CONTROL blocker-acceptance PR #1886 merged as 1cfa3b23d70b1ee4e1bdad2d9d7c27e5ff99a898, and exact-SHA reset PR #1888 merged as eaec02519f0420e7228812047bd40969552015cb. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Fresh W9 evidence PR #1897 merged as 92e2a0c3bf9d5630c2ee55f4ce9920ce5449d60d with only W3-ARTICLE-59 language naturalness BLOCKED. CONTROL accepted the blocker in PR #1902 as 8cb0edfa4147cd16ec700b3d9e61fcab1d4d8146 and merged reset PR #1903 as c4510b6a318d18c4e383142dc977e8e555cd237f. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired only the 7 rows blocked by fresh W9 report ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844 and row evidence 490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc: W3-ARTICLE-03, 51, 52, 53, 55, 58, and 59. The 10 passing rows remain content-identical to the reviewed frozen snapshot."
+        "evidence": "Repaired only W3-ARTICLE-59 against W9 report 5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2 and row evidence 0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1 by changing `Field related to AI` to `Fields related to AI`. The other 16 rows remain reader-content-identical to the reviewed frozen snapshot."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against current master SHA ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d with zero errors."
+        "evidence": "validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against current master SHA d79b110e10486e62ae583ba350752c26752451219babd865144abe82da20b530 with zero errors."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "The focused control and W3 Article package contracts passed 66/66 tests on Node 24."
+        "evidence": "The focused control and W3 Article package contracts passed 67/67 tests on Node 24."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row, 16 reader-content-identical rows, and aggregate package SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900 revalidate."
       },
       "lint": {
         "status": "pass",
@@ -52598,18 +52598,18 @@
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1889 final head a5a6ef0e1c3d758c408f26ca030f492bc4ddc696 passed all 11 required CI and security checks before squash merge."
+        "status": "pending",
+        "evidence": "The rework-06 producer PR has not yet been opened; all required CI and security checks remain pending."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "PR #1889 was MERGEABLE with no required approving review; all eight iterative review threads were resolved before exact-head squash merge."
+        "status": "pending",
+        "evidence": "Exact-head review, changed-file scope revalidation, mergeability, and required checks remain pending."
       }
     },
     "failure_reason": null,
-    "merged_at": "2026-08-01T05:04:11Z",
-    "remote_branch_deleted": true,
-    "local_cleanup_executed": true,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
     "production_write_execution": false,
     "cms_mutation": false,
     "publish_allowed": false,
@@ -52775,9 +52775,19 @@
         "at": "2026-08-01T05:04:11Z",
         "status": "merged",
         "summary": "Reconciled GitHub truth for PR #1889: final head a5a6ef0e1c3d758c408f26ca030f492bc4ddc696 passed all 11 required checks and squash-merged as d8b361f26877d443eff680e7637fac04851c278c. origin/main contains the merge, local main was synchronized, the worktree was clean, and the local and remote task branches were deleted."
+      },
+      {
+        "at": "2026-08-01T06:10:52Z",
+        "status": "reset_to_package_in_progress",
+        "summary": "Fresh W9 evidence PR #1897 merged as 92e2a0c3bf9d5630c2ee55f4ce9920ce5449d60d with only W3-ARTICLE-59 language naturalness BLOCKED. CONTROL accepted that exact-SHA blocker in PR #1902 and merged reset PR #1903 as c4510b6a318d18c4e383142dc977e8e555cd237f, returning W3-ARTICLES to package_in_progress while preserving W3-CAREER-GUIDES and all-false permissions."
+      },
+      {
+        "at": "2026-08-01T06:15:43Z",
+        "status": "local_verified",
+        "summary": "Completed producer rework-06 for only W3-ARTICLE-59, changing `Field related to AI` to `Fields related to AI`, and rebuilt the complete ten-file package at exact SHA 2e48c6d4159d4c4693826e1be95a2a30a8805f7c726689b6c29a12d80d1f4900. The other 16 rows remain reader-content-identical. Control validation, 67/67 focused contracts, repository lint, exact eight-file SHA and 17-identity audits, all-false permissions, scope validation, JSON/YAML parsing, and git diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T05:04:11Z"
+    "updated_at": "2026-08-01T06:15:43Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
