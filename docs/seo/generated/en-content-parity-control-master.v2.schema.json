@@ -265,6 +265,9 @@
         "subscope_id",
         "expected_count",
         "asset_ids",
+        "package_root",
+        "package_manifest_ref",
+        "package_manifest_sha256",
         "payloads",
         "package_sha256"
       ],
@@ -281,16 +284,20 @@
           "items": { "type": "string", "minLength": 1 },
           "uniqueItems": true
         },
+        "package_root": { "type": "string", "pattern": "^generated/en-content-parity/" },
+        "package_manifest_ref": { "type": "string", "pattern": "^generated/en-content-parity/.+/sha256_manifest\\.json$" },
+        "package_manifest_sha256": { "$ref": "#/$defs/sha256" },
         "payloads": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["path", "sha256"],
+            "required": ["path", "sha256", "row_count"],
             "properties": {
               "path": { "type": "string", "minLength": 1 },
-              "sha256": { "$ref": "#/$defs/sha256" }
+              "sha256": { "$ref": "#/$defs/sha256" },
+              "row_count": { "type": "integer", "minimum": 0 }
             }
           }
         },

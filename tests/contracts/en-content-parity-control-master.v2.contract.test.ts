@@ -396,14 +396,36 @@ describe("English content parity automation control V2", () => {
       const reviewedSourceCommit = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
       const evidencePaths = ["inventory", "production", "package"].map((name) => path.join(directory, `${name}.json`));
       for (const evidencePath of evidencePaths.slice(0, 2)) fs.writeFileSync(evidencePath, '{"ok":true}\n');
-      const payloadPath = path.join(directory, "assets.jsonl");
-      fs.writeFileSync(payloadPath, '{"asset_id":"ENPARITY-W8-CAREER-JOB-PROJECTION"}\n');
+      const packageRoot = path.join(directory, "package");
+      fs.mkdirSync(packageRoot);
+      const payloadPath = path.join(packageRoot, "assets.jsonl");
+      fs.writeFileSync(
+        payloadPath,
+        Array.from({ length: 1046 }, (_, index) => JSON.stringify({ asset_id: `career-job-${index + 1}` })).join("\n") + "\n",
+      );
+      const packageRootRef = path.relative(ROOT, packageRoot);
+      const payloads = [{
+        path: path.relative(ROOT, payloadPath),
+        sha256: sha256(fs.readFileSync(payloadPath)),
+        row_count: 1046,
+      }];
+      const packageManifestPath = path.join(packageRoot, "sha256_manifest.json");
+      const packageManifest = {
+        schema_version: "fermatmind.en_content_parity_package_payload_manifest.v2",
+        artifact_kind: "package_payload_manifest",
+        package_root: packageRootRef,
+        payloads,
+      };
+      fs.writeFileSync(packageManifestPath, `${JSON.stringify(packageManifest, null, 2)}\n`);
       const packageIdentity = {
         lane_id: "W8",
         subscope_id: null,
         expected_count: 1046,
         asset_ids: ["ENPARITY-W8-CAREER-JOB-PROJECTION"],
-        payloads: [{ path: path.relative(ROOT, payloadPath), sha256: sha256(fs.readFileSync(payloadPath)) }],
+        package_root: packageRootRef,
+        package_manifest_ref: path.relative(ROOT, packageManifestPath),
+        package_manifest_sha256: sha256(fs.readFileSync(packageManifestPath)),
+        payloads,
       };
       const packageSha = sha256(canonicalJson(packageIdentity));
       const packageEvidence = {

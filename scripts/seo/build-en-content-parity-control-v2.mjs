@@ -138,6 +138,25 @@ function readBoundJson(relativePath, expectedSha256) {
   return JSON.parse(readBoundBytes(relativePath, expectedSha256).toString("utf8"));
 }
 
+function listPackageFiles(relativeRoot) {
+  if (!relativeRoot.startsWith("generated/en-content-parity/") || relativeRoot.split("/").includes("..")) {
+    throw new Error(`unsafe_package_root=${relativeRoot}`);
+  }
+  const absoluteRoot = path.join(ROOT, relativeRoot);
+  const files = [];
+  const visit = (directory) => {
+    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+      const absolutePath = path.join(directory, entry.name);
+      if (entry.isSymbolicLink()) throw new Error(`package_symlink_forbidden=${path.relative(ROOT, absolutePath)}`);
+      if (entry.isDirectory()) visit(absolutePath);
+      else if (entry.isFile()) files.push(path.relative(ROOT, absolutePath));
+      else throw new Error(`package_non_regular_forbidden=${path.relative(ROOT, absolutePath)}`);
+    }
+  };
+  visit(absoluteRoot);
+  return files.sort();
+}
+
 function targetFor(v2, laneId, subscope) {
   const lane = v2.lanes.find((item) => item.lane_id === laneId);
   if (!lane) throw new Error(`unknown_materialization_lane=${laneId}`);
@@ -250,26 +269,54 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     evidence.subscope_id !== manifest.subscope ||
     evidence.expected_count !== registeredTarget.expectedCount ||
     canonicalJson(evidence.asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
+    typeof evidence.package_root !== "string" ||
+    evidence.package_manifest_ref !== `${evidence.package_root}/sha256_manifest.json` ||
+    !/^[a-f0-9]{64}$/.test(evidence.package_manifest_sha256 ?? "") ||
     !Array.isArray(payloads) ||
     payloads.length === 0 ||
     new Set(payloads.map((payload) => payload.path)).size !== payloads.length
   ) {
     throw new Error(`lane_manifest_package_freeze_evidence_invalid=${key}`);
   }
+  const packageManifest = readBoundJson(evidence.package_manifest_ref, evidence.package_manifest_sha256);
+  if (
+    packageManifest.schema_version !== "fermatmind.en_content_parity_package_payload_manifest.v2" ||
+    packageManifest.artifact_kind !== "package_payload_manifest" ||
+    packageManifest.package_root !== evidence.package_root ||
+    canonicalJson(packageManifest.payloads) !== canonicalJson(payloads) ||
+    canonicalJson(listPackageFiles(evidence.package_root)) !==
+      canonicalJson([evidence.package_manifest_ref, ...payloads.map((payload) => payload.path)].sort())
+  ) {
+    throw new Error(`lane_manifest_package_manifest_invalid=${key}`);
+  }
+  let coveredRows = 0;
   for (const payload of payloads) {
     if (
       typeof payload?.path !== "string" ||
-      !/^[a-f0-9]{64}$/.test(payload?.sha256 ?? "")
+      !payload.path.startsWith(`${evidence.package_root}/`) ||
+      !/^[a-f0-9]{64}$/.test(payload?.sha256 ?? "") ||
+      !Number.isInteger(payload?.row_count) ||
+      payload.row_count < 0
     ) {
       throw new Error(`lane_manifest_package_freeze_evidence_invalid=${key}`);
     }
-    readBoundBytes(payload.path, payload.sha256);
+    const bytes = readBoundBytes(payload.path, payload.sha256);
+    if (payload.row_count > 0) {
+      if (!payload.path.endsWith(".jsonl")) throw new Error(`lane_manifest_package_row_payload_invalid=${key}`);
+      const actualRows = bytes.toString("utf8").split(/\r?\n/).filter((line) => line.trim() !== "").length;
+      if (actualRows !== payload.row_count) throw new Error(`lane_manifest_package_row_count_invalid=${key}`);
+      coveredRows += actualRows;
+    }
   }
+  if (coveredRows !== registeredTarget.expectedCount) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
   const packageIdentity = {
     lane_id: evidence.lane_id,
     subscope_id: evidence.subscope_id,
     expected_count: evidence.expected_count,
     asset_ids: evidence.asset_ids,
+    package_root: evidence.package_root,
+    package_manifest_ref: evidence.package_manifest_ref,
+    package_manifest_sha256: evidence.package_manifest_sha256,
     payloads,
   };
   if (
