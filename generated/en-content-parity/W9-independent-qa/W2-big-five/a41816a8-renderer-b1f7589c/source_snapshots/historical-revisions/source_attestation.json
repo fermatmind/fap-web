@@ -1,0 +1,11 @@
+{
+  "authority": "fap-api immutable git object",
+  "source_repository": "/Users/rainie/Desktop/GitHub/fap-api",
+  "commit": "2b2c971c6077fa4101a54826c6b3703eb5b6b3e1",
+  "source_path": "backend/docs/seo/generated/en-parity-w2-big-five-draft-inventory.v1.json",
+  "sha256": "7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd",
+  "expected_sha256": "7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd",
+  "historical_rows": 50,
+  "independent_current_drafts": 0,
+  "current_working_equals_published": 50
+}

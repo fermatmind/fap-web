@@ -1,0 +1,79 @@
+{
+  "renderer_repository": "fap-web",
+  "renderer_commit": "b1f7589c1241cf17599bac1e352a11485b6d7468",
+  "renderer_sha8": "b1f7589c",
+  "source_intake_base_sha": "b1f7589c1241cf17599bac1e352a11485b6d7468",
+  "consumers": [
+    {
+      "consumer": "public_page_renderer",
+      "path": "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "83cbe8faaa3a7566f18675e7b58f6ec2f0dea9f5",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "public_api_adapter",
+      "path": "lib/cms/personalityPublicAssetLoader.ts",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "88a6fba08b7a382da936a4ec9b98045f870babb9",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "public_route_catalog",
+      "path": "lib/personality/bigFivePublicRoutes.ts",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "263760861f9f39f8ecbf4b0cb66be251fddb91fb",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "result_v2_shell",
+      "path": "components/result/big5/Big5ResultPageV2Shell.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "12dc814e8b01a7f77c7de52f897025ae57232fdd",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "result_v2_adapter",
+      "path": "lib/big5/resultPageV2.ts",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "0962ed5175df45374481ca2d9eeca71b591a34db",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "result_api_adapter",
+      "path": "lib/big5/api.ts",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "e77d7dec44d1a3340d12eebe580e81f364353fe6",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "pdf_consumer",
+      "path": "components/big5/pdf/PdfDownloadButton.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "5b22030953761ff1f4d3b5ab7f4888c29690ea89",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "history_page",
+      "path": "app/(localized)/[locale]/(app)/history/big5/page.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "e0052737a5655c8b9491033a549105a804d5e56a",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "history_client",
+      "path": "app/(localized)/[locale]/(app)/history/big5/Big5HistoryClient.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "4201d8c2d3fbaf392da06065dbb372a8d8c242d5",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    },
+    {
+      "consumer": "generic_share_consumer",
+      "path": "app/(localized)/[locale]/share/[id]/ShareClient.tsx",
+      "exists_at_renderer_baseline": true,
+      "blob_sha": "c1212d7caf8ee681366c1e430218ae7bf9fbc295",
+      "alignment_status": "captured_for_independent_review_not_asserted_aligned"
+    }
+  ],
+  "note": "This intake records reader/API surfaces for W9 review; it does not assert runtime alignment or production consumption."
+}

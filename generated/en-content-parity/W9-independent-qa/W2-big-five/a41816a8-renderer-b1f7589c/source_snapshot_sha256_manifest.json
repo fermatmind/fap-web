@@ -1,0 +1,329 @@
+{
+  "artifact_kind": "fermatmind.en_content_parity.w9_w2_source_snapshot_sha256.v1",
+  "files": [
+    {
+      "path": "frozen_package/assets.jsonl",
+      "sha256": "daa16f4f394807b94549f29f612393dd0492a7ed2fbe21917e57016bc2f8f6d7"
+    },
+    {
+      "path": "frozen_package/claim_boundary_report.json",
+      "sha256": "6749104849896c6e2c92b62b68c4a89ec5bc10af7fddc6e9d2c263f007b8f4ff"
+    },
+    {
+      "path": "frozen_package/dry_run_readiness.json",
+      "sha256": "d382129f65f3e72c3bb0fe403e348251fbaa373c1eddbc82995c3970c9954bea"
+    },
+    {
+      "path": "frozen_package/editorial_review.json",
+      "sha256": "4082803c1cc4dc3dd4f185b663f7f635455418e5cd1438e9fdea3f752f799471"
+    },
+    {
+      "path": "frozen_package/master_manifest_patch.candidate.json",
+      "sha256": "05c082a2e6d2628aac7b36bf09d70092e60d2f097e7e0a55458cd1dc74b43681"
+    },
+    {
+      "path": "frozen_package/scope_manifest.json",
+      "sha256": "81fecb6707b0694bb7a940827b7319caf7834d2c255832316e79ea031c273fc7"
+    },
+    {
+      "path": "frozen_package/sha256_manifest.json",
+      "sha256": "36a6a0d0cde7eced785adeb2cf969d5084919f77f4928ba3d85c8ec76163c565"
+    },
+    {
+      "path": "frozen_package/source_ledger.json",
+      "sha256": "5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f"
+    },
+    {
+      "path": "frozen_package/translation_map.json",
+      "sha256": "b8a721c22ff864fc2a70034ca15c6c62d73ca9a69dfa298249eb095c304489c5"
+    },
+    {
+      "path": "frozen_source_ledger_identity_projection.json",
+      "sha256": "84d79c6bf9458ed65ed337540b788963cf0dc54509bd1417105e79138f184bec"
+    },
+    {
+      "path": "renderer_baseline.json",
+      "sha256": "f4bbc266e53f16a25393d66adeda99473520187ac24dad7c9582e8d6a33dd117"
+    },
+    {
+      "path": "source_snapshot_manifest.json",
+      "sha256": "cadfc9f47fd84a0610bf579347d078db330dca45a297470fbcf6709b0f4494f8"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A1-trust.json",
+      "sha256": "2b42f6c54117c215c8166cbaf4c948fb46df3d152a9942ac83258e92ac5cb3d0"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A2-straightforwardness.json",
+      "sha256": "cf07900d0585bd4146c35841a7f1f7bcf1ef6f271533b549cc704410748cd033"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A3-altruism.json",
+      "sha256": "ce5fd1ac78c7573bfb54ab97b0b09ccf61097f21457b311ca3a674635b323e1c"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A4-compliance.json",
+      "sha256": "be3aecbd449bb857314da97f76fe466157fca590373fcd53adb459b8592774f1"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A5-modesty.json",
+      "sha256": "f3f8ce51168baf1bdc8ea15715e40a861d0d27e791f4063ee733907c402e955b"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/A6-tender-mindedness.json",
+      "sha256": "f236bde05ccc0e008477f3323c01890a01503e861c1645f94bd62b9afe2b9fb2"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C1-competence.json",
+      "sha256": "212bafd5588ed32cfce90535aa55de053abd60dd568527df80245fd8903e090c"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C2-order.json",
+      "sha256": "493e7fdddd942e14dcf5684ba32e7f2f6081a4c86372a87d0fed917d01e04f37"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C3-dutifulness.json",
+      "sha256": "9bd1f7053997c518197458ff11ad2a470925114fa304c3da48b2a19869bc10ea"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C4-achievement-striving.json",
+      "sha256": "5f477b993b66c4f17e1a23288b9ceccf395676b823fdb6717dacb1282b641376"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C5-self-discipline.json",
+      "sha256": "ecc1fe6897abbb5220de285f28e71b3ec5403928b7e470b4f3eb6933ec8e935a"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/C6-deliberation.json",
+      "sha256": "5a44722a910100098a3c6f906dd22a941d89bb468385492ccf587c3aba99e283"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E1-warmth.json",
+      "sha256": "5fc1968d1f11bc76c4b478bf93da063894bf19b7fe296aeea2732905dde101c4"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E2-gregariousness.json",
+      "sha256": "be61a172d351b1dae0d633ea260330e64b3cb8ccdd056136be4dbd43f0db2f2d"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E3-assertiveness.json",
+      "sha256": "63784c8b6f97be78daa885277db2155428ab07192f2b56632d9f341bfe8e4576"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E4-activity.json",
+      "sha256": "a96d921e7b31354dc19018ccf48760e26c2e6c0322bc7642ea4b95b489fee547"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E5-excitement-seeking.json",
+      "sha256": "9d794733af10c97fba841256a2a00483f7624513d91eaf653a82b42b6a45d812"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/E6-positive-emotions.json",
+      "sha256": "402c2198b1457a0a4ac7adaf090b6a159cd5546ed434c0c9aafd3f60e3c8cbef"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N1-anxiety.json",
+      "sha256": "e31f53e52588ff345144585c564986b9d04f4e2f11dbaf203e607d85da274990"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N2-anger.json",
+      "sha256": "04ac02b522f0fc167826c53bc1a5d7826b79482105c570fd366940c8161083cb"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N3-depression.json",
+      "sha256": "e6aa5d4c4292e3ec6e356819449385c06cf1796f44e9e991787a33a2777454ef"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N4-self-consciousness.json",
+      "sha256": "182b5f411ee9501c1d62a73ec1f309ea4a4613c814aab23a18787c263c0dac65"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N5-impulsiveness.json",
+      "sha256": "c819f16877badc37c0223d27c2eba7d17ac8e5886736221c4502eb36cef41185"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/N6-vulnerability.json",
+      "sha256": "735bbfddd5d2d7d8b3aa62f8f1d39d71ee6a2ba70a8567f04427f580bd029918"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O1-imagination.json",
+      "sha256": "46c0b6ede8857acf41e36299698246bbf93a542c49f11650454892d6a202b41d"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O2-aesthetics.json",
+      "sha256": "30b1f19bf50c8af8adfbde9ac29e761b5a383bcb7b127caf3ad1d717733cf53d"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O3-feelings.json",
+      "sha256": "d4e2baf2c33e9e70d7eb6741502429c8ad11d599fba21077f49f828bb632d7af"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O4-actions.json",
+      "sha256": "bfbb9274863b33d9ba560539724103ca0c47f75c70eafed89f8b63bde3c631f9"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O5-ideas.json",
+      "sha256": "d835207a4f0d8b47c56bfc59578655c0cc988c501d76e4153a93db78bc8cc0c8"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/O6-values.json",
+      "sha256": "6c46a5e7614da22d06eb4d1cef4a812af71dac147ee69373c5b67550ee363596"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/agreeableness-high.json",
+      "sha256": "6abd22966901248cce333f6a183b50c058994ef6ac2ac612ef2dc6e670436078"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/agreeableness-low.json",
+      "sha256": "900ec909537ec699f993db442772e779a7592342f67e8ec17bf969fa518db6b9"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/agreeableness-mid.json",
+      "sha256": "4ee270863e9406b2f52f1c0a0c02930f6caecfcd47e390805d83a0b1dff53ceb"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/agreeableness.json",
+      "sha256": "b3586de0e6bc929deedaf819bcfa63cb4c65dd53841b54a5e910d775643a7d2c"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/big-five-hub.json",
+      "sha256": "f786cf084c9187ce4e5fdd02363e5059425515bf7acca8852ae890074bdc238c"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/conscientiousness-high.json",
+      "sha256": "9bdd248041a29c57ce66abeb9e9040c62bf3ff22c4ed7bb08ce9bc600b4ebd9d"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/conscientiousness-low.json",
+      "sha256": "376c24ef8b4c272a1e2a9f8b9f79628d58bc5f6aa12d06b2324fdda7ecda348a"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/conscientiousness-mid.json",
+      "sha256": "c081dbcd5b6872507f660285ea5de4414b32b102423c696f937204a7dfcde1ea"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/conscientiousness.json",
+      "sha256": "c835334a04c29ebd5473fac74f394874d2505da4195aa61788b69c4d52031ac5"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/extraversion-high.json",
+      "sha256": "061914e5b26fb8831ade11aca8b79520601a554257ab821a71c5f05a05bdcd5b"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/extraversion-low.json",
+      "sha256": "f66e4c38f3fc3ebcb00f74aa6bf2a39ef620ebc5380758a8b6437e6de865d893"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/extraversion-mid.json",
+      "sha256": "570a998a7e569fbe1bad5fe3a129e0993aef6490e421bb011a5aa315d4aedec8"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/extraversion.json",
+      "sha256": "8eb8ffd45e202e6cad81e48c83f8abb47b3246cd90366c564b5496f36ade802e"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/facets.json",
+      "sha256": "e418b23ebfaa06eb0b9599391545e292ea37be41da850021c3044f2a4c491420"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/neuroticism-high.json",
+      "sha256": "315d8646471f980d6adf1fbf11854222fdddab52c1144f69c829aabcb01ac8be"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/neuroticism-low.json",
+      "sha256": "bee643008ee3e1c35eff5565ef580191726c3ae3e7c310eecf998b8ea5bb555d"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/neuroticism-mid.json",
+      "sha256": "a52c97024d28af8d79c7fd195abef68ce7eeeba7f3923d3a76abcc66ec48cfba"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/neuroticism.json",
+      "sha256": "625b665bd11c510dfb882f87fc32db3ea15a03309629ed95f11e8ddd623aa013"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/openness-high.json",
+      "sha256": "d16a2112e4fe9fc2c2af6517aafe9fa943fcb6d256a73c54f0e4d7973c905758"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/openness-low.json",
+      "sha256": "f8ba4fff9d178e798a35d2b09c20c089cb71a7e82ddd4031cf1309172b3632e4"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/openness-mid.json",
+      "sha256": "66422528b42ec48dbfdc9fbb440714fe9db58edcc1d63465ab002cc68a324002"
+    },
+    {
+      "path": "source_snapshots/en52-release/assets/openness.json",
+      "sha256": "051afa457a7a8d595178f7e572623ed57c1bc0639c00b7737a6f381ec83ff8cb"
+    },
+    {
+      "path": "source_snapshots/en52-release/compile-report.json",
+      "sha256": "ea2f923b88845071003aa89199ee392bb4bda13678305b9b65c0382a0cddb045"
+    },
+    {
+      "path": "source_snapshots/en52-release/release-package.json",
+      "sha256": "91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a"
+    },
+    {
+      "path": "source_snapshots/en52-release/source_attestation.json",
+      "sha256": "90708a23f53719bdaff76c29493032fe0e257a2dc3e706c97af3f210aa6fe25e"
+    },
+    {
+      "path": "source_snapshots/historical-revisions/en-parity-w2-big-five-draft-inventory.v1.json",
+      "sha256": "7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd"
+    },
+    {
+      "path": "source_snapshots/historical-revisions/source_attestation.json",
+      "sha256": "291bf6baad6c6f380c4d190c436efa866ef1d1030a89d3628bc043763368ff61"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/README.md",
+      "sha256": "df99c21d6ebea9bb6656701fb464e9f8cf7798edd32b94c38b41ae655a66cb89"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/claim_boundary_report.json",
+      "sha256": "13edb5670dc2e13b91e297184fb7787e665378af9c72c0199bb44175566deab8"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/content_assets.jsonl",
+      "sha256": "3b06cfbb529a478013d862e968a62a64958e1e8d8eee883153dcfbe0ce33e241"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/duplicate_report.json",
+      "sha256": "743df9149508a4a3c6afbc6f7259cc4435cd7b7ea215fcdc1a5cc0707d641f0d"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/editorial_self_review.json",
+      "sha256": "2d5510233468d6ef2463e324c9a4c28ff76b786aaebf4249b6711326279e25cc"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/inventory_row_reconciliation.json",
+      "sha256": "bc2ff3c48a259b38f6afc3d606261f31e1cfa988348830623853f3b8833fcfe9"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/package_manifest.json",
+      "sha256": "03e4864904f7ecec26822a65475d3183f8aa3edbaf70e41547fbc54cb6d4f5eb"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/sha256_manifest.json",
+      "sha256": "48f4de6c8d160736c2877a3325c826b7d5d038e0747fe8b79700e044d0f3bb81"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/source_ledger.json",
+      "sha256": "0e9fe6d9f600e10792ff02c2b88dabfbfc704c7674ac9b77feb1c948fbd5ca99"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/surface_coverage.json",
+      "sha256": "27e9eebc8184d75a4b6d69a2f9288b17bcf9164ebf301c7a17eb7962cea98b92"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/translation_map.json",
+      "sha256": "d2cab97371f0392f647b5c057365ebf7001ecca7cd7b10cd6a172202fe4c965d"
+    },
+    {
+      "path": "source_snapshots/w2-result-content-v1/validate_package.php",
+      "sha256": "0897c9c2493818cee68055d2506991fa5ebbb0e1a663ebed4c84f86bbb3bc68c"
+    }
+  ]
+}
