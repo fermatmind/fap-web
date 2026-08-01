@@ -1,0 +1,462 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "review_kind": "fresh_independent_full_target_w9",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-07-2026-08-01",
+  "package_sha256": "0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89",
+  "reviewed_at": "2026-08-01T08:48:12Z",
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "reviewed_row_count": 17,
+  "verdict": "BLOCKED",
+  "coverage": {
+    "titles_reviewed": 17,
+    "excerpts_reviewed": 17,
+    "full_bodies_reviewed": 17,
+    "live_source_article_id_and_revision_pairs_matched": 17,
+    "registered_rows_covered": 17,
+    "source_markdown_table_groups_reviewed": 86,
+    "source_markdown_table_lines_reviewed": 610,
+    "candidate_markdown_table_groups_reviewed": 86,
+    "candidate_markdown_table_lines_reviewed": 610,
+    "candidate_han_character_count": 0,
+    "coverage_result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "PASS"
+  },
+  "package_integrity": {
+    "required_file_count": 10,
+    "required_files": [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md"
+    ],
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "4e7148b34a3b24f43c30df187cd3696d3e1cb43692192c104a7799d4d2124d23",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "b558632ec821a606648796333a81ab99c0984dd745de96633f11efcbf5147617",
+      "source_ledger.json": "a3ce443a41446f5b1d8c3e1b646cb3adcc6429b3c391d4d766025103b945a2f3",
+      "claim_boundary_report.json": "8517412916ec49734c63aca2cece7718749409e20387282e8c6650e17d7a0abe",
+      "editorial_review.json": "933f7d554240acd53522affaeec36e4e083f33bb56a10e1a2b45b8c793c1f9a0",
+      "dry_run_readiness.json": "cd1ad352246a3909e7c4099b846e636b0e07f073067a4be9c30e062d0681c544",
+      "handoff.md": "f334a68a6e88330ea45a6b3a081a7ec45142c72e4bf3fdddd8be9187709b6242"
+    },
+    "sha256_manifest_sha256": "89e3abfa53344286b33748d6f7a582f67d949d68bcd543dec50217f5a32121aa",
+    "aggregate_package_sha256": "0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89",
+    "registered_asset_set": [
+      {
+        "asset_id": "ENPARITY-W3-ARTICLES",
+        "expected_en_count": 17
+      }
+    ],
+    "source_identity_count": 17,
+    "source_identities": [
+      "Article:1@revision:446",
+      "Article:2@revision:445",
+      "Article:3@revision:383",
+      "Article:4@revision:58",
+      "Article:5@revision:444",
+      "Article:6@revision:443",
+      "Article:7@revision:442",
+      "Article:8@revision:72",
+      "Article:9@revision:441",
+      "Article:10@revision:440",
+      "Article:50@revision:57",
+      "Article:51@revision:73",
+      "Article:52@revision:64",
+      "Article:53@revision:65",
+      "Article:55@revision:75",
+      "Article:58@revision:78",
+      "Article:59@revision:79"
+    ],
+    "frozen_immutable_payloads_byte_identical_to_producer_package": true,
+    "w9_gate_candidate_replaces_non_immutable_producer_candidate_in_snapshot": false,
+    "permissions_all_false": true,
+    "result": "PASS"
+  },
+  "check_evidence": {
+    "language_naturalness": "BLOCKED because the fresh complete rework-07 review of W3-ARTICLE-59 found additional reader-visible English defects, including `The students focus on college life: will they fail calculus, can their code never run smoothly, do they not understand algorithms`, the mid-sentence capitalization and non-native construction `If the answer is a complete unwillingness, Do not keep AI or computer science`, the table header `What to use to judge`, and the ambiguous action `Correct impressions formed from short videos or family slogans`. The other 16 rows pass language naturalness, and Article 59 passes its other seven row-level checks.",
+    "chinese_leakage": "PASS because all 17 candidate titles, excerpts, and complete bodies contain zero Han characters.",
+    "claim_boundary": "PASS because all 17 rows retain non-diagnostic, non-screening, non-admissions-prediction, and non-guarantee boundaries; Article:7 describes task performance, Article:51 preserves the exact 144-question field, Article:53 uses correct past tense, and Article:58 makes reassignment outcomes conditional on official rules.",
+    "asset_duplication": "PASS because all 17 Article/revision identities are unique, the exact 86 source table groups and 610 Markdown table lines are represented, localized internal-route sets are preserved with documented malformed-source corrections, and the explicit Media Library omission policy is applied consistently without local duplication.",
+    "field_leakage": "PASS because all 17 complete candidate bodies were reviewed and the prior producer, SEO, generator, website-production, and control-field phrases are absent from reader-visible content.",
+    "page_api_alignment": "PASS only for the applicable pre-import boundary: all 17 exact registered Article/revision identities remain candidate-only, target publication status is candidate_only_not_imported, and import_ready is false. This does not claim live English parity."
+  },
+  "external_fact_review": [
+    {
+      "row_id": "W3-ARTICLE-53",
+      "claim": "The candidate says the Ministry of Education's Sunshine Gaokao platform hosted the 2026 Cloud Consultation Week from June 22 to 28.",
+      "finding": "PASS: a fresh 2026-08-01 check of the official Ministry of Education / Sunshine Gaokao notice confirms the June 22-28 schedule, and the candidate uses past tense appropriate to this review.",
+      "official_sources": [
+        "https://gaokao.chsi.com.cn/gkxx/gzdt/202606/20260618/2293826055.html"
+      ]
+    }
+  ],
+  "blocking_summary": {
+    "blocked_row_count": 1,
+    "passing_rows": [
+      "W3-ARTICLE-01",
+      "W3-ARTICLE-02",
+      "W3-ARTICLE-03",
+      "W3-ARTICLE-04",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-07",
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-09",
+      "W3-ARTICLE-10",
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-53",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58"
+    ],
+    "blocked_rows": [
+      "W3-ARTICLE-59"
+    ],
+    "blocked_checks": {
+      "language_naturalness": 1
+    },
+    "qa_pass_authorized": false,
+    "producer_payload_modified": false,
+    "control_master_modified": false,
+    "career_guide_scope_modified": false,
+    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs Article 59 and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "slug": "big-five-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 28 source headings, five localized internal routes, title, excerpt, and complete body preserve the behavioral-experiment framing and explicit non-diagnostic, non-employment, non-admissions boundaries in reader-native English."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "slug": "big-five-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 22 source headings, localized routes, unknown-field handling, title, excerpt, and complete body are source-equivalent and reader-facing; no prior website-production or SEO-control text remains."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "slug": "big-five-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the excerpt now says `confirmatory evidence and counterexamples`; the title, complete ten-heading body, both source-equivalent matrices (11 Markdown table lines), exact Article:3@revision:383 identity, and zero-link/media-omission boundaries were re-reviewed and remain natural and aligned."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "slug": "eq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: all 28 headings and eight source matrices (54 Markdown table lines) now use natural EQ terminology, preserve every localized route and exact Article:4@revision:58 identity, and keep explicit non-diagnostic, non-hiring, and non-success-prediction boundaries."
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "slug": "iq-test-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the title, excerpt, all 24 headings, complete four-week body, three-line process table, two localized routes, and exact Article:5@revision:444 identity use natural task-performance language and preserve the source's near-transfer and no-IQ-gain boundaries."
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "slug": "iq-test-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "All 21 source headings, three localized routes, title, excerpt, and full body preserve the source's score, strategy, privacy, uncertainty, and non-diagnostic boundaries in readable English."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "slug": "iq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the excerpt and complete 21-heading body now describe observing performance on matrix and figural-reasoning tasks rather than assessing ability; the 30-question scope, four localized routes, exact Article:7@revision:442 identity, and non-clinical/non-credentialing boundary remain explicit."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "slug": "mbti-basics",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: all 24 headings and both source matrices (11 Markdown table lines) now use standard Extraversion/Introversion, Sensing/Intuition, Thinking/Feeling, and Judging/Perceiving terminology; exact identity, localized routes, and the non-ability/non-career-verdict boundary align."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "slug": "mbti-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "The title, excerpt, complete four-week behavior-experiment body, localized routes, and limitations are readable and source-equivalent; the row treats preferences as hypotheses rather than fixed identity or outcomes."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "slug": "mbti-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the complete 19-heading narrative, eight-line evidence matrix, retest instruction, exact Article:10@revision:440 identity, and two localized routes are natural and source-equivalent; the documented malformed source-link correction does not remove valid content."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "slug": "iq-test-score-and-limits-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: all 24 headings and four source matrices (27 Markdown table lines) now distinguish task performance from formal intelligence assessment in natural English; exact Article:50@revision:57 identity, localized routes, and no-norm/no-diagnosis boundaries align."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "slug": "enneagram-personality-test-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: a fresh full-row review confirms consistent `Enneagram personality test` naming, correct `an Enneagram` grammar, exact 105-question and 144-question product fields, all 32 headings, 11 source matrices (88 Markdown table lines), routes, identity, and claim boundaries."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the duplicated eligibility wording is removed. A fresh full-row review confirms all 28 headings, eight source matrices (60 Markdown table lines), standard RIASEC terms, 13 localized routes, exact Article:52@revision:64 identity, natural language, and decision boundaries align."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: all duplicated subject-combination wording and the malformed Business Administration question are repaired. A fresh full-row review confirms all 21 headings, nine source matrices (64 Markdown table lines), ten localized routes, exact Article:53@revision:65 identity, conditional admissions boundaries, and the independently reverified June 22-28 Cloud Consultation Week fact."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: the duplicated eligibility wording is removed and both `Students’ Resistance` / `students’ resistance` possessives are correct. A fresh full-row review confirms all 27 headings, 11 source matrices (82 Markdown table lines), eight localized routes, exact Article:55@revision:75 identity, admissions/course terms, natural language, and claim boundaries."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS: duplicated eligibility wording, the curriculum phrase, and `Students’ concerns` are repaired. A fresh full-row review confirms all 32 headings, 18 source matrices (114 Markdown table lines), six localized routes, exact Article:58@revision:78 identity, natural language, and explicitly conditional reassignment outcomes align."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "BLOCKED",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "BLOCKED only on language naturalness after a fresh title, excerpt, and full-body review: the body still contains the unidiomatic parallel questions `The students focus on college life: will they fail calculus, can their code never run smoothly, do they not understand algorithms`, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. All 25 headings, 11 source matrices (88 Markdown table lines), six localized routes, exact Article:59@revision:79 identity, source equivalence, links, leakage, media, page/API alignment, and non-predictive boundaries otherwise pass."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

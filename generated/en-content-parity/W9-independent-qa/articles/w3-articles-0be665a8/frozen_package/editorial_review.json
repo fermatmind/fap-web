@@ -1,0 +1,37 @@
+{
+  "schema_version": "fermatmind.en_content_parity_editorial_review.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-07-2026-08-01",
+  "verdict": "PASS",
+  "review_kind": "completed 17/17 producer re-review after the sixth exact-SHA W9 BLOCKED cycle; not independent W9 QA and not human editorial approval",
+  "completed_checks": [
+    "17 exact Article and source-revision identities retained",
+    "W3-ARTICLE-59 repaired against W9 report SHA 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b and row-evidence SHA aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e",
+    "Article 59 repaired only for the three recorded language-naturalness defects: one sentence, one table header, and one decision question",
+    "the other 16 W9-passing rows remain reader-content-identical to the reviewed frozen snapshot",
+    "all 17 rows re-reviewed after repair without changing source identity",
+    "candidate title, excerpt, and Markdown body present for every row",
+    "zero Han-script leakage across candidate reader-visible fields",
+    "source/candidate heading-count parity for every row",
+    "producer claim-boundary preflight after rework-07",
+    "candidate media omission policy retained",
+    "17/17 internal-link destination sets retained for fresh independent verification"
+  ],
+  "pending_checks": [
+    "fresh independent W9 language, source-equivalence, link, media, claim-boundary, field-leakage, and asset-completeness QA across every row and field for this exact frozen SHA",
+    "page/API alignment after a separately authorized dry run",
+    "independent importer and Media Library authority clearance",
+    "human editorial approval tied to the later exact frozen package SHA"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

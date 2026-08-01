@@ -1,0 +1,60 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-07-2026-08-01",
+  "base_manifest_sha256": "f59d8f1013df4c187b956e93d2b605efb4e48427985443d189456360b00c8698",
+  "sha256_manifest_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/frozen_package/sha256_manifest.json",
+  "package_sha256": "0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89",
+  "proposed_status": "blocked",
+  "gate_evidence": {
+    "gate": "blocked",
+    "report_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/independent_qa_report.json",
+    "report_sha256": "07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1",
+    "report_in_package": false,
+    "owner_lane_id": "W9",
+    "verdict": "BLOCKED",
+    "asset_ids": [
+      "ENPARITY-W3-ARTICLES"
+    ],
+    "row_count": 17,
+    "row_evidence": {
+      "path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/article_17_row_review_evidence.json",
+      "sha256": "c67bf315c0da847970fac4d30fd00dfcb19fccc4c2901c08b84067161e4d2041"
+    }
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W3-ARTICLES",
+      "lane_id": "W3",
+      "asset_type": "article",
+      "translation_group": "cohort:editorial:article-english-backlog",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS Article resources",
+      "expected_en_count": 17,
+      "current_en_count": 0,
+      "remaining_en_count": 17,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The deep CMS scan identified 17 Article resources without an English content asset.",
+        "The live public Article index returned 89 zh-CN and 23 English records at baseline time."
+      ],
+      "notes": "The 17-record backlog is a reviewed translation cohort, not the arithmetic difference between locale totals."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
