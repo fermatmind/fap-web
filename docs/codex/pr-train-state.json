@@ -52560,7 +52560,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-09",
     "depends_on": [
@@ -52598,15 +52598,15 @@
         "evidence": "Changed paths are restricted to the W3 Article producer package, focused contract, and existing PR-train manifest/state records. Candidate-only scope, 17 identities, 10 repaired rows, seven byte-identical PASS rows, YAML/JSON parsing, and git diff --check pass; master, W9, CareerGuides, CMS, publication, SEO, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "failed_repaired_pending",
-        "evidence": "PR #1947 first exact head 93bd7fd60e0e1d43691445056187de910fbf7143 failed build only at pnpm typecheck because the new contract Map inferred unknown values. The scoped explicit generic and row guard repair passes local pnpm typecheck, focused contracts, ESLint, and diff check; fresh required checks are pending."
+        "status": "pass",
+        "evidence": "PR #1947 exact head 616022f000ff6e4f1d0098e8bc0861b1140b9123 passes all required build, contract, freeze, and CodeQL checks after the scoped TypeScript repair."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "Rework-09 exact-head review and merge-policy validation have not started."
+        "status": "pass",
+        "evidence": "Independent exact-head review for 616022f000ff6e4f1d0098e8bc0861b1140b9123 returned no actionable finding. GitHub reports MERGEABLE/CLEAN with no required review or unresolved thread."
       }
     },
-    "failure_reason": "PR #1947 initial build typecheck failure was caused by the current PR's new contract Map inference and was repaired within the focused test scope; fresh required checks are pending.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -52965,9 +52965,14 @@
         "at": "2026-08-01T12:12:00Z",
         "status": "github_checks_failed_repaired_pending",
         "summary": "Inspected PR #1947 build failure at the failing pnpm typecheck step. The new rework-09 contract Map inferred unknown values; added only explicit Rework09LedgerRow Map typing and a missing-row guard. Local pnpm typecheck, 68/68 focused contracts, focused ESLint, and diff check pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T12:17:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1947 exact head 616022f000ff6e4f1d0098e8bc0861b1140b9123 passes all required CI and CodeQL checks. GitHub is MERGEABLE/CLEAN, the independent exact-head review returned no actionable finding, exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e and the 10/7 reader-content scope revalidate, and all permissions remain false. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T12:12:00Z"
+    "updated_at": "2026-08-01T12:17:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
