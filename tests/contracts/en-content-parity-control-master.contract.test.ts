@@ -223,7 +223,7 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
 function makeRegisteredPackageDirectory(outputDirectory: string): string {
   const packageDirectory = path.join(ROOT, outputDirectory);
   fs.mkdirSync(packageDirectory, { recursive: true });
-  const existingArtifacts = ARTIFACT_FILES.filter((fileName) =>
+  const existingArtifacts = [...ARTIFACT_FILES, "external_package"].filter((fileName) =>
     fs.existsSync(path.join(packageDirectory, fileName))
   );
   if (existingArtifacts.length > 0) {
