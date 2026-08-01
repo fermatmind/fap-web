@@ -55158,13 +55158,14 @@
     "base": "main",
     "branch": "codex/en-parity-w9-w3-articles-independent-qa-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-FROZEN-01"],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending_rebased",
+    "commit_sha": "83351e9125a4bf5f0e0899bfe1a2ac32a8c15a83",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1954",
     "checks": {
       "dependency": {"status": "pass", "evidence": "CONTROL W3-ARTICLES package freeze is merged on origin/main at 02c028e1c81712fa242c8fe4496f74a4ce673f46 and retains package_frozen with exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e."},
       "package_integrity": {"status": "pass", "evidence": "All eight immutable W3 Articles payload SHA values recompute from disk and the aggregate package SHA exactly matches 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e."},
-      "local_validation": {"status": "pass", "evidence": "Node 24.14.0 master validator and W9 evidence validator pass; focused W9 and control-master contracts pass 65/65; scoped ESLint, JSON/YAML parsing, CJK/claim-boundary checks, 17/16/1 reconciliation, immutable payload SHA, QA report/candidate/manifest/package SHA recomputation, and diff checks pass."}
+      "local_validation": {"status": "pass", "evidence": "Node 24.14.0 master validator and W9 evidence validator pass; focused W9 and control-master contracts pass 65/65; scoped ESLint, JSON/YAML parsing, CJK/claim-boundary checks, 17/16/1 reconciliation, immutable payload SHA, QA report/candidate/manifest/package SHA recomputation, and diff checks pass."},
+      "github_required_checks": {"status": "pending", "evidence": "PR #1954 is rebased onto unrelated origin/main 412349b5d347d746d103c219c4b0359fb7d43c47; a fresh exact-head required-check cycle is pending."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55182,6 +55183,6 @@
       {"at": "2026-08-01T21:40:00+08:00", "status": "in_progress", "summary": "Took over the existing isolated W9 worktree and branch at origin/main 02c028e1c81712fa242c8fe4496f74a4ce673f46. The frozen W3-ARTICLES package SHA and all eight immutable payload SHA values match exactly; the completed conclusion remains 16 PASS and Article:53-only BLOCKED. No producer package, CONTROL master, Career Guides, CMS, import, release, search, or deploy state changed."},
       {"at": "2026-08-01T21:50:00+08:00", "status": "local_verified", "summary": "Recorded deterministic W9 evidence and focused contract for the exact frozen package. The matrix reconciles 17 rows: 16 PASS, Article:53-only BLOCKED on unsupported 2026 time-sensitive external facts; repair_batch_plan contains only Article:53; page/API is NOT_APPLICABLE and not a blocker; all permissions remain false. The initial Node 20 shell lacked Vitest, so validation was rerun successfully with the repository-required Node 24.14.0 runtime."}
     ],
-    "updated_at": "2026-08-01T21:50:00+08:00"
+    "updated_at": "2026-08-01T22:30:00+08:00"
   }
 }
