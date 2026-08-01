@@ -52870,13 +52870,13 @@
     "updated_at": "2026-08-01T08:21:15Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "blocked_pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-07",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-  "commit_sha": "29599481da4522dca83f86a1a4e89c1e8f36db90",
+    "commit_sha": "c546bd5ebff91e5f18537a537414fd74ef8069e0",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1938",
     "checks": {
       "dependency": {
@@ -52920,12 +52920,12 @@
         "evidence": "After merging current main and rebinding only the candidate base, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 17/17 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1938 head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c passed all 11 required checks before current main advanced and required an exact-master candidate rebind. Fresh required checks are pending after the current-main merge."
+        "status": "pass",
+        "evidence": "PR #1938 exact head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required build, four contract shards, contracts summary, Big Five/Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts checks."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "All review findings are resolved, and Codex review of head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c reported no major issues. Current main then advanced, so fresh exact-head review, required checks, scope revalidation, and final mergeability verification remain pending after the candidate-only rebind."
+        "status": "pass",
+        "evidence": "All review findings are resolved. Codex exact-head review of c546bd5ebff91e5f18537a537414fd74ef8069e0 reported no major issues; GitHub reports CLEAN/MERGEABLE with zero unresolved threads. Exact scope, current-master candidate binding, validators, artifact SHAs, snapshot, aggregate, and permissions revalidate."
       }
     },
     "failure_reason": "Fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects in all 17 frozen Article rows. W9 must report BLOCKED and cannot modify the producer payload.",
@@ -53142,9 +53142,14 @@
       "at": "2026-08-01T09:44:30Z",
       "status": "blocked_pr_open",
       "summary": "Committed the current-master candidate rebind as 29599481da4522dca83f86a1a4e89c1e8f36db90 and bound commit_sha to that exact locally verified head. The exact Article package, all-17-row BLOCKED verdict, report and row-evidence SHAs, snapshot, and every write/release permission remain unchanged. Fresh required checks and exact-head review are pending."
+    },
+    {
+      "at": "2026-08-01T09:53:06Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1938 exact checked head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required checks and is CLEAN/MERGEABLE. Codex exact-head review found no major issues, all review threads are resolved, and exact current-master binding, validators, scope, artifact SHAs, frozen snapshot, 17/17 language-only BLOCKED aggregate, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
     }
   ],
-  "updated_at": "2026-08-01T09:44:30Z"
+  "updated_at": "2026-08-01T09:53:06Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
