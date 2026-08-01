@@ -55267,14 +55267,14 @@
     "base": "main",
     "branch": "codex/en-parity-control-w3-articles-rework-reset-01",
     "depends_on": ["EN-PARITY-W9-W3-ARTICLES-RESET-EVIDENCE-SUPPLEMENT-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "50d53861071213815d19af2b4e58f164c4cd34b5",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1966",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1964 is merged as a70372765a1e036186618c90e3973946aa6bc6ff and origin/main contains the exact immutable W9 reset evidence supplement."},
       "pre_transition_reset": {"status": "pass", "evidence": "Against pre-transition master SHA e3e230100d644f46b5620a3d4ba6347e28d5c67b32eb655997d1f6ddea491dd6, the CONTROL reset approval validates exact package, W9 report, row matrix, frozen-ledger projection, package_frozen lineage, blocked_from_status, clear_fields, and all-false permissions."},
       "local_validation": {"status": "pass", "evidence": "Post-transition master SHA dd9eb5f2e8c79202c36aaa93cc9fd4108a7a1960d8ea7ef0226a5b0e4169f59d validates with W3 inventory_frozen and W3-ARTICLES package_in_progress; failed package/QA/lineage/blocker fields are cleared, Career Guides/counts/other lanes are unchanged, and all permissions are false. Reset approval SHA 3f59c736a9f69271724d91b52500617d2a49f376f5f04a81ff9344f33071407d binds the exact retained W9 evidence. Master validator, 65/65 focused contracts, focused ESLint, JSON/YAML, exact scope, state, and diff checks pass."},
-      "github_required_checks": {"status": "pending", "evidence": "PR not opened yet."}
+      "github_required_checks": {"status": "pending", "evidence": "PR #1966 is open from locally verified implementation commit 50d53861071213815d19af2b4e58f164c4cd34b5; required checks and exact-head review are pending."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55290,9 +55290,10 @@
     "deploy_allowed": false,
     "history": [
       {"at": "2026-08-01T16:36:37Z", "status": "in_progress", "summary": "Started the CONTROL-only W3-ARTICLES rework reset from origin/main a70372765a1e036186618c90e3973946aa6bc6ff and pre-transition master SHA e3e230100d644f46b5620a3d4ba6347e28d5c67b32eb655997d1f6ddea491dd6. The exact reset artifact validates before transition; no Article repair, package rebuild, W9 rewrite, Career Guide, CMS/import, runtime, SEO, release, search, or deploy action is authorized."},
-      {"at": "2026-08-01T16:38:25Z", "status": "local_verified", "summary": "Applied only the failed-frozen-package reset: W3 returned to inventory_frozen and W3-ARTICLES to package_in_progress with blocked/package/QA/lineage fields cleared. The permanent CONTROL approval retains exact W9 report, row matrix, frozen ledger, and failed package hashes; 65/65 focused contracts and all scoped validations pass."}
+      {"at": "2026-08-01T16:38:25Z", "status": "local_verified", "summary": "Applied only the failed-frozen-package reset: W3 returned to inventory_frozen and W3-ARTICLES to package_in_progress with blocked/package/QA/lineage fields cleared. The permanent CONTROL approval retains exact W9 report, row matrix, frozen ledger, and failed package hashes; 65/65 focused contracts and all scoped validations pass."},
+      {"at": "2026-08-01T16:39:51Z", "status": "github_checks_pending", "summary": "Opened PR #1966 at implementation commit 50d53861071213815d19af2b4e58f164c4cd34b5 after confirming origin/main master SHA still equals the pre-transition CAS baseline e3e230100d644f46b5620a3d4ba6347e28d5c67b32eb655997d1f6ddea491dd6. Required checks and exact-head review are pending."}
     ],
-    "updated_at": "2026-08-01T16:38:25Z"
+    "updated_at": "2026-08-01T16:39:51Z"
   },
   "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01": {
     "id":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01","repo":"fap-web","title":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 produce aspirations and disagree English rows","base":"main","branch":"codex/en-parity-w4-riasec-calibration-assets-01","depends_on":["EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01"],"status":"ready_to_merge","commit_sha":"ec3e285b1dc7adb02fef4d1ba240afe01572e1de","pr_url":"https://github.com/fermatmind/fap-web/pull/1955",
