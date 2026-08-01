@@ -5,12 +5,12 @@
 `HOLD`; no career Search Channel canary package is authorized.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T08:17:09.890Z`.
-- Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
+- Read-only observation: `2026-08-01T08:37:35.713Z`.
+- Candidate authority: exact matching sets of 50 unique EN and 50 unique zh backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
 - Complete gate passes: 0; rejected without gate reduction: 50.
 - Hold reason: `insufficient_eligible_candidates:0/10`.
 - Target-set SHA-256: `null`.
-- Artifact SHA-256: `aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a`.
+- Artifact SHA-256: `5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499`.
 - Rollback batch ID: `null`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -32,18 +32,18 @@ The following gates remain mandatory for every future selected URL; the frozen r
 - public page HTTP 200, exact `<head>` self-canonical, exactly one non-conflicting `<head>` `index,follow` robots meta, and no conflicting optional Googlebot-specific directive in the explicit Googlebot view;
 - no non-indexable `X-Robots-Tag` response directive (`noindex`, `nofollow`, or `none`);
 - backend sitemap-source membership for both locales;
-- approved, non-stale reviewer evidence with locale-aligned review timestamp;
-- backend-approved review projection in both the list and detail responses; the backend emits `approved` only while the current private six-target-per-slug content, SEO, visible-claims, and index-entry package still matches the immutable `approved_all` attestation;
+- approved, non-stale reviewer evidence with a strict real UTC timestamp that round-trips without calendar normalization and is locale-aligned;
+- backend-approved review projection explicitly present in both the list and detail responses, with no legacy trust-state fallback; the backend emits `approved` only while the current private six-target-per-slug content, SEO, visible-claims, and index-entry package still matches the immutable `approved_all` attestation;
 - locale-aligned content and SEO contract versions, plus frozen per-locale content/SEO observation SHAs and a public review-projection SHA;
 - exact SEO-authority canonical equality with the locale target, independently of the rendered page canonical;
 - visible-content thickness measured from the public rendered HTML body above the fixed floor, independently of API authority payload size; crawler metadata, scripts, styles, comments, templates, and exact `hidden` / `aria-hidden=\"true\"` subtrees cannot satisfy this gate;
 - approved hero, definition, and FAQ authority markers present in the rendered body, with only marker hashes and counts frozen in the artifact;
 - rendered `FAQPage` from an exact `script[type="application/ld+json"]`, with every FAQ entity a structured `Question` plus `acceptedAnswer`, the valid question count equal to visible backend authority, and the normalized ordered question/answer pairs exactly equal to that authority;
 - exactly one rendered `BreadcrumbList` with at least two ordered, consecutively positioned `ListItem` entries and a final item URL exactly equal to the locale career URL;
-- no positive unsupported salary, income, hiring, employment, or career-success guarantee, with English and common Chinese negation bound to the guarantee predicate in the same clause.
+- no positive unsupported salary, income, hiring, employment, or career-success guarantee, including noun forms such as `job guarantee`, with English and common Chinese negation bound to the guarantee predicate in the same clause; ordinary Chinese job-security/policy discussion is not treated as a promised outcome.
 - no such unsupported guarantee in the independently rendered public body, even when all approved authority markers remain present.
 
-The private approved target/package SHAs intentionally remain backend-only. PR3 does not copy a live SHA into an "expected" field. It relies on the backend's fail-closed public projection of that private comparison, then freezes independent read-only observation SHAs for PR4 lineage. The generator treats absent, stale, mismatched, or malformed projection evidence as failure. If fewer than 10 candidates pass, it emits `HOLD`, returns no target set, and exits non-zero.
+The private approved target/package SHAs intentionally remain backend-only. PR3 does not copy a live SHA into an "expected" field. It relies on the backend's fail-closed public projection of that private comparison, then freezes independent read-only observation SHAs for PR4 lineage. The generator treats absent, stale, mismatched, or malformed projection evidence as failure. If fewer than 10 candidates pass, it emits `HOLD`, returns no target set, marks all target-level evidence summaries false rather than vacuously passing an empty set, and exits non-zero.
 
 ## Reproduction
 

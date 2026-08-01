@@ -20,8 +20,9 @@ const TIER_RANK = { stable: 0, approved_candidate: 1 };
 const GUARANTEE_PATTERNS = [
   /\bguarante(?:e|ed|es)\b[^.!?;:\n]{0,80}\b(?:salary|income|job|hiring|employment|career success|success)\b/i,
   /\b(?:salary|income|job|hiring|employment|career success|success)\s+(?:is\s+)?guaranteed\b/i,
-  /(?:保证|保障|承诺)[^。！？\n]{0,12}(?:薪资|收入|录用|就业|职业成功)/,
-  /(?:薪资|收入|录用|就业|职业成功)[^。！？\n]{0,12}(?:有保证|获保证|被保证|保障|承诺)/,
+  /\b(?:salary|income|job|hiring|employment|career success|success)\s+guarantee\b/i,
+  /(?:保证|承诺|确保)[^。！？\n]{0,12}(?:薪资|收入|录用|就业|职业成功)/,
+  /(?:薪资|收入|录用|就业|职业成功)[^。！？\n]{0,12}(?:有保证|获保证|被保证|得到保证|获得保证|承诺)/,
 ];
 
 function parseArgs(argv) {
@@ -166,7 +167,8 @@ export function inspectHtml(html, expectedUrl) {
     return urls.every(Boolean) && urls.at(-1) === expectedUrl;
   })();
   const types = [...new Set(jsonLdObjects.flatMap((item) => array(item["@type"]).length ? item["@type"] : [item["@type"]]).filter(Boolean))].sort();
-  const canonical = canonicalTag ? resolveAbsoluteUrl(attribute(canonicalTag, "href"), expectedUrl) : "";
+  const canonicalHref = canonicalTag ? attribute(canonicalTag, "href") : "";
+  const canonical = canonicalHref ? resolveAbsoluteUrl(canonicalHref, expectedUrl) : "";
   return {
     canonical,
     canonical_count: canonicalTags.length,
@@ -295,7 +297,15 @@ function qualityScore(detail) {
   return Number.isFinite(score) ? score : 0;
 }
 
-function reviewerEvidence(detail, authorityItem, observedAt) {
+export function strictIsoTimestamp(value) {
+  const text = string(value);
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/.test(text)) return Number.NaN;
+  const timestamp = Date.parse(text);
+  const canonical = text.includes(".") ? text : text.replace(/Z$/, ".000Z");
+  return Number.isFinite(timestamp) && new Date(timestamp).toISOString() === canonical ? timestamp : Number.NaN;
+}
+
+export function reviewerEvidence(detail, authorityItem, observedAt) {
   const trust = record(detail.trust_manifest);
   const detailAuthority = record(detail.search_entry_authority);
   const listItem = record(authorityItem);
@@ -303,8 +313,11 @@ function reviewerEvidence(detail, authorityItem, observedAt) {
   const listTrust = record(listItem.trust_summary);
   const reviewedAt = string(trust.last_reviewed_at || trust.reviewed_at);
   const listReviewedAt = string(listTrust.last_reviewed_at);
-  const reviewState = string(detailAuthority.review_state || trust.review_state);
-  const ageMs = reviewedAt ? new Date(observedAt).getTime() - new Date(reviewedAt).getTime() : Number.POSITIVE_INFINITY;
+  const reviewState = string(detailAuthority.review_state);
+  const reviewedAtMs = strictIsoTimestamp(reviewedAt);
+  const listReviewedAtMs = strictIsoTimestamp(listReviewedAt);
+  const observedAtMs = strictIsoTimestamp(observedAt);
+  const ageMs = observedAtMs - reviewedAtMs;
   return {
     review_state: reviewState,
     reviewer_status: string(trust.reviewer_status),
@@ -313,7 +326,8 @@ function reviewerEvidence(detail, authorityItem, observedAt) {
     backend_private_package_match_projected:
       reviewState === "approved"
       && string(listAuthority.review_state) === "approved"
-      && reviewedAt !== ""
+      && Number.isFinite(reviewedAtMs)
+      && Number.isFinite(listReviewedAtMs)
       && reviewedAt === listReviewedAt,
     public_projection_sha256: sha256({
       detail_review_state: reviewState,
@@ -504,21 +518,21 @@ export function buildArtifact({ candidates, observedAt, source }) {
     evidence_summary: {
       slug_count: targets.length,
       url_count: urls.length,
-      bilingual_pairs_complete: targets.every((target) => target.urls.length === 2),
-      all_detail_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200 && item.page_final_url === target.urls[item === target.locale_evidence.en ? 0 : 1])),
-      all_seo_authority_resolved: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_authority_status === 200 && ["career_seo_endpoint", "career_detail_seo_contract"].includes(item.seo_source))),
-      all_seo_canonical_exact: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_canonical === target.urls[item === target.locale_evidence.en ? 0 : 1])),
+      bilingual_pairs_complete: result === "GO" && targets.every((target) => target.urls.length === 2),
+      all_detail_api_and_pages_200: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200 && item.page_final_url === target.urls[item === target.locale_evidence.en ? 0 : 1])),
+      all_seo_authority_resolved: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_authority_status === 200 && ["career_seo_endpoint", "career_detail_seo_contract"].includes(item.seo_source))),
+      all_seo_canonical_exact: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_canonical === target.urls[item === target.locale_evidence.en ? 0 : 1])),
       dedicated_seo_endpoint_200_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_endpoint_status === 200).length,
       detail_seo_contract_fallback_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_source === "career_detail_seo_contract").length,
-      all_self_canonical_index_follow: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
-      all_live_metadata_matches_authority: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.metadata_matches_authority)),
-      all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
-      all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
-      all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.schema_faq_entities_valid && item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
-      all_faq_schema_authority_exact: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.faq_schema_authority_match)),
-      all_breadcrumb_schema_valid: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.breadcrumb_schema_valid)),
-      all_rendered_authority_markers_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.render_authority_match)),
-      all_public_guarantee_scans_clear: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.unsupported_public_guarantee_matches.length === 0)),
+      all_self_canonical_index_follow: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
+      all_live_metadata_matches_authority: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.metadata_matches_authority)),
+      all_sitemap_bilingual: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
+      all_reviewer_content_seo_evidence_current: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
+      all_faq_schema_aligned: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.schema_faq_entities_valid && item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
+      all_faq_schema_authority_exact: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.faq_schema_authority_match)),
+      all_breadcrumb_schema_valid: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.breadcrumb_schema_valid)),
+      all_rendered_authority_markers_current: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.render_authority_match)),
+      all_public_guarantee_scans_clear: result === "GO" && targets.every((target) => Object.values(target.locale_evidence).every((item) => item.unsupported_public_guarantee_matches.length === 0)),
       exact_target_shape: exactShape.valid,
     },
     negative_guarantees: {
@@ -650,6 +664,29 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   };
 }
 
+export function validateAuthorityInventory(enItems, zhItems) {
+  const eligibleForSearchEntry = (item) => record(item.search_entry_authority).search_entry_eligible === true;
+  const eligible = array(enItems).filter(eligibleForSearchEntry);
+  const zhEligible = array(zhItems).filter(eligibleForSearchEntry);
+  const slugs = (items) => items.map((item) => string(record(item.identity).canonical_slug));
+  const enSlugs = slugs(eligible);
+  const zhSlugs = slugs(zhEligible);
+  const enUnique = new Set(enSlugs);
+  const zhUnique = new Set(zhSlugs);
+  const sameSlugSet = enUnique.size === zhUnique.size && [...enUnique].every((slug) => slug && zhUnique.has(slug));
+  const valid = eligible.length === 50
+    && zhEligible.length === 50
+    && enUnique.size === 50
+    && zhUnique.size === 50
+    && sameSlugSet;
+  return {
+    valid,
+    eligible,
+    zhBySlug: new Map(zhEligible.map((item) => [string(record(item.identity).canonical_slug), item])),
+    reason: `en=${eligible.length}/50,en_unique=${enUnique.size}/50,zh=${zhEligible.length}/50,zh_unique=${zhUnique.size}/50,bilingual_equal=${sameSlugSet}`,
+  };
+}
+
 async function collectLive(args) {
   const observedAt = new Date().toISOString();
   const [enListResult, zhListResult, sitemapResult] = await Promise.all([
@@ -660,12 +697,11 @@ async function collectLive(args) {
   if (enListResult.status !== 200 || zhListResult.status !== 200 || sitemapResult.status !== 200) {
     throw new Error(`Authority preflight failed: en=${enListResult.status}, zh=${zhListResult.status}, sitemap=${sitemapResult.status}`);
   }
-  const enItems = array(record(enListResult.payload).items);
-  const zhBySlug = new Map(array(record(zhListResult.payload).items).map((item) => [string(record(item.identity).canonical_slug), item]));
-  const eligible = enItems.filter((item) => record(item.search_entry_authority).search_entry_eligible === true);
+  const inventory = validateAuthorityInventory(array(record(enListResult.payload).items), array(record(zhListResult.payload).items));
+  const { eligible, zhBySlug } = inventory;
   const sitemapLocs = exactSitemapLocs(sitemapResult.payload);
-  if (eligible.length !== 50 || sitemapLocs.size < EXACT_URL_COUNT) {
-    throw new Error(`Authority snapshot incomplete: eligible=${eligible.length}/50, sitemap_locs=${sitemapLocs.size}`);
+  if (!inventory.valid || sitemapLocs.size < EXACT_URL_COUNT) {
+    throw new Error(`Authority snapshot incomplete: ${inventory.reason}, sitemap_locs=${sitemapLocs.size}`);
   }
   const candidates = await mapLimit(eligible, args.concurrency, async (item) => {
     const slug = string(record(item.identity).canonical_slug);

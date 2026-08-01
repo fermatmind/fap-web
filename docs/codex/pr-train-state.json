@@ -53777,11 +53777,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after ignoring failed SEO endpoint bodies, rejecting duplicate titles, excluding hidden public evidence, binding FAQ and breadcrumb schema to backend authority, and rejecting general or Googlebot-specific non-indexable directives. One preceding incomplete directory snapshot stopped before artifact write; the accepted rerun required the full 50-row authority inventory."
+        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after requiring unique identical 50-slug bilingual inventories, an explicit detail approval projection, strict review timestamps, nonempty canonical hrefs, exact schema/metadata authority, and bounded claims. Every target-level evidence summary is false on HOLD rather than vacuously true."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 60 tests. Coverage includes failed SEO endpoint-body exclusion with valid detail fallback, unresolved dual failure, duplicate-title rejection, Googlebot-specific robots rejection, exact JSON-LD type parsing, Chinese disclaimer recognition, hidden public-evidence exclusion, exact FAQ/breadcrumb authority, supported HOLD reasons, and deterministic selection."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 68 tests. Coverage includes noun-form guarantees, Chinese job-security distinction, strict timestamp/calendar validation, explicit detail approval, non-vacuous HOLD evidence, unique identical bilingual inventories, nonempty canonical hrefs, failed SEO endpoint exclusion, crawler-specific directives, exact schema authority, and deterministic selection."
       },
       "lint": {
         "status": "pass",
@@ -53797,11 +53797,11 @@
       },
       "github_required_checks": {
         "status": "pending_recheck",
-        "evidence": "All functional exact-head checks passed on e87f8da6, but CodeQL alert 188 misclassified the SEO selector return as password authority because of its authentication-like helper name. The behavior-preserving rename and fresh exact-head scan are pending."
+        "evidence": "All 11 checks passed on 80fee7fd, including the CodeQL alert 188 repair. Seven newest exact-head review repairs and the refreshed truthful HOLD artifact now require fresh exact-head checks."
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "All newest exact-head findings are repaired: non-200 SEO endpoint bodies are ignored in favor of a valid detail contract, unresolved dual failures stay non-200, and crawler metadata authority requires exactly one title element."
+        "evidence": "All newest exact-head findings are repaired: noun guarantee coverage avoids ordinary job-security language, review timestamps round-trip strictly, detail approval cannot fall back to trust state, HOLD summaries are false, bilingual inventories are unique/equal, and canonical href must be nonempty."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53815,13 +53815,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T08:17:09.890Z",
+      "observed_at": "2026-08-01T08:37:35.713Z",
       "result": "HOLD",
       "eligible_candidates": 0,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-      "artifact_sha256": "aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a",
+      "artifact_sha256": "5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499",
       "rollback_batch_id": null
     },
     "production_write_execution": false,
@@ -54080,8 +54080,13 @@
         "at": "2026-08-01T08:28:00Z",
         "status": "github_checks_pending",
         "summary": "Merged exact latest origin/main 05f5901b and resolved the append-only state conflict by preserving the complete PR3 ledger plus all current main entries. Fresh post-merge validation is required before push."
+      },
+      {
+        "at": "2026-08-01T08:40:54Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 80fee7fd, repaired seven exact-head review findings: noun-form guarantees, Chinese job-security distinction, strict review timestamps, explicit detail approval projection, non-vacuous HOLD evidence, unique identical bilingual authority sets, and nonempty canonical hrefs. Fresh read-only observation remains HOLD with 0/10 complete rows, zero targets, all target-level evidence false, observed_at 2026-08-01T08:37:35.713Z, and artifact 5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499; focused 68/68, lint, and typecheck pass."
       }
     ],
-    "updated_at": "2026-08-01T08:28:00Z"
+    "updated_at": "2026-08-01T08:40:54Z"
   }
 }

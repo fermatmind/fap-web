@@ -9,10 +9,12 @@ import {
   fetchStatus,
   inspectHtml,
   publicHtmlStats,
+  reviewerEvidence,
   selectSeoSurface,
   selectPilot,
   sha256,
   validateExactTargetShape,
+  validateAuthorityInventory,
   unsupportedGuaranteeMatches,
 } from "../../scripts/seo/generate-career-search-entry-pilot-readiness.mjs";
 
@@ -180,6 +182,15 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
   });
 
+  it.each([
+    '<link rel="canonical">',
+    '<link rel="canonical" href="">',
+  ])("rejects a canonical without a nonempty href: %s", (link) => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const invalid = `<html><head>${link}<meta name="robots" content="index, follow"/></head><body></body></html>`;
+    expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
+  });
+
   it("does not treat data-prefixed attributes as canonical or robots signals", () => {
     const expected = "https://fermatmind.com/en/career/jobs/career-01";
     const invalid = `<html><head><link data-rel="canonical" href="${expected}"/><meta data-name="robots" content="index, follow"/></head><body></body></html>`;
@@ -303,12 +314,21 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
   });
 
   it("does not let an unrelated Chinese negation hide a positive guarantee", () => {
-    expect(unsupportedGuaranteeMatches("没有经验也保证就业。" )).toHaveLength(1);
+    expect(unsupportedGuaranteeMatches("没有经验也保证就业。")).toHaveLength(1);
+  });
+
+  it.each([
+    "这个职业的就业保障取决于行业周期。",
+    "社会保障和就业政策会影响岗位。",
+  ])("does not classify ordinary Chinese job-security context as a guarantee: %s", (claim) => {
+    expect(unsupportedGuaranteeMatches(claim)).toEqual([]);
   });
 
   it.each([
     "We guarantee that you will get a job.",
     "We guarantee you a job.",
+    "We offer a job guarantee.",
+    "This program includes an employment guarantee.",
   ])("detects a guarantee with intervening words: %s", (claim) => {
     expect(unsupportedGuaranteeMatches(claim)).toHaveLength(1);
   });
@@ -318,6 +338,39 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     const matches = publicHtmlStats(rendered, "en").guarantee_matches;
     expect(matches).toHaveLength(1);
     expect(matches[0]).toContain("We guarantee that you will get a job");
+  });
+
+  it("requires a strict real review timestamp and the detail approval projection", () => {
+    const malformed = reviewerEvidence({
+      search_entry_authority: { review_state: "approved" },
+      trust_manifest: { review_state: "approved", reviewer_status: "approved", last_reviewed_at: "2026-02-31T12:00:00.000Z" },
+    }, {
+      search_entry_authority: { review_state: "approved" },
+      trust_summary: { last_reviewed_at: "2026-02-31T12:00:00.000Z" },
+    }, OBSERVED_AT);
+    expect(malformed).toMatchObject({ stale: true, backend_private_package_match_projected: false });
+
+    const missingDetailProjection = reviewerEvidence({
+      search_entry_authority: {},
+      trust_manifest: { review_state: "approved", reviewer_status: "approved", last_reviewed_at: "2026-07-31T23:56:27.000Z" },
+    }, {
+      search_entry_authority: { review_state: "approved" },
+      trust_summary: { last_reviewed_at: "2026-07-31T23:56:27.000Z" },
+    }, OBSERVED_AT);
+    expect(missingDetailProjection).toMatchObject({ review_state: "", backend_private_package_match_projected: false });
+  });
+
+  it("requires unique and identical 50-slug bilingual authority inventories", () => {
+    const rows = (prefix: string) => Array.from({ length: 50 }, (_, index) => ({
+      identity: { canonical_slug: `${prefix}-career-${index}` },
+      search_entry_authority: { search_entry_eligible: true },
+    }));
+    const en = rows("shared");
+    const zh = rows("shared");
+    expect(validateAuthorityInventory(en, zh).valid).toBe(true);
+    en[49] = en[48];
+    expect(validateAuthorityInventory(en, zh).valid).toBe(false);
+    expect(validateAuthorityInventory(rows("en"), zh).valid).toBe(false);
   });
 
   it("is deterministic and orders stable, then quality descending, then slug", () => {
@@ -396,6 +449,15 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     values[0].locales.en.thin_or_shell = true;
     const artifact = buildArtifact({ candidates: values, observedAt: OBSERVED_AT, source: { fixture: true } });
     expect(artifact).toMatchObject({ result: "HOLD", targets: [], hold_reason: "insufficient_eligible_candidates:9/10" });
+    expect(artifact.evidence_summary).toMatchObject({
+      bilingual_pairs_complete: false,
+      all_detail_api_and_pages_200: false,
+      all_seo_authority_resolved: false,
+      all_self_canonical_index_follow: false,
+      all_sitemap_bilingual: false,
+      all_faq_schema_aligned: false,
+      all_public_guarantee_scans_clear: false,
+    });
     expect(artifact.negative_guarantees).toMatchObject({
       search_channel_action_performed: false,
       cms_or_database_write_performed: false,
