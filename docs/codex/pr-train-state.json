@@ -52780,14 +52780,14 @@
     "updated_at": "2026-08-01T05:04:11Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-05",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "e090f19e2158ee8b53dff7a9b37ddcd11879c3fa",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1897",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52831,11 +52831,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The fresh W9 PASS PR has not yet been created; required CI, contract, freeze, and CodeQL checks remain pending after push."
+        "evidence": "PR #1897 is open from implementation commit e090f19e2158ee8b53dff7a9b37ddcd11879c3fa; required CI, contract, freeze, and CodeQL checks are queued or running."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact-head review, scope revalidation, required checks, and final mergeability verification remain pending after PR creation."
+        "evidence": "PR #1897 exact-head review, scope revalidation, required checks, and final mergeability verification remain pending."
       }
     },
     "failure_reason": null,
@@ -52932,9 +52932,14 @@
         "at": "2026-08-01T05:32:57Z",
         "status": "local_verified",
         "summary": "Completed fresh independent W9 rework-05 QA against CONTROL-frozen package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d. All 17 rows and all eight row checks PASS; the report, complete row evidence, exact immutable snapshot, source identity projection, and qa_pass candidate are stored under w3-articles-8ec89c41. Baseline validator repair PR #1895 was independently merged before the final validator run. Both strict artifacts validate, focused contracts pass 66/66, exact 86/610 structure and SHA audits pass, and all CMS/import/release/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-08-01T05:35:49Z",
+        "status": "github_checks_pending",
+        "summary": "Committed fresh exact-SHA W9 PASS evidence as e090f19e2158ee8b53dff7a9b37ddcd11879c3fa, pushed the isolated rework-05 branch, and opened ready PR #1897. GitHub required checks and exact-head review are pending; every write/release permission remains false."
       }
     ],
-    "updated_at": "2026-08-01T05:32:57Z"
+    "updated_at": "2026-08-01T05:35:49Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
