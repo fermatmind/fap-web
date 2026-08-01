@@ -14,8 +14,8 @@
       "clean_at_preflight": true
     },
     "fap_web": {
-      "head": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
-      "origin_main": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+      "head": "c3688ac53842c7d750f5e4542367900f6a2696ca",
+      "origin_main": "c3688ac53842c7d750f5e4542367900f6a2696ca",
       "clean_at_preflight": true
     },
     "fap_api": {

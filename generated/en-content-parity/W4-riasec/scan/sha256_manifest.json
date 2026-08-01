@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "w4_scan_manifest.json",
-      "sha256": "45c43e51f9c0b1b4d036b23d2b134796688d8336e9f78b941745bfe7c6782332",
+      "sha256": "0a2a870e51941abb5f497ed5da5ef81c74f46a67b5a82ffcbb6d6545310f3beb",
       "bytes": 3816
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "path": "source_authority_ledger.json",
-      "sha256": "cb370999dfdb3e28b7509bdb262c4c2f2f2f9068173ec3edb61826cb99b29b0a",
+      "sha256": "cca61449e34f74b6d81e3bbcf9a5de8afa4d00c75dbd169097721afcc00e7350",
       "bytes": 13879
     },
     {
@@ -61,7 +61,7 @@
       "bytes": 3701
     }
   ],
-  "aggregate_sha256": "b627e6ee1a35636c94a493a4bc545292a89a717f0d6ebed25de153556f21116e",
+  "aggregate_sha256": "16531ad41dbae6eff145bf368ac14669598cd6bf3117891f2f6210959226245f",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

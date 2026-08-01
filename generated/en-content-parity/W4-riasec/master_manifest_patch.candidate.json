@@ -29,12 +29,12 @@
       "notes": "The reader boundary is career-interest direction, not precise career matching."
     }
   ],
-  "package_sha256": "354447d9332ea825437bdbf20c7408f1d859c42cc9f69cc979c97cdf1629d03c",
+  "package_sha256": "590a67abefc67259c0a0c920b34cd91bb15794ee74edcb6f1b83ea8e5015f69c",
   "sha256_manifest_path": "generated/en-content-parity/W4-riasec/sha256_manifest.json",
   "gate_evidence": {
     "gate": "inventory_frozen",
     "report_path": "source_ledger.json",
-    "report_sha256": "73c7aee234eacf88a7b7614d1f74bc4ddb8677ceb763a80dcc732292e8e513a2",
+    "report_sha256": "68d180ddc8c12018f753ef21bbb959d4cf9f7ea467232bb3d5e1eb71e673667b",
     "report_in_package": true,
     "owner_lane_id": "W4",
     "verdict": null,

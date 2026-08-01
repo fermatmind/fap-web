@@ -54340,13 +54340,17 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-inventory-01",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_verified",
+    "commit_sha": "216fe1bfd9ad08f7b421d703ee2b47e2d96b8d31",
     "pr_url": null,
     "checks": {
       "preflight": {
         "status": "pass",
         "evidence": "W4 is launch_ready/not_started at fap-web origin/main c3688ac568c2d8de7f542bc5ca11c2a00b42d59e with 14/0/14 logical-group counts, null package/QA fields, empty lineage, and all permissions false. The fap-api source snapshot is e5997548beb7da3f9850b7d382a015e175b0397d; its delta from the prior scan source contains no RIASEC/Holland/interest paths."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Control candidate and master validators passed; focused control-master contract passed 63/63; JSON/YAML parsing, 14 logical groups, 1550 atomic identities, 14 source-ledger rows, 15 unordered pairs, 3/2/2 safe surfaces, eight-file SHA coverage, candidate binding, and diff/scope checks passed. pnpm lint . passed in a clean detached worktree at the implementation commit; the primary worktree lint error is confined to ignored .playwright-cli trace artifacts and was not changed."
       }
     },
     "failure_reason": null,
@@ -54364,8 +54368,13 @@
         "at": "2026-08-01T17:20:00+08:00",
         "status": "in_progress",
         "summary": "Started the launch-ready W4 inventory freeze from latest fap-web main. Scope is limited to the 14 logical groups, 1550 atomic identities, candidate envelope, and train metadata; no reader copy, runtime, CMS, import, publication, or deploy work is authorized."
+      },
+      {
+        "at": "2026-08-01T17:31:00+08:00",
+        "status": "local_verified",
+        "summary": "Rebased onto c3688ac53842c7d750f5e4542367900f6a2696ca, regenerated the exact W4 package SHA, and passed all scoped validators, 63/63 focused contract tests, clean-worktree lint, inventory reconciliation, SHA binding, and exact scope checks. The candidate does not modify the control master or grant any write/release permission."
       }
     ],
-    "updated_at": "2026-08-01T17:20:00+08:00"
+    "updated_at": "2026-08-01T17:31:00+08:00"
   }
 }

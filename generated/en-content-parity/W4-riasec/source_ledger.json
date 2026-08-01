@@ -5,7 +5,7 @@
   "subscope_id": null,
   "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
   "scan": {
-    "fap_web_commit": "38c2aff53c4828f7f2c00f75d2041a682cf38051",
+    "fap_web_commit": "c3688ac53842c7d750f5e4542367900f6a2696ca",
     "fap_api_origin_main_commit": "e5997548beb7da3f9850b7d382a015e175b0397d",
     "master_manifest_sha256": "7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1",
     "source_revalidation": "fap-api changes from the prior scan source SHA contain no RIASEC/Holland/interest paths",
