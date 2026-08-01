@@ -54589,8 +54589,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-REVALIDATION-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "94faafa618ed7224030f5c897932f226f1e8609d",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -54626,8 +54626,13 @@
         "at": "2026-08-01T18:45:30+08:00",
         "status": "local_verified",
         "summary": "Applied only the W4 inventory_frozen acceptance. The exact candidate evidence remains b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce against pre-transition master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1; W4 is now launch_ready/inventory_frozen with 14/0/14 logical-group counts, null package/QA fields, empty lineage/blockers, and all permissions false."
+      },
+      {
+        "at": "2026-08-01T18:47:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Committed CONTROL-only acceptance implementation as 94faafa618ed7224030f5c897932f226f1e8609d. Required GitHub checks are pending; final merge remains conditional on a fresh exact master-file SHA compare-and-swap check."
       }
     ],
-    "updated_at": "2026-08-01T18:45:30+08:00"
+    "updated_at": "2026-08-01T18:47:00+08:00"
   }
 }
