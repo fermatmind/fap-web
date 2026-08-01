@@ -1,0 +1,956 @@
+{
+  "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+  "source_ledger_sha256": "5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f",
+  "reviewed_row_count": 118,
+  "counts": {
+    "public_profiles": 52,
+    "historical_revision_slots": 50,
+    "result_report_share_pdf_history_units": 16
+  },
+  "rows": [
+    {
+      "row_id": "W2-PUBLIC-domain-agreeableness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "a96d74b14fa7b32b6a6bb653a73f941bd04ab82ece36a59d9b4cd62d2b8c30d8",
+      "source_locator": "frozen_package/source_ledger.json#/rows/0"
+    },
+    {
+      "row_id": "W2-PUBLIC-domain-conscientiousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "a7515f85d782c97d3dca9a13b8f7711f7bd5993b12a36d1248f756035b6ef40e",
+      "source_locator": "frozen_package/source_ledger.json#/rows/1"
+    },
+    {
+      "row_id": "W2-PUBLIC-domain-extraversion",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "bc559b5da619dd3d0828765c5797f31e24caf12697d011bef490dbd50dd7ab34",
+      "source_locator": "frozen_package/source_ledger.json#/rows/2"
+    },
+    {
+      "row_id": "W2-PUBLIC-domain-neuroticism",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "17c279811d4e58a5b098e0e3d18464007d97e50aaf8f2f2ad4b8624fab8f0c52",
+      "source_locator": "frozen_package/source_ledger.json#/rows/3"
+    },
+    {
+      "row_id": "W2-PUBLIC-domain-openness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "5732b302fd35b766af0bb6a90bb7967d2a5ff5577d4c0b6234323118e4876e0d",
+      "source_locator": "frozen_package/source_ledger.json#/rows/4"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-achievement-striving",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "7d7ddffb69d3350a1b0c96429bf436bffee5d9e362bdd58a2a08b3267ced0eae",
+      "source_locator": "frozen_package/source_ledger.json#/rows/5"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-actions",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "1d8b16ea8b1d6c2a0c83be8b3c4ded58e3d8dd8a226e1ee73e667fe2325c6e64",
+      "source_locator": "frozen_package/source_ledger.json#/rows/6"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-activity",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9fb84caf0449f15c533284ae78618ecaa39d94510dfad7e94d7a87512dcf57e4",
+      "source_locator": "frozen_package/source_ledger.json#/rows/7"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-aesthetics",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3642524ef02f21936486cc99d04788d0da0020c344f07a964f33fedc17fda3ac",
+      "source_locator": "frozen_package/source_ledger.json#/rows/8"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-altruism",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3177b6728b4d9137e4ec4fcd482df27fa199bec3705da304649236cd37139e6a",
+      "source_locator": "frozen_package/source_ledger.json#/rows/9"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-anger",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "15c960c958b48ba98ed1076b2832bc50c9afc8eedec09fe3eea974c016b4b595",
+      "source_locator": "frozen_package/source_ledger.json#/rows/10"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-anxiety",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d2412cfec2638bb423d378b2223670e02500f00b1b4a5b90a61c3f246ae2e265",
+      "source_locator": "frozen_package/source_ledger.json#/rows/11"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-assertiveness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "780399e7ff5d81da13674a75a873de346927dbc28e553b19b86498ede69dc697",
+      "source_locator": "frozen_package/source_ledger.json#/rows/12"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-competence",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "aed1dffe1c654f0e1e1395d63b3c5b92a728e6fa3b2ac59b8ecf464e82bc827a",
+      "source_locator": "frozen_package/source_ledger.json#/rows/13"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-compliance",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "126772a638a3a7095c6c3c11472d2d4bd994343d48a948f2f15aa7afd256a607",
+      "source_locator": "frozen_package/source_ledger.json#/rows/14"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-deliberation",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d48433f6a0d632f055f66b335bef49554caec0d15bd55a9ae0201d359745c3b0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/15"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-depression",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d91b86ff349693debba0619b7816fd9c569a12c21abd41a96d1463b4ee376325",
+      "source_locator": "frozen_package/source_ledger.json#/rows/16"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-dutifulness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "1eab141e877167795ad6a9e3d24f27cba4bb0f7834a3c4d685a55b908d7c7d86",
+      "source_locator": "frozen_package/source_ledger.json#/rows/17"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-excitement-seeking",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "2f5679da4e2a2fd81e532658ffdc455d40b0632601c338dfff3eee0d5a563a24",
+      "source_locator": "frozen_package/source_ledger.json#/rows/18"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-feelings",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "f709479747d9fc5e3e39e2c1fde17e6f17b857e0e7f655d5101872422414f4b2",
+      "source_locator": "frozen_package/source_ledger.json#/rows/19"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-gregariousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "7ff2b2855a328f21d652e40000306ac8b03f7ca72676515ebb7a03adcfd8d7f8",
+      "source_locator": "frozen_package/source_ledger.json#/rows/20"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-ideas",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "14b5234a4a1272a47ab1fdaa29652f54280757c574d5a10ab2d2285efeccbe34",
+      "source_locator": "frozen_package/source_ledger.json#/rows/21"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-imagination",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "59b11c047acc16fe4b263113fa4936d41d14e3d88a7d5807d2891cb7beb7f87e",
+      "source_locator": "frozen_package/source_ledger.json#/rows/22"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-impulsiveness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "20471235fabf7d6162418d7eccac3598f34fc83e63a0cf793ff3d1ecc7b71f80",
+      "source_locator": "frozen_package/source_ledger.json#/rows/23"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-modesty",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "ce4fd83268f78ccdfe06cdbe794b6eb1c03b638696dedafefb1e1d77e56e19e9",
+      "source_locator": "frozen_package/source_ledger.json#/rows/24"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-order",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "eb1e861c0279d0f5c81451466d05ee2bc279853e9d1d20b660cc00a016eb68f5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/25"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-positive-emotions",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "cc4f24e293bc106e90365303d57a363e411d02538399d0af757c0960c34181cc",
+      "source_locator": "frozen_package/source_ledger.json#/rows/26"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-self-consciousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "cb2f5a115ca93aae3a586216eba6a9a9f2657a5a53359ad95e5288bd1abe3b04",
+      "source_locator": "frozen_package/source_ledger.json#/rows/27"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-self-discipline",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3d6e4e903e633fc2a79c2dc8fed5d7bfead455f66d661bdd67e1f2aab3a6f194",
+      "source_locator": "frozen_package/source_ledger.json#/rows/28"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-straightforwardness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d9a8c82dc73c91236d724ee474430e66b03108dc9ddd7291a9f2b1234fd71e2f",
+      "source_locator": "frozen_package/source_ledger.json#/rows/29"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-tender-mindedness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "5cabdf554e877cebeeffa5492b7aa4d7cfee0cf330c66ad1cd9ec6e9179ef523",
+      "source_locator": "frozen_package/source_ledger.json#/rows/30"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-trust",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "df87daff4e2b78a655cef57fae0fe2abb35b699547c547f11050cb197f614cf1",
+      "source_locator": "frozen_package/source_ledger.json#/rows/31"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-values",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "241cc66d88f5cf110d4a965c02b7bf987b7c348d4c0167df737f3fbba1c4e873",
+      "source_locator": "frozen_package/source_ledger.json#/rows/32"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-vulnerability",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6fdb47f0b75db113551abfd74dbdde51dbd488d3afeaa7130bdaae83d20e37d0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/33"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_detail-warmth",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0a51153d275c4f17e01bc99bdd88ede8ab5f473b003374f537bacb1e57daf6f2",
+      "source_locator": "frozen_package/source_ledger.json#/rows/34"
+    },
+    {
+      "row_id": "W2-PUBLIC-facet_hub-facets",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "feca77cacfdd390de62ade94a6db53bd087819fedf1afe2927dd8c441d0d6e55",
+      "source_locator": "frozen_package/source_ledger.json#/rows/35"
+    },
+    {
+      "row_id": "W2-PUBLIC-hub-big-five",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "471dbc7f40f56cf0e6f0e15156086b143accef25db109a4ffea4df38ff509603",
+      "source_locator": "frozen_package/source_ledger.json#/rows/36"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-agreeableness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0b14bde98be2f88a870165a2842df459536a264994874a10da8cea5757beea3f",
+      "source_locator": "frozen_package/source_ledger.json#/rows/37"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-agreeableness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "8700072fe1723eaf36fa5fec4207bf06198d0fae81f360fbcc69c34f28d04c3d",
+      "source_locator": "frozen_package/source_ledger.json#/rows/38"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-agreeableness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "e9053497d690bd7a1afc5ef8811c190ff43e8e71be2c5f261c5dcaffa3445b76",
+      "source_locator": "frozen_package/source_ledger.json#/rows/39"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-conscientiousness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c7e0011b065b7c2ba00231a62b816c929c386b708fa820ccbe06fd27a6cf4025",
+      "source_locator": "frozen_package/source_ledger.json#/rows/40"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-conscientiousness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "ab1b8f86057704d8fa04d308675050c8e468e94907651c0d49d775ffc3b43e61",
+      "source_locator": "frozen_package/source_ledger.json#/rows/41"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-conscientiousness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9c3c908181838265765b3b85c1a8b0f5595a58debe5328bed094b98ff48a94bb",
+      "source_locator": "frozen_package/source_ledger.json#/rows/42"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-extraversion-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "ae5acba49f80048fef77bf30c1722f07b470ad25bf1cb2ff7efbe880893fdb4e",
+      "source_locator": "frozen_package/source_ledger.json#/rows/43"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-extraversion-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "547055b6ff5f995667c558f7f3e04f3d4b5e0698a0c2bc277fb92ece41a677b1",
+      "source_locator": "frozen_package/source_ledger.json#/rows/44"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-extraversion-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "fa19699d7216a0ad15a2ca90c93fa6ae7b15b4c9a166b02f30a217c60d35e003",
+      "source_locator": "frozen_package/source_ledger.json#/rows/45"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-neuroticism-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "abe035aa548db56688915796694bd554fa8d3f555cb28fb1720875cbc290a4a6",
+      "source_locator": "frozen_package/source_ledger.json#/rows/46"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-neuroticism-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "f7382ea86292ff80859d10e5f2c560559a45f71b2a2d1eb90916a91702248f47",
+      "source_locator": "frozen_package/source_ledger.json#/rows/47"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-neuroticism-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9c88c713569b7c9052e5b0407b791ac9123977980ac9df8a23c4f7a6d8827413",
+      "source_locator": "frozen_package/source_ledger.json#/rows/48"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-openness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "18d14d8e1077f9aa86323350c1d0e23c0ae34d6487194b6ff784550afb5e0c55",
+      "source_locator": "frozen_package/source_ledger.json#/rows/49"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-openness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0a9e4fe05124d12369993bb946e31443dcfe9cd6b5bc96b28b8e367f423378ec",
+      "source_locator": "frozen_package/source_ledger.json#/rows/50"
+    },
+    {
+      "row_id": "W2-PUBLIC-polarity-openness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "cohort": "public_profile_control",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "054225bed83b9921be372e1466628635fbe1d3b6e0b8c8c11ce3512ee11100f4",
+      "source_locator": "frozen_package/source_ledger.json#/rows/51"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-domain-agreeableness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "639e26f833cd1b387a5d717b55caf22addbfbdfcf2ee1302d1b70b80e14b7544",
+      "source_locator": "frozen_package/source_ledger.json#/rows/52"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-domain-conscientiousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "2fffe08a9d5cc6636b59e1315c1abbb204730ad30750f973b210dc32720373f4",
+      "source_locator": "frozen_package/source_ledger.json#/rows/53"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-domain-extraversion",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "2a607097be1aceba2b16ab45e02140dd3aee83c20c9917779a16e2538eeb9991",
+      "source_locator": "frozen_package/source_ledger.json#/rows/54"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-domain-neuroticism",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d4301a54b41f3d106ab624298dabd7f07de005734f8aba810d4e10cb2c2ab1a2",
+      "source_locator": "frozen_package/source_ledger.json#/rows/55"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-domain-openness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9089fe2b3ec680c71bcde078e2ff6077cc40a41752b33aef0024c9ef5b309dc5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/56"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-agreeableness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "af8d81d722f543a7d7d6aaab75bd3762dc893d4a88e6b1e522d16a9498066862",
+      "source_locator": "frozen_package/source_ledger.json#/rows/57"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-agreeableness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "b5fba99a379cf696a615f1c24a71652ccca67978b9cf5c3af796d977b369c9e6",
+      "source_locator": "frozen_package/source_ledger.json#/rows/58"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-agreeableness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "fdc0c500f40bf2e4d7f8fd070a1fb92e563d2623f957796e53e82eede8a99a70",
+      "source_locator": "frozen_package/source_ledger.json#/rows/59"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-conscientiousness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "02d2ae9f7e019ed9924619b11639808ac0ad19784957779bf0ea3922432bb9ca",
+      "source_locator": "frozen_package/source_ledger.json#/rows/60"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-conscientiousness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "4258ce6f4045d830a243d5bf07c7d9e723d6f7047b88fecec180ffb44ce30ca8",
+      "source_locator": "frozen_package/source_ledger.json#/rows/61"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-conscientiousness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "713bf935d5806647d79ec11b3549334c523f574312c627f4cef975d7752186dc",
+      "source_locator": "frozen_package/source_ledger.json#/rows/62"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-extraversion-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "5ede6d89093201f8ba27b425d5af9dccdd4168da6949872ab083bb8086a77e51",
+      "source_locator": "frozen_package/source_ledger.json#/rows/63"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-extraversion-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0c1fdfdc3e5441fa1631ab25be15b27f10d8820cd3859962bb7742152cca1503",
+      "source_locator": "frozen_package/source_ledger.json#/rows/64"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-extraversion-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "347dd81059c7db6b9c53a110244f10c4b5634eb12834d79709cdc15742a4c8fd",
+      "source_locator": "frozen_package/source_ledger.json#/rows/65"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-neuroticism-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c0080e8aeb17c6e06d17c350681f1ed59a4580825b6678cc1878d94e6784598d",
+      "source_locator": "frozen_package/source_ledger.json#/rows/66"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-neuroticism-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9dc2a97f6c867b31ef187251825b65663f1e1e662941dcd2c4ce7f4dc6e42bfc",
+      "source_locator": "frozen_package/source_ledger.json#/rows/67"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-neuroticism-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "b11da559fb0c9be4031a96c6461d121e3080c9b748e5280e86ac8df79d1f69aa",
+      "source_locator": "frozen_package/source_ledger.json#/rows/68"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-openness-high",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "1eda6c5f54327672ff29670f553d31a89a9515ebc0fa56a64784bf49d94f4050",
+      "source_locator": "frozen_package/source_ledger.json#/rows/69"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-openness-mid",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d380cc5d2e561bb56175c1f983060934cea602a987ed6d5f393511610144b749",
+      "source_locator": "frozen_package/source_ledger.json#/rows/70"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-polarity-openness-low",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "35831a9fa6de2ef78eb8f323406cb82a806e7f0ee99fbd890a32f0ca0ffbcd35",
+      "source_locator": "frozen_package/source_ledger.json#/rows/71"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-achievement-striving",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d84c84b9c800d3a1ad462eb9d976aa8dd51e259819c5de91c1c185d4e5c984a5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/72"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-actions",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "31b0cba69937448984e753dc522e055f9f5b84f3ceaeb5c05ecac0a6b79e751f",
+      "source_locator": "frozen_package/source_ledger.json#/rows/73"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-activity",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6336051823c213616c85272a9261fe37275fb391a36b5261131b73631d03b5f5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/74"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-aesthetics",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "22e5924993d63b63b4904bbc8b018eac6201329cc2dd42207678c643493f7230",
+      "source_locator": "frozen_package/source_ledger.json#/rows/75"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-altruism",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0fa4afdc1286809d9a381913f214d413f9d2bdfc2528e28a357ea20da977420a",
+      "source_locator": "frozen_package/source_ledger.json#/rows/76"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-anger",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "57f7a043795f7a81bad307ba5f92becdc92ffa735e999d997ed1f350106c8dd0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/77"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-anxiety",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "fa050702c934ea3d772184766336ca50eeb7a1af017f4fdad3958056a9817a65",
+      "source_locator": "frozen_package/source_ledger.json#/rows/78"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-assertiveness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "53cf28b8b644a31ba15400c5938199137eebc1b86163eb1e7ebacff83c8245b0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/79"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-competence",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "dc39fd4c1e71af093d4372e43dd9a103a523ca7035eadf08255089961a2db8c0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/80"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-compliance",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "e209f3302ebc2b0519213418677e63ecaaeaafcbdebc85e24530ae9288aec472",
+      "source_locator": "frozen_package/source_ledger.json#/rows/81"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-deliberation",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "aa2dbc4f2b499105d9407b777d2c63ba2055e1fef263973e4197df8355eee412",
+      "source_locator": "frozen_package/source_ledger.json#/rows/82"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-depression",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "7452a68a0ee7676a7b31998ea95987be7f203f3d3c378286d056b53eca6589ac",
+      "source_locator": "frozen_package/source_ledger.json#/rows/83"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-dutifulness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c22f3b97daf22c47161b370d9f66475e31b0102cc2bee5c6e0d14f85388670d4",
+      "source_locator": "frozen_package/source_ledger.json#/rows/84"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-excitement-seeking",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "d1256e232d5c146d50ffa02480d935fe51fe42dfdc0f2559798d64dd5fd52a9a",
+      "source_locator": "frozen_package/source_ledger.json#/rows/85"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-feelings",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "64c2b3a9cb1bfb26ee6a67b4d24cbfd0c961648abbf6ff05e4d06deaa1f5099e",
+      "source_locator": "frozen_package/source_ledger.json#/rows/86"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-gregariousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "42616d530348889f47b0e9af1bba515bfcd7d5d94217489a610421498b88c9cb",
+      "source_locator": "frozen_package/source_ledger.json#/rows/87"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-ideas",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "db5d718c2f7d3ed902c8c142ac97b91fb797c9bd9fd427449fb40a12b454e305",
+      "source_locator": "frozen_package/source_ledger.json#/rows/88"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-imagination",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6ea7092b49e8608bd8850e919b25681d1ff77819ebd4223def8d06ccd6665b40",
+      "source_locator": "frozen_package/source_ledger.json#/rows/89"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-impulsiveness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6ef3e1044c7d3de3c432fb0da3e9a01b803d2ec7f91a5d5f156887bd503bd1a4",
+      "source_locator": "frozen_package/source_ledger.json#/rows/90"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-modesty",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3ffe2bd0d8715d5cb607435a8d72405a1c6670dfdc8b5359c7164a0491adcf73",
+      "source_locator": "frozen_package/source_ledger.json#/rows/91"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-order",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "5bec834505c06a519ebe4bf30f8e4699f35ced6740f451353a0e039f001e1a54",
+      "source_locator": "frozen_package/source_ledger.json#/rows/92"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-positive-emotions",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "e698ebacd87128aa08a37e914fd1b13d541211d52664ad7d38981d38fcd2264b",
+      "source_locator": "frozen_package/source_ledger.json#/rows/93"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-self-consciousness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c671f6689d4f2aa79ca192553d8fa54bd736374c049a6a70a558112b352c3a23",
+      "source_locator": "frozen_package/source_ledger.json#/rows/94"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-self-discipline",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "76650715eb7a460609d8747850ddc0bd9a8857f78594293ab50e39eebb7b2ed9",
+      "source_locator": "frozen_package/source_ledger.json#/rows/95"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-straightforwardness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "4858dd80ec68591d56da5077b588caffc88317a547b199beba5f1d6705cf5edb",
+      "source_locator": "frozen_package/source_ledger.json#/rows/96"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-tender-mindedness",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6133e6045239c9d2db3396afe238b410c0055ed854be506d8fa92abcf5a6ac30",
+      "source_locator": "frozen_package/source_ledger.json#/rows/97"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-trust",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "f9714786f1ffad204b7649ef5c8dc3a3d901c2a72603bb795683dd5dba05647c",
+      "source_locator": "frozen_package/source_ledger.json#/rows/98"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-values",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3ef34e2a436b4446d2a31368d2d57fd9116664b1cd88d5273dbef849de5be368",
+      "source_locator": "frozen_package/source_ledger.json#/rows/99"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-vulnerability",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "843db92c195a594e2de9ff024d4e589447a422e86808e8199917d5fe4f14bc1b",
+      "source_locator": "frozen_package/source_ledger.json#/rows/100"
+    },
+    {
+      "row_id": "W2-DRAFT-SLOT-facet_detail-warmth",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "cohort": "english_historical_revision_verification",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c6cd578c7a998ae0de633b7c62462f04eb3a31a6930febd7b8fbb119f816eb44",
+      "source_locator": "frozen_package/source_ledger.json#/rows/101"
+    },
+    {
+      "row_id": "W2-RESULT-free_preview",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "c6efae9793e99c61d12dae40b4fbbde66249c80ae08f8699384997ee15332f1a",
+      "source_locator": "frozen_package/source_ledger.json#/rows/102"
+    },
+    {
+      "row_id": "W2-RESULT-locked_result",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "575eb6096b06110293dda095515b22d19c10f17886c37ef323fce361b2254f10",
+      "source_locator": "frozen_package/source_ledger.json#/rows/103"
+    },
+    {
+      "row_id": "W2-RESULT-paid_full_report",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "0d91745c8b9eb9abf3cb9db9f36d4403ab5b06f758c49d827c0cc5e21d3e18de",
+      "source_locator": "frozen_package/source_ledger.json#/rows/104"
+    },
+    {
+      "row_id": "W2-RESULT-entitlement_levels",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "40ffc3f6da443525a05e939b70ffc975552a90b384e105a9379df8974a1d93ef",
+      "source_locator": "frozen_package/source_ledger.json#/rows/105"
+    },
+    {
+      "row_id": "W2-RESULT-five_dimension_explanations",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "e979bf2cb3c7f71b547dff874c852c92933ecc4961e65790d3b5e00ef9926b91",
+      "source_locator": "frozen_package/source_ledger.json#/rows/106"
+    },
+    {
+      "row_id": "W2-RESULT-facet_subscale_explanations",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "17e25ad3565c76ff91d9c6cf016f090d964fa5e81c4c3fd7caa39c4fdda5f137",
+      "source_locator": "frozen_package/source_ledger.json#/rows/107"
+    },
+    {
+      "row_id": "W2-RESULT-score_range_boundary_copy",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "cc076e85f11b9d0448a2bccb22ab6f100fa15de7bbaa054034425c3bd01ef74b",
+      "source_locator": "frozen_package/source_ledger.json#/rows/108"
+    },
+    {
+      "row_id": "W2-RESULT-action_growth_advice",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "95a0e865a48260a543f9fbaebe4768f31abc271d5dab4abdc213eac15d058e9e",
+      "source_locator": "frozen_package/source_ledger.json#/rows/109"
+    },
+    {
+      "row_id": "W2-RESULT-workplace_relationship_copy",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "2708ee55816fa5c98c3ca2000414fe505bee48ef98c6823a8087a2dec1f70ae5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/110"
+    },
+    {
+      "row_id": "W2-RESULT-share_public_summary",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "acfd2c02691e0f63c445b576f03eff65891ca572f7de2d5ca484b19f2d7b4559",
+      "source_locator": "frozen_package/source_ledger.json#/rows/111"
+    },
+    {
+      "row_id": "W2-RESULT-pdf_reader_content",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3e32f932188aae0fe27c18f38ac9fe1b19c4cabcd6c4b2a2c91b6756e6f01374",
+      "source_locator": "frozen_package/source_ledger.json#/rows/112"
+    },
+    {
+      "row_id": "W2-RESULT-history_account_reentry",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "9e2258db550bbc9bd392bd69a1319cc09003aeabb8e5a6ce5c1a1fc1a3ae0d12",
+      "source_locator": "frozen_package/source_ledger.json#/rows/113"
+    },
+    {
+      "row_id": "W2-RESULT-result_report_cta",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "6e75d96fa81964b674a731e7c31fb4a57f580d13eac5bdef953584fecb36c454",
+      "source_locator": "frozen_package/source_ledger.json#/rows/114"
+    },
+    {
+      "row_id": "W2-RESULT-empty_error_expired_access_denied",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "50c9a0fb8138fae3a0e2c8851a9ed0f257b4b1d8cd64d8e297d702eedab84ef0",
+      "source_locator": "frozen_package/source_ledger.json#/rows/115"
+    },
+    {
+      "row_id": "W2-RESULT-mobile_desktop_consumption",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "3827f28d416a861dda9c87f29f4d083f01268458e10773b4e87c3958c84bf4c5",
+      "source_locator": "frozen_package/source_ledger.json#/rows/116"
+    },
+    {
+      "row_id": "W2-RESULT-analytics_reader_labels",
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "cohort": "result_content",
+      "identity_kind": "row_id_plus_frozen_canonical_row_sha256",
+      "frozen_row_sha256": "45fd5650e15140a0a49da2684810e3ca9100e313a9603d461e2a8bf09a55b095",
+      "source_locator": "frozen_package/source_ledger.json#/rows/117"
+    }
+  ]
+}

@@ -28295,6 +28295,30 @@ prs:
     content_authority: backend
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: EN-PARITY-W9-W2-SOURCE-INTAKE-01
+    repo: fap-web
+    branch: codex/en-parity-w9-w2-source-intake-01
+    base: main
+    title: "EN-PARITY-W9-W2-SOURCE-INTAKE-01: freeze immutable Big Five QA sources"
+    depends_on: [EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01]
+    mode: execute
+    train_scope: w2_big5_w9_immutable_source_intake
+    status: in_progress
+    scope: ["Copy and verify the exact frozen W2 package plus immutable EN52, historical, result-content, renderer, and 118-row identity sources for later independent W9 QA."]
+    allowed_paths: [generated/en-content-parity/W9-independent-qa/W2-big-five/**, tests/contracts/en-content-parity-w9-w2-source-intake.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not: ["Create a W9 verdict, CONTROL candidate, producer repair, runtime change, CMS/database write, import, publication, SEO release, sitemap, llms, deploy, or public content fallback."]
+    required_local_checks: ["exact W2 frozen file and envelope SHA verification", "EN52 and historical immutable source verification", "backend result-content manifest/payload verification", "118-row identity projection verification", "node scripts/seo/validate-en-content-parity-control.mjs", "focused W2 intake and control-master Vitest", "YAML/JSON parse", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: immutable W9 source evidence only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01
     repo: fap-web
     branch: codex/en-parity-w2-big5-package-frozen-01

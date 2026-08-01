@@ -1,0 +1,19 @@
+{
+  "authority": "fap-api immutable git object",
+  "source_repository": "/Users/rainie/Desktop/GitHub/fap-api",
+  "commit": "44350a696d8d1123fa2ea7831708d709831cf34b",
+  "source_directory": "generated/big-five-en52-release",
+  "release_package_sha256": "91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a",
+  "expected_release_package_sha256": "91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a",
+  "asset_count": 52,
+  "claims_count": 170,
+  "faq_count": 261,
+  "family_counts": {
+    "domain": 5,
+    "facet_detail": 30,
+    "facet_hub": 1,
+    "hub": 1,
+    "polarity": 15
+  },
+  "media_supported": false
+}
