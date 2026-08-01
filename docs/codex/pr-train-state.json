@@ -54389,8 +54389,8 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-inventory-01",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": "5c11db3f3268beb36e31ab30f191d22f9aaf7336",
+    "status": "ready_to_merge",
+    "commit_sha": "16be7f8cab5b3d1d5ebe2f5de6215829eb9672dd",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1940",
     "checks": {
       "preflight": {
@@ -54402,8 +54402,8 @@
         "evidence": "After rebasing onto 8d94a84da9564a0a3a6cef25bffaefa0f5984b17, the W4 package was regenerated with immutable eight-file SHA a96b2a57e86cd3a5382572946c70246ddbccf62df0fb960144b93518ea5547c5. Control candidate and master validators passed; focused control-master contract passed 63/63; JSON/YAML parsing, 14 logical groups, 1550 unique atomic identities, 15 unordered pairs, 3/2/2 safe surfaces, eight-file SHA coverage, candidate binding, lint, and diff/scope checks passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Existing PR #1940 will be force-updated after rebase from a local-verified head; all required GitHub checks must rerun and pass before merge."
+        "status": "pass",
+        "evidence": "PR #1940 head 16be7f8cab5b3d1d5ebe2f5de6215829eb9672dd passed build, contract shards and aggregate, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."
       }
     },
     "failure_reason": null,
@@ -54436,8 +54436,13 @@
         "at": "2026-08-01T17:42:00+08:00",
         "status": "local_verified",
         "summary": "Rebased onto 8d94a84da9564a0a3a6cef25bffaefa0f5984b17 after unrelated W2 control acceptance, regenerated package and scan SHA evidence against control master 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b, and reran all scoped local validation. No master write, content production, CMS/import, runtime, publication, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T17:49:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1940 checked head 16be7f8cab5b3d1d5ebe2f5de6215829eb9672dd passed all required GitHub checks. Final scope revalidation is clean and the PR is eligible for squash merge after this ledger-head check cycle."
       }
     ],
-    "updated_at": "2026-08-01T17:42:00+08:00"
+    "updated_at": "2026-08-01T17:49:00+08:00"
   }
 }
