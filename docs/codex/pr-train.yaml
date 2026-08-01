@@ -29103,3 +29103,40 @@ prs:
     deploy_allowed: false
     content_authority: frozen W3 producer package; W9 evidence only
     repository_rule_impact: no runtime or authority transfer; records independent BLOCKED evidence only
+
+  - id: EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-safe-variants-01
+    base: main
+    depends_on: [EN-PARITY-W4-RIASEC-INVENTORY-01]
+    mode: execute
+    train_scope: w4_riasec_share_pdf_history_candidate_segment
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01 review and freeze share PDF history English variants"
+    scope:
+      - Review and package exactly seven existing English share/PDF/history lifecycle drafts as W4-G12/G13/G14 candidates.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/segments/share-pdf-history/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, runtime, CMS, source drafts, import, release, sitemap, llms, indexability, Search Channel, or private-result boundaries.
+      - Treat draft_human_review_required as runtime approval, W9 PASS, package_frozen, or any write/release authority.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm lint .
+      - JSON/JSONL parse; exact 3/2/2/7 reconciliation; no-CJK, boundary, permission, payload and aggregate SHA validation
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api lifecycle authority unchanged
+    repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change

@@ -1,0 +1,58 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_safe_variants_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "existing_draft_repackaged_candidate_only",
+  "mappings": [
+    {
+      "source_identity": "share_safe_card",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-SHARE-SAFE-CARD-49e583e874cb",
+      "translation_group": "cohort:riasec:lifecycle:share_safe_card",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    },
+    {
+      "source_identity": "share_detail_boundary",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-SHARE-DETAIL-BOUNDARY-46c68bac5727",
+      "translation_group": "cohort:riasec:lifecycle:share_detail_boundary",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    },
+    {
+      "source_identity": "pdf_personal",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G13-PDF-PERSONAL-3151ef3aab95",
+      "translation_group": "cohort:riasec:lifecycle:pdf_personal",
+      "group_id": "W4-G13",
+      "asset_kind": "pdf_safe_variant"
+    },
+    {
+      "source_identity": "pdf_counselor_discussion",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G13-PDF-COUNSELOR-DISCUSSION-4e78157798e7",
+      "translation_group": "cohort:riasec:lifecycle:pdf_counselor_discussion",
+      "group_id": "W4-G13",
+      "asset_kind": "pdf_safe_variant"
+    },
+    {
+      "source_identity": "history_same_form",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G14-HISTORY-SAME-FORM-c4ebf295a9dc",
+      "translation_group": "cohort:riasec:lifecycle:history_same_form",
+      "group_id": "W4-G14",
+      "asset_kind": "history_safe_variant"
+    },
+    {
+      "source_identity": "history_cross_form",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G14-HISTORY-CROSS-FORM-d28f58d73f05",
+      "translation_group": "cohort:riasec:lifecycle:history_cross_form",
+      "group_id": "W4-G14",
+      "asset_kind": "history_safe_variant"
+    },
+    {
+      "source_identity": "low_quality_share",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-LOW-QUALITY-SHARE-667ea65d4ce0",
+      "translation_group": "cohort:riasec:lifecycle:low_quality_share",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    }
+  ]
+}
