@@ -53760,7 +53760,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "08a10f4545d6c317189a7c5930cf54e6f99336ba",
+    "commit_sha": "aff8c7391529c8b4fe9ab117b08ec58feaaf1b69",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -54085,8 +54085,13 @@
         "at": "2026-08-01T08:40:54Z",
         "status": "github_checks_pending",
         "summary": "After all 11 checks passed on 80fee7fd, repaired seven exact-head review findings: noun-form guarantees, Chinese job-security distinction, strict review timestamps, explicit detail approval projection, non-vacuous HOLD evidence, unique identical bilingual authority sets, and nonempty canonical hrefs. Fresh read-only observation remains HOLD with 0/10 complete rows, zero targets, all target-level evidence false, observed_at 2026-08-01T08:37:35.713Z, and artifact 5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499; focused 68/68, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:42:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed all seven review repairs and the final same-code HOLD artifact as aff8c7391529c8b4fe9ab117b08ec58feaaf1b69 after focused 68/68, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
       }
     ],
-    "updated_at": "2026-08-01T08:40:54Z"
+    "updated_at": "2026-08-01T08:42:00Z"
   }
 }
