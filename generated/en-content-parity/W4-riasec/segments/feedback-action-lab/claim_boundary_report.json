@@ -1,0 +1,27 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_feedback_claim_boundary_report.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "boundaries": [
+    "interest_evidence_only",
+    "not_personality_identity",
+    "not_ability_or_skill_measure",
+    "not_career_recommendation",
+    "not_job_fit",
+    "not_success_prediction",
+    "feedback_does_not_mutate_measured_result",
+    "no_score_code_snapshot_share_pdf_history_mutation",
+    "no_raw_feedback_public_exposure",
+    "missing_content_fails_closed",
+    "frontend_fallback_forbidden"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

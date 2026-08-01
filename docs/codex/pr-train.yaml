@@ -28983,6 +28983,45 @@ prs:
     content_authority: producer candidate package only; fap-api aspirations and disagree authority unchanged
     repository_rule_impact: adds review-gated W4 English candidate evidence only; no authority transfer, runtime behavior, or discoverability state changes
 
+  - id: EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-feedback-assets-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01 produce feedback Action Lab and next-node English rows"
+    depends_on: [EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01]
+    mode: execute
+    train_scope: w4_riasec_feedback_action_lab_candidate_segment
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Produce exactly 204 feedback Action Lab and 270 next-exploration-node English candidate rows for W4-G11.
+      - Bind source identity, translation mapping, claim-boundary self-check, pending W9 review, and immutable SHA evidence only.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/segments/feedback-action-lab/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master/schema, runtime, CMS, database, import, publication, deploy, sitemap, llms, indexability, Search Channel, or private-result data.
+      - Treat feedback as score, Holland Code, snapshot, share/PDF/history mutation, career recommendation, or production-ready content.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm lint .
+      - JSON/JSONL parse; exact 204/270/474 identity reconciliation; no-CJK and no-mutation-boundary scan; payload and aggregate SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api feedback authority unchanged
+    repository_rule_impact: adds review-gated W4 English candidate evidence only; no authority transfer, runtime behavior, or discoverability state changes
+
   - id: EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01
     repo: fap-web
     branch: codex/en-parity-w4-riasec-activity-assets-01
