@@ -7,7 +7,7 @@ const ROOT = process.cwd();
 const PACKAGE = path.join(ROOT, "generated/en-content-parity/W3-editorial-cms/career-guides");
 
 describe("W3 Career Guide complete frozen package candidate", () => {
-  it("binds both partial witnesses into one exact 20-row package_frozen candidate without changing master", () => {
+  it("binds both partial witnesses into one exact 20-row package_frozen candidate and accepts only exact CONTROL lineage", () => {
     const ledger = JSON.parse(fs.readFileSync(path.join(PACKAGE, "source_ledger.json"), "utf8"));
     const candidate = JSON.parse(fs.readFileSync(path.join(PACKAGE, "master_manifest_patch.candidate.json"), "utf8"));
     const master = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/seo/generated/en-content-parity-control-master.v1.json"), "utf8"));
@@ -18,7 +18,18 @@ describe("W3 Career Guide complete frozen package candidate", () => {
     expect(candidate.proposed_status).toBe("package_frozen");
     expect(candidate).not.toHaveProperty("partial_batch");
     expect(Object.values(candidate.permissions)).toEqual(Array(7).fill(false));
-    expect(guides).toMatchObject({ status: "package_in_progress", package_sha256: null, qa_report_ref: null, gate_lineage: [] });
+    expect(guides).toMatchObject({
+      status: "package_frozen",
+      package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+      qa_report_ref: null,
+      gate_lineage: [{
+        status: "package_frozen",
+        evidence_owner_lane_id: "W3",
+        report_ref: "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json",
+        report_sha256: "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402",
+        package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+      }],
+    });
     expect(execFileSync(process.execPath, [path.join(ROOT, "scripts/seo/validate-w3-career-guides-package-freeze.mjs")], { cwd: ROOT, encoding: "utf8" })).toContain('"ok":true');
   });
 });

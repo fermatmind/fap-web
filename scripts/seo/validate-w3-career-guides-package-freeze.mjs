@@ -26,6 +26,8 @@ try {
   const files = immutableFiles.map((file) => ({ path: file, sha256: sha(fs.readFileSync(path.join(packageDir, file))) }));
   assert(same(files, manifest.files) && manifest.package_sha256 === sha(files.map((entry) => `${entry.path}:${entry.sha256}`).join("\n")), "Full package SHA mismatch");
   const master = JSON.parse(fs.readFileSync(path.join(root, "docs/seo/generated/en-content-parity-control-master.v1.json"), "utf8")); const w3 = master.lanes.find((lane) => lane.lane_id === "W3"); const guides = w3.subscopes.find((entry) => entry.id === "W3-CAREER-GUIDES");
-  assert(guides.status === "package_in_progress" && guides.package_sha256 === null && guides.qa_report_ref === null && guides.gate_lineage.length === 0, "Master must remain unchanged until separate CONTROL acceptance");
+  const preAcceptance = guides.status === "package_in_progress" && guides.package_sha256 === null && guides.qa_report_ref === null && guides.gate_lineage.length === 0;
+  const acceptedFreeze = guides.status === "package_frozen" && guides.package_sha256 === manifest.package_sha256 && guides.qa_report_ref === null && guides.gate_lineage.length === 1 && guides.gate_lineage[0].status === "package_frozen" && guides.gate_lineage[0].evidence_owner_lane_id === "W3" && guides.gate_lineage[0].report_ref === "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json" && guides.gate_lineage[0].report_sha256 === candidate.gate_evidence.report_sha256 && guides.gate_lineage[0].package_sha256 === manifest.package_sha256;
+  assert(preAcceptance || acceptedFreeze, "Master must retain the pre-acceptance state or the exact separate CONTROL acceptance");
   console.log(JSON.stringify({ ok: true, rows: ledger.rows.length, package_sha256: manifest.package_sha256 }));
 } catch (error) { console.error(JSON.stringify({ ok: false, error: error.message })); process.exitCode = 1; }

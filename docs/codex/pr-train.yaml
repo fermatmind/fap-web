@@ -29840,7 +29840,9 @@ prs:
       - Reconcile the merged producer ledger facts for PR #1983 without creating a standalone reconciliation PR.
     allowed_paths:
       - docs/seo/generated/en-content-parity-control-master.v1.json
+      - scripts/seo/validate-w3-career-guides-package-freeze.mjs
       - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - tests/contracts/en-content-parity-w3-career-guide-package-freeze.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     do_not:
