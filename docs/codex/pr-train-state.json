@@ -53980,8 +53980,13 @@
         "at": "2026-08-01T07:45:10Z",
         "status": "github_checks_pending",
         "summary": "Committed exact attribute parsing, predicate-bound negation, duplicate metadata rejection, and final same-code artifact as df84a06037f2610b8c85e8084b394193317793e8 after focused 46/46, lint, typecheck, self-hash, artifact/ledger timestamp binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T07:48:11Z",
+        "status": "github_checks_pending",
+        "summary": "Merged latest origin/main 559e9559 after another concurrent ledger advance, preserving the exact pilot entry and all newly merged control entries. The PR diff remains exactly six authorized paths; post-merge focused 46/46, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T07:45:10Z"
+    "updated_at": "2026-08-01T07:48:11Z"
   }
 }
