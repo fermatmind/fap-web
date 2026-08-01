@@ -55541,15 +55541,15 @@
     "base": "main",
     "branch": "codex/en-parity-w3-career-guide-market-claim-boundary-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-REFROZEN-10-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {"dependency": {"status": "pass", "evidence": "CONTROL PR #1975 is merged as a00a5f6b375b5a78347d21721f826aca7f72e415; origin/main retains W3-ARTICLES package_frozen at exact SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a, valid lineage, and all-false permissions."}, "local_validation": {"status": "pass", "evidence": "JSON/Markdown and YAML/state parsing, exact 12-code bilingual baseline reconciliation, exact fap-api source commit/path/SHA reconciliation, all-false permission audit, six-payload SHA recomputation (1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a), staged diff, and path scope checks pass."}},
+    "status": "ready_to_merge",
+    "commit_sha": "bb800df6c36fecd637543bfaa5e4db15917f1f0a",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1977",
+    "checks": {"dependency": {"status": "pass", "evidence": "CONTROL PR #1975 is merged as a00a5f6b375b5a78347d21721f826aca7f72e415; origin/main retains W3-ARTICLES package_frozen at exact SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a, valid lineage, and all-false permissions."}, "local_validation": {"status": "pass", "evidence": "JSON/Markdown and YAML/state parsing, exact 12-code bilingual baseline reconciliation, exact fap-api source commit/path/SHA reconciliation, all-false permission audit, six-payload SHA recomputation (1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a), staged diff, and path scope checks pass."}, "github_required_checks": {"status": "pass", "evidence": "PR #1977 head bb800df6c36fecd637543bfaa5e4db15917f1f0a passed build, all four contract shards and aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement or unresolved comment."}},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55558,6 +55558,6 @@
     "url_submission": false,
     "deploy_allowed": false,
     "history": [{"at": "2026-08-01T19:04:00Z", "status": "in_progress", "summary": "Started only the W3 Career Guide market/claim boundary package after CONTROL merged. Scope is the twelve-sensitive-guide identity and policy boundary; no reader content, master, W9, CMS/import, runtime, release, discoverability, search, or deploy state is authorized to change."}],
-    "updated_at": "2026-08-01T19:09:00Z"
+    "updated_at": "2026-08-01T19:13:00Z"
   }
 }
