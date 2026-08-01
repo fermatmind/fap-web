@@ -1064,10 +1064,14 @@ function validatePackageShaManifest(
     artifact.proposed_status === "blocked" &&
     artifact.gate_evidence?.owner_lane_id === "W9" &&
     artifact.gate_evidence?.report_in_package === false;
+  const isIndependentQaPass =
+    artifact.proposed_status === "qa_pass" &&
+    artifact.gate_evidence?.owner_lane_id === "W9" &&
+    artifact.gate_evidence?.report_in_package === false;
   const qaLane = manifest.lanes.find((lane) => lane.lane_id === "W9");
   const qaAuthorityDirectory = path.resolve(ROOT, qaLane?.output_directory ?? "");
   const usesIndependentQaFrozenSnapshot =
-    isIndependentQaBlocker &&
+    (isIndependentQaBlocker || isIndependentQaPass) &&
     path.basename(path.resolve(packageDirectory)) === "frozen_package" &&
     isPathInside(path.resolve(packageDirectory), qaAuthorityDirectory);
   assert(
