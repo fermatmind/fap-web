@@ -1,0 +1,12 @@
+{
+  "schema_version": "fermatmind.en_content_parity_editorial_review.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-RESULT-CONTENT",
+  "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
+  "verdict": "PASS",
+  "reviewer_role": "producer_editorial_review",
+  "row_count": 46,
+  "source_package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+  "independent_w9_substitution": false,
+  "note": "This producer-owned review supports package_frozen only; it cannot authorize qa_pass, import, activation, publication, or release."
+}

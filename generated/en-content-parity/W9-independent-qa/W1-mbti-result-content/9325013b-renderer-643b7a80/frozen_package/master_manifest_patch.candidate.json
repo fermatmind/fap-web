@@ -1,0 +1,66 @@
+{
+  "$schema": "../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-RESULT-CONTENT",
+  "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
+  "base_manifest_sha256": "c42b7464b97245721c2b1faaaec0e315f2fa664714dfaba5d558971a2333fa9f",
+  "sha256_manifest_path": "generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/frozen_package/sha256_manifest.json",
+  "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+  "external_package_evidence": {
+    "schema_version": "fermatmind.en_content_parity_external_package_evidence.v1",
+    "source_repository": "fap-api",
+    "source_commit_sha": "a460acd0ff2c968c93fb5c005e77de1b0599971e",
+    "source_package_path": "backend/content_assets/en-content-parity/W1-mbti/result-content",
+    "manifest_sha256": "43f646a288c46b698d49f102eb7e7b611b66148f74cd459bd61ea9826d7c8bac",
+    "row_count_field": "inventory_row_count",
+    "package_sha256_algorithm": "manifest_files_path_nul_sha256_newline_v1"
+  },
+  "proposed_status": "qa_pass",
+  "gate_evidence": {
+    "gate": "qa_pass",
+    "report_path": "generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/independent_qa_report.json",
+    "report_sha256": "b1179976102f903b36de9888ee4cb0b4dd74fc3906d5951682922464bc8dec7d",
+    "report_in_package": false,
+    "owner_lane_id": "W9",
+    "verdict": "PASS",
+    "asset_ids": [
+      "ENPARITY-W1-MBTI-RESULT-CONTENT"
+    ],
+    "row_count": 46
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+      "lane_id": "W1",
+      "asset_type": "mbti_result_content",
+      "translation_group": "cohort:mbti:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend MBTI result and report content packs",
+      "expected_en_count": 46,
+      "current_en_count": 24,
+      "remaining_en_count": 22,
+      "parity_state": "en_draft_requires_verification",
+      "evidence": [
+        "The frozen inventory contains 5 projection-level asset families, 35 canonical MBTI section families, and 6 reader-surface/renderer families.",
+        "Twenty-four families have an English CMS, runtime-contract, or renderer-label control; twenty are structurally incomplete, one is missing, and one PDF family cannot be confirmed without a lawful private fixture.",
+        "The backend has no English MBTI report content pack under the locale-scoped package authority; code fallbacks are not counted as completed English editorial assets."
+      ],
+      "notes": "remaining_en_count includes 20 structurally incomplete families, one missing family, and one unable-to-confirm PDF family. Draft count is zero. Existing public 32-type A/T profiles are controls, not generation targets."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
