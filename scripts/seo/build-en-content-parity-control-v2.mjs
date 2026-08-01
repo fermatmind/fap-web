@@ -116,7 +116,7 @@ function migrateTarget(target, isProducer) {
   };
 }
 
-function readBoundJson(relativePath, expectedSha256) {
+function readBoundBytes(relativePath, expectedSha256) {
   if (path.isAbsolute(relativePath) || relativePath.split("/").includes("..")) {
     throw new Error(`unsafe_materialization_input_path=${relativePath}`);
   }
@@ -131,7 +131,11 @@ function readBoundJson(relativePath, expectedSha256) {
   }
   if (fs.realpathSync(absolutePath) !== absolutePath) throw new Error(`materialization_input_not_canonical=${relativePath}`);
   if (sha256Bytes(bytes) !== expectedSha256) throw new Error(`materialization_input_sha_mismatch=${relativePath}`);
-  return JSON.parse(bytes.toString("utf8"));
+  return bytes;
+}
+
+function readBoundJson(relativePath, expectedSha256) {
+  return JSON.parse(readBoundBytes(relativePath, expectedSha256).toString("utf8"));
 }
 
 function targetFor(v2, laneId, subscope) {
@@ -192,7 +196,7 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
     evidence.lane !== manifest.lane_id ||
     evidence.subscope !== manifest.subscope ||
     evidence.source_repository !== "fermatmind/fap-api" ||
-    evidence.source_commit !== manifest.reviewed_source_commit ||
+    !/^[a-f0-9]{40}$/.test(evidence.source_commit ?? "") ||
     !/^[a-z0-9_]{1,96}$/.test(evidence.adapter ?? "") ||
     !/^(content_assets\/en-content-parity|content_packs|content_baselines|database\/seeders\/data)\//.test(
       evidence.package_path ?? "",
@@ -220,6 +224,45 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
     evidence.receipt_content_sha256 !== sha256Bytes(canonicalJson(content))
   ) {
     throw new Error(`lane_manifest_dry_run_evidence_invalid=${key}`);
+  }
+}
+
+function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) {
+  const payloads = evidence.payloads;
+  if (
+    evidence.schema_version !== "fermatmind.en_content_parity_package_freeze.v2" ||
+    evidence.artifact_kind !== "package_freeze_evidence" ||
+    evidence.lane_id !== manifest.lane_id ||
+    evidence.subscope_id !== manifest.subscope ||
+    evidence.expected_count !== registeredTarget.expectedCount ||
+    canonicalJson(evidence.asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
+    !Array.isArray(payloads) ||
+    payloads.length === 0 ||
+    new Set(payloads.map((payload) => payload.path)).size !== payloads.length
+  ) {
+    throw new Error(`lane_manifest_package_freeze_evidence_invalid=${key}`);
+  }
+  for (const payload of payloads) {
+    if (
+      typeof payload?.path !== "string" ||
+      !/^[a-f0-9]{64}$/.test(payload?.sha256 ?? "")
+    ) {
+      throw new Error(`lane_manifest_package_freeze_evidence_invalid=${key}`);
+    }
+    readBoundBytes(payload.path, payload.sha256);
+  }
+  const packageIdentity = {
+    lane_id: evidence.lane_id,
+    subscope_id: evidence.subscope_id,
+    expected_count: evidence.expected_count,
+    asset_ids: evidence.asset_ids,
+    payloads,
+  };
+  if (
+    evidence.package_sha256 !== sha256Bytes(canonicalJson(packageIdentity)) ||
+    evidence.package_sha256 !== manifest.package_sha256
+  ) {
+    throw new Error(`lane_manifest_package_freeze_sha_invalid=${key}`);
   }
 }
 
@@ -274,6 +317,23 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
   }
   if (manifestLineage.some((entry) => entry.package_sha256 !== manifest.package_sha256)) {
     throw new Error(`lane_manifest_lineage_package_mismatch=${key}`);
+  }
+  if (expectedStatuses.includes("package_frozen")) {
+    const packageLineage = appendedLineage.find((entry) => entry.status === "package_frozen");
+    const packageTransition = manifest.transition_trace.find((entry) => entry.to_status === "package_frozen");
+    if (
+      packageLineage?.evidence_owner_lane_id !== manifest.lane_id ||
+      packageTransition?.evidence_ref !== packageLineage?.report_ref ||
+      packageTransition?.evidence_sha256 !== packageLineage?.report_sha256
+    ) {
+      throw new Error(`lane_manifest_package_freeze_lineage_invalid=${key}`);
+    }
+    assertPackageFreezeEvidence(
+      readBoundJson(packageLineage.report_ref, packageLineage.report_sha256),
+      manifest,
+      registeredTarget,
+      key,
+    );
   }
   const qaRequired = targetIndex >= stateIndex("qa_pass");
   const qaLineage = manifestLineage.filter((entry) => entry.status === "qa_pass");

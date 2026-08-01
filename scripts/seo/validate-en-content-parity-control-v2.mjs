@@ -22,6 +22,7 @@ const V2_PATH = "docs/seo/generated/en-content-parity-control-master.v2.json";
 const V2_SCHEMA_PATH = "docs/seo/generated/en-content-parity-control-master.v2.schema.json";
 const RECEIPT_KINDS = ["cms_draft_import_receipt", "cms_publication_receipt", "cms_live_qa_receipt"];
 const RECEIPT_PHASES = ["draft-import", "publish", "live-qa"];
+const PROMOTION_STATUSES = ["draft_imported", "published", "live_qa_pass"];
 const ZERO_MUTATION_FIELDS = [
   "private_payload_read_count",
   "indexability_mutation_count",
@@ -294,6 +295,54 @@ function hasMaterializedFacts(target) {
   return target?.lane_manifest_ref !== null || (target?.promotion_receipts?.length ?? 0) > 0;
 }
 
+function targetsByKey(master) {
+  const targets = new Map();
+  for (const lane of master.lanes ?? []) {
+    if ((lane.subscopes ?? []).length === 0) targets.set(`${lane.lane_id}:-`, lane);
+    for (const subscope of lane.subscopes ?? []) targets.set(`${lane.lane_id}:${subscope.id}`, subscope);
+  }
+  return targets;
+}
+
+export function validatePromotionMonotonicity(current, previous) {
+  const errors = [];
+  const currentTargets = targetsByKey(current);
+  for (const [key, previousTarget] of targetsByKey(previous)) {
+    const currentTarget = currentTargets.get(key);
+    if (
+      !currentTarget ||
+      currentTarget.package_sha256 !== previousTarget.package_sha256 ||
+      !PROMOTION_STATUSES.includes(previousTarget.status)
+    ) {
+      continue;
+    }
+    const previousIndex = V2_ORDERED_STATES.indexOf(previousTarget.status);
+    const currentIndex = V2_ORDERED_STATES.indexOf(currentTarget.status);
+    if (currentIndex < previousIndex) errors.push(`promotion_state_regression=${key}:${previousTarget.status}->${currentTarget.status}`);
+  }
+  return { ok: errors.length === 0, errors };
+}
+
+function validatePromotionMonotonicityAgainstBase(master) {
+  if ((process.env.EN_PARITY_CURRENT_PR_HEAD ?? "") === "") return { ok: true, errors: [] };
+  const baseRef = process.env.EN_PARITY_BASE_REF ?? "origin/main";
+  try {
+    execFileSync("git", ["rev-parse", "--verify", baseRef], { stdio: "ignore" });
+    try {
+      execFileSync("git", ["cat-file", "-e", `${baseRef}:${V2_PATH}`], { stdio: "ignore" });
+    } catch {
+      return { ok: true, errors: [] };
+    }
+    const previous = JSON.parse(execFileSync("git", ["show", `${baseRef}:${V2_PATH}`], { encoding: "utf8" }));
+    return validatePromotionMonotonicity(master, previous);
+  } catch (error) {
+    return {
+      ok: false,
+      errors: [`promotion_base_authority_unavailable=${baseRef}:${error instanceof Error ? error.message : String(error)}`],
+    };
+  }
+}
+
 export function validateV2Master({
   v1 = readJson(V1_PATH),
   v2 = readJson(V2_PATH),
@@ -511,10 +560,12 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
   const master = readJson(V2_PATH);
   const inputs = readJson(V2_INPUTS_PATH);
   const masterReport = validateV2Master({ v2: master });
+  const monotonicityReport = validatePromotionMonotonicityAgainstBase(master);
   const errors = [
     ...schemaErrors(master, schema).map((error) => `V2 master Schema ${error}`),
     ...schemaErrors(inputs, schema).map((error) => `V2 inputs Schema ${error}`),
     ...masterReport.errors,
+    ...monotonicityReport.errors,
   ];
   assert(schema?.$id?.endsWith("en-content-parity-control-master.v2.schema.json"), "V2 Schema ID mismatch", errors);
   for (const binding of inputs.lane_manifests) {

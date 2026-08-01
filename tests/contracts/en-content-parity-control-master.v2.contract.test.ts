@@ -13,6 +13,7 @@ import {
   migrateV1ToV2,
 } from "../../scripts/seo/build-en-content-parity-control-v2.mjs";
 import {
+  validatePromotionMonotonicity,
   validateReceiptChain,
   validateV2Control,
   validateV2Master,
@@ -394,7 +395,25 @@ describe("English content parity automation control V2", () => {
     try {
       const reviewedSourceCommit = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
       const evidencePaths = ["inventory", "production", "package"].map((name) => path.join(directory, `${name}.json`));
-      for (const evidencePath of evidencePaths) fs.writeFileSync(evidencePath, '{"ok":true}\n');
+      for (const evidencePath of evidencePaths.slice(0, 2)) fs.writeFileSync(evidencePath, '{"ok":true}\n');
+      const payloadPath = path.join(directory, "assets.jsonl");
+      fs.writeFileSync(payloadPath, '{"asset_id":"ENPARITY-W8-CAREER-JOB-PROJECTION"}\n');
+      const packageIdentity = {
+        lane_id: "W8",
+        subscope_id: null,
+        expected_count: 1046,
+        asset_ids: ["ENPARITY-W8-CAREER-JOB-PROJECTION"],
+        payloads: [{ path: path.relative(ROOT, payloadPath), sha256: sha256(fs.readFileSync(payloadPath)) }],
+      };
+      const packageSha = sha256(canonicalJson(packageIdentity));
+      const packageEvidence = {
+        $schema: "./en-content-parity-control-master.v2.schema.json",
+        schema_version: "fermatmind.en_content_parity_package_freeze.v2",
+        artifact_kind: "package_freeze_evidence",
+        ...packageIdentity,
+        package_sha256: packageSha,
+      };
+      fs.writeFileSync(evidencePaths[2], `${JSON.stringify(packageEvidence, null, 2)}\n`);
       const reportPath = path.join(directory, "report.json");
       const reportRef = path.relative(ROOT, reportPath);
       const report = {
@@ -403,7 +422,7 @@ describe("English content parity automation control V2", () => {
         qa_lane_id: "W9",
         producer_lane_id: "W8",
         subscope_id: null,
-        package_sha256: PACKAGE_SHA,
+        package_sha256: packageSha,
         reviewed_source_commit: reviewedSourceCommit,
         reviewed_asset_ids: ["ENPARITY-W8-CAREER-JOB-PROJECTION"],
         reviewed_row_count: 1046,
@@ -428,7 +447,7 @@ describe("English content parity automation control V2", () => {
         subscope: null,
         status: "qa_pass",
         blocked_from_status: null,
-        package_sha256: PACKAGE_SHA,
+        package_sha256: packageSha,
         qa_report_ref: reportRef,
         gate_lineage: [
           {
@@ -436,7 +455,7 @@ describe("English content parity automation control V2", () => {
             evidence_owner_lane_id: "W8",
             report_ref: path.relative(ROOT, evidencePaths[2]),
             report_sha256: sha256(fs.readFileSync(evidencePaths[2])),
-            package_sha256: PACKAGE_SHA,
+            package_sha256: packageSha,
             accepted_at: "2026-08-02T00:00:00Z",
           },
           {
@@ -444,7 +463,7 @@ describe("English content parity automation control V2", () => {
             evidence_owner_lane_id: "W9",
             report_ref: reportRef,
             report_sha256: reportSha,
-            package_sha256: PACKAGE_SHA,
+            package_sha256: packageSha,
             accepted_at: "2026-08-02T00:01:00Z",
           },
         ],
@@ -505,6 +524,18 @@ describe("English content parity automation control V2", () => {
       expect(() => applyMaterializationInputs(structuredClone(v2), forgedCountInputs)).toThrow(
         "lane_manifest_counts_forbidden=W8",
       );
+      fs.writeFileSync(evidencePaths[2], "{}\n");
+      manifest.gate_lineage[0].report_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
+      manifest.transition_trace[2].evidence_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const invalidFreezeInputs = structuredClone(inputs);
+      invalidFreezeInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(() => applyMaterializationInputs(structuredClone(v2), invalidFreezeInputs)).toThrow(
+        "lane_manifest_package_freeze_evidence_invalid=W8",
+      );
+      fs.writeFileSync(evidencePaths[2], `${JSON.stringify(packageEvidence, null, 2)}\n`);
+      manifest.gate_lineage[0].report_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
+      manifest.transition_trace[2].evidence_sha256 = sha256(fs.readFileSync(evidencePaths[2]));
       fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
       const originalExpectedHead = process.env.EN_PARITY_CURRENT_PR_HEAD;
       process.env.EN_PARITY_CURRENT_PR_HEAD = reviewedSourceCommit;
@@ -517,7 +548,7 @@ describe("English content parity automation control V2", () => {
       }
       expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8")).toMatchObject({
         status: "qa_pass",
-        package_sha256: PACKAGE_SHA,
+        package_sha256: packageSha,
         qa_report_ref: reportRef,
       });
 
@@ -532,9 +563,9 @@ describe("English content parity automation control V2", () => {
         lane: "W8",
         subscope: null,
         source_repository: "fermatmind/fap-api",
-        source_commit: reviewedSourceCommit,
+        source_commit: "8e738763162ff7c1507e28fa30d1b8cb7154de85",
         package_path: "content_assets/en-content-parity/W8-career-jobs",
-        package_sha256: PACKAGE_SHA,
+        package_sha256: packageSha,
         executor_release_sha256: "2".repeat(64),
         release_policy_sha256: POLICY_SHA,
         workflow_run_id: "30715225574",
@@ -565,7 +596,7 @@ describe("English content parity automation control V2", () => {
         evidence_owner_lane_id: "fap-api",
         report_ref: preflightRef,
         report_sha256: sha256(preflight.bytes),
-        package_sha256: PACKAGE_SHA,
+        package_sha256: packageSha,
         accepted_at: "2026-08-02T00:02:00Z",
       });
       manifest.transition_trace.push({
@@ -637,5 +668,18 @@ describe("English content parity automation control V2", () => {
     );
     const materialized = applyMaterializationInputs(v2, inputs);
     expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1").status).toBe("published");
+  });
+
+  it("rejects replacing a verified receipt state with an older prefix for the same package", () => {
+    const previous = migrateV1ToV2(JSON.parse(fs.readFileSync(V1_PATH, "utf8")), "6".repeat(64));
+    const current = structuredClone(previous);
+    const previousW8 = previous.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8");
+    const currentW8 = current.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8");
+    Object.assign(previousW8, { status: "live_qa_pass", package_sha256: PACKAGE_SHA });
+    Object.assign(currentW8, { status: "draft_imported", package_sha256: PACKAGE_SHA });
+    expect(validatePromotionMonotonicity(current, previous)).toEqual({
+      ok: false,
+      errors: ["promotion_state_regression=W8:-:live_qa_pass->draft_imported"],
+    });
   });
 });

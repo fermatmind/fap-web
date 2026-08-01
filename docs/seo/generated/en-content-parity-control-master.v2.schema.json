@@ -5,6 +5,7 @@
   "oneOf": [
     { "$ref": "#/$defs/master" },
     { "$ref": "#/$defs/promotion_receipt" },
+    { "$ref": "#/$defs/package_freeze_evidence" },
     { "$ref": "#/$defs/lane_manifest" },
     { "$ref": "#/$defs/control_inputs" }
   ],
@@ -251,6 +252,49 @@
         "search_mutation_count": { "const": 0 },
         "deploy_mutation_count": { "const": 0 },
         "receipt_content_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "package_freeze_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schema_version",
+        "artifact_kind",
+        "lane_id",
+        "subscope_id",
+        "expected_count",
+        "asset_ids",
+        "payloads",
+        "package_sha256"
+      ],
+      "properties": {
+        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "schema_version": { "const": "fermatmind.en_content_parity_package_freeze.v2" },
+        "artifact_kind": { "const": "package_freeze_evidence" },
+        "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
+        "subscope_id": { "type": ["string", "null"] },
+        "expected_count": { "type": "integer", "minimum": 1 },
+        "asset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "payloads": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "package_sha256": { "$ref": "#/$defs/sha256" }
       }
     },
     "lane_manifest": {
