@@ -54529,8 +54529,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "62147f5000ce6e53c3c45dc04b5551730ad94ec5",
+    "status": "ready_to_merge",
+    "commit_sha": "123b960fedffa97fe890ea054161c76ae33ec999",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1944",
     "checks": {
       "preflight": {
@@ -54542,8 +54542,8 @@
         "evidence": "Rebound W4 evidence to fap-web origin/main b65e0c78f1b665ae50cfaa5b62bf385ce05fdbbe, control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1, and fap-api origin/main a202c8175ad0cfda59585d9adb20e1b2d8b929a2. Candidate and master validators passed; focused control-master contract passed 63/63; pnpm lint . completed without lint violations; 14 logical groups, 1550 unique atomic rows, 15 unordered pairs, 3/2/2 safe surfaces, eight payload SHA coverage, and candidate/source-ledger binding passed. New inventory package SHA is b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1944 opened from the local-verified head 62147f5000ce6e53c3c45dc04b5551730ad94ec5. Required GitHub checks must pass on the ledger-updated head before merge."
+        "status": "pass",
+        "evidence": "PR #1944 head 123b960fedffa97fe890ea054161c76ae33ec999 passed build, all contract shards and aggregate, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review requirement."
       }
     },
     "failure_reason": null,
@@ -54571,8 +54571,13 @@
         "at": "2026-08-01T18:24:00+08:00",
         "status": "github_checks_pending",
         "summary": "Opened PR #1944 for W4 inventory evidence revalidation. The candidate is bound to control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1 and package SHA b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce; all write/release permissions remain false."
+      },
+      {
+        "at": "2026-08-01T18:30:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1944 checked head 123b960fedffa97fe890ea054161c76ae33ec999 passed all required GitHub checks. The latest master SHA remains 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1, exact scope validation is clean, and this ledger-head check cycle is the final gate before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T18:24:00+08:00"
+    "updated_at": "2026-08-01T18:30:00+08:00"
   }
 }
