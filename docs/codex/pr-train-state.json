@@ -53720,7 +53720,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "e791e280d1fe01bd8ede72332985f38fea518539",
+    "commit_sha": "c607bb3560f818bb8ae4cdf846f8cb6fce07adff",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -54015,8 +54015,13 @@
         "at": "2026-08-01T08:19:39Z",
         "status": "github_checks_pending",
         "summary": "Repaired the newest exact-head findings by ignoring non-200 SEO endpoint bodies and requiring exactly one crawler-head title. An incomplete eligible=0/50 directory snapshot stopped before artifact write; the fresh complete 50-row rerun remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T08:17:09.890Z, and artifact aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a. Focused 60/60, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:21:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed failed-endpoint SEO authority resolution, duplicate-title rejection, and the final same-code HOLD artifact as c607bb3560f818bb8ae4cdf846f8cb6fce07adff after focused 60/60, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
       }
     ],
-    "updated_at": "2026-08-01T08:19:39Z"
+    "updated_at": "2026-08-01T08:21:00Z"
   }
 }
