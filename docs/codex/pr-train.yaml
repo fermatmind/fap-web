@@ -28295,6 +28295,60 @@ prs:
     content_authority: backend
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: CAREER-SEARCH-ENTRY-PILOT-READINESS-01
+    repo: fap-web
+    branch: codex/career-search-entry-pilot-readiness-01
+    base: main
+    title: "CAREER-SEARCH-ENTRY-PILOT-READINESS-01 select bounded career canary"
+    depends_on: []
+    mode: read_only_pilot_readiness
+    train_scope: career_search_entry_task12_followup
+    status: in_progress
+    scope:
+      - Consume the completed Task 12 PASS_APPLY_READBACK authority and select exactly 10 slugs / 20 EN-ZH canonical URLs for a bounded PR4 canary.
+      - Require live backend detail and SEO authority, public page, canonical, robots, sitemap, reviewer/content/SEO evidence, visible thickness, and FAQ/schema alignment.
+      - Prefer stable rows, then sort by quality score descending and canonical slug ascending; emit HOLD without lowering the gate when fewer than ten rows pass.
+    allowed_paths:
+      - scripts/seo/generate-career-search-entry-pilot-readiness.mjs
+      - tests/contracts/career-search-entry-pilot-readiness.contract.test.ts
+      - docs/seo/career-search-entry-pilot-readiness-01.md
+      - docs/seo/generated/career-search-entry-pilot-readiness-01.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - frontend or backend runtime changes
+      - CMS or database mutation
+      - sitemap or llms mutation
+      - Search Channel operation or URL submission
+      - deploy or rollback
+      - unsupported fit, salary, hiring, or success guarantee
+    required_local_checks:
+      - pnpm vitest run tests/contracts/career-search-entry-pilot-readiness.contract.test.ts
+      - pnpm lint
+      - pnpm typecheck
+      - git diff --check
+    cross_repo_prerequisites:
+      - "Backend Batch Review run 30678387519 passed before this PR started."
+      - "Backend Task 12 completed PASS_APPLY_READBACK with operator evidence 2546dbd6 before this PR started."
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: "After merge and post-merge GO revalidation, execute CAREER-SEARCH-ENTRY-CHANNEL-CANARY-01 using only the frozen exact target-set and artifact SHAs."
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: read-only control evidence only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W9-W2-SOURCE-INTAKE-01
     repo: fap-web
     branch: codex/en-parity-w9-w2-source-intake-01
@@ -28318,6 +28372,54 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: immutable W9 source evidence only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-W9-W2-INDEPENDENT-QA-01
+    repo: fap-web
+    branch: codex/en-parity-w9-w2-independent-qa-01
+    base: main
+    title: "EN-PARITY-W9-W2-INDEPENDENT-QA-01: independently QA all 118 Big Five English parity rows"
+    depends_on: [EN-PARITY-W9-W2-SOURCE-INTAKE-01]
+    mode: execute
+    train_scope: w2_big5_w9_independent_qa
+    status: in_progress
+    scope: ["Record only the fresh independent W9 review of the exact immutable W2 118-row source snapshot: 52 public profiles, 50 historical verification rows, and 16 result/report/share/PDF/history units."]
+    allowed_paths: [generated/en-content-parity/W9-independent-qa/W2-big-five/**, tests/contracts/en-content-parity-w9-w2-independent-qa.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not: ["Modify the W2 package, control master or candidate, other lanes, app/runtime, CMS/database, import, publication, SEO runtime, sitemap, llms, deploy, or public content fallback."]
+    required_local_checks: ["exact W2 frozen package and source-snapshot SHA verification", "118-row uniqueness and 52/50/16 cohort reconciliation", "eight row-check coverage and six aggregate-check reconciliation", "focused W2 intake, W2 independent-QA, and control-master Vitest", "node scripts/seo/validate-en-content-parity-control.mjs", "JSON/YAML parse", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: independent W9 evidence only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-CONTROL-W2-QA-PASS-01
+    repo: fap-web
+    branch: codex/en-parity-control-w2-qa-pass-01
+    base: main
+    title: "EN-PARITY-CONTROL-W2-QA-PASS-01: accept Big Five independent W9 QA"
+    depends_on: [EN-PARITY-W9-W2-INDEPENDENT-QA-01]
+    mode: execute
+    train_scope: w2_big5_qa_pass_control_acceptance
+    status: in_progress
+    scope: ["Accept only the exact W2 immutable package and external W9 PASS report, transitioning W2 exactly once from package_frozen to qa_pass while retaining all-false permissions."]
+    allowed_paths: [docs/seo/generated/en-content-parity-control-master.v1.json, tests/contracts/en-content-parity-control-master.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not: ["Modify the W2 package or W9 evidence, other lanes, CMS/database, import, runtime, SEO, sitemap, llms, publication, search, deploy, or public content fallback."]
+    required_local_checks: ["exact W2 package SHA and W9 report SHA reconciliation", "W2 118 and 52/50/16 reconciliation", "all-false permission and exact W9 gate-lineage validation", "node scripts/seo/validate-en-content-parity-control.mjs", "focused control-master Vitest", "YAML/JSON parse", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL qa_pass acceptance only; backend authority and frontend no-fallback rules remain unchanged
 
   - id: EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01
     repo: fap-web

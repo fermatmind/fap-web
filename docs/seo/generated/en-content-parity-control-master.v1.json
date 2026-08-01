@@ -253,7 +253,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_frozen",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
@@ -274,7 +274,7 @@
         "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json"
       ],
       "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
-      "qa_report_ref": null,
+      "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W2-big-five/a41816a8-w9-review/independent_qa_report.json",
       "gate_lineage": [
         {
           "status": "package_frozen",
@@ -283,10 +283,18 @@
           "report_sha256": "4082803c1cc4dc3dd4f185b663f7f635455418e5cd1438e9fdea3f752f799471",
           "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
           "accepted_at": "2026-08-01T07:23:51Z"
+        },
+        {
+          "status": "qa_pass",
+          "evidence_owner_lane_id": "W9",
+          "report_ref": "generated/en-content-parity/W9-independent-qa/W2-big-five/a41816a8-w9-review/independent_qa_report.json",
+          "report_sha256": "3b685f35fdcba089c325b376f7406ef44b5b5abb30a05fc27f8d5c0f1102c2e2",
+          "package_sha256": "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+          "accepted_at": "2026-08-01T17:27:00+08:00"
         }
       ],
       "blockers": [],
-      "next_action": "Submit the exact frozen W2 package SHA to independent W9 QA; do not rebuild or replace the package without returning to package production.",
+      "next_action": "Require a separate read-only dry-run gate before any import or release; all permissions remain false.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

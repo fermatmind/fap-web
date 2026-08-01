@@ -619,11 +619,26 @@ describe("English content parity control master", () => {
     });
 
     const w2 = manifest.lanes.find((lane) => lane.lane_id === "W2");
-    expect(w2?.status).toBe("package_frozen");
+    expect(w2?.status).toBe("qa_pass");
     expect(w2?.blocked_from_status).toBeNull();
     expect(w2?.package_sha256).toBe("a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b");
-    expect(w2?.qa_report_ref).toBeNull();
-    expect(w2?.gate_lineage).toHaveLength(1);
+    expect(w2?.qa_report_ref).toBe(
+      "generated/en-content-parity/W9-independent-qa/W2-big-five/a41816a8-w9-review/independent_qa_report.json"
+    );
+    expect(w2?.gate_lineage).toEqual([
+      expect.objectContaining({
+        status: "package_frozen",
+        evidence_owner_lane_id: "W2",
+        package_sha256: "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+      }),
+      expect.objectContaining({
+        status: "qa_pass",
+        evidence_owner_lane_id: "W9",
+        report_ref: "generated/en-content-parity/W9-independent-qa/W2-big-five/a41816a8-w9-review/independent_qa_report.json",
+        report_sha256: "3b685f35fdcba089c325b376f7406ef44b5b5abb30a05fc27f8d5c0f1102c2e2",
+        package_sha256: "a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b",
+      }),
+    ]);
     expect(w2?.blockers).toEqual([]);
     expect(w2?.counts).toEqual({
       cohort_count: 3,
@@ -633,7 +648,7 @@ describe("English content parity control master", () => {
       unknown_inventory_cohorts: 0,
     });
     expect(w2?.next_action).toBe(
-      "Submit the exact frozen W2 package SHA to independent W9 QA; do not rebuild or replace the package without returning to package production."
+      "Require a separate read-only dry-run gate before any import or release; all permissions remain false."
     );
     expect(
       manifest.assets

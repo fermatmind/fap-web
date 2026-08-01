@@ -53812,34 +53812,369 @@
     ],
     "updated_at": "2026-08-01T15:32:07+08:00"
   },
-  "EN-PARITY-W9-W2-SOURCE-INTAKE-01": {
-    "id": "EN-PARITY-W9-W2-SOURCE-INTAKE-01",
+  "CAREER-SEARCH-ENTRY-PILOT-READINESS-01": {
+    "id": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
     "repo": "fap-web",
-    "title": "EN-PARITY-W9-W2-SOURCE-INTAKE-01: freeze immutable Big Five QA sources",
+    "title": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01 select bounded career canary",
     "base": "main",
-    "branch": "codex/en-parity-w9-w2-source-intake-01",
-    "depends_on": ["EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01"],
+    "branch": "codex/career-search-entry-pilot-readiness-01",
+    "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "4c31e489de4e40c1916746875ab11f973e86de50",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1932",
-    "checks": {
-      "dependency": {"status": "pass", "evidence": "CONTROL W2 package_frozen acceptance commit 83c49f544e371a7e927a851af07f22d8f2a267cc is contained in origin/main."},
-      "immutable_sources": {"status": "pass", "evidence": "Exact W2 a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, source ledger 5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f, EN52 91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a, historical 7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd, and result child aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81 are bound in the snapshot."},
-      "local_validation": {"status": "pass", "evidence": "Focused W2 intake plus control-master Vitest passed 64/64; control validator passed; no symlink, source-count, or 118-row identity violation."}
-    },
+    "commit_sha": "367d79482fb1cec970a5e449c070ed26c8a136f2",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user supplied the exact next-task scope and authorized continuous execution of PR3 after Task 12 completion."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "User-attested Batch Review run 30678387519 passed and Task 12 completed with PASS_APPLY_READBACK evidence 2546dbd6."
+      },
+      "read_only_generator": {
+        "status": "pass",
+        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after requiring unique identical 50-slug bilingual inventories, an explicit detail approval projection, strict review timestamps, nonempty canonical hrefs, exact schema/metadata authority, and bounded claims. Every target-level evidence summary is false on HOLD rather than vacuously true."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 70 tests. Coverage additionally binds endpoint SEO fingerprints to the reviewed detail package, excludes CSS-hidden subtrees, and requires explicit hero and definition authority markers."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 pnpm lint passed with zero warnings and zero errors."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 pnpm typecheck passed."
+      },
+      "metadata_and_scope": {
+        "status": "pass",
+        "evidence": "Generator syntax, artifact/state JSON, manifest YAML, git diff --check, artifact self-hash, and the exact six-path allowlist all passed."
+      },
+      "github_required_checks": {
+        "status": "pending_recheck",
+        "evidence": "All 11 checks passed on 80fee7fd, including the CodeQL alert 188 repair. Seven newest exact-head review repairs and the refreshed truthful HOLD artifact now require fresh exact-head checks."
+      },
+      "codex_review": {
+        "status": "repaired_pending_recheck",
+        "evidence": "All newest exact-head findings are repaired: noun guarantee coverage avoids ordinary job-security language, review timestamps round-trip strictly, detail approval cannot fall back to trust state, HOLD summaries are false, bilingual inventories are unique/equal, and canonical href must be nonempty."
+      },
+      "post_merge_revalidation": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "evidence": {
+      "observed_at": "2026-08-01T08:59:24.077Z",
+      "result": "HOLD",
+      "eligible_candidates": 0,
+      "target_slugs": 0,
+      "target_urls": 0,
+      "target_set_sha256": null,
+      "artifact_sha256": "2389dd0897a61cb33508c5a5d2be873d69174b347fff59375a36d6cbd6d4d054",
+      "rollback_batch_id": null
+    },
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
     "publish_allowed": false,
     "search_channel_action": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-01T16:25:00+08:00", "status": "local_verified", "summary": "Created a non-symlinked immutable intake from the exact CONTROL, backend, historical, and renderer commits. No W9 conclusion, master candidate, content change, CMS/database write, runtime mutation, import, publication, or deploy was performed."}, {"at": "2026-08-01T16:27:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1932 at implementation commit 4c31e489de4e40c1916746875ab11f973e86de50; required GitHub checks are pending."}],
-    "updated_at": "2026-08-01T16:27:00+08:00"
+    "history": [
+      {
+        "at": "2026-08-01T04:37:21Z",
+        "status": "in_progress",
+        "summary": "Started from exact origin/main 643b7a80 in an isolated worktree. The read-only authority/public-surface collector found 42 complete passes among the exact 50 Task 12 eligible rows and froze a deterministic 10-slug/20-URL GO set. No production, CMS/database, sitemap, Search Channel, deploy, rollback, or content write occurred."
+      },
+      {
+        "at": "2026-08-01T04:44:22Z",
+        "status": "local_checks_passed",
+        "summary": "Canonical Node 24 focused contract 17/17, lint, typecheck, generator syntax, JSON/YAML parse, artifact self-hash, diff, and exact six-path scope validation passed. The frozen decision remains GO with target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682 and no operational write."
+      },
+      {
+        "at": "2026-08-01T04:49:24Z",
+        "status": "local_checks_passed",
+        "summary": "A final canonical Node 24 live collection bound explicit current content/SEO SHA equality and preserved the exact GO target set. Artifact 3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585, focused contract 17/17, lint, typecheck, metadata, self-hash, diff, and exact scope all pass."
+      },
+      {
+        "at": "2026-08-01T04:49:55Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact six allowed paths and committed the locally verified implementation as cb68a6804ff79a7e672487904584c247a56cca98. This metadata tail binds the implementation commit before push."
+      },
+      {
+        "at": "2026-08-01T04:50:57Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact scoped branch and opened PR 1891 with what, why, validation, repository-rule impact, evidence hashes, and deferred PR4 boundaries. Required GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-08-01T04:55:55Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "Build, contracts, both freeze gates, and CodeQL analysis passed, but no-new-code-scanning-alerts correctly reported alert 184 for an unused index argument passed to mapLimit's one-argument mapper. Removed only that superfluous argument; local and fresh exact-head GitHub validation are required."
+      },
+      {
+        "at": "2026-08-01T04:57:02Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the one-line CodeQL repair as c7b614cfbb486c852adbdf3c1efd8430fbff75c6 after focused contract 17/17, lint, typecheck, syntax, JSON, and diff checks passed. This metadata tail binds the repaired code head before a fresh push."
+      },
+      {
+        "at": "2026-08-01T05:09:08Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired Codex P1 by replacing the tautological expected-live SHA fields with the backend's fail-closed current private-package-match projection in both list and detail authority. The final live run kept GO with 40 complete candidates and exact target set d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86; focused 17/17, lint, typecheck, metadata, syntax, and diff checks pass. Codex P2 is also verified stale because the recorded code heads are reachable ancestors."
+      },
+      {
+        "at": "2026-08-01T05:09:40Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the review-baseline repair as 1698e7bddba037bed4725f74cafede4a31408bd1. This metadata tail binds the reachable reviewed implementation head before push and fresh exact-head checks."
+      },
+      {
+        "at": "2026-08-01T05:17:04Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the SEO-status P2 by retaining actual dedicated endpoint status and source for every URL, validating approved detail seo_contract fallback separately, and adding exact 18-endpoint/2-fallback evidence counts. Added a pre-write incomplete-sitemap hard failure after one transient empty snapshot. Final live run is GO with the original deterministic target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682; focused 17/17, lint, typecheck, JSON, syntax, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T05:17:30Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the SEO authority-source repair as 77fdc07c9252ed271894609078b88046588dbd78. This metadata tail binds the reachable implementation head before push and fresh exact-head review/checks."
+      },
+      {
+        "at": "2026-08-01T05:27:57Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired exact-shape fail-closed behavior and missing-locale authority handling from exact-head review. Canonical Node 24 focused contract passes 19/19. A fresh complete read-only observation remains GO with 41 complete candidates and exact target set cad42a566c4cb187018bd20922493d596c66096ee47ce7656f4715fb37feca18; one non-200 candidate was excluded without gate reduction or operational write."
+      },
+      {
+        "at": "2026-08-01T05:30:01Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact-shape and missing-locale review repair as 72e43f7143ed25710238612197d7c98c2609b057 after all required local checks passed. This metadata tail binds the reachable implementation head before push and fresh exact-head GitHub checks."
+      },
+      {
+        "at": "2026-08-01T05:35:30Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired exact canonical and redirect handling from exact-head review: canonical evidence no longer strips www, query, repeated slashes, or trailing slashes; public fetches use manual redirects and require the final URL to equal the exact target. Focused contract passes 25/25. A fresh complete strict read-only run remains GO with 41 eligible candidates and target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682."
+      },
+      {
+        "at": "2026-08-01T05:36:29Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact canonical and manual-redirect implementation as a97463bc31beda228f112cd907a9326f83c70d80 after focused 25/25, lint, typecheck, syntax, self-hash, ledger, final-URL, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T05:39:45Z",
+        "status": "github_checks_pending",
+        "summary": "Merged current origin/main 304fd146 and resolved the two append-only PR-train conflicts by preserving both the newly merged W2/W9/W3 entries and this PR3 entry. The resulting PR diff remains exactly the six authorized paths; focused 25/25, lint, typecheck, YAML/JSON, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T05:50:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 8343b636, exact-head review found three further fail-closed gaps. Repaired public HTML thickness measurement, exact raw sitemap membership, and bilingual authority-tier equality. Focused contract passes 28/28; a fresh strict read-only run remains GO with 42 complete candidates, exact target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682, and artifact b40f36db0a77dc528703c740838857dc7835430caeec8f8cd1fb7d0bb0c3ea11."
+      },
+      {
+        "at": "2026-08-01T05:51:25Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the rendered-public-thickness, exact-sitemap, and bilingual-tier repairs as 9b874515c8644b953c2f3c5006f97a453c174129 after focused 28/28, lint, typecheck, syntax, self-hash, ledger, public-thickness, diff, and exact-scope checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T05:57:00Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "All functional required checks passed on head 405327c1, but CodeQL alert 185 correctly found that public-body filtering did not match whitespace before script/head/style closing-tag brackets. Extended all three end-tag patterns to accept whitespace and added malformed closing-tag contract coverage; fresh local and GitHub checks are required."
+      },
+      {
+        "at": "2026-08-01T05:57:31Z",
+        "status": "github_checks_pending",
+        "summary": "Committed CodeQL alert 185 repair as 1d64a9e64b62b305c185f4defa05e8c5cc9839ca after focused 28/28, lint, typecheck, syntax, and diff checks passed. This metadata tail binds the reachable implementation commit before fresh exact-head checks."
+      },
+      {
+        "at": "2026-08-01T06:03:00Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "Functional checks and CodeQL analysis passed on head 81e2183a, but alert 186 extended the same bad-tag-filter finding to parser-tolerated closing tags containing whitespace plus ignored tokens. Replaced the three closing-tag suffixes with word-boundary plus bounded non-angle-bracket matching and added the exact malformed form to the shell contract."
+      },
+      {
+        "at": "2026-08-01T06:04:25Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the complete tolerant-closing-tag repair as fdcafb6f04090c3f93b7d5b2dab3ea32d3e74ab0 after focused 28/28, lint, typecheck, syntax, and diff checks passed. This metadata tail binds the reachable implementation commit before the next exact-head scan."
+      },
+      {
+        "at": "2026-08-01T06:15:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all required checks and CodeQL passed on 7092a2ab, exact-head review found rendered-body lineage, SEO canonical, and FAQ entity-structure gaps. Added hashed approved hero/definition/FAQ marker binding, exact SEO-authority canonical equality, and Question/acceptedAnswer validation. Focused contract passes 31/31; a fresh strict run remains GO with 29 complete candidates, target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact 1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f."
+      },
+      {
+        "at": "2026-08-01T06:17:57Z",
+        "status": "github_checks_pending",
+        "summary": "Committed rendered-lineage, exact SEO canonical, and structured FAQ validation as 031f9bda24d363eac19860744c77d69e2387f1be after focused 31/31, lint, typecheck, syntax, self-hash, ledger, marker/SEO/FAQ, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T06:25:00Z",
+        "status": "github_checks_pending",
+        "summary": "After every required check passed on a37f6ccf, exact-head review found missing X-Robots-Tag validation, conflicting robots-meta handling, and sentence-wide negation suppression. Added fail-closed response-header and all-meta gates plus clause-scoped guarantee analysis. Focused contract passes 34/34; a fresh strict run remains GO with 29 complete candidates, unchanged target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact 21b3f3c962c959d9917069008cb670318aefafecc5f533b45c0aeb3a86579bb9."
+      },
+      {
+        "at": "2026-08-01T06:27:25Z",
+        "status": "github_checks_pending",
+        "summary": "Committed X-Robots-Tag, conflicting robots-meta, and clause-scoped guarantee repairs as 1a9e528ec0c3dfc0d552935d5a7a7fb744d4f132 after focused 34/34, lint, typecheck, syntax, self-hash, ledger, robots, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T06:29:38Z",
+        "status": "github_checks_pending",
+        "summary": "Merged latest origin/main 1074f1fc and preserved both append-only train ledgers. The PR diff remains exactly the six authorized paths; post-merge focused 34/34, lint, typecheck, YAML/JSON, and diff checks pass before fresh exact-head GitHub validation."
+      },
+      {
+        "at": "2026-08-01T06:38:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all required checks passed on f2d111fc, exact-head review found missing detail-payload identity binding. Added exact canonical_slug equality and focused mismatch rejection. The complete strict read-only rerun remains GO with 20 complete candidates, unchanged target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1; focused contract passes 35/35."
+      },
+      {
+        "at": "2026-08-01T06:39:10Z",
+        "status": "github_checks_pending",
+        "summary": "Committed exact detail identity binding as 2938fa08cb4bb0667411e5fdc9289d90c8fa52ea after focused 35/35, lint, typecheck, syntax, self-hash, ledger, detail-identity, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T07:05:47Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on d54e863f, exact-head review found X-Robots none/nofollow, intervening-word guarantee, and whole-document canonical gaps. Repaired all three plus the missing-link base-URL edge. Fresh strict crawler-head observation truthfully emits HOLD with 4/10 complete rows and zero targets (artifact 1dc296998b78981791744ffccb6a83b11658e1af0e017562c96ba6a235907efc); independent single-concurrency diagnosis also held at 9/10. Focused 39/39, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:09:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the crawler-metadata fail-closed repair and truthful HOLD artifact as a63864bbd67eaaf13ddd7c5c50cf0de9c6e58e5e, then merged exact origin/main 21fb6514 while preserving both append-only ledgers. Post-merge focused 39/39, lint, typecheck, artifact self-hash, YAML/JSON, exact six-path scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T07:22:18Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on a62a7fe3, exact-head review found stale live metadata and rendered-body guarantee gaps. Bound six crawler-visible metadata fields to current SEO authority and added an independent public-body guarantee scan. Fresh strict observation remains HOLD with 1/10 complete rows, zero targets, and artifact 6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438; focused 43/43, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:23:12Z",
+        "status": "github_checks_pending",
+        "summary": "Committed exact live-metadata authority binding and independent rendered-claim scanning as 0ad5c5000135226c17cb2b8c64c8bd06c5f66df7 after focused 43/43, lint, typecheck, syntax, self-hash, YAML/JSON, exact-scope, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T07:26:10Z",
+        "status": "github_checks_pending",
+        "summary": "Merged latest origin/main 7798fd96 after an immediate concurrent ledger advance and preserved both append-only ledgers. The PR diff remains exactly the six authorized paths; post-merge focused 43/43, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T07:34:39Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 54c9c4fc, exact-head review found duplicate-canonical and invalid-shape HOLD contract gaps; both are repaired. The final same-code live observation is HOLD with 0/10 complete rows, zero targets, exact observed_at 2026-08-01T07:32:13.318Z, and artifact 7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9. Focused 44/44, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:35:24Z",
+        "status": "github_checks_pending",
+        "summary": "Committed duplicate-canonical rejection, complete HOLD-reason contract, and final same-code artifact as 54d379c41bd3423b59279187b81514442465017c after focused 44/44, lint, typecheck, artifact/ledger timestamp binding, self-hash, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T07:44:27Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 29f5124a, exact-head review found data-attribute suffix, unrelated negation, and duplicate crawler-metadata gaps. All three are repaired. The final same-code observation remains HOLD with 0/10 complete rows, exact observed_at 2026-08-01T07:41:44.524Z, zero targets, and artifact 99fb88a8f6e524bf7202c9d1ca278d6adc3bc88060902122ef8b83473707aed7; focused 46/46, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:45:10Z",
+        "status": "github_checks_pending",
+        "summary": "Committed exact attribute parsing, predicate-bound negation, duplicate metadata rejection, and final same-code artifact as df84a06037f2610b8c85e8084b394193317793e8 after focused 46/46, lint, typecheck, self-hash, artifact/ledger timestamp binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T07:48:11Z",
+        "status": "github_checks_pending",
+        "summary": "Merged latest origin/main 559e9559 after another concurrent ledger advance, preserving the exact pilot entry and all newly merged control entries. The PR diff remains exactly six authorized paths; post-merge focused 46/46, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T07:59:00Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the three newest exact-head findings by excluding template and hidden subtrees from public evidence, binding normalized FAQ schema pairs exactly to backend authority, and requiring one ordered BreadcrumbList ending at the exact locale career URL. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T07:56:50.146Z, and artifact ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44; focused 51/51, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:01:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed hidden-evidence exclusion, exact FAQ authority binding, ordered breadcrumb validation, and the final same-code HOLD artifact as 9fea3a415c9d656d53f5fd381dd8e698d5d98b6a after focused 51/51, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T08:02:28Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main 4fd91f2d after a concurrent control-ledger advance. The PR diff remains exactly the six authorized paths; post-merge focused 51/51, lint, typecheck, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T08:08:49Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the next exact-head findings by rejecting conflicting Googlebot-specific robots directives, requiring an exact JSON-LD type attribute, and recognizing common Chinese guarantee disclaimers without suppressing unrelated positive guarantees. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T08:05:14.027Z, and artifact a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c; canonical Node focused 57/57, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:10:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed crawler-specific robots validation, exact JSON-LD attribute parsing, Chinese negation repair, and the final same-code HOLD artifact as e791e280d1fe01bd8ede72332985f38fea518539 after focused 57/57, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T08:19:39Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the newest exact-head findings by ignoring non-200 SEO endpoint bodies and requiring exactly one crawler-head title. An incomplete eligible=0/50 directory snapshot stopped before artifact write; the fresh complete 50-row rerun remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T08:17:09.890Z, and artifact aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a. Focused 60/60, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:21:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed failed-endpoint SEO authority resolution, duplicate-title rejection, and the final same-code HOLD artifact as c607bb3560f818bb8ae4cdf846f8cb6fce07adff after focused 60/60, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T08:21:01Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main b1f7589c after another concurrent control-ledger advance. The PR diff remains exactly the six authorized paths; post-merge focused 60/60, lint, typecheck, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T08:26:41Z",
+        "status": "github_checks_pending",
+        "summary": "All functional checks passed on e87f8da6, while CodeQL alert 188 interpreted resolveSeoAuthority output as password material at the generic observation SHA. Renamed the pure selector and its return field to selectSeoSurface/surface without behavior change; focused 60/60, lint, typecheck, and diff checks pass before a fresh exact-head scan."
+      },
+      {
+        "at": "2026-08-01T08:27:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the behavior-preserving CodeQL disambiguation as 08a10f4545d6c317189a7c5930cf54e6f99336ba after focused 60/60, lint, typecheck, syntax, exact-scope, and diff checks passed. The accepted read-only artifact remains bound to the same selector behavior."
+      },
+      {
+        "at": "2026-08-01T08:28:00Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main 05f5901b and resolved the append-only state conflict by preserving the complete PR3 ledger plus all current main entries. Fresh post-merge validation is required before push."
+      },
+      {
+        "at": "2026-08-01T08:40:54Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 80fee7fd, repaired seven exact-head review findings: noun-form guarantees, Chinese job-security distinction, strict review timestamps, explicit detail approval projection, non-vacuous HOLD evidence, unique identical bilingual authority sets, and nonempty canonical hrefs. Fresh read-only observation remains HOLD with 0/10 complete rows, zero targets, all target-level evidence false, observed_at 2026-08-01T08:37:35.713Z, and artifact 5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499; focused 68/68, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:42:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed all seven review repairs and the final same-code HOLD artifact as aff8c7391529c8b4fe9ab117b08ec58feaaf1b69 after focused 68/68, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
+      },
+      {
+        "at": "2026-08-01T08:42:27Z",
+        "status": "github_checks_pending",
+        "summary": "Merged exact latest origin/main 76295470 after a concurrent control update. The PR diff remains exactly the six authorized paths; post-merge focused 68/68, lint, typecheck, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T08:49:00Z",
+        "status": "github_checks_pending",
+        "summary": "After 11 checks passed and review reached zero unresolved threads on 58578150, merged exact latest origin/main effae9ae and preserved both PR3 and the concurrent W9 W2 source-intake manifest/state entries. Fresh exact-head checks are required."
+      },
+      {
+        "at": "2026-08-01T09:02:32Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on e8a28568, repaired endpoint/detail SEO fingerprint binding, CSS-hidden subtree exclusion, and explicit hero/definition authority markers. One 504/504 directory preflight stopped before write; the complete rerun remains HOLD with zero targets, observed_at 2026-08-01T08:59:24.077Z, artifact 2389dd0897a61cb33508c5a5d2be873d69174b347fff59375a36d6cbd6d4d054, and focused 70/70 passing."
+      },
+      {
+        "at": "2026-08-01T09:03:20Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the three rendered-authority repairs and final same-code HOLD artifact as 367d79482fb1cec970a5e449c070ed26c8a136f2 after focused 70/70, lint, typecheck, JSON/YAML, and diff checks passed."
+      }
+    ],
+    "updated_at": "2026-08-01T09:03:20Z"
   },
+  "EN-PARITY-W9-W2-SOURCE-INTAKE-01": {"id":"EN-PARITY-W9-W2-SOURCE-INTAKE-01","repo":"fap-web","title":"EN-PARITY-W9-W2-SOURCE-INTAKE-01: freeze immutable Big Five QA sources","base":"main","branch":"codex/en-parity-w9-w2-source-intake-01","depends_on":["EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01"],"status":"github_checks_pending","commit_sha":"4c31e489de4e40c1916746875ab11f973e86de50","pr_url":"https://github.com/fermatmind/fap-web/pull/1932","checks":{"dependency":{"status":"pass","evidence":"CONTROL W2 package_frozen acceptance commit 83c49f544e371a7e927a851af07f22d8f2a267cc is contained in origin/main."},"immutable_sources":{"status":"pass","evidence":"Exact W2 a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, source ledger 5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f, EN52 91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a, historical 7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd, and result child aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81 are bound in the snapshot."},"local_validation":{"status":"pass","evidence":"Focused W2 intake plus control-master Vitest passed 64/64; control validator passed; no symlink, source-count, or 118-row identity violation."}},"failure_reason":null,"merged_at":null,"remote_branch_deleted":false,"local_cleanup_executed":false,"production_write_execution":false,"database_mutation":false,"cms_mutation":false,"publish_allowed":false,"search_channel_action":false,"deploy_allowed":false,"history":[{"at":"2026-08-01T16:25:00+08:00","status":"local_verified","summary":"Created a non-symlinked immutable intake from the exact CONTROL, backend, historical, and renderer commits. No W9 conclusion, master candidate, content change, CMS/database write, runtime mutation, import, publication, or deploy was performed."},{"at":"2026-08-01T16:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1932 at implementation commit 4c31e489de4e40c1916746875ab11f973e86de50; required GitHub checks are pending."}],"updated_at":"2026-08-01T16:27:00+08:00"},
   "EN-PARITY-CONTROL-W4-LAUNCH-READY-01": {
     "id": "EN-PARITY-CONTROL-W4-LAUNCH-READY-01",
     "repo": "fap-web",
@@ -53912,5 +54247,150 @@
       }
     ],
     "updated_at": "2026-08-01T09:03:12Z"
+  },
+  "EN-PARITY-W9-W2-INDEPENDENT-QA-01": {
+    "id": "EN-PARITY-W9-W2-INDEPENDENT-QA-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W9-W2-INDEPENDENT-QA-01: independently QA all 118 Big Five English parity rows",
+    "base": "main",
+    "branch": "codex/en-parity-w9-w2-independent-qa-01",
+    "depends_on": [
+      "EN-PARITY-W9-W2-SOURCE-INTAKE-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "c85d9f80b017d5126b2348511169364f7fad0345",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1939",
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "PR #1932 is merged; origin/main contains merge commit effae9ae5e8d05bacb6a988b418f3a925c057795 and the exact immutable W2 source snapshot remains bound to package SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b."
+      },
+      "independence": {
+        "status": "passed",
+        "evidence": "A fresh gpt-5.6-terra high-reasoning W9 reviewer was forked without producer context and reviewed only the exact immutable source snapshot plus registered authority and renderer contracts; producer semantic review was not read."
+      },
+      "w9_review": {
+        "status": "passed",
+        "evidence": "The independent W9 conclusion is PASS: all 118 deterministic rows (52 public, 50 historical, 16 result) have all eight checks PASS, for 944/944 PASS values and zero BLOCKED rows. Historical findings are restricted to historical completeness; result findings are PASS_FOR_PREIMPORT_CONTRACT."
+      },
+      "local_validation": {
+        "status": "passed",
+        "evidence": "Focused W2 source-intake, W2 independent-QA, and control-master Vitest passed 65/65; ESLint passed for the new contract and deterministic report writer; the current control validator passed; YAML/JSON parsing, W9 output hash manifest, 118-row 52/50/16 reconciliation, and diff checks passed."
+      },
+      "permissions": {
+        "status": "passed",
+        "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions remain false."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #1939 checked head fd978b59734371c3047324abbd7a0bce67cc0a27 passed build, all four contract shards and aggregate contracts, both freeze checks, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review-decision block."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T16:35:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the isolated W9 review scope from latest origin/main. Only the exact immutable W2 snapshot, W9 evidence, focused contract, and train metadata are in scope; the package, control master, runtime, CMS, import, publication, discoverability, and deployment remain excluded."
+      },
+      {
+        "at": "2026-08-01T17:11:00+08:00",
+        "status": "local_verified",
+        "summary": "Fresh independent W9 verdict is PASS. The W9 report and 118 structured rows are stored outside the immutable source-snapshot root; all 944 row checks, six aggregate checks, source hashes, focused 65/65 contracts, ESLint, validator, JSON/YAML, diff, and exact path-scope validation pass."
+      },
+      {
+        "at": "2026-08-01T17:13:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1939 at commit c85d9f80b017d5126b2348511169364f7fad0345. Required GitHub checks are pending; the immutable source snapshot, control master, CMS, import, runtime, publication, discoverability, and deployment remain untouched."
+      },
+      {
+        "at": "2026-08-01T17:18:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1939 exact checked head fd978b59734371c3047324abbd7a0bce67cc0a27 passed all required CI and security checks. GitHub reports CLEAN/MERGEABLE with no review requirement; a final ledger-head check cycle remains mandatory before squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T17:18:00+08:00"
+  },
+  "EN-PARITY-CONTROL-W2-QA-PASS-01": {
+    "id": "EN-PARITY-CONTROL-W2-QA-PASS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W2-QA-PASS-01: accept Big Five independent W9 QA",
+    "base": "main",
+    "branch": "codex/en-parity-control-w2-qa-pass-01",
+    "depends_on": [
+      "EN-PARITY-W9-W2-INDEPENDENT-QA-01"
+    ],
+    "status": "github_checks_pending",
+    "commit_sha": "55028f04a082cfe4c7ecaa5e2fd3ddb462e24209",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1941",
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "PR #1939 is merged; origin/main contains merge commit c3688ac53842c7d750f5e4542367900f6a2696ca with the exact external W9 report."
+      },
+      "immutable_evidence": {
+        "status": "passed",
+        "evidence": "W2 package SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b and W9 report SHA 3b685f35fdcba089c325b376f7406ef44b5b5abb30a05fc27f8d5c0f1102c2e2 are bound without package replacement."
+      },
+      "control_validation": {
+        "status": "passed",
+        "evidence": "W2 now has qa_pass, the exact external W9 report reference, two-item package_frozen-to-qa_pass lineage, unchanged 118/118/0 counts, and no blocked status. The control validator passed and the focused control-master contract passed 63/63."
+      },
+      "permissions": {
+        "status": "passed",
+        "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions remain false."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T17:28:00+08:00",
+        "status": "in_progress",
+        "summary": "Started the CONTROL-only W2 qa_pass transition from clean latest main. The exact W2 package and external W9 PASS report are read-only evidence; CMS, import, runtime, publication, discoverability, and deployment remain excluded."
+      },
+      {
+        "at": "2026-08-01T17:31:00+08:00",
+        "status": "local_verified",
+        "summary": "Accepted only W2 package_frozen to qa_pass with the exact W9 PASS report SHA. The control validator, focused 63/63 contract, ESLint, JSON/YAML, W2 SHA/count/lineage/permission reconciliation, diff, and exact path scope all pass; no write or release permission changed."
+      },
+      {
+        "at": "2026-08-01T17:32:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1941 at commit 55028f04a082cfe4c7ecaa5e2fd3ddb462e24209. Required GitHub checks are pending; W2 remains qa_pass only and every write/release permission remains false."
+      }
+    ],
+    "updated_at": "2026-08-01T17:32:00+08:00"
   }
 }
