@@ -421,7 +421,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_frozen",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
       "target_asset_types": [
@@ -441,7 +441,7 @@
         "docs/codex/riasec-full-content-pack-asset-inventory.md"
       ],
       "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
-      "qa_report_ref": null,
+      "qa_report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
       "gate_lineage": [
         {
           "status": "package_frozen",
@@ -450,10 +450,18 @@
           "report_sha256": "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5",
           "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
           "accepted_at": "2026-08-01T18:52:23Z"
+        },
+        {
+          "status": "qa_pass",
+          "evidence_owner_lane_id": "W9",
+          "report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+          "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+          "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+          "accepted_at": "2026-08-01T20:50:30Z"
         }
       ],
       "blockers": [],
-      "next_action": "Run a fresh independent W9 QA review of all 1550 rows bound to package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
+      "next_action": "A separately authorized exact-package importer dry-run contract may now be planned for package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not perform CMS import, runtime activation, SEO release, or publication.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

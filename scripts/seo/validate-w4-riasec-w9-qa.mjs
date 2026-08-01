@@ -9,6 +9,8 @@ const historicalRoot = join(root, "generated/en-content-parity/W9-independent-qa
 const currentRoot = join(root, "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f");
 const historicalPackageSha = "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33";
 const currentPackageSha = "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb";
+const currentReportRef = "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json";
+const currentReportSha = "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882";
 const historicalEvidence = {
   report: "eb722ec622b2f55734e0a0126a757b57ee0f0c63eecddb4189d1c9b28d16a694",
   rows: "b0b366808c7259b7ec389824e65a1fc0328a28b3529adf05dd2fece797a97ca9",
@@ -48,10 +50,27 @@ function validateCurrentEvidence() {
   const language = json(join(currentRoot, "language_naturalness_report.json"));
   const duplicates = json(join(currentRoot, "asset_duplication_report.json"));
   const manifest = json(join(currentRoot, "qa_sha256_manifest.json"));
-  assert(w4?.status === "package_frozen" && w4.package_sha256 === currentPackageSha && w4.qa_report_ref === null && allPermissionsFalse(w4.permissions), "W4 must remain CONTROL-frozen and unaccepted while W9 evidence is generated");
+  assert(["package_frozen", "qa_pass"].includes(w4?.status) && w4.package_sha256 === currentPackageSha && allPermissionsFalse(w4.permissions), "W4 must remain bound to the exact CONTROL-frozen package with all permissions false");
+  const packageFrozenLineage = w4?.gate_lineage?.find((entry) => entry.status === "package_frozen");
+  assert(packageFrozenLineage?.evidence_owner_lane_id === "W4" && packageFrozenLineage?.package_sha256 === currentPackageSha, "W4 must retain its exact package_frozen lineage");
+  if (w4?.status === "package_frozen") {
+    assert(w4.qa_report_ref === null && w4.gate_lineage.length === 1, "W4 package_frozen state must remain unaccepted while W9 evidence is generated");
+  } else {
+    const qaLineage = w4?.gate_lineage?.find((entry) => entry.status === "qa_pass");
+    assert(
+      w4.qa_report_ref === currentReportRef &&
+        w4.gate_lineage.length === 2 &&
+        qaLineage?.evidence_owner_lane_id === "W9" &&
+        qaLineage?.report_ref === currentReportRef &&
+        qaLineage?.report_sha256 === currentReportSha &&
+        qaLineage?.package_sha256 === currentPackageSha,
+      "W4 qa_pass state requires the exact externally accepted W9 PASS report"
+    );
+  }
   assert(packageManifest.package_sha256 === currentPackageSha && packageManifest.files.length === 8 && aggregate(packageManifest.files) === currentPackageSha && packageManifest.files.every((file) => sha(readFileSync(join(packageRoot, file.path))) === file.sha256), "current W4 frozen package identity drifted");
   assert(JSON.stringify(readdirSync(currentRoot).filter((name) => !name.startsWith(".")).sort()) === JSON.stringify(expectedCurrentFiles), "current W9 evidence file set drifted");
   assert(report.package_sha256 === currentPackageSha && report.verdict === "PASS" && report.reviewed_row_count === 1550 && report.qa_pass_authorized === false, "current W9 report must be a full PASS without self-acceptance");
+  assert(sha(readFileSync(join(root, currentReportRef))) === currentReportSha, "current W9 report SHA drifted from CONTROL acceptance");
   assert(rows.package_sha256 === currentPackageSha && rows.verdict === "PASS" && rows.row_reviews.length === 1550 && rows.required_checks.length === requiredChecks.length, "current W9 row evidence identity or coverage drifted");
   assert(map.atomic_rows.length === 1550 && JSON.stringify(rows.row_reviews.map((row) => row.row_id)) === JSON.stringify(map.atomic_rows.map((row) => row.row_id)) && new Set(rows.row_reviews.map((row) => row.row_id)).size === 1550, "current W9 must preserve exact frozen row coverage and order");
   assert(rows.row_reviews.every((row) => JSON.stringify(Object.keys(row.checks).sort()) === JSON.stringify([...requiredChecks].sort()) && row.page_api_alignment_status === "NOT_APPLICABLE" && row.checks.page_api_alignment_applicable === "PASS" && row.verdict === "PASS" && Object.values(row.checks).every((value) => value === "PASS")), "current W9 row checks or candidate-only applicability drifted");
@@ -63,13 +82,13 @@ function validateCurrentEvidence() {
   assert(allPermissionsFalse(report.permissions) && allPermissionsFalse(rows.permissions) && allPermissionsFalse(projection.permissions) && allPermissionsFalse(language.permissions) && allPermissionsFalse(duplicates.permissions), "current W9 permissions must remain false");
   assert(manifest.package_sha256 === currentPackageSha && manifest.files.length === 6 && manifest.files.every((file) => sha(readFileSync(join(currentRoot, file.path))) === file.sha256) && manifest.qa_package_sha256 === aggregate(manifest.files), "current W9 evidence SHA manifest drifted");
   assert(!["master_manifest_patch.candidate.json", "frozen_package"].some((name) => { try { readFileSync(join(currentRoot, name)); return true; } catch { return false; } }), "current W9 evidence must not contain a master candidate or copied producer package");
-  return { package_sha256: currentPackageSha, verdict: report.verdict, rows: rows.row_reviews.length };
+  return { package_sha256: currentPackageSha, verdict: report.verdict, rows: rows.row_reviews.length, control_accepted: w4?.status === "qa_pass" };
 }
 
 export function validateW4RiasecW9Qa() {
   const historical = validateHistoricalEvidence();
   const current = validateCurrentEvidence();
-  return { ok: true, historical, current, qa_pass_authorized: false };
+  return { ok: true, historical, current, qa_pass_authorized: false, control_accepted: current.control_accepted };
 }
 
 try {

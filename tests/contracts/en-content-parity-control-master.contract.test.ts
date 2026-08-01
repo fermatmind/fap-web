@@ -622,7 +622,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_frozen",
+      status: "qa_pass",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,
@@ -632,7 +632,8 @@ describe("English content parity control master", () => {
         unknown_inventory_cohorts: 0,
       },
       package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
-      qa_report_ref: null,
+      qa_report_ref:
+        "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
       gate_lineage: [
         {
           status: "package_frozen",
@@ -642,15 +643,39 @@ describe("English content parity control master", () => {
           package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
           accepted_at: "2026-08-01T18:52:23Z",
         },
+        {
+          status: "qa_pass",
+          evidence_owner_lane_id: "W9",
+          report_ref:
+            "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+          report_sha256: "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+          package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+          accepted_at: "2026-08-01T20:50:30Z",
+        },
       ],
       blockers: [],
       next_action:
-        "Run a fresh independent W9 QA review of all 1550 rows bound to package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
+        "A separately authorized exact-package importer dry-run contract may now be planned for package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not perform CMS import, runtime activation, SEO release, or publication.",
     });
     expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
     expect(JSON.stringify({ package_sha256: w4?.package_sha256, gate_lineage: w4?.gate_lineage })).not.toContain(
       "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33"
     );
+    const w4QaReport = readJson<{
+      package_sha256: string;
+      verdict: string;
+      reviewed_row_count: number;
+      qa_pass_authorized: boolean;
+    }>("generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json");
+    expect(sha256File("generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json")).toBe(
+      "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882"
+    );
+    expect(w4QaReport).toMatchObject({
+      package_sha256: "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      verdict: "PASS",
+      reviewed_row_count: 1550,
+      qa_pass_authorized: false,
+    });
 
     const w4ReworkReset = readJson<{
       $schema: string;
