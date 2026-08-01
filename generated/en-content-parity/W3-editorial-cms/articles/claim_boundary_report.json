@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-08-2026-08-01",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-09-2026-08-01",
   "verdict": "PASS",
   "scope": "producer claim-boundary preflight after W9-directed complete-body language repair for 17 candidate English Article assets; not independent W9 QA",
   "allowed_reader_frame": [
@@ -25,23 +25,16 @@
       "rows": [
         1,
         2,
-        3,
-        4,
-        5,
-        6,
         7,
         8,
         9,
         10,
-        50,
-        51,
         52,
-        53,
         55,
         58,
         59
       ],
-      "finding": "Producer repaired all 17 Article rows for the reader-visible language-naturalness defects recorded by W9 report 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1 and row evidence 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; a fresh independent W9 must review the complete rebuilt package."
+      "finding": "Producer rework-09 repaired only the authorized reader-visible language, grammar, punctuation, and en-US consistency defects across ten Article rows; a fresh independent W9 must review the complete rebuilt package."
     },
     {
       "severity": "gate_required",

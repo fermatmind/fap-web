@@ -13,13 +13,12 @@ This producer package contains exactly 17 English Article candidates bound to th
 - China and Gaokao context remains present where material.
 - Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework-08
+## Targeted Producer rework-09
 
-- Blocked frozen package SHA: `0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89`.
-- Independent W9 BLOCKED report SHA: `07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1`.
-- Independent 17-row evidence SHA: `8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32`.
-- Repaired rows: all 17 registered W3 Article rows.
-- Repairs address only the complete-body language-naturalness defects recorded by independent W9; identities, headings, links, claims, and media omission remain in scope for fresh verification.
+- Superseded preflight package SHA: `54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b`.
+- Repaired rows: W3-ARTICLE-01, 02, 07, 08, 09, 10, 52, 55, 58, and 59.
+- PASS rows with byte-identical reader-visible fields: W3-ARTICLE-03, 04, 05, 06, 50, 51, and 53.
+- Repairs address only the approved reader-visible language, grammar, punctuation, and en-US consistency defects; identities, headings, links, claims, and media omission remain in scope for fresh independent verification.
 - The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates
