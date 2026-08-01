@@ -1,0 +1,25 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_boundary.v1",
+  "artifact_kind": "identity_reconciliation",
+  "counterpart_key": "guide_code",
+  "target_count": 12,
+  "targets": [
+    "annual-career-review-system", "build-five-year-career-roadmap", "career-risk-management", "career-transition-playbook", "cross-industry-move-strategy", "how-to-choose-college-major", "how-to-find-right-career-direction", "improve-workplace-competitiveness", "interview-strategy-by-role", "leader-track-vs-expert-track", "prevent-burnout-while-growing", "salary-negotiation-framework"
+  ],
+  "reconciliation": [
+    {"guide_code":"annual-career-review-system","en_slug":"annual-career-review-system","zh_slug":"annual-career-review-system"},
+    {"guide_code":"build-five-year-career-roadmap","en_slug":"build-five-year-career-roadmap","zh_slug":"build-five-year-career-roadmap"},
+    {"guide_code":"career-risk-management","en_slug":"career-risk-management","zh_slug":"career-risk-management"},
+    {"guide_code":"career-transition-playbook","en_slug":"career-transition-playbook","zh_slug":"career-transition-playbook"},
+    {"guide_code":"cross-industry-move-strategy","en_slug":"cross-industry-move-strategy","zh_slug":"cross-industry-move-strategy"},
+    {"guide_code":"how-to-choose-college-major","en_slug":"how-to-choose-college-major","zh_slug":"how-to-choose-college-major"},
+    {"guide_code":"how-to-find-right-career-direction","en_slug":"how-to-find-right-career-direction","zh_slug":"how-to-find-right-career-direction"},
+    {"guide_code":"improve-workplace-competitiveness","en_slug":"improve-workplace-competitiveness","zh_slug":"improve-workplace-competitiveness"},
+    {"guide_code":"interview-strategy-by-role","en_slug":"interview-strategy-by-role","zh_slug":"interview-strategy-by-role"},
+    {"guide_code":"leader-track-vs-expert-track","en_slug":"leader-track-vs-expert-track","zh_slug":"leader-track-vs-expert-track"},
+    {"guide_code":"prevent-burnout-while-growing","en_slug":"prevent-burnout-while-growing","zh_slug":"prevent-burnout-while-growing"},
+    {"guide_code":"salary-negotiation-framework","en_slug":"salary-negotiation-framework","zh_slug":"salary-negotiation-framework"}
+  ],
+  "assertions": {"each_target_exists_once_in_each_baseline": true, "slug_guessing_used": false, "content_body_reviewed_or_rewritten": false, "cms_import_or_publish_proven": false},
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}

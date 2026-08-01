@@ -1,0 +1,10 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_boundary.v1",
+  "artifact_kind": "source_policy",
+  "permitted_uses": [
+    {"source":"fap-api career-guide baselines","use":"identity and locale-pair reconciliation only","not_evidence_for":"runtime availability, CMS import, publication, indexability, or market claims"},
+    {"source":"fap-api EN-PARITY-05 import package","use":"proof of controlled-import boundaries and permissions","not_evidence_for":"an executed CMS mutation or a public release"}
+  ],
+  "future_content_source_requirements": ["attribute time-sensitive facts to an appropriate source", "do not invent market statistics, salary figures, admission rules, licensing rules, or legal requirements", "record unavailable or unverified evidence as Unknown", "do not use frontend fallback as an authority source"],
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}

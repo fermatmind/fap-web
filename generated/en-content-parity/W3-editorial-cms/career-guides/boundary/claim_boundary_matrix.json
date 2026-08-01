@@ -1,0 +1,13 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_boundary.v1",
+  "artifact_kind": "claim_boundary_matrix",
+  "rows": [
+    {"topic":"salary","guide_codes":["salary-negotiation-framework"],"required_boundary":"Use preparation and negotiation-process language only; compensation remains context-dependent.","forbidden":"salary, raise, offer, or income guarantee"},
+    {"topic":"education_admissions","guide_codes":["how-to-choose-college-major"],"required_boundary":"Treat a major as one input to exploration, not a determinative choice.","forbidden":"admission, graduation, licensing, or career-outcome prediction"},
+    {"topic":"employment_selection","guide_codes":["interview-strategy-by-role","improve-workplace-competitiveness"],"required_boundary":"Describe preparation options, not selection outcomes.","forbidden":"hiring, promotion, or employer-decision guarantee"},
+    {"topic":"wellbeing","guide_codes":["prevent-burnout-while-growing"],"required_boundary":"Use non-clinical self-reflection and qualified-support signposting.","forbidden":"medical diagnosis, treatment, or prevention claim"},
+    {"topic":"future_outcomes","guide_codes":["annual-career-review-system","build-five-year-career-roadmap","career-risk-management","career-transition-playbook","cross-industry-move-strategy","how-to-find-right-career-direction","leader-track-vs-expert-track"],"required_boundary":"Use scenarios, trade-offs, and revisable experiments.","forbidden":"fixed identity, destiny, guaranteed transition, or future success/income prediction"}
+  ],
+  "universal_disclaimer":"FermatMind career material is structured reference and exploration support, not employment, admissions, medical, legal, financial, or licensing advice.",
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}
