@@ -53592,6 +53592,47 @@
     ],
     "updated_at": "2026-08-01T15:01:00+08:00"
   },
+  "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01: freeze the complete Big Five English parity package",
+    "base": "main",
+    "branch": "codex/en-parity-w2-big5-package-frozen-01",
+    "depends_on": [
+      "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "af539d9eabdda0f08226bdb0dd3ff4067ef50937",
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "CONTROL B PR #1914 merged as 21fb65140482a73883e6b27c7d2a1b3a8c32cd88 and main reports W2 package_in_progress with 52/50/16, null package/QA fields, empty lineage, and all permissions false."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Backend child validator passed twice with stable child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; exact eight-file SHA recomputation passed twice with final SHA a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b; candidate validator and focused 63/63 contract passed."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T15:10:00+08:00",
+        "status": "local_verified",
+        "summary": "Froze the exact 118-row W2 producer package at a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b; producer review is PASS but is not W9 or human editorial approval, and all write/release permissions remain false."
+      }
+    ],
+    "updated_at": "2026-08-01T15:15:00+08:00"
+  },
   "CAREER-SEARCH-ENTRY-PILOT-READINESS-01": {
     "id": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
     "repo": "fap-web",
@@ -53617,11 +53658,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-      "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: only 1/10 required candidates passed after binding crawler-visible metadata to current SEO authority, scanning public rendered copy independently for guarantees, limiting canonical and robots evidence to the explicit Googlebot response head, and rejecting every non-indexable X-Robots directive."
+        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: only 1/10 required candidates passed after binding crawler-visible metadata to current SEO authority, scanning public rendered copy independently for guarantees, limiting canonical and robots evidence to the explicit Googlebot response head, and rejecting every non-indexable X-Robots directive."
       },
       "focused_contract": {
         "status": "pass",
-      "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 43 tests. Coverage includes exact live metadata extraction/binding, independent public-body guarantee scanning, exact head-only canonical parsing, Googlebot collection identity, X-Robots noindex/none rejection, detail identity, rendered authority, exact URLs, structured FAQ, deterministic selection, and committed GO-or-HOLD fail-closed shape."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 43 tests. Coverage includes exact live metadata extraction/binding, independent public-body guarantee scanning, exact head-only canonical parsing, Googlebot collection identity, X-Robots noindex/none rejection, detail identity, rendered authority, exact URLs, structured FAQ, deterministic selection, and committed GO-or-HOLD fail-closed shape."
       },
       "lint": {
         "status": "pass",
@@ -53641,7 +53682,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-      "evidence": "All newest exact-head findings are repaired fail-closed: crawler-visible title/description/OG/Twitter fields must match current backend SEO authority, rendered public body guarantees are scanned independently, X-Robots noindex/nofollow/none all reject, active guarantee verbs may contain intervening words, and canonical plus robots metadata must be valid elements inside the explicit crawler response head."
+        "evidence": "All newest exact-head findings are repaired fail-closed: crawler-visible title/description/OG/Twitter fields must match current backend SEO authority, rendered public body guarantees are scanned independently, X-Robots noindex/nofollow/none all reject, active guarantee verbs may contain intervening words, and canonical plus robots metadata must be valid elements inside the explicit crawler response head."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53655,13 +53696,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-    "observed_at": "2026-08-01T07:18:39.115Z",
+      "observed_at": "2026-08-01T07:18:39.115Z",
       "result": "HOLD",
-    "eligible_candidates": 1,
+      "eligible_candidates": 1,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-    "artifact_sha256": "6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438",
+      "artifact_sha256": "6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438",
       "rollback_batch_id": null
     },
     "production_write_execution": false,

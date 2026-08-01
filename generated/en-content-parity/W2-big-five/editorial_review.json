@@ -4,9 +4,9 @@
   "lane_id": "W2",
   "subscope_id": null,
   "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
-  "generated_at": "2026-08-01T04:55:38Z",
+  "generated_at": "2026-08-01T07:05:00Z",
   "verdict": "PASS",
-  "review_mode": "producer_inventory_freeze_readiness_only_not_w9_or_human_editorial_approval",
+  "review_mode": "producer_package_freeze_only_not_w9_or_human_editorial_approval",
   "public_control": {
     "verdict": "PASS",
     "rows_reviewed": 52,
@@ -21,7 +21,7 @@
     }
   },
   "result_content": {
-    "verdict": "PASS_FOR_INVENTORY_FREEZE_READINESS_ONLY",
+    "verdict": "PASS",
     "rows_reviewed": 16,
     "completed": 16,
     "remaining": 0,
@@ -31,7 +31,7 @@
     "ready_for_runtime": false,
     "ready_for_production": false,
     "producer_chinese_leakage_check": "PASS: 0 of 16 draft-review rows contain Chinese leakage in sanitized evidence; independent W9 remains required.",
-    "notes": "Producer inventory review only; this is not W9 and not human editorial approval."
+    "notes": "Producer package-freeze review only; this is not W9 and not human editorial approval."
   },
   "pr_execution_map": [
     {
