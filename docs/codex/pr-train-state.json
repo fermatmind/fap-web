@@ -52786,7 +52786,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "8cc49e48b4d060a482d757c0f4bde12713f29599",
+    "commit_sha": "8cc49e483fea0aa5fdb1daf90d80c2a3def05c59",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1897",
     "checks": {
       "dependency": {
@@ -52831,7 +52831,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1897 will receive the scoped W9 BLOCKED-evidence repair from implementation commit 8cc49e48b4d060a482d757c0f4bde12713f29599; fresh required CI, contract, freeze, and CodeQL checks must pass on the pushed exact head."
+        "evidence": "PR #1897 received the scoped W9 BLOCKED-evidence repair from implementation commit 8cc49e483fea0aa5fdb1daf90d80c2a3def05c59; fresh required CI, contract, freeze, and CodeQL checks must pass on the pushed exact head."
       },
       "review_and_merge_policy": {
         "status": "pending",
@@ -52951,7 +52951,7 @@
       {
         "at": "2026-08-01T05:47:30Z",
         "status": "blocked_pr_open",
-        "summary": "Committed the scoped exact-head review correction as 8cc49e48b4d060a482d757c0f4bde12713f29599. The W9 evidence is BLOCKED only for Article 59 language naturalness; producer payload and package SHA remain unchanged. The ledger update, push, review-thread resolution, and fresh required checks are pending."
+        "summary": "Committed the scoped exact-head review correction as 8cc49e483fea0aa5fdb1daf90d80c2a3def05c59. The W9 evidence is BLOCKED only for Article 59 language naturalness; producer payload and package SHA remain unchanged. The review correction and ledger were pushed; review-thread resolution and fresh required checks are pending."
       }
     ],
     "updated_at": "2026-08-01T05:47:30Z"
