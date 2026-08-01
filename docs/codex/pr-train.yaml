@@ -28119,6 +28119,7 @@ prs:
       - Preserve W3-CAREER-GUIDES, W3 aggregate counts, every other lane, and all W9/import/runtime/release gates.
     allowed_paths:
       - docs/seo/generated/en-content-parity-control-master.v1.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
       - tests/contracts/en-content-parity-control-master.contract.test.ts
       - tests/contracts/en-content-parity-w3-career-guide-package-freeze.contract.test.ts
       - docs/codex/pr-train.yaml
