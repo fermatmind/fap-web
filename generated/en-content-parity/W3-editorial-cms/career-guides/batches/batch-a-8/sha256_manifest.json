@@ -1,0 +1,68 @@
+{
+  "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-CAREER-GUIDES",
+  "package_id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-2026-08-02",
+  "files": [
+    {
+      "path": "scope_manifest.json",
+      "sha256": "581866a9532b565a3b5c981ca4439d508249434b8f275c8a1ba7d4ed0cf17f80"
+    },
+    {
+      "path": "assets.jsonl",
+      "sha256": "75c5445f49306ce596a725b048fefb3e3f9ea719d75d871ecd97f2dccbcd19c0"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "0418d18e3f60ae60ce455b4b20422febb291bb01488803f8ec51191b5e1e6a6a"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "190c76b4cba7e081804d97ec57cd74c3ff3fc075e4807d72c70b7e62c5b1f445"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "a0a21ccd345e114bb4dbcd3d244674c95fad1f36ddb31505e77414d095fab3af"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "77b6cea1df192878c4eb26023e9843f66b58b497ab3d2f17aeef8f5e3dbc0eb6"
+    },
+    {
+      "path": "dry_run_readiness.json",
+      "sha256": "4750a5a58e78ec5b68776642377d79702ca050e0947396a5a814d284194111fc"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "cc69c4eda917a1e775255c5fe171fb7330df8bef37c36f9908201bc516e33eb0"
+    }
+  ],
+  "package_sha256": "5b423b9eef7877d0ee6c5c5fb74a89d236958fd4a3d5ccc1ad5d90782f1a15cd",
+  "partial_batch": {
+    "batch_id": "batch-a-8",
+    "guide_codes": [
+      "big5-for-career-decisions",
+      "build-portfolio-for-career-switch",
+      "career-growth-with-manager",
+      "first-90-days-in-new-role",
+      "from-mbti-to-job-fit",
+      "iq-eq-balance-at-work",
+      "networking-that-actually-works",
+      "personal-brand-for-professionals"
+    ],
+    "registered_row_count": 20,
+    "batch_row_count": 8,
+    "aggregate_ready": false,
+    "master_transition_allowed": false
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

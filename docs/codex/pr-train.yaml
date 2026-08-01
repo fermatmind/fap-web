@@ -29682,3 +29682,53 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs; CONTROL changes orchestration state only
     repository_rule_impact: CONTROL-only package-start transition; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01
+    repo: fap-web
+    branch: codex/en-parity-w3-career-guide-assets-batch-a-01
+    base: main
+    title: "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01: produce 8 Career Guide English parity assets"
+    depends_on: [EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01, EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01]
+    mode: execute
+    train_scope: w3_career_guides_batch_a_partial_producer_package
+    status: in_progress
+    scope:
+      - Produce only the exact eight registered English CareerGuide candidates in batches/batch-a-8 as a partial package_in_progress witness.
+      - Extend the CONTROL schema, validator, and focused contract only to audit this 8/20 partial candidate without accepting a master transition.
+      - Bind the package to fap-api origin/main f9b560e593a672e1e7c42aee810521593d88fdbf and the exact English/zh-CN baseline snapshots.
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/career-guides/batches/batch-a-8/**
+      - scripts/seo/build-w3-career-guides-batch-a.mjs
+      - scripts/seo/validate-w3-career-guides-batch-a.mjs
+      - scripts/seo/validate-en-content-parity-control.mjs
+      - docs/seo/generated/en-content-parity-control-master.v1.schema.json
+      - tests/contracts/en-content-parity-w3-career-guide-batch-a.contract.test.ts
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, W3 Articles package, Batch B, the complete 20-row root package, W9, CMS, database, runtime, SEO, sitemap, llms, import, publication, search, or deploy state.
+      - Treat the Batch A package SHA as a master package SHA, QA evidence, gate lineage, import approval, or release approval.
+      - Grant any write, import, runtime, release, SEO, search, deployment, or master-authoring permission.
+    required_local_checks:
+      - node scripts/seo/build-w3-career-guides-batch-a.mjs
+      - node scripts/seo/validate-w3-career-guides-batch-a.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W3-editorial-cms/career-guides/batches/batch-a-8/master_manifest_patch.candidate.json
+      - focused partial-package and control-master contracts
+      - focused ESLint
+      - JSON, JSONL, and YAML parse
+      - exact 8/8 identity, source-structure/use, Markdown, link, Han-leakage, claim-boundary, and all-false permission audit
+      - exact immutable payload and package SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api CareerGuide baseline is source structure/use authority; backend CMS remains runtime authority
+    repository_rule_impact: partial producer witness only; no authority, runtime, import, publication, discoverability, or deployment change

@@ -137,6 +137,16 @@ const PERMISSION_KEYS = [
   "search_submission_authorized",
   "master_manifest_write_authorized",
 ];
+const W3_CAREER_GUIDE_BATCH_A_CODES = [
+  "big5-for-career-decisions",
+  "build-portfolio-for-career-switch",
+  "career-growth-with-manager",
+  "first-90-days-in-new-role",
+  "from-mbti-to-job-fit",
+  "iq-eq-balance-at-work",
+  "networking-that-actually-works",
+  "personal-brand-for-professionals",
+];
 
 function readJson(relativePath) {
   const resolvedPath = path.isAbsolute(relativePath) ? relativePath : path.join(ROOT, relativePath);
@@ -364,6 +374,53 @@ function validateArtifactAuthorityPath(
     errors.push(
       `${errorPrefix} authority path cannot be verified (${error instanceof Error ? error.message : String(error)})`
     );
+  }
+}
+
+function isPartialBatchWitness(artifact) {
+  return Boolean(artifact?.partial_batch);
+}
+
+function validatePartialBatchWitness(artifact, packageTarget, errors) {
+  if (!isPartialBatchWitness(artifact)) {
+    return false;
+  }
+  const batch = artifact.partial_batch;
+  assert(
+    artifact.lane_id === "W3" && artifact.subscope_id === "W3-CAREER-GUIDES",
+    "partial batch witnesses are limited to W3 Career Guides",
+    errors
+  );
+  assert(batch.batch_id === "batch-a-8", "partial batch witness must use batch-a-8", errors);
+  assert(
+    sameValue(batch.guide_codes, W3_CAREER_GUIDE_BATCH_A_CODES),
+    "partial batch witness guide codes must be the exact Batch A cohort in order",
+    errors
+  );
+  assert(batch.registered_row_count === 20, "partial batch witness must retain the 20-row registered cohort", errors);
+  assert(batch.batch_row_count === W3_CAREER_GUIDE_BATCH_A_CODES.length, "partial batch witness row count must be 8", errors);
+  assert(batch.aggregate_ready === false, "partial batch witness cannot be aggregate-ready", errors);
+  assert(batch.master_transition_allowed === false, "partial batch witness cannot authorize a master transition", errors);
+  assert(packageTarget?.status === "package_in_progress", "partial batch witness requires Career Guides package_in_progress", errors);
+  const witnessStatus = artifact.artifact_kind === "master_manifest_patch_candidate" ? artifact.proposed_status : artifact.status;
+  assert(witnessStatus === "package_in_progress", "partial batch candidate must preserve package_in_progress", errors);
+  return true;
+}
+
+function validatePartialBatchAuthorityPath(artifactPath, authorityDirectory, expectedFileName, batchId, errorPrefix, errors) {
+  const resolvedArtifactPath = path.resolve(ROOT, artifactPath);
+  const registeredDirectory = path.resolve(ROOT, authorityDirectory);
+  const expectedDirectory = path.join(registeredDirectory, "batches", batchId);
+  assert(path.basename(resolvedArtifactPath) === expectedFileName, `${errorPrefix} must use ${expectedFileName}`, errors);
+  assert(path.dirname(resolvedArtifactPath) === expectedDirectory, `${errorPrefix} must reside in its registered batch directory`, errors);
+  try {
+    const realAuthorityDirectory = fs.realpathSync(registeredDirectory);
+    const realExpectedDirectory = fs.realpathSync(expectedDirectory);
+    const realArtifactPath = fs.realpathSync(resolvedArtifactPath);
+    assert(isPathInside(realExpectedDirectory, realAuthorityDirectory), `${errorPrefix} batch directory is outside the registered output directory`, errors);
+    assert(path.dirname(realArtifactPath) === realExpectedDirectory, `${errorPrefix} batch directory must not use a symlinked artifact path`, errors);
+  } catch (error) {
+    errors.push(`${errorPrefix} partial batch authority path cannot be verified (${error instanceof Error ? error.message : String(error)})`);
   }
 }
 
@@ -1287,6 +1344,10 @@ function validatePackageShaManifest(
   const packageDirectory = path.dirname(shaManifestPath);
   const packageTarget = registeredPackageTarget(registeredLane, artifact.subscope_id);
   const registeredPackageDirectory = path.resolve(ROOT, packageTarget?.outputDirectory ?? "");
+  const partialBatch = isPartialBatchWitness(artifact);
+  const expectedPartialPackageDirectory = partialBatch
+    ? path.join(registeredPackageDirectory, "batches", artifact.partial_batch.batch_id)
+    : null;
   const isIndependentQaBlocker =
     artifact.proposed_status === "blocked" &&
     artifact.gate_evidence?.owner_lane_id === "W9" &&
@@ -1302,7 +1363,8 @@ function validatePackageShaManifest(
     path.basename(path.resolve(packageDirectory)) === "frozen_package" &&
     isPathInside(path.resolve(packageDirectory), qaAuthorityDirectory);
   assert(
-    usesIndependentQaFrozenSnapshot || path.resolve(packageDirectory) === registeredPackageDirectory,
+    usesIndependentQaFrozenSnapshot ||
+      path.resolve(packageDirectory) === (partialBatch ? expectedPartialPackageDirectory : registeredPackageDirectory),
     `${artifact.lane_id}: package files must reside directly inside the registered output directory or an independent W9 frozen_package directory`,
     errors
   );
@@ -1318,11 +1380,21 @@ function validatePackageShaManifest(
       );
     } else {
       const realRegisteredDirectory = fs.realpathSync(registeredPackageDirectory);
+      const realExpectedPackageDirectory = partialBatch
+        ? fs.realpathSync(expectedPartialPackageDirectory)
+        : realRegisteredDirectory;
       assert(
-        realPackageDirectory === realRegisteredDirectory,
+        realPackageDirectory === realExpectedPackageDirectory,
         `${artifact.lane_id}: package files must reside directly inside the registered output directory`,
         errors
       );
+      if (partialBatch) {
+        assert(
+          isPathInside(realPackageDirectory, realRegisteredDirectory),
+          `${artifact.lane_id}: partial batch package directory is outside the registered output directory`,
+          errors
+        );
+      }
     }
   } catch (error) {
     errors.push(
@@ -1440,6 +1512,13 @@ function validatePackageShaManifest(
       `${artifact.lane_id}: package scope assets must exactly match candidate asset_updates`,
       errors
     );
+    if (partialBatch) {
+      assert(
+        sameValue(scopeManifest.partial_batch, artifact.partial_batch),
+        `${artifact.lane_id}: package scope partial batch metadata must match candidate`,
+        errors
+      );
+    }
     const assetsContents = fs.readFileSync(path.join(packageDirectory, "assets.jsonl"), "utf8").trim();
     const payloadAssets = assetsContents
       ? assetsContents.split(/\r?\n/).map((line) => JSON.parse(line))
@@ -2256,10 +2335,19 @@ function validateInventoryPayload(artifact, packageContext, errors) {
     `${artifact.lane_id}: source ledger row count must match gate evidence`,
     errors
   );
+  const partialBatch = isPartialBatchWitness(artifact);
+  const expectedPartialCodes = partialBatch ? artifact.partial_batch.guide_codes : null;
+  if (partialBatch) {
+    assert(
+      sameValue(sourceLedger.rows.map((row) => row?.guide_code), expectedPartialCodes),
+      `${artifact.lane_id}: partial batch source ledger guide codes must match the declared batch in order`,
+      errors
+    );
+  }
   for (const asset of artifact.asset_updates) {
     const actualRows = sourceLedger.rows.filter((row) => row.asset_id === asset.asset_id).length;
     assert(
-      actualRows === asset.expected_en_count,
+      actualRows === (partialBatch ? artifact.partial_batch.batch_row_count : asset.expected_en_count),
       `${artifact.lane_id}: source ledger count for ${asset.asset_id} must match expected_en_count`,
       errors
     );
@@ -2702,6 +2790,7 @@ function validateLeafInvariants(
   if (artifact.artifact_kind === "lane_package") {
     assert(Boolean(packageTarget), `${artifact.lane_id}: subscope_id is not registered for this lane`, errors);
     validateSubscopeSequence(registeredLane, packageTarget, artifact.status, errors);
+    const partialBatch = validatePartialBatchWitness(artifact, packageTarget, errors);
     assert(
       sameValue(artifact.artifact_files, EXPECTED_HANDOFF_FILES),
       "lane package artifact_files must match the required handoff list",
@@ -2713,13 +2802,24 @@ function validateLeafInvariants(
       errors
     );
     if (packageTarget?.outputDirectory && !skipArtifactAuthorityPath) {
-      validateArtifactAuthorityPath(
-        artifactPath,
-        packageTarget.outputDirectory,
-        "scope_manifest.json",
-        `${artifact.lane_id}: lane package`,
-        errors
-      );
+      if (partialBatch) {
+        validatePartialBatchAuthorityPath(
+          artifactPath,
+          packageTarget.outputDirectory,
+          "scope_manifest.json",
+          artifact.partial_batch.batch_id,
+          `${artifact.lane_id}: lane package`,
+          errors
+        );
+      } else {
+        validateArtifactAuthorityPath(
+          artifactPath,
+          packageTarget.outputDirectory,
+          "scope_manifest.json",
+          `${artifact.lane_id}: lane package`,
+          errors
+        );
+      }
     }
     validateAssetCollection(artifact.assets, "$/assets", errors);
     const packageAssetIds = artifact.assets.map((asset) => asset.asset_id).sort();
@@ -2749,6 +2849,7 @@ function validateLeafInvariants(
     const assetUpdates = Array.isArray(artifact.asset_updates) ? artifact.asset_updates : [];
     assert(Boolean(packageTarget), `${artifact.lane_id}: subscope_id is not registered for this lane`, errors);
     validateSubscopeSequence(registeredLane, packageTarget, artifact.proposed_status, errors);
+    const partialBatch = validatePartialBatchWitness(artifact, packageTarget, errors);
     assert(
       artifact.base_manifest_sha256 === manifestSha256,
       `${artifact.lane_id}: base_manifest_sha256 must match the current master manifest`,
@@ -2762,10 +2863,15 @@ function validateLeafInvariants(
         ? EXPECTED_STATES[currentIndex + 1]
         : undefined;
     assert(
-      artifact.proposed_status === "blocked" || artifact.proposed_status === expectedNextStatus,
-      `${artifact.lane_id}: proposed_status must be blocked or ${
-        isBlockedRecovery ? "the retained recovery state" : "the immediate next state"
-      } ${expectedNextStatus ?? "none"}`,
+      (partialBatch && artifact.proposed_status === packageTarget?.status) ||
+        artifact.proposed_status === "blocked" || artifact.proposed_status === expectedNextStatus,
+      partialBatch
+        ? `${artifact.lane_id}: partial witness proposed_status must remain package_in_progress, blocked, or ${
+            isBlockedRecovery ? "the retained recovery state" : "the immediate next state"
+          } ${expectedNextStatus ?? "none"}`
+        : `${artifact.lane_id}: proposed_status must be blocked or ${
+            isBlockedRecovery ? "the retained recovery state" : "the immediate next state"
+          } ${expectedNextStatus ?? "none"}`,
       errors
     );
     assert(

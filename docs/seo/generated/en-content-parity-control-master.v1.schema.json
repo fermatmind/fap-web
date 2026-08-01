@@ -1473,6 +1473,26 @@
         }
       }
     },
+    "partial_batch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "batch_id",
+        "guide_codes",
+        "registered_row_count",
+        "batch_row_count",
+        "aggregate_ready",
+        "master_transition_allowed"
+      ],
+      "properties": {
+        "batch_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "guide_codes": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"}},
+        "registered_row_count": {"type": "integer", "minimum": 1},
+        "batch_row_count": {"type": "integer", "minimum": 1},
+        "aggregate_ready": {"const": false},
+        "master_transition_allowed": {"const": false}
+      }
+    },
     "lane_package": {
       "type": "object",
       "additionalProperties": false,
@@ -1539,6 +1559,9 @@
           "items": {
             "$ref": "#/$defs/asset_cohort"
           }
+        },
+        "partial_batch": {
+          "$ref": "#/$defs/partial_batch"
         },
         "permissions": {
           "$ref": "#/$defs/permissions"
@@ -1618,6 +1641,9 @@
           "items": {
             "$ref": "#/$defs/asset_cohort"
           }
+        },
+        "partial_batch": {
+          "$ref": "#/$defs/partial_batch"
         },
         "permissions": {
           "$ref": "#/$defs/permissions"

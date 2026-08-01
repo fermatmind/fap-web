@@ -55354,7 +55354,7 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-package-freeze-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01", "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01", "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01", "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01", "EN-PARITY-W4-RIASEC-140Q-ASSETS-01", "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01", "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01", "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01", "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "514798213813c9108c35f054f3c3b630931e34a0",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1963",
     "checks": {"dependencies": {"status": "pass", "evidence": "All nine W4 producer segment PRs and the separate Runtime Locale backend PR are merged; CONTROL has moved W4 to package_in_progress."}, "package_integrity": {"status": "pass", "evidence": "The candidate aggregates 14 logical groups and 1550 unique unpublished English rows with 15 normalized pairs and 3/2/2 safe surfaces."}},
@@ -55616,5 +55616,87 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-02T04:06:52+08:00", "status": "in_progress", "summary": "Started independent W9 review from origin/main f5cbf2361c6729b6311c80282d6c9bd004d3f422 after verifying #1976 accepted the exact repaired W4 SHA. Scope is limited to the new W9 evidence directory, W9 build/validation contract, and necessary train ledger reconciliation; master, producer package, historical W9 evidence, CMS, runtime, import, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T04:08:25+08:00", "status": "local_verified", "summary": "Generated a new seven-file W9 evidence package under w4-riasec-f3f2463f. The exact 1550-row review returns PASS across language naturalness, Chinese leakage, source identity, claim boundary, internal-link, field-leakage, and duplicate/omission checks; page/API is candidate-only NOT_APPLICABLE and qa_pass_authorized remains false. The new and historical evidence validators pass; focused Vitest passes 3/3; direct focused ESLint and JSON parsing pass. pnpm itself remains blocked before command execution by the repository's ignored-build approval policy, with no dependency or approval change made."},{"at": "2026-08-02T04:09:48+08:00", "status": "github_checks_pending", "summary": "Opened PR #1979 at exact implementation head 04a2b0382bd38b6144450e7663cb5ca18e755d38. Required build, contract shards, freeze checks, and CodeQL are queued; CONTROL acceptance, CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."},{"at": "2026-08-02T04:14:05+08:00", "status": "ready_to_merge", "summary": "PR #1979 head 89d31e555ea472d7c1902f0caf9c92dae5e63f26 passed all required GitHub checks and is CLEAN with no review requirement. Final base comparison, exact allowed-path scope, old-evidence immutability, and all-false permissions reconcile; this readiness ledger head requires its own fresh complete check cycle before squash merge."}],
     "updated_at": "2026-08-02T04:14:05+08:00"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01": {
+    "id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01: produce 8 Career Guide English parity assets",
+    "base": "main",
+    "branch": "codex/en-parity-w3-career-guide-assets-batch-a-01",
+    "depends_on": [
+      "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01",
+      "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01"
+    ],
+    "status": "github_checks_pending",
+    "commit_sha": "4fe29401f530478b2cc75f8b7b04844095465ab4",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1980",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "GitHub confirms PR #1977 and PR #1978 are merged; origin/main 89fc715fea7836e2c02ef7a486a889473f7bee88 records W3-CAREER-GUIDES=package_in_progress with null package/QA fields, empty lineage, and all-false permissions. W3-ARTICLES remains package_frozen at exact SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a with its existing lineage."
+      },
+      "source_authority": {
+        "status": "pass",
+        "evidence": "Read-only fap-api origin/main f9b560e593a672e1e7c42aee810521593d88fdbf career_guides.en.json SHA 474b3ca869e3f32033089f48967458f977f7bf3cffd4d42c29eae689362bb416 and career_guides.zh-CN.json SHA 3664183d9685dc67fd2b44d231837e5638ad64410f9e7b6b70110d9fd93d5b31 match the frozen boundary snapshot."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "2026-08-02: builder and Batch A validator pass for the exact eight rows and package SHA 5b423b9eef7877d0ee6c5c5fb74a89d236958fd4a3d5ccc1ad5d90782f1a15cd; partial-candidate control validation passes; focused contracts pass 68/68; focused ESLint, JSON/JSONL/YAML parse, immutable SHA recomputation, 8/8 source identity/structure/use, Markdown/link, Han-leakage, claim-boundary, all-false-permission, and diff checks pass."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1980 head 3231ef8fe9a11292b9f4dd04122829220d237137 passed build, all four contract shards and contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN; the automated review has no actionable finding."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-02T04:20:00Z",
+        "status": "in_progress",
+        "summary": "Started only the eight-row Batch A producer package after verifying merged dependencies and the exact fap-api source snapshot. The partial candidate is an auditable package_in_progress witness only: it cannot write the control master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, or deploy state."
+      },
+      {
+        "at": "2026-08-02T04:26:00Z",
+        "status": "local_verified",
+        "summary": "Produced exactly batch-a-8: big5-for-career-decisions, build-portfolio-for-career-switch, career-growth-with-manager, first-90-days-in-new-role, from-mbti-to-job-fit, iq-eq-balance-at-work, networking-that-actually-works, and personal-brand-for-professionals. The 8/20 partial witness binds source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a. It preserves master Career Guides package_in_progress with null package/QA and empty lineage, preserves the frozen Articles SHA/lineage, and keeps every permission false."
+      },
+      {
+        "at": "2026-08-02T04:29:00Z",
+        "status": "local_verified",
+        "summary": "Rebased the scoped branch onto latest origin/main 89fc715fea7836e2c02ef7a486a889473f7bee88 after the unrelated W4 W9 merge. The Batch A builder, partial validator, and control candidate validator were rerun; the master compare-and-swap SHA and Batch A immutable package SHA remain valid."
+      },
+      {
+        "at": "2026-08-02T04:31:00Z",
+        "status": "committed",
+        "summary": "Committed the scoped Batch A producer package and partial CONTROL contract extension as 4fe29401f530478b2cc75f8b7b04844095465ab4. Pending push and creation of one ready PR; all CMS/import, release, runtime, discoverability, search, and deploy actions remain deferred."
+      },
+      {
+        "at": "2026-08-02T04:32:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1980. GitHub required checks, review, and final exact-head/base scope reconciliation are pending; this partial candidate remains non-transitioning and all permissions remain false."
+      },
+      {
+        "at": "2026-08-02T04:38:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1980 exact checked head 3231ef8fe9a11292b9f4dd04122829220d237137 passed every required GitHub check, is CLEAN against base 89fc715fea7836e2c02ef7a486a889473f7bee88, and has no review requirement or actionable comment. Final source/package SHA, W3 state, frozen Articles lineage, and all-false permission reconciliation pass. The ledger readiness head will complete its own fresh required-check cycle before squash merge."
+      }
+    ],
+    "updated_at": "2026-08-02T04:38:00Z"
   }
 }
