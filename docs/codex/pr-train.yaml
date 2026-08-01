@@ -29605,3 +29605,44 @@ prs:
     deploy_allowed: false
     content_authority: fap-api CareerGuide baseline is identity evidence only; backend CMS remains runtime authority
     repository_rule_impact: boundary-only producer package; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-career-guides-package-in-progress-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01: start W3 Career Guides package production"
+    depends_on: [EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01]
+    mode: execute
+    train_scope: w3_career_guides_package_in_progress_control
+    status: in_progress
+    scope:
+      - Transition only W3-CAREER-GUIDES once from inventory_frozen to package_in_progress.
+      - Preserve null package/QA fields and empty pre-package_frozen lineage under the control-master contract; record the inventory-to-start audit in the PR train ledger.
+      - Advance W3 aggregate state only as required by the least-progressed-subscope invariant; preserve frozen W3 Articles package/lineage, all other lanes, counts, and all-false permissions.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify Career Guide reader content, Article package, W9, CMS, database, runtime, SEO, sitemap, llms, import, publication, search, or deploy state.
+      - Set a package SHA, QA report, gate lineage, or any write/release permission.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - focused parity contract
+      - focused ESLint
+      - JSON and YAML parse
+      - exact W3 Article/Career Guide state, count, and permission reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs; CONTROL changes orchestration state only
+    repository_rule_impact: CONTROL-only package-start transition; no authority, runtime, import, publication, discoverability, or deployment change
