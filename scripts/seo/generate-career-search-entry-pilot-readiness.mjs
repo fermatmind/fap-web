@@ -14,10 +14,11 @@ const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_OUTPUT = "docs/seo/generated/career-search-entry-pilot-readiness-01.v1.json";
 const DEFAULT_TIMEOUT_MS = 60_000;
 const DEFAULT_CONCURRENCY = 6;
+const SEARCH_CRAWLER_USER_AGENT = "Googlebot";
 const REVIEW_MAX_AGE_DAYS = 366;
 const TIER_RANK = { stable: 0, approved_candidate: 1 };
 const GUARANTEE_PATTERNS = [
-  /\bguarante(?:e|ed|es)\s+(?:a\s+)?(?:salary|income|job|hiring|employment|career success|success)\b/i,
+  /\bguarante(?:e|ed|es)\b[^.!?;:\n]{0,80}\b(?:salary|income|job|hiring|employment|career success|success)\b/i,
   /\b(?:salary|income|job|hiring|employment|career success|success)\s+(?:is\s+)?guaranteed\b/i,
   /(?:保证|保障|承诺)[^。！？\n]{0,12}(?:薪资|收入|录用|就业|职业成功)/,
   /(?:薪资|收入|录用|就业|职业成功)[^。！？\n]{0,12}(?:有保证|获保证|被保证|保障|承诺)/,
@@ -80,6 +81,10 @@ function normalizeRobots(value) {
   return string(value).toLowerCase().replace(/\s+/g, "");
 }
 
+function xRobotsDisallowsIndex(value) {
+  return /(?:^|[\s,;:])(?:noindex|nofollow|none)(?=$|[\s,;:])/i.test(string(value));
+}
+
 function resolveAbsoluteUrl(value, baseUrl) {
   try {
     return new URL(value, baseUrl).href;
@@ -103,9 +108,11 @@ function flattenJsonLd(value, output = []) {
 }
 
 export function inspectHtml(html, expectedUrl) {
-  const tags = String(html).match(/<(?:link|meta)\b[^>]*>/gi) || [];
-  const canonicalTag = tags.find((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
-  const robotsTags = tags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
+  const head = String(html).match(/<head\b[^>]*>([\s\S]*?)<\/head\s*>/i)?.[1] || "";
+  const linkTags = head.match(/<link\b[^>]*>/gi) || [];
+  const metaTags = head.match(/<meta\b[^>]*>/gi) || [];
+  const canonicalTag = linkTags.find((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
+  const robotsTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
   const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
   const jsonLdObjects = [];
   for (const match of String(html).matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
@@ -124,7 +131,7 @@ export function inspectHtml(html, expectedUrl) {
   });
   const faqQuestionCount = validFaqEntities.length;
   const types = [...new Set(jsonLdObjects.flatMap((item) => array(item["@type"]).length ? item["@type"] : [item["@type"]]).filter(Boolean))].sort();
-  const canonical = resolveAbsoluteUrl(attribute(canonicalTag || "", "href"), expectedUrl);
+  const canonical = canonicalTag ? resolveAbsoluteUrl(attribute(canonicalTag, "href"), expectedUrl) : "";
   return {
     canonical,
     self_canonical: canonical === expectedUrl,
@@ -259,7 +266,7 @@ export function evaluateCandidateEvidence(candidate) {
     if (evidence.seo_authority_status !== 200) reasons.push(`${prefix}seo_authority_not_200`);
     if (evidence.page_status !== 200) reasons.push(`${prefix}page_not_200`);
     if (evidence.page_final_url !== evidence.url) reasons.push(`${prefix}page_final_url_mismatch`);
-    if (/\bnoindex\b/i.test(evidence.x_robots_tag)) reasons.push(`${prefix}x_robots_noindex`);
+    if (xRobotsDisallowsIndex(evidence.x_robots_tag)) reasons.push(`${prefix}x_robots_not_indexable`);
     if (!evidence.html.self_canonical) reasons.push(`${prefix}canonical_mismatch`);
     if (!evidence.html.index_follow) reasons.push(`${prefix}not_index_follow`);
     if (normalizeRobots(evidence.seo.robots_policy) !== "index,follow" || evidence.seo.index_eligible !== true) {
@@ -444,7 +451,14 @@ export async function fetchStatus(url, timeoutMs, json = true) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(url, { signal: controller.signal, redirect: "manual", headers: { Accept: json ? "application/json" : "text/html" } });
+    const response = await fetch(url, {
+      signal: controller.signal,
+      redirect: "manual",
+      headers: {
+        Accept: json ? "application/json" : "text/html",
+        "User-Agent": json ? "FermatMind career pilot readiness/1.0" : SEARCH_CRAWLER_USER_AGENT,
+      },
+    });
     const payload = json ? await response.json().catch(() => null) : await response.text().catch(() => "");
     return { status: response.status, payload, final_url: response.url, x_robots_tag: string(response.headers?.get?.("x-robots-tag")) };
   } catch (error) {

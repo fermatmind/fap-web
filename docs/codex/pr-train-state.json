@@ -53445,13 +53445,13 @@
         "status": "pass",
         "evidence": "User-attested Batch Review run 30678387519 passed and Task 12 completed with PASS_APPLY_READBACK evidence 2546dbd6."
       },
-      "read_only_generator": {
-        "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 20 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing exact detail identity, approved rendered-body markers, exact SEO/page/sitemap URLs, valid FAQ entities, bilingual tier equality, public-body thickness, and the backend's current private-package-match projection."
-      },
-      "focused_contract": {
-        "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 35 tests. Coverage adds exact detail canonical-slug identity to X-Robots-Tag, conflicting robots meta, clause-scoped guarantee negation, rendered-authority markers, exact URLs, structured FAQ, shell, authority, review, schema, deterministic selection, and fail-closed HOLD cases."
+    "read_only_generator": {
+      "status": "pass",
+      "evidence": "The strict read-only live observation correctly failed closed with HOLD and zero targets: only 4/10 required candidates passed after limiting canonical and robots evidence to the explicit Googlebot response head and rejecting every non-indexable X-Robots directive. An independent single-concurrency diagnostic also held at 9/10, confirming the observed metadata-topology inconsistency was not removed by lowering collector concurrency."
+    },
+    "focused_contract": {
+      "status": "pass",
+      "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 39 tests. Coverage includes exact head-only canonical parsing, Googlebot collection identity, X-Robots noindex/none rejection, intervening-word guarantee claims, detail identity, rendered authority, exact URLs, structured FAQ, deterministic selection, and committed GO-or-HOLD fail-closed shape."
       },
       "lint": {
         "status": "pass",
@@ -53465,13 +53465,13 @@
         "status": "pass",
         "evidence": "Generator syntax, artifact/state JSON, manifest YAML, git diff --check, artifact self-hash, and the exact six-path allowlist all passed."
       },
-      "github_required_checks": {
-        "status": "pending_recheck",
-        "evidence": "Prior heads passed build, contracts, both freeze checks, and CodeQL. After all review repairs and merging current origin/main 304fd146, canonical Node 24 focused contract 25/25, lint, typecheck, YAML/JSON, diff, and exact six-path scope pass; fresh exact-head GitHub checks are required."
-      },
-      "codex_review": {
-        "status": "repaired_pending_recheck",
-        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; detail canonical slug is exact; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; page, SEO, and sitemap URLs are exact; redirects are manual; X-Robots-Tag and every robots meta are checked; public thickness and approved markers bind rendered authority; bilingual tiers match; FAQ entities are structured; guarantee negation is clause-scoped."
+    "github_required_checks": {
+      "status": "pending_recheck",
+      "evidence": "All 11 required checks passed on d54e863f. The three newest exact-head review repairs and truthful HOLD artifact now require fresh exact-head GitHub checks."
+    },
+    "codex_review": {
+      "status": "repaired_pending_recheck",
+      "evidence": "The newest exact-head findings are repaired fail-closed: X-Robots noindex/nofollow/none all reject, active guarantee verbs may contain intervening words, and canonical plus robots metadata must be valid elements inside the explicit crawler response head. A missing canonical link no longer resolves accidentally to the expected base URL."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53484,15 +53484,15 @@
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "evidence": {
-      "observed_at": "2026-08-01T06:34:34.265Z",
-      "result": "GO",
-      "eligible_candidates": 20,
-      "target_slugs": 10,
-      "target_urls": 20,
-      "target_set_sha256": "452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c",
-      "artifact_sha256": "ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1",
-      "rollback_batch_id": "career-search-entry-pilot-452c677f70249438"
+  "evidence": {
+    "observed_at": "2026-08-01T06:53:17.481Z",
+    "result": "HOLD",
+    "eligible_candidates": 4,
+    "target_slugs": 0,
+    "target_urls": 0,
+    "target_set_sha256": null,
+    "artifact_sha256": "1dc296998b78981791744ffccb6a83b11658e1af0e017562c96ba6a235907efc",
+    "rollback_batch_id": null
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -53645,8 +53645,13 @@
         "at": "2026-08-01T06:39:10Z",
         "status": "github_checks_pending",
         "summary": "Committed exact detail identity binding as 2938fa08cb4bb0667411e5fdc9289d90c8fa52ea after focused 35/35, lint, typecheck, syntax, self-hash, ledger, detail-identity, and diff checks passed. This metadata tail binds the reachable implementation commit."
+      },
+      {
+        "at": "2026-08-01T07:05:47Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on d54e863f, exact-head review found X-Robots none/nofollow, intervening-word guarantee, and whole-document canonical gaps. Repaired all three plus the missing-link base-URL edge. Fresh strict crawler-head observation truthfully emits HOLD with 4/10 complete rows and zero targets (artifact 1dc296998b78981791744ffccb6a83b11658e1af0e017562c96ba6a235907efc); independent single-concurrency diagnosis also held at 9/10. Focused 39/39, lint, and typecheck pass."
       }
     ],
-    "updated_at": "2026-08-01T06:39:10Z"
+    "updated_at": "2026-08-01T07:05:47Z"
   }
 }

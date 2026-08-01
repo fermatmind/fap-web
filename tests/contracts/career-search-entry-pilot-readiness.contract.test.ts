@@ -153,6 +153,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(html(canonical), expected)).toMatchObject({ canonical, self_canonical: false });
   });
 
+  it("accepts only a canonical link inside the document head", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const invalid = `<html><head><meta rel="canonical" href="${expected}"/><meta name="robots" content="index, follow"/></head><body><link rel="canonical" href="${expected}"/></body></html>`;
+    expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
+  });
+
   it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue({
       status: 302,
@@ -161,7 +167,10 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       headers: new Headers({ "x-robots-tag": "noindex" }),
     } as Response);
     const result = await fetchStatus("https://fermatmind.com/en/career/jobs/career-01", 1000, false);
-    expect(fetchMock).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({ redirect: "manual" }));
+    expect(fetchMock).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({
+      redirect: "manual",
+      headers: expect.objectContaining({ "User-Agent": expect.stringContaining("Googlebot") }),
+    }));
     expect(result.status).toBe(302);
     expect(result.x_robots_tag).toBe("noindex");
     fetchMock.mockRestore();
@@ -170,6 +179,13 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
   it("does not let an unrelated negated clause hide a positive guarantee", () => {
     expect(unsupportedGuaranteeMatches("You do not need prior experience; employment is guaranteed.")).toEqual(["employment is guaranteed"]);
     expect(unsupportedGuaranteeMatches("Employment is not guaranteed.")).toEqual([]);
+  });
+
+  it.each([
+    "We guarantee that you will get a job.",
+    "We guarantee you a job.",
+  ])("detects a guarantee with intervening words: %s", (claim) => {
+    expect(unsupportedGuaranteeMatches(claim)).toHaveLength(1);
   });
 
   it("is deterministic and orders stable, then quality descending, then slug", () => {
@@ -219,7 +235,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
-    ["X-Robots-Tag noindex", (value: Candidate) => { value.locales.en.x_robots_tag = "noindex, nofollow"; }, "en_x_robots_noindex"],
+    ["X-Robots-Tag noindex", (value: Candidate) => { value.locales.en.x_robots_tag = "noindex, nofollow"; }, "en_x_robots_not_indexable"],
+    ["X-Robots-Tag none", (value: Candidate) => { value.locales.en.x_robots_tag = "none"; }, "en_x_robots_not_indexable"],
     ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
     ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
     ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],
@@ -276,33 +293,41 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
 });
 
 describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
-  it("is self-hashed, exact-sized, GO, and carries only read-only authority", () => {
+  it("is self-hashed, fail-closed, and carries only read-only authority", () => {
     const artifact = JSON.parse(fs.readFileSync(ARTIFACT_PATH, "utf8"));
     const { artifact_sha256: digest, ...body } = artifact;
     expect(digest).toBe(sha256(body));
-    expect(artifact.result).toBe("GO");
-    expect(validateExactTargetShape(artifact.targets)).toMatchObject({ valid: true, slug_count: 10, url_count: 20 });
-    expect(artifact.evidence_summary).toMatchObject({
-      exact_target_shape: true,
-      bilingual_pairs_complete: true,
-      all_detail_api_and_pages_200: true,
-      all_seo_authority_resolved: true,
-      all_seo_canonical_exact: true,
-      all_self_canonical_index_follow: true,
-      all_sitemap_bilingual: true,
-      all_reviewer_content_seo_evidence_current: true,
-      all_faq_schema_aligned: true,
-    });
-    expect(
-      artifact.targets.every((target: { locale_evidence: Record<string, { backend_private_package_match_projected: boolean; review_public_projection_sha256: string }> }) =>
-        Object.values(target.locale_evidence).every((evidence) => evidence.backend_private_package_match_projected && /^[0-9a-f]{64}$/.test(evidence.review_public_projection_sha256))
-      )
-    ).toBe(true);
-    const localeEvidence = artifact.targets.flatMap((target: { locale_evidence: Record<string, { seo_authority_status: number; seo_endpoint_status: number; seo_source: string }> }) => Object.values(target.locale_evidence));
-    expect(localeEvidence).toHaveLength(20);
-    expect(localeEvidence.every((evidence: { seo_authority_status: number }) => evidence.seo_authority_status === 200)).toBe(true);
-    expect(localeEvidence.filter((evidence: { seo_endpoint_status: number }) => evidence.seo_endpoint_status === 200)).toHaveLength(artifact.evidence_summary.dedicated_seo_endpoint_200_count);
-    expect(localeEvidence.filter((evidence: { seo_source: string }) => evidence.seo_source === "career_detail_seo_contract")).toHaveLength(artifact.evidence_summary.detail_seo_contract_fallback_count);
+    expect(["GO", "HOLD"]).toContain(artifact.result);
+    if (artifact.result === "GO") {
+      expect(validateExactTargetShape(artifact.targets)).toMatchObject({ valid: true, slug_count: 10, url_count: 20 });
+      expect(artifact.evidence_summary).toMatchObject({
+        exact_target_shape: true,
+        bilingual_pairs_complete: true,
+        all_detail_api_and_pages_200: true,
+        all_seo_authority_resolved: true,
+        all_seo_canonical_exact: true,
+        all_self_canonical_index_follow: true,
+        all_sitemap_bilingual: true,
+        all_reviewer_content_seo_evidence_current: true,
+        all_faq_schema_aligned: true,
+      });
+      expect(
+        artifact.targets.every((target: { locale_evidence: Record<string, { backend_private_package_match_projected: boolean; review_public_projection_sha256: string }> }) =>
+          Object.values(target.locale_evidence).every((evidence) => evidence.backend_private_package_match_projected && /^[0-9a-f]{64}$/.test(evidence.review_public_projection_sha256))
+        )
+      ).toBe(true);
+      const localeEvidence = artifact.targets.flatMap((target: { locale_evidence: Record<string, { seo_authority_status: number; seo_endpoint_status: number; seo_source: string }> }) => Object.values(target.locale_evidence));
+      expect(localeEvidence).toHaveLength(20);
+      expect(localeEvidence.every((evidence: { seo_authority_status: number }) => evidence.seo_authority_status === 200)).toBe(true);
+      expect(localeEvidence.filter((evidence: { seo_endpoint_status: number }) => evidence.seo_endpoint_status === 200)).toHaveLength(artifact.evidence_summary.dedicated_seo_endpoint_200_count);
+      expect(localeEvidence.filter((evidence: { seo_source: string }) => evidence.seo_source === "career_detail_seo_contract")).toHaveLength(artifact.evidence_summary.detail_seo_contract_fallback_count);
+    } else {
+      expect(artifact.targets).toEqual([]);
+      expect(artifact.target_set_sha256).toBeNull();
+      expect(artifact.rollback_batch_id).toBeNull();
+      expect(artifact.hold_reason).toMatch(/^insufficient_eligible_candidates:\d+\/10$/);
+      expect(artifact.evidence_summary.exact_target_shape).toBe(false);
+    }
     expect(artifact.negative_guarantees).toMatchObject({
       unsupported_strong_claim_added: false,
       generated_or_modified_public_content: false,
