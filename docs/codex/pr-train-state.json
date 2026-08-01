@@ -55711,8 +55711,8 @@
     "base": "main",
     "branch": "codex/en-parity-w3-career-guide-assets-batch-b-01",
     "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "1d816504b66025ee5c0d6ef3d80b67a5fd58116f",
     "pr_url": null,
     "checks": {
       "dependency": {"status": "pass", "evidence": "GitHub confirms Batch A PR #1980 is merged as 62fc12db10f53c84a955a507e994863b4248adbc and origin/main retains W3-CAREER-GUIDES=package_in_progress with null package/QA fields, empty lineage, and all-false permissions."},
@@ -55732,7 +55732,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T05:00:00Z", "status": "in_progress", "summary": "Started only the fixed twelve-row Batch B producer package from latest origin/main after reconciling merged Batch A. The partial candidate is an auditable package_in_progress witness only; master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, and deploy state remain outside scope."},{"at": "2026-08-02T05:04:00Z", "status": "local_verified", "summary": "Produced exactly batch-b-12: annual-career-review-system, build-five-year-career-roadmap, career-risk-management, career-transition-playbook, cross-industry-move-strategy, how-to-choose-college-major, how-to-find-right-career-direction, improve-workplace-competitiveness, interview-strategy-by-role, leader-track-vs-expert-track, prevent-burnout-while-growing, and salary-negotiation-framework. The 12/20 witness binds fap-api source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a; master state and every permission remain unchanged."}],
-    "updated_at": "2026-08-02T05:04:00Z"
+    "history": [{"at": "2026-08-02T05:00:00Z", "status": "in_progress", "summary": "Started only the fixed twelve-row Batch B producer package from latest origin/main after reconciling merged Batch A. The partial candidate is an auditable package_in_progress witness only; master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, and deploy state remain outside scope."},{"at": "2026-08-02T05:04:00Z", "status": "local_verified", "summary": "Produced exactly batch-b-12: annual-career-review-system, build-five-year-career-roadmap, career-risk-management, career-transition-playbook, cross-industry-move-strategy, how-to-choose-college-major, how-to-find-right-career-direction, improve-workplace-competitiveness, interview-strategy-by-role, leader-track-vs-expert-track, prevent-burnout-while-growing, and salary-negotiation-framework. The 12/20 witness binds fap-api source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a; master state and every permission remain unchanged."},{"at": "2026-08-02T05:06:00Z", "status": "committed", "summary": "Rebased onto origin/main 588a32dc and committed the scoped Batch B producer package as 1d816504b66025ee5c0d6ef3d80b67a5fd58116f. The builder and focused validators were rerun after the rebase; pending push and one ready PR."}],
+    "updated_at": "2026-08-02T05:06:00Z"
   }
 }
