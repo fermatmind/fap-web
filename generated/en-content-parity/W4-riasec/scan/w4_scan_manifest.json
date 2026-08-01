@@ -10,20 +10,20 @@
   "output_directory": "generated/en-content-parity/W4-riasec/scan/",
   "repository_preflight": {
     "fap_web": {
-      "head": "8d94a84da9564a0a3a6cef25bffaefa0f5984b17",
-      "origin_main": "8d94a84da9564a0a3a6cef25bffaefa0f5984b17",
+      "head": "b65e0c78f1b665ae50cfaa5b62bf385ce05fdbbe",
+      "origin_main": "b65e0c78f1b665ae50cfaa5b62bf385ce05fdbbe",
       "branch": "main",
       "clean": true
     },
     "fap_api": {
-      "source_snapshot_commit": "e5997548beb7da3f9850b7d382a015e175b0397d",
+      "source_snapshot_commit": "a202c8175ad0cfda59585d9adb20e1b2d8b929a2",
       "local_checkout_unchanged": "980a38b524c182107b1ee831e3cd5bd5265c0931",
       "clean": true
     }
   },
   "bootstrap_merge_sha": "8078c9bf587560727969883dc13c81eb5e5a7365",
   "master_manifest_path": "docs/seo/generated/en-content-parity-control-master.v1.json",
-  "master_manifest_sha256": "0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b",
+  "master_manifest_sha256": "585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1",
   "current_control_state": {
     "launch_state": "launch_ready",
     "status": "not_started",
