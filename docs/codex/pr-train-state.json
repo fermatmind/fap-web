@@ -55742,19 +55742,19 @@
     "base": "main",
     "branch": "codex/en-parity-w3-career-guide-package-freeze-01",
     "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01"],
-    "status": "github_checks_pending",
-    "commit_sha": null,
+    "status": "ready_to_merge",
+    "commit_sha": "3e55dfe02f7e42e3d5e873c39706a15a65e9ab06",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1983",
     "checks": {
       "dependency": {"status": "pass", "evidence": "GitHub confirms Batch B PR #1982 is merged as a84c71b0480b7c9c587f296fa5c7cd670001b229; both exact partial witnesses are present under origin/main."},
       "local_validation": {"status": "pass", "evidence": "2026-08-02: complete package builder and validator pass for exact 20 rows and SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c; control candidate validation, focused contracts 66/66, focused ESLint, JSON/JSONL/YAML parse, Batch A/B SHA reconciliation, and all-false permission checks pass."},
-      "github_required_checks": {"status": "pending", "evidence": "PR #1983 is open from the scoped branch; required GitHub checks, review, and exact-head/base reconciliation are pending."}
+      "github_required_checks": {"status": "pass", "evidence": "PR #1983 exact checked head 3e55dfe02f7e42e3d5e873c39706a15a65e9ab06 passed build, CodeQL, no-new-code-scanning-alerts, four contract shards, contracts aggregate, and both frozen-package verify checks. GitHub reports CLEAN against base a84c71b0480b7c9c587f296fa5c7cd670001b229; no review decision or actionable comment is present. This ready-to-merge ledger commit must complete its own required-check cycle before squash merge."}
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55762,7 +55762,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T05:20:00Z", "status": "in_progress", "summary": "Started only the complete 20-row producer package freeze after merged Batch B. The root candidate may propose package_frozen but cannot accept the transition into the control master or authorize W9, CMS/import, release, runtime, discoverability, search, or deploy actions."}],
-    "updated_at": "2026-08-02T05:23:00Z"
+    "history": [{"at": "2026-08-02T05:20:00Z", "status": "in_progress", "summary": "Started only the complete 20-row producer package freeze after merged Batch B. The root candidate may propose package_frozen but cannot accept the transition into the control master or authorize W9, CMS/import, release, runtime, discoverability, search, or deploy actions."},{"at": "2026-08-02T05:36:00Z", "status": "ready_to_merge", "summary": "PR #1983 exact checked head 3e55dfe02f7e42e3d5e873c39706a15a65e9ab06 passed every required GitHub check, is CLEAN against base a84c71b0480b7c9c587f296fa5c7cd670001b229, and has no review decision or actionable comment. The ledger readiness commit will complete its own fresh required-check cycle before squash merge."}],
+    "updated_at": "2026-08-02T05:36:00Z"
   }
 }
