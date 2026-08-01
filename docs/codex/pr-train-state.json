@@ -52869,11 +52869,11 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b; 17-row evidence SHA256 is aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e; blocked candidate SHA256 is de62d00e99bf3d46157d0c069681a5ab138e8f96e468b26864be449c579a7adc; source identity projection SHA256 remains b397dd5cef4198e394723d9e6f692a7e7301da6168b9cedc2ba2aa389f19959f."
+        "evidence": "Independent BLOCKED report SHA256 is 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b; 17-row evidence SHA256 is aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e; blocked candidate SHA256 is 2b9be13d00155a722e6f794cc4bfff2daa32a3673efbeabeb3e8df796713a9a9 after rebinding only its non-immutable current-master field; source identity projection SHA256 remains b397dd5cef4198e394723d9e6f692a7e7301da6168b9cedc2ba2aa389f19959f."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Node 24 validate-en-content-parity-control accepts both the corrected independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA b8ab9189dcd9d794258ae8184886e8a3346d58385e05e9060590ee6512f3bee6 with zero errors."
+        "evidence": "After merging concurrent W1/W2 CONTROL work, Node 24 validate-en-content-parity-control accepts both the corrected independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA fdeb273ea365f99b4fb75c784970a4175d990e1f54f06462da64038922e8eb90 with zero errors."
       },
       "local_validation": {
         "status": "pass",
@@ -53027,9 +53027,14 @@
         "at": "2026-08-01T07:25:21Z",
         "status": "ready_to_merge",
         "summary": "PR #1918 exact head 9e9906a848d38b00a886078f4cf476045eafd72d passed all 11 required checks and is MERGEABLE/CLEAN. Corrected the manifest to restore the unrelated IQ item and keep this W9 item blocked in agreement with its evidence. Exact validators, 17-row aggregation, immutable snapshot, artifact SHAs, and scope revalidate; the final metadata commit receives one last required-check cycle."
+      },
+      {
+        "at": "2026-08-01T07:26:37Z",
+        "status": "ready_to_merge",
+        "summary": "Merged concurrent origin/main W1/W2 train commits to preserve their manifest, state, and CONTROL updates. Rebound only the non-immutable W9 blocked candidate base to current master SHA fdeb273ea365f99b4fb75c784970a4175d990e1f54f06462da64038922e8eb90; producer package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b, W9 verdict, frozen snapshot, and W3 scope remain unchanged. Fresh validation and required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T07:25:21Z"
+    "updated_at": "2026-08-01T07:26:37Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
