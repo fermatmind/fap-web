@@ -220,6 +220,48 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
   };
 }
 
+function makeCurrentW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
+  directory: string;
+  manifestPath: string;
+  manifestSha256: string;
+} {
+  const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-current-pre-block-"));
+  const manifestPath = path.join(directory, "master.json");
+  const preBlockManifest = structuredClone(sourceManifest);
+  const w3 = preBlockManifest.lanes.find((lane) => lane.lane_id === "W3");
+  const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+  if (!w3 || !articles) {
+    throw new Error("missing current W3 Article pre-block fixture");
+  }
+
+  w3.status = "inventory_frozen";
+  w3.blocked_from_status = null;
+  w3.blockers = [];
+  articles.status = "package_frozen";
+  articles.blocked_from_status = null;
+  articles.package_sha256 = packageSha256;
+  articles.qa_report_ref = null;
+  articles.gate_lineage = [
+    {
+      status: "package_frozen",
+      evidence_owner_lane_id: "W3",
+      report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+      report_sha256: "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334",
+      package_sha256: packageSha256,
+      accepted_at: "2026-08-01T12:36:10Z",
+    },
+  ];
+  articles.blockers = [];
+
+  fs.writeFileSync(manifestPath, JSON.stringify(preBlockManifest));
+  return {
+    directory,
+    manifestPath,
+    manifestSha256: sha256AbsoluteFile(manifestPath),
+  };
+}
+
 function makeRegisteredPackageDirectory(outputDirectory: string): string {
   const packageDirectory = path.join(ROOT, outputDirectory);
   fs.mkdirSync(packageDirectory, { recursive: true });
@@ -1573,6 +1615,146 @@ describe("English content parity control master", () => {
     }
   });
 
+  it("accepts candidate-only page/API evidence as NOT_APPLICABLE without treating it as a blocker", () => {
+    const candidateDirectory = makeW9QaDirectory();
+    const baseManifest = makeCurrentW3ArticlesPreBlockManifest(manifest);
+    const checkedInDirectory = path.join(
+      ROOT,
+      "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae"
+    );
+    const candidatePath = path.join(candidateDirectory, "master_manifest_patch.candidate.json");
+    const qaReportPath = path.join(candidateDirectory, "qa_report.json");
+    const rowEvidencePath = path.join(candidateDirectory, "qa_row_matrix.json");
+    const candidate = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
+    ) as {
+      base_manifest_sha256: string;
+      gate_evidence: {
+        report_path: string;
+        report_sha256: string;
+        row_evidence: { path: string; sha256: string };
+      };
+    };
+    const qaReport = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "qa_report.json"), "utf8")
+    ) as {
+      checks: Record<string, string>;
+      page_api_alignment_status?: string;
+    };
+    const rowEvidence = JSON.parse(
+      fs.readFileSync(path.join(checkedInDirectory, "qa_row_matrix.json"), "utf8")
+    );
+
+    candidate.base_manifest_sha256 = baseManifest.manifestSha256;
+    fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+    fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+    candidate.gate_evidence.report_path = qaReportPath;
+    candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+    candidate.gate_evidence.row_evidence.path = rowEvidencePath;
+    candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+    fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+
+    try {
+      const standaloneOutput = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(standaloneOutput)).toMatchObject({ ok: true, errors: [] });
+
+      const noBlockerQaReport = structuredClone(qaReport);
+      for (const check of Object.keys(noBlockerQaReport.checks)) {
+        if (noBlockerQaReport.checks[check] === "BLOCKED") {
+          noBlockerQaReport.checks[check] = "PASS";
+        }
+      }
+      fs.writeFileSync(qaReportPath, JSON.stringify(noBlockerQaReport));
+      let noBlockerOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        noBlockerOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(noBlockerOutput).errors.join("\n")).toContain(
+        "W9 BLOCKED verdict requires at least one blocked QA check"
+      );
+      fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      expect(qaReport).toMatchObject({
+        verdict: "BLOCKED",
+        page_api_alignment_status: "NOT_APPLICABLE",
+        checks: { page_api_alignment: "NOT_APPLICABLE", claim_boundary: "BLOCKED" },
+      });
+
+      rowEvidence.row_reviews[0].checks.page_api_alignment_applicable = "BLOCKED";
+      rowEvidence.row_reviews[0].verdict = "BLOCKED";
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      let blockedRowOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        blockedRowOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(blockedRowOutput).errors.join("\n")).toContain(
+        "W9 aggregate check page_api_alignment must match the row reviews"
+      );
+      rowEvidence.row_reviews[0].checks.page_api_alignment_applicable = "PASS";
+      rowEvidence.row_reviews[0].verdict = "PASS";
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+
+      delete qaReport.page_api_alignment_status;
+      fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
+      let standaloneFailedOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", qaReportPath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        standaloneFailedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(standaloneFailedOutput).errors.join("\n")).toContain(
+        "NOT_APPLICABLE page/API check requires matching report status"
+      );
+      candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      let failedOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        failedOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(failedOutput).errors.join("\n")).toContain(
+        "NOT_APPLICABLE page/API check requires matching report status"
+      );
+    } finally {
+      fs.rmSync(candidateDirectory, { recursive: true, force: true });
+      fs.rmSync(baseManifest.directory, { recursive: true, force: true });
+    }
+  });
+
   it.each(["source_equivalence_identity", "internal_link_equivalence"])(
     "accepts a W9 blocker caused only by the %s row check",
     (blockedRowCheck) => {
@@ -1904,7 +2086,11 @@ describe("English content parity control master", () => {
         expect(errors).toContain("unexpected property unexpected_contract_field");
       } else if (failureMode.startsWith("invalid QA verdict for ")) {
         const check = failureMode.replace("invalid QA verdict for ", "");
-        expect(errors).toContain(`W9 QA check ${check} must be PASS or BLOCKED`);
+        expect(errors).toContain(
+          `W9 QA check ${check} must be ${
+            check === "page_api_alignment" ? "PASS, BLOCKED, or NOT_APPLICABLE" : "PASS or BLOCKED"
+          }`
+        );
       }
     } finally {
       fs.rmSync(candidateDirectory, { recursive: true, force: true });
@@ -2449,6 +2635,30 @@ describe("English content parity control master", () => {
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+
+      const contradictoryQaReport = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+      contradictoryQaReport.page_api_alignment_status = "NOT_APPLICABLE";
+      fs.writeFileSync(qaReportPath, JSON.stringify(contradictoryQaReport));
+      const contradictoryCandidate = JSON.parse(fs.readFileSync(candidatePath, "utf8"));
+      contradictoryCandidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(contradictoryCandidate));
+      let contradictoryOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        contradictoryOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(contradictoryOutput).errors.join("\n")).toContain(
+        "page/API report status must match its aggregate check"
+      );
+      delete contradictoryQaReport.page_api_alignment_status;
+      fs.writeFileSync(qaReportPath, JSON.stringify(contradictoryQaReport));
+      contradictoryCandidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(contradictoryCandidate));
 
       const qaFrozenPackageDirectory = path.join(qaAuthorityDirectory, "frozen_package");
       fs.cpSync(packageDirectory, qaFrozenPackageDirectory, { recursive: true });
