@@ -187,7 +187,8 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
   const preBlockManifest = structuredClone(sourceManifest);
   const w3 = preBlockManifest.lanes.find((lane) => lane.lane_id === "W3");
   const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
-  if (!w3 || !articles) {
+  const careerGuides = w3?.subscopes.find((subscope) => subscope.id === "W3-CAREER-GUIDES");
+  if (!w3 || !articles || !careerGuides) {
     throw new Error("missing W3 Article pre-block fixture");
   }
 
@@ -211,6 +212,12 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
     },
   ];
   articles.blockers = [];
+  careerGuides.status = "inventory_frozen";
+  careerGuides.blocked_from_status = null;
+  careerGuides.package_sha256 = null;
+  careerGuides.qa_report_ref = null;
+  careerGuides.gate_lineage = [];
+  careerGuides.blockers = [];
 
   fs.writeFileSync(manifestPath, JSON.stringify(preBlockManifest));
   return {
@@ -237,7 +244,8 @@ function makeCurrentW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): 
   const preBlockManifest = structuredClone(sourceManifest);
   const w3 = preBlockManifest.lanes.find((lane) => lane.lane_id === "W3");
   const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
-  if (!w3 || !articles) {
+  const careerGuides = w3?.subscopes.find((subscope) => subscope.id === "W3-CAREER-GUIDES");
+  if (!w3 || !articles || !careerGuides) {
     throw new Error("missing current W3 Article pre-block fixture");
   }
 
@@ -259,6 +267,12 @@ function makeCurrentW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): 
     },
   ];
   articles.blockers = [];
+  careerGuides.status = "inventory_frozen";
+  careerGuides.blocked_from_status = null;
+  careerGuides.package_sha256 = null;
+  careerGuides.qa_report_ref = null;
+  careerGuides.gate_lineage = [];
+  careerGuides.blockers = [];
 
   fs.writeFileSync(manifestPath, JSON.stringify(preBlockManifest));
   return {
@@ -936,7 +950,7 @@ describe("English content parity control master", () => {
     expect(sha256File(frozenLedgerPath)).toBe(frozenLedgerSha256);
     expect(w3).toMatchObject({
       launch_state: "launch_ready",
-      status: "inventory_frozen",
+      status: "package_in_progress",
       blocked_from_status: null,
       counts: {
         cohort_count: 2,
@@ -972,7 +986,7 @@ describe("English content parity control master", () => {
       resource: "CareerGuide",
       output_subdirectory: "career-guides",
       asset_ids: ["ENPARITY-W3-CAREER-GUIDES"],
-      status: "inventory_frozen",
+      status: "package_in_progress",
       blocked_from_status: null,
       package_sha256: null,
       qa_report_ref: null,
@@ -983,7 +997,7 @@ describe("English content parity control master", () => {
     });
     expect(w3?.next_action).toContain("fresh independent 17/17 W9 QA");
     expect(w3?.next_action).toContain("d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a");
-    expect(w3?.next_action).toContain("W3-CAREER-GUIDES may begin its separate boundary-only package production");
+    expect(w3?.next_action).toContain("EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01");
     expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
 
@@ -2531,6 +2545,12 @@ describe("English content parity control master", () => {
     articles.qa_report_ref = null;
     articles.gate_lineage = [];
     articles.blockers = [];
+    careerGuides.status = "inventory_frozen";
+    careerGuides.blocked_from_status = null;
+    careerGuides.package_sha256 = null;
+    careerGuides.qa_report_ref = null;
+    careerGuides.gate_lineage = [];
+    careerGuides.blockers = [];
     w3.next_action =
       "Rebuild the complete W3-ARTICLES package, re-freeze it, and repeat fresh independent W9 QA.";
     fs.writeFileSync(reworkManifestPath, JSON.stringify(reworkManifest));

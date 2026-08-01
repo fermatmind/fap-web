@@ -323,7 +323,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
@@ -365,7 +365,7 @@
           "asset_ids": [
             "ENPARITY-W3-CAREER-GUIDES"
           ],
-          "status": "inventory_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
@@ -392,7 +392,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Start fresh independent 17/17 W9 QA for the exact frozen W3-ARTICLES package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a. W3-CAREER-GUIDES may begin its separate boundary-only package production, remains independently gated, and must not share the Article package or gate lineage.",
+      "next_action": "Start fresh independent 17/17 W9 QA for the exact frozen W3-ARTICLES package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a. Start only EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01 for the separate W3-CAREER-GUIDES package; it must not share the Article package or gate lineage.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
