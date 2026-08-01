@@ -12209,7 +12209,7 @@ prs:
       - IQ-PAID-REPORT-01
     mode: execute
     train_scope: iq_production_launch
-    status: blocked
+    status: in_progress
     title: "IQ-PAID-REPORT-02 render paid report entitlement states"
     goal: "Render IQ paid-report free, paid, unauthorized, and error states from backend contract only."
     in_scope:
@@ -28081,7 +28081,7 @@ prs:
       - EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01
     mode: execute
     train_scope: w9_w3_article_independent_qa
-    status: in_progress
+    status: blocked
     allowed_paths:
       - generated/en-content-parity/W9-independent-qa/**
       - docs/codex/pr-train.yaml
