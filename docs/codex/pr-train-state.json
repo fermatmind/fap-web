@@ -55342,6 +55342,38 @@
     "history": [{"at": "2026-08-01T16:10:00Z", "status": "in_progress", "summary": "Started from CONTROL-accepted W4 package_in_progress. Aggregation is candidate-only, binds the exact 1550-row payload, and keeps all write/release permissions false."}, {"at": "2026-08-02T00:12:00+08:00", "status": "local_verified", "summary": "Control validator passed for the package_frozen candidate; the immutable package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 recomputed identically twice; 14/1550, 15 pairs, and 3/2/2 surfaces reconcile; the focused control contract passed 65/65. W9, import, runtime, and release remain deferred."}, {"at": "2026-08-02T00:14:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1963 from immutable package commit 514798213813c9108c35f054f3c3b630931e34a0; required GitHub checks are pending."}],
     "updated_at": "2026-08-02T00:14:00+08:00"
   },
+  "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01": {
+    "id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01 repair 126 G06 140Q summaries",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-140q-naturalness-repair-01",
+    "depends_on": [],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "preflight": {"status": "pass", "evidence": "origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 retains W4=package_in_progress after the CONTROL reset and preserves old failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence only."},
+      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator and full lint passed (Node 20 emitted only the repository engine warning). JSON/YAML parsing, exact path scope, diff checks, and deterministic package verification pass. The segment has 133 rows with exactly 126 G06 targets: old sentence 0 and new sentence 126 in both assets and translation cache; only 126 summary fields changed, identities and all other reader fields are unchanged, G07 remains byte-identical, and six payload SHA values plus aggregate ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2 recompute identically twice."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-02T01:43:33+08:00", "status": "in_progress", "summary": "Started from origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 after confirming the CONTROL reset retains failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence and returns W4 to package_in_progress. Scope is exactly the 126 W4-G06 summary and translation-cache replacements plus segment evidence; W4-G07, control master, runtime, CMS/import, publication, discoverability, and deploy remain unchanged."},
+      {"at": "2026-08-02T01:46:54+08:00", "status": "local_verified", "summary": "Rebuilt deterministically from the existing translation cache without rewriting non-target reader text. Focused control contract (65/65), control validator, full lint, JSON/YAML parse, exact scope, diff, identity, G07, sentence-count, payload-SHA, and repeatable aggregate-SHA checks pass. The new segment aggregate is ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2; W4 remains package_in_progress and all write/release permissions remain false."}
+    ],
+    "updated_at": "2026-08-02T01:46:54+08:00"
+  },
   "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01": {
     "id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
     "repo": "fap-web",

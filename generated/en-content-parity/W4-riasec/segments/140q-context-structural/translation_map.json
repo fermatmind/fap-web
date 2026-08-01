@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_translation_map.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
   "source_locale": "zh-CN",
   "target_locale": "en",
   "translation_status": "candidate_only",

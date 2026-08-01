@@ -1,10 +1,18 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_editorial_review.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
   "review_kind": "producer self-check only; not independent W9 QA or editorial approval",
   "verdict": "PENDING_INDEPENDENT_W9",
+  "repair_evidence": {
+    "prior_frozen_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "affected_group": "W4-G06",
+    "affected_asset_count": 126,
+    "replaced_summary_sentence": "It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores.",
+    "repaired_summary_sentence": "It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
+  },
   "completed_self_checks": [
     "126 contextual and 7 structural source identities mapped once",
+    "126 W4-G06 summaries replace the W9-blocked sentence exactly once",
     "candidate text contains no CJK",
     "140Q contextual-only and structural emphasis-only boundaries retained",
     "all permissions remain false"
