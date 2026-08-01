@@ -53430,7 +53430,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "1a9e528ec0c3dfc0d552935d5a7a7fb744d4f132",
+    "commit_sha": "2938fa08cb4bb0667411e5fdc9289d90c8fa52ea",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53640,8 +53640,13 @@
         "at": "2026-08-01T06:38:00Z",
         "status": "github_checks_pending",
         "summary": "After all required checks passed on f2d111fc, exact-head review found missing detail-payload identity binding. Added exact canonical_slug equality and focused mismatch rejection. The complete strict read-only rerun remains GO with 20 complete candidates, unchanged target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1; focused contract passes 35/35."
+      },
+      {
+        "at": "2026-08-01T06:39:10Z",
+        "status": "github_checks_pending",
+        "summary": "Committed exact detail identity binding as 2938fa08cb4bb0667411e5fdc9289d90c8fa52ea after focused 35/35, lint, typecheck, syntax, self-hash, ledger, detail-identity, and diff checks passed. This metadata tail binds the reachable implementation commit."
       }
     ],
-    "updated_at": "2026-08-01T06:38:00Z"
+    "updated_at": "2026-08-01T06:39:10Z"
   }
 }
