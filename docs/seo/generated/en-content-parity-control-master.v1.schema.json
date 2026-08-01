@@ -145,6 +145,14 @@
               "pattern": "^[a-f0-9]{64}$"
             }
           }
+        },
+        "rework_10_source_evidence_package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "repaired_stable_asset_identity": {
+          "type": "string",
+          "pattern": "^Article:[0-9]+$"
         }
       }
     },
