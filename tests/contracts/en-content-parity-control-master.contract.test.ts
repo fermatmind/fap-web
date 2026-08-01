@@ -853,7 +853,7 @@ describe("English content parity control master", () => {
     ).toBe(true);
   });
 
-  it("resets the exact W9-blocked W3 Article package without unlocking gates", () => {
+  it("retains the exact W9 reset evidence and accepts only the refrozen W3 Article package", () => {
     const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
     const w9ReportPath =
       "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/qa_report.json";
@@ -877,6 +877,18 @@ describe("English content parity control master", () => {
       clear_fields: string[];
       permissions: Permissions;
     }>("generated/en-content-parity/CONTROL-approvals/W3-ARTICLES/package-rework-reset-2c228eae.json");
+    const refrozenCandidate = readJson<{
+      base_manifest_sha256: string;
+      package_sha256: string;
+      proposed_status: string;
+      gate_evidence: {
+        report_sha256: string;
+        row_count: number;
+        rework_10_source_evidence_package_sha256: string;
+        repaired_stable_asset_identity: string;
+      };
+      permissions: Permissions;
+    }>("generated/en-content-parity/W3-editorial-cms/articles/master_manifest_patch.candidate.json");
     const w3 = manifest.lanes.find((lane) => lane.lane_id === "W3");
     const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
     const careerGuides = w3?.subscopes.find((subscope) => subscope.id === "W3-CAREER-GUIDES");
@@ -894,6 +906,19 @@ describe("English content parity control master", () => {
       clear_fields: ["package_sha256", "qa_report_ref", "gate_lineage"],
     });
     expect(Object.values(resetApproval.permissions)).toEqual(Array(7).fill(false));
+    expect(refrozenCandidate).toMatchObject({
+      base_manifest_sha256: "5dfa51907860aaee4dabef952e15c4a6cabaa7d72cd47225089d15470b685039",
+      package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+      proposed_status: "package_frozen",
+      gate_evidence: {
+        report_sha256: "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+        row_count: 17,
+        rework_10_source_evidence_package_sha256:
+          "480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061",
+        repaired_stable_asset_identity: "Article:53",
+      },
+    });
+    expect(Object.values(refrozenCandidate.permissions)).toEqual(Array(7).fill(false));
     expect(sha256File(w9ReportPath)).toBe(w9ReportSha256);
     expect(sha256File(w9RowMatrixPath)).toBe(w9RowMatrixSha256);
     expect(sha256File(frozenLedgerPath)).toBe(frozenLedgerSha256);
@@ -914,11 +939,19 @@ describe("English content parity control master", () => {
       blockers: [],
     });
     expect(articles).toMatchObject({
-      status: "package_in_progress",
+      status: "package_frozen",
       blocked_from_status: null,
-      package_sha256: null,
+      package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
       qa_report_ref: null,
-      gate_lineage: [],
+      gate_lineage: [
+        {
+          status: "package_frozen",
+          evidence_owner_lane_id: "W3",
+          report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+          report_sha256: "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+          package_sha256: "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+        },
+      ],
       blockers: [],
     });
     expect(careerGuides).toEqual({
@@ -936,10 +969,9 @@ describe("English content parity control master", () => {
       separate_package_required: true,
       same_pr_allowed: false,
     });
-    expect(w3?.next_action).toContain("Repair only Article:53");
-    expect(w3?.next_action).toContain("new SHA");
     expect(w3?.next_action).toContain("fresh independent 17/17 W9 QA");
-    expect(w3?.next_action).toContain("W3-CAREER-GUIDES remains an independent parallel scope");
+    expect(w3?.next_action).toContain("d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a");
+    expect(w3?.next_action).toContain("W3-CAREER-GUIDES may begin its separate boundary-only package production");
     expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
 

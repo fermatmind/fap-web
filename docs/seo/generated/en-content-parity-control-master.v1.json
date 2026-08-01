@@ -339,11 +339,20 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_in_progress",
+          "status": "package_frozen",
           "blocked_from_status": null,
-          "package_sha256": null,
+          "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
           "qa_report_ref": null,
-          "gate_lineage": [],
+          "gate_lineage": [
+            {
+              "status": "package_frozen",
+              "evidence_owner_lane_id": "W3",
+              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+              "report_sha256": "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+              "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+              "accepted_at": "2026-08-01T18:37:38Z"
+            }
+          ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -383,7 +392,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Repair only Article:53 according to the retained exact-SHA W9 repair evidence, rebuild the complete 17-row W3-ARTICLES package under a new SHA, re-freeze it, and repeat fresh independent 17/17 W9 QA. W3-CAREER-GUIDES remains an independent parallel scope and must not share its package or gate lineage.",
+      "next_action": "Start fresh independent 17/17 W9 QA for the exact frozen W3-ARTICLES package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a. W3-CAREER-GUIDES may begin its separate boundary-only package production, remains independently gated, and must not share the Article package or gate lineage.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
