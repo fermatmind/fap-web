@@ -580,7 +580,7 @@ describe("English content parity control master", () => {
         same_pr_allowed: false,
       },
     ]);
-    expect(w1?.status).toBe("package_frozen");
+    expect(w1?.status).toBe("qa_pass");
     expect(w1?.counts).toEqual({
       cohort_count: 2,
       expected_en_assets: 53,
@@ -871,7 +871,7 @@ describe("English content parity control master", () => {
     if (!w1) {
       throw new Error("missing W1 lane fixture");
     }
-    w1.status = "package_frozen";
+    w1.status = "qa_pass";
     let expectedTotal = 0;
     let currentTotal = 0;
     let remainingTotal = 0;
@@ -2176,6 +2176,7 @@ describe("English content parity control master", () => {
     const packageEvidence = writePackagePayload(packageDirectory, scopeManifest, frozenAssets);
     const frozenReportRef = path.join(packageDirectory, "source_ledger.json");
     comparisons.status = "package_frozen";
+    w1.status = "package_frozen";
     comparisons.package_sha256 = packageEvidence.packageSha256;
     comparisons.qa_report_ref = null;
     comparisons.gate_lineage = [
@@ -2313,6 +2314,7 @@ describe("English content parity control master", () => {
       );
 
       comparisons.status = "qa_pass";
+      w1.status = "qa_pass";
       comparisons.qa_report_ref = qaReportPath;
       comparisons.gate_lineage.push({
         status: "qa_pass",
