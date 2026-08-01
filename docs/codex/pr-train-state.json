@@ -55354,7 +55354,7 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-package-freeze-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01", "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01", "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01", "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01", "EN-PARITY-W4-RIASEC-140Q-ASSETS-01", "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01", "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01", "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01", "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "514798213813c9108c35f054f3c3b630931e34a0",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1963",
     "checks": {"dependencies": {"status": "pass", "evidence": "All nine W4 producer segment PRs and the separate Runtime Locale backend PR are merged; CONTROL has moved W4 to package_in_progress."}, "package_integrity": {"status": "pass", "evidence": "The candidate aggregates 14 logical groups and 1550 unique unpublished English rows with 15 normalized pairs and 3/2/2 safe surfaces."}},
@@ -55644,8 +55644,8 @@
         "evidence": "2026-08-02: builder and Batch A validator pass for the exact eight rows and package SHA 5b423b9eef7877d0ee6c5c5fb74a89d236958fd4a3d5ccc1ad5d90782f1a15cd; partial-candidate control validation passes; focused contracts pass 68/68; focused ESLint, JSON/JSONL/YAML parse, immutable SHA recomputation, 8/8 source identity/structure/use, Markdown/link, Han-leakage, claim-boundary, all-false-permission, and diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1980 is open from the scoped branch; required GitHub checks, review, and exact-head/base reconciliation are pending."
+        "status": "pass",
+        "evidence": "PR #1980 head 3231ef8fe9a11292b9f4dd04122829220d237137 passed build, all four contract shards and contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN; the automated review has no actionable finding."
       }
     },
     "failure_reason": null,
@@ -55690,8 +55690,13 @@
         "at": "2026-08-02T04:32:00Z",
         "status": "github_checks_pending",
         "summary": "Opened ready PR #1980. GitHub required checks, review, and final exact-head/base scope reconciliation are pending; this partial candidate remains non-transitioning and all permissions remain false."
+      },
+      {
+        "at": "2026-08-02T04:38:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1980 exact checked head 3231ef8fe9a11292b9f4dd04122829220d237137 passed every required GitHub check, is CLEAN against base 89fc715fea7836e2c02ef7a486a889473f7bee88, and has no review requirement or actionable comment. Final source/package SHA, W3 state, frozen Articles lineage, and all-false permission reconciliation pass. The ledger readiness head will complete its own fresh required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-02T04:32:00Z"
+    "updated_at": "2026-08-02T04:38:00Z"
   }
 }
