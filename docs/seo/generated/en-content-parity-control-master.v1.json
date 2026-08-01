@@ -116,7 +116,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
@@ -174,7 +174,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-RESULT-CONTENT"
           ],
-          "status": "inventory_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
