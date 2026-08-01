@@ -55711,14 +55711,44 @@
     "base": "main",
     "branch": "codex/en-parity-w3-career-guide-assets-batch-b-01",
     "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01"],
-    "status": "github_checks_pending",
-    "commit_sha": "1d816504b66025ee5c0d6ef3d80b67a5fd58116f",
+    "status": "merged",
+    "commit_sha": "bc4082f22900e491c48704759617e6b8dcc0c009",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1982",
     "checks": {
       "dependency": {"status": "pass", "evidence": "GitHub confirms Batch A PR #1980 is merged as 62fc12db10f53c84a955a507e994863b4248adbc and origin/main retains W3-CAREER-GUIDES=package_in_progress with null package/QA fields, empty lineage, and all-false permissions."},
       "source_authority": {"status": "pass", "evidence": "Read-only fap-api origin/main f9b560e593a672e1e7c42aee810521593d88fdbf career_guides.en.json SHA 474b3ca869e3f32033089f48967458f977f7bf3cffd4d42c29eae689362bb416 and career_guides.zh-CN.json SHA 3664183d9685dc67fd2b44d231837e5638ad64410f9e7b6b70110d9fd93d5b31 match the frozen boundary snapshot."},
       "local_validation": {"status": "pass", "evidence": "2026-08-02: builder and Batch B validator pass for the exact twelve rows and package SHA 53458328d70d3035c7f29deb1038ba3edf96295db72cae4ca0ce61aace33b9d9; partial-candidate control validation passes; focused contracts pass 67/67; focused ESLint, JSON/JSONL/YAML parse, immutable SHA recomputation, 12/12 source identity/structure/use, Markdown/link, Han-leakage, claim-boundary, all-false-permission, and diff checks pass."},
       "github_required_checks": {"status": "pass", "evidence": "PR #1982 head bcc490c43bc83538eb9e73d1488995b07b24cf6b passed build, all four contract shards and contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement or actionable comment."}
+    },
+    "failure_reason": null,
+    "merged_at": "2026-08-01T21:12:18Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-02T05:00:00Z", "status": "in_progress", "summary": "Started only the fixed twelve-row Batch B producer package from latest origin/main after reconciling merged Batch A. The partial candidate is an auditable package_in_progress witness only; master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, and deploy state remain outside scope."},{"at": "2026-08-02T05:04:00Z", "status": "local_verified", "summary": "Produced exactly batch-b-12: annual-career-review-system, build-five-year-career-roadmap, career-risk-management, career-transition-playbook, cross-industry-move-strategy, how-to-choose-college-major, how-to-find-right-career-direction, improve-workplace-competitiveness, interview-strategy-by-role, leader-track-vs-expert-track, prevent-burnout-while-growing, and salary-negotiation-framework. The 12/20 witness binds fap-api source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a; master state and every permission remain unchanged."},{"at": "2026-08-02T05:06:00Z", "status": "committed", "summary": "Rebased onto origin/main 588a32dc and committed the scoped Batch B producer package as 1d816504b66025ee5c0d6ef3d80b67a5fd58116f. The builder and focused validators were rerun after the rebase; pending push and one ready PR."},{"at": "2026-08-02T05:07:00Z", "status": "github_checks_pending", "summary": "Opened ready PR #1982. Required GitHub checks, review, and final exact-head/base scope reconciliation are pending; the 12/20 candidate remains non-transitioning and every permission remains false."},{"at": "2026-08-02T05:12:00Z", "status": "ready_to_merge", "summary": "PR #1982 exact checked head bcc490c43bc83538eb9e73d1488995b07b24cf6b passed every required GitHub check, is CLEAN against base 588a32dcfb48d4c3474010c331ed488b34fdda0d, and has no review requirement or actionable comment. The ledger readiness head will complete its own fresh required-check cycle before squash merge."}],
+    "updated_at": "2026-08-01T21:12:18Z"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01": {
+    "id": "EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01: freeze the complete 20 Career Guide package",
+    "base": "main",
+    "branch": "codex/en-parity-w3-career-guide-package-freeze-01",
+    "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "GitHub confirms Batch B PR #1982 is merged as a84c71b0480b7c9c587f296fa5c7cd670001b229; both exact partial witnesses are present under origin/main."},
+      "local_validation": {"status": "pass", "evidence": "2026-08-02: complete package builder and validator pass for exact 20 rows and SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c; control candidate validation, focused contracts 66/66, focused ESLint, JSON/JSONL/YAML parse, Batch A/B SHA reconciliation, and all-false permission checks pass."},
+      "github_required_checks": {"status": "pending", "evidence": "No PR has been opened."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55732,7 +55762,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T05:00:00Z", "status": "in_progress", "summary": "Started only the fixed twelve-row Batch B producer package from latest origin/main after reconciling merged Batch A. The partial candidate is an auditable package_in_progress witness only; master package SHA, QA, lineage, permissions, CMS/import, runtime, publication, discoverability, search, and deploy state remain outside scope."},{"at": "2026-08-02T05:04:00Z", "status": "local_verified", "summary": "Produced exactly batch-b-12: annual-career-review-system, build-five-year-career-roadmap, career-risk-management, career-transition-playbook, cross-industry-move-strategy, how-to-choose-college-major, how-to-find-right-career-direction, improve-workplace-competitiveness, interview-strategy-by-role, leader-track-vs-expert-track, prevent-burnout-while-growing, and salary-negotiation-framework. The 12/20 witness binds fap-api source snapshot f9b560e593a672e1e7c42aee810521593d88fdbf and boundary package 1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a; master state and every permission remain unchanged."},{"at": "2026-08-02T05:06:00Z", "status": "committed", "summary": "Rebased onto origin/main 588a32dc and committed the scoped Batch B producer package as 1d816504b66025ee5c0d6ef3d80b67a5fd58116f. The builder and focused validators were rerun after the rebase; pending push and one ready PR."},{"at": "2026-08-02T05:07:00Z", "status": "github_checks_pending", "summary": "Opened ready PR #1982. Required GitHub checks, review, and final exact-head/base scope reconciliation are pending; the 12/20 candidate remains non-transitioning and every permission remains false."},{"at": "2026-08-02T05:12:00Z", "status": "ready_to_merge", "summary": "PR #1982 exact checked head bcc490c43bc83538eb9e73d1488995b07b24cf6b passed every required GitHub check, is CLEAN against base 588a32dcfb48d4c3474010c331ed488b34fdda0d, and has no review requirement or actionable comment. The ledger readiness head will complete its own fresh required-check cycle before squash merge."}],
-    "updated_at": "2026-08-02T05:12:00Z"
+    "history": [{"at": "2026-08-02T05:20:00Z", "status": "in_progress", "summary": "Started only the complete 20-row producer package freeze after merged Batch B. The root candidate may propose package_frozen but cannot accept the transition into the control master or authorize W9, CMS/import, release, runtime, discoverability, search, or deploy actions."}],
+    "updated_at": "2026-08-02T05:21:00Z"
   }
 }
