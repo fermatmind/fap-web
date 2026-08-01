@@ -28397,6 +28397,30 @@ prs:
     content_authority: backend
     repository_rule_impact: independent W9 evidence only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: EN-PARITY-CONTROL-W2-QA-PASS-01
+    repo: fap-web
+    branch: codex/en-parity-control-w2-qa-pass-01
+    base: main
+    title: "EN-PARITY-CONTROL-W2-QA-PASS-01: accept Big Five independent W9 QA"
+    depends_on: [EN-PARITY-W9-W2-INDEPENDENT-QA-01]
+    mode: execute
+    train_scope: w2_big5_qa_pass_control_acceptance
+    status: in_progress
+    scope: ["Accept only the exact W2 immutable package and external W9 PASS report, transitioning W2 exactly once from package_frozen to qa_pass while retaining all-false permissions."]
+    allowed_paths: [docs/seo/generated/en-content-parity-control-master.v1.json, tests/contracts/en-content-parity-control-master.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not: ["Modify the W2 package or W9 evidence, other lanes, CMS/database, import, runtime, SEO, sitemap, llms, publication, search, deploy, or public content fallback."]
+    required_local_checks: ["exact W2 package SHA and W9 report SHA reconciliation", "W2 118 and 52/50/16 reconciliation", "all-false permission and exact W9 gate-lineage validation", "node scripts/seo/validate-en-content-parity-control.mjs", "focused control-master Vitest", "YAML/JSON parse", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL qa_pass acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01
     repo: fap-web
     branch: codex/en-parity-w2-big5-package-frozen-01
