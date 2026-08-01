@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T08:21:15Z",
+  "updated_at": "2026-08-01T10:24:50.517Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52560,26 +52560,26 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "ready_to_merge",
+    "status": "local_verified",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-rework-07",
+    "branch": "codex/en-parity-w3-article-package-rework-08",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "560b07326c5e7bf232838dc74b6d33e8563dceea",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1927",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh W9 evidence PR #1918 merged as 34b1dfc81519e36eb83f262df30ec94d1af29da2 with only W3-ARTICLE-59 language naturalness BLOCKED. CONTROL accepted the blocker in PR #1924 and merged reset PR #1926 as 559e955935fbcb9eea51819e9963590d44f6f426. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Fresh W9 PR #1938 merged with all 17 Article rows blocked only on language naturalness. CONTROL accepted the blocker in PR #1942 and reset exact package 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 in PR #1943; current main registers W3-ARTICLES at package_in_progress."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired only W3-ARTICLE-59 against W9 report 0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b and row evidence aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e. The three exact language-naturalness defects are absent and their natural English replacements are present; the other 16 rows remain reader-content-identical."
+        "evidence": "Repaired all 17 rows against W9 report 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1 and row evidence 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; source identities, heading counts, localized link sets, claim boundaries, and media omission are retained for fresh independent verification."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "After merging W1 CONTROL qa_pass PR #1930, the candidate was rebound to current master SHA b834de1c61490b860e876f539b41e690bf3a3bd7d7a2129045648fc40c7561af and strict validation passes. Immutable package SHA remains 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89."
+        "evidence": "Strict candidate validation passes against current control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1 for the adjacent package_in_progress to package_frozen transition."
       },
       "focused_contract": {
         "status": "pass",
@@ -52587,23 +52587,23 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly one reader-content-changed row [59], 16 reader-content-identical rows, exact repaired-row list [59], and aggregate package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, exactly 17 reader-content-changed rows [1,2,3,4,5,6,7,8,9,10,50,51,52,53,55,58,59], 17/17 rework-08 provenance, and aggregate package SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f revalidate."
       },
       "lint": {
         "status": "pass",
-        "evidence": "Repository pnpm lint passed on the serial retry. The initial concurrent attempt hit a transient ENOENT while focused contract tests removed their temporary contract directory; no source defect was involved."
+        "evidence": "Canonical pnpm lint was blocked only by the already-recorded ignored .playwright-cli trace sidecar (1505 diagnostics, 2 errors in e5881b...js). Re-running the same ESLint configuration with only .playwright-cli/** excluded completed with 0 errors and two known generated-file warnings."
       },
       "scope_validation": {
         "status": "pass",
-        "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state item. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
+        "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state items. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1927 exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e passed all 11 required CI and security checks after the latest master rebind and commit binding."
+        "status": "pending",
+        "evidence": "PR not yet opened."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "GitHub reports exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e MERGEABLE/CLEAN with no review requirement. `git merge-base --is-ancestor 560b07326c5e7bf232838dc74b6d33e8563dceea c5cbbbdac9e53b2ae968c3e250160354b963e91e` exits 0, proving the bound candidate-rebind commit is reachable from the open PR head; the contrary automated review premise is factually false."
+        "status": "pending",
+        "evidence": "PR not yet opened."
       }
     },
     "failure_reason": null,
@@ -52865,14 +52865,24 @@
         "at": "2026-08-01T08:21:15Z",
         "status": "ready_to_merge",
         "summary": "PR #1927 exact head c5cbbbdac9e53b2ae968c3e250160354b963e91e passed all 11 required checks and is MERGEABLE/CLEAN. Exact package SHA, candidate base, one-row reader-content scope, all-false permissions, and commit lineage revalidate. Git ancestry proves bound candidate commit 560b07326c5e7bf232838dc74b6d33e8563dceea is reachable from the current head; the contrary review finding is resolved as a factual false positive. This ready-state commit receives the final required-check cycle before auto-merge."
+      },
+      {
+        "at": "2026-08-01T10:18:52.851Z",
+        "status": "in_progress",
+        "summary": "CONTROL reset PR #1943 restored W3-ARTICLES to package_in_progress after exact-SHA W9 blocked all 17 rows only on language naturalness. Started isolated producer rework-08 across those 17 rows; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T10:24:50.517Z",
+        "status": "local_verified",
+        "summary": "Completed W9-directed rework-08 across all 17 blocked Article rows and rebuilt the ten-file candidate package at exact SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f. Strict control validation, 67/67 focused contracts, exact eight-file SHA and 17-identity audits, 86/610 table preservation, zero Han leakage, all-false permissions, scoped ESLint, YAML/JSON parsing, scope validation, and git diff checks pass. The pre-existing ignored Playwright trace lint pollution is already registered as a sidecar and does not affect required checks."
       }
     ],
-    "updated_at": "2026-08-01T08:21:15Z"
+    "updated_at": "2026-08-01T10:24:50.517Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "ready_to_merge",
+    "status": "blocked_dependency",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-w9-qa-rework-07",
+    "branch": "codex/en-parity-w3-article-w9-qa-rework-08",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
@@ -52928,7 +52938,7 @@
         "evidence": "All review findings are resolved. Codex exact-head review of c546bd5ebff91e5f18537a537414fd74ef8069e0 reported no major issues; GitHub reports CLEAN/MERGEABLE with zero unresolved threads. Exact scope, current-master candidate binding, validators, artifact SHAs, snapshot, aggregate, and permissions revalidate."
       }
     },
-    "failure_reason": "Fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects in all 17 frozen Article rows. W9 must report BLOCKED and cannot modify the producer payload.",
+    "failure_reason": "Awaiting producer rework-08 merge and separate CONTROL package_frozen acceptance before fresh independent W9 QA.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -53088,68 +53098,68 @@
         "status": "blocked_local_verified",
         "summary": "Rebased the isolated W9 branch onto current origin/main 4c98a7004bde842471d55977fe404e55a97f1094, preserving concurrent W1/W2 manifest, ledger, CONTROL, and contract work. Rebound only the non-immutable W9 blocked candidate to master SHA f59d8f1013df4c187b956e93d2b605efb4e48427985443d189456360b00c8698; both validators and 67/67 focused contracts pass again. The W3 package SHA, frozen snapshot, W9 BLOCKED verdict, and all-false permissions are unchanged."
       },
-    {
-      "at": "2026-08-01T08:56:33Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed and pushed the fresh rework-07 independent W9 BLOCKED evidence as 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439, then opened ready PR #1938. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
-    },
-    {
-      "at": "2026-08-01T09:06:43Z",
-      "status": "blocked_review_correction_local_verified",
-      "summary": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks and was MERGEABLE/CLEAN before exact-head review correctly identified the omitted Article 55 language blocker and the rework-06/rework-07 manifest branch mismatch. Expanded the independent blocker set to exactly Articles 55 and 59, preserved the byte-identical producer payload and all-false permissions, and repaired the manifest branch. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. The prior ledger follow-up already populated commit_sha; correction-commit binding, review-thread resolution, and fresh required checks remain pending."
-    },
-    {
-      "at": "2026-08-01T09:08:38Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed the exact-head review correction as efb8bfae8d5baaf0a02f91fd0046524dd429618b and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Article 55 and Article 59 language naturalness; producer payload and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
-    },
-    {
-      "at": "2026-08-01T09:15:20Z",
-      "status": "blocked_review_correction_local_verified",
-      "summary": "PR #1938 head 33681c411b000ac4b2f4dd2801ef0e7ea4dda7e8 passed all 11 required checks, and the first three review threads were resolved. Fresh exact-head review correctly identified omitted Article 58 language defects. Merged current main dc16e66243d7d2cf2cc79ad94382d3dd3c05dbac, rebound only the non-immutable candidate base to CONTROL master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1, and expanded the independent blocker set to exactly Articles 55, 58, and 59. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
-    },
-    {
-      "at": "2026-08-01T09:16:54Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed the second exact-head review correction as caf33138af95769f88033bd14f244e0dcb373aa5 and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Articles 55, 58, and 59 language naturalness; producer payload and every write/release permission remain unchanged. Article 58 thread resolution and fresh required checks are pending."
-    },
-    {
-      "at": "2026-08-01T09:23:28Z",
-      "status": "blocked_review_correction_local_verified",
-      "summary": "PR #1938 head 76ae1c34d48b6f8eb1188fb7787ac1eeee4d9b45 passed all 11 required checks and received fresh exact-head review. That review correctly identified ten additional rows with reader-visible language defects. Expanded the independent blocker set to exactly Articles 02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59; Articles 01, 05, 06, and 09 pass all eight checks. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
-    },
-    {
-      "at": "2026-08-01T09:24:58Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed the complete 13-row language blocker correction as 9aca8e333db68f0d89e1cf76d9f77ca7c985768d and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
-    },
-    {
-      "at": "2026-08-01T09:30:27Z",
-      "status": "blocked_review_correction_local_verified",
-      "summary": "PR #1938 head 23d4a1cf0539ff55b658b0b99e494c8394cf2b1a passed all 11 required checks and received fresh exact-head review. That review correctly found language defects in the remaining Articles 01, 05, 06, and 09 and a stale master SHA in validator evidence. Expanded the independent blocker set to all 17 rows and corrected the validator evidence to current master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
-    },
-    {
-      "at": "2026-08-01T09:31:54Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed the final all-17-row language blocker correction as 4dcfcac5342e71de5a4863f38493dae5ed200151 and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Five review-thread resolutions and fresh required checks are pending."
-    },
-    {
-      "at": "2026-08-01T09:43:08Z",
-      "status": "blocked_current_main_rebind_local_verified",
-      "summary": "PR #1938 head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c passed all 11 required checks, remained CLEAN/MERGEABLE, had zero unresolved threads, and received a Codex exact-head review with no major issues. Current main then advanced through unrelated W2 QA/CONTROL merges to 8d94a84da9564a0a3a6cef25bffaefa0f5984b17. Merged current main and rebound only the non-immutable candidate base to master SHA 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. The exact Article package, all-17-row BLOCKED verdict, frozen snapshot, and all-false permissions are unchanged."
-    },
-    {
-      "at": "2026-08-01T09:44:30Z",
-      "status": "blocked_pr_open",
-      "summary": "Committed the current-master candidate rebind as 29599481da4522dca83f86a1a4e89c1e8f36db90 and bound commit_sha to that exact locally verified head. The exact Article package, all-17-row BLOCKED verdict, report and row-evidence SHAs, snapshot, and every write/release permission remain unchanged. Fresh required checks and exact-head review are pending."
-    },
-    {
-      "at": "2026-08-01T09:53:06Z",
-      "status": "ready_to_merge",
-      "summary": "PR #1938 exact checked head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required checks and is CLEAN/MERGEABLE. Codex exact-head review found no major issues, all review threads are resolved, and exact current-master binding, validators, scope, artifact SHAs, frozen snapshot, 17/17 language-only BLOCKED aggregate, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
-    }
-  ],
-  "updated_at": "2026-08-01T09:53:06Z"
+      {
+        "at": "2026-08-01T08:56:33Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed and pushed the fresh rework-07 independent W9 BLOCKED evidence as 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439, then opened ready PR #1938. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
+      },
+      {
+        "at": "2026-08-01T09:06:43Z",
+        "status": "blocked_review_correction_local_verified",
+        "summary": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks and was MERGEABLE/CLEAN before exact-head review correctly identified the omitted Article 55 language blocker and the rework-06/rework-07 manifest branch mismatch. Expanded the independent blocker set to exactly Articles 55 and 59, preserved the byte-identical producer payload and all-false permissions, and repaired the manifest branch. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. The prior ledger follow-up already populated commit_sha; correction-commit binding, review-thread resolution, and fresh required checks remain pending."
+      },
+      {
+        "at": "2026-08-01T09:08:38Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the exact-head review correction as efb8bfae8d5baaf0a02f91fd0046524dd429618b and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Article 55 and Article 59 language naturalness; producer payload and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T09:15:20Z",
+        "status": "blocked_review_correction_local_verified",
+        "summary": "PR #1938 head 33681c411b000ac4b2f4dd2801ef0e7ea4dda7e8 passed all 11 required checks, and the first three review threads were resolved. Fresh exact-head review correctly identified omitted Article 58 language defects. Merged current main dc16e66243d7d2cf2cc79ad94382d3dd3c05dbac, rebound only the non-immutable candidate base to CONTROL master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1, and expanded the independent blocker set to exactly Articles 55, 58, and 59. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T09:16:54Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the second exact-head review correction as caf33138af95769f88033bd14f244e0dcb373aa5 and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Articles 55, 58, and 59 language naturalness; producer payload and every write/release permission remain unchanged. Article 58 thread resolution and fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T09:23:28Z",
+        "status": "blocked_review_correction_local_verified",
+        "summary": "PR #1938 head 76ae1c34d48b6f8eb1188fb7787ac1eeee4d9b45 passed all 11 required checks and received fresh exact-head review. That review correctly identified ten additional rows with reader-visible language defects. Expanded the independent blocker set to exactly Articles 02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59; Articles 01, 05, 06, and 09 pass all eight checks. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T09:24:58Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the complete 13-row language blocker correction as 9aca8e333db68f0d89e1cf76d9f77ca7c985768d and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T09:30:27Z",
+        "status": "blocked_review_correction_local_verified",
+        "summary": "PR #1938 head 23d4a1cf0539ff55b658b0b99e494c8394cf2b1a passed all 11 required checks and received fresh exact-head review. That review correctly found language defects in the remaining Articles 01, 05, 06, and 09 and a stale master SHA in validator evidence. Expanded the independent blocker set to all 17 rows and corrected the validator evidence to current master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T09:31:54Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the final all-17-row language blocker correction as 4dcfcac5342e71de5a4863f38493dae5ed200151 and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Five review-thread resolutions and fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T09:43:08Z",
+        "status": "blocked_current_main_rebind_local_verified",
+        "summary": "PR #1938 head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c passed all 11 required checks, remained CLEAN/MERGEABLE, had zero unresolved threads, and received a Codex exact-head review with no major issues. Current main then advanced through unrelated W2 QA/CONTROL merges to 8d94a84da9564a0a3a6cef25bffaefa0f5984b17. Merged current main and rebound only the non-immutable candidate base to master SHA 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. The exact Article package, all-17-row BLOCKED verdict, frozen snapshot, and all-false permissions are unchanged."
+      },
+      {
+        "at": "2026-08-01T09:44:30Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the current-master candidate rebind as 29599481da4522dca83f86a1a4e89c1e8f36db90 and bound commit_sha to that exact locally verified head. The exact Article package, all-17-row BLOCKED verdict, report and row-evidence SHAs, snapshot, and every write/release permission remain unchanged. Fresh required checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-08-01T09:53:06Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1938 exact checked head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required checks and is CLEAN/MERGEABLE. Codex exact-head review found no major issues, all review threads are resolved, and exact current-master binding, validators, scope, artifact SHAs, frozen snapshot, 17/17 language-only BLOCKED aggregate, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T10:18:52.851Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",

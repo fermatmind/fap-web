@@ -13,14 +13,13 @@ This producer package contains exactly 17 English Article candidates bound to th
 - China and Gaokao context remains present where material.
 - Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework-07
+## W9-directed producer rework-08
 
-- Blocked frozen package SHA: `f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b`.
-- Independent W9 BLOCKED report SHA: `0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b`.
-- Independent 17-row evidence SHA: `aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e`.
-- Repaired row: W3-ARTICLE-59 only.
-- The other 16 rows remain reader-content-identical because independent W9 passed them.
-- The repair addresses only W9's three recorded language-naturalness findings: one sentence, one table header, and one decision question.
+- Blocked frozen package SHA: `0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89`.
+- Independent W9 BLOCKED report SHA: `07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1`.
+- Independent 17-row evidence SHA: `8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32`.
+- Repaired rows: all 17 registered W3 Article rows.
+- Repairs address only the complete-body language-naturalness defects recorded by independent W9; identities, headings, links, claims, and media omission remain in scope for fresh verification.
 - The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates
