@@ -28319,6 +28319,30 @@ prs:
     content_authority: backend
     repository_rule_impact: frozen producer package only; backend authority and frontend no-fallback rules remain unchanged
 
+  - id: EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01
+    repo: fap-web
+    branch: codex/en-parity-control-w2-package-frozen-01
+    base: main
+    title: "EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01: accept the frozen Big Five English parity package"
+    depends_on: [EN-PARITY-W2-BIG5-PACKAGE-FROZEN-01]
+    mode: execute
+    train_scope: w2_big5_package_frozen_control_acceptance
+    status: in_progress
+    scope: ["Accept only the exact W2 package_frozen candidate and preserve all W9/import/runtime/release gates as false."]
+    allowed_paths: [docs/seo/generated/en-content-parity-control-master.v1.json, tests/contracts/en-content-parity-control-master.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/sidecar_issues.md, generated/pr-train-sidecar-issues/sidecar_issues.json]
+    do_not: ["Modify producer package payload, other lanes, CMS, database, runtime, SEO, import, publication, or deploy state."]
+    required_local_checks: ["candidate validator pre-transition", "master validator", "focused parity contract", "W2 frozen SHA/lineage/count/permission reconciliation", "git diff --check", "exact scope validation"]
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
   - id: EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01
     repo: fap-web
     branch: codex/en-parity-w2-big5-package-in-progress-01
