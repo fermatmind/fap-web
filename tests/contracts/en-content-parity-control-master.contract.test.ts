@@ -634,9 +634,9 @@ describe("English content parity control master", () => {
       permissions: Permissions;
     };
     expect(w4Candidate).toMatchObject({
-      base_manifest_sha256: "585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1",
-      package_sha256: "b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce",
-      proposed_status: "inventory_frozen",
+      base_manifest_sha256: "8e0b79e5db6b8bfeac0cd3bf899e70cb93e4fed8815a92b6cab23eca03102ed1",
+      package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+      proposed_status: "package_frozen",
       gate_evidence: {
         row_count: 14,
         asset_ids: ["ENPARITY-W4-RIASEC-DEEP-ASSETS"],

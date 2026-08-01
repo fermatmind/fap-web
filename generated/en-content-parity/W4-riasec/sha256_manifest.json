@@ -2,11 +2,11 @@
   "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "05bad8383ab32e188ea25940d1874b3d711c8a413c23fd81ec61e9dcd2485761"
+      "sha256": "5276250117b79f72db175381efa3e2be50ac86e6c6b77bc4fd27204c60091ee1"
     },
     {
       "path": "assets.jsonl",
@@ -14,28 +14,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "6a52a7d8610a1573f238ddef2810e9f90ddfcbbcf8232746d1f465e725d177c0"
+      "sha256": "d328459748e098416a9e2dd4b1776cf8687e010cd12608c5ec753c31129cdc1a"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "903da5e856ca5e338528b014203aec5d692d9fc3be1a75b770d2418e88dead5e"
+      "sha256": "0c135ce41b046d7a82c84ed29d33a560fb646f00a821e417c539c64c06a25ce8"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "9e91b9c3698a645786a0a442f06a91c175053f6832d7e2ca1ca67ee82207b91a"
+      "sha256": "fe54b011b653ae60ce031cd9ad6f975d76c42408f37a2b99d8697fa61a5f56f9"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "419b1301f7df3850ee334c39bc6245effe78dedc0401bdc9e51945197922530d"
+      "sha256": "d6355b1ceb820c4371edf478ec03d6ea123171099b102cc7b37472d05cbd9a22"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "6d48201c7508f97cc11aeacf3d34a14f52808a8967969d2ce9319a13c7e3697c"
+      "sha256": "e06d954c4692cb06c8fbfd96f5e89354bbb9803fb3a4cca150671de5169c2bc2"
     },
     {
       "path": "handoff.md",
-      "sha256": "28de62a92423ae88a2d73a88ba3dc265ccea165254b96eb2d285747b4eebf66e"
+      "sha256": "da2c3889eb3d3ec385153d1a6c928569d113d0b6fae8e75141b1ec75ef7a6a0b"
     }
   ],
-  "package_sha256": "b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce"
+  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33"
 }

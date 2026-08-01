@@ -5,9 +5,23 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
-  "proposed_status": "inventory_frozen",
-  "base_manifest_sha256": "585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "base_manifest_sha256": "8e0b79e5db6b8bfeac0cd3bf899e70cb93e4fed8815a92b6cab23eca03102ed1",
+  "sha256_manifest_path": "generated/en-content-parity/W4-riasec/sha256_manifest.json",
+  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+  "proposed_status": "package_frozen",
+  "gate_evidence": {
+    "gate": "package_frozen",
+    "report_path": "editorial_review.json",
+    "report_sha256": "d6355b1ceb820c4371edf478ec03d6ea123171099b102cc7b37472d05cbd9a22",
+    "report_in_package": true,
+    "owner_lane_id": "W4",
+    "verdict": null,
+    "asset_ids": [
+      "ENPARITY-W4-RIASEC-DEEP-ASSETS"
+    ],
+    "row_count": 14
+  },
   "asset_updates": [
     {
       "asset_id": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
@@ -29,20 +43,6 @@
       "notes": "The reader boundary is career-interest direction, not precise career matching."
     }
   ],
-  "package_sha256": "b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce",
-  "sha256_manifest_path": "generated/en-content-parity/W4-riasec/sha256_manifest.json",
-  "gate_evidence": {
-    "gate": "inventory_frozen",
-    "report_path": "source_ledger.json",
-    "report_sha256": "903da5e856ca5e338528b014203aec5d692d9fc3be1a75b770d2418e88dead5e",
-    "report_in_package": true,
-    "owner_lane_id": "W4",
-    "verdict": null,
-    "asset_ids": [
-      "ENPARITY-W4-RIASEC-DEEP-ASSETS"
-    ],
-    "row_count": 14
-  },
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

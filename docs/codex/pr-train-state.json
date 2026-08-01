@@ -55241,5 +55241,31 @@
     "id":"EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01","repo":"fap-web","title":"EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 produce six-dimension and core-cost-shadow English segment","base":"main","branch":"codex/en-parity-w4-riasec-dimension-assets-01","depends_on":["EN-PARITY-W4-RIASEC-INVENTORY-01"],"status":"local_verified","commit_sha":null,"pr_url":null,
     "checks":{"serial_predecessor":{"status":"pass","evidence":"W4 inventory is merged and CONTROL accepted inventory_frozen."},"source_authority":{"status":"pass","evidence":"fap-api origin/main 660280d00a57e58bd8bc76608e19de2492c03f53 supplies the frozen 42 dimension rows."}},"failure_reason":null,"merged_at":null,"remote_branch_deleted":false,"local_cleanup_executed":false,"scope_validation":{"allowed_paths_only":true,"local_validation_passed":true,"github_checks_green":false,"post_merge_revalidated":false},"production_write_execution":false,"database_mutation":false,"cms_mutation":false,"publish_allowed":false,"search_channel_action":false,"url_submission":false,"deploy_allowed":false,
     "history":[{"at":"2026-08-01T23:25:00+08:00","status":"local_verified","summary":"Produced and validated exactly 42 candidates (24 G01 and 18 G02); control contracts, lint, master validation, no-CJK, all-false permissions and aggregate af75991ad0eef29ff7669014fa3d5618f8c78e20d0a3a17d71b5ac37002395fd pass."}],"updated_at":"2026-08-01T23:25:00+08:00"
+  },
+  "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01": {
+    "id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01 aggregate and freeze the exact 1550-row producer package",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-package-freeze-01",
+    "depends_on": ["EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01", "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01", "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01", "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01", "EN-PARITY-W4-RIASEC-140Q-ASSETS-01", "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01", "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01", "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01", "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {"dependencies": {"status": "pass", "evidence": "All nine W4 producer segment PRs and the separate Runtime Locale backend PR are merged; CONTROL has moved W4 to package_in_progress."}, "package_integrity": {"status": "pass", "evidence": "The candidate aggregates 14 logical groups and 1550 unique unpublished English rows with 15 normalized pairs and 3/2/2 safe surfaces."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-01T16:10:00Z", "status": "in_progress", "summary": "Started from CONTROL-accepted W4 package_in_progress. Aggregation is candidate-only, binds the exact 1550-row payload, and keeps all write/release permissions false."}, {"at": "2026-08-02T00:12:00+08:00", "status": "local_verified", "summary": "Control validator passed for the package_frozen candidate; the immutable package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 recomputed identically twice; 14/1550, 15 pairs, and 3/2/2 surfaces reconcile; the focused control contract passed 65/65. W9, import, runtime, and release remain deferred."}],
+    "updated_at": "2026-08-02T00:12:00+08:00"
   }
 }
