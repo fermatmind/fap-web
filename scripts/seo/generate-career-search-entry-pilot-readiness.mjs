@@ -131,7 +131,7 @@ export function inspectHtml(html, expectedUrl) {
   const googlebotTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "googlebot");
   const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
   const googlebotValues = googlebotTags.map((tag) => normalizeRobots(attribute(tag, "content")));
-  const titleMatch = head.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i);
+  const titleMatches = [...head.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/gi)];
   const jsonLdObjects = [];
   for (const match of String(html).matchAll(/(<script\b[^>]*>)([\s\S]*?)<\/script\b[^>]*>/gi)) {
     if (attribute(match[1], "type").toLowerCase() !== "application/ld+json") continue;
@@ -177,13 +177,14 @@ export function inspectHtml(html, expectedUrl) {
     index_follow: robotsValues.length === 1 && robotsValues[0] === "index,follow"
       && googlebotValues.length <= 1 && googlebotValues.every((value) => value === "index,follow"),
     metadata: {
-      title: decodeHtmlEntities(titleMatch?.[1] || ""),
+      title: titleMatches.length === 1 ? decodeHtmlEntities(titleMatches[0][1]) : "",
       description: metaContent(metaTags, "name", "description"),
       og_title: metaContent(metaTags, "property", "og:title"),
       og_description: metaContent(metaTags, "property", "og:description"),
       twitter_title: metaContent(metaTags, "name", "twitter:title"),
       twitter_description: metaContent(metaTags, "name", "twitter:description"),
     },
+    title_count: titleMatches.length,
     jsonld_types: types,
     faq_question_count: faqQuestionCount,
     faq_pairs: faqPairs,
@@ -575,6 +576,14 @@ function apiUrl(origin, route) {
   return `${origin}/api${route}`;
 }
 
+export function resolveSeoAuthority({ endpointStatus, endpointSeo, detailStatus, detailSeo }) {
+  const endpointUsable = endpointStatus === 200 && Object.keys(record(endpointSeo)).length > 0;
+  const detailUsable = detailStatus === 200 && Object.keys(record(detailSeo)).length > 0;
+  if (endpointUsable) return { seo: endpointSeo, status: 200, source: "career_seo_endpoint" };
+  if (detailUsable) return { seo: detailSeo, status: 200, source: "career_detail_seo_contract" };
+  return { seo: {}, status: endpointStatus, source: "unresolved" };
+}
+
 async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, observedAt }) {
   const apiLocale = locale === "zh" ? "zh-CN" : "en";
   const url = `${args.siteUrl}/${locale}/career/jobs/${slug}`;
@@ -587,8 +596,9 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const seoPayload = record(seoResult.payload);
   const endpointSeo = record(seoPayload.seo_surface_v1);
   const detailSeo = record(detail.seo_contract);
-  const seo = Object.keys(endpointSeo).length > 0 ? endpointSeo : detailSeo;
-  const effectiveSeoStatus = Object.keys(seo).length > 0 && detailResult.status === 200 ? 200 : seoResult.status;
+  const resolvedSeo = resolveSeoAuthority({ endpointStatus: seoResult.status, endpointSeo, detailStatus: detailResult.status, detailSeo });
+  const seo = resolvedSeo.seo;
+  const effectiveSeoStatus = resolvedSeo.status;
   const stats = detailStats(detail, locale);
   const renderedStats = publicHtmlStats(pageResult.payload, locale);
   const renderAuthorityMatch = stats.render_markers.length >= 3 && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
@@ -602,7 +612,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     detail_canonical_slug: string(record(detail.identity).canonical_slug),
     seo_authority_status: effectiveSeoStatus,
     seo_endpoint_status: seoResult.status,
-    seo_source: Object.keys(endpointSeo).length > 0 ? "career_seo_endpoint" : "career_detail_seo_contract",
+    seo_source: resolvedSeo.source,
     page_status: pageResult.status,
     page_final_url: pageResult.final_url,
     x_robots_tag: pageResult.x_robots_tag,

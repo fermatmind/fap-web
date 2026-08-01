@@ -5,12 +5,12 @@
 `HOLD`; no career Search Channel canary package is authorized.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T08:05:14.027Z`.
+- Read-only observation: `2026-08-01T08:17:09.890Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
 - Complete gate passes: 0; rejected without gate reduction: 50.
 - Hold reason: `insufficient_eligible_candidates:0/10`.
 - Target-set SHA-256: `null`.
-- Artifact SHA-256: `a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c`.
+- Artifact SHA-256: `aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a`.
 - Rollback batch ID: `null`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -27,8 +27,8 @@ The following gates remain mandatory for every future selected URL; the frozen r
 
 - detail API HTTP 200 and current backend `search_entry_authority` eligibility;
 - exact detail payload `identity.canonical_slug` equality with the requested authority row;
-- current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; actual dedicated SEO-endpoint status is preserved separately, while an approved detail `seo_contract` fallback is explicitly labeled and counted rather than rewritten as an endpoint 200;
-- exact crawler-visible title, description, Open Graph title/description, and Twitter title/description equality with the current backend SEO authority, with only a live metadata observation SHA frozen;
+- current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; a dedicated SEO-endpoint payload is eligible only on endpoint HTTP 200, while a valid detail `seo_contract` fallback is explicitly labeled and counted rather than rewriting the failed endpoint as a 200;
+- exact crawler-visible title, description, Open Graph title/description, and Twitter title/description equality with the current backend SEO authority; every field, including `<title>`, must occur exactly once, with only a live metadata observation SHA frozen;
 - public page HTTP 200, exact `<head>` self-canonical, exactly one non-conflicting `<head>` `index,follow` robots meta, and no conflicting optional Googlebot-specific directive in the explicit Googlebot view;
 - no non-indexable `X-Robots-Tag` response directive (`noindex`, `nofollow`, or `none`);
 - backend sitemap-source membership for both locales;

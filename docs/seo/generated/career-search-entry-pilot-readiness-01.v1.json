@@ -1,7 +1,7 @@
 {
   "schema_version": "career.search_entry_pilot_readiness.v1",
   "task": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
-  "observed_at": "2026-08-01T08:05:14.027Z",
+  "observed_at": "2026-08-01T08:17:09.890Z",
   "mode": "read_only_backend_authority_and_public_surface_observation",
   "source": {
     "site_url": "https://fermatmind.com",
@@ -44,54 +44,36 @@
       "approved_candidate": 46
     },
     "rejection_reason_counts": {
-      "en_breadcrumb_schema_invalid": 3,
-      "en_canonical_mismatch": 32,
-      "en_faq_entities_invalid": 3,
-      "en_faq_schema_authority_mismatch": 11,
-      "en_faq_schema_mismatch": 11,
-      "en_metadata_authority_mismatch": 35,
-      "en_not_index_follow": 32,
-      "en_rendered_authority_marker_mismatch": 34,
-      "en_required_schema_missing": 3,
-      "en_thin_or_shell": 11,
-      "zh_breadcrumb_schema_invalid": 4,
-      "zh_canonical_mismatch": 40,
-      "zh_faq_entities_invalid": 4,
-      "zh_faq_schema_authority_mismatch": 9,
-      "zh_faq_schema_mismatch": 9,
-      "zh_metadata_authority_mismatch": 41,
-      "zh_not_index_follow": 40,
-      "zh_rendered_authority_marker_mismatch": 33,
-      "zh_required_schema_missing": 4,
-      "zh_thin_or_shell": 9,
-      "zh_unsupported_guarantee_claim": 44,
-      "en_unsupported_guarantee_claim": 16,
+      "en_breadcrumb_schema_invalid": 2,
+      "en_canonical_mismatch": 25,
+      "en_faq_entities_invalid": 2,
+      "en_faq_schema_authority_mismatch": 2,
+      "en_faq_schema_mismatch": 2,
+      "en_metadata_authority_mismatch": 28,
+      "en_not_index_follow": 25,
+      "en_rendered_authority_marker_mismatch": 31,
+      "en_required_schema_missing": 2,
+      "en_thin_or_shell": 2,
+      "zh_breadcrumb_schema_invalid": 3,
+      "zh_canonical_mismatch": 30,
+      "zh_faq_entities_invalid": 3,
+      "zh_faq_schema_authority_mismatch": 4,
+      "zh_faq_schema_mismatch": 4,
+      "zh_metadata_authority_mismatch": 32,
+      "zh_not_index_follow": 30,
+      "zh_rendered_authority_marker_mismatch": 32,
+      "zh_required_schema_missing": 3,
+      "zh_thin_or_shell": 4,
+      "zh_unsupported_guarantee_claim": 48,
+      "en_unsupported_guarantee_claim": 18,
       "en_unsupported_public_guarantee_claim": 5,
-      "en_page_final_url_mismatch": 1,
-      "en_page_not_200": 1,
-      "content_version_locale_drift": 5,
-      "en_approved_package_projection_mismatch": 8,
-      "en_detail_api_not_200": 8,
-      "en_detail_canonical_slug_mismatch": 8,
-      "en_review_not_approved": 8,
-      "en_review_stale": 8,
-      "reviewer_evidence_locale_drift": 5,
-      "zh_page_final_url_mismatch": 1,
-      "zh_page_not_200": 1,
-      "zh_approved_package_projection_mismatch": 5,
-      "zh_detail_api_not_200": 5,
-      "zh_detail_canonical_slug_mismatch": 5,
-      "zh_review_not_approved": 5,
-      "zh_review_stale": 5,
-      "en_seo_authority_not_200": 4,
-      "en_seo_canonical_mismatch": 4,
-      "en_seo_not_indexable": 4,
-      "en_seo_sha_missing": 4,
-      "seo_contract_locale_drift": 2,
-      "zh_seo_authority_not_200": 2,
-      "zh_seo_canonical_mismatch": 2,
-      "zh_seo_not_indexable": 2,
-      "zh_seo_sha_missing": 2
+      "content_version_locale_drift": 1,
+      "reviewer_evidence_locale_drift": 1,
+      "zh_approved_package_projection_mismatch": 1,
+      "zh_detail_api_not_200": 1,
+      "zh_detail_canonical_slug_mismatch": 1,
+      "zh_review_not_approved": 1,
+      "zh_review_stale": 1
     }
   },
   "result": "HOLD",
@@ -172,6 +154,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -185,6 +170,7 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_metadata_authority_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -196,6 +182,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -211,9 +200,7 @@
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
-        "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -252,9 +239,6 @@
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -264,6 +248,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_unsupported_guarantee_claim",
         "en_unsupported_public_guarantee_claim",
         "zh_canonical_mismatch",
@@ -279,9 +266,6 @@
       "reasons": [
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -291,11 +275,11 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -305,18 +289,21 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_breadcrumb_schema_invalid",
+        "en_rendered_authority_marker_mismatch",
+        "en_unsupported_guarantee_claim",
+        "zh_rendered_authority_marker_mismatch",
+        "zh_unsupported_guarantee_claim"
+      ]
+    },
+    {
+      "slug": "biomedical-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
         "en_canonical_mismatch",
-        "en_faq_entities_invalid",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
-        "en_page_final_url_mismatch",
-        "en_page_not_200",
         "en_rendered_authority_marker_mismatch",
-        "en_required_schema_missing",
-        "en_thin_or_shell",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -326,44 +313,10 @@
       ]
     },
     {
-      "slug": "biomedical-engineers",
-      "tier": "approved_candidate",
-      "quality_score": 0,
-      "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
-        "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift",
-        "zh_breadcrumb_schema_invalid",
-        "zh_canonical_mismatch",
-        "zh_faq_entities_invalid",
-        "zh_faq_schema_authority_mismatch",
-        "zh_faq_schema_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
-        "zh_page_final_url_mismatch",
-        "zh_page_not_200",
-        "zh_rendered_authority_marker_mismatch",
-        "zh_required_schema_missing",
-        "zh_thin_or_shell",
-        "zh_unsupported_guarantee_claim"
-      ]
-    },
-    {
       "slug": "biological-technicians",
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
@@ -397,9 +350,6 @@
       "reasons": [
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -414,9 +364,6 @@
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -426,9 +373,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
         "zh_rendered_authority_marker_mismatch",
@@ -440,11 +384,11 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_unsupported_guarantee_claim",
         "en_unsupported_public_guarantee_claim",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_unsupported_guarantee_claim"
       ]
     },
@@ -453,9 +397,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
         "zh_rendered_authority_marker_mismatch",
@@ -465,19 +406,13 @@
     {
       "slug": "civil-engineers",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift",
+        "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -505,6 +440,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -516,6 +454,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_unsupported_guarantee_claim"
       ]
     },
@@ -528,6 +469,9 @@
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -537,12 +481,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_unsupported_guarantee_claim"
       ]
     },
@@ -560,114 +498,45 @@
     {
       "slug": "computer-hardware-engineers",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
         "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "zh_approved_package_projection_mismatch",
-        "zh_canonical_mismatch",
-        "zh_detail_api_not_200",
-        "zh_detail_canonical_slug_mismatch",
-        "zh_faq_schema_authority_mismatch",
-        "zh_faq_schema_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
-        "zh_review_not_approved",
-        "zh_review_stale",
-        "zh_thin_or_shell"
+        "zh_unsupported_guarantee_claim"
       ]
     },
     {
       "slug": "computer-programmers",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "en_approved_package_projection_mismatch",
         "en_canonical_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "zh_approved_package_projection_mismatch",
         "zh_canonical_mismatch",
-        "zh_detail_api_not_200",
-        "zh_detail_canonical_slug_mismatch",
-        "zh_faq_schema_authority_mismatch",
-        "zh_faq_schema_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
-        "zh_review_not_approved",
-        "zh_review_stale",
-        "zh_thin_or_shell"
+        "zh_unsupported_guarantee_claim"
       ]
     },
     {
       "slug": "computer-support-specialists",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_seo_authority_not_200",
-        "en_seo_canonical_mismatch",
-        "en_seo_not_indexable",
-        "en_seo_sha_missing",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift",
-        "seo_contract_locale_drift",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_unsupported_guarantee_claim"
       ]
     },
     {
       "slug": "construction-managers",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
         "en_canonical_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
-        "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_seo_authority_not_200",
-        "en_seo_canonical_mismatch",
-        "en_seo_not_indexable",
-        "en_seo_sha_missing",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift",
-        "seo_contract_locale_drift",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -677,75 +546,28 @@
     {
       "slug": "cost-estimators",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
+        "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_seo_authority_not_200",
-        "en_seo_canonical_mismatch",
-        "en_seo_not_indexable",
-        "en_seo_sha_missing",
-        "en_thin_or_shell",
-        "zh_approved_package_projection_mismatch",
-        "zh_detail_api_not_200",
-        "zh_detail_canonical_slug_mismatch",
-        "zh_faq_schema_authority_mismatch",
-        "zh_faq_schema_mismatch",
+        "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
-        "zh_review_not_approved",
-        "zh_review_stale",
-        "zh_seo_authority_not_200",
-        "zh_seo_canonical_mismatch",
-        "zh_seo_not_indexable",
-        "zh_seo_sha_missing",
-        "zh_thin_or_shell"
+        "zh_unsupported_guarantee_claim"
       ]
     },
     {
       "slug": "credit-counselors",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "en_approved_package_projection_mismatch",
         "en_canonical_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_authority_mismatch",
-        "en_faq_schema_mismatch",
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
-        "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_seo_authority_not_200",
-        "en_seo_canonical_mismatch",
-        "en_seo_not_indexable",
-        "en_seo_sha_missing",
-        "en_thin_or_shell",
-        "zh_approved_package_projection_mismatch",
-        "zh_canonical_mismatch",
-        "zh_detail_api_not_200",
-        "zh_detail_canonical_slug_mismatch",
-        "zh_faq_schema_authority_mismatch",
-        "zh_faq_schema_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
-        "zh_rendered_authority_marker_mismatch",
-        "zh_review_not_approved",
-        "zh_review_stale",
-        "zh_seo_authority_not_200",
-        "zh_seo_canonical_mismatch",
-        "zh_seo_not_indexable",
-        "zh_seo_sha_missing",
-        "zh_thin_or_shell"
+        "zh_unsupported_guarantee_claim"
       ]
     },
     {
@@ -754,9 +576,7 @@
       "quality_score": 86,
       "reasons": [
         "en_metadata_authority_mismatch",
-        "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_unsupported_guarantee_claim"
       ]
     },
@@ -781,49 +601,16 @@
     {
       "slug": "economists",
       "tier": "approved_candidate",
-      "quality_score": 60,
-      "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "en_rendered_authority_marker_mismatch",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
-        "zh_rendered_authority_marker_mismatch",
-        "zh_unsupported_guarantee_claim"
-      ]
-    },
-    {
-      "slug": "electrical-and-electronics-engineering-technicians",
-      "tier": "approved_candidate",
-      "quality_score": 60,
-      "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "zh_unsupported_guarantee_claim"
-      ]
-    },
-    {
-      "slug": "electrical-and-electronics-engineers",
-      "tier": "approved_candidate",
       "quality_score": 0,
       "reasons": [
         "content_version_locale_drift",
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "reviewer_evidence_locale_drift",
         "zh_approved_package_projection_mismatch",
-        "zh_canonical_mismatch",
         "zh_detail_api_not_200",
         "zh_detail_canonical_slug_mismatch",
         "zh_faq_schema_authority_mismatch",
         "zh_faq_schema_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_review_not_approved",
         "zh_review_stale",
@@ -831,13 +618,31 @@
       ]
     },
     {
+      "slug": "electrical-and-electronics-engineering-technicians",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
+        "zh_unsupported_guarantee_claim"
+      ]
+    },
+    {
+      "slug": "electrical-and-electronics-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_rendered_authority_marker_mismatch",
+        "zh_rendered_authority_marker_mismatch",
+        "zh_unsupported_guarantee_claim"
+      ]
+    },
+    {
       "slug": "electro-mechanical-technicians",
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -899,9 +704,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -913,13 +715,7 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch",
         "zh_unsupported_guarantee_claim"
       ]
@@ -945,9 +741,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow",
@@ -959,9 +752,7 @@
       "tier": "stable",
       "quality_score": 86,
       "reasons": [
-        "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "zh_breadcrumb_schema_invalid",
         "zh_canonical_mismatch",
         "zh_faq_entities_invalid",
@@ -1008,9 +799,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
@@ -1021,5 +809,5 @@
       ]
     }
   ],
-  "artifact_sha256": "a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c"
+  "artifact_sha256": "aa09e4fad1d85ab70bc19f96aaeffbca792948b1c7ff9862e92d6d08b737307a"
 }

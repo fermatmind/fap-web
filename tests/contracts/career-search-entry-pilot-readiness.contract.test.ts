@@ -9,6 +9,7 @@ import {
   fetchStatus,
   inspectHtml,
   publicHtmlStats,
+  resolveSeoAuthority,
   selectPilot,
   sha256,
   validateExactTargetShape,
@@ -243,6 +244,30 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     const url = "https://fermatmind.com/en/career/jobs/career-01";
     const duplicate = html(url, "Career 01").replace("</head>", '<meta name="description" content="stale description"/></head>');
     expect(inspectHtml(duplicate, url).metadata.description).toBe("");
+  });
+
+  it("rejects duplicate title elements instead of accepting the first value", () => {
+    const url = "https://fermatmind.com/en/career/jobs/career-01";
+    const duplicate = html(url, "Career 01").replace("</head>", "<title>Stale title</title></head>");
+    expect(inspectHtml(duplicate, url)).toMatchObject({ title_count: 2, metadata: { title: "" } });
+  });
+
+  it("ignores a non-200 SEO endpoint body and uses the valid detail fallback", () => {
+    const staleEndpoint = { metadata_fingerprint: "stale-error-body" };
+    const detailSeo = { metadata_fingerprint: "current-detail-contract" };
+    expect(resolveSeoAuthority({ endpointStatus: 500, endpointSeo: staleEndpoint, detailStatus: 200, detailSeo })).toEqual({
+      seo: detailSeo,
+      status: 200,
+      source: "career_detail_seo_contract",
+    });
+  });
+
+  it("does not resolve SEO authority from failed endpoint and detail requests", () => {
+    expect(resolveSeoAuthority({ endpointStatus: 503, endpointSeo: { stale: true }, detailStatus: 500, detailSeo: { stale: true } })).toEqual({
+      seo: {},
+      status: 503,
+      source: "unresolved",
+    });
   });
 
   it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
