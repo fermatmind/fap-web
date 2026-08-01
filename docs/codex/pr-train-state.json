@@ -52909,23 +52909,23 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; final 17-row evidence SHA256 is 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; final blocked candidate SHA256 is 4f6db48e9f3cad65950d049cd8ff666f4255ac28cb65db7e9a7bed3b7e692716; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
+        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; final 17-row evidence SHA256 is 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; current-master-rebound blocked candidate SHA256 is bc76868dcdb543198311464030922bb8e5710d15d650c7754dbe2fe08482ec51; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Node 24.18.1 validate-en-content-parity-control accepts both the fresh independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1 with zero errors."
+        "evidence": "Node 24.18.1 validate-en-content-parity-control accepts both the fresh independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b with zero errors."
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "After expanding the language-only blocker set to all 17 rows and correcting current-master evidence, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 17/17 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
+        "evidence": "After merging current main and rebinding only the candidate base, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 17/17 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1938 head 23d4a1cf0539ff55b658b0b99e494c8394cf2b1a passed all 11 required checks before fresh exact-head review expanded the blocker set to all 17 rows. Fresh required checks are pending after the final scoped evidence correction."
+        "evidence": "PR #1938 head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c passed all 11 required checks before current main advanced and required an exact-master candidate rebind. Fresh required checks are pending after the current-main merge."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "All earlier findings are resolved. Fresh exact-head review correctly identified language defects in the four remaining rows and a stale master SHA in validator evidence; all five findings are being corrected in scope. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
+        "evidence": "All review findings are resolved, and Codex review of head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c reported no major issues. Current main then advanced, so fresh exact-head review, required checks, scope revalidation, and final mergeability verification remain pending after the candidate-only rebind."
       }
     },
     "failure_reason": "Fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects in all 17 frozen Article rows. W9 must report BLOCKED and cannot modify the producer payload.",
@@ -53132,9 +53132,14 @@
       "at": "2026-08-01T09:31:54Z",
       "status": "blocked_pr_open",
       "summary": "Committed the final all-17-row language blocker correction as 4dcfcac5342e71de5a4863f38493dae5ed200151 and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Five review-thread resolutions and fresh required checks are pending."
+    },
+    {
+      "at": "2026-08-01T09:43:08Z",
+      "status": "blocked_current_main_rebind_local_verified",
+      "summary": "PR #1938 head 9bc51787d1ca7c47bb3fe1ab46384751a0a7372c passed all 11 required checks, remained CLEAN/MERGEABLE, had zero unresolved threads, and received a Codex exact-head review with no major issues. Current main then advanced through unrelated W2 QA/CONTROL merges to 8d94a84da9564a0a3a6cef25bffaefa0f5984b17. Merged current main and rebound only the non-immutable candidate base to master SHA 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. The exact Article package, all-17-row BLOCKED verdict, frozen snapshot, and all-false permissions are unchanged."
     }
   ],
-  "updated_at": "2026-08-01T09:31:54Z"
+  "updated_at": "2026-08-01T09:43:08Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
