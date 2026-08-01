@@ -29104,6 +29104,49 @@ prs:
     content_authority: frozen W3 producer package; W9 evidence only
     repository_rule_impact: no runtime or authority transfer; records independent BLOCKED evidence only
 
+  - id: EN-PARITY-CONTROL-W3-ARTICLES-QA-BLOCKED-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-articles-qa-blocked-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-ARTICLES-QA-BLOCKED-01: accept W3 Articles W9 BLOCKED evidence"
+    depends_on: [EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-01]
+    mode: execute
+    train_scope: control_w3_articles_accept_exact_w9_blocked_evidence
+    status: in_progress
+    scope:
+      - Accept only the exact W9 BLOCKED evidence from PR #1954 for frozen W3-ARTICLES package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e.
+      - Move W3 and W3-ARTICLES to blocked with retained pre-block states, package SHA, package_frozen lineage, and an exact W9 blocked lineage.
+      - Reconcile the merged PR #1954 train ledger and keep Career Guides, all permissions, CMS, runtime, SEO, publication, search, and deploy state unchanged.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Reset W3-ARTICLES to package_in_progress or repair Article:53.
+      - Modify Producer packages, W9 evidence, Career Guides, CMS, database, importer, runtime, sitemap, llms, canonical, JSON-LD, indexability, publication, search, or deployment state.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/master_manifest_patch.candidate.json before transition
+      - node scripts/seo/validate-w3-articles-w9-qa.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs after transition
+      - pnpm exec vitest run tests/contracts/en-content-parity-w9-w3-articles-independent-qa.contract.test.ts tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec eslint tests/contracts/en-content-parity-control-master.contract.test.ts --max-warnings=0
+      - JSON/YAML parse; exact 17/16/1, Article:53-only blocker, NOT_APPLICABLE page/API, evidence/package SHA, and all-false permission reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CONTROL acceptance of exact W9 BLOCKED evidence only; no Producer or CMS authority transfer
+    repository_rule_impact: records a blocked gate only; no runtime, authority, import, publication, discoverability, or deployment change
+
   - id: EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01
     repo: fap-web
     branch: codex/en-parity-w4-riasec-safe-variants-01
