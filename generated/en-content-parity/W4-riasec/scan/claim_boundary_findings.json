@@ -1,0 +1,136 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_claim_boundary_findings.v1",
+  "lane_id": "W4",
+  "overall_verdict": "HOLD_CONTENT_PRODUCTION_UNTIL_LAUNCH_READY_AND_LOCALE_GAPS_ARE_PLANNED",
+  "findings": [
+    {
+      "id": "CB-01",
+      "severity": "P0",
+      "verdict": "BLOCK",
+      "area": "English deep result projection",
+      "finding": "RiasecDeepCopySlotRegistry assets and locale metadata are fixed to zh-CN while RiasecPublicProjectionService can label the envelope en and still append those slots.",
+      "boundary": "English output must not contain Chinese reader copy; missing English must omit the module.",
+      "evidence": [
+        "fap-api:backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+        "fap-api:backend/app/Services/Riasec/RiasecPublicProjectionService.php"
+      ]
+    },
+    {
+      "id": "CB-02",
+      "severity": "P0",
+      "verdict": "BLOCK",
+      "area": "English activity and feedback surfaces",
+      "finding": "RiasecActivityExplorerService and RiasecExplorationFeedbackOverlayService use zh-CN-only asset paths; English assets are absent.",
+      "boundary": "Do not translate in fap-web and do not fall back to Chinese.",
+      "evidence": [
+        "fap-api:backend/app/Services/Riasec/RiasecActivityExplorerService.php",
+        "fap-api:backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php"
+      ]
+    },
+    {
+      "id": "CB-03",
+      "severity": "P1",
+      "verdict": "BLOCK",
+      "area": "Lifecycle candidate review",
+      "finding": "Seven English share/PDF/history rows exist, but asset_status and review_status remain draft_human_review_required while the loader treats file presence as available.",
+      "boundary": "Runtime safety is not content-complete or review-complete.",
+      "evidence": [
+        "fap-api:backend/content_assets/riasec/share_pdf_history_v1.en.json"
+      ]
+    },
+    {
+      "id": "CB-04",
+      "severity": "P1",
+      "verdict": "REPAIR_REQUIRED",
+      "area": "Frontend locale defense",
+      "finding": "The assembler validates status, slot key, fields, and fallback flags but does not reject an en envelope containing zh-CN slots.",
+      "boundary": "Frontend must fail closed on envelope/slot/route locale mismatch without adding editorial copy.",
+      "evidence": [
+        "fap-web:lib/riasec/resultAssembler.ts"
+      ]
+    },
+    {
+      "id": "CB-05",
+      "severity": "P1",
+      "verdict": "REPAIR_REQUIRED",
+      "area": "Top3 ordered code QA",
+      "finding": "The approved strategy is 20 unordered authored assets plus deterministic ordered emphasis. Runtime can derive 120 ordered codes, while current explicit audit matrix covers 20x3=60 representative codes.",
+      "boundary": "Do not author 120 new assets; extend deterministic QA to 120/120 before English runtime acceptance.",
+      "evidence": [
+        "fap-api:backend/tests/Unit/Services/Riasec/RiasecTop3ChainSlotRegistryTest.php",
+        "fap-api:backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php"
+      ]
+    },
+    {
+      "id": "CB-06",
+      "severity": "P0",
+      "verdict": "PASS",
+      "area": "RIASEC meaning",
+      "finding": "Current declared boundary treats RIASEC as career-interest direction and activity evidence only.",
+      "boundary": "No ability, personality identity, qualification, hiring, job-fit, income, success, or destiny claims.",
+      "evidence": [
+        "fap-web:docs/claims/public-claim-boundary-matrix.md",
+        "fap-api:backend/docs/riasec/riasec-result-content-science-audit-2026-07-02.md"
+      ]
+    },
+    {
+      "id": "CB-07",
+      "severity": "P0",
+      "verdict": "PASS",
+      "area": "60Q and 140Q",
+      "finding": "Forms use different score spaces and current contracts block cross-form raw-score deltas.",
+      "boundary": "140Q is contextual detail, not more accurate; it does not prove 60Q wrong.",
+      "evidence": [
+        "fap-api:backend/app/Services/Riasec/RiasecMeasurementContract.php",
+        "fap-api:backend/app/Services/Riasec/RiasecCompareGuardService.php"
+      ]
+    },
+    {
+      "id": "CB-08",
+      "severity": "P0",
+      "verdict": "PASS",
+      "area": "Feedback and aspirations",
+      "finding": "Current contracts mark feedback and aspirations as overlays that do not mutate measured result or snapshot.",
+      "boundary": "Raw feedback never enters share/PDF/history.",
+      "evidence": [
+        "fap-api:backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php",
+        "fap-api:backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php"
+      ]
+    },
+    {
+      "id": "CB-09",
+      "severity": "P0",
+      "verdict": "PASS",
+      "area": "Private result discoverability",
+      "finding": "Private result route remains noindex and W4 introduces no public indexable surface.",
+      "boundary": "No sitemap, llms, schema, Search Channel, or public release PR is required for W4 parity.",
+      "evidence": [
+        "fap-web:app/(localized)/[locale]/(app)/result/[id]/page.tsx"
+      ]
+    }
+  ],
+  "forbidden_claim_classes": [
+    "ability_or_skill_inference",
+    "personality_identity",
+    "career_qualification",
+    "job_fit",
+    "hiring_suitability",
+    "career_success",
+    "income_prediction",
+    "fixed_destiny",
+    "140q_more_accurate",
+    "60q_wrong",
+    "cross_form_raw_score_delta",
+    "feedback_changes_score_or_code",
+    "occupation_examples_as_matches"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

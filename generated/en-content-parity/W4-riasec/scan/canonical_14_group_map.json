@@ -1,0 +1,581 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_canonical_group_map.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "launch_state": "registered",
+  "status": "not_started",
+  "canonicalization_verdict": "CANONICAL_14_GROUP_MAP_CONFIRMED_WITH_PHYSICAL_ROW_QUALIFICATION",
+  "logical_group_count": 14,
+  "expanded_inventory_row_count": 1550,
+  "physical_en_candidate_rows": 7,
+  "parity_ready_en_rows": 0,
+  "parity_gap_rows": 1550,
+  "master_group_count_interpretation": "Master current_en_count=0 is valid as a count of fully parity-ready logical groups. It is not a physical row count; seven English safe-variant candidate rows exist but none is review/freeze complete.",
+  "candidate_map_delta": {
+    "added": [],
+    "removed": [],
+    "split": [
+      "Candidate safe variant is physically one seven-row backend file but is canonically split into share, PDF, and history groups.",
+      "Candidate 140Q tension/structural difference uses 126 contextual rows in G06 plus seven separate structural-copy slots in G07; row identities are not double-counted."
+    ],
+    "merged": [
+      "Core/cost/shadow is a logical group but is physically nested in the six-dimension asset.",
+      "Low-quality/cautious reading includes quality, profile-shape, confidence, and near-tie runtime rows."
+    ],
+    "no_invented_group": true
+  },
+  "groups": [
+    {
+      "group_id": "W4-G01",
+      "canonical_group_name": "six_dimension_deep_interpretation",
+      "asset_type": "riasec_dimension_deep_interpretation",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "dimension_deep_copy",
+      "runtime_destination": "riasec_public_projection_v2.deep_content_slots_v1 / six_dimension_map",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "R",
+        "I",
+        "A",
+        "S",
+        "E",
+        "C",
+        "base",
+        "high",
+        "medium",
+        "low_safe"
+      ],
+      "expected_expanded_rows": 24,
+      "zh_current_rows": 24,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 24,
+      "schema_state": "schema_ready_file_backed_zh_only",
+      "content_state": "zh_approved_for_production_en_missing",
+      "runtime_consumption_state": "consumed_but_registry_locale_is_fixed_zh_CN",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_review_required",
+      "product_review_state": "english_review_required",
+      "editorial_review_state": "english_authoring_and_naturalness_review_required",
+      "share_safety": "not_direct_share_asset",
+      "PDF_safety": "snapshot_payload_boundary_required",
+      "history_safety": "summary_only_via_separate_variant",
+      "frontend_fail_closed_state": "structural_fail_closed_present_locale_mismatch_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; English rows absent; locale-aware registry missing",
+      "proposed_pr_owner": "W4 producer + fap-api runtime"
+    },
+    {
+      "group_id": "W4-G02",
+      "canonical_group_name": "core_drive_cost_shadow",
+      "asset_type": "riasec_core_drive_cost_shadow",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "core_drive_cost_shadow_copy logical block inside dimension_deep_copy",
+      "runtime_destination": "deep_content_slots_v1 dimension content fields",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "6 dimensions",
+        "core_drive",
+        "possible_cost",
+        "possible_shadow_or_friction"
+      ],
+      "expected_expanded_rows": 18,
+      "zh_current_rows": 18,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 18,
+      "schema_state": "logical_group_nested_in_dimension_asset",
+      "content_state": "zh_present_en_missing",
+      "runtime_consumption_state": "consumed_as_dimension_fields_not_independent_file",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_review_required",
+      "product_review_state": "english_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "not_direct_share_asset",
+      "PDF_safety": "bounded_interest_interpretation_only",
+      "history_safety": "not_direct_history_asset",
+      "frontend_fail_closed_state": "locale_mismatch_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; no English nested fields",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G03",
+      "canonical_group_name": "pair_blend_15_unordered",
+      "asset_type": "riasec_pair_blend",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "pair_blend_copy",
+      "runtime_destination": "deep_content_slots_v1 / pair_blend",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "15 unordered pairs"
+      ],
+      "expected_expanded_rows": 15,
+      "zh_current_rows": 15,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 15,
+      "schema_state": "15_of_15_schema_and_registry_coverage",
+      "content_state": "zh_15_authored_en_0",
+      "runtime_consumption_state": "backend_selected_unordered_pair_fail_closed",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_15_of_15_review_required",
+      "product_review_state": "english_naming_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "pair_expression_requires_share_variant",
+      "PDF_safety": "bounded_pair_copy_only",
+      "history_safety": "summary_only",
+      "frontend_fail_closed_state": "missing_unknown_status_guard_present_locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 15 English rows absent",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G04",
+      "canonical_group_name": "top3_code_activity_composition",
+      "asset_type": "riasec_top3_activity_composition",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "triad_blend_copy under pair_blend_copy group",
+      "runtime_destination": "deep_content_slots_v1 / hero_activity_chain",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "20 unordered top3 combinations",
+        "120 deterministic ordered codes"
+      ],
+      "expected_expanded_rows": 20,
+      "zh_current_rows": 20,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 20,
+      "schema_state": "20_unordered_assets_with_deterministic_ordered_projection",
+      "content_state": "zh_20_authored_en_0_no_120_authored_asset_plan",
+      "runtime_consumption_state": "deterministic_composition_approved; 20x3 QA samples only",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_ordered_emphasis_review_required",
+      "product_review_state": "english_strategy_review_required",
+      "editorial_review_state": "english_20_base_rows_required",
+      "share_safety": "no_direct_top3_recommendation",
+      "PDF_safety": "ordered_emphasis_without_fit_claim",
+      "history_safety": "measured_code_order_only",
+      "frontend_fail_closed_state": "locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_QA_GAP",
+      "blocker": "W4 registered; English base rows absent; 120/120 ordered-code QA not complete",
+      "proposed_pr_owner": "W4 producer + backend QA"
+    },
+    {
+      "group_id": "W4-G05",
+      "canonical_group_name": "career_activity_families_examples_only",
+      "asset_type": "riasec_activity_and_occupation_examples",
+      "authority_owner": "fap-api RiasecActivityExplorerService",
+      "backend_registry_slot": "activity_task_examples_v1 + occupation_examples_boundary_v1 service assets",
+      "runtime_destination": "riasec_public_projection_v2.activity_explorer",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "360 activity/task rows",
+        "360 occupation-example boundary rows"
+      ],
+      "expected_expanded_rows": 720,
+      "zh_current_rows": 720,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 720,
+      "schema_state": "service_contract_ready_not_deep_slot_contract",
+      "content_state": "zh_720_present_en_0",
+      "runtime_consumption_state": "examples_only_backend_service_fixed_zh_CN",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "boundary_review_required",
+      "product_review_state": "english_examples_only_review_required",
+      "editorial_review_state": "large_batch_english_authoring_required",
+      "share_safety": "occupation_examples_not_matches",
+      "PDF_safety": "qualification_and_source_boundaries_required",
+      "history_safety": "not_direct_history_asset",
+      "frontend_fail_closed_state": "empty_state_present_locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 720 English rows absent; service is zh-only",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G06",
+      "canonical_group_name": "140q_task_environment_role_narrative",
+      "asset_type": "riasec_140q_contextual_narrative",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "140q task/environment/role/commercial_state asset slots",
+      "runtime_destination": "deep_content_slots_v1 / 140q_context_cards and 140q_cta",
+      "supported_forms": [
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "6 dimensions",
+        "4 layers",
+        "8 states",
+        "126 registered rows"
+      ],
+      "expected_expanded_rows": 126,
+      "zh_current_rows": 126,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 126,
+      "schema_state": "126_of_126_registry_rows",
+      "content_state": "zh_126_present_en_0",
+      "runtime_consumption_state": "140q_only_contextual_selection_fixed_zh_CN",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_contextual_review_required",
+      "product_review_state": "english_state_tone_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "no_raw_delta",
+      "PDF_safety": "form_aware_context_only",
+      "history_safety": "cross_form_correctness_ranking_forbidden",
+      "frontend_fail_closed_state": "60q_does_not_consume_asset_slots; locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 126 English rows absent",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G07",
+      "canonical_group_name": "140q_tension_structural_difference",
+      "asset_type": "riasec_structural_difference",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "structural_difference_copy",
+      "runtime_destination": "deep_content_slots_v1 / structural_difference",
+      "supported_forms": [
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "7 structural copy slots",
+        "7 selection states"
+      ],
+      "expected_expanded_rows": 7,
+      "zh_current_rows": 7,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 7,
+      "schema_state": "backend_hardcoded_slot_rows_not_file_backed",
+      "content_state": "zh_backend_authored_en_missing",
+      "runtime_consumption_state": "projection_consumes_on_140q_non_low_quality",
+      "source_evidence_state": "code_authority_present_externalizable_asset_missing",
+      "psychometrics_review_state": "english_cross_form_review_required",
+      "product_review_state": "english_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "raw_delta_forbidden",
+      "PDF_safety": "correctness_ranking_forbidden",
+      "history_safety": "cross_form_not_comparable_boundary",
+      "frontend_fail_closed_state": "locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; English rows absent; source is hardcoded backend copy",
+      "proposed_pr_owner": "W4 producer + fap-api registry"
+    },
+    {
+      "group_id": "W4-G08",
+      "canonical_group_name": "low_quality_cautious_and_interpretation_state",
+      "asset_type": "riasec_quality_and_reading_state_copy",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry + RiasecQualityRuleContract",
+      "backend_registry_slot": "quality_copy + interpretation_state_copy",
+      "runtime_destination": "deep_content_slots_v1 / quality_copy and result_reading_boundary",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "9 cautious slots",
+        "6 profile shapes",
+        "5 confidence states",
+        "4 near-tie states"
+      ],
+      "expected_expanded_rows": 24,
+      "zh_current_rows": 24,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 24,
+      "schema_state": "runtime_slot_coverage_24",
+      "content_state": "zh_24_present_en_0",
+      "runtime_consumption_state": "quality_selected_fail_closed_but_zh_only",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "english_quality_tone_review_required",
+      "product_review_state": "no_blame_no_upsell_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "low_quality_share_requires_safe_variant",
+      "PDF_safety": "cautious_reading_only",
+      "history_safety": "no_accuracy_or_identity_claim",
+      "frontend_fail_closed_state": "state_guard_present_locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 24 English rows absent",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G09",
+      "canonical_group_name": "aspirations_calibration",
+      "asset_type": "riasec_aspirations_calibration",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "aspirations_calibration_copy",
+      "runtime_destination": "deep_content_slots_v1 / aspirations_calibration",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "70 domain/state rows"
+      ],
+      "expected_expanded_rows": 70,
+      "zh_current_rows": 70,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 70,
+      "schema_state": "70_unique_domain_keys",
+      "content_state": "zh_70_present_en_0",
+      "runtime_consumption_state": "backend_overlay_selection_zh_only",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "no_mutation_review_required",
+      "product_review_state": "english_domain_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "raw_aspiration_not_public",
+      "PDF_safety": "overlay_does_not_mutate_snapshot",
+      "history_safety": "measured_code_preserved",
+      "frontend_fail_closed_state": "locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 70 English rows absent",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G10",
+      "canonical_group_name": "disagree_path",
+      "asset_type": "riasec_disagree_path",
+      "authority_owner": "fap-api RiasecDeepCopySlotRegistry",
+      "backend_registry_slot": "disagree_path_copy",
+      "runtime_destination": "deep_content_slots_v1 / disagree_path",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "45 unique disagree states"
+      ],
+      "expected_expanded_rows": 45,
+      "zh_current_rows": 45,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 45,
+      "schema_state": "45_unique_states",
+      "content_state": "zh_45_present_en_0",
+      "runtime_consumption_state": "backend_overlay_selection_zh_only",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "retake_and_non_mutation_review_required",
+      "product_review_state": "english_tone_review_required",
+      "editorial_review_state": "english_authoring_required",
+      "share_safety": "raw_feedback_forbidden",
+      "PDF_safety": "snapshot_mutation_forbidden",
+      "history_safety": "measured_result_preserved",
+      "frontend_fail_closed_state": "locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 45 English rows absent",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G11",
+      "canonical_group_name": "feedback_action_lab_response",
+      "asset_type": "riasec_feedback_action_lab_and_next_nodes",
+      "authority_owner": "fap-api RiasecExplorationFeedbackOverlayService",
+      "backend_registry_slot": "feedback_action_lab_v1 + next_exploration_nodes_v1 service assets",
+      "runtime_destination": "riasec_public_projection_v2.exploration_feedback_overlay_v0_1",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "204 event/activity rows",
+        "270 next-node rows"
+      ],
+      "expected_expanded_rows": 474,
+      "zh_current_rows": 474,
+      "en_current_rows": 0,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 474,
+      "schema_state": "service_payload_contract_ready",
+      "content_state": "zh_474_present_en_0",
+      "runtime_consumption_state": "static_safe_bridge_fixed_zh_CN; visible frontend module deferred",
+      "source_evidence_state": "repo_authority_present",
+      "psychometrics_review_state": "overlay_non_mutation_review_required",
+      "product_review_state": "english_event_and_node_review_required",
+      "editorial_review_state": "large_batch_english_authoring_required",
+      "share_safety": "raw_feedback_exposure_false",
+      "PDF_safety": "share_pdf_exposure_false",
+      "history_safety": "measured_payload_mutation_false",
+      "frontend_fail_closed_state": "payload_safety_guard_present_locale_guard_missing",
+      "claim_boundary_verdict": "PASS_WITH_BOUNDARY",
+      "blocker": "W4 registered; 474 English rows absent; service fixed zh-CN",
+      "proposed_pr_owner": "W4 producer"
+    },
+    {
+      "group_id": "W4-G12",
+      "canonical_group_name": "share_safe_variant",
+      "asset_type": "riasec_share_safe_variant",
+      "authority_owner": "fap-api RiasecLifecycleCopyService",
+      "backend_registry_slot": "share_pdf_history_v1 surfaces: share_safe_card, share_detail_boundary, low_quality_share",
+      "runtime_destination": "riasec_public_projection_v2.lifecycle_copy_v1 / share",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "3 share surfaces"
+      ],
+      "expected_expanded_rows": 3,
+      "zh_current_rows": 3,
+      "en_current_rows": 3,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 0,
+      "schema_state": "locale_specific_file_loader_ready",
+      "content_state": "en_physical_candidate_present_draft_human_review_required",
+      "runtime_consumption_state": "runtime_consumes_en_candidate_without_review_status_gate",
+      "source_evidence_state": "RESULT-EN-PARITY-02 historical candidate",
+      "psychometrics_review_state": "english_revalidation_required",
+      "product_review_state": "english_share_review_required",
+      "editorial_review_state": "draft_human_review_required",
+      "share_safety": "runtime_safety_fields_pass",
+      "PDF_safety": "not_pdf_rows",
+      "history_safety": "not_history_rows",
+      "frontend_fail_closed_state": "field_safety_guard_present_review_gate_missing",
+      "claim_boundary_verdict": "PASS_SAFETY_NOT_PARITY_READY",
+      "blocker": "W4 registered; 3 rows require review/freeze and review-status runtime gate",
+      "proposed_pr_owner": "W4 producer + fap-api lifecycle"
+    },
+    {
+      "group_id": "W4-G13",
+      "canonical_group_name": "pdf_safe_variant",
+      "asset_type": "riasec_pdf_safe_variant",
+      "authority_owner": "fap-api RiasecLifecycleCopyService / report-access PDF authority",
+      "backend_registry_slot": "share_pdf_history_v1 surfaces: pdf_personal, pdf_counselor_discussion",
+      "runtime_destination": "snapshot-bound report/PDF lifecycle surface",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "2 PDF surfaces"
+      ],
+      "expected_expanded_rows": 2,
+      "zh_current_rows": 2,
+      "en_current_rows": 2,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 0,
+      "schema_state": "locale_specific_file_loader_ready",
+      "content_state": "en_physical_candidate_present_draft_human_review_required",
+      "runtime_consumption_state": "backend_authored_private_no_store_snapshot_boundary",
+      "source_evidence_state": "RESULT-EN-PARITY-02 historical candidate",
+      "psychometrics_review_state": "english_revalidation_required",
+      "product_review_state": "english_pdf_density_review_required",
+      "editorial_review_state": "draft_human_review_required",
+      "share_safety": "not_share_rows",
+      "PDF_safety": "runtime_safety_fields_pass",
+      "history_safety": "not_history_rows",
+      "frontend_fail_closed_state": "private_print_and_redaction_contracts_present_review_gate_missing",
+      "claim_boundary_verdict": "PASS_SAFETY_NOT_PARITY_READY",
+      "blocker": "W4 registered; 2 rows require review/freeze and review-status runtime gate",
+      "proposed_pr_owner": "W4 producer + fap-api lifecycle"
+    },
+    {
+      "group_id": "W4-G14",
+      "canonical_group_name": "history_safe_variant",
+      "asset_type": "riasec_history_safe_variant",
+      "authority_owner": "fap-api RiasecLifecycleCopyService / history authority",
+      "backend_registry_slot": "share_pdf_history_v1 surfaces: history_same_form, history_cross_form",
+      "runtime_destination": "history projection and report re-entry",
+      "supported_forms": [
+        "riasec_60",
+        "riasec_140"
+      ],
+      "supported_locales": [
+        "zh-CN",
+        "en"
+      ],
+      "state_dimensions": [
+        "2 history surfaces"
+      ],
+      "expected_expanded_rows": 2,
+      "zh_current_rows": 2,
+      "en_current_rows": 2,
+      "en_parity_ready_rows": 0,
+      "en_missing_rows": 0,
+      "schema_state": "locale_specific_file_loader_ready",
+      "content_state": "en_physical_candidate_present_draft_human_review_required",
+      "runtime_consumption_state": "history_safe_fields_present",
+      "source_evidence_state": "RESULT-EN-PARITY-02 historical candidate",
+      "psychometrics_review_state": "english_revalidation_required",
+      "product_review_state": "english_history_review_required",
+      "editorial_review_state": "draft_human_review_required",
+      "share_safety": "not_share_rows",
+      "PDF_safety": "not_pdf_rows",
+      "history_safety": "runtime_safety_fields_pass_no_cross_form_raw_delta",
+      "frontend_fail_closed_state": "history_contract_present_review_gate_missing",
+      "claim_boundary_verdict": "PASS_SAFETY_NOT_PARITY_READY",
+      "blocker": "W4 registered; 2 rows require review/freeze and review-status runtime gate",
+      "proposed_pr_owner": "W4 producer + fap-api lifecycle"
+    }
+  ]
+}

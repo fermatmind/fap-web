@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "proposed_status": "inventory_frozen",
+  "base_manifest_sha256": "0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b",
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
+      "lane_id": "W4",
+      "asset_type": "riasec_deep_result_content",
+      "translation_group": "cohort:riasec:deep-result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend RIASEC result content authority",
+      "expected_en_count": 14,
+      "current_en_count": 0,
+      "remaining_en_count": 14,
+      "parity_state": "en_missing",
+      "evidence": [
+        "docs/codex/riasec-full-content-pack-asset-inventory.md defines the 14-group deep asset target."
+      ],
+      "notes": "The reader boundary is career-interest direction, not precise career matching."
+    }
+  ],
+  "package_sha256": "a96b2a57e86cd3a5382572946c70246ddbccf62df0fb960144b93518ea5547c5",
+  "sha256_manifest_path": "generated/en-content-parity/W4-riasec/sha256_manifest.json",
+  "gate_evidence": {
+    "gate": "inventory_frozen",
+    "report_path": "source_ledger.json",
+    "report_sha256": "c8749e19c119d2994b04cbb6a6726174ce18e0c38a7d3dbe6e281a7220534e33",
+    "report_in_package": true,
+    "owner_lane_id": "W4",
+    "verdict": null,
+    "asset_ids": [
+      "ENPARITY-W4-RIASEC-DEEP-ASSETS"
+    ],
+    "row_count": 14
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

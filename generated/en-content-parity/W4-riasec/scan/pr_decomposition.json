@@ -1,0 +1,2482 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_pr_decomposition.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "scan_mode": "planning_only",
+  "current_launch_state": "registered",
+  "execution_hold": true,
+  "proposed_pr_count": 16,
+  "proposed_prs": [
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-INVENTORY-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-INVENTORY-01 freeze canonical 14-group and 1550-row RIASEC English inventory",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "w4_riasec_inventory_freeze",
+      "why_required": "Freeze the evidence-backed 14 logical groups and 1550 atomic rows without starting content production.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/scan/**",
+        "generated/en-content-parity/W4-riasec/scope_manifest.json",
+        "generated/en-content-parity/W4-riasec/source_ledger.json",
+        "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "control window",
+        "backend RIASEC owner"
+      ],
+      "depends_on": [],
+      "input_artifact_sha_requirement": "Latest main and current master manifest SHA.",
+      "proposed_state_transition": "not_started -> inventory_frozen, only after control launch_ready",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove the candidate inventory freeze artifacts and revert the exact train entry; do not alter the master manifest.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Freeze the evidence-backed 14 logical groups and 1550 atomic rows without starting content production.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-INVENTORY-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-inventory-01",
+        "base": "main",
+        "depends_on": [],
+        "mode": "execute",
+        "train_scope": "w4_riasec_inventory_freeze",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-INVENTORY-01 freeze canonical 14-group and 1550-row RIASEC English inventory",
+        "goal": "Freeze the evidence-backed 14 logical groups and 1550 atomic rows without starting content production.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/scan/**",
+          "generated/en-content-parity/W4-riasec/scope_manifest.json",
+          "generated/en-content-parity/W4-riasec/source_ledger.json",
+          "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/scan/**",
+            "generated/en-content-parity/W4-riasec/scope_manifest.json",
+            "generated/en-content-parity/W4-riasec/source_ledger.json",
+            "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Freeze the evidence-backed 14 logical groups and 1550 atomic rows without starting content production.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove the candidate inventory freeze artifacts and revert the exact train entry; do not alter the master manifest."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-INVENTORY-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": []
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-INVENTORY-01 only after W4 launch_state is launch_ready: freeze the canonical 14-group/1550-row inventory in fap-web, generate only the exact inventory-frozen candidate artifacts, validate against the current master SHA, open one scoped PR, and do not start content production."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01 add locale-aware backend RIASEC content resolution",
+      "repository": "fap-api",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11"
+      ],
+      "scope": "riasec_locale_aware_registry_projection_contract",
+      "why_required": "Prevent en projections from consuming zh-CN deep, activity, or feedback rows and gate runtime selection on locale and approved review state.",
+      "evidence_rows": 1543,
+      "likely_changed_files": [
+        "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+        "backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+        "backend/app/Services/Riasec/RiasecActivityExplorerService.php",
+        "backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php",
+        "backend/app/Services/Riasec/RiasecLifecycleCopyService.php",
+        "backend/tests/Unit/Services/Riasec/*Locale*Test.php",
+        "backend/docs/riasec/*english-parity*",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "backend/content_assets/riasec/*.en.* reader copy",
+        "production import or database write",
+        "fap-web files",
+        "scoring and question packs"
+      ],
+      "authority_owner": "backend RIASEC authority",
+      "required_reviewers": [
+        "backend",
+        "psychometrics boundary",
+        "security/privacy"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "none; runtime contract preparation does not advance W4 package status",
+      "local_checks": [
+        "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+        "cd backend && ./vendor/bin/pint --test",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "CI",
+        "Code Scanning"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Revert locale-aware selectors while preserving existing zh-CN behavior; missing English continues to omit modules.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Prevent en projections from consuming zh-CN deep, activity, or feedback rows and gate runtime selection on locale and approved review state.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01",
+        "repo": "fap-api",
+        "repo_path": "<workspace>/fap-api",
+        "branch": "codex/en-parity-w4-riasec-runtime-locale-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "riasec_locale_aware_registry_projection_contract",
+        "risk_level": "L2_runtime_contract",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01 add locale-aware backend RIASEC content resolution",
+        "goal": "Prevent en projections from consuming zh-CN deep, activity, or feedback rows and gate runtime selection on locale and approved review state.",
+        "in_scope": [
+          "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+          "backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+          "backend/app/Services/Riasec/RiasecActivityExplorerService.php",
+          "backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php",
+          "backend/app/Services/Riasec/RiasecLifecycleCopyService.php",
+          "backend/tests/Unit/Services/Riasec/*Locale*Test.php",
+          "backend/docs/riasec/*english-parity*",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "backend/content_assets/riasec/*.en.* reader copy",
+          "production import or database write",
+          "fap-web files",
+          "scoring and question packs"
+        ],
+        "required_local_checks": [
+          "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+          "cd backend && ./vendor/bin/pint --test",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+            "backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+            "backend/app/Services/Riasec/RiasecActivityExplorerService.php",
+            "backend/app/Services/Riasec/RiasecExplorationFeedbackOverlayService.php",
+            "backend/app/Services/Riasec/RiasecLifecycleCopyService.php",
+            "backend/tests/Unit/Services/Riasec/*Locale*Test.php",
+            "backend/docs/riasec/*english-parity*",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Prevent en projections from consuming zh-CN deep, activity, or feedback rows and gate runtime selection on locale and approved review state.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Revert locale-aware selectors while preserving existing zh-CN behavior; missing English continues to omit modules."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01 after inventory freeze: implement locale-equal, review-gated, fail-closed backend selection for deep slots, activity, feedback, and lifecycle content without adding English reader copy or changing scoring."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 produce six-dimension and core-cost-shadow English segment",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02"
+      ],
+      "scope": "w4_riasec_dimension_core_candidate_segment",
+      "why_required": "Produce exactly 42 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 42,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/dimension-core/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the dimension-core candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 42 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-dimension-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_dimension_core_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 produce six-dimension and core-cost-shadow English segment",
+        "goal": "Produce exactly 42 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/dimension-core/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/dimension-core/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 42 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the dimension-core candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 after W4 inventory_frozen: produce the exact 42-row dimension-core English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 produce 15 unordered pair-blend English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G03"
+      ],
+      "scope": "w4_riasec_pair_candidate_segment",
+      "why_required": "Produce exactly 15 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 15,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/pair/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the pair candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 15 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-pair-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_pair_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 produce 15 unordered pair-blend English rows",
+        "goal": "Produce exactly 15 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/pair/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/pair/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 15 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the pair candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-PAIR-ASSETS-01 after W4 inventory_frozen: produce the exact 15-row pair English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 produce 20 top3 composition English base rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G04"
+      ],
+      "scope": "w4_riasec_top3_candidate_segment",
+      "why_required": "Produce exactly 20 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 20,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/top3/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the top3 candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 20 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-top3-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_top3_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 produce 20 top3 composition English base rows",
+        "goal": "Produce exactly 20 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/top3/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/top3/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 20 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the top3 candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-TOP3-ASSETS-01 after W4 inventory_frozen: produce the exact 20-row top3 English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01 produce 720 examples-only activity and occupation English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G05"
+      ],
+      "scope": "w4_riasec_activity_examples_candidate_segment",
+      "why_required": "Produce exactly 720 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 720,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/activity-examples/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the activity-examples candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 720 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-activity-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_activity_examples_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01 produce 720 examples-only activity and occupation English rows",
+        "goal": "Produce exactly 720 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/activity-examples/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/activity-examples/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 720 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the activity-examples candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01 after W4 inventory_frozen: produce the exact 720-row activity-examples English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01 produce 140Q contextual and structural English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G06",
+        "W4-G07"
+      ],
+      "scope": "w4_riasec_140q_context_structural_candidate_segment",
+      "why_required": "Produce exactly 133 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 133,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/140q-context-structural/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the 140q-context-structural candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 133 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-140q-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_140q_context_structural_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01 produce 140Q contextual and structural English rows",
+        "goal": "Produce exactly 133 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/140q-context-structural/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/140q-context-structural/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 133 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the 140q-context-structural candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-140Q-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-140Q-ASSETS-01 after W4 inventory_frozen: produce the exact 133-row 140q-context-structural English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01 produce cautious and interpretation-state English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G08"
+      ],
+      "scope": "w4_riasec_quality_reading_state_candidate_segment",
+      "why_required": "Produce exactly 24 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 24,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/quality-reading-state/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the quality-reading-state candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 24 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-quality-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_quality_reading_state_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01 produce cautious and interpretation-state English rows",
+        "goal": "Produce exactly 24 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/quality-reading-state/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/quality-reading-state/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 24 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the quality-reading-state candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01 after W4 inventory_frozen: produce the exact 24-row quality-reading-state English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 produce aspirations and disagree English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G09",
+        "W4-G10"
+      ],
+      "scope": "w4_riasec_aspirations_disagree_candidate_segment",
+      "why_required": "Produce exactly 115 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 115,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/aspirations-disagree/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the aspirations-disagree candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 115 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-calibration-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_aspirations_disagree_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 produce aspirations and disagree English rows",
+        "goal": "Produce exactly 115 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/aspirations-disagree/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/aspirations-disagree/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 115 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the aspirations-disagree candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 after W4 inventory_frozen: produce the exact 115-row aspirations-disagree English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01 produce feedback Action Lab and next-node English rows",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G11"
+      ],
+      "scope": "w4_riasec_feedback_action_lab_candidate_segment",
+      "why_required": "Produce exactly 474 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "evidence_rows": 474,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/feedback-action-lab/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the feedback-action-lab candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Produce exactly 474 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-feedback-assets-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_feedback_action_lab_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01 produce feedback Action Lab and next-node English rows",
+        "goal": "Produce exactly 474 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/feedback-action-lab/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/feedback-action-lab/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Produce exactly 474 candidate English atomic rows from the frozen backend-authority identities without runtime writes.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the feedback-action-lab candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01 after W4 inventory_frozen: produce the exact 474-row feedback-action-lab English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01 review and freeze share PDF history English variants",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "w4_riasec_share_pdf_history_candidate_segment",
+      "why_required": "Review, repair if needed, and freeze the seven existing draft English surface rows as independent share, PDF, and history variants.",
+      "evidence_rows": 7,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/segments/share-pdf-history/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "English editorial",
+        "product",
+        "psychometrics/boundary reviewer"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-INVENTORY-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "inventory_frozen -> package_in_progress for the first segment; later segments retain package_in_progress",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the share-pdf-history candidate segment and revert its exact train entry.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Review, repair if needed, and freeze the seven existing draft English surface rows as independent share, PDF, and history variants.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-safe-variants-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-INVENTORY-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_share_pdf_history_candidate_segment",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01 review and freeze share PDF history English variants",
+        "goal": "Review, repair if needed, and freeze the seven existing draft English surface rows as independent share, PDF, and history variants.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/segments/share-pdf-history/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "node scripts/seo/validate-en-content-parity-control.mjs",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/segments/share-pdf-history/**",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Review, repair if needed, and freeze the seven existing draft English surface rows as independent share, PDF, and history variants.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the share-pdf-history candidate segment and revert its exact train entry."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-INVENTORY-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01 after W4 inventory_frozen: produce the exact 7-row share-pdf-history English candidate segment under the W4 lane, preserve source identities and claim boundaries, validate hashes and row uniqueness, open one scoped PR, and perform no runtime/CMS/import/release action."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01 aggregate and freeze the exact 1550-row producer package",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "w4_riasec_exact_package_freeze",
+      "why_required": "Aggregate the reviewed segments into the one official W4 producer package without changing reader rows after freeze.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "generated/en-content-parity/W4-riasec/scope_manifest.json",
+        "generated/en-content-parity/W4-riasec/assets.jsonl",
+        "generated/en-content-parity/W4-riasec/translation_map.json",
+        "generated/en-content-parity/W4-riasec/source_ledger.json",
+        "generated/en-content-parity/W4-riasec/claim_boundary_report.json",
+        "generated/en-content-parity/W4-riasec/editorial_review.json",
+        "generated/en-content-parity/W4-riasec/dry_run_readiness.json",
+        "generated/en-content-parity/W4-riasec/sha256_manifest.json",
+        "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+        "generated/en-content-parity/W4-riasec/handoff.md",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json",
+        "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+        "docs/codex/pr-train.yaml except the exact authorized item entry",
+        "docs/codex/pr-train-state.json except the exact authorized item state",
+        "app/**",
+        "components/**",
+        "lib/**",
+        "fap-api runtime files",
+        "CMS/staging/production data",
+        "sitemap/llms/indexability/Search Channel"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "control window",
+        "English editorial",
+        "product",
+        "psychometrics"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01",
+        "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "package_in_progress -> package_frozen",
+      "local_checks": [
+        "node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Revert the aggregate package/freeze candidate; any changed reader row requires reopening package production and a new package SHA.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Aggregate the reviewed segments into the one official W4 producer package without changing reader rows after freeze.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-package-freeze-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01",
+          "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"
+        ],
+        "mode": "execute",
+        "train_scope": "w4_riasec_exact_package_freeze",
+        "risk_level": "L2_content_governance",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01 aggregate and freeze the exact 1550-row producer package",
+        "goal": "Aggregate the reviewed segments into the one official W4 producer package without changing reader rows after freeze.",
+        "in_scope": [
+          "generated/en-content-parity/W4-riasec/scope_manifest.json",
+          "generated/en-content-parity/W4-riasec/assets.jsonl",
+          "generated/en-content-parity/W4-riasec/translation_map.json",
+          "generated/en-content-parity/W4-riasec/source_ledger.json",
+          "generated/en-content-parity/W4-riasec/claim_boundary_report.json",
+          "generated/en-content-parity/W4-riasec/editorial_review.json",
+          "generated/en-content-parity/W4-riasec/dry_run_readiness.json",
+          "generated/en-content-parity/W4-riasec/sha256_manifest.json",
+          "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+          "generated/en-content-parity/W4-riasec/handoff.md",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "docs/seo/generated/en-content-parity-control-master.v1.json",
+          "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+          "docs/codex/pr-train.yaml except the exact authorized item entry",
+          "docs/codex/pr-train-state.json except the exact authorized item state",
+          "app/**",
+          "components/**",
+          "lib/**",
+          "fap-api runtime files",
+          "CMS/staging/production data",
+          "sitemap/llms/indexability/Search Channel"
+        ],
+        "required_local_checks": [
+          "node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+          "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "generated/en-content-parity/W4-riasec/scope_manifest.json",
+            "generated/en-content-parity/W4-riasec/assets.jsonl",
+            "generated/en-content-parity/W4-riasec/translation_map.json",
+            "generated/en-content-parity/W4-riasec/source_ledger.json",
+            "generated/en-content-parity/W4-riasec/claim_boundary_report.json",
+            "generated/en-content-parity/W4-riasec/editorial_review.json",
+            "generated/en-content-parity/W4-riasec/dry_run_readiness.json",
+            "generated/en-content-parity/W4-riasec/sha256_manifest.json",
+            "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json",
+            "generated/en-content-parity/W4-riasec/handoff.md",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Aggregate the reviewed segments into the one official W4 producer package without changing reader rows after freeze.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Revert the aggregate package/freeze candidate; any changed reader row requires reopening package production and a new package SHA."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-PAIR-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-TOP3-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-FEEDBACK-ASSETS-01",
+            "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01 after every W4 segment PR is merged: aggregate exactly 14 logical assets and 1550 unique rows, generate the official immutable payload set and candidate patch against the current master SHA, validate the package SHA, open one scoped PR, and do not self-declare W9 QA PASS."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01 add read-only exact-package import dry-run mapping",
+      "repository": "fap-api",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "riasec_w4_exact_package_dry_run_importer",
+      "why_required": "Map the immutable W4 package to locale-aware backend authority in read-only dry-run mode before any controlled write.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "backend/app/Console/Commands/*Riasec*English*DryRun*.php",
+        "backend/app/Services/Riasec/*English*Package*.php",
+        "backend/tests/Feature/Console/*Riasec*English*DryRun*Test.php",
+        "backend/docs/riasec/*english-parity-importer*",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "production execution",
+        "database/CMS writes",
+        "content package mutation",
+        "fap-web runtime",
+        "sitemap/llms/Search Channel"
+      ],
+      "authority_owner": "backend RIASEC authority",
+      "required_reviewers": [
+        "backend",
+        "content governance",
+        "security/privacy"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "qa_pass -> dry_run_ready only after W9 PASS and exact-SHA dry-run evidence",
+      "local_checks": [
+        "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+        "cd backend && ./vendor/bin/pint --test",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "CI",
+        "Code Scanning"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove the dry-run mapping command/service; do not alter the frozen package.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Map the immutable W4 package to locale-aware backend authority in read-only dry-run mode before any controlled write.",
+      "reconsider_condition": "Frozen package exists, W9 full-target PASS exists, and generic importer compatibility has been rechecked.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01",
+        "repo": "fap-api",
+        "repo_path": "<workspace>/fap-api",
+        "branch": "codex/en-parity-w4-riasec-exact-package-importer-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01"
+        ],
+        "mode": "execute",
+        "train_scope": "riasec_w4_exact_package_dry_run_importer",
+        "risk_level": "L2_import_contract",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01 add read-only exact-package import dry-run mapping",
+        "goal": "Map the immutable W4 package to locale-aware backend authority in read-only dry-run mode before any controlled write.",
+        "in_scope": [
+          "backend/app/Console/Commands/*Riasec*English*DryRun*.php",
+          "backend/app/Services/Riasec/*English*Package*.php",
+          "backend/tests/Feature/Console/*Riasec*English*DryRun*Test.php",
+          "backend/docs/riasec/*english-parity-importer*",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "production execution",
+          "database/CMS writes",
+          "content package mutation",
+          "fap-web runtime",
+          "sitemap/llms/Search Channel"
+        ],
+        "required_local_checks": [
+          "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+          "cd backend && ./vendor/bin/pint --test",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "backend/app/Console/Commands/*Riasec*English*DryRun*.php",
+            "backend/app/Services/Riasec/*English*Package*.php",
+            "backend/tests/Feature/Console/*Riasec*English*DryRun*Test.php",
+            "backend/docs/riasec/*english-parity-importer*",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Map the immutable W4 package to locale-aware backend authority in read-only dry-run mode before any controlled write.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove the dry-run mapping command/service; do not alter the frozen package."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01 only after package_frozen and W9 PASS: add a read-only exact-SHA dry-run mapper for all 1550 rows, prove zero writes and deterministic readback mapping, open one scoped fap-api PR, and do not execute import."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01 fail closed on RIASEC locale mismatch",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "riasec_frontend_locale_mismatch_fail_closed",
+      "why_required": "Reject mismatched envelope, slot, lifecycle, activity, and feedback locale payloads without adding local copy.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "lib/riasec/resultAssembler.ts",
+        "components/result/riasec/RiasecResultShell.tsx",
+        "tests/contracts/riasec-english-locale-fail-closed.contract.test.tsx",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "frontend English interpretation copy",
+        "fap-api files",
+        "CMS/runtime import",
+        "scoring",
+        "public indexability"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "frontend",
+        "backend contract owner",
+        "privacy"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "none; consumer defense does not advance W4 content state",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx tests/contracts/riasec-lifecycle-feedback-boundary.contract.test.tsx",
+        "pnpm typecheck",
+        "pnpm lint .",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Revert the locale equality guard while retaining all existing fallback-disabled checks.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Reject mismatched envelope, slot, lifecycle, activity, and feedback locale payloads without adding local copy.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-frontend-locale-guard-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01"
+        ],
+        "mode": "execute",
+        "train_scope": "riasec_frontend_locale_mismatch_fail_closed",
+        "risk_level": "L2_frontend_runtime_contract",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01 fail closed on RIASEC locale mismatch",
+        "goal": "Reject mismatched envelope, slot, lifecycle, activity, and feedback locale payloads without adding local copy.",
+        "in_scope": [
+          "lib/riasec/resultAssembler.ts",
+          "components/result/riasec/RiasecResultShell.tsx",
+          "tests/contracts/riasec-english-locale-fail-closed.contract.test.tsx",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "frontend English interpretation copy",
+          "fap-api files",
+          "CMS/runtime import",
+          "scoring",
+          "public indexability"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx tests/contracts/riasec-lifecycle-feedback-boundary.contract.test.tsx",
+          "pnpm typecheck",
+          "pnpm lint .",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "lib/riasec/resultAssembler.ts",
+            "components/result/riasec/RiasecResultShell.tsx",
+            "tests/contracts/riasec-english-locale-fail-closed.contract.test.tsx",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Reject mismatched envelope, slot, lifecycle, activity, and feedback locale payloads without adding local copy.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Revert the locale equality guard while retaining all existing fallback-disabled checks."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01 after the backend locale contract merges: reject mismatched RIASEC locale payloads in the assembler/render path, add sanitized fixtures, run focused/type/build checks, open one scoped PR, and add no reader copy."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-BE-QA-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-BE-QA-01 freeze backend bilingual fixture and forbidden-claim coverage",
+      "repository": "fap-api",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "riasec_backend_english_fixture_claim_freeze",
+      "why_required": "Prove 1550-row identity coverage, zero Chinese leakage, 15 pairs, 120 deterministic ordered codes, form boundaries, and safe surface redaction.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "backend/tests/Fixtures/Riasec/*en*",
+        "backend/tests/Unit/Services/Riasec/*English*Test.php",
+        "backend/tests/Feature/V0_3/*Riasec*English*Test.php",
+        "backend/docs/riasec/*english-qa*",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "reader asset editing",
+        "production writes",
+        "fap-web files",
+        "SEO/indexability"
+      ],
+      "authority_owner": "backend RIASEC authority",
+      "required_reviewers": [
+        "QA",
+        "psychometrics",
+        "backend",
+        "privacy"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01",
+        "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "dry_run_ready retained; QA evidence only",
+      "local_checks": [
+        "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+        "cd backend && ./vendor/bin/pint --test",
+        "git diff --check"
+      ],
+      "required_GitHub_checks": [
+        "CI",
+        "Code Scanning"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the bilingual QA fixtures/contracts; do not mutate package or runtime authority.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Prove 1550-row identity coverage, zero Chinese leakage, 15 pairs, 120 deterministic ordered codes, form boundaries, and safe surface redaction.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-BE-QA-01",
+        "repo": "fap-api",
+        "repo_path": "<workspace>/fap-api",
+        "branch": "codex/en-parity-w4-riasec-be-qa-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01",
+          "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01"
+        ],
+        "mode": "execute",
+        "train_scope": "riasec_backend_english_fixture_claim_freeze",
+        "risk_level": "L2_QA",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-BE-QA-01 freeze backend bilingual fixture and forbidden-claim coverage",
+        "goal": "Prove 1550-row identity coverage, zero Chinese leakage, 15 pairs, 120 deterministic ordered codes, form boundaries, and safe surface redaction.",
+        "in_scope": [
+          "backend/tests/Fixtures/Riasec/*en*",
+          "backend/tests/Unit/Services/Riasec/*English*Test.php",
+          "backend/tests/Feature/V0_3/*Riasec*English*Test.php",
+          "backend/docs/riasec/*english-qa*",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "reader asset editing",
+          "production writes",
+          "fap-web files",
+          "SEO/indexability"
+        ],
+        "required_local_checks": [
+          "cd backend && php artisan test tests/Unit/Services/Riasec --no-ansi",
+          "cd backend && ./vendor/bin/pint --test",
+          "git diff --check"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "backend/tests/Fixtures/Riasec/*en*",
+            "backend/tests/Unit/Services/Riasec/*English*Test.php",
+            "backend/tests/Feature/V0_3/*Riasec*English*Test.php",
+            "backend/docs/riasec/*english-qa*",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Prove 1550-row identity coverage, zero Chinese leakage, 15 pairs, 120 deterministic ordered codes, form boundaries, and safe surface redaction.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the bilingual QA fixtures/contracts; do not mutate package or runtime authority."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-BE-QA-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01",
+            "EN-PARITY-W4-RIASEC-EXACT-PACKAGE-IMPORTER-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-BE-QA-01 after exact-package dry-run readiness: freeze backend coverage for all 1550 rows, 15 pairs, 120 ordered projections, Chinese leakage, private-field leakage, and forbidden claims without editing reader assets or running import."
+    },
+    {
+      "proposed_pr_id": "EN-PARITY-W4-RIASEC-FE-QA-01",
+      "exact_title": "EN-PARITY-W4-RIASEC-FE-QA-01 freeze rendered English result share PDF history contracts",
+      "repository": "fap-web",
+      "asset_groups": [
+        "W4-G01",
+        "W4-G02",
+        "W4-G03",
+        "W4-G04",
+        "W4-G05",
+        "W4-G06",
+        "W4-G07",
+        "W4-G08",
+        "W4-G09",
+        "W4-G10",
+        "W4-G11",
+        "W4-G12",
+        "W4-G13",
+        "W4-G14"
+      ],
+      "scope": "riasec_frontend_english_rendered_fixture_freeze",
+      "why_required": "Verify sanitized English result, share, PDF, and history fixtures render no Chinese or private/internal fields and preserve fail-closed behavior.",
+      "evidence_rows": 1550,
+      "likely_changed_files": [
+        "tests/contracts/fixtures/riasec/*en*",
+        "tests/contracts/riasec-english-full-content-freeze.contract.test.tsx",
+        "tests/contracts/riasec-english-secondary-surfaces.contract.test.tsx",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "explicitly_excluded_files": [
+        "reader asset editing",
+        "fap-api files",
+        "CMS/import/deploy",
+        "SEO/indexability"
+      ],
+      "authority_owner": "W4 candidate package or fap-web consumer",
+      "required_reviewers": [
+        "frontend QA",
+        "privacy",
+        "English editorial"
+      ],
+      "depends_on": [
+        "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+        "EN-PARITY-W4-RIASEC-BE-QA-01"
+      ],
+      "input_artifact_sha_requirement": "Exact merged dependency SHAs and frozen input SHA where applicable.",
+      "proposed_state_transition": "dry_run_ready retained; rendered QA evidence only",
+      "local_checks": [
+        "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx tests/contracts/riasec-lifecycle-feedback-boundary.contract.test.tsx",
+        "pnpm typecheck",
+        "pnpm lint .",
+        "git diff --check",
+        "pnpm build"
+      ],
+      "required_GitHub_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "merge_policy": {
+        "github_checks_required": true,
+        "squash": true,
+        "auto_merge": true
+      },
+      "rollback": "Remove only the English rendered fixture contracts; preserve runtime guards.",
+      "stop_conditions": [
+        "W4 is not launch_ready for content production.",
+        "Changed files leave the declared scope.",
+        "Input package SHA or control manifest SHA drifts.",
+        "Any required local or GitHub check fails.",
+        "A private field, Chinese leakage, unsupported claim, or frontend fallback is detected."
+      ],
+      "repository_rule_impact": "No authority transfer. Candidate assets remain non-runtime until separately controlled exact-SHA import and release gates.",
+      "verdict": "BLOCKED",
+      "evidence": "Verify sanitized English result, share, PDF, and history fixtures render no Chinese or private/internal fields and preserve fail-closed behavior.",
+      "reconsider_condition": "W4 launch_state becomes launch_ready and all dependency evidence is current.",
+      "exact_proposed_docs_codex_pr_train_yaml_entry": {
+        "id": "EN-PARITY-W4-RIASEC-FE-QA-01",
+        "repo": "fap-web",
+        "repo_path": "<workspace>/fap-web",
+        "branch": "codex/en-parity-w4-riasec-fe-qa-01",
+        "base": "main",
+        "depends_on": [
+          "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+          "EN-PARITY-W4-RIASEC-BE-QA-01"
+        ],
+        "mode": "execute",
+        "train_scope": "riasec_frontend_english_rendered_fixture_freeze",
+        "risk_level": "L2_QA",
+        "status": "planned",
+        "title": "EN-PARITY-W4-RIASEC-FE-QA-01 freeze rendered English result share PDF history contracts",
+        "goal": "Verify sanitized English result, share, PDF, and history fixtures render no Chinese or private/internal fields and preserve fail-closed behavior.",
+        "in_scope": [
+          "tests/contracts/fixtures/riasec/*en*",
+          "tests/contracts/riasec-english-full-content-freeze.contract.test.tsx",
+          "tests/contracts/riasec-english-secondary-surfaces.contract.test.tsx",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "out_of_scope": [
+          "reader asset editing",
+          "fap-api files",
+          "CMS/import/deploy",
+          "SEO/indexability"
+        ],
+        "required_local_checks": [
+          "pnpm exec vitest run tests/contracts/riasec-deep-copy-slot-consumption.contract.test.tsx tests/contracts/riasec-lifecycle-feedback-boundary.contract.test.tsx",
+          "pnpm typecheck",
+          "pnpm lint .",
+          "git diff --check",
+          "pnpm build"
+        ],
+        "scope_validation": {
+          "changed_files_must_match": [
+            "tests/contracts/fixtures/riasec/*en*",
+            "tests/contracts/riasec-english-full-content-freeze.contract.test.tsx",
+            "tests/contracts/riasec-english-secondary-surfaces.contract.test.tsx",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ]
+        },
+        "merge_policy": {
+          "github_checks_required": true,
+          "squash": true,
+          "auto_merge": true
+        },
+        "acceptance": [
+          "Verify sanitized English result, share, PDF, and history fixtures render no Chinese or private/internal fields and preserve fail-closed behavior.",
+          "No frontend editorial fallback, CMS write, production import, deploy, indexability, sitemap, llms, Search Channel, or private-result exposure is introduced.",
+          "Repository rule impact is documented and backend authority remains unchanged unless this is the explicit backend authority PR."
+        ],
+        "rollback_note": "Remove only the English rendered fixture contracts; preserve runtime guards."
+      },
+      "exact_proposed_docs_codex_pr_train_state_json_initial_entry": {
+        "EN-PARITY-W4-RIASEC-FE-QA-01": {
+          "status": "planned",
+          "commit_sha": null,
+          "pr_url": null,
+          "checks": {},
+          "failure_reason": null,
+          "merged_at": null,
+          "remote_branch_deleted": false,
+          "local_cleanup_executed": false,
+          "depends_on": [
+            "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+            "EN-PARITY-W4-RIASEC-BE-QA-01"
+          ]
+        }
+      },
+      "follow_up_execution_prompt": "/goal Execute EN-PARITY-W4-RIASEC-FE-QA-01 after backend QA and frontend locale guard merge: add sanitized English result/share/PDF/history fixture coverage, prove no Chinese/private/internal leakage and fail-closed behavior, open one scoped fap-web PR, and do not change content authority."
+    }
+  ],
+  "evaluated_non_pr_or_existing_steps": [
+    {
+      "candidate": "backend slot/schema contract",
+      "verdict": "ALREADY_SATISFIED",
+      "evidence": "RiasecContentRegistrySlotContract and deep-slot schema exist; the open need is locale-aware resolution, not a new parallel schema.",
+      "reconsider_condition": "Only if the frozen W4 package cannot be represented without schema drift."
+    },
+    {
+      "candidate": "backend registry/loader",
+      "verdict": "BLOCKED",
+      "evidence": "Required future PR EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01; blocked by current registered launch state.",
+      "reconsider_condition": "W4 launch_ready and inventory_frozen."
+    },
+    {
+      "candidate": "external asset dry-run validator",
+      "verdict": "ALREADY_SATISFIED",
+      "evidence": "RIASEC Result Page Asset Agent, validator harness, source ledger, and preflight tests exist.",
+      "reconsider_condition": "Frozen W4 schema is incompatible with the existing validator."
+    },
+    {
+      "candidate": "W9 independent QA",
+      "verdict": "BLOCKED",
+      "evidence": "W9 is waiting_for_first_package with blocker: No producer package has reached package_frozen.",
+      "reconsider_condition": "W4 package_frozen with immutable SHA; W9 writes only its own authority directory."
+    },
+    {
+      "candidate": "exact-SHA draft import",
+      "verdict": "BLOCKED",
+      "evidence": "All import permissions are false and no frozen/W9-approved package exists.",
+      "reconsider_condition": "W9 PASS, exact dry-run readiness, separately hashed human operator approval for exact package SHA."
+    },
+    {
+      "candidate": "editorial/psychometrics/product approval",
+      "verdict": "BLOCKED",
+      "evidence": "English rows are missing or draft; approvals cannot be inferred from zh review.",
+      "reconsider_condition": "Exact frozen English package and independent QA findings are available."
+    },
+    {
+      "candidate": "runtime pilot",
+      "verdict": "BLOCKED",
+      "evidence": "No imported approved English package and runtime locale gaps remain.",
+      "reconsider_condition": "Draft import, approval, backend/frontend QA, and controlled pilot authorization complete."
+    },
+    {
+      "candidate": "live result/share/PDF/history QA",
+      "verdict": "BLOCKED",
+      "evidence": "No runtime pilot or deployed exact package exists.",
+      "reconsider_condition": "Controlled pilot is active with sanitized/live-safe QA authority."
+    },
+    {
+      "candidate": "public release or SEO/indexability gate",
+      "verdict": "NOT_REQUIRED",
+      "evidence": "RIASEC results, report, PDF, history, and feedback remain private/noindex; share is public-safe but not a new indexable content surface.",
+      "reconsider_condition": "A separately authorized public indexable RIASEC surface is introduced."
+    }
+  ],
+  "existing_work_not_to_duplicate": [
+    "RIASEC-DEEP-COPY schema, projection, frontend renderer, fixture, and smoke train",
+    "RIASEC-FULL-CONTENT-PACK zh reader assets, lifecycle bridge, frontend hardening, and freeze",
+    "RIASEC-CONTENT-SCIENCE-00 through RIASEC-CONTENT-FINALQA-01",
+    "RESULT-EN-PARITY-02 lifecycle English candidate assets"
+  ],
+  "dag_acyclic": true,
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_frontend_backend_gap_map.v1",
+  "lane_id": "W4",
+  "findings": [
+    {
+      "id": "GAP-01",
+      "classification": "backend_registry_gap",
+      "status": "open",
+      "area": "deep copy registry",
+      "evidence": "All primary deep asset path constants and slot locale values are zh-CN.",
+      "required_action": "Add locale-keyed registry resolution that omits missing/unreviewed locale rows."
+    },
+    {
+      "id": "GAP-02",
+      "classification": "backend_projection_gap",
+      "status": "open",
+      "area": "public projection",
+      "evidence": "Envelope locale can be en while slot locale remains zh-CN.",
+      "required_action": "Require requested locale equality before appending a renderable slot."
+    },
+    {
+      "id": "GAP-03",
+      "classification": "backend_registry_gap",
+      "status": "open",
+      "area": "activity explorer",
+      "evidence": "Activity and occupation example authority paths are zh-CN only.",
+      "required_action": "Add locale-keyed asset selection and fail closed when English rows are absent."
+    },
+    {
+      "id": "GAP-04",
+      "classification": "backend_registry_gap",
+      "status": "open",
+      "area": "feedback/action lab",
+      "evidence": "Feedback and next-node authority paths are zh-CN only and payload content_version is fixed zh-CN.",
+      "required_action": "Add locale-aware safe bridge with no cross-locale fallback."
+    },
+    {
+      "id": "GAP-05",
+      "classification": "claim_gate_gap",
+      "status": "open",
+      "area": "lifecycle review eligibility",
+      "evidence": "English lifecycle file is draft_human_review_required but loader availability is based on file presence.",
+      "required_action": "Require approved package/revision review state before runtime selection."
+    },
+    {
+      "id": "GAP-06",
+      "classification": "frontend_consumer_gap",
+      "status": "open",
+      "area": "deep slot locale fail-closed",
+      "evidence": "Assembler does not compare envelope locale, slot locale, and requested page locale.",
+      "required_action": "Reject mismatched slots/envelopes without local copy fallback."
+    },
+    {
+      "id": "GAP-07",
+      "classification": "fixture_gap",
+      "status": "open",
+      "area": "English Chinese-leakage matrix",
+      "evidence": "Question and lifecycle English leakage tests exist; full deep/activity/feedback 1550-row English coverage does not.",
+      "required_action": "Add backend and frontend bilingual fixture matrices after package freeze."
+    },
+    {
+      "id": "GAP-08",
+      "classification": "fixture_gap",
+      "status": "open",
+      "area": "120 ordered top3 code coverage",
+      "evidence": "Current explicit ordered matrix covers 60 representative codes, not all 120 permutations.",
+      "required_action": "Test 120 deterministic projections; do not author 120 reader assets."
+    },
+    {
+      "id": "GAP-09",
+      "classification": "safe_and_complete",
+      "status": "closed",
+      "area": "15 unordered pair schema",
+      "evidence": "Current backend registry and tests cover all 15 pairs; old 3-authored/12-pending finding is obsolete.",
+      "required_action": "Translate all 15 rows; no schema re-design."
+    },
+    {
+      "id": "GAP-10",
+      "classification": "safe_and_complete",
+      "status": "closed",
+      "area": "missing content fail closed structure",
+      "evidence": "Backend omits missing/pending/unknown slots and frontend rejects unknown keys/status/fallback-enabled slots.",
+      "required_action": "Preserve behavior and add locale equality defense."
+    },
+    {
+      "id": "GAP-11",
+      "classification": "safe_and_complete",
+      "status": "closed",
+      "area": "one flagship two forms",
+      "evidence": "Canonical IA and form catalog remain riasec_60 and riasec_140.",
+      "required_action": "No parallel stack."
+    },
+    {
+      "id": "GAP-12",
+      "classification": "obsolete_historical_finding",
+      "status": "closed",
+      "area": "May content incompleteness",
+      "evidence": "Full zh content pack and July content-science repair train merged through final QA.",
+      "required_action": "Use current backend rows as translation source, not May pending counts."
+    },
+    {
+      "id": "GAP-13",
+      "classification": "obsolete_historical_finding",
+      "status": "closed",
+      "area": "legacy 36Q",
+      "evidence": "Legacy local surface was removed and remains disallowed.",
+      "required_action": "Do not revive localStorage or 36Q fallback."
+    },
+    {
+      "id": "GAP-14",
+      "classification": "backend_importer_gap",
+      "status": "blocked_pending_package",
+      "area": "W4 exact package importer",
+      "evidence": "Generic RIASEC asset/ops validators exist; no evidence yet binds a frozen W4 1550-row package to locale-aware runtime import.",
+      "required_action": "Design exact-package dry-run mapping only after package_frozen and W9 QA."
+    },
+    {
+      "id": "GAP-15",
+      "classification": "content_gap",
+      "status": "open_but_launch_blocked",
+      "area": "English reader assets",
+      "evidence": "1543 physical English rows are absent and seven safe-variant rows are draft-only.",
+      "required_action": "Produce reviewed English assets after launch_ready; no runtime AI generation."
+    }
+  ]
+}

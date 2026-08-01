@@ -1,0 +1,74 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_scan_sha256_manifest.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "artifact_kind": "inventory_freeze_evidence_scan",
+  "file_count": 11,
+  "files": [
+    {
+      "path": "w4_scan_manifest.json",
+      "sha256": "4e504c86a901c725489e0a23a7d4c8153113d76099c21974397cc7ffcca97171",
+      "bytes": 3816
+    },
+    {
+      "path": "canonical_14_group_map.json",
+      "sha256": "f80b18f9bcdf140accfc0d43cd9e2abd816386b52a2f107e1ee1040407085d05",
+      "bytes": 24834
+    },
+    {
+      "path": "expanded_asset_inventory.jsonl",
+      "sha256": "06db0b3172ccffe344b09f38225b4876d20b6242fe4b00c7418dee2fe1708712",
+      "bytes": 1594195
+    },
+    {
+      "path": "pair_coverage_matrix.json",
+      "sha256": "e327c64bfc763adbe19bda7142acdb6efeb617b136db6141a81a4042b5ef7400",
+      "bytes": 9162
+    },
+    {
+      "path": "form_surface_matrix.json",
+      "sha256": "4f3ca9e770c4aaf7aff4433fdb9cc2cacf089b940d537aced0371046da6a2a81",
+      "bytes": 7769
+    },
+    {
+      "path": "source_authority_ledger.json",
+      "sha256": "dcd1238c7a4e0529ceeb8d9cb73a8e5b8c9fddfcb2bb13f0eed7d76e436e45d8",
+      "bytes": 13879
+    },
+    {
+      "path": "claim_boundary_findings.json",
+      "sha256": "4a8b4cddcb3af2289dd544e7cc8d0655e906f1d13070fbf08e65170ca3850845",
+      "bytes": 5744
+    },
+    {
+      "path": "frontend_backend_gap_map.json",
+      "sha256": "7f4fe32eb75a98a4add9ef8da36179701769bc3146c8786722f2147adc892dbe",
+      "bytes": 5356
+    },
+    {
+      "path": "pr_decomposition.json",
+      "sha256": "06f2454218e31c70296b038fe2406a3ef85e76c453f6db8a14b095b1b7dd7804",
+      "bytes": 117168
+    },
+    {
+      "path": "w4_pr_dependency_dag.md",
+      "sha256": "a3a9f711c9e6b2660fc1301c7e9b14ade59fc91394f7dd6ea04d0058fc348a9b",
+      "bytes": 2652
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "209f0324a73fee451f383507894cbd6dcc6c38a6913508a88a994cc1d27bd636",
+      "bytes": 3701
+    }
+  ],
+  "aggregate_sha256": "13c490509b9506b0a9efcfd1065558ea5fb62ae1bfd40dfefe01b08bdfaf5ca1",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

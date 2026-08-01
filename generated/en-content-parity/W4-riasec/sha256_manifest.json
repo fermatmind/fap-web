@@ -1,0 +1,41 @@
+{
+  "schema_version": "fermatmind.en_content_parity_package_sha256_manifest.v1",
+  "lane_id": "W4",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "files": [
+    {
+      "path": "scope_manifest.json",
+      "sha256": "05bad8383ab32e188ea25940d1874b3d711c8a413c23fd81ec61e9dcd2485761"
+    },
+    {
+      "path": "assets.jsonl",
+      "sha256": "eb0a5d702e099164622f4b5e3056a3269d7f79efda3cf0d0f4d4974bab2953ca"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "6a52a7d8610a1573f238ddef2810e9f90ddfcbbcf8232746d1f465e725d177c0"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "c8749e19c119d2994b04cbb6a6726174ce18e0c38a7d3dbe6e281a7220534e33"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "9e91b9c3698a645786a0a442f06a91c175053f6832d7e2ca1ca67ee82207b91a"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "419b1301f7df3850ee334c39bc6245effe78dedc0401bdc9e51945197922530d"
+    },
+    {
+      "path": "dry_run_readiness.json",
+      "sha256": "6d48201c7508f97cc11aeacf3d34a14f52808a8967969d2ce9319a13c7e3697c"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "650fe5c912607a401a8cd277b0a01b45176a1d4d73d8c02da451c74803d62625"
+    }
+  ],
+  "package_sha256": "a96b2a57e86cd3a5382572946c70246ddbccf62df0fb960144b93518ea5547c5"
+}

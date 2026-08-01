@@ -1,0 +1,26 @@
+{
+  "schema_version": "fermatmind.en_content_parity_dry_run_readiness.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W4",
+  "subscope_id": null,
+  "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
+  "ready": false,
+  "status": "inventory_frozen_only",
+  "blockers": [
+    "No final English reader-content package exists.",
+    "No W9 independent QA report exists for a frozen W4 package SHA.",
+    "Deep, activity, and feedback backend resolution remains zh-CN fixed and needs a separate locale-aware runtime PR.",
+    "The frontend lacks an envelope/slot/page locale-equality defense.",
+    "No exact-package importer, human approval, draft import, pilot, or live QA authorization exists."
+  ],
+  "next_gate": "package_in_progress_after_control_accepts_inventory_frozen_candidate",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
