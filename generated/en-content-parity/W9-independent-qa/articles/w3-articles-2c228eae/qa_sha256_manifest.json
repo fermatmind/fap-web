@@ -1,0 +1,54 @@
+{
+  "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "files": [
+    {
+      "path": "qa_scope_manifest.json",
+      "sha256": "8793cd92744b4e52e27b5263c7c16129f6bbbc54bff947b70e7bf4a543b1c825"
+    },
+    {
+      "path": "qa_row_matrix.json",
+      "sha256": "1a7c5619d083846c9cc57670e29a48fc2245c8647cfccb5613aaa01a4ea78e17"
+    },
+    {
+      "path": "qa_report.json",
+      "sha256": "f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1"
+    },
+    {
+      "path": "source_equivalence_report.json",
+      "sha256": "471e0b613b706dac80dd9de794da8e2d4853a4691f8bec25a404c5895b50b6d5"
+    },
+    {
+      "path": "language_naturalness_report.json",
+      "sha256": "4736b17dbcc0325c4a2a46ec417f04efc070d52fa8a2ace37395772ddb90c823"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "8101a6a7f7eea2672c3db6000b3b928303c6a5b4813423b931c8017461870dbc"
+    },
+    {
+      "path": "chinese_leakage_report.json",
+      "sha256": "a04d610d8fce8aaccf128ab2d11b4252f945cc241683299e9c6b71dc021086cb"
+    },
+    {
+      "path": "markdown_integrity_report.json",
+      "sha256": "4cee6601ed503e0bacc5de5cb5a0e0eca03c8616406929964226cffca6e8dd1c"
+    },
+    {
+      "path": "asset_integrity_report.json",
+      "sha256": "2ade025c1492962d00a0435037818c651b3550ee356a844ac5234cefb6381c31"
+    },
+    {
+      "path": "repair_batch_plan.json",
+      "sha256": "f552516d41eadcf0d69744863ff7bd3da1dddb3deadc594fbe308a8cc6a89308"
+    },
+    {
+      "path": "master_manifest_patch.candidate.json",
+      "sha256": "1dfeb9382feb8566e78f53f6a109d9dfc63674621f442c57fd09d98fc93d1693"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "b30070cd4b3096d0f14b980befce5749b4d2ac053dc699cbe8f4b4b45d9a13b2"
+    }
+  ],
+  "qa_package_sha256": "015ce30bfa68243a8e6ed9ca8a3a5d0ed82bda680fbeca15ce5f5aa596982515"
+}

@@ -1,0 +1,12 @@
+{
+  "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "verdict": "BLOCKED",
+  "findings": [
+    {
+      "stable_asset_identity": "Article:53",
+      "field": "candidate_content_md",
+      "issue": "Time-sensitive 2026 external facts lack independently verifiable official or immutable citation evidence.",
+      "repair_boundary": "Replace or support only the unsupported external-fact statements; preserve the remaining frozen package until CONTROL reset."
+    }
+  ]
+}
