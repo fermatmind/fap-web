@@ -54529,13 +54529,17 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_verified",
+    "commit_sha": "9937c487c00335059aceea46a76b85b65d78ddde",
     "pr_url": null,
     "checks": {
       "preflight": {
         "status": "pass",
         "evidence": "Merged dependency PR #1940 is present in origin/main. W4 remains launch_ready/not_started with 14/0/14 logical-group counts, null package/QA fields, empty lineage, and all permissions false. Latest fap-web control master SHA is 2ce4c19a8c2463521bf666e417949662c6ec2c460f9df8905ce766fb95de67dc; latest fap-api origin/main is a202c8175ad0cfda59585d9adb20e1b2d8b929a2 and its delta from e5997548beb7da3f9850b7d382a015e175b0397d contains no RIASEC/Holland/interest paths."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Rebound W4 evidence to fap-web origin/main b65e0c78f1b665ae50cfaa5b62bf385ce05fdbbe, control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1, and fap-api origin/main a202c8175ad0cfda59585d9adb20e1b2d8b929a2. Candidate and master validators passed; focused control-master contract passed 63/63; pnpm lint . completed without lint violations; 14 logical groups, 1550 unique atomic rows, 15 unordered pairs, 3/2/2 safe surfaces, eight payload SHA coverage, and candidate/source-ledger binding passed. New inventory package SHA is b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce."
       }
     },
     "failure_reason": null,
@@ -54553,8 +54557,13 @@
         "at": "2026-08-01T18:06:00+08:00",
         "status": "in_progress",
         "summary": "Started the user-authorized W4 inventory evidence revalidation from latest fap-web and fap-api main. Scope is limited to current authority bindings and their SHA chain; the 14 logical groups, 1550 atomic identities, 15 pairs, 3/2/2 safe surfaces, master, runtime, CMS/import, publication, and deploy state remain unchanged."
+      },
+      {
+        "at": "2026-08-01T18:21:00+08:00",
+        "status": "local_verified",
+        "summary": "Rebased once after an external W3 CONTROL master update, regenerated the complete W4 evidence SHA chain against the latest authority inputs, and passed all scoped local validation. The immutable inventory contents remain exactly 14 groups, 1550 rows, 15 unordered pairs, and 3/2/2 safe surfaces; the master, runtime, CMS/import, publication, and deploy state remain unchanged."
       }
     ],
-    "updated_at": "2026-08-01T18:06:00+08:00"
+    "updated_at": "2026-08-01T18:21:00+08:00"
   }
 }
