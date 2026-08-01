@@ -580,7 +580,7 @@ describe("English content parity control master", () => {
         same_pr_allowed: false,
       },
     ]);
-    expect(w1?.status).toBe("inventory_frozen");
+    expect(w1?.status).toBe("package_in_progress");
     expect(w1?.counts).toEqual({
       cohort_count: 2,
       expected_en_assets: 53,
@@ -871,7 +871,7 @@ describe("English content parity control master", () => {
     if (!w1) {
       throw new Error("missing W1 lane fixture");
     }
-    w1.status = "inventory_frozen";
+    w1.status = "package_in_progress";
     let expectedTotal = 0;
     let currentTotal = 0;
     let remainingTotal = 0;
@@ -3085,6 +3085,7 @@ describe("English content parity control master", () => {
     const frozenAssets = progressedManifest.assets
       .filter((asset) => asset.asset_id === "ENPARITY-W1-MBTI-CROSS-COMPARISONS");
     comparisons.status = "package_in_progress";
+    w1.status = "package_in_progress";
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const permissions: Permissions = {
@@ -3210,6 +3211,7 @@ describe("English content parity control master", () => {
       throw new Error("missing W1 external package fixture");
     }
     comparisons.status = "package_in_progress";
+    w1.status = "package_in_progress";
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
     fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
     const frozenAssets = progressedManifest.assets.filter(
