@@ -54831,8 +54831,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb",
+    "status": "github_checks_pending_rebased",
+    "commit_sha": "c6051eab5b585734d99ee3c91ad470ac7f4fe0ec",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
@@ -54848,8 +54848,8 @@
         "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1949 exact review-fix head d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb passed all 11 applicable build, contract, freeze, and CodeQL checks. The actionable review thread is resolved and no unresolved threads remain."
+        "status": "pending",
+        "evidence": "Rebased onto origin/main 5b1630d1156a2bd0193d9926205becd02734e15a after unrelated W4 PR #1950 merged. Fresh exact-head checks are required."
       }
     },
     "failure_reason": null,
@@ -54897,8 +54897,13 @@
         "at": "2026-08-01T13:03:39Z",
         "status": "ready_to_merge",
         "summary": "PR #1949 exact review-fix head d7b5adc47239d08e8d9ee77cb5a4bdf54beb37eb passed all 11 applicable checks. The actionable next_action review is fixed and resolved, exact scope is clean, and master CAS remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T13:13:14Z",
+        "status": "github_checks_pending_rebased",
+        "summary": "Rebased onto origin/main 5b1630d1156a2bd0193d9926205becd02734e15a after unrelated W4 PR #1950 merged. The unique master SHA remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3, the exact candidate remains valid, concurrent W4 ledger facts are preserved, and all focused validation passes. Fresh exact-head required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T13:03:39Z"
+    "updated_at": "2026-08-01T13:13:14Z"
   }
 }
