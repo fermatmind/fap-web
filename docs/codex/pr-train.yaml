@@ -29140,3 +29140,36 @@ prs:
     deploy_allowed: false
     content_authority: producer candidate package only; fap-api lifecycle authority unchanged
     repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change
+
+  - id: EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-dimension-assets-01
+    base: main
+    depends_on: [EN-PARITY-W4-RIASEC-INVENTORY-01]
+    mode: execute
+    train_scope: w4_riasec_dimension_core_candidate_segment
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-01 produce six-dimension and core-cost-shadow English segment"
+    scope:
+      - Produce exactly 42 candidate English atomic rows for W4-G01/G02 without runtime writes.
+    allowed_paths: [generated/en-content-parity/W4-riasec/segments/dimension-core/**, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json]
+    do_not:
+      - Modify control master, runtime, backend authority, CMS, import, publication, SEO, indexability, or release permissions.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm lint .
+      - JSON/JSONL parse; exact 24/18/42 reconciliation; no-CJK, boundaries, payload and aggregate SHA
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api dimension authority unchanged
+    repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change
