@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "1698e7bddba037bed4725f74cafede4a31408bd1",
+    "commit_sha": "77fdc07c9252ed271894609078b88046588dbd78",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53189,8 +53189,13 @@
         "at": "2026-08-01T05:17:04Z",
         "status": "github_checks_pending",
         "summary": "Repaired the SEO-status P2 by retaining actual dedicated endpoint status and source for every URL, validating approved detail seo_contract fallback separately, and adding exact 18-endpoint/2-fallback evidence counts. Added a pre-write incomplete-sitemap hard failure after one transient empty snapshot. Final live run is GO with the original deterministic target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682; focused 17/17, lint, typecheck, JSON, syntax, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T05:17:30Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the SEO authority-source repair as 77fdc07c9252ed271894609078b88046588dbd78. This metadata tail binds the reachable implementation head before push and fresh exact-head review/checks."
       }
     ],
-    "updated_at": "2026-08-01T05:17:04Z"
+    "updated_at": "2026-08-01T05:17:30Z"
   }
 }
