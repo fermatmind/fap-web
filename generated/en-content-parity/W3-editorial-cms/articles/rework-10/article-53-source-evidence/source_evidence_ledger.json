@@ -1,0 +1,61 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "schema_version": "fermatmind.w3_article_53_source_evidence.v1",
+  "artifact_kind": "producer_source_evidence_ledger",
+  "producer_pr_id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "stable_asset_identity": "Article:53",
+  "source_identity": "Article:53@revision:65",
+  "translation_pair_identity": "tg_article_gaokao_score_major_shortlist_riasec_2026v1",
+  "slug": "gaokao-score-major-shortlist-riasec-checklist",
+  "base_failed_package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "evidence": [
+    {
+      "evidence_id": "EDU-2026-CLOUD-CONSULTATION-WEEK",
+      "canonical_source_url": "https://gaokao.chsi.com.cn/gkxx/gzdt/202606/20260618/2293826055.html",
+      "page_title": "教育部公布2026年高考“云咨询周”时间安排",
+      "authority_owner": "Ministry of Education / Sunshine Gaokao information platform",
+      "retrieved_at_utc": "2026-08-01T17:12:29Z",
+      "source_availability_status": "official_page_available_via_authoritative_web_retrieval; direct_http_retrieval_returned_412",
+      "source_content_fingerprint": {
+        "algorithm": "sha256",
+        "scope": "canonicalized_supporting_assertion_v1",
+        "sha256": "e782d4ac6046bf07a4b096394b9f9c07e3b07c3c79a628c8cca709c5867363d6",
+        "canonicalized_assertion": "Education Ministry announcement: the 2026 Gaokao Cloud Consultation Week is held on the Sunshine Gaokao information platform from June 22 through June 28; the platform provides university-admissions, major, and application guidance."
+      },
+      "supports_claims": [
+        "Article:53 statement that the 2026 Gaokao Cloud Consultation Week ran from June 22 through June 28.",
+        "Article:53 recommendation to use the Sunshine Gaokao information platform as an official input for admissions and application information."
+      ],
+      "disposition": "retain_with_primary_official_evidence"
+    },
+    {
+      "evidence_id": "MOE-2026-UNDERGRADUATE-MAJOR-CATALOGUE",
+      "canonical_source_url": "https://www.moe.gov.cn/srcsite/A08/moe_1034/s3882/202604/t20260427_1434931.html",
+      "page_title": "教育部关于公布《普通高等学校本科专业目录（2026年）》的通知",
+      "authority_owner": "Ministry of Education of the People's Republic of China",
+      "retrieved_at_utc": "2026-08-01T17:12:29Z",
+      "source_availability_status": "official_page_available_http_200",
+      "source_content_fingerprint": {
+        "algorithm": "sha256",
+        "scope": "raw_http_response_body",
+        "sha256": "1d16d2471beb3d1af06cc20654b8337639b118db1e8e71f1ec5df1a6a9b64105"
+      },
+      "supports_claims": [
+        "Article:53 statement that the Ministry of Education published the Undergraduate Major Catalogue (2026).",
+        "Article:53 statement that the 2026 catalogue includes new entries such as embodied intelligence and brain-machine science and technology."
+      ],
+      "disposition": "retain_with_primary_official_evidence"
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

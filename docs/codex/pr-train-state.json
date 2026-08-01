@@ -55341,5 +55341,38 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-01T16:10:00Z", "status": "in_progress", "summary": "Started from CONTROL-accepted W4 package_in_progress. Aggregation is candidate-only, binds the exact 1550-row payload, and keeps all write/release permissions false."}, {"at": "2026-08-02T00:12:00+08:00", "status": "local_verified", "summary": "Control validator passed for the package_frozen candidate; the immutable package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 recomputed identically twice; 14/1550, 15 pairs, and 3/2/2 surfaces reconcile; the focused control contract passed 65/65. W9, import, runtime, and release remain deferred."}, {"at": "2026-08-02T00:14:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1963 from immutable package commit 514798213813c9108c35f054f3c3b630931e34a0; required GitHub checks are pending."}],
     "updated_at": "2026-08-02T00:14:00+08:00"
+  },
+  "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01": {
+    "id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01: resolve the Article:53 time-sensitive source boundary",
+    "base": "main",
+    "branch": "codex/en-parity-w3-article-53-source-evidence-01",
+    "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The continuous W3 Producer /goal explicitly authorizes this exact manifest and ledger entry."},
+      "dependency": {"status": "pass", "evidence": "PR #1966 is merged as 3d38fbaf946cfc832e8b407097cc971f7e20cf0f and origin/main carries W3-ARTICLES=package_in_progress with the retained failed-W9 evidence externally bound."},
+      "local_validation": {"status": "pass", "evidence": "Focused Article:53 source-evidence contract passed 4/4; focused ESLint, JSON/YAML parse, exact allowed-path audit, diff checks, two-run evidence package SHA recomputation, primary-source URL/owner/title/retrieval/fingerprint/disposition mapping, Article:53 identity invariants, 16-row reader-visible preservation projection, and all-false permissions pass. Evidence package SHA: 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-01T17:12:29Z", "status": "in_progress", "summary": "Started from origin/main 3d38fbaf946cfc832e8b407097cc971f7e20cf0f after confirming PR #1966 is merged, W3-ARTICLES is package_in_progress, W3-CAREER-GUIDES remains inventory_frozen, all permissions are false, and no matching open PR exists. Scope is Article:53 source evidence only; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."},
+      {"at": "2026-08-01T17:18:53Z", "status": "local_verified", "summary": "Recorded two primary official sources for the 2026 Cloud Consultation Week and Undergraduate Major Catalogue boundary, with source availability/fingerprint facts and a candidate-only Article:53 section replacement. The canonical 17-row package remains untouched; Article:53 identity and the 16 non-target reader-visible projections validate unchanged. Focused contract, ESLint, JSON/YAML, SHA, scope, and diff checks pass."}
+    ],
+    "updated_at": "2026-08-01T17:18:53Z"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "schema_version": "fermatmind.w3_article_53_claim_disposition.v1",
+  "artifact_kind": "producer_claim_disposition",
+  "stable_asset_identity": "Article:53",
+  "source_identity": "Article:53@revision:65",
+  "translation_pair_identity": "tg_article_gaokao_score_major_shortlist_riasec_2026v1",
+  "blocked_scope": "2026 Sunshine Gaokao Cloud Consultation Week dates and 2026 catalogue/new-program assertions",
+  "dispositions": [
+    {
+      "claim_id": "cloud-consultation-week-dates",
+      "previous_claim": "The 2026 Gaokao Cloud Consultation Week ran from June 22 through June 28.",
+      "disposition": "retain_with_primary_official_evidence",
+      "evidence_id": "EDU-2026-CLOUD-CONSULTATION-WEEK"
+    },
+    {
+      "claim_id": "catalogue-and-new-entries",
+      "previous_claim": "The 2026 undergraduate major catalogue includes newly introduced or revised majors such as embodied intelligence and brain-machine science and technology.",
+      "disposition": "reframe_to_exact_primary_source_language",
+      "evidence_id": "MOE-2026-UNDERGRADUATE-MAJOR-CATALOGUE",
+      "reason": "Replace the open-ended catalogue-adjustment and social-frequency wording with the exact, source-bounded catalogue statement."
+    },
+    {
+      "claim_id": "emerging-major-outcome-warning",
+      "previous_claim": "Focusing on emerging majors can effectively capture the future.",
+      "disposition": "remove_predictive_framing",
+      "reason": "The repair keeps the non-predictive guidance that newness does not determine individual suitability and removes the future-capture framing."
+    }
+  ],
+  "unsupported_2026_time_sensitive_claims_remaining": false,
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
