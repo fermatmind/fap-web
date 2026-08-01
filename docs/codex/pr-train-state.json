@@ -53787,9 +53787,9 @@
     "base": "main",
     "branch": "codex/en-parity-control-w4-launch-ready-01",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "5234d3801d2939e6267f2499d91a84b6acd98515",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1934",
     "checks": {
       "preflight": {
         "status": "pass",
@@ -53824,8 +53824,13 @@
         "at": "2026-08-01T08:39:48Z",
         "status": "local_verified",
         "summary": "Validated W4 launch_ready/not_started with unchanged 14/0/14 counts, null package and QA fields, empty lineage and blockers, all-false permissions, unchanged W1-W3 and W5-W9 business state, and focused contract coverage."
+      },
+      {
+        "at": "2026-08-01T08:41:10Z",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1934 from exact authored commit 5234d3801d2939e6267f2499d91a84b6acd98515; required GitHub checks are pending and concurrent CONTROL changes will be rebased before merge if needed."
       }
     ],
-    "updated_at": "2026-08-01T08:39:48Z"
+    "updated_at": "2026-08-01T08:41:10Z"
   }
 }
