@@ -116,7 +116,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_frozen",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
@@ -174,10 +174,10 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-RESULT-CONTENT"
           ],
-          "status": "package_frozen",
+          "status": "qa_pass",
           "blocked_from_status": null,
           "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
-          "qa_report_ref": null,
+          "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/independent_qa_report.json",
           "gate_lineage": [
             {
               "status": "package_frozen",
@@ -186,6 +186,14 @@
               "report_sha256": "b19480b76e40b0ab6157d629da63e4ca47a9b030c4ed5c176dab9c5ab1c834c2",
               "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
               "accepted_at": "2026-08-01T07:54:33Z"
+            },
+            {
+              "status": "qa_pass",
+              "evidence_owner_lane_id": "W9",
+              "report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/independent_qa_report.json",
+              "report_sha256": "b1179976102f903b36de9888ee4cb0b4dd74fc3906d5951682922464bc8dec7d",
+              "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+              "accepted_at": "2026-08-01T08:06:54Z"
             }
           ],
           "blockers": [],
