@@ -28691,3 +28691,49 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: Rebinds producer evidence only; backend RIASEC authority, private-result noindex boundary, and frontend no-fallback rules remain unchanged.
+
+  - id: EN-PARITY-CONTROL-W4-INVENTORY-FROZEN-01
+    repo: fap-web
+    branch: codex/en-parity-control-w4-inventory-frozen-01
+    base: main
+    title: "EN-PARITY-CONTROL-W4-INVENTORY-FROZEN-01: accept W4 RIASEC inventory freeze"
+    depends_on: [EN-PARITY-W4-RIASEC-INVENTORY-REVALIDATION-01]
+    mode: execute
+    train_scope: w4_riasec_inventory_frozen_control_acceptance
+    risk_level: L2_content_governance
+    status: in_progress
+    scope:
+      - Accept only the exact W4 inventory_frozen candidate bound to the current control master and transition W4 exactly once from not_started to inventory_frozen.
+      - Preserve the frozen 14/0/14 logical-group counts, null package/QA fields, empty lineage/blockers, and all-false permissions.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify generated/en-content-parity/W4-riasec/**, the master schema, other lanes, CMS, database, runtime, sitemap, llms, SEO, import, publication, or deploy state.
+      - Assign package_sha256, qa_report_ref, gate_lineage, W9 PASS, human editorial approval, runtime readiness, import readiness, production readiness, or publication.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json (pre-transition only)
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec eslint tests/contracts/en-content-parity-control-master.contract.test.ts --max-warnings=0
+      - JSON and YAML parse; W4 14/1550/15/3-2-2 evidence, zero-permission, zero-lineage, and null-package/QA reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL inventory acceptance only; backend RIASEC authority, private-result noindex boundary, and frontend no-fallback rules remain unchanged.
