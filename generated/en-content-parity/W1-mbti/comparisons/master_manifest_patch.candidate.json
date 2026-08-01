@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "base_manifest_sha256": "6dc07237c7abe35f93574232c279a6690dc637a58a721c42c4852942058ce79b",
+  "sha256_manifest_path": "generated/en-content-parity/W1-mbti/comparisons/sha256_manifest.json",
+  "package_sha256": "5328b327be954d69ce080cbca0917cd82f8b643f34c4cea1b20f270e6c6ea0c9",
+  "proposed_status": "package_in_progress",
+  "gate_evidence": {
+    "gate": "package_in_progress",
+    "report_path": "source_ledger.json",
+    "report_sha256": "0a6b3425e0f892050e73a786aa2c1d0440c8e499aae017f8bf54f6fefe434a4c",
+    "report_in_package": true,
+    "owner_lane_id": "W1",
+    "verdict": null,
+    "asset_ids": [
+      "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
+    ],
+    "row_count": 7
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W1-MBTI-CROSS-COMPARISONS",
+      "lane_id": "W1",
+      "asset_type": "mbti_cross_type_comparison",
+      "translation_group": "cohort:mbti:cross-type-comparison",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset and public comparison API",
+      "expected_en_count": 7,
+      "current_en_count": 0,
+      "remaining_en_count": 7,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The current backend authority contains exactly seven published zh-CN cross-type comparison records: enfp-vs-entp, entj-vs-intj, estj-vs-entj, infj-vs-infp, intj-vs-intp, isfp-vs-infp, and istj-vs-isfj.",
+        "Read-only live checks returned 200 for every zh-CN page/API pair and 404 for every English page/API pair.",
+        "The dedicated MbtiCrossTypeComparisonAuthority model is the current storage authority; its public read model is explicitly restricted to zh-CN."
+      ],
+      "notes": "All seven English assets are absent, not drafts or route-only shells. The master authority label is retained as a protected field even though the current implementation uses a dedicated comparison authority table rather than PersonalityPublicContentAsset."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

@@ -132,7 +132,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
           ],
-          "status": "inventory_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
           "package_sha256": null,
           "qa_report_ref": null,
@@ -203,7 +203,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "not_started",
+      "status": "inventory_frozen",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
@@ -214,10 +214,10 @@
       "subscopes": [],
       "counts": {
         "cohort_count": 3,
-        "expected_en_assets": null,
-        "current_en_assets": null,
-        "remaining_en_assets": null,
-        "unknown_inventory_cohorts": 1
+        "expected_en_assets": 118,
+        "current_en_assets": 118,
+        "remaining_en_assets": 0,
+        "unknown_inventory_cohorts": 0
       },
       "source_inventory_refs": [
         "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
@@ -227,7 +227,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Run the W2 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
+      "next_action": "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
@@ -272,20 +272,11 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_frozen",
+          "status": "package_in_progress",
           "blocked_from_status": null,
-          "package_sha256": "8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d",
+          "package_sha256": null,
           "qa_report_ref": null,
-          "gate_lineage": [
-            {
-              "status": "package_frozen",
-              "evidence_owner_lane_id": "W3",
-              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
-              "report_sha256": "442c6804c81d1af8190d98f602a1f3f96bfad3da2eb73127e12b70ec088d8047",
-              "package_sha256": "8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d",
-              "accepted_at": "2026-08-01T05:06:48.000Z"
-            }
-          ],
+          "gate_lineage": [],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -325,7 +316,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Submit exact W3-ARTICLES package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d to fresh independent W9 QA; keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
+      "next_action": "Repair Article 59, rebuild the complete W3-ARTICLES package, re-freeze it under a new exact SHA, and repeat fresh independent W9 QA. Keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
@@ -711,9 +702,11 @@
       "remaining_en_count": 0,
       "parity_state": "paired_complete",
       "evidence": [
-        "The deep scan observed 52 zh-CN and 52 English public Big Five profile pages."
+        "The frozen public control contains all 52 canonical English/zh-CN logical identities; public-profile generation remains NOT_REQUIRED.",
+        "Merged fap-api evidence at 2b2c971c6077fa4101a54826c6b3703eb5b6b3e1 proves the exact 52-row English authority catalog, including 50 non-hub rows plus the model and facet hubs.",
+        "All 20 locale-specific redirect-only alias paths remain excluded from the canonical cohort, and the English public assets remain text-only."
       ],
-      "notes": "Completed public content must not be regenerated."
+      "notes": "Completed immutable control. This package preserves the 52/52 result and does not regenerate or rewrite public profile content."
     },
     {
       "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
@@ -726,13 +719,15 @@
       ],
       "authority_source": "backend CMS working revision and published projection",
       "expected_en_count": 50,
-      "current_en_count": 0,
-      "remaining_en_count": 50,
-      "parity_state": "en_draft_requires_verification",
+      "current_en_count": 50,
+      "remaining_en_count": 0,
+      "parity_state": "paired_complete",
       "evidence": [
-        "The CMS scan observed 50 English Big Five draft records outside the published public count."
+        "fap-api PR 3421 merged as 2b2c971c6077fa4101a54826c6b3703eb5b6b3e1; implementation f15e81992ab291a8b578fbe19f2e1846a19aa48c.",
+        "The sanitized durable evidence (7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd) proves exactly 50 registered historical immutable revision rows and zero independent current drafts.",
+        "Every current working pointer equals its locked published revision; all 50 historical slots are inactive, superseded, text-only, claim-boundary compliant, and classified stale_working_revision."
       ],
-      "notes": "A draft or working revision is not a published public projection."
+      "notes": "current_en_count means the 50 registered historical revision slots were independently reconciled, not that 50 active drafts exist. Active independent draft count is zero; public page count is not used as draft evidence."
     },
     {
       "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
@@ -744,14 +739,16 @@
         "en"
       ],
       "authority_source": "backend Big Five v2 result and report content",
-      "expected_en_count": null,
-      "current_en_count": null,
-      "remaining_en_count": null,
-      "parity_state": "inventory_required",
+      "expected_en_count": 16,
+      "current_en_count": 16,
+      "remaining_en_count": 0,
+      "parity_state": "en_draft_requires_verification",
       "evidence": [
-        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+        "fap-api PR 3451 merged as 44350a696d8d1123fa2ea7831708d709831cf34b and supplies exactly 16 backend-authoritative English result/report/share/PDF/history content assets.",
+        "The exact backend child package SHA is aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; every W2 result row is bound to its unit, asset_id, required content keys, and content-row SHA.",
+        "All 16 assets are draft_review_only. Independent W9 QA, human editorial approval, import, runtime use, production use, publication, and deploy remain unauthorized."
       ],
-      "notes": "Private result parity is independent from public profile completeness."
+      "notes": "All sixteen registered result-content units are complete as backend draft-review assets pending independent W9 verification. This does not authorize runtime selection, import, production use, publication, or deployment."
     },
     {
       "asset_id": "ENPARITY-W3-ARTICLES",

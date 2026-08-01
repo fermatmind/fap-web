@@ -184,6 +184,7 @@
 
 ## English content parity control
 - The only sitewide English content parity master is `docs/seo/generated/en-content-parity-control-master.v1.json`. Producer and QA windows must not edit it directly; they submit validated `master_manifest_patch.candidate.json` artifacts for the control window to accept.
+- A package produced in the registered backend authority repository may retain its backend manifest-chain SHA only through a validated `external_package_evidence` envelope. The fap-web control package must carry an exact non-symlinked snapshot, bind the source repository, exact commit and backend path, verify the manifest and every declared payload SHA, and keep its local eight-file control-envelope SHA separate. This exception never permits an arbitrary declared SHA, a missing payload snapshot, or producer self-acceptance.
 - Producer windows must not write CMS, production data, SEO runtime, sitemap, llms, indexability, or public release state. Every write and release permission remains false until a separately controlled exact-SHA approval authorizes that action.
 - W3 Articles and Career Guides are sequential, independent scopes. They require separate output directories, packages, SHAs, candidate patches, imports, and PRs.
 - `package_frozen` fixes the complete target asset set and package SHA. Every later transition must retain that exact SHA and append external gate lineage; rebuilding or swapping the package requires returning to package production and repeating independent QA.

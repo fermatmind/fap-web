@@ -1,0 +1,19 @@
+{
+  "schema_version": "fermatmind.en_content_parity_translation_map.v1",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-COMPARISONS",
+  "package_id": "EN-PARITY-W1-MBTI-COMPARISON-ASSETS-W9-CORRECTION-07-2026-07-31",
+  "source_repository": "fap-api",
+  "source_commit_sha": "c6d2825790311908795b158d138954dfe89c6313",
+  "source_package_path": "backend/content_assets/en-content-parity/W1-mbti/comparisons/w9-correction-deecc817",
+  "source_package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+  "rows": [
+    { "row_id": "W1-COMP-01-ENFP-VS-ENTP", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:enfp-vs-entp", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:enfp-vs-entp" },
+    { "row_id": "W1-COMP-02-ENTJ-VS-INTJ", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:entj-vs-intj", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:entj-vs-intj" },
+    { "row_id": "W1-COMP-03-ESTJ-VS-ENTJ", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:estj-vs-entj", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:estj-vs-entj" },
+    { "row_id": "W1-COMP-04-INFJ-VS-INFP", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:infj-vs-infp", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:infj-vs-infp" },
+    { "row_id": "W1-COMP-05-INTJ-VS-INTP", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:intj-vs-intp", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:intj-vs-intp" },
+    { "row_id": "W1-COMP-06-ISFP-VS-INFP", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:isfp-vs-infp", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:isfp-vs-infp" },
+    { "row_id": "W1-COMP-07-ISTJ-VS-ISFJ", "source_identity": "mbti_cross_type_comparison_authorities:org0:zh-CN:istj-vs-isfj", "target_identity": "mbti_cross_type_comparison_authorities:org0:en:istj-vs-isfj" }
+  ]
+}

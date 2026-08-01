@@ -419,5 +419,29 @@
     "required_checks_affected": false,
     "recommended_follow_up": "Clean or globally ignore the local trace directory only in a separately authorized workspace-maintenance task; do not change repository lint policy in this PR.",
     "observed_at": "2026-07-19T06:53:00Z"
+  },
+  {
+    "id": "external-master-update-invalidated-w2-inventory-candidate-20260801",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "branch": "codex/en-parity-w2-big5-inventory-candidate-rebase-01",
+    "blocker_type": "external_control_master_update_invalidated_producer_candidate",
+    "evidence": "After Producer PR A merged, external CONTROL PR #1895 advanced origin/main to 304fd146bd5c9406ee9b9f7348e4f4d9a09da14d and changed the master file SHA-256 from ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d to 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f. The W2 inventory candidate validator rejected the stale base SHA before the CONTROL transition.",
+    "why_not_current_pr_scope": "The master change was merged by an external CONTROL PR after W2 Producer PR A; this repair only rebinds the already-validated W2 candidate to the current pre-transition master and does not change master, W2 content payloads, asset counts, or package SHA.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Merge this minimal candidate-rebase repair, rerun the candidate validator on the exact current master, then execute only EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01. Avoid concurrent CONTROL merges until that acceptance is complete.",
+    "observed_at": "2026-08-01T05:31:00Z"
+  },
+  {
+    "id": "external-w1-w3-control-master-advances-delayed-w2-control-a-20260801",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "branch": "codex/en-parity-control-w2-inventory-frozen-01",
+    "blocker_type": "external_control_master_concurrency",
+    "evidence": "While CONTROL A required checks ran, external W1 CONTROL PR #1900 advanced main to 961b9cc67e86263769267e696035ca03157ab785, external W3 CONTROL PR #1902 advanced main to 8cb0edfa4147cd16ec700b3d9e61fcab1d4d8146, external W1 fixture CONTROL PR #1901 advanced main to dc1be502cdcf2766f0b4c0b10f0901056fafbbf9, and external W3 CONTROL PR #1903 advanced main to c4510b6a318d18c4e383142dc977e8e555cd237f. CONTROL A was rebased three times; the W2 transition remains exactly inventory_frozen with frozen 52/50/16 counts and no package SHA or lineage.",
+    "why_not_current_pr_scope": "The W1 and W3 master transitions were authored outside the W2 CONTROL A scope. This PR must retain only the W2 immediate state transition and cannot alter or undo their state changes.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Avoid concurrent merges of CONTROL PRs that modify the unique master until W2 CONTROL A completes. If another master update merges, rebase only the W2 CONTROL branch, revalidate, and rerun required checks; do not modify W2 frozen counts or accept a future state early.",
+    "observed_at": "2026-08-01T06:11:50Z"
   }
 ]

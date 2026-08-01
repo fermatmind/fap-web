@@ -149,6 +149,179 @@ function packageSha256(files) {
   return createHash("sha256").update(canonicalEntries).digest("hex");
 }
 
+function externalPackageSha256(files) {
+  const canonicalEntries = files.map((file) => `${file.path}\0${file.sha256}\n`).join("");
+  return createHash("sha256").update(canonicalEntries).digest("hex");
+}
+
+function validateExternalPackageEvidence(artifact, packageDirectory, errors) {
+  const evidence = artifact.external_package_evidence;
+  if (!evidence) {
+    return null;
+  }
+
+  const isIndependentQaBlocker =
+    artifact.proposed_status === "blocked" &&
+    artifact.gate_evidence?.owner_lane_id === "W9" &&
+    artifact.gate_evidence?.report_in_package === false;
+  assert(
+    stateIndex(artifact.proposed_status) >= stateIndex("package_frozen") || isIndependentQaBlocker,
+    `${artifact.lane_id}: external package evidence is allowed only for package_frozen and later states`,
+    errors
+  );
+  assert(
+    evidence.source_repository === "fap-api",
+    `${artifact.lane_id}: external package evidence must name fap-api`,
+    errors
+  );
+  assert(
+    /^[a-f0-9]{40}$/.test(evidence.source_commit_sha ?? ""),
+    `${artifact.lane_id}: external package source commit must be an exact 40-character SHA`,
+    errors
+  );
+  assert(
+    typeof evidence.source_package_path === "string" &&
+      evidence.source_package_path.startsWith("backend/") &&
+      !path.isAbsolute(evidence.source_package_path) &&
+      !evidence.source_package_path.split("/").includes(".."),
+    `${artifact.lane_id}: external package source path must be a safe fap-api backend path`,
+    errors
+  );
+  assert(
+    evidence.package_sha256_algorithm === "manifest_files_path_nul_sha256_newline_v1",
+    `${artifact.lane_id}: external package digest algorithm is unsupported`,
+    errors
+  );
+
+  const snapshotDirectory = path.join(packageDirectory, "external_package");
+  const manifestPath = path.join(snapshotDirectory, "package_manifest.json");
+  let externalManifest;
+  let realSnapshotDirectory;
+  try {
+    const realPackageDirectory = fs.realpathSync(packageDirectory);
+    realSnapshotDirectory = fs.realpathSync(snapshotDirectory);
+    const realManifestPath = fs.realpathSync(manifestPath);
+    assert(
+      path.dirname(realSnapshotDirectory) === realPackageDirectory &&
+        path.basename(realSnapshotDirectory) === "external_package",
+      `${artifact.lane_id}: external package snapshot must be the direct external_package child`,
+      errors
+    );
+    assert(
+      path.dirname(realManifestPath) === realSnapshotDirectory &&
+        path.basename(realManifestPath) === "package_manifest.json",
+      `${artifact.lane_id}: external package manifest path is outside the snapshot directory`,
+      errors
+    );
+    assert(
+      !fs.lstatSync(snapshotDirectory).isSymbolicLink() && !fs.lstatSync(manifestPath).isSymbolicLink(),
+      `${artifact.lane_id}: external package snapshot and manifest must not be symbolic links`,
+      errors
+    );
+    assert(
+      sha256File(manifestPath) === evidence.manifest_sha256,
+      `${artifact.lane_id}: external package manifest SHA mismatch`,
+      errors
+    );
+    externalManifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read external package snapshot (${error instanceof Error ? error.message : String(error)})`
+    );
+    return null;
+  }
+
+  assert(
+    externalManifest.schema_version === "fermatmind.en_parity.immutable_content_package_manifest.v1",
+    `${artifact.lane_id}: external package manifest schema version is invalid`,
+    errors
+  );
+  assert(
+    externalManifest.package_id === artifact.package_id,
+    `${artifact.lane_id}: external package manifest package_id mismatch`,
+    errors
+  );
+  assert(externalManifest.lane_id === artifact.lane_id, `${artifact.lane_id}: external package lane mismatch`, errors);
+  assert(
+    externalManifest.status === "unpublished_candidate",
+    `${artifact.lane_id}: external package must remain an unpublished candidate`,
+    errors
+  );
+  const registeredAssetIds = artifact.asset_updates.map((asset) => asset.asset_id);
+  assert(
+    registeredAssetIds.length === 1 && externalManifest.asset_id === registeredAssetIds[0],
+    `${artifact.lane_id}: external package asset identity mismatch`,
+    errors
+  );
+  assert(
+    externalManifest[evidence.row_count_field] === artifact.gate_evidence.row_count,
+    `${artifact.lane_id}: external package row count mismatch`,
+    errors
+  );
+
+  const files = externalManifest.files;
+  assert(Array.isArray(files) && files.length > 0, `${artifact.lane_id}: external package file chain is missing`, errors);
+  if (!Array.isArray(files) || files.length === 0) {
+    return null;
+  }
+
+  const seen = new Set();
+  for (const file of files) {
+    const filePath = file?.path;
+    const expectedSha256 = file?.sha256;
+    const safePath =
+      typeof filePath === "string" &&
+      filePath.length > 0 &&
+      path.basename(filePath) === filePath &&
+      !path.isAbsolute(filePath) &&
+      filePath !== "package_manifest.json" &&
+      !seen.has(filePath);
+    assert(safePath, `${artifact.lane_id}: external package manifest contains an unsafe or duplicate file path`, errors);
+    assert(
+      typeof expectedSha256 === "string" && /^[a-f0-9]{64}$/.test(expectedSha256),
+      `${artifact.lane_id}: external package manifest contains an invalid file SHA`,
+      errors
+    );
+    if (!safePath || typeof expectedSha256 !== "string") {
+      continue;
+    }
+    seen.add(filePath);
+    try {
+      const payloadPath = path.join(snapshotDirectory, filePath);
+      const realPayloadPath = fs.realpathSync(payloadPath);
+      assert(
+        path.dirname(realPayloadPath) === realSnapshotDirectory &&
+          !fs.lstatSync(payloadPath).isSymbolicLink(),
+        `${artifact.lane_id}: external package payload path escapes the snapshot directory`,
+        errors
+      );
+      assert(
+        sha256File(payloadPath) === expectedSha256,
+        `${artifact.lane_id}: external package payload SHA mismatch: ${filePath}`,
+        errors
+      );
+    } catch (error) {
+      errors.push(
+        `${artifact.lane_id}: cannot read external package payload ${filePath} (${error instanceof Error ? error.message : String(error)})`
+      );
+    }
+  }
+
+  const recomputedPackageSha256 = externalPackageSha256(files);
+  assert(
+    externalManifest.package_sha256 === recomputedPackageSha256,
+    `${artifact.lane_id}: external package manifest aggregate does not match its file chain`,
+    errors
+  );
+  assert(
+    artifact.package_sha256 === recomputedPackageSha256,
+    `${artifact.lane_id}: package_sha256 must match the verified external package`,
+    errors
+  );
+
+  return recomputedPackageSha256;
+}
+
 function isPathInside(candidatePath, authorityDirectory) {
   const relativePath = path.relative(authorityDirectory, candidatePath);
   return relativePath !== "" && !relativePath.startsWith(`..${path.sep}`) && relativePath !== ".." && !path.isAbsolute(relativePath);
@@ -1133,11 +1306,24 @@ function validatePackageShaManifest(
     `${artifact.lane_id}: package SHA manifest aggregate does not match its file entries`,
     errors
   );
-  assert(
-    artifact.package_sha256 === recomputedPackageSha256,
-    `${artifact.lane_id}: package_sha256 must match the verified handoff package`,
+  const verifiedExternalPackageSha256 = validateExternalPackageEvidence(
+    artifact,
+    packageDirectory,
     errors
   );
+  if (artifact.external_package_evidence) {
+    assert(
+      artifact.package_sha256 === verifiedExternalPackageSha256,
+      `${artifact.lane_id}: package_sha256 must match the verified external package evidence`,
+      errors
+    );
+  } else {
+    assert(
+      artifact.package_sha256 === recomputedPackageSha256,
+      `${artifact.lane_id}: package_sha256 must match the verified handoff package`,
+      errors
+    );
+  }
 
   if (artifact.gate_evidence.report_in_package) {
     const gateReport = shaManifest.files.find((file) => file.path === artifact.gate_evidence.report_path);

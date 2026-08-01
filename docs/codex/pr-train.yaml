@@ -28074,7 +28074,7 @@ prs:
 
   - id: EN-PARITY-W3-ARTICLE-W9-QA-01
     repo: fap-web
-    branch: codex/en-parity-w3-article-w9-qa-01
+    branch: codex/en-parity-w3-article-w9-qa-rework-05
     base: main
     title: "EN-PARITY-W3-ARTICLE-W9-QA-01: independently QA the frozen Article package"
     depends_on:
@@ -28248,6 +28248,52 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: generated W2 candidate-only inventory evidence; backend remains authoritative and no runtime or release behavior changes
+
+  - id: EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01
+    repo: fap-web
+    branch: codex/en-parity-control-w2-inventory-frozen-01
+    base: main
+    title: "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01: accept completed Big Five inventory"
+    depends_on:
+      - EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02
+    mode: execute
+    train_scope: w2_big5_inventory_frozen_control_acceptance
+    status: in_progress
+    scope:
+      - Accept only the rebased, already-validated W2 inventory_frozen candidate and transition W2 exactly once from not_started to inventory_frozen.
+      - Freeze the completed 52/50/16 counts without assigning package SHA, QA evidence, lineage, runtime, import, publication, or release authority.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify generated/en-content-parity/W2-big-five/**, the master schema, other lanes, baseline evidence, CMS, database, runtime, sitemap, llms, SEO, import, publication, or deploy state.
+      - Assign package_sha256, qa_report_ref, gate_lineage, W9 PASS, human editorial approval, runtime readiness, import readiness, production readiness, or publication.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json (pre-transition only)
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - JSON and YAML parse
+      - W2 52/50/16 count, zero-permission, zero-lineage, and no-package-SHA reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
 
   - id: CAREER-SEARCH-ENTRY-PILOT-READINESS-01
     repo: fap-web
