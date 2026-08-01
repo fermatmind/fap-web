@@ -53,6 +53,24 @@ const PERMISSION_KEYS = [
   "master_manifest_write_authorized",
 ];
 
+const REWORK_09_REPAIRED_IDS = new Set([1, 2, 7, 8, 9, 10, 52, 55, 58, 59]);
+const REWORK_09_PASS_IDS = [3, 4, 5, 6, 50, 51, 53];
+const REWORK_09_PASS_READER_VISIBLE_SHA256 =
+  "e0a8d7d5f58e138a2ef178b3635fb728a0b4147b58e9da6076e71bb3e64879a3";
+
+type Rework09LedgerRow = {
+  source_article_id: number;
+  candidate_title: string;
+  candidate_excerpt: string;
+  candidate_content_md: string;
+  source_revision_id: number;
+  slug: string;
+  source_route: string;
+  expected_target_route: string;
+  internal_link_review: unknown;
+  structure_review: unknown;
+};
+
 function readJson(file: string) {
   return JSON.parse(fs.readFileSync(path.join(PACKAGE_DIRECTORY, file), "utf8"));
 }
@@ -127,6 +145,58 @@ describe("W3 Article English frozen package", () => {
     expect(editorial.review_kind).toContain("not independent W9 QA");
     expect(dryRun.ready).toBe(false);
     expect(dryRun.status).toBe("package_frozen_qa_pending");
+  });
+
+  it("contains only the approved rework-09 language repairs and preserves the seven PASS rows", () => {
+    const ledger = readJson("source_ledger.json");
+    const rowsById = new Map<number, Rework09LedgerRow>(
+      ledger.rows.map((row: Rework09LedgerRow) => [row.source_article_id, row]),
+    );
+    const getRow = (id: number) => {
+      const row = rowsById.get(id);
+      if (!row) {
+        throw new Error(`missing rework-09 row ${id}`);
+      }
+      return row;
+    };
+
+    expect(new Set(ledger.rows.map((row: { source_article_id: number }) => row.source_article_id))).toEqual(
+      new Set([...REWORK_09_REPAIRED_IDS, ...REWORK_09_PASS_IDS]),
+    );
+
+    const passProjection = REWORK_09_PASS_IDS.map((id) => {
+      const row = rowsById.get(id);
+      if (!row) {
+        throw new Error(`missing PASS row ${id}`);
+      }
+      return {
+        candidate_title: row.candidate_title,
+        candidate_excerpt: row.candidate_excerpt,
+        candidate_content_md: row.candidate_content_md,
+        source_article_id: row.source_article_id,
+        source_revision_id: row.source_revision_id,
+        slug: row.slug,
+        source_route: row.source_route,
+        expected_target_route: row.expected_target_route,
+        internal_link_review: row.internal_link_review,
+        structure_review: row.structure_review,
+      };
+    });
+    expect(sha256(JSON.stringify(passProjection))).toBe(REWORK_09_PASS_READER_VISIBLE_SHA256);
+
+    expect(getRow(1).candidate_title).toContain("Five-Dimensional");
+    expect(getRow(1).candidate_content_md).toContain("Five-Dimensional Behavioral Experiment Matrix");
+    expect(getRow(2).candidate_content_md).toContain("Can a Five-Dimensional Profile Recommend a Career?");
+    expect(getRow(7).candidate_content_md).toContain("graphic-pattern questions and is designed to take about 20 minutes");
+    expect(getRow(8).candidate_content_md).toContain("Are you certain to get along with—or be incompatible with—specific people?");
+    expect(getRow(9).candidate_content_md).toContain("Instead, write:");
+    expect(getRow(9).candidate_content_md).toContain('"type training" without their consent');
+    expect(getRow(10).candidate_content_md).toContain("Introversion does not mean shyness");
+    expect(getRow(52).candidate_content_md).toContain("It can serve as a supplementary reference");
+    expect(getRow(55).candidate_content_md).toContain("If an eligibility requirement is not met");
+    expect(getRow(58).candidate_content_md).toContain("double-checking");
+    expect(getRow(59).candidate_content_md).toContain("bad at math");
+    expect(getRow(59).candidate_content_md).toContain("spend extended periods reading technical material");
   });
 
   it("hashes the eight immutable payload files in repository-defined order", () => {

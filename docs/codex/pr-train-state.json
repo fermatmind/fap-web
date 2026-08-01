@@ -52562,48 +52562,48 @@
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-rework-08",
+    "branch": "codex/en-parity-w3-article-package-rework-09",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "885503e802ad3f07dc7569a927c6a06927689a3f",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1945",
+    "commit_sha": "900a6f252e40a3d9e025c1194d2d015c99ec1298",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1947",
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh W9 PR #1938 merged with all 17 Article rows blocked only on language naturalness. CONTROL accepted the blocker in PR #1942 and reset exact package 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 in PR #1943; current main registers W3-ARTICLES at package_in_progress."
+        "evidence": "PR #1945 merged as be024e07d8b0cf20cbe80c27fb6275fb7c76f801 and origin/main contains that merge. Current master retains W3-ARTICLES at package_in_progress with all permissions false, authorizing this isolated producer rework-09 only."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired all 17 rows against W9 report 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1 and row evidence 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; source identities, heading counts, localized link sets, claim boundaries, and media omission are retained for fresh independent verification."
+        "evidence": "Targeted producer rework-09 review passes for Articles 01, 02, 07, 08, 09, 10, 52, 55, 58, and 59; Articles 03, 04, 05, 06, 50, 51, and 53 retain byte-identical reader-visible fields."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Strict candidate validation passes after the Article 09 correction and current-master rebind to SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3."
+        "evidence": "Strict candidate validation passes against current master SHA 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Focused control and W3 Article package contracts pass 67/67 after the Article 09 correction."
+        "evidence": "Focused control and W3 Article package contracts pass 68/68 after the Article 02 correction."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Article 09-corrected exact ten-file/eight-payload package recomputes to aggregate 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b; the natural replacement is present and the prior phrase is absent."
+        "evidence": "Exact ten-file package validates with eight immutable payload SHA matches. The aggregate package SHA is 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e; prior SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b is superseded."
       },
       "lint": {
         "status": "pass",
-        "evidence": "Canonical pnpm lint was blocked only by the already-recorded ignored .playwright-cli trace sidecar (1505 diagnostics, 2 errors in e5881b...js). Re-running the same ESLint configuration with only .playwright-cli/** excluded completed with 0 errors and two known generated-file warnings."
+        "evidence": "Focused package-test ESLint and canonical pnpm lint pass."
       },
       "scope_validation": {
         "status": "pass",
-        "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state items. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
+        "evidence": "Changed paths are restricted to the W3 Article producer package, focused contract, and existing PR-train manifest/state records. Candidate-only scope, 17 identities, 10 repaired rows, seven byte-identical PASS rows, YAML/JSON parsing, and git diff --check pass; master, W9, CareerGuides, CMS, publication, SEO, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1945 exact package head 096f757d49af72676b33947c08a3c71d2bd2d5ef passed all 11 required build, contract, freeze, and CodeQL checks."
+        "evidence": "PR #1947 exact head 616022f000ff6e4f1d0098e8bc0861b1140b9123 passes all required build, contract, freeze, and CodeQL checks after the scoped TypeScript repair."
       },
       "review_and_merge_policy": {
         "status": "pass",
-        "evidence": "GitHub reports PR #1945 MERGEABLE/CLEAN. The four reader-content review findings are resolved; exact-head review identified only the two ledger corrections recorded in this commit."
+        "evidence": "Independent exact-head review for 616022f000ff6e4f1d0098e8bc0861b1140b9123 returned no actionable finding. GitHub reports MERGEABLE/CLEAN with no required review or unresolved thread."
       }
     },
     "failure_reason": null,
@@ -52935,9 +52935,44 @@
         "at": "2026-08-01T11:04:30Z",
         "status": "ready_to_merge",
         "summary": "Bound commit_sha to 885503e802ad3f07dc7569a927c6a06927689a3f, the exact ancestor commit containing the current-master candidate rebind and canonical ready_to_merge status. Strict validation and focused contracts pass; the final ledger-only head receives required checks before merge."
+      },
+      {
+        "at": "2026-08-01T11:12:57Z",
+        "status": "merged",
+        "summary": "Reconciled GitHub truth for PR #1945: squash merged as be024e07d8b0cf20cbe80c27fb6275fb7c76f801, origin/main contains the merge, the isolated main worktree is synced, and the prior rework-08 task branch is absent locally and remotely."
+      },
+      {
+        "at": "2026-08-01T11:50:43Z",
+        "status": "in_progress",
+        "summary": "Started isolated producer rework-09 from current package_in_progress master. The authorized reader-visible scope is Articles 01, 02, 07, 08, 09, 10, 52, 55, 58, and 59; Articles 03, 04, 05, 06, 50, 51, and 53 remain byte-identical across reader-visible fields. No CONTROL, W9, CMS, publication, SEO, search, or deploy action is authorized."
+      },
+      {
+        "at": "2026-08-01T12:02:00Z",
+        "status": "local_verified",
+        "summary": "Completed the 10-row producer rework-09 and rebuilt the complete ten-file candidate package at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Strict candidate validation, 68/68 focused contracts, exact eight-payload SHA and 17-identity audit, seven byte-identical PASS-row audit, focused ESLint, canonical pnpm lint, YAML/JSON parsing, scope validation, and git diff checks pass. No CONTROL, W9, CMS, publication, SEO, search, or deploy action is authorized."
+      },
+      {
+        "at": "2026-08-01T12:05:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the rework-09 package implementation as 900a6f252e40a3d9e025c1194d2d015c99ec1298. The scoped PR will carry exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e; required GitHub checks and exact-head review remain pending."
+      },
+      {
+        "at": "2026-08-01T12:08:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1947 for the exact rework-09 package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Required GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-08-01T12:12:00Z",
+        "status": "github_checks_failed_repaired_pending",
+        "summary": "Inspected PR #1947 build failure at the failing pnpm typecheck step. The new rework-09 contract Map inferred unknown values; added only explicit Rework09LedgerRow Map typing and a missing-row guard. Local pnpm typecheck, 68/68 focused contracts, focused ESLint, and diff check pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T12:17:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1947 exact head 616022f000ff6e4f1d0098e8bc0861b1140b9123 passes all required CI and CodeQL checks. GitHub is MERGEABLE/CLEAN, the independent exact-head review returned no actionable finding, exact package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e and the 10/7 reader-content scope revalidate, and all permissions remain false. This ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T11:04:30Z"
+    "updated_at": "2026-08-01T12:17:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
