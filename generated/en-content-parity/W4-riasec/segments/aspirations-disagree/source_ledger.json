@@ -1,0 +1,841 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_calibration_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-2026-08-01",
+  "authority": {
+    "repository": "fap-api",
+    "commit": "660280d00a57e58bd8bc76608e19de2492c03f53",
+    "locale": "zh-CN",
+    "sources": [
+      {
+        "path": "backend/content_assets/riasec/aspirations_calibration_v1.zh-CN.jsonl",
+        "sha256": "2c1078f96f4d8015c081ef6bf791315788740bf6245b531ce4652db0b0d6da3d",
+        "row_count": 70
+      },
+      {
+        "path": "backend/content_assets/riasec/disagree_path_v1.zh-CN.jsonl",
+        "sha256": "7db2e4be5ac7436a06b634fa63df62c49b9cc7223a0c3c1a266506db0d9cff48",
+        "row_count": 45
+      }
+    ],
+    "registry": "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php"
+  },
+  "producer": {
+    "repository": "fap-web",
+    "commit": "412349b5d347d746d103c219c4b0359fb7d43c47",
+    "control_status": "inventory_frozen"
+  },
+  "rows": [
+    {
+      "source_row": 1,
+      "source_identity": "product_ux_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PRODUCT-UX-9b0187ef4605",
+      "translation_group": "cohort:riasec:aspirations:product_ux_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 2,
+      "source_identity": "product_ux_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PRODUCT-UX-d750122a7479",
+      "translation_group": "cohort:riasec:aspirations:product_ux_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 3,
+      "source_identity": "product_ux_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PRODUCT-UX-b8f1160c6afe",
+      "translation_group": "cohort:riasec:aspirations:product_ux_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 4,
+      "source_identity": "product_ux_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PRODUCT-UX-7f2d695cbeac",
+      "translation_group": "cohort:riasec:aspirations:product_ux_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 5,
+      "source_identity": "product_ux_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PRODUCT-UX-476eb78363b1",
+      "translation_group": "cohort:riasec:aspirations:product_ux_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 6,
+      "source_identity": "education_learning_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-LEARNING-1777f77675ba",
+      "translation_group": "cohort:riasec:aspirations:education_learning_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 7,
+      "source_identity": "education_learning_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-LEARNING-b9dc4bfc811b",
+      "translation_group": "cohort:riasec:aspirations:education_learning_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 8,
+      "source_identity": "education_learning_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-LEARNING-4b69b7192ba7",
+      "translation_group": "cohort:riasec:aspirations:education_learning_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 9,
+      "source_identity": "education_learning_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-LEARNING-2a6eb362aa82",
+      "translation_group": "cohort:riasec:aspirations:education_learning_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 10,
+      "source_identity": "education_learning_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-LEARNING-2626dc0fb608",
+      "translation_group": "cohort:riasec:aspirations:education_learning_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 11,
+      "source_identity": "content_knowledge_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CONTENT-KNOWLEDGE-586027f2fc37",
+      "translation_group": "cohort:riasec:aspirations:content_knowledge_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 12,
+      "source_identity": "content_knowledge_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CONTENT-KNOWLEDGE-aeed20b1eac5",
+      "translation_group": "cohort:riasec:aspirations:content_knowledge_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 13,
+      "source_identity": "content_knowledge_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CONTENT-KNOWLEDGE-4fae0d67fe3e",
+      "translation_group": "cohort:riasec:aspirations:content_knowledge_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 14,
+      "source_identity": "content_knowledge_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CONTENT-KNOWLEDGE-a4ddcb530e69",
+      "translation_group": "cohort:riasec:aspirations:content_knowledge_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 15,
+      "source_identity": "content_knowledge_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CONTENT-KNOWLEDGE-66cbb4526d9b",
+      "translation_group": "cohort:riasec:aspirations:content_knowledge_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 16,
+      "source_identity": "business_growth_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-GROWTH-9c375c4965c7",
+      "translation_group": "cohort:riasec:aspirations:business_growth_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 17,
+      "source_identity": "business_growth_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-GROWTH-edc465ec20fa",
+      "translation_group": "cohort:riasec:aspirations:business_growth_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 18,
+      "source_identity": "business_growth_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-GROWTH-a0c355c3c34f",
+      "translation_group": "cohort:riasec:aspirations:business_growth_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 19,
+      "source_identity": "business_growth_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-GROWTH-5c313ef02712",
+      "translation_group": "cohort:riasec:aspirations:business_growth_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 20,
+      "source_identity": "business_growth_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-GROWTH-5a93aead572c",
+      "translation_group": "cohort:riasec:aspirations:business_growth_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 21,
+      "source_identity": "public_service_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-87fd1b2d4ad3",
+      "translation_group": "cohort:riasec:aspirations:public_service_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 22,
+      "source_identity": "public_service_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-0e7eb92f6ec2",
+      "translation_group": "cohort:riasec:aspirations:public_service_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 23,
+      "source_identity": "public_service_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-654365c8cc67",
+      "translation_group": "cohort:riasec:aspirations:public_service_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 24,
+      "source_identity": "public_service_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-39adf1b04c75",
+      "translation_group": "cohort:riasec:aspirations:public_service_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 25,
+      "source_identity": "public_service_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-2afb6137d46b",
+      "translation_group": "cohort:riasec:aspirations:public_service_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 26,
+      "source_identity": "operations_quality_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-OPERATIONS-QUALITY-08e6e4029f88",
+      "translation_group": "cohort:riasec:aspirations:operations_quality_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 27,
+      "source_identity": "operations_quality_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-OPERATIONS-QUALITY-a643d0cee49f",
+      "translation_group": "cohort:riasec:aspirations:operations_quality_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 28,
+      "source_identity": "operations_quality_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-OPERATIONS-QUALITY-04f21c805cde",
+      "translation_group": "cohort:riasec:aspirations:operations_quality_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 29,
+      "source_identity": "operations_quality_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-OPERATIONS-QUALITY-adb3077899ae",
+      "translation_group": "cohort:riasec:aspirations:operations_quality_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 30,
+      "source_identity": "operations_quality_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-OPERATIONS-QUALITY-d380f38f3a30",
+      "translation_group": "cohort:riasec:aspirations:operations_quality_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 31,
+      "source_identity": "design_creative_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-DESIGN-CREATIVE-3ae77f679600",
+      "translation_group": "cohort:riasec:aspirations:design_creative_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 32,
+      "source_identity": "design_creative_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-DESIGN-CREATIVE-da764049b566",
+      "translation_group": "cohort:riasec:aspirations:design_creative_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 33,
+      "source_identity": "design_creative_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-DESIGN-CREATIVE-eca5bcf323cf",
+      "translation_group": "cohort:riasec:aspirations:design_creative_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 34,
+      "source_identity": "design_creative_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-DESIGN-CREATIVE-c871cfdad266",
+      "translation_group": "cohort:riasec:aspirations:design_creative_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 35,
+      "source_identity": "design_creative_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-DESIGN-CREATIVE-98029c1618fe",
+      "translation_group": "cohort:riasec:aspirations:design_creative_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 36,
+      "source_identity": "technical_field_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-FIELD-b4c18601ffd3",
+      "translation_group": "cohort:riasec:aspirations:technical_field_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 37,
+      "source_identity": "technical_field_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-FIELD-d75857c0c9aa",
+      "translation_group": "cohort:riasec:aspirations:technical_field_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 38,
+      "source_identity": "technical_field_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-FIELD-730a124a11b7",
+      "translation_group": "cohort:riasec:aspirations:technical_field_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 39,
+      "source_identity": "technical_field_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-FIELD-b61189d2a847",
+      "translation_group": "cohort:riasec:aspirations:technical_field_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 40,
+      "source_identity": "technical_field_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-FIELD-ce81d0272bd8",
+      "translation_group": "cohort:riasec:aspirations:technical_field_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 41,
+      "source_identity": "research_policy_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-RESEARCH-POLICY-a02e9a7b1c59",
+      "translation_group": "cohort:riasec:aspirations:research_policy_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 42,
+      "source_identity": "research_policy_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-RESEARCH-POLICY-aa19fbff2c53",
+      "translation_group": "cohort:riasec:aspirations:research_policy_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 43,
+      "source_identity": "research_policy_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-RESEARCH-POLICY-e2c1494856ad",
+      "translation_group": "cohort:riasec:aspirations:research_policy_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 44,
+      "source_identity": "research_policy_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-RESEARCH-POLICY-8beca15c6a64",
+      "translation_group": "cohort:riasec:aspirations:research_policy_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 45,
+      "source_identity": "research_policy_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-RESEARCH-POLICY-559b8025266b",
+      "translation_group": "cohort:riasec:aspirations:research_policy_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 46,
+      "source_identity": "community_people_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-COMMUNITY-PEOPLE-777206e1703e",
+      "translation_group": "cohort:riasec:aspirations:community_people_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 47,
+      "source_identity": "community_people_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-COMMUNITY-PEOPLE-cabbd194acdc",
+      "translation_group": "cohort:riasec:aspirations:community_people_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 48,
+      "source_identity": "community_people_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-COMMUNITY-PEOPLE-82913d5a8785",
+      "translation_group": "cohort:riasec:aspirations:community_people_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 49,
+      "source_identity": "community_people_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-COMMUNITY-PEOPLE-94dce988e8d7",
+      "translation_group": "cohort:riasec:aspirations:community_people_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 50,
+      "source_identity": "community_people_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-COMMUNITY-PEOPLE-cf9285ed9121",
+      "translation_group": "cohort:riasec:aspirations:community_people_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 51,
+      "source_identity": "media_brand_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-MEDIA-BRAND-099c1787528a",
+      "translation_group": "cohort:riasec:aspirations:media_brand_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 52,
+      "source_identity": "media_brand_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-MEDIA-BRAND-60c78cd9d89f",
+      "translation_group": "cohort:riasec:aspirations:media_brand_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 53,
+      "source_identity": "media_brand_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-MEDIA-BRAND-85e149a79986",
+      "translation_group": "cohort:riasec:aspirations:media_brand_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 54,
+      "source_identity": "media_brand_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-MEDIA-BRAND-7626d0d5e033",
+      "translation_group": "cohort:riasec:aspirations:media_brand_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 55,
+      "source_identity": "media_brand_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-MEDIA-BRAND-5081976eeeb7",
+      "translation_group": "cohort:riasec:aspirations:media_brand_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 56,
+      "source_identity": "admin_compliance_想了解",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-ADMIN-COMPLIANCE-54558ec4a8e6",
+      "translation_group": "cohort:riasec:aspirations:admin_compliance_想了解",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 57,
+      "source_identity": "admin_compliance_正在考虑",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-ADMIN-COMPLIANCE-9d7a821fdcdc",
+      "translation_group": "cohort:riasec:aspirations:admin_compliance_正在考虑",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 58,
+      "source_identity": "admin_compliance_已有机会",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-ADMIN-COMPLIANCE-d3409b54fb5d",
+      "translation_group": "cohort:riasec:aspirations:admin_compliance_已有机会",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 59,
+      "source_identity": "admin_compliance_曾经受挫",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-ADMIN-COMPLIANCE-dea9733d76dc",
+      "translation_group": "cohort:riasec:aspirations:admin_compliance_曾经受挫",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 60,
+      "source_identity": "admin_compliance_想排除",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-ADMIN-COMPLIANCE-afd674730cd0",
+      "translation_group": "cohort:riasec:aspirations:admin_compliance_想排除",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 61,
+      "source_identity": "student_major_choice",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-STUDENT-MAJOR-CHOICE-f35d9b02b840",
+      "translation_group": "cohort:riasec:aspirations:student_major_choice",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 62,
+      "source_identity": "career_switch",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CAREER-SWITCH-ab61c2078aa5",
+      "translation_group": "cohort:riasec:aspirations:career_switch",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 63,
+      "source_identity": "first_job",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-FIRST-JOB-aa39d97699aa",
+      "translation_group": "cohort:riasec:aspirations:first_job",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 64,
+      "source_identity": "promotion_or_role_change",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PROMOTION-OR-ROLE-CHANGE-74e2a4ff415d",
+      "translation_group": "cohort:riasec:aspirations:promotion_or_role_change",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 65,
+      "source_identity": "burnout_or_low_energy",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BURNOUT-OR-LOW-ENERGY-87f6cfbe8791",
+      "translation_group": "cohort:riasec:aspirations:burnout_or_low_energy",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 66,
+      "source_identity": "creator_or_freelancer",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-CREATOR-OR-FREELANCER-e1493504b188",
+      "translation_group": "cohort:riasec:aspirations:creator_or_freelancer",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 67,
+      "source_identity": "public_service_or_nonprofit",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-PUBLIC-SERVICE-OR-NONPROFIT-229b7525f904",
+      "translation_group": "cohort:riasec:aspirations:public_service_or_nonprofit",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 68,
+      "source_identity": "technical_path",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-TECHNICAL-PATH-b5b64d7de9f6",
+      "translation_group": "cohort:riasec:aspirations:technical_path",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 69,
+      "source_identity": "business_path",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-BUSINESS-PATH-0142f3142a34",
+      "translation_group": "cohort:riasec:aspirations:business_path",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 70,
+      "source_identity": "education_or_helping_path",
+      "asset_id": "ENPARITY-W4-RIASEC-G09-EDUCATION-OR-HELPING-PATH-05aae2e21e89",
+      "translation_group": "cohort:riasec:aspirations:education_or_helping_path",
+      "group_id": "W4-G09"
+    },
+    {
+      "source_row": 71,
+      "source_identity": "normal_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NORMAL-DISAGREE-fedae3579850",
+      "translation_group": "cohort:riasec:disagree:normal_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 72,
+      "source_identity": "normal_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NORMAL-DISAGREE-1ad0c931c28e",
+      "translation_group": "cohort:riasec:disagree:normal_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 73,
+      "source_identity": "normal_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NORMAL-DISAGREE-005cf0cd5bf7",
+      "translation_group": "cohort:riasec:disagree:normal_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 74,
+      "source_identity": "normal_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NORMAL-DISAGREE-545c28b0aed9",
+      "translation_group": "cohort:riasec:disagree:normal_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 75,
+      "source_identity": "code_order_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-CODE-ORDER-DISAGREE-f391402c24d3",
+      "translation_group": "cohort:riasec:disagree:code_order_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 76,
+      "source_identity": "code_order_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-CODE-ORDER-DISAGREE-eca3ccbb1fc3",
+      "translation_group": "cohort:riasec:disagree:code_order_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 77,
+      "source_identity": "code_order_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-CODE-ORDER-DISAGREE-b69f3b238543",
+      "translation_group": "cohort:riasec:disagree:code_order_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 78,
+      "source_identity": "code_order_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-CODE-ORDER-DISAGREE-517d4b757cc6",
+      "translation_group": "cohort:riasec:disagree:code_order_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 79,
+      "source_identity": "dimension_score_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-DIMENSION-SCORE-DISAGREE-d5ec1487bab3",
+      "translation_group": "cohort:riasec:disagree:dimension_score_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 80,
+      "source_identity": "dimension_score_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-DIMENSION-SCORE-DISAGREE-17a5634efe9a",
+      "translation_group": "cohort:riasec:disagree:dimension_score_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 81,
+      "source_identity": "dimension_score_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-DIMENSION-SCORE-DISAGREE-93cab9384287",
+      "translation_group": "cohort:riasec:disagree:dimension_score_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 82,
+      "source_identity": "dimension_score_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-DIMENSION-SCORE-DISAGREE-12ddd91014e3",
+      "translation_group": "cohort:riasec:disagree:dimension_score_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 83,
+      "source_identity": "activity_chain_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ACTIVITY-CHAIN-DISAGREE-626d6f53778c",
+      "translation_group": "cohort:riasec:disagree:activity_chain_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 84,
+      "source_identity": "activity_chain_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ACTIVITY-CHAIN-DISAGREE-9d5af482fd5a",
+      "translation_group": "cohort:riasec:disagree:activity_chain_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 85,
+      "source_identity": "activity_chain_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ACTIVITY-CHAIN-DISAGREE-ff9603ba8e61",
+      "translation_group": "cohort:riasec:disagree:activity_chain_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 86,
+      "source_identity": "activity_chain_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ACTIVITY-CHAIN-DISAGREE-9328dec3a8dd",
+      "translation_group": "cohort:riasec:disagree:activity_chain_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 87,
+      "source_identity": "occupation_example_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-OCCUPATION-EXAMPLE-DISAGREE-f390ac9c4836",
+      "translation_group": "cohort:riasec:disagree:occupation_example_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 88,
+      "source_identity": "occupation_example_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-OCCUPATION-EXAMPLE-DISAGREE-428c7b19e01e",
+      "translation_group": "cohort:riasec:disagree:occupation_example_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 89,
+      "source_identity": "occupation_example_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-OCCUPATION-EXAMPLE-DISAGREE-fe26e0a60c89",
+      "translation_group": "cohort:riasec:disagree:occupation_example_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 90,
+      "source_identity": "occupation_example_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-OCCUPATION-EXAMPLE-DISAGREE-158ef7fafc42",
+      "translation_group": "cohort:riasec:disagree:occupation_example_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 91,
+      "source_identity": "near_tie_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NEAR-TIE-DISAGREE-a1f46b5cdbda",
+      "translation_group": "cohort:riasec:disagree:near_tie_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 92,
+      "source_identity": "near_tie_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NEAR-TIE-DISAGREE-6d1ac6b53e3e",
+      "translation_group": "cohort:riasec:disagree:near_tie_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 93,
+      "source_identity": "near_tie_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NEAR-TIE-DISAGREE-17ca69aa2004",
+      "translation_group": "cohort:riasec:disagree:near_tie_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 94,
+      "source_identity": "near_tie_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NEAR-TIE-DISAGREE-64f82bb14657",
+      "translation_group": "cohort:riasec:disagree:near_tie_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 95,
+      "source_identity": "broad_profile_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-BROAD-PROFILE-DISAGREE-4ab92c273fb0",
+      "translation_group": "cohort:riasec:disagree:broad_profile_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 96,
+      "source_identity": "broad_profile_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-BROAD-PROFILE-DISAGREE-b932e03d0fa0",
+      "translation_group": "cohort:riasec:disagree:broad_profile_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 97,
+      "source_identity": "broad_profile_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-BROAD-PROFILE-DISAGREE-772d69d12bdb",
+      "translation_group": "cohort:riasec:disagree:broad_profile_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 98,
+      "source_identity": "broad_profile_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-BROAD-PROFILE-DISAGREE-dffeb37bd29e",
+      "translation_group": "cohort:riasec:disagree:broad_profile_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 99,
+      "source_identity": "low_quality_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-LOW-QUALITY-DISAGREE-9bdc14a9c1ea",
+      "translation_group": "cohort:riasec:disagree:low_quality_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 100,
+      "source_identity": "low_quality_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-LOW-QUALITY-DISAGREE-cd64e1ef6b93",
+      "translation_group": "cohort:riasec:disagree:low_quality_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 101,
+      "source_identity": "low_quality_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-LOW-QUALITY-DISAGREE-59e6fb3e9a1e",
+      "translation_group": "cohort:riasec:disagree:low_quality_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 102,
+      "source_identity": "low_quality_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-LOW-QUALITY-DISAGREE-d4b666a8b848",
+      "translation_group": "cohort:riasec:disagree:low_quality_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 103,
+      "source_identity": "form_difference_disagree_学生",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-FORM-DIFFERENCE-DISAGREE-84bdf6891161",
+      "translation_group": "cohort:riasec:disagree:form_difference_disagree_学生",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 104,
+      "source_identity": "form_difference_disagree_转行者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-FORM-DIFFERENCE-DISAGREE-6806a9fbc69c",
+      "translation_group": "cohort:riasec:disagree:form_difference_disagree_转行者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 105,
+      "source_identity": "form_difference_disagree_求职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-FORM-DIFFERENCE-DISAGREE-ad602bb16bdc",
+      "translation_group": "cohort:riasec:disagree:form_difference_disagree_求职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 106,
+      "source_identity": "form_difference_disagree_在职者",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-FORM-DIFFERENCE-DISAGREE-8e163219d83e",
+      "translation_group": "cohort:riasec:disagree:form_difference_disagree_在职者",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 107,
+      "source_identity": "low_quality_disagree",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-LOW-QUALITY-DISAGREE-fa7d70805730",
+      "translation_group": "cohort:riasec:disagree:low_quality_disagree",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 108,
+      "source_identity": "near_tie_disagree",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-NEAR-TIE-DISAGREE-eafa44f3481e",
+      "translation_group": "cohort:riasec:disagree:near_tie_disagree",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 109,
+      "source_identity": "aspiration_conflict",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ASPIRATION-CONFLICT-55976e498648",
+      "translation_group": "cohort:riasec:disagree:aspiration_conflict",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 110,
+      "source_identity": "result_too_broad",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-RESULT-TOO-BROAD-a16561d308ff",
+      "translation_group": "cohort:riasec:disagree:result_too_broad",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 111,
+      "source_identity": "result_too_narrow",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-RESULT-TOO-NARROW-22b739ec6bf3",
+      "translation_group": "cohort:riasec:disagree:result_too_narrow",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 112,
+      "source_identity": "60Q_140Q_tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-60Q-140Q-TENSION-a12b2352dfcd",
+      "translation_group": "cohort:riasec:disagree:60Q_140Q_tension",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 113,
+      "source_identity": "user_life_context_conflict",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-USER-LIFE-CONTEXT-CONFLICT-9249d7f67e47",
+      "translation_group": "cohort:riasec:disagree:user_life_context_conflict",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 114,
+      "source_identity": "role_environment_conflict",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-ROLE-ENVIRONMENT-CONFLICT-4f38b389163a",
+      "translation_group": "cohort:riasec:disagree:role_environment_conflict",
+      "group_id": "W4-G10"
+    },
+    {
+      "source_row": 115,
+      "source_identity": "task_interest_vs_job_reality_conflict",
+      "asset_id": "ENPARITY-W4-RIASEC-G10-TASK-INTEREST-VS-JOB-REALITY-CONFLICT-1d9db3df442d",
+      "translation_group": "cohort:riasec:disagree:task_interest_vs_job_reality_conflict",
+      "group_id": "W4-G10"
+    }
+  ],
+  "reconciliation": {
+    "aspirations_rows": 70,
+    "disagree_rows": 45,
+    "english_candidate_rows": 115,
+    "identity_unique": true,
+    "private_data_accessed": false
+  }
+}

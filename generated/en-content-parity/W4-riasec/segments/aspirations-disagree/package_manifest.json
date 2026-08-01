@@ -1,0 +1,45 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_calibration_package_manifest.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "row_count": 115,
+  "aspirations_row_count": 70,
+  "disagree_row_count": 45,
+  "payloads": [
+    {
+      "path": "assets.jsonl",
+      "sha256": "2eb18c53a1523ecd46418ee1e2f300b2571e0fee91ac2334c3f89eeb67ea48bd"
+    },
+    {
+      "path": "claim_boundary_report.json",
+      "sha256": "68f103b0a60498d01da1b0929dfe770707cca683e1548731db828ae42d7543da"
+    },
+    {
+      "path": "editorial_review.json",
+      "sha256": "20849ee1bc1ade2d19d406e3258768f830d9eedbc6000ce5f59ea71e7fde959a"
+    },
+    {
+      "path": "source_ledger.json",
+      "sha256": "bcb04864b1cdc0229baedbb3e9b02860e1ef495f5c3841a2f1a8c40a6d7543ab"
+    },
+    {
+      "path": "translation_cache.json",
+      "sha256": "58b1a03cd58b313c363e214e398de0e5e289de2a27225256259ee30ffd5a739a"
+    },
+    {
+      "path": "translation_map.json",
+      "sha256": "89ab5da4819fcd118a186b83feac7e94baa0c0757dc90d745a01ac0e90138d7c"
+    }
+  ],
+  "aggregate_sha256": "b2ec976c2c1ef3df18a2c738aba3b89c8434e3142dd32775b4bfc414aa6f74db",
+  "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
