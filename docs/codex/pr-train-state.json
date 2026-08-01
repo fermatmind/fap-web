@@ -53296,7 +53296,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "9b874515c8644b953c2f3c5006f97a453c174129",
+    "commit_sha": "1d64a9e64b62b305c185f4defa05e8c5cc9839ca",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53461,8 +53461,13 @@
         "at": "2026-08-01T05:57:00Z",
         "status": "github_checks_failed_repair_in_progress",
         "summary": "All functional required checks passed on head 405327c1, but CodeQL alert 185 correctly found that public-body filtering did not match whitespace before script/head/style closing-tag brackets. Extended all three end-tag patterns to accept whitespace and added malformed closing-tag contract coverage; fresh local and GitHub checks are required."
+      },
+      {
+        "at": "2026-08-01T05:57:31Z",
+        "status": "github_checks_pending",
+        "summary": "Committed CodeQL alert 185 repair as 1d64a9e64b62b305c185f4defa05e8c5cc9839ca after focused 28/28, lint, typecheck, syntax, and diff checks passed. This metadata tail binds the reachable implementation commit before fresh exact-head checks."
       }
     ],
-    "updated_at": "2026-08-01T05:57:00Z"
+    "updated_at": "2026-08-01T05:57:31Z"
   }
 }
