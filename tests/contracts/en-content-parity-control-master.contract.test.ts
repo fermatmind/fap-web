@@ -560,7 +560,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "not_started",
+      status: "inventory_frozen",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,
@@ -574,9 +574,66 @@ describe("English content parity control master", () => {
       gate_lineage: [],
       blockers: [],
       next_action:
-        "Execute EN-PARITY-W4-RIASEC-INVENTORY-01 against the latest fap-web and fap-api main SHAs; freeze only the canonical 14-group inventory candidate before any content production.",
+        "Execute EN-PARITY-W4-RIASEC-RUNTIME-LOCALE-01 against the frozen W4 inventory and the latest fap-web and fap-api authority SHAs; add locale defenses only, with no frontend interpretation fallback.",
     });
     expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
+
+    const w4Candidate = JSON.parse(
+      fs.readFileSync(
+        path.join(ROOT, "generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json"),
+        "utf8"
+      )
+    ) as {
+      base_manifest_sha256: string;
+      package_sha256: string;
+      proposed_status: string;
+      gate_evidence: { row_count: number; asset_ids: string[] };
+      asset_updates: Asset[];
+      permissions: Permissions;
+    };
+    expect(w4Candidate).toMatchObject({
+      base_manifest_sha256: "585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1",
+      package_sha256: "b282cdc995fd6457c6cb21f0612fc298ca2093d5fc3e812e36c80365cc1f40ce",
+      proposed_status: "inventory_frozen",
+      gate_evidence: {
+        row_count: 14,
+        asset_ids: ["ENPARITY-W4-RIASEC-DEEP-ASSETS"],
+      },
+    });
+    expect(w4Candidate.asset_updates).toHaveLength(1);
+    expect(w4Candidate.asset_updates[0]).toMatchObject({
+      expected_en_count: 14,
+      current_en_count: 0,
+      remaining_en_count: 14,
+    });
+    expect(Object.values(w4Candidate.permissions)).toEqual(Array(7).fill(false));
+
+    const w4SourceLedger = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "generated/en-content-parity/W4-riasec/source_ledger.json"), "utf8")
+    ) as { reconciliation: { source_ledger_logical_rows: number; expanded_atomic_rows: number } };
+    const w4TranslationMap = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "generated/en-content-parity/W4-riasec/translation_map.json"), "utf8")
+    ) as {
+      logical_groups: Array<{ group_id: string }>;
+      atomic_rows: Array<{ row_id: string }>;
+      reconciliation: { logical_group_count: number; atomic_row_count: number };
+    };
+    const w4SurfaceMatrix = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "generated/en-content-parity/W4-riasec/scan/form_surface_matrix.json"), "utf8")
+    ) as { surface_totals: { share_rows: number; pdf_rows: number; history_rows: number } };
+    const w4PairMatrix = JSON.parse(
+      fs.readFileSync(path.join(ROOT, "generated/en-content-parity/W4-riasec/scan/pair_coverage_matrix.json"), "utf8")
+    ) as { unordered_pair_count: number };
+    expect(w4SourceLedger.reconciliation).toMatchObject({
+      source_ledger_logical_rows: 14,
+      expanded_atomic_rows: 1550,
+    });
+    expect(w4TranslationMap.logical_groups).toHaveLength(14);
+    expect(w4TranslationMap.atomic_rows).toHaveLength(1550);
+    expect(new Set(w4TranslationMap.atomic_rows.map((row) => row.row_id)).size).toBe(1550);
+    expect(w4TranslationMap.reconciliation).toMatchObject({ logical_group_count: 14, atomic_row_count: 1550 });
+    expect(w4PairMatrix.unordered_pair_count).toBe(15);
+    expect(w4SurfaceMatrix.surface_totals).toEqual({ share_rows: 3, pdf_rows: 2, history_rows: 2 });
 
     const w1 = manifest.lanes.find((lane) => lane.lane_id === "W1");
     expect(
