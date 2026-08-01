@@ -52193,8 +52193,8 @@
     "depends_on": [
       "EN-PARITY-W1-MBTI-RESULT-ASSETS-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "c59eac6c1780da3660f44973eaf863381199f1c1",
+    "status": "ready_to_merge",
+    "commit_sha": "100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1892",
     "checks": {
       "authorization": {
@@ -52246,8 +52246,8 @@
         "evidence": "The intended PR contains only the four new exact-lineage W9 files and the two required train metadata files. No old BLOCKED evidence, package, master manifest, runtime, CMS, publication, activation, discoverability, or deployment file is included."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1892 is open on local-verified head c59eac6c1780da3660f44973eaf863381199f1c1; required GitHub checks are pending."
+        "status": "passed",
+        "evidence": "PR #1892 exact checked head 100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff passed build, all four contract shards, aggregate contracts, both freeze checks, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review-decision block."
       }
     },
     "failure_reason": null,
@@ -52257,7 +52257,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -52282,9 +52282,14 @@
         "at": "2026-08-01T04:56:03Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact six-file W9 scope as c59eac6c1780da3660f44973eaf863381199f1c1, pushed the task branch, and opened PR #1892. Required GitHub checks are pending; old BLOCKED evidence, package, control master, runtime, CMS, publication, activation, discoverability, and deployment remain untouched."
+      },
+      {
+        "at": "2026-08-01T05:00:31Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1892 exact head 100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff passed every required CI/security check. GitHub reports CLEAN/MERGEABLE, the diff remains the exact authorized six-file W9 scope, and there is no review requirement. This final ledger transition must retain green checks before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T04:56:03Z"
+    "updated_at": "2026-08-01T05:00:31Z"
   },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
