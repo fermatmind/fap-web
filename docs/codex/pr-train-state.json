@@ -52453,22 +52453,22 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "ready_to_merge",
+    "status": "local_verified",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-repair-04",
+    "branch": "codex/en-parity-w3-article-package-rework-05",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "22c7fa47f8554226ef6f4249a8935e7eee251155",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1882",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh independent W9 evidence PR #1877 merged as 452cfda0f66d769774b046b830e581cbb96afa2f with 13/17 rows BLOCKED. CONTROL blocker-acceptance PR #1878 merged as edc783864654ecd3b4f377d5d48a2bcf86b6cd6d, and exact-SHA reset PR #1880 merged as 41dcfbf12ee2158c4cd6e8bb34b8d21725b4418c. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Fresh independent W9 evidence PR #1885 merged as 1ddfa5d0305a88315e4cfbbfc0f22608680cdf55 with 7/17 rows BLOCKED. CONTROL blocker-acceptance PR #1886 merged as 1cfa3b23d70b1ee4e1bdad2d9d7c27e5ff99a898, and exact-SHA reset PR #1888 merged as eaec02519f0420e7228812047bd40969552015cb. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired all 13 rows blocked by fresh W9 report 98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26 and row evidence acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac. Retranslated all 29 non-Gaokao matrices identified by W9, repaired Gaokao terminology and dated-event wording, limited Article 7 to observed task performance, and made Article 58 reassignment outcomes conditional on applicable rules. Articles 1, 2, 6, and 9 remain content-identical."
+        "evidence": "Repaired only the 7 rows blocked by fresh W9 report ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844 and row evidence 490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc: W3-ARTICLE-03, 51, 52, 53, 55, 58, and 59. The 10 passing rows remain content-identical to the reviewed frozen snapshot."
       },
       "control_validator": {
         "status": "pass",
@@ -52480,23 +52480,23 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633 revalidate."
       },
       "lint": {
-        "status": "pass_with_external_sidecar",
-        "evidence": "Clean-checkout-equivalent repository ESLint excluding only the pre-existing ignored .playwright-cli trace directory passed with zero errors. The external trace pollution remains outside this PR scope."
+        "status": "pass",
+        "evidence": "Repository pnpm lint completed with zero errors; the informational Babel deoptimization note for the pre-existing ignored .playwright-cli trace is outside this PR scope."
       },
       "scope_validation": {
         "status": "pass",
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1882 head 22c7fa47f8554226ef6f4249a8935e7eee251155 passed all 11 required CI and security checks."
+        "status": "pending",
+        "evidence": "Local producer gates pass; the rework-05 PR has not yet been opened, so fresh GitHub required checks are pending."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "PR #1882 is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact changed-file scope and all-false permission boundaries revalidate."
+        "status": "pending",
+        "evidence": "Exact local scope and all-false permission boundaries revalidate; GitHub review and merge-policy checks are pending PR creation."
       }
     },
     "failure_reason": null,
@@ -52623,9 +52623,19 @@
         "at": "2026-07-31T10:31:41Z",
         "status": "ready_to_merge",
         "summary": "PR #1882 head 22c7fa47f8554226ef6f4249a8935e7eee251155 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157, changed-file scope, and all-false permissions revalidate."
+      },
+      {
+        "at": "2026-08-01T04:24:35Z",
+        "status": "reset_to_package_in_progress",
+        "summary": "Fresh W9 evidence PR #1885 merged as 1ddfa5d0305a88315e4cfbbfc0f22608680cdf55 with 7/17 rows BLOCKED. CONTROL accepted the blocker in PR #1886 and merged exact-SHA reset PR #1888 as eaec02519f0420e7228812047bd40969552015cb, returning W3-ARTICLES to package_in_progress without changing W3-CAREER-GUIDES or any write/release permission."
+      },
+      {
+        "at": "2026-08-01T04:28:38Z",
+        "status": "local_verified",
+        "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package at SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
       }
     ],
-    "updated_at": "2026-07-31T10:31:41Z"
+    "updated_at": "2026-08-01T04:28:38Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_pr_open",
