@@ -1,0 +1,76 @@
+{
+  "$schema": "../../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest_patch_candidate",
+  "schema_version": "fermatmind.en_content_parity_master_patch_candidate.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W3",
+  "subscope_id": "W3-CAREER-GUIDES",
+  "package_id": "EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-2026-08-02",
+  "base_manifest_sha256": "398b7000513817c07887257928db3d0238e9843511d20ae165dd4c71b1cde740",
+  "sha256_manifest_path": "generated/en-content-parity/W3-editorial-cms/career-guides/batches/batch-b-12/sha256_manifest.json",
+  "package_sha256": "53458328d70d3035c7f29deb1038ba3edf96295db72cae4ca0ce61aace33b9d9",
+  "proposed_status": "package_in_progress",
+  "gate_evidence": {
+    "gate": "package_in_progress",
+    "report_path": "source_ledger.json",
+    "report_sha256": "0722d99b1687f14714c288669e0178c82f8e7e0193a7e82b20dfd721d5c10733",
+    "report_in_package": true,
+    "owner_lane_id": "W3",
+    "verdict": null,
+    "asset_ids": [
+      "ENPARITY-W3-CAREER-GUIDES"
+    ],
+    "row_count": 12
+  },
+  "asset_updates": [
+    {
+      "asset_id": "ENPARITY-W3-CAREER-GUIDES",
+      "lane_id": "W3",
+      "asset_type": "career_guide",
+      "translation_group": "cohort:editorial:career-guide-english-backlog",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS CareerGuide resources",
+      "expected_en_count": 20,
+      "current_en_count": 0,
+      "remaining_en_count": 20,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The live public CareerGuide index returned 20 zh-CN and zero English records at baseline time."
+      ],
+      "notes": "This cohort is a separate package and PR from Article assets."
+    }
+  ],
+  "partial_batch": {
+    "batch_id": "batch-b-12",
+    "guide_codes": [
+      "annual-career-review-system",
+      "build-five-year-career-roadmap",
+      "career-risk-management",
+      "career-transition-playbook",
+      "cross-industry-move-strategy",
+      "how-to-choose-college-major",
+      "how-to-find-right-career-direction",
+      "improve-workplace-competitiveness",
+      "interview-strategy-by-role",
+      "leader-track-vs-expert-track",
+      "prevent-burnout-while-growing",
+      "salary-negotiation-framework"
+    ],
+    "registered_row_count": 20,
+    "batch_row_count": 12,
+    "aggregate_ready": false,
+    "master_transition_allowed": false
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

@@ -147,6 +147,24 @@ const W3_CAREER_GUIDE_BATCH_A_CODES = [
   "networking-that-actually-works",
   "personal-brand-for-professionals",
 ];
+const W3_CAREER_GUIDE_BATCH_B_CODES = [
+  "annual-career-review-system",
+  "build-five-year-career-roadmap",
+  "career-risk-management",
+  "career-transition-playbook",
+  "cross-industry-move-strategy",
+  "how-to-choose-college-major",
+  "how-to-find-right-career-direction",
+  "improve-workplace-competitiveness",
+  "interview-strategy-by-role",
+  "leader-track-vs-expert-track",
+  "prevent-burnout-while-growing",
+  "salary-negotiation-framework",
+];
+const W3_CAREER_GUIDE_PARTIAL_BATCHES = {
+  "batch-a-8": { codes: W3_CAREER_GUIDE_BATCH_A_CODES, label: "Batch A" },
+  "batch-b-12": { codes: W3_CAREER_GUIDE_BATCH_B_CODES, label: "Batch B" },
+};
 
 function readJson(relativePath) {
   const resolvedPath = path.isAbsolute(relativePath) ? relativePath : path.join(ROOT, relativePath);
@@ -386,19 +404,20 @@ function validatePartialBatchWitness(artifact, packageTarget, errors) {
     return false;
   }
   const batch = artifact.partial_batch;
+  const registeredBatch = W3_CAREER_GUIDE_PARTIAL_BATCHES[batch.batch_id];
   assert(
     artifact.lane_id === "W3" && artifact.subscope_id === "W3-CAREER-GUIDES",
     "partial batch witnesses are limited to W3 Career Guides",
     errors
   );
-  assert(batch.batch_id === "batch-a-8", "partial batch witness must use batch-a-8", errors);
+  assert(Boolean(registeredBatch), "partial batch witness must use a registered W3 Career Guides batch", errors);
   assert(
-    sameValue(batch.guide_codes, W3_CAREER_GUIDE_BATCH_A_CODES),
-    "partial batch witness guide codes must be the exact Batch A cohort in order",
+    sameValue(batch.guide_codes, registeredBatch?.codes),
+    `partial batch witness guide codes must be the exact ${registeredBatch?.label ?? "registered"} cohort in order`,
     errors
   );
   assert(batch.registered_row_count === 20, "partial batch witness must retain the 20-row registered cohort", errors);
-  assert(batch.batch_row_count === W3_CAREER_GUIDE_BATCH_A_CODES.length, "partial batch witness row count must be 8", errors);
+  assert(batch.batch_row_count === registeredBatch?.codes.length, "partial batch witness row count must match the registered cohort", errors);
   assert(batch.aggregate_ready === false, "partial batch witness cannot be aggregate-ready", errors);
   assert(batch.master_transition_allowed === false, "partial batch witness cannot authorize a master transition", errors);
   assert(packageTarget?.status === "package_in_progress", "partial batch witness requires Career Guides package_in_progress", errors);
