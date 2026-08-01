@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T10:26:38.537Z",
+  "updated_at": "2026-08-01T10:31:23.530Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52560,13 +52560,13 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-08",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "de4af83e40514c3ba123a0518162482ad10f0ee2",
+    "commit_sha": "935b3946b4a813a0bf31010ecd52a881ec2d08bb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1945",
     "checks": {
       "dependency": {
@@ -52598,12 +52598,12 @@
         "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state items. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1945 required checks are queued or in progress."
+        "status": "pass",
+        "evidence": "PR #1945 exact head 935b3946b4a813a0bf31010ecd52a881ec2d08bb passed all 11 required CI and security checks."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "PR #1945 exact-head scope and review are pending."
+        "status": "pass",
+        "evidence": "GitHub reports PR #1945 MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact package SHA, candidate base, 17-row repair scope, and all-false permissions revalidate."
       }
     },
     "failure_reason": null,
@@ -52880,9 +52880,14 @@
         "at": "2026-08-01T10:26:38.537Z",
         "status": "github_checks_pending",
         "summary": "Pushed producer rework-08 and opened ready PR #1945 for exact package SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
+      },
+      {
+        "at": "2026-08-01T10:31:23.530Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1945 exact head 935b3946b4a813a0bf31010ecd52a881ec2d08bb passed all 11 required checks and is MERGEABLE/CLEAN with zero review threads. Exact package SHA 25dfa23d9ee9678f7ee99ced613cab6f4d2cd4875009fd9f269a2785c0e0244f, current master binding, all-17 reader-content repair scope, and all-false permissions revalidate. This ready-state ledger commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T10:26:38.537Z"
+    "updated_at": "2026-08-01T10:31:23.530Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
