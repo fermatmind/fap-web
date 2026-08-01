@@ -1,4 +1,4 @@
-# W2 Big Five English parity inventory handoff
+# W2 Big Five English parity package-production handoff
 
 - Package: `EN-PARITY-W2-BIG5-COMPLETE-20260801`
 - Generated: `2026-08-01T04:55:38Z`
@@ -11,7 +11,7 @@
 - Predecessor inventory package SHA-256: `0f50f4108af14656442ef7d57d410b2e74f8dffced6ed3db372bf848ea051292`
 - Backend result child merge SHA: `44350a696d8d1123fa2ea7831708d709831cf34b`
 - Backend result child package SHA-256: `aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81`
-- Candidate transition: `not_started → inventory_frozen`
+- Candidate transition: `inventory_frozen → package_in_progress`
 
 ## Frozen cohort counts
 
@@ -217,4 +217,4 @@ Aliases remain deterministic one-hop redirects and are excluded from canonical r
 
 ## Zero-write and zero-release confirmation
 
-No CMS, database, staging, production import, publication, promotion, SEO runtime, sitemap, llms, canonical, robots, JSON-LD, Search Channel, deploy, or private-attempt action was performed. Every permission remains `false`. The authoritative master manifest was not edited; this package submits only a candidate patch for `inventory_frozen`.
+No CMS, database, staging, production import, publication, promotion, SEO runtime, sitemap, llms, canonical, robots, JSON-LD, Search Channel, deploy, or private-attempt action was performed. Every permission remains `false`. The authoritative master manifest was not edited; this package submits only a candidate patch for `package_in_progress`.

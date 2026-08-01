@@ -28258,7 +28258,7 @@ prs:
       - EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02
     mode: execute
     train_scope: w2_big5_inventory_frozen_control_acceptance
-    status: in_progress
+    status: merged
     scope:
       - Accept only the rebased, already-validated W2 inventory_frozen candidate and transition W2 exactly once from not_started to inventory_frozen.
       - Freeze the completed 52/50/16 counts without assigning package SHA, QA evidence, lineage, runtime, import, publication, or release authority.
@@ -28294,3 +28294,49 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01
+    repo: fap-web
+    branch: codex/en-parity-w2-big5-package-in-progress-01
+    base: main
+    title: "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01: bind the complete Big Five package candidate"
+    depends_on:
+      - EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01
+    mode: execute
+    train_scope: w2_big5_package_in_progress_producer
+    status: in_progress
+    scope:
+      - Submit only the immediate package_in_progress candidate for the accepted W2 52/50/16 inventory.
+      - Preserve every frozen count and protected asset field; do not modify the authoritative master manifest.
+    allowed_paths:
+      - generated/en-content-parity/W2-big-five/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify the master manifest or schema, other lanes, app, components, lib, public, fap-api, CMS, database, runtime, sitemap, llms, SEO, import, publication, or deploy state.
+      - Change frozen 52/50/16 counts, protected asset fields, W9 status, import/runtime/production readiness, or permissions.
+    required_local_checks:
+      - php backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/validate_package.php (read-only fap-api evidence)
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - JSON/JSONL parse, 118-row uniqueness, and 52/50/16 reconciliation
+      - exact eight-file SHA manifest recomputation and candidate/package binding
+      - CJK/private-field/forbidden-ready-claim scan
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: producer candidate metadata only; backend authority and frontend no-fallback rules remain unchanged

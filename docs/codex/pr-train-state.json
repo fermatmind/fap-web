@@ -38643,7 +38643,7 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
     "merged_at": null,
@@ -53339,7 +53339,7 @@
     ],
     "status": "ready_to_merge",
     "commit_sha": "0c6b5c88927b7398faa0a826ea5f86e39600bf69",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1899",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -53359,9 +53359,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-01T06:21:46Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -53418,8 +53418,59 @@
         "at": "2026-08-01T06:16:52Z",
         "status": "ready_to_merge",
         "summary": "PR #1899 exact head a8e422df10a5de9760b32bf047ac8ae44c605047 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; the W2 transition is ready for squash merge."
+      },
+      {
+        "at": "2026-08-01T06:21:46Z",
+        "status": "merged",
+        "summary": "GitHub reports PR #1899 merged by squash as 1074f1fc0d888e1bb7ecc346ed325eeb304907a6; origin/main contains the merge and both local and remote task branches were deleted during post-merge closeout."
       }
     ],
-    "updated_at": "2026-08-01T06:16:52Z"
+    "updated_at": "2026-08-01T06:21:46Z"
+  },
+  "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01": {
+    "id": "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01: bind the complete Big Five package candidate",
+    "base": "main",
+    "branch": "codex/en-parity-w2-big5-package-in-progress-01",
+    "depends_on": [
+      "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01"
+    ],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "CONTROL PR #1899 merged as 1074f1fc0d888e1bb7ecc346ed325eeb304907a6 and current master confirms W2 inventory_frozen with 52/50/16 counts, null package/QA fields, empty lineage, and all permissions false."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Read-only backend validator passes 16 units/16 assets at child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; candidate validator and focused parity contract pass 63/63. The 118-row 52/50/16 reconciliation, boundaries, and exact eight-file package SHA c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350 pass."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T06:25:18Z",
+        "status": "in_progress",
+        "summary": "Started Producer B from synchronized main after CONTROL A merged. The scope advances only the candidate/package metadata from inventory_frozen to package_in_progress without changing frozen W2 counts, protected fields, master, or write/release authority."
+      },
+      {
+        "at": "2026-08-01T06:25:18Z",
+        "status": "local_verified",
+        "summary": "Candidate validation, focused 63/63 contract, backend child validator, 118-row 52/50/16 reconciliation, SHA binding, and boundary scans pass. The new pre-freeze package SHA is c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350; W9 and all write/release gates remain false."
+      }
+    ],
+    "updated_at": "2026-08-01T06:25:18Z"
   }
 }

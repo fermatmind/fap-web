@@ -8,7 +8,7 @@
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "056675f9956d559d606a220a6664f41cbce7f60222374f92816752904e10ea19"
+      "sha256": "0c5ae40b3dc43e9fa387ac8391da2270ac9f92a7f6c537f3c13693642ad916aa"
     },
     {
       "path": "assets.jsonl",
@@ -32,12 +32,12 @@
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "9279fabbd2c9dba7eef3851fa32a8311b374edb2003c3f76a83817ae0b6a4594"
+      "sha256": "f9c8afe85f48a734cba4d823b44bdff8a3a2a44a5208e956262f4c629b9c7daa"
     },
     {
       "path": "handoff.md",
-      "sha256": "839d1ecf9627c01818ecabf64e3c2745c5bad09a46375a9d742d0846517da70d"
+      "sha256": "452eccc037c7aedffc780e63c8cab90bf7144db02edaf814c40118d77f5ea6cd"
     }
   ],
-  "package_sha256": "ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1"
+  "package_sha256": "c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350"
 }

@@ -6,7 +6,7 @@
   "lane_id": "W2",
   "subscope_id": null,
   "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
-  "status": "inventory_frozen",
+  "status": "package_in_progress",
   "output_directory": "generated/en-content-parity/W2-big-five/",
   "artifact_files": [
     "scope_manifest.json",
