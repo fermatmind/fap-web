@@ -55963,7 +55963,7 @@
     "branch": "codex/en-parity-control-w3-career-guides-qa-pass-01",
     "depends_on": ["EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01"],
     "status": "github_checks_pending",
-    "commit_sha": "cb7cae8c0eeea4e2b43b45f9181611fccdb71fef",
+    "commit_sha": "cb7cae8c6ee3d4ae56ad00c278de6c3bebec8803",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1989",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit W3 closeout goal authorizes this exact CONTROL manifest and ledger entry."},
@@ -55983,7 +55983,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T10:45:00Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance of the exact frozen 20/20 W3 Career Guides W9 PASS evidence after PR #1988 merged and post-merge validation passed. Articles qa_pass evidence remains byte-for-byte unchanged; no W9 evidence, producer package, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."},{"at": "2026-08-02T10:55:00Z", "status": "local_verified", "summary": "Accepted only W3-CAREER-GUIDES package_frozen to qa_pass with the exact W9 report and report SHA; the exact row-evidence SHA is bound in this CONTROL ledger. W3 aggregate advances solely by the least-progressed-subscope invariant and retains null package/QA fields with empty aggregate lineage. Articles qa_pass evidence and all permissions remain unchanged."},{"at": "2026-08-02T11:00:00Z", "status": "github_checks_pending", "summary": "Committed the CONTROL-only acceptance as cb7cae8c0eeea4e2b43b45f9181611fccdb71fef and opened ready PR #1989. Required GitHub checks and exact-head review are pending; CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."}],
+    "history": [{"at": "2026-08-02T10:45:00Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance of the exact frozen 20/20 W3 Career Guides W9 PASS evidence after PR #1988 merged and post-merge validation passed. Articles qa_pass evidence remains byte-for-byte unchanged; no W9 evidence, producer package, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."},{"at": "2026-08-02T10:55:00Z", "status": "local_verified", "summary": "Accepted only W3-CAREER-GUIDES package_frozen to qa_pass with the exact W9 report and report SHA; the exact row-evidence SHA is bound in this CONTROL ledger. W3 aggregate advances solely by the least-progressed-subscope invariant and retains null package/QA fields with empty aggregate lineage. Articles qa_pass evidence and all permissions remain unchanged."},{"at": "2026-08-02T11:00:00Z", "status": "github_checks_pending", "summary": "Committed the CONTROL-only acceptance as cb7cae8c6ee3d4ae56ad00c278de6c3bebec8803 and opened ready PR #1989. Required GitHub checks and exact-head review are pending; CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."}],
     "updated_at": "2026-08-02T11:00:00Z"
   }
 }
