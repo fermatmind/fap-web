@@ -113,7 +113,7 @@ function evaluated(count = 12) {
 
 describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
   it("measures visible thickness from rendered body text, excluding head and scripts", () => {
-    const shell = `<html><head><title>${"metadata ".repeat(500)}</title></head ><body><main>short shell</main><script>${"payload ".repeat(500)}</script ></body></html>`;
+    const shell = `<html><head><title>${"metadata ".repeat(500)}</title></head ignored><body><main>short shell</main><script>${"payload ".repeat(500)}</script\t\n ignored></body></html>`;
     expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
     const rendered = `<html><body><main>${"visible career evidence ".repeat(100)}</main></body></html>`;
     expect(publicHtmlStats(rendered, "en").thin_or_shell).toBe(false);

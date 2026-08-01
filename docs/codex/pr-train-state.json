@@ -53466,8 +53466,13 @@
         "at": "2026-08-01T05:57:31Z",
         "status": "github_checks_pending",
         "summary": "Committed CodeQL alert 185 repair as 1d64a9e64b62b305c185f4defa05e8c5cc9839ca after focused 28/28, lint, typecheck, syntax, and diff checks passed. This metadata tail binds the reachable implementation commit before fresh exact-head checks."
+      },
+      {
+        "at": "2026-08-01T06:03:00Z",
+        "status": "github_checks_failed_repair_in_progress",
+        "summary": "Functional checks and CodeQL analysis passed on head 81e2183a, but alert 186 extended the same bad-tag-filter finding to parser-tolerated closing tags containing whitespace plus ignored tokens. Replaced the three closing-tag suffixes with word-boundary plus bounded non-angle-bracket matching and added the exact malformed form to the shell contract."
       }
     ],
-    "updated_at": "2026-08-01T05:57:31Z"
+    "updated_at": "2026-08-01T06:03:00Z"
   }
 }
