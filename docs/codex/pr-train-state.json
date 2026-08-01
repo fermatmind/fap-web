@@ -54220,6 +54220,10 @@
       "permissions": {
         "status": "passed",
         "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions remain false."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #1939 checked head fd978b59734371c3047324abbd7a0bce67cc0a27 passed build, all four contract shards and aggregate contracts, both freeze checks, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review-decision block."
       }
     },
     "failure_reason": null,
@@ -54229,7 +54233,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -54254,8 +54258,13 @@
         "at": "2026-08-01T17:13:00+08:00",
         "status": "github_checks_pending",
         "summary": "Opened PR #1939 at commit c85d9f80b017d5126b2348511169364f7fad0345. Required GitHub checks are pending; the immutable source snapshot, control master, CMS, import, runtime, publication, discoverability, and deployment remain untouched."
+      },
+      {
+        "at": "2026-08-01T17:18:00+08:00",
+        "status": "ready_to_merge",
+        "summary": "PR #1939 exact checked head fd978b59734371c3047324abbd7a0bce67cc0a27 passed all required CI and security checks. GitHub reports CLEAN/MERGEABLE with no review requirement; a final ledger-head check cycle remains mandatory before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T17:13:00+08:00"
+    "updated_at": "2026-08-01T17:18:00+08:00"
   }
 }
