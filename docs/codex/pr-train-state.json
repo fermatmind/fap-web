@@ -52480,7 +52480,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1 revalidate."
       },
       "lint": {
         "status": "pass",
@@ -52632,12 +52632,12 @@
       {
         "at": "2026-08-01T04:28:38Z",
         "status": "local_verified",
-        "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package at SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
+        "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package. After exact-head review found three remaining variants of the same recorded language defects, repaired them within the same seven-row scope and re-froze final SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
       },
       {
         "at": "2026-08-01T04:31:38Z",
         "status": "github_checks_pending",
-        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889 for exact rework-05 package SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. Required GitHub checks and exact-head review are pending."
+        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889. Exact-head review found three remaining case variants of the recorded W9 language findings; same-scope repair and fresh required checks are pending for re-frozen package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1."
       }
     ],
     "updated_at": "2026-08-01T04:31:38Z"
