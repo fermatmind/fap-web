@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import {
   buildArtifact,
   canonicalJson,
   evaluateCandidateEvidence,
+  fetchStatus,
   inspectHtml,
   selectPilot,
   sha256,
@@ -22,6 +23,7 @@ type LocaleEvidence = {
   seo_endpoint_status: number;
   seo_source: "career_seo_endpoint" | "career_detail_seo_contract";
   page_status: number;
+  page_final_url: string;
   sitemap_included: boolean;
   html: ReturnType<typeof inspectHtml>;
   seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean };
@@ -68,6 +70,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     seo_endpoint_status: 200,
     seo_source: "career_seo_endpoint",
     page_status: 200,
+    page_final_url: url,
     sitemap_included: true,
     html: inspectHtml(html(url), url),
     seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true },
@@ -103,6 +106,28 @@ function evaluated(count = 12) {
 }
 
 describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
+  it.each([
+    "https://www.fermatmind.com/en/career/jobs/career-01",
+    "https://fermatmind.com/en/career/jobs/career-01/",
+    "https://fermatmind.com/en//career/jobs/career-01",
+    "https://fermatmind.com/en/career/jobs/career-01?source=canonical",
+  ])("rejects a lossy-normalized canonical variant: %s", (canonical) => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    expect(inspectHtml(html(canonical), expected)).toMatchObject({ canonical, self_canonical: false });
+  });
+
+  it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue({
+      status: 302,
+      url: "https://fermatmind.com/en/career/jobs/career-01",
+      text: async () => "",
+    } as Response);
+    const result = await fetchStatus("https://fermatmind.com/en/career/jobs/career-01", 1000, false);
+    expect(fetchMock).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({ redirect: "manual" }));
+    expect(result.status).toBe(302);
+    fetchMock.mockRestore();
+  });
+
   it("is deterministic and orders stable, then quality descending, then slug", () => {
     const inputs = evaluated();
     const first = selectPilot(inputs);
@@ -148,6 +173,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["held slug", (value: Candidate) => { value.held = true; }, "held_slug"],
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
+    ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
     ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
     ["SEO SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],

@@ -93,6 +93,14 @@ function normalizeAbsoluteUrl(value, siteUrl) {
   }
 }
 
+function resolveAbsoluteUrl(value, baseUrl) {
+  try {
+    return new URL(value, baseUrl).href;
+  } catch {
+    return "";
+  }
+}
+
 function attribute(tag, name) {
   const match = String(tag).match(new RegExp(`\\b${name}\\s*=\\s*["']([^"']*)["']`, "i"));
   return match ? match[1] : "";
@@ -122,10 +130,10 @@ export function inspectHtml(html, expectedUrl) {
   const faqPages = jsonLdObjects.filter((item) => item["@type"] === "FAQPage");
   const faqQuestionCount = faqPages.reduce((sum, item) => sum + array(item.mainEntity).length, 0);
   const types = [...new Set(jsonLdObjects.flatMap((item) => array(item["@type"]).length ? item["@type"] : [item["@type"]]).filter(Boolean))].sort();
-  const canonical = normalizeAbsoluteUrl(attribute(canonicalTag || "", "href"), expectedUrl);
+  const canonical = resolveAbsoluteUrl(attribute(canonicalTag || "", "href"), expectedUrl);
   return {
     canonical,
-    self_canonical: canonical === normalizeAbsoluteUrl(expectedUrl, expectedUrl),
+    self_canonical: canonical === expectedUrl,
     robots: normalizeRobots(attribute(robotsTag || "", "content")),
     index_follow: normalizeRobots(attribute(robotsTag || "", "content")) === "index,follow",
     jsonld_types: types,
@@ -216,6 +224,7 @@ export function evaluateCandidateEvidence(candidate) {
     if (evidence.detail_status !== 200) reasons.push(`${prefix}detail_api_not_200`);
     if (evidence.seo_authority_status !== 200) reasons.push(`${prefix}seo_authority_not_200`);
     if (evidence.page_status !== 200) reasons.push(`${prefix}page_not_200`);
+    if (evidence.page_final_url !== evidence.url) reasons.push(`${prefix}page_final_url_mismatch`);
     if (!evidence.html.self_canonical) reasons.push(`${prefix}canonical_mismatch`);
     if (!evidence.html.index_follow) reasons.push(`${prefix}not_index_follow`);
     if (normalizeRobots(evidence.seo.robots_policy) !== "index,follow" || evidence.seo.index_eligible !== true) {
@@ -291,6 +300,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
         seo_endpoint_status: evidence.seo_endpoint_status,
         seo_source: evidence.seo_source,
         page_status: evidence.page_status,
+        page_final_url: evidence.page_final_url,
         canonical: evidence.html.canonical,
         robots: evidence.html.robots,
         sitemap_included: evidence.sitemap_included,
@@ -355,7 +365,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
       slug_count: targets.length,
       url_count: urls.length,
       bilingual_pairs_complete: targets.every((target) => target.urls.length === 2),
-      all_detail_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200)),
+      all_detail_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200 && item.page_final_url === target.urls[item === target.locale_evidence.en ? 0 : 1])),
       all_seo_authority_resolved: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_authority_status === 200 && ["career_seo_endpoint", "career_detail_seo_contract"].includes(item.seo_source))),
       dedicated_seo_endpoint_200_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_endpoint_status === 200).length,
       detail_seo_contract_fallback_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_source === "career_detail_seo_contract").length,
@@ -382,11 +392,11 @@ export function buildArtifact({ candidates, observedAt, source }) {
   return { ...body, artifact_sha256: sha256(body) };
 }
 
-async function fetchStatus(url, timeoutMs, json = true) {
+export async function fetchStatus(url, timeoutMs, json = true) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const response = await fetch(url, { signal: controller.signal, headers: { Accept: json ? "application/json" : "text/html" } });
+    const response = await fetch(url, { signal: controller.signal, redirect: "manual", headers: { Accept: json ? "application/json" : "text/html" } });
     const payload = json ? await response.json().catch(() => null) : await response.text().catch(() => "");
     return { status: response.status, payload, final_url: response.url };
   } catch (error) {
@@ -436,6 +446,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     seo_endpoint_status: seoResult.status,
     seo_source: Object.keys(endpointSeo).length > 0 ? "career_seo_endpoint" : "career_detail_seo_contract",
     page_status: pageResult.status,
+    page_final_url: pageResult.final_url,
     sitemap_included: sitemapLocs.has(url),
     html: inspectHtml(pageResult.payload, url),
     seo: {
