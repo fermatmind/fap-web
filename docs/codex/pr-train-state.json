@@ -52453,7 +52453,7 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-05",
     "depends_on": [
@@ -52491,12 +52491,12 @@
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1889 is open; fresh required checks are pending after the latest same-scope review fix."
+        "status": "pass",
+        "evidence": "PR #1889 head c52ce4553baad9c6ef481638fe5c5e0c0954a5fc passed all 11 required CI and security checks; the ready-state ledger correction is the only subsequent change and receives a fresh check run before merge."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "PR #1889 is MERGEABLE and the exact local scope plus all-false permission boundaries revalidate; latest-head review and merge-policy checks remain pending."
+        "status": "pass",
+        "evidence": "PR #1889 is MERGEABLE with no required review. All exact-head findings were repaired in scope, the final wording correction is included in the ready-state ledger commit, and all review threads are resolved before merge."
       }
     },
     "failure_reason": null,
@@ -52657,10 +52657,15 @@
       {
         "at": "2026-08-01T04:51:59Z",
         "status": "github_checks_pending",
-        "summary": "Committed row-provenance and ledger-chronology repairs as 2aad318d607d014b93dd70b662a3b11c420882a6. Exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d, 17/17 rework-05 naturalness review markers, seven edited-row rework-05 translation methods, 10 byte-identical passing rows, control validation, 66/66 focused contracts, and exhaustive blocker scan pass. Fresh required checks are pending."
+        "summary": "Committed row-provenance and ledger-chronology repairs as 2aad318d607d014b93dd70b662a3b11c420882a6. Exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d, 17/17 rework-05 naturalness review markers, seven edited-row rework-05 translation methods, 10 reader-content-identical passing rows, control validation, 66/66 focused contracts, and exhaustive blocker scan pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T04:57:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1889 head c52ce4553baad9c6ef481638fe5c5e0c0954a5fc passed all 11 required checks and latest-head review. Corrected the final ledger wording to distinguish reader-content identity from whole-row byte identity; exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d and producer payload remain unchanged. The ready-state ledger commit receives the final required-check run before merge."
       }
     ],
-    "updated_at": "2026-08-01T04:51:59Z"
+    "updated_at": "2026-08-01T04:57:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_pr_open",
