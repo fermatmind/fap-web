@@ -52480,7 +52480,7 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA de7cf74bcfd8cdefa346636567add5271c773ed6daeb9b9815ea1ece539cd780 revalidate."
       },
       "lint": {
         "status": "pass",
@@ -52492,11 +52492,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Local producer gates pass; the rework-05 PR has not yet been opened, so fresh GitHub required checks are pending."
+        "evidence": "PR #1889 is open; fresh required checks are pending after the latest same-scope review fix."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Exact local scope and all-false permission boundaries revalidate; GitHub review and merge-policy checks are pending PR creation."
+        "evidence": "PR #1889 is MERGEABLE and the exact local scope plus all-false permission boundaries revalidate; latest-head review and merge-policy checks remain pending."
       }
     },
     "failure_reason": null,
@@ -52632,17 +52632,17 @@
       {
         "at": "2026-08-01T04:28:38Z",
         "status": "local_verified",
-        "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package. After exact-head review found three remaining variants of the same recorded language defects, repaired them within the same seven-row scope and re-froze final SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
+        "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package. Exact-head review found four remaining variants of the same recorded language defects; repaired them within the same seven-row scope and re-froze final SHA de7cf74bcfd8cdefa346636567add5271c773ed6daeb9b9815ea1ece539cd780. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
       },
       {
         "at": "2026-08-01T04:31:38Z",
         "status": "github_checks_pending",
-        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889. Exact-head review found three remaining case variants of the recorded W9 language findings; same-scope repair and fresh required checks are pending for re-frozen package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1."
+        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889. Exact-head review found four remaining variants of the recorded W9 language findings; same-scope repair and fresh required checks are pending for re-frozen package SHA de7cf74bcfd8cdefa346636567add5271c773ed6daeb9b9815ea1ece539cd780."
       },
       {
         "at": "2026-08-01T04:38:21Z",
         "status": "github_checks_pending",
-        "summary": "Committed same-scope review fixes as 095be8b5292a8a554fafc70ef7bc439eed75f601, resolving the remaining Article 51 naming, Article 55 possessive, and Article 58 curriculum-phrase variants. Recomputed final package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1; local validator, 66/66 focused contracts, exact hash/table/identity audit, and zero-match case-insensitive blocker scan pass. Fresh required checks are pending."
+        "summary": "Committed same-scope review fixes as 095be8b5292a8a554fafc70ef7bc439eed75f601, resolving Article 51 naming, Article 55 possessive, and Article 58 curriculum-phrase variants. Follow-up review found and repaired the resulting Article 51 indefinite article. Recomputed final package SHA de7cf74bcfd8cdefa346636567add5271c773ed6daeb9b9815ea1ece539cd780; local validator, 66/66 focused contracts, exact hash/table/identity audit, and zero-match case-insensitive blocker scan pass. Fresh required checks are pending."
       }
     ],
     "updated_at": "2026-08-01T04:38:21Z"
