@@ -105,9 +105,16 @@ describe("W3 Article:53 official source-evidence repair", () => {
       expected_target_route: "/en/articles/gaokao-score-major-shortlist-riasec-checklist",
     });
     const currentSection = currentContent.match(
-      /## The 2026 Context: More Majors, More Anxiety[\s\S]*?(?=## Eliminate These Six Categories First|$)/,
+      /## The 2026 Context: (?:More Majors, More Anxiety|Start With Official Information)[\s\S]*?(?=## Eliminate These Six Categories First|$)/,
     )?.[0];
-    expect(sha256(`${currentSection}\n`)).toBe(repair.expected_previous_section_sha256);
+    const declaredSectionHashes = [
+      repair.expected_previous_section_sha256,
+      repair.replacement_section_sha256,
+    ];
+    expect([
+      sha256(`${currentSection}\n`),
+      sha256(`${currentSection?.trimEnd()}\n`),
+    ].some((sectionHash) => declaredSectionHashes.includes(sectionHash))).toBe(true);
     expect(sha256(repair.replacement_section_md as string)).toBe(repair.replacement_section_sha256);
     expect(repair.replacement_section_md).not.toContain("capture the future");
     expect(repair.supporting_evidence_ids).toEqual([
