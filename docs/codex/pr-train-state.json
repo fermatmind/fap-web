@@ -52455,20 +52455,20 @@
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
     "status": "ready_to_merge",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-package-repair-04",
+    "branch": "codex/en-parity-w3-article-package-rework-05",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "22c7fa47f8554226ef6f4249a8935e7eee251155",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1882",
+    "commit_sha": "2aad318d607d014b93dd70b662a3b11c420882a6",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1889",
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Fresh independent W9 evidence PR #1877 merged as 452cfda0f66d769774b046b830e581cbb96afa2f with 13/17 rows BLOCKED. CONTROL blocker-acceptance PR #1878 merged as edc783864654ecd3b4f377d5d48a2bcf86b6cd6d, and exact-SHA reset PR #1880 merged as 41dcfbf12ee2158c4cd6e8bb34b8d21725b4418c. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
+        "evidence": "Fresh independent W9 evidence PR #1885 merged as 1ddfa5d0305a88315e4cfbbfc0f22608680cdf55 with 7/17 rows BLOCKED. CONTROL blocker-acceptance PR #1886 merged as 1cfa3b23d70b1ee4e1bdad2d9d7c27e5ff99a898, and exact-SHA reset PR #1888 merged as eaec02519f0420e7228812047bd40969552015cb. Current main registers W3-ARTICLES at package_in_progress while W3-CAREER-GUIDES remains unchanged."
       },
       "producer_review": {
         "status": "pass",
-        "evidence": "Repaired all 13 rows blocked by fresh W9 report 98741fabc3a9f164377332e52e60cff62602a0dd8cc3404fa00c7ce7d4089f26 and row evidence acdc8259b56827554a0a539fc6b0263c053fdfc0fc04176bac025936d5c52cac. Retranslated all 29 non-Gaokao matrices identified by W9, repaired Gaokao terminology and dated-event wording, limited Article 7 to observed task performance, and made Article 58 reassignment outcomes conditional on applicable rules. Articles 1, 2, 6, and 9 remain content-identical."
+        "evidence": "Repaired only the 7 rows blocked by fresh W9 report ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844 and row evidence 490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc: W3-ARTICLE-03, 51, 52, 53, 55, 58, and 59. The 10 passing rows remain content-identical to the reviewed frozen snapshot."
       },
       "control_validator": {
         "status": "pass",
@@ -52480,11 +52480,11 @@
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157 revalidate."
+        "evidence": "Exact ten-file package, eight immutable payload SHAs, 17 unique Article/revision identities, live-source/candidate parity at 86 Markdown table groups and 610 table lines, zero Han leakage, all-false permissions, and aggregate package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d revalidate."
       },
       "lint": {
-        "status": "pass_with_external_sidecar",
-        "evidence": "Clean-checkout-equivalent repository ESLint excluding only the pre-existing ignored .playwright-cli trace directory passed with zero errors. The external trace pollution remains outside this PR scope."
+        "status": "pass",
+        "evidence": "Repository pnpm lint completed with zero errors; the informational Babel deoptimization note for the pre-existing ignored .playwright-cli trace is outside this PR scope."
       },
       "scope_validation": {
         "status": "pass",
@@ -52492,11 +52492,11 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1882 head 22c7fa47f8554226ef6f4249a8935e7eee251155 passed all 11 required CI and security checks."
+        "evidence": "PR #1889 head c52ce4553baad9c6ef481638fe5c5e0c0954a5fc passed all 11 required CI and security checks; the ready-state ledger correction is the only subsequent change and receives a fresh check run before merge."
       },
       "review_and_merge_policy": {
         "status": "pass",
-        "evidence": "PR #1882 is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact changed-file scope and all-false permission boundaries revalidate."
+        "evidence": "PR #1889 is MERGEABLE with no required review. All exact-head findings were repaired in scope, the final wording correction is included in the ready-state ledger commit, and all review threads are resolved before merge."
       }
     },
     "failure_reason": null,
@@ -52623,9 +52623,49 @@
         "at": "2026-07-31T10:31:41Z",
         "status": "ready_to_merge",
         "summary": "PR #1882 head 22c7fa47f8554226ef6f4249a8935e7eee251155 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no review requirement, no reviews, and zero review threads. Exact package SHA 213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157, changed-file scope, and all-false permissions revalidate."
+      },
+      {
+        "at": "2026-08-01T04:24:35Z",
+        "status": "reset_to_package_in_progress",
+        "summary": "Fresh W9 evidence PR #1885 merged as 1ddfa5d0305a88315e4cfbbfc0f22608680cdf55 with 7/17 rows BLOCKED. CONTROL accepted the blocker in PR #1886 and merged exact-SHA reset PR #1888 as eaec02519f0420e7228812047bd40969552015cb, returning W3-ARTICLES to package_in_progress without changing W3-CAREER-GUIDES or any write/release permission."
+      },
+      {
+        "at": "2026-08-01T04:28:38Z",
+        "status": "local_verified",
+        "summary": "Completed the initial W9-directed rework-05 pass for only the 7 blocked Article rows and rebuilt the ten-file candidate package at SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. The 10 passing rows remained content-identical; 86 table groups and 610 table lines were retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks passed. Exact-head review had not yet occurred."
+      },
+      {
+        "at": "2026-08-01T04:31:38Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889 for initial rework-05 package SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. Required GitHub checks and exact-head review were pending."
+      },
+      {
+        "at": "2026-08-01T04:38:21Z",
+        "status": "github_checks_pending",
+        "summary": "Committed same-scope review fixes as 095be8b5292a8a554fafc70ef7bc439eed75f601, resolving the remaining Article 51 naming, Article 55 possessive, and Article 58 curriculum-phrase variants. Recomputed package SHA 7bc7208d01e29c673d696bafbd30c1ca9e9ac2d46739fe4c9134ca66255197a1; local validator, 66/66 focused contracts, exact hash/table/identity audit, and zero-match case-insensitive blocker scan passed. Fresh required checks were pending."
+      },
+      {
+        "at": "2026-08-01T04:44:54Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the final same-scope Article 51 grammar repair as 4c856b71b1720d6c8c818b0e187f2da07c38ccc6. Exact package SHA de7cf74bcfd8cdefa346636567add5271c773ed6daeb9b9815ea1ece539cd780, control validation, 66/66 focused contracts, exhaustive blocker-variant scan, and all scope boundaries revalidate; fresh GitHub checks are pending."
+      },
+      {
+        "at": "2026-08-01T04:50:35Z",
+        "status": "github_checks_pending",
+        "summary": "Latest-head review found stale row-level rework provenance. Updated all 17 producer naturalness review markers to rework-05 and only the seven edited rows' translation methods to rework-05, without changing reader content. Re-froze package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d and restored chronological ledger truth; fresh local and GitHub validation are pending."
+      },
+      {
+        "at": "2026-08-01T04:51:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed row-provenance and ledger-chronology repairs as 2aad318d607d014b93dd70b662a3b11c420882a6. Exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d, 17/17 rework-05 naturalness review markers, seven edited-row rework-05 translation methods, 10 reader-content-identical passing rows, control validation, 66/66 focused contracts, and exhaustive blocker scan pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T04:57:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1889 head c52ce4553baad9c6ef481638fe5c5e0c0954a5fc passed all 11 required checks and latest-head review. Corrected the final ledger wording to distinguish reader-content identity from whole-row byte identity; exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d and producer payload remain unchanged. The ready-state ledger commit receives the final required-check run before merge."
       }
     ],
-    "updated_at": "2026-07-31T10:31:41Z"
+    "updated_at": "2026-08-01T04:57:00Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_pr_open",

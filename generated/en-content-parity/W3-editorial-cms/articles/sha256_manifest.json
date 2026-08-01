@@ -3,11 +3,11 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-04-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-05-2026-08-01",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "ecd3814e6f4618ef683fe77570d1480092a7cf89b4636a9b3eb31b70989b0742"
+      "sha256": "387ee6d08e3c90350cad272ae3d2f95e899a64c6d22e06d2a83d2dc53a6eaf72"
     },
     {
       "path": "assets.jsonl",
@@ -15,28 +15,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "0665570baa1420dd3d9139c9959defe00ec65d6a6fc13af9167cec0a5013bc32"
+      "sha256": "6ef0160137aaf26188ae887cf5a5a8ba586a65b8ed53c2d72539c6ebc9758ebd"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "aea6be5c37deff776081a35fdf8972dab890d1ebf3f6f1b52925188c17561e8a"
+      "sha256": "0991877b3949ede133e2f0892df46734cd9a97b65713a2e1790fb3366762f2af"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "6b500ef51549257d9fc4cda7cda86c2a0f6ac54734ef8ab2ace11424250f2c69"
+      "sha256": "76cf0c76a265750574ef256f6252a52e06ea034219cf591e2ef50dcd35ae8160"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "bd98114440a80fe2edb040eeb5412f1072e519f3313b580aabaf8b523dbfb9da"
+      "sha256": "442c6804c81d1af8190d98f602a1f3f96bfad3da2eb73127e12b70ec088d8047"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "ba57c4d8583ee917357916c52950cb37aec81a47c19df058d2b57b6807e7351f"
+      "sha256": "fba7830e43d6005556989fe8475dc4909a58e86aa823d23c4a08abfe206436d9"
     },
     {
       "path": "handoff.md",
-      "sha256": "e8a96dbe26fee6cf5b65d4369a29fbb2a4b999052576dd7a065545c37d41b55e"
+      "sha256": "f884d9ef3c45a43f7a6bf9c1e9355bc24334e7e22bce391913cf67c82d6f3187"
     }
   ],
-  "package_sha256": "213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157"
+  "package_sha256": "8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d"
 }
