@@ -1,0 +1,29 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "transition_gate_report",
+  "schema_version": "fermatmind.en_content_parity_transition_gate_report.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "owner_lane_id": "W1",
+  "producer_lane_id": "W1",
+  "subscope_id": "W1-MBTI-RESULT-CONTENT",
+  "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+  "gate": "dry_run_ready",
+  "verdict": "PASS",
+  "dry_run_evidence": {
+    "source_repository": "fap-api",
+    "source_commit_sha": "e5997548beb7da3f9850b7d382a015e175b0397d",
+    "plan_path": "generated/en-content-parity/W1-mbti/result-content/dry_run_evidence/exact_dry_run_plan.json",
+    "plan_sha256": "7008c5d530a9b37a48c2a3200ec88fa56731d88277dfa79473f812ad4cab7aee",
+    "plan_schema_version": "fermatmind.en_parity.result_import_dry_run_receipt.v1",
+    "row_count": 46
+  },
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
