@@ -52870,14 +52870,14 @@
     "updated_at": "2026-08-01T08:21:15Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "blocked_local_verified",
+    "status": "blocked_pr_open",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-07",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1938",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52921,11 +52921,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The rework-07 W9 evidence PR has not yet been opened."
+        "evidence": "Ready PR #1938 is open at exact implementation commit 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439. Required CI, contract, freeze, and CodeQL checks are queued or in progress."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "The rework-07 W9 evidence PR has not yet been opened; required checks, exact-head review, scope revalidation, and mergeability verification remain pending."
+        "evidence": "GitHub reports ready PR #1938 OPEN and MERGEABLE at exact implementation commit 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439. Required checks, exact-head review, scope revalidation, and final mergeability verification remain pending."
       }
     },
     "failure_reason": "Fresh review found additional reader-visible English defects in frozen W3-ARTICLE-59, including unidiomatic parallel questions, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. W9 must report BLOCKED and cannot modify the producer payload.",
@@ -53087,9 +53087,14 @@
         "at": "2026-08-01T08:54:20Z",
         "status": "blocked_local_verified",
         "summary": "Rebased the isolated W9 branch onto current origin/main 4c98a7004bde842471d55977fe404e55a97f1094, preserving concurrent W1/W2 manifest, ledger, CONTROL, and contract work. Rebound only the non-immutable W9 blocked candidate to master SHA f59d8f1013df4c187b956e93d2b605efb4e48427985443d189456360b00c8698; both validators and 67/67 focused contracts pass again. The W3 package SHA, frozen snapshot, W9 BLOCKED verdict, and all-false permissions are unchanged."
+      },
+      {
+        "at": "2026-08-01T08:56:33Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed and pushed the fresh rework-07 independent W9 BLOCKED evidence as 9cbd32b663fba74d5e2cd5c5a3b72398fbdc0439, then opened ready PR #1938. GitHub reports MERGEABLE with required checks queued or in progress; qa_pass and every write/release permission remain false."
       }
     ],
-    "updated_at": "2026-08-01T08:54:20Z"
+    "updated_at": "2026-08-01T08:56:33Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
