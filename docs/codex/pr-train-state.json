@@ -52780,7 +52780,7 @@
     "updated_at": "2026-08-01T05:04:11Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "blocked_pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-05",
     "depends_on": [
@@ -52830,12 +52830,12 @@
         "evidence": "Node 24 focused control and W3 Article package contracts pass 66/66. Strict validators, exact artifact SHA checks, 17-row aggregation with 16 PASS rows and exactly one W3-ARTICLE-59 language-naturalness blocker, Article 59's other seven PASS checks, immutable producer snapshot, all-false permissions, JSON/YAML parsing, scope validation, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1897 received the scoped W9 BLOCKED-evidence repair from implementation commit 8cc49e483fea0aa5fdb1daf90d80c2a3def05c59; fresh required CI, contract, freeze, and CodeQL checks must pass on the pushed exact head."
+        "status": "pass",
+        "evidence": "PR #1897 head b525cb89214aaabfa36f7be229152105f4de505d passed all 11 required CI and security checks: build, four contract shards, contracts, both freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts. The ready-state ledger commit receives one final required-check cycle before merge."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "The original actionable Article 59 review finding has been incorporated into W9 evidence. The review thread must be resolved and fresh exact-head review, scope revalidation, required checks, and final mergeability verification remain pending."
+        "status": "pass",
+        "evidence": "The original actionable Article 59 review finding is incorporated into the W9 BLOCKED evidence and its only review thread is resolved. GitHub reports head b525cb89214aaabfa36f7be229152105f4de505d MERGEABLE/CLEAN with no required review decision; exact scope remains limited to the registered W9 authority and train metadata."
       }
     },
     "failure_reason": "Fresh exact-head review found one reader-visible language-naturalness defect in frozen W3-ARTICLE-59: `Field related to AI often require greater tolerance ...`. W9 must report BLOCKED and cannot modify the producer payload.",
@@ -52952,9 +52952,14 @@
         "at": "2026-08-01T05:47:30Z",
         "status": "blocked_pr_open",
         "summary": "Committed the scoped exact-head review correction as 8cc49e483fea0aa5fdb1daf90d80c2a3def05c59. The W9 evidence is BLOCKED only for Article 59 language naturalness; producer payload and package SHA remain unchanged. The review correction and ledger were pushed; review-thread resolution and fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T05:53:30Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1897 head b525cb89214aaabfa36f7be229152105f4de505d passed all 11 required checks and is MERGEABLE/CLEAN. The Article 59 review finding is accurately recorded as the sole W9 blocker, the only review thread is resolved, scope is exact, producer payload remains byte-identical, and all permissions remain false. The ready-state ledger commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T05:47:30Z"
+    "updated_at": "2026-08-01T05:53:30Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
