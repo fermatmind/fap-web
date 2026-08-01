@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../../docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "lane_package",
+  "schema_version": "fermatmind.en_content_parity_lane_package.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "lane_id": "W1",
+  "subscope_id": "W1-MBTI-RESULT-CONTENT",
+  "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
+  "status": "package_frozen",
+  "output_directory": "generated/en-content-parity/W1-mbti/result-content/",
+  "artifact_files": [
+    "scope_manifest.json",
+    "assets.jsonl",
+    "translation_map.json",
+    "source_ledger.json",
+    "claim_boundary_report.json",
+    "editorial_review.json",
+    "dry_run_readiness.json",
+    "sha256_manifest.json",
+    "master_manifest_patch.candidate.json",
+    "handoff.md"
+  ],
+  "assets": [
+    {
+      "asset_id": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+      "lane_id": "W1",
+      "asset_type": "mbti_result_content",
+      "translation_group": "cohort:mbti:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend MBTI result and report content packs",
+      "expected_en_count": 46,
+      "current_en_count": 24,
+      "remaining_en_count": 22,
+      "parity_state": "en_draft_requires_verification",
+      "evidence": [
+        "The frozen inventory contains 5 projection-level asset families, 35 canonical MBTI section families, and 6 reader-surface/renderer families.",
+        "Twenty-four families have an English CMS, runtime-contract, or renderer-label control; twenty are structurally incomplete, one is missing, and one PDF family cannot be confirmed without a lawful private fixture.",
+        "The backend has no English MBTI report content pack under the locale-scoped package authority; code fallbacks are not counted as completed English editorial assets."
+      ],
+      "notes": "remaining_en_count includes 20 structurally incomplete families, one missing family, and one unable-to-confirm PDF family. Draft count is zero. Existing public 32-type A/T profiles are controls, not generation targets."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
