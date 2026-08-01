@@ -53788,7 +53788,7 @@
     "branch": "codex/en-parity-control-w4-launch-ready-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "5234d3801d2939e6267f2499d91a84b6acd98515",
+    "commit_sha": "1dc198bfa4ee63a56e3b743eaf4e76fb9f6b6ce1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1934",
     "checks": {
       "preflight": {
@@ -53829,8 +53829,13 @@
         "at": "2026-08-01T08:41:10Z",
         "status": "github_checks_pending",
         "summary": "Opened PR #1934 from exact authored commit 5234d3801d2939e6267f2499d91a84b6acd98515; required GitHub checks are pending and concurrent CONTROL changes will be rebased before merge if needed."
+      },
+      {
+        "at": "2026-08-01T08:42:54Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased after concurrent CONTROL PR #1933 merged as 762954708838844a3a80178acdcfd023408e096e; retained its generated W1 dry-run evidence, replayed only the W4 control scope as authored commit 1dc198bfa4ee63a56e3b743eaf4e76fb9f6b6ce1, and reran validator, focused 63/63 contract, ESLint, non-W4 lane identity, and exact scope checks successfully."
       }
     ],
-    "updated_at": "2026-08-01T08:41:10Z"
+    "updated_at": "2026-08-01T08:42:54Z"
   }
 }
