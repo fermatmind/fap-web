@@ -28120,8 +28120,12 @@ prs:
     allowed_paths:
       - docs/seo/generated/en-content-parity-control-master.v1.json
       - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - tests/contracts/en-content-parity-w3-career-guide-package-freeze.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - scripts/seo/validate-w3-career-guides-batch-a.mjs
+      - scripts/seo/validate-w3-career-guides-batch-b.mjs
+      - scripts/seo/validate-w3-career-guides-package-freeze.mjs
       - generated/pr-train-sidecar-issues/sidecar_issues.md
       - generated/pr-train-sidecar-issues/sidecar_issues.json
     do_not:
