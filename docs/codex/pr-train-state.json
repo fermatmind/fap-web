@@ -54763,7 +54763,7 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "5bb2a8dda93aa33ac1034f36b9e4579f698b4326",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1948",
     "checks": {
@@ -55355,7 +55355,7 @@
     "checks": {
       "preflight": {"status": "pass", "evidence": "origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 retains W4=package_in_progress after the CONTROL reset and preserves old failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence only."},
       "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator and full lint passed (Node 20 emitted only the repository engine warning). JSON/YAML parsing, exact path scope, diff checks, and deterministic package verification pass. The segment has 133 rows with exactly 126 G06 targets: old sentence 0 and new sentence 126 in both assets and translation cache; only 126 summary fields changed, identities and all other reader fields are unchanged, G07 remains byte-identical, and six payload SHA values plus aggregate ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2 recompute identically twice."},
-      "github_required_checks": {"status": "pending", "evidence": "PR #1970 is open from ledger head 70f40a169085e23b13212b6a74f3d6630de580b3; required GitHub checks are pending."}
+      "github_required_checks": {"status": "pass", "evidence": "PR #1970 head 8a5cb799f1aa2220b2d28bd176f468c02355a0b4 passed build, all four contract shards and aggregate, Big Five and Enneagram freeze checks, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55373,9 +55373,10 @@
       {"at": "2026-08-02T01:43:33+08:00", "status": "in_progress", "summary": "Started from origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 after confirming the CONTROL reset retains failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence and returns W4 to package_in_progress. Scope is exactly the 126 W4-G06 summary and translation-cache replacements plus segment evidence; W4-G07, control master, runtime, CMS/import, publication, discoverability, and deploy remain unchanged."},
       {"at": "2026-08-02T01:46:54+08:00", "status": "local_verified", "summary": "Rebuilt deterministically from the existing translation cache without rewriting non-target reader text. Focused control contract (65/65), control validator, full lint, JSON/YAML parse, exact scope, diff, identity, G07, sentence-count, payload-SHA, and repeatable aggregate-SHA checks pass. The new segment aggregate is ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2; W4 remains package_in_progress and all write/release permissions remain false."},
       {"at": "2026-08-02T01:48:38+08:00", "status": "committed", "summary": "Committed the exact G06 repair implementation as 0325ff55da734308379a3904844aca796a2b6023. The next ledger-only commit will record this implementation SHA before the single scoped PR is opened; no CONTROL, runtime, CMS/import, publication, discoverability, or deploy action is included."},
-      {"at": "2026-08-02T01:49:58+08:00", "status": "github_checks_pending", "summary": "Opened PR #1970 from ledger head 70f40a169085e23b13212b6a74f3d6630de580b3. Required GitHub checks are pending; G02, package re-freeze, CONTROL, W9, CMS/import, runtime, publication, discoverability, and deploy remain deferred."}
+      {"at": "2026-08-02T01:49:58+08:00", "status": "github_checks_pending", "summary": "Opened PR #1970 from ledger head 70f40a169085e23b13212b6a74f3d6630de580b3. Required GitHub checks are pending; G02, package re-freeze, CONTROL, W9, CMS/import, runtime, publication, discoverability, and deploy remain deferred."},
+      {"at": "2026-08-02T01:53:15+08:00", "status": "ready_to_merge", "summary": "PR #1970 head 8a5cb799f1aa2220b2d28bd176f468c02355a0b4 passed all required GitHub checks and is CLEAN with no review requirement. Final base and exact scope revalidation against origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 pass; this ready-state ledger head must complete its own fresh check cycle before squash merge."}
     ],
-    "updated_at": "2026-08-02T01:49:58+08:00"
+    "updated_at": "2026-08-02T01:53:15+08:00"
   },
   "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01": {
     "id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
