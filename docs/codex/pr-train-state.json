@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "72e43f7143ed25710238612197d7c98c2609b057",
+    "commit_sha": "a97463bc31beda228f112cd907a9326f83c70d80",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53209,8 +53209,13 @@
         "at": "2026-08-01T05:35:30Z",
         "status": "github_checks_pending",
         "summary": "Repaired exact canonical and redirect handling from exact-head review: canonical evidence no longer strips www, query, repeated slashes, or trailing slashes; public fetches use manual redirects and require the final URL to equal the exact target. Focused contract passes 25/25. A fresh complete strict read-only run remains GO with 41 eligible candidates and target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682."
+      },
+      {
+        "at": "2026-08-01T05:36:29Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact canonical and manual-redirect implementation as a97463bc31beda228f112cd907a9326f83c70d80 after focused 25/25, lint, typecheck, syntax, self-hash, ledger, final-URL, and diff checks passed. This metadata tail binds the reachable implementation commit."
       }
     ],
-    "updated_at": "2026-08-01T05:35:30Z"
+    "updated_at": "2026-08-01T05:36:29Z"
   }
 }
