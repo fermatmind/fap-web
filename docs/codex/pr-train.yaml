@@ -29911,3 +29911,42 @@ prs:
     deploy_allowed: false
     content_authority: exact frozen W3 Articles producer package; W9 evidence only
     repository_rule_impact: independent QA evidence only; no authority or runtime change
+
+  - id: EN-PARITY-CONTROL-W3-ARTICLES-QA-PASS-REFROZEN-10-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-articles-qa-pass-refrozen-10-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-ARTICLES-QA-PASS-REFROZEN-10-01: accept W3 Articles refrozen W9 PASS"
+    depends_on: [EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01]
+    mode: execute
+    train_scope: control_w3_articles_accept_refrozen_w9_pass
+    status: in_progress
+    scope:
+      - Accept only the exact 17/17 PASS W9 report, row evidence, and frozen W3-ARTICLES package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a.
+      - Preserve the original Article package_frozen lineage, frozen Career Guides evidence, W3 aggregate separation, and all-false permissions.
+      - Reconcile the merged Articles W9 PR train ledger only.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify W9 evidence, producer packages, Career Guides, CMS, runtime, import, publication, SEO, sitemap, llms, search, or deployment.
+      - Change an aggregate package SHA, aggregate QA report, aggregate lineage, or any permission.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/master_manifest_patch.candidate.json
+      - focused control-master and Articles W9 contracts
+      - focused ESLint
+      - JSON/YAML parse, exact W9 SHA/lineage, all-false permissions, and scope audits
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CONTROL acceptance of independently stored W9 evidence only
+    repository_rule_impact: CONTROL-only QA acceptance; no authority, runtime, import, publication, discoverability, or deployment change
