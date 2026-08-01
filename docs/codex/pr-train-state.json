@@ -52459,7 +52459,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "4c856b71b1720d6c8c818b0e187f2da07c38ccc6",
+    "commit_sha": "2aad318d607d014b93dd70b662a3b11c420882a6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1889",
     "checks": {
       "dependency": {
@@ -52653,9 +52653,14 @@
         "at": "2026-08-01T04:50:35Z",
         "status": "github_checks_pending",
         "summary": "Latest-head review found stale row-level rework provenance. Updated all 17 producer naturalness review markers to rework-05 and only the seven edited rows' translation methods to rework-05, without changing reader content. Re-froze package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d and restored chronological ledger truth; fresh local and GitHub validation are pending."
+      },
+      {
+        "at": "2026-08-01T04:51:59Z",
+        "status": "github_checks_pending",
+        "summary": "Committed row-provenance and ledger-chronology repairs as 2aad318d607d014b93dd70b662a3b11c420882a6. Exact package SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d, 17/17 rework-05 naturalness review markers, seven edited-row rework-05 translation methods, 10 byte-identical passing rows, control validation, 66/66 focused contracts, and exhaustive blocker scan pass. Fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T04:50:35Z"
+    "updated_at": "2026-08-01T04:51:59Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_pr_open",
