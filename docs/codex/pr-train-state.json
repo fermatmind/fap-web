@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "cb68a6804ff79a7e672487904584c247a56cca98",
+    "commit_sha": "c7b614cfbb486c852adbdf3c1efd8430fbff75c6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53105,8 +53105,8 @@
         "evidence": "Generator syntax, artifact/state JSON, manifest YAML, git diff --check, artifact self-hash, and the exact six-path allowlist all passed."
       },
       "github_required_checks": {
-        "status": "repair_in_progress",
-        "evidence": "Build, contracts, both freeze checks, and CodeQL analyze passed. The aggregate gate found alert 184 (js/superfluous-trailing-arguments) at mapLimit; the unused index argument is removed in the same scope and fresh exact-head checks are required."
+        "status": "pending_recheck",
+        "evidence": "Build, contracts, both freeze checks, and CodeQL analyze passed on the prior head. Alert 184 was repaired and canonical Node 24 focused contract, lint, typecheck, syntax, JSON, and diff checks pass on code head c7b614cfbb486c852adbdf3c1efd8430fbff75c6; fresh exact-head GitHub checks are required."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53165,8 +53165,13 @@
         "at": "2026-08-01T04:55:55Z",
         "status": "github_checks_failed_repair_in_progress",
         "summary": "Build, contracts, both freeze gates, and CodeQL analysis passed, but no-new-code-scanning-alerts correctly reported alert 184 for an unused index argument passed to mapLimit's one-argument mapper. Removed only that superfluous argument; local and fresh exact-head GitHub validation are required."
+      },
+      {
+        "at": "2026-08-01T04:57:02Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the one-line CodeQL repair as c7b614cfbb486c852adbdf3c1efd8430fbff75c6 after focused contract 17/17, lint, typecheck, syntax, JSON, and diff checks passed. This metadata tail binds the repaired code head before a fresh push."
       }
     ],
-    "updated_at": "2026-08-01T04:55:55Z"
+    "updated_at": "2026-08-01T04:57:02Z"
   }
 }
