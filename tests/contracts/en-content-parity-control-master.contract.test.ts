@@ -472,6 +472,23 @@ function dependencyGraphIsAcyclic(lanes: Lane[]): boolean {
   return lanes.every((lane) => visit(lane.lane_id));
 }
 
+function w1ComparisonsInventoryFixture(source: MasterManifest): MasterManifest {
+  const fixture = structuredClone(source);
+  const w1 = fixture.lanes.find((lane) => lane.lane_id === "W1");
+  const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
+  if (!w1 || !comparisons) {
+    throw new Error("missing W1 comparison fixture target");
+  }
+  comparisons.status = "inventory_frozen";
+  comparisons.blocked_from_status = null;
+  comparisons.package_sha256 = null;
+  comparisons.qa_report_ref = null;
+  comparisons.gate_lineage = [];
+  comparisons.blockers = [];
+  w1.status = "inventory_frozen";
+  return fixture;
+}
+
 describe("English content parity control master", () => {
   const manifest = readJson<MasterManifest>(MANIFEST_PATH);
 
@@ -2444,12 +2461,15 @@ describe("English content parity control master", () => {
 
   it("uses the same Schema to validate a lane package and candidate master patch", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-"));
+    const fixtureManifest = w1ComparisonsInventoryFixture(manifest);
+    const fixtureManifestPath = path.join(tempDirectory, "inventory-master.json");
+    fs.writeFileSync(fixtureManifestPath, JSON.stringify(fixtureManifest));
     const packageDirectory = makeRegisteredPackageDirectory(
       "generated/en-content-parity/W1-mbti/comparisons/"
     );
     const packagePath = path.join(packageDirectory, "scope_manifest.json");
     const patchPath = path.join(packageDirectory, "master_manifest_patch.candidate.json");
-    const inventoryAssets = manifest.assets
+    const inventoryAssets = fixtureManifest.assets
       .filter((entry) => entry.asset_id === "ENPARITY-W1-MBTI-CROSS-COMPARISONS");
     expect(inventoryAssets).toHaveLength(1);
 
@@ -2487,7 +2507,7 @@ describe("English content parity control master", () => {
         lane_id: "W1",
         subscope_id: "W1-MBTI-COMPARISONS",
         package_id: "W1-contract-sample",
-        base_manifest_sha256: sha256File(MANIFEST_PATH),
+        base_manifest_sha256: sha256AbsoluteFile(fixtureManifestPath),
         sha256_manifest_path: packageEvidence.shaManifestPath,
         package_sha256: packageEvidence.packageSha256,
         proposed_status: "package_in_progress",
@@ -2509,7 +2529,7 @@ describe("English content parity control master", () => {
     try {
       const output = execFileSync(
         "node",
-        [VALIDATOR_PATH, "--artifact", packagePath, "--artifact", patchPath],
+        [VALIDATOR_PATH, "--manifest", fixtureManifestPath, "--artifact", packagePath, "--artifact", patchPath],
         { cwd: ROOT, encoding: "utf8" }
       );
       const report = JSON.parse(output) as { ok: boolean; checked_artifacts: string[]; errors: string[] };
@@ -2540,7 +2560,7 @@ describe("English content parity control master", () => {
       fs.writeFileSync(patchPath, JSON.stringify(emptyLedgerCandidate));
       let emptyLedgerOutput = "";
       try {
-        execFileSync("node", [VALIDATOR_PATH, "--artifact", patchPath], {
+        execFileSync("node", [VALIDATOR_PATH, "--manifest", fixtureManifestPath, "--artifact", patchPath], {
           cwd: ROOT,
           encoding: "utf8",
           stdio: ["ignore", "pipe", "pipe"],
@@ -2557,7 +2577,7 @@ describe("English content parity control master", () => {
       fs.writeFileSync(packagePath, JSON.stringify(invalidEmbeddedScope));
       let invalidEmbeddedOutput = "";
       try {
-        execFileSync("node", [VALIDATOR_PATH, "--artifact", patchPath], {
+        execFileSync("node", [VALIDATOR_PATH, "--manifest", fixtureManifestPath, "--artifact", patchPath], {
           cwd: ROOT,
           encoding: "utf8",
           stdio: ["ignore", "pipe", "pipe"],
@@ -3228,7 +3248,10 @@ describe("English content parity control master", () => {
 
   it("rejects stale, skipping, colliding, duplicate, and unreconciled leaf submissions", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-invalid-"));
-    const asset = manifest.assets.find((entry) => entry.lane_id === "W1");
+    const fixtureManifest = w1ComparisonsInventoryFixture(manifest);
+    const fixtureManifestPath = path.join(tempDirectory, "inventory-master.json");
+    fs.writeFileSync(fixtureManifestPath, JSON.stringify(fixtureManifest));
+    const asset = fixtureManifest.assets.find((entry) => entry.lane_id === "W1");
     if (!asset) {
       throw new Error("missing W1 asset fixture");
     }
@@ -3304,7 +3327,15 @@ describe("English content parity control master", () => {
       try {
         execFileSync(
           "node",
-          [VALIDATOR_PATH, "--artifact", invalidPackagePath, "--artifact", invalidPatchPath],
+          [
+            VALIDATOR_PATH,
+            "--manifest",
+            fixtureManifestPath,
+            "--artifact",
+            invalidPackagePath,
+            "--artifact",
+            invalidPatchPath,
+          ],
           { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
         );
       } catch (error) {
