@@ -53720,7 +53720,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "9fea3a415c9d656d53f5fd381dd8e698d5d98b6a",
+    "commit_sha": "e791e280d1fe01bd8ede72332985f38fea518539",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -54005,8 +54005,13 @@
         "at": "2026-08-01T08:08:49Z",
         "status": "github_checks_pending",
         "summary": "Repaired the next exact-head findings by rejecting conflicting Googlebot-specific robots directives, requiring an exact JSON-LD type attribute, and recognizing common Chinese guarantee disclaimers without suppressing unrelated positive guarantees. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T08:05:14.027Z, and artifact a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c; canonical Node focused 57/57, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:10:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed crawler-specific robots validation, exact JSON-LD attribute parsing, Chinese negation repair, and the final same-code HOLD artifact as e791e280d1fe01bd8ede72332985f38fea518539 after focused 57/57, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
       }
     ],
-    "updated_at": "2026-08-01T08:08:49Z"
+    "updated_at": "2026-08-01T08:10:00Z"
   }
 }
