@@ -1,0 +1,84 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_safe_variants_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-2026-08-01",
+  "authority": {
+    "repository": "fap-api",
+    "commit": "660280d00a57e58bd8bc76608e19de2492c03f53",
+    "source_path": "backend/content_assets/riasec/share_pdf_history_v1.en.json",
+    "source_sha256": "87286b66f95c5636f96e7c4ce591c0a669fb4d883aa758c449627558f12a14fe",
+    "zh_source_path": "backend/content_assets/riasec/share_pdf_history_v1.zh-CN.json",
+    "zh_source_sha256": "b5af9655853d404654e20648887069a72234fd90929011d247dd7bb097f78910",
+    "source_review_status": "draft_human_review_required"
+  },
+  "producer": {
+    "repository": "fap-web",
+    "commit": "d74135e8c6b02370123b9c8bd2440b6672709e6a",
+    "control_status": "inventory_frozen"
+  },
+  "rows": [
+    {
+      "source_row": 1,
+      "source_identity": "share_safe_card",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-SHARE-SAFE-CARD-49e583e874cb",
+      "translation_group": "cohort:riasec:lifecycle:share_safe_card",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    },
+    {
+      "source_row": 2,
+      "source_identity": "share_detail_boundary",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-SHARE-DETAIL-BOUNDARY-46c68bac5727",
+      "translation_group": "cohort:riasec:lifecycle:share_detail_boundary",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    },
+    {
+      "source_row": 3,
+      "source_identity": "pdf_personal",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G13-PDF-PERSONAL-3151ef3aab95",
+      "translation_group": "cohort:riasec:lifecycle:pdf_personal",
+      "group_id": "W4-G13",
+      "asset_kind": "pdf_safe_variant"
+    },
+    {
+      "source_row": 4,
+      "source_identity": "pdf_counselor_discussion",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G13-PDF-COUNSELOR-DISCUSSION-4e78157798e7",
+      "translation_group": "cohort:riasec:lifecycle:pdf_counselor_discussion",
+      "group_id": "W4-G13",
+      "asset_kind": "pdf_safe_variant"
+    },
+    {
+      "source_row": 5,
+      "source_identity": "history_same_form",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G14-HISTORY-SAME-FORM-c4ebf295a9dc",
+      "translation_group": "cohort:riasec:lifecycle:history_same_form",
+      "group_id": "W4-G14",
+      "asset_kind": "history_safe_variant"
+    },
+    {
+      "source_row": 6,
+      "source_identity": "history_cross_form",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G14-HISTORY-CROSS-FORM-d28f58d73f05",
+      "translation_group": "cohort:riasec:lifecycle:history_cross_form",
+      "group_id": "W4-G14",
+      "asset_kind": "history_safe_variant"
+    },
+    {
+      "source_row": 7,
+      "source_identity": "low_quality_share",
+      "asset_id": "ENPARITY-W4-RIASEC-W4-G12-LOW-QUALITY-SHARE-667ea65d4ce0",
+      "translation_group": "cohort:riasec:lifecycle:low_quality_share",
+      "group_id": "W4-G12",
+      "asset_kind": "share_safe_variant"
+    }
+  ],
+  "reconciliation": {
+    "share_rows": 3,
+    "pdf_rows": 2,
+    "history_rows": 2,
+    "english_candidate_rows": 7,
+    "source_draft_is_not_runtime_approval": true,
+    "private_data_accessed": false
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_safe_variants_editorial_review.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-SAFE-VARIANTS-2026-08-01",
+  "review_kind": "producer self-check only; not W9 approval or runtime lifecycle approval",
+  "verdict": "PENDING_INDEPENDENT_W9",
+  "completed_self_checks": [
+    "7=3 share + 2 PDF + 2 history identity reconciliation",
+    "visible candidate text contains no CJK",
+    "all score, feedback, private-context, identity and fallback controls remain false or bounded",
+    "existing backend draft status is not treated as availability"
+  ],
+  "next_gates": [
+    "independent W9 language, product, and boundary review",
+    "controlled exact-package freeze"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
