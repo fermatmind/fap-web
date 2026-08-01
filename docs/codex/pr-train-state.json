@@ -53720,7 +53720,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "df84a06037f2610b8c85e8084b394193317793e8",
+    "commit_sha": "9fea3a415c9d656d53f5fd381dd8e698d5d98b6a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53990,8 +53990,13 @@
         "at": "2026-08-01T07:59:00Z",
         "status": "github_checks_pending",
         "summary": "Repaired the three newest exact-head findings by excluding template and hidden subtrees from public evidence, binding normalized FAQ schema pairs exactly to backend authority, and requiring one ordered BreadcrumbList ending at the exact locale career URL. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T07:56:50.146Z, and artifact ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44; focused 51/51, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T08:01:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed hidden-evidence exclusion, exact FAQ authority binding, ordered breadcrumb validation, and the final same-code HOLD artifact as 9fea3a415c9d656d53f5fd381dd8e698d5d98b6a after focused 51/51, lint, typecheck, syntax, self-hash, artifact/ledger binding, exact-scope, and diff checks passed."
       }
     ],
-    "updated_at": "2026-08-01T07:59:00Z"
+    "updated_at": "2026-08-01T08:01:00Z"
   }
 }
