@@ -52786,7 +52786,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "e090f19e2158ee8b53dff7a9b37ddcd11879c3fa",
+    "commit_sha": "8cc49e48b4d060a482d757c0f4bde12713f29599",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1897",
     "checks": {
       "dependency": {
@@ -52831,11 +52831,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1897 is open from implementation commit e090f19e2158ee8b53dff7a9b37ddcd11879c3fa; required CI, contract, freeze, and CodeQL checks are queued or running."
+        "evidence": "PR #1897 will receive the scoped W9 BLOCKED-evidence repair from implementation commit 8cc49e48b4d060a482d757c0f4bde12713f29599; fresh required CI, contract, freeze, and CodeQL checks must pass on the pushed exact head."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "PR #1897 exact-head review, scope revalidation, required checks, and final mergeability verification remain pending."
+        "evidence": "The original actionable Article 59 review finding has been incorporated into W9 evidence. The review thread must be resolved and fresh exact-head review, scope revalidation, required checks, and final mergeability verification remain pending."
       }
     },
     "failure_reason": "Fresh exact-head review found one reader-visible language-naturalness defect in frozen W3-ARTICLE-59: `Field related to AI often require greater tolerance ...`. W9 must report BLOCKED and cannot modify the producer payload.",
@@ -52947,9 +52947,14 @@
         "at": "2026-08-01T05:45:43Z",
         "status": "blocked_local_verified",
         "summary": "Both strict control validators pass; focused contracts pass 66/66; exact report, row-evidence, and blocked-candidate SHA checks pass; the aggregation is exactly 16 PASS rows plus W3-ARTICLE-59 blocked only on language naturalness. Producer payload and exact package SHA are unchanged, all permissions remain false, and the scoped review correction is ready to commit."
+      },
+      {
+        "at": "2026-08-01T05:47:30Z",
+        "status": "blocked_pr_open",
+        "summary": "Committed the scoped exact-head review correction as 8cc49e48b4d060a482d757c0f4bde12713f29599. The W9 evidence is BLOCKED only for Article 59 language naturalness; producer payload and package SHA remain unchanged. The ledger update, push, review-thread resolution, and fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T05:45:43Z"
+    "updated_at": "2026-08-01T05:47:30Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
