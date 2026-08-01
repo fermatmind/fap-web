@@ -1,0 +1,14 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_boundary.v1",
+  "artifact_kind": "sha256_manifest",
+  "files": [
+    {"path":"authority_snapshot.json","sha256":"63110be67e57d60d99542d078892d14cde5363bf4c617d0b3c1c3442397ebafc"},
+    {"path":"identity_reconciliation.json","sha256":"e49d61fdaf73c01e17a720d9152cf7b74b26aa86e4d1611f26ac8208cc3821c6"},
+    {"path":"target_market_policy.json","sha256":"dabe2466b70b556b551e821943ab3099b1888be4e5c792b64d20ce7f1f721a5f"},
+    {"path":"claim_boundary_matrix.json","sha256":"9db21afe2421cf5e3d09d6a4b44fd4d56b8d9c07afc25b48d1fcf5dae1ddd0f4"},
+    {"path":"source_policy.json","sha256":"baa4a63f7a9ee64e3c26f5aedfd71abbdfb06518f340820ae8f527f2434686e6"},
+    {"path":"handoff.md","sha256":"a31d81cc288fa08b8fd5accd2d458b003249376ffa31a1915456eb4d1bc41ed8"}
+  ],
+  "package_sha256": "1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a",
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}

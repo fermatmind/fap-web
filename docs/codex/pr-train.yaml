@@ -29568,3 +29568,40 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs; CONTROL accepts only producer evidence
     repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01
+    repo: fap-web
+    branch: codex/en-parity-w3-career-guide-market-claim-boundary-01
+    base: main
+    title: "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01: define Career Guide market-claim boundaries"
+    depends_on: [EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-REFROZEN-10-01]
+    mode: execute
+    train_scope: w3_career_guides_market_claim_boundary
+    status: in_progress
+    scope:
+      - Create only the twelve-sensitive-guide boundary package: authority snapshot, identity reconciliation, target-market policy, claim matrix, source policy, digest manifest, and handoff.
+      - Prove baseline existence is not runtime/CMS/import/publication authority and retain every permission as false.
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/career-guides/boundary/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, Article package, W9 authority, Career Guide reader content, import package, CMS, database, runtime, SEO, sitemap, llms, publication, search, or deploy state.
+    required_local_checks:
+      - JSON/Markdown parse; exact 12-code identity reconciliation in both baseline locales
+      - exact fap-api commit/path/SHA authority snapshot reconciliation
+      - all-false permission and market/claim-boundary audit
+      - boundary payload SHA recomputation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api CareerGuide baseline is identity evidence only; backend CMS remains runtime authority
+    repository_rule_impact: boundary-only producer package; no authority, runtime, import, publication, discoverability, or deployment change

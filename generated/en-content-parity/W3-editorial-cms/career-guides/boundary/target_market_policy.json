@@ -1,0 +1,13 @@
+{
+  "schema_version": "fermatmind.w3_career_guides_boundary.v1",
+  "artifact_kind": "target_market_policy",
+  "target_market": "general English-language readers; no jurisdiction-specific promise or advice",
+  "policy": [
+    {"topic":"salary_and_compensation","allowed":"general negotiation preparation and questions to ask","prohibited":"salary ranges, tax, benefits, compensation-law advice, or income predictions"},
+    {"topic":"education_and_admissions","allowed":"reflective major-exploration frameworks","prohibited":"admissions odds, school selection rankings, licensing eligibility, or guaranteed educational outcomes"},
+    {"topic":"employment_and_interviews","allowed":"role-specific preparation, transferable skills, and reader-controlled next steps","prohibited":"hiring guarantees, employment-law advice, visa advice, or employer-specific outcome claims"},
+    {"topic":"wellbeing_and_burnout","allowed":"non-clinical workload reflection and encouragement to seek qualified support when needed","prohibited":"diagnosis, treatment, medical advice, or claims that a career action prevents burnout"},
+    {"topic":"career_direction_and_progression","allowed":"hypotheses, trade-offs, experiments, and periodic review","prohibited":"deterministic fit labels, promotion guarantees, future-success prediction, or personal outcome forecasts"}
+  ],
+  "permissions": {"cms_write_authorized": false, "staging_write_authorized": false, "production_import_authorized": false, "public_release_authorized": false, "seo_runtime_release_authorized": false, "search_submission_authorized": false, "master_manifest_write_authorized": false}
+}

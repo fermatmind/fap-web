@@ -55533,5 +55533,31 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-01T18:37:38Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance from origin/main d16333b2dc234eb2e1d08baa237346ca7d271274 after verifying merged PR #1971, the exact current-master compare-and-swap SHA, 17-row package, editorial-review evidence, W3 Career Guide isolation, and all-false permissions. No producer package, W9 evidence, CMS/import, runtime, SEO, publication, search, or deploy state is authorized to change."},{"at": "2026-08-01T18:44:00Z", "status": "local_verified", "summary": "Accepted only W3-ARTICLES package_in_progress to package_frozen at the exact d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a package SHA. The pre-transition candidate and post-transition master validate; the two rework-10 trace fields are schema-validated as exact evidence metadata. Focused contract, ESLint, JSON/YAML parse, eight-payload SHA, 17-row, lineage, W3 Career Guide isolation, all-false permission, scope, and diff checks pass."},{"at": "2026-08-01T18:46:00Z", "status": "committed", "summary": "Committed the CONTROL-only acceptance implementation as 09a736563b93d389e07ca3c77181983863431738. The next ledger-only head will record the PR URL before exact-head review and required-check polling; no W9, CMS/import, runtime, publication, discoverability, search, or deploy action is included."},{"at": "2026-08-01T18:48:00Z", "status": "github_checks_pending", "summary": "Opened ready PR #1975 from the CONTROL branch. Required GitHub checks and exact-head review are pending; W9, CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."},{"at": "2026-08-01T18:53:00Z", "status": "ready_to_merge", "summary": "PR #1975 exact checked head 98827fddc8fdc105b056432e35e57b2a5715e6e2 passed all required checks, is CLEAN, has no review requirement or unresolved comment, and its base remains origin/main d16333b2dc234eb2e1d08baa237346ca7d271274. The ledger-only readiness head must complete its own fresh required-check cycle before squash merge."}],
     "updated_at": "2026-08-01T18:53:00Z"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01": {
+    "id": "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01: define Career Guide market-claim boundaries",
+    "base": "main",
+    "branch": "codex/en-parity-w3-career-guide-market-claim-boundary-01",
+    "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-REFROZEN-10-01"],
+    "status": "github_checks_pending_rebased",
+    "commit_sha": "e3b73843",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1977",
+    "checks": {"dependency": {"status": "pass", "evidence": "CONTROL PR #1975 is merged as a00a5f6b375b5a78347d21721f826aca7f72e415; origin/main retains W3-ARTICLES package_frozen at exact SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a, valid lineage, and all-false permissions."}, "local_validation": {"status": "pass", "evidence": "JSON/Markdown and YAML/state parsing, exact 12-code bilingual baseline reconciliation, exact fap-api source commit/path/SHA reconciliation, all-false permission audit, six-payload SHA recomputation (1b092960030804e1846c93083977f36ce507c4de1ddc2386a5d46e3c5b21325a), staged diff, and path scope checks pass."}, "github_required_checks": {"status": "pass", "evidence": "PR #1977 head bb800df6c36fecd637543bfaa5e4db15917f1f0a passed build, all four contract shards and aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no review requirement or unresolved comment."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-01T19:04:00Z", "status": "in_progress", "summary": "Started only the W3 Career Guide market/claim boundary package after CONTROL merged. Scope is the twelve-sensitive-guide identity and policy boundary; no reader content, master, W9, CMS/import, runtime, release, discoverability, search, or deploy state is authorized to change."}],
+    "updated_at": "2026-08-01T19:18:00Z"
   }
 }
