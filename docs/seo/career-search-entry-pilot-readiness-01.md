@@ -5,12 +5,12 @@
 `HOLD`; no career Search Channel canary package is authorized.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T07:32:13.318Z`.
+- Read-only observation: `2026-08-01T07:41:44.524Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
 - Complete gate passes: 0; rejected without gate reduction: 50.
 - Hold reason: `insufficient_eligible_candidates:0/10`.
 - Target-set SHA-256: `null`.
-- Artifact SHA-256: `7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9`.
+- Artifact SHA-256: `99fb88a8f6e524bf7202c9d1ca278d6adc3bc88060902122ef8b83473707aed7`.
 - Rollback batch ID: `null`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.

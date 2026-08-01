@@ -94,7 +94,7 @@ function resolveAbsoluteUrl(value, baseUrl) {
 }
 
 function attribute(tag, name) {
-  const match = String(tag).match(new RegExp(`\\b${name}\\s*=\\s*["']([^"']*)["']`, "i"));
+  const match = String(tag).match(new RegExp(`(?:^|[\\t\\n\\f\\r ])${name}\\s*=\\s*["']([^"']*)["']`, "i"));
   return match ? match[1] : "";
 }
 
@@ -108,8 +108,8 @@ function decodeHtmlEntities(value) {
 }
 
 function metaContent(tags, key, value) {
-  const tag = tags.find((item) => attribute(item, key).toLowerCase() === value);
-  return tag ? decodeHtmlEntities(attribute(tag, "content")) : "";
+  const matches = tags.filter((item) => attribute(item, key).toLowerCase() === value);
+  return matches.length === 1 ? decodeHtmlEntities(attribute(matches[0], "content")) : "";
 }
 
 function flattenJsonLd(value, output = []) {
@@ -183,9 +183,14 @@ function recursiveText(value) {
 
 export function unsupportedGuaranteeMatches(value) {
   const sentences = String(value).split(/[.!?。！？\n]+/).map((part) => part.trim()).filter(Boolean);
-  const negativeBoundary = /\b(?:not|no|never|does not|do not|cannot|isn't|is not|without|you need|if you need)\b|不构成|不能|不得|不会|并非|不是|暂无|不要|避免|单个招聘承诺/iu;
-  return sentences.flatMap((sentence) => sentence.split(/[;；,:，：—–]+/).map((clause) => clause.trim()).filter(Boolean))
-    .filter((clause) => !negativeBoundary.test(clause) && GUARANTEE_PATTERNS.some((pattern) => pattern.test(clause)));
+  const negativeGuarantee = [
+    /\b(?:not|never|cannot|can't|does not|do not|isn't|is not|no)\b[^.!?;:]{0,24}\bguarante(?:e|ed|es)\b/i,
+    /\bwithout\s+(?:any\s+|a\s+)?guarantee\b/i,
+    /(?:不|不能|不会|并非|不是|暂无|不得)[^。！？；，：\n]{0,8}(?:保证|保障|承诺|有保证|获保证|被保证)/,
+  ];
+  return sentences.flatMap((sentence) => sentence.split(/[;；,:，：—–]+|\b(?:and|but|while|although|however)\b|(?:并且|但是|而且|同时)/iu).map((clause) => clause.trim()).filter(Boolean))
+    .filter((clause) => GUARANTEE_PATTERNS.some((pattern) => pattern.test(clause))
+      && !negativeGuarantee.some((pattern) => pattern.test(clause)));
 }
 
 function detailStats(detail, locale) {

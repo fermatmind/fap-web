@@ -166,6 +166,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
   });
 
+  it("does not treat data-prefixed attributes as canonical or robots signals", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const invalid = `<html><head><link data-rel="canonical" href="${expected}"/><meta data-name="robots" content="index, follow"/></head><body></body></html>`;
+    expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", canonical_count: 0, self_canonical: false, robots_values: [], index_follow: false });
+  });
+
   it("rejects duplicate canonical links even when the first one is exact", () => {
     const expected = "https://fermatmind.com/en/career/jobs/career-01";
     const duplicate = html(expected).replace("</head>", `<link rel="canonical" href="${expected}/other"/></head>`);
@@ -182,6 +188,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       twitter_title: "Career 01",
       twitter_description: "Career 01 description",
     });
+  });
+
+  it("rejects duplicate live metadata instead of accepting the first value", () => {
+    const url = "https://fermatmind.com/en/career/jobs/career-01";
+    const duplicate = html(url, "Career 01").replace("</head>", '<meta name="description" content="stale description"/></head>');
+    expect(inspectHtml(duplicate, url).metadata.description).toBe("");
   });
 
   it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
@@ -203,6 +215,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
 
   it("does not let an unrelated negated clause hide a positive guarantee", () => {
     expect(unsupportedGuaranteeMatches("You do not need prior experience; employment is guaranteed.")).toEqual(["employment is guaranteed"]);
+    expect(unsupportedGuaranteeMatches("You do not need prior experience and employment is guaranteed.")).toEqual(["employment is guaranteed"]);
+    expect(unsupportedGuaranteeMatches("Employment is guaranteed without prior experience.")).toEqual(["Employment is guaranteed without prior experience"]);
     expect(unsupportedGuaranteeMatches("Employment is not guaranteed.")).toEqual([]);
   });
 
