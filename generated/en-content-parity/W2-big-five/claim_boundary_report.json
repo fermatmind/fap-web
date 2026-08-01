@@ -24,7 +24,8 @@
     "historical_draft_media_exposure_rows": 0,
     "private_field_leak_hits": 0,
     "result_asset_unknown_or_missing_rows": 0,
-    "result_asset_draft_review_only_rows": 16
+    "result_asset_draft_review_only_rows": 16,
+    "result_asset_chinese_leakage_rows": 0
   },
   "blockers": [],
   "notes": "PASS applies only to completed W2 inventory freeze. The sixteen result assets are complete as backend draft-review-only evidence and still require independent W9 QA, human editorial approval, import authorization, runtime authorization, production authorization, publication authorization, and deploy authorization.",

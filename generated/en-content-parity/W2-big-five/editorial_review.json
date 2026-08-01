@@ -30,6 +30,7 @@
     "runtime_use": "draft_review_only",
     "ready_for_runtime": false,
     "ready_for_production": false,
+    "producer_chinese_leakage_check": "PASS: 0 of 16 draft-review rows contain Chinese leakage in sanitized evidence; independent W9 remains required.",
     "notes": "Producer inventory review only; this is not W9 and not human editorial approval."
   },
   "pr_execution_map": [
