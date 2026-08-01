@@ -160,6 +160,19 @@ function assertLaneManifestTransition(base, manifest, key) {
   const baseIndex = stateIndex(base.status);
   const targetIndex = stateIndex(manifest.status);
   if (baseIndex < 0 || targetIndex < baseIndex) throw new Error(`lane_manifest_state_regression=${key}`);
+  const expectedTrace = V2_ORDERED_STATES.slice(baseIndex, targetIndex).map((fromStatus, index) => ({
+    from_status: fromStatus,
+    to_status: V2_ORDERED_STATES[baseIndex + index + 1],
+  }));
+  if (
+    canonicalJson(manifest.transition_trace.map(({ from_status, to_status }) => ({ from_status, to_status }))) !==
+    canonicalJson(expectedTrace)
+  ) {
+    throw new Error(`lane_manifest_transition_trace_gap=${key}`);
+  }
+  for (const transition of manifest.transition_trace) {
+    readBoundJson(transition.evidence_ref, transition.evidence_sha256);
+  }
   if (canonicalJson(manifest.legacy_lineage) !== canonicalJson(base.legacy_lineage)) {
     throw new Error(`lane_manifest_legacy_lineage_drift=${key}`);
   }
@@ -188,16 +201,44 @@ function assertLaneManifestTransition(base, manifest, key) {
   const qaRequired = targetIndex >= stateIndex("qa_pass");
   const qaLineage = manifestLineage.filter((entry) => entry.status === "qa_pass");
   if (qaRequired) {
+    const qaTransition = manifest.transition_trace.find((entry) => entry.to_status === "qa_pass");
     if (
       qaLineage.length !== 1 ||
       qaLineage[0].evidence_owner_lane_id !== "W9" ||
       qaLineage[0].report_ref !== manifest.qa_report_ref ||
-      !String(qaLineage[0].report_ref).startsWith("generated/en-content-parity/W9-independent-qa/")
+      qaTransition?.evidence_ref !== manifest.qa_report_ref ||
+      qaTransition?.evidence_sha256 !== qaLineage[0].report_sha256 ||
+      !String(qaLineage[0].report_ref).startsWith("generated/en-content-parity/W9-independent-qa/") ||
+      !Number.isInteger(manifest.expected_count) ||
+      !/^[a-f0-9]{40}$/.test(manifest.producer_head_sha ?? "")
     ) {
       throw new Error(`lane_manifest_independent_w9_lineage_invalid=${key}`);
     }
+    const report = readBoundJson(qaLineage[0].report_ref, qaLineage[0].report_sha256);
+    if (
+      report.schema_version !== "fermatmind.en_content_parity_independent_qa_report.v2" ||
+      report.artifact_kind !== "independent_qa_report" ||
+      report.qa_lane_id !== "W9" ||
+      report.producer_lane_id !== manifest.lane_id ||
+      report.subscope_id !== manifest.subscope ||
+      report.package_sha256 !== manifest.package_sha256 ||
+      report.producer_head_sha !== manifest.producer_head_sha ||
+      report.reviewed_row_count !== manifest.expected_count ||
+      report.verdict !== "PASS" ||
+      !report.checks ||
+      Object.values(report.checks).length === 0 ||
+      Object.values(report.checks).some((value) => value !== "PASS")
+    ) {
+      throw new Error(`lane_manifest_independent_w9_report_invalid=${key}`);
+    }
+    const expectedPrHead = process.env.EN_PARITY_EXPECTED_PR_HEAD ?? "";
+    if (expectedPrHead !== "" && report.producer_head_sha !== expectedPrHead) {
+      throw new Error(`lane_manifest_w9_pr_head_mismatch=${key}`);
+    }
   } else if (manifest.qa_report_ref !== null) {
     throw new Error(`lane_manifest_qa_reference_before_qa=${key}`);
+  } else if (manifest.producer_head_sha !== null || manifest.expected_count !== null) {
+    throw new Error(`lane_manifest_w9_binding_before_qa=${key}`);
   }
 }
 

@@ -78,6 +78,18 @@
       },
       "additionalProperties": false
     },
+    "lane_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from_status", "to_status", "evidence_ref", "evidence_sha256", "recorded_at"],
+      "properties": {
+        "from_status": { "$ref": "#/$defs/lane_manifest_status" },
+        "to_status": { "$ref": "#/$defs/lane_manifest_status" },
+        "evidence_ref": { "type": "string", "minLength": 1 },
+        "evidence_sha256": { "$ref": "#/$defs/sha256" },
+        "recorded_at": { "type": "string", "format": "date-time" }
+      }
+    },
     "target": {
       "type": "object",
       "required": [
@@ -256,7 +268,10 @@
         "qa_report_ref",
         "gate_lineage",
         "legacy_lineage",
-        "blockers"
+        "blockers",
+        "transition_trace",
+        "producer_head_sha",
+        "expected_count"
       ],
       "properties": {
         "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
@@ -271,6 +286,9 @@
         "gate_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
         "legacy_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
         "blockers": { "type": "array", "items": { "type": "string" } },
+        "transition_trace": { "type": "array", "items": { "$ref": "#/$defs/lane_transition" } },
+        "producer_head_sha": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{40}$" }, { "type": "null" }] },
+        "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
         "counts": { "type": "object" }
       }
     },

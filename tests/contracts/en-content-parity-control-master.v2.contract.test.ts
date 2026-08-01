@@ -183,6 +183,13 @@ describe("English content parity automation control V2", () => {
     expect(v2.state_machine.state_control_pr_required).toBe(false);
   });
 
+  it("gives required contract CI read-only GitHub authentication for receipt provenance", () => {
+    const workflow = fs.readFileSync(path.join(ROOT, ".github/workflows/ci.yml"), "utf8");
+    expect(workflow).toContain("actions: read");
+    expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
+    expect(workflow).toContain("EN_PARITY_EXPECTED_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}");
+  });
+
   it("accepts only the exact chained backend import, publication and live-QA receipts", () => {
     expect(validateChain(validReceiptChain())).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 1), "draft_imported")).toEqual({ ok: true, errors: [] });
@@ -247,6 +254,10 @@ describe("English content parity automation control V2", () => {
     };
     const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-test-"));
     try {
+      const inventoryEvidencePath = path.join(directory, "inventory-evidence.json");
+      const productionEvidencePath = path.join(directory, "production-evidence.json");
+      fs.writeFileSync(inventoryEvidencePath, '{"ok":true}\n');
+      fs.writeFileSync(productionEvidencePath, '{"ok":true}\n');
       const manifestPath = path.join(directory, "lane.json");
       const relativePath = path.relative(ROOT, manifestPath);
       const laneManifest = {
@@ -262,6 +273,24 @@ describe("English content parity automation control V2", () => {
         gate_lineage: [],
         legacy_lineage: [],
         blockers: [],
+        transition_trace: [
+          {
+            from_status: "not_started",
+            to_status: "inventory_frozen",
+            evidence_ref: path.relative(ROOT, inventoryEvidencePath),
+            evidence_sha256: sha256(fs.readFileSync(inventoryEvidencePath)),
+            recorded_at: "2026-08-02T00:00:00Z",
+          },
+          {
+            from_status: "inventory_frozen",
+            to_status: "package_in_progress",
+            evidence_ref: path.relative(ROOT, productionEvidencePath),
+            evidence_sha256: sha256(fs.readFileSync(productionEvidencePath)),
+            recorded_at: "2026-08-02T00:01:00Z",
+          },
+        ],
+        producer_head_sha: null,
+        expected_count: null,
       };
       fs.writeFileSync(manifestPath, `${JSON.stringify(laneManifest, null, 2)}\n`);
       inputs.lane_manifests.push({ lane_id: "W8", subscope: null, path: relativePath, sha256: sha256(fs.readFileSync(manifestPath)) });
@@ -302,6 +331,9 @@ describe("English content parity automation control V2", () => {
         gate_lineage: [],
         legacy_lineage: [],
         blockers: [],
+        transition_trace: [],
+        producer_head_sha: null,
+        expected_count: null,
       };
       for (const [name, manifest] of [
         ["promotion", { ...base, status: "published" }],
@@ -330,9 +362,34 @@ describe("English content parity automation control V2", () => {
   it("accepts QA only with gap-free package and independent W9 lineage", () => {
     const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
     const v2 = migrateV1ToV2(v1, "6".repeat(64));
-    const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-w9-test-"));
+    const directory = fs.mkdtempSync(
+      path.join(ROOT, "generated/en-content-parity/W9-independent-qa/.v2-lane-manifest-w9-test-"),
+    );
     try {
-      const reportRef = "generated/en-content-parity/W9-independent-qa/W8-career-job/example/report.json";
+      const producerHeadSha = "a".repeat(40);
+      const evidencePaths = ["inventory", "production", "package"].map((name) => path.join(directory, `${name}.json`));
+      for (const evidencePath of evidencePaths) fs.writeFileSync(evidencePath, '{"ok":true}\n');
+      const reportPath = path.join(directory, "report.json");
+      const reportRef = path.relative(ROOT, reportPath);
+      const report = {
+        schema_version: "fermatmind.en_content_parity_independent_qa_report.v2",
+        artifact_kind: "independent_qa_report",
+        qa_lane_id: "W9",
+        producer_lane_id: "W8",
+        subscope_id: null,
+        package_sha256: PACKAGE_SHA,
+        producer_head_sha: producerHeadSha,
+        reviewed_row_count: 7,
+        verdict: "PASS",
+        checks: {
+          language_naturalness: "PASS",
+          chinese_leakage: "PASS",
+          claim_boundary: "PASS",
+          asset_integrity: "PASS",
+        },
+      };
+      fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`);
+      const reportSha = sha256(fs.readFileSync(reportPath));
       const manifest = {
         $schema: "./en-content-parity-control-master.v2.schema.json",
         schema_version: "fermatmind.en_content_parity_lane_manifest.v2",
@@ -347,8 +404,8 @@ describe("English content parity automation control V2", () => {
           {
             status: "package_frozen",
             evidence_owner_lane_id: "W8",
-            report_ref: "generated/en-content-parity/W8-career-job/editorial_review.json",
-            report_sha256: "4".repeat(64),
+            report_ref: path.relative(ROOT, evidencePaths[2]),
+            report_sha256: sha256(fs.readFileSync(evidencePaths[2])),
             package_sha256: PACKAGE_SHA,
             accepted_at: "2026-08-02T00:00:00Z",
           },
@@ -356,13 +413,29 @@ describe("English content parity automation control V2", () => {
             status: "qa_pass",
             evidence_owner_lane_id: "W9",
             report_ref: reportRef,
-            report_sha256: "5".repeat(64),
+            report_sha256: reportSha,
             package_sha256: PACKAGE_SHA,
             accepted_at: "2026-08-02T00:01:00Z",
           },
         ],
         legacy_lineage: [],
         blockers: [],
+        transition_trace: [
+          ...[
+            ["not_started", "inventory_frozen", evidencePaths[0]],
+            ["inventory_frozen", "package_in_progress", evidencePaths[1]],
+            ["package_in_progress", "package_frozen", evidencePaths[2]],
+            ["package_frozen", "qa_pass", reportPath],
+          ].map(([fromStatus, toStatus, evidencePath], index) => ({
+            from_status: fromStatus,
+            to_status: toStatus,
+            evidence_ref: path.relative(ROOT, evidencePath),
+            evidence_sha256: sha256(fs.readFileSync(evidencePath)),
+            recorded_at: `2026-08-02T00:0${index}:00Z`,
+          })),
+        ],
+        producer_head_sha: producerHeadSha,
+        expected_count: 7,
       };
       const manifestPath = path.join(directory, "lane.json");
       fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
@@ -377,7 +450,15 @@ describe("English content parity automation control V2", () => {
         }],
         receipt_chains: [],
       };
-      const materialized = applyMaterializationInputs(v2, inputs);
+      const originalExpectedHead = process.env.EN_PARITY_EXPECTED_PR_HEAD;
+      process.env.EN_PARITY_EXPECTED_PR_HEAD = producerHeadSha;
+      let materialized;
+      try {
+        materialized = applyMaterializationInputs(v2, inputs);
+      } finally {
+        if (originalExpectedHead === undefined) delete process.env.EN_PARITY_EXPECTED_PR_HEAD;
+        else process.env.EN_PARITY_EXPECTED_PR_HEAD = originalExpectedHead;
+      }
       expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8")).toMatchObject({
         status: "qa_pass",
         package_sha256: PACKAGE_SHA,
@@ -406,6 +487,10 @@ describe("English content parity automation control V2", () => {
         receipt_paths: [`receipt-${index}-draft.json`, `receipt-${index}-publication.json`],
       })),
     };
+    expect(() => applyMaterializationInputs(structuredClone(v2), {
+      ...inputs,
+      receipt_chains: [inputs.receipt_chains[0], inputs.receipt_chains[0]],
+    })).toThrow(/duplicate_receipt_chain_binding/);
     const materialized = applyMaterializationInputs(v2, inputs);
     expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1").status).toBe("published");
   });
