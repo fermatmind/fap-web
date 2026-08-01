@@ -29780,3 +29780,47 @@ prs:
     deploy_allowed: false
     content_authority: fap-api CareerGuide baseline is source structure/use authority; backend CMS remains runtime authority
     repository_rule_impact: partial producer witness only; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01
+    repo: fap-web
+    branch: codex/en-parity-w3-career-guide-package-freeze-01
+    base: main
+    title: "EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01: freeze the complete 20 Career Guide package"
+    depends_on: [EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01]
+    mode: execute
+    train_scope: w3_career_guides_complete_producer_package_freeze
+    status: in_progress
+    scope:
+      - Assemble only the existing Batch A and Batch B witnesses into the complete exact 20-row Career Guide root package and package_frozen candidate.
+      - Preserve the control master pre-freeze state; a later separate CONTROL owns master acceptance.
+    allowed_paths:
+      - generated/en-content-parity/W3-editorial-cms/career-guides/{assets.jsonl,claim_boundary_report.json,dry_run_readiness.json,editorial_review.json,handoff.md,master_manifest_patch.candidate.json,scope_manifest.json,sha256_manifest.json,source_ledger.json,translation_map.json}
+      - scripts/seo/build-w3-career-guides-package-freeze.mjs
+      - scripts/seo/validate-w3-career-guides-package-freeze.mjs
+      - tests/contracts/en-content-parity-w3-career-guide-package-freeze.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify either partial batch, the control master, W3 Articles, W9, CMS, database, runtime, SEO, sitemap, llms, import, publication, search, or deploy state.
+      - Accept the candidate into master state or grant any permission.
+    required_local_checks:
+      - node scripts/seo/build-w3-career-guides-package-freeze.mjs
+      - node scripts/seo/validate-w3-career-guides-package-freeze.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W3-editorial-cms/career-guides/master_manifest_patch.candidate.json
+      - focused freeze and control-master contracts
+      - focused ESLint
+      - JSON, JSONL, and YAML parse
+      - exact 20/20 identity, Batch A/B SHA, Markdown, Han-leakage, claim-boundary, and all-false permission audit
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api baseline and validated Batch A/B producer packages; backend CMS remains runtime authority
+    repository_rule_impact: complete producer package candidate only; no authority, runtime, import, publication, discoverability, or deployment change
