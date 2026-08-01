@@ -13,14 +13,14 @@ This producer package contains exactly 17 English Article candidates bound to th
 - China and Gaokao context remains present where material.
 - Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework-06
+## W9-directed producer rework-07
 
-- Blocked frozen package SHA: `8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d`.
-- Independent W9 BLOCKED report SHA: `5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2`.
-- Independent 17-row evidence SHA: `0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1`.
+- Blocked frozen package SHA: `f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b`.
+- Independent W9 BLOCKED report SHA: `0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b`.
+- Independent 17-row evidence SHA: `aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e`.
 - Repaired row: W3-ARTICLE-59 only.
 - The other 16 rows remain reader-content-identical because independent W9 passed them.
-- The repair addresses only W9's recorded subject-verb agreement finding by changing `Field related to AI often require greater tolerance` to `Fields related to AI often require greater tolerance`.
+- The repair addresses only W9's three recorded language-naturalness findings: one sentence, one table header, and one decision question.
 - The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates
