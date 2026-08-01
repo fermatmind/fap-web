@@ -420,13 +420,13 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-01T05:29:11Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -53319,8 +53319,63 @@
         "at": "2026-08-01T05:24:15Z",
         "status": "ready_to_merge",
         "summary": "PR #1893 exact head af5e231622a3ef2aa1f9cf34aeb7dc4a5c5a931f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN, no review is required, and the only review thread is resolved. Exact changed-file scope remains limited to the registered W2 package and PR-train metadata."
+      },
+      {
+        "at": "2026-08-01T05:29:11Z",
+        "status": "merged",
+        "summary": "GitHub reports PR #1893 merged by squash as b59dc06e1d7e64a3f14e26213ffc64fe54c7d87d; origin/main contains that merge commit, and both local and remote task branches were deleted during post-merge closeout."
       }
     ],
-    "updated_at": "2026-08-01T05:24:15Z"
+    "updated_at": "2026-08-01T05:29:11Z"
+  },
+  "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01: accept completed Big Five inventory",
+    "base": "main",
+    "branch": "codex/en-parity-control-w2-inventory-frozen-01",
+    "depends_on": [
+      "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
+    ],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Producer PR #1893 is merged as b59dc06e1d7e64a3f14e26213ffc64fe54c7d87d; the required external candidate-rebase repair PR #1896 is merged as f579eca6ccd86def7010dd8a9dfd22283b4e8ad1."
+      },
+      "pre_transition_candidate": {
+        "status": "pass",
+        "evidence": "The rebased W2 candidate validates against current pre-transition master SHA 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f with package SHA ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Post-transition master validator passes, focused parity contract passes 62/62 on Node 24, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T05:42:43Z",
+        "status": "in_progress",
+        "summary": "Started CONTROL-only acceptance from synced origin/main f579eca6ccd86def7010dd8a9dfd22283b4e8ad1 after validating the rebased producer candidate against the exact pre-transition master."
+      },
+      {
+        "at": "2026-08-01T05:42:43Z",
+        "status": "local_verified",
+        "summary": "Applied only W2 not_started to inventory_frozen acceptance: counts are 118/118/0 across 52/50/16, package and QA fields remain null, lineage and blockers remain empty, and every permission remains false."
+      }
+    ],
+    "updated_at": "2026-08-01T05:42:43Z"
   }
 }
