@@ -43,6 +43,7 @@ describe("EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02", () => {
       historical: { package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33", verdict: "BLOCKED", rows: 1550 },
       current: { package_sha256: REPAIRED_PACKAGE_SHA, verdict: "PASS", rows: 1550 },
       qa_pass_authorized: false,
+      control_accepted: true,
     });
   });
 
@@ -59,7 +60,7 @@ describe("EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02", () => {
     }
   });
 
-  it("rejects a current W9 report that self-accepts qa_pass or drops a reviewed row", () => {
+  it("rejects a current W9 report that self-accepts qa_pass, drops a reviewed row, or loses CONTROL acceptance binding", () => {
     const fixtureRoot = createFixture();
     try {
       const reportPath = path.join(fixtureRoot, CURRENT_ROOT, "independent_qa_report.json");
@@ -80,6 +81,23 @@ describe("EN-PARITY-W9-W4-RIASEC-INDEPENDENT-QA-02", () => {
       expect(validatorFailure(secondFixtureRoot)).toContain("current W9 row evidence identity or coverage drifted");
     } finally {
       fs.rmSync(secondFixtureRoot, { recursive: true, force: true });
+    }
+
+    const thirdFixtureRoot = createFixture();
+    try {
+      const masterPath = path.join(thirdFixtureRoot, "docs/seo/generated/en-content-parity-control-master.v1.json");
+      const master = JSON.parse(fs.readFileSync(masterPath, "utf8")) as {
+        lanes: Array<{ lane_id: string; qa_report_ref: string | null }>;
+      };
+      const w4 = master.lanes.find((lane) => lane.lane_id === "W4");
+      if (!w4) throw new Error("missing W4 fixture lane");
+      w4.qa_report_ref = null;
+      fs.writeFileSync(masterPath, `${JSON.stringify(master, null, 2)}\n`);
+      expect(validatorFailure(thirdFixtureRoot)).toContain(
+        "W4 qa_pass state requires the exact externally accepted W9 PASS report"
+      );
+    } finally {
+      fs.rmSync(thirdFixtureRoot, { recursive: true, force: true });
     }
   });
 });
