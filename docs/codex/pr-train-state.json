@@ -53600,7 +53600,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "a63864bbd67eaaf13ddd7c5c50cf0de9c6e58e5e",
+    "commit_sha": "0ad5c5000135226c17cb2b8c64c8bd06c5f66df7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53830,8 +53830,13 @@
         "at": "2026-08-01T07:22:18Z",
         "status": "github_checks_pending",
         "summary": "After all 11 checks passed on a62a7fe3, exact-head review found stale live metadata and rendered-body guarantee gaps. Bound six crawler-visible metadata fields to current SEO authority and added an independent public-body guarantee scan. Fresh strict observation remains HOLD with 1/10 complete rows, zero targets, and artifact 6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438; focused 43/43, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:23:12Z",
+        "status": "github_checks_pending",
+        "summary": "Committed exact live-metadata authority binding and independent rendered-claim scanning as 0ad5c5000135226c17cb2b8c64c8bd06c5f66df7 after focused 43/43, lint, typecheck, syntax, self-hash, YAML/JSON, exact-scope, and diff checks passed. This metadata tail binds the reachable implementation commit."
       }
     ],
-    "updated_at": "2026-08-01T07:22:18Z"
+    "updated_at": "2026-08-01T07:23:12Z"
   }
 }
