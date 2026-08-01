@@ -53641,7 +53641,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "0ad5c5000135226c17cb2b8c64c8bd06c5f66df7",
+    "commit_sha": "54d379c41bd3423b59279187b81514442465017c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53886,8 +53886,13 @@
         "at": "2026-08-01T07:34:39Z",
         "status": "github_checks_pending",
         "summary": "After all 11 checks passed on 54c9c4fc, exact-head review found duplicate-canonical and invalid-shape HOLD contract gaps; both are repaired. The final same-code live observation is HOLD with 0/10 complete rows, zero targets, exact observed_at 2026-08-01T07:32:13.318Z, and artifact 7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9. Focused 44/44, lint, and typecheck pass."
+      },
+      {
+        "at": "2026-08-01T07:35:24Z",
+        "status": "github_checks_pending",
+        "summary": "Committed duplicate-canonical rejection, complete HOLD-reason contract, and final same-code artifact as 54d379c41bd3423b59279187b81514442465017c after focused 44/44, lint, typecheck, artifact/ledger timestamp binding, self-hash, exact-scope, and diff checks passed."
       }
     ],
-    "updated_at": "2026-08-01T07:34:39Z"
+    "updated_at": "2026-08-01T07:35:24Z"
   }
 }
