@@ -55098,9 +55098,9 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-quality-assets-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-140Q-ASSETS-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "0db2aa365b2a1f7e96af8e2003688c30660f5a78",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1953",
     "checks": {
       "serial_predecessor": {
         "status": "pass",
@@ -55109,6 +55109,10 @@
       "source_authority": {
         "status": "pass",
         "evidence": "fap-api origin/main 660280d00a57e58bd8bc76608e19de2492c03f53 provides the four G08 authority assets and current RIASEC registry; source SHA256 values are recorded in the segment source ledger."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1953 is open at package commit 0db2aa365b2a1f7e96af8e2003688c30660f5a78; required GitHub checks are pending."
       }
     },
     "failure_reason": null,
@@ -55133,8 +55137,13 @@
         "at": "2026-08-01T23:48:00+08:00",
         "status": "local_verified",
         "summary": "Produced and validated exactly 24 physical G08 English candidates. Master-only control validation, focused 64/64 contract, full ESLint, JSON/JSONL/YAML parsing, frozen identity reconciliation, no-CJK and cautious-reading-boundary checks, all-false permissions, six-payload SHA values, and aggregate SHA b23a5cbdda8bbc202627d3524e8feb44d03de75aaa506838ad45ef15f70d385c recomputation pass. Package remains unpublished_candidate and pending independent W9; no master, runtime, CMS/import, publication, discoverability, or deploy action occurred."
+      },
+      {
+        "at": "2026-08-01T23:52:00+08:00",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1953 from locally verified package commit 0db2aa365b2a1f7e96af8e2003688c30660f5a78. Required GitHub checks are pending; no W9 PASS, package freeze, master, runtime, CMS/import, publication, discoverability, or deploy action occurred."
       }
     ],
-    "updated_at": "2026-08-01T23:48:00+08:00"
+    "updated_at": "2026-08-01T23:52:00+08:00"
   }
 }
