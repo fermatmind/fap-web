@@ -52566,7 +52566,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "3fefb47cce77554eecbdbb51e8693f688ae5e714",
+    "commit_sha": "afcf542e75171728f2ec8bc39e4c59546534c834",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1905",
     "checks": {
       "dependency": {
@@ -52820,9 +52820,14 @@
         "at": "2026-08-01T06:39:25Z",
         "status": "ready_to_merge",
         "summary": "PR #1905 exact head 52cb02cafae63e199872375e3f144110be28ee75 passed all 11 required checks and is MERGEABLE/CLEAN. The immutable repaired-row list is exactly [59]; the unrelated Career item is byte-for-structure identical to origin/main after conflict resolution; package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b and one-row content scope revalidate. The final ledger commit receives one last required-check cycle."
+      },
+      {
+        "at": "2026-08-01T06:45:12Z",
+        "status": "ready_to_merge",
+        "summary": "Exact-head review found commit_sha still referenced the initial Article 59 repair before the immutable repaired-row correction. Rebound commit_sha to afcf542e75171728f2ec8bc39e4c59546534c834, the exact commit containing corrected repaired-row list [59] and package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b. No producer payload or package byte changed in this ledger-only repair."
       }
     ],
-    "updated_at": "2026-08-01T06:39:25Z"
+    "updated_at": "2026-08-01T06:45:12Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
