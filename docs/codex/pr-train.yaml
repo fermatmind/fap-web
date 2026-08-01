@@ -29746,7 +29746,7 @@ prs:
     scope:
       - Add the deterministic V2 English parity master and Schema while retaining V1 as immutable audit history.
       - Replace human approval and state-only CONTROL transitions with exact chained backend import, publication, and live-QA receipts.
-      - Move independent W9 QA into the same Producer PR as a required exact-head/package check and keep package identity lane-local.
+      - Move independent W9 QA into the same Producer PR as a required exact-package/registered-cohort check whose reviewed source commit is reachable from the exact PR head, and keep package identity lane-local.
       - Update the repository rule and bootstrap contract without importing, publishing, deploying, or opening SEO discoverability.
     allowed_paths:
       - AGENTS.md
