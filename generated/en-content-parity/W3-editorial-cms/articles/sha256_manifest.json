@@ -3,11 +3,11 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-06-2026-08-01",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-07-2026-08-01",
   "files": [
     {
       "path": "scope_manifest.json",
-      "sha256": "bba10f8e6ccbf35c7ea4cdf2195f3835ed7031c2b52962ec19eba68217fdb501"
+      "sha256": "4e7148b34a3b24f43c30df187cd3696d3e1cb43692192c104a7799d4d2124d23"
     },
     {
       "path": "assets.jsonl",
@@ -15,28 +15,28 @@
     },
     {
       "path": "translation_map.json",
-      "sha256": "006ea689a93a01bf349a00828b5f9762f3e370e2abdad0a3dd881ae004ba42d9"
+      "sha256": "b558632ec821a606648796333a81ab99c0984dd745de96633f11efcbf5147617"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "960ac267e64bd9f8a0317bca5ded5e05137a1e12e70d9ae8c7402531a1ecca80"
+      "sha256": "a3ce443a41446f5b1d8c3e1b646cb3adcc6429b3c391d4d766025103b945a2f3"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "63832e23eadc13d84bf3919bc68d0cc8f8a5f9e477609dc486b1dbe0152e3054"
+      "sha256": "8517412916ec49734c63aca2cece7718749409e20387282e8c6650e17d7a0abe"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "9faf285500947c013c04bf2902b580bf09568cc9751fbc586903bffe9f9c3d9b"
+      "sha256": "933f7d554240acd53522affaeec36e4e083f33bb56a10e1a2b45b8c793c1f9a0"
     },
     {
       "path": "dry_run_readiness.json",
-      "sha256": "69d41135cfe1d27496ba03258bbbc9aed3a33f4e0ee57c5ae28329adfdacbf10"
+      "sha256": "cd1ad352246a3909e7c4099b846e636b0e07f073067a4be9c30e062d0681c544"
     },
     {
       "path": "handoff.md",
-      "sha256": "5fb28a6d0b7510102574b16b192af324fc021de5bc25aa12b9c3dde800528e50"
+      "sha256": "f334a68a6e88330ea45a6b3a081a7ec45142c72e4bf3fdddd8be9187709b6242"
     }
   ],
-  "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b"
+  "package_sha256": "0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89"
 }
