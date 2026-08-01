@@ -54831,8 +54831,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "2c148ca6006c6c3dcee9eb370708a2b34dfaf11f",
+    "status": "github_checks_pending_rebased",
+    "commit_sha": "71aed0b99101713a8e91843d5c5b972e7d214584",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
@@ -54848,8 +54848,8 @@
         "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1949 exact head 2c148ca6006c6c3dcee9eb370708a2b34dfaf11f passed all 11 applicable build, contract, freeze, and CodeQL checks. GitHub reports MERGEABLE/CLEAN with zero unresolved review threads."
+        "status": "pending",
+        "evidence": "The previously checked head passed all required checks, but PR #1948 merged an unrelated W4 producer ledger/package commit into main. This branch was rebased without master-file drift; fresh checks are required for the rebased head."
       }
     },
     "failure_reason": null,
@@ -54882,8 +54882,13 @@
         "at": "2026-08-01T12:46:34Z",
         "status": "ready_to_merge",
         "summary": "PR #1949 exact checked head 2c148ca6006c6c3dcee9eb370708a2b34dfaf11f passed all 11 applicable checks and is MERGEABLE/CLEAN with zero unresolved review threads. Exact scope and master CAS remain clean; this ledger-only ready-state commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T12:54:07Z",
+        "status": "github_checks_pending_rebased",
+        "summary": "Rebased onto origin/main b4f73504405a24eb83f745a637ffff4221257922 after unrelated W4 PR #1948 merged. The master SHA remains 8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3; W4 ledger/package facts are preserved, the CONTROL scope remains four allowed files, and all focused validation passes. Fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T12:46:34Z"
+    "updated_at": "2026-08-01T12:54:07Z"
   }
 }
