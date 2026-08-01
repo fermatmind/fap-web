@@ -29379,6 +29379,43 @@ prs:
     content_authority: primary official source evidence plus a producer-only candidate patch; backend CMS Article authority unchanged
     repository_rule_impact: immutable candidate evidence only; no CMS authority transfer, runtime behavior, import, publication, discoverability, or deployment change
 
+  - id: EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-dimension-duplicate-repair-01
+    base: main
+    depends_on: [EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01]
+    mode: execute
+    train_scope: w4_riasec_g02_duplicate_copy_repair
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01 differentiate four G02 cost and shadow rows"
+    scope:
+      - Replace only the copies for R/S possible_cost and possible_shadow_friction with the four W9-directed English overrides.
+      - Preserve the remaining 38 row copies, all 42 identities, the 24/18/42 reconciliation, boundaries, and all-false permissions.
+      - Rebuild the segment repair package ID, evidence, payload SHA values, and aggregate SHA deterministically from the existing assets.
+    allowed_paths: [generated/en-content-parity/W4-riasec/segments/dimension-core/**, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json]
+    do_not:
+      - Modify the control master, runtime, API, backend authority, CMS, database, importer, publication, SEO, sitemap, llms, indexability, Search Channel, deployment, or private-result boundary.
+      - Retain either W9-blocked duplicate-copy SHA, alter a non-copy reader field, add a W9 PASS claim, reuse 944ddac, or grant a write/release permission.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - JSON/JSONL/YAML parse; exactly four copy changes; both old duplicate SHA values absent; 42 identities and 24/18/42 reconciliation unchanged; payload SHA and two-run aggregate SHA validation
+      - pnpm lint .
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api RIASEC authority unchanged
+    repository_rule_impact: repairs producer-only English candidate evidence; no authority transfer, runtime availability, import, publication, discoverability, or deployment change
+
   - id: EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01
     repo: fap-web
     branch: codex/en-parity-w4-riasec-140q-naturalness-repair-01
