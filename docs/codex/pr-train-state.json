@@ -53060,5 +53060,98 @@
       }
     ],
     "updated_at": "2026-07-31T05:14:09Z"
+  },
+  "CAREER-SEARCH-ENTRY-PILOT-READINESS-01": {
+    "id": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
+    "repo": "fap-web",
+    "title": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01 select bounded career canary",
+    "base": "main",
+    "branch": "codex/career-search-entry-pilot-readiness-01",
+    "depends_on": [],
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user supplied the exact next-task scope and authorized continuous execution of PR3 after Task 12 completion."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "User-attested Batch Review run 30678387519 passed and Task 12 completed with PASS_APPLY_READBACK evidence 2546dbd6."
+      },
+      "read_only_generator": {
+        "status": "pass",
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 17 tests. Coverage includes deterministic rerun, exact 10/20 bounds, bilingual pairing, held/noindex/canonical/reviewer/SHA/thin/schema rejection, and insufficient-candidate HOLD."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 pnpm lint passed with zero warnings and zero errors."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 pnpm typecheck passed."
+      },
+      "metadata_and_scope": {
+        "status": "pass",
+        "evidence": "Generator syntax, artifact/state JSON, manifest YAML, git diff --check, artifact self-hash, and the exact six-path allowlist all passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      },
+      "post_merge_revalidation": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "evidence": {
+      "observed_at": "2026-08-01T04:46:32.199Z",
+      "result": "GO",
+      "eligible_candidates": 42,
+      "target_slugs": 10,
+      "target_urls": 20,
+      "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
+      "artifact_sha256": "3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585",
+      "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T04:37:21Z",
+        "status": "in_progress",
+        "summary": "Started from exact origin/main 643b7a80 in an isolated worktree. The read-only authority/public-surface collector found 42 complete passes among the exact 50 Task 12 eligible rows and froze a deterministic 10-slug/20-URL GO set. No production, CMS/database, sitemap, Search Channel, deploy, rollback, or content write occurred."
+      },
+      {
+        "at": "2026-08-01T04:44:22Z",
+        "status": "local_checks_passed",
+        "summary": "Canonical Node 24 focused contract 17/17, lint, typecheck, generator syntax, JSON/YAML parse, artifact self-hash, diff, and exact six-path scope validation passed. The frozen decision remains GO with target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682 and no operational write."
+      },
+      {
+        "at": "2026-08-01T04:49:24Z",
+        "status": "local_checks_passed",
+        "summary": "A final canonical Node 24 live collection bound explicit current content/SEO SHA equality and preserved the exact GO target set. Artifact 3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585, focused contract 17/17, lint, typecheck, metadata, self-hash, diff, and exact scope all pass."
+      }
+    ],
+    "updated_at": "2026-08-01T04:49:24Z"
   }
 }
