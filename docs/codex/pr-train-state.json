@@ -53447,11 +53447,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 29 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing approved rendered-body markers, exact SEO/page/sitemap URLs, valid FAQ entities, bilingual tier equality, public-body thickness, and the backend's current private-package-match projection."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 20 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing exact detail identity, approved rendered-body markers, exact SEO/page/sitemap URLs, valid FAQ entities, bilingual tier equality, public-body thickness, and the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 34 tests. Coverage adds X-Robots-Tag noindex, conflicting robots meta, and clause-scoped guarantee negation to rendered-authority markers, exact URLs, structured FAQ, shell, authority, review, schema, deterministic selection, and fail-closed HOLD cases."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 35 tests. Coverage adds exact detail canonical-slug identity to X-Robots-Tag, conflicting robots meta, clause-scoped guarantee negation, rendered-authority markers, exact URLs, structured FAQ, shell, authority, review, schema, deterministic selection, and fail-closed HOLD cases."
       },
       "lint": {
         "status": "pass",
@@ -53471,7 +53471,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; page, SEO, and sitemap comparisons retain exact URL distinctions; redirects are manual; X-Robots-Tag and every robots meta are checked; public thickness and approved markers bind rendered authority; bilingual tiers match; FAQ entities are structured; guarantee negation is clause-scoped."
+        "evidence": "Review repairs are fail-closed: backend approved projection replaces tautological SHA comparison; detail canonical slug is exact; actual SEO endpoint/fallback status is preserved; malformed exact shape emits HOLD with zero targets; missing locale rejects safely; page, SEO, and sitemap URLs are exact; redirects are manual; X-Robots-Tag and every robots meta are checked; public thickness and approved markers bind rendered authority; bilingual tiers match; FAQ entities are structured; guarantee negation is clause-scoped."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53485,13 +53485,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T06:23:42.840Z",
+      "observed_at": "2026-08-01T06:34:34.265Z",
       "result": "GO",
-      "eligible_candidates": 29,
+      "eligible_candidates": 20,
       "target_slugs": 10,
       "target_urls": 20,
       "target_set_sha256": "452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c",
-      "artifact_sha256": "21b3f3c962c959d9917069008cb670318aefafecc5f533b45c0aeb3a86579bb9",
+      "artifact_sha256": "ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1",
       "rollback_batch_id": "career-search-entry-pilot-452c677f70249438"
     },
     "production_write_execution": false,
@@ -53635,8 +53635,13 @@
         "at": "2026-08-01T06:29:38Z",
         "status": "github_checks_pending",
         "summary": "Merged latest origin/main 1074f1fc and preserved both append-only train ledgers. The PR diff remains exactly the six authorized paths; post-merge focused 34/34, lint, typecheck, YAML/JSON, and diff checks pass before fresh exact-head GitHub validation."
+      },
+      {
+        "at": "2026-08-01T06:38:00Z",
+        "status": "github_checks_pending",
+        "summary": "After all required checks passed on f2d111fc, exact-head review found missing detail-payload identity binding. Added exact canonical_slug equality and focused mismatch rejection. The complete strict read-only rerun remains GO with 20 complete candidates, unchanged target set 452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c, and artifact ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1; focused contract passes 35/35."
       }
     ],
-    "updated_at": "2026-08-01T06:29:38Z"
+    "updated_at": "2026-08-01T06:38:00Z"
   }
 }

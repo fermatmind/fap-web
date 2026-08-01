@@ -5,12 +5,12 @@
 `GO` for one bounded 10-slug / 20-URL career Search Channel canary package.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T06:23:42.840Z`.
+- Read-only observation: `2026-08-01T06:34:34.265Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
-- Complete gate passes: 29; rejected without gate reduction: 21.
+- Complete gate passes: 20; rejected without gate reduction: 30.
 - Selected SEO authority sources: 18 dedicated endpoint responses and 2 explicitly recorded detail `seo_contract` fallbacks.
 - Target-set SHA-256: `452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c`.
-- Artifact SHA-256: `21b3f3c962c959d9917069008cb670318aefafecc5f533b45c0aeb3a86579bb9`.
+- Artifact SHA-256: `ec1613f3f62f980f62c8c5425f45dd2a0e4dbf02b57ab6d762723ec3a6956da1`.
 - Rollback batch ID: `career-search-entry-pilot-452c677f70249438`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -44,6 +44,7 @@ The complete URLs and per-locale evidence hashes are frozen in `docs/seo/generat
 Every selected URL passed all of the following in the same read-only run:
 
 - detail API HTTP 200 and current backend `search_entry_authority` eligibility;
+- exact detail payload `identity.canonical_slug` equality with the requested authority row;
 - current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; actual dedicated SEO-endpoint status is preserved separately, while an approved detail `seo_contract` fallback is explicitly labeled and counted rather than rewritten as an endpoint 200;
 - public page HTTP 200, exact self-canonical, and rendered `index, follow`;
 - no `X-Robots-Tag: noindex` response directive and exactly one non-conflicting `index,follow` robots meta;

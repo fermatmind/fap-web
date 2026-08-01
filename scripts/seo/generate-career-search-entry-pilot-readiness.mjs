@@ -255,6 +255,7 @@ export function evaluateCandidateEvidence(candidate) {
     const evidence = candidate.locales[locale];
     const prefix = `${locale}_`;
     if (evidence.detail_status !== 200) reasons.push(`${prefix}detail_api_not_200`);
+    if (evidence.detail_canonical_slug !== candidate.slug) reasons.push(`${prefix}detail_canonical_slug_mismatch`);
     if (evidence.seo_authority_status !== 200) reasons.push(`${prefix}seo_authority_not_200`);
     if (evidence.page_status !== 200) reasons.push(`${prefix}page_not_200`);
     if (evidence.page_final_url !== evidence.url) reasons.push(`${prefix}page_final_url_mismatch`);
@@ -333,6 +334,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
       const evidence = candidate.locales[locale];
       return [locale, {
         detail_status: evidence.detail_status,
+        detail_canonical_slug: evidence.detail_canonical_slug,
         seo_authority_status: evidence.seo_authority_status,
         seo_endpoint_status: evidence.seo_endpoint_status,
         seo_source: evidence.seo_source,
@@ -491,6 +493,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   return {
     url,
     detail_status: detailResult.status,
+    detail_canonical_slug: string(record(detail.identity).canonical_slug),
     seo_authority_status: effectiveSeoStatus,
     seo_endpoint_status: seoResult.status,
     seo_source: Object.keys(endpointSeo).length > 0 ? "career_seo_endpoint" : "career_detail_seo_contract",

@@ -22,6 +22,7 @@ const OBSERVED_AT = "2026-08-01T12:00:00.000Z";
 type LocaleEvidence = {
   url: string;
   detail_status: number;
+  detail_canonical_slug: string;
   seo_authority_status: number;
   seo_endpoint_status: number;
   seo_source: "career_seo_endpoint" | "career_detail_seo_contract";
@@ -75,6 +76,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
   return {
     url,
     detail_status: 200,
+    detail_canonical_slug: slug,
     seo_authority_status: 200,
     seo_endpoint_status: 200,
     seo_source: "career_seo_endpoint",
@@ -213,6 +215,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
 
   it.each([
     ["held slug", (value: Candidate) => { value.held = true; }, "held_slug"],
+    ["detail canonical slug mismatch", (value: Candidate) => { value.locales.en.detail_canonical_slug = "different-career"; }, "en_detail_canonical_slug_mismatch"],
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
