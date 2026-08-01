@@ -52453,14 +52453,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-05",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1889",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52633,9 +52633,14 @@
         "at": "2026-08-01T04:28:38Z",
         "status": "local_verified",
         "summary": "Completed W9-directed rework-05 for only the 7 blocked Article rows and rebuilt the ten-file candidate package at SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. The 10 passing rows remain content-identical; 86 table groups and 610 table lines are retained. Control validation, 66/66 focused contracts, repository lint, exact eight-file SHA validation, scope validation, JSON parsing, and git diff checks pass. All CMS/publication/SEO/search/deploy permissions remain false."
+      },
+      {
+        "at": "2026-08-01T04:31:38Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed producer implementation commit df69435e2ba8e538be9c29c1ac7c51f8dc4a39ac and opened ready PR #1889 for exact rework-05 package SHA 2f58a4f2abda168db48a69aec7f02e892541ae6d2488c6348059dcb8fa58c633. Required GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-08-01T04:28:38Z"
+    "updated_at": "2026-08-01T04:31:38Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_pr_open",
