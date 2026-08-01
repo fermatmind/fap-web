@@ -978,7 +978,7 @@ describe("English content parity control master", () => {
     expect(sha256File(frozenLedgerPath)).toBe(frozenLedgerSha256);
     expect(w3).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_frozen",
+      status: "qa_pass",
       blocked_from_status: null,
       counts: {
         cohort_count: 2,
@@ -1023,16 +1023,25 @@ describe("English content parity control master", () => {
       resource: "CareerGuide",
       output_subdirectory: "career-guides",
       asset_ids: ["ENPARITY-W3-CAREER-GUIDES"],
-      status: "package_frozen",
+      status: "qa_pass",
       blocked_from_status: null,
       package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-      qa_report_ref: null,
+      qa_report_ref:
+        "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
       gate_lineage: [
         {
           status: "package_frozen",
           evidence_owner_lane_id: "W3",
           report_ref: "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json",
           report_sha256: "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402",
+          package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+        },
+        {
+          status: "qa_pass",
+          evidence_owner_lane_id: "W9",
+          report_ref:
+            "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
+          report_sha256: "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815",
           package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
         },
       ],
@@ -1043,8 +1052,8 @@ describe("English content parity control master", () => {
     expect(w3?.package_sha256).toBeNull();
     expect(w3?.qa_report_ref).toBeNull();
     expect(w3?.gate_lineage).toEqual([]);
-    expect(w3?.next_action).toContain("EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01");
-    expect(w3?.next_action).toContain("0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c");
+    expect(w3?.next_action).toContain("separately passed independent W9 QA");
+    expect(w3?.next_action).toContain("No CMS import");
     expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
 
