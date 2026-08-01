@@ -5,7 +5,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "status": "package_frozen",
   "output_directory": "generated/en-content-parity/W4-riasec/",
   "artifact_files": [

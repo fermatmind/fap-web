@@ -3,7 +3,7 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "verdict": "PASS",
   "review_kind": "producer package-integrity self-check only; not independent W9 QA, editorial approval, import approval, or release approval",
   "completed_checks": [
@@ -13,6 +13,11 @@
     "candidate lifecycle and all-false permissions",
     "claim-boundary and private-field exclusion preflight"
   ],
+  "repair_evidence": {
+    "prior_blocked_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "applied_repairs": ["126 W4-G06 summary replacements", "4 W4-G02 copy differentiations"],
+    "independent_w9_verdict": "PENDING"
+  },
   "pending_checks": [
     "independent W9 full row-level content QA bound to this exact package SHA",
     "human editorial, psychometrics, and product approval",

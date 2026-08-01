@@ -2,7 +2,7 @@
   "schema_version": "fermatmind.en_content_parity_translation_map.v1",
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "mapping_policy": {
     "source_locale": "zh-CN",
     "target_locale": "en",

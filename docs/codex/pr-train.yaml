@@ -29271,6 +29271,42 @@ prs:
     content_authority: producer candidate package only; fap-api lifecycle authority unchanged
     repository_rule_impact: candidate review evidence only; no authority transfer or runtime availability change
 
+  - id: EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w4-riasec-package-refreeze-01
+    base: main
+    depends_on: [EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01, EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01]
+    mode: execute
+    train_scope: w4_riasec_exact_package_refreeze_after_w9_blocked_repairs
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01 re-freeze the repaired exact 1550-row producer package"
+    scope:
+      - Rebuild and freeze the complete 1550-row W4 candidate package after the merged 126-row W4-G06 and four-row W4-G02 repairs.
+      - Bind all nine segment package aggregates, retain the failed 944ddac package only as W9-blocked evidence, and require fresh independent W9 QA for the new exact SHA.
+    allowed_paths: [generated/en-content-parity/W4-riasec/scope_manifest.json, generated/en-content-parity/W4-riasec/assets.jsonl, generated/en-content-parity/W4-riasec/translation_map.json, generated/en-content-parity/W4-riasec/source_ledger.json, generated/en-content-parity/W4-riasec/claim_boundary_report.json, generated/en-content-parity/W4-riasec/editorial_review.json, generated/en-content-parity/W4-riasec/dry_run_readiness.json, generated/en-content-parity/W4-riasec/sha256_manifest.json, generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json, generated/en-content-parity/W4-riasec/handoff.md, scripts/seo/validate-w4-riasec-w9-qa.mjs, tests/contracts/en-content-parity-control-master.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json]
+    do_not:
+      - Modify any reader segment, control master, runtime, CMS, importer, publication, SEO, sitemap, llms, indexability, Search Channel, deployment, or private data.
+      - Reuse 944ddac as the frozen package, self-declare W9 PASS, import, or release approval, or grant a write/release permission.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W4-riasec/master_manifest_patch.candidate.json
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec vitest run tests/contracts/en-content-parity-w9-w4-riasec-independent-qa.contract.test.ts --reporter=dot
+      - JSON/JSONL/YAML parse; 14 logical groups, 1550 unique rows, 15 pairs, 3/2/2 surfaces, nine segment aggregate bindings, and repeatable eight-payload SHA validation
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; backend authority unchanged
+    repository_rule_impact: immutable candidate re-freeze only; no runtime or authority transfer
+
   - id: EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01
     repo: fap-web
     repo_path: <workspace>/fap-web

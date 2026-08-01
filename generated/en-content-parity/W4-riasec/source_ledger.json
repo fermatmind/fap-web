@@ -3,13 +3,31 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W4",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01",
   "scan": {
-    "fap_web_commit": "21ebe294a3e951aa4ebe3df4290ec172ac371655",
+    "fap_web_commit": "2abee293f5b417bb0ebdabfda1e43a61c6e445d4",
     "fap_api_origin_main_commit": "a202c8175ad0cfda59585d9adb20e1b2d8b929a2",
-    "master_manifest_sha256": "8e0b79e5db6b8bfeac0cd3bf899e70cb93e4fed8815a92b6cab23eca03102ed1",
+    "master_manifest_sha256": "5dfa51907860aaee4dabef952e15c4a6cabaa7d72cd47225089d15470b685039",
     "source_revalidation": "fap-api changes from the prior scan source SHA contain no RIASEC/Holland/interest paths",
-    "private_data_accessed": false
+    "private_data_accessed": false,
+    "package_rebuild": {
+      "prior_blocked_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+      "repairs": [
+        {"producer_package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01", "affected_group": "W4-G06", "affected_asset_count": 126, "segment_aggregate_sha256": "ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2"},
+        {"producer_package_id": "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01", "affected_group": "W4-G02", "affected_asset_count": 4, "segment_aggregate_sha256": "640e56dad5ff9e51c09a41212895d5030c2851c3dbf2f0ee8f3bdf05f8ff0390"}
+      ],
+      "segment_aggregates": {
+        "140q-context-structural": "ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2",
+        "activity-examples": "4b8e9ac0eb0741b81745aa45809139cb22b5e731de5987c456b1ff09dd0acd9b",
+        "aspirations-disagree": "ae09d38b3cd7739594faf08d1c08e2498e71c52db4cd0e0d82547b5bfcd9fc0a",
+        "dimension-core": "640e56dad5ff9e51c09a41212895d5030c2851c3dbf2f0ee8f3bdf05f8ff0390",
+        "feedback-action-lab": "b85690fdd841ddf5b707d4dc4571ce32f6eab42ead4e1ace92981b1000a5d868",
+        "pair": "3c1e51c1e97888383435c131d0368b87a40f27f7499ad2b6d887a2921bf29cbc",
+        "quality-reading-state": "b23a5cbdda8bbc202627d3524e8feb44d03de75aaa506838ad45ef15f70d385c",
+        "share-pdf-history": "e5cd7cbb5399222733bd422ec02b7a7edf49e257ec1aa1a27618ee105979fc58",
+        "top3": "d6385c928f833ee0d7a6b7deaad42213e0980bbc5ad19f29e122d97f221d5d3c"
+      }
+    }
   },
   "rows": [
     {
