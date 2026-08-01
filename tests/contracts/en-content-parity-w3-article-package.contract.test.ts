@@ -149,9 +149,16 @@ describe("W3 Article English frozen package", () => {
 
   it("contains only the approved rework-09 language repairs and preserves the seven PASS rows", () => {
     const ledger = readJson("source_ledger.json");
-    const rowsById = new Map(
+    const rowsById = new Map<number, Rework09LedgerRow>(
       ledger.rows.map((row: Rework09LedgerRow) => [row.source_article_id, row]),
     );
+    const getRow = (id: number) => {
+      const row = rowsById.get(id);
+      if (!row) {
+        throw new Error(`missing rework-09 row ${id}`);
+      }
+      return row;
+    };
 
     expect(new Set(ledger.rows.map((row: { source_article_id: number }) => row.source_article_id))).toEqual(
       new Set([...REWORK_09_REPAIRED_IDS, ...REWORK_09_PASS_IDS]),
@@ -177,19 +184,19 @@ describe("W3 Article English frozen package", () => {
     });
     expect(sha256(JSON.stringify(passProjection))).toBe(REWORK_09_PASS_READER_VISIBLE_SHA256);
 
-    expect(rowsById.get(1).candidate_title).toContain("Five-Dimensional");
-    expect(rowsById.get(1).candidate_content_md).toContain("Five-Dimensional Behavioral Experiment Matrix");
-    expect(rowsById.get(2).candidate_content_md).toContain("Can a Five-Dimensional Profile Recommend a Career?");
-    expect(rowsById.get(7).candidate_content_md).toContain("graphic-pattern questions and is designed to take about 20 minutes");
-    expect(rowsById.get(8).candidate_content_md).toContain("Are you certain to get along with—or be incompatible with—specific people?");
-    expect(rowsById.get(9).candidate_content_md).toContain("Instead, write:");
-    expect(rowsById.get(9).candidate_content_md).toContain('"type training" without their consent');
-    expect(rowsById.get(10).candidate_content_md).toContain("Introversion does not mean shyness");
-    expect(rowsById.get(52).candidate_content_md).toContain("It can serve as a supplementary reference");
-    expect(rowsById.get(55).candidate_content_md).toContain("If an eligibility requirement is not met");
-    expect(rowsById.get(58).candidate_content_md).toContain("double-checking");
-    expect(rowsById.get(59).candidate_content_md).toContain("bad at math");
-    expect(rowsById.get(59).candidate_content_md).toContain("spend extended periods reading technical material");
+    expect(getRow(1).candidate_title).toContain("Five-Dimensional");
+    expect(getRow(1).candidate_content_md).toContain("Five-Dimensional Behavioral Experiment Matrix");
+    expect(getRow(2).candidate_content_md).toContain("Can a Five-Dimensional Profile Recommend a Career?");
+    expect(getRow(7).candidate_content_md).toContain("graphic-pattern questions and is designed to take about 20 minutes");
+    expect(getRow(8).candidate_content_md).toContain("Are you certain to get along with—or be incompatible with—specific people?");
+    expect(getRow(9).candidate_content_md).toContain("Instead, write:");
+    expect(getRow(9).candidate_content_md).toContain('"type training" without their consent');
+    expect(getRow(10).candidate_content_md).toContain("Introversion does not mean shyness");
+    expect(getRow(52).candidate_content_md).toContain("It can serve as a supplementary reference");
+    expect(getRow(55).candidate_content_md).toContain("If an eligibility requirement is not met");
+    expect(getRow(58).candidate_content_md).toContain("double-checking");
+    expect(getRow(59).candidate_content_md).toContain("bad at math");
+    expect(getRow(59).candidate_content_md).toContain("spend extended periods reading technical material");
   });
 
   it("hashes the eight immutable payload files in repository-defined order", () => {
