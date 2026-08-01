@@ -245,7 +245,6 @@ describe("English content parity automation control V2", () => {
       lane_manifests: [],
       receipt_chains: [],
     };
-    const v2 = migrateV1ToV2(v1, "6".repeat(64), inputs, "7".repeat(64));
     const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-test-"));
     try {
       const manifestPath = path.join(directory, "lane.json");
@@ -266,12 +265,148 @@ describe("English content parity automation control V2", () => {
       };
       fs.writeFileSync(manifestPath, `${JSON.stringify(laneManifest, null, 2)}\n`);
       inputs.lane_manifests.push({ lane_id: "W8", subscope: null, path: relativePath, sha256: sha256(fs.readFileSync(manifestPath)) });
+      const v1Bytes = fs.readFileSync(V1_PATH);
+      const inputsBytes = Buffer.from(JSON.stringify(inputs));
+      const v2 = migrateV1ToV2(v1, sha256(v1Bytes), inputs, sha256(inputsBytes));
       const materialized = applyMaterializationInputs(v2, inputs);
       const w8 = materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8");
       expect(w8.status).toBe("package_in_progress");
       expect(w8.lane_manifest_ref).toBe(relativePath);
+      expect(validateV2Master({
+        v1,
+        v2: materialized,
+        inputs,
+        v1Bytes,
+        inputsBytes,
+        expectedV2: materialized,
+      })).toEqual({ ok: true, errors: [] });
     } finally {
       fs.rmSync(directory, { recursive: true, force: true });
     }
+  });
+
+  it("rejects promotion facts and self-declared QA from lane manifests", () => {
+    const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
+    const v2 = migrateV1ToV2(v1, "6".repeat(64));
+    const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-guard-test-"));
+    try {
+      const base = {
+        $schema: "./en-content-parity-control-master.v2.schema.json",
+        schema_version: "fermatmind.en_content_parity_lane_manifest.v2",
+        artifact_kind: "lane_manifest",
+        lane_id: "W8",
+        subscope: null,
+        blocked_from_status: null,
+        package_sha256: PACKAGE_SHA,
+        qa_report_ref: null,
+        gate_lineage: [],
+        legacy_lineage: [],
+        blockers: [],
+      };
+      for (const [name, manifest] of [
+        ["promotion", { ...base, status: "published" }],
+        ["self-qa", { ...base, status: "qa_pass" }],
+      ] as const) {
+        const manifestPath = path.join(directory, `${name}.json`);
+        fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+        const inputs = {
+          schema_version: "fermatmind.en_content_parity_control_inputs.v2",
+          artifact_kind: "control_materialization_inputs",
+          lane_manifests: [{
+            lane_id: "W8",
+            subscope: null,
+            path: path.relative(ROOT, manifestPath),
+            sha256: sha256(fs.readFileSync(manifestPath)),
+          }],
+          receipt_chains: [],
+        };
+        expect(() => applyMaterializationInputs(structuredClone(v2), inputs)).toThrow(/lane_manifest_/);
+      }
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it("accepts QA only with gap-free package and independent W9 lineage", () => {
+    const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
+    const v2 = migrateV1ToV2(v1, "6".repeat(64));
+    const directory = fs.mkdtempSync(path.join(ROOT, ".v2-lane-manifest-w9-test-"));
+    try {
+      const reportRef = "generated/en-content-parity/W9-independent-qa/W8-career-job/example/report.json";
+      const manifest = {
+        $schema: "./en-content-parity-control-master.v2.schema.json",
+        schema_version: "fermatmind.en_content_parity_lane_manifest.v2",
+        artifact_kind: "lane_manifest",
+        lane_id: "W8",
+        subscope: null,
+        status: "qa_pass",
+        blocked_from_status: null,
+        package_sha256: PACKAGE_SHA,
+        qa_report_ref: reportRef,
+        gate_lineage: [
+          {
+            status: "package_frozen",
+            evidence_owner_lane_id: "W8",
+            report_ref: "generated/en-content-parity/W8-career-job/editorial_review.json",
+            report_sha256: "4".repeat(64),
+            package_sha256: PACKAGE_SHA,
+            accepted_at: "2026-08-02T00:00:00Z",
+          },
+          {
+            status: "qa_pass",
+            evidence_owner_lane_id: "W9",
+            report_ref: reportRef,
+            report_sha256: "5".repeat(64),
+            package_sha256: PACKAGE_SHA,
+            accepted_at: "2026-08-02T00:01:00Z",
+          },
+        ],
+        legacy_lineage: [],
+        blockers: [],
+      };
+      const manifestPath = path.join(directory, "lane.json");
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const inputs = {
+        schema_version: "fermatmind.en_content_parity_control_inputs.v2",
+        artifact_kind: "control_materialization_inputs",
+        lane_manifests: [{
+          lane_id: "W8",
+          subscope: null,
+          path: path.relative(ROOT, manifestPath),
+          sha256: sha256(fs.readFileSync(manifestPath)),
+        }],
+        receipt_chains: [],
+      };
+      const materialized = applyMaterializationInputs(v2, inputs);
+      expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8")).toMatchObject({
+        status: "qa_pass",
+        package_sha256: PACKAGE_SHA,
+        qa_report_ref: reportRef,
+      });
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it("recomputes split-lane status from the least-progressed subscope", () => {
+    const v1 = JSON.parse(fs.readFileSync(V1_PATH, "utf8"));
+    const v2 = migrateV1ToV2(v1, "6".repeat(64));
+    const w1 = v2.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1");
+    const inputs = {
+      schema_version: "fermatmind.en_content_parity_control_inputs.v2",
+      artifact_kind: "control_materialization_inputs",
+      lane_manifests: [],
+      receipt_chains: w1.subscopes.map((subscope: { id: string; package_sha256: string }, index: number) => ({
+        lane_id: "W1",
+        subscope: subscope.id,
+        package_sha256: subscope.package_sha256,
+        expected_count: index + 1,
+        release_policy_sha256: POLICY_SHA,
+        target_status: "published",
+        receipt_paths: [`receipt-${index}-draft.json`, `receipt-${index}-publication.json`],
+      })),
+    };
+    const materialized = applyMaterializationInputs(v2, inputs);
+    expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W1").status).toBe("published");
   });
 });

@@ -28,6 +28,16 @@
         "blocked"
       ]
     },
+    "lane_manifest_status": {
+      "enum": [
+        "not_started",
+        "inventory_frozen",
+        "package_in_progress",
+        "package_frozen",
+        "qa_pass",
+        "dry_run_ready"
+      ]
+    },
     "release_policy": {
       "type": "object",
       "additionalProperties": false,
@@ -254,7 +264,7 @@
         "artifact_kind": { "const": "lane_manifest" },
         "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
         "subscope": { "type": ["string", "null"] },
-        "status": { "$ref": "#/$defs/content_status" },
+        "status": { "$ref": "#/$defs/lane_manifest_status" },
         "blocked_from_status": { "anyOf": [{ "$ref": "#/$defs/content_status" }, { "type": "null" }] },
         "package_sha256": { "$ref": "#/$defs/sha256_or_null" },
         "qa_report_ref": { "type": ["string", "null"] },

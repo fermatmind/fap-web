@@ -269,17 +269,25 @@ function validateTargetMigration(v1, v2, label, errors) {
   assert(v2.lane_manifest_ref === null, `${label}: initial shadow migration cannot invent lane manifest refs`, errors);
 }
 
-export function validateV2Master({ v1 = readJson(V1_PATH), v2 = readJson(V2_PATH) } = {}) {
+function hasMaterializedFacts(target) {
+  return target?.lane_manifest_ref !== null || (target?.promotion_receipts?.length ?? 0) > 0;
+}
+
+export function validateV2Master({
+  v1 = readJson(V1_PATH),
+  v2 = readJson(V2_PATH),
+  inputs = readJson(V2_INPUTS_PATH),
+  v1Bytes = fs.readFileSync(path.join(ROOT, V1_PATH)),
+  inputsBytes = fs.readFileSync(path.join(ROOT, V2_INPUTS_PATH)),
+  expectedV2 = buildV2(),
+} = {}) {
   const errors = [];
-  const v1Bytes = fs.readFileSync(path.join(ROOT, V1_PATH));
   assert(v2.schema_version === "fermatmind.en_content_parity_control.v2", "V2 schema version mismatch", errors);
   assert(v2.artifact_kind === "generated_read_only_master", "V2 master must be a generated read-only summary", errors);
   assert(v2.is_master === true, "V2 is_master must be true", errors);
   assert(v2.authority?.v1_mode === "immutable_audit_only", "V1 must be immutable audit-only", errors);
   assert(v2.authority?.v1_path === V1_PATH, "V1 audit path mismatch", errors);
   assert(v2.authority?.v1_sha256 === sha256Bytes(v1Bytes), "V1 audit SHA mismatch", errors);
-  const inputsBytes = fs.readFileSync(path.join(ROOT, V2_INPUTS_PATH));
-  const inputs = JSON.parse(inputsBytes.toString("utf8"));
   assert(v2.materialization?.inputs_path === V2_INPUTS_PATH, "V2 inputs path mismatch", errors);
   assert(v2.materialization?.inputs_sha256 === sha256Bytes(inputsBytes), "V2 inputs SHA mismatch", errors);
   assert(v2.materialization?.lane_manifest_count === inputs.lane_manifests.length, "lane manifest count mismatch", errors);
@@ -318,8 +326,11 @@ export function validateV2Master({ v1 = readJson(V1_PATH), v2 = readJson(V2_PATH
     const v2Lane = v2.lanes?.find((lane) => lane.lane_id === v1Lane.lane_id);
     assert(Boolean(v2Lane), `${v1Lane.lane_id}: missing from V2`, errors);
     if (!v2Lane) continue;
-    validateTargetMigration(v1Lane, v2Lane, v1Lane.lane_id, errors);
-    assert(sameValue(v2Lane.counts, v1Lane.counts), `${v1Lane.lane_id}: counts drifted`, errors);
+    const splitLaneMaterialized = (v2Lane.subscopes ?? []).some(hasMaterializedFacts);
+    if (!hasMaterializedFacts(v2Lane) && !splitLaneMaterialized) {
+      validateTargetMigration(v1Lane, v2Lane, v1Lane.lane_id, errors);
+      assert(sameValue(v2Lane.counts, v1Lane.counts), `${v1Lane.lane_id}: counts drifted`, errors);
+    }
     assert(
       sameValue(v2Lane.release_policy, v1Lane.lane_kind === "producer" ? RELEASE_POLICY : null),
       `${v1Lane.lane_id}: release policy mismatch`,
@@ -329,11 +340,13 @@ export function validateV2Master({ v1 = readJson(V1_PATH), v2 = readJson(V2_PATH
     for (const v1Subscope of v1Lane.subscopes ?? []) {
       const v2Subscope = v2Lane.subscopes?.find((subscope) => subscope.id === v1Subscope.id);
       assert(Boolean(v2Subscope), `${v1Subscope.id}: missing from V2`, errors);
-      if (v2Subscope) validateTargetMigration(v1Subscope, v2Subscope, v1Subscope.id, errors);
+      if (v2Subscope && !hasMaterializedFacts(v2Subscope)) {
+        validateTargetMigration(v1Subscope, v2Subscope, v1Subscope.id, errors);
+      }
     }
   }
 
-  assert(sameValue(v2, buildV2()), "V2 master is not the deterministic V1 shadow migration", errors);
+  assert(sameValue(v2, expectedV2), "V2 master does not match the registered materialization inputs", errors);
   const serialized = JSON.stringify(v2);
   assert(!serialized.includes("controlled_transition_approval"), "V2 depends on controlled_transition_approval", errors);
   assert(!serialized.includes('"approval_owner":"human_operator"'), "V2 depends on human_operator", errors);

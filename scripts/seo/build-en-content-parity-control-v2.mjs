@@ -22,6 +22,18 @@ export const V2_ORDERED_STATES = [
   "live_qa_pass",
 ];
 
+export const LANE_MANIFEST_STATES = [
+  "not_started",
+  "inventory_frozen",
+  "package_in_progress",
+  "package_frozen",
+  "qa_pass",
+  "dry_run_ready",
+];
+
+const LINEAGE_GATE_STATES = ["package_frozen", "qa_pass", "dry_run_ready"];
+const PROMOTION_STATES = ["draft_imported", "published", "live_qa_pass"];
+
 export const RELEASE_POLICY = Object.freeze({
   cms_draft_import: "auto_after_dry_run_pass",
   public_publish: "auto_after_import_readback_pass",
@@ -130,6 +142,82 @@ function targetFor(v2, laneId, subscope) {
   return target;
 }
 
+function targetKey(laneId, subscope) {
+  return `${laneId}:${subscope ?? "-"}`;
+}
+
+function stateIndex(status) {
+  return V2_ORDERED_STATES.indexOf(status);
+}
+
+function assertLaneManifestTransition(base, manifest, key) {
+  if (!LANE_MANIFEST_STATES.includes(manifest.status)) {
+    throw new Error(`lane_manifest_status_not_allowed=${key}:${manifest.status}`);
+  }
+  if (manifest.blocked_from_status !== null || manifest.blockers.length !== 0) {
+    throw new Error(`lane_manifest_cannot_materialize_blocked_state=${key}`);
+  }
+  const baseIndex = stateIndex(base.status);
+  const targetIndex = stateIndex(manifest.status);
+  if (baseIndex < 0 || targetIndex < baseIndex) throw new Error(`lane_manifest_state_regression=${key}`);
+  if (canonicalJson(manifest.legacy_lineage) !== canonicalJson(base.legacy_lineage)) {
+    throw new Error(`lane_manifest_legacy_lineage_drift=${key}`);
+  }
+  const baseLineage = base.gate_lineage ?? [];
+  const manifestLineage = manifest.gate_lineage ?? [];
+  if (canonicalJson(manifestLineage.slice(0, baseLineage.length)) !== canonicalJson(baseLineage)) {
+    throw new Error(`lane_manifest_gate_lineage_prefix_drift=${key}`);
+  }
+  const appendedLineage = manifestLineage.slice(baseLineage.length);
+  const expectedStatuses = V2_ORDERED_STATES
+    .slice(baseIndex + 1, targetIndex + 1)
+    .filter((status) => LINEAGE_GATE_STATES.includes(status));
+  if (canonicalJson(appendedLineage.map((entry) => entry.status)) !== canonicalJson(expectedStatuses)) {
+    throw new Error(`lane_manifest_gate_lineage_gap=${key}`);
+  }
+  if (manifestLineage.some((entry) => PROMOTION_STATES.includes(entry.status))) {
+    throw new Error(`lane_manifest_promotion_lineage_forbidden=${key}`);
+  }
+  const packageRequired = targetIndex >= stateIndex("package_frozen");
+  if (packageRequired !== (typeof manifest.package_sha256 === "string")) {
+    throw new Error(`lane_manifest_package_binding_invalid=${key}`);
+  }
+  if (manifestLineage.some((entry) => entry.package_sha256 !== manifest.package_sha256)) {
+    throw new Error(`lane_manifest_lineage_package_mismatch=${key}`);
+  }
+  const qaRequired = targetIndex >= stateIndex("qa_pass");
+  const qaLineage = manifestLineage.filter((entry) => entry.status === "qa_pass");
+  if (qaRequired) {
+    if (
+      qaLineage.length !== 1 ||
+      qaLineage[0].evidence_owner_lane_id !== "W9" ||
+      qaLineage[0].report_ref !== manifest.qa_report_ref ||
+      !String(qaLineage[0].report_ref).startsWith("generated/en-content-parity/W9-independent-qa/")
+    ) {
+      throw new Error(`lane_manifest_independent_w9_lineage_invalid=${key}`);
+    }
+  } else if (manifest.qa_report_ref !== null) {
+    throw new Error(`lane_manifest_qa_reference_before_qa=${key}`);
+  }
+}
+
+function recomputeSplitLaneStatuses(v2) {
+  for (const lane of v2.lanes) {
+    if (!Array.isArray(lane.subscopes) || lane.subscopes.length === 0) continue;
+    const blocked = lane.subscopes.filter((subscope) => subscope.status === "blocked");
+    if (blocked.length > 0) {
+      lane.status = "blocked";
+      const priorStatuses = lane.subscopes.map((subscope) =>
+        subscope.status === "blocked" ? subscope.blocked_from_status : subscope.status,
+      );
+      lane.blocked_from_status = V2_ORDERED_STATES[Math.min(...priorStatuses.map(stateIndex))];
+      continue;
+    }
+    lane.status = V2_ORDERED_STATES[Math.min(...lane.subscopes.map((subscope) => stateIndex(subscope.status)))];
+    lane.blocked_from_status = null;
+  }
+}
+
 export function applyMaterializationInputs(v2, inputs) {
   if (
     inputs.schema_version !== "fermatmind.en_content_parity_control_inputs.v2" ||
@@ -139,7 +227,7 @@ export function applyMaterializationInputs(v2, inputs) {
   }
   const occupiedTargets = new Set();
   for (const binding of inputs.lane_manifests) {
-    const key = `${binding.lane_id}:${binding.subscope ?? "-"}`;
+    const key = targetKey(binding.lane_id, binding.subscope);
     if (occupiedTargets.has(key)) throw new Error(`duplicate_lane_manifest_binding=${key}`);
     occupiedTargets.add(key);
     const manifest = readBoundJson(binding.path, binding.sha256);
@@ -150,7 +238,12 @@ export function applyMaterializationInputs(v2, inputs) {
     ) {
       throw new Error(`lane_manifest_identity_mismatch=${binding.path}`);
     }
+    const lane = v2.lanes.find((item) => item.lane_id === binding.lane_id);
+    if (binding.subscope === null && lane?.subscopes?.length > 0) {
+      throw new Error(`split_lane_root_manifest_forbidden=${binding.lane_id}`);
+    }
     const target = targetFor(v2, binding.lane_id, binding.subscope);
+    assertLaneManifestTransition(target, manifest, key);
     for (const field of [
       "status",
       "blocked_from_status",
@@ -165,14 +258,25 @@ export function applyMaterializationInputs(v2, inputs) {
     }
     target.lane_manifest_ref = binding.path;
   }
+  const occupiedReceiptTargets = new Set();
   for (const chain of inputs.receipt_chains) {
+    const key = targetKey(chain.lane_id, chain.subscope);
+    if (occupiedReceiptTargets.has(key)) throw new Error(`duplicate_receipt_chain_binding=${key}`);
+    occupiedReceiptTargets.add(key);
+    const lane = v2.lanes.find((item) => item.lane_id === chain.lane_id);
+    if (chain.subscope === null && lane?.subscopes?.length > 0) {
+      throw new Error(`split_lane_root_receipt_chain_forbidden=${chain.lane_id}`);
+    }
     const target = targetFor(v2, chain.lane_id, chain.subscope);
+    if (target.status !== "dry_run_ready") throw new Error(`receipt_chain_requires_dry_run_ready=${key}`);
+    if (!PROMOTION_STATES.includes(chain.target_status)) throw new Error(`receipt_chain_target_status_invalid=${key}`);
     if (target.package_sha256 !== chain.package_sha256) {
-      throw new Error(`receipt_chain_package_mismatch=${chain.lane_id}:${chain.subscope ?? "-"}`);
+      throw new Error(`receipt_chain_package_mismatch=${key}`);
     }
     target.status = chain.target_status;
     target.promotion_receipts = [...chain.receipt_paths];
   }
+  recomputeSplitLaneStatuses(v2);
   return v2;
 }
 
