@@ -12,6 +12,7 @@ import {
   selectPilot,
   sha256,
   validateExactTargetShape,
+  unsupportedGuaranteeMatches,
 } from "../../scripts/seo/generate-career-search-entry-pilot-readiness.mjs";
 
 const ROOT = process.cwd();
@@ -26,6 +27,7 @@ type LocaleEvidence = {
   seo_source: "career_seo_endpoint" | "career_detail_seo_contract";
   page_status: number;
   page_final_url: string;
+  x_robots_tag: string;
   sitemap_included: boolean;
   html: ReturnType<typeof inspectHtml>;
   seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean; canonical: string };
@@ -78,6 +80,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     seo_source: "career_seo_endpoint",
     page_status: 200,
     page_final_url: url,
+    x_robots_tag: "",
     sitemap_included: true,
     html: inspectHtml(html(url), url),
     seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true, canonical: url },
@@ -153,11 +156,18 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       status: 302,
       url: "https://fermatmind.com/en/career/jobs/career-01",
       text: async () => "",
+      headers: new Headers({ "x-robots-tag": "noindex" }),
     } as Response);
     const result = await fetchStatus("https://fermatmind.com/en/career/jobs/career-01", 1000, false);
     expect(fetchMock).toHaveBeenCalledWith(expect.any(String), expect.objectContaining({ redirect: "manual" }));
     expect(result.status).toBe(302);
+    expect(result.x_robots_tag).toBe("noindex");
     fetchMock.mockRestore();
+  });
+
+  it("does not let an unrelated negated clause hide a positive guarantee", () => {
+    expect(unsupportedGuaranteeMatches("You do not need prior experience; employment is guaranteed.")).toEqual(["employment is guaranteed"]);
+    expect(unsupportedGuaranteeMatches("Employment is not guaranteed.")).toEqual([]);
   });
 
   it("is deterministic and orders stable, then quality descending, then slug", () => {
@@ -206,10 +216,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["redirected final URL", (value: Candidate) => { value.locales.en.page_final_url = `${value.locales.en.url}/`; }, "en_page_final_url_mismatch"],
+    ["X-Robots-Tag noindex", (value: Candidate) => { value.locales.en.x_robots_tag = "noindex, nofollow"; }, "en_x_robots_noindex"],
     ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
     ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
     ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],
     ["malformed FAQ entity", (value: Candidate) => { value.locales.en.html.faq_entities_valid = false; }, "en_faq_entities_invalid"],
+    ["conflicting robots meta", (value: Candidate) => { value.locales.en.html.robots_values = ["index,follow", "noindex,follow"]; value.locales.en.html.robots = "index,follow|noindex,follow"; value.locales.en.html.index_follow = false; }, "en_not_index_follow"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
     ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
     ["SEO SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],

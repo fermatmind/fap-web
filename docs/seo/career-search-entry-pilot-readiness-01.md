@@ -5,12 +5,12 @@
 `GO` for one bounded 10-slug / 20-URL career Search Channel canary package.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T06:15:11.998Z`.
+- Read-only observation: `2026-08-01T06:23:42.840Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
 - Complete gate passes: 29; rejected without gate reduction: 21.
 - Selected SEO authority sources: 18 dedicated endpoint responses and 2 explicitly recorded detail `seo_contract` fallbacks.
 - Target-set SHA-256: `452c677f702494383bba9995342312a3c0d68fd89386db6d1c708c153963668c`.
-- Artifact SHA-256: `1da786a678304201aeaa895d247999642d62222c8681a014a3a89f9b30a6096f`.
+- Artifact SHA-256: `21b3f3c962c959d9917069008cb670318aefafecc5f533b45c0aeb3a86579bb9`.
 - Rollback batch ID: `career-search-entry-pilot-452c677f70249438`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
@@ -46,6 +46,7 @@ Every selected URL passed all of the following in the same read-only run:
 - detail API HTTP 200 and current backend `search_entry_authority` eligibility;
 - current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; actual dedicated SEO-endpoint status is preserved separately, while an approved detail `seo_contract` fallback is explicitly labeled and counted rather than rewritten as an endpoint 200;
 - public page HTTP 200, exact self-canonical, and rendered `index, follow`;
+- no `X-Robots-Tag: noindex` response directive and exactly one non-conflicting `index,follow` robots meta;
 - backend sitemap-source membership for both locales;
 - approved, non-stale reviewer evidence with locale-aligned review timestamp;
 - backend-approved review projection in both the list and detail responses; the backend emits `approved` only while the current private six-target-per-slug content, SEO, visible-claims, and index-entry package still matches the immutable `approved_all` attestation;
@@ -54,7 +55,7 @@ Every selected URL passed all of the following in the same read-only run:
 - visible-content thickness measured from the public rendered HTML body above the fixed floor, independently of API authority payload size, so no thin/shell page is selected;
 - approved hero, definition, and FAQ authority markers present in the rendered body, with only marker hashes and counts frozen in the artifact;
 - rendered `FAQPage` and `BreadcrumbList`, with every FAQ entity a structured `Question` plus `acceptedAnswer` and the valid question count equal to visible backend authority;
-- no positive unsupported salary, income, hiring, employment, or career-success guarantee.
+- no positive unsupported salary, income, hiring, employment, or career-success guarantee, with negation scoped to the same clause as the matched guarantee.
 
 The private approved target/package SHAs intentionally remain backend-only. PR3 does not copy a live SHA into an "expected" field. It relies on the backend's fail-closed public projection of that private comparison, then freezes independent read-only observation SHAs for PR4 lineage. The generator treats absent, stale, mismatched, or malformed projection evidence as failure. If fewer than 10 candidates pass, it emits `HOLD`, returns no target set, and exits non-zero.
 

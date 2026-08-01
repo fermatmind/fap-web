@@ -105,7 +105,8 @@ function flattenJsonLd(value, output = []) {
 export function inspectHtml(html, expectedUrl) {
   const tags = String(html).match(/<(?:link|meta)\b[^>]*>/gi) || [];
   const canonicalTag = tags.find((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
-  const robotsTag = tags.find((tag) => attribute(tag, "name").toLowerCase() === "robots");
+  const robotsTags = tags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
+  const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
   const jsonLdObjects = [];
   for (const match of String(html).matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
     try {
@@ -127,8 +128,9 @@ export function inspectHtml(html, expectedUrl) {
   return {
     canonical,
     self_canonical: canonical === expectedUrl,
-    robots: normalizeRobots(attribute(robotsTag || "", "content")),
-    index_follow: normalizeRobots(attribute(robotsTag || "", "content")) === "index,follow",
+    robots: robotsValues.length === 1 ? robotsValues[0] : robotsValues.join("|"),
+    robots_values: robotsValues,
+    index_follow: robotsValues.length === 1 && robotsValues[0] === "index,follow",
     jsonld_types: types,
     faq_question_count: faqQuestionCount,
     faq_entities_valid: faqEntities.length > 0 && faqEntities.length === validFaqEntities.length,
@@ -147,10 +149,11 @@ function recursiveText(value) {
   return "";
 }
 
-function unsupportedGuaranteeMatches(value) {
+export function unsupportedGuaranteeMatches(value) {
   const sentences = String(value).split(/[.!?。！？\n]+/).map((part) => part.trim()).filter(Boolean);
   const negativeBoundary = /\b(?:not|no|never|does not|do not|cannot|isn't|is not|without|you need|if you need)\b|不构成|不能|不得|不会|并非|不是|暂无|不要|避免|单个招聘承诺/iu;
-  return sentences.filter((sentence) => !negativeBoundary.test(sentence) && GUARANTEE_PATTERNS.some((pattern) => pattern.test(sentence)));
+  return sentences.flatMap((sentence) => sentence.split(/[;；,:，：—–]+/).map((clause) => clause.trim()).filter(Boolean))
+    .filter((clause) => !negativeBoundary.test(clause) && GUARANTEE_PATTERNS.some((pattern) => pattern.test(clause)));
 }
 
 function detailStats(detail, locale) {
@@ -255,6 +258,7 @@ export function evaluateCandidateEvidence(candidate) {
     if (evidence.seo_authority_status !== 200) reasons.push(`${prefix}seo_authority_not_200`);
     if (evidence.page_status !== 200) reasons.push(`${prefix}page_not_200`);
     if (evidence.page_final_url !== evidence.url) reasons.push(`${prefix}page_final_url_mismatch`);
+    if (/\bnoindex\b/i.test(evidence.x_robots_tag)) reasons.push(`${prefix}x_robots_noindex`);
     if (!evidence.html.self_canonical) reasons.push(`${prefix}canonical_mismatch`);
     if (!evidence.html.index_follow) reasons.push(`${prefix}not_index_follow`);
     if (normalizeRobots(evidence.seo.robots_policy) !== "index,follow" || evidence.seo.index_eligible !== true) {
@@ -334,6 +338,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
         seo_source: evidence.seo_source,
         page_status: evidence.page_status,
         page_final_url: evidence.page_final_url,
+        x_robots_tag: evidence.x_robots_tag,
         canonical: evidence.html.canonical,
         robots: evidence.html.robots,
         sitemap_included: evidence.sitemap_included,
@@ -439,7 +444,7 @@ export async function fetchStatus(url, timeoutMs, json = true) {
   try {
     const response = await fetch(url, { signal: controller.signal, redirect: "manual", headers: { Accept: json ? "application/json" : "text/html" } });
     const payload = json ? await response.json().catch(() => null) : await response.text().catch(() => "");
-    return { status: response.status, payload, final_url: response.url };
+    return { status: response.status, payload, final_url: response.url, x_robots_tag: string(response.headers?.get?.("x-robots-tag")) };
   } catch (error) {
     return { status: null, payload: null, final_url: "", error: error instanceof Error ? error.message : String(error) };
   } finally {
@@ -491,6 +496,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     seo_source: Object.keys(endpointSeo).length > 0 ? "career_seo_endpoint" : "career_detail_seo_contract",
     page_status: pageResult.status,
     page_final_url: pageResult.final_url,
+    x_robots_tag: pageResult.x_robots_tag,
     sitemap_included: sitemapLocs.has(url),
     html: inspectHtml(pageResult.payload, url),
     seo: {
