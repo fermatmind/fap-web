@@ -55349,8 +55349,8 @@
     "base": "main",
     "branch": "codex/en-parity-w3-article-53-source-evidence-01",
     "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "b85dfd6e38bdd86b29661d0c5ca0e7a6f9d7e6f9",
     "pr_url": null,
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The continuous W3 Producer /goal explicitly authorizes this exact manifest and ledger entry."},
@@ -55371,8 +55371,9 @@
     "deploy_allowed": false,
     "history": [
       {"at": "2026-08-01T17:12:29Z", "status": "in_progress", "summary": "Started from origin/main 3d38fbaf946cfc832e8b407097cc971f7e20cf0f after confirming PR #1966 is merged, W3-ARTICLES is package_in_progress, W3-CAREER-GUIDES remains inventory_frozen, all permissions are false, and no matching open PR exists. Scope is Article:53 source evidence only; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."},
-      {"at": "2026-08-01T17:18:53Z", "status": "local_verified", "summary": "Recorded two primary official sources for the 2026 Cloud Consultation Week and Undergraduate Major Catalogue boundary, with source availability/fingerprint facts and a candidate-only Article:53 section replacement. The canonical 17-row package remains untouched; Article:53 identity and the 16 non-target reader-visible projections validate unchanged. Focused contract, ESLint, JSON/YAML, SHA, scope, and diff checks pass."}
+      {"at": "2026-08-01T17:18:53Z", "status": "local_verified", "summary": "Recorded two primary official sources for the 2026 Cloud Consultation Week and Undergraduate Major Catalogue boundary, with source availability/fingerprint facts and a candidate-only Article:53 section replacement. The canonical 17-row package remains untouched; Article:53 identity and the 16 non-target reader-visible projections validate unchanged. Focused contract, ESLint, JSON/YAML, SHA, scope, and diff checks pass."},
+      {"at": "2026-08-01T17:20:00Z", "status": "committed", "summary": "Committed the exact Article:53-only evidence scope as b85dfd6e38bdd86b29661d0c5ca0e7a6f9d7e6f9. The next ledger-only head will register the PR URL before exact-head review and required-check polling; canonical package, master, W9, Career Guides, CMS/import, runtime, release, search, and deploy remain untouched."}
     ],
-    "updated_at": "2026-08-01T17:18:53Z"
+    "updated_at": "2026-08-01T17:20:00Z"
   }
 }
