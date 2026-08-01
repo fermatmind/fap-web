@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_translation_cache.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
   "source_text_retained": false,
   "rows": [
     {
@@ -11,7 +11,7 @@
     {
       "key": "R:task:agreement",
       "field": "summary",
-      "value": "140Q splits practical interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:task:agreement",
@@ -41,7 +41,7 @@
     {
       "key": "R:task:tension",
       "field": "summary",
-      "value": "140Q separates practical interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates practical interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:task:tension",
@@ -71,7 +71,7 @@
     {
       "key": "R:task:unavailable",
       "field": "summary",
-      "value": "140Q Split the practical interests into the task layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the practical interests into the task layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:task:unavailable",
@@ -101,7 +101,7 @@
     {
       "key": "R:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split practical interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split practical interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:task:insufficient_quality",
@@ -131,7 +131,7 @@
     {
       "key": "R:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits practical interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:task:not_applicable_60q_only",
@@ -161,7 +161,7 @@
     {
       "key": "R:environment:agreement",
       "field": "summary",
-      "value": "140Q splits practical interests into environmental layer observation: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into environmental layer observation: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:environment:agreement",
@@ -191,7 +191,7 @@
     {
       "key": "R:environment:tension",
       "field": "summary",
-      "value": "140Q separates practical interests into the environmental level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates practical interests into the environmental level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:environment:tension",
@@ -221,7 +221,7 @@
     {
       "key": "R:environment:unavailable",
       "field": "summary",
-      "value": "140Q Split practical interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split practical interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:environment:unavailable",
@@ -251,7 +251,7 @@
     {
       "key": "R:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split the practical interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the practical interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:environment:insufficient_quality",
@@ -281,7 +281,7 @@
     {
       "key": "R:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates practical interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates practical interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:environment:not_applicable_60q_only",
@@ -311,7 +311,7 @@
     {
       "key": "R:role:agreement",
       "field": "summary",
-      "value": "140Q splits practical interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:role:agreement",
@@ -341,7 +341,7 @@
     {
       "key": "R:role:tension",
       "field": "summary",
-      "value": "140Q splits practical interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:role:tension",
@@ -371,7 +371,7 @@
     {
       "key": "R:role:unavailable",
       "field": "summary",
-      "value": "140Q Split practical interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split practical interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:role:unavailable",
@@ -401,7 +401,7 @@
     {
       "key": "R:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split the practical interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor does it promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the practical interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor does it promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:role:insufficient_quality",
@@ -431,7 +431,7 @@
     {
       "key": "R:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits practical interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:role:not_applicable_60q_only",
@@ -461,7 +461,7 @@
     {
       "key": "R:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q splits implementation interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits implementation interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:agreement",
@@ -491,7 +491,7 @@
     {
       "key": "R:commercial_state:tension",
       "field": "summary",
-      "value": "140Q separates practical interests into the usage status layer for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates practical interests into the usage status layer for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:tension",
@@ -521,7 +521,7 @@
     {
       "key": "R:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split the implementation-oriented interest into the use state layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the implementation-oriented interest into the use state layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:unavailable",
@@ -551,7 +551,7 @@
     {
       "key": "R:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q split the implementation-oriented interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q split the implementation-oriented interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:low_quality_hidden",
@@ -581,7 +581,7 @@
     {
       "key": "R:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q separates practical interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates practical interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:60Q_only_CTA",
@@ -611,7 +611,7 @@
     {
       "key": "R:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q splits practical interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits practical interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "R:commercial_state:140Q_completed_state",
@@ -641,7 +641,7 @@
     {
       "key": "I:task:agreement",
       "field": "summary",
-      "value": "140Q splits research interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:task:agreement",
@@ -671,7 +671,7 @@
     {
       "key": "I:task:tension",
       "field": "summary",
-      "value": "140Q splits research interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:task:tension",
@@ -701,7 +701,7 @@
     {
       "key": "I:task:unavailable",
       "field": "summary",
-      "value": "140Q Split research interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:task:unavailable",
@@ -731,7 +731,7 @@
     {
       "key": "I:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split research interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:task:insufficient_quality",
@@ -761,7 +761,7 @@
     {
       "key": "I:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits research interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:task:not_applicable_60q_only",
@@ -791,7 +791,7 @@
     {
       "key": "I:environment:agreement",
       "field": "summary",
-      "value": "140Q splits research interests into environmental observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into environmental observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:environment:agreement",
@@ -821,7 +821,7 @@
     {
       "key": "I:environment:tension",
       "field": "summary",
-      "value": "140Q splits research interests into environmental observations: If 140Q and 60Q have different focuses, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into environmental observations: If 140Q and 60Q have different focuses, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:environment:tension",
@@ -851,7 +851,7 @@
     {
       "key": "I:environment:unavailable",
       "field": "summary",
-      "value": "140Q Split research interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:environment:unavailable",
@@ -881,7 +881,7 @@
     {
       "key": "I:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split the research interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the research interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:environment:insufficient_quality",
@@ -911,7 +911,7 @@
     {
       "key": "I:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits research interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:environment:not_applicable_60q_only",
@@ -941,7 +941,7 @@
     {
       "key": "I:role:agreement",
       "field": "summary",
-      "value": "140Q splits research interests to the role responsibility level for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests to the role responsibility level for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:role:agreement",
@@ -971,7 +971,7 @@
     {
       "key": "I:role:tension",
       "field": "summary",
-      "value": "140Q splits research interests into the role responsibility level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into the role responsibility level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:role:tension",
@@ -1001,7 +1001,7 @@
     {
       "key": "I:role:unavailable",
       "field": "summary",
-      "value": "140Q Split research interests into the role responsibility level for observation: This level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests into the role responsibility level for observation: This level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:role:unavailable",
@@ -1031,7 +1031,7 @@
     {
       "key": "I:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split research interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:role:insufficient_quality",
@@ -1061,7 +1061,7 @@
     {
       "key": "I:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits research interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:role:not_applicable_60q_only",
@@ -1091,7 +1091,7 @@
     {
       "key": "I:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q splits research interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:agreement",
@@ -1121,7 +1121,7 @@
     {
       "key": "I:commercial_state:tension",
       "field": "summary",
-      "value": "140Q splits research interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits research interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:tension",
@@ -1151,7 +1151,7 @@
     {
       "key": "I:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split research interests to use status layer observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split research interests to use status layer observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:unavailable",
@@ -1181,7 +1181,7 @@
     {
       "key": "I:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q separates research interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates research interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:low_quality_hidden",
@@ -1211,7 +1211,7 @@
     {
       "key": "I:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q separates research interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates research interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:60Q_only_CTA",
@@ -1241,7 +1241,7 @@
     {
       "key": "I:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q separates research interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates research interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "I:commercial_state:140Q_completed_state",
@@ -1271,7 +1271,7 @@
     {
       "key": "A:task:agreement",
       "field": "summary",
-      "value": "140Q splits artistic interests into task-level observations: If 140Q and 60Q are in roughly the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits artistic interests into task-level observations: If 140Q and 60Q are in roughly the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:task:agreement",
@@ -1301,7 +1301,7 @@
     {
       "key": "A:task:tension",
       "field": "summary",
-      "value": "140Q separates artistic interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into task-level observations: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:task:tension",
@@ -1331,7 +1331,7 @@
     {
       "key": "A:task:unavailable",
       "field": "summary",
-      "value": "140Q Split artistic interests to the task level for observation: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests to the task level for observation: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:task:unavailable",
@@ -1361,7 +1361,7 @@
     {
       "key": "A:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split artistic interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:task:insufficient_quality",
@@ -1391,7 +1391,7 @@
     {
       "key": "A:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates artistic interests into the task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:task:not_applicable_60q_only",
@@ -1421,7 +1421,7 @@
     {
       "key": "A:environment:agreement",
       "field": "summary",
-      "value": "140Q separates artistic interests into environmental observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into environmental observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:environment:agreement",
@@ -1451,7 +1451,7 @@
     {
       "key": "A:environment:tension",
       "field": "summary",
-      "value": "140Q separates artistic interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:environment:tension",
@@ -1481,7 +1481,7 @@
     {
       "key": "A:environment:unavailable",
       "field": "summary",
-      "value": "140Q Split artistic interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:environment:unavailable",
@@ -1511,7 +1511,7 @@
     {
       "key": "A:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split artistic interests into the environmental level for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor does it promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into the environmental level for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor does it promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:environment:insufficient_quality",
@@ -1541,7 +1541,7 @@
     {
       "key": "A:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates artistic interests into the environmental layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the environmental layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:environment:not_applicable_60q_only",
@@ -1571,7 +1571,7 @@
     {
       "key": "A:role:agreement",
       "field": "summary",
-      "value": "140Q splits artistic interests into role responsibility layer for observation: If the direction of 140Q and 60Q is generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits artistic interests into role responsibility layer for observation: If the direction of 140Q and 60Q is generally consistent, this clue can be used as a more detailed observation entrance: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:role:agreement",
@@ -1601,7 +1601,7 @@
     {
       "key": "A:role:tension",
       "field": "summary",
-      "value": "140Q separates artistic interests into the role responsibility layer for observation: If 140Q and 60Q have different focuses, do not read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the role responsibility layer for observation: If 140Q and 60Q have different focuses, do not read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:role:tension",
@@ -1631,7 +1631,7 @@
     {
       "key": "A:role:unavailable",
       "field": "summary",
-      "value": "140Q Split artistic interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:role:unavailable",
@@ -1661,7 +1661,7 @@
     {
       "key": "A:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split artistic interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:role:insufficient_quality",
@@ -1691,7 +1691,7 @@
     {
       "key": "A:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates artistic interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:role:not_applicable_60q_only",
@@ -1721,7 +1721,7 @@
     {
       "key": "A:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q separates artistic interests into usage status layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into usage status layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:agreement",
@@ -1751,7 +1751,7 @@
     {
       "key": "A:commercial_state:tension",
       "field": "summary",
-      "value": "140Q separates artistic interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:tension",
@@ -1781,7 +1781,7 @@
     {
       "key": "A:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split artistic interests into the use status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split artistic interests into the use status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:unavailable",
@@ -1811,7 +1811,7 @@
     {
       "key": "A:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q separates artistic interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, leaving only the path of careful reading and retesting when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates artistic interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, leaving only the path of careful reading and retesting when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:low_quality_hidden",
@@ -1841,7 +1841,7 @@
     {
       "key": "A:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q split artistic interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q split artistic interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:60Q_only_CTA",
@@ -1871,7 +1871,7 @@
     {
       "key": "A:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q splits artistic interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits artistic interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "A:commercial_state:140Q_completed_state",
@@ -1901,7 +1901,7 @@
     {
       "key": "S:task:agreement",
       "field": "summary",
-      "value": "140Q separates social interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:task:agreement",
@@ -1931,7 +1931,7 @@
     {
       "key": "S:task:tension",
       "field": "summary",
-      "value": "140Q separates social interests into task-level observations: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into task-level observations: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:task:tension",
@@ -1961,7 +1961,7 @@
     {
       "key": "S:task:unavailable",
       "field": "summary",
-      "value": "140Q Split social interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:task:unavailable",
@@ -1991,7 +1991,7 @@
     {
       "key": "S:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split social interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:task:insufficient_quality",
@@ -2021,7 +2021,7 @@
     {
       "key": "S:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates social interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the task layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:task:not_applicable_60q_only",
@@ -2051,7 +2051,7 @@
     {
       "key": "S:environment:agreement",
       "field": "summary",
-      "value": "140Q separates social interests into the environmental layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the environmental layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:environment:agreement",
@@ -2081,7 +2081,7 @@
     {
       "key": "S:environment:tension",
       "field": "summary",
-      "value": "140Q separates social interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:environment:tension",
@@ -2111,7 +2111,7 @@
     {
       "key": "S:environment:unavailable",
       "field": "summary",
-      "value": "140Q Split social interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:environment:unavailable",
@@ -2141,7 +2141,7 @@
     {
       "key": "S:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split social interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:environment:insufficient_quality",
@@ -2171,7 +2171,7 @@
     {
       "key": "S:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates social interests into the environmental layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the environmental layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:environment:not_applicable_60q_only",
@@ -2201,7 +2201,7 @@
     {
       "key": "S:role:agreement",
       "field": "summary",
-      "value": "140Q splits social interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits social interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:role:agreement",
@@ -2231,7 +2231,7 @@
     {
       "key": "S:role:tension",
       "field": "summary",
-      "value": "140Q separates social interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:role:tension",
@@ -2261,7 +2261,7 @@
     {
       "key": "S:role:unavailable",
       "field": "summary",
-      "value": "140Q Split social interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:role:unavailable",
@@ -2291,7 +2291,7 @@
     {
       "key": "S:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split social interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:role:insufficient_quality",
@@ -2321,7 +2321,7 @@
     {
       "key": "S:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates social interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:role:not_applicable_60q_only",
@@ -2351,7 +2351,7 @@
     {
       "key": "S:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q separates social interests into the usage status layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the usage status layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:agreement",
@@ -2381,7 +2381,7 @@
     {
       "key": "S:commercial_state:tension",
       "field": "summary",
-      "value": "140Q separates social interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:tension",
@@ -2411,7 +2411,7 @@
     {
       "key": "S:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split social interests into the usage status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split social interests into the usage status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:unavailable",
@@ -2441,7 +2441,7 @@
     {
       "key": "S:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q disassembles social interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q disassembles social interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting when necessary is retained. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:low_quality_hidden",
@@ -2471,7 +2471,7 @@
     {
       "key": "S:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q separates social interests into usage status layer and observes: 60Q page can invite users to understand the three layers of tasks, environment and roles, but it cannot be written as upgrade, repair or replacement. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into usage status layer and observes: 60Q page can invite users to understand the three layers of tasks, environment and roles, but it cannot be written as upgrade, repair or replacement. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:60Q_only_CTA",
@@ -2501,7 +2501,7 @@
     {
       "key": "S:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q separates social interests into the usage status layer for observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates social interests into the usage status layer for observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "S:commercial_state:140Q_completed_state",
@@ -2531,7 +2531,7 @@
     {
       "key": "E:task:agreement",
       "field": "summary",
-      "value": "140Q splits enterprise-type interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits enterprise-type interests into task-level observations: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:task:agreement",
@@ -2561,7 +2561,7 @@
     {
       "key": "E:task:tension",
       "field": "summary",
-      "value": "140Q splits corporate interests into task-level observations: If the focus of 140Q and 60Q are different, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits corporate interests into task-level observations: If the focus of 140Q and 60Q are different, don’t read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:task:tension",
@@ -2591,7 +2591,7 @@
     {
       "key": "E:task:unavailable",
       "field": "summary",
-      "value": "140Q Split enterprise interests to the task level for observation: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise interests to the task level for observation: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:task:unavailable",
@@ -2621,7 +2621,7 @@
     {
       "key": "E:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split enterprise-type interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise-type interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:task:insufficient_quality",
@@ -2651,7 +2651,7 @@
     {
       "key": "E:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits enterprise-type interests into the task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits enterprise-type interests into the task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:task:not_applicable_60q_only",
@@ -2681,7 +2681,7 @@
     {
       "key": "E:environment:agreement",
       "field": "summary",
-      "value": "140Q separates enterprise-type interests to the environmental level for observation: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise-type interests to the environmental level for observation: If the directions of 140Q and 60Q are generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:environment:agreement",
@@ -2711,7 +2711,7 @@
     {
       "key": "E:environment:tension",
       "field": "summary",
-      "value": "140Q separates corporate interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates corporate interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:environment:tension",
@@ -2741,7 +2741,7 @@
     {
       "key": "E:environment:unavailable",
       "field": "summary",
-      "value": "140Q separates enterprise-type interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise-type interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:environment:unavailable",
@@ -2771,7 +2771,7 @@
     {
       "key": "E:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split enterprise-type interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise-type interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:environment:insufficient_quality",
@@ -2801,7 +2801,7 @@
     {
       "key": "E:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates enterprise interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:environment:not_applicable_60q_only",
@@ -2831,7 +2831,7 @@
     {
       "key": "E:role:agreement",
       "field": "summary",
-      "value": "140Q splits corporate interests to the role responsibility level for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits corporate interests to the role responsibility level for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:role:agreement",
@@ -2861,7 +2861,7 @@
     {
       "key": "E:role:tension",
       "field": "summary",
-      "value": "140Q splits corporate interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits corporate interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:role:tension",
@@ -2891,7 +2891,7 @@
     {
       "key": "E:role:unavailable",
       "field": "summary",
-      "value": "140Q Split enterprise-type interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise-type interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:role:unavailable",
@@ -2921,7 +2921,7 @@
     {
       "key": "E:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split enterprise interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:role:insufficient_quality",
@@ -2951,7 +2951,7 @@
     {
       "key": "E:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits corporate interests into the role responsibility layer for observation: On the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits corporate interests into the role responsibility layer for observation: On the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:role:not_applicable_60q_only",
@@ -2981,7 +2981,7 @@
     {
       "key": "E:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q splits enterprise-type interests into usage status layer observation: If the direction of 140Q and 60Q is generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue to do low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits enterprise-type interests into usage status layer observation: If the direction of 140Q and 60Q is generally consistent, this clue can be used as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue to do low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:agreement",
@@ -3011,7 +3011,7 @@
     {
       "key": "E:commercial_state:tension",
       "field": "summary",
-      "value": "140Q separates enterprise-type interests into the usage status layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise-type interests into the usage status layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right or wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:tension",
@@ -3041,7 +3041,7 @@
     {
       "key": "E:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split enterprise interests into the usage status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split enterprise interests into the usage status layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:unavailable",
@@ -3071,7 +3071,7 @@
     {
       "key": "E:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q separates enterprise-type interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path for careful reading and retesting is retained when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise-type interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path for careful reading and retesting is retained when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:low_quality_hidden",
@@ -3101,7 +3101,7 @@
     {
       "key": "E:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q separates enterprise-type interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrade, repair, or replacement. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates enterprise-type interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrade, repair, or replacement. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:60Q_only_CTA",
@@ -3131,7 +3131,7 @@
     {
       "key": "E:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q splits enterprise-type interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits enterprise-type interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "E:commercial_state:140Q_completed_state",
@@ -3161,7 +3161,7 @@
     {
       "key": "C:task:agreement",
       "field": "summary",
-      "value": "140Q splits general interests into task-level observations: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits general interests into task-level observations: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:task:agreement",
@@ -3191,7 +3191,7 @@
     {
       "key": "C:task:tension",
       "field": "summary",
-      "value": "140Q breaks general interests down to the task level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q breaks general interests down to the task level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:task:tension",
@@ -3221,7 +3221,7 @@
     {
       "key": "C:task:unavailable",
       "field": "summary",
-      "value": "140Q Split general interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split general interests into task-level observations: this level of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:task:unavailable",
@@ -3251,7 +3251,7 @@
     {
       "key": "C:task:insufficient_quality",
       "field": "summary",
-      "value": "140Q Divide general interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Divide general interests into task-level observations: If the quality of this answer needs to be cautious, reduce the reading intensity first; this level of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:task:insufficient_quality",
@@ -3281,7 +3281,7 @@
     {
       "key": "C:task:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q splits general interests into task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits general interests into task layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on whether you are willing to enter the specific action itself, and does not infer ability, identity, or the quality of the results. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:task:not_applicable_60q_only",
@@ -3311,7 +3311,7 @@
     {
       "key": "C:environment:agreement",
       "field": "summary",
-      "value": "140Q separates general interests into the environment layer for observation: If the directions of 140Q and 60Q are generally consistent, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into the environment layer for observation: If the directions of 140Q and 60Q are generally consistent, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:environment:agreement",
@@ -3341,7 +3341,7 @@
     {
       "key": "C:environment:tension",
       "field": "summary",
-      "value": "140Q separates general interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into the environmental level for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:environment:tension",
@@ -3371,7 +3371,7 @@
     {
       "key": "C:environment:unavailable",
       "field": "summary",
-      "value": "140Q Split general interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split general interests into the environment layer for observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:environment:unavailable",
@@ -3401,7 +3401,7 @@
     {
       "key": "C:environment:insufficient_quality",
       "field": "summary",
-      "value": "140Q Divide general interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Divide general interests into the environmental layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:environment:insufficient_quality",
@@ -3431,7 +3431,7 @@
     {
       "key": "C:environment:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates regular interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates regular interests into the environment layer for observation: on the 60Q page, this layer only prompts what situational angles 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This layer only looks at whether daily conditions will amplify or consume interest, and does not draw conclusions about environmental preferences. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:environment:not_applicable_60q_only",
@@ -3461,7 +3461,7 @@
     {
       "key": "C:role:agreement",
       "field": "summary",
-      "value": "140Q splits general interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits general interests into the role responsibility layer for observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:role:agreement",
@@ -3491,7 +3491,7 @@
     {
       "key": "C:role:tension",
       "field": "summary",
-      "value": "140Q separates general interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into the role responsibility layer for observation: If the focus of 140Q and 60Q are different, do not read it as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:role:tension",
@@ -3521,7 +3521,7 @@
     {
       "key": "C:role:unavailable",
       "field": "summary",
-      "value": "140Q Split general interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split general interests into the role responsibility layer for observation: This layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:role:unavailable",
@@ -3551,7 +3551,7 @@
     {
       "key": "C:role:insufficient_quality",
       "field": "summary",
-      "value": "140Q Split the general interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split the general interests into the role responsibility layer for observation: If the quality of this answer needs to be cautious, reduce the reading intensity first; this layer of content is not used to strengthen the conclusion, nor to promote continued explanation. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:role:insufficient_quality",
@@ -3581,7 +3581,7 @@
     {
       "key": "C:role:not_applicable_60q_only",
       "field": "summary",
-      "value": "140Q separates regular interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates regular interests into the role responsibility layer for observation: on the 60Q page, this layer only prompts what situational perspectives 140Q will provide; 60Q itself is already a complete snapshot of the interest structure. This level only depends on what type of responsibilities you are willing to take on, and responsibility preferences are not written as job judgments. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:role:not_applicable_60q_only",
@@ -3611,7 +3611,7 @@
     {
       "key": "C:commercial_state:agreement",
       "field": "summary",
-      "value": "140Q splits general interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits general interests into usage status layer observation: If 140Q and 60Q are generally in the same direction, you can use this clue as a more detailed observation entry: first see how daily tasks appear, and then decide whether to continue doing low-risk verification. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:agreement",
@@ -3641,7 +3641,7 @@
     {
       "key": "C:commercial_state:tension",
       "field": "summary",
-      "value": "140Q separates general interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into usage status level for observation: If 140Q and 60Q have different focuses, don’t read them as who is right and who is wrong; it is more suitable to record task attraction, environmental consumption and responsibility willingness separately. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:tension",
@@ -3671,7 +3671,7 @@
     {
       "key": "C:commercial_state:unavailable",
       "field": "summary",
-      "value": "140Q Split general interests into state layer observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q Split general interests into state layer observation: this layer of details is not currently displayed. The page only retains boundary descriptions to avoid filling in strong explanations when there is a lack of situational answers. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:unavailable",
@@ -3701,7 +3701,7 @@
     {
       "key": "C:commercial_state:low_quality_hidden",
       "field": "summary",
-      "value": "140Q separates general interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting is retained when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into the usage status layer for observation: the content of the three cards is hidden in the low-quality status, and only the path of careful reading and retesting is retained when necessary. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:low_quality_hidden",
@@ -3731,7 +3731,7 @@
     {
       "key": "C:commercial_state:60Q_only_CTA",
       "field": "summary",
-      "value": "140Q separates general interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q separates general interests into usage status layer observation: 60Q page can invite users to understand the three layers of tasks, environment, and roles, but it cannot be written as upgrades, repairs, or replacements. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:60Q_only_CTA",
@@ -3761,7 +3761,7 @@
     {
       "key": "C:commercial_state:140Q_completed_state",
       "field": "summary",
-      "value": "140Q splits general interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It only makes the daily work clues more concrete, it does not rewrite, it does not cover the 60Q, and it does not compare the original scores."
+      "value": "140Q splits general interests into usage status layer observation: after completing 140Q, it only summarizes how situational clues appear; it does not compare the raw scores of different forms, nor does it output career conclusions. This layer only explains when to show or hide 140Q situational content and does not prompt longer forms. It adds context to day-to-day work patterns without replacing the 60Q result or comparing raw scores."
     },
     {
       "key": "C:commercial_state:140Q_completed_state",

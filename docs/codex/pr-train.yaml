@@ -29378,3 +29378,43 @@ prs:
     deploy_allowed: false
     content_authority: primary official source evidence plus a producer-only candidate patch; backend CMS Article authority unchanged
     repository_rule_impact: immutable candidate evidence only; no CMS authority transfer, runtime behavior, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01
+    repo: fap-web
+    branch: codex/en-parity-w4-riasec-140q-naturalness-repair-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: w4_riasec_140q_g06_naturalness_repair
+    risk_level: L2_content_governance
+    status: in_progress
+    title: "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01 repair 126 G06 140Q summaries"
+    scope:
+      - Replace only the W9-blocked sentence in the summaries of the exact 126 W4-G06 contextual assets and their translation-cache summaries.
+      - Preserve all 126 identities, all non-summary reader fields, all seven W4-G07 rows, source authority, translation-map identities, and all-false permissions.
+      - Rebuild the segment package ID, repair evidence, payload SHA values, and aggregate SHA deterministically from the existing translation cache.
+    allowed_paths:
+      - generated/en-content-parity/W4-riasec/segments/140q-context-structural/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, runtime, API, backend authority, CMS, database, importer, publication, SEO, sitemap, llms, indexability, Search Channel, deployment, or private-result boundary.
+      - Alter a G07 reader field, add a W9 PASS claim, reuse the failed 944ddac package SHA, or grant any write or release permission.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - JSON/JSONL/YAML parse; exactly 126 target G06 identities; old sentence count 0; new sentence count 126 in assets and translation cache; G07 and all non-summary asset fields unchanged; payload SHA and two-run aggregate SHA validation
+      - pnpm lint .
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer candidate package only; fap-api RIASEC authority unchanged
+    repository_rule_impact: repairs producer-only English candidate evidence; no authority transfer, runtime availability, import, publication, discoverability, or deployment change

@@ -1,37 +1,42 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_package_manifest.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
   "status": "candidate_only",
   "row_count": 133,
   "contextual_row_count": 126,
   "structural_row_count": 7,
+  "repair_evidence": {
+    "prior_frozen_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "affected_group": "W4-G06",
+    "affected_asset_count": 126
+  },
   "payloads": [
     {
       "path": "assets.jsonl",
-      "sha256": "871044425e12db7d0b22eba8d7c7bb0b98efc7c4997f55a870bb5e8a1a849e97"
+      "sha256": "865c871b02b768038344def3aee9185947b95b43a9c2eabc42849a6fa4d119b7"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "ac6c53ca6799019b51f6e4edbbb0215218cb1ba704a2042192be52a549c9e843"
+      "sha256": "e363e68afa1a13b94fcba4e8ab0b1011efe9fbc3a3053f2df7127b6215649d27"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "0d1b0f454956e6cac657169a9051dcad6793d789bba3ee962b81f85cf5dca3d3"
+      "sha256": "f79df9aeeb52451c041e613d745fa182a29b8c20e3a59c5ed5b2cd26c92e0561"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "e86a22f831cecd30c7f8f1c49bbbe10b8bc2cbed3a9d2f62ee3c3b340f8afbd9"
+      "sha256": "f0f410215a7f658561a2ae46b35c1369c9509d982b89a5c8a23e37d226c91747"
     },
     {
       "path": "translation_cache.json",
-      "sha256": "a3c0576798c698ecbd26f3ac97d51b3140826aeae6155bff0d8af4ce0726c03c"
+      "sha256": "cc17e9cae8610377f2298f91f0c2c0c0bd42608bda8e8c3c0d7b88eb4d633d4f"
     },
     {
       "path": "translation_map.json",
-      "sha256": "c8849a5e2870f87f0df6ecfd9bdb0433718ff6806be0c6911777b70f17ef793f"
+      "sha256": "4de8ae5d9ae298323ccd3f92c9426e0ff16b1dda66e0d64226f348c0391a453d"
     }
   ],
-  "aggregate_sha256": "114097ee2f09f8fb2cdebdf100923964d31ba2c8704794e6ff708340657f08ff",
+  "aggregate_sha256": "ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2",
   "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
   "permissions": {
     "cms_write_authorized": false,

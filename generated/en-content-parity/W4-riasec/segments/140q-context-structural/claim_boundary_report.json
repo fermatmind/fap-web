@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_claim_boundary_report.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01",
   "status": "candidate_only",
   "boundaries": [
     "140q_contextual_not_more_accurate",
