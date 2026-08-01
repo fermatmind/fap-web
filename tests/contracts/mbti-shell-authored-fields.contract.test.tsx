@@ -106,6 +106,46 @@ describe("MBTI shell authored fields contract", () => {
     window.sessionStorage.clear();
   });
 
+  it("renders the backend-canonical FAQ payload through the active result reader", async () => {
+    const reportData = createReportFixture();
+    const projection = asRecord(reportData.mbti_public_projection_v1);
+    const sections = Array.isArray(projection?.sections) ? projection.sections : [];
+
+    sections.push({
+      key: "faq",
+      render: "faq",
+      title: "Frequently asked questions",
+      payload: {
+        items: [
+          {
+            key: "context-boundary",
+            question: "Does this result define me permanently?",
+            answer: "No. Use it as a structured reflection prompt that can change with context and experience.",
+          },
+          {
+            key: "diagnosis-boundary",
+            question: "Is this a medical diagnosis?",
+            answer: "No. This personality result is not a medical or clinical assessment.",
+          },
+          {
+            key: "incomplete-item",
+            question: "This incomplete item must stay hidden.",
+          },
+        ],
+      },
+    });
+
+    render(<RichResultReport locale="en" reportData={reportData} />);
+
+    const faq = await screen.findByTestId("mbti-result-faq");
+    expect(faq).toHaveAttribute("data-section-key", "faq");
+    expect(faq).toHaveTextContent("Frequently asked questions");
+    expect(screen.getAllByTestId("mbti-result-faq-item")).toHaveLength(2);
+    expect(faq).toHaveTextContent("Does this result define me permanently?");
+    expect(faq).toHaveTextContent("No. This personality result is not a medical or clinical assessment.");
+    expect(faq).not.toHaveTextContent("This incomplete item must stay hidden.");
+  });
+
   it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", () => {
     const reportData = createReportFixture();
     reportData.cta = createCustomCta({

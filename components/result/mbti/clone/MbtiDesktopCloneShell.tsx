@@ -107,6 +107,66 @@ function normalizeText(...values: unknown[]) {
   return "";
 }
 
+function asRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function renderCanonicalFaq(projectionViewModel: MbtiResultProjectionViewModel | null | undefined) {
+  const section = projectionViewModel?.sections.find(
+    (candidate) => candidate.key === "faq" && candidate.render === "faq"
+  );
+  const payload = asRecord(section?.payload);
+  const rawItems = Array.isArray(payload?.items) ? payload.items : [];
+  const seenKeys = new Set<string>();
+  const items = rawItems
+    .map((item, index) => {
+      const record = asRecord(item);
+      const question = normalizeText(record?.question);
+      const answer = normalizeText(record?.answer);
+      const key = normalizeText(record?.key, question, `faq-${index + 1}`);
+
+      return { key, question, answer };
+    })
+    .filter((item) => {
+      if (!item.question || !item.answer || seenKeys.has(item.key)) {
+        return false;
+      }
+
+      seenKeys.add(item.key);
+      return true;
+    });
+
+  if (!section || items.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      data-testid="mbti-result-faq"
+      data-section-key="faq"
+      className="space-y-5 rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
+    >
+      <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{section.title}</h2>
+      <div className="space-y-3">
+        {items.map((item) => (
+          <article
+            key={item.key}
+            data-testid="mbti-result-faq-item"
+            className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+          >
+            <h3 className="m-0 text-base font-semibold text-slate-950">{item.question}</h3>
+            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function resolvePrimaryOffer(offers: ResolvedOffer[]) {
   return offers.find((offer) => offer.moduleCodes.includes("core_full") || offer.key.toUpperCase().includes("REPORT_FULL"))
     ?? offers[0]
@@ -864,6 +924,7 @@ export function MbtiDesktopCloneShell({
   const shouldRenderRail = !snapshotMode;
   const shouldRenderTrailingNodes = !snapshotMode;
   const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
+  const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel);
   const deepContentPlaceholderLabel = cloneLocale === "zh"
     ? "正在加载详细章节..."
     : "Loading detailed chapters...";
@@ -1024,6 +1085,8 @@ export function MbtiDesktopCloneShell({
           }),
         ]}
       />
+
+      {canonicalFaqNode}
 
       {!snapshotMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
