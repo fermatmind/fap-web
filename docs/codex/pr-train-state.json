@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T08:10:54Z",
+  "updated_at": "2026-08-01T08:16:08Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52566,7 +52566,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "3c525f03c96fadd1edd54ce8a557129d06de8437",
+    "commit_sha": "560b07326c5e7bf232838dc74b6d33e8563dceea",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1927",
     "checks": {
       "dependency": {
@@ -52579,7 +52579,7 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "After merging W1 CONTROL PR #1928, validate-en-content-parity-control accepts the candidate rebound to current master SHA c42b7464b97245721c2b1faaaec0e315f2fa664714dfaba5d558971a2333fa9f; immutable package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 is unchanged."
+        "evidence": "After merging W1 CONTROL qa_pass PR #1930, the candidate was rebound to current master SHA b834de1c61490b860e876f539b41e690bf3a3bd7d7a2129045648fc40c7561af and strict validation passes. Immutable package SHA remains 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89."
       },
       "focused_contract": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Fresh required checks are pending after commit-lineage correction and concurrent W1 W9 evidence merge."
+        "evidence": "Fresh required checks are pending for the latest-master candidate rebind and exact commit binding."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "The commit-lineage review finding is repaired by binding to the exact commit that contains the c42b7464 candidate-base rebind and current rework-07 ledger; exact-head review will repeat after fresh checks."
+        "evidence": "commit_sha now targets dedicated candidate-rebind commit 560b07326c5e7bf232838dc74b6d33e8563dceea; exact-head review will repeat after checks."
       }
     },
     "failure_reason": null,
@@ -52855,9 +52855,14 @@
         "at": "2026-08-01T08:10:54Z",
         "status": "github_checks_pending",
         "summary": "Exact-head review correctly found commit_sha still pointed to the pre-rebind implementation commit. Rebound commit_sha to 3c525f03c96fadd1edd54ce8a557129d06de8437, which contains the validated c42b7464 candidate-base binding and rework-07 ledger state. Also merged unrelated W1 W9 evidence PR #1929 from origin/main; W3 package SHA and reader-content scope remain unchanged. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T08:16:08Z",
+        "status": "github_checks_pending",
+        "summary": "Merged W1 CONTROL qa_pass PR #1930, committed the pure W3 candidate-base rebind as 560b07326c5e7bf232838dc74b6d33e8563dceea against master SHA b834de1c61490b860e876f539b41e690bf3a3bd7d7a2129045648fc40c7561af, and rebound ledger commit_sha to that exact gate-metadata commit. Article package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 is unchanged; fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T08:10:54Z"
+    "updated_at": "2026-08-01T08:16:08Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
