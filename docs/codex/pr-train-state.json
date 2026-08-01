@@ -55804,8 +55804,8 @@
     "base": "main",
     "branch": "codex/en-parity-control-automation-v2-01",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "951e3631f7c37c34531721c93913d86e613a2300",
+    "status": "ready_to_merge",
+    "commit_sha": "b2ec2610e66717e7f6a0978463550fc51c20f8fe",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1984",
     "checks": {
       "dependency": {
@@ -55817,8 +55817,8 @@
         "evidence": "After rebasing onto origin/main 363fbb927c61122ba47e32a1456cbb210950302d, deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 84/84; focused ESLint, typecheck, JSON/YAML parse, exact changed-file scope, and diff checks pass. V2 preserves the latest W3 Career Guides package_frozen state while enforcing complete registered W9 cohorts, reviewed-source ancestry, complete authenticated receipt chains, and the pinned release-policy SHA."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "The previous exact head passed all required checks, then exact-head review found three additional gate defects. The scoped fix is locally verified and requires fresh checks."
+        "status": "pass",
+        "evidence": "PR #1984 exact head b2ec2610e66717e7f6a0978463550fc51c20f8fe passed all 11 applicable GitHub checks: build, four contract shards and aggregate, Big Five/Enneagram freezes, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts. GitHub reports no unresolved review threads."
       }
     },
     "failure_reason": null,
@@ -55828,7 +55828,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -55863,9 +55863,14 @@
         "at": "2026-08-01T23:00:28Z",
         "status": "review_fixes_local_verified",
         "summary": "A fresh exact-head review found that promotion counts were self-declared, dry-run evidence was hash-only, and lane manifests could override registry counts. The scoped repair binds receipt counts to the registered cohort, requires a complete zero-mutation fap-api preflight receipt for dry_run_ready, and forbids lane-manifest count overrides. Both validators, 84/84 focused contracts, ESLint, typecheck, JSON, and diff checks pass; fresh GitHub checks are pending."
+      },
+      {
+        "at": "2026-08-01T23:26:35Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1984 exact head b2ec2610e66717e7f6a0978463550fc51c20f8fe passed all 11 required checks with zero unresolved threads. Final review remediation now verifies physical package-freeze payloads, separates fap-web Producer and fap-api executor commits, preserves monotonic receipt state, supports migrated V1 QA lineage, makes squash ancestry origin-only, authenticates first-registration preflight bytes, and uses the merged base as durable provenance after artifact expiry."
       }
     ],
-    "updated_at": "2026-08-01T23:00:28Z"
+    "updated_at": "2026-08-01T23:26:35Z"
   },
   "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01": {
     "id": "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01",
