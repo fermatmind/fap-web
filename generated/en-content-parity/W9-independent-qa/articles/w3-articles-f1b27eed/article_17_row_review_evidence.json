@@ -12,7 +12,7 @@
     "ENPARITY-W3-ARTICLES"
   ],
   "reviewed_row_count": 17,
-  "verdict": "PASS",
+  "verdict": "BLOCKED",
   "coverage": {
     "titles_reviewed": 17,
     "excerpts_reviewed": 17,
@@ -27,7 +27,7 @@
     "coverage_result": "PASS"
   },
   "required_checks": {
-    "language_naturalness": "PASS",
+    "language_naturalness": "BLOCKED",
     "chinese_leakage": "PASS",
     "claim_boundary": "PASS",
     "asset_duplication": "PASS",
@@ -93,7 +93,7 @@
     "result": "PASS"
   },
   "check_evidence": {
-    "language_naturalness": "PASS because fresh review covered all 17 titles, excerpts, and complete bodies. The only prior blocker is repaired in W3-ARTICLE-59 as `Fields related to AI often require greater tolerance ...`; the other 16 rows are reader-content-identical to the prior frozen snapshot and independently revalidated.",
+    "language_naturalness": "BLOCKED because exact-head review of W3-ARTICLE-59 found three remaining reader-visible translation errors: `After hearing the real pressure, you are still willing to continue to understand`, the table header `Put conditions`, and `How to decide on retain, pending verification, or temporarily exclude?`. The other 16 rows pass language naturalness, and Article 59 passes its other seven row-level checks.",
     "chinese_leakage": "PASS because all 17 candidate titles, excerpts, and complete bodies contain zero Han characters.",
     "claim_boundary": "PASS because all 17 rows retain non-diagnostic, non-screening, non-admissions-prediction, and non-guarantee boundaries; Article:7 describes task performance, Article:51 preserves the exact 144-question field, Article:53 uses correct past tense, and Article:58 makes reassignment outcomes conditional on official rules.",
     "asset_duplication": "PASS because all 17 Article/revision identities are unique, the exact 86 source table groups and 610 Markdown table lines are represented, localized internal-route sets are preserved with documented malformed-source corrections, and the explicit Media Library omission policy is applied consistently without local duplication.",
@@ -111,7 +111,7 @@
     }
   ],
   "blocking_summary": {
-    "blocked_row_count": 0,
+    "blocked_row_count": 1,
     "passing_rows": [
       "W3-ARTICLE-01",
       "W3-ARTICLE-02",
@@ -128,16 +128,19 @@
       "W3-ARTICLE-52",
       "W3-ARTICLE-53",
       "W3-ARTICLE-55",
-      "W3-ARTICLE-58",
+      "W3-ARTICLE-58"
+    ],
+    "blocked_rows": [
       "W3-ARTICLE-59"
     ],
-    "blocked_rows": [],
-    "blocked_checks": {},
-    "qa_pass_authorized": true,
+    "blocked_checks": {
+      "language_naturalness": 1
+    },
+    "qa_pass_authorized": false,
     "producer_payload_modified": false,
     "control_master_modified": false,
     "career_guide_scope_modified": false,
-    "required_next_action": "A separate CONTROL-only PR may accept this exact-SHA W9 PASS report and move only W3-ARTICLES from package_frozen to qa_pass. CMS, import, publication, indexability, search, and deploy permissions remain false."
+    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs Article 59 and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
   },
   "row_reviews": [
     {
@@ -433,9 +436,9 @@
       "source_identity": "Article:59@revision:79",
       "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -444,7 +447,7 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: fresh title, excerpt, and complete-body review confirms the subject-verb repair `Fields related to AI often require greater tolerance for mathematics, statistics, modeling, and algorithms`. All 25 headings, 11 source matrices (88 Markdown table lines), six localized routes, exact Article:59@revision:79 identity, source equivalence, links, leakage, media, page/API alignment, and non-predictive boundaries pass."
+      "evidence": "BLOCKED only on language naturalness: the complete body still contains `After hearing the real pressure, you are still willing to continue to understand`, the table header `Put conditions`, and `How to decide on retain, pending verification, or temporarily exclude?`. All 25 headings, 11 source matrices (88 Markdown table lines), six localized routes, exact Article:59@revision:79 identity, source equivalence, links, leakage, media, page/API alignment, and non-predictive boundaries otherwise pass."
     }
   ],
   "permissions": {

@@ -9,21 +9,21 @@
   "base_manifest_sha256": "b8ab9189dcd9d794258ae8184886e8a3346d58385e05e9060590ee6512f3bee6",
   "sha256_manifest_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-f1b27eed/frozen_package/sha256_manifest.json",
   "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
-  "proposed_status": "qa_pass",
+  "proposed_status": "blocked",
   "gate_evidence": {
-    "gate": "qa_pass",
+    "gate": "blocked",
     "report_path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-f1b27eed/independent_qa_report.json",
-    "report_sha256": "b5b0797c3902fe43648c37f17277716cb6366a05839d619cdf9a337b8f829ed4",
+    "report_sha256": "0633d8253240e61937ebbedb29a64868a6192310603fe6a69038e592655dcb4b",
     "report_in_package": false,
     "owner_lane_id": "W9",
-    "verdict": "PASS",
+    "verdict": "BLOCKED",
     "asset_ids": [
       "ENPARITY-W3-ARTICLES"
     ],
     "row_count": 17,
     "row_evidence": {
       "path": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-f1b27eed/article_17_row_review_evidence.json",
-      "sha256": "941f145fc834d7028cce9ae974a09cc8d939f0ac6c5f65bdd2b66575f7177677"
+      "sha256": "aaecc12006d68f77967b85c31d2af067f36520693357c507b510885c8765d60e"
     }
   },
   "asset_updates": [

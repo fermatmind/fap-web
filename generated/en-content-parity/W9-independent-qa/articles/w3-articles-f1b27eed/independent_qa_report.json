@@ -8,13 +8,13 @@
   "producer_lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
   "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
-  "verdict": "PASS",
+  "verdict": "BLOCKED",
   "reviewed_asset_ids": [
     "ENPARITY-W3-ARTICLES"
   ],
   "reviewed_row_count": 17,
   "checks": {
-    "language_naturalness": "PASS",
+    "language_naturalness": "BLOCKED",
     "chinese_leakage": "PASS",
     "claim_boundary": "PASS",
     "asset_duplication": "PASS",
