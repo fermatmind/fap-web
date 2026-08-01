@@ -371,3 +371,14 @@
 - whether required checks are affected: yes; each master advance requires a fresh exact-head validation and CI cycle for this CONTROL PR.
 - recommended follow-up: avoid concurrent merges of CONTROL PRs that modify the unique master until W2 CONTROL A completes. If another master update merges, rebase only the W2 CONTROL branch, revalidate, and rerun checks; do not change frozen W2 counts or advance its state early.
 - observed at: 2026-08-01T06:11:50Z
+
+## W2 Package-in-Progress Candidate Invalidated by External W1 CONTROL Merge
+
+- repo: fermatmind/fap-web
+- PR id / branch: EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01 / codex/en-parity-w2-big5-package-in-progress-rebase-02
+- blocker type: external CONTROL master update invalidated producer candidate
+- evidence: W2 Producer B PR #1907 merged as `54bd6ccfe5f374530ce7059df02112bfd65548ad` at 2026-08-01T06:46:44Z with candidate base SHA `b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3`. External W1 CONTROL PR #1910 merged two seconds later as `d1304713cde4142b2d438c387f1a865dec27903b`, changing the control-master SHA-256 to `04b53efe242496bd9cbd388f1ac79236bc9e9c77d8e21586b9b92837496e5a10`; the candidate validator then rejected the stale binding.
+- why not current PR scope: #1910 was an independent W1 CONTROL transition. This repair changes only W2's candidate base binding; it does not change the W2 package payload, eight-file package SHA, master data, W2 state, permissions, CMS, runtime, SEO, or deploy behavior.
+- whether required checks are affected: yes; CONTROL B cannot accept a stale candidate, so current-master candidate validation and the repair PR's required checks must pass before CONTROL B begins.
+- recommended follow-up: merge this minimal candidate-rebase repair, rerun candidate validation on the exact current master, then execute only EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01. Avoid concurrent CONTROL master merges until the W2 acceptance completes.
+- observed at: 2026-08-01T14:48:00+08:00
