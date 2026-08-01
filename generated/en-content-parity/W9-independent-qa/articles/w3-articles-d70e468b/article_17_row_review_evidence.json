@@ -1,0 +1,408 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "review_kind": "fresh_independent_full_target_w9",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-10-2026-08-01",
+  "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "reviewed_row_count": 17,
+  "verdict": "PASS",
+  "coverage": {
+    "titles_reviewed": 17,
+    "excerpts_reviewed": 17,
+    "full_bodies_reviewed": 17,
+    "registered_rows_covered": 17,
+    "page_api_alignment_status": "NOT_APPLICABLE",
+    "coverage_result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "PASS",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "NOT_APPLICABLE"
+  },
+  "package_integrity": {
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "dfdbe5ed183af2f197c0947cd9f8103a767daf11c86543f3993b89e6233bdc74",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "53f5f1c94fc9256a686523e533861538774c4a4d1d40c160b63fff9fad7a1da1",
+      "source_ledger.json": "bf3715005ca1e6d4b9062e51bf96528a0440acb49d455b88198a2ae028b9ee95",
+      "claim_boundary_report.json": "6425e2d10f558bdb2ca55340b2cbf6fc82c982cf12ec09cfbfd48f2e759ef7d4",
+      "editorial_review.json": "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+      "dry_run_readiness.json": "fbc5937cf5339f896e6f8072068235aa3c0e5d6c38fa3d512fd53d92baf03f0b",
+      "handoff.md": "838d825dfb60766ce785d3e9d3ade8dd9b8c2a638b9e3bcdc0feab4bbb88f73a"
+    },
+    "aggregate_package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+    "frozen_immutable_payloads_byte_identical_to_producer_package": true,
+    "producer_package_modified": false,
+    "control_master_modified": false,
+    "career_guides_modified": false,
+    "permissions_all_false": true
+  },
+  "check_evidence": {
+    "language_naturalness": "PASS: 17 full English reader assets were reviewed for natural, bounded wording.",
+    "chinese_leakage": "PASS: no Han characters appear in candidate reader fields.",
+    "claim_boundary": "PASS: all personality, admissions, employment, health, and outcome claims remain bounded; Article:53 is supported by its rework-10 official evidence.",
+    "asset_duplication": "PASS: all 17 Article/revision identities are unique and the eight immutable payload hashes match.",
+    "field_leakage": "PASS: no producer/control workflow language appears in reader fields.",
+    "page_api_alignment": "NOT_APPLICABLE: these records remain candidate-only, not imported, published, or live-verified."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "stable_asset_identity": "Article:1",
+      "slug": "big-five-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "stable_asset_identity": "Article:2",
+      "slug": "big-five-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "stable_asset_identity": "Article:3",
+      "slug": "big-five-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "stable_asset_identity": "Article:4",
+      "slug": "eq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "stable_asset_identity": "Article:5",
+      "slug": "iq-test-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "stable_asset_identity": "Article:6",
+      "slug": "iq-test-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "stable_asset_identity": "Article:7",
+      "slug": "iq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "stable_asset_identity": "Article:8",
+      "slug": "mbti-basics",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "stable_asset_identity": "Article:9",
+      "slug": "mbti-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "stable_asset_identity": "Article:10",
+      "slug": "mbti-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "stable_asset_identity": "Article:50",
+      "slug": "iq-test-score-and-limits-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "stable_asset_identity": "Article:51",
+      "slug": "enneagram-personality-test-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "stable_asset_identity": "Article:52",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "stable_asset_identity": "Article:53",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full reader-content review confirms the rework-10 official-source disposition is bound to the refrozen Article:53 copy; all admissions, personality, and outcome claims remain explicitly bounded."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "stable_asset_identity": "Article:55",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "stable_asset_identity": "Article:58",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "stable_asset_identity": "Article:59",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "Full title, excerpt, body, identity, claim-boundary, link, Markdown, media-omission, and candidate-only review passed."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

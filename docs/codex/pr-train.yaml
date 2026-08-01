@@ -29924,3 +29924,44 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs; CONTROL accepts only immutable producer evidence
     repository_rule_impact: CONTROL-only package-freeze acceptance; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01
+    repo: fap-web
+    branch: codex/en-parity-w9-w3-articles-independent-qa-refrozen-10-01
+    base: main
+    title: "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01: independently review the refrozen 17 Articles"
+    depends_on: [EN-PARITY-CONTROL-W3-ARTICLES-PACKAGE-REFROZEN-10-01]
+    mode: execute
+    train_scope: w9_w3_articles_refrozen_10_independent_qa
+    status: in_progress
+    scope:
+      - Independently review only the exact frozen 17-row W3 Articles package SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a.
+      - Retain a byte-identical non-symlinked frozen snapshot and produce W9 evidence only; a later CONTROL owns any master transition.
+    allowed_paths:
+      - generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/**
+      - scripts/seo/build-w3-articles-refrozen-10-w9-qa.mjs
+      - scripts/seo/validate-w3-articles-refrozen-10-w9-qa.mjs
+      - scripts/seo/validate-en-content-parity-control.mjs
+      - tests/contracts/en-content-parity-w9-w3-articles-independent-qa-refrozen-10.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify the control master, producer package, historical W9 evidence, Career Guides, CMS, runtime, import, publication, SEO, sitemap, llms, search, or deployment.
+      - Self-accept qa_pass, write a master QA reference or lineage, or enable any permission.
+    required_local_checks:
+      - node scripts/seo/build-w3-articles-refrozen-10-w9-qa.mjs
+      - node scripts/seo/validate-w3-articles-refrozen-10-w9-qa.mjs
+      - focused W9 and control contracts
+      - focused ESLint
+      - JSON/JSONL/YAML parse, SHA, 17/17, all-false permissions, and scope audits
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: exact frozen W3 Articles producer package; W9 evidence only
+    repository_rule_impact: independent QA evidence only; no authority or runtime change
