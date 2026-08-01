@@ -53069,7 +53069,7 @@
     "branch": "codex/career-search-entry-pilot-readiness-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "c7b614cfbb486c852adbdf3c1efd8430fbff75c6",
+    "commit_sha": "1698e7bddba037bed4725f74cafede4a31408bd1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1891",
     "failure_reason": null,
     "merged_at": null,
@@ -53179,8 +53179,13 @@
         "at": "2026-08-01T05:09:08Z",
         "status": "github_checks_pending",
         "summary": "Repaired Codex P1 by replacing the tautological expected-live SHA fields with the backend's fail-closed current private-package-match projection in both list and detail authority. The final live run kept GO with 40 complete candidates and exact target set d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86; focused 17/17, lint, typecheck, metadata, syntax, and diff checks pass. Codex P2 is also verified stale because the recorded code heads are reachable ancestors."
+      },
+      {
+        "at": "2026-08-01T05:09:40Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the review-baseline repair as 1698e7bddba037bed4725f74cafede4a31408bd1. This metadata tail binds the reachable reviewed implementation head before push and fresh exact-head checks."
       }
     ],
-    "updated_at": "2026-08-01T05:09:08Z"
+    "updated_at": "2026-08-01T05:09:40Z"
   }
 }
