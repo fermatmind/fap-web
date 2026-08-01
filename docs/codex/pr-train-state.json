@@ -52566,7 +52566,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
+    "commit_sha": "de4af83e40514c3ba123a0518162482ad10f0ee2",
     "pr_url": null,
     "checks": {
       "dependency": {
