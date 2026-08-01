@@ -54831,8 +54831,8 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "6d256b92d9529e79f26b4430797738caff2565e8",
+    "status": "ready_to_merge",
+    "commit_sha": "2c148ca6006c6c3dcee9eb370708a2b34dfaf11f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1949",
     "checks": {
       "dependency": {
@@ -54848,8 +54848,8 @@
         "evidence": "Accepted only W3-ARTICLES package_in_progress to package_frozen at exact SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. The post-transition master validator, focused 64/64 contract, focused ESLint, JSON/JSONL/YAML parsing, exact eight-payload SHA recomputation, report SHA binding, scope validation, and diff checks pass. W3 remains aggregate inventory_frozen, Career Guides remains inventory_frozen, QA remains unset, and all permissions remain false."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "PR #1949 exact head 2c148ca6006c6c3dcee9eb370708a2b34dfaf11f passed all 11 applicable build, contract, freeze, and CodeQL checks. GitHub reports MERGEABLE/CLEAN with zero unresolved review threads."
       }
     },
     "failure_reason": null,
@@ -54877,8 +54877,13 @@
         "at": "2026-08-01T12:41:03Z",
         "status": "github_checks_pending",
         "summary": "Committed the CONTROL-only acceptance as 6d256b92d9529e79f26b4430797738caff2565e8 and opened PR #1949. Required GitHub checks are pending; final merge remains conditional on exact scope, review policy, and a fresh master-file compare-and-swap check."
+      },
+      {
+        "at": "2026-08-01T12:46:34Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1949 exact checked head 2c148ca6006c6c3dcee9eb370708a2b34dfaf11f passed all 11 applicable checks and is MERGEABLE/CLEAN with zero unresolved review threads. Exact scope and master CAS remain clean; this ledger-only ready-state commit receives the final required-check cycle before squash merge."
       }
     ],
-    "updated_at": "2026-08-01T12:41:03Z"
+    "updated_at": "2026-08-01T12:46:34Z"
   }
 }
