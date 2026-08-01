@@ -1,0 +1,824 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_source_ledger.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "authority": {
+    "repository": "fap-api",
+    "commit": "b942ff12ffedb63b019311001cbff21beb776fa2",
+    "locale": "zh-CN",
+    "sources": [
+      {
+        "path": "backend/content_assets/riasec/140q_task_environment_role_v1.zh-CN.jsonl",
+        "sha256": "e3461f36b5650d51c538dc6945beb62b653a5cec3a5886d519c1e72a3c4b336f",
+        "row_count": 126
+      },
+      {
+        "path": "backend/app/Services/Riasec/RiasecDeepCopySlotRegistry.php",
+        "source_kind": "backend_authored_slots",
+        "slot_count": 7
+      }
+    ]
+  },
+  "producer": {
+    "repository": "fap-web",
+    "commit": "f1480752cbb92355fad9be7f9b1dc7484102d601",
+    "control_status": "inventory_frozen"
+  },
+  "rows": [
+    {
+      "source_line": 1,
+      "source_identity": "R:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 2,
+      "source_identity": "R:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 3,
+      "source_identity": "R:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 4,
+      "source_identity": "R:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 5,
+      "source_identity": "R:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 6,
+      "source_identity": "R:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 7,
+      "source_identity": "R:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 8,
+      "source_identity": "R:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 9,
+      "source_identity": "R:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 10,
+      "source_identity": "R:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 11,
+      "source_identity": "R:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 12,
+      "source_identity": "R:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 13,
+      "source_identity": "R:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 14,
+      "source_identity": "R:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 15,
+      "source_identity": "R:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 16,
+      "source_identity": "R:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 17,
+      "source_identity": "R:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 18,
+      "source_identity": "R:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 19,
+      "source_identity": "R:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 20,
+      "source_identity": "R:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 21,
+      "source_identity": "R:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 22,
+      "source_identity": "I:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 23,
+      "source_identity": "I:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 24,
+      "source_identity": "I:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 25,
+      "source_identity": "I:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 26,
+      "source_identity": "I:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 27,
+      "source_identity": "I:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 28,
+      "source_identity": "I:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 29,
+      "source_identity": "I:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 30,
+      "source_identity": "I:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 31,
+      "source_identity": "I:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 32,
+      "source_identity": "I:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 33,
+      "source_identity": "I:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 34,
+      "source_identity": "I:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 35,
+      "source_identity": "I:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 36,
+      "source_identity": "I:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 37,
+      "source_identity": "I:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 38,
+      "source_identity": "I:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 39,
+      "source_identity": "I:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 40,
+      "source_identity": "I:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 41,
+      "source_identity": "I:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 42,
+      "source_identity": "I:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 43,
+      "source_identity": "A:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 44,
+      "source_identity": "A:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 45,
+      "source_identity": "A:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 46,
+      "source_identity": "A:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 47,
+      "source_identity": "A:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 48,
+      "source_identity": "A:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 49,
+      "source_identity": "A:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 50,
+      "source_identity": "A:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 51,
+      "source_identity": "A:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 52,
+      "source_identity": "A:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 53,
+      "source_identity": "A:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 54,
+      "source_identity": "A:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 55,
+      "source_identity": "A:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 56,
+      "source_identity": "A:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 57,
+      "source_identity": "A:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 58,
+      "source_identity": "A:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 59,
+      "source_identity": "A:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 60,
+      "source_identity": "A:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 61,
+      "source_identity": "A:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 62,
+      "source_identity": "A:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 63,
+      "source_identity": "A:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 64,
+      "source_identity": "S:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 65,
+      "source_identity": "S:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 66,
+      "source_identity": "S:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 67,
+      "source_identity": "S:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 68,
+      "source_identity": "S:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 69,
+      "source_identity": "S:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 70,
+      "source_identity": "S:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 71,
+      "source_identity": "S:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 72,
+      "source_identity": "S:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 73,
+      "source_identity": "S:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 74,
+      "source_identity": "S:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 75,
+      "source_identity": "S:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 76,
+      "source_identity": "S:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 77,
+      "source_identity": "S:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 78,
+      "source_identity": "S:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 79,
+      "source_identity": "S:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 80,
+      "source_identity": "S:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 81,
+      "source_identity": "S:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 82,
+      "source_identity": "S:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 83,
+      "source_identity": "S:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 84,
+      "source_identity": "S:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 85,
+      "source_identity": "E:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 86,
+      "source_identity": "E:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 87,
+      "source_identity": "E:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 88,
+      "source_identity": "E:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 89,
+      "source_identity": "E:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 90,
+      "source_identity": "E:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 91,
+      "source_identity": "E:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 92,
+      "source_identity": "E:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 93,
+      "source_identity": "E:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 94,
+      "source_identity": "E:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 95,
+      "source_identity": "E:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 96,
+      "source_identity": "E:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 97,
+      "source_identity": "E:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 98,
+      "source_identity": "E:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 99,
+      "source_identity": "E:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 100,
+      "source_identity": "E:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 101,
+      "source_identity": "E:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 102,
+      "source_identity": "E:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 103,
+      "source_identity": "E:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 104,
+      "source_identity": "E:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 105,
+      "source_identity": "E:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 106,
+      "source_identity": "C:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 107,
+      "source_identity": "C:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 108,
+      "source_identity": "C:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 109,
+      "source_identity": "C:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 110,
+      "source_identity": "C:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 111,
+      "source_identity": "C:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 112,
+      "source_identity": "C:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 113,
+      "source_identity": "C:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 114,
+      "source_identity": "C:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 115,
+      "source_identity": "C:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 116,
+      "source_identity": "C:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 117,
+      "source_identity": "C:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 118,
+      "source_identity": "C:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 119,
+      "source_identity": "C:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-INSUFFICIENT_QUALITY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 120,
+      "source_identity": "C:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 121,
+      "source_identity": "C:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-AGREEMENT",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 122,
+      "source_identity": "C:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-TENSION",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 123,
+      "source_identity": "C:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-UNAVAILABLE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 124,
+      "source_identity": "C:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 125,
+      "source_identity": "C:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_line": 126,
+      "source_identity": "C:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "group_id": "W4-G06"
+    },
+    {
+      "source_identity": "structural_difference:summary",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-SUMMARY",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:task_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-TASK-LAYER-EXPLANATION",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:environment_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-ENVIRONMENT-LAYER-EXPLANATION",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:role_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-ROLE-LAYER-EXPLANATION",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:correct_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-CORRECT-READING",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:forbidden_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-FORBIDDEN-READING",
+      "group_id": "W4-G07"
+    },
+    {
+      "source_identity": "structural_difference:next_validation_step",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-NEXT-VALIDATION-STEP",
+      "group_id": "W4-G07"
+    }
+  ],
+  "reconciliation": {
+    "contextual_rows": 126,
+    "structural_rows": 7,
+    "english_candidate_rows": 133
+  }
+}

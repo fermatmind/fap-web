@@ -55064,5 +55064,31 @@
       }
     ],
     "updated_at": "2026-08-01T22:50:00+08:00"
+  },
+  "EN-PARITY-W4-RIASEC-140Q-ASSETS-01": {
+    "id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-140Q-ASSETS-01 produce 140Q contextual and structural English rows",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-140q-assets-01",
+    "depends_on": ["EN-PARITY-W4-RIASEC-ACTIVITY-ASSETS-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "a9028e09db4f75993c3878aa2e72fa88ad9e5c9f",
+    "pr_url": null,
+    "checks": {"serial_predecessor":{"status":"pass","evidence":"G05 producer package is merged in fap-web as f1480752cbb92355fad9be7f9b1dc7484102d601 before this branch was created."},"source_authority":{"status":"pass","evidence":"fap-api origin/main b942ff12ffedb63b019311001cbff21beb776fa2 supplies the 126-row 140Q JSON source SHA256 e3461f36b5650d51c538dc6945beb62b653a5cec3a5886d519c1e72a3c4b336f and seven backend-authored structural slots."},"local_validation":{"status":"pass","evidence":"Master-only control validation passed; focused control-master contract passed 64/64; full ESLint passed. JSON/JSONL/YAML parsing, exact 126 contextual + 7 structural = 133 identity reconciliation, no-CJK scan, structural emphasis-only flags, all-false permissions, six immutable payload SHA values, and aggregate SHA 114097ee2f09f8fb2cdebdf100923964d31ba2c8704794e6ff708340657f08ff recomputation passed. Package remains unpublished_candidate and pending independent W9."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only":true,"local_validation_passed":true,"github_checks_green":true,"post_merge_revalidated":false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at":"2026-08-01T22:58:00+08:00","status":"in_progress","summary":"Started the fixed-queue G06/G07 producer package from clean fap-web origin/main f1480752cbb92355fad9be7f9b1dc7484102d601 after merged G05. Scope is exactly 126 140Q contextual and 7 structural English candidates plus immutable evidence only; no master, runtime, CMS/import, publication, discoverability, or deploy work is authorized."},{"at":"2026-08-01T23:14:00+08:00","status":"local_verified","summary":"Produced and validated exactly 133 physical G06/G07 English candidates: 126 140Q contextual and 7 structural-difference identities. Candidates remain pending independent W9; control validation, focused 64/64 contract, ESLint, JSON/JSONL/YAML parsing, no-CJK and cross-form-boundary checks, six-payload SHA recomputation, diff checks, and exact scope validation pass. No master, W9 PASS, package freeze, import, runtime, publication, discoverability, or deploy action occurred."}],
+    "updated_at": "2026-08-01T23:28:00+08:00"
   }
 }

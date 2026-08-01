@@ -1,0 +1,807 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_translation_map.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "source_locale": "zh-CN",
+  "target_locale": "en",
+  "translation_status": "candidate_only",
+  "mappings": [
+    {
+      "source_identity": "R:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:R:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:R:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:R:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:R:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:R:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:R:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:R:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:R:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:R:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:R:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:R:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:R:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:R:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:R:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:R:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "R:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-R-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:R:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:I:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:I:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:I:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:I:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:I:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:I:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:I:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:I:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:I:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:I:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:I:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:I:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:I:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:I:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:I:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "I:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-I-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:I:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:A:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:A:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:A:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:A:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:A:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:A:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:A:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:A:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:A:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:A:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:A:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:A:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:A:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:A:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:A:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "A:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-A-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:A:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:S:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:S:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:S:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:S:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:S:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:S:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:S:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:S:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:S:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:S:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:S:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:S:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:S:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:S:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:S:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "S:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-S-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:S:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:E:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:E:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:E:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:E:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:E:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:E:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:E:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:E:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:E:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:E:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:E:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:E:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:E:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:E:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:E:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "E:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-E-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:E:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:task:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:C:task:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:task:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-TENSION",
+      "translation_group": "cohort:riasec:140q:C:task:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:task:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:C:task:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:task:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:C:task:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:task:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-TASK-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:C:task:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:environment:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:C:environment:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:environment:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-TENSION",
+      "translation_group": "cohort:riasec:140q:C:environment:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:environment:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:C:environment:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:environment:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:C:environment:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:environment:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ENVIRONMENT-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:C:environment:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:role:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:C:role:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:role:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-TENSION",
+      "translation_group": "cohort:riasec:140q:C:role:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:role:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:C:role:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:role:insufficient_quality",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-INSUFFICIENT_QUALITY",
+      "translation_group": "cohort:riasec:140q:C:role:insufficient_quality",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:role:not_applicable_60q_only",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-ROLE-NOT_APPLICABLE_60Q_ONLY",
+      "translation_group": "cohort:riasec:140q:C:role:not_applicable_60q_only",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:agreement",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-AGREEMENT",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:agreement",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:tension",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-TENSION",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:tension",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:unavailable",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-UNAVAILABLE",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:unavailable",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:low_quality_hidden",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-LOW_QUALITY_HIDDEN",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:low_quality_hidden",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:60Q_only_CTA",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-60Q_ONLY_CTA",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:60Q_only_CTA",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "C:commercial_state:140Q_completed_state",
+      "asset_id": "ENPARITY-W4-RIASEC-G06-C-COMMERCIAL_STATE-140Q_COMPLETED_STATE",
+      "translation_group": "cohort:riasec:140q:C:commercial_state:140Q_completed_state",
+      "asset_kind": "140q_contextual_narrative"
+    },
+    {
+      "source_identity": "structural_difference:summary",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-SUMMARY",
+      "translation_group": "cohort:riasec:structural_difference:summary",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:task_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-TASK-LAYER-EXPLANATION",
+      "translation_group": "cohort:riasec:structural_difference:task_layer_explanation",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:environment_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-ENVIRONMENT-LAYER-EXPLANATION",
+      "translation_group": "cohort:riasec:structural_difference:environment_layer_explanation",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:role_layer_explanation",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-ROLE-LAYER-EXPLANATION",
+      "translation_group": "cohort:riasec:structural_difference:role_layer_explanation",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:correct_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-CORRECT-READING",
+      "translation_group": "cohort:riasec:structural_difference:correct_reading",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:forbidden_reading",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-FORBIDDEN-READING",
+      "translation_group": "cohort:riasec:structural_difference:forbidden_reading",
+      "asset_kind": "structural_difference_copy"
+    },
+    {
+      "source_identity": "structural_difference:next_validation_step",
+      "asset_id": "ENPARITY-W4-RIASEC-G07-NEXT-VALIDATION-STEP",
+      "translation_group": "cohort:riasec:structural_difference:next_validation_step",
+      "asset_kind": "structural_difference_copy"
+    }
+  ]
+}
