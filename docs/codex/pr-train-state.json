@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T10:38:53.204Z",
+  "updated_at": "2026-08-01T10:45:18.091Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52579,15 +52579,15 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Strict candidate validation passes after exact-head review correction against current control master SHA 585ff3ddb257bcb473ccd3400308ff6c5fd661c8afc201f884b80c3d0f1f54d1."
+        "evidence": "Strict candidate validation passes after the Article 55 exact-head naturalness correction."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Focused control and W3 Article package contracts pass 67/67 after exact-head review correction."
+        "evidence": "Focused control and W3 Article package contracts pass 67/67 after the Article 55 correction."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "Review-corrected exact ten-file package and eight immutable payload SHAs recompute to aggregate 19dc3b199088fa4552d219ade4d90ff446ab70ec52c26de34203beb6b0bcab47; Article 52 known residual is absent and all four Article 58 eligibility labels are correct."
+        "evidence": "Article 55-corrected exact ten-file/eight-payload package recomputes to aggregate 759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd; the direct replacement is present and the ambiguous prior phrase is absent."
       },
       "lint": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Fresh required checks are pending after review correction."
+        "evidence": "Fresh required checks pending after Article 55 correction."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "Two exact-head review findings are being corrected within the Article package scope."
+        "evidence": "Latest Article 55 exact-head review finding is being corrected."
       }
     },
     "failure_reason": null,
@@ -52900,9 +52900,19 @@
         "at": "2026-08-01T10:38:53.204Z",
         "status": "review_correction_local_verified",
         "summary": "Both exact-head review findings are repaired. Strict candidate validation, 67/67 focused contracts, exact SHA recomputation, Article 52 residual scan, Article 58 4/4 eligibility-label assertion, JSON/YAML parsing, scope validation, and git diff checks pass. New exact package SHA is 19dc3b199088fa4552d219ade4d90ff446ab70ec52c26de34203beb6b0bcab47; fresh GitHub checks and review-thread resolution are pending."
+      },
+      {
+        "at": "2026-08-01T10:44:27.696Z",
+        "status": "review_correction_local_verified",
+        "summary": "Exact-head review correctly found the Article 55 replacement still had an unclear pronoun and non-idiomatic “ready to stay” construction. Rewrote it directly as “I should not keep this major on my shortlist yet” and rebuilt aggregate package SHA 759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd. Fresh local validation is pending; all other payload boundaries remain unchanged."
+      },
+      {
+        "at": "2026-08-01T10:45:18.091Z",
+        "status": "review_correction_local_verified",
+        "summary": "Article 55 correction revalidates: strict candidate validation, 67/67 focused contracts, exact SHA recomputation, phrase assertion, JSON parsing, and git diff checks pass. New exact package SHA is 759a09a2edb7199bf42c859bb7d299d0159fc9e8580d2e652940db33b1449ccd; fresh GitHub checks and review-thread resolution are pending."
       }
     ],
-    "updated_at": "2026-08-01T10:38:53.204Z"
+    "updated_at": "2026-08-01T10:45:18.091Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
