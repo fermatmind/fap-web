@@ -904,7 +904,7 @@ describe("English content parity control master", () => {
     ).toBe(true);
   });
 
-  it("retains the exact W9 reset evidence and accepts only the refrozen W3 Article package", () => {
+  it("retains the exact W9 reset evidence and accepts the separately frozen W3 packages", () => {
     const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
     const w9ReportPath =
       "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae/qa_report.json";
@@ -975,7 +975,7 @@ describe("English content parity control master", () => {
     expect(sha256File(frozenLedgerPath)).toBe(frozenLedgerSha256);
     expect(w3).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_in_progress",
+      status: "package_frozen",
       blocked_from_status: null,
       counts: {
         cohort_count: 2,
@@ -1005,24 +1005,36 @@ describe("English content parity control master", () => {
       ],
       blockers: [],
     });
-    expect(careerGuides).toEqual({
+    expect(careerGuides).toMatchObject({
       id: "W3-CAREER-GUIDES",
       sequence: 2,
       resource: "CareerGuide",
       output_subdirectory: "career-guides",
       asset_ids: ["ENPARITY-W3-CAREER-GUIDES"],
-      status: "package_in_progress",
+      status: "package_frozen",
       blocked_from_status: null,
-      package_sha256: null,
+      package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
       qa_report_ref: null,
-      gate_lineage: [],
+      gate_lineage: [
+        {
+          status: "package_frozen",
+          evidence_owner_lane_id: "W3",
+          report_ref: "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json",
+          report_sha256: "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402",
+          package_sha256: "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+        },
+      ],
       blockers: [],
       separate_package_required: true,
       same_pr_allowed: false,
     });
-    expect(w3?.next_action).toContain("fresh independent 17/17 W9 QA");
+    expect(w3?.package_sha256).toBeNull();
+    expect(w3?.qa_report_ref).toBeNull();
+    expect(w3?.gate_lineage).toEqual([]);
+    expect(w3?.next_action).toContain("EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01");
+    expect(w3?.next_action).toContain("EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01");
     expect(w3?.next_action).toContain("d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a");
-    expect(w3?.next_action).toContain("EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-A-01");
+    expect(w3?.next_action).toContain("0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c");
     expect(Object.values(w3?.permissions ?? {})).toEqual(Array(7).fill(false));
   });
 

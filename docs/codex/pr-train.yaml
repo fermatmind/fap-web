@@ -29789,7 +29789,7 @@ prs:
     depends_on: [EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01]
     mode: execute
     train_scope: w3_career_guides_complete_producer_package_freeze
-    status: in_progress
+    status: merged
     scope:
       - Assemble only the existing Batch A and Batch B witnesses into the complete exact 20-row Career Guide root package and package_frozen candidate.
       - Preserve the control master pre-freeze state; a later separate CONTROL owns master acceptance.
@@ -29824,3 +29824,45 @@ prs:
     deploy_allowed: false
     content_authority: fap-api baseline and validated Batch A/B producer packages; backend CMS remains runtime authority
     repository_rule_impact: complete producer package candidate only; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-FROZEN-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-career-guides-package-frozen-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-FROZEN-01: accept the frozen 20 Career Guide package"
+    depends_on: [EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01]
+    mode: execute
+    train_scope: control_w3_career_guides_accept_complete_package_freeze
+    status: in_progress
+    scope:
+      - Accept only the exact complete 20-row W3-CAREER-GUIDES package_frozen candidate from PR #1983.
+      - Advance W3-CAREER-GUIDES and the least-progressed W3 aggregate to package_frozen while retaining separate Article and Career Guide package evidence.
+      - Reconcile the merged producer ledger facts for PR #1983 without creating a standalone reconciliation PR.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify any producer payload, the Career Guides candidate, W3 Articles evidence, W9 authority, CMS, database, runtime, SEO, sitemap, llms, import, publication, search, or deploy state.
+      - Grant any write, import, runtime, release, SEO, search, deployment, or master-authoring permission.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W3-editorial-cms/career-guides/master_manifest_patch.candidate.json
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - focused control-master contract
+      - focused ESLint
+      - JSON and YAML parse
+      - exact 20-row package SHA, editorial-review SHA, W3 Article isolation, aggregate state, and all-false permission reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs; CONTROL accepts only immutable producer evidence
+    repository_rule_impact: CONTROL-only package-freeze acceptance; no authority, runtime, import, publication, discoverability, or deployment change

@@ -55742,8 +55742,8 @@
     "base": "main",
     "branch": "codex/en-parity-w3-career-guide-package-freeze-01",
     "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-ASSETS-BATCH-B-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "3e55dfe02f7e42e3d5e873c39706a15a65e9ab06",
+    "status": "merged",
+    "commit_sha": "ec3c7b50221ffda479da08ae80c8aa284eea12f8",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1983",
     "checks": {
       "dependency": {"status": "pass", "evidence": "GitHub confirms Batch B PR #1982 is merged as a84c71b0480b7c9c587f296fa5c7cd670001b229; both exact partial witnesses are present under origin/main."},
@@ -55751,10 +55751,10 @@
       "github_required_checks": {"status": "pass", "evidence": "PR #1983 exact checked head 3e55dfe02f7e42e3d5e873c39706a15a65e9ab06 passed build, CodeQL, no-new-code-scanning-alerts, four contract shards, contracts aggregate, and both frozen-package verify checks. GitHub reports CLEAN against base a84c71b0480b7c9c587f296fa5c7cd670001b229; no review decision or actionable comment is present. This ready-to-merge ledger commit must complete its own required-check cycle before squash merge."}
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "merged_at": "2026-08-01T21:50:21Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55762,7 +55762,39 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T05:20:00Z", "status": "in_progress", "summary": "Started only the complete 20-row producer package freeze after merged Batch B. The root candidate may propose package_frozen but cannot accept the transition into the control master or authorize W9, CMS/import, release, runtime, discoverability, search, or deploy actions."},{"at": "2026-08-02T05:36:00Z", "status": "ready_to_merge", "summary": "PR #1983 exact checked head 3e55dfe02f7e42e3d5e873c39706a15a65e9ab06 passed every required GitHub check, is CLEAN against base a84c71b0480b7c9c587f296fa5c7cd670001b229, and has no review decision or actionable comment. The ledger readiness commit will complete its own fresh required-check cycle before squash merge."}],
-    "updated_at": "2026-08-02T05:36:00Z"
+    "history": [{"at": "2026-08-02T05:20:00Z", "status": "in_progress", "summary": "Started only the complete 20-row producer package freeze after merged Batch B. The root candidate may propose package_frozen but cannot accept the transition into the control master or authorize W9, CMS/import, release, runtime, discoverability, search, or deploy actions."},{"at": "2026-08-02T05:36:00Z", "status": "ready_to_merge", "summary": "PR #1983 exact checked head 3e55dfe02f7e42e3d5e873c39706a15a65e9ab06 passed every required GitHub check, is CLEAN against base a84c71b0480b7c9c587f296fa5c7cd670001b229, and has no review decision or actionable comment. The ledger readiness commit will complete its own fresh required-check cycle before squash merge."},{"at": "2026-08-01T21:50:21Z", "status": "merged", "summary": "GitHub confirms PR #1983 squash merged as bdf6b91714237acd4d69439e597234857108f785. origin/main contains the merge; the remote and local task branches were deleted, and post-merge package plus control-candidate validation passed without accepting the master transition."}],
+    "updated_at": "2026-08-01T21:50:21Z"
+  },
+  "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-FROZEN-01: accept the frozen 20 Career Guide package",
+    "base": "main",
+    "branch": "codex/en-parity-control-w3-career-guides-package-frozen-01",
+    "depends_on": ["EN-PARITY-W3-CAREER-GUIDE-PACKAGE-FREEZE-01"],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The explicit W3 Career Guides package-freeze CONTROL goal authorizes this manifest and state registration."},
+      "dependency": {"status": "pass", "evidence": "GitHub confirms PR #1983 is merged as bdf6b91714237acd4d69439e597234857108f785 and origin/main contains that squash merge."},
+      "candidate_binding": {"status": "pass", "evidence": "The Career Guides candidate binds current master SHA 398b7000513817c07887257928db3d0238e9843511d20ae165dd4c71b1cde740, exact 20-row package SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c, and editorial-review SHA 137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402."},
+      "local_validation": {"status": "pass", "evidence": "2026-08-02: candidate validation against the exact pre-transition master and post-transition control-master validation pass. Focused contract passes 65/65; focused ESLint, JSON/YAML parsing, exact 20-row package and editorial-review SHA reconciliation, W3 aggregate separation, W3 Articles immutability, all-false permission audit, scope audit, and diff checks pass."},
+      "github_required_checks": {"status": "pending", "evidence": "No PR has been opened."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-02T06:20:00Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance from latest origin/main after reconciling merged PR #1983, its exact current-master candidate binding, the complete 20-row immutable package, W3 Articles isolation, and all-false permissions. No producer payload, W9 evidence, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."},{"at": "2026-08-02T06:30:00Z", "status": "local_verified", "summary": "Accepted only W3-CAREER-GUIDES package_in_progress to package_frozen at SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c with its exact in-package editorial-review SHA 137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402. W3 aggregate is package_frozen solely by the least-progressed-subscope invariant and retains null package/QA fields with empty aggregate lineage; frozen Articles evidence and all permissions are unchanged."}],
+    "updated_at": "2026-08-02T06:30:00Z"
   }
 }
