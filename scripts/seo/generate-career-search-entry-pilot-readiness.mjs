@@ -128,12 +128,15 @@ export function inspectHtml(html, expectedUrl) {
   const canonicalTags = linkTags.filter((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
   const canonicalTag = canonicalTags.length === 1 ? canonicalTags[0] : null;
   const robotsTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
+  const googlebotTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "googlebot");
   const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
+  const googlebotValues = googlebotTags.map((tag) => normalizeRobots(attribute(tag, "content")));
   const titleMatch = head.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i);
   const jsonLdObjects = [];
-  for (const match of String(html).matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+  for (const match of String(html).matchAll(/(<script\b[^>]*>)([\s\S]*?)<\/script\b[^>]*>/gi)) {
+    if (attribute(match[1], "type").toLowerCase() !== "application/ld+json") continue;
     try {
-      flattenJsonLd(JSON.parse(match[1]), jsonLdObjects);
+      flattenJsonLd(JSON.parse(match[2]), jsonLdObjects);
     } catch {
       jsonLdObjects.push({ __parse_error: true });
     }
@@ -170,7 +173,9 @@ export function inspectHtml(html, expectedUrl) {
     self_canonical: canonical === expectedUrl,
     robots: robotsValues.length === 1 ? robotsValues[0] : robotsValues.join("|"),
     robots_values: robotsValues,
-    index_follow: robotsValues.length === 1 && robotsValues[0] === "index,follow",
+    googlebot_values: googlebotValues,
+    index_follow: robotsValues.length === 1 && robotsValues[0] === "index,follow"
+      && googlebotValues.length <= 1 && googlebotValues.every((value) => value === "index,follow"),
     metadata: {
       title: decodeHtmlEntities(titleMatch?.[1] || ""),
       description: metaContent(metaTags, "name", "description"),
@@ -204,7 +209,8 @@ export function unsupportedGuaranteeMatches(value) {
   const negativeGuarantee = [
     /\b(?:not|never|cannot|can't|does not|do not|isn't|is not|no)\b[^.!?;:]{0,24}\bguarante(?:e|ed|es)\b/i,
     /\bwithout\s+(?:any\s+|a\s+)?guarantee\b/i,
-    /(?:不|不能|不会|并非|不是|暂无|不得)[^。！？；，：\n]{0,8}(?:保证|保障|承诺|有保证|获保证|被保证)/,
+    /(?:不|不能|不会|并非|不是|暂无|不得|没有|无法)(?:任何)?(?:薪资|收入|录用|就业|职业成功)?(?:得到|获得)?(?:保证|保障|承诺)/,
+    /(?:薪资|收入|录用|就业|职业成功)(?:并)?(?:不|不能|不会|并非|不是|暂无|不得|没有|无法)(?:得到|获得)?(?:保证|保障|承诺)/,
   ];
   return sentences.flatMap((sentence) => sentence.split(/[;；,:，：—–]+|\b(?:and|but|while|although|however)\b|(?:并且|但是|而且|同时)/iu).map((clause) => clause.trim()).filter(Boolean))
     .filter((clause) => GUARANTEE_PATTERNS.some((pattern) => pattern.test(clause))

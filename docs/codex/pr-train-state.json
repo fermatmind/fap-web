@@ -53737,11 +53737,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after excluding hidden public evidence, binding normalized FAQ schema pairs to backend authority, validating ordered exact-destination breadcrumbs, binding crawler-visible metadata to current SEO authority, and rejecting every non-indexable crawler directive."
+        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after excluding hidden public evidence, binding normalized FAQ schema pairs to backend authority, validating ordered exact-destination breadcrumbs, requiring exact JSON-LD attributes, binding crawler-visible metadata to current SEO authority, and rejecting general or Googlebot-specific non-indexable directives."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 51 tests. Coverage includes hidden/template public-evidence exclusion, normalized FAQ authority binding, ordered exact-destination breadcrumb validation, exact attribute-name parsing, predicate-bound guarantee negation, duplicate crawler metadata rejection, both supported HOLD reason forms, Googlebot identity, and deterministic selection."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 57 tests. Coverage includes Googlebot-specific robots rejection, exact JSON-LD type parsing, common Chinese disclaimer recognition without unrelated-negation suppression, hidden/template public-evidence exclusion, normalized FAQ authority binding, ordered exact-destination breadcrumb validation, duplicate crawler metadata rejection, both supported HOLD reason forms, and deterministic selection."
       },
       "lint": {
         "status": "pass",
@@ -53761,7 +53761,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "All newest exact-head findings are repaired fail-closed: template and hidden subtrees cannot provide visible evidence, normalized FAQ schema question/answer pairs must exactly match backend authority, and exactly one ordered BreadcrumbList must end at the exact locale career URL."
+        "evidence": "All newest exact-head findings are repaired: an optional Googlebot meta cannot conflict with the exact general robots directive, JSON-LD requires an exact type attribute rather than a data-* suffix, and common Chinese guarantee negations are recognized only when bound to the guarantee predicate."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53775,13 +53775,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T07:56:50.146Z",
+      "observed_at": "2026-08-01T08:05:14.027Z",
       "result": "HOLD",
       "eligible_candidates": 0,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-      "artifact_sha256": "ce35dc1266d415ae6ac277e0be04f7ee00b1ae84cd7c81c3d7dfc4ff52302b44",
+      "artifact_sha256": "a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c",
       "rollback_batch_id": null
     },
     "production_write_execution": false,
@@ -54000,8 +54000,13 @@
         "at": "2026-08-01T08:02:28Z",
         "status": "github_checks_pending",
         "summary": "Merged exact latest origin/main 4fd91f2d after a concurrent control-ledger advance. The PR diff remains exactly the six authorized paths; post-merge focused 51/51, lint, typecheck, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T08:08:49Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the next exact-head findings by rejecting conflicting Googlebot-specific robots directives, requiring an exact JSON-LD type attribute, and recognizing common Chinese guarantee disclaimers without suppressing unrelated positive guarantees. The fresh strict read-only observation remains HOLD with 0/10 complete rows, zero targets, observed_at 2026-08-01T08:05:14.027Z, and artifact a8f9be5997cd659dc38693063aa048feadc872718b697655df367f4efef18f2c; canonical Node focused 57/57, lint, and typecheck pass."
       }
     ],
-    "updated_at": "2026-08-01T08:02:28Z"
+    "updated_at": "2026-08-01T08:08:49Z"
   }
 }

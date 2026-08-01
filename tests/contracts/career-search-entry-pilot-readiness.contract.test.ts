@@ -185,6 +185,26 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", canonical_count: 0, self_canonical: false, robots_values: [], index_follow: false });
   });
 
+  it("rejects a Googlebot-specific non-indexable directive", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const invalid = html(expected).replace("</head>", '<meta name="googlebot" content="noindex"/></head>');
+    expect(inspectHtml(invalid, expected)).toMatchObject({
+      robots_values: ["index,follow"],
+      googlebot_values: ["noindex"],
+      index_follow: false,
+    });
+  });
+
+  it("requires the exact JSON-LD type attribute", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const disguised = html(expected).replace('type="application/ld+json"', 'data-type="application/ld+json"');
+    expect(inspectHtml(disguised, expected)).toMatchObject({
+      jsonld_types: [],
+      faq_entities_valid: false,
+      breadcrumb_valid: false,
+    });
+  });
+
   it("rejects duplicate canonical links even when the first one is exact", () => {
     const expected = "https://fermatmind.com/en/career/jobs/career-01";
     const duplicate = html(expected).replace("</head>", `<link rel="canonical" href="${expected}/other"/></head>`);
@@ -247,6 +267,18 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(unsupportedGuaranteeMatches("You do not need prior experience and employment is guaranteed.")).toEqual(["employment is guaranteed"]);
     expect(unsupportedGuaranteeMatches("Employment is guaranteed without prior experience.")).toEqual(["Employment is guaranteed without prior experience"]);
     expect(unsupportedGuaranteeMatches("Employment is not guaranteed.")).toEqual([]);
+  });
+
+  it.each([
+    "没有就业保障。",
+    "就业没有保证。",
+    "无法保证就业。",
+  ])("accepts a common Chinese guarantee disclaimer: %s", (claim) => {
+    expect(unsupportedGuaranteeMatches(claim)).toEqual([]);
+  });
+
+  it("does not let an unrelated Chinese negation hide a positive guarantee", () => {
+    expect(unsupportedGuaranteeMatches("没有经验也保证就业。" )).toHaveLength(1);
   });
 
   it.each([
