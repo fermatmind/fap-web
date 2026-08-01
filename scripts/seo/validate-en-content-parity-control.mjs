@@ -13,6 +13,8 @@ const DEFAULT_PROMPTS_PATH = "docs/seo/generated/en-content-parity-first-wave-pr
 const EXPECTED_LANE_IDS = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9"];
 const EXPECTED_PRODUCER_IDS = EXPECTED_LANE_IDS.slice(0, 8);
 const EXPECTED_FIRST_WAVE = ["W1", "W2", "W3"];
+const EXPECTED_LAUNCH_READY_PRODUCER_IDS = [...EXPECTED_FIRST_WAVE, "W4"];
+const EXPECTED_REGISTERED_PRODUCER_IDS = ["W5", "W6", "W7", "W8"];
 const EXPECTED_STATES = [
   "not_started",
   "inventory_frozen",
@@ -776,11 +778,11 @@ function validateMasterInvariants(manifest) {
   assert(sameValue(manifest.handoff_contract.required_files, EXPECTED_HANDOFF_FILES), "handoff file list or order drifted", errors);
   assert(sameValue(manifest.launch_policy.first_wave, EXPECTED_FIRST_WAVE), "first wave must be W1, W2, W3", errors);
 
-  for (const laneId of EXPECTED_FIRST_WAVE) {
+  for (const laneId of EXPECTED_LAUNCH_READY_PRODUCER_IDS) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "launch_ready", `${laneId}: expected launch_ready`, errors);
   }
-  for (const laneId of ["W4", "W5", "W6", "W7", "W8"]) {
+  for (const laneId of EXPECTED_REGISTERED_PRODUCER_IDS) {
     const lane = lanes.find((entry) => entry.lane_id === laneId);
     assert(lane?.launch_state === "registered", `${laneId}: expected registered launch state`, errors);
   }
