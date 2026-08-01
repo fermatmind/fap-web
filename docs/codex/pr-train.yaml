@@ -29155,7 +29155,7 @@ prs:
     depends_on: [EN-PARITY-CONTROL-W3-ARTICLES-QA-BLOCKED-01]
     mode: execute
     train_scope: w9_w3_articles_reset_evidence_supplement
-    status: in_progress
+    status: merged
     scope:
       - Add a non-symlinked W9 snapshot of the exact frozen W3-ARTICLES SHA manifest and source ledger for package 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e.
       - Add the 17-row frozen identity projection required by a later CONTROL-only package rework reset without changing the existing W9 verdict, report, row matrix, candidate, or QA package SHA.
@@ -29190,6 +29190,49 @@ prs:
     deploy_allowed: false
     content_authority: W9 supplemental immutable reset evidence only; existing QA verdict and Producer authority unchanged
     repository_rule_impact: adds exact read-only W9 evidence required by the existing CONTROL reset contract; no runtime, authority, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-articles-rework-reset-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-ARTICLES-REWORK-RESET-01: reset blocked W3 Articles package for rework"
+    depends_on: [EN-PARITY-W9-W3-ARTICLES-RESET-EVIDENCE-SUPPLEMENT-01]
+    mode: execute
+    train_scope: control_w3_articles_exact_blocked_package_rework_reset
+    status: in_progress
+    scope:
+      - Accept a CONTROL-only reset approval bound to frozen package 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e, W9 report f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1, row matrix 1a7c5619d083846c9cc57670e29a48fc2245c8647cfccb5613aaa01a4ea78e17, and frozen-ledger projection 8215a091ccf3f06abf69c7c289a20686e7caa2a2524a02d225a1e9180b228e96.
+      - Reset W3 from blocked to inventory_frozen and W3-ARTICLES from blocked to package_in_progress, clearing blocked_from_status, failed package SHA, qa_report_ref, gate_lineage, and blockers.
+      - Preserve the failed W9 evidence through the permanent CONTROL approval artifact while leaving W3 Career Guides, counts, all permissions, CMS, runtime, SEO, publication, search, and deploy state unchanged.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - generated/en-content-parity/CONTROL-approvals/W3-ARTICLES/package-rework-reset-2c228eae.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Repair Article:53, rebuild or freeze a Producer package, modify W9 evidence, or advance QA/import/release gates.
+      - Modify W3 Career Guides, CMS, database, importer, frontend/backend runtime, sitemap, llms, canonical, JSON-LD, indexability, publication, search, or deployment state.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/CONTROL-approvals/W3-ARTICLES/package-rework-reset-2c228eae.json before transition
+      - node scripts/seo/validate-en-content-parity-control.mjs after transition
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - pnpm exec eslint tests/contracts/en-content-parity-control-master.contract.test.ts --max-warnings=0
+      - JSON/YAML parse; exact reset artifact SHA binding, W3 transition, unchanged Career Guides/counts/other lanes, and all-false permission validation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CONTROL-only exact-SHA rework reset; W9 evidence retained externally and Producer/CMS authority unchanged
+    repository_rule_impact: applies the existing failed-frozen-package reset protocol only; no runtime, authority, import, publication, discoverability, or deployment change
 
   - id: EN-PARITY-W4-RIASEC-SAFE-VARIANTS-01
     repo: fap-web
