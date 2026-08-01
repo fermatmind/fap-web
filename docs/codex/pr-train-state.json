@@ -53788,7 +53788,7 @@
     "branch": "codex/en-parity-control-w4-launch-ready-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "1dc198bfa4ee63a56e3b743eaf4e76fb9f6b6ce1",
+    "commit_sha": "aa92deeaa65e61b399e75f6e8dfad9e43d23db0a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1934",
     "checks": {
       "preflight": {
@@ -53834,8 +53834,13 @@
         "at": "2026-08-01T08:42:54Z",
         "status": "github_checks_pending",
         "summary": "Rebased after concurrent CONTROL PR #1933 merged as 762954708838844a3a80178acdcfd023408e096e; retained its generated W1 dry-run evidence, replayed only the W4 control scope as authored commit 1dc198bfa4ee63a56e3b743eaf4e76fb9f6b6ce1, and reran validator, focused 63/63 contract, ESLint, non-W4 lane identity, and exact scope checks successfully."
+      },
+      {
+        "at": "2026-08-01T08:50:43Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased after W9-W2 source intake PR #1932 and concurrent W1 dry-run CONTROL PR #1935 entered main at 4c98a7004bde842471d55977fe404e55a97f1094; preserved their train metadata and W1/W9 evidence exactly, replayed only W4 authored commit aa92deeaa65e61b399e75f6e8dfad9e43d23db0a, and reran validator, focused 63/63 contract, ESLint, JSON/YAML, non-W4 lane identity, and exact scope checks successfully."
       }
     ],
-    "updated_at": "2026-08-01T08:42:54Z"
+    "updated_at": "2026-08-01T08:50:43Z"
   }
 }
