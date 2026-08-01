@@ -604,17 +604,20 @@ function validQaCheckVerdict(check, verdict) {
 
 function expectedAggregateVerdict(aggregateCheck, rowChecks, rowReviews) {
   if (
+    rowReviews.some((row) =>
+      rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
+    )
+  ) {
+    return "BLOCKED";
+  }
+  if (
     aggregateCheck === "page_api_alignment" &&
     rowReviews.length > 0 &&
     rowReviews.every((row) => row?.page_api_alignment_status === "NOT_APPLICABLE")
   ) {
     return "NOT_APPLICABLE";
   }
-  return rowReviews.some((row) =>
-    rowChecks.some((rowCheck) => row?.checks?.[rowCheck] === "BLOCKED")
-  )
-    ? "BLOCKED"
-    : "PASS";
+  return "PASS";
 }
 
 function validatePageApiAlignmentStatus(qaReport, rowEvidence, label, errors) {
@@ -1663,6 +1666,12 @@ function validateIndependentQaEvidence(
   }
 
   if (expectedVerdict !== "BLOCKED") {
+    validatePageApiAlignmentStatus(
+      qaReport,
+      undefined,
+      `${artifact.lane_id}: W9 QA report`,
+      errors
+    );
     return;
   }
 

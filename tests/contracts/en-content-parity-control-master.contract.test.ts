@@ -1667,6 +1667,29 @@ describe("English content parity control master", () => {
         checks: { page_api_alignment: "NOT_APPLICABLE", claim_boundary: "BLOCKED" },
       });
 
+      rowEvidence.row_reviews[0].checks.page_api_alignment_applicable = "BLOCKED";
+      rowEvidence.row_reviews[0].verdict = "BLOCKED";
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidate));
+      let blockedRowOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", baseManifest.manifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        blockedRowOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(blockedRowOutput).errors.join("\n")).toContain(
+        "W9 aggregate check page_api_alignment must match the row reviews"
+      );
+      rowEvidence.row_reviews[0].checks.page_api_alignment_applicable = "PASS";
+      rowEvidence.row_reviews[0].verdict = "PASS";
+      fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
+      candidate.gate_evidence.row_evidence.sha256 = sha256AbsoluteFile(rowEvidencePath);
+
       delete qaReport.page_api_alignment_status;
       fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
       candidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
@@ -2570,6 +2593,30 @@ describe("English content parity control master", () => {
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+
+      const contradictoryQaReport = JSON.parse(fs.readFileSync(qaReportPath, "utf8"));
+      contradictoryQaReport.page_api_alignment_status = "NOT_APPLICABLE";
+      fs.writeFileSync(qaReportPath, JSON.stringify(contradictoryQaReport));
+      const contradictoryCandidate = JSON.parse(fs.readFileSync(candidatePath, "utf8"));
+      contradictoryCandidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(contradictoryCandidate));
+      let contradictoryOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        contradictoryOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(contradictoryOutput).errors.join("\n")).toContain(
+        "page/API report status must match its aggregate check"
+      );
+      delete contradictoryQaReport.page_api_alignment_status;
+      fs.writeFileSync(qaReportPath, JSON.stringify(contradictoryQaReport));
+      contradictoryCandidate.gate_evidence.report_sha256 = sha256AbsoluteFile(qaReportPath);
+      fs.writeFileSync(candidatePath, JSON.stringify(contradictoryCandidate));
 
       const qaFrozenPackageDirectory = path.join(qaAuthorityDirectory, "frozen_package");
       fs.cpSync(packageDirectory, qaFrozenPackageDirectory, { recursive: true });
