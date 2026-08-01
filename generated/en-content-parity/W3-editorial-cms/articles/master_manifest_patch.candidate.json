@@ -5,22 +5,24 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-09-2026-08-01",
-  "base_manifest_sha256": "8876b97e27a40edcc0c33066e4cbcd9e631c1d8d51a0fa8a5f3142b76fedf7f3",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-10-2026-08-01",
+  "base_manifest_sha256": "5dfa51907860aaee4dabef952e15c4a6cabaa7d72cd47225089d15470b685039",
   "sha256_manifest_path": "generated/en-content-parity/W3-editorial-cms/articles/sha256_manifest.json",
-  "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
   "proposed_status": "package_frozen",
   "gate_evidence": {
     "gate": "package_frozen",
     "report_path": "editorial_review.json",
-    "report_sha256": "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334",
+    "report_sha256": "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
     "report_in_package": true,
     "owner_lane_id": "W3",
     "verdict": null,
     "asset_ids": [
       "ENPARITY-W3-ARTICLES"
     ],
-    "row_count": 17
+    "row_count": 17,
+    "rework_10_source_evidence_package_sha256": "480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061",
+    "repaired_stable_asset_identity": "Article:53"
   },
   "asset_updates": [
     {

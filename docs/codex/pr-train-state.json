@@ -55415,5 +55415,31 @@
       {"at": "2026-08-01T17:31:31Z", "status": "ready_to_merge", "summary": "PR #1969 exact head eeadc3bca89e1246908a5d2b69712557f46ace3f is CLEAN and passed all required checks; exact-head Codex review reported no major issues. This ready_to_merge ledger-only head must complete a fresh full required-check cycle before final scope/CAS validation and squash merge."}
     ],
     "updated_at": "2026-08-01T17:31:31Z"
+  },
+  "EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01": {
+    "id": "EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01: rebuild and refreeze the repaired 17-Article package",
+    "base": "main",
+    "branch": "codex/en-parity-w3-article-package-rework-10-01",
+    "depends_on": ["EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {"dependency": {"status": "pass", "evidence": "PR #1969 merged as 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 and its exact Article:53 evidence package SHA is 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061."}, "local_validation": {"status": "pass", "evidence": "The deterministic rework-10 builder recomputed the same eight-payload aggregate SHA d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a twice; focused Article package contract passed 5/5, focused ESLint, JSON/YAML parse, exact scope audit, diff checks, 17/17 identity/revision/translation reconciliation, Article:53 exact evidence consumption, 16-row visible projection preservation, no Han leakage, current-master candidate binding, and all-false permissions pass."}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [{"at": "2026-08-01T17:37:00Z", "status": "in_progress", "summary": "Started from merged PR #1969. Scope rebuilds only the W3 17-Article candidate package from exact Article:53 source evidence; master, W9, Career Guides, CMS/import, release, search, runtime, and deploy remain untouched."}, {"at": "2026-08-01T17:48:00Z", "status": "local_verified", "summary": "Rebuilt the canonical 17-row Article package by consuming exact Article:53 source evidence only. The aggregate SHA recomputed identically twice as d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a; all focused validation and exact scope checks pass. CONTROL acceptance and fresh W9 remain deferred."}],
+    "updated_at": "2026-08-01T17:48:00Z"
   }
 }
