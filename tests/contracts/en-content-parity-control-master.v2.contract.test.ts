@@ -584,18 +584,25 @@ describe("English content parity automation control V2", () => {
       fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
       const invalidDryRunInputs = structuredClone(inputs);
       invalidDryRunInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
-      expect(() => applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), invalidDryRunInputs)).toThrow(
-        "lane_manifest_dry_run_evidence_invalid=W8",
-      );
+      const originalDryRunExpectedHead = process.env.EN_PARITY_CURRENT_PR_HEAD;
+      process.env.EN_PARITY_CURRENT_PR_HEAD = reviewedSourceCommit;
+      try {
+        expect(() => applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), invalidDryRunInputs)).toThrow(
+          "lane_manifest_dry_run_evidence_invalid=W8",
+        );
 
-      fs.writeFileSync(preflightPath, preflight.bytes);
-      dryRunLineage.report_sha256 = sha256(preflight.bytes);
-      dryRunTransition.evidence_sha256 = sha256(preflight.bytes);
-      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-      const validDryRunInputs = structuredClone(inputs);
-      validDryRunInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
-      expect(applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), validDryRunInputs)
-        .lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8").status).toBe("dry_run_ready");
+        fs.writeFileSync(preflightPath, preflight.bytes);
+        dryRunLineage.report_sha256 = sha256(preflight.bytes);
+        dryRunTransition.evidence_sha256 = sha256(preflight.bytes);
+        fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+        const validDryRunInputs = structuredClone(inputs);
+        validDryRunInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+        expect(applyMaterializationInputs(migrateV1ToV2(v1, "6".repeat(64)), validDryRunInputs)
+          .lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8").status).toBe("dry_run_ready");
+      } finally {
+        if (originalDryRunExpectedHead === undefined) delete process.env.EN_PARITY_CURRENT_PR_HEAD;
+        else process.env.EN_PARITY_CURRENT_PR_HEAD = originalDryRunExpectedHead;
+      }
     } finally {
       fs.rmSync(directory, { recursive: true, force: true });
     }
