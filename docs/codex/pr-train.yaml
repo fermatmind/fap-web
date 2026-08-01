@@ -27905,6 +27905,69 @@ prs:
     repository_rule_impact: no authority change; records independent exact-package W9 evidence only
     next_task: EN-PARITY-W1-MBTI-RESULT-W9-QA-01
 
+  - id: EN-PARITY-W1-MBTI-RESULT-W9-QA-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w1-mbti-result-w9-qa-01
+    base: main
+    title: "EN-PARITY-W1-MBTI-RESULT-W9-QA-01: independently QA all 46 MBTI result asset families"
+    depends_on:
+      - EN-PARITY-W1-MBTI-RESULT-ASSETS-01
+    mode: execute
+    train_scope: en_parity_w1_mbti_result_independent_w9_qa
+    risk_level: L1
+    status: in_progress
+    goal: "Commit independent 46/46 W9 QA evidence for the exact immutable English MBTI result/report package and the repaired active reader without changing the package, control master, runtime, CMS, publication, activation, or discoverability state."
+    allowed_paths:
+      - generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-a460acd0/**
+      - generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-53cce2d5/**
+      - backend content package files
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - app/**
+      - components/**
+      - lib/**
+      - CMS, staging, production import, publication, activation, or database mutation
+      - sitemap, llms, llms-full, canonical, robots, JSON-LD, indexability, or search submission
+      - deployment
+    required_local_checks:
+      - exact package SHA, nine-file hash, and aggregate SHA recomputation
+      - 46/46 independent row review coverage comprising 24 controls, 21 candidates, and 1 PDF row
+      - backend focused package and exact-package dry-run tests
+      - frontend focused result registry, agent, public-read, active-reader FAQ, and PDF contracts
+      - exact render=faq normalizer and active RichResultReport reader validation
+      - traits.at_difference registry validation
+      - PDF 20 unique candidate cards, 4 premium entitlement, and unresolved-token validation
+      - current inventory and control validators
+      - synthetic package_frozen exact-report validator
+      - exact-SHA qa_pass candidate focused contract
+      - four-file JSON and SHA manifest validation
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including ignored QA files
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    url_submission: false
+    deploy_allowed: false
+    content_authority: backend CMS and public APIs; W9 files are independent gate evidence only
+    repository_rule_impact: no authority change; records independent exact-package W9 evidence only
+    next_task: EN-PARITY-W1-MBTI-RESULT-DRAFT-IMPORT-01
+
   - id: EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01
     repo: fap-web
     branch: codex/en-parity-w3-article-runtime-absence-01

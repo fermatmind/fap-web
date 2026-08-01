@@ -52184,6 +52184,113 @@
     ],
     "updated_at": "2026-07-31T10:23:26Z"
   },
+  "EN-PARITY-W1-MBTI-RESULT-W9-QA-01": {
+    "id": "EN-PARITY-W1-MBTI-RESULT-W9-QA-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W1-MBTI-RESULT-W9-QA-01: independently QA all 46 MBTI result asset families",
+    "base": "main",
+    "branch": "codex/en-parity-w1-mbti-result-w9-qa-01",
+    "depends_on": [
+      "EN-PARITY-W1-MBTI-RESULT-ASSETS-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1892",
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a continuous execution /goal with this exact PR id, repository, dependency, independent-review scope, lifecycle authorization, and controlled-action boundaries."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "fap-api result asset PR #3429 is merged. The reviewed producer commit is a460acd0ff2c968c93fb5c005e77de1b0599971e and the immutable package SHA is 9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3."
+      },
+      "independence": {
+        "status": "passed",
+        "evidence": "A fresh gpt-5.6-sol high-reasoning W9 reviewer used only the exact package, registered authorities, and repaired frontend renderer at 643b7a80f2cbf34f8cbfdce394128f7148aea395. It did not read or reuse prior BLOCKED W1 result W9 evidence."
+      },
+      "package_integrity": {
+        "status": "passed",
+        "evidence": "All 9/9 declared package files match their manifest hashes and the package aggregate independently recomputes to 9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3."
+      },
+      "w9_review": {
+        "status": "passed",
+        "evidence": "All 46/46 registered rows received independent review: 24 control rows, 21 candidate rows, and 1 PDF row. Language naturalness, Chinese leakage, claim boundaries, duplication, field leakage, and page/API alignment are PASS for every row."
+      },
+      "renderer_alignment": {
+        "status": "passed",
+        "evidence": "The exact reviewed renderer SHA 643b7a80f2cbf34f8cbfdce394128f7148aea395 accepts and actively renders the real render=faq payload through RichResultReport, retains traits.at_difference, and keeps FAQ outside snapshot mode."
+      },
+      "pdf_gate": {
+        "status": "passed",
+        "evidence": "The exact PDF harness contains 20 unique candidate cards, 4 premium entitlement cards, and 0 unresolved tokens."
+      },
+      "focused_tests": {
+        "status": "passed",
+        "evidence": "Backend exact-package and dry-run validation passed 15 tests / 1663 assertions. Frontend registry, result-agent, public-read, active-reader FAQ, and PDF contracts passed 6 files / 43 tests."
+      },
+      "control_candidate_validation": {
+        "status": "passed",
+        "evidence": "Current inventory/control validators, a non-persisted synthetic package_frozen exact-report validator, and the exact-SHA qa_pass candidate focused contract passed. No control master or candidate state was written."
+      },
+      "qa_artifact_integrity": {
+        "status": "passed",
+        "evidence": "Exactly four new W9 files were generated under 9325013b-renderer-643b7a80. JSON parsing, the three-file SHA manifest, 46-row coverage, and exact directory scope independently revalidated."
+      },
+      "permissions": {
+        "status": "passed",
+        "evidence": "CMS, staging, production import, public release, SEO runtime release, search submission, and control-master write permissions are all false."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "The intended PR contains only the four new exact-lineage W9 files and the two required train metadata files. No old BLOCKED evidence, package, master manifest, runtime, CMS, publication, activation, discoverability, or deployment file is included."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #1892 exact checked head 100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff passed build, all four contract shards, aggregate contracts, both freeze checks, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN/MERGEABLE with no review-decision block."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T04:53:52Z",
+        "status": "in_progress",
+        "summary": "Started the final independent W9 scope from exact fap-web renderer/main SHA 643b7a80f2cbf34f8cbfdce394128f7148aea395. The exact backend package is read-only; old BLOCKED evidence, package mutation, control state, CMS, publication, activation, discoverability, and deployment remain excluded."
+      },
+      {
+        "at": "2026-08-01T04:53:52Z",
+        "status": "local_verified",
+        "summary": "Fresh independent 46/46 review verdict is PASS. Package/file hashes, every content and safety row, backend 15/1663, frontend 6 files/43 tests, real FAQ active-reader rendering, traits.at_difference, PDF 20/4, current and synthetic control validators, four-file hashes, and exact path scope pass; every write/release permission remains false."
+      },
+      {
+        "at": "2026-08-01T04:56:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-file W9 scope as c59eac6c1780da3660f44973eaf863381199f1c1, pushed the task branch, and opened PR #1892. Required GitHub checks are pending; old BLOCKED evidence, package, control master, runtime, CMS, publication, activation, discoverability, and deployment remain untouched."
+      },
+      {
+        "at": "2026-08-01T05:00:31Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1892 exact head 100bd8f5969fc1628c4a2635f809e6a2d3d8c4ff passed every required CI/security check. GitHub reports CLEAN/MERGEABLE, the diff remains the exact authorized six-file W9 scope, and there is no review requirement. This final ledger transition must retain green checks before squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T05:00:31Z"
+  },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
     "status": "ready_to_merge",

@@ -1,0 +1,1868 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W1",
+  "subscope_id": "W1-MBTI-RESULT-CONTENT",
+  "asset_id": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+  "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
+  "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+  "source_repository": {
+    "worktree": "/tmp/fap-api-w1-mbti-result-w9-source-9325",
+    "commit_sha": "a460acd0ff2c968c93fb5c005e77de1b0599971e"
+  },
+  "renderer_repository": {
+    "worktree": "/tmp/fap-web-w1-mbti-result-w9",
+    "reviewed_commit_sha": "643b7a80f2cbf34f8cbfdce394128f7148aea395",
+    "faq_render_acceptance_merge_sha": "e5b79fa1b617d959acaedf979ed9124f62d894ea",
+    "faq_reader_repair_merge_sha": "643b7a80f2cbf34f8cbfdce394128f7148aea395",
+    "repairs_are_ancestors": true
+  },
+  "verdict": "PASS",
+  "reviewed_asset_ids": [
+    "ENPARITY-W1-MBTI-RESULT-CONTENT"
+  ],
+  "reviewed_row_count": 46,
+  "title_excerpt_full_body_reviewed_for_every_row": true,
+  "coverage": {
+    "preserved_control_rows": 24,
+    "candidate_rows": 21,
+    "pdf_rows": 1,
+    "pdf_candidate_cards": 20,
+    "pdf_unique_card_keys": 20,
+    "pdf_premium_cards": 4
+  },
+  "required_checks": {
+    "language_naturalness": "PASS",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "PASS"
+  },
+  "package_integrity": {
+    "aggregate_algorithm": "SHA-256 over UTF-8 concatenation of path + NUL + lowercase file SHA-256 + LF in package_manifest.files order",
+    "aggregate_result": "MATCH",
+    "aggregate_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "78dbe7cf85d2587fc069b5521926e37775b9cf89e9b9c5817cd71fd4c55ee5f6",
+        "result": "MATCH"
+      },
+      {
+        "path": "assets.json",
+        "sha256": "9bf660a7cb99c925db7b5bc96896eee82c85e47e80414add2b1bbc98f0f71113",
+        "result": "MATCH"
+      },
+      {
+        "path": "inventory_reconciliation.json",
+        "sha256": "20fb311db62ef5a5abf227d704dc9a006091574cfedcc49b517dcc701f350e29",
+        "result": "MATCH"
+      },
+      {
+        "path": "translation_map.json",
+        "sha256": "fbda34628b3fdc7b207c093f0f1177d9321a1122bd12a6b2991d8b86581fc58e",
+        "result": "MATCH"
+      },
+      {
+        "path": "entitlement_matrix.json",
+        "sha256": "b893d8b0856d2e6b3b41108ea078e6222c0bc97229d06c5c1d8561ef82e5ad08",
+        "result": "MATCH"
+      },
+      {
+        "path": "pdf_reader_fixture_mapping.json",
+        "sha256": "dd4c054e66f7546bd64ef89247c193ac9e211cc60bdb7979e8e4d1659a3a78be",
+        "result": "MATCH"
+      },
+      {
+        "path": "claim_boundary_report.json",
+        "sha256": "6fe28edba4364e5e32bee011df70e58def80e87d47b4939e5f8db72ef5ce6033",
+        "result": "MATCH"
+      },
+      {
+        "path": "editorial_review.json",
+        "sha256": "3352cba0c2418bf058f3defca438bf1951fe2344617eff3e009a574748d60919",
+        "result": "MATCH"
+      },
+      {
+        "path": "approval_envelope.json",
+        "sha256": "31fe907963817d310cca7ff0f0f7c0b1456a773ed4c546c2a1ef6528128c79d5",
+        "result": "MATCH"
+      }
+    ]
+  },
+  "validation_evidence": {
+    "backend_package_and_exact_dry_run_importer_tests": "PASS: 15 tests, 1663 assertions",
+    "frontend_focused_contracts": "PASS: 6 files, 43 tests",
+    "frozen_inventory_validator": "PASS: 46 result rows, errors=[]",
+    "current_control_validator": "PASS: 9 lanes, 13 asset cohorts, errors=[]",
+    "synthetic_package_frozen_exact_report": "PASS: non-persisted synthetic manifest accepted this exact package-SHA W9 report, full 46-row coverage, W9 authority path, schema, checks, and permissions with errors=[]",
+    "exact_package_shape": "PASS: 9/9 file hashes and aggregate SHA matched; 46 unique rows = 24 controls + 21 candidates + 1 PDF target",
+    "real_faq_normalizer_and_reader": "PASS: key=faq/render=faq payload preserved items[{key,question,answer}] and active RichResultReport reader rendered complete items",
+    "traits_at_difference_registry": "PASS: exact key retained in inventory order with bodyMd",
+    "pdf_exact_package_fixture": "PASS: 20 unique cards, 4 premium cards, zero unresolved slots, nonempty description/bullets/tips, no private payload"
+  },
+  "independence": {
+    "producer_self_qa_used_as_verdict": false,
+    "prior_w9_output_read_or_reused": false,
+    "prior_w9_reviewer_contacted": false,
+    "review_basis": "Exact immutable package at producer commit, frozen 46-row inventory, current renderer at exact reviewed SHA, independent package/PDF harness, focused backend/frontend tests, and row-by-row manual review"
+  },
+  "premium_pdf_row_ids": [
+    "W1-RESULT-SECTION-27-GROWTH-MOTIVATORS",
+    "W1-RESULT-SECTION-28-GROWTH-DRAINERS",
+    "W1-RESULT-SECTION-34-RELATIONSHIPS-REL_ADVANTAGES",
+    "W1-RESULT-SECTION-35-RELATIONSHIPS-REL_RISKS"
+  ],
+  "row_reviews": [
+    {
+      "row_number": 1,
+      "row_id": "W1-RESULT-CORE-01-PROFILE",
+      "stable_asset_identity": "mbti:result:projection:profile",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-CORE-01-PROFILE",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "MbtiPublicProjectionService",
+        "backend_field_path": "profile",
+        "api_projection_field_path": "data.profile",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:projection:profile was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:projection:profile was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: MbtiPublicProjectionService; profile -> data.profile -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 2,
+      "row_id": "W1-RESULT-CORE-02-SUMMARY-CARD",
+      "stable_asset_identity": "mbti:result:projection:summary-card",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-CORE-02-SUMMARY-CARD",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "MbtiPublicProjectionService",
+        "backend_field_path": "summary_card",
+        "api_projection_field_path": "data.summary_card",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:projection:summary-card was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:projection:summary-card was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: MbtiPublicProjectionService; summary_card -> data.summary_card -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 3,
+      "row_id": "W1-RESULT-CORE-03-DIMENSIONS",
+      "stable_asset_identity": "mbti:result:projection:dimensions",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "free_preview_and_full_result",
+      "entitlement_level": "all",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-CORE-03-DIMENSIONS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "MbtiPublicProjectionService",
+        "backend_field_path": "dimensions",
+        "api_projection_field_path": "data.dimensions[]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:projection:dimensions was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:projection:dimensions was reviewed for exact identity, MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: MbtiPublicProjectionService; dimensions -> data.dimensions[] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 4,
+      "row_id": "W1-RESULT-CORE-04-ACCESS-ENVELOPE",
+      "stable_asset_identity": "mbti:result:access-envelope",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "free_preview_locked_full_and_entitlement",
+      "entitlement_level": "free|preview|locked|full",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-CORE-04-ACCESS-ENVELOPE",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "report-access authority",
+        "backend_field_path": "access_level, locked, entitlements",
+        "api_projection_field_path": "report-access response and section access metadata",
+        "frontend_consumer_path": "components/result/ResultClient.tsx; components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:access-envelope was reviewed for exact identity, report-access authority authority, backend/API/consumer alignment, entitlement free|preview|locked|full, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:access-envelope was reviewed for exact identity, report-access authority authority, backend/API/consumer alignment, entitlement free|preview|locked|full, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: report-access authority; access_level, locked, entitlements -> report-access response and section access metadata -> components/result/ResultClient.tsx; components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 5,
+      "row_id": "W1-RESULT-CORE-05-OFFER-CTA",
+      "stable_asset_identity": "mbti:result:offer-set-and-cta-copy",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "locked_preview_and_upgrade",
+      "entitlement_level": "locked_upsell_only",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-CORE-05-OFFER-CTA",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-CORE-05-OFFER-CTA",
+      "authority": {
+        "owner": "MbtiPublicProjectionService and locale content package",
+        "backend_field_path": "offer_set",
+        "api_projection_field_path": "data.offer_set",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_fields": 7,
+        "benefit_bullets": 2
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed every locked-upsell CTA field. The copy explains expanded access without claiming purchase changes the score or guarantees personal, career, or relationship outcomes; it remains isolated from preview and public projection authority.",
+      "verdict": "PASS",
+      "evidence": "Reviewed every locked-upsell CTA field. The copy explains expanded access without claiming purchase changes the score or guarantees personal, career, or relationship outcomes; it remains isolated from preview and public projection authority. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MbtiPublicProjectionService and locale content package; offer_set -> data.offer_set -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 6,
+      "row_id": "W1-RESULT-SECTION-01-LETTERS_INTRO",
+      "stable_asset_identity": "mbti:result:section:letters_intro",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:letters_intro",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-01-LETTERS_INTRO",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.letters_intro",
+        "api_projection_field_path": "data.sections[key=letters_intro]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:letters_intro was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:letters_intro was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.letters_intro -> data.sections[key=letters_intro] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 7,
+      "row_id": "W1-RESULT-SECTION-02-OVERVIEW",
+      "stable_asset_identity": "mbti:result:section:overview",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:overview",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-02-OVERVIEW",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.overview",
+        "api_projection_field_path": "data.sections[key=overview]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:overview was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:overview was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.overview -> data.sections[key=overview] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 8,
+      "row_id": "W1-RESULT-SECTION-03-TRAIT_OVERVIEW",
+      "stable_asset_identity": "mbti:result:section:trait_overview",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:trait_overview",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-03-TRAIT_OVERVIEW",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.trait_overview",
+        "api_projection_field_path": "data.sections[key=trait_overview]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:trait_overview was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:trait_overview was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.trait_overview -> data.sections[key=trait_overview] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 9,
+      "row_id": "W1-RESULT-SECTION-04-TRAITS-AT_DIFFERENCE",
+      "stable_asset_identity": "mbti:result:section:traits.at_difference",
+      "inventory_verdict": "missing",
+      "disposition": "candidate_asset",
+      "surface": "result_section:traits.at_difference",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-04-TRAITS-AT_DIFFERENCE",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-04-TRAITS-AT_DIFFERENCE",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.traits.at_difference",
+        "api_projection_field_path": "data.sections[key=traits.at_difference]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: traits.at_difference survived canonical order/normalization with exact bodyMd evidence.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Assertive and Turbulent remain context-sensitive expression patterns, neither is ranked, and the exact key is preserved by the renderer registry.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Assertive and Turbulent remain context-sensitive expression patterns, neither is ranked, and the exact key is preserved by the renderer registry. PASS: traits.at_difference survived canonical order/normalization with exact bodyMd evidence. Authority: MBTI result/report content pack; sections.traits.at_difference -> data.sections[key=traits.at_difference] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 10,
+      "row_id": "W1-RESULT-SECTION-05-FAQ",
+      "stable_asset_identity": "mbti:result:section:faq",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:faq",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-05-FAQ",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.faq",
+        "api_projection_field_path": "data.sections[key=faq]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: canonical FAQ survived RESULT_SECTION_ORDER and render=faq normalization and was rendered by the active reader contract.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "The frozen FAQ control remains a preserved reference. At renderer SHA 643b7a80, a real key=faq/render=faq payload preserves items[{key,question,answer}] through normalization and the active RichResultReport reader renders two complete backend items while rejecting an incomplete item.",
+      "verdict": "PASS",
+      "evidence": "The frozen FAQ control remains a preserved reference. At renderer SHA 643b7a80, a real key=faq/render=faq payload preserves items[{key,question,answer}] through normalization and the active RichResultReport reader renders two complete backend items while rejecting an incomplete item. PASS: canonical FAQ survived RESULT_SECTION_ORDER and render=faq normalization and was rendered by the active reader contract. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.faq -> data.sections[key=faq] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 11,
+      "row_id": "W1-RESULT-SECTION-06-TRAITS-WHY_THIS_TYPE",
+      "stable_asset_identity": "mbti:result:section:traits.why_this_type",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:traits.why_this_type",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-06-TRAITS-WHY_THIS_TYPE",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-06-TRAITS-WHY_THIS_TYPE",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.traits.why_this_type",
+        "api_projection_field_path": "data.sections[key=traits.why_this_type]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The current result is framed as a best-fit working hypothesis, not a fixed identity or proof.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The current result is framed as a best-fit working hypothesis, not a fixed identity or proof. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.traits.why_this_type -> data.sections[key=traits.why_this_type] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 12,
+      "row_id": "W1-RESULT-SECTION-07-TRAITS-CLOSE_CALL_AXES",
+      "stable_asset_identity": "mbti:result:section:traits.close_call_axes",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:traits.close_call_axes",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-07-TRAITS-CLOSE_CALL_AXES",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-07-TRAITS-CLOSE_CALL_AXES",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.traits.close_call_axes",
+        "api_projection_field_path": "data.sections[key=traits.close_call_axes]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete rendered synthetic form. A small margin is explained without invalidating the assessment or forcing a permanent side; exact slot substitution leaves no unresolved token.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete rendered synthetic form. A small margin is explained without invalidating the assessment or forcing a permanent side; exact slot substitution leaves no unresolved token. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.traits.close_call_axes -> data.sections[key=traits.close_call_axes] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 13,
+      "row_id": "W1-RESULT-SECTION-08-TRAITS-ADJACENT_TYPE_CONTRAST",
+      "stable_asset_identity": "mbti:result:section:traits.adjacent_type_contrast",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:traits.adjacent_type_contrast",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-08-TRAITS-ADJACENT_TYPE_CONTRAST",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-08-TRAITS-ADJACENT_TYPE_CONTRAST",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.traits.adjacent_type_contrast",
+        "api_projection_field_path": "data.sections[key=traits.adjacent_type_contrast]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete rendered synthetic form. The nearby type is separated on the first ranked non-A/T axis; the fixture correctly contrasts INTJ-A with INTP through J/P rather than the A/T close-call axis.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete rendered synthetic form. The nearby type is separated on the first ranked non-A/T axis; the fixture correctly contrasts INTJ-A with INTP through J/P rather than the A/T close-call axis. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.traits.adjacent_type_contrast -> data.sections[key=traits.adjacent_type_contrast] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 14,
+      "row_id": "W1-RESULT-SECTION-09-TRAITS-DECISION_STYLE",
+      "stable_asset_identity": "mbti:result:section:traits.decision_style",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:traits.decision_style",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-09-TRAITS-DECISION_STYLE",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-09-TRAITS-DECISION_STYLE",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.traits.decision_style",
+        "api_projection_field_path": "data.sections[key=traits.decision_style]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Decision preferences are adaptable and paired with reversible, evidence-led experiments.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Decision preferences are adaptable and paired with reversible, evidence-led experiments. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.traits.decision_style -> data.sections[key=traits.decision_style] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 15,
+      "row_id": "W1-RESULT-SECTION-10-CAREER-SUMMARY",
+      "stable_asset_identity": "mbti:result:section:career.summary",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:career.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-10-CAREER-SUMMARY",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.career.summary",
+        "api_projection_field_path": "data.sections[key=career.summary]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:career.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:career.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.career.summary -> data.sections[key=career.summary] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 16,
+      "row_id": "W1-RESULT-SECTION-11-CAREER-COLLABORATION_FIT",
+      "stable_asset_identity": "mbti:result:section:career.collaboration_fit",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:career.collaboration_fit",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-11-CAREER-COLLABORATION_FIT",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-11-CAREER-COLLABORATION_FIT",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.career.collaboration_fit",
+        "api_projection_field_path": "data.sections[key=career.collaboration_fit]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Collaboration fit is defined by working agreements, not type compatibility or personnel suitability.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Collaboration fit is defined by working agreements, not type compatibility or personnel suitability. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.career.collaboration_fit -> data.sections[key=career.collaboration_fit] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 17,
+      "row_id": "W1-RESULT-SECTION-12-CAREER-WORK_ENVIRONMENT",
+      "stable_asset_identity": "mbti:result:section:career.work_environment",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:career.work_environment",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-12-CAREER-WORK_ENVIRONMENT",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-12-CAREER-WORK_ENVIRONMENT",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.career.work_environment",
+        "api_projection_field_path": "data.sections[key=career.work_environment]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Work conditions are hypotheses for questions and negotiation, not job-title matching or career prediction.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Work conditions are hypotheses for questions and negotiation, not job-title matching or career prediction. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.career.work_environment -> data.sections[key=career.work_environment] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 18,
+      "row_id": "W1-RESULT-SECTION-13-CAREER-WORK_EXPERIMENTS",
+      "stable_asset_identity": "mbti:result:section:career.work_experiments",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:career.work_experiments",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-13-CAREER-WORK_EXPERIMENTS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-13-CAREER-WORK_EXPERIMENTS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.career.work_experiments",
+        "api_projection_field_path": "data.sections[key=career.work_experiments]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The section uses a small reversible one-week experiment with observable outcomes.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The section uses a small reversible one-week experiment with observable outcomes. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.career.work_experiments -> data.sections[key=career.work_experiments] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 19,
+      "row_id": "W1-RESULT-SECTION-14-CAREER-ADVANTAGES",
+      "stable_asset_identity": "mbti:result:section:career.advantages",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:career.advantages",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-14-CAREER-ADVANTAGES",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.career.advantages",
+        "api_projection_field_path": "data.sections[key=career.advantages]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:career.advantages was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:career.advantages was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.career.advantages -> data.sections[key=career.advantages] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 20,
+      "row_id": "W1-RESULT-SECTION-15-CAREER-WEAKNESSES",
+      "stable_asset_identity": "mbti:result:section:career.weaknesses",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:career.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-15-CAREER-WEAKNESSES",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.career.weaknesses",
+        "api_projection_field_path": "data.sections[key=career.weaknesses]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:career.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:career.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.career.weaknesses -> data.sections[key=career.weaknesses] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 21,
+      "row_id": "W1-RESULT-SECTION-16-CAREER-PREFERRED_ROLES",
+      "stable_asset_identity": "mbti:result:section:career.preferred_roles",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:career.preferred_roles",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-16-CAREER-PREFERRED_ROLES",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.career.preferred_roles",
+        "api_projection_field_path": "data.sections[key=career.preferred_roles]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:career.preferred_roles was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:career.preferred_roles was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.career.preferred_roles -> data.sections[key=career.preferred_roles] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 22,
+      "row_id": "W1-RESULT-SECTION-17-CAREER-NEXT_STEP",
+      "stable_asset_identity": "mbti:result:section:career.next_step",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:career.next_step",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-17-CAREER-NEXT_STEP",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-17-CAREER-NEXT_STEP",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.career.next_step",
+        "api_projection_field_path": "data.sections[key=career.next_step]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The next step produces evidence about work and explicitly avoids certainty about career outcomes.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The next step produces evidence about work and explicitly avoids certainty about career outcomes. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.career.next_step -> data.sections[key=career.next_step] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 23,
+      "row_id": "W1-RESULT-SECTION-18-CAREER-UPGRADE_SUGGESTIONS",
+      "stable_asset_identity": "mbti:result:section:career.upgrade_suggestions",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:career.upgrade_suggestions",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-18-CAREER-UPGRADE_SUGGESTIONS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.career.upgrade_suggestions",
+        "api_projection_field_path": "data.sections[key=career.upgrade_suggestions]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:career.upgrade_suggestions was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:career.upgrade_suggestions was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.career.upgrade_suggestions -> data.sections[key=career.upgrade_suggestions] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 24,
+      "row_id": "W1-RESULT-SECTION-19-GROWTH-SUMMARY",
+      "stable_asset_identity": "mbti:result:section:growth.summary",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:growth.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-19-GROWTH-SUMMARY",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.growth.summary",
+        "api_projection_field_path": "data.sections[key=growth.summary]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:growth.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:growth.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.growth.summary -> data.sections[key=growth.summary] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 25,
+      "row_id": "W1-RESULT-SECTION-20-GROWTH-STABILITY_CONFIDENCE",
+      "stable_asset_identity": "mbti:result:section:growth.stability_confidence",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.stability_confidence",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-20-GROWTH-STABILITY_CONFIDENCE",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-20-GROWTH-STABILITY_CONFIDENCE",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.stability_confidence",
+        "api_projection_field_path": "data.sections[key=growth.stability_confidence]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Confidence comes from repeated contextual evidence, while later result variation remains possible.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Confidence comes from repeated contextual evidence, while later result variation remains possible. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.stability_confidence -> data.sections[key=growth.stability_confidence] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 26,
+      "row_id": "W1-RESULT-SECTION-21-GROWTH-NEXT_ACTIONS",
+      "stable_asset_identity": "mbti:result:section:growth.next_actions",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.next_actions",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-21-GROWTH-NEXT_ACTIONS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-21-GROWTH-NEXT_ACTIONS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.next_actions",
+        "api_projection_field_path": "data.sections[key=growth.next_actions]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Growth means practicing behavioral range, not perfecting or defending a type identity.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Growth means practicing behavioral range, not perfecting or defending a type identity. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.next_actions -> data.sections[key=growth.next_actions] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 27,
+      "row_id": "W1-RESULT-SECTION-22-GROWTH-WEEKLY_EXPERIMENTS",
+      "stable_asset_identity": "mbti:result:section:growth.weekly_experiments",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.weekly_experiments",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-22-GROWTH-WEEKLY_EXPERIMENTS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-22-GROWTH-WEEKLY_EXPERIMENTS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.weekly_experiments",
+        "api_projection_field_path": "data.sections[key=growth.weekly_experiments]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The one-week experiment includes a situation, changed behavior, observable signal, and alternative explanation.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The one-week experiment includes a situation, changed behavior, observable signal, and alternative explanation. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.weekly_experiments -> data.sections[key=growth.weekly_experiments] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 28,
+      "row_id": "W1-RESULT-SECTION-23-GROWTH-STRENGTHS",
+      "stable_asset_identity": "mbti:result:section:growth.strengths",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:growth.strengths",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-23-GROWTH-STRENGTHS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.growth.strengths",
+        "api_projection_field_path": "data.sections[key=growth.strengths]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:growth.strengths was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:growth.strengths was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.growth.strengths -> data.sections[key=growth.strengths] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 29,
+      "row_id": "W1-RESULT-SECTION-24-GROWTH-WEAKNESSES",
+      "stable_asset_identity": "mbti:result:section:growth.weaknesses",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:growth.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-24-GROWTH-WEAKNESSES",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.growth.weaknesses",
+        "api_projection_field_path": "data.sections[key=growth.weaknesses]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:growth.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:growth.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.growth.weaknesses -> data.sections[key=growth.weaknesses] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 30,
+      "row_id": "W1-RESULT-SECTION-25-GROWTH-STRESS_RECOVERY",
+      "stable_asset_identity": "mbti:result:section:growth.stress_recovery",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.stress_recovery",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-25-GROWTH-STRESS_RECOVERY",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-25-GROWTH-STRESS_RECOVERY",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.stress_recovery",
+        "api_projection_field_path": "data.sections[key=growth.stress_recovery]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The section is explicitly non-clinical, checks contextual causes first, and recommends qualified support for persistent distress or impairment.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The section is explicitly non-clinical, checks contextual causes first, and recommends qualified support for persistent distress or impairment. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.stress_recovery -> data.sections[key=growth.stress_recovery] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 31,
+      "row_id": "W1-RESULT-SECTION-26-GROWTH-WATCHOUTS",
+      "stable_asset_identity": "mbti:result:section:growth.watchouts",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.watchouts",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-26-GROWTH-WATCHOUTS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-26-GROWTH-WATCHOUTS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.watchouts",
+        "api_projection_field_path": "data.sections[key=growth.watchouts]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Watchouts are evidence-selected overused preferences rather than defects assigned by type.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Watchouts are evidence-selected overused preferences rather than defects assigned by type. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.watchouts -> data.sections[key=growth.watchouts] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 32,
+      "row_id": "W1-RESULT-SECTION-27-GROWTH-MOTIVATORS",
+      "stable_asset_identity": "mbti:result:section:growth.motivators",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.motivators",
+      "entitlement_level": "premium_full",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-27-GROWTH-MOTIVATORS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-27-GROWTH-MOTIVATORS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.motivators",
+        "api_projection_field_path": "data.sections[key=growth.motivators]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 1
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Motivation remains multi-causal; the full body stays in the premium result-only authority bucket.",
+      "verdict": "PASS",
+      "evidence": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Motivation remains multi-causal; the full body stays in the premium result-only authority bucket. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.motivators -> data.sections[key=growth.motivators] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 33,
+      "row_id": "W1-RESULT-SECTION-28-GROWTH-DRAINERS",
+      "stable_asset_identity": "mbti:result:section:growth.drainers",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:growth.drainers",
+      "entitlement_level": "premium_full",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-28-GROWTH-DRAINERS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-28-GROWTH-DRAINERS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.growth.drainers",
+        "api_projection_field_path": "data.sections[key=growth.drainers]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 1
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Low energy is not attributed to type alone; the full body stays premium and result-only.",
+      "verdict": "PASS",
+      "evidence": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Low energy is not attributed to type alone; the full body stays premium and result-only. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.growth.drainers -> data.sections[key=growth.drainers] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 34,
+      "row_id": "W1-RESULT-SECTION-29-RELATIONSHIPS-SUMMARY",
+      "stable_asset_identity": "mbti:result:section:relationships.summary",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:relationships.summary",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-29-RELATIONSHIPS-SUMMARY",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.relationships.summary",
+        "api_projection_field_path": "data.sections[key=relationships.summary]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:relationships.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:relationships.summary was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.relationships.summary -> data.sections[key=relationships.summary] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 35,
+      "row_id": "W1-RESULT-SECTION-30-RELATIONSHIPS-STRENGTHS",
+      "stable_asset_identity": "mbti:result:section:relationships.strengths",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:relationships.strengths",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-30-RELATIONSHIPS-STRENGTHS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.relationships.strengths",
+        "api_projection_field_path": "data.sections[key=relationships.strengths]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:relationships.strengths was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:relationships.strengths was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.relationships.strengths -> data.sections[key=relationships.strengths] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 36,
+      "row_id": "W1-RESULT-SECTION-31-RELATIONSHIPS-WEAKNESSES",
+      "stable_asset_identity": "mbti:result:section:relationships.weaknesses",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_section:relationships.weaknesses",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-31-RELATIONSHIPS-WEAKNESSES",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "CMS PersonalityPublicContentAsset via MbtiPublicProjectionService",
+        "backend_field_path": "sections.relationships.weaknesses",
+        "api_projection_field_path": "data.sections[key=relationships.weaknesses]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:section:relationships.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:section:relationships.weaknesses was reviewed for exact identity, CMS PersonalityPublicContentAsset via MbtiPublicProjectionService authority, backend/API/consumer alignment, entitlement free_preview_or_full_by_access_policy, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: CMS PersonalityPublicContentAsset via MbtiPublicProjectionService; sections.relationships.weaknesses -> data.sections[key=relationships.weaknesses] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 37,
+      "row_id": "W1-RESULT-SECTION-32-RELATIONSHIPS-COMMUNICATION_STYLE",
+      "stable_asset_identity": "mbti:result:section:relationships.communication_style",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:relationships.communication_style",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-32-RELATIONSHIPS-COMMUNICATION_STYLE",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-32-RELATIONSHIPS-COMMUNICATION_STYLE",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.relationships.communication_style",
+        "api_projection_field_path": "data.sections[key=relationships.communication_style]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Type does not determine empathy, honesty, or compatibility; repair is based on explicit requests and impact.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. Type does not determine empathy, honesty, or compatibility; repair is based on explicit requests and impact. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.relationships.communication_style -> data.sections[key=relationships.communication_style] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 38,
+      "row_id": "W1-RESULT-SECTION-33-RELATIONSHIPS-TRY_THIS_WEEK",
+      "stable_asset_identity": "mbti:result:section:relationships.try_this_week",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:relationships.try_this_week",
+      "entitlement_level": "free_preview_or_full_by_access_policy",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-33-RELATIONSHIPS-TRY_THIS_WEEK",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-33-RELATIONSHIPS-TRY_THIS_WEEK",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.relationships.try_this_week",
+        "api_projection_field_path": "data.sections[key=relationships.try_this_week]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 0
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The communication adjustment is low-stakes, contextual, and retained only if it helps.",
+      "verdict": "PASS",
+      "evidence": "Reviewed the complete title, summary, two body paragraphs, and two prompts. The communication adjustment is low-stakes, contextual, and retained only if it helps. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.relationships.try_this_week -> data.sections[key=relationships.try_this_week] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 39,
+      "row_id": "W1-RESULT-SECTION-34-RELATIONSHIPS-REL_ADVANTAGES",
+      "stable_asset_identity": "mbti:result:section:relationships.rel_advantages",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:relationships.rel_advantages",
+      "entitlement_level": "premium_full",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-34-RELATIONSHIPS-REL_ADVANTAGES",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-34-RELATIONSHIPS-REL_ADVANTAGES",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.relationships.rel_advantages",
+        "api_projection_field_path": "data.sections[key=relationships.rel_advantages]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 1
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Contributions require recent examples and feedback and are not guaranteed by type.",
+      "verdict": "PASS",
+      "evidence": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Contributions require recent examples and feedback and are not guaranteed by type. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.relationships.rel_advantages -> data.sections[key=relationships.rel_advantages] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 40,
+      "row_id": "W1-RESULT-SECTION-35-RELATIONSHIPS-REL_RISKS",
+      "stable_asset_identity": "mbti:result:section:relationships.rel_risks",
+      "inventory_verdict": "structurally_incomplete",
+      "disposition": "candidate_asset",
+      "surface": "result_section:relationships.rel_risks",
+      "entitlement_level": "premium_full",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SECTION-35-RELATIONSHIPS-REL_RISKS",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/assets.json#W1-RESULT-SECTION-35-RELATIONSHIPS-REL_RISKS",
+      "authority": {
+        "owner": "MBTI result/report content pack",
+        "backend_field_path": "sections.relationships.rel_risks",
+        "api_projection_field_path": "data.sections[key=relationships.rel_risks]",
+        "frontend_consumer_path": "components/result/RichResultReport.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "candidate_title": 1,
+        "candidate_summary": 1,
+        "candidate_body_paragraphs": 2,
+        "candidate_reflection_prompts": 2,
+        "premium_teaser": 1
+      },
+      "renderer_or_surface_projection": "PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Friction is not predetermined; the section forbids assigning motives or compatibility from type.",
+      "verdict": "PASS",
+      "evidence": "Reviewed teaser plus protected full title, summary, two body paragraphs, and two prompts. Friction is not predetermined; the section forbids assigning motives or compatibility from type. PASS: candidate identity and canonical/import projection fields match the frozen inventory; activation remains separately gated. Authority: MBTI result/report content pack; sections.relationships.rel_risks -> data.sections[key=relationships.rel_risks] -> components/result/RichResultReport.tsx."
+    },
+    {
+      "row_number": 41,
+      "row_id": "W1-RESULT-SURFACE-01-SHARE-PUBLIC-SUMMARY",
+      "stable_asset_identity": "mbti:result:share:public-summary-projection",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "share_public_summary",
+      "entitlement_level": "public_summary_only",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-01-SHARE-PUBLIC-SUMMARY",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "share projection authority",
+        "backend_field_path": "public summary projection allowlist",
+        "api_projection_field_path": "share public-summary response",
+        "frontend_consumer_path": "components/result/MbtiShareSummaryCard.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:share:public-summary-projection was reviewed for exact identity, share projection authority authority, backend/API/consumer alignment, entitlement public_summary_only, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:share:public-summary-projection was reviewed for exact identity, share projection authority authority, backend/API/consumer alignment, entitlement public_summary_only, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: share projection authority; public summary projection allowlist -> share public-summary response -> components/result/MbtiShareSummaryCard.tsx."
+    },
+    {
+      "row_number": 42,
+      "row_id": "W1-RESULT-SURFACE-02-PDF",
+      "stable_asset_identity": "mbti:result:pdf:reader-content",
+      "inventory_verdict": "unable_to_confirm",
+      "disposition": "w9_fixture_target",
+      "surface": "pdf_reader",
+      "entitlement_level": "entitled_report",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-02-PDF",
+      "target_identity": "backend/content_assets/en-content-parity/W1-mbti/result-content/pdf_reader_fixture_mapping.json#W1-RESULT-SURFACE-02-PDF",
+      "authority": {
+        "owner": "ReportPdfDocumentService and MbtiPdfPayloadBuilder",
+        "backend_field_path": "private report cards and localized PDF payload",
+        "api_projection_field_path": "PDF download stream; private projection not sampled",
+        "frontend_consumer_path": "PDF reader/download",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "pdf_candidate_cards": 20,
+        "unique_card_keys": 20,
+        "premium_candidate_cards": 4
+      },
+      "renderer_or_surface_projection": "PASS: exact-package synthetic adapter met the frozen PDF reader mapping and entitlement contract.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "The independent private-safe exact-package adapter produced exactly 20 unique candidate cards, preserved each row_id as card_key, resolved every registered slot, exercised four premium cards only under ready/full/full unlocked report-viewable and PDF-downloadable access, and used no production/private payload.",
+      "verdict": "PASS",
+      "evidence": "The independent private-safe exact-package adapter produced exactly 20 unique candidate cards, preserved each row_id as card_key, resolved every registered slot, exercised four premium cards only under ready/full/full unlocked report-viewable and PDF-downloadable access, and used no production/private payload. PASS: exact-package synthetic adapter met the frozen PDF reader mapping and entitlement contract. Authority: ReportPdfDocumentService and MbtiPdfPayloadBuilder; private report cards and localized PDF payload -> PDF download stream; private projection not sampled -> PDF reader/download."
+    },
+    {
+      "row_number": 43,
+      "row_id": "W1-RESULT-SURFACE-03-HISTORY",
+      "stable_asset_identity": "mbti:result:history-account-reentry-labels",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "history_and_account_reentry",
+      "entitlement_level": "authenticated_owner",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-03-HISTORY",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "fap-web i18n dictionaries and fap-api access authority",
+        "backend_field_path": "report access action/status",
+        "api_projection_field_path": "history/report-access response",
+        "frontend_consumer_path": "lib/i18n/locales/en.ts; history/account result links",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:history-account-reentry-labels was reviewed for exact identity, fap-web i18n dictionaries and fap-api access authority authority, backend/API/consumer alignment, entitlement authenticated_owner, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:history-account-reentry-labels was reviewed for exact identity, fap-web i18n dictionaries and fap-api access authority authority, backend/API/consumer alignment, entitlement authenticated_owner, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: fap-web i18n dictionaries and fap-api access authority; report access action/status -> history/report-access response -> lib/i18n/locales/en.ts; history/account result links."
+    },
+    {
+      "row_number": 44,
+      "row_id": "W1-RESULT-SURFACE-04-RESULT-RENDERER-LABELS",
+      "stable_asset_identity": "mbti:result:renderer-module-and-cta-labels",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "result_module_titles_and_cta_labels",
+      "entitlement_level": "all",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-04-RESULT-RENDERER-LABELS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "fap-web locale dictionaries",
+        "backend_field_path": "N/A; product renderer labels only",
+        "api_projection_field_path": "N/A",
+        "frontend_consumer_path": "lib/i18n/locales/en.ts; components/result/**",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:renderer-module-and-cta-labels was reviewed for exact identity, fap-web locale dictionaries authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:renderer-module-and-cta-labels was reviewed for exact identity, fap-web locale dictionaries authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: fap-web locale dictionaries; N/A; product renderer labels only -> N/A -> lib/i18n/locales/en.ts; components/result/**."
+    },
+    {
+      "row_number": 45,
+      "row_id": "W1-RESULT-SURFACE-05-LIFECYCLE-LABELS",
+      "stable_asset_identity": "mbti:result:lifecycle-state-labels",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "processing_empty_error_expired_access_denied",
+      "entitlement_level": "all",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-05-LIFECYCLE-LABELS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "fap-web locale dictionaries",
+        "backend_field_path": "status/error/access state codes",
+        "api_projection_field_path": "status and error envelopes",
+        "frontend_consumer_path": "components/result/ResultClient.tsx; lib/i18n/locales/en.ts",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:lifecycle-state-labels was reviewed for exact identity, fap-web locale dictionaries authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:lifecycle-state-labels was reviewed for exact identity, fap-web locale dictionaries authority, backend/API/consumer alignment, entitlement all, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: fap-web locale dictionaries; status/error/access state codes -> status and error envelopes -> components/result/ResultClient.tsx; lib/i18n/locales/en.ts."
+    },
+    {
+      "row_number": 46,
+      "row_id": "W1-RESULT-SURFACE-06-SHARE-RENDERER-LABELS",
+      "stable_asset_identity": "mbti:result:share-renderer-and-unavailable-labels",
+      "inventory_verdict": "complete_control",
+      "disposition": "preserved_reference",
+      "surface": "share_card_unavailable_and_expired_states",
+      "entitlement_level": "public_summary_only",
+      "source_identity": "generated/en-content-parity/W1-mbti/source_ledger.json@sha256:cf87d076bfdec941c636263bcbe937250a058d8fd566136293355d8c3a2a03c1#W1-RESULT-SURFACE-06-SHARE-RENDERER-LABELS",
+      "target_identity": "preserved_control_reference",
+      "authority": {
+        "owner": "fap-web share component and locale dictionaries",
+        "backend_field_path": "share projection state",
+        "api_projection_field_path": "share public-summary response/error",
+        "frontend_consumer_path": "components/result/MbtiShareSummaryCard.tsx",
+        "mobile_desktop_consumption": "same_authority_fields"
+      },
+      "counts": {
+        "preserved_reference": 1
+      },
+      "renderer_or_surface_projection": "PASS: existing control remains preserved by reference with no regenerated package content.",
+      "title_excerpt_full_body_reviewed": true,
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "review_finding": "Preserved control mbti:result:share-renderer-and-unavailable-labels was reviewed for exact identity, fap-web share component and locale dictionaries authority, backend/API/consumer alignment, entitlement public_summary_only, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced.",
+      "verdict": "PASS",
+      "evidence": "Preserved control mbti:result:share-renderer-and-unavailable-labels was reviewed for exact identity, fap-web share component and locale dictionaries authority, backend/API/consumer alignment, entitlement public_summary_only, mobile/desktop parity, English leakage status, claim boundary, and private-field exclusions; no replacement content was introduced. PASS: existing control remains preserved by reference with no regenerated package content. Authority: fap-web share component and locale dictionaries; share projection state -> share public-summary response/error -> components/result/MbtiShareSummaryCard.tsx."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
