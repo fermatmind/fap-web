@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "w4_scan_manifest.json",
-      "sha256": "0a2a870e51941abb5f497ed5da5ef81c74f46a67b5a82ffcbb6d6545310f3beb",
+      "sha256": "4e504c86a901c725489e0a23a7d4c8153113d76099c21974397cc7ffcca97171",
       "bytes": 3816
     },
     {
@@ -32,7 +32,7 @@
     },
     {
       "path": "source_authority_ledger.json",
-      "sha256": "cca61449e34f74b6d81e3bbcf9a5de8afa4d00c75dbd169097721afcc00e7350",
+      "sha256": "dcd1238c7a4e0529ceeb8d9cb73a8e5b8c9fddfcb2bb13f0eed7d76e436e45d8",
       "bytes": 13879
     },
     {
@@ -61,7 +61,7 @@
       "bytes": 3701
     }
   ],
-  "aggregate_sha256": "16531ad41dbae6eff145bf368ac14669598cd6bf3117891f2f6210959226245f",
+  "aggregate_sha256": "13c490509b9506b0a9efcfd1065558ea5fb62ae1bfd40dfefe01b08bdfaf5ca1",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,

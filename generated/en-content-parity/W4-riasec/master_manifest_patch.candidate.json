@@ -7,7 +7,7 @@
   "subscope_id": null,
   "package_id": "EN-PARITY-W4-RIASEC-INVENTORY-2026-08-01",
   "proposed_status": "inventory_frozen",
-  "base_manifest_sha256": "7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1",
+  "base_manifest_sha256": "0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b",
   "asset_updates": [
     {
       "asset_id": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
@@ -29,12 +29,12 @@
       "notes": "The reader boundary is career-interest direction, not precise career matching."
     }
   ],
-  "package_sha256": "590a67abefc67259c0a0c920b34cd91bb15794ee74edcb6f1b83ea8e5015f69c",
+  "package_sha256": "a96b2a57e86cd3a5382572946c70246ddbccf62df0fb960144b93518ea5547c5",
   "sha256_manifest_path": "generated/en-content-parity/W4-riasec/sha256_manifest.json",
   "gate_evidence": {
     "gate": "inventory_frozen",
     "report_path": "source_ledger.json",
-    "report_sha256": "68d180ddc8c12018f753ef21bbb959d4cf9f7ea467232bb3d5e1eb71e673667b",
+    "report_sha256": "c8749e19c119d2994b04cbb6a6726174ce18e0c38a7d3dbe6e281a7220534e33",
     "report_in_package": true,
     "owner_lane_id": "W4",
     "verdict": null,
