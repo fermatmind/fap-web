@@ -52889,11 +52889,11 @@
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. Fifteen rows pass every check; Articles 55 and 59 are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
+        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. Fourteen rows pass every check; Articles 55, 58, and 59 are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
       },
       "language_naturalness": {
         "status": "fail",
-        "evidence": "W3-ARTICLE-55 is BLOCKED for `I'll acknowledge that it's not yet ready for keeping it`. W3-ARTICLE-59 is BLOCKED for unidiomatic parallel questions beginning `The students focus on college life`, the capitalization/construction error `If the answer is a complete unwillingness, Do not keep AI or computer science`, the non-native table header `What to use to judge`, and the ambiguous phrase `Correct impressions formed from short videos or family slogans`. The other 15 rows pass language naturalness, and both blocked rows pass the other seven row-level checks. W9 did not modify the producer payload."
+        "evidence": "W3-ARTICLE-55 is BLOCKED for `I'll acknowledge that it's not yet ready for keeping it`. W3-ARTICLE-58 is BLOCKED for `isn't about having boldness`, `Satisfied/to be checked`, `No concept`, and `Unable to accept long-term and medical training`. W3-ARTICLE-59 is BLOCKED for unidiomatic parallel questions, a capitalization/construction error, a non-native table header, and an ambiguous action phrase. The other 14 rows pass language naturalness, and all three blocked rows pass the other seven row-level checks. W9 did not modify the producer payload."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "pass",
@@ -52909,7 +52909,7 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; corrected 17-row evidence SHA256 is 455cec488a5f377de9777587b9fd130989e18e0686db2cdb5ca2cfc37a95135d; corrected blocked candidate SHA256 is a3c04746814a5b6084a02badb600ff14259b4b0b27ba6bb8b5f7b6477c3a7647; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
+        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; corrected 17-row evidence SHA256 is 6746b40330677828a03f96c3eeca0d825619f596186a8988077ace0f00edb892; corrected blocked candidate SHA256 is 6372ff0a20d187ab318c66700589d9358595f123a5b435438a7e9cd1a32b63e5; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
       },
       "control_validator": {
         "status": "pass",
@@ -52917,18 +52917,18 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "After the exact-head review correction, Node 24.18.1 focused control and W3 Article package contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 15 PASS plus Articles 55 and 59 blocked only on language naturalness, complete byte-identical producer snapshot, 17/17 live identity/title/cover matches, 86/610 structural coverage, zero Han, unique media, all-false permissions, JSON parsing, and git diff checks pass."
+        "evidence": "After adding Article 58 and rebinding to current CONTROL master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 14 PASS plus Articles 55, 58, and 59 blocked only on language naturalness, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1938 head ba3c81637814dd2df4e6f2727b0a2189076c61a5 passed all 11 required checks before exact-head review expanded the blocker set to Articles 55 and 59. Fresh required checks are pending after the scoped evidence correction."
+        "evidence": "PR #1938 head 33681c411b000ac4b2f4dd2801ef0e7ea4dda7e8 passed all 11 required checks before fresh exact-head review expanded the blocker set to Articles 55, 58, and 59. Fresh required checks are pending after the scoped evidence correction and current-main merge."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "GitHub review correctly identified an omitted Article 55 language blocker and a rework-06/rework-07 manifest branch mismatch; both are being corrected in scope. The commit_sha thread is already factually addressed by the existing ledger follow-up. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
+        "evidence": "The first review's three findings are resolved. Fresh exact-head review then correctly identified omitted Article 58 language defects; that finding is being corrected in scope. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
       }
     },
-    "failure_reason": "Fresh review found reader-visible English defects in frozen W3-ARTICLE-55 and W3-ARTICLE-59. Article 55 says `I'll acknowledge that it's not yet ready for keeping it`; Article 59 retains unidiomatic parallel questions, a capitalization/construction error, a non-native table header, and an ambiguous action phrase. W9 must report BLOCKED and cannot modify the producer payload.",
+    "failure_reason": "Fresh review found reader-visible English defects in frozen W3-ARTICLE-55, W3-ARTICLE-58, and W3-ARTICLE-59. Article 55 has an unidiomatic acknowledgment script; Article 58 has multiple non-native or incomplete phrases; Article 59 has unidiomatic questions, a capitalization/construction error, a non-native header, and an ambiguous action phrase. W9 must report BLOCKED and cannot modify the producer payload.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -53102,9 +53102,14 @@
       "at": "2026-08-01T09:08:38Z",
       "status": "blocked_pr_open",
       "summary": "Committed the exact-head review correction as efb8bfae8d5baaf0a02f91fd0046524dd429618b and bound commit_sha to that implementation head. The independent W9 verdict is BLOCKED exactly for Article 55 and Article 59 language naturalness; producer payload and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
+    },
+    {
+      "at": "2026-08-01T09:15:20Z",
+      "status": "blocked_review_correction_local_verified",
+      "summary": "PR #1938 head 33681c411b000ac4b2f4dd2801ef0e7ea4dda7e8 passed all 11 required checks, and the first three review threads were resolved. Fresh exact-head review correctly identified omitted Article 58 language defects. Merged current main dc16e66243d7d2cf2cc79ad94382d3dd3c05dbac, rebound only the non-immutable candidate base to CONTROL master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1, and expanded the independent blocker set to exactly Articles 55, 58, and 59. Both strict validators and 67/67 focused contracts pass; exact artifact SHAs, aggregate, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
     }
   ],
-  "updated_at": "2026-08-01T09:08:38Z"
+  "updated_at": "2026-08-01T09:15:20Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",

@@ -93,7 +93,7 @@
     "result": "PASS"
   },
   "check_evidence": {
-    "language_naturalness": "BLOCKED on W3-ARTICLE-55 and W3-ARTICLE-59. Article 55 contains the unidiomatic reader-facing script `I'll acknowledge that it's not yet ready for keeping it`. Article 59 contains additional defects, including `The students focus on college life: will they fail calculus, can their code never run smoothly, do they not understand algorithms`, the mid-sentence capitalization and non-native construction `If the answer is a complete unwillingness, Do not keep AI or computer science`, the table header `What to use to judge`, and the ambiguous action `Correct impressions formed from short videos or family slogans`. The other 15 rows pass language naturalness, and both blocked rows pass their other seven row-level checks.",
+    "language_naturalness": "BLOCKED on W3-ARTICLE-55, W3-ARTICLE-58, and W3-ARTICLE-59. Article 55 contains the unidiomatic reader-facing script `I'll acknowledge that it's not yet ready for keeping it`. Article 58 contains the non-native or incomplete phrases `isn't about having boldness`, `Satisfied/to be checked`, `No concept`, and `Unable to accept long-term and medical training`. Article 59 contains additional defects, including `The students focus on college life: will they fail calculus, can their code never run smoothly, do they not understand algorithms`, the mid-sentence capitalization and non-native construction `If the answer is a complete unwillingness, Do not keep AI or computer science`, the table header `What to use to judge`, and the ambiguous action `Correct impressions formed from short videos or family slogans`. The other 14 rows pass language naturalness, and all three blocked rows pass their other seven row-level checks.",
     "chinese_leakage": "PASS because all 17 candidate titles, excerpts, and complete bodies contain zero Han characters.",
     "claim_boundary": "PASS because all 17 rows retain non-diagnostic, non-screening, non-admissions-prediction, and non-guarantee boundaries; Article:7 describes task performance, Article:51 preserves the exact 144-question field, Article:53 uses correct past tense, and Article:58 makes reassignment outcomes conditional on official rules.",
     "asset_duplication": "PASS because all 17 Article/revision identities are unique, the exact 86 source table groups and 610 Markdown table lines are represented, localized internal-route sets are preserved with documented malformed-source corrections, and the explicit Media Library omission policy is applied consistently without local duplication.",
@@ -111,7 +111,7 @@
     }
   ],
   "blocking_summary": {
-    "blocked_row_count": 2,
+    "blocked_row_count": 3,
     "passing_rows": [
       "W3-ARTICLE-01",
       "W3-ARTICLE-02",
@@ -126,21 +126,21 @@
       "W3-ARTICLE-50",
       "W3-ARTICLE-51",
       "W3-ARTICLE-52",
-      "W3-ARTICLE-53",
-      "W3-ARTICLE-58"
+      "W3-ARTICLE-53"
     ],
     "blocked_rows": [
       "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
       "W3-ARTICLE-59"
     ],
     "blocked_checks": {
-      "language_naturalness": 2
+      "language_naturalness": 3
     },
     "qa_pass_authorized": false,
     "producer_payload_modified": false,
     "control_master_modified": false,
     "career_guide_scope_modified": false,
-    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs Articles 55 and 59 and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
+    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED report, move W3-ARTICLES from package_frozen to blocked, and perform the controlled reset to package_in_progress before W3 repairs Articles 55, 58, and 59 and produces a new complete frozen package for fresh independent W9 QA. CMS, import, publication, indexability, search, and deploy permissions remain false."
   },
   "row_reviews": [
     {
@@ -418,9 +418,9 @@
       "source_identity": "Article:58@revision:78",
       "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
       "title_excerpt_full_body_reviewed": true,
-      "verdict": "PASS",
+      "verdict": "BLOCKED",
       "checks": {
-        "language_naturalness": "PASS",
+        "language_naturalness": "BLOCKED",
         "chinese_leakage": "PASS",
         "source_equivalence_identity": "PASS",
         "claim_boundary": "PASS",
@@ -429,7 +429,7 @@
         "asset_media_duplication_omission": "PASS",
         "page_api_alignment_applicable": "PASS"
       },
-      "evidence": "PASS: duplicated eligibility wording, the curriculum phrase, and `Students’ concerns` are repaired. A fresh full-row review confirms all 32 headings, 18 source matrices (114 Markdown table lines), six localized routes, exact Article:58@revision:78 identity, natural language, and explicitly conditional reassignment outcomes align."
+      "evidence": "BLOCKED only on language naturalness after complete-body review found the non-native or incomplete reader-visible phrases `isn't about having boldness`, `Satisfied/to be checked`, `No concept`, and `Unable to accept long-term and medical training`. All 32 headings, 18 source matrices (114 Markdown table lines), six localized routes, exact Article:58@revision:78 identity, source equivalence, links, leakage, media, page/API alignment, and explicitly conditional reassignment outcomes otherwise pass."
     },
     {
       "row_id": "W3-ARTICLE-59",
