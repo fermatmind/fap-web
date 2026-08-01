@@ -55627,9 +55627,9 @@
       "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01",
       "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01"
     ],
-    "status": "committed",
+    "status": "github_checks_pending",
     "commit_sha": "4fe29401f530478b2cc75f8b7b04844095465ab4",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1980",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -55645,7 +55645,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "No PR has been opened."
+        "evidence": "PR #1980 is open from the scoped branch; required GitHub checks, review, and exact-head/base reconciliation are pending."
       }
     },
     "failure_reason": null,
@@ -55685,8 +55685,13 @@
         "at": "2026-08-02T04:31:00Z",
         "status": "committed",
         "summary": "Committed the scoped Batch A producer package and partial CONTROL contract extension as 4fe29401f530478b2cc75f8b7b04844095465ab4. Pending push and creation of one ready PR; all CMS/import, release, runtime, discoverability, search, and deploy actions remain deferred."
+      },
+      {
+        "at": "2026-08-02T04:32:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1980. GitHub required checks, review, and final exact-head/base scope reconciliation are pending; this partial candidate remains non-transitioning and all permissions remain false."
       }
     ],
-    "updated_at": "2026-08-02T04:31:00Z"
+    "updated_at": "2026-08-02T04:32:00Z"
   }
 }
