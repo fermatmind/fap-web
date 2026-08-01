@@ -1,0 +1,141 @@
+{
+  "schema_version": "fermatmind.en_content_parity_frozen_source_ledger_identity_projection.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_sha256": "8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d",
+  "sha256_manifest_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-8ec89c41/frozen_package/sha256_manifest.json",
+  "sha256_manifest_sha256": "80d7521ca43c80052bd0e38120afc444f1b0a17285320207a12d9e5a27444c52",
+  "source_ledger_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-8ec89c41/frozen_package/source_ledger.json",
+  "source_ledger_sha256": "0991877b3949ede133e2f0892df46734cd9a97b65713a2e1790fb3366762f2af",
+  "rows": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "source_article_id": 1,
+      "source_revision_id": 446,
+      "slug": "big-five-growth-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "source_article_id": 2,
+      "source_revision_id": 445,
+      "slug": "big-five-narrative-portrait"
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "source_article_id": 3,
+      "source_revision_id": 383,
+      "slug": "big-five-tool-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "source_article_id": 4,
+      "source_revision_id": 58,
+      "slug": "eq-test-tool-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "source_article_id": 5,
+      "source_revision_id": 444,
+      "slug": "iq-test-growth-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "source_article_id": 6,
+      "source_revision_id": 443,
+      "slug": "iq-test-narrative-portrait"
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "source_article_id": 7,
+      "source_revision_id": 442,
+      "slug": "iq-test-tool-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "source_article_id": 8,
+      "source_revision_id": 72,
+      "slug": "mbti-basics"
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "source_article_id": 9,
+      "source_revision_id": 441,
+      "slug": "mbti-growth-guide"
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "source_article_id": 10,
+      "source_revision_id": 440,
+      "slug": "mbti-narrative-portrait"
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "source_article_id": 50,
+      "source_revision_id": 57,
+      "slug": "iq-test-score-and-limits-explained"
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "source_article_id": 51,
+      "source_revision_id": 73,
+      "slug": "enneagram-personality-test-explained"
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "source_article_id": 52,
+      "source_revision_id": 64,
+      "slug": "college-major-choice-holland-mbti-career-test"
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "source_article_id": 53,
+      "source_revision_id": 65,
+      "slug": "gaokao-score-major-shortlist-riasec-checklist"
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "source_article_id": 55,
+      "source_revision_id": 75,
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist"
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "source_article_id": 58,
+      "source_revision_id": 78,
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist"
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "source_article_id": 59,
+      "source_revision_id": 79,
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist"
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
