@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { cpSync, existsSync, lstatSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { lstatSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 
 const webRoot = process.cwd();
@@ -13,7 +13,9 @@ const sourceLedgerSha = '5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f647
 const en52ReleaseSha = '91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a';
 const historicalEvidenceSha = '7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd';
 const resultPackageSha = 'aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81';
-const rendererCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: webRoot, encoding: 'utf8' }).trim();
+// This is the captured reader baseline before PR A writes any intake metadata.
+// Rebased W3-only main advancement must not turn this PR's own HEAD into a renderer identity.
+const rendererCommit = 'b1f7589c1241cf17599bac1e352a11485b6d7468';
 const root = join(webRoot, 'generated/en-content-parity/W9-independent-qa/W2-big-five', `${packageSha.slice(0, 8)}-renderer-${rendererCommit.slice(0, 8)}`);
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
@@ -133,9 +135,7 @@ writeJson(join(root, 'frozen_source_ledger_identity_projection.json'), {
   counts: { public_profiles: 52, historical_revision_slots: 50, result_report_share_pdf_history_units: 16 }, rows: rowIdentity,
 });
 
-const artifacts = listedFiles(root).filter((path) => !path.endsWith('/source_snapshot_manifest.json') && !path.endsWith('/source_snapshot_sha256_manifest.json') && !path.endsWith('/handoff.md') && !path.endsWith('/build-source-intake.mjs'))
-  .map((path) => ({ path: relative(root, path), sha256: sha256(execFileSync('shasum', ['-a', '256', path], { encoding: 'utf8' }).split(/\s+/)[0]) }));
-// Preserve exact byte hashes (the preceding shasum call is intentionally not reused as a hash input).
+// Build a fail-closed manifest from exact snapshot file bytes.
 const byteArtifacts = listedFiles(root).filter((path) => !path.endsWith('/source_snapshot_manifest.json') && !path.endsWith('/source_snapshot_sha256_manifest.json') && !path.endsWith('/handoff.md') && !path.endsWith('/build-source-intake.mjs'))
   .map((path) => ({ path: relative(root, path), sha256: sha256(execFileSync('git', ['hash-object', path], { encoding: 'utf8' }).trim()) }));
 // `git hash-object` is not SHA-256, so replace with the true file bytes once and retain a fail-closed manifest.

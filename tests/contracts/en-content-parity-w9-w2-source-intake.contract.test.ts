@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 const packageSha = 'a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b';
 const root = join(process.cwd(), 'generated/en-content-parity/W9-independent-qa/W2-big-five');
-const snapshotDir = join(root, readdirSync(root).find((entry) => entry.startsWith('a41816a8-renderer-')) ?? 'missing');
+const snapshotDir = join(root, 'a41816a8-renderer-b1f7589c');
 const sha256 = (path: string) => createHash('sha256').update(readFileSync(path)).digest('hex');
 
 describe('W2 independent-QA immutable source intake', () => {
