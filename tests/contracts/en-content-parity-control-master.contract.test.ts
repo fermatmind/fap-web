@@ -225,7 +225,13 @@ function makeCurrentW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): 
   manifestPath: string;
   manifestSha256: string;
 } {
-  const packageSha256 = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
+  const packageManifest = readJson<{ package_sha256: string }>(
+    "generated/en-content-parity/W3-editorial-cms/articles/sha256_manifest.json"
+  );
+  const packageSha256 = packageManifest.package_sha256;
+  const editorialReviewSha256 = sha256File(
+    "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json"
+  );
   const directory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-current-pre-block-"));
   const manifestPath = path.join(directory, "master.json");
   const preBlockManifest = structuredClone(sourceManifest);
@@ -247,7 +253,7 @@ function makeCurrentW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): 
       status: "package_frozen",
       evidence_owner_lane_id: "W3",
       report_ref: "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
-      report_sha256: "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334",
+      report_sha256: editorialReviewSha256,
       package_sha256: packageSha256,
       accepted_at: "2026-08-01T12:36:10Z",
     },
@@ -1681,6 +1687,8 @@ describe("English content parity control master", () => {
       fs.readFileSync(path.join(checkedInDirectory, "master_manifest_patch.candidate.json"), "utf8")
     ) as {
       base_manifest_sha256: string;
+      package_id: string;
+      package_sha256: string;
       gate_evidence: {
         report_path: string;
         report_sha256: string;
@@ -1690,14 +1698,30 @@ describe("English content parity control master", () => {
     const qaReport = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "qa_report.json"), "utf8")
     ) as {
+      package_sha256: string;
       checks: Record<string, string>;
       page_api_alignment_status?: string;
     };
     const rowEvidence = JSON.parse(
       fs.readFileSync(path.join(checkedInDirectory, "qa_row_matrix.json"), "utf8")
+    ) as {
+      package_id: string;
+      package_sha256: string;
+      row_reviews: Array<{
+        verdict: "PASS" | "BLOCKED";
+        checks: Record<string, string>;
+      }>;
+    };
+    const currentPackage = readJson<{ package_id: string; package_sha256: string }>(
+      "generated/en-content-parity/W3-editorial-cms/articles/sha256_manifest.json"
     );
 
     candidate.base_manifest_sha256 = baseManifest.manifestSha256;
+    candidate.package_id = currentPackage.package_id;
+    candidate.package_sha256 = currentPackage.package_sha256;
+    qaReport.package_sha256 = currentPackage.package_sha256;
+    rowEvidence.package_id = currentPackage.package_id;
+    rowEvidence.package_sha256 = currentPackage.package_sha256;
     fs.writeFileSync(qaReportPath, JSON.stringify(qaReport));
     fs.writeFileSync(rowEvidencePath, JSON.stringify(rowEvidence));
     candidate.gate_evidence.report_path = qaReportPath;

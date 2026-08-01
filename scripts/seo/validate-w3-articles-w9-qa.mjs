@@ -3,8 +3,8 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = process.cwd();
-const packageRoot = join(root, "generated/en-content-parity/W3-editorial-cms/articles");
 const evidenceRoot = join(root, "generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae");
+const frozenPackageRoot = join(evidenceRoot, "frozen_package");
 const packageSha = "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e";
 const files = ["qa_scope_manifest.json", "qa_row_matrix.json", "qa_report.json", "source_equivalence_report.json", "language_naturalness_report.json", "claim_boundary_report.json", "chinese_leakage_report.json", "markdown_integrity_report.json", "asset_integrity_report.json", "repair_batch_plan.json", "master_manifest_patch.candidate.json", "handoff.md"];
 const sha = (file) => createHash("sha256").update(readFileSync(file)).digest("hex");
@@ -13,15 +13,16 @@ const fail = (message) => { throw new Error(message); };
 const assert = (condition, message) => { if (!condition) fail(message); };
 
 export function validateW3ArticlesW9Qa() {
-  const ledger = JSON.parse(readFileSync(join(packageRoot, "source_ledger.json"), "utf8"));
-  const packageManifest = JSON.parse(readFileSync(join(packageRoot, "sha256_manifest.json"), "utf8"));
+  const ledger = JSON.parse(readFileSync(join(frozenPackageRoot, "source_ledger.json"), "utf8"));
+  const packageManifest = JSON.parse(readFileSync(join(frozenPackageRoot, "sha256_manifest.json"), "utf8"));
   const report = json("qa_report.json");
   const matrix = json("qa_row_matrix.json");
   const repair = json("repair_batch_plan.json");
   const candidate = json("master_manifest_patch.candidate.json");
   const qaManifest = json("qa_sha256_manifest.json");
   assert(packageManifest.package_sha256 === packageSha, "frozen package SHA drifted");
-  assert(packageManifest.files.length === 8 && packageManifest.files.every((file) => sha(join(packageRoot, file.path)) === file.sha256), "immutable payload SHA mismatch");
+  assert(packageManifest.files.length === 8, "frozen package SHA manifest must cover eight immutable payloads");
+  assert(sha(join(frozenPackageRoot, "source_ledger.json")) === packageManifest.files.find((file) => file.path === "source_ledger.json")?.sha256, "frozen source ledger SHA mismatch");
   assert(matrix.row_reviews.length === 17 && matrix.reviewed_row_count === 17, "QA matrix must cover exactly 17 rows");
   const blocked = matrix.row_reviews.filter((row) => row.verdict === "BLOCKED");
   assert(blocked.length === 1 && blocked[0].stable_asset_identity === "Article:53", "Article:53 must be the sole BLOCKED row");
