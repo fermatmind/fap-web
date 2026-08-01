@@ -602,7 +602,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "package_frozen",
+      status: "package_in_progress",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,
@@ -611,23 +611,61 @@ describe("English content parity control master", () => {
         remaining_en_assets: 14,
         unknown_inventory_cohorts: 0,
       },
-      package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+      package_sha256: null,
       qa_report_ref: null,
-      gate_lineage: [
-        {
-          status: "package_frozen",
-          evidence_owner_lane_id: "W4",
-          report_ref: "generated/en-content-parity/W4-riasec/editorial_review.json",
-          report_sha256: "d6355b1ceb820c4371edf478ec03d6ea123171099b102cc7b37472d05cbd9a22",
-          package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
-          accepted_at: "2026-08-01T16:23:25Z",
-        },
-      ],
+      gate_lineage: [],
       blockers: [],
       next_action:
-        "Request independent W9 QA for the exact frozen W4 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33; do not begin importer, CMS import, runtime activation, or release.",
+        "Only use retained W9 exact-SHA repair evidence to repair 126 G06 language-naturalness rows and 4 G02 duplicate-copy rows, rebuild the complete 1550-row package under a new SHA, re-freeze it, and run fresh independent W9 QA across all 1550 rows; do not begin importer, CMS import, runtime activation, SEO release, or publication.",
     });
     expect(Object.values(w4?.permissions ?? {})).toEqual(Array(7).fill(false));
+
+    const w4ReworkReset = readJson<{
+      $schema: string;
+      artifact_kind: string;
+      schema_version: string;
+      control_owner: string;
+      producer_lane_id: string;
+      subscope_id: null;
+      blocked_package_sha256: string;
+      w9_report_ref: string;
+      w9_report_sha256: string;
+      w9_row_evidence_ref: string;
+      w9_row_evidence_sha256: string;
+      w9_frozen_ledger_ref: string;
+      w9_frozen_ledger_sha256: string;
+      proposed_status: string;
+      clear_fields: string[];
+      permissions: Permissions;
+    }>("generated/en-content-parity/CONTROL-approvals/W4-RIASEC/package-rework-reset-944ddac.json");
+    expect(w4ReworkReset).toMatchObject({
+      $schema: SCHEMA_PATH,
+      artifact_kind: "package_rework_reset",
+      schema_version: "fermatmind.en_content_parity_package_rework_reset.v1",
+      control_owner: "CONTROL",
+      producer_lane_id: "W4",
+      subscope_id: null,
+      blocked_package_sha256: "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+      w9_report_ref:
+        "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/independent_qa_report.json",
+      w9_report_sha256: "eb722ec622b2f55734e0a0126a757b57ee0f0c63eecddb4189d1c9b28d16a694",
+      w9_row_evidence_ref:
+        "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/row_review_evidence.json",
+      w9_row_evidence_sha256: "b0b366808c7259b7ec389824e65a1fc0328a28b3529adf05dd2fece797a97ca9",
+      w9_frozen_ledger_ref:
+        "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-944ddac/frozen_package_identity_projection.json",
+      w9_frozen_ledger_sha256: "d80a3764f5d0c20ae14814c061bbf85bbe071f5c8d3259e54a47b7d8f3f97de7",
+      proposed_status: "package_in_progress",
+    });
+    expect([...w4ReworkReset.clear_fields].sort()).toEqual([
+      "gate_lineage",
+      "package_sha256",
+      "qa_report_ref",
+    ]);
+    expect(Object.values(w4ReworkReset.permissions)).toEqual(Array(7).fill(false));
+    expect(sha256File(w4ReworkReset.w9_report_ref)).toBe(w4ReworkReset.w9_report_sha256);
+    expect(sha256File(w4ReworkReset.w9_row_evidence_ref)).toBe(w4ReworkReset.w9_row_evidence_sha256);
+    expect(sha256File(w4ReworkReset.w9_frozen_ledger_ref)).toBe(w4ReworkReset.w9_frozen_ledger_sha256);
 
     const w4Candidate = JSON.parse(
       fs.readFileSync(
