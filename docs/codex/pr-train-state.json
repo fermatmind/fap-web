@@ -420,13 +420,13 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "github_checks_pending",
+    "status": "merged",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-01T05:29:11Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -52579,7 +52579,7 @@
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "After merging concurrent W1 CONTROL PR #1904, validate-en-content-parity-control accepted the package_in_progress-to-package_frozen candidate against current master SHA 13509eedf944f9628672f460094dd4fd88045e08c26527caf6b2c10966e6c317 with zero errors."
+        "evidence": "After merging concurrent W2 CONTROL and W1 freeze PRs from origin/main, validate-en-content-parity-control accepts the package_in_progress-to-package_frozen candidate against current master SHA 55be9502909f3a58dcea6943590b8d07ac8e548297cdaa8315ba44edf45fd6b1 with zero errors."
       },
       "focused_contract": {
         "status": "pass",
@@ -52810,9 +52810,14 @@
         "at": "2026-08-01T06:30:11Z",
         "status": "github_checks_pending",
         "summary": "The scoped repaired-row correction revalidates: strict candidate validation passes, focused contracts pass 67/67, the claim-boundary repaired-row list is exactly [59], all eight immutable payload hashes and aggregate package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b recompute, JSON and diff checks pass, and scope remains exact. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T06:33:30Z",
+        "status": "github_checks_pending",
+        "summary": "Merged concurrent origin/main commits for W2 inventory acceptance and W1 comparison freeze, resolving the sole unrelated stale-ledger conflict in favor of main. Rebound only the non-immutable W3 candidate base to master SHA 55be9502909f3a58dcea6943590b8d07ac8e548297cdaa8315ba44edf45fd6b1; package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b and one-row Article 59 content scope remain unchanged. Fresh validation and required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:30:11Z"
+    "updated_at": "2026-08-01T06:33:30Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
@@ -53354,8 +53359,107 @@
         "at": "2026-08-01T05:24:15Z",
         "status": "ready_to_merge",
         "summary": "PR #1893 exact head af5e231622a3ef2aa1f9cf34aeb7dc4a5c5a931f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN, no review is required, and the only review thread is resolved. Exact changed-file scope remains limited to the registered W2 package and PR-train metadata."
+      },
+      {
+        "at": "2026-08-01T05:29:11Z",
+        "status": "merged",
+        "summary": "GitHub reports PR #1893 merged by squash as b59dc06e1d7e64a3f14e26213ffc64fe54c7d87d; origin/main contains that merge commit, and both local and remote task branches were deleted during post-merge closeout."
       }
     ],
-    "updated_at": "2026-08-01T05:24:15Z"
+    "updated_at": "2026-08-01T05:29:11Z"
+  },
+  "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01": {
+    "id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01: accept completed Big Five inventory",
+    "base": "main",
+    "branch": "codex/en-parity-control-w2-inventory-frozen-01",
+    "depends_on": [
+      "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "0c6b5c88927b7398faa0a826ea5f86e39600bf69",
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Producer PR #1893 is merged as b59dc06e1d7e64a3f14e26213ffc64fe54c7d87d; the required external candidate-rebase repair PR #1896 is merged as f579eca6ccd86def7010dd8a9dfd22283b4e8ad1."
+      },
+      "pre_transition_candidate": {
+        "status": "pass",
+        "evidence": "The rebased W2 candidate validates against current pre-transition master SHA 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f with package SHA ad560a1f02afccf8d35ed070f99ace9f11eb9148051ee161c5dfc86d29bdb3d1."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Post-transition master validator passes, focused parity contract passes 63/63 on Node 24 after rebase, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1899 exact head a8e422df10a5de9760b32bf047ac8ae44c605047 passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-01T05:42:43Z",
+        "status": "in_progress",
+        "summary": "Started CONTROL-only acceptance from synced origin/main f579eca6ccd86def7010dd8a9dfd22283b4e8ad1 after validating the rebased producer candidate against the exact pre-transition master."
+      },
+      {
+        "at": "2026-08-01T05:42:43Z",
+        "status": "local_verified",
+        "summary": "Applied only W2 not_started to inventory_frozen acceptance: counts are 118/118/0 across 52/50/16, package and QA fields remain null, lineage and blockers remain empty, and every permission remains false."
+      },
+      {
+        "at": "2026-08-01T05:43:54Z",
+        "status": "github_checks_pending",
+        "summary": "Committed CONTROL A implementation at aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4; required CI, freeze, and CodeQL checks are pending before merge."
+      },
+      {
+        "at": "2026-08-01T05:48:10Z",
+        "status": "github_checks_pending",
+        "summary": "External PR #1898 merged without changing the master SHA, but changed validator/schema/contract evidence. Rebased CONTROL A onto latest main; post-rebase master validation passes and focused contract passes 63/63. Fresh required checks are pending on the rebased exact head."
+      },
+      {
+        "at": "2026-08-01T05:53:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1899 exact head f9356bd003e39daf2cce1a55bd80d7b92824ba2f passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; exact changed-file scope remains limited to W2 CONTROL acceptance, its contract, and train metadata."
+      },
+      {
+        "at": "2026-08-01T05:56:52Z",
+        "status": "github_checks_pending",
+        "summary": "External W1 CONTROL PR #1900 advanced main. Rebased CONTROL A onto latest main without changing the W2 transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending on the new exact head."
+      },
+      {
+        "at": "2026-08-01T06:02:16Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1899 exact head 1a7f9af2d8844467c5cffd9543428c3d7628226a passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; W3 W9 PR #1897 advanced main without changing the master, so the accepted W2 state remains valid."
+      },
+      {
+        "at": "2026-08-01T06:06:05Z",
+        "status": "github_checks_pending",
+        "summary": "External W3 CONTROL PR #1902 advanced the unique master and required another rebase. CONTROL A now rests on latest main with the same W2 inventory_frozen transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T06:11:50Z",
+        "status": "github_checks_pending",
+        "summary": "External W1/W3 CONTROL PRs #1901 and #1903 advanced the unique master and required another rebase. CONTROL A now rests on latest main with the same W2 inventory_frozen transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending."
+      },
+      {
+        "at": "2026-08-01T06:16:52Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1899 exact head a8e422df10a5de9760b32bf047ac8ae44c605047 passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; the W2 transition is ready for squash merge."
+      }
+    ],
+    "updated_at": "2026-08-01T06:16:52Z"
   }
 }
