@@ -55193,8 +55193,8 @@
     "base": "main",
     "branch": "codex/en-parity-control-w3-articles-qa-blocked-01",
     "depends_on": ["EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "faf4e7c89cb3fabea91a239d043d26c9ad876e97",
+    "status": "merged",
+    "commit_sha": "aed6f0fb42bee398c4525818543f2fb79bc8c770",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1960",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1954 is merged as e093d89e9362b77b29d7e64dbaa79f20a8f1f4ea and origin/main contains the exact W9 BLOCKED evidence."},
@@ -55203,10 +55203,10 @@
       "github_required_checks": {"status": "pass", "evidence": "PR #1960 exact implementation head faf4e7c89cb3fabea91a239d043d26c9ad876e97 passed all required GitHub checks after rebasing onto merged read-only W9 contract repair PR #1961; the PR is MERGEABLE/CLEAN and the only review thread is resolved."}
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "merged_at": "2026-08-01T15:57:25Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -55218,9 +55218,43 @@
       {"at": "2026-08-01T15:25:49Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance after validating the exact W9 candidate against master SHA d94ba8d7f40e9d9f04669ceaf655a7c607b6a6a62544275376634b28822faf23. Scope is only the blocked transition and stale PR #1954 ledger reconciliation; no reset, Article:53 repair, Producer package, Career Guide, CMS, runtime, SEO, publication, search, or deploy change is authorized."},
       {"at": "2026-08-01T15:31:13Z", "status": "local_verified", "summary": "The exact blocked transition validates: W3 is blocked from inventory_frozen; W3-ARTICLES is blocked from package_frozen and retains package SHA 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e plus its original lineage; W9 report SHA f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1 is appended only as blocked lineage; qa_report_ref remains null; Career Guides and permissions are unchanged. All focused checks and exact scope validation pass."},
       {"at": "2026-08-01T15:33:06Z", "status": "github_checks_pending", "summary": "Committed the four-file CONTROL scope as daa92469b5ca1e2f9aa44702bdefde42934a0926 and opened PR #1960. Required checks and exact-head review are pending; final merge remains conditional on a fresh master-file CAS and zero scope drift."},
-      {"at": "2026-08-01T15:51:40Z", "status": "ready_to_merge", "summary": "Rebased onto merged baseline repair PR #1961, reran the combined W9 and CONTROL focused contracts read-only with 66/66 passing, and confirmed a clean worktree. Exact implementation head faf4e7c89cb3fabea91a239d043d26c9ad876e97 passed every required GitHub check; the prior review finding is resolved. Final merge remains conditional on this ledger-only head passing its own required checks and a fresh master-file CAS."}
+      {"at": "2026-08-01T15:51:40Z", "status": "ready_to_merge", "summary": "Rebased onto merged baseline repair PR #1961, reran the combined W9 and CONTROL focused contracts read-only with 66/66 passing, and confirmed a clean worktree. Exact implementation head faf4e7c89cb3fabea91a239d043d26c9ad876e97 passed every required GitHub check; the prior review finding is resolved. Final merge remains conditional on this ledger-only head passing its own required checks and a fresh master-file CAS."},
+      {"at": "2026-08-01T15:57:25Z", "status": "merged", "summary": "Reconciled PR #1960 after squash merge as aed6f0fb42bee398c4525818543f2fb79bc8c770. origin/main contains the merge, local main was synchronized, the task branch is absent locally and remotely, the isolated worktree was removed, and the accepted W3/W3-ARTICLES BLOCKED state passed post-merge validation."}
     ],
-    "updated_at": "2026-08-01T15:51:40Z"
+    "updated_at": "2026-08-01T15:57:25Z"
+  },
+  "EN-PARITY-W9-W3-ARTICLES-RESET-EVIDENCE-SUPPLEMENT-01": {
+    "id": "EN-PARITY-W9-W3-ARTICLES-RESET-EVIDENCE-SUPPLEMENT-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W9-W3-ARTICLES-RESET-EVIDENCE-SUPPLEMENT-01: complete immutable W3 Articles reset evidence",
+    "base": "main",
+    "branch": "codex/en-parity-w9-w3-articles-reset-evidence-supplement-01",
+    "depends_on": ["EN-PARITY-CONTROL-W3-ARTICLES-QA-BLOCKED-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "PR #1960 is merged as aed6f0fb42bee398c4525818543f2fb79bc8c770 and origin/main retains the exact blocked W3-ARTICLES package and W9 lineage."},
+      "local_validation": {"status": "pass", "evidence": "The frozen SHA manifest and source ledger are byte-identical to the Producer package and hash to 68ea36d17b80ed049df053e80876bdec12f8895cd4f94c1b90bc7c56fea998c1 and 6c9afee493506d7f066bf9e130dd8d165dd75e8bf51e56635ab7f44404266850. The 17-row unique identity projection hashes to 8215a091ccf3f06abf69c7c289a20686e7caa2a2524a02d225a1e9180b228e96; master/W9 validators, 2/2 focused tests, focused ESLint, JSON/YAML parse, immutable existing report/matrix checks, all-false permissions, scope and diff checks pass."},
+      "github_required_checks": {"status": "pending", "evidence": "PR not opened yet."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-01T16:14:18Z", "status": "in_progress", "summary": "Started a W9-only immutable evidence supplement for frozen W3-ARTICLES package 2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e. Scope adds only the exact Producer SHA/source-ledger snapshot and 17-row identity projection required by the existing reset validator; no existing QA evidence, master state, Article content, Career Guide, CMS, runtime, SEO, release, search, or deploy state may change."},
+      {"at": "2026-08-01T16:16:09Z", "status": "local_verified", "summary": "Validated a byte-exact frozen Producer manifest/source-ledger snapshot and 17 unique projected identities under W9 authority. Existing QA report f9684362929ba66f9f9570ca71bbf72ff1e0027de757d4440581fe655138b9b1, row matrix 1a7c5619d083846c9cc57670e29a48fc2245c8647cfccb5613aaa01a4ea78e17, verdict, and QA package SHA remain unchanged; all focused checks pass."}
+    ],
+    "updated_at": "2026-08-01T16:16:09Z"
   },
   "EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01": {
     "id":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01","repo":"fap-web","title":"EN-PARITY-W4-RIASEC-CALIBRATION-ASSETS-01 produce aspirations and disagree English rows","base":"main","branch":"codex/en-parity-w4-riasec-calibration-assets-01","depends_on":["EN-PARITY-W4-RIASEC-QUALITY-ASSETS-01"],"status":"ready_to_merge","commit_sha":"ec3e285b1dc7adb02fef4d1ba240afe01572e1de","pr_url":"https://github.com/fermatmind/fap-web/pull/1955",
