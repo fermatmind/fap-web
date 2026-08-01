@@ -13,14 +13,14 @@ This producer package contains exactly 17 English Article candidates bound to th
 - China and Gaokao context remains present where material.
 - Candidate media references remain omitted pending importer-contract and Media Library clearance.
 
-## W9-directed producer rework-05
+## W9-directed producer rework-06
 
-- Blocked frozen package SHA: `213736b1d59a862e73dcfeae77b67cae1fe2b092f41469a57c91631cdb052157`.
-- Independent W9 BLOCKED report SHA: `ea220b4b2f2496a645cc7ae1602ed2f7290cf354dc56a5d6187cd526db132844`.
-- Independent 17-row evidence SHA: `490ac8c1e38ec368894d516302ec71083af061570c17a3046cc7fd0dfe901fcc`.
-- Repaired rows: W3-ARTICLE-03, 51, 52, 53, 55, 58, and 59.
-- Articles 1, 2, 4, 5, 6, 7, 8, 9, 10, and 50 remain content-identical because independent W9 passed those rows.
-- The repair addresses only W9's recorded reader-visible language findings: one Article 3 excerpt construction, inconsistent Article 51 Enneagram naming, duplicated admissions terms in five Gaokao rows, one Article 53 question, two possessives, and one Article 58 curriculum phrase.
+- Blocked frozen package SHA: `8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d`.
+- Independent W9 BLOCKED report SHA: `5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2`.
+- Independent 17-row evidence SHA: `0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1`.
+- Repaired row: W3-ARTICLE-59 only.
+- The other 16 rows remain reader-content-identical because independent W9 passed them.
+- The repair addresses only W9's recorded subject-verb agreement finding by changing `Field related to AI often require greater tolerance` to `Fields related to AI often require greater tolerance`.
 - The rebuilt package requires a fresh independent W9 window; no prior QA verdict carries forward.
 
 ## Deferred gates

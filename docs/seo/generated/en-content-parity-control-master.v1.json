@@ -132,11 +132,28 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
           ],
-          "status": "package_in_progress",
+          "status": "qa_pass",
           "blocked_from_status": null,
-          "package_sha256": null,
-          "qa_report_ref": null,
-          "gate_lineage": [],
+          "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+          "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/independent_qa_report.json",
+          "gate_lineage": [
+            {
+              "status": "package_frozen",
+              "evidence_owner_lane_id": "W1",
+              "report_ref": "generated/en-content-parity/W1-mbti/comparisons/editorial_review.json",
+              "report_sha256": "684af198c5dc0040d4022d9cad3a9abde7364cd5ba7e156cc9c4b650cb5f26a4",
+              "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+              "accepted_at": "2026-08-01T06:29:19Z"
+            },
+            {
+              "status": "qa_pass",
+              "evidence_owner_lane_id": "W9",
+              "report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/independent_qa_report.json",
+              "report_sha256": "3b2fc2d61f5153a9e59a25da0d3c5de26e12bc3d44dd1c4c1e109628c455b51b",
+              "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+              "accepted_at": "2026-08-01T06:41:17Z"
+            }
+          ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -203,7 +220,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W2-big-five/",
       "target_asset_types": [
@@ -227,7 +244,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts.",
+      "next_action": "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,
@@ -272,11 +289,20 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_in_progress",
+          "status": "package_frozen",
           "blocked_from_status": null,
-          "package_sha256": null,
+          "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
           "qa_report_ref": null,
-          "gate_lineage": [],
+          "gate_lineage": [
+            {
+              "status": "package_frozen",
+              "evidence_owner_lane_id": "W3",
+              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+              "report_sha256": "9faf285500947c013c04bf2902b580bf09568cc9751fbc586903bffe9f9c3d9b",
+              "package_sha256": "f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b",
+              "accepted_at": "2026-08-01T06:57:31Z"
+            }
+          ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
@@ -316,7 +342,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Repair Article 59, rebuild the complete W3-ARTICLES package, re-freeze it under a new exact SHA, and repeat fresh independent W9 QA. Keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
+      "next_action": "Submit exact W3-ARTICLES package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b to fresh independent W9 QA; keep W3-CAREER-GUIDES unchanged and queued as its own later package scope.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

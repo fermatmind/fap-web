@@ -1201,6 +1201,43 @@
             "BLOCKED"
           ]
         },
+        "dry_run_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "source_repository",
+            "source_commit_sha",
+            "plan_path",
+            "plan_sha256",
+            "plan_schema_version",
+            "row_count"
+          ],
+          "properties": {
+            "source_repository": {
+              "const": "fap-api"
+            },
+            "source_commit_sha": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "plan_path": {
+              "type": "string",
+              "minLength": 1
+            },
+            "plan_sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "plan_schema_version": {
+              "type": "string",
+              "minLength": 1
+            },
+            "row_count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
         "permissions": {
           "$ref": "#/$defs/permissions"
         }

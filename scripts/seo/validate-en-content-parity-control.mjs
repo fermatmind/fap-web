@@ -1954,6 +1954,103 @@ function validateExternalTransitionEvidence(artifact, errors) {
     `${artifact.lane_id}: external transition report verdict mismatch`,
     errors
   );
+
+  if (gateReport.gate !== "dry_run_ready") {
+    return;
+  }
+
+  const evidence = gateReport.dry_run_evidence;
+  assert(Boolean(evidence), `${artifact.lane_id}: dry_run_ready requires exact dry-run plan evidence`, errors);
+  if (!evidence) {
+    return;
+  }
+
+  let plan;
+  try {
+    const planPath = path.isAbsolute(evidence.plan_path)
+      ? evidence.plan_path
+      : path.join(ROOT, evidence.plan_path);
+    const realRoot = fs.realpathSync(ROOT);
+    const realPlanPath = fs.realpathSync(planPath);
+    assert(
+      isPathInside(realPlanPath, realRoot),
+      `${artifact.lane_id}: dry-run plan must be inside the repository`,
+      errors
+    );
+    const descriptor = fs.openSync(planPath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+    try {
+      assert(
+        fs.fstatSync(descriptor).isFile(),
+        `${artifact.lane_id}: dry-run plan evidence must be a file`,
+        errors
+      );
+      const planBytes = fs.readFileSync(descriptor);
+      assert(
+        createHash("sha256").update(planBytes).digest("hex") === evidence.plan_sha256,
+        `${artifact.lane_id}: dry-run plan SHA mismatch`,
+        errors
+      );
+      plan = JSON.parse(planBytes.toString("utf8"));
+    } finally {
+      fs.closeSync(descriptor);
+    }
+  } catch (error) {
+    errors.push(
+      `${artifact.lane_id}: cannot read dry-run plan evidence (${error instanceof Error ? error.message : String(error)})`
+    );
+    return;
+  }
+
+  assert(evidence.source_repository === "fap-api", `${artifact.lane_id}: dry-run source repository must be fap-api`, errors);
+  assert(
+    /^[a-f0-9]{40}$/.test(evidence.source_commit_sha ?? ""),
+    `${artifact.lane_id}: dry-run source commit must be an exact 40-character SHA`,
+    errors
+  );
+  assert(
+    plan.schema_version === evidence.plan_schema_version,
+    `${artifact.lane_id}: dry-run plan schema version mismatch`,
+    errors
+  );
+  assert(plan.ok === true && plan.status === "pass", `${artifact.lane_id}: dry-run plan must PASS`, errors);
+  assert(plan.mode === "dry_run" && plan.dry_run_only === true, `${artifact.lane_id}: plan must be dry-run only`, errors);
+  assert(
+    plan.write_supported_in_this_pr === false && plan.writes_committed === false,
+    `${artifact.lane_id}: dry-run plan must not support or commit writes`,
+    errors
+  );
+  for (const flag of [
+    "database_write_attempted",
+    "cms_write_attempted",
+    "publish_attempted",
+    "activation_attempted",
+    "indexability_attempted",
+    "search_submission_attempted",
+  ]) {
+    assert(plan[flag] === false, `${artifact.lane_id}: dry-run plan ${flag} must be false`, errors);
+  }
+  assert(
+    plan.package?.package_sha256 === artifact.package_sha256,
+    `${artifact.lane_id}: dry-run plan package SHA mismatch`,
+    errors
+  );
+  assert(
+    plan.row_count === evidence.row_count && plan.row_count === artifact.gate_evidence.row_count,
+    `${artifact.lane_id}: dry-run plan row count must match gate evidence`,
+    errors
+  );
+  assert(
+    Array.isArray(plan.rows) && plan.rows.length === plan.row_count,
+    `${artifact.lane_id}: dry-run plan must contain every registered row`,
+    errors
+  );
+  if (Array.isArray(plan.rows)) {
+    assert(
+      plan.rows.every((row) => row?.write_executed === false),
+      `${artifact.lane_id}: every dry-run row must retain write_executed=false`,
+      errors
+    );
+  }
 }
 
 function validateControlledTransitionApproval(artifact, manifest, errors) {

@@ -108,7 +108,8 @@ Before accepting a producer candidate patch, the control window verifies:
 - `qa_pass` is backed by an independent W9 PASS verdict covering the full target and tied to the exact producer package SHA;
 - `blocked` retains its prior state and can recover only to that exact gate with external recovery evidence;
 - `draft_imported` and `published` carry separately hashed human-operator approvals for the exact frozen package SHA;
-- later dry-run, import, editorial, publication, and live-QA gates use external exact-SHA reports without rebuilding the W9-reviewed package;
+- `dry_run_ready` additionally binds the non-symlinked raw fap-api plan, exact source commit, plan Schema/SHA, package SHA, complete row count, and every no-write/no-release flag;
+- later import, editorial, publication, and live-QA gates use external exact-SHA reports without rebuilding the W9-reviewed package;
 - all permissions remain false unless a separately controlled exact-SHA approval exists.
 
 Producer PASS does not authorize CMS import or public release. Production import always requires explicit human approval naming the exact final artifact SHA and write mode.

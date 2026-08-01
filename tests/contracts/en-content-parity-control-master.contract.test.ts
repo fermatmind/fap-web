@@ -223,7 +223,7 @@ function makeW3ArticlesPreBlockManifest(sourceManifest: MasterManifest): {
 function makeRegisteredPackageDirectory(outputDirectory: string): string {
   const packageDirectory = path.join(ROOT, outputDirectory);
   fs.mkdirSync(packageDirectory, { recursive: true });
-  const existingArtifacts = ARTIFACT_FILES.filter((fileName) =>
+  const existingArtifacts = [...ARTIFACT_FILES, "external_package"].filter((fileName) =>
     fs.existsSync(path.join(packageDirectory, fileName))
   );
   if (existingArtifacts.length > 0) {
@@ -590,7 +590,7 @@ describe("English content parity control master", () => {
     });
 
     const w2 = manifest.lanes.find((lane) => lane.lane_id === "W2");
-    expect(w2?.status).toBe("inventory_frozen");
+    expect(w2?.status).toBe("package_in_progress");
     expect(w2?.blocked_from_status).toBeNull();
     expect(w2?.package_sha256).toBeNull();
     expect(w2?.qa_report_ref).toBeNull();
@@ -604,7 +604,7 @@ describe("English content parity control master", () => {
       unknown_inventory_cohorts: 0,
     });
     expect(w2?.next_action).toBe(
-      "Build and submit the complete package_in_progress candidate without changing the frozen 52/50/16 inventory counts."
+      "Freeze the complete W2 package, produce its final exact SHA, and submit only the immediate package_frozen candidate."
     );
     expect(
       manifest.assets
@@ -1191,7 +1191,7 @@ describe("English content parity control master", () => {
     const qaAuthorityDirectory = makeW9QaDirectory();
     const qaReportPath = path.join(qaAuthorityDirectory, "independent-qa-report.json");
     const progressedManifestPath = path.join(tempDirectory, "progressed-master.json");
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     const assets = progressedManifest.assets
@@ -2324,6 +2324,28 @@ describe("English content parity control master", () => {
       });
       fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
+      const dryRunPlanPath = path.join(packageDirectory, "dry-run-plan.json");
+      fs.writeFileSync(
+        dryRunPlanPath,
+        JSON.stringify({
+          schema_version: "fermatmind.en_parity.test_dry_run_receipt.v1",
+          status: "pass",
+          ok: true,
+          mode: "dry_run",
+          dry_run_only: true,
+          write_supported_in_this_pr: false,
+          writes_committed: false,
+          database_write_attempted: false,
+          cms_write_attempted: false,
+          publish_attempted: false,
+          activation_attempted: false,
+          indexability_attempted: false,
+          search_submission_attempted: false,
+          package: { package_sha256: packageEvidence.packageSha256 },
+          row_count: expectedTotal,
+          rows: Array.from({ length: expectedTotal }, () => ({ write_executed: false })),
+        })
+      );
       const transitionReportPath = path.join(tempDirectory, "dry-run-gate-report.json");
       fs.writeFileSync(
         transitionReportPath,
@@ -2338,6 +2360,14 @@ describe("English content parity control master", () => {
           package_sha256: packageEvidence.packageSha256,
           gate: "dry_run_ready",
           verdict: "PASS",
+          dry_run_evidence: {
+            source_repository: "fap-api",
+            source_commit_sha: "a".repeat(40),
+            plan_path: dryRunPlanPath,
+            plan_sha256: sha256AbsoluteFile(dryRunPlanPath),
+            plan_schema_version: "fermatmind.en_parity.test_dry_run_receipt.v1",
+            row_count: expectedTotal,
+          },
           permissions,
         })
       );
@@ -2373,6 +2403,23 @@ describe("English content parity control master", () => {
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(dryRunOutput)).toMatchObject({ ok: true, errors: [] });
+
+      const originalDryRunPlan = fs.readFileSync(dryRunPlanPath, "utf8");
+      fs.writeFileSync(dryRunPlanPath, `${originalDryRunPlan}\n`);
+      let changedDryRunOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        changedDryRunOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(changedDryRunOutput).errors.join("\n")).toContain(
+        "dry-run plan SHA mismatch"
+      );
+      fs.writeFileSync(dryRunPlanPath, originalDryRunPlan);
 
       fs.writeFileSync(
         candidatePath,
@@ -2484,6 +2531,7 @@ describe("English content parity control master", () => {
       cleanupRegisteredPackageDirectory(packageDirectory, [
         "producer-authored-w9-report.json",
         "producer-authored-control-approval.json",
+        "dry-run-plan.json",
       ]);
     }
   });
@@ -3028,7 +3076,7 @@ describe("English content parity control master", () => {
     const packageDirectory = makeRegisteredPackageDirectory(
       "generated/en-content-parity/W1-mbti/comparisons/"
     );
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     if (!w1 || !comparisons) {
@@ -3155,7 +3203,7 @@ describe("English content parity control master", () => {
     const packageDirectory = makeRegisteredPackageDirectory(
       "generated/en-content-parity/W1-mbti/comparisons/"
     );
-    const progressedManifest = structuredClone(manifest);
+    const progressedManifest = w1ComparisonsInventoryFixture(manifest);
     const w1 = progressedManifest.lanes.find((lane) => lane.lane_id === "W1");
     const comparisons = w1?.subscopes.find((subscope) => subscope.id === "W1-MBTI-COMPARISONS");
     if (!w1 || !comparisons) {
