@@ -1,10 +1,22 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_editorial_review.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01",
   "review_kind": "producer self-check only; not W9 approval",
   "verdict": "PENDING_INDEPENDENT_W9",
+  "repair_evidence": {
+    "prior_frozen_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "affected_group": "W4-G02",
+    "affected_asset_count": 4,
+    "overridden_source_identities": [
+      "R:possible_cost",
+      "R:possible_shadow_friction",
+      "S:possible_cost",
+      "S:possible_shadow_friction"
+    ]
+  },
   "completed_self_checks": [
     "42=24+18 identity reconciliation",
+    "exactly four R/S possible_cost and possible_shadow_friction copies are differentiated",
     "no visible CJK",
     "all permissions false"
   ],

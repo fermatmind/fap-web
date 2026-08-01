@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_source_ledger.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01",
   "authority": {
     "repository": "fap-api",
     "commit": "660280d00a57e58bd8bc76608e19de2492c03f53",

@@ -1,33 +1,38 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_package_manifest.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01",
   "status": "candidate_only",
   "row_count": 42,
   "g01_row_count": 24,
   "g02_row_count": 18,
+  "repair_evidence": {
+    "prior_frozen_package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+    "affected_group": "W4-G02",
+    "affected_asset_count": 4
+  },
   "payloads": [
     {
       "path": "assets.jsonl",
-      "sha256": "3c1b83bde3457792bcfc80d6e4c76b9f9f5e6c13690ad8c921e624dc8b4ba9fb"
+      "sha256": "240308dbdd3e2a1d03e56b966e22b3650a335595701eace1896f8138d6eb719c"
     },
     {
       "path": "claim_boundary_report.json",
-      "sha256": "00d1fbb8d5c9fba2d95e2d7031ae441022400ccdc9694a3100c00ef4e63fafad"
+      "sha256": "03f7d585dc0d9db074d93a3c5bfa4f4ccaa679e4879a9b14a1ffd64c5eb71446"
     },
     {
       "path": "editorial_review.json",
-      "sha256": "b863a8b01ccd9510f11aacca67a9b620343f2d448b2abf6a97b1f77b6a369ea4"
+      "sha256": "654c46fce3cbc1088b911020e5a4b0fb25a29ac71f7589a31c439955e379a1e2"
     },
     {
       "path": "source_ledger.json",
-      "sha256": "559fe2e7fa10652f4ba24715bff7b8b0456b3f372b9db6253734d772df3a805f"
+      "sha256": "8fbd3ccc657753edeec4e6b7b578911d71cc1cb72cdd826b9c4d41f8ee11042e"
     },
     {
       "path": "translation_map.json",
-      "sha256": "b3f5ed55bbffb1fa615ed5e0fa49895e836a0e7bde7e577a3870223afd893747"
+      "sha256": "91e842b1c8f9f15e78e69ddd8b8390d9fd727bd75ab68e8e8b52692f2a21dadb"
     }
   ],
-  "aggregate_sha256": "311ac2c33559241b7e2fa3e6e16e54ec3042cdcbf727bb06411af48c39ef9fe2",
+  "aggregate_sha256": "640e56dad5ff9e51c09a41212895d5030c2851c3dbf2f0ee8f3bdf05f8ff0390",
   "aggregate_method": "sha256 of each payload, ordered by path; aggregate is sha256 of path + NUL + payload sha256 + LF for every payload",
   "permissions": {
     "cms_write_authorized": false,

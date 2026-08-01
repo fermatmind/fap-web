@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.en_content_parity.w4_riasec_dimension_claim_boundary_report.v1",
-  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-ASSETS-2026-08-01",
+  "package_id": "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01",
   "status": "candidate_only",
   "verdict": "PENDING_INDEPENDENT_W9",
   "boundaries": [
