@@ -55593,9 +55593,9 @@
     "base": "main",
     "branch": "codex/en-parity-w9-w4-riasec-independent-qa-02",
     "depends_on": ["EN-PARITY-W4-RIASEC-PACKAGE-REFREEZE-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "04a2b0382bd38b6144450e7663cb5ca18e755d38",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1979",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1974 is reconciled as merged in origin/main and CONTROL PR #1976 accepts W4 as package_frozen at exact SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb."},
       "preflight": {"status": "pass", "evidence": "W4 is package_frozen with null qa_report_ref, all permissions false, and the retained 944ddac W9 evidence remains historical BLOCKED evidence only."},
@@ -55613,7 +55613,7 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T04:06:52+08:00", "status": "in_progress", "summary": "Started independent W9 review from origin/main f5cbf2361c6729b6311c80282d6c9bd004d3f422 after verifying #1976 accepted the exact repaired W4 SHA. Scope is limited to the new W9 evidence directory, W9 build/validation contract, and necessary train ledger reconciliation; master, producer package, historical W9 evidence, CMS, runtime, import, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T04:08:25+08:00", "status": "local_verified", "summary": "Generated a new seven-file W9 evidence package under w4-riasec-f3f2463f. The exact 1550-row review returns PASS across language naturalness, Chinese leakage, source identity, claim boundary, internal-link, field-leakage, and duplicate/omission checks; page/API is candidate-only NOT_APPLICABLE and qa_pass_authorized remains false. The new and historical evidence validators pass; focused Vitest passes 3/3; direct focused ESLint and JSON parsing pass. pnpm itself remains blocked before command execution by the repository's ignored-build approval policy, with no dependency or approval change made."}],
-    "updated_at": "2026-08-02T04:08:25+08:00"
+    "history": [{"at": "2026-08-02T04:06:52+08:00", "status": "in_progress", "summary": "Started independent W9 review from origin/main f5cbf2361c6729b6311c80282d6c9bd004d3f422 after verifying #1976 accepted the exact repaired W4 SHA. Scope is limited to the new W9 evidence directory, W9 build/validation contract, and necessary train ledger reconciliation; master, producer package, historical W9 evidence, CMS, runtime, import, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T04:08:25+08:00", "status": "local_verified", "summary": "Generated a new seven-file W9 evidence package under w4-riasec-f3f2463f. The exact 1550-row review returns PASS across language naturalness, Chinese leakage, source identity, claim boundary, internal-link, field-leakage, and duplicate/omission checks; page/API is candidate-only NOT_APPLICABLE and qa_pass_authorized remains false. The new and historical evidence validators pass; focused Vitest passes 3/3; direct focused ESLint and JSON parsing pass. pnpm itself remains blocked before command execution by the repository's ignored-build approval policy, with no dependency or approval change made."},{"at": "2026-08-02T04:09:48+08:00", "status": "github_checks_pending", "summary": "Opened PR #1979 at exact implementation head 04a2b0382bd38b6144450e7663cb5ca18e755d38. Required build, contract shards, freeze checks, and CodeQL are queued; CONTROL acceptance, CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."}],
+    "updated_at": "2026-08-02T04:09:48+08:00"
   }
 }
