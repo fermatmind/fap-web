@@ -28136,3 +28136,52 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: generated control handoff only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02
+    repo: fap-web
+    branch: codex/en-parity-w2-big5-inventory-refreeze-02
+    base: main
+    title: "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02: rebuild completed Big Five inventory candidate"
+    depends_on:
+      - EN-PARITY-W2-BIG5-DRAFT-RECONCILE-01
+      - EN-PARITY-W2-BIG5-INVENTORY-01
+      - EN-PARITY-W2-BIG5-RESULT-ASSETS-01
+    mode: execute
+    train_scope: w2_big5_completed_inventory_refreeze
+    status: in_progress
+    scope:
+      - Rebuild only the W2 candidate package from the completed 52 public controls, 50 historical revision slots, and 16 backend draft-review-only result assets.
+      - Preserve the 118 registered identities and submit only the immediate inventory_frozen candidate; do not modify the authoritative master manifest.
+    allowed_paths:
+      - generated/en-content-parity/W2-big-five/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify docs/seo/generated/en-content-parity-control-master.v1.json, its Schema, scripts/seo, tests/contracts, app, components, lib, public, fap-api, deploy, or GitHub workflows.
+      - Write CMS, database, staging, production, import, publication, SEO runtime, sitemap, llms, search, or deploy state.
+      - Represent producer inventory evidence as W9, human editorial approval, runtime readiness, import readiness, production readiness, or publication.
+    required_local_checks:
+      - php backend/content_packs/BIG5_OCEAN/v2/packages/en_parity/w2_result_content_v1/validate_package.php (read-only fap-api evidence)
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - JSON/JSONL parse, 118-row uniqueness and 52/50/16 reconciliation
+      - exact eight-file SHA manifest recomputation and candidate/package binding
+      - CJK/private-field/forbidden-ready-claim scan
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: generated W2 candidate-only inventory evidence; backend remains authoritative and no runtime or release behavior changes

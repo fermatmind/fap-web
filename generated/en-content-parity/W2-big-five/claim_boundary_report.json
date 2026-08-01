@@ -3,8 +3,8 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W2",
   "subscope_id": null,
-  "package_id": "EN-PARITY-W2-BIG5-INVENTORY-20260731",
-  "generated_at": "2026-07-31T03:42:00Z",
+  "package_id": "EN-PARITY-W2-BIG5-COMPLETE-20260801",
+  "generated_at": "2026-08-01T04:55:38Z",
   "verdict": "PASS",
   "claim_checks": {
     "continuous_trait_language": "PASS",
@@ -23,10 +23,11 @@
     "historical_draft_chinese_leakage_rows": 0,
     "historical_draft_media_exposure_rows": 0,
     "private_field_leak_hits": 0,
-    "result_asset_unknown_or_missing_rows": 16
+    "result_asset_unknown_or_missing_rows": 0,
+    "result_asset_draft_review_only_rows": 16
   },
   "blockers": [],
-  "notes": "PASS applies to inventory freeze only. The 16 result units still require separately reviewed English content and do not gain runtime/import/release authority.",
+  "notes": "PASS applies only to completed W2 inventory freeze. The sixteen result assets are complete as backend draft-review-only evidence and still require independent W9 QA, human editorial approval, import authorization, runtime authorization, production authorization, publication authorization, and deploy authorization.",
   "permissions": {
     "cms_write_authorized": false,
     "staging_write_authorized": false,
