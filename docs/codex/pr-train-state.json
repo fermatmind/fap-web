@@ -55627,8 +55627,8 @@
       "EN-PARITY-W3-CAREER-GUIDE-MARKET-CLAIM-BOUNDARY-01",
       "EN-PARITY-CONTROL-W3-CAREER-GUIDES-PACKAGE-IN-PROGRESS-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "4fe29401f530478b2cc75f8b7b04844095465ab4",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -55680,8 +55680,13 @@
         "at": "2026-08-02T04:29:00Z",
         "status": "local_verified",
         "summary": "Rebased the scoped branch onto latest origin/main 89fc715fea7836e2c02ef7a486a889473f7bee88 after the unrelated W4 W9 merge. The Batch A builder, partial validator, and control candidate validator were rerun; the master compare-and-swap SHA and Batch A immutable package SHA remain valid."
+      },
+      {
+        "at": "2026-08-02T04:31:00Z",
+        "status": "committed",
+        "summary": "Committed the scoped Batch A producer package and partial CONTROL contract extension as 4fe29401f530478b2cc75f8b7b04844095465ab4. Pending push and creation of one ready PR; all CMS/import, release, runtime, discoverability, search, and deploy actions remain deferred."
       }
     ],
-    "updated_at": "2026-08-02T04:29:00Z"
+    "updated_at": "2026-08-02T04:31:00Z"
   }
 }
