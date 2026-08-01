@@ -29455,3 +29455,38 @@ prs:
     deploy_allowed: false
     content_authority: producer candidate package only; fap-api RIASEC authority unchanged
     repository_rule_impact: repairs producer-only English candidate evidence; no authority transfer, runtime availability, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01
+    repo: fap-web
+    branch: codex/en-parity-w3-article-package-rework-10-01
+    base: main
+    title: "EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01: rebuild and refreeze the repaired 17-Article package"
+    depends_on: [EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01]
+    mode: execute
+    train_scope: w3_articles_rework_10_exact_17_row_package_refreeze
+    status: in_progress
+    scope:
+      - Consume the exact merged Article:53 source-evidence package, apply only its declared section replacement, and rebuild all eight immutable 17-Article payloads under a new package SHA.
+      - Preserve the 16 non-Article:53 reader-visible projections and all 17 identities, source revisions, translation groups, slugs, routes, permissions, and separated W3 Career Guide state.
+    allowed_paths: [generated/en-content-parity/W3-editorial-cms/articles/**, scripts/seo/rebuild-w3-article-package-rework-10.mjs, tests/contracts/en-content-parity-w3-article-package.contract.test.ts, docs/codex/pr-train.yaml, docs/codex/pr-train-state.json, generated/pr-train-sidecar-issues/**]
+    do_not:
+      - Modify the control master, W9 authority, Career Guides, CMS, database, importer, runtime, SEO, sitemap, llms, publication, search, or deployment state.
+      - Self-accept the package_frozen candidate or claim W9, import, or release approval.
+    required_local_checks:
+      - node scripts/seo/rebuild-w3-article-package-rework-10.mjs twice with identical aggregate package SHA
+      - pnpm exec vitest run tests/contracts/en-content-parity-w3-article-package.contract.test.ts --reporter=dot
+      - pnpm exec eslint scripts/seo/rebuild-w3-article-package-rework-10.mjs tests/contracts/en-content-parity-w3-article-package.contract.test.ts --max-warnings=0
+      - JSON/YAML parse; 17/17 identity/revision/translation reconciliation, exact Article:53 evidence SHA consumption, 16-row visible projection preservation, no Han leakage, all-false permissions, eight-payload SHA and current-master candidate binding
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: producer-only rebuilt Article candidate package; backend CMS Article authority unchanged
+    repository_rule_impact: immutable candidate package refreeze only; no runtime, authority, import, publication, discoverability, or deployment change

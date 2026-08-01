@@ -3,12 +3,11 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-09-2026-08-01",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-10-2026-08-01",
   "verdict": "PASS",
-  "review_kind": "completed 17/17 producer re-review after targeted rework-09 preflight repairs; not independent W9 QA and not human editorial approval",
+  "review_kind": "completed 17/17 producer re-review after rework-10 Article:53 primary-source evidence repair; not independent W9 QA and not human editorial approval",
   "completed_checks": [
     "17 exact Article and source-revision identities retained",
-    "ten authorized Article rows repaired for targeted language-naturalness, grammar, punctuation, and en-US consistency defects; seven PASS rows retain byte-identical reader-visible fields",
     "repairs are limited to the approved ten-row reader-visible language scope",
     "all 17 rows re-reviewed after repair without changing source identity",
     "candidate title, excerpt, and Markdown body present for every row",
@@ -16,7 +15,9 @@
     "source/candidate heading-count parity for every row",
     "producer claim-boundary preflight after rework-09",
     "candidate media omission policy retained",
-    "17/17 internal-link destination sets retained for fresh independent verification"
+    "17/17 internal-link destination sets retained for fresh independent verification",
+    "Article:53 exact primary-source evidence package consumed and the declared 2026 section replacement applied",
+    "the other 16 Article reader-visible projections remain byte-identical"
   ],
   "pending_checks": [
     "fresh independent W9 language, source-equivalence, link, media, claim-boundary, field-leakage, and asset-completeness QA across every row and field for this exact frozen SHA",

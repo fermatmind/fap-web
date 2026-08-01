@@ -53,10 +53,10 @@ const PERMISSION_KEYS = [
   "master_manifest_write_authorized",
 ];
 
-const REWORK_09_REPAIRED_IDS = new Set([1, 2, 7, 8, 9, 10, 52, 55, 58, 59]);
-const REWORK_09_PASS_IDS = [3, 4, 5, 6, 50, 51, 53];
-const REWORK_09_PASS_READER_VISIBLE_SHA256 =
-  "e0a8d7d5f58e138a2ef178b3635fb728a0b4147b58e9da6076e71bb3e64879a3";
+const REWORK_10_NON_TARGET_READER_VISIBLE_SHA256 =
+  "159bfc12f92d886b1425e8faac7554101a705a04dedc70d868256a95b15acaca";
+const ARTICLE_53_EVIDENCE_PACKAGE_SHA256 =
+  "480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061";
 
 type Rework09LedgerRow = {
   source_article_id: number;
@@ -147,7 +147,7 @@ describe("W3 Article English frozen package", () => {
     expect(dryRun.status).toBe("package_frozen_qa_pending");
   });
 
-  it("contains only the approved rework-09 language repairs and preserves the seven PASS rows", () => {
+  it("consumes only the declared Article:53 evidence repair and preserves the other 16 reader-visible projections", () => {
     const ledger = readJson("source_ledger.json");
     const rowsById = new Map<number, Rework09LedgerRow>(
       ledger.rows.map((row: Rework09LedgerRow) => [row.source_article_id, row]),
@@ -160,29 +160,27 @@ describe("W3 Article English frozen package", () => {
       return row;
     };
 
-    expect(new Set(ledger.rows.map((row: { source_article_id: number }) => row.source_article_id))).toEqual(
-      new Set([...REWORK_09_REPAIRED_IDS, ...REWORK_09_PASS_IDS]),
-    );
+    const passProjection = ledger.rows
+      .filter((row: Rework09LedgerRow) => row.source_article_id !== 53)
+      .map((row: Rework09LedgerRow) => {
+        return {
+          stable_asset_identity: `Article:${row.source_article_id}`,
+          reader_visible_sha256: sha256(
+            JSON.stringify({
+              candidate_title: row.candidate_title,
+              candidate_excerpt: row.candidate_excerpt,
+              candidate_content_md: row.candidate_content_md,
+            }),
+          ),
+        };
+      });
+    expect(passProjection).toHaveLength(16);
+    expect(sha256(JSON.stringify(passProjection))).toBe(REWORK_10_NON_TARGET_READER_VISIBLE_SHA256);
 
-    const passProjection = REWORK_09_PASS_IDS.map((id) => {
-      const row = rowsById.get(id);
-      if (!row) {
-        throw new Error(`missing PASS row ${id}`);
-      }
-      return {
-        candidate_title: row.candidate_title,
-        candidate_excerpt: row.candidate_excerpt,
-        candidate_content_md: row.candidate_content_md,
-        source_article_id: row.source_article_id,
-        source_revision_id: row.source_revision_id,
-        slug: row.slug,
-        source_route: row.source_route,
-        expected_target_route: row.expected_target_route,
-        internal_link_review: row.internal_link_review,
-        structure_review: row.structure_review,
-      };
-    });
-    expect(sha256(JSON.stringify(passProjection))).toBe(REWORK_09_PASS_READER_VISIBLE_SHA256);
+    const article53 = getRow(53) as Rework09LedgerRow & { external_claim_evidence: { package_sha256: string } };
+    expect(article53.candidate_content_md).toContain("The 2026 Context: Start With Official Information");
+    expect(article53.candidate_content_md).not.toContain("capture the future");
+    expect(article53.external_claim_evidence.package_sha256).toBe(ARTICLE_53_EVIDENCE_PACKAGE_SHA256);
 
     expect(getRow(1).candidate_title).toContain("Five-Dimensional");
     expect(getRow(1).candidate_content_md).toContain("Five-Dimensional Behavioral Experiment Matrix");
