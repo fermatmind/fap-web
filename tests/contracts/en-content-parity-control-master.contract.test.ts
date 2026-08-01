@@ -2324,6 +2324,28 @@ describe("English content parity control master", () => {
       });
       fs.writeFileSync(progressedManifestPath, JSON.stringify(progressedManifest));
 
+      const dryRunPlanPath = path.join(packageDirectory, "dry-run-plan.json");
+      fs.writeFileSync(
+        dryRunPlanPath,
+        JSON.stringify({
+          schema_version: "fermatmind.en_parity.test_dry_run_receipt.v1",
+          status: "pass",
+          ok: true,
+          mode: "dry_run",
+          dry_run_only: true,
+          write_supported_in_this_pr: false,
+          writes_committed: false,
+          database_write_attempted: false,
+          cms_write_attempted: false,
+          publish_attempted: false,
+          activation_attempted: false,
+          indexability_attempted: false,
+          search_submission_attempted: false,
+          package: { package_sha256: packageEvidence.packageSha256 },
+          row_count: expectedTotal,
+          rows: Array.from({ length: expectedTotal }, () => ({ write_executed: false })),
+        })
+      );
       const transitionReportPath = path.join(tempDirectory, "dry-run-gate-report.json");
       fs.writeFileSync(
         transitionReportPath,
@@ -2338,6 +2360,14 @@ describe("English content parity control master", () => {
           package_sha256: packageEvidence.packageSha256,
           gate: "dry_run_ready",
           verdict: "PASS",
+          dry_run_evidence: {
+            source_repository: "fap-api",
+            source_commit_sha: "a".repeat(40),
+            plan_path: dryRunPlanPath,
+            plan_sha256: sha256AbsoluteFile(dryRunPlanPath),
+            plan_schema_version: "fermatmind.en_parity.test_dry_run_receipt.v1",
+            row_count: expectedTotal,
+          },
           permissions,
         })
       );
@@ -2373,6 +2403,23 @@ describe("English content parity control master", () => {
         { cwd: ROOT, encoding: "utf8" }
       );
       expect(JSON.parse(dryRunOutput)).toMatchObject({ ok: true, errors: [] });
+
+      const originalDryRunPlan = fs.readFileSync(dryRunPlanPath, "utf8");
+      fs.writeFileSync(dryRunPlanPath, `${originalDryRunPlan}\n`);
+      let changedDryRunOutput = "";
+      try {
+        execFileSync(
+          "node",
+          [VALIDATOR_PATH, "--manifest", progressedManifestPath, "--artifact", candidatePath],
+          { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+        );
+      } catch (error) {
+        changedDryRunOutput = (error as { stdout?: string }).stdout ?? "";
+      }
+      expect(JSON.parse(changedDryRunOutput).errors.join("\n")).toContain(
+        "dry-run plan SHA mismatch"
+      );
+      fs.writeFileSync(dryRunPlanPath, originalDryRunPlan);
 
       fs.writeFileSync(
         candidatePath,
@@ -2484,6 +2531,7 @@ describe("English content parity control master", () => {
       cleanupRegisteredPackageDirectory(packageDirectory, [
         "producer-authored-w9-report.json",
         "producer-authored-control-approval.json",
+        "dry-run-plan.json",
       ]);
     }
   });
