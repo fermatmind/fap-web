@@ -1,0 +1,34 @@
+{
+  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+  "files": [
+    {
+      "path": "independent_qa_report.json",
+      "sha256": "eb722ec622b2f55734e0a0126a757b57ee0f0c63eecddb4189d1c9b28d16a694"
+    },
+    {
+      "path": "row_review_evidence.json",
+      "sha256": "b0b366808c7259b7ec389824e65a1fc0328a28b3529adf05dd2fece797a97ca9"
+    },
+    {
+      "path": "frozen_package_identity_projection.json",
+      "sha256": "d80a3764f5d0c20ae14814c061bbf85bbe071f5c8d3259e54a47b7d8f3f97de7"
+    },
+    {
+      "path": "language_naturalness_report.json",
+      "sha256": "ad2f475247e844e53d5b78c4040a59a5aeafb2e42729b11a74a9f8fc8b85bcff"
+    },
+    {
+      "path": "asset_duplication_report.json",
+      "sha256": "6248e2c44d40df83570708502a3a4adad43e3430d247986d1d8a02a2afbccbe1"
+    },
+    {
+      "path": "repair_batch_plan.json",
+      "sha256": "e7ee95d95b2bca353f2b81be0e9d467f8d175919ed1685c7e9ccd24933f1bb47"
+    },
+    {
+      "path": "handoff.md",
+      "sha256": "5cfc21a6dba32a88af4bcc8aa898e8b36e4c84cfc7abad3bf877f373efcb80a8"
+    }
+  ],
+  "qa_package_sha256": "e68f3cb679af05f82265730500fb8acc1ad7c2e2f872221765939a9fd805aaee"
+}

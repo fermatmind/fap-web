@@ -1,0 +1,40 @@
+{
+  "$schema": "docs/seo/generated/en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "independent_qa_report",
+  "schema_version": "fermatmind.en_content_parity_independent_qa_report.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W4",
+  "subscope_id": "W4-RIASEC",
+  "output_directory": "generated/en-content-parity/W9-independent-qa/",
+  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+  "verdict": "BLOCKED",
+  "reviewed_asset_ids": [],
+  "reviewed_row_count": 1550,
+  "checks": {
+    "language_naturalness": "BLOCKED",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "PASS",
+    "asset_duplication": "BLOCKED",
+    "field_leakage": "PASS",
+    "page_api_alignment": "NOT_APPLICABLE"
+  },
+  "page_api_alignment_status": "NOT_APPLICABLE",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  },
+  "independent_review_basis": "Fresh isolated W9 review of every atomic row in the exact frozen W4 package. Producer self-review and CONTROL acceptance were not used as evidence of a pass.",
+  "blocker_summary": {
+    "blocked_row_count": 130,
+    "language_naturalness_rows": 126,
+    "duplicate_copy_rows": 4,
+    "qa_pass_authorized": false,
+    "required_next_action": "A separate CONTROL-only decision may retain this exact-SHA BLOCKED evidence and reset W4-RIASEC to package_in_progress. Any producer repair must rebuild and refreeze a new package before a new independent W9 review."
+  }
+}

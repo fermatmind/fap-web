@@ -1,0 +1,35 @@
+{
+  "package_sha256": "944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33",
+  "verdict": "BLOCKED",
+  "duplicate_copy_groups": [
+    {
+      "copy_sha256": "af454f9353b6e7afc76763c741571891727af7646233a5c0a4127e94d85c745a",
+      "asset_ids": [
+        "ENPARITY-W4-RIASEC-W4-G02-R-possible-cost-f0018424bbf2",
+        "ENPARITY-W4-RIASEC-W4-G02-R-possible-shadow-friction-8ee2059d0645"
+      ]
+    },
+    {
+      "copy_sha256": "ce0433ce6e969e8c920a415acbd534b3ddbf4b8fc0c9a2120f18e710822a8c54",
+      "asset_ids": [
+        "ENPARITY-W4-RIASEC-W4-G02-S-possible-cost-ffa8aa458333",
+        "ENPARITY-W4-RIASEC-W4-G02-S-possible-shadow-friction-da5f3d2cde38"
+      ]
+    }
+  ],
+  "affected_row_ids": [
+    "ENPARITY-W4-RIASEC-W4-G02-R-possible-cost-f0018424bbf2",
+    "ENPARITY-W4-RIASEC-W4-G02-R-possible-shadow-friction-8ee2059d0645",
+    "ENPARITY-W4-RIASEC-W4-G02-S-possible-cost-ffa8aa458333",
+    "ENPARITY-W4-RIASEC-W4-G02-S-possible-shadow-friction-da5f3d2cde38"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
