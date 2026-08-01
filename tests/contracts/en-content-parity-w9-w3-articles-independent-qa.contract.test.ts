@@ -5,7 +5,6 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
 const QA_DIRECTORY = `${ROOT}/generated/en-content-parity/W9-independent-qa/articles/w3-articles-2c228eae`;
-const PRODUCER_DIRECTORY = `${ROOT}/generated/en-content-parity/W3-editorial-cms/articles`;
 
 function sha256(path: string): string {
   return createHash("sha256").update(fs.readFileSync(path)).digest("hex");
@@ -20,6 +19,10 @@ describe("EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-01", () => {
   it("retains an exact immutable producer snapshot for a later CONTROL-only reset", () => {
     const frozenManifestPath = `${QA_DIRECTORY}/frozen_package/sha256_manifest.json`;
     const frozenLedgerPath = `${QA_DIRECTORY}/frozen_package/source_ledger.json`;
+    const frozenManifest = JSON.parse(fs.readFileSync(frozenManifestPath, "utf8")) as {
+      package_sha256: string;
+      files: Array<{ path: string; sha256: string }>;
+    };
     const projection = JSON.parse(
       fs.readFileSync(`${QA_DIRECTORY}/frozen_source_ledger_identity_projection.json`, "utf8")
     ) as {
@@ -44,12 +47,6 @@ describe("EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-01", () => {
       }>;
     };
 
-    expect(fs.readFileSync(frozenManifestPath)).toEqual(
-      fs.readFileSync(`${PRODUCER_DIRECTORY}/sha256_manifest.json`)
-    );
-    expect(fs.readFileSync(frozenLedgerPath)).toEqual(
-      fs.readFileSync(`${PRODUCER_DIRECTORY}/source_ledger.json`)
-    );
     expect(projection).toMatchObject({
       package_sha256: "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
       sha256_manifest_sha256: "68ea36d17b80ed049df053e80876bdec12f8895cd4f94c1b90bc7c56fea998c1",
@@ -57,6 +54,10 @@ describe("EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-01", () => {
     });
     expect(sha256(frozenManifestPath)).toBe(projection.sha256_manifest_sha256);
     expect(sha256(frozenLedgerPath)).toBe(projection.source_ledger_sha256);
+    expect(frozenManifest.package_sha256).toBe(projection.package_sha256);
+    expect(frozenManifest.files.find((file) => file.path === "source_ledger.json")?.sha256).toBe(
+      projection.source_ledger_sha256
+    );
     expect(projection.rows).toHaveLength(17);
     expect(new Set(projection.rows.map((row) => row.row_id)).size).toBe(17);
     expect(projection.rows).toEqual(
