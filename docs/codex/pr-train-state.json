@@ -55349,8 +55349,8 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-140q-naturalness-repair-01",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "0325ff55da734308379a3904844aca796a2b6023",
     "pr_url": null,
     "checks": {
       "preflight": {"status": "pass", "evidence": "origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 retains W4=package_in_progress after the CONTROL reset and preserves old failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence only."},
@@ -55370,9 +55370,10 @@
     "deploy_allowed": false,
     "history": [
       {"at": "2026-08-02T01:43:33+08:00", "status": "in_progress", "summary": "Started from origin/main 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 after confirming the CONTROL reset retains failed W9 package SHA 944ddac51957b38aa6232335f07269cd904c2513348fad652acb5acb0de59e33 as evidence and returns W4 to package_in_progress. Scope is exactly the 126 W4-G06 summary and translation-cache replacements plus segment evidence; W4-G07, control master, runtime, CMS/import, publication, discoverability, and deploy remain unchanged."},
-      {"at": "2026-08-02T01:46:54+08:00", "status": "local_verified", "summary": "Rebuilt deterministically from the existing translation cache without rewriting non-target reader text. Focused control contract (65/65), control validator, full lint, JSON/YAML parse, exact scope, diff, identity, G07, sentence-count, payload-SHA, and repeatable aggregate-SHA checks pass. The new segment aggregate is ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2; W4 remains package_in_progress and all write/release permissions remain false."}
+      {"at": "2026-08-02T01:46:54+08:00", "status": "local_verified", "summary": "Rebuilt deterministically from the existing translation cache without rewriting non-target reader text. Focused control contract (65/65), control validator, full lint, JSON/YAML parse, exact scope, diff, identity, G07, sentence-count, payload-SHA, and repeatable aggregate-SHA checks pass. The new segment aggregate is ee3c52a6de9d2b69029ce8351871eb1e18796cb0d794d6e2553943645eefd7c2; W4 remains package_in_progress and all write/release permissions remain false."},
+      {"at": "2026-08-02T01:48:38+08:00", "status": "committed", "summary": "Committed the exact G06 repair implementation as 0325ff55da734308379a3904844aca796a2b6023. The next ledger-only commit will record this implementation SHA before the single scoped PR is opened; no CONTROL, runtime, CMS/import, publication, discoverability, or deploy action is included."}
     ],
-    "updated_at": "2026-08-02T01:46:54+08:00"
+    "updated_at": "2026-08-02T01:48:38+08:00"
   },
   "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01": {
     "id": "EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01",
