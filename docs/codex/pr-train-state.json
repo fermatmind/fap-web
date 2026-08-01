@@ -52598,12 +52598,12 @@
         "evidence": "Working scope is restricted to the W3 Article package and this existing PR-train state entry. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1905 requires fresh required checks after correcting the immutable claim-boundary repaired-row list and rebinding exact package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b."
+        "status": "pass",
+        "evidence": "PR #1905 exact head 52cb02cafae63e199872375e3f144110be28ee75 passed all 11 required CI and security checks after the one-row evidence correction and concurrent-main merge. The final ready-state ledger commit receives one last required-check cycle before merge."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "The exact-head P2 finding is corrected in scope; review-thread resolution, fresh exact-head review, checks, and mergeability verification remain pending."
+        "status": "pass",
+        "evidence": "GitHub reports exact head 52cb02cafae63e199872375e3f144110be28ee75 MERGEABLE/CLEAN. The Article repaired-row finding is corrected to [59], and concurrent-main conflict resolution restored the unrelated Career item exactly to origin/main; both review threads are ready to resolve."
       }
     },
     "failure_reason": null,
@@ -52815,9 +52815,14 @@
         "at": "2026-08-01T06:33:30Z",
         "status": "github_checks_pending",
         "summary": "Merged concurrent origin/main commits for W2 inventory acceptance and W1 comparison freeze, resolving the sole unrelated stale-ledger conflict in favor of main. Rebound only the non-immutable W3 candidate base to master SHA 55be9502909f3a58dcea6943590b8d07ac8e548297cdaa8315ba44edf45fd6b1; package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b and one-row Article 59 content scope remain unchanged. Fresh validation and required checks are pending."
+      },
+      {
+        "at": "2026-08-01T06:39:25Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1905 exact head 52cb02cafae63e199872375e3f144110be28ee75 passed all 11 required checks and is MERGEABLE/CLEAN. The immutable repaired-row list is exactly [59]; the unrelated Career item is byte-for-structure identical to origin/main after conflict resolution; package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b and one-row content scope revalidate. The final ledger commit receives one last required-check cycle."
       }
     ],
-    "updated_at": "2026-08-01T06:33:30Z"
+    "updated_at": "2026-08-01T06:39:25Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "ready_to_merge",
