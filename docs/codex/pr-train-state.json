@@ -53086,7 +53086,7 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 40 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
@@ -53108,6 +53108,10 @@
         "status": "pending_recheck",
         "evidence": "Build, contracts, both freeze checks, and CodeQL analyze passed on the prior head. Alert 184 was repaired and canonical Node 24 focused contract, lint, typecheck, syntax, JSON, and diff checks pass on code head c7b614cfbb486c852adbdf3c1efd8430fbff75c6; fresh exact-head GitHub checks are required."
       },
+      "codex_review": {
+        "status": "repaired_pending_recheck",
+        "evidence": "P1 removed the tautological expected-live SHA comparison and now requires the backend's list/detail approved projection, which is emitted only while the exact private content/SEO/visible-claims/index-entry package matches its approved_all attestation. P2 is satisfied because both c7b614cf and the earlier cb68a680 are ancestors of the published branch head."
+      },
       "post_merge_revalidation": {
         "status": "pending",
         "evidence": null
@@ -53120,14 +53124,14 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T04:46:32.199Z",
+      "observed_at": "2026-08-01T05:05:16.667Z",
       "result": "GO",
-      "eligible_candidates": 42,
+      "eligible_candidates": 40,
       "target_slugs": 10,
       "target_urls": 20,
-      "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-      "artifact_sha256": "3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585",
-      "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
+      "target_set_sha256": "d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86",
+      "artifact_sha256": "ffaab5959e777670b7a2350d13908cd6c2da52ae0561c037b060fedaca8d2b9e",
+      "rollback_batch_id": "career-search-entry-pilot-d8ec3d6423bd1ec3"
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -53170,8 +53174,13 @@
         "at": "2026-08-01T04:57:02Z",
         "status": "github_checks_pending",
         "summary": "Committed the one-line CodeQL repair as c7b614cfbb486c852adbdf3c1efd8430fbff75c6 after focused contract 17/17, lint, typecheck, syntax, JSON, and diff checks passed. This metadata tail binds the repaired code head before a fresh push."
+      },
+      {
+        "at": "2026-08-01T05:09:08Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired Codex P1 by replacing the tautological expected-live SHA fields with the backend's fail-closed current private-package-match projection in both list and detail authority. The final live run kept GO with 40 complete candidates and exact target set d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86; focused 17/17, lint, typecheck, metadata, syntax, and diff checks pass. Codex P2 is also verified stale because the recorded code heads are reachable ancestors."
       }
     ],
-    "updated_at": "2026-08-01T04:57:02Z"
+    "updated_at": "2026-08-01T05:09:08Z"
   }
 }

@@ -1,7 +1,7 @@
 {
   "schema_version": "career.search_entry_pilot_readiness.v1",
   "task": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
-  "observed_at": "2026-08-01T04:46:32.199Z",
+  "observed_at": "2026-08-01T05:05:16.667Z",
   "mode": "read_only_backend_authority_and_public_surface_observation",
   "source": {
     "site_url": "https://fermatmind.com",
@@ -17,8 +17,13 @@
   },
   "dependencies": {
     "batch_review_run": "30678387519",
+    "batch_review_control_plane_sha": "0386505910f1de5a054171df152dc08126b04217",
+    "quality_package_sha256": "5b9585ed95bb15b04dc00702b89a4bf5bc65e8b2c27a6002a307e7a6e638ac58",
+    "review_package_sha256": "2b2a736650a89512a1f85d4baff3bc6d430d669a7fba1e7aa379c2d8376b1a91",
+    "review_evidence_sha256": "da85e056b56945287aa67551a636333782f637f9f37faa2e9a0fc6a212d3fc5d",
     "task12_result": "PASS_APPLY_READBACK",
-    "task12_operator_evidence": "2546dbd6"
+    "task12_operator_evidence": "2546dbd6",
+    "review_binding_contract": "backend approved review projection is emitted only while the exact private bilingual content, SEO, visible-claims, and index-entry package still matches its approved_all attestation"
   },
   "selection_policy": {
     "exact_slug_count": 10,
@@ -32,21 +37,33 @@
   },
   "inventory": {
     "observed_candidate_count": 50,
-    "eligible_candidate_count": 42,
-    "rejected_candidate_count": 8,
+    "eligible_candidate_count": 40,
+    "rejected_candidate_count": 10,
     "tier_counts": {
       "stable": 4,
       "approved_candidate": 46
     },
     "rejection_reason_counts": {
-      "en_faq_schema_mismatch": 2,
+      "en_faq_schema_mismatch": 3,
       "en_not_index_follow": 2,
       "en_required_schema_missing": 2,
-      "zh_faq_schema_mismatch": 3,
+      "zh_faq_schema_mismatch": 4,
       "zh_not_index_follow": 3,
       "zh_required_schema_missing": 3,
+      "content_version_locale_drift": 2,
+      "en_approved_package_projection_mismatch": 1,
+      "en_detail_api_not_200": 1,
+      "en_review_not_approved": 1,
+      "en_review_stale": 1,
+      "en_thin_or_shell": 1,
+      "reviewer_evidence_locale_drift": 2,
       "en_unsupported_guarantee_claim": 5,
-      "zh_unsupported_guarantee_claim": 5
+      "zh_unsupported_guarantee_claim": 5,
+      "zh_approved_package_projection_mismatch": 1,
+      "zh_detail_api_not_200": 1,
+      "zh_review_not_approved": 1,
+      "zh_review_stale": 1,
+      "zh_thin_or_shell": 1
     }
   },
   "result": "GO",
@@ -70,12 +87,12 @@
           "sitemap_included": true,
           "reviewer_status": "approved",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "career_first_wave.publish_seed.v1",
           "content_sha256": "c1964543743952418a64c31c5bdf0606d7bd25cec189cf45ce28b4f77f668921",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "d06f7f8cf698da78b4035b36fea2ddcf75d73a35",
           "seo_sha256": "93261698f648de57c29fb8727491933f4a091e494f16c913c10a5e0b550db179",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -97,12 +114,12 @@
           "sitemap_included": true,
           "reviewer_status": "approved",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "career_first_wave.publish_seed.v1",
           "content_sha256": "b9303c33584f52bdc09a6e7edb8043ceb88436310384b1777cf7a2e4f69dd2e3",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "eff987a4a211cfd9090336e0681d40cd15f4400c",
           "seo_sha256": "441b3412b36944fbde049a8185075b89be3537b168458c2e05400bd39e6b0123",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -135,12 +152,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "b22aca80ca198349a8ab5f50ab05fbb66e639519685c8e2e4035990f44422352",
-          "content_sha_matches_current": true,
-          "seo_metadata_fingerprint": "1b89ea3c3b7fce537a7f8ba59df4a4bbe7eda751",
-          "seo_sha256": "99d82529fa7480416ab5d37329b9360f5ba1f6c18b14357f665fb5107ea4dd09",
-          "seo_sha_matches_current": true,
+          "seo_metadata_fingerprint": "7a6150e8ee41df7b4c396b30e29c7a2964b1da33",
+          "seo_sha256": "a2432130b4c8d94a1fd4ddd095f2d275aa44b239aa743b6fa9cd7a3bffb57df8",
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -162,12 +179,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "6b98cd97835a243eeeca62bde41b3246f88bb51ae2d664896306258293c84f23",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "3768690fbaeced8d0cd7e5ee7038f1331f1ce9db",
           "seo_sha256": "554aae03cb20931b34f708535666ca27b779fb58330f3621d5f79edbc03606a6",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -200,12 +217,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "5cf8f34e381ea6b53e8261fc355c1ac920a7508c151cc17e4ce8042eb3fd9ee0",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "f54cac922a106f598386fd9a22baa81324d81638",
           "seo_sha256": "be71a4993d2f354091ee75fdf92772cd1c517a66357448a9cc8b94ca83e61668",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -227,12 +244,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "57f15476b5a16659a6748b66766ed398924770592a6851fc4240a3014d7fc04a",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "ca74363b04d5d0fbebd6b3b6ba7a595d2f09822e",
           "seo_sha256": "cf956292c2c86dc54215cd363b292f1279883eb4085dd6453a47be473395b8fa",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -265,12 +282,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "2fe116a8ce822465704c0fd7495513fe613c1ab68f7ae70a629bdb14dae1c700",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "40cbf60a4ed464b698491072c0f2dc635499e291",
           "seo_sha256": "d69c27ad37ae44ce0508790bf846b126dee52110c76c962b70564df8ec7ea59c",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -292,12 +309,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "c3270fe8c8fbbe97be9a5e8e5de1517554fae2a7c955bfe409e7f1aba8ad8cb7",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "fb7f36818807d262a4cf5bd35965025f8383ccc9",
           "seo_sha256": "04e82764ffd4a4ed1375bef97797d9ec74ee6412e6cf609bae6f497b3df3afb4",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -330,12 +347,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "024c2742e3a9bd736e9316ca68bebdc5989ecfbe9c50b3085243ead7690ed75e",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "07d8710960aa1fe40dbc08fe0598656d6679a69c",
           "seo_sha256": "a7e9ed5fa4af6f277589e1d0ea495dfad79b3d5b4abd0d3cd82dddafcdb630ba",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -357,12 +374,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "6c91e48f4c3476a81413ad47a196f8c3771e0944b81a53cc471fe3402e96ec79",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "73711a0f7fe53a0a72ee7480ac3c50c91f6b68c5",
           "seo_sha256": "7920022e3acc99994da2da8e8ccf1d051e6f7c4fb5c0f27439cdbaeaa1dc004f",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -395,12 +412,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "7288147553e92d46f47510f8f141e352dcc8acfc44e4eb3d37c77a1740805e7a",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "647711dc78719cd8afc64166e311fa01f08c5cd4",
           "seo_sha256": "b9c089e0b41d8214d74dc6cd2d200207b04dd400e3708434d11e24186a2e1abd",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -422,12 +439,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "83aaaa908b8515b951a4de62614dcb162152ef2da95fce8c9b87c03f37acd716",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "3e461e6547f6490fb75959f3ed3af7c545b254a1",
           "seo_sha256": "fbf0c830da0aa095a91038d5baa01bfdc3fba13ea2518088a1eb6bf90d45ce42",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -460,12 +477,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "5b6d17106ca062cc312607c50a68b02d581f2fb6e0fb33a03cdebd6f39779cf2",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "13d4df1a3416f7fca25576caf6e5196bbd12a852",
           "seo_sha256": "40b7a46733fd0f775542a840b69b1a32d4b6eb812019ddab1f1dd27bec27655f",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -487,12 +504,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "f380598513312cd5d6675af383b9b361d4f5db2ab19ec1b25b406edd8ad419cd",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "33487725df7cec6f29f46dd176cc02b001d51b1a",
           "seo_sha256": "a9c3243631ef04406794930e9e77aea3f3035edc9a75ab474e1ab52bdc113caa",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -503,71 +520,6 @@
             "Question"
           ],
           "visible_text_chars": 5921,
-          "unsupported_guarantee_matches": []
-        }
-      }
-    },
-    {
-      "slug": "agricultural-engineers",
-      "tier": "approved_candidate",
-      "quality_score": 60,
-      "urls": [
-        "https://fermatmind.com/en/career/jobs/agricultural-engineers",
-        "https://fermatmind.com/zh/career/jobs/agricultural-engineers"
-      ],
-      "locale_evidence": {
-        "en": {
-          "detail_status": 200,
-          "seo_status": 200,
-          "page_status": 200,
-          "canonical": "https://fermatmind.com/en/career/jobs/agricultural-engineers",
-          "robots": "index,follow",
-          "sitemap_included": true,
-          "reviewer_status": "pilot_display_asset",
-          "reviewed_at": "2026-07-31T23:56:27.000000Z",
-          "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "34a1fb5088258f1c8103ba121e0d303fbe5bc2ea2ca60c71b60fa37751054862",
-          "content_sha_matches_current": true,
-          "seo_metadata_fingerprint": "5ccda3859323944188793d80a38a44ad995c70b4",
-          "seo_sha256": "2d36dd27327382f322466eb0764d56733884f65f504d000032c1fe3bff575bdf",
-          "seo_sha_matches_current": true,
-          "faq_count": 3,
-          "schema_faq_count": 3,
-          "jsonld_types": [
-            "Answer",
-            "BreadcrumbList",
-            "FAQPage",
-            "ListItem",
-            "Question"
-          ],
-          "visible_text_chars": 11961,
-          "unsupported_guarantee_matches": []
-        },
-        "zh": {
-          "detail_status": 200,
-          "seo_status": 200,
-          "page_status": 200,
-          "canonical": "https://fermatmind.com/zh/career/jobs/agricultural-engineers",
-          "robots": "index,follow",
-          "sitemap_included": true,
-          "reviewer_status": "pilot_display_asset",
-          "reviewed_at": "2026-07-31T23:56:27.000000Z",
-          "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "3b402cf5dcc50edf8a1141e72d01bcbd0346ba6168515f29422cb97d4618b90d",
-          "content_sha_matches_current": true,
-          "seo_metadata_fingerprint": "b91ea49e4fb0e9fd37aed73d5aaca7652410c9f6",
-          "seo_sha256": "fe9b1bde6a874748ae24c686c60304de69571f66810d25f07d646748d70a3c5b",
-          "seo_sha_matches_current": true,
-          "faq_count": 3,
-          "schema_faq_count": 3,
-          "jsonld_types": [
-            "Answer",
-            "BreadcrumbList",
-            "FAQPage",
-            "ListItem",
-            "Question"
-          ],
-          "visible_text_chars": 5543,
           "unsupported_guarantee_matches": []
         }
       }
@@ -590,12 +542,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "c287281505bf382a6f3e88a827106e8686bbc31a1b4a40b51c7db458710137a4",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "0767db19af373a4444ac8acdaad688353d6711d0",
           "seo_sha256": "1f7d018f41c9c4fbd8bc1ad4e0460353cff50a684c4db2f510b25577bd69aa13",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -617,12 +569,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "c166919472829e247d8b071dd2ab6d66daa367e06d040405edcafd64f4972f25",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "dcf4051eaf78658c25552ac4f1a0c1cbd01b9e23",
           "seo_sha256": "6a2f5df2b0a3d5af7ad3420581a562b0f189dd1173905214e0885159f238436b",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -655,12 +607,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "17a808c69409070c17e7ad366333e854a009835c0f81334d270b8f25ead5f35f",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "bd62650343d7405cb7c9d15bceac75b98ac0043c",
           "seo_sha256": "bce2650f795a75525c128c8842b1f288e8a052b3596a61c4801537c1ec43322a",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -682,12 +634,12 @@
           "sitemap_included": true,
           "reviewer_status": "pilot_display_asset",
           "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "1eeaecd965c6e888f1cb5eb06309eb348f815fbd13c91b5303ca6c70b52375aa",
-          "content_sha_matches_current": true,
           "seo_metadata_fingerprint": "452e697dede340afcfa10eea5aaee5181b445fb6",
           "seo_sha256": "235a20c17861fc1b2cac26e7ebfa6a2d18abc6e1269af84304b72eff352b054d",
-          "seo_sha_matches_current": true,
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -701,10 +653,75 @@
           "unsupported_guarantee_matches": []
         }
       }
+    },
+    {
+      "slug": "architectural-and-engineering-managers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "urls": [
+        "https://fermatmind.com/en/career/jobs/architectural-and-engineering-managers",
+        "https://fermatmind.com/zh/career/jobs/architectural-and-engineering-managers"
+      ],
+      "locale_evidence": {
+        "en": {
+          "detail_status": 200,
+          "seo_status": 200,
+          "page_status": 200,
+          "canonical": "https://fermatmind.com/en/career/jobs/architectural-and-engineering-managers",
+          "robots": "index,follow",
+          "sitemap_included": true,
+          "reviewer_status": "pilot_display_asset",
+          "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
+          "content_version": "display_asset_backed_v4_2",
+          "content_sha256": "542e181511efa9555e393c75b47b2702ebbeddf029d60ed3918693d50f535384",
+          "seo_metadata_fingerprint": "a2b6df5b8339ca44c542feb92e84a8c33bdfc313",
+          "seo_sha256": "6d1c89b94b715a2c45c95757db0345115475360ec68089c02c16e5acfd7f3b1c",
+          "faq_count": 3,
+          "schema_faq_count": 3,
+          "jsonld_types": [
+            "Answer",
+            "BreadcrumbList",
+            "FAQPage",
+            "ListItem",
+            "Question"
+          ],
+          "visible_text_chars": 13035,
+          "unsupported_guarantee_matches": []
+        },
+        "zh": {
+          "detail_status": 200,
+          "seo_status": 200,
+          "page_status": 200,
+          "canonical": "https://fermatmind.com/zh/career/jobs/architectural-and-engineering-managers",
+          "robots": "index,follow",
+          "sitemap_included": true,
+          "reviewer_status": "pilot_display_asset",
+          "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
+          "content_version": "display_asset_backed_v4_2",
+          "content_sha256": "2fa647fbc03f6113d31287addbf0fd999e716b2818439a494f7b304efd021120",
+          "seo_metadata_fingerprint": "15b0c8702fd31712f11c1eaf91538ec603ea03ec",
+          "seo_sha256": "656757d7818c9aa37a6b76047f5fad00f53fe4dfef3aacbc2579a157e4704fe0",
+          "faq_count": 3,
+          "schema_faq_count": 3,
+          "jsonld_types": [
+            "Answer",
+            "BreadcrumbList",
+            "FAQPage",
+            "ListItem",
+            "Question"
+          ],
+          "visible_text_chars": 7577,
+          "unsupported_guarantee_matches": []
+        }
+      }
     }
   ],
-  "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
-  "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba",
+  "target_set_sha256": "d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86",
+  "rollback_batch_id": "career-search-entry-pilot-d8ec3d6423bd1ec3",
   "evidence_summary": {
     "slug_count": 10,
     "url_count": 20,
@@ -743,12 +760,42 @@
       ]
     },
     {
+      "slug": "agricultural-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 0,
+      "reasons": [
+        "content_version_locale_drift",
+        "en_approved_package_projection_mismatch",
+        "en_detail_api_not_200",
+        "en_faq_schema_mismatch",
+        "en_review_not_approved",
+        "en_review_stale",
+        "en_thin_or_shell",
+        "reviewer_evidence_locale_drift"
+      ]
+    },
+    {
       "slug": "architects",
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
         "en_unsupported_guarantee_claim",
         "zh_unsupported_guarantee_claim"
+      ]
+    },
+    {
+      "slug": "biological-technicians",
+      "tier": "approved_candidate",
+      "quality_score": 0,
+      "reasons": [
+        "content_version_locale_drift",
+        "reviewer_evidence_locale_drift",
+        "zh_approved_package_projection_mismatch",
+        "zh_detail_api_not_200",
+        "zh_faq_schema_mismatch",
+        "zh_review_not_approved",
+        "zh_review_stale",
+        "zh_thin_or_shell"
       ]
     },
     {
@@ -811,5 +858,5 @@
       ]
     }
   ],
-  "artifact_sha256": "3cf8428121a18911033ca9be9c690c979217c8047473539e7b910c334f128585"
+  "artifact_sha256": "ffaab5959e777670b7a2350d13908cd6c2da52ae0561c037b060fedaca8d2b9e"
 }

@@ -24,11 +24,9 @@ type LocaleEvidence = {
   html: ReturnType<typeof inspectHtml>;
   seo: { metadata_contract_version: string; metadata_fingerprint: string; robots_policy: string; index_eligible: boolean };
   seo_sha256: string;
-  expected_seo_sha256: string;
-  review: { review_state: string; reviewer_status: string; reviewed_at: string; stale: boolean };
+  review: { review_state: string; reviewer_status: string; reviewed_at: string; stale: boolean; backend_private_package_match_projected: boolean; public_projection_sha256: string };
   content_version: string;
   content_sha256: string;
-  expected_content_sha256: string;
   quality_score: number;
   visible_text_chars: number;
   cjk_chars: number;
@@ -70,11 +68,9 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     html: inspectHtml(html(url), url),
     seo: { metadata_contract_version: "seo.surface.v1", metadata_fingerprint: `${locale}-${slug}`, robots_policy: "index,follow", index_eligible: true },
     seo_sha256: seoSha,
-    expected_seo_sha256: seoSha,
-    review: { review_state: "approved", reviewer_status: "approved", reviewed_at: "2026-07-31T23:56:27.000Z", stale: false },
+    review: { review_state: "approved", reviewer_status: "approved", reviewed_at: "2026-07-31T23:56:27.000Z", stale: false, backend_private_package_match_projected: true, public_projection_sha256: sha256({ locale, slug, kind: "review" }) },
     content_version: "reviewed.v1",
     content_sha256: contentSha,
-    expected_content_sha256: contentSha,
     quality_score: 60,
     visible_text_chars: 2400,
     cjk_chars: locale === "zh" ? 500 : 0,
@@ -149,8 +145,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["noindex", (value: Candidate) => { value.locales.zh.html.index_follow = false; value.locales.zh.html.robots = "noindex,follow"; }, "zh_not_index_follow"],
     ["canonical mismatch", (value: Candidate) => { value.locales.en.html.self_canonical = false; }, "en_canonical_mismatch"],
     ["stale reviewer", (value: Candidate) => { value.locales.en.review.stale = true; }, "en_review_stale"],
-    ["content SHA drift", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; }, "zh_content_sha_drift"],
-    ["SEO SHA drift", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; }, "zh_seo_sha_drift"],
+    ["content SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.content_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
+    ["SEO SHA drift invalidating the backend review projection", (value: Candidate) => { value.locales.zh.seo_sha256 = "drift"; value.locales.zh.review.review_state = "unknown"; value.locales.zh.review.backend_private_package_match_projected = false; }, "zh_approved_package_projection_mismatch"],
     ["thin shell", (value: Candidate) => { value.locales.en.thin_or_shell = true; }, "en_thin_or_shell"],
     ["FAQ/schema mismatch", (value: Candidate) => { value.locales.zh.html.faq_question_count = 2; }, "zh_faq_schema_mismatch"],
   ])("fails closed for %s", (_label, mutate, reason) => {
@@ -190,6 +186,11 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
       all_reviewer_content_seo_evidence_current: true,
       all_faq_schema_aligned: true,
     });
+    expect(
+      artifact.targets.every((target: { locale_evidence: Record<string, { backend_private_package_match_projected: boolean; review_public_projection_sha256: string }> }) =>
+        Object.values(target.locale_evidence).every((evidence) => evidence.backend_private_package_match_projected && /^[0-9a-f]{64}$/.test(evidence.review_public_projection_sha256))
+      )
+    ).toBe(true);
     expect(artifact.negative_guarantees).toMatchObject({
       unsupported_strong_claim_added: false,
       generated_or_modified_public_content: false,

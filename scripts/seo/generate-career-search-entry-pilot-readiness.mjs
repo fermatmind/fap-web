@@ -171,15 +171,31 @@ function qualityScore(detail) {
   return Number.isFinite(score) ? score : 0;
 }
 
-function reviewerEvidence(detail, observedAt) {
+function reviewerEvidence(detail, authorityItem, observedAt) {
   const trust = record(detail.trust_manifest);
+  const detailAuthority = record(detail.search_entry_authority);
+  const listAuthority = record(authorityItem.search_entry_authority);
+  const listTrust = record(authorityItem.trust_summary);
   const reviewedAt = string(trust.last_reviewed_at || trust.reviewed_at);
+  const listReviewedAt = string(listTrust.last_reviewed_at);
+  const reviewState = string(detailAuthority.review_state || trust.review_state);
   const ageMs = reviewedAt ? new Date(observedAt).getTime() - new Date(reviewedAt).getTime() : Number.POSITIVE_INFINITY;
   return {
-    review_state: string(trust.review_state || record(detail.search_entry_authority).review_state),
+    review_state: reviewState,
     reviewer_status: string(trust.reviewer_status),
     reviewed_at: reviewedAt,
     stale: !Number.isFinite(ageMs) || ageMs < 0 || ageMs > REVIEW_MAX_AGE_DAYS * 86_400_000,
+    backend_private_package_match_projected:
+      reviewState === "approved"
+      && string(listAuthority.review_state) === "approved"
+      && reviewedAt !== ""
+      && reviewedAt === listReviewedAt,
+    public_projection_sha256: sha256({
+      detail_review_state: reviewState,
+      list_review_state: string(listAuthority.review_state),
+      reviewed_at: reviewedAt,
+      list_reviewed_at: listReviewedAt,
+    }),
   };
 }
 
@@ -205,11 +221,10 @@ export function evaluateCandidateEvidence(candidate) {
       reasons.push(`${prefix}seo_not_indexable`);
     }
     if (evidence.review.review_state !== "approved") reasons.push(`${prefix}review_not_approved`);
+    if (!evidence.review.backend_private_package_match_projected) reasons.push(`${prefix}approved_package_projection_mismatch`);
     if (evidence.review.stale) reasons.push(`${prefix}review_stale`);
     if (!evidence.content_sha256) reasons.push(`${prefix}content_sha_missing`);
     if (!evidence.seo_sha256 || !evidence.seo.metadata_fingerprint) reasons.push(`${prefix}seo_sha_missing`);
-    if (evidence.content_sha256 !== evidence.expected_content_sha256) reasons.push(`${prefix}content_sha_drift`);
-    if (evidence.seo_sha256 !== evidence.expected_seo_sha256) reasons.push(`${prefix}seo_sha_drift`);
     if (evidence.thin_or_shell) reasons.push(`${prefix}thin_or_shell`);
     if (!evidence.html.jsonld_parse_ok) reasons.push(`${prefix}jsonld_parse_error`);
     if (!evidence.html.jsonld_types.includes("FAQPage") || !evidence.html.jsonld_types.includes("BreadcrumbList")) {
@@ -278,12 +293,12 @@ export function buildArtifact({ candidates, observedAt, source }) {
         sitemap_included: evidence.sitemap_included,
         reviewer_status: evidence.review.reviewer_status,
         reviewed_at: evidence.review.reviewed_at,
+        backend_private_package_match_projected: evidence.review.backend_private_package_match_projected,
+        review_public_projection_sha256: evidence.review.public_projection_sha256,
         content_version: evidence.content_version,
         content_sha256: evidence.content_sha256,
-        content_sha_matches_current: evidence.content_sha256 === evidence.expected_content_sha256,
         seo_metadata_fingerprint: evidence.seo.metadata_fingerprint,
         seo_sha256: evidence.seo_sha256,
-        seo_sha_matches_current: evidence.seo_sha256 === evidence.expected_seo_sha256,
         faq_count: evidence.faq_count,
         schema_faq_count: evidence.html.faq_question_count,
         jsonld_types: evidence.html.jsonld_types,
@@ -303,8 +318,13 @@ export function buildArtifact({ candidates, observedAt, source }) {
     source,
     dependencies: {
       batch_review_run: "30678387519",
+      batch_review_control_plane_sha: "0386505910f1de5a054171df152dc08126b04217",
+      quality_package_sha256: "5b9585ed95bb15b04dc00702b89a4bf5bc65e8b2c27a6002a307e7a6e638ac58",
+      review_package_sha256: "2b2a736650a89512a1f85d4baff3bc6d430d669a7fba1e7aa379c2d8376b1a91",
+      review_evidence_sha256: "da85e056b56945287aa67551a636333782f637f9f37faa2e9a0fc6a212d3fc5d",
       task12_result: "PASS_APPLY_READBACK",
       task12_operator_evidence: "2546dbd6",
+      review_binding_contract: "backend approved review projection is emitted only while the exact private bilingual content, SEO, visible-claims, and index-entry package still matches its approved_all attestation",
     },
     selection_policy: {
       exact_slug_count: EXACT_SLUG_COUNT,
@@ -331,7 +351,7 @@ export function buildArtifact({ candidates, observedAt, source }) {
       all_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.seo_status === 200 && item.page_status === 200)),
       all_self_canonical_index_follow: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
       all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
-      all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.reviewed_at && item.content_sha256 && item.seo_sha256)),
+      all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
       all_faq_schema_aligned: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.faq_count >= 2 && item.faq_count === item.schema_faq_count)),
       exact_target_shape: exactShape.valid,
     },
@@ -383,7 +403,7 @@ function apiUrl(origin, route) {
   return `${origin}/api${route}`;
 }
 
-async function collectLocale({ slug, locale, args, sitemapLocs, observedAt }) {
+async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, observedAt }) {
   const apiLocale = locale === "zh" ? "zh-CN" : "en";
   const url = `${args.siteUrl}/${locale}/career/jobs/${slug}`;
   const [detailResult, seoResult, pageResult] = await Promise.all([
@@ -415,12 +435,10 @@ async function collectLocale({ slug, locale, args, sitemapLocs, observedAt }) {
       index_eligible: seo.index_eligible === true,
     },
     seo_sha256: seoSha256,
-    expected_seo_sha256: seoSha256,
-    review: reviewerEvidence(detail, observedAt),
+    review: reviewerEvidence(detail, authorityItem, observedAt),
     content_version: string(record(detail.trust_manifest).content_version || record(detail.provenance_meta).content_version),
     quality_score: qualityScore(detail),
     ...stats,
-    expected_content_sha256: stats.content_sha256,
   };
 }
 
@@ -442,7 +460,10 @@ async function collectLive(args) {
     const slug = string(record(item.identity).canonical_slug);
     const authority = record(item.search_entry_authority);
     const zhItem = zhBySlug.get(slug);
-    const [en, zh] = await Promise.all(["en", "zh"].map((locale) => collectLocale({ slug, locale, args, sitemapLocs, observedAt })));
+    const [en, zh] = await Promise.all([
+      collectLocale({ slug, locale: "en", authorityItem: item, args, sitemapLocs, observedAt }),
+      collectLocale({ slug, locale: "zh", authorityItem: zhItem, args, sitemapLocs, observedAt }),
+    ]);
     return {
       slug,
       tier: string(item.search_entry_tier || authority.search_entry_tier),
