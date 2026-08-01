@@ -52780,7 +52780,7 @@
     "updated_at": "2026-08-01T05:04:11Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "github_checks_pending",
+    "status": "blocked_pr_open",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-w9-qa-rework-05",
     "depends_on": [
@@ -52799,11 +52799,11 @@
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies, all 86 Markdown table groups / 610 table lines, exact Article/revision identities, localized link sets, media omissions, claims, and candidate-only page/API alignment. Ten prior PASS rows are reader-content-identical; all seven repaired rows were re-read in full under generated/en-content-parity/W9-independent-qa/articles/w3-articles-8ec89c41/."
+        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies, all 86 Markdown table groups / 610 table lines, exact Article/revision identities, localized link sets, media omissions, claims, and candidate-only page/API alignment. Sixteen rows pass all checks; Article 59 is blocked only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-8ec89c41/."
       },
       "language_naturalness": {
-        "status": "pass",
-        "evidence": "All 17 rows PASS fresh language-naturalness review. The seven former blockers now contain `confirmatory evidence and counterexamples`, consistent `Enneagram personality test` naming with correct articles, unduplicated subject-combination wording, a grammatical Business Administration question, correct student possessives, and a natural curriculum phrase; exhaustive blocker scans return zero matches."
+        "status": "fail",
+        "evidence": "W3-ARTICLE-59 remains BLOCKED because its frozen full body says `Field related to AI often require greater tolerance ...`, a reader-visible subject-verb agreement defect. The other 16 rows pass language naturalness, and Article 59 passes the other seven row-level checks. W9 did not modify the producer payload."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "pass",
@@ -52819,15 +52819,15 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent PASS report SHA256 is 0ab00c2c123bc9e8b026bf3232861e8dc3b5d511ddec6ae2c555bcfd1b82a6bc; 17-row evidence SHA256 is 952b9624e1d91d069f58c44e57feef4d31a3c27de15b7e20c5f5fb8a088cb5b2; qa_pass candidate SHA256 is 0e319c03931a94aa90607b7129f7f5da3db2b3d01658204f21f566ddd60f5e22; source identity projection SHA256 is 79dd56e3cc2a95e02207ed64d9229d3fec006f2d8dc4f56aaea773b31376c685."
+        "evidence": "Independent BLOCKED report SHA256 is 5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2; 17-row evidence SHA256 is 0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1; blocked candidate SHA256 is d2d6049ed86403786313039345dd2b5d365cbba3ad1efeee07286beb5d921991; source identity projection SHA256 remains 79dd56e3cc2a95e02207ed64d9229d3fec006f2d8dc4f56aaea773b31376c685."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Node 24 validate-en-content-parity-control accepts both the independent PASS report and the package_frozen-to-qa_pass candidate against current master SHA 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f with zero errors."
+        "evidence": "Node 24 validate-en-content-parity-control accepts both the corrected independent BLOCKED report and the package_frozen-to-blocked candidate against current master SHA 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f with zero errors."
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "On latest origin/main, Node 24 focused control and W3 Article package contracts pass 66/66. Strict validators, exact eight-file SHA recomputation, 17/17 row and eight-check PASS aggregation, 86/610 table coverage, zero Han leakage, immutable snapshot parity, official Article 53 fact recheck, all-false permissions, JSON parsing, and artifact SHA checks pass."
+        "evidence": "Node 24 focused control and W3 Article package contracts pass 66/66. Strict validators, exact artifact SHA checks, 17-row aggregation with 16 PASS rows and exactly one W3-ARTICLE-59 language-naturalness blocker, Article 59's other seven PASS checks, immutable producer snapshot, all-false permissions, JSON/YAML parsing, scope validation, and git diff checks pass."
       },
       "github_required_checks": {
         "status": "pending",
@@ -52838,7 +52838,7 @@
         "evidence": "PR #1897 exact-head review, scope revalidation, required checks, and final mergeability verification remain pending."
       }
     },
-    "failure_reason": null,
+    "failure_reason": "Fresh exact-head review found one reader-visible language-naturalness defect in frozen W3-ARTICLE-59: `Field related to AI often require greater tolerance ...`. W9 must report BLOCKED and cannot modify the producer payload.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -52937,9 +52937,19 @@
         "at": "2026-08-01T05:35:49Z",
         "status": "github_checks_pending",
         "summary": "Committed fresh exact-SHA W9 PASS evidence as e090f19e2158ee8b53dff7a9b37ddcd11879c3fa, pushed the isolated rework-05 branch, and opened ready PR #1897. GitHub required checks and exact-head review are pending; every write/release permission remains false."
+      },
+      {
+        "at": "2026-08-01T05:42:59Z",
+        "status": "blocked_pr_open",
+        "summary": "Exact-head review found one remaining reader-visible subject-verb agreement defect in W3-ARTICLE-59: `Field related to AI often require greater tolerance ...`. Corrected the W9 verdict to BLOCKED with exactly one blocked row and one blocked check, retained PASS for the other 16 rows and Article 59's other seven checks, left the producer package byte-identical at SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d, and kept all write/release permissions false. Fresh local and GitHub validation are pending."
+      },
+      {
+        "at": "2026-08-01T05:45:43Z",
+        "status": "blocked_local_verified",
+        "summary": "Both strict control validators pass; focused contracts pass 66/66; exact report, row-evidence, and blocked-candidate SHA checks pass; the aggregation is exactly 16 PASS rows plus W3-ARTICLE-59 blocked only on language naturalness. Producer payload and exact package SHA are unchanged, all permissions remain false, and the scoped review correction is ready to commit."
       }
     ],
-    "updated_at": "2026-08-01T05:35:49Z"
+    "updated_at": "2026-08-01T05:45:43Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
