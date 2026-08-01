@@ -52889,11 +52889,11 @@
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. Four rows pass every check; Articles 02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59 are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
+        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. All 17 rows are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
       },
       "language_naturalness": {
         "status": "fail",
-        "evidence": "W3-ARTICLE-02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59 are BLOCKED after fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, or mistranslated-term defects. Articles 01, 05, 06, and 09 pass language naturalness. All 13 blocked rows pass the other seven row-level checks. W9 did not modify the producer payload."
+        "evidence": "All 17 rows are BLOCKED after fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects. Every row passes the other seven row-level checks. W9 did not modify the producer payload."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "pass",
@@ -52909,26 +52909,26 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; final 17-row evidence SHA256 is 36d8df8678255d827967381d4bcc4d518dd38e57fd5b758c85eb45af9996ea06; final blocked candidate SHA256 is 10fe13a4e7711aa2593fccb877c0036d6484af5c868a1a4bdf0d387428643424; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
+        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; final 17-row evidence SHA256 is 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; final blocked candidate SHA256 is 4f6db48e9f3cad65950d049cd8ff666f4255ac28cb65db7e9a7bed3b7e692716; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "After rebasing concurrent W1/W2 train work, Node 24.18.1 validate-en-content-parity-control accepts both the fresh independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA f59d8f1013df4c187b956e93d2b605efb4e48427985443d189456360b00c8698 with zero errors."
+        "evidence": "Node 24.18.1 validate-en-content-parity-control accepts both the fresh independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1 with zero errors."
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "After expanding the language-only blocker set to 13 rows, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 4 PASS plus 13 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
+        "evidence": "After expanding the language-only blocker set to all 17 rows and correcting current-master evidence, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 17/17 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1938 head 76ae1c34d48b6f8eb1188fb7787ac1eeee4d9b45 passed all 11 required checks before fresh exact-head review expanded the blocker set to 13 rows. Fresh required checks are pending after the final scoped evidence correction."
+        "evidence": "PR #1938 head 23d4a1cf0539ff55b658b0b99e494c8394cf2b1a passed all 11 required checks before fresh exact-head review expanded the blocker set to all 17 rows. Fresh required checks are pending after the final scoped evidence correction."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": "The earlier Article 55/58 and metadata findings are resolved. Fresh exact-head review correctly identified ten additional rows with reader-visible language defects; all ten are being corrected in scope. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
+        "evidence": "All earlier findings are resolved. Fresh exact-head review correctly identified language defects in the four remaining rows and a stale master SHA in validator evidence; all five findings are being corrected in scope. Thread resolution, fresh required checks, scope revalidation, and final mergeability verification remain pending."
       }
     },
-    "failure_reason": "Fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, or mistranslated-term defects in frozen W3-ARTICLE-02, 03, 04, 07, 08, 10, 50, 51, 52, 53, 55, 58, and 59. W9 must report BLOCKED and cannot modify the producer payload.",
+    "failure_reason": "Fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects in all 17 frozen Article rows. W9 must report BLOCKED and cannot modify the producer payload.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -53122,9 +53122,14 @@
       "at": "2026-08-01T09:24:58Z",
       "status": "blocked_pr_open",
       "summary": "Committed the complete 13-row language blocker correction as 9aca8e333db68f0d89e1cf76d9f77ca7c985768d and bound commit_sha to that implementation head. The independent W9 verdict remains BLOCKED; producer package bytes and every write/release permission remain unchanged. Review-thread resolution and fresh required checks are pending."
+    },
+    {
+      "at": "2026-08-01T09:30:27Z",
+      "status": "blocked_review_correction_local_verified",
+      "summary": "PR #1938 head 23d4a1cf0539ff55b658b0b99e494c8394cf2b1a passed all 11 required checks and received fresh exact-head review. That review correctly found language defects in the remaining Articles 01, 05, 06, and 09 and a stale master SHA in validator evidence. Expanded the independent blocker set to all 17 rows and corrected the validator evidence to current master SHA 7b40f88319b5303c28cf43880f5b9c60aeec3724cd91aee845d991ee0b3ec9d1. Both strict validators, 67/67 focused contracts, exact aggregate, artifact SHAs, snapshot, permissions, JSON, scope, and diff checks pass. Producer package bytes and all write/release permissions remain unchanged."
     }
   ],
-  "updated_at": "2026-08-01T09:24:58Z"
+  "updated_at": "2026-08-01T09:30:27Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
