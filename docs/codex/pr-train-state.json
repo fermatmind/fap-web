@@ -578,7 +578,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-08-01T07:50:43Z",
+  "updated_at": "2026-08-01T07:52:03Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -52560,14 +52560,14 @@
     "updated_at": "2026-07-30T19:48:28Z"
   },
   "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-package-rework-07",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "76e836858f73c1c99664a5cc57769895960c6bc8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1927",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -52599,11 +52599,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": null
+        "evidence": "PR #1927 required checks are running."
       },
       "review_and_merge_policy": {
         "status": "pending",
-        "evidence": null
+        "evidence": "Exact-head scope and review revalidation will run after required checks pass."
       }
     },
     "failure_reason": null,
@@ -52835,6 +52835,11 @@
         "at": "2026-08-01T07:50:43Z",
         "status": "local_verified",
         "summary": "Completed producer rework-07 for only W3-ARTICLE-59 and rebuilt the complete ten-file package at exact SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. Strict control validation, 67/67 focused contracts, repository lint, exact eight-file SHA and 17-identity audits, 86/610 table preservation, all-false permissions, scope validation, YAML/JSON parsing, and git diff checks pass; the other 16 rows remain reader-content-identical."
+      },
+      {
+        "at": "2026-08-01T07:52:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the isolated rework-07 package as 76e836858f73c1c99664a5cc57769895960c6bc8, pushed the scoped branch, and opened ready PR #1927 for exact package SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. Required GitHub checks and exact-head review are pending; W3-CAREER-GUIDES and all write/release permissions remain unchanged."
       }
     ],
     "updated_at": "2026-08-01T06:45:12Z"
