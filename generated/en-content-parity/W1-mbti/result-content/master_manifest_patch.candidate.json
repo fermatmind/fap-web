@@ -6,7 +6,7 @@
   "lane_id": "W1",
   "subscope_id": "W1-MBTI-RESULT-CONTENT",
   "package_id": "EN-PARITY-W1-MBTI-RESULT-ASSETS-2026-07-31",
-  "base_manifest_sha256": "058b2d357e3abcb1aa78c86f1492bd904eaca7dc03c8eda8282f3e5ed6ffaf23",
+  "base_manifest_sha256": "8cd50bd4ffd6f204b0487a22af7d3554aa77bfb70959b8a5f073f6acf067f89f",
   "sha256_manifest_path": "generated/en-content-parity/W1-mbti/result-content/sha256_manifest.json",
   "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
   "external_package_evidence": {
