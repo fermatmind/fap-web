@@ -55805,7 +55805,7 @@
     "branch": "codex/en-parity-control-automation-v2-01",
     "depends_on": [],
     "status": "ready_to_merge",
-    "commit_sha": "b2ec2610e66717e7f6a0978463550fc51c20f8fe",
+    "commit_sha": "03bda255bcee6bd53519cafb121e1befeed70fff",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1984",
     "checks": {
       "dependency": {
@@ -55814,11 +55814,11 @@
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "After rebasing onto origin/main 363fbb927c61122ba47e32a1456cbb210950302d, deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 84/84; focused ESLint, typecheck, JSON/YAML parse, exact changed-file scope, and diff checks pass. V2 preserves the latest W3 Career Guides package_frozen state while enforcing complete registered W9 cohorts, reviewed-source ancestry, complete authenticated receipt chains, and the pinned release-policy SHA."
+        "evidence": "After integrating origin/main 6d622b2162d71d0ad6762ac4fe4ce68571546894, deterministic V1→V2 generation/check and both V2/V1 validators pass; focused contracts pass 87/87; focused ESLint, typecheck, JSON/YAML parse, exact changed-file scope, and diff checks pass. The final implementation verifies complete package roots, parsed unique record identities, authenticated preflight/promotion provenance, monotonic promotion state, and verified receipt prefixes retained after a later workflow failure."
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1984 exact head b2ec2610e66717e7f6a0978463550fc51c20f8fe passed all 11 applicable GitHub checks: build, four contract shards and aggregate, Big Five/Enneagram freezes, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts. GitHub reports no unresolved review threads."
+        "evidence": "PR #1984 implementation head 03bda255bcee6bd53519cafb121e1befeed70fff passed all 11 applicable GitHub checks: build, four contract shards and aggregate, Big Five/Enneagram freezes, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts. The final ledger-only head must complete the same required-check cycle before squash merge."
       }
     },
     "failure_reason": null,
@@ -55868,9 +55868,14 @@
         "at": "2026-08-01T23:26:35Z",
         "status": "ready_to_merge",
         "summary": "PR #1984 exact head b2ec2610e66717e7f6a0978463550fc51c20f8fe passed all 11 required checks with zero unresolved threads. Final review remediation now verifies physical package-freeze payloads, separates fap-web Producer and fap-api executor commits, preserves monotonic receipt state, supports migrated V1 QA lineage, makes squash ancestry origin-only, authenticates first-registration preflight bytes, and uses the merged base as durable provenance after artifact expiry."
+      },
+      {
+        "at": "2026-08-01T23:47:22Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1984 implementation head 03bda255bcee6bd53519cafb121e1befeed70fff passed all 11 required checks after integrating current main. Final contracts pass 87/87 and additionally preserve authenticated receipt prefixes after later workflow failure while parsing and reconciling the complete unique JSONL identity set. This ledger-only head requires the same required checks before immediate squash merge."
       }
     ],
-    "updated_at": "2026-08-01T23:26:35Z"
+    "updated_at": "2026-08-01T23:47:22Z"
   },
   "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01": {
     "id": "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01",
