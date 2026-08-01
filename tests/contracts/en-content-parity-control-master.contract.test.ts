@@ -602,7 +602,7 @@ describe("English content parity control master", () => {
     const w4 = manifest.lanes.find((lane) => lane.lane_id === "W4");
     expect(w4).toMatchObject({
       launch_state: "launch_ready",
-      status: "inventory_frozen",
+      status: "package_in_progress",
       blocked_from_status: null,
       counts: {
         cohort_count: 1,

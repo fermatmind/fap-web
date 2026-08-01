@@ -421,7 +421,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "inventory_frozen",
+      "status": "package_in_progress",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
       "target_asset_types": [
