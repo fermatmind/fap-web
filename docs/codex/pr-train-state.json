@@ -53781,7 +53781,7 @@
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 68 tests. Coverage includes noun-form guarantees, Chinese job-security distinction, strict timestamp/calendar validation, explicit detail approval, non-vacuous HOLD evidence, unique identical bilingual inventories, nonempty canonical hrefs, failed SEO endpoint exclusion, crawler-specific directives, exact schema authority, and deterministic selection."
+        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 70 tests. Coverage additionally binds endpoint SEO fingerprints to the reviewed detail package, excludes CSS-hidden subtrees, and requires explicit hero and definition authority markers."
       },
       "lint": {
         "status": "pass",
@@ -53815,13 +53815,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T08:37:35.713Z",
+      "observed_at": "2026-08-01T08:59:24.077Z",
       "result": "HOLD",
       "eligible_candidates": 0,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-      "artifact_sha256": "5f88af21996945eb5d663450d73676f516aae4b6a8f44069326302e18cd68499",
+      "artifact_sha256": "2389dd0897a61cb33508c5a5d2be873d69174b347fff59375a36d6cbd6d4d054",
       "rollback_batch_id": null
     },
     "production_write_execution": false,
@@ -54100,9 +54100,14 @@
         "at": "2026-08-01T08:49:00Z",
         "status": "github_checks_pending",
         "summary": "After 11 checks passed and review reached zero unresolved threads on 58578150, merged exact latest origin/main effae9ae and preserved both PR3 and the concurrent W9 W2 source-intake manifest/state entries. Fresh exact-head checks are required."
+      },
+      {
+        "at": "2026-08-01T09:02:32Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on e8a28568, repaired endpoint/detail SEO fingerprint binding, CSS-hidden subtree exclusion, and explicit hero/definition authority markers. One 504/504 directory preflight stopped before write; the complete rerun remains HOLD with zero targets, observed_at 2026-08-01T08:59:24.077Z, artifact 2389dd0897a61cb33508c5a5d2be873d69174b347fff59375a36d6cbd6d4d054, and focused 70/70 passing."
       }
     ],
-    "updated_at": "2026-08-01T08:49:00Z"
+    "updated_at": "2026-08-01T09:02:32Z"
   },
   "EN-PARITY-W9-W2-SOURCE-INTAKE-01": {"id":"EN-PARITY-W9-W2-SOURCE-INTAKE-01","repo":"fap-web","title":"EN-PARITY-W9-W2-SOURCE-INTAKE-01: freeze immutable Big Five QA sources","base":"main","branch":"codex/en-parity-w9-w2-source-intake-01","depends_on":["EN-PARITY-CONTROL-W2-PACKAGE-FROZEN-01"],"status":"github_checks_pending","commit_sha":"4c31e489de4e40c1916746875ab11f973e86de50","pr_url":"https://github.com/fermatmind/fap-web/pull/1932","checks":{"dependency":{"status":"pass","evidence":"CONTROL W2 package_frozen acceptance commit 83c49f544e371a7e927a851af07f22d8f2a267cc is contained in origin/main."},"immutable_sources":{"status":"pass","evidence":"Exact W2 a41816a824c30979af7b5ebcb95c689ff71584f7ad2c21df277f127f18eaa82b, source ledger 5f7c3e2c39a4301c8d0ad79028a3757ec0e541d1b532570c643f64727476fb3f, EN52 91f3c1e94894cfe59ce17ee00e5046d26a9cafc9113fe1eeb4488e4951e4940a, historical 7bb6cf15b93058337299dd4a1c32a881fa59e29f98ec33c71e6a0df2ec7dcbdd, and result child aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81 are bound in the snapshot."},"local_validation":{"status":"pass","evidence":"Focused W2 intake plus control-master Vitest passed 64/64; control validator passed; no symlink, source-count, or 118-row identity violation."}},"failure_reason":null,"merged_at":null,"remote_branch_deleted":false,"local_cleanup_executed":false,"production_write_execution":false,"database_mutation":false,"cms_mutation":false,"publish_allowed":false,"search_channel_action":false,"deploy_allowed":false,"history":[{"at":"2026-08-01T16:25:00+08:00","status":"local_verified","summary":"Created a non-symlinked immutable intake from the exact CONTROL, backend, historical, and renderer commits. No W9 conclusion, master candidate, content change, CMS/database write, runtime mutation, import, publication, or deploy was performed."},{"at":"2026-08-01T16:27:00+08:00","status":"github_checks_pending","summary":"Opened PR #1932 at implementation commit 4c31e489de4e40c1916746875ab11f973e86de50; required GitHub checks are pending."}],"updated_at":"2026-08-01T16:27:00+08:00"}
 }

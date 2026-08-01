@@ -49,6 +49,7 @@ type LocaleEvidence = {
   render_authority_marker_count: number;
   render_authority_marker_sha256: string;
   render_authority_match: boolean;
+  required_block_markers_present: boolean;
   cjk_chars: number;
   faq_count: number;
   thin_or_shell: boolean;
@@ -112,6 +113,7 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
     render_authority_marker_count: 8,
     render_authority_marker_sha256: sha256({ locale, slug, kind: "render-markers" }),
     render_authority_match: true,
+    required_block_markers_present: true,
     cjk_chars: locale === "zh" ? 500 : 0,
     faq_count: 3,
     thin_or_shell: false,
@@ -149,7 +151,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
 
   it("does not count template or hidden subtrees as visible public evidence", () => {
     const concealed = "approved authority marker ".repeat(120);
-    const shell = `<html><body><template>${concealed}</template><div hidden>${concealed}</div><section aria-hidden="true">${concealed}</section><main>short shell</main></body></html>`;
+    const shell = `<html><body><template>${concealed}</template><div hidden>${concealed}</div><section aria-hidden="true">${concealed}</section><div class="layout hidden md:block">${concealed}</div><div style="display: none">${concealed}</div><div style="visibility:hidden">${concealed}</div><main>short shell</main></body></html>`;
     expect(publicHtmlStats(shell, "en")).toMatchObject({ visible_text_chars: 11, thin_or_shell: true });
   });
 
@@ -279,6 +281,13 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
       status: 503,
       source: "unresolved",
     });
+  });
+
+  it("uses endpoint SEO only when its fingerprint matches the reviewed detail package", () => {
+    const detailSeo = { metadata_fingerprint: "reviewed-v1", title: "Reviewed" };
+    const matchingEndpoint = { metadata_fingerprint: "reviewed-v1", title: "Live" };
+    expect(selectSeoSurface({ endpointStatus: 200, endpointSeo: matchingEndpoint, detailStatus: 200, detailSeo })).toMatchObject({ surface: matchingEndpoint, source: "career_seo_endpoint" });
+    expect(selectSeoSurface({ endpointStatus: 200, endpointSeo: { metadata_fingerprint: "stale-v0" }, detailStatus: 200, detailSeo })).toMatchObject({ surface: detailSeo, source: "career_detail_seo_contract" });
   });
 
   it("uses manual redirect handling so an exact target redirect cannot become a destination 200", async () => {
@@ -426,6 +435,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     ["rendered public guarantee", (value: Candidate) => { value.locales.en.public_guarantee_matches = ["We guarantee that you will get a job"]; }, "en_unsupported_public_guarantee_claim"],
     ["bilingual authority tier drift", (value: Candidate) => { value.authority_tiers.zh = "approved_candidate"; }, "search_entry_tier_locale_drift"],
     ["stale rendered authority markers", (value: Candidate) => { value.locales.en.render_authority_match = false; }, "en_rendered_authority_marker_mismatch"],
+    ["missing hero or definition authority marker", (value: Candidate) => { value.locales.en.required_block_markers_present = false; }, "en_required_authority_block_missing"],
     ["SEO canonical mismatch", (value: Candidate) => { value.locales.zh.seo.canonical = `${value.locales.zh.url}/other`; }, "zh_seo_canonical_mismatch"],
     ["malformed FAQ entity", (value: Candidate) => { value.locales.en.html.faq_entities_valid = false; }, "en_faq_entities_invalid"],
     ["FAQ schema authority drift", (value: Candidate) => { value.locales.en.faq_schema_authority_match = false; }, "en_faq_schema_authority_mismatch"],

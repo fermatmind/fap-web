@@ -225,12 +225,10 @@ function detailStats(detail, locale) {
   const displayContent = record(displayPage.content);
   const faqItems = array(record(displayContent.faq_block).items);
   const visibleText = [string(detail.content_body_md), recursiveText(detail.content_sections), recursiveText(displayPage)].join("\n");
-  const markerValues = [
-    record(displayContent.hero).quick_answer,
-    displayContent.definition_block,
-    ...faqItems.flatMap((item) => [record(item).question, record(item).answer]),
-  ];
-  const renderMarkers = [...new Set(markerValues.map(normalizeVisibleText).filter((value) => value.length >= 24))];
+  const heroMarker = normalizeVisibleText(record(displayContent.hero).quick_answer);
+  const definitionMarker = normalizeVisibleText(recursiveText(displayContent.definition_block));
+  const faqMarkers = faqItems.flatMap((item) => [record(item).question, record(item).answer]).map(normalizeVisibleText).filter((value) => value.length >= 24);
+  const renderMarkers = [...new Set([heroMarker, definitionMarker, ...faqMarkers].filter((value) => value.length >= 24))];
   const faqPairs = faqItems.map((item) => ({
     question: normalizeVisibleText(record(item).question),
     answer: normalizeVisibleText(record(item).answer),
@@ -243,6 +241,7 @@ function detailStats(detail, locale) {
     guarantee_matches: unsupportedGuaranteeMatches(visibleText),
     faq_pairs: faqPairs,
     render_markers: renderMarkers,
+    required_block_markers_present: heroMarker.length >= 24 && definitionMarker.length >= 24,
     content_sha256: sha256({
       content_body_md: detail.content_body_md ?? null,
       content_sections: detail.content_sections ?? null,
@@ -257,6 +256,8 @@ export function publicHtmlStats(html, locale) {
     .replace(/<head\b[^>]*>[\s\S]*?<\/head\b[^>]*>/gi, " ")
     .replace(/<template\b[^>]*>[\s\S]*?<\/template\b[^>]*>/gi, " ")
     .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*(?:[\t\n\f\r ]hidden(?:[\t\n\f\r =]|\/?\s*>)|[\t\n\f\r ]aria-hidden\s*=\s*["']true["']))[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
+    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*[\t\n\f\r ]class\s*=\s*["'][^"']*\bhidden\b[^"']*["'])[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
+    .replace(/<([a-z][a-z0-9:-]*)\b(?=[^>]*[\t\n\f\r ]style\s*=\s*["'][^"']*(?:display\s*:\s*none|visibility\s*:\s*hidden)[^"']*["'])[^>]*>[\s\S]*?<\/\1\b[^>]*>/gi, " ")
     .replace(/<script\b[^>]*>[\s\S]*?<\/script\b[^>]*>/gi, " ")
     .replace(/<style\b[^>]*>[\s\S]*?<\/style\b[^>]*>/gi, " ")
     .replace(/<!--([\s\S]*?)-->/g, " ")
@@ -381,6 +382,7 @@ export function evaluateCandidateEvidence(candidate) {
       reasons.push(`${prefix}faq_schema_mismatch`);
     }
     if (!evidence.render_authority_match) reasons.push(`${prefix}rendered_authority_marker_mismatch`);
+    if (!evidence.required_block_markers_present) reasons.push(`${prefix}required_authority_block_missing`);
     if (evidence.seo.canonical !== evidence.url) reasons.push(`${prefix}seo_canonical_mismatch`);
     if (evidence.guarantee_matches.length > 0) reasons.push(`${prefix}unsupported_guarantee_claim`);
     if (evidence.public_guarantee_matches.length > 0) reasons.push(`${prefix}unsupported_public_guarantee_claim`);
@@ -591,8 +593,14 @@ function apiUrl(origin, route) {
 }
 
 export function selectSeoSurface({ endpointStatus, endpointSeo, detailStatus, detailSeo }) {
-  const endpointUsable = endpointStatus === 200 && Object.keys(record(endpointSeo)).length > 0;
   const detailUsable = detailStatus === 200 && Object.keys(record(detailSeo)).length > 0;
+  const endpointFingerprint = string(record(endpointSeo).metadata_fingerprint);
+  const detailFingerprint = string(record(detailSeo).metadata_fingerprint);
+  const endpointUsable = endpointStatus === 200
+    && Object.keys(record(endpointSeo)).length > 0
+    && detailUsable
+    && endpointFingerprint !== ""
+    && endpointFingerprint === detailFingerprint;
   if (endpointUsable) return { surface: endpointSeo, status: 200, source: "career_seo_endpoint" };
   if (detailUsable) return { surface: detailSeo, status: 200, source: "career_detail_seo_contract" };
   return { surface: {}, status: endpointStatus, source: "unresolved" };
@@ -615,7 +623,9 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   const effectiveSeoStatus = resolvedSeo.status;
   const stats = detailStats(detail, locale);
   const renderedStats = publicHtmlStats(pageResult.payload, locale);
-  const renderAuthorityMatch = stats.render_markers.length >= 3 && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
+  const renderAuthorityMatch = stats.required_block_markers_present
+    && stats.render_markers.length >= 3
+    && stats.render_markers.every((marker) => renderedStats.normalized_text.includes(marker));
   const html = inspectHtml(pageResult.payload, url);
   const faqSchemaAuthorityMatch = canonicalJson(html.faq_pairs) === canonicalJson(stats.faq_pairs);
   const seoCanonical = resolveAbsoluteUrl(string(seo.canonical_url || seo.canonical_path || seo.canonical_target), args.siteUrl);
@@ -661,6 +671,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
     render_authority_marker_count: stats.render_markers.length,
     render_authority_marker_sha256: sha256(stats.render_markers),
     render_authority_match: renderAuthorityMatch,
+    required_block_markers_present: stats.required_block_markers_present,
   };
 }
 
