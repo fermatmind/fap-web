@@ -1,0 +1,24 @@
+{
+  "schema_version": "fermatmind.en_content_parity.w4_riasec_140q_claim_boundary_report.v1",
+  "package_id": "EN-PARITY-W4-RIASEC-140Q-ASSETS-2026-08-01",
+  "status": "candidate_only",
+  "boundaries": [
+    "140q_contextual_not_more_accurate",
+    "no_60q_140q_raw_delta",
+    "no_result_override",
+    "no_code_conversion",
+    "not_ability_or_skill_measure",
+    "not_career_recommendation",
+    "missing_content_fails_closed",
+    "frontend_fallback_forbidden"
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}
