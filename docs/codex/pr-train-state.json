@@ -53338,7 +53338,7 @@
       "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
     ],
     "status": "github_checks_pending",
-    "commit_sha": "aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4",
+    "commit_sha": "d3c8e542955c3cc9ca3e34668901350b5937723c",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53355,7 +53355,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The CONTROL A implementation commit aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4 awaits required CI, freeze, and CodeQL checks."
+        "evidence": "The CONTROL A implementation was rebased onto external PR #1898 at d3c8e542955c3cc9ca3e34668901350b5937723c; required CI, freeze, and CodeQL checks must pass on the new exact head."
       }
     },
     "failure_reason": null,
@@ -53383,8 +53383,13 @@
         "at": "2026-08-01T05:43:54Z",
         "status": "github_checks_pending",
         "summary": "Committed CONTROL A implementation at aafde84879ffbfc7415b77c13e3ee8c9eb3a24e4; required CI, freeze, and CodeQL checks are pending before merge."
+      },
+      {
+        "at": "2026-08-01T05:48:10Z",
+        "status": "github_checks_pending",
+        "summary": "External PR #1898 merged without changing the master SHA, but changed validator/schema/contract evidence. Rebased CONTROL A onto latest main; post-rebase master validation passes and focused contract passes 63/63. Fresh required checks are pending on the rebased exact head."
       }
     ],
-    "updated_at": "2026-08-01T05:43:54Z"
+    "updated_at": "2026-08-01T05:48:10Z"
   }
 }
