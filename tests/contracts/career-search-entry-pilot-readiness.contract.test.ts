@@ -18,7 +18,9 @@ const OBSERVED_AT = "2026-08-01T12:00:00.000Z";
 type LocaleEvidence = {
   url: string;
   detail_status: number;
-  seo_status: number;
+  seo_authority_status: number;
+  seo_endpoint_status: number;
+  seo_source: "career_seo_endpoint" | "career_detail_seo_contract";
   page_status: number;
   sitemap_included: boolean;
   html: ReturnType<typeof inspectHtml>;
@@ -62,7 +64,9 @@ function localeEvidence(slug: string, locale: "en" | "zh"): LocaleEvidence {
   return {
     url,
     detail_status: 200,
-    seo_status: 200,
+    seo_authority_status: 200,
+    seo_endpoint_status: 200,
+    seo_source: "career_seo_endpoint",
     page_status: 200,
     sitemap_included: true,
     html: inspectHtml(html(url), url),
@@ -180,7 +184,8 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
     expect(artifact.evidence_summary).toMatchObject({
       exact_target_shape: true,
       bilingual_pairs_complete: true,
-      all_api_and_pages_200: true,
+      all_detail_api_and_pages_200: true,
+      all_seo_authority_resolved: true,
       all_self_canonical_index_follow: true,
       all_sitemap_bilingual: true,
       all_reviewer_content_seo_evidence_current: true,
@@ -191,6 +196,11 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
         Object.values(target.locale_evidence).every((evidence) => evidence.backend_private_package_match_projected && /^[0-9a-f]{64}$/.test(evidence.review_public_projection_sha256))
       )
     ).toBe(true);
+    const localeEvidence = artifact.targets.flatMap((target: { locale_evidence: Record<string, { seo_authority_status: number; seo_endpoint_status: number; seo_source: string }> }) => Object.values(target.locale_evidence));
+    expect(localeEvidence).toHaveLength(20);
+    expect(localeEvidence.every((evidence: { seo_authority_status: number }) => evidence.seo_authority_status === 200)).toBe(true);
+    expect(localeEvidence.filter((evidence: { seo_endpoint_status: number }) => evidence.seo_endpoint_status === 200)).toHaveLength(artifact.evidence_summary.dedicated_seo_endpoint_200_count);
+    expect(localeEvidence.filter((evidence: { seo_source: string }) => evidence.seo_source === "career_detail_seo_contract")).toHaveLength(artifact.evidence_summary.detail_seo_contract_fallback_count);
     expect(artifact.negative_guarantees).toMatchObject({
       unsupported_strong_claim_added: false,
       generated_or_modified_public_content: false,

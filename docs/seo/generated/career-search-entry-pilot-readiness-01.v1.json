@@ -1,7 +1,7 @@
 {
   "schema_version": "career.search_entry_pilot_readiness.v1",
   "task": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
-  "observed_at": "2026-08-01T05:05:16.667Z",
+  "observed_at": "2026-08-01T05:14:09.472Z",
   "mode": "read_only_backend_authority_and_public_surface_observation",
   "source": {
     "site_url": "https://fermatmind.com",
@@ -37,33 +37,21 @@
   },
   "inventory": {
     "observed_candidate_count": 50,
-    "eligible_candidate_count": 40,
-    "rejected_candidate_count": 10,
+    "eligible_candidate_count": 42,
+    "rejected_candidate_count": 8,
     "tier_counts": {
       "stable": 4,
       "approved_candidate": 46
     },
     "rejection_reason_counts": {
-      "en_faq_schema_mismatch": 3,
+      "en_faq_schema_mismatch": 2,
       "en_not_index_follow": 2,
       "en_required_schema_missing": 2,
-      "zh_faq_schema_mismatch": 4,
+      "zh_faq_schema_mismatch": 3,
       "zh_not_index_follow": 3,
       "zh_required_schema_missing": 3,
-      "content_version_locale_drift": 2,
-      "en_approved_package_projection_mismatch": 1,
-      "en_detail_api_not_200": 1,
-      "en_review_not_approved": 1,
-      "en_review_stale": 1,
-      "en_thin_or_shell": 1,
-      "reviewer_evidence_locale_drift": 2,
       "en_unsupported_guarantee_claim": 5,
-      "zh_unsupported_guarantee_claim": 5,
-      "zh_approved_package_projection_mismatch": 1,
-      "zh_detail_api_not_200": 1,
-      "zh_review_not_approved": 1,
-      "zh_review_stale": 1,
-      "zh_thin_or_shell": 1
+      "zh_unsupported_guarantee_claim": 5
     }
   },
   "result": "GO",
@@ -80,7 +68,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 500,
+          "seo_source": "career_detail_seo_contract",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/data-scientists",
           "robots": "index,follow",
@@ -107,7 +97,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 500,
+          "seo_source": "career_detail_seo_contract",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/data-scientists",
           "robots": "index,follow",
@@ -145,7 +137,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/actuaries",
           "robots": "index,follow",
@@ -156,8 +150,8 @@
           "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
           "content_version": "display_asset_backed_v4_2",
           "content_sha256": "b22aca80ca198349a8ab5f50ab05fbb66e639519685c8e2e4035990f44422352",
-          "seo_metadata_fingerprint": "7a6150e8ee41df7b4c396b30e29c7a2964b1da33",
-          "seo_sha256": "a2432130b4c8d94a1fd4ddd095f2d275aa44b239aa743b6fa9cd7a3bffb57df8",
+          "seo_metadata_fingerprint": "1b89ea3c3b7fce537a7f8ba59df4a4bbe7eda751",
+          "seo_sha256": "99d82529fa7480416ab5d37329b9360f5ba1f6c18b14357f665fb5107ea4dd09",
           "faq_count": 3,
           "schema_faq_count": 3,
           "jsonld_types": [
@@ -172,7 +166,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/actuaries",
           "robots": "index,follow",
@@ -210,7 +206,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/administrative-services-managers",
           "robots": "index,follow",
@@ -237,7 +235,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/administrative-services-managers",
           "robots": "index,follow",
@@ -275,7 +275,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/advertising-promotions-and-marketing-managers",
           "robots": "index,follow",
@@ -302,7 +304,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/advertising-promotions-and-marketing-managers",
           "robots": "index,follow",
@@ -340,7 +344,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/aerospace-engineering-and-operations-technicians",
           "robots": "index,follow",
@@ -367,7 +373,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/aerospace-engineering-and-operations-technicians",
           "robots": "index,follow",
@@ -405,7 +413,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/aerospace-engineers",
           "robots": "index,follow",
@@ -432,7 +442,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/aerospace-engineers",
           "robots": "index,follow",
@@ -470,7 +482,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/agricultural-and-food-scientists",
           "robots": "index,follow",
@@ -497,7 +511,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/agricultural-and-food-scientists",
           "robots": "index,follow",
@@ -525,6 +541,75 @@
       }
     },
     {
+      "slug": "agricultural-engineers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "urls": [
+        "https://fermatmind.com/en/career/jobs/agricultural-engineers",
+        "https://fermatmind.com/zh/career/jobs/agricultural-engineers"
+      ],
+      "locale_evidence": {
+        "en": {
+          "detail_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
+          "page_status": 200,
+          "canonical": "https://fermatmind.com/en/career/jobs/agricultural-engineers",
+          "robots": "index,follow",
+          "sitemap_included": true,
+          "reviewer_status": "pilot_display_asset",
+          "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
+          "content_version": "display_asset_backed_v4_2",
+          "content_sha256": "34a1fb5088258f1c8103ba121e0d303fbe5bc2ea2ca60c71b60fa37751054862",
+          "seo_metadata_fingerprint": "5ccda3859323944188793d80a38a44ad995c70b4",
+          "seo_sha256": "2d36dd27327382f322466eb0764d56733884f65f504d000032c1fe3bff575bdf",
+          "faq_count": 3,
+          "schema_faq_count": 3,
+          "jsonld_types": [
+            "Answer",
+            "BreadcrumbList",
+            "FAQPage",
+            "ListItem",
+            "Question"
+          ],
+          "visible_text_chars": 11961,
+          "unsupported_guarantee_matches": []
+        },
+        "zh": {
+          "detail_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
+          "page_status": 200,
+          "canonical": "https://fermatmind.com/zh/career/jobs/agricultural-engineers",
+          "robots": "index,follow",
+          "sitemap_included": true,
+          "reviewer_status": "pilot_display_asset",
+          "reviewed_at": "2026-07-31T23:56:27.000000Z",
+          "backend_private_package_match_projected": true,
+          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
+          "content_version": "display_asset_backed_v4_2",
+          "content_sha256": "3b402cf5dcc50edf8a1141e72d01bcbd0346ba6168515f29422cb97d4618b90d",
+          "seo_metadata_fingerprint": "b91ea49e4fb0e9fd37aed73d5aaca7652410c9f6",
+          "seo_sha256": "fe9b1bde6a874748ae24c686c60304de69571f66810d25f07d646748d70a3c5b",
+          "faq_count": 3,
+          "schema_faq_count": 3,
+          "jsonld_types": [
+            "Answer",
+            "BreadcrumbList",
+            "FAQPage",
+            "ListItem",
+            "Question"
+          ],
+          "visible_text_chars": 5543,
+          "unsupported_guarantee_matches": []
+        }
+      }
+    },
+    {
       "slug": "anthropologists-and-archeologists",
       "tier": "approved_candidate",
       "quality_score": 60,
@@ -535,7 +620,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/anthropologists-and-archeologists",
           "robots": "index,follow",
@@ -562,7 +649,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/anthropologists-and-archeologists",
           "robots": "index,follow",
@@ -600,7 +689,9 @@
       "locale_evidence": {
         "en": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/en/career/jobs/appraisers-and-assessors-of-real-estate",
           "robots": "index,follow",
@@ -627,7 +718,9 @@
         },
         "zh": {
           "detail_status": 200,
-          "seo_status": 200,
+          "seo_authority_status": 200,
+          "seo_endpoint_status": 200,
+          "seo_source": "career_seo_endpoint",
           "page_status": 200,
           "canonical": "https://fermatmind.com/zh/career/jobs/appraisers-and-assessors-of-real-estate",
           "robots": "index,follow",
@@ -653,80 +746,18 @@
           "unsupported_guarantee_matches": []
         }
       }
-    },
-    {
-      "slug": "architectural-and-engineering-managers",
-      "tier": "approved_candidate",
-      "quality_score": 60,
-      "urls": [
-        "https://fermatmind.com/en/career/jobs/architectural-and-engineering-managers",
-        "https://fermatmind.com/zh/career/jobs/architectural-and-engineering-managers"
-      ],
-      "locale_evidence": {
-        "en": {
-          "detail_status": 200,
-          "seo_status": 200,
-          "page_status": 200,
-          "canonical": "https://fermatmind.com/en/career/jobs/architectural-and-engineering-managers",
-          "robots": "index,follow",
-          "sitemap_included": true,
-          "reviewer_status": "pilot_display_asset",
-          "reviewed_at": "2026-07-31T23:56:27.000000Z",
-          "backend_private_package_match_projected": true,
-          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
-          "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "542e181511efa9555e393c75b47b2702ebbeddf029d60ed3918693d50f535384",
-          "seo_metadata_fingerprint": "a2b6df5b8339ca44c542feb92e84a8c33bdfc313",
-          "seo_sha256": "6d1c89b94b715a2c45c95757db0345115475360ec68089c02c16e5acfd7f3b1c",
-          "faq_count": 3,
-          "schema_faq_count": 3,
-          "jsonld_types": [
-            "Answer",
-            "BreadcrumbList",
-            "FAQPage",
-            "ListItem",
-            "Question"
-          ],
-          "visible_text_chars": 13035,
-          "unsupported_guarantee_matches": []
-        },
-        "zh": {
-          "detail_status": 200,
-          "seo_status": 200,
-          "page_status": 200,
-          "canonical": "https://fermatmind.com/zh/career/jobs/architectural-and-engineering-managers",
-          "robots": "index,follow",
-          "sitemap_included": true,
-          "reviewer_status": "pilot_display_asset",
-          "reviewed_at": "2026-07-31T23:56:27.000000Z",
-          "backend_private_package_match_projected": true,
-          "review_public_projection_sha256": "410b393606113a3023b86ce8daae249aa6b9fe999488aa8f860de7a0516c1b71",
-          "content_version": "display_asset_backed_v4_2",
-          "content_sha256": "2fa647fbc03f6113d31287addbf0fd999e716b2818439a494f7b304efd021120",
-          "seo_metadata_fingerprint": "15b0c8702fd31712f11c1eaf91538ec603ea03ec",
-          "seo_sha256": "656757d7818c9aa37a6b76047f5fad00f53fe4dfef3aacbc2579a157e4704fe0",
-          "faq_count": 3,
-          "schema_faq_count": 3,
-          "jsonld_types": [
-            "Answer",
-            "BreadcrumbList",
-            "FAQPage",
-            "ListItem",
-            "Question"
-          ],
-          "visible_text_chars": 7577,
-          "unsupported_guarantee_matches": []
-        }
-      }
     }
   ],
-  "target_set_sha256": "d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86",
-  "rollback_batch_id": "career-search-entry-pilot-d8ec3d6423bd1ec3",
+  "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
+  "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba",
   "evidence_summary": {
     "slug_count": 10,
     "url_count": 20,
     "bilingual_pairs_complete": true,
-    "all_api_and_pages_200": true,
+    "all_detail_api_and_pages_200": true,
+    "all_seo_authority_resolved": true,
+    "dedicated_seo_endpoint_200_count": 18,
+    "detail_seo_contract_fallback_count": 2,
     "all_self_canonical_index_follow": true,
     "all_sitemap_bilingual": true,
     "all_reviewer_content_seo_evidence_current": true,
@@ -760,42 +791,12 @@
       ]
     },
     {
-      "slug": "agricultural-engineers",
-      "tier": "approved_candidate",
-      "quality_score": 0,
-      "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
-        "en_detail_api_not_200",
-        "en_faq_schema_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift"
-      ]
-    },
-    {
       "slug": "architects",
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
         "en_unsupported_guarantee_claim",
         "zh_unsupported_guarantee_claim"
-      ]
-    },
-    {
-      "slug": "biological-technicians",
-      "tier": "approved_candidate",
-      "quality_score": 0,
-      "reasons": [
-        "content_version_locale_drift",
-        "reviewer_evidence_locale_drift",
-        "zh_approved_package_projection_mismatch",
-        "zh_detail_api_not_200",
-        "zh_faq_schema_mismatch",
-        "zh_review_not_approved",
-        "zh_review_stale",
-        "zh_thin_or_shell"
       ]
     },
     {
@@ -858,5 +859,5 @@
       ]
     }
   ],
-  "artifact_sha256": "ffaab5959e777670b7a2350d13908cd6c2da52ae0561c037b060fedaca8d2b9e"
+  "artifact_sha256": "7b3547b51933520f7b3b75b0c5720ee40db354546d54f2decf5f75f03dce272b"
 }

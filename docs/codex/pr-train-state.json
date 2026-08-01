@@ -53086,7 +53086,7 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 40 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
+        "evidence": "Read-only live backend/public observation returned 50 eligible authority rows, 42 complete gate passes, and an exact 10-slug/20-URL GO target set after enforcing the backend's current private-package-match projection."
       },
       "focused_contract": {
         "status": "pass",
@@ -53110,7 +53110,7 @@
       },
       "codex_review": {
         "status": "repaired_pending_recheck",
-        "evidence": "P1 removed the tautological expected-live SHA comparison and now requires the backend's list/detail approved projection, which is emitted only while the exact private content/SEO/visible-claims/index-entry package matches its approved_all attestation. P2 is satisfied because both c7b614cf and the earlier cb68a680 are ancestors of the published branch head."
+        "evidence": "P1 removed the tautological expected-live SHA comparison and now requires the backend's list/detail approved projection, which is emitted only while the exact private content/SEO/visible-claims/index-entry package matches its approved_all attestation. The SEO-status P2 now preserves actual dedicated endpoint status/source and validates explicitly counted detail-contract fallbacks. The ledger P2 is satisfied because both c7b614cf and the earlier cb68a680 are ancestors of the published branch head."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53124,14 +53124,14 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T05:05:16.667Z",
+      "observed_at": "2026-08-01T05:14:09.472Z",
       "result": "GO",
-      "eligible_candidates": 40,
+      "eligible_candidates": 42,
       "target_slugs": 10,
       "target_urls": 20,
-      "target_set_sha256": "d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86",
-      "artifact_sha256": "ffaab5959e777670b7a2350d13908cd6c2da52ae0561c037b060fedaca8d2b9e",
-      "rollback_batch_id": "career-search-entry-pilot-d8ec3d6423bd1ec3"
+      "target_set_sha256": "89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682",
+      "artifact_sha256": "7b3547b51933520f7b3b75b0c5720ee40db354546d54f2decf5f75f03dce272b",
+      "rollback_batch_id": "career-search-entry-pilot-89f3f026b30574ba"
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -53184,8 +53184,13 @@
         "at": "2026-08-01T05:09:40Z",
         "status": "github_checks_pending",
         "summary": "Committed the review-baseline repair as 1698e7bddba037bed4725f74cafede4a31408bd1. This metadata tail binds the reachable reviewed implementation head before push and fresh exact-head checks."
+      },
+      {
+        "at": "2026-08-01T05:17:04Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired the SEO-status P2 by retaining actual dedicated endpoint status and source for every URL, validating approved detail seo_contract fallback separately, and adding exact 18-endpoint/2-fallback evidence counts. Added a pre-write incomplete-sitemap hard failure after one transient empty snapshot. Final live run is GO with the original deterministic target set 89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682; focused 17/17, lint, typecheck, JSON, syntax, and diff checks pass."
       }
     ],
-    "updated_at": "2026-08-01T05:09:40Z"
+    "updated_at": "2026-08-01T05:17:04Z"
   }
 }

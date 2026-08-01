@@ -213,7 +213,7 @@ export function evaluateCandidateEvidence(candidate) {
     const evidence = candidate.locales[locale];
     const prefix = `${locale}_`;
     if (evidence.detail_status !== 200) reasons.push(`${prefix}detail_api_not_200`);
-    if (evidence.seo_status !== 200) reasons.push(`${prefix}seo_api_not_200`);
+    if (evidence.seo_authority_status !== 200) reasons.push(`${prefix}seo_authority_not_200`);
     if (evidence.page_status !== 200) reasons.push(`${prefix}page_not_200`);
     if (!evidence.html.self_canonical) reasons.push(`${prefix}canonical_mismatch`);
     if (!evidence.html.index_follow) reasons.push(`${prefix}not_index_follow`);
@@ -286,7 +286,9 @@ export function buildArtifact({ candidates, observedAt, source }) {
       const evidence = candidate.locales[locale];
       return [locale, {
         detail_status: evidence.detail_status,
-        seo_status: evidence.seo_status,
+        seo_authority_status: evidence.seo_authority_status,
+        seo_endpoint_status: evidence.seo_endpoint_status,
+        seo_source: evidence.seo_source,
         page_status: evidence.page_status,
         canonical: evidence.html.canonical,
         robots: evidence.html.robots,
@@ -348,7 +350,10 @@ export function buildArtifact({ candidates, observedAt, source }) {
       slug_count: targets.length,
       url_count: urls.length,
       bilingual_pairs_complete: targets.every((target) => target.urls.length === 2),
-      all_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.seo_status === 200 && item.page_status === 200)),
+      all_detail_api_and_pages_200: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.detail_status === 200 && item.page_status === 200)),
+      all_seo_authority_resolved: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.seo_authority_status === 200 && ["career_seo_endpoint", "career_detail_seo_contract"].includes(item.seo_source))),
+      dedicated_seo_endpoint_200_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_endpoint_status === 200).length,
+      detail_seo_contract_fallback_count: targets.flatMap((target) => Object.values(target.locale_evidence)).filter((item) => item.seo_source === "career_detail_seo_contract").length,
       all_self_canonical_index_follow: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.canonical === target.urls[item === target.locale_evidence.en ? 0 : 1] && item.robots === "index,follow")),
       all_sitemap_bilingual: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.sitemap_included)),
       all_reviewer_content_seo_evidence_current: targets.every((target) => Object.values(target.locale_evidence).every((item) => item.backend_private_package_match_projected && item.reviewed_at && item.content_sha256 && item.seo_sha256)),
@@ -422,7 +427,7 @@ async function collectLocale({ slug, locale, authorityItem, args, sitemapLocs, o
   return {
     url,
     detail_status: detailResult.status,
-    seo_status: effectiveSeoStatus,
+    seo_authority_status: effectiveSeoStatus,
     seo_endpoint_status: seoResult.status,
     seo_source: Object.keys(endpointSeo).length > 0 ? "career_seo_endpoint" : "career_detail_seo_contract",
     page_status: pageResult.status,
@@ -456,6 +461,9 @@ async function collectLive(args) {
   const zhBySlug = new Map(array(record(zhListResult.payload).items).map((item) => [string(record(item.identity).canonical_slug), item]));
   const eligible = enItems.filter((item) => record(item.search_entry_authority).search_entry_eligible === true);
   const sitemapLocs = new Set(array(record(sitemapResult.payload).items).map((item) => normalizeAbsoluteUrl(record(item).loc, args.siteUrl)).filter(Boolean));
+  if (eligible.length !== 50 || sitemapLocs.size < EXACT_URL_COUNT) {
+    throw new Error(`Authority snapshot incomplete: eligible=${eligible.length}/50, sitemap_locs=${sitemapLocs.size}`);
+  }
   const candidates = await mapLimit(eligible, args.concurrency, async (item) => {
     const slug = string(record(item.identity).canonical_slug);
     const authority = record(item.search_entry_authority);

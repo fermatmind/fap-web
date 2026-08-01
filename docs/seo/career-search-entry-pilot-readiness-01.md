@@ -5,12 +5,13 @@
 `GO` for one bounded 10-slug / 20-URL career Search Channel canary package.
 
 - Task 12 dependency: `PASS_APPLY_READBACK` (`2546dbd6`), after Batch Review run `30678387519`.
-- Read-only observation: `2026-08-01T05:05:16.667Z`.
+- Read-only observation: `2026-08-01T05:14:09.472Z`.
 - Candidate authority: 50 backend-authorized search-entry rows (4 `stable`, 46 `approved_candidate`).
-- Complete gate passes: 40; rejected without gate reduction: 10.
-- Target-set SHA-256: `d8ec3d6423bd1ec33eb7aca9546313153aab2770098cb416ad51f2042ad15b86`.
-- Artifact SHA-256: `ffaab5959e777670b7a2350d13908cd6c2da52ae0561c037b060fedaca8d2b9e`.
-- Rollback batch ID: `career-search-entry-pilot-d8ec3d6423bd1ec3`.
+- Complete gate passes: 42; rejected without gate reduction: 8.
+- Selected SEO authority sources: 18 dedicated endpoint responses and 2 explicitly recorded detail `seo_contract` fallbacks.
+- Target-set SHA-256: `89f3f026b30574ba2aa5234a2aa46b2c61880735f746cb3bf6d7e8f3f7386682`.
+- Artifact SHA-256: `7b3547b51933520f7b3b75b0c5720ee40db354546d54f2decf5f75f03dce272b`.
+- Rollback batch ID: `career-search-entry-pilot-89f3f026b30574ba`.
 
 This decision is readiness evidence only. It does not submit URLs, change sitemap membership, invoke Search Channel, write CMS/database state, deploy, or roll back anything.
 
@@ -27,9 +28,9 @@ Selection is deterministic: `stable` first, then quality score descending, then 
 | 5 | approved_candidate | 60 | `aerospace-engineering-and-operations-technicians` |
 | 6 | approved_candidate | 60 | `aerospace-engineers` |
 | 7 | approved_candidate | 60 | `agricultural-and-food-scientists` |
-| 8 | approved_candidate | 60 | `anthropologists-and-archeologists` |
-| 9 | approved_candidate | 60 | `appraisers-and-assessors-of-real-estate` |
-| 10 | approved_candidate | 60 | `architectural-and-engineering-managers` |
+| 8 | approved_candidate | 60 | `agricultural-engineers` |
+| 9 | approved_candidate | 60 | `anthropologists-and-archeologists` |
+| 10 | approved_candidate | 60 | `appraisers-and-assessors-of-real-estate` |
 
 Each slug is bound to exactly these two canonical URL shapes:
 
@@ -43,7 +44,7 @@ The complete URLs and per-locale evidence hashes are frozen in `docs/seo/generat
 Every selected URL passed all of the following in the same read-only run:
 
 - detail API HTTP 200 and current backend `search_entry_authority` eligibility;
-- current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA;
+- current SEO authority, including `index,follow`, index eligibility, metadata fingerprint and a frozen SEO observation SHA; actual dedicated SEO-endpoint status is preserved separately, while an approved detail `seo_contract` fallback is explicitly labeled and counted rather than rewritten as an endpoint 200;
 - public page HTTP 200, exact self-canonical, and rendered `index, follow`;
 - backend sitemap-source membership for both locales;
 - approved, non-stale reviewer evidence with locale-aligned review timestamp;
