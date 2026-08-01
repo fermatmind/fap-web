@@ -53337,8 +53337,8 @@
     "depends_on": [
       "EN-PARITY-W2-BIG5-INVENTORY-REFREEZE-02"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "36aee09816b69bcb2fa2b359dc6f73bec1a45ab1",
+    "status": "github_checks_pending",
+    "commit_sha": "364a5393eb65d4da217fcd248cdbfd5744ef5f77",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53354,8 +53354,8 @@
         "evidence": "Post-transition master validator passes, focused parity contract passes 63/63 on Node 24 after rebase, and direct reconciliation proves W2 inventory_frozen with 52/50/16 counts, empty package SHA and lineage, and every permission false."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1899 exact head 1a7f9af2d8844467c5cffd9543428c3d7628226a passed all 11 required CI and security checks: build, four contract shards, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."
+        "status": "pending",
+        "evidence": "External W3 CONTROL PR #1902 advanced the unique master while PR #1899 checks ran. CONTROL A was rebased onto the new master; fresh required CI, freeze, and CodeQL checks are pending on the new exact head."
       }
     },
     "failure_reason": null,
@@ -53403,8 +53403,13 @@
         "at": "2026-08-01T06:02:16Z",
         "status": "ready_to_merge",
         "summary": "PR #1899 exact head 1a7f9af2d8844467c5cffd9543428c3d7628226a passed all 11 required CI and security checks. GitHub is MERGEABLE/CLEAN with no required review decision; W3 W9 PR #1897 advanced main without changing the master, so the accepted W2 state remains valid."
+      },
+      {
+        "at": "2026-08-01T06:06:05Z",
+        "status": "github_checks_pending",
+        "summary": "External W3 CONTROL PR #1902 advanced the unique master and required another rebase. CONTROL A now rests on latest main with the same W2 inventory_frozen transition; post-rebase master validation and focused 63/63 contract pass. Fresh required checks are pending."
       }
     ],
-    "updated_at": "2026-08-01T06:02:16Z"
+    "updated_at": "2026-08-01T06:06:05Z"
   }
 }

@@ -431,5 +431,17 @@
     "required_checks_affected": true,
     "recommended_follow_up": "Merge this minimal candidate-rebase repair, rerun the candidate validator on the exact current master, then execute only EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01. Avoid concurrent CONTROL merges until that acceptance is complete.",
     "observed_at": "2026-08-01T05:31:00Z"
+  },
+  {
+    "id": "external-w1-w3-control-master-advances-delayed-w2-control-a-20260801",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01",
+    "branch": "codex/en-parity-control-w2-inventory-frozen-01",
+    "blocker_type": "external_control_master_concurrency",
+    "evidence": "While CONTROL A required checks ran, external W1 CONTROL PR #1900 advanced main to 961b9cc67e86263769267e696035ca03157ab785 and external W3 CONTROL PR #1902 advanced main to 8cb0edfa4147cd16ec700b3d9e61fcab1d4d8146. #1902 changed only W3 master state. CONTROL A was rebased twice; the W2 transition remains exactly inventory_frozen with frozen 52/50/16 counts and no package SHA or lineage.",
+    "why_not_current_pr_scope": "The W1 and W3 master transitions were authored outside the W2 CONTROL A scope. This PR must retain only the W2 immediate state transition and cannot alter or undo their state changes.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Avoid concurrent merges of CONTROL PRs that modify the unique master until W2 CONTROL A completes. If another master update merges, rebase only the W2 CONTROL branch, revalidate, and rerun required checks; do not modify W2 frozen counts or accept a future state early.",
+    "observed_at": "2026-08-01T06:06:05Z"
   }
 ]
