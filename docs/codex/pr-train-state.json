@@ -55323,13 +55323,14 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-package-refreeze-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-140Q-NATURALNESS-REPAIR-01", "EN-PARITY-W4-RIASEC-DIMENSION-DUPLICATE-REPAIR-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "00e8e13d2df5d3031cf92fae9b0206e8d6e41a03",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1974",
     "checks": {
       "dependencies": {"status": "pass", "evidence": "PR #1970 and PR #1973 are MERGED; origin/main contains both merge commits before this re-freeze branch was created."},
       "package_rebuild": {"status": "pass", "evidence": "The eight immutable payload SHA values and f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb aggregate recompute identically twice. The package binds current aggregates for all nine segments, reconciles 14 logical groups and 1550 unique atomic rows, 15 pairs, and 3/2/2 safe surfaces; fresh W9 remains required and all permissions remain false."},
-      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator, focused ESLint, JSON/YAML parse, exact allowed-path audit, package SHA two-run, and diff checks pass. Against frozen 71954730 segment assets, exactly 126 W4-G06 summary fields and four W4-G02 copy fields differ; all 1550 identities remain stable."}
+      "local_validation": {"status": "pass", "evidence": "Focused control contract passed 65/65; control validator, focused ESLint, JSON/YAML parse, exact allowed-path audit, package SHA two-run, and diff checks pass. Against frozen 71954730 segment assets, exactly 126 W4-G06 summary fields and four W4-G02 copy fields differ; all 1550 identities remain stable."},
+      "github_required_checks": {"status": "pending", "evidence": "PR #1974 is open from ledger head pending this state commit; required GitHub checks must pass before squash merge."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -55343,8 +55344,8 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T02:18:00+08:00", "status": "in_progress", "summary": "Started from origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 after verifying both bounded producer repairs are merged. Scope is the root immutable 1550-row package and focused contract only; reader segments, control master, W9, CMS/import, runtime, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T02:22:00+08:00", "status": "local_verified", "summary": "Re-froze the root 1550-row candidate package as f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The eight immutable payload SHA values recompute identically twice, all nine current segment aggregates are bound, 14/1550, 15 pairs, and 3/2/2 surfaces reconcile, and the exact pre/post reader comparison contains only 126 W4-G06 summary and four W4-G02 copy changes. Focused control contract (65/65), validator, ESLint, parse, scope, and diff checks pass; W9, import, runtime, publication, discoverability, and deploy remain deferred."}],
-    "updated_at": "2026-08-02T02:22:00+08:00"
+    "history": [{"at": "2026-08-02T02:18:00+08:00", "status": "in_progress", "summary": "Started from origin/main 2abee293f5b417bb0ebdabfda1e43a61c6e445d4 after verifying both bounded producer repairs are merged. Scope is the root immutable 1550-row package and focused contract only; reader segments, control master, W9, CMS/import, runtime, publication, discoverability, and deploy remain untouched."},{"at": "2026-08-02T02:22:00+08:00", "status": "local_verified", "summary": "Re-froze the root 1550-row candidate package as f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb. The eight immutable payload SHA values recompute identically twice, all nine current segment aggregates are bound, 14/1550, 15 pairs, and 3/2/2 surfaces reconcile, and the exact pre/post reader comparison contains only 126 W4-G06 summary and four W4-G02 copy changes. Focused control contract (65/65), validator, ESLint, parse, scope, and diff checks pass; W9, import, runtime, publication, discoverability, and deploy remain deferred."},{"at": "2026-08-02T02:23:00+08:00", "status": "github_checks_pending", "summary": "Opened PR #1974 from implementation commit 00e8e13d2df5d3031cf92fae9b0206e8d6e41a03. This ledger-only head records pending required GitHub checks; W9, CONTROL, CMS/import, runtime, publication, discoverability, and deploy remain deferred."}],
+    "updated_at": "2026-08-02T02:23:00+08:00"
   },
   "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01": {
     "id": "EN-PARITY-W4-RIASEC-PACKAGE-FREEZE-01",
