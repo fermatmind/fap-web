@@ -53436,8 +53436,8 @@
     "depends_on": [
       "EN-PARITY-CONTROL-W2-INVENTORY-FROZEN-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "d2ac8f2c70b845c454f97f87f9bd26fe862ef132",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -53447,6 +53447,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Read-only backend validator passes 16 units/16 assets at child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81; candidate validator and focused parity contract pass 63/63. The 118-row 52/50/16 reconciliation, boundaries, and exact eight-file package SHA c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350 pass."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "Producer B implementation commit d2ac8f2c70b845c454f97f87f9bd26fe862ef132 awaits required CI, freeze, and CodeQL checks."
       }
     },
     "failure_reason": null,
@@ -53469,8 +53473,13 @@
         "at": "2026-08-01T06:25:18Z",
         "status": "local_verified",
         "summary": "Candidate validation, focused 63/63 contract, backend child validator, 118-row 52/50/16 reconciliation, SHA binding, and boundary scans pass. The new pre-freeze package SHA is c5d7f2303c79625a866d8c379536a6012e193546ddd9b3c710aa808ba47ce350; W9 and all write/release gates remain false."
+      },
+      {
+        "at": "2026-08-01T06:26:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed Producer B package-in-progress candidate at d2ac8f2c70b845c454f97f87f9bd26fe862ef132; required CI, freeze, and CodeQL checks are pending before merge."
       }
     ],
-    "updated_at": "2026-08-01T06:25:18Z"
+    "updated_at": "2026-08-01T06:26:55Z"
   }
 }
