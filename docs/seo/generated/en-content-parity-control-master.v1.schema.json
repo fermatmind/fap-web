@@ -1273,6 +1273,49 @@
         }
       }
     },
+    "external_package_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "source_repository",
+        "source_commit_sha",
+        "source_package_path",
+        "manifest_sha256",
+        "row_count_field",
+        "package_sha256_algorithm"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_external_package_evidence.v1"
+        },
+        "source_repository": {
+          "const": "fap-api"
+        },
+        "source_commit_sha": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "source_package_path": {
+          "type": "string",
+          "pattern": "^backend/[A-Za-z0-9._/-]+$"
+        },
+        "manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "row_count_field": {
+          "type": "string",
+          "enum": [
+            "asset_count",
+            "inventory_row_count"
+          ]
+        },
+        "package_sha256_algorithm": {
+          "const": "manifest_files_path_nul_sha256_newline_v1"
+        }
+      }
+    },
     "package_rework_reset": {
       "type": "object",
       "additionalProperties": false,
@@ -1502,6 +1545,9 @@
         "package_sha256": {
           "type": "string",
           "pattern": "^[a-f0-9]{64}$"
+        },
+        "external_package_evidence": {
+          "$ref": "#/$defs/external_package_evidence"
         },
         "proposed_status": {
           "$ref": "#/$defs/content_status"
