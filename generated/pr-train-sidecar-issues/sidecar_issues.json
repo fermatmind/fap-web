@@ -443,5 +443,17 @@
     "required_checks_affected": true,
     "recommended_follow_up": "Avoid concurrent merges of CONTROL PRs that modify the unique master until W2 CONTROL A completes. If another master update merges, rebase only the W2 CONTROL branch, revalidate, and rerun required checks; do not modify W2 frozen counts or accept a future state early.",
     "observed_at": "2026-08-01T06:11:50Z"
+  },
+  {
+    "id": "external-w1-control-master-update-invalidated-w2-package-candidate-20260801",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01",
+    "branch": "codex/en-parity-w2-big5-package-in-progress-rebase-02",
+    "blocker_type": "external_control_master_update_invalidated_producer_candidate",
+    "evidence": "W2 Producer B PR #1907 merged as 54bd6ccfe5f374530ce7059df02112bfd65548ad at 2026-08-01T06:46:44Z with candidate base SHA b96ece526a9fe8f94c6a1023a840d6348f2f1c59bfd9e6ebb66880518ac34cf3. External W1 CONTROL PR #1910 merged two seconds later as d1304713cde4142b2d438c387f1a865dec27903b, changing the control-master SHA-256 to 04b53efe242496bd9cbd388f1ac79236bc9e9c77d8e21586b9b92837496e5a10; the candidate validator then rejected the stale binding.",
+    "why_not_current_pr_scope": "PR #1910 was an independent W1 CONTROL transition. This repair changes only W2 candidate base binding; it does not change the W2 package payload, eight-file package SHA, master data, W2 state, permissions, CMS, runtime, SEO, or deploy behavior.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Merge this minimal candidate-rebase repair, rerun candidate validation on the exact current master, then execute only EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01. Avoid concurrent CONTROL master merges until the W2 acceptance completes.",
+    "observed_at": "2026-08-01T14:48:00+08:00"
   }
 ]
