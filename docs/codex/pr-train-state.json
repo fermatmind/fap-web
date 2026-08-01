@@ -54197,7 +54197,7 @@
     "depends_on": [
       "EN-PARITY-W9-W2-SOURCE-INTAKE-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "c85d9f80b017d5126b2348511169364f7fad0345",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1939",
     "checks": {
