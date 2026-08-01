@@ -108,7 +108,7 @@ jobs:
       contents: read
     env:
       GH_TOKEN: ${{ github.token }}
-      EN_PARITY_EXPECTED_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}
+      EN_PARITY_CURRENT_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}
     strategy:
       fail-fast: false
       matrix:
@@ -116,6 +116,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:

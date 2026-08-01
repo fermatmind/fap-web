@@ -147,6 +147,16 @@ function readRegisteredFile(relativePath) {
   }
 }
 
+function readAbsoluteRegularNoFollow(absolutePath) {
+  const descriptor = fs.openSync(absolutePath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+  try {
+    if (!fs.fstatSync(descriptor).isFile()) throw new Error(`artifact_path_not_regular=${absolutePath}`);
+    return fs.readFileSync(descriptor);
+  } finally {
+    fs.closeSync(descriptor);
+  }
+}
+
 function walkFiles(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const entryPath = path.join(directory, entry.name);
@@ -187,10 +197,20 @@ export function verifyGithubWorkflowProvenance(entries) {
     );
     const files = walkFiles(temporaryDirectory);
     const names = ["draft-import.json", "publication.json", "live-qa.json"];
+    const artifactReceiptFiles = names.map((name) => files.filter((file) => path.basename(file) === name));
+    if (artifactReceiptFiles[0].length !== 1) throw new Error("trusted_artifact_receipt_missing=draft-import.json");
+    if (artifactReceiptFiles.some((matches) => matches.length > 1)) throw new Error("trusted_artifact_duplicate_receipt_file");
+    const firstMissingIndex = artifactReceiptFiles.findIndex((matches) => matches.length === 0);
+    const completeReceiptFiles = artifactReceiptFiles.slice(
+      0,
+      firstMissingIndex < 0 ? artifactReceiptFiles.length : firstMissingIndex,
+    );
+    if (artifactReceiptFiles.slice(completeReceiptFiles.length).some((matches) => matches.length !== 0)) {
+      throw new Error("trusted_artifact_receipt_chain_not_contiguous");
+    }
+    if (entries.length !== completeReceiptFiles.length) throw new Error("trusted_artifact_receipt_prefix_truncated");
     const artifactReceiptSha256s = entries.map((entry, index) => {
-      const matches = files.filter((file) => path.basename(file) === names[index]);
-      if (matches.length !== 1) throw new Error(`trusted_artifact_receipt_missing=${names[index]}`);
-      const artifactBytes = fs.readFileSync(matches[0]);
+      const artifactBytes = readAbsoluteRegularNoFollow(completeReceiptFiles[index][0]);
       if (sha256Bytes(artifactBytes) !== sha256Bytes(entry.bytes)) {
         throw new Error(`trusted_artifact_receipt_mismatch=${names[index]}`);
       }
@@ -207,6 +227,7 @@ export function verifyGithubWorkflowProvenance(entries) {
       run_id: String(run.id),
       run_attempt: run.run_attempt,
       artifact_name: artifactName,
+      complete_receipt_count: completeReceiptFiles.length,
       artifact_receipt_sha256s: artifactReceiptSha256s,
     };
   } finally {
@@ -423,6 +444,7 @@ export function validateReceiptChain({
   schema = readJson(V2_SCHEMA_PATH),
 }) {
   const errors = [];
+  const pinnedReleasePolicySha256 = readJson(V2_PATH).authority.backend_promotion_contract.release_policy_sha256;
   const targetReceiptCount = { draft_imported: 1, published: 2, live_qa_pass: 3 }[targetStatus];
   assert(Boolean(targetReceiptCount), "receipt target status is invalid", errors);
   assert(
@@ -458,6 +480,7 @@ export function validateReceiptChain({
       assert(receipt.previous_receipt_sha256 === null, "draft import receipt cannot have a predecessor", errors);
     }
   }
+  assert(releasePolicySha256 === pinnedReleasePolicySha256, "release policy SHA is not the pinned V2 policy", errors);
   assert(receipts[0].published_count === 0, "draft import receipt published content", errors);
   if (receipts[1]) assert(receipts[1].published_count === expectedCount, "publication count mismatch", errors);
   if (receipts[2]) assert(receipts[2].published_count === expectedCount, "live QA public count mismatch", errors);
@@ -474,6 +497,7 @@ export function validateReceiptChain({
   assert(provenance?.conclusion === "success", "workflow provenance did not succeed", errors);
   assert(provenance?.run_id === receipts[0].workflow_run_id, "workflow provenance run ID mismatch", errors);
   assert(provenance?.run_attempt === receipts[0].workflow_run_attempt, "workflow provenance attempt mismatch", errors);
+  assert(provenance?.complete_receipt_count === entries.length, "workflow artifact receipt chain was truncated", errors);
   assert(
     sameValue(provenance?.artifact_receipt_sha256s, entries.map((entry) => sha256Bytes(entry.bytes))),
     "workflow artifact receipt bytes mismatch",

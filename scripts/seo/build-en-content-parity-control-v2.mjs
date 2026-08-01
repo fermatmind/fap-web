@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -150,7 +151,19 @@ function stateIndex(status) {
   return V2_ORDERED_STATES.indexOf(status);
 }
 
-function assertLaneManifestTransition(base, manifest, key) {
+function registeredTargetContract(v2, base, laneId) {
+  const assetIds = Array.isArray(base.asset_ids)
+    ? [...base.asset_ids]
+    : v2.assets.filter((asset) => asset.lane_id === laneId).map((asset) => asset.asset_id);
+  const assets = assetIds.map((assetId) => v2.assets.find((asset) => asset.asset_id === assetId));
+  if (assets.some((asset) => !asset)) throw new Error(`registered_target_asset_missing=${laneId}`);
+  return {
+    assetIds,
+    expectedCount: assets.reduce((total, asset) => total + asset.expected_en_count, 0),
+  };
+}
+
+function assertLaneManifestTransition(base, manifest, key, registeredTarget) {
   if (!LANE_MANIFEST_STATES.includes(manifest.status)) {
     throw new Error(`lane_manifest_status_not_allowed=${key}:${manifest.status}`);
   }
@@ -209,8 +222,8 @@ function assertLaneManifestTransition(base, manifest, key) {
       qaTransition?.evidence_ref !== manifest.qa_report_ref ||
       qaTransition?.evidence_sha256 !== qaLineage[0].report_sha256 ||
       !String(qaLineage[0].report_ref).startsWith("generated/en-content-parity/W9-independent-qa/") ||
-      !Number.isInteger(manifest.expected_count) ||
-      !/^[a-f0-9]{40}$/.test(manifest.producer_head_sha ?? "")
+      manifest.expected_count !== registeredTarget.expectedCount ||
+      !/^[a-f0-9]{40}$/.test(manifest.reviewed_source_commit ?? "")
     ) {
       throw new Error(`lane_manifest_independent_w9_lineage_invalid=${key}`);
     }
@@ -222,22 +235,29 @@ function assertLaneManifestTransition(base, manifest, key) {
       report.producer_lane_id !== manifest.lane_id ||
       report.subscope_id !== manifest.subscope ||
       report.package_sha256 !== manifest.package_sha256 ||
-      report.producer_head_sha !== manifest.producer_head_sha ||
-      report.reviewed_row_count !== manifest.expected_count ||
+      report.reviewed_source_commit !== manifest.reviewed_source_commit ||
+      report.reviewed_row_count !== registeredTarget.expectedCount ||
+      canonicalJson(report.reviewed_asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
       report.verdict !== "PASS" ||
-      !report.checks ||
-      Object.values(report.checks).length === 0 ||
-      Object.values(report.checks).some((value) => value !== "PASS")
+      !["language_naturalness", "grammar", "markdown_integrity", "source_equivalence", "claim_boundary", "chinese_leakage", "asset_integrity"]
+        .every((check) => report.checks?.[check] === "PASS") ||
+      Object.values(report.checks ?? {}).some((value) => value !== "PASS")
     ) {
       throw new Error(`lane_manifest_independent_w9_report_invalid=${key}`);
     }
-    const expectedPrHead = process.env.EN_PARITY_EXPECTED_PR_HEAD ?? "";
-    if (expectedPrHead !== "" && report.producer_head_sha !== expectedPrHead) {
-      throw new Error(`lane_manifest_w9_pr_head_mismatch=${key}`);
+    const currentPrHead = process.env.EN_PARITY_CURRENT_PR_HEAD ?? "";
+    if (currentPrHead !== "") {
+      try {
+        execFileSync("git", ["merge-base", "--is-ancestor", report.reviewed_source_commit, currentPrHead], {
+          stdio: "ignore",
+        });
+      } catch {
+        throw new Error(`lane_manifest_w9_reviewed_commit_not_in_pr=${key}`);
+      }
     }
   } else if (manifest.qa_report_ref !== null) {
     throw new Error(`lane_manifest_qa_reference_before_qa=${key}`);
-  } else if (manifest.producer_head_sha !== null || manifest.expected_count !== null) {
+  } else if (manifest.reviewed_source_commit !== null || manifest.expected_count !== null) {
     throw new Error(`lane_manifest_w9_binding_before_qa=${key}`);
   }
 }
@@ -284,7 +304,7 @@ export function applyMaterializationInputs(v2, inputs) {
       throw new Error(`split_lane_root_manifest_forbidden=${binding.lane_id}`);
     }
     const target = targetFor(v2, binding.lane_id, binding.subscope);
-    assertLaneManifestTransition(target, manifest, key);
+    assertLaneManifestTransition(target, manifest, key, registeredTargetContract(v2, target, binding.lane_id));
     for (const field of [
       "status",
       "blocked_from_status",
@@ -311,6 +331,9 @@ export function applyMaterializationInputs(v2, inputs) {
     const target = targetFor(v2, chain.lane_id, chain.subscope);
     if (target.status !== "dry_run_ready") throw new Error(`receipt_chain_requires_dry_run_ready=${key}`);
     if (!PROMOTION_STATES.includes(chain.target_status)) throw new Error(`receipt_chain_target_status_invalid=${key}`);
+    if (chain.release_policy_sha256 !== v2.authority.backend_promotion_contract.release_policy_sha256) {
+      throw new Error(`receipt_chain_release_policy_mismatch=${key}`);
+    }
     if (target.package_sha256 !== chain.package_sha256) {
       throw new Error(`receipt_chain_package_mismatch=${key}`);
     }

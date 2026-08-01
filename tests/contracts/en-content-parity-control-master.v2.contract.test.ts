@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -114,6 +115,7 @@ function trustedProvenance(chain: ReturnType<typeof validReceiptChain>) {
     run_id: first.workflow_run_id,
     run_attempt: first.workflow_run_attempt,
     artifact_name: `content-promotion-${first.lane}-${first.workflow_run_id}-${first.workflow_run_attempt}`,
+    complete_receipt_count: chain.length,
     artifact_receipt_sha256s: chain.map((entry) => sha256(entry.bytes)),
   };
 }
@@ -187,13 +189,37 @@ describe("English content parity automation control V2", () => {
     const workflow = fs.readFileSync(path.join(ROOT, ".github/workflows/ci.yml"), "utf8");
     expect(workflow).toContain("actions: read");
     expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
-    expect(workflow).toContain("EN_PARITY_EXPECTED_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}");
+    expect(workflow).toContain("EN_PARITY_CURRENT_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}");
+    expect(workflow).toContain("fetch-depth: 0");
   });
 
   it("accepts only the exact chained backend import, publication and live-QA receipts", () => {
     expect(validateChain(validReceiptChain())).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 1), "draft_imported")).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 2), "published")).toEqual({ ok: true, errors: [] });
+  });
+
+  it("rejects a truncated registered prefix and an unpinned release policy", () => {
+    const fullChain = validReceiptChain();
+    const prefix = fullChain.slice(0, 1);
+    expect(validateReceiptChain({
+      entries: prefix,
+      ...expected,
+      targetStatus: "draft_imported",
+      provenance: trustedProvenance(fullChain),
+    }).ok).toBe(false);
+
+    const changedPolicy = "9".repeat(64);
+    const changedChain = validReceiptChain().map((entry) => receiptBytes({
+      ...entry.receipt,
+      release_policy_sha256: changedPolicy,
+    }));
+    expect(validateReceiptChain({
+      entries: changedChain,
+      ...expected,
+      releasePolicySha256: changedPolicy,
+      provenance: trustedProvenance(changedChain),
+    }).errors).toContain("release policy SHA is not the pinned V2 policy");
   });
 
   it.each([
@@ -289,7 +315,7 @@ describe("English content parity automation control V2", () => {
             recorded_at: "2026-08-02T00:01:00Z",
           },
         ],
-        producer_head_sha: null,
+        reviewed_source_commit: null,
         expected_count: null,
       };
       fs.writeFileSync(manifestPath, `${JSON.stringify(laneManifest, null, 2)}\n`);
@@ -332,7 +358,7 @@ describe("English content parity automation control V2", () => {
         legacy_lineage: [],
         blockers: [],
         transition_trace: [],
-        producer_head_sha: null,
+        reviewed_source_commit: null,
         expected_count: null,
       };
       for (const [name, manifest] of [
@@ -366,7 +392,7 @@ describe("English content parity automation control V2", () => {
       path.join(ROOT, "generated/en-content-parity/W9-independent-qa/.v2-lane-manifest-w9-test-"),
     );
     try {
-      const producerHeadSha = "a".repeat(40);
+      const reviewedSourceCommit = execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim();
       const evidencePaths = ["inventory", "production", "package"].map((name) => path.join(directory, `${name}.json`));
       for (const evidencePath of evidencePaths) fs.writeFileSync(evidencePath, '{"ok":true}\n');
       const reportPath = path.join(directory, "report.json");
@@ -378,11 +404,15 @@ describe("English content parity automation control V2", () => {
         producer_lane_id: "W8",
         subscope_id: null,
         package_sha256: PACKAGE_SHA,
-        producer_head_sha: producerHeadSha,
-        reviewed_row_count: 7,
+        reviewed_source_commit: reviewedSourceCommit,
+        reviewed_asset_ids: ["ENPARITY-W8-CAREER-JOB-PROJECTION"],
+        reviewed_row_count: 1046,
         verdict: "PASS",
         checks: {
           language_naturalness: "PASS",
+          grammar: "PASS",
+          markdown_integrity: "PASS",
+          source_equivalence: "PASS",
           chinese_leakage: "PASS",
           claim_boundary: "PASS",
           asset_integrity: "PASS",
@@ -434,8 +464,8 @@ describe("English content parity automation control V2", () => {
             recorded_at: `2026-08-02T00:0${index}:00Z`,
           })),
         ],
-        producer_head_sha: producerHeadSha,
-        expected_count: 7,
+        reviewed_source_commit: reviewedSourceCommit,
+        expected_count: 1046,
       };
       const manifestPath = path.join(directory, "lane.json");
       fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
@@ -450,14 +480,23 @@ describe("English content parity automation control V2", () => {
         }],
         receipt_chains: [],
       };
-      const originalExpectedHead = process.env.EN_PARITY_EXPECTED_PR_HEAD;
-      process.env.EN_PARITY_EXPECTED_PR_HEAD = producerHeadSha;
+      manifest.expected_count = 7;
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const incompleteInputs = structuredClone(inputs);
+      incompleteInputs.lane_manifests[0].sha256 = sha256(fs.readFileSync(manifestPath));
+      expect(() => applyMaterializationInputs(v2, incompleteInputs)).toThrow(
+        "lane_manifest_independent_w9_lineage_invalid=W8",
+      );
+      manifest.expected_count = 1046;
+      fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
+      const originalExpectedHead = process.env.EN_PARITY_CURRENT_PR_HEAD;
+      process.env.EN_PARITY_CURRENT_PR_HEAD = reviewedSourceCommit;
       let materialized;
       try {
         materialized = applyMaterializationInputs(v2, inputs);
       } finally {
-        if (originalExpectedHead === undefined) delete process.env.EN_PARITY_EXPECTED_PR_HEAD;
-        else process.env.EN_PARITY_EXPECTED_PR_HEAD = originalExpectedHead;
+        if (originalExpectedHead === undefined) delete process.env.EN_PARITY_CURRENT_PR_HEAD;
+        else process.env.EN_PARITY_CURRENT_PR_HEAD = originalExpectedHead;
       }
       expect(materialized.lanes.find((lane: { lane_id: string }) => lane.lane_id === "W8")).toMatchObject({
         status: "qa_pass",

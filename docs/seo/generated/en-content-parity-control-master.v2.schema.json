@@ -270,7 +270,7 @@
         "legacy_lineage",
         "blockers",
         "transition_trace",
-        "producer_head_sha",
+        "reviewed_source_commit",
         "expected_count"
       ],
       "properties": {
@@ -287,7 +287,7 @@
         "legacy_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
         "blockers": { "type": "array", "items": { "type": "string" } },
         "transition_trace": { "type": "array", "items": { "$ref": "#/$defs/lane_transition" } },
-        "producer_head_sha": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{40}$" }, { "type": "null" }] },
+        "reviewed_source_commit": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{40}$" }, { "type": "null" }] },
         "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] },
         "counts": { "type": "object" }
       }
