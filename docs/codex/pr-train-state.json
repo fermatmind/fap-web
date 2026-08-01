@@ -52830,30 +52830,30 @@
     "updated_at": "2026-08-01T06:45:12Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
-    "status": "ready_to_merge",
+    "status": "local_verified",
     "repo": "fap-web",
-    "branch": "codex/en-parity-w3-article-w9-qa-rework-05",
+    "branch": "codex/en-parity-w3-article-w9-qa-rework-06",
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "8cc49e483fea0aa5fdb1daf90d80c2a3def05c59",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1897",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
         "status": "pass",
-        "evidence": "Producer PR #1889 merged as d8b361f26877d443eff680e7637fac04851c278c and CONTROL PR #1894 merged as dbb377c18798fce30ee0f4f3a125e20b9ba7a095. Current main registers W3-ARTICLES at package_frozen SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d with editorial evidence SHA 442c6804c81d1af8190d98f602a1f3f96bfad3da2eb73127e12b70ec088d8047. Baseline validator repair PR #1895 merged as 304fd146bd5c9406ee9b9f7348e4f4d9a09da14d so W9-owned PASS snapshots validate without producer mutation."
+        "evidence": "Producer PR #1905 merged as c9a871018b11a60c3f7cce169f1adf5c6eb5a9cd, isolated candidate-base rebind PR #1913 merged as 2b578a1437c99f9a0787e8977e8f15cbd719301e, and CONTROL freeze PR #1915 merged as e6dfca5de770387898f7ce146928f91ae2ada232. Current main registers W3-ARTICLES at package_frozen SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b with editorial evidence SHA 9faf285500947c013c04bf2902b580bf09568cc9751fbc586903bffe9f9c3d9b."
       },
       "package_integrity": {
         "status": "pass",
-        "evidence": "The W9 frozen snapshot contains the standard ten-file handoff; all eight immutable payloads are byte-identical to the producer package and recompute to aggregate SHA 8ec89c41e90c07388044606f5b4a795aa89266413bbce98775cbd5a6b709178d. All 17 Article/revision identities are unique, the W9 qa_pass candidate is non-immutable gate metadata, and all permissions remain false."
+        "evidence": "The fresh W9 frozen snapshot contains the standard ten-file handoff; all eight immutable payloads are byte-identical to the producer package and recompute to aggregate SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b. All 17 Article/revision identities are unique, the W9 qa_pass candidate is non-immutable gate metadata, and all permissions remain false."
       },
       "w9_coverage": {
         "status": "pass",
-        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and full bodies, all 86 Markdown table groups / 610 table lines, exact Article/revision identities, localized link sets, media omissions, claims, and candidate-only page/API alignment. Sixteen rows pass all checks; Article 59 is blocked only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-8ec89c41/."
+        "evidence": "Fresh independent W9 reviewed 17/17 registered titles, excerpts, and complete bodies, all 86 Markdown table groups / 610 table lines, exact Article/revision identities, localized link sets, media omissions, claims, and candidate-only page/API alignment. All 17 rows and every required row check PASS under generated/en-content-parity/W9-independent-qa/articles/w3-articles-f1b27eed/."
       },
       "language_naturalness": {
-        "status": "fail",
-        "evidence": "W3-ARTICLE-59 remains BLOCKED because its frozen full body says `Field related to AI often require greater tolerance ...`, a reader-visible subject-verb agreement defect. The other 16 rows pass language naturalness, and Article 59 passes the other seven row-level checks. W9 did not modify the producer payload."
+        "status": "pass",
+        "evidence": "All 17 titles, excerpts, and complete bodies pass fresh language-naturalness review. W3-ARTICLE-59 now reads `Fields related to AI often require greater tolerance ...`; the singular-subject defect is absent, and the other 16 rows remain reader-content-identical while independently revalidating. W9 did not modify the producer payload."
       },
       "source_equivalence_and_asset_completeness": {
         "status": "pass",
@@ -52869,26 +52869,26 @@
       },
       "artifact_shas": {
         "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 5bbf58ab78c680ab42d8416d0203616a24fd2ea3de898d00944d1ce760dd07e2; 17-row evidence SHA256 is 0ed8d0c6b5df9281c0e506879e516d46def5f4fe7406368329cb9164c49285a1; blocked candidate SHA256 is d2d6049ed86403786313039345dd2b5d365cbba3ad1efeee07286beb5d921991; source identity projection SHA256 remains 79dd56e3cc2a95e02207ed64d9229d3fec006f2d8dc4f56aaea773b31376c685."
+        "evidence": "Independent PASS report SHA256 is b5b0797c3902fe43648c37f17277716cb6366a05839d619cdf9a337b8f829ed4; 17-row evidence SHA256 is 941f145fc834d7028cce9ae974a09cc8d939f0ac6c5f65bdd2b66575f7177677; qa_pass candidate SHA256 is a83d8afdeb2d171b68d7f5a01e00a0c68240a19b05778310a254145042428245; source identity projection SHA256 is b397dd5cef4198e394723d9e6f692a7e7301da6168b9cedc2ba2aa389f19959f."
       },
       "control_validator": {
         "status": "pass",
-        "evidence": "Node 24 validate-en-content-parity-control accepts both the corrected independent BLOCKED report and the package_frozen-to-blocked candidate against current master SHA 326cab9704906206d289f0bc809899e59dda425149e603a995378ad5bee3ac4f with zero errors."
+        "evidence": "Node 24 validate-en-content-parity-control accepts both the independent PASS report and the adjacent package_frozen-to-qa_pass candidate against current master SHA b8ab9189dcd9d794258ae8184886e8a3346d58385e05e9060590ee6512f3bee6 with zero errors."
       },
       "local_validation": {
         "status": "pass",
-        "evidence": "Node 24 focused control and W3 Article package contracts pass 66/66. Strict validators, exact artifact SHA checks, 17-row aggregation with 16 PASS rows and exactly one W3-ARTICLE-59 language-naturalness blocker, Article 59's other seven PASS checks, immutable producer snapshot, all-false permissions, JSON/YAML parsing, scope validation, and git diff checks pass."
+        "evidence": "Node 24 focused control and W3 Article package contracts pass 67/67. Strict validators, exact artifact SHA checks, 17-row aggregation with all rows and all eight row checks PASS, immutable producer snapshot, 86/610 structural coverage, all-false permissions, JSON/YAML parsing, scope validation, and git diff checks pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1897 head b525cb89214aaabfa36f7be229152105f4de505d passed all 11 required CI and security checks: build, four contract shards, contracts, both freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts. The ready-state ledger commit receives one final required-check cycle before merge."
+        "status": "pending",
+        "evidence": "Fresh W9 rework-06 evidence has passed required local validation; GitHub required checks have not started."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "The original actionable Article 59 review finding is incorporated into the W9 BLOCKED evidence and its only review thread is resolved. GitHub reports head b525cb89214aaabfa36f7be229152105f4de505d MERGEABLE/CLEAN with no required review decision; exact scope remains limited to the registered W9 authority and train metadata."
+        "status": "pending",
+        "evidence": "Exact-head GitHub review and merge-policy evaluation are pending after the fresh W9 evidence PR is opened."
       }
     },
-    "failure_reason": "Fresh exact-head review found one reader-visible language-naturalness defect in frozen W3-ARTICLE-59: `Field related to AI often require greater tolerance ...`. W9 must report BLOCKED and cannot modify the producer payload.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -53007,9 +53007,14 @@
         "at": "2026-08-01T05:53:30Z",
         "status": "ready_to_merge",
         "summary": "PR #1897 head b525cb89214aaabfa36f7be229152105f4de505d passed all 11 required checks and is MERGEABLE/CLEAN. The Article 59 review finding is accurately recorded as the sole W9 blocker, the only review thread is resolved, scope is exact, producer payload remains byte-identical, and all permissions remain false. The ready-state ledger commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T07:09:24Z",
+        "status": "local_verified",
+        "summary": "Completed fresh independent W9 rework-06 QA against CONTROL-frozen package SHA f1b27eed98b3ca4dbdddea50cc250061232226a04ad1bbc9147ecebaa18aee3b. All 17 titles, excerpts, complete bodies, identities, 86 table groups / 610 table lines, and all eight row checks PASS. The immutable frozen snapshot, report, complete row evidence, source identity projection, and qa_pass candidate are stored under w3-articles-f1b27eed. Both strict artifacts validate, focused contracts pass 67/67, exact SHA and scope audits pass, and all CMS/import/release/search/deploy permissions remain false."
       }
     ],
-    "updated_at": "2026-08-01T05:53:30Z"
+    "updated_at": "2026-08-01T07:09:24Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
