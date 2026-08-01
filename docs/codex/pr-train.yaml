@@ -28340,3 +28340,48 @@ prs:
     deploy_allowed: false
     content_authority: backend
     repository_rule_impact: producer candidate metadata only; backend authority and frontend no-fallback rules remain unchanged
+
+  - id: EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01
+    repo: fap-web
+    branch: codex/en-parity-control-w2-package-in-progress-01
+    base: main
+    title: "EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01: accept Big Five package production"
+    depends_on:
+      - EN-PARITY-W2-BIG5-PACKAGE-IN-PROGRESS-01
+    mode: execute
+    train_scope: w2_big5_package_in_progress_control_acceptance
+    status: in_progress
+    scope:
+      - Accept only the validated W2 package_in_progress candidate and transition W2 exactly once from inventory_frozen to package_in_progress.
+      - Preserve the frozen 52/50/16 inventory, null package/QA fields, empty lineage, and all-false permissions.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    do_not:
+      - Modify generated/en-content-parity/W2-big-five/**, other lanes, CMS, database, runtime, SEO, import, publication, or deploy state.
+      - Assign package_sha256, qa_report_ref, gate_lineage, W9 PASS, or any write/release authority.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W2-big-five/master_manifest_patch.candidate.json
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - JSON and YAML parse; W2 52/50/16, zero-permission, zero-lineage, and null package/QA reconciliation
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend
+    repository_rule_impact: CONTROL acceptance only; backend authority and frontend no-fallback rules remain unchanged
