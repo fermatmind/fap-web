@@ -52566,7 +52566,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-ASSETS-01"
     ],
-    "commit_sha": "792a701862b05e66633bd42ca4e193b810409cc5",
+    "commit_sha": "096f757d49af72676b33947c08a3c71d2bd2d5ef",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1945",
     "checks": {
       "dependency": {
@@ -52598,12 +52598,12 @@
         "evidence": "Changed paths are restricted to the W3 Article ten-file producer package and the existing manifest/state items. CONTROL master, W9 evidence, W3-CAREER-GUIDES, CMS, publication, SEO runtime, search, and deploy state remain unchanged; YAML/JSON parsing and git diff --check pass."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Fresh required checks pending after Article 09 correction."
+        "status": "pass",
+        "evidence": "PR #1945 exact package head 096f757d49af72676b33947c08a3c71d2bd2d5ef passed all 11 required build, contract, freeze, and CodeQL checks."
       },
       "review_and_merge_policy": {
-        "status": "pending",
-        "evidence": "Article 09 thread resolution and fresh exact-head review pending."
+        "status": "pass",
+        "evidence": "GitHub reports PR #1945 MERGEABLE/CLEAN. The four reader-content review findings are resolved; exact-head review identified only the two ledger corrections recorded in this commit."
       }
     },
     "failure_reason": null,
@@ -52920,9 +52920,14 @@
         "at": "2026-08-01T10:50:28.472Z",
         "status": "review_correction_local_verified",
         "summary": "Article 09 correction revalidates: strict candidate validation, 67/67 focused contracts, exact SHA recomputation, phrase assertion, JSON parsing, and git diff checks pass. New exact package SHA is 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b; fresh GitHub checks and review-thread resolution are pending."
+      },
+      {
+        "at": "2026-08-01T10:55:47Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1945 exact package head 096f757d49af72676b33947c08a3c71d2bd2d5ef passed all 11 required checks and is MERGEABLE/CLEAN. Rebound commit_sha to that validated head and reset the dependent W9 rework-08 execution fields so stale rework-07 results cannot be mistaken for fresh QA. Exact package SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b and producer payload remain unchanged. This ledger-only ready-state commit receives the final required-check cycle."
       }
     ],
-    "updated_at": "2026-08-01T10:50:28.472Z"
+    "updated_at": "2026-08-01T10:55:47Z"
   },
   "EN-PARITY-W3-ARTICLE-W9-QA-01": {
     "status": "blocked_dependency",
@@ -52931,56 +52936,56 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": "c546bd5ebff91e5f18537a537414fd74ef8069e0",
-    "pr_url": "https://github.com/fermatmind/fap-web/pull/1938",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "dependency": {
-        "status": "pass",
-        "evidence": "Producer rework-07 freeze PR #1927 merged as 05f5901ba462c968880489441d161a61493b04c7 and CONTROL freeze PR #1931 merged as aaf3ff5ddce3c2632a633d0952727faec3fdd085. Current origin/main ae1370e3fe508914296e42b97f0de8703a10ceed contains that freeze and only later W1/W2 train work; W3-ARTICLES remains package_frozen at SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89 with editorial evidence SHA 933f7d554240acd53522affaeec36e4e083f33bb56a10e1a2b45b8c793c1f9a0."
+        "status": "pending",
+        "evidence": "Awaiting producer rework-08 PR #1945 merge and separate CONTROL acceptance of exact package SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b as package_frozen."
       },
       "package_integrity": {
-        "status": "pass",
-        "evidence": "The fresh W9 frozen snapshot is byte-identical to the complete standard ten-file producer handoff; all eight immutable payload SHA values recompute exactly to aggregate SHA 0be665a845f1322341d9346e5d30161f2d1475a3e1ad5befb764a0eb542acd89. All 17 Article/revision identities are unique, the adjacent W9 blocked candidate is separate gate metadata, and all permissions remain false."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 package-integrity verification has not started."
       },
       "w9_coverage": {
-        "status": "pass",
-        "evidence": "Fresh independent W9 re-fetched and matched 17/17 live zh-CN Article/revision/title/cover identities, then reviewed every registered title, excerpt, complete body, all 419 headings, 86 Markdown table groups / 610 table lines, localized link sets, media omissions, claims, and candidate-only page/API alignment. All 17 rows are BLOCKED only on language naturalness under generated/en-content-parity/W9-independent-qa/articles/w3-articles-0be665a8/."
+        "status": "pending",
+        "evidence": "Fresh independent 17-row W9 coverage has not started."
       },
       "language_naturalness": {
-        "status": "fail",
-        "evidence": "All 17 rows are BLOCKED after fresh complete-body and exact-head review found reader-visible grammatical, idiomatic, incomplete-phrase, semantic, or mistranslated-term defects. Every row passes the other seven row-level checks. W9 did not modify the producer payload."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 language-naturalness review has not started."
       },
       "source_equivalence_and_asset_completeness": {
-        "status": "pass",
-        "evidence": "All 17 rows pass semantic source equivalence and structural completeness. Source and candidate each contain 86 Markdown table groups / 610 table lines; all registered titles, excerpts, full bodies, frozen identities, and approved localized link sets are present."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 source-equivalence and completeness review has not started."
       },
       "field_leakage": {
-        "status": "pass",
-        "evidence": "All 17 complete candidate bodies were reviewed; prior producer, SEO, generator, website-production, and control-field phrases are absent from reader-visible content."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 field-leakage review has not started."
       },
       "other_required_qa_checks": {
-        "status": "pass",
-        "evidence": "Chinese leakage, internal-link equivalence including the two documented malformed-source corrections, explicit Media Library omission policy, unique identity mapping, applicable candidate-only page/API alignment, asset duplication/completeness, and claim boundary all pass. W3-ARTICLE-53's dated June 22-28, 2026 Gaokao event fact was independently verified against the official Sunshine Gaokao source. This does not claim live English parity."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 required QA checks have not started."
       },
       "artifact_shas": {
-        "status": "pass",
-        "evidence": "Independent BLOCKED report SHA256 is 07934b6e3c5e44579ec789f5f1048e510ba373c92a6543532c01b2a6e45007e1; final 17-row evidence SHA256 is 8701e279be8a19c5d72978ddf86b69427fd6af0ca4caaa2bb0c062dca53e8a32; current-master-rebound blocked candidate SHA256 is bc76868dcdb543198311464030922bb8e5710d15d650c7754dbe2fe08482ec51; source identity projection SHA256 is 5c48a2b97b20ae90d8cdecddffd65574a53d9a6ea8ff100d780201695c86be72."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 evidence artifacts do not yet exist."
       },
       "control_validator": {
-        "status": "pass",
-        "evidence": "Node 24.18.1 validate-en-content-parity-control accepts both the fresh independent BLOCKED report and the adjacent package_frozen-to-blocked candidate against current master SHA 0650be543b9b877ba8d8f498eff432661dd924e2c9eeec88429551ac5ded2f0b with zero errors."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 report validation has not started."
       },
       "local_validation": {
-        "status": "pass",
-        "evidence": "After merging current main and rebinding only the candidate base, Node 24.18.1 focused contracts pass 67/67. Both strict validators, exact artifact SHA checks, exact 17/17 BLOCKED aggregation, complete byte-identical producer snapshot, 17/17 identities, 86/610 structure, zero Han, unique media, all-false permissions, JSON parsing, scope, and diff checks pass."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 local validation has not started."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1938 exact head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required build, four contract shards, contracts summary, Big Five/Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts checks."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 W9 PR has not been opened."
       },
       "review_and_merge_policy": {
-        "status": "pass",
-        "evidence": "All review findings are resolved. Codex exact-head review of c546bd5ebff91e5f18537a537414fd74ef8069e0 reported no major issues; GitHub reports CLEAN/MERGEABLE with zero unresolved threads. Exact scope, current-master candidate binding, validators, artifact SHAs, snapshot, aggregate, and permissions revalidate."
+        "status": "pending",
+        "evidence": "Fresh independent rework-08 W9 review and merge-policy validation have not started."
       }
     },
     "failure_reason": "Awaiting producer rework-08 merge and separate CONTROL package_frozen acceptance before fresh independent W9 QA.",
@@ -53202,9 +53207,14 @@
         "at": "2026-08-01T09:53:06Z",
         "status": "ready_to_merge",
         "summary": "PR #1938 exact checked head c546bd5ebff91e5f18537a537414fd74ef8069e0 passed all 11 required checks and is CLEAN/MERGEABLE. Codex exact-head review found no major issues, all review threads are resolved, and exact current-master binding, validators, scope, artifact SHAs, frozen snapshot, 17/17 language-only BLOCKED aggregate, and all-false permissions revalidate. The ready-state ledger commit receives the final required-check cycle before squash merge."
+      },
+      {
+        "at": "2026-08-01T10:55:47Z",
+        "status": "blocked_dependency",
+        "summary": "Reset the current execution fields for fresh independent W9 rework-08: cleared the prior rework-07 PR and commit, marked every current check pending, and retained historical evidence only in history. Awaiting producer PR #1945 merge and separate CONTROL package_frozen acceptance of SHA 54fd2184e456f4d1cb465ea058c2860bc498e8ad88b3979116d94453a8c3ee0b."
       }
     ],
-    "updated_at": "2026-08-01T10:18:52.851Z"
+    "updated_at": "2026-08-01T10:55:47Z"
   },
   "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",
