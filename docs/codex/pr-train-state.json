@@ -52193,9 +52193,9 @@
     "depends_on": [
       "EN-PARITY-W1-MBTI-RESULT-ASSETS-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "c59eac6c1780da3660f44973eaf863381199f1c1",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1892",
     "checks": {
       "authorization": {
         "status": "passed",
@@ -52247,7 +52247,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The PR has not been created yet."
+        "evidence": "PR #1892 is open on local-verified head c59eac6c1780da3660f44973eaf863381199f1c1; required GitHub checks are pending."
       }
     },
     "failure_reason": null,
@@ -52277,9 +52277,14 @@
         "at": "2026-08-01T04:53:52Z",
         "status": "local_verified",
         "summary": "Fresh independent 46/46 review verdict is PASS. Package/file hashes, every content and safety row, backend 15/1663, frontend 6 files/43 tests, real FAQ active-reader rendering, traits.at_difference, PDF 20/4, current and synthetic control validators, four-file hashes, and exact path scope pass; every write/release permission remains false."
+      },
+      {
+        "at": "2026-08-01T04:56:03Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-file W9 scope as c59eac6c1780da3660f44973eaf863381199f1c1, pushed the task branch, and opened PR #1892. Required GitHub checks are pending; old BLOCKED evidence, package, control master, runtime, CMS, publication, activation, discoverability, and deployment remain untouched."
       }
     ],
-    "updated_at": "2026-08-01T04:53:52Z"
+    "updated_at": "2026-08-01T04:56:03Z"
   },
   "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02": {
     "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02",
