@@ -166,6 +166,12 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 selector", () => {
     expect(inspectHtml(invalid, expected)).toMatchObject({ canonical: "", self_canonical: false });
   });
 
+  it("rejects duplicate canonical links even when the first one is exact", () => {
+    const expected = "https://fermatmind.com/en/career/jobs/career-01";
+    const duplicate = html(expected).replace("</head>", `<link rel="canonical" href="${expected}/other"/></head>`);
+    expect(inspectHtml(duplicate, expected)).toMatchObject({ canonical: "", canonical_count: 2, self_canonical: false });
+  });
+
   it("extracts the exact live title, description, Open Graph, and Twitter metadata", () => {
     const url = "https://fermatmind.com/en/career/jobs/career-01";
     expect(inspectHtml(html(url, "Career 01"), url).metadata).toEqual({
@@ -353,7 +359,7 @@ describe("CAREER-SEARCH-ENTRY-PILOT-READINESS-01 committed artifact", () => {
       expect(artifact.targets).toEqual([]);
       expect(artifact.target_set_sha256).toBeNull();
       expect(artifact.rollback_batch_id).toBeNull();
-      expect(artifact.hold_reason).toMatch(/^insufficient_eligible_candidates:\d+\/10$/);
+      expect(artifact.hold_reason).toMatch(/^(?:insufficient_eligible_candidates:\d+\/10|invalid_exact_target_shape:\d+\/\d+)$/);
       expect(artifact.evidence_summary.exact_target_shape).toBe(false);
     }
     expect(artifact.negative_guarantees).toMatchObject({

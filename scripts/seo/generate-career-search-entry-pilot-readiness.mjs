@@ -125,7 +125,8 @@ export function inspectHtml(html, expectedUrl) {
   const head = String(html).match(/<head\b[^>]*>([\s\S]*?)<\/head\s*>/i)?.[1] || "";
   const linkTags = head.match(/<link\b[^>]*>/gi) || [];
   const metaTags = head.match(/<meta\b[^>]*>/gi) || [];
-  const canonicalTag = linkTags.find((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
+  const canonicalTags = linkTags.filter((tag) => attribute(tag, "rel").toLowerCase().split(/\s+/).includes("canonical"));
+  const canonicalTag = canonicalTags.length === 1 ? canonicalTags[0] : null;
   const robotsTags = metaTags.filter((tag) => attribute(tag, "name").toLowerCase() === "robots");
   const robotsValues = robotsTags.map((tag) => normalizeRobots(attribute(tag, "content")));
   const titleMatch = head.match(/<title\b[^>]*>([\s\S]*?)<\/title\s*>/i);
@@ -149,6 +150,7 @@ export function inspectHtml(html, expectedUrl) {
   const canonical = canonicalTag ? resolveAbsoluteUrl(attribute(canonicalTag, "href"), expectedUrl) : "";
   return {
     canonical,
+    canonical_count: canonicalTags.length,
     self_canonical: canonical === expectedUrl,
     robots: robotsValues.length === 1 ? robotsValues[0] : robotsValues.join("|"),
     robots_values: robotsValues,

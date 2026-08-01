@@ -53658,11 +53658,11 @@
       },
       "read_only_generator": {
         "status": "pass",
-        "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: only 1/10 required candidates passed after binding crawler-visible metadata to current SEO authority, scanning public rendered copy independently for guarantees, limiting canonical and robots evidence to the explicit Googlebot response head, and rejecting every non-indexable X-Robots directive."
+      "evidence": "The final strict read-only live observation correctly failed closed with HOLD and zero targets: 0/10 required candidates passed after binding crawler-visible metadata to current SEO authority, scanning public rendered copy independently for guarantees, requiring exactly one head canonical, and rejecting every non-indexable X-Robots directive."
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 43 tests. Coverage includes exact live metadata extraction/binding, independent public-body guarantee scanning, exact head-only canonical parsing, Googlebot collection identity, X-Robots noindex/none rejection, detail identity, rendered authority, exact URLs, structured FAQ, deterministic selection, and committed GO-or-HOLD fail-closed shape."
+      "evidence": "Canonical Node 24 / pnpm 10.28.1 passed the focused Vitest contract: 1 file, 44 tests. Coverage includes duplicate-canonical rejection, both supported HOLD reason forms, exact live metadata extraction/binding, independent public-body guarantee scanning, exact head-only canonical parsing, Googlebot collection identity, X-Robots rejection, detail identity, rendered authority, exact URLs, structured FAQ, and deterministic selection."
       },
       "lint": {
         "status": "pass",
@@ -53680,9 +53680,9 @@
         "status": "pending_recheck",
         "evidence": "All 11 required checks passed on d54e863f. The three newest exact-head review repairs and truthful HOLD artifact now require fresh exact-head GitHub checks."
       },
-      "codex_review": {
-        "status": "repaired_pending_recheck",
-        "evidence": "All newest exact-head findings are repaired fail-closed: crawler-visible title/description/OG/Twitter fields must match current backend SEO authority, rendered public body guarantees are scanned independently, X-Robots noindex/nofollow/none all reject, active guarantee verbs may contain intervening words, and canonical plus robots metadata must be valid elements inside the explicit crawler response head."
+    "codex_review": {
+      "status": "repaired_pending_recheck",
+      "evidence": "All newest exact-head findings are repaired fail-closed: exactly one head canonical is required, committed artifacts accept both insufficient-candidate and invalid-shape HOLD reasons, crawler-visible metadata must match current backend authority, rendered public guarantees are scanned independently, and X-Robots noindex/nofollow/none all reject. The timestamp comment is obsolete on the current artifact/report/state triple, which now shares one exact observation timestamp and hash."
       },
       "post_merge_revalidation": {
         "status": "pending",
@@ -53696,13 +53696,13 @@
       "post_merge_revalidated": false
     },
     "evidence": {
-      "observed_at": "2026-08-01T07:18:39.115Z",
+    "observed_at": "2026-08-01T07:32:13.318Z",
       "result": "HOLD",
-      "eligible_candidates": 1,
+    "eligible_candidates": 0,
       "target_slugs": 0,
       "target_urls": 0,
       "target_set_sha256": null,
-      "artifact_sha256": "6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438",
+    "artifact_sha256": "7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9",
       "rollback_batch_id": null
     },
     "production_write_execution": false,
@@ -53881,8 +53881,13 @@
         "at": "2026-08-01T07:26:10Z",
         "status": "github_checks_pending",
         "summary": "Merged latest origin/main 7798fd96 after an immediate concurrent ledger advance and preserved both append-only ledgers. The PR diff remains exactly the six authorized paths; post-merge focused 43/43, lint, typecheck, YAML/JSON, exact-scope, and diff checks pass."
+      },
+      {
+        "at": "2026-08-01T07:34:39Z",
+        "status": "github_checks_pending",
+        "summary": "After all 11 checks passed on 54c9c4fc, exact-head review found duplicate-canonical and invalid-shape HOLD contract gaps; both are repaired. The final same-code live observation is HOLD with 0/10 complete rows, zero targets, exact observed_at 2026-08-01T07:32:13.318Z, and artifact 7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9. Focused 44/44, lint, and typecheck pass."
       }
     ],
-    "updated_at": "2026-08-01T07:26:10Z"
+    "updated_at": "2026-08-01T07:34:39Z"
   }
 }

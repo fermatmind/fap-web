@@ -1,7 +1,7 @@
 {
   "schema_version": "career.search_entry_pilot_readiness.v1",
   "task": "CAREER-SEARCH-ENTRY-PILOT-READINESS-01",
-  "observed_at": "2026-08-01T07:18:39.115Z",
+  "observed_at": "2026-08-01T07:32:13.318Z",
   "mode": "read_only_backend_authority_and_public_surface_observation",
   "source": {
     "site_url": "https://fermatmind.com",
@@ -37,42 +37,35 @@
   },
   "inventory": {
     "observed_candidate_count": 50,
-    "eligible_candidate_count": 1,
-    "rejected_candidate_count": 49,
+    "eligible_candidate_count": 0,
+    "rejected_candidate_count": 50,
     "tier_counts": {
       "stable": 4,
       "approved_candidate": 46
     },
     "rejection_reason_counts": {
-      "en_canonical_mismatch": 32,
+      "en_canonical_mismatch": 42,
       "en_faq_entities_invalid": 2,
-      "en_faq_schema_mismatch": 3,
-      "en_metadata_authority_mismatch": 33,
-      "en_not_index_follow": 32,
-      "en_rendered_authority_marker_mismatch": 16,
+      "en_faq_schema_mismatch": 2,
+      "en_metadata_authority_mismatch": 42,
+      "en_not_index_follow": 42,
+      "en_rendered_authority_marker_mismatch": 15,
       "en_required_schema_missing": 2,
-      "en_thin_or_shell": 3,
-      "zh_canonical_mismatch": 42,
+      "en_thin_or_shell": 2,
+      "zh_canonical_mismatch": 39,
       "zh_faq_entities_invalid": 3,
       "zh_faq_schema_mismatch": 3,
-      "zh_metadata_authority_mismatch": 42,
-      "zh_not_index_follow": 42,
+      "zh_metadata_authority_mismatch": 39,
+      "zh_not_index_follow": 39,
       "zh_rendered_authority_marker_mismatch": 16,
       "zh_required_schema_missing": 3,
       "zh_thin_or_shell": 3,
       "en_unsupported_guarantee_claim": 5,
-      "zh_unsupported_guarantee_claim": 5,
-      "content_version_locale_drift": 1,
-      "en_approved_package_projection_mismatch": 1,
-      "en_detail_api_not_200": 1,
-      "en_detail_canonical_slug_mismatch": 1,
-      "en_review_not_approved": 1,
-      "en_review_stale": 1,
-      "reviewer_evidence_locale_drift": 1
+      "zh_unsupported_guarantee_claim": 5
     }
   },
   "result": "HOLD",
-  "hold_reason": "insufficient_eligible_candidates:1/10",
+  "hold_reason": "insufficient_eligible_candidates:0/10",
   "targets": [],
   "target_set_sha256": null,
   "rollback_batch_id": null,
@@ -135,6 +128,19 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow"
+      ]
+    },
+    {
+      "slug": "administrative-services-managers",
+      "tier": "approved_candidate",
+      "quality_score": 60,
+      "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -160,10 +166,7 @@
       "reasons": [
         "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_not_index_follow"
       ]
     },
     {
@@ -207,9 +210,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -249,6 +249,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -276,6 +279,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -288,6 +294,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -300,6 +309,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -312,10 +324,10 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch"
       ]
     },
@@ -328,6 +340,9 @@
         "en_metadata_authority_mismatch",
         "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch"
       ]
     },
@@ -336,10 +351,10 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch"
       ]
     },
@@ -348,6 +363,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -375,6 +393,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_rendered_authority_marker_mismatch",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -387,6 +408,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -399,6 +423,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -422,9 +449,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow"
       ]
     },
     {
@@ -481,6 +508,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -517,9 +547,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow"
       ]
     },
     {
@@ -527,7 +557,9 @@
       "tier": "stable",
       "quality_score": 86,
       "reasons": [
+        "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -551,21 +583,8 @@
     {
       "slug": "economists",
       "tier": "approved_candidate",
-      "quality_score": 0,
+      "quality_score": 60,
       "reasons": [
-        "content_version_locale_drift",
-        "en_approved_package_projection_mismatch",
-        "en_canonical_mismatch",
-        "en_detail_api_not_200",
-        "en_detail_canonical_slug_mismatch",
-        "en_faq_schema_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "en_rendered_authority_marker_mismatch",
-        "en_review_not_approved",
-        "en_review_stale",
-        "en_thin_or_shell",
-        "reviewer_evidence_locale_drift",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -576,6 +595,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -612,9 +634,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "en_unsupported_guarantee_claim",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
@@ -627,9 +646,9 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_canonical_mismatch",
+        "en_metadata_authority_mismatch",
+        "en_not_index_follow"
       ]
     },
     {
@@ -639,10 +658,7 @@
       "reasons": [
         "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_not_index_follow"
       ]
     },
     {
@@ -652,7 +668,10 @@
       "reasons": [
         "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
-        "en_not_index_follow"
+        "en_not_index_follow",
+        "zh_canonical_mismatch",
+        "zh_metadata_authority_mismatch",
+        "zh_not_index_follow"
       ]
     },
     {
@@ -670,9 +689,6 @@
       "tier": "approved_candidate",
       "quality_score": 60,
       "reasons": [
-        "en_canonical_mismatch",
-        "en_metadata_authority_mismatch",
-        "en_not_index_follow",
         "zh_canonical_mismatch",
         "zh_metadata_authority_mismatch",
         "zh_not_index_follow"
@@ -685,10 +701,7 @@
       "reasons": [
         "en_canonical_mismatch",
         "en_metadata_authority_mismatch",
-        "en_not_index_follow",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow"
+        "en_not_index_follow"
       ]
     },
     {
@@ -738,12 +751,9 @@
       "quality_score": 60,
       "reasons": [
         "en_rendered_authority_marker_mismatch",
-        "zh_canonical_mismatch",
-        "zh_metadata_authority_mismatch",
-        "zh_not_index_follow",
         "zh_rendered_authority_marker_mismatch"
       ]
     }
   ],
-  "artifact_sha256": "6db765c60b3df504b36ec706b0d30b57a940f9986cb2d73d04fe780371f6e438"
+  "artifact_sha256": "7770362ca6ced75f8e72a9d7868e0a9f9ba24b7272c5d3a41d22ea56dd9464a9"
 }
