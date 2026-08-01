@@ -53073,8 +53073,8 @@
       "EN-PARITY-W2-BIG5-RESULT-ASSETS-01"
     ],
     "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "9c1d135086fd9edc2c7a243bc210e61f2fe29d82",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1893",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -53087,6 +53087,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Read-only backend package validator passes with 16 units / 16 assets and child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81. The W2 candidate validator passes against master SHA ecc10054068b2ae9e8c8b9ef59044c1cfa4621ba429381d99c1611dda582844d; focused parity contract passes 62/62 on Node 24. 118 unique ledger rows reconcile as 52/50/16, all eight immutable payload hashes and aggregate package SHA 6e4f29588fe5a94538e6fb4dd0aa354a5a8c97648512e5f2d8320b534bce9ef0 recompute, JSON/JSONL/YAML parsing and boundary scans pass, and no write/release permission is enabled."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1893 opened from exact implementation head 9c1d135086fd9edc2c7a243bc210e61f2fe29d82. Build, four contract shards, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL are queued or running."
       }
     },
     "failure_reason": null,
@@ -53109,8 +53113,13 @@
         "at": "2026-08-01T05:00:00Z",
         "status": "local_verified",
         "summary": "Rebuilt the completed 118-row candidate package as EN-PARITY-W2-BIG5-COMPLETE-20260801. The result cohort now reconciles 16/16/0 to backend child merge 44350a696d8d1123fa2ea7831708d709831cf34b and child SHA aea87a8c0545d1be6cb1a32ff981576d62d077a8eab36834f34ec9d41c1bfc81. Aggregate W2 package SHA is 6e4f29588fe5a94538e6fb4dd0aa354a5a8c97648512e5f2d8320b534bce9ef0. Schema-safe cohort parity_state remains en_draft_requires_verification while every result row and translation records draft_review_asset_complete_pending_w9; W9 and all write/release gates remain false."
+      },
+      {
+        "at": "2026-08-01T05:03:35Z",
+        "status": "github_checks_pending",
+        "summary": "Committed implementation head 9c1d135086fd9edc2c7a243bc210e61f2fe29d82 and opened PR #1893. Required CI, freeze, and CodeQL checks are pending; no review is required at open time."
       }
     ],
-    "updated_at": "2026-08-01T05:00:00Z"
+    "updated_at": "2026-08-01T05:03:35Z"
   }
 }
