@@ -1,0 +1,443 @@
+{
+  "schema_version": "fermatmind.en_content_parity_independent_qa_row_evidence.v1",
+  "review_kind": "fresh_independent_full_target_w9",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "qa_lane_id": "W9",
+  "producer_lane_id": "W3",
+  "subscope_id": "W3-ARTICLES",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-PRODUCER-REWORK-09-2026-08-01",
+  "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "reviewed_asset_ids": [
+    "ENPARITY-W3-ARTICLES"
+  ],
+  "reviewed_row_count": 17,
+  "verdict": "BLOCKED",
+  "coverage": {
+    "titles_reviewed": 17,
+    "excerpts_reviewed": 17,
+    "full_bodies_reviewed": 17,
+    "registered_rows_covered": 17,
+    "candidate_markdown_table_groups_reviewed": 524,
+    "candidate_markdown_table_lines_reviewed": 610,
+    "candidate_han_character_count": 0,
+    "page_api_alignment_status": "NOT_APPLICABLE",
+    "coverage_result": "PASS"
+  },
+  "required_checks": {
+    "language_naturalness": "PASS",
+    "chinese_leakage": "PASS",
+    "claim_boundary": "BLOCKED",
+    "asset_duplication": "PASS",
+    "field_leakage": "PASS",
+    "page_api_alignment": "NOT_APPLICABLE"
+  },
+  "package_integrity": {
+    "immutable_payload_file_count": 8,
+    "immutable_payload_sha256": {
+      "scope_manifest.json": "fb672d864538ffc1ce6ce7f427480fe8c6b80079003ee7a9f157c5a4bd84a98d",
+      "assets.jsonl": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "translation_map.json": "fdb3130eb123b8852f2f3e552e94faa474e97ce092c6de156865a9f14cfeff14",
+      "source_ledger.json": "6c9afee493506d7f066bf9e130dd8d165dd75e8bf51e56635ab7f44404266850",
+      "claim_boundary_report.json": "5add9bd9afdec140a803542f879fbf1d59f2b9097ad189a479ce93af1d7d66b8",
+      "editorial_review.json": "1c15dd357a4eb36625c1f9e8eee07159f4a07efeed1a14ce3a3cbc548b57c334",
+      "dry_run_readiness.json": "9fa0eec59fe23ab078f0a45cb1f2922f7daccc962fe43b6f5e668339aed09ce4",
+      "handoff.md": "0581a7d3c82abe1562c96ccb90347d37de94c6852084010ab1d2232603add9e7"
+    },
+    "immutable_payloads_actual_match": true,
+    "aggregate_package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+    "producer_package_modified": false,
+    "control_master_modified": false,
+    "career_guides_modified": false
+  },
+  "check_evidence": {
+    "language_naturalness": "PASS for all 17 frozen rows after complete title, excerpt, and body review.",
+    "chinese_leakage": "PASS because no candidate title, excerpt, or body contains Han characters.",
+    "claim_boundary": "BLOCKED only for Article:53 because its 2026 time-sensitive external facts lack independent official or immutable source evidence in the frozen package.",
+    "asset_duplication": "PASS because the 17 Article/revision identities are unique and all eight immutable producer payloads recompute to their declared SHA values.",
+    "field_leakage": "PASS because the review found no producer/control workflow fields in reader-visible candidate content.",
+    "page_api_alignment": "NOT_APPLICABLE: all rows are candidate-only and import/live QA is a later gate, not a blocker in this W9 review."
+  },
+  "blocking_summary": {
+    "blocked_row_count": 1,
+    "passing_rows": [
+      "W3-ARTICLE-01",
+      "W3-ARTICLE-02",
+      "W3-ARTICLE-03",
+      "W3-ARTICLE-04",
+      "W3-ARTICLE-05",
+      "W3-ARTICLE-06",
+      "W3-ARTICLE-07",
+      "W3-ARTICLE-08",
+      "W3-ARTICLE-09",
+      "W3-ARTICLE-10",
+      "W3-ARTICLE-50",
+      "W3-ARTICLE-51",
+      "W3-ARTICLE-52",
+      "W3-ARTICLE-55",
+      "W3-ARTICLE-58",
+      "W3-ARTICLE-59"
+    ],
+    "blocked_rows": [
+      "W3-ARTICLE-53"
+    ],
+    "blocked_checks": {
+      "claim_boundary": 1
+    },
+    "qa_pass_authorized": false,
+    "producer_payload_modified": false,
+    "control_master_modified": false,
+    "career_guide_scope_modified": false,
+    "required_next_action": "A separate CONTROL-only decision must accept this exact-SHA BLOCKED evidence and reset W3-ARTICLES to package_in_progress before a producer-only Article:53 repair. CMS, import, publication, indexability, search, and deploy permissions remain false."
+  },
+  "row_reviews": [
+    {
+      "row_id": "W3-ARTICLE-01",
+      "source_identity": "Article:1@revision:446",
+      "stable_asset_identity": "Article:1",
+      "slug": "big-five-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-02",
+      "source_identity": "Article:2@revision:445",
+      "stable_asset_identity": "Article:2",
+      "slug": "big-five-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-03",
+      "source_identity": "Article:3@revision:383",
+      "stable_asset_identity": "Article:3",
+      "slug": "big-five-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-04",
+      "source_identity": "Article:4@revision:58",
+      "stable_asset_identity": "Article:4",
+      "slug": "eq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-05",
+      "source_identity": "Article:5@revision:444",
+      "stable_asset_identity": "Article:5",
+      "slug": "iq-test-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-06",
+      "source_identity": "Article:6@revision:443",
+      "stable_asset_identity": "Article:6",
+      "slug": "iq-test-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-07",
+      "source_identity": "Article:7@revision:442",
+      "stable_asset_identity": "Article:7",
+      "slug": "iq-test-tool-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-08",
+      "source_identity": "Article:8@revision:72",
+      "stable_asset_identity": "Article:8",
+      "slug": "mbti-basics",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-09",
+      "source_identity": "Article:9@revision:441",
+      "stable_asset_identity": "Article:9",
+      "slug": "mbti-growth-guide",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-10",
+      "source_identity": "Article:10@revision:440",
+      "stable_asset_identity": "Article:10",
+      "slug": "mbti-narrative-portrait",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-50",
+      "source_identity": "Article:50@revision:57",
+      "stable_asset_identity": "Article:50",
+      "slug": "iq-test-score-and-limits-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-51",
+      "source_identity": "Article:51@revision:73",
+      "stable_asset_identity": "Article:51",
+      "slug": "enneagram-personality-test-explained",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-52",
+      "source_identity": "Article:52@revision:64",
+      "stable_asset_identity": "Article:52",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-53",
+      "source_identity": "Article:53@revision:65",
+      "stable_asset_identity": "Article:53",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "BLOCKED",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "BLOCKED",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "BLOCKED only on claim boundary: the complete candidate body includes 2026 time-sensitive Sunshine Gaokao Cloud Consultation Week dates and 2026 catalogue/new-program assertions without an independently verifiable official or immutable source in the frozen package. Identity, language, leakage, Markdown, links, media, and candidate-only page/API status otherwise pass."
+    },
+    {
+      "row_id": "W3-ARTICLE-55",
+      "source_identity": "Article:55@revision:75",
+      "stable_asset_identity": "Article:55",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-58",
+      "source_identity": "Article:58@revision:78",
+      "stable_asset_identity": "Article:58",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    },
+    {
+      "row_id": "W3-ARTICLE-59",
+      "source_identity": "Article:59@revision:79",
+      "stable_asset_identity": "Article:59",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "title_excerpt_full_body_reviewed": true,
+      "page_api_alignment_status": "NOT_APPLICABLE",
+      "verdict": "PASS",
+      "checks": {
+        "language_naturalness": "PASS",
+        "chinese_leakage": "PASS",
+        "source_equivalence_identity": "PASS",
+        "claim_boundary": "PASS",
+        "internal_link_equivalence": "PASS",
+        "field_leakage": "PASS",
+        "asset_media_duplication_omission": "PASS",
+        "page_api_alignment_applicable": "PASS"
+      },
+      "evidence": "PASS after a fresh title, excerpt, and full-body review of the frozen candidate. Identity/revision binding, language, Chinese leakage, Markdown, claim boundaries, links, media, field isolation, and candidate-only page/API status were reconciled without a blocker."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

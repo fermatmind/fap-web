@@ -1,0 +1,14 @@
+{
+  "package_sha256": "2c228eae88ce6fc3edb32c1dda9aabf1e2d51d6a885ef7b90d4a7c1864c0e33e",
+  "verdict": "BLOCKED",
+  "repairs": [
+    {
+      "stable_asset_identity": "Article:53",
+      "field": "candidate_content_md",
+      "original_scope": "2026 Sunshine Gaokao Cloud Consultation Week dates and 2026 catalogue/new-program assertions",
+      "issue": "Unsupported time-sensitive external fact",
+      "repair_boundary": "Producer-only rebuild after CONTROL reset; add immutable official citation evidence or remove/reframe the claims.",
+      "revalidation": "Fresh W9 17/17 review against a new frozen package SHA."
+    }
+  ]
+}
