@@ -56009,8 +56009,8 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-frontend-locale-guard-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-AUTHORITY-PROMOTION-REPAIR-01"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "675bdbef55c669f712d5d13284aeb1a2b4178e9c",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -56029,7 +56029,23 @@
     "search_channel_action": false,
     "url_submission": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-08-02T17:06:34Z", "status": "in_progress", "summary": "Started Task 2 from fap-web origin/main after the merged fap-api authority repair. Scope is exact locale, form, Han-leakage, identity, and safe-surface fail-closed frontend guarding only."}],
-    "updated_at": "2026-08-02T17:06:34Z"
+    "history": [
+      {
+        "at": "2026-08-02T17:06:34Z",
+        "status": "in_progress",
+        "summary": "Started Task 2 from fap-web origin/main after the merged fap-api authority repair. Scope is restricted to exact locale, form, reader-visible Han leakage, identity, and safe-surface fail-closed frontend guarding; no backend, CMS, content, receipt, SEO, private data, or deployment action is included."
+      },
+      {
+        "at": "2026-08-02T17:08:22Z",
+        "status": "local_verified",
+        "summary": "Explicit locale propagation, exact envelope/slot locale checks, 60Q G06/G07 slot rejection, English Han leakage rejection, duplicate/missing identity omission, and safe-surface filtering pass. Focused 6-file contracts pass 30/30; complete RIASEC contracts pass 189/189; touched ESLint, pnpm typecheck, YAML/JSON parsing, and diff checks pass. No private result, report, history, order, payment, token, CMS, SEO, receipt, or deployment path was read or changed."
+      },
+      {
+        "at": "2026-08-02T17:09:10Z",
+        "status": "committed",
+        "summary": "Committed the scoped runtime guard as 675bdbef55c669f712d5d13284aeb1a2b4178e9c. The follow-up ledger checkpoint records that implementation commit before push; no package, reader copy, authority, receipt, private-data, SEO, CMS, or deployment state changed."
+      }
+    ],
+    "updated_at": "2026-08-02T17:09:10Z"
   }
 }
