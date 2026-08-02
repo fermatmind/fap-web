@@ -1,4 +1,5 @@
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
+import type { Locale } from "@/lib/i18n/locales";
 
 export type RiasecDimension = {
   code: string;
@@ -325,6 +326,53 @@ function normalizeStringList(value: unknown): string[] {
   return Array.isArray(value) ? value.map((item) => normalizeText(item)).filter(Boolean) : [];
 }
 
+function normalizeRiasecContentLocale(value: unknown): Locale | null {
+  const locale = normalizeText(value).toLowerCase();
+
+  if (locale === "en" || locale === "en-us" || locale === "en-gb") {
+    return "en";
+  }
+  if (locale === "zh" || locale === "zh-cn" || locale === "zh-hans") {
+    return "zh";
+  }
+
+  return null;
+}
+
+function isRiasecFormCode(value: string): value is "riasec_60" | "riasec_140" {
+  return value === "riasec_60" || value === "riasec_140";
+}
+
+function is60QIneligibleSlot(slotKey: string, slotGroup: string): boolean {
+  return (
+    slotGroup === "structural_difference_copy" ||
+    [
+      "140q_task_card_copy",
+      "140q_environment_card_copy",
+      "140q_role_card_copy",
+      "140q_layer_agreement_copy",
+      "140q_tension_copy",
+      "140q_layer_unavailable_copy",
+    ].includes(slotKey)
+  );
+}
+
+function hasReaderVisibleHanText(
+  content: Record<string, string | string[]>,
+  userVisibleBoundary: unknown
+): boolean {
+  return [
+    ...Object.values(content).flatMap((value) => Array.isArray(value) ? value : [value]),
+    normalizeText(userVisibleBoundary),
+  ].some((value) => /\p{Script=Han}/u.test(value));
+}
+
+function isSafeRiasecSurfaceVariant(surface: string, publicSafe: unknown): boolean {
+  const expectedPublicSafe = RIASEC_SAFE_SURFACE_VARIANTS.get(surface);
+
+  return expectedPublicSafe !== undefined && publicSafe === expectedPublicSafe;
+}
+
 const KNOWN_RIASEC_MODULE_KEYS = new Set([
   "hero_activity_chain",
   "six_dimension_map",
@@ -391,15 +439,33 @@ const KNOWN_RIASEC_DEEP_CONTENT_KEYS = new Set([
   "button_label",
 ]);
 
+const RIASEC_SAFE_SURFACE_VARIANTS = new Map<string, boolean>([
+  ["share_safe_card", true],
+  ["share_detail_boundary", true],
+  ["low_quality_share", true],
+  ["pdf_personal", false],
+  ["pdf_counselor_discussion", false],
+  ["history_same_form", false],
+  ["history_cross_form", false],
+]);
+
 type RiasecProjectionContainer =
   | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">
   | Pick<ResultResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">;
+
+type RiasecDeepContentProjectionContext = {
+  requestedPageLocale: Locale;
+  formCode: "riasec_60" | "riasec_140" | null;
+};
 
 export function hasRiasecProjection(reportData: RiasecProjectionContainer | null | undefined): boolean {
   return Boolean(asRecord(reportData?.riasec_public_projection_v2) ?? asRecord(reportData?.riasec_public_projection_v1));
 }
 
-export function assembleRiasecResultViewModel(reportData: RiasecProjectionContainer): RiasecResultViewModel {
+export function assembleRiasecResultViewModel(
+  reportData: RiasecProjectionContainer,
+  requestedPageLocale: Locale
+): RiasecResultViewModel {
   const projectionV2 = asRecord(reportData.riasec_public_projection_v2);
   const projection = asRecord(reportData.riasec_public_projection_v1) ?? {};
   const form = asRecord((reportData as { riasec_form_v1?: unknown }).riasec_form_v1);
@@ -436,6 +502,7 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
         score: normalizeNumber(scores[code]),
       }));
   const formCode = normalizeText(v2Form?.form_code) || normalizeText(form?.form_code) || null;
+  const deepContentFormCode = formCode && isRiasecFormCode(formCode) ? formCode : null;
   const topCode = normalizeText(v2HollandCode?.code) || normalizeText(projection.top_code);
   const qualityFlags = Array.isArray(v2Quality?.flags)
     ? v2Quality.flags.map((flag) => normalizeText(flag)).filter(Boolean)
@@ -479,7 +546,10 @@ export function assembleRiasecResultViewModel(reportData: RiasecProjectionContai
       : null,
     interpretationState: buildInterpretationState(v2InterpretationState),
     moduleVisibilityPolicy: buildModuleVisibilityPolicy(v2ModuleVisibilityPolicy),
-    deepContentSlots: buildDeepContentSlots(v2DeepContentSlots),
+    deepContentSlots: buildDeepContentSlots(v2DeepContentSlots, {
+      requestedPageLocale,
+      formCode: deepContentFormCode,
+    }),
     activityExplorer: buildActivityExplorer(v2ActivityExplorer),
     feedbackOverlay: buildFeedbackOverlay(v2FeedbackOverlay),
     lifecycleCopy: buildLifecycleCopy(v2LifecycleCopy),
@@ -591,29 +661,48 @@ function buildModuleVisibilityPolicy(rawPolicy: Record<string, unknown> | null):
   };
 }
 
-function buildDeepContentSlots(rawEnvelope: Record<string, unknown> | null): RiasecDeepContentSlotsEnvelope | null {
+function buildDeepContentSlots(
+  rawEnvelope: Record<string, unknown> | null,
+  context: RiasecDeepContentProjectionContext
+): RiasecDeepContentSlotsEnvelope | null {
   if (!rawEnvelope) {
     return null;
   }
 
   const rawSourcePolicy = asRecord(rawEnvelope.source_policy) ?? {};
   const rawSlotVisibilityPolicy = asRecord(rawEnvelope.slot_visibility_policy) ?? {};
+  const envelopeLocale = normalizeRiasecContentLocale(rawEnvelope.locale);
   if (normalizeBoolean(rawSourcePolicy.frontend_fallback_allowed)) {
     return null;
   }
   if (normalizeBoolean(rawSlotVisibilityPolicy.frontend_inference_allowed)) {
     return null;
   }
+  if (
+    normalizeText(rawEnvelope.scale_code) !== "RIASEC" ||
+    !context.formCode ||
+    envelopeLocale !== context.requestedPageLocale
+  ) {
+    return null;
+  }
 
   const rawSlots = Array.isArray(rawEnvelope.slots) ? rawEnvelope.slots : [];
+  const seenSlotIds = new Set<string>();
   const slots = rawSlots
-    .map((rawSlot) => buildDeepContentSlot(asRecord(rawSlot)))
-    .filter((slot): slot is RiasecDeepContentSlot => Boolean(slot));
+    .map((rawSlot) => buildDeepContentSlot(asRecord(rawSlot), context, envelopeLocale))
+    .filter((slot): slot is RiasecDeepContentSlot => {
+      if (!slot || seenSlotIds.has(slot.slotId)) {
+        return false;
+      }
+
+      seenSlotIds.add(slot.slotId);
+      return true;
+    });
 
   return {
     schemaVersion: normalizeText(rawEnvelope.schema_version),
     scaleCode: normalizeText(rawEnvelope.scale_code),
-    locale: normalizeText(rawEnvelope.locale),
+    locale: envelopeLocale,
     contentAuthority: normalizeText(rawEnvelope.content_authority),
     snapshotBound: normalizeBoolean(rawEnvelope.snapshot_bound),
     sourcePolicy: {
@@ -633,7 +722,11 @@ function buildDeepContentSlots(rawEnvelope: Record<string, unknown> | null): Ria
   };
 }
 
-function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDeepContentSlot | null {
+function buildDeepContentSlot(
+  rawSlot: Record<string, unknown> | null,
+  context: RiasecDeepContentProjectionContext,
+  envelopeLocale: Locale
+): RiasecDeepContentSlot | null {
   if (!rawSlot) {
     return null;
   }
@@ -643,6 +736,7 @@ function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDe
   const slotVisibility = normalizeText(rawSlot.slot_visibility);
   const status = normalizeText(rawSlot.status);
   const contentStatus = normalizeText(rawSlot.content_status);
+  const slotId = normalizeText(rawSlot.slot_id);
   if (!KNOWN_RIASEC_DEEP_SLOT_KEYS.has(slotKey) || !KNOWN_RIASEC_DEEP_SLOT_GROUPS.has(slotGroup)) {
     return null;
   }
@@ -656,6 +750,10 @@ function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDe
     return null;
   }
 
+  if (!slotId || normalizeRiasecContentLocale(rawSlot.locale) !== envelopeLocale) {
+    return null;
+  }
+
   const content = buildDeepContentBody(asRecord(rawSlot.content));
   if (Object.keys(content).length === 0) {
     return null;
@@ -663,11 +761,22 @@ function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDe
 
   const applicability = asRecord(rawSlot.applicability) ?? {};
   const boundaries = asRecord(rawSlot.boundaries) ?? {};
+  const formCodes = normalizeStringList(applicability.form_codes);
+  if (
+    !context.formCode ||
+    !formCodes.includes(context.formCode) ||
+    (context.formCode === "riasec_60" && is60QIneligibleSlot(slotKey, slotGroup))
+  ) {
+    return null;
+  }
+  if (context.requestedPageLocale === "en" && hasReaderVisibleHanText(content, boundaries.user_visible_boundary)) {
+    return null;
+  }
 
   return {
     slotKey,
     slotGroup,
-    slotId: normalizeText(rawSlot.slot_id),
+    slotId,
     moduleKey: normalizeText(rawSlot.module_key),
     slotVisibility: slotVisibility as RiasecDeepContentSlotVisibility,
     status,
@@ -676,11 +785,11 @@ function buildDeepContentSlot(rawSlot: Record<string, unknown> | null): RiasecDe
     reviewStatus: normalizeText(rawSlot.review_status),
     sourceStatus: normalizeText(rawSlot.source_status),
     evidenceLevel: normalizeText(rawSlot.evidence_level),
-    locale: normalizeText(rawSlot.locale),
+    locale: envelopeLocale,
     frontendFallbackAllowed: false,
     fallbackBehavior: normalizeText(rawSlot.fallback_behavior),
     applicability: {
-      formCodes: normalizeStringList(applicability.form_codes),
+      formCodes,
       profileShapes: normalizeStringList(applicability.profile_shapes),
       qualityStates: normalizeStringList(applicability.quality_states),
       codes: normalizeStringList(applicability.codes),
@@ -923,8 +1032,9 @@ function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): R
   const surfaces = (Array.isArray(rawLifecycleCopy.surfaces) ? rawLifecycleCopy.surfaces : [])
     .map((rawSurface) => {
       const surface = asRecord(rawSurface) ?? {};
+      const surfaceKey = normalizeText(surface.surface);
       if (
-        normalizeText(surface.surface) === "" ||
+        !isSafeRiasecSurfaceVariant(surfaceKey, surface.public_safe) ||
         normalizeText(surface.copy) === "" ||
         surface.raw_scores_allowed !== false ||
         surface.raw_feedback_allowed !== false
@@ -933,7 +1043,7 @@ function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): R
       }
 
       return {
-        surface: normalizeText(surface.surface),
+        surface: surfaceKey,
         copy: normalizeText(surface.copy),
         publicSafe: normalizeBoolean(surface.public_safe),
         rawScoresAllowed: false,
@@ -961,7 +1071,8 @@ function buildLifecycleCopy(rawLifecycleCopy: Record<string, unknown> | null): R
     technicalNoteSummaryAssetId: normalizeText(rawLifecycleCopy.technical_note_summary_asset_id),
     professionalMethodBoundaryAssetId: normalizeText(rawLifecycleCopy.professional_method_boundary_asset_id),
     faqMarkdownReferenceAvailable: normalizeBoolean(rawLifecycleCopy.faq_markdown_reference_available),
-    publicSafeDefaultSurfaceKeys: normalizeStringList(rawLifecycleCopy.public_safe_default_surface_keys),
+    publicSafeDefaultSurfaceKeys: normalizeStringList(rawLifecycleCopy.public_safe_default_surface_keys)
+      .filter((surface) => RIASEC_SAFE_SURFACE_VARIANTS.has(surface)),
     frontendFallbackAllowed: false,
     missingContentBehavior: normalizeText(rawLifecycleCopy.missing_content_behavior),
     measuredPayloadMutationAllowed: false,

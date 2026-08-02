@@ -53738,7 +53738,7 @@
     ],
     "status": "ready_to_merge",
     "commit_sha": "e6b305a656ddfb66d04a5b1d8a41ba18cde743e6",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1993",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -56001,5 +56001,66 @@
     "local_cleanup_executed": false,
     "history": [{"at": "2026-08-03T01:01:11+08:00", "status": "implementation_in_progress", "summary": "T2 starts from clean fap-web main after T1 merge verification. Scope is receipt provenance validation only; no receipt input/master/package change, CMS write, promotion, deploy, or discoverability mutation is authorized."},{"at": "2026-08-03T01:08:00+08:00", "status": "ci_repair_local_verified", "summary": "Initial PR #1992 head failed only contract-shard-4 because the existing solo-owner rules scope contract classified T2 as a different ad-hoc rules PR. Added the exact T2 five-file scope alternative; focused 32 tests and complete shard 4 passed locally. No provenance, package, CMS, promotion, deploy, or discoverability boundary was relaxed."},{"at": "2026-08-03T01:13:00+08:00", "status": "ready_to_merge", "summary": "Exact repair head ed86a13684bd3fef2943824da187ed53af3e0dec passed CI run 30758203502 and CodeQL run 30758203509. PR #1992 is CLEAN and all changed paths remain within the declared T2 scope."}],
     "updated_at": "2026-08-03T01:13:00+08:00"
+  },
+  "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01": {
+    "id": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01: enforce exact RIASEC locale and form projection",
+    "base": "main",
+    "branch": "codex/en-parity-w4-riasec-frontend-locale-guard-01",
+    "depends_on": ["EN-PARITY-W4-RIASEC-AUTHORITY-PROMOTION-REPAIR-01"],
+    "status": "github_checks_pending",
+    "commit_sha": "6d912941",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1993",
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The explicit W4 end-to-end goal authorizes this exact Task 2 manifest and state entry."},
+      "dependency": {"status": "pass", "evidence": "fap-api Task 1 merged as d8ee74a7620c7d2f9c7270667c1f9d7de0cade5c; fap-api origin/main contains the exact authority repair."},
+      "package_binding": {"status": "pass", "evidence": "Backend package f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb and W9 report f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882 remain unchanged."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-02T17:06:34Z",
+        "status": "in_progress",
+        "summary": "Started Task 2 from fap-web origin/main after the merged fap-api authority repair. Scope is restricted to exact locale, form, reader-visible Han leakage, identity, and safe-surface fail-closed frontend guarding; no backend, CMS, content, receipt, SEO, private data, or deployment action is included."
+      },
+      {
+        "at": "2026-08-02T17:08:22Z",
+        "status": "local_verified",
+        "summary": "Explicit locale propagation, exact envelope/slot locale checks, 60Q G06/G07 slot rejection, English Han leakage rejection, duplicate/missing identity omission, and safe-surface filtering pass. Focused 6-file contracts pass 30/30; complete RIASEC contracts pass 189/189; touched ESLint, pnpm typecheck, YAML/JSON parsing, and diff checks pass. No private result, report, history, order, payment, token, CMS, SEO, receipt, or deployment path was read or changed."
+      },
+      {
+        "at": "2026-08-02T17:09:10Z",
+        "status": "committed",
+        "summary": "Committed the scoped runtime guard as 675bdbef55c669f712d5d13284aeb1a2b4178e9c. The follow-up ledger checkpoint records that implementation commit before push; no package, reader copy, authority, receipt, private-data, SEO, CMS, or deployment state changed."
+      },
+      {
+        "at": "2026-08-02T17:10:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1993 from the scoped branch. Required GitHub checks and review are pending; Task 3, V2 lane materialization, W9, receipts, CMS/import/publication, SEO, private data, and deployment remain deferred."
+      },
+      {
+        "at": "2026-08-02T17:15:00Z",
+        "status": "ci_repair_in_progress",
+        "summary": "GitHub contract shard 1 identified the intended RichResultReport adapter change as a deterministic MBTI print-input hash drift; main baseline passes and this PR recomputed the exact expected hash. The separate solo-owner scope-contract failure is a pre-existing generic CI guard defect, isolated for a minimal baseline-repair PR before Task 2 CI is retried."
+      },
+      {
+        "at": "2026-08-02T17:36:00Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased onto fap-web main 024ca21b03ee37f08080dd43b99358ae7d34372b after the two isolated baseline CI repairs. Complete RIASEC contracts pass 189/189, the MBTI print hash guard passes with the intentional current hash, pnpm typecheck passes, and the scoped diff check passes. PR #1993 is being force-updated for required GitHub checks; Task 3 and all authority, receipt, CMS, SEO, private-data, and deployment actions remain deferred."
+      }
+    ],
+    "updated_at": "2026-08-02T17:36:00Z"
   }
 }

@@ -313,7 +313,7 @@ function buildLifecycleBoundaryReport(): ReportResponse {
 
 function renderedText(report: ReportResponse): string {
   cleanup();
-  const viewModel = assembleRiasecResultViewModel(report);
+  const viewModel = assembleRiasecResultViewModel(report, "zh");
   const { container } = render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt-riasec-freeze" />);
   return container.textContent ?? "";
 }

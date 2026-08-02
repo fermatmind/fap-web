@@ -94,7 +94,7 @@ describe("RIASEC runtime analytics dispatch", () => {
   });
 
   it("dispatches result, activity explorer, feedback overlay, and share events without raw scores or raw feedback", async () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport());
+    const viewModel = assembleRiasecResultViewModel(buildReport(), "zh");
 
     render(<RiasecResultShell locale="zh" attemptId="attempt-riasec" viewModel={viewModel} />);
 

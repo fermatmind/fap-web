@@ -53,7 +53,7 @@ function buildReport(projection: Record<string, unknown>): ReportResponse {
 
 describe("RIASEC lifecycle and feedback boundary consumption", () => {
   it("parses safe lifecycle metadata and safe feedback boundary metadata without rendering deferred modules", () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()));
+    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()), "zh");
 
     expect(viewModel.lifecycleCopy).toMatchObject({
       schemaVersion: "riasec.lifecycle_copy.v1",
@@ -111,7 +111,7 @@ describe("RIASEC lifecycle and feedback boundary consumption", () => {
     ((unsafeProjection.exploration_feedback_overlay_v0_1 as Record<string, unknown>).action_lab_v1 as Record<string, unknown>).affects_score = true;
     ((unsafeProjection.exploration_feedback_overlay_v0_1 as Record<string, unknown>).next_exploration_nodes_v1 as Record<string, unknown>).creates_career_match = true;
 
-    const viewModel = assembleRiasecResultViewModel(buildReport(unsafeProjection));
+    const viewModel = assembleRiasecResultViewModel(buildReport(unsafeProjection), "zh");
 
     expect(viewModel.lifecycleCopy).toBeNull();
     expect(viewModel.feedbackOverlay?.actionLab).toBeNull();

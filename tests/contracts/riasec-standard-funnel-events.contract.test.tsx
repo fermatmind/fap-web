@@ -130,7 +130,7 @@ describe("RIASEC standard funnel events contract", () => {
   });
 
   it("dispatches canonical view_result and preserves RIASEC-specific result event as secondary", async () => {
-    const viewModel = assembleRiasecResultViewModel(reportFromProjection());
+    const viewModel = assembleRiasecResultViewModel(reportFromProjection(), "zh");
 
     render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-result-view" viewModel={viewModel} />);
 

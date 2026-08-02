@@ -53,7 +53,7 @@ describe("RIASEC Trusted Result v1.5 freeze contract", () => {
   });
 
   it("keeps the frontend consumer aligned with backend overlay guards without exposing raw feedback", () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport(readFixture()));
+    const viewModel = assembleRiasecResultViewModel(buildReport(readFixture()), "zh");
 
     expect(viewModel.trustedResultCard).toMatchObject({
       projectionVersion: "riasec.public_projection.v2",

@@ -181,7 +181,7 @@ describe("RIASEC V11 launch acceptance smoke", () => {
       },
     );
 
-    const viewModel = assembleRiasecResultViewModel(reportFrom(projection));
+    const viewModel = assembleRiasecResultViewModel(reportFrom(projection), "zh");
     render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_launch" />);
 
     expect(screen.getByTestId("riasec-trusted-result-card")).toBeInTheDocument();
@@ -272,7 +272,7 @@ describe("RIASEC V11 launch acceptance smoke", () => {
   });
 
   it("dispatches RIASEC launch analytics without raw score, raw feedback, fit, or match payload fields", async () => {
-    const viewModel = assembleRiasecResultViewModel(reportFrom(projectionFrom(TRUSTED_PROJECTION_PATH), "riasec_60"));
+    const viewModel = assembleRiasecResultViewModel(reportFrom(projectionFrom(TRUSTED_PROJECTION_PATH), "riasec_60"), "zh");
 
     render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-launch" viewModel={viewModel} />);
 

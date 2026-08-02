@@ -301,7 +301,7 @@ function buildReport(fixtureCase: MatrixCase): ReportResponse {
 
 function renderedTextFor(fixtureCase: MatrixCase): string {
   cleanup();
-  const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase));
+  const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase), "zh");
   const { container } = render(
     <RiasecResultShell locale="zh" attemptId="attempt-riasec" viewModel={viewModel} />
   );
@@ -360,7 +360,7 @@ describe("RIASEC personalization fixture matrix v2", () => {
       expect(matrix.allowed_quality_states).toContain(fixtureCase.quality_state);
       expect(matrix.allowed_reading_strengths).toContain(fixtureCase.reading_strength);
 
-      const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase));
+      const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase), "zh");
       expect(viewModel.interpretationState).toMatchObject({
         interpretationRuleVersion: "riasec_interpretation_rule_spec_v2",
         profileShape: fixtureCase.profile_shape,
@@ -415,7 +415,7 @@ describe("RIASEC personalization fixture matrix v2", () => {
       "cross_form_different_structure",
     ]) {
       const fixtureCase = caseById(fixtureId);
-      const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase));
+      const viewModel = assembleRiasecResultViewModel(buildReport(fixtureCase), "zh");
 
       expect(viewModel.formCode).toBe("riasec_140");
       expect(viewModel.trustedResultCard?.rawScoreDeltaAllowed).toBe(false);
@@ -427,7 +427,7 @@ describe("RIASEC personalization fixture matrix v2", () => {
   });
 
   it("keeps share/PDF/history and feedback payloads public-safe", () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport(caseById("share_public_safe_normal")));
+    const viewModel = assembleRiasecResultViewModel(buildReport(caseById("share_public_safe_normal")), "zh");
     const payload = buildRiasecTrustedResultTrackingPayload(viewModel, "zh");
 
     expect(payload).toMatchObject({
