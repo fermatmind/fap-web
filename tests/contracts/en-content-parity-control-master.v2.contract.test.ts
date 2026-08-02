@@ -145,7 +145,11 @@ describe("English content parity automation control V2", () => {
     expect(v2.state_machine.ordered_states).not.toContain("editorial_approved");
     for (const v1Lane of v1.lanes) {
       const v2Lane = v2.lanes.find((lane: { lane_id: string }) => lane.lane_id === v1Lane.lane_id);
-      expect(v2Lane.status).toBe(mapV1Status(v1Lane.status));
+      if (v2Lane.lane_manifest_ref === null) {
+        expect(v2Lane.status).toBe(mapV1Status(v1Lane.status));
+      } else {
+        expect(v2Lane.status).not.toBe("blocked");
+      }
       expect(v2Lane.counts).toEqual(v1Lane.counts);
       if (v2Lane.lane_manifest_ref === null) {
         expect(v2Lane.package_sha256).toBe(v1Lane.package_sha256);

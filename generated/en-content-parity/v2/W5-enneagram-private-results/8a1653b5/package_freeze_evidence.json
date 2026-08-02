@@ -1,0 +1,25 @@
+{
+  "$schema": "./en-content-parity-control-master.v2.schema.json",
+  "schema_version": "fermatmind.en_content_parity_package_freeze.v2",
+  "artifact_kind": "package_freeze_evidence",
+  "lane_id": "W5",
+  "subscope_id": null,
+  "expected_count": 630,
+  "promotion_row_count": 630,
+  "asset_ids": [
+    "ENPARITY-W5-ENNEAGRAM-RESULT-CONTENT"
+  ],
+  "package_root": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package",
+  "package_manifest_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package/sha256_manifest.json",
+  "package_manifest_sha256": "3dd78693e5fbe24ed247afc3e85751bed455669cfb159e0c343610dd334989b6",
+  "record_identity_field": "asset_id",
+  "record_ids_sha256": "31cf922d27be48970f7cca8dad70e9e7a05d4681d8cd3fd85800c7cac1303960",
+  "payloads": [
+    {
+      "path": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package/records.jsonl",
+      "sha256": "c2c5055790dfdff82c80dce21880e47453d4537ffb7ce72bbeceacd28132b905",
+      "row_count": 630
+    }
+  ],
+  "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048"
+}

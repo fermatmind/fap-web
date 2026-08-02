@@ -51,8 +51,8 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "27024af70dcef06cb15847c495e4c7a812ddd3e4fcd69932e958eb0927135793",
-    "lane_manifest_count": 1,
+    "inputs_sha256": "57c106af3122b0447c776b6cf24caef07211cd01a3c96c538f62e204364d46d0",
+    "lane_manifest_count": 2,
     "receipt_chain_count": 0
   },
   "state_machine": {
@@ -652,7 +652,7 @@
       ],
       "dependencies": [],
       "launch_state": "registered",
-      "status": "not_started",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W5-enneagram/",
       "target_asset_types": [
@@ -671,13 +671,30 @@
         "docs/seo/personality/enneagram/full-content-asset-audit-source-of-truth-2026-07-09.json",
         "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
       ],
-      "package_sha256": null,
-      "qa_report_ref": null,
-      "gate_lineage": [],
+      "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+      "qa_report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
+      "gate_lineage": [
+        {
+          "status": "package_frozen",
+          "evidence_owner_lane_id": "W5",
+          "report_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package_freeze_evidence.json",
+          "report_sha256": "42dfe20ecdf340bcd29d48b205836c99a11f8b40f3db2b2127b11ac14b3f7c31",
+          "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+          "accepted_at": "2026-08-03T00:00:00Z"
+        },
+        {
+          "status": "qa_pass",
+          "evidence_owner_lane_id": "W9",
+          "report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
+          "report_sha256": "e78bdf6f8327b4c33fcd828080542631450bc745fe273fc0a2bf5f53de512822",
+          "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+          "accepted_at": "2026-08-03T00:00:00Z"
+        }
+      ],
       "blockers": [],
       "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
       "legacy_lineage": [],
-      "lane_manifest_ref": null,
+      "lane_manifest_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/lane_manifest.json",
       "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
