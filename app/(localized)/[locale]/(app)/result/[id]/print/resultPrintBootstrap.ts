@@ -10,6 +10,7 @@ import {
   validateMbtiSnapshotDesktopCloneContent,
   type MbtiSnapshotContentStatus,
 } from "@/lib/result/mbtiSnapshotContent";
+import { isEnneagramPrivateResultLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
 
 export type ResultPrintBootstrap = {
   reportAccess: AttemptReportAccessResponse | null;
@@ -49,6 +50,9 @@ export async function loadResultPrintBootstrap({
       locale,
       accessToken,
     });
+    if (String(report.scale_code ?? report.report?.scale_code ?? "").toUpperCase() === "ENNEAGRAM" && !isEnneagramPrivateResultLocaleCompatible(report, locale)) {
+      throw new Error("enneagram_print_locale_envelope_mismatch");
+    }
     const mbtiFullCode = resolveMbtiSnapshotFullCodeFromReport(report);
     const desktopCloneContent = mbtiFullCode
       ? await fetchPersonalityDesktopCloneSnapshotContent(mbtiFullCode, locale)

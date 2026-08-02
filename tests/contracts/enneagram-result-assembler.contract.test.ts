@@ -29,6 +29,7 @@ function createV2ReportResponse({
       : null;
 
   const reportV2 = {
+    locale: "en",
     schema_version: "enneagram.report.v2",
     scale_code: "ENNEAGRAM",
     form: {
@@ -50,8 +51,8 @@ function createV2ReportResponse({
     pages: [
       {
         page_key: "page_1_result_overview",
-        title: "结果总览",
-        purpose: "首屏总览",
+        title: "Result overview",
+        purpose: "Opening overview",
         visibility: "visible",
         source_registry_refs: ["enneagram_ui_copy_registry"],
         modules: [
@@ -62,14 +63,14 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "即时结论",
+              title: "Immediate interpretation",
               body: `body_for_${scope}`,
               primary_candidate: isFc144 ? "5" : "1",
               secondary_candidate: "6",
               confidence_level: scope === "clear" ? "high_confidence" : scope,
               interpretation_scope: scope,
               form_badge: {
-                label: isFc144 ? "FC144 深度版" : "E105 标准版",
+                label: isFc144 ? "FC144 follow-up form" : "E105 standard form",
                 body: "same model != same score space",
               },
               top_candidates: [
@@ -338,7 +339,7 @@ function createV2ReportResponse({
             form_variant: isFc144 ? "fc144" : "e105",
             content: {
               form_badge: {
-                label: isFc144 ? "FC144 深度版" : "E105 标准版",
+                label: isFc144 ? "FC144 follow-up form" : "E105 standard form",
                 body: "same model != same score space",
               },
               methodology_copy: isFc144 ? "forced choice method" : "likert method",
@@ -363,7 +364,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "结果分散说明",
+              title: "Diffuse-result boundary",
               interpretation_scope: scope,
               interpretation_reason: "entropy_high",
               profile_entropy: 0.91,
@@ -387,7 +388,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "质量边界说明",
+              title: "Quality boundary",
               interpretation_scope: scope,
               quality_level: "retest",
               low_quality_status: scope === "low_quality" ? "triggered_operational_signal" : "not_triggered_no_operational_signal",
@@ -409,7 +410,7 @@ function createV2ReportResponse({
       },
       {
         page_key: "page_2_work_reality",
-        title: "工作现实",
+        title: "Work context",
         purpose: "work modules",
         visibility: "visible",
         source_registry_refs: [],
@@ -421,7 +422,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "工作风格",
+              title: "Work style",
               body: "work style scaffold",
               type_summary: "work_summary_value",
             },
@@ -443,7 +444,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "协作优势",
+              title: "Collaboration strengths",
               body: "strength scaffold",
             },
             data_refs: [],
@@ -464,7 +465,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "协作摩擦",
+              title: "Collaboration friction",
               body: "friction scaffold",
             },
             data_refs: [],
@@ -482,7 +483,7 @@ function createV2ReportResponse({
       },
       {
         page_key: "page_3_growth_spectrum",
-        title: "成长光谱",
+        title: "Growth spectrum",
         purpose: "growth modules",
         visibility: "visible",
         source_registry_refs: [],
@@ -494,7 +495,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "成长轴",
+              title: "Growth axis",
               body: "growth axis scaffold",
             },
             data_refs: [],
@@ -556,7 +557,7 @@ function createV2ReportResponse({
       },
       {
         page_key: "page_4_relationship_conflict",
-        title: "关系与冲突",
+        title: "Relationships and conflict",
         purpose: "relationship modules",
         visibility: "visible",
         source_registry_refs: [],
@@ -568,7 +569,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "关系需要",
+              title: "Relationship needs",
               body: "relationship need scaffold",
             },
             data_refs: [],
@@ -589,7 +590,7 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              title: "冲突脚本",
+              title: "Conflict scripts",
               body: "conflict scaffold",
             },
             data_refs: [],
@@ -607,7 +608,7 @@ function createV2ReportResponse({
       },
       {
         page_key: "page_5_method_observation_next",
-        title: "方法、观察与下一步",
+        title: "Method, observation, and next steps",
         purpose: "method modules",
         visibility: "visible",
         source_registry_refs: [],
@@ -686,11 +687,11 @@ function createV2ReportResponse({
             state: scope,
             form_variant: "all",
             content: {
-              label: "技术说明",
+              label: "Technical note",
               technical_note_version: "unavailable",
               sections: [
-                { section_key: "test_goal", title: "测试目标" },
-                { section_key: "score_space_boundary", title: "分数空间边界" },
+                { section_key: "test_goal", title: "Assessment purpose" },
+                { section_key: "score_space_boundary", title: "Score-space boundary" },
               ],
             },
             data_refs: [],
@@ -722,8 +723,16 @@ function createV2ReportResponse({
     },
   };
 
+  for (const page of reportV2.pages) {
+    for (const module of page.modules) {
+      const mutableModule = module as { content: Record<string, unknown> };
+      mutableModule.content = { ...mutableModule.content, locale: "en" };
+    }
+  }
+
   return {
     ok: true,
+    locale: "en",
     attempt_id: "attempt-v2",
     scale_code: "ENNEAGRAM",
     locked: false,
@@ -805,7 +814,7 @@ describe("enneagram result assembler contract", () => {
       gate: { isFreeVariant: false },
     });
 
-    expect(hasEnneagramProjection(reportData)).toBe(true);
+    expect(hasEnneagramProjection(reportData, "en")).toBe(true);
     expect(assembled.schemaVersion).toBe("enneagram.report.v2");
     expect(assembled.pages).toHaveLength(5);
     expect(assembled.registryReleaseHash).toBe("sha256:registry-v2");
@@ -813,6 +822,7 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.summary).toBe("body_for_clear");
     expect(assembled.topTypes.map((type) => type.code)).toEqual(["1", "6", "9"]);
     expect(assembled.typeVector).toHaveLength(9);
+    expect([...assembled.topTypes, ...assembled.typeVector].every((type) => type.score === null)).toBe(true);
     expect(assembled.moduleMap.instant_summary.formVariant).toBe("all");
   });
 
@@ -883,7 +893,7 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.formVariant).toBe("fc144");
   });
 
-  it("keeps the v1 fallback path working when V2 payload is absent", () => {
+  it("fails closed instead of rendering a legacy V1 fallback when the V2 private envelope is absent", () => {
     const reportData = asReport(likert105Fixture);
     const assembled = assembleEnneagramResultViewModel({
       reportData,
@@ -893,15 +903,10 @@ describe("enneagram result assembler contract", () => {
 
     expect(assembled.reportV2).toBeNull();
     expect(assembled.formCode).toBe("enneagram_likert_105");
-    expect(assembled.formSummaryLabel).toBe("Enneagram · 105-question Likert");
-    expect(assembled.primaryType).toMatchObject({
-      code: "T1",
-      label: "Type 1",
-      score: 88,
-      rank: 1,
-    });
-    expect(assembled.topTypes.map((type) => type.code)).toEqual(["T1", "T5", "T6"]);
-    expect(assembled.visibleSections.map((section) => section.key)).toEqual(["overview", "growth"]);
+    expect(assembled.primaryType).toBeNull();
+    expect(assembled.modules).toEqual([]);
+    expect(assembled.topTypes).toEqual([]);
+    expect(assembled.visibleSections).toEqual([]);
   });
 
   it("preserves retake form identity from persisted projection metadata when the form summary is absent", () => {
@@ -919,14 +924,14 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.estimatedMinutes).toBe(18);
   });
 
-  it("splits paid legacy sections only by report access gate, not by recalculating Enneagram scores", () => {
+  it("does not expose legacy sections when the V2 private locale envelope is absent", () => {
     const assembled = assembleEnneagramResultViewModel({
       reportData: asReport(likert105Fixture),
       locale: "en",
       gate: { isFreeVariant: true },
     });
 
-    expect(assembled.visibleSections.map((section) => section.key)).toEqual(["overview"]);
-    expect(assembled.lockedSections.map((section) => section.key)).toEqual(["growth"]);
+    expect(assembled.visibleSections).toEqual([]);
+    expect(assembled.lockedSections).toEqual([]);
   });
 });

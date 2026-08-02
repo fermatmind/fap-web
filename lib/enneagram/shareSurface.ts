@@ -1,6 +1,7 @@
 import type { EnneagramPublicSummaryPair, ShareSummaryResponse } from "@/lib/api/v0_3";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
+import { isEnneagramPrivateSurfaceLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 export type EnneagramShareType = {
@@ -13,8 +14,6 @@ export type EnneagramShareType = {
 export type EnneagramSharePair = {
   typeA: EnneagramShareType | null;
   typeB: EnneagramShareType | null;
-  triggerReason: string | null;
-  summary: string | null;
 };
 
 export type EnneagramShareViewModel = {
@@ -124,8 +123,6 @@ function normalizePair(value: EnneagramPublicSummaryPair | null | undefined): En
   return {
     typeA: normalizeType(value.type_a, 1, "primary"),
     typeB: normalizeType(value.type_b, 2, "secondary"),
-    triggerReason: normalizeText(value.trigger_reason) || null,
-    summary: normalizeText(value.summary) || null,
   };
 }
 
@@ -185,6 +182,9 @@ export function buildEnneagramShareViewModel(
   locale: Locale
 ): EnneagramShareViewModel | null {
   const rawSummary = asRecord(rawShare?.enneagram_public_summary_v1);
+  if (!isEnneagramPrivateSurfaceLocaleCompatible(rawShare, locale) || !isEnneagramPrivateSurfaceLocaleCompatible(rawSummary, locale)) {
+    return null;
+  }
   const scaleCode = normalizeText(rawShare?.scale_code, rawSummary?.scale_code).toUpperCase();
   if (scaleCode !== "ENNEAGRAM" || !rawSummary) {
     return null;

@@ -30100,6 +30100,61 @@ prs:
     content_authority: backend-authoritative RIASEC projection only; frontend renders an exact guarded projection
     repository_rule_impact: runtime guard only; no content authority, discoverability, or deployment change
 
+  - id: EN-PARITY-W5-ENNEAGRAM-WEB-CONSUMER-V2-01
+    repo: fap-web
+    base: main
+    branch: codex/en-parity-w5-enneagram-web-consumer-v2-01
+    title: "EN-PARITY-W5-ENNEAGRAM-WEB-CONSUMER-V2-01: enforce English private-result locale and disclosure boundaries"
+    status: in_progress
+    depends_on: [EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01]
+    mode: execute
+    train_scope: w5_enneagram_private_result_web_consumer_v2
+    scope:
+      - Enforce matching page, API-envelope, and content-slot locales for private Enneagram result, report, share, print/PDF, and history surfaces.
+      - Fail closed for English locale mismatches or CJK leakage; do not translate or add frontend editorial fallback content.
+      - Keep private history/re-entry noindex and no-store; redact raw score/vector, dominance-gap, selector, and close-call operational details from consumer view models.
+    allowed_paths:
+      - app/(localized)/[locale]/(app)/history/enneagram/page.tsx
+      - app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts
+      - components/result/RichResultReport.tsx
+      - components/result/enneagram/EnneagramResultShell.tsx
+      - components/share/EnneagramShareSummaryCard.tsx
+      - lib/api/v0_3.ts
+      - lib/enneagram/api.ts
+      - lib/enneagram/privateResultLocale.ts
+      - lib/enneagram/resultAssembler.ts
+      - lib/enneagram/secondarySurfaceNormalizer.ts
+      - lib/enneagram/shareSurface.ts
+      - tests/contracts/enneagram-api.contract.test.ts
+      - tests/contracts/enneagram-observation-surface.contract.test.tsx
+      - tests/contracts/enneagram-private-result-locale.contract.test.ts
+      - tests/contracts/enneagram-result-assembler.contract.test.ts
+      - tests/contracts/enneagram-result-shell.contract.test.tsx
+      - tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+      - tests/contracts/enneagram-share-surface.contract.test.tsx
+      - tests/contracts/result-gotenberg-print-route.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Add sitemap, llms, JSON-LD, canonical, indexability, Search Channel, CMS, package, receipt, promotion, deployment, or frontend editorial-content changes.
+      - Generate W5 English content or write production registry/CMS state.
+    required_local_checks:
+      - focused Enneagram locale, privacy/redaction, result/report/share/PDF/history contracts
+      - touched-scope ESLint
+      - pnpm typecheck
+      - JSON/YAML parse and path-limited scope validation
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend-authoritative private Enneagram result contracts; frontend renders only validated envelopes
+    repository_rule_impact: private-result consumer hardening only; no public content authority, discoverability, or promotion change
+
   - id: EN-CONTENT-PARITY-V2-DEPLOYED-EXECUTOR-PROVENANCE-01
     repo: fap-web
     base: main

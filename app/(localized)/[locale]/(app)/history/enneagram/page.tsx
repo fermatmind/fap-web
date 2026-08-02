@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   robots: NOINDEX_ROBOTS,
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function EnneagramHistoryPage() {
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-8">

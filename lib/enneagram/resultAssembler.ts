@@ -6,6 +6,7 @@ import type {
 } from "@/lib/api/v0_3";
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
 import { normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
+import { isEnneagramPrivateResultLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramTypeRow = {
@@ -239,10 +240,12 @@ function normalizeTypeRow(value: unknown): EnneagramTypeRow | null {
   return {
     code,
     label: normalizeText(row.label, row.name, row.title, row.type_name_en, row.type_name_cn, typeLabelFromCode(code)),
-    score: normalizeNumber(row.score ?? row.percent ?? row.value ?? row.display_score ?? row.score_display ?? row.score_norm),
+    // Numeric result vectors stay in the backend authority; the private web
+    // surface is intentionally rank/role-only.
+    score: null,
     rank: normalizeNumber(row.rank),
     candidateRole: normalizeText(row.candidate_role),
-    scoreSource: normalizeText(row.score_source),
+    scoreSource: "",
     summary: normalizeText(row.core_logic, row.surface_impression, row.validation_hook),
   };
 }
@@ -558,7 +561,11 @@ function normalizePages(value: unknown): EnneagramReportV2Page[] {
     .filter((item): item is EnneagramReportV2Page => item !== null);
 }
 
-function resolveReportV2(reportData: ReportResponse): EnneagramReportV2 | null {
+function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramReportV2 | null {
+  if (!isEnneagramPrivateResultLocaleCompatible(reportData, locale)) {
+    return null;
+  }
+
   const raw =
     asRecord(reportData.enneagram_report_v2) ??
     asRecord(asRecord(reportData.report?._meta)?.enneagram_report_v2);
@@ -613,7 +620,11 @@ function resolveReportV2(reportData: ReportResponse): EnneagramReportV2 | null {
   };
 }
 
-function resolveProjection(reportData: ReportResponse): EnneagramPublicProjection | null {
+function resolveProjection(reportData: ReportResponse, locale: Locale): EnneagramPublicProjection | null {
+  if (!isEnneagramPrivateResultLocaleCompatible(reportData, locale)) {
+    return null;
+  }
+
   if (reportData.enneagram_public_projection_v1) {
     return reportData.enneagram_public_projection_v1;
   }
@@ -787,7 +798,11 @@ function resolveSummary(reportV2: EnneagramReportV2 | null, projection: Enneagra
   );
 }
 
-function resolveSections(reportData: ReportResponse, projection: EnneagramPublicProjection | null): Big5ReportSection[] {
+function resolveSections(reportData: ReportResponse, projection: EnneagramPublicProjection | null, locale: Locale): Big5ReportSection[] {
+  if (!isEnneagramPrivateResultLocaleCompatible(reportData, locale)) {
+    return [];
+  }
+
   const reportSections = normalizeSections(reportData.report?.sections);
   if (reportSections.length > 0) {
     return reportSections;
@@ -822,10 +837,10 @@ export function assembleEnneagramResultViewModel({
   gate: AccessGate;
   locale: Locale;
 }): EnneagramResultViewModel {
-  const projection = resolveProjection(reportData);
-  const reportV2 = filterEnneagramReportV2ForGate(resolveReportV2(reportData), gate);
+  const projection = resolveProjection(reportData, locale);
+  const reportV2 = filterEnneagramReportV2ForGate(resolveReportV2(reportData, locale), gate);
   const formSummary = resolveFormSummary(reportData, projection, reportV2);
-  const sections = resolveSections(reportData, projection);
+  const sections = resolveSections(reportData, projection, locale);
   const split = splitSections(sections, gate);
 
   return {
@@ -856,10 +871,10 @@ export function assembleEnneagramResultViewModel({
   };
 }
 
-export function hasEnneagramProjection(reportData: ReportResponse | null | undefined): boolean {
+export function hasEnneagramProjection(reportData: ReportResponse | null | undefined, locale: Locale): boolean {
   if (!reportData) {
     return false;
   }
 
-  return Boolean(resolveReportV2(reportData) || resolveProjection(reportData));
+  return Boolean(resolveReportV2(reportData, locale) || resolveProjection(reportData, locale));
 }

@@ -120,6 +120,7 @@ describe("enneagram frontend API contract", () => {
     hoisted.getMyAttempts.mockResolvedValue({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "en",
       items: [],
       meta: {
         current_page: 1,
@@ -291,6 +292,7 @@ describe("enneagram frontend API contract", () => {
       pageSize: 10,
       anonId: "anon_test",
       locale: "en",
+      cache: "no-store",
     });
   });
 });

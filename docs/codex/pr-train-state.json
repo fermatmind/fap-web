@@ -56088,5 +56088,37 @@
       }
     ],
     "updated_at": "2026-08-02T17:36:00Z"
+  },
+  "EN-PARITY-W5-ENNEAGRAM-WEB-CONSUMER-V2-01": {
+    "id": "EN-PARITY-W5-ENNEAGRAM-WEB-CONSUMER-V2-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W5-ENNEAGRAM-WEB-CONSUMER-V2-01: enforce English private-result locale and disclosure boundaries",
+    "base": "main",
+    "branch": "codex/en-parity-w5-enneagram-web-consumer-v2-01",
+    "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01"],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
+      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, and observation contracts passed 59/59; touched-scope ESLint, TypeScript typecheck, JSON/YAML parse, and diff checks passed."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-03T02:00:00+08:00", "status": "in_progress", "summary": "Started after the merged W5 private authority adapter. Scope is frontend consumer locale, privacy, disclosure, share, PDF/print, and history boundaries only; no content package, CMS/registry write, promotion, deploy, or discoverability action is authorized."},
+      {"at": "2026-08-03T02:15:00+08:00", "status": "local_verified", "summary": "Private English envelope/slot checks now fail closed for mismatch or CJK leakage; result, share, print/PDF, and history projections omit raw score/vector, dominance-gap, selector, and operational close-call detail. Focused 59/59 contracts, ESLint, typecheck, manifest/state parse, diff, and path-limited scope validation pass. No CMS/registry write, content package, promotion, deploy, or discoverability action occurred."}
+    ],
+    "updated_at": "2026-08-03T02:15:00+08:00"
   }
 }

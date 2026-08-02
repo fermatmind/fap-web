@@ -29,14 +29,6 @@ import type {
 import type { Locale } from "@/lib/i18n/locales";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
-function formatScore(score: number | null): string {
-  if (score === null) {
-    return "";
-  }
-
-  return Number.isInteger(score) ? String(score) : score.toFixed(1);
-}
-
 const INTERNAL_VISIBLE_TEXT_PATTERNS = [
   /\[object Object\]/i,
   /analyzer_close_call/i,
@@ -101,18 +93,6 @@ function firstSafePublicText(...values: unknown[]): string {
   }
 
   return "";
-}
-
-function normalizeBarWidth(score: number | null): number | null {
-  if (score === null) {
-    return null;
-  }
-
-  if (score >= 0 && score <= 1) {
-    return Math.max(2, Math.min(100, score * 100));
-  }
-
-  return Math.max(2, Math.min(100, score));
 }
 
 function moduleText(module: EnneagramReportV2Module | null | undefined, key: string): string {
@@ -185,7 +165,7 @@ function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): st
   return locale === "zh" ? "把这份结果当作当前工作假设来阅读。" : "Use this result as the current working interpretation.";
 }
 
-function typeRefLabel(value: unknown): string {
+function typeRefLabel(value: unknown, locale: Locale): string {
   const direct = safePublicText(value);
   if (direct) {
     return direct;
@@ -197,14 +177,9 @@ function typeRefLabel(value: unknown): string {
 
   const record = value as Record<string, unknown>;
 
-  return (
-    safePublicText(record.label) ||
-    safePublicText(record.type_name_cn) ||
-    safePublicText(record.type_name_en) ||
-    safePublicText(record.type) ||
-    safePublicText(record.code) ||
-    ""
-  );
+  return locale === "zh"
+    ? firstSafePublicText(record.label, record.type_name_cn, record.type, record.code)
+    : firstSafePublicText(record.label, record.type_name_en, record.type, record.code);
 }
 
 function observationGuidanceCopy(viewModel: EnneagramResultViewModel, locale: Locale): string {
@@ -251,13 +226,10 @@ function isObservationAssigned(state: EnneagramObservationStateV1 | null): boole
 }
 
 function TypeChip({ type }: { type: EnneagramTypeRow }) {
-  const score = formatScore(type.score);
-
   return (
     <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
       {type.rank ? `#${type.rank} · ` : ""}
       {type.label}
-      {score ? ` · ${score}` : ""}
     </span>
   );
 }
@@ -274,16 +246,10 @@ function LegacyTypeVector({ rows }: { rows: EnneagramTypeRow[] }) {
       </CardHeader>
       <CardContent className="space-y-3">
         {rows.map((row) => {
-          const width = normalizeBarWidth(row.score);
-          const score = formatScore(row.score);
-
           return (
-            <div key={row.code} className="grid gap-2 sm:grid-cols-[160px_1fr_56px] sm:items-center">
+            <div key={row.code} className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
               <div className="text-sm font-semibold text-slate-800">{row.label}</div>
-              <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-                {width !== null ? <div className="h-full rounded-full bg-sky-600" style={{ width: `${width}%` }} /> : null}
-              </div>
-              <div className="text-sm text-slate-600">{score}</div>
+              {row.rank !== null ? <div className="text-sm text-slate-600">#{row.rank}</div> : null}
             </div>
           );
         })}
@@ -574,7 +540,9 @@ function ValueCardRenderer({ module, locale }: { module: EnneagramReportV2Module
   const value = moduleText(module, "value");
   const detail = moduleText(module, "deep_dive_detail");
   const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
-  const typeName = moduleText(module, "type_name_cn") || moduleText(module, "type_name_en");
+  const typeName = locale === "zh"
+    ? moduleText(module, "type_name_cn") || moduleText(module, "type_name_en")
+    : moduleText(module, "type_name_en");
   const primaryCandidate = moduleText(module, "primary_candidate");
 
   return (
@@ -698,9 +666,9 @@ function PlaceholderCardRenderer({ module, locale }: { module: EnneagramReportV2
 function SampleReportRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const isZh = locale === "zh";
   const topTypes = moduleArray(module, "top_types").length > 0
-    ? moduleArray(module, "top_types").map((item) => typeRefLabel(item)).filter(Boolean)
+    ? moduleArray(module, "top_types").map((item) => typeRefLabel(item, locale)).filter(Boolean)
     : Array.isArray(module.content.top_types)
-      ? (module.content.top_types as unknown[]).map((item) => typeRefLabel(item)).filter(Boolean)
+      ? (module.content.top_types as unknown[]).map((item) => typeRefLabel(item, locale)).filter(Boolean)
       : [];
 
   return (
@@ -1114,14 +1082,10 @@ function renderScoreBars(items: EnneagramTypeRow[]) {
   return (
     <div className="space-y-3">
       {items.map((row) => {
-        const width = normalizeBarWidth(row.score);
         return (
-          <div key={row.code} className="grid gap-2 sm:grid-cols-[96px_1fr_56px] sm:items-center">
+          <div key={row.code} className="flex items-center justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
             <div className="text-sm font-semibold text-slate-800">{row.label}</div>
-            <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-              {width !== null ? <div className="h-full rounded-full bg-[var(--fm-trust-blue)]" style={{ width: `${width}%` }} /> : null}
-            </div>
-            <div className="text-right text-sm text-slate-600">{formatScore(row.score)}</div>
+            {row.rank !== null ? <div className="text-right text-sm text-slate-600">#{row.rank}</div> : null}
           </div>
         );
       })}
@@ -1214,9 +1178,6 @@ function renderModule(
                 {topCandidates.map((candidate, index) => (
                   <span key={`${candidate.type ?? index}`} className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
                     #{index + 1} · {safePublicText(candidate.type) || "?"}
-                    {typeof candidate.display_score === "number" && Number.isFinite(candidate.display_score)
-                      ? ` · ${formatScore(candidate.display_score)}`
-                      : ""}
                   </span>
                 ))}
               </div>
@@ -1248,8 +1209,10 @@ function renderModule(
       const cards = moduleArray(module, "cards").map((card, index) => ({
         row: {
           code: safePublicText(card.type),
-          label: firstSafePublicText(card.type_name_en, card.type_name_cn, card.type),
-          score: typeof card.display_score === "number" ? card.display_score : Number(card.display_score ?? Number.NaN),
+          label: isZh
+            ? firstSafePublicText(card.type_name_cn, card.type_name_en, card.type)
+            : firstSafePublicText(card.type_name_en, card.type),
+          score: null,
           rank: index + 1,
           candidateRole: safePublicText(card.candidate_role),
           summary: firstSafePublicText(card.core_logic, card.surface_impression),
@@ -1267,9 +1230,6 @@ function renderModule(
                   #{row.rank} · {row.candidateRole || (isZh ? "候选" : "Candidate")}
                 </p>
                 <h3 className="m-0 mt-2 text-lg font-semibold text-slate-900">{row.label || row.code}</h3>
-                {row.score !== null && Number.isFinite(row.score) ? (
-                  <p className="m-0 mt-1 text-sm text-slate-600">{formatScore(row.score)}</p>
-                ) : null}
                 {coreLogic ? <p className="m-0 mt-3 text-sm text-slate-700">{coreLogic}</p> : null}
                 {workSummary ? <p className="m-0 mt-2 text-xs text-slate-500">{workSummary}</p> : null}
               </div>
@@ -1281,19 +1241,16 @@ function renderModule(
     case "all9_profile": {
       const items = moduleArray(module, "items").map((item, index) => ({
         code: firstSafePublicText(item.type, item.code),
-        label: firstSafePublicText(item.type_name_en, item.type_name_cn, item.label, item.type),
-        score:
-          typeof item.score_display === "number"
-            ? item.score_display
-            : typeof item.score_norm === "number"
-              ? item.score_norm * 100
-              : Number(item.score_display ?? item.score_norm ?? Number.NaN),
+        label: isZh
+          ? firstSafePublicText(item.type_name_cn, item.type_name_en, item.label, item.type)
+          : firstSafePublicText(item.type_name_en, item.label, item.type),
+        score: null,
         rank: typeof item.rank === "number" ? item.rank : index + 1,
       }));
       const rows = items.map((item) => ({
         code: item.code,
         label: item.label || item.code,
-        score: Number.isFinite(item.score) ? item.score : null,
+        score: null,
         rank: item.rank,
       }));
 
@@ -1333,32 +1290,12 @@ function renderModule(
         </ModuleCard>
       );
     case "dominance_gap_card":
-      return (
-        <ModuleCard title={isZh ? "优势差距" : "Dominance gap"} testId="enneagram-module-dominance-gap-card">
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              { key: "dominance_gap_abs", label: isZh ? "绝对差值" : "Absolute gap" },
-              { key: "dominance_gap_pct", label: isZh ? "展示百分差" : "Display pct gap" },
-              { key: "normalized_gap", label: isZh ? "标准化差值" : "Normalized gap" },
-              { key: "profile_entropy", label: isZh ? "轮廓熵" : "Profile entropy" },
-            ].map((item) => (
-              <div key={item.key} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{item.label}</p>
-                <p className="m-0 mt-2 text-sm text-slate-800">{safePublicText(module.content[item.key]) || "n/a"}</p>
-              </div>
-            ))}
-          </div>
-          <p className="m-0 text-xs text-slate-500">
-            {isZh ? "仅在当前 form 的分数空间内解释，不用于跨 form 比较。" : "Interpret within the current form score space only, not across forms."}
-          </p>
-        </ModuleCard>
-      );
+      return null;
     case "close_call_card": {
       const pair = module.content.pair as Record<string, unknown> | undefined;
       const pairEntry = module.content.pair_entry as Record<string, unknown> | undefined;
-      const pairTypeA = typeRefLabel(pair?.type_a);
-      const pairTypeB = typeRefLabel(pair?.type_b);
-      const triggerReason = safePublicText(pair?.trigger_reason);
+      const pairTypeA = typeRefLabel(pair?.type_a, locale);
+      const pairTypeB = typeRefLabel(pair?.type_b, locale);
       const coreMotivationDifference = safePublicText(pairEntry?.core_motivation_difference);
       const stressReactionDifference = safePublicText(pairEntry?.stress_reaction_difference);
       return (
@@ -1366,7 +1303,9 @@ function renderModule(
           <p className="m-0 text-sm text-slate-700">
             {pairTypeA || "?"} vs {pairTypeB || "?"}
           </p>
-          {triggerReason ? <p className="m-0 text-sm text-slate-700">{triggerReason}</p> : null}
+          <p className="m-0 text-sm text-slate-700">
+            {isZh ? "这是两个可继续观察的工作假设，并非最终类型结论。" : "These are working hypotheses to explore, not a final type conclusion."}
+          </p>
           {coreMotivationDifference ? <p className="m-0">{coreMotivationDifference}</p> : null}
           {stressReactionDifference ? <p className="m-0 text-sm text-slate-600">{stressReactionDifference}</p> : null}
           {!pairEntry ? (
@@ -1420,8 +1359,8 @@ function renderModule(
       return (
         <ModuleCard title={isZh ? "邻位倾向参考" : "Adjacent wing reference"} testId="enneagram-module-wing-hint-visual">
           <p className="m-0">
-            {isZh ? "左邻位" : "Left"}: {typeRefLabel(module.content.left) || "n/a"} · {isZh ? "右邻位" : "Right"}:{" "}
-            {typeRefLabel(module.content.right) || "n/a"}
+            {isZh ? "左邻位" : "Left"}: {typeRefLabel(module.content.left, locale) || "n/a"} · {isZh ? "右邻位" : "Right"}:{" "}
+            {typeRefLabel(module.content.right, locale) || "n/a"}
           </p>
           {moduleText(module, "strength") ? <p className="m-0">{isZh ? "强度" : "Strength"} · {moduleText(module, "strength")}</p> : null}
           <p className="m-0 text-xs text-slate-500">

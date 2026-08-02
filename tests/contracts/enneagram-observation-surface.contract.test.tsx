@@ -75,6 +75,7 @@ function createObservationState(overrides: Record<string, unknown> = {}) {
 
 function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "low_quality" = "close_call"): ReportResponse {
   const reportV2 = {
+    locale: "zh",
     schema_version: "enneagram.report.v2",
     scale_code: "ENNEAGRAM",
     form: {
@@ -207,8 +208,16 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
     },
   };
 
+  for (const page of reportV2.pages) {
+    for (const module of page.modules) {
+      const mutableModule = module as { content: Record<string, unknown> };
+      mutableModule.content = { ...mutableModule.content, locale: "zh" };
+    }
+  }
+
   return {
     ok: true,
+    locale: "zh",
     attempt_id: "attempt-observation-1",
     scale_code: "ENNEAGRAM",
     locked: false,
@@ -298,9 +307,11 @@ describe("enneagram observation surface contract", () => {
     hoisted.fetchEnneagramHistory.mockResolvedValue({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "zh",
       items: [
         {
           attempt_id: "attempt-observation-1",
+          locale: "zh",
           submitted_at: "2026-04-25T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_likert_105",
@@ -311,6 +322,7 @@ describe("enneagram observation surface contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
+            locale: "zh",
             primary_type: { code: "T1", label: "Type 1", score: 88, rank: 1 },
             top_types: [{ code: "T1", label: "Type 1", score: 88, rank: 1 }],
           },
@@ -468,9 +480,11 @@ describe("enneagram observation surface contract", () => {
     hoisted.fetchEnneagramHistory.mockResolvedValueOnce({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "zh",
       items: [
         {
           attempt_id: "attempt-observation-2",
+          locale: "zh",
           submitted_at: "2026-04-25T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_likert_105",
@@ -481,6 +495,7 @@ describe("enneagram observation surface contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
+            locale: "zh",
             primary_type: { code: "T1", label: "Type 1", score: 88, rank: 1 },
             top_types: [{ code: "T1", label: "Type 1", score: 88, rank: 1 }],
           },

@@ -89,6 +89,7 @@ function createFixture(scope: "clear" | "close_call" | "diffuse" | "low_quality"
     locale: "en",
     created_at: "2026-04-25T00:00:00Z",
     enneagram_public_summary_v1: {
+      locale: "en",
       scale_code: "ENNEAGRAM",
       form_code: "enneagram_likert_105",
       form_label: "E105 Standard",
@@ -264,6 +265,8 @@ describe("enneagram share surface contract", () => {
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
 
     expect(await screen.findByTestId("enneagram-share-close-call")).toHaveTextContent("Type 1 / Type 5");
+    expect(screen.getByTestId("enneagram-share-close-call")).toHaveTextContent("working hypotheses");
+    expect(screen.getByTestId("enneagram-share-close-call")).not.toHaveTextContent("Top 1 and Top 2 remain close.");
     expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Type 5 remains a close neighboring candidate");
   });
 
