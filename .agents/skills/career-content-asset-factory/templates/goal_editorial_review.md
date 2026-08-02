@@ -1,5 +1,5 @@
 # Goal Editorial Review
 
-Goal: Run editorial review for staged block assets.
+Goal: Run independent QA for a V2 exact package.
 
-Check high-risk content, locale, leakage, source boundary, and page display. Output approve/reject manifest. Do not production import.
+Check high-risk content, locale, leakage, source boundary, and page display. Report PASS/REPAIR_REQUIRED plus the remaining trusted-backend machine gates; do not generate an approval artifact or call direct production import.

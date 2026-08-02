@@ -4,6 +4,10 @@ Status: working technical map
 Last updated: 2026-07-04
 Scope: `/Users/rainie/Desktop/GitHub/fap-web` and `/Users/rainie/Desktop/GitHub/fap-api`
 
+## Engineering Operating Model
+
+Both repositories use the cross-repository [Solo-Owner Engineering Operating Model](../codex/fermatmind-codex-workflow-and-personalization.md). It supplies the default `/goal` continuous authorization and one deployable, verifiable technical scope per PR. Repository `AGENTS.md`, skills, and runbooks retain stricter local controls, including the separately controlled production infrastructure, migration, secrets, destructive, and SEO discoverability surfaces.
+
 ## System Summary
 
 FermatMind / 费马测试 is a multilingual assessment and growth platform. The live product presents MBTI, Big Five, RIASEC, Enneagram, IQ, EQ, career, articles, policy, science, and support surfaces.

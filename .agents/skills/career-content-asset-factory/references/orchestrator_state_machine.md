@@ -23,10 +23,10 @@ The orchestrator advances block assets through explicit states. It never infers 
 
 - A state may advance only when the previous gate report exists and has an accepted PASS verdict.
 - `baseline_frozen` requires archived artifacts plus a SHA-256 manifest.
-- `production_imported` requires explicit human approval naming an exact artifact SHA.
+- V2 promotion proceeds only through trusted backend dispatch after independent QA; the exact artifact SHA is integrity and rollback evidence, not an approval credential.
 - A failed state must write `open_failures.json` before any repair goal is suggested.
 - No downstream block may treat an upstream block as trusted until the upstream block is frozen or final repaired with SHA.
 
 ## Stop Conditions
 
-Stop on missing dependency, contaminated baseline, failed trust audit, failed quality gate after three repairs, missing authority, missing exact SHA approval, or any runtime/SEO scope drift.
+Stop on missing dependency, contaminated baseline, failed trust audit, failed quality gate after three repairs, missing authority, a failed backend machine gate, a direct-import attempt, or runtime/SEO scope drift.

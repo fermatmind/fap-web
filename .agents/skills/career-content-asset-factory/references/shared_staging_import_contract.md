@@ -35,8 +35,8 @@ Frontend preview QA must verify:
 - raw enum, evidence ID, source ID, row hash, internal lineage, and candidate projection fields do not leak
 - sitemap, `llms.txt`, canonical, noindex, and JSON-LD do not change unless separately authorized
 
-## Approval And Production
+## V2 Promotion And Production
 
-Move to `editorial_review`, then `approved`, then `production_imported`. Production import requires exact artifact SHA approval from the user and a rollback plan.
+For new V2 exact packages, move from independent QA to trusted backend promotion dispatch, then dry-run import, readback, publish, and live QA. The exact SHA is verified as integrity, idempotency, audit, and rollback evidence; it is not a user-approval credential.
 
-Before production import, run the full editorial quality audit or attach a human editorial acceptance manifest that explicitly accepts remaining findings. Editorial gates must not modify sitemap, `llms.txt`, canonical, noindex, robots, JSON-LD, or other SEO runtime surfaces.
+Before promotion dispatch, run the full independent editorial quality audit. Editorial gates and trusted promotion must not modify sitemap, `llms.txt`, canonical, noindex, robots, JSON-LD, or other SEO runtime surfaces.

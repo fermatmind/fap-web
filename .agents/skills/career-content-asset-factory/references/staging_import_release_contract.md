@@ -6,21 +6,13 @@ Each block should use an independent asset channel unless an existing channel ow
 
 Dry run validates shape, row counts, SHA, authority, reader-safe projection, and duplicate/idempotency rules. It must not write staging or production rows.
 
-## Staging Preview
+## Trusted V2 Promotion
 
-Staging preview writes selected rows only after dry run PASS. Preview rows must be hidden behind status, flag, allowlist, or equivalent backend gate. Frontend must fail closed.
+After independent QA passes, a registered V2 exact package is dispatched to the trusted backend promotion workflow. That executor runs dry-run validation, draft import, readback, publication, and live QA in order. It reports machine-gate failures as blockers and never requests a human approval artifact or exact-SHA confirmation phrase.
 
-## Editorial Review
+## Legacy And Direct Paths
 
-Editorial review checks content quality, locale, high-risk boundaries, leakage, and page display. It may produce approve/reject manifests but does not import production.
-
-## Approved
-
-Approved rows must match artifact SHA, QA SHA, approval manifest SHA, row count, slug count, and rollback plan.
-
-## Production Import
-
-Production import requires explicit human approval naming the exact SHA. Import must be followed by live API/page smoke and post-import SEO safety audit.
+Producer code must not write staging or production rows. Direct `cms_import`, `production_import`, schema/runtime mutation, and SEO mutation remain blocked. Legacy approval manifests may remain readable for audit history but cannot gate a new V2 package.
 
 For revision-managed records, the import plan must separate:
 
@@ -29,6 +21,6 @@ For revision-managed records, the import plan must separate:
 - working-pointer updates;
 - published-pointer or public-field mutation.
 
-The last category must remain zero unless a separate promotion/public-release
-authorization names the exact revision and effects. A draft-only import is not
-a release transition.
+The last category is performed only by the trusted V2 backend executor after
+the registered package's machine gates pass. A draft-only import remains distinct
+from separate sitemap/LLMS/indexability and other SEO discoverability controls.

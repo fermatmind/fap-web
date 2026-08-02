@@ -13,7 +13,7 @@ Canonical block pipeline:
 
 Canonical post-asset chain:
 
-`final independent QA -> repair_batches_50 if needed -> final repaired QA -> staging preview design -> dry-run importer -> staging_preview write -> API/page smoke -> editorial_review -> approved transition -> exact-SHA production import -> post-import live QA/SEO safety`.
+`final independent QA -> repair_batches_50 if needed -> final repaired QA -> trusted backend promotion dispatch -> dry-run import -> import/readback -> publish -> live QA`.
 
 ## Role And Relationships
 
@@ -23,7 +23,7 @@ Canonical post-asset chain:
 - Personality/test-result agents own MBTI, Big Five, Enneagram, RIASEC, and result interpretation assets. This skill may record their state and bridge readiness but must not rewrite their psychometric authority.
 - Career-personality bridge assets connect career blocks to tests and public profiles. They require explicit bridge gates, may consume only backend-published public projections, and must not infer diagnoses, outcomes, or guaranteed matches.
 - Page assembly consumes PASS block assets only. It must not create new occupational facts or frontend fallback content.
-- Release guards own production import, deployment, exact-SHA approval, rollback readiness, and post-import live QA.
+- Release guards own trusted backend promotion dispatch, rollback readiness, and post-import live QA. Producer code never writes CMS directly.
 
 ## Non-Negotiable Rules
 
@@ -38,13 +38,13 @@ Canonical post-asset chain:
 - Do not fabricate facts, source URLs, sample counts, salary values, statistics, credentials, regulatory requirements, AI impact claims, assessment interpretations, or employment outcomes.
 - Candidate search, SEO, schema, or GEO projection fields must not be embedded in reader assets. Keep them in separate candidate files and require a separate SEO/runtime release gate.
 - If a block remains `BLOCKED` after the configured repair loops, stop and produce a repair prompt; do not continue downstream.
-- Production import requires explicit human approval naming the exact artifact SHA. This skill may prepare readiness artifacts but must not imply deployment or import permission.
+- For a V2 exact backend-authority package named by an end-to-end `/goal`, independent QA and the trusted backend workflow gates authorize the promotion chain; the exact SHA is an integrity and idempotency identity, not a human-approval credential. Direct imports remain blocked.
 - Production draft import, primary-record existence, route HTTP 200, or a populated working-revision pointer does not prove public readiness. For revision-managed personality inputs, bridge readiness requires a published public projection and must never select a working/draft revision.
 - A draft-only import does not authorize content promotion, public release, indexability, sitemap, LLMS, media, cache, or search actions. Each separately controlled surface keeps its own gate.
 - No frontend fallback content can become content authority. Empty backend/API responses must fail closed or render bounded empty states.
 - Page assembly must not invent missing facts.
 - No self-declared PASS: a block can only PASS through its audited gate outputs and frozen SHA artifacts.
-- Operator mode is dry-run-first. It may plan or perform only autonomous content-production actions and must stop for human approval before schema changes, runtime/SEO/CMS changes, staging writes, approved transitions, or production import.
+- Operator mode is dry-run-first. It may plan content-production actions and dispatch an eligible V2 exact package only to the trusted backend workflow. It must block direct schema, runtime, SEO, CMS-import, staging-write, and production-import actions.
 
 ## Block Skills
 
@@ -65,13 +65,14 @@ Before orchestrating a block, read:
 2. `references/block_factory_contract.md`
 3. `references/batch_progression_policy.md`
 4. `references/human_approval_boundaries.md`
-5. `references/search_projection_quarantine.md`
-6. `references/staging_import_release_contract.md`
-7. `references/post_import_live_qa_contract.md`
-8. `references/runtime_leakage_prevention.md`
-9. `references/baseline_artifact_registry.md` before restoring, exporting, or consuming previously frozen baselines.
-10. For autonomous continuation, read `references/operator_mode.md`, `references/operator_runbook.md`, `references/operator_source_availability_policy.md`, and `references/lexical_false_positive_policy.md`.
-11. The target block skill's `SKILL.md` and required block references.
+5. `references/v2_exact_package_promotion.md`
+6. `references/search_projection_quarantine.md`
+7. `references/staging_import_release_contract.md`
+8. `references/post_import_live_qa_contract.md`
+9. `references/runtime_leakage_prevention.md`
+10. `references/baseline_artifact_registry.md` before restoring, exporting, or consuming previously frozen baselines.
+11. For autonomous continuation, read `references/operator_mode.md`, `references/operator_runbook.md`, `references/operator_source_availability_policy.md`, and `references/lexical_false_positive_policy.md`.
+12. The target block skill's `SKILL.md` and required block references.
 
 Use legacy shared references as supporting material:
 

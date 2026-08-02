@@ -1,5 +1,5 @@
 # Goal Staging Preview
 
-Goal: Design or run staging preview for a PASS final repaired block.
+Goal: Prepare the V2 exact-package promotion handoff for a PASS final repaired block.
 
-Dry-run importer first. Only write staging_preview after authorization. API/page smoke required. No production import.
+Run independent QA first, then report the trusted backend dry-run/import/readback/publish/live-QA gates. Do not write staging rows or call direct production import from Producer code.

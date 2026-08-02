@@ -1,12 +1,12 @@
-# FermatMind Codex Workflow And Personalization
+# Solo-Owner Engineering Operating Model
 
-Status: working guide
-Last updated: 2026-07-04
-Audience: FermatMind operators using Codex desktop, local repositories, browser research, and GitHub PRs
+Status: cross-repository operating model
+Last updated: 2026-08-02
+Audience: FermatMind solo owner and Codex agents working in `fap-web` and `fap-api`
 
 ## Purpose
 
-This guide defines how FermatMind should use Codex efficiently for product, engineering, content-authority, and GitHub delivery work.
+This is the single cross-repository operating model for FermatMind product, engineering, content-authority, and GitHub delivery work. It defines the durable default; repository `AGENTS.md`, skills, and runbooks may impose narrower technical rules but must not reintroduce a conflicting V2 manual-approval gate.
 
 It covers three layers:
 
@@ -30,6 +30,20 @@ Do not put every SEO, GEO, or brand detail into personalization. Keep personaliz
 ## Operating Model
 
 Use Codex as an implementation and verification partner, not as a content authority.
+
+### Solo-Owner Defaults
+
+- A concrete end-to-end `/goal` continuously authorizes the normal lifecycle for its identified scope: branch, implementation, focused tests, same-scope CI repair, merge when policy permits, and cleanup. It is not a production-infrastructure, migration, secrets/permission, irreversible-delete, or SEO-discoverability authorization.
+- One PR represents one deployable and verifiable technical scope. Do not mechanically split a scope into state, approval, reset, refreeze, or evidence-only PRs.
+- V2 exact packages keep independent QA and W9 as required checks in the same Producer PR. A `BLOCKED` result is repaired and rerun in that same PR; do not create a separate W9 evidence, reset, refreeze, or CONTROL-status PR.
+- An exact package SHA is an integrity, idempotency, audit, and rollback identity. It is not a confirmation phrase or human-approval credential.
+- A discovered issue outside the current scope belongs in a sidecar record. It does not stop a train item whose required checks have passed, unless it is a direct safety, ownership, or required-check block for that item.
+
+### V2 Content Promotion Boundary
+
+The normal V2 chain is `independent QA -> trusted backend promotion -> dry-run import -> readback -> publish -> live QA`. Once an exact backend-authority package is named by an end-to-end `/goal` and its machine gates pass, the trusted backend workflow may perform those promotion phases without a human approval artifact or exact-SHA confirmation phrase. Producer code may only dispatch that trusted backend workflow; it must not import CMS records directly.
+
+The following remain independently controlled and cannot be implied by a V2 package promotion: production infrastructure deploy, database migration, secrets or permission changes, irreversible deletion, sitemap/`llms.txt`/Search Channel discoverability, or other SEO runtime release.
 
 For FermatMind work, the source of truth is:
 
