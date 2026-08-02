@@ -55991,15 +55991,15 @@
     "repo": "fap-web",
     "base": "main",
     "branch": "codex/en-content-parity-v2-deployed-executor-provenance-01",
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {"dependency": {"status": "passed", "evidence": "T1 PR #3513 merged as 1f863f4b8f63d86149d5bc0fe7563c4936e86446 and fap-api origin/main contains that merge SHA."}, "local_validation": {"status": "pending", "evidence": null}, "github_required_checks": {"status": "pending", "evidence": null}},
+    "checks": {"dependency": {"status": "passed", "evidence": "T1 PR #3513 merged as 1f863f4b8f63d86149d5bc0fe7563c4936e86446 and fap-api origin/main contains that merge SHA."}, "local_validation": {"status": "passed", "evidence": "Focused 32 tests, ESLint, and complete contract shard 4 passed after the scope-contract repair."}, "github_required_checks": {"status": "passed", "evidence": "CI run 30758203502 and CodeQL run 30758203509 passed all build, four contract shards, Big Five/Enneagram freezes, CodeQL, and no-new-alert checks."}},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-08-03T01:01:11+08:00", "status": "implementation_in_progress", "summary": "T2 starts from clean fap-web main after T1 merge verification. Scope is receipt provenance validation only; no receipt input/master/package change, CMS write, promotion, deploy, or discoverability mutation is authorized."},{"at": "2026-08-03T01:08:00+08:00", "status": "ci_repair_local_verified", "summary": "Initial PR #1992 head failed only contract-shard-4 because the existing solo-owner rules scope contract classified T2 as a different ad-hoc rules PR. Added the exact T2 five-file scope alternative; focused 32 tests and complete shard 4 passed locally. No provenance, package, CMS, promotion, deploy, or discoverability boundary was relaxed."}],
-    "updated_at": "2026-08-03T01:08:00+08:00"
+    "history": [{"at": "2026-08-03T01:01:11+08:00", "status": "implementation_in_progress", "summary": "T2 starts from clean fap-web main after T1 merge verification. Scope is receipt provenance validation only; no receipt input/master/package change, CMS write, promotion, deploy, or discoverability mutation is authorized."},{"at": "2026-08-03T01:08:00+08:00", "status": "ci_repair_local_verified", "summary": "Initial PR #1992 head failed only contract-shard-4 because the existing solo-owner rules scope contract classified T2 as a different ad-hoc rules PR. Added the exact T2 five-file scope alternative; focused 32 tests and complete shard 4 passed locally. No provenance, package, CMS, promotion, deploy, or discoverability boundary was relaxed."},{"at": "2026-08-03T01:13:00+08:00", "status": "ready_to_merge", "summary": "Exact repair head ed86a13684bd3fef2943824da187ed53af3e0dec passed CI run 30758203502 and CodeQL run 30758203509. PR #1992 is CLEAN and all changed paths remain within the declared T2 scope."}],
+    "updated_at": "2026-08-03T01:13:00+08:00"
   }
 }
