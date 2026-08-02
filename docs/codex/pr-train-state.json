@@ -56009,9 +56009,9 @@
     "base": "main",
     "branch": "codex/en-parity-w4-riasec-frontend-locale-guard-01",
     "depends_on": ["EN-PARITY-W4-RIASEC-AUTHORITY-PROMOTION-REPAIR-01"],
-    "status": "committed",
-    "commit_sha": "675bdbef55c669f712d5d13284aeb1a2b4178e9c",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "6d912941",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1993",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -56021,7 +56021,7 @@
       "dependency": {"status": "pass", "evidence": "fap-api Task 1 merged as d8ee74a7620c7d2f9c7270667c1f9d7de0cade5c; fap-api origin/main contains the exact authority repair."},
       "package_binding": {"status": "pass", "evidence": "Backend package f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb and W9 report f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882 remain unchanged."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -56054,8 +56054,13 @@
         "at": "2026-08-02T17:15:00Z",
         "status": "ci_repair_in_progress",
         "summary": "GitHub contract shard 1 identified the intended RichResultReport adapter change as a deterministic MBTI print-input hash drift; main baseline passes and this PR recomputed the exact expected hash. The separate solo-owner scope-contract failure is a pre-existing generic CI guard defect, isolated for a minimal baseline-repair PR before Task 2 CI is retried."
+      },
+      {
+        "at": "2026-08-02T17:36:00Z",
+        "status": "github_checks_pending",
+        "summary": "Rebased onto fap-web main 024ca21b03ee37f08080dd43b99358ae7d34372b after the two isolated baseline CI repairs. Complete RIASEC contracts pass 189/189, the MBTI print hash guard passes with the intentional current hash, pnpm typecheck passes, and the scoped diff check passes. PR #1993 is being force-updated for required GitHub checks; Task 3 and all authority, receipt, CMS, SEO, private-data, and deployment actions remain deferred."
       }
     ],
-    "updated_at": "2026-08-02T17:15:00Z"
+    "updated_at": "2026-08-02T17:36:00Z"
   }
 }
