@@ -1329,6 +1329,10 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return true;
   }
 
+  if (scaleCode === "ENNEAGRAM") {
+    return false;
+  }
+
   if (scaleCode === "RIASEC" && reportData && hasRiasecProjection(reportData)) {
     return true;
   }

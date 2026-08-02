@@ -872,9 +872,5 @@ export function assembleEnneagramResultViewModel({
 }
 
 export function hasEnneagramProjection(reportData: ReportResponse | null | undefined, locale: Locale): boolean {
-  if (!reportData) {
-    return false;
-  }
-
-  return Boolean(resolveReportV2(reportData, locale) || resolveProjection(reportData, locale));
+  return Boolean(reportData && isEnneagramPrivateResultLocaleCompatible(reportData, locale));
 }

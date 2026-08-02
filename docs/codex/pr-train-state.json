@@ -55484,7 +55484,7 @@
     "base": "main",
     "branch": "codex/en-parity-w3-article-package-rework-10-01",
     "depends_on": ["EN-PARITY-W3-ARTICLE-53-SOURCE-EVIDENCE-01"],
-    "status": "github_checks_pending",
+    "status": "ci_repair_local_verified",
     "commit_sha": "8ad935d707d386555bb56928ebd161c632da1b3c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1971",
     "checks": {"dependency": {"status": "pass", "evidence": "PR #1969 merged as 7dc3bdaebcf7ade175f763f4ca7c758d54ca1f52 and its exact Article:53 evidence package SHA is 480523fc03dc09927d420de306aca193da707b32584d84b6ee07701605fec061."}, "local_validation": {"status": "pass", "evidence": "After rebasing onto origin/main 939579e1e9de37516850bac41686f1436064ec34, including the isolated W3 Article/W9 snapshot-contract baseline repair, the builder recomputed d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a identically twice. Four focused contracts passed 76/76, focused ESLint, JSON/YAML parse, exact scope audit, diff checks, 17/17 reconciliation, exact evidence consumption, 16-row preservation, no Han leakage, current-master binding, and all-false permissions pass."}, "github_required_checks": {"status": "pass", "evidence": "PR #1971 exact head b3e694588b9c9996b84a871ce3af932d85f25600 passed build, all four contract shards and the contracts aggregate, Big Five/Enneagram freezes, CodeQL, and no-new-code-scanning-alerts. Exact-head Codex review reported no major issues."}},
@@ -56101,7 +56101,7 @@
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1997",
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
-      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, and observation contracts passed 59/59; touched-scope ESLint, TypeScript typecheck, JSON/YAML parse, and diff checks passed."}
+      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, observation, and rich-result contracts passed 65/65; touched-scope ESLint, TypeScript typecheck, JSON/YAML parse, and diff checks passed."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -56120,7 +56120,8 @@
       {"at": "2026-08-03T02:15:00+08:00", "status": "local_verified", "summary": "Private English envelope/slot checks now fail closed for mismatch or CJK leakage; result, share, print/PDF, and history projections omit raw score/vector, dominance-gap, selector, and operational close-call detail. Focused 59/59 contracts, ESLint, typecheck, manifest/state parse, diff, and path-limited scope validation pass. No CMS/registry write, content package, promotion, deploy, or discoverability action occurred."}
       ,{"at": "2026-08-03T02:20:00+08:00", "status": "committed_local", "summary": "Rebased the implementation onto fap-web origin/main 251e8250f8fa67bf8a91cfcebf5a0108359c8c44 and recorded the exact W5 implementation commit 8566ffefa249c5abe5bc170b3b3f2a9813ff0213. The focused 59/59 suite, touched ESLint, typecheck, manifest/state parse, and diff checks passed again."}
       ,{"at": "2026-08-03T02:30:00+08:00", "status": "github_checks_pending", "summary": "Pushed the scoped branch and opened PR #1997. Required GitHub checks are pending; PR 3 package production, PR 4 control envelope, CMS/registry write, promotion, deployment, and discoverability remain deferred."}
+      ,{"at": "2026-08-03T02:40:00+08:00", "status": "ci_repair_local_verified", "summary": "The first Enneagram freeze run exposed locale-less legacy fixtures still passing through RichResultReport's generic fallback. The same-scope repair makes Enneagram fail closed before that generic fallback, converts legacy fixtures into rejection assertions, and marks the valid V2 preview envelope/slots explicitly English. The expanded required Enneagram contract group passes 65/65 with touched ESLint, typecheck, and diff checks."}
     ],
-    "updated_at": "2026-08-03T02:30:00+08:00"
+    "updated_at": "2026-08-03T02:40:00+08:00"
   }
 }

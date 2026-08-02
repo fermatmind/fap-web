@@ -30128,6 +30128,7 @@ prs:
       - tests/contracts/enneagram-api.contract.test.ts
       - tests/contracts/enneagram-observation-surface.contract.test.tsx
       - tests/contracts/enneagram-private-result-locale.contract.test.ts
+      - tests/contracts/enneagram-rich-result-report.contract.test.tsx
       - tests/contracts/enneagram-result-assembler.contract.test.ts
       - tests/contracts/enneagram-result-shell.contract.test.tsx
       - tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
@@ -30139,7 +30140,7 @@ prs:
       - Add sitemap, llms, JSON-LD, canonical, indexability, Search Channel, CMS, package, receipt, promotion, deployment, or frontend editorial-content changes.
       - Generate W5 English content or write production registry/CMS state.
     required_local_checks:
-      - focused Enneagram locale, privacy/redaction, result/report/share/PDF/history contracts
+      - focused Enneagram locale, privacy/redaction, result/report/share/PDF/history and rich-result contracts
       - touched-scope ESLint
       - pnpm typecheck
       - JSON/YAML parse and path-limited scope validation
