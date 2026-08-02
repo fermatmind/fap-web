@@ -16,7 +16,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 - L1 research: scan repo truth, existing reports, backend contracts, current route/indexability state, and competitor/source inputs.
 - L2 content production: create structured content package drafts through model prompt packets and ledgers.
 - L2 default `codex_native_content_generation`: Codex-native draft, skeptical self-review, repair pass when needed, final package, QA gates, and handoff preview.
-- L3 QA/import PR: validate schemas, evidence, bilingual parity, framework rules, and prepare backend import PR handoff.
+- L3 QA/import PR: validate schemas, evidence, bilingual parity, framework rules, run independent W9/QA, and prepare trusted backend promotion handoff.
 - L4 publish PR: allowed only after explicit publish/indexability gate approval; never implicit.
 
 ## When To Use
@@ -81,7 +81,7 @@ Every Enneagram Authority V2 run must lock all of these workflow truths:
 - Coverage is 58 identities and 116 locale pages; a smaller cohort is an explicit batch slice, never the estate definition.
 - `en` and `zh-CN` are drafted independently from the same claim map and reviewed separately; one locale is not raw translation authority for the other.
 - Every factual or method claim maps to the V2 source ledger. Missing evidence fails closed.
-- Model or agent QA may propose edits, but it never satisfies human review. Drafts stay `pending_manual_review` until a named human review record exists.
+- Model or agent QA may propose edits, but V2 exact-package work is decided by independent W9/QA and its trusted backend promotion receipts; it does not require `pending_manual_review` or a named human reviewer. Historical V1/legacy artifacts may retain `pending_manual_review` fields and human-review records without becoming a V2 gate.
 - Draft work targets isolated working revisions. It must not mutate the published primary fingerprint or public revision pointer; promotion and rollback belong to separately authorized backend gates.
 
 ## MBTI Asset Pipeline
@@ -92,9 +92,10 @@ For MBTI public profile work, use this executable sequence:
 2. Content package: select only approved existing MBTI profile, A/T comparison, or hot cross-type comparison slugs, then prepare backend-authoritative draft packets.
 3. QA: run schema, trademark/method boundary, duplicate/template risk, private-result leakage, SERP intent, internal-link, and GEO answer-surface gates.
 4. fap-api import dry-run: hand off a dry-run import packet and schema/field-mapping expectations to fap-api; this skill does not write CMS or backend data.
-5. Approval: require explicit operator approval before any import, promotion, Search Queue, sitemap, llms, or indexability action.
-6. Promotion: after approved backend import and API smoke, let the rendering/release PR consume the API output without local editorial fallback content.
-7. sitemap/llms gate: only a separate indexability PR may expand sitemap, llms, llms-full, canonical, robots, or Search Queue coverage after live authority and duplicate gates pass.
+5. Approval (legacy/manual only): historical manual operations may retain their approval records, but this is not a V2 exact-package transition.
+6. V2 promotion: after independent W9/QA, dispatch the registered exact package to the trusted fap-api workflow for import, readback, publish, and live QA. No human approval artifact or exact-SHA phrase is required.
+7. Promotion readback: let the rendering/release PR consume the API output without local editorial fallback content after the trusted receipts pass.
+8. sitemap/llms gate: only a separate indexability PR may expand sitemap, llms, llms-full, canonical, robots, or Search Queue coverage after live authority and duplicate gates pass.
 
 ## Default Codex-Native Workflow
 
@@ -110,7 +111,7 @@ For non-MBTI or narrow draft-only work, the default content production flow is:
 
 Codex output cannot be written directly to production seed or production CMS. Codex-generated content must be treated as an untrusted draft until schema, evidence, duplicate, private-result-boundary, framework, and indexability QA all pass.
 
-Do not write CMS from this skill. Backend imports require the separate fap-api dry-run, approval, and promotion gates above.
+Do not write CMS from this skill. Backend imports require the separate fap-api dry-run and trusted V2 promotion gates above; direct import, runtime, and SEO mutation remain blocked.
 
 ## External Model Protocol
 
@@ -179,7 +180,7 @@ fap-api is the schema/import/API/content authority. fap-web consumes public API 
 
 ## Failure Modes
 
-Stop when source evidence is missing, schemas fail, bilingual coverage or independent drafting fails, any asset lacks `pending_manual_review` truth, model QA is represented as human review, working-revision isolation fails, private result leakage is detected, framework no-go rules are violated, indexability changes appear in a noindex scope, or model output cannot be traced to the V2 source ledger.
+Stop when source evidence is missing, schemas fail, bilingual coverage or independent drafting fails, independent W9/QA fails, working-revision isolation fails, private result leakage is detected, framework no-go rules are violated, indexability changes appear in a noindex scope, or model output cannot be traced to the V2 source ledger. Repair a V2 W9 `BLOCKED` verdict in the same Producer PR; do not create a separate W9, reset, refreeze, or approval-only PR.
 
 For batch readiness, Codex auto-repair must not hide generator failure. GO for a batch only if raw or repaired generator output has zero critical contract violations and final Codex packages pass all QA gates.
 

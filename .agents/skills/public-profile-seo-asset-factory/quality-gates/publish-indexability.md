@@ -2,7 +2,7 @@
 
 Publication requires all of:
 
-- Explicit user approval for publish/indexability PR.
+- A separately controlled publish/indexability scope; a V2 promotion receipt cannot authorize it.
 - Backend authority confirms `launch_state=published`.
 - `index_eligible=true`.
 - `robots=index,follow`.
@@ -11,6 +11,6 @@ Publication requires all of:
 - Canonical and hreflang pass.
 - Duplicate/cannibalization audit passes.
 - Live route smoke passes.
-- The approved public revision pointer references a named human-reviewed revision; a working revision or model-only review is ineligible.
+- The public revision pointer references the backend-published revision verified by independent W9/QA and the trusted backend receipts; a working revision is ineligible.
 
 No L1/L2/L3 run may modify sitemap, llms, public generated sitemap, or indexability flags.

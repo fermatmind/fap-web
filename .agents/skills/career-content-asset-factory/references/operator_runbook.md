@@ -25,7 +25,7 @@ python3 .agents/skills/career-content-asset-factory/scripts/run_operator_loop.py
 
 - `execution_performed=false` means the operator only planned.
 - `content_generated=false` means no evidence, synthesis, asset, or search projection was written.
-- `requires_human_approval=true` means stop and ask the user for a scoped goal.
+- `requires_human_approval=true` is a legacy-compatible field. New V2 promotion records must report `false`; real blockers report the failed machine gate or a separately controlled action.
 
 Operator mode must be run from a worktree that contains the relevant generated state and frozen baseline artifacts.
 
@@ -96,6 +96,8 @@ The PR train generator writes only:
 Do not apply those patches until the operator explicitly authorizes updating
 `docs/codex/pr-train.yaml` and `docs/codex/pr-train-state.json`.
 
-Stop and request authorization if the task asks for CMS writes, staging writes,
-production import, SEO runtime release, sitemap, `llms.txt`, canonical,
-noindex, JSON-LD, secrets, permissions, manual deploy, or production deploy.
+Stop if the task attempts direct CMS writes, staging writes, direct production
+import, SEO runtime release, sitemap, `llms.txt`, canonical, noindex, JSON-LD,
+secrets, permissions, manual deploy, or production deploy. An eligible V2
+exact package may instead use `dispatch_exact_package_promotion` to invoke the
+trusted backend workflow without an approval artifact.

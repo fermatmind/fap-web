@@ -109,11 +109,11 @@ def main() -> int:
     write_csv(output_dir / "page_assembly_no_new_fact_audit.csv", [], ["slug", "locale", "finding"])
     write_csv(output_dir / "repair_required.csv", findings, ["scope", "item", "finding"])
     (output_dir / "release_guard_readiness_report.md").write_text(
-        "# Release Guard Readiness\n\nReady for human staging review only. No staging, CMS import, production import, or SEO runtime change was executed.\n",
+        "# Release Guard Readiness\n\nIndependent QA completed. A registered V2 exact package may next dispatch the trusted backend promotion workflow; no direct staging, CMS import, production import, or SEO runtime change was executed.\n",
         encoding="utf-8",
     )
     (output_dir / "remaining_human_approval_items.md").write_text(
-        "# Remaining Human Approval Items\n\n- Explicit staging preview approval is required before any staging write.\n- Explicit exact-SHA approval is required before any production import.\n",
+        "# Remaining Promotion Gates\n\n- Registered V2 exact package and independent QA PASS are required before trusted backend dispatch.\n- The backend executor must pass dry-run import, readback, publication, and live QA.\n- SEO discoverability remains separately controlled.\n",
         encoding="utf-8",
     )
     write_json(output_dir / "sha256_manifest.json", make_sha_manifest(output_dir))

@@ -12,12 +12,13 @@
 8. `schema_validated`
 9. `qa_gates_passed`
 10. `fap_api_import_dry_run_ready`
-11. `approval_required`
+11. `trusted_backend_promotion_ready`
 12. `backend_import_ready`
 13. `frontend_render_ready`
 14. `sitemap_llms_gate_ready`
 15. `publish_gate_ready`
-16. `blocked`
+16. `legacy_manual_approval_required`
+17. `blocked`
 
 ## Transitions
 
@@ -30,11 +31,13 @@
 - `content_package_assembled -> schema_validated`: all JSON schemas parse and package validates.
 - `schema_validated -> qa_gates_passed`: evidence, parity, duplicate, private-result, framework, and indexability gates pass.
 - `qa_gates_passed -> fap_api_import_dry_run_ready`: package can be handed to fap-api for dry-run import validation and schema/field mapping.
-- `fap_api_import_dry_run_ready -> approval_required`: dry-run evidence exists and any import, promotion, sitemap, llms, indexability, or Search Queue work needs explicit operator approval.
-- `approval_required -> backend_import_ready`: explicit approval exists for a separate backend import or promotion PR.
+- `fap_api_import_dry_run_ready -> trusted_backend_promotion_ready`: independent W9/QA passes for a registered V2 exact package.
+- `trusted_backend_promotion_ready -> backend_import_ready`: the trusted fap-api workflow completes ordered import, readback, publication, and live-QA receipts. A `BLOCKED` verdict is repaired in the same Producer PR.
 - `backend_import_ready -> frontend_render_ready`: backend import is merged and API smoke passes.
-- `frontend_render_ready -> sitemap_llms_gate_ready`: render smoke passes and an explicit sitemap/llms/indexability gate is requested.
+- `frontend_render_ready -> sitemap_llms_gate_ready`: render smoke passes and a separately controlled sitemap/llms/indexability gate is requested.
 - `sitemap_llms_gate_ready -> publish_gate_ready`: sitemap, llms, URL Truth, canonical, robots, duplicate, and live smoke gates pass.
+
+`legacy_manual_approval_required` exists only to read historical V1/manual operation artifacts. It must not be entered by new V2 exact-package work and does not create a separate approval-only transition or PR.
 
 ## Stop Rules
 

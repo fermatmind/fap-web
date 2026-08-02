@@ -6,18 +6,21 @@ Allowed states:
 
 1. `dry_run`
 2. `staging_preview`
-3. `editorial_review`
-4. `approved`
-5. `production_imported`
+3. `independent_qa_pass`
+4. `dry_run_ready`
+5. `draft_imported`
+6. `readback_pass`
+7. `published`
+8. `live_qa_pass`
 
-Only `approved` content may transition to `production_imported`.
+Only a registered V2 exact package with independent QA PASS may transition through the trusted backend promotion workflow.
 
 ## Required Import Checks
 
 - row count and slug count match the frozen baseline
 - SHA-256 manifest matches approved artifact
 - representative editorial quality sample audit completed before staging preview
-- full editorial quality audit completed or accepted by human editorial approval before production import
+- full independent editorial quality audit completed before promotion dispatch
 - dry-run authority gate PASS
 - staging preview write PASS
 - API smoke PASS
@@ -27,7 +30,7 @@ Only `approved` content may transition to `production_imported`.
 - approval manifest SHA matches the final repaired artifact SHA and QA report SHA
 - rollback plan present
 
-Do not perform production import without explicit user approval naming the exact artifact SHA.
+Do not perform a direct production import. Dispatch only the trusted backend promotion workflow for a V2 exact package; its exact SHA is verified for integrity, idempotency, audit, and rollback, not as an approval phrase.
 
 ## Post-Import Checks
 

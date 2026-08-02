@@ -1,5 +1,5 @@
 # Goal Production Import
 
-Goal: Production import for an approved block.
+Goal: Dispatch V2 exact-package promotion for an independently QA-passed block.
 
-Requires explicit user approval naming exact artifact SHA. Run dry-run, import, API/page smoke, rollback readiness, and post-import QA. Do not modify SEO runtime unless separately authorized.
+Use only `dispatch_exact_package_promotion`; do not call direct `cms_import` or `production_import`. The trusted backend workflow runs dry-run import, import/readback, publish, and live QA. Report remaining machine gates and actual blockers. The exact SHA is integrity, idempotency, audit, and rollback evidence, not a human-approval phrase. Do not modify SEO runtime unless separately controlled.

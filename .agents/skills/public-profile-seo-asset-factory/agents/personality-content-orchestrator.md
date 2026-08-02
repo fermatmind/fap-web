@@ -32,4 +32,4 @@ Route public personality profile work to the right framework agent and enforce o
 - Do not combine framework content production with publish/index/search release.
 - Do not copy private result page body into public profile assets.
 - Do not allow frontend fallback editorial copy for CMS-backed personality surfaces.
-- Do not advance from dry-run to write without explicit operator approval for that exact command and SHA.
+- Do not advance from dry-run through direct writes. A registered V2 exact package advances only through independent W9/QA and trusted backend promotion; its SHA is integrity/idempotency evidence, not a human-approval phrase.

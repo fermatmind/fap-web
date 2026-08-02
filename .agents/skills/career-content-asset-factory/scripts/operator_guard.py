@@ -19,6 +19,11 @@ AUTONOMOUS_ALLOWED = {
     "repair_asset",
     "freeze_baseline",
     "render_next_goal",
+    "dispatch_exact_package_promotion",
+}
+
+V2_PROMOTION_ACTIONS = {
+    "dispatch_exact_package_promotion",
 }
 
 HUMAN_APPROVAL_REQUIRED = {
@@ -55,6 +60,9 @@ def main() -> int:
     allowed = action in AUTONOMOUS_ALLOWED and not requires_human_approval
     reason = "autonomous_allowed" if allowed else "human_approval_required_or_unknown_action"
 
+    if action in V2_PROMOTION_ACTIONS:
+        reason = "trusted_backend_promotion_dispatch_allowed"
+
     if action in CONTENT_ACTIONS and args.dry_run:
         reason = "dry_run_blocks_execution"
     elif action in CONTENT_ACTIONS and not args.allow_content_generation:
@@ -68,6 +76,7 @@ def main() -> int:
         "dry_run": args.dry_run,
         "execution_allowed": allowed and not args.dry_run,
         "content_generation_action": action in CONTENT_ACTIONS,
+        "trusted_backend_promotion_dispatch": action in V2_PROMOTION_ACTIONS,
         "reason": reason,
     }
 

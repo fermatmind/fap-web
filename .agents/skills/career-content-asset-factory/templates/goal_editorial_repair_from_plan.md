@@ -19,4 +19,4 @@ Hard prohibitions:
 After repair:
 - rerun editorial quality audit
 - produce protected diff report
-- stop for human review
+- report the independent QA result, remaining machine gates, and any real blocker

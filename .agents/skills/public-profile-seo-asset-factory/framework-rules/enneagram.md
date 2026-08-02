@@ -14,8 +14,8 @@ Use schema-supported mode `audit`. Populate the required run-manifest `asset_sel
 
 - Independent bilingual drafting from the same claim map; no raw translation authority.
 - V2 source-ledger reference for every claim.
-- `pending_manual_review` until a named human review record exists.
-- Model QA and agent QA never count as human review.
+- Independent W9/QA before trusted V2 promotion; no named human reviewer or `pending_manual_review` transition is required for new V2 exact packages.
+- Historical V1/legacy artifacts may retain `pending_manual_review`; model QA and agent QA must never be misrepresented as a historical human review record.
 - Isolated working revisions only; no published-primary or public-pointer mutation.
 
 ## Forbidden

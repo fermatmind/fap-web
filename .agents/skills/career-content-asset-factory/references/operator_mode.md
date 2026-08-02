@@ -22,7 +22,7 @@ Operator mode may plan these content-production actions:
 - repair reader-facing assets after a repairable asset gate
 - freeze a baseline after all required gates PASS
 
-Operator mode must not silently execute schema changes, runtime changes, SEO changes, CMS writes, staging writes, approved transitions, or production import. Those states require explicit human approval.
+Operator mode must not silently execute schema changes, runtime changes, SEO changes, direct CMS writes, staging writes, approved transitions, or direct production import. For an eligible V2 exact package, it may only dispatch the trusted backend promotion workflow; that workflow retains its own dry-run, import, readback, publish, and live-QA machine gates.
 
 For work-activities after batch 001 freeze, the expected dry-run next action is creating the batch 100 manifest using `control_50 + new_50`. The operator must report `execution_performed=false`.
 

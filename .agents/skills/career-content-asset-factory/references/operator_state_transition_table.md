@@ -11,7 +11,7 @@
 | synthesis validation | REPAIR_REQUIRED | repair synthesis rows only | after max repair loops |
 | asset gate | PASS | freeze baseline | if freeze inputs incomplete |
 | asset gate | REPAIR_REQUIRED | repair reader-facing asset rows only | after max repair loops |
-| final independent QA | PASS | staging preview design | human approval required before staging |
-| staging/import/production | any | stop | human approval required |
+| final independent QA | PASS | trusted backend promotion dispatch | registered V2 exact package only |
+| direct staging/import/production | any | stop | direct action remains blocked |
 
-Autonomous continuation is limited to the content-production lane. Any runtime, SEO, CMS, staging, approved, or production transition becomes `HUMAN_APPROVAL_REQUIRED`.
+Autonomous continuation is limited to the content-production lane plus trusted V2 promotion dispatch. Any direct runtime, SEO, CMS, staging, or production transition remains blocked.

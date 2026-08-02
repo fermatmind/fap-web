@@ -1,5 +1,7 @@
 # Night PR Train Rules
 
+Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personalization.md`](docs/codex/fermatmind-codex-workflow-and-personalization.md) is the Solo-Owner Engineering Operating Model. These repository rules and their referenced skills/runbooks remain the stricter implementation authority.
+
 ## Scope discipline
 - One PR = one scope.
 - Never combine adjacent PR scopes.
