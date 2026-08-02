@@ -56049,8 +56049,13 @@
         "at": "2026-08-02T17:10:00Z",
         "status": "github_checks_pending",
         "summary": "Opened ready PR #1993 from the scoped branch. Required GitHub checks and review are pending; Task 3, V2 lane materialization, W9, receipts, CMS/import/publication, SEO, private data, and deployment remain deferred."
+      },
+      {
+        "at": "2026-08-02T17:15:00Z",
+        "status": "ci_repair_in_progress",
+        "summary": "GitHub contract shard 1 identified the intended RichResultReport adapter change as a deterministic MBTI print-input hash drift; main baseline passes and this PR recomputed the exact expected hash. The separate solo-owner scope-contract failure is a pre-existing generic CI guard defect, isolated for a minimal baseline-repair PR before Task 2 CI is retried."
       }
     ],
-    "updated_at": "2026-08-02T17:10:00Z"
+    "updated_at": "2026-08-02T17:15:00Z"
   }
 }
