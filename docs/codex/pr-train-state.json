@@ -56096,18 +56096,19 @@
     "base": "main",
     "branch": "codex/en-parity-w5-enneagram-web-consumer-v2-01",
     "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01"],
-    "status": "ci_repair_local_verified",
-    "commit_sha": "d1a973d9e15eea511541f9b34b521edc95d0b4bf",
+    "status": "ready_to_merge",
+    "commit_sha": "897f24b2b53aac5308f5cb04dd6479674d17c5f2",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1997",
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
-      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, observation, rich-result, asset-backed renderer, and MBTI print-hash guard contracts passed 71/71; full ESLint, TypeScript typecheck, JSON/YAML parse, exact MBTI print-asset hash check, scope validation, and diff checks passed."}
+      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, observation, rich-result, asset-backed renderer, and MBTI print-hash guard contracts passed 71/71; full ESLint, TypeScript typecheck, JSON/YAML parse, exact MBTI print-asset hash check, scope validation, and diff checks passed."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1997 exact head 897f24b2b53aac5308f5cb04dd6479674d17c5f2 passed build, four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision or actionable review comment."}
     },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -56122,7 +56123,8 @@
       ,{"at": "2026-08-03T02:30:00+08:00", "status": "github_checks_pending", "summary": "Pushed the scoped branch and opened PR #1997. Required GitHub checks are pending; PR 3 package production, PR 4 control envelope, CMS/registry write, promotion, deployment, and discoverability remain deferred."}
       ,{"at": "2026-08-03T02:40:00+08:00", "status": "ci_repair_local_verified", "summary": "The first Enneagram freeze run exposed locale-less legacy fixtures still passing through RichResultReport's generic fallback. The same-scope repair makes Enneagram fail closed before that generic fallback, converts legacy fixtures into rejection assertions, and marks the valid V2 preview envelope/slots explicitly English. The expanded required Enneagram contract group passes 65/65 with touched ESLint, typecheck, and diff checks."}
       ,{"at": "2026-08-03T02:55:00+08:00", "status": "ci_repair_local_verified", "summary": "CI then identified three same-scope regressions: lint rejected test/helper bindings named module, an asset-backed Chinese fixture omitted the now-required envelope/slot locale, and the shared RichResultReport change intentionally drifted the guarded MBTI print-input hash. Renamed the bindings, made the fixture a valid zh envelope/slot, and refreshed only the deterministic hash guard. Focused contracts pass 71/71; full ESLint, typecheck, JSON/YAML parse, print-hash check, scope validation, and diff checks pass."}
+      ,{"at": "2026-08-03T03:10:00+08:00", "status": "ready_to_merge", "summary": "PR #1997 exact head 897f24b2b53aac5308f5cb04dd6479674d17c5f2 is CLEAN. Build, all four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts pass; no required review decision or actionable comment remains. This ledger readiness commit must complete its own required-check cycle before squash merge."}
     ],
-    "updated_at": "2026-08-03T02:55:00+08:00"
+    "updated_at": "2026-08-03T03:10:00+08:00"
   }
 }
