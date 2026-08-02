@@ -56096,8 +56096,8 @@
     "base": "main",
     "branch": "codex/en-parity-w5-enneagram-web-consumer-v2-01",
     "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed_local",
+    "commit_sha": "8566ffefa249c5abe5bc170b3b3f2a9813ff0213",
     "pr_url": null,
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
@@ -56118,7 +56118,8 @@
     "history": [
       {"at": "2026-08-03T02:00:00+08:00", "status": "in_progress", "summary": "Started after the merged W5 private authority adapter. Scope is frontend consumer locale, privacy, disclosure, share, PDF/print, and history boundaries only; no content package, CMS/registry write, promotion, deploy, or discoverability action is authorized."},
       {"at": "2026-08-03T02:15:00+08:00", "status": "local_verified", "summary": "Private English envelope/slot checks now fail closed for mismatch or CJK leakage; result, share, print/PDF, and history projections omit raw score/vector, dominance-gap, selector, and operational close-call detail. Focused 59/59 contracts, ESLint, typecheck, manifest/state parse, diff, and path-limited scope validation pass. No CMS/registry write, content package, promotion, deploy, or discoverability action occurred."}
+      ,{"at": "2026-08-03T02:20:00+08:00", "status": "committed_local", "summary": "Rebased the implementation onto fap-web origin/main 251e8250f8fa67bf8a91cfcebf5a0108359c8c44 and recorded the exact W5 implementation commit 8566ffefa249c5abe5bc170b3b3f2a9813ff0213. The focused 59/59 suite, touched ESLint, typecheck, manifest/state parse, and diff checks passed again."}
     ],
-    "updated_at": "2026-08-03T02:15:00+08:00"
+    "updated_at": "2026-08-03T02:20:00+08:00"
   }
 }
