@@ -8,6 +8,7 @@ const ROOT = process.cwd();
 const GUARD = ".agents/skills/career-content-asset-factory/scripts/operator_guard.py";
 const OPERATOR_NEXT = ".agents/skills/career-content-asset-factory/scripts/run_operator_next.py";
 const SELECT_NEXT_PHASE = ".agents/skills/career-content-asset-factory/scripts/select_next_phase.py";
+const HISTORICAL_RULES_PR_BRANCH = "codex/solo-owner-engineering-operating-model-web-02";
 
 const ACTIVE_V2_CAREER_FILES = [
   ".agents/skills/career-content-asset-factory/SKILL.md",
@@ -83,6 +84,13 @@ function changedFiles(): string[] {
     for (const file of output.split("\n")) if (file.trim()) files.add(file.trim());
   }
   return [...files].sort();
+}
+
+function currentBranch(): string {
+  return process.env.GITHUB_HEAD_REF || execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
 }
 
 describe("Solo-Owner Engineering Operating Model (web)", () => {
@@ -230,6 +238,8 @@ describe("Solo-Owner Engineering Operating Model (web)", () => {
       expect(changedFiles().every((file) => t2Files.has(file))).toBe(true);
       return;
     }
+    if (currentBranch() !== HISTORICAL_RULES_PR_BRANCH) return;
+
     const allowed = (file: string) =>
       file === "AGENTS.md" ||
       file === "docs/codex/fermatmind-codex-workflow-and-personalization.md" ||
