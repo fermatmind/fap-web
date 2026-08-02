@@ -29764,6 +29764,7 @@ prs:
       - scripts/seo/validate-en-content-parity-control.mjs
       - .github/workflows/ci.yml
       - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - tests/contracts/solo-owner-engineering-operating-model-web.contract.test.ts
       - tests/contracts/en-content-parity-control-master.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
