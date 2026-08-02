@@ -162,9 +162,9 @@ export default function EnneagramShareSummaryCard({
                     <p className="m-0 mt-2 text-sm font-semibold text-slate-900">
                       {viewModel.closeCallPair.typeA?.label ?? "--"} / {viewModel.closeCallPair.typeB?.label ?? "--"}
                     </p>
-                    {viewModel.closeCallPair.triggerReason ? (
-                      <p className="m-0 mt-1 text-sm leading-7 text-slate-700">{viewModel.closeCallPair.triggerReason}</p>
-                    ) : null}
+                    <p className="m-0 mt-1 text-sm leading-7 text-slate-700">
+                      {locale === "zh" ? "这两个候选可作为继续观察的工作假设。" : "These two candidates are working hypotheses for further reflection."}
+                    </p>
                   </div>
                 ) : null}
               </div>

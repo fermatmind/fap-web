@@ -29,6 +29,7 @@ import {
   resolveEnneagramFormMeta,
   type EnneagramFormCode,
 } from "@/lib/enneagram/forms";
+import { isEnneagramPrivateSurfaceLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
 
 function resolveAnonId(anonId?: string): string | undefined {
   const normalized = String(anonId ?? "").trim();
@@ -255,10 +256,15 @@ export async function fetchEnneagramHistory({
         pageSize,
         anonId: resolvedAnonId,
         locale,
+        cache: "no-store",
       }),
   });
 
-  return assertContract<MeAttemptsResponse>("enneagramMeAttemptsResponse", enneagramMeAttemptsResponseSchema, response);
+  const parsed = assertContract<MeAttemptsResponse>("enneagramMeAttemptsResponse", enneagramMeAttemptsResponseSchema, response);
+  if (locale && !isEnneagramPrivateSurfaceLocaleCompatible(parsed, locale === "zh" || locale === "zh-CN" ? "zh" : "en")) {
+    throw new Error("Contract validation failed: enneagram history locale envelope");
+  }
+  return parsed;
 }
 
 export function isEnneagramForcedChoiceForm(formCode: string | null | undefined): boolean {

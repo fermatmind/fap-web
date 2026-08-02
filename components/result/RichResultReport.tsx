@@ -1325,8 +1325,12 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return true;
   }
 
-  if (scaleCode === "ENNEAGRAM" && reportData && hasEnneagramProjection(reportData)) {
+  if (scaleCode === "ENNEAGRAM" && reportData && (hasEnneagramProjection(reportData, "en") || hasEnneagramProjection(reportData, "zh"))) {
     return true;
+  }
+
+  if (scaleCode === "ENNEAGRAM") {
+    return false;
   }
 
   if (scaleCode === "RIASEC" && reportData && hasRiasecProjection(reportData)) {

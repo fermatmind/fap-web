@@ -30,9 +30,11 @@ describe("enneagram secondary surfaces contract", () => {
     hoisted.fetchEnneagramHistory.mockResolvedValue({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "en",
       items: [
         {
           attempt_id: "attempt-enneagram-105",
+          locale: "en",
           submitted_at: "2026-04-20T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_likert_105",
@@ -43,6 +45,7 @@ describe("enneagram secondary surfaces contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
+            locale: "en",
             primary_type: {
               code: "T1",
               label: "Type 1",
@@ -139,9 +142,11 @@ describe("enneagram secondary surfaces contract", () => {
     hoisted.fetchEnneagramHistory.mockResolvedValue({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "en",
       items: [
         {
           attempt_id: "attempt-enneagram-144",
+          locale: "en",
           submitted_at: "2026-04-20T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_forced_choice_144",
@@ -152,6 +157,7 @@ describe("enneagram secondary surfaces contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
+            locale: "en",
             primary_type: {
               code: "T5",
               label: "Type 5",
@@ -208,6 +214,7 @@ describe("enneagram secondary surfaces contract", () => {
     hoisted.fetchEnneagramHistory.mockResolvedValue({
       ok: true,
       scale_code: "ENNEAGRAM",
+      locale: "en",
       items: [],
       history_compare: {
         current_attempt_id: "attempt-enneagram-105",

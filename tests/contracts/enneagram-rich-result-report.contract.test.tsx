@@ -16,6 +16,7 @@ function asReport(fixture: unknown): ReportResponse {
 function createRestrictedV2Report(): ReportResponse {
   return {
     ok: true,
+    locale: "en",
     attempt_id: "attempt-enneagram-preview",
     scale_code: "ENNEAGRAM",
     locked: true,
@@ -36,6 +37,7 @@ function createRestrictedV2Report(): ReportResponse {
       scale_code: "ENNEAGRAM",
       _meta: {
         enneagram_report_v2: {
+          locale: "en",
           schema_version: "enneagram.report.v2",
           scale_code: "ENNEAGRAM",
           form: {
@@ -67,6 +69,7 @@ function createRestrictedV2Report(): ReportResponse {
                   state: "clear",
                   form_variant: "all",
                   content: {
+                    locale: "en",
                     title: "Preview summary",
                     body: "Preview-safe Enneagram copy.",
                   },
@@ -88,6 +91,7 @@ function createRestrictedV2Report(): ReportResponse {
                   state: "clear",
                   form_variant: "all",
                   content: {
+                    locale: "en",
                     title: "Paid work style",
                     body: "Paid Enneagram work copy.",
                   },
@@ -103,10 +107,10 @@ function createRestrictedV2Report(): ReportResponse {
 }
 
 describe("enneagram rich result report contract", () => {
-  it("adds Enneagram to the rich result whitelist and renders a dedicated result shell", () => {
+  it("rejects legacy locale-less Enneagram payloads instead of rendering a private fallback", () => {
     const reportData = asReport(likert105Fixture);
 
-    expect(canRenderRichResultReport(reportData)).toBe(true);
+    expect(canRenderRichResultReport(reportData)).toBe(false);
 
     render(
       <RichResultReport
@@ -142,9 +146,9 @@ describe("enneagram rich result report contract", () => {
 
     const shell = screen.getByTestId("enneagram-result-shell");
     expect(within(shell).getByTestId("enneagram-form-summary")).toHaveTextContent("Enneagram · 105-question Likert");
-    expect(within(shell).getByTestId("enneagram-primary-type")).toHaveTextContent("Primary type · T1");
-    expect(within(shell).getByTestId("enneagram-top-types")).toHaveTextContent("Type 1");
-    expect(within(shell).getByTestId("enneagram-type-vector")).toHaveTextContent("Type 5");
+    expect(within(shell).queryByTestId("enneagram-primary-type")).not.toBeInTheDocument();
+    expect(within(shell).queryByTestId("enneagram-top-types")).not.toBeInTheDocument();
+    expect(within(shell).queryByTestId("enneagram-type-vector")).not.toBeInTheDocument();
     expect(within(shell).getByTestId("enneagram-pdf-entry")).toBeInTheDocument();
     expect(within(shell).getByText("Retake test")).toHaveAttribute(
       "href",
@@ -154,55 +158,15 @@ describe("enneagram rich result report contract", () => {
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
   });
 
-  it("renders 105 and 144 through the same result route branch while preserving backend form identity", () => {
+  it("rejects a locale-less 144 payload instead of treating it as a valid English private result", () => {
     const forcedChoiceReport = asReport(forcedChoice144Fixture);
-
-    render(
-      <RichResultReport
-        locale="en"
-        reportData={forcedChoiceReport}
-        accessProjection={{
-          attemptId: "attempt-enneagram-144",
-          accessState: "ready",
-          reportState: "ready",
-          pdfState: "unavailable",
-          unlockStage: "full",
-          unlockSource: "payment",
-          reasonCode: null,
-          accessLevel: "full",
-          variant: "full",
-          projectionVersion: 1,
-          modulesAllowed: ["enneagram_core", "enneagram_full"],
-          modulesPreview: [],
-          actions: {
-            pageHref: "/en/result/attempt-enneagram-144",
-            pdfHref: null,
-            waitHref: null,
-            historyHref: "/en/history/enneagram",
-            lookupHref: null,
-          },
-          meta: {
-            producedAt: null,
-            refreshedAt: null,
-          },
-        }}
-      />
-    );
-
-    const shell = screen.getByTestId("enneagram-result-shell");
-    expect(within(shell).getByTestId("enneagram-form-summary")).toHaveTextContent(
-      "Enneagram · 144-question Forced-Choice"
-    );
-    expect(within(shell).getByTestId("enneagram-primary-type")).toHaveTextContent("Primary type · T5");
-    expect(within(shell).getByText("Retake test")).toHaveAttribute(
-      "href",
-      "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144"
-    );
+    expect(canRenderRichResultReport(forcedChoiceReport)).toBe(false);
   });
 
   it("applies the rich result access gate before rendering locked Enneagram V2 pages", () => {
     render(<RichResultReport locale="en" reportData={createRestrictedV2Report()} />);
 
+    expect(screen.getByTestId("enneagram-result-shell")).toBeInTheDocument();
     expect(screen.getByText("Preview-safe Enneagram copy.")).toBeInTheDocument();
     expect(screen.queryByText("Paid Enneagram work copy.")).not.toBeInTheDocument();
     expect(screen.queryByTestId("enneagram-v2-page-page_2_work_reality")).not.toBeInTheDocument();

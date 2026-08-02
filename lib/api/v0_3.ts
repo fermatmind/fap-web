@@ -3869,12 +3869,14 @@ export async function getMyAttempts({
   pageSize,
   anonId,
   locale,
+  cache,
 }: {
   scaleCode?: string;
   page?: number;
   pageSize?: number;
   anonId?: string;
   locale?: string;
+  cache?: RequestCache;
 } = {}): Promise<MeAttemptsResponse> {
   const query = new URLSearchParams();
   const resolvedScaleCode = scaleCode ? (buildRequestScaleCodeCandidates(scaleCode)[0] ?? scaleCode) : undefined;
@@ -3888,7 +3890,7 @@ export async function getMyAttempts({
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.get<MeAttemptsResponse>(
     `/v0.3/me/attempts${query.size > 0 ? `?${query.toString()}` : ""}`,
-    anonHeader(resolvedAnonId)
+    { ...anonHeader(resolvedAnonId), ...(cache ? { cache } : {}) }
   );
 
   return assertApiOk(response, "Failed to load history attempts.");

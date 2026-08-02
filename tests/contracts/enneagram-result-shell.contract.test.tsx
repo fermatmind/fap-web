@@ -413,6 +413,7 @@ function createV2ReportResponse({
   ];
 
   const reportV2 = {
+    locale: "zh",
     schema_version: "enneagram.report.v2",
     scale_code: "ENNEAGRAM",
     form: {
@@ -1168,8 +1169,16 @@ function createV2ReportResponse({
     },
   };
 
+  for (const page of reportV2.pages) {
+    for (const reportModule of page.modules) {
+      const mutableModule = reportModule as { content: Record<string, unknown> };
+      mutableModule.content = { ...mutableModule.content, locale: "zh" };
+    }
+  }
+
   return {
     ok: true,
+    locale: "zh",
     attempt_id: "attempt-v2",
     scale_code: "ENNEAGRAM",
     locked: false,
@@ -1311,6 +1320,8 @@ describe("enneagram result shell contract", () => {
     const moduleNode = screen.getByTestId("enneagram-module-close-call-card");
     expect(moduleNode).toBeInTheDocument();
     expect(within(moduleNode).getByText(/1 vs 6/)).toBeInTheDocument();
+    expect(moduleNode).toHaveTextContent("工作假设");
+    expect(moduleNode).not.toHaveTextContent("gap_below_threshold");
     expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("接近型结果");
   });
 
@@ -1545,6 +1556,10 @@ describe("enneagram result shell contract", () => {
       "history_share_surface_not_shipped",
       "version · unavailable",
       "COMMUNICATION_MANUAL",
+      "88",
+      "79",
+      "63",
+      "gap_below_threshold",
       "content_maturity",
       "evidence_level",
       "high_profile_entropy",

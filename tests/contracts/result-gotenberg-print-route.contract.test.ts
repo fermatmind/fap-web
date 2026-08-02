@@ -141,6 +141,9 @@ describe("Gotenberg result print route contract", () => {
     expect(printBootstrap).toContain("validateMbtiSnapshotDesktopCloneContent");
     expect(printBootstrap).toContain("desktopCloneContent");
     expect(printBootstrap).toContain("snapshotContentStatus");
+    expect(printBootstrap).toContain("isEnneagramPrivateResultLocaleCompatible");
+    expect(printBootstrap).toContain("enneagram_print_locale_envelope_mismatch");
+    expect(printBootstrap).toContain('cache: "no-store"');
     expect(pdfExportToken).toContain('process.env.NODE_ENV === "production" ? "" : "fap-result-page-pdf-local-key"');
     expect(pdfExportToken).toContain("if (!secret)");
   });

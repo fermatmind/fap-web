@@ -1,5 +1,6 @@
 import type { MeAttemptItem, MeAttemptsResponse, OfferPayload } from "@/lib/api/v0_3";
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
+import { isEnneagramPrivateSurfaceLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramHistoryTypeSummary = {
@@ -115,7 +116,8 @@ function normalizeType(value: unknown): EnneagramHistoryTypeSummary | null {
   return {
     code,
     label: normalizeText(row.label, row.name, row.title, code),
-    score: normalizeNumber(row.score ?? row.percent ?? row.value),
+    // History is a private re-entry index, not a score-vector surface.
+    score: null,
     rank: normalizeNumber(row.rank),
   };
 }
@@ -167,11 +169,14 @@ export function normalizeEnneagramHistoryRows(
 ): EnneagramHistoryRowSummary[] {
   const normalizedItems = Array.isArray(items) ? items : [];
 
-  return normalizedItems.map((item) => {
+  return normalizedItems.flatMap((item) => {
     const attemptId = normalizeText(item.attempt_id);
     const submittedAt = normalizeText(item.submitted_at);
     const formSummary = normalizeEnneagramFormSummary(item.enneagram_form_v1 ?? null);
     const summary = resolveSummaryRecord(item);
+    if (!isEnneagramPrivateSurfaceLocaleCompatible(item, locale) || !isEnneagramPrivateSurfaceLocaleCompatible(summary, locale)) {
+      return [];
+    }
     const offerSummary = asRecord(item.offer_summary);
     const qualitySummary = asRecord(item.quality_summary);
     const observationState = asRecord(item.observation_state_v1);
@@ -180,7 +185,7 @@ export function normalizeEnneagramHistoryRows(
       normalizeText(item.observation_status, item.user_confirmed_type, item.suggested_next_action).length > 0 ||
       normalizeNumber(item.observation_completion_rate) !== null;
 
-    return {
+    return [{
       attemptId,
       submittedAt,
       formCode: formSummary?.formCode ?? null,
@@ -231,7 +236,7 @@ export function normalizeEnneagramHistoryRows(
           }
         : null,
       accessSummary: asRecord(item.access_summary) ? item.access_summary ?? null : null,
-    };
+    }];
   });
 }
 
