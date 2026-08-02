@@ -20,7 +20,7 @@
 - fap-api remains content and import authority.
 - fap-web remains rendering, SEO surface, and release gate consumer.
 - Public agents may reference private result taxonomy only as structure; they must not copy private result language.
-- Enneagram work requires independent `en` / `zh-CN` drafting, V2 source-ledger traceability, `pending_manual_review`, and isolated working revisions. Model QA never equals human review.
+- Enneagram work requires independent `en` / `zh-CN` drafting, V2 source-ledger traceability, independent W9/QA, and isolated working revisions. Model QA never equals a historical human review record.
 - Search and index surfaces require separate gates after content and runtime smoke pass.
 
 ## Expansion Readiness

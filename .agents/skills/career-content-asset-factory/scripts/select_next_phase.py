@@ -87,10 +87,15 @@ def main() -> int:
         action = "create_next_manifest"
         phase = "manifest"
         reason = "latest_pass_baseline_detected"
+        hard_stop = False
     else:
-        action = "stop_for_human_approval"
+        action = "machine_gate_repair_required"
         phase = "blocked"
         reason = "missing_latest_pass_baseline"
+        hard_stop = True
+
+    if action != "machine_gate_repair_required":
+        hard_stop = False
 
     report = {
         "block": args.block,
@@ -100,13 +105,16 @@ def main() -> int:
         "reason": reason,
         "latest_baseline": baseline,
         "open_failure_count": len(failures),
+        "requires_human_approval": False,
+        "hard_stop": hard_stop,
+        "blocker_kind": "machine_gate_failed" if hard_stop else None,
     }
     if args.output:
         out = Path(args.output)
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if action != "stop_for_human_approval" else 2
+    return 0 if not hard_stop else 2
 
 
 if __name__ == "__main__":

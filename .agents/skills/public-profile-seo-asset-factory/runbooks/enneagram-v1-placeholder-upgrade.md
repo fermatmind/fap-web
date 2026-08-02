@@ -18,8 +18,8 @@ Total: 58 identities and 116 locale pages.
 3. Open an isolated working revision for each target without changing the published primary fingerprint or public revision pointer.
 4. Draft `en` and `zh-CN` independently from the same approved claim map.
 5. Run schema, private-boundary, duplicate, framework, and bilingual-independence gates.
-6. Record model/agent QA separately and keep the asset `pending_manual_review`; model review is not human review.
-7. Hand off only draft-revision evidence. Publish, indexability, sitemap, llms, promotion, and rollback remain separate backend-authorized gates.
+6. Record model/agent QA separately, then require independent W9/QA for the exact V2 package; do not create a `pending_manual_review` gate.
+7. Dispatch an eligible registered package only to the trusted fap-api workflow for draft import, readback, publish, and live QA. Indexability, sitemap, llms, and Search Channel remain separately controlled scopes.
 
 ## Forbidden Expansion
 

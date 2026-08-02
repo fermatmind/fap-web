@@ -25,4 +25,4 @@
 - Secrets exposed to an external model.
 - Private user payload uploaded to a model.
 - Missing backend authority for the target framework.
-- User asks to publish without explicit indexability gate approval.
+- A publish/indexability action is requested without its own separately controlled scope.

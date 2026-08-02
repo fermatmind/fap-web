@@ -2,11 +2,11 @@
 
 ## Scope
 
-Explicit publish gate only.
+Separately scoped publish/indexability gate only; never implied by a V2 promotion receipt.
 
 ## Required
 
-- User approval.
+- Concrete publish/indexability scope.
 - Backend published/index flags.
 - Sitemap/llms impact report.
 - Live smoke.

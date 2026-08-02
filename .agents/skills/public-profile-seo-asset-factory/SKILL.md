@@ -17,7 +17,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 - L2 content production: create structured content package drafts through model prompt packets and ledgers.
 - L2 default `codex_native_content_generation`: Codex-native draft, skeptical self-review, repair pass when needed, final package, QA gates, and handoff preview.
 - L3 QA/import PR: validate schemas, evidence, bilingual parity, framework rules, run independent W9/QA, and prepare trusted backend promotion handoff.
-- L4 publish PR: allowed only after explicit publish/indexability gate approval; never implicit.
+- L4 indexability PR: a separately scoped discoverability release; never implied by a V2 promotion receipt.
 
 ## When To Use
 

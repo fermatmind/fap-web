@@ -168,7 +168,7 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
     if failures:
         stop_classification = classify_open_failure_stop(failures, max_repair_loops)
         action = {
-            "action": "stop_for_human_approval" if stop_classification else "repair_failed_rows",
+            "action": "machine_gate_repair_required" if stop_classification else "repair_failed_rows",
             "phase": "blocked" if stop_classification else "repair",
             "block": block,
             "reason": "open failures exist",
@@ -177,16 +177,17 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
             "stop_classification": stop_classification,
         }
         hard_stop = bool(stop_classification)
-        requires_human_approval = bool(stop_classification)
+        blocker_kind = "machine_gate_failed" if stop_classification else None
     elif not baseline:
         action = {
-            "action": "stop_for_human_approval",
+            "action": "machine_gate_repair_required",
             "phase": "blocked",
             "block": block,
             "reason": "missing latest PASS baseline",
+            "stop_classification": "missing_latest_pass_baseline",
         }
         hard_stop = True
-        requires_human_approval = True
+        blocker_kind = "machine_gate_failed"
     elif baseline_files_missing(baseline):
         if baseline.get("artifact_uri") and baseline.get("restorable") is not False:
             action = {
@@ -212,21 +213,22 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
                 "suggested_preflight_output": "generated/career-content-baseline-artifact-registry/restore_preflight_report.json",
             }
         hard_stop = False
-        requires_human_approval = False
+        blocker_kind = None
     elif validation and validation.get("final_conclusion") not in {None, "BATCH_001_BASELINE_FROZEN"} and "FROZEN" not in str(validation.get("final_conclusion")):
         action = {
-            "action": "stop_for_human_approval",
+            "action": "machine_gate_repair_required",
             "phase": "blocked",
             "block": block,
             "reason": "latest baseline validation is not frozen PASS",
             "baseline_final_conclusion": validation.get("final_conclusion"),
+            "stop_classification": "baseline_not_frozen_pass",
         }
         hard_stop = True
-        requires_human_approval = True
+        blocker_kind = "machine_gate_failed"
     else:
         action = next_manifest_action(block, baseline, status, batch_size)
         hard_stop = False
-        requires_human_approval = False
+        blocker_kind = None
 
     return {
         "operator_mode": True,
@@ -238,8 +240,9 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
         "baseline_validation": validation,
         "open_failure_count": len(failures),
         "next_action": action,
-        "requires_human_approval": requires_human_approval,
+        "requires_human_approval": False,
         "hard_stop": hard_stop,
+        "blocker_kind": blocker_kind,
         "source_availability_policy": {
             "transient_source_timeout": "may_continue_cache_only_for_asset_or_synthesis_reaudit_when_cache_available",
             "cache_available": "requires_local_pass_evidence_synthesis_and_traceability",

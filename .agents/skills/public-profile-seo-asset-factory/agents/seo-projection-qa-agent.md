@@ -26,4 +26,4 @@ Review public personality profile SEO projection artifacts before they can affec
 - PASS, CONDITIONAL, or NO-GO decision.
 - Per-URL blockers and warnings.
 - Recommended next gate.
-- Exact boundaries for any later operator approval.
+- Exact boundaries for any later separately scoped SEO/discoverability action.

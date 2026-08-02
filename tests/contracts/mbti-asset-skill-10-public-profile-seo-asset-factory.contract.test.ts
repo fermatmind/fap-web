@@ -65,7 +65,7 @@ describe("MBTI-ASSET-SKILL-10", () => {
     expect(mbtiAgent).toContain("approved slug");
   });
 
-  it("documents the executable MBTI GSC-to-indexability pipeline without production writes", () => {
+  it("documents the executable MBTI GSC-to-indexability pipeline without production writes or V2 approval gates", () => {
     const skill = read(".agents/skills/public-profile-seo-asset-factory/SKILL.md");
     const runbook = read(".agents/skills/public-profile-seo-asset-factory/runbooks/mbti-existing-asset-enhancement.md");
     const stateMachine = read(".agents/skills/public-profile-seo-asset-factory/orchestration/state-machine.md");
@@ -75,7 +75,9 @@ describe("MBTI-ASSET-SKILL-10", () => {
       expect(text).toMatch(/Content package/i);
       expect(text).toContain("QA");
       expect(text).toMatch(/fap-api import dry-run/i);
-      expect(text).toContain("Approval");
+      expect(text).toContain("independent W9/QA");
+      expect(text).toMatch(/trusted.*V2|V2.*trusted/i);
+      expect(text).not.toMatch(/operator approval for CMS import or promotion/i);
       expect(text).toContain("Promotion");
       expect(text).toMatch(/sitemap\/llms gate/i);
       expect(text).toContain("GSC_EVIDENCE_PENDING");
@@ -85,7 +87,8 @@ describe("MBTI-ASSET-SKILL-10", () => {
     }
 
     expect(stateMachine).toContain("fap_api_import_dry_run_ready");
-    expect(stateMachine).toContain("approval_required");
+    expect(stateMachine).toContain("trusted_backend_promotion_ready");
+    expect(stateMachine).not.toContain("fap_api_import_dry_run_ready -> approval_required");
     expect(stateMachine).toContain("sitemap_llms_gate_ready");
   });
 

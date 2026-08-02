@@ -21,4 +21,4 @@
 - Do not create the 54 wing × instinct matrix; it is distinct from the 27 current subtype identities.
 - Do not create Tritype.
 - Do not frame Enneagram as clinical diagnosis or hiring basis.
-- Do not treat model/agent QA as human review or bypass `pending_manual_review`.
+- Do not represent model/agent QA as a historical human review; new V2 packages require independent W9/QA rather than `pending_manual_review`.

@@ -9,7 +9,7 @@ Hard stops:
 - contaminated or SHA-mismatched baseline
 - source access requiring login, payment, CAPTCHA, or private credentials
 - dirty/unisolated repository scope when a PR is required
-- runtime/SEO/CMS/staging/import action request without explicit approval
+- direct runtime/SEO/CMS/staging/import action request outside its allowed executor
 
 Soft stops:
 
@@ -18,7 +18,7 @@ Soft stops:
 - unclear block dependency state
 - missing agent state files
 
-Every stop must produce a machine-readable report and a user-facing next-goal recommendation.
+Every stop must produce a machine-readable classification and a same-scope repair, recovery, or separately controlled follow-up recommendation. It must not request an exact approval phrase.
 
 ## Max Repair Loop Classification
 

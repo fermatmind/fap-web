@@ -2,13 +2,13 @@
 
 Use `career-content-asset-factory`.
 
-Continue the current block pipeline through autonomous-allowed phases only. Stop at the first hard stop or human-approval boundary.
+Continue the current block pipeline through autonomous phases and eligible trusted V2 promotion dispatch. Stop only at a classified machine-gate, direct-action, or separately controlled-scope boundary.
 
 Hard prohibitions:
 
-- no schema changes without approval
+- no schema changes outside a separately scoped goal
 - no runtime/SEO/CMS changes
 - no staging write
-- no approved transition
+- no direct published-pointer transition
 - no production import
 - no baseline mutation in place
