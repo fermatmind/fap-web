@@ -1,0 +1,22 @@
+{
+  "schema_version": "fermatmind.en_content_parity_same_pr_w9_binding.v2",
+  "artifact_kind": "same_pr_w9_binding",
+  "producer_lane_id": "W4",
+  "subscope_id": null,
+  "source_report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+  "source_report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+  "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+  "reviewed_row_count": 1550,
+  "reviewed_record_ids_sha256": "f38eccb106e820edaa69c602c96d59e18668d131fc2aa1987d24f3a1d6b31ec9",
+  "review_mode": "full_row_revalidation_of_physical_snapshot",
+  "verdict": "PASS",
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

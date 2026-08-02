@@ -194,6 +194,7 @@
         "workflow_run_attempt",
         "idempotency_key",
         "expected_count",
+        "promotion_row_count",
         "written_count",
         "readback_count",
         "published_count",
@@ -235,6 +236,7 @@
         "workflow_run_attempt": { "type": "integer", "minimum": 1 },
         "idempotency_key": { "$ref": "#/$defs/sha256" },
         "expected_count": { "type": "integer", "minimum": 1 },
+        "promotion_row_count": { "type": "integer", "minimum": 1 },
         "written_count": { "type": "integer", "minimum": 0 },
         "readback_count": { "type": "integer", "minimum": 1 },
         "published_count": { "type": "integer", "minimum": 0 },
@@ -264,6 +266,7 @@
         "lane_id",
         "subscope_id",
         "expected_count",
+        "promotion_row_count",
         "asset_ids",
         "package_root",
         "package_manifest_ref",
@@ -280,6 +283,7 @@
         "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
         "subscope_id": { "type": ["string", "null"] },
         "expected_count": { "type": "integer", "minimum": 1 },
+        "promotion_row_count": { "type": "integer", "minimum": 1 },
         "asset_ids": {
           "type": "array",
           "minItems": 1,
@@ -327,6 +331,12 @@
         "transition_trace",
         "reviewed_source_commit",
         "expected_count"
+        ,"promotion_row_count"
+        ,"backend_package_sha256"
+        ,"w9_review_binding_ref"
+        ,"w9_review_binding_sha256"
+        ,"external_package_evidence_ref"
+        ,"external_package_evidence_sha256"
       ],
       "properties": {
         "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
@@ -344,6 +354,12 @@
         "transition_trace": { "type": "array", "items": { "$ref": "#/$defs/lane_transition" } },
         "reviewed_source_commit": { "anyOf": [{ "type": "string", "pattern": "^[a-f0-9]{40}$" }, { "type": "null" }] },
         "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] }
+        ,"promotion_row_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] }
+        ,"backend_package_sha256": { "$ref": "#/$defs/sha256_or_null" }
+        ,"w9_review_binding_ref": { "type": ["string", "null"] }
+        ,"w9_review_binding_sha256": { "$ref": "#/$defs/sha256_or_null" }
+        ,"external_package_evidence_ref": { "type": ["string", "null"] }
+        ,"external_package_evidence_sha256": { "$ref": "#/$defs/sha256_or_null" }
       }
     },
     "control_inputs": {
