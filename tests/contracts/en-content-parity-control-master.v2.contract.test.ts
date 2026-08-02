@@ -112,6 +112,7 @@ function trustedProvenance(chain: ReturnType<typeof validReceiptChain>) {
     event: "workflow_dispatch",
     head_branch: "main",
     head_sha: first.source_commit,
+    source_commit: first.source_commit,
     status: "completed",
     conclusion: "success",
     run_id: first.workflow_run_id,
@@ -195,10 +196,37 @@ describe("English content parity automation control V2", () => {
     expect(workflow).toContain("fetch-depth: 0");
   });
 
+  it("requires deployed-source ancestry and the T1 workflow repair without coupling receipts to the newest main head", () => {
+    const validator = fs.readFileSync(path.join(ROOT, "scripts/seo/validate-en-content-parity-control-v2.mjs"), "utf8");
+    expect(validator).toContain("1f863f4b8f63d86149d5bc0fe7563c4936e86446");
+    expect(validator).toContain("receipt_source_is_not_reachable_from_workflow_head");
+    expect(validator).toContain("workflow_head_predates_deployed_executor_provenance_repair");
+    expect(validator).toContain("receipt_source_predates_minimum_executor_commit");
+    expect(validator).not.toContain("run.head_sha !== receipt.source_commit");
+  });
+
   it("accepts only the exact chained backend import, publication and live-QA receipts", () => {
     expect(validateChain(validReceiptChain())).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 1), "draft_imported")).toEqual({ ok: true, errors: [] });
     expect(validateChain(validReceiptChain().slice(0, 2), "published")).toEqual({ ok: true, errors: [] });
+  });
+
+  it("accepts a newer trusted main workflow head while preserving the deployed receipt source commit", () => {
+    const chain = validReceiptChain();
+    expect(validateReceiptChain({
+      entries: chain,
+      ...expected,
+      provenance: { ...trustedProvenance(chain), head_sha: "f".repeat(40) },
+    })).toEqual({ ok: true, errors: [] });
+  });
+
+  it("rejects provenance whose declared deployed source commit differs from the receipt chain", () => {
+    const chain = validReceiptChain();
+    expect(validateReceiptChain({
+      entries: chain,
+      ...expected,
+      provenance: { ...trustedProvenance(chain), source_commit: "e".repeat(40) },
+    }).errors).toContain("workflow provenance source commit mismatch");
   });
 
   it("preserves a verified prefix when a later workflow phase fails", () => {

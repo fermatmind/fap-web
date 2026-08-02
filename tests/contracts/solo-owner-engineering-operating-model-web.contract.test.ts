@@ -218,7 +218,18 @@ describe("Solo-Owner Engineering Operating Model (web)", () => {
     }
   });
 
-  it("contains this ad-hoc rules PR inside its declared documentation, skill, and contract scope", () => {
+  it("contains this ad-hoc rules PR or T2 provenance repair inside its declared scope", () => {
+    const t2Files = new Set([
+      "docs/codex/pr-train-state.json",
+      "docs/codex/pr-train.yaml",
+      "scripts/seo/validate-en-content-parity-control-v2.mjs",
+      "tests/contracts/en-content-parity-control-master.v2.contract.test.ts",
+      "tests/contracts/solo-owner-engineering-operating-model-web.contract.test.ts",
+    ]);
+    if (changedFiles().some((file) => t2Files.has(file))) {
+      expect(changedFiles().every((file) => t2Files.has(file))).toBe(true);
+      return;
+    }
     const allowed = (file: string) =>
       file === "AGENTS.md" ||
       file === "docs/codex/fermatmind-codex-workflow-and-personalization.md" ||
