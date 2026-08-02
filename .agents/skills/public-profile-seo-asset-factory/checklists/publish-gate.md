@@ -1,6 +1,6 @@
-# Publish Gate Checklist
+# Publish And Indexability Gate Checklist
 
-- [ ] Explicit approval exists.
+- [ ] A separately scoped publish/indexability goal exists; a V2 receipt is not its authorization.
 - [ ] Backend asset is published.
 - [ ] `index_eligible=true`.
 - [ ] `robots=index,follow`.

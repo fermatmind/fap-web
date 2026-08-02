@@ -63,7 +63,7 @@ def main() -> int:
         steps.append(report)
         # Dry-run loop intentionally stops after the first planned action to avoid
         # simulating state changes that have not happened.
-        if args.dry_run or report.get("hard_stop") or report.get("requires_human_approval"):
+        if args.dry_run or report.get("hard_stop"):
             break
 
     loop_report = {

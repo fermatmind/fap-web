@@ -21,7 +21,7 @@ Prepare and QA isolated draft-revision packages for the complete current Enneagr
 - Require a V2 source-ledger claim map for every page.
 - Draft each locale independently and review locale coverage separately.
 - Record model QA as model QA only; never synthesize a human reviewer.
-- Keep every unreviewed draft at `pending_manual_review`.
+- Require independent W9/QA before trusted V2 promotion; do not create a `pending_manual_review` gate for a new V2 exact package.
 - Write only to an isolated working revision. Published primary fingerprints and public revision pointers remain unchanged until a separate promotion gate.
 
 ## Forbidden Work
@@ -39,7 +39,7 @@ Prepare and QA isolated draft-revision packages for the complete current Enneagr
 - Duplicate/template-risk QA, especially for wings and subtypes.
 - Exact 58-identity / 116-page coverage and bilingual-independence QA.
 - V2 source-ledger and working-revision-isolation QA.
-- `pending_manual_review` truth; model review is not human review.
+- Independent W9/QA truth; model review is not a historical human review record.
 - Private result boundary QA.
 - Noindex/render readiness before public rendering.
 - Publish/indexability gate before sitemap, llms, or search release.

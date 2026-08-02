@@ -22,12 +22,14 @@ def main() -> int:
         {
             "area": "state completeness",
             "proposal": "Add explicit current_phase and current_batch fields to career_block_status once multiple blocks are active.",
-            "requires_human_approval": True,
+            "requires_human_approval": False,
+            "requires_separately_scoped_goal": True,
         },
         {
             "area": "operator reports",
             "proposal": "Persist repair-loop counters per block/batch/phase to avoid relying on report filenames.",
-            "requires_human_approval": True,
+            "requires_human_approval": False,
+            "requires_separately_scoped_goal": True,
         },
         {
             "area": "safety",

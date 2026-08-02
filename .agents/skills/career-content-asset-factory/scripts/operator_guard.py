@@ -26,14 +26,17 @@ V2_PROMOTION_ACTIONS = {
     "dispatch_exact_package_promotion",
 }
 
-HUMAN_APPROVAL_REQUIRED = {
-    "schema_change",
-    "runtime_change",
-    "seo_change",
+DIRECT_ACTIONS_FORBIDDEN = {
     "cms_import",
     "staging_preview_write",
     "approved_transition",
     "production_import",
+}
+
+SEPARATELY_CONTROLLED_ACTIONS = {
+    "schema_change",
+    "runtime_change",
+    "seo_change",
     "modify_frozen_baseline",
     "expand_beyond_current_batch",
 }
@@ -56,28 +59,42 @@ def main() -> int:
     args = parser.parse_args()
 
     action = args.action
-    requires_human_approval = action in HUMAN_APPROVAL_REQUIRED
-    allowed = action in AUTONOMOUS_ALLOWED and not requires_human_approval
-    reason = "autonomous_allowed" if allowed else "human_approval_required_or_unknown_action"
+    allowed = action in AUTONOMOUS_ALLOWED
+    blocker_kind = None
+    reason = "autonomous_allowed" if allowed else "unknown_action"
 
     if action in V2_PROMOTION_ACTIONS:
         reason = "trusted_backend_promotion_dispatch_allowed"
+    elif action in DIRECT_ACTIONS_FORBIDDEN:
+        allowed = False
+        reason = "direct_action_forbidden"
+        blocker_kind = "direct_action_forbidden"
+    elif action in SEPARATELY_CONTROLLED_ACTIONS:
+        allowed = False
+        reason = "separately_controlled_scope_required"
+        blocker_kind = "separately_controlled_action"
+    elif not allowed:
+        blocker_kind = "unknown_action"
 
     if action in CONTENT_ACTIONS and args.dry_run:
         reason = "dry_run_blocks_execution"
     elif action in CONTENT_ACTIONS and not args.allow_content_generation:
         allowed = False
-        reason = "content_generation_requires_explicit_non_dry_run_authorization"
+        reason = "content_generation_requires_execution_goal"
+        blocker_kind = "execution_goal_required"
 
     report = {
         "action": action,
         "allowed": allowed,
-        "requires_human_approval": requires_human_approval or not allowed,
+        # Kept for historical report/schema compatibility. V2 execution must use
+        # machine-gate and scope classifications rather than approval prompts.
+        "requires_human_approval": False,
         "dry_run": args.dry_run,
         "execution_allowed": allowed and not args.dry_run,
         "content_generation_action": action in CONTENT_ACTIONS,
         "trusted_backend_promotion_dispatch": action in V2_PROMOTION_ACTIONS,
         "reason": reason,
+        "blocker_kind": blocker_kind,
     }
 
     if args.output:

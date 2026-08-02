@@ -77,7 +77,7 @@ Inputs:
 Actions:
 
 - Prepare dry-run handoff instructions for fap-api import validation.
-- Require dry-run evidence before any CMS import approval.
+- Require dry-run evidence before trusted V2 promotion dispatch.
 - Record mapping gaps, rejected fields, missing authority fields, or route/indexability conflicts.
 
 Outputs:
@@ -85,23 +85,23 @@ Outputs:
 - Dry-run handoff packet and expected importer report shape.
 - No backend production import, database migration, or CMS write in this fap-web skill scope.
 
-### 5. Approval
+### 5. V2 Promotion Routing
 
 Required before promotion:
 
-- Operator approval for CMS import or promotion.
-- Confirm no production import, production deploy, sitemap, llms, Search Queue, or indexability change is bundled into this PR.
-- Confirm backend authority and API smoke plan.
+- Independent W9/QA, dry-run, idempotency, receipt-chain, rollback, and backend-authority gates pass for the registered exact package.
+- Confirm no production deploy, sitemap, llms, Search Queue, or indexability change is bundled into this PR.
+- Dispatch only the trusted fap-api V2 workflow; never issue a direct CMS write.
 
 Outputs:
 
-- Explicit approval record, or `blocked_approval_required`.
+- Machine-gate receipts, or a named machine/scope blocker.
 
 ### 6. Promotion
 
-Promotion can start only after:
+Trusted V2 promotion can start only after:
 
-- fap-api import PR is merged or otherwise approved by the backend authority layer.
+- independent W9/QA and the trusted fap-api machine gates pass.
 - Public API smoke confirms the expected fields.
 - fap-web render contract can consume the API output without local editorial fallback content.
 

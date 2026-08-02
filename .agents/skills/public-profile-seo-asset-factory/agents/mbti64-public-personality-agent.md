@@ -27,7 +27,7 @@ Improve the existing public MBTI64 estate without regenerating it. The estate in
 - Add frontend local editorial fallback copy.
 - Do not copy private result page body.
 - Reuse user-specific result language, scores, percentiles, result ids, order ids, report ids, or private payload fields.
-- Enqueue, approve, or submit Search Queue items without Release Guard and explicit operator approval.
+- Enqueue, approve, or submit Search Queue items outside a separately controlled Search Channel scope.
 
 ## Required Gates
 
@@ -36,6 +36,6 @@ Improve the existing public MBTI64 estate without regenerating it. The estate in
 - Duplicate differentiation gate for A/T variants and comparison pages.
 - Private-route and private-result boundary scan.
 - Search projection QA before any CTR, sitemap, llms, or Search Queue change.
-- fap-api import dry-run handoff before any CMS import or promotion request.
-- Explicit approval before import, promotion, sitemap, llms, indexability, or Search Queue action.
+- independent W9/QA and fap-api import dry-run handoff before trusted V2 promotion dispatch.
+- CMS import/promotion uses only the trusted V2 executor; sitemap, llms, indexability, and Search Queue remain separate scopes.
 - Post-release observation before repeated search submission.
