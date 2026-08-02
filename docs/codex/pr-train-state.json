@@ -53738,7 +53738,7 @@
     ],
     "status": "ready_to_merge",
     "commit_sha": "e6b305a656ddfb66d04a5b1d8a41ba18cde743e6",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1993",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -56044,8 +56044,13 @@
         "at": "2026-08-02T17:09:10Z",
         "status": "committed",
         "summary": "Committed the scoped runtime guard as 675bdbef55c669f712d5d13284aeb1a2b4178e9c. The follow-up ledger checkpoint records that implementation commit before push; no package, reader copy, authority, receipt, private-data, SEO, CMS, or deployment state changed."
+      },
+      {
+        "at": "2026-08-02T17:10:00Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1993 from the scoped branch. Required GitHub checks and review are pending; Task 3, V2 lane materialization, W9, receipts, CMS/import/publication, SEO, private data, and deployment remain deferred."
       }
     ],
-    "updated_at": "2026-08-02T17:09:10Z"
+    "updated_at": "2026-08-02T17:10:00Z"
   }
 }
