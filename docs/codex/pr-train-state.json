@@ -55985,5 +55985,21 @@
     "deploy_allowed": false,
     "history": [{"at": "2026-08-02T10:45:00Z", "status": "in_progress", "summary": "Started CONTROL-only acceptance of the exact frozen 20/20 W3 Career Guides W9 PASS evidence after PR #1988 merged and post-merge validation passed. Articles qa_pass evidence remains byte-for-byte unchanged; no W9 evidence, producer package, CMS/import, runtime, publication, discoverability, search, or deploy action is authorized."},{"at": "2026-08-02T10:55:00Z", "status": "local_verified", "summary": "Accepted only W3-CAREER-GUIDES package_frozen to qa_pass with the exact W9 report and report SHA; the exact row-evidence SHA is bound in this CONTROL ledger. W3 aggregate advances solely by the least-progressed-subscope invariant and retains null package/QA fields with empty aggregate lineage. Articles qa_pass evidence and all permissions remain unchanged."},{"at": "2026-08-02T11:00:00Z", "status": "github_checks_pending", "summary": "Committed the CONTROL-only acceptance as cb7cae8c6ee3d4ae56ad00c278de6c3bebec8803 and opened ready PR #1989. Required GitHub checks and exact-head review are pending; CMS/import, runtime, publication, discoverability, search, and deploy remain deferred."},{"at": "2026-08-02T11:10:00Z", "status": "ci_repair_local_verified", "summary": "Initial PR #1989 contract shards exposed stale registered assertions in the Career Guides Batch A, Batch B, and complete freeze validators/contracts. Updated only those registered files to recognize the exact frozen W3 lineage followed by the exact W9 Career Guides qa_pass report SHA; no package, partial-candidate, or permission guard was relaxed. All registered validators, focused 72/72 contracts, ESLint, scope, and diff checks pass. Fresh required checks are pending."},{"at": "2026-08-02T11:20:00Z", "status": "ci_repair_local_verified", "summary": "A concurrently merged V2 control-automation PR made the registered V2 authority a required shadow of the V1 master. Rebasing #1989 onto origin/main 77f4bc489ffa0ad2ecd93d44448bbcca0692bce0 and materializing only its deterministic V2 shadow resolves the V1 audit SHA and W3 migration drift. V1/V2 validators and focused 93/93 control and Career Guide contracts pass; no receipt, promotion, CMS/import, publication, discoverability, search, or deploy state changed. Fresh required checks are pending."},{"at": "2026-08-02T11:30:00Z", "status": "ready_to_merge", "summary": "PR #1989 exact implementation head 0d8e702d50d1758db79d8998bf3829ecbc34cd82 is CLEAN against base 77f4bc489ffa0ad2ecd93d44448bbcca0692bce0. Build, all four contract shards and aggregate contracts, Big Five and Enneagram freezes, CodeQL, and no-new-code-scanning-alerts pass. The final ledger-only head must complete its own fresh required-check cycle and exact-head review before squash merge."}],
     "updated_at": "2026-08-02T11:30:00Z"
+  },
+  "EN-CONTENT-PARITY-V2-DEPLOYED-EXECUTOR-PROVENANCE-01": {
+    "id": "EN-CONTENT-PARITY-V2-DEPLOYED-EXECUTOR-PROVENANCE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/en-content-parity-v2-deployed-executor-provenance-01",
+    "status": "implementation_in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {"dependency": {"status": "passed", "evidence": "T1 PR #3513 merged as 1f863f4b8f63d86149d5bc0fe7563c4936e86446 and fap-api origin/main contains that merge SHA."}, "local_validation": {"status": "pending", "evidence": null}, "github_required_checks": {"status": "pending", "evidence": null}},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-08-03T01:01:11+08:00", "status": "implementation_in_progress", "summary": "T2 starts from clean fap-web main after T1 merge verification. Scope is receipt provenance validation only; no receipt input/master/package change, CMS write, promotion, deploy, or discoverability mutation is authorized."}],
+    "updated_at": "2026-08-03T01:01:11+08:00"
   }
 }

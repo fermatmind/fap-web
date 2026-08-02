@@ -192,15 +192,30 @@ export function verifyGithubWorkflowProvenance(entries) {
     ),
   );
   const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
-  const comparison = JSON.parse(
+  const t1RepairCommit = "1f863f4b8f63d86149d5bc0fe7563c4936e86446";
+  const sourceCommit = String(first.source_commit ?? "");
+  const minimumComparison = JSON.parse(
     execFileSync(
       "gh",
-      ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${run.head_sha}`],
+      ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}`],
       { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
     ),
   );
-  if (!["ahead", "identical"].includes(comparison.status)) {
-    throw new Error("workflow_source_predates_minimum_executor_commit");
+  if (!["ahead", "identical"].includes(minimumComparison.status)) {
+    throw new Error("receipt_source_predates_minimum_executor_commit");
+  }
+  for (const [requiredCommit, error] of [
+    [sourceCommit, "receipt_source_is_not_reachable_from_workflow_head"],
+    [t1RepairCommit, "workflow_head_predates_deployed_executor_provenance_repair"],
+  ]) {
+    const comparison = JSON.parse(
+      execFileSync(
+        "gh",
+        ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}`],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+      ),
+    );
+    if (!["ahead", "identical"].includes(comparison.status)) throw new Error(error);
   }
   const artifactName = `content-promotion-${first.lane}-${runId}-${first.workflow_run_attempt}`;
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "fap-content-promotion-provenance-"));
@@ -238,6 +253,7 @@ export function verifyGithubWorkflowProvenance(entries) {
       event: run.event,
       head_branch: run.head_branch,
       head_sha: run.head_sha,
+      source_commit: sourceCommit,
       status: run.status,
       conclusion: run.conclusion,
       run_id: String(run.id),
@@ -261,13 +277,27 @@ function verifyPreflightWorkflowProvenance(entry) {
     }),
   );
   const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
-  const comparison = JSON.parse(
-    execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${run.head_sha}`], {
+  const t1RepairCommit = "1f863f4b8f63d86149d5bc0fe7563c4936e86446";
+  const sourceCommit = String(receipt.source_commit ?? "");
+  const minimumComparison = JSON.parse(
+    execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}`], {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
     }),
   );
-  if (!["ahead", "identical"].includes(comparison.status)) throw new Error("preflight_source_predates_minimum_executor_commit");
+  if (!["ahead", "identical"].includes(minimumComparison.status)) throw new Error("preflight_source_predates_minimum_executor_commit");
+  for (const [requiredCommit, error] of [
+    [sourceCommit, "preflight_source_is_not_reachable_from_workflow_head"],
+    [t1RepairCommit, "preflight_workflow_head_predates_deployed_executor_provenance_repair"],
+  ]) {
+    const comparison = JSON.parse(
+      execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}`], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
+      }),
+    );
+    if (!["ahead", "identical"].includes(comparison.status)) throw new Error(error);
+  }
   const artifactName = `content-promotion-${receipt.lane}-${runId}-${receipt.workflow_run_attempt}`;
   const temporaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "fap-content-preflight-provenance-"));
   try {
@@ -285,7 +315,6 @@ function verifyPreflightWorkflowProvenance(entry) {
       String(run.path ?? "").split("@")[0] !== ".github/workflows/content-promotion-automation.yml" ||
       run.event !== "workflow_dispatch" ||
       run.head_branch !== "main" ||
-      run.head_sha !== receipt.source_commit ||
       run.status !== "completed" ||
       !["success", "failure"].includes(run.conclusion) ||
       String(run.id) !== runId ||
@@ -306,7 +335,8 @@ function baseAttestedReceiptProvenance(entries) {
     workflow_path: ".github/workflows/content-promotion-automation.yml",
     event: "workflow_dispatch",
     head_branch: "main",
-    head_sha: first.source_commit,
+    head_sha: null,
+    source_commit: first.source_commit,
     status: "completed",
     conclusion: "success",
     run_id: first.workflow_run_id,
@@ -623,7 +653,7 @@ export function validateReceiptChain({
   );
   assert(provenance?.event === "workflow_dispatch", "workflow provenance event mismatch", errors);
   assert(provenance?.head_branch === "main", "workflow provenance branch mismatch", errors);
-  assert(provenance?.head_sha === receipts[0].source_commit, "workflow provenance source commit mismatch", errors);
+  assert(provenance?.source_commit === receipts[0].source_commit, "workflow provenance source commit mismatch", errors);
   assert(provenance?.status === "completed", "workflow provenance is not complete", errors);
   assert(
     targetStatus === "live_qa_pass"
