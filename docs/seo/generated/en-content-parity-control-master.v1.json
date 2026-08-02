@@ -323,7 +323,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_frozen",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
@@ -373,10 +373,10 @@
           "asset_ids": [
             "ENPARITY-W3-CAREER-GUIDES"
           ],
-          "status": "package_frozen",
+          "status": "qa_pass",
           "blocked_from_status": null,
           "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-          "qa_report_ref": null,
+          "qa_report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
           "gate_lineage": [
             {
               "status": "package_frozen",
@@ -385,6 +385,14 @@
               "report_sha256": "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402",
               "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
               "accepted_at": "2026-08-02T06:20:00Z"
+            },
+            {
+              "status": "qa_pass",
+              "evidence_owner_lane_id": "W9",
+              "report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
+              "report_sha256": "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815",
+              "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+              "accepted_at": "2026-08-02T10:45:00Z"
             }
           ],
           "blockers": [],
@@ -409,7 +417,7 @@
       "qa_report_ref": null,
       "gate_lineage": [],
       "blockers": [],
-      "next_action": "Start only EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01 for the separate frozen 20-row W3-CAREER-GUIDES package SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c. It must not modify this master or share the W3-ARTICLES package, QA report, or lineage evidence; CMS, publication, discoverability, search, and deploy remain unauthorized.",
+      "next_action": "W3-ARTICLES and W3-CAREER-GUIDES have separately passed independent W9 QA at their frozen package SHAs. No CMS import, editorial approval, publication, runtime, discoverability, search, or deploy action is authorized by this CONTROL acceptance.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

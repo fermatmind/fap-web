@@ -28119,9 +28119,14 @@ prs:
       - Preserve W3-CAREER-GUIDES, W3 aggregate counts, every other lane, and all W9/import/runtime/release gates.
     allowed_paths:
       - docs/seo/generated/en-content-parity-control-master.v1.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
       - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - tests/contracts/en-content-parity-w3-career-guide-package-freeze.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - scripts/seo/validate-w3-career-guides-batch-a.mjs
+      - scripts/seo/validate-w3-career-guides-batch-b.mjs
+      - scripts/seo/validate-w3-career-guides-package-freeze.mjs
       - generated/pr-train-sidecar-issues/sidecar_issues.md
       - generated/pr-train-sidecar-issues/sidecar_issues.json
     do_not:
@@ -30049,3 +30054,42 @@ prs:
     deploy_allowed: false
     content_authority: exact frozen W3 Career Guides producer package; W9 evidence only
     repository_rule_impact: independent QA evidence only; no authority or runtime change
+
+  - id: EN-PARITY-CONTROL-W3-CAREER-GUIDES-QA-PASS-01
+    repo: fap-web
+    branch: codex/en-parity-control-w3-career-guides-qa-pass-01
+    base: main
+    title: "EN-PARITY-CONTROL-W3-CAREER-GUIDES-QA-PASS-01: accept W3 Career Guides W9 PASS"
+    depends_on: [EN-PARITY-W9-W3-CAREER-GUIDES-INDEPENDENT-QA-01]
+    mode: execute
+    train_scope: control_w3_career_guides_accept_w9_pass
+    status: in_progress
+    scope:
+      - Accept only the exact 20/20 PASS W9 report, row evidence, and frozen W3-CAREER-GUIDES package SHA 0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c.
+      - Advance only W3-CAREER-GUIDES and the W3 aggregate to qa_pass while retaining separate Article and Career Guide package, QA, and lineage evidence.
+      - Reconcile the merged Career Guides W9 PR train ledger only.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - tests/contracts/en-content-parity-control-master.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify W9 evidence, producer packages, Articles evidence, CMS, runtime, import, publication, SEO, sitemap, llms, search, or deployment.
+      - Change an aggregate package SHA, aggregate QA report, aggregate lineage, or any permission.
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/master_manifest_patch.candidate.json
+      - focused control-master and Career Guides W9 contracts
+      - focused ESLint
+      - JSON/YAML parse, exact W9 SHA/lineage, all-false permissions, and scope audits
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CONTROL acceptance of independently stored W9 evidence only
+    repository_rule_impact: CONTROL-only QA acceptance; no authority, runtime, import, publication, discoverability, or deployment change
