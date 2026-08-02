@@ -79,8 +79,8 @@ export function isEnneagramPrivateResultLocaleCompatible(reportData: unknown, lo
         })
       : []);
 
-  return modules.every((module: unknown) => {
-    const content = asRecord(asRecord(module)?.content);
+  return modules.every((reportModule: unknown) => {
+    const content = asRecord(asRecord(reportModule)?.content);
     if (content === null || !isEnneagramPrivateEnvelopeLocaleCompatible(content, locale)) return false;
     return locale !== "en" || !containsCjkText(content);
   });

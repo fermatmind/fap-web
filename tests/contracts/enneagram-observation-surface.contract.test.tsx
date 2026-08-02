@@ -209,8 +209,8 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
   };
 
   for (const page of reportV2.pages) {
-    for (const module of page.modules) {
-      const mutableModule = module as { content: Record<string, unknown> };
+    for (const reportModule of page.modules) {
+      const mutableModule = reportModule as { content: Record<string, unknown> };
       mutableModule.content = { ...mutableModule.content, locale: "zh" };
     }
   }

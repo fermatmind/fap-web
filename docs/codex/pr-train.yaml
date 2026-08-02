@@ -30125,7 +30125,9 @@ prs:
       - lib/enneagram/resultAssembler.ts
       - lib/enneagram/secondarySurfaceNormalizer.ts
       - lib/enneagram/shareSurface.ts
+      - scripts/ops/check-mbti-pdf-print-asset-hash.mjs
       - tests/contracts/enneagram-api.contract.test.ts
+      - tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx
       - tests/contracts/enneagram-observation-surface.contract.test.tsx
       - tests/contracts/enneagram-private-result-locale.contract.test.ts
       - tests/contracts/enneagram-rich-result-report.contract.test.tsx

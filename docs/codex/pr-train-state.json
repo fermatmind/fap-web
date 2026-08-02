@@ -56096,12 +56096,12 @@
     "base": "main",
     "branch": "codex/en-parity-w5-enneagram-web-consumer-v2-01",
     "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01"],
-    "status": "github_checks_pending",
+    "status": "ci_repair_local_verified",
     "commit_sha": "d1a973d9e15eea511541f9b34b521edc95d0b4bf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1997",
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
-      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, observation, and rich-result contracts passed 65/65; touched-scope ESLint, TypeScript typecheck, JSON/YAML parse, and diff checks passed."}
+      "local_validation": {"status": "pass", "evidence": "Focused result, report, share, PDF/print, history, locale/CJK, privacy/redaction, observation, rich-result, asset-backed renderer, and MBTI print-hash guard contracts passed 71/71; full ESLint, TypeScript typecheck, JSON/YAML parse, exact MBTI print-asset hash check, scope validation, and diff checks passed."}
     },
     "failure_reason": null,
     "merged_at": null,
@@ -56121,7 +56121,8 @@
       ,{"at": "2026-08-03T02:20:00+08:00", "status": "committed_local", "summary": "Rebased the implementation onto fap-web origin/main 251e8250f8fa67bf8a91cfcebf5a0108359c8c44 and recorded the exact W5 implementation commit 8566ffefa249c5abe5bc170b3b3f2a9813ff0213. The focused 59/59 suite, touched ESLint, typecheck, manifest/state parse, and diff checks passed again."}
       ,{"at": "2026-08-03T02:30:00+08:00", "status": "github_checks_pending", "summary": "Pushed the scoped branch and opened PR #1997. Required GitHub checks are pending; PR 3 package production, PR 4 control envelope, CMS/registry write, promotion, deployment, and discoverability remain deferred."}
       ,{"at": "2026-08-03T02:40:00+08:00", "status": "ci_repair_local_verified", "summary": "The first Enneagram freeze run exposed locale-less legacy fixtures still passing through RichResultReport's generic fallback. The same-scope repair makes Enneagram fail closed before that generic fallback, converts legacy fixtures into rejection assertions, and marks the valid V2 preview envelope/slots explicitly English. The expanded required Enneagram contract group passes 65/65 with touched ESLint, typecheck, and diff checks."}
+      ,{"at": "2026-08-03T02:55:00+08:00", "status": "ci_repair_local_verified", "summary": "CI then identified three same-scope regressions: lint rejected test/helper bindings named module, an asset-backed Chinese fixture omitted the now-required envelope/slot locale, and the shared RichResultReport change intentionally drifted the guarded MBTI print-input hash. Renamed the bindings, made the fixture a valid zh envelope/slot, and refreshed only the deterministic hash guard. Focused contracts pass 71/71; full ESLint, typecheck, JSON/YAML parse, print-hash check, scope validation, and diff checks pass."}
     ],
-    "updated_at": "2026-08-03T02:40:00+08:00"
+    "updated_at": "2026-08-03T02:55:00+08:00"
   }
 }

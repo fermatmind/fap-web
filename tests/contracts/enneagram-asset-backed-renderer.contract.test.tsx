@@ -30,6 +30,7 @@ function createAssetBackedReport(body = "资产正文测试令牌，不是前端
     state: "clear",
     form_variant: "all",
     content: {
+      locale: "zh",
       asset_key: "enneagram_1R_B_t1_core_motivation_v1",
       asset_type: "report_copy",
       category: "core_motivation",
@@ -65,12 +66,14 @@ function createAssetBackedReport(body = "资产正文测试令牌，不是前端
 
   return {
     ok: true,
+    locale: "zh",
     scale_code: "ENNEAGRAM",
     report: {
       scale_code: "ENNEAGRAM",
       schema_version: "enneagram.report.v1",
       _meta: {
         enneagram_report_v2: {
+          locale: "zh",
           schema_version: "enneagram.report.v2",
           scale_code: "ENNEAGRAM",
           form: {
