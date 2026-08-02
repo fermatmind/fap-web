@@ -8,6 +8,7 @@
   "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
   "reviewed_row_count": 1550,
   "reviewed_record_ids_sha256": "f38eccb106e820edaa69c602c96d59e18668d131fc2aa1987d24f3a1d6b31ec9",
+  "reviewed_source_commit": "c42d61db914d151216204c76c6964f0193ca0a1f",
   "review_mode": "full_row_revalidation_of_physical_snapshot",
   "verdict": "PASS",
   "permissions": {

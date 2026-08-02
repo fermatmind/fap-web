@@ -15,6 +15,7 @@ const W9_REPORT_SHA = "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72
 const PACKAGE_ROOT = "generated/en-content-parity/v2/W4-riasec/f3f2463f/package";
 const ARTIFACT_ROOT = "generated/en-content-parity/v2/W4-riasec/f3f2463f";
 const REVIEWED_SOURCE_COMMIT = process.env.W4_REVIEWED_SOURCE_COMMIT ?? null;
+const RECORDED_AT = "2026-08-02T17:50:00Z";
 
 function canonicalize(value) {
   if (Array.isArray(value)) return value.map(canonicalize);
@@ -35,16 +36,12 @@ function readBackend(relativePath) {
   return execFileSync("git", ["-C", BACKEND_REPOSITORY, "show", `${BACKEND_COMMIT}:${BACKEND_ROOT}/${relativePath}`]);
 }
 
-function readJson(relativePath) {
-  return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
-}
-
 function writeJson(relativePath, value) {
   fs.writeFileSync(path.join(ROOT, relativePath), `${JSON.stringify(value, null, 2)}\n`);
 }
 
 function materializationLegacyLineage() {
-  const master = readJson("docs/seo/generated/en-content-parity-control-master.v2.json");
+  const master = JSON.parse(execFileSync("git", ["show", "HEAD:docs/seo/generated/en-content-parity-control-master.v2.json"], { encoding: "utf8" }));
   const lane = master.lanes.find((item) => item.lane_id === "W4");
   return [...(lane?.legacy_lineage ?? []), ...(lane?.gate_lineage ?? [])].map((entry) => ({
     ...entry,
@@ -160,16 +157,16 @@ function main() {
     backend_package_sha256: BACKEND_PACKAGE_SHA,
     qa_report_ref: W9_REPORT_REF,
     gate_lineage: [
-      { status: "package_frozen", evidence_owner_lane_id: "W4", report_ref: `${ARTIFACT_ROOT}/package_freeze_evidence.json`, report_sha256: hash(`${ARTIFACT_ROOT}/package_freeze_evidence.json`), package_sha256: localEnvelopeSha },
-      { status: "qa_pass", evidence_owner_lane_id: "W9", report_ref: W9_REPORT_REF, report_sha256: W9_REPORT_SHA, package_sha256: localEnvelopeSha },
+      { status: "package_frozen", evidence_owner_lane_id: "W4", report_ref: `${ARTIFACT_ROOT}/package_freeze_evidence.json`, report_sha256: hash(`${ARTIFACT_ROOT}/package_freeze_evidence.json`), package_sha256: localEnvelopeSha, accepted_at: RECORDED_AT },
+      { status: "qa_pass", evidence_owner_lane_id: "W9", report_ref: W9_REPORT_REF, report_sha256: W9_REPORT_SHA, package_sha256: localEnvelopeSha, accepted_at: RECORDED_AT },
     ],
     legacy_lineage: materializationLegacyLineage(),
     blockers: [],
     transition_trace: [
-      { from_status: "not_started", to_status: "inventory_frozen", evidence_ref: `${ARTIFACT_ROOT}/inventory_frozen_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/inventory_frozen_evidence.json`) },
-      { from_status: "inventory_frozen", to_status: "package_in_progress", evidence_ref: `${ARTIFACT_ROOT}/package_in_progress_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/package_in_progress_evidence.json`) },
-      { from_status: "package_in_progress", to_status: "package_frozen", evidence_ref: `${ARTIFACT_ROOT}/package_freeze_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/package_freeze_evidence.json`) },
-      { from_status: "package_frozen", to_status: "qa_pass", evidence_ref: W9_REPORT_REF, evidence_sha256: W9_REPORT_SHA },
+      { from_status: "not_started", to_status: "inventory_frozen", evidence_ref: `${ARTIFACT_ROOT}/inventory_frozen_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/inventory_frozen_evidence.json`), recorded_at: RECORDED_AT },
+      { from_status: "inventory_frozen", to_status: "package_in_progress", evidence_ref: `${ARTIFACT_ROOT}/package_in_progress_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/package_in_progress_evidence.json`), recorded_at: RECORDED_AT },
+      { from_status: "package_in_progress", to_status: "package_frozen", evidence_ref: `${ARTIFACT_ROOT}/package_freeze_evidence.json`, evidence_sha256: hash(`${ARTIFACT_ROOT}/package_freeze_evidence.json`), recorded_at: RECORDED_AT },
+      { from_status: "package_frozen", to_status: "qa_pass", evidence_ref: W9_REPORT_REF, evidence_sha256: W9_REPORT_SHA, recorded_at: RECORDED_AT },
     ],
     reviewed_source_commit: REVIEWED_SOURCE_COMMIT,
     expected_count: 14,

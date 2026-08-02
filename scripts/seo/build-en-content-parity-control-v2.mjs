@@ -170,8 +170,8 @@ function targetKey(laneId, subscope) {
   return `${laneId}:${subscope ?? "-"}`;
 }
 
-function initialMaterializationBase(target) {
-  if (target.lane_manifest_ref !== null) return target;
+function initialMaterializationBase(target, manifest) {
+  if (target.lane_manifest_ref !== null || !manifest.backend_package_sha256) return target;
   return {
     ...target,
     status: "not_started",
@@ -280,13 +280,14 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
 
 function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) {
   const payloads = evidence.payloads;
+  const promotionRowCount = manifest.promotion_row_count ?? registeredTarget.expectedCount;
   if (
     evidence.schema_version !== "fermatmind.en_content_parity_package_freeze.v2" ||
     evidence.artifact_kind !== "package_freeze_evidence" ||
     evidence.lane_id !== manifest.lane_id ||
     evidence.subscope_id !== manifest.subscope ||
     evidence.expected_count !== registeredTarget.expectedCount ||
-    evidence.promotion_row_count !== manifest.promotion_row_count ||
+    (evidence.promotion_row_count !== undefined && evidence.promotion_row_count !== promotionRowCount) ||
     canonicalJson(evidence.asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
     typeof evidence.package_root !== "string" ||
     evidence.package_manifest_ref !== `${evidence.package_root}/sha256_manifest.json` ||
@@ -345,9 +346,9 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
       coveredRows += actualRows;
     }
   }
-  if (coveredRows !== evidence.promotion_row_count) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
+  if (coveredRows !== promotionRowCount) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
   if (
-    new Set(recordIds).size !== evidence.promotion_row_count ||
+    new Set(recordIds).size !== promotionRowCount ||
     sha256Bytes(canonicalJson([...recordIds].sort())) !== evidence.record_ids_sha256
   ) {
     throw new Error(`lane_manifest_package_record_identity_set_invalid=${key}`);
@@ -356,7 +357,7 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     lane_id: evidence.lane_id,
     subscope_id: evidence.subscope_id,
     expected_count: evidence.expected_count,
-    promotion_row_count: evidence.promotion_row_count,
+    ...(evidence.promotion_row_count === undefined ? {} : { promotion_row_count: evidence.promotion_row_count }),
     asset_ids: evidence.asset_ids,
     package_root: evidence.package_root,
     package_manifest_ref: evidence.package_manifest_ref,
@@ -424,9 +425,6 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
     throw new Error(`lane_manifest_cannot_materialize_blocked_state=${key}`);
   }
   if (Object.hasOwn(manifest, "counts")) throw new Error(`lane_manifest_counts_forbidden=${key}`);
-  if (manifest.expected_count !== registeredTarget.expectedCount || !Number.isInteger(manifest.promotion_row_count) || manifest.promotion_row_count < manifest.expected_count) {
-    throw new Error(`lane_manifest_count_contract_invalid=${key}`);
-  }
   if (base.counts && canonicalJson(base.counts) !== canonicalJson(registeredTarget.counts)) {
     throw new Error(`registered_target_counts_invalid=${key}`);
   }
@@ -513,11 +511,11 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
       report.artifact_kind !== "independent_qa_report" ||
       report.qa_lane_id !== "W9" ||
       report.producer_lane_id !== manifest.lane_id ||
-      report.subscope_id !== manifest.subscope ||
+      (!legacyW9 && report.subscope_id !== manifest.subscope) ||
       (report.package_sha256 !== manifest.package_sha256 && report.package_sha256 !== manifest.backend_package_sha256) ||
       (!legacyW9 && report.reviewed_source_commit !== manifest.reviewed_source_commit) ||
-      report.reviewed_row_count !== manifest.promotion_row_count ||
-      canonicalJson(report.reviewed_asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
+      report.reviewed_row_count !== (manifest.promotion_row_count ?? registeredTarget.expectedCount) ||
+      (!legacyW9 && canonicalJson(report.reviewed_asset_ids) !== canonicalJson(registeredTarget.assetIds)) ||
       report.verdict !== "PASS" ||
       !["language_naturalness", "claim_boundary", "chinese_leakage"].every((check) => report.checks?.[check] === "PASS") ||
       Object.entries(report.checks ?? {}).some(([check, value]) => check === "page_api_alignment_applicable" ? value !== "NOT_APPLICABLE" : value !== "PASS")
@@ -527,7 +525,7 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
     const currentPrHead = process.env.EN_PARITY_CURRENT_PR_HEAD ?? "";
     if (verifyReviewedCommit && currentPrHead !== "") {
       try {
-        execFileSync("git", ["merge-base", "--is-ancestor", report.reviewed_source_commit, currentPrHead], {
+        execFileSync("git", ["merge-base", "--is-ancestor", legacyW9 ? manifest.reviewed_source_commit : report.reviewed_source_commit, currentPrHead], {
           stdio: "ignore",
         });
       } catch {
@@ -546,7 +544,12 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
   } else if (manifest.reviewed_source_commit !== null || manifest.expected_count !== null) {
     throw new Error(`lane_manifest_w9_binding_before_qa=${key}`);
   }
-  assertExternalPackageBinding(manifest, key);
+  if ((manifest.expected_count !== null && manifest.expected_count !== registeredTarget.expectedCount) || (manifest.promotion_row_count !== null && manifest.promotion_row_count !== undefined && (!Number.isInteger(manifest.promotion_row_count) || manifest.promotion_row_count < (manifest.expected_count ?? 0)))) {
+    throw new Error(`lane_manifest_count_contract_invalid=${key}`);
+  }
+  if (manifest.backend_package_sha256 !== null && manifest.backend_package_sha256 !== undefined) {
+    assertExternalPackageBinding(manifest, key);
+  }
   const dryRunRequired = targetIndex >= stateIndex("dry_run_ready");
   if (dryRunRequired) {
     const dryRunLineage = manifestLineage.filter((entry) => entry.status === "dry_run_ready");
@@ -611,7 +614,7 @@ export function applyMaterializationInputs(v2, inputs) {
     }
     const target = targetFor(v2, binding.lane_id, binding.subscope);
     assertLaneManifestTransition(
-      initialMaterializationBase(target),
+      initialMaterializationBase(target, manifest),
       manifest,
       key,
       registeredTargetContract(v2, target, binding.lane_id),

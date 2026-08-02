@@ -51,8 +51,8 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "5da80171364013b1aa229d429d403f2190e6ce9c5cee2ddd2f564d7f3c6a02cc",
-    "lane_manifest_count": 0,
+    "inputs_sha256": "27024af70dcef06cb15847c495e4c7a812ddd3e4fcd69932e958eb0927135793",
+    "lane_manifest_count": 1,
     "receipt_chain_count": 0
   },
   "state_machine": {
@@ -581,16 +581,38 @@
       "source_inventory_refs": [
         "docs/codex/riasec-full-content-pack-asset-inventory.md"
       ],
-      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
       "qa_report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
       "gate_lineage": [
+        {
+          "status": "package_frozen",
+          "evidence_owner_lane_id": "W4",
+          "report_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/package_freeze_evidence.json",
+          "report_sha256": "e123b24ae97473e56a27dd94d3ba0dc83cbddbe1954f4153532c7604d30ef4a5",
+          "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+          "accepted_at": "2026-08-02T17:50:00Z"
+        },
+        {
+          "status": "qa_pass",
+          "evidence_owner_lane_id": "W9",
+          "report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+          "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+          "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+          "accepted_at": "2026-08-02T17:50:00Z"
+        }
+      ],
+      "blockers": [],
+      "next_action": "A separately authorized exact-package importer dry-run contract may now be planned for package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not perform CMS import, runtime activation, SEO release, or publication.",
+      "legacy_lineage": [
         {
           "status": "package_frozen",
           "evidence_owner_lane_id": "W4",
           "report_ref": "generated/en-content-parity/W4-riasec/editorial_review.json",
           "report_sha256": "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5",
           "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
-          "accepted_at": "2026-08-01T18:52:23Z"
+          "accepted_at": "2026-08-01T18:52:23Z",
+          "legacy_source": "v1_pre_v2_materialization_audit_only",
+          "transition_dependency_allowed": false
         },
         {
           "status": "qa_pass",
@@ -598,13 +620,12 @@
           "report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
           "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
           "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
-          "accepted_at": "2026-08-01T20:50:30Z"
+          "accepted_at": "2026-08-01T20:50:30Z",
+          "legacy_source": "v1_pre_v2_materialization_audit_only",
+          "transition_dependency_allowed": false
         }
       ],
-      "blockers": [],
-      "next_action": "A separately authorized exact-package importer dry-run contract may now be planned for package SHA f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb; do not perform CMS import, runtime activation, SEO release, or publication.",
-      "legacy_lineage": [],
-      "lane_manifest_ref": null,
+      "lane_manifest_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/lane_manifest.json",
       "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",

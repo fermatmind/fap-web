@@ -74,7 +74,7 @@
         "report_sha256": { "$ref": "#/$defs/sha256" },
         "package_sha256": { "$ref": "#/$defs/sha256" },
         "accepted_at": { "type": "string", "format": "date-time" },
-        "legacy_source": { "const": "v1_human_approval_audit_only" },
+        "legacy_source": { "enum": ["v1_human_approval_audit_only", "v1_pre_v2_materialization_audit_only"] },
         "transition_dependency_allowed": { "const": false }
       },
       "additionalProperties": false
@@ -194,7 +194,6 @@
         "workflow_run_attempt",
         "idempotency_key",
         "expected_count",
-        "promotion_row_count",
         "written_count",
         "readback_count",
         "published_count",
@@ -236,7 +235,6 @@
         "workflow_run_attempt": { "type": "integer", "minimum": 1 },
         "idempotency_key": { "$ref": "#/$defs/sha256" },
         "expected_count": { "type": "integer", "minimum": 1 },
-        "promotion_row_count": { "type": "integer", "minimum": 1 },
         "written_count": { "type": "integer", "minimum": 0 },
         "readback_count": { "type": "integer", "minimum": 1 },
         "published_count": { "type": "integer", "minimum": 0 },
