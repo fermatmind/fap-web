@@ -56135,9 +56135,9 @@
     "base": "main",
     "branch": "codex/en-parity-w5-enneagram-control-envelope-v2-01",
     "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-CONTENT-PACKAGE-V2-01"],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "290fa87fbf42a7ef08214a939da6e614d7029cef",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1998",
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3518 merged as e2470dab99c21f5776f8a0e848ceb81eddfa0c51; origin/main contains the exact W5 630-row package."},
       "package_binding": {"status": "pass", "evidence": "Read-only preflight confirmed backend package SHA 8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5, 649 declared package files, 630 identities, 1,332 source assets, and backend W9 PASS SHA 6516d035cff4aa59e97a85eff2b28b384b5501b6037b0f7c4caaeca5070e64f2."},
@@ -56158,6 +56158,7 @@
     "history": [
       {"at": "2026-08-03T00:00:00Z", "status": "in_progress", "summary": "Started from fap-web origin/main after W5 backend producer and web-consumer PRs merged. Scope is an immutable V2 external package snapshot and generated control master only; CMS, registry, promotion, deployment, discoverability, and public-profile regeneration remain out of scope."}
       ,{"at": "2026-08-03T00:00:00Z", "status": "local_verified", "summary": "Built the exact non-symlinked backend snapshot twice with stable local envelope SHA 30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048. The generated V2 master and validator pass; focused V2/W5 contracts pass 28/28, focused ESLint and JSON/YAML checks pass. No CMS, registry, promotion, deployment, SEO, sitemap, llms, or Search Channel mutation occurred."}
+      ,{"at": "2026-08-03T00:00:00Z", "status": "github_checks_pending", "summary": "Pushed commit 290fa87fbf42a7ef08214a939da6e614d7029cef and opened PR #1998. Required GitHub checks are pending; production deployment, preflight/import/readback/activation/live QA, receipt binding, CMS/registry writes, SEO, and Search Channel actions remain deferred."}
     ],
     "updated_at": "2026-08-03T00:00:00Z"
   }
