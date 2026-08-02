@@ -2034,7 +2034,7 @@ export default function ResultClient({
         {renderOptionalEmailRecoveryCard()}
         <RiasecResultShell
           locale={locale}
-          viewModel={assembleRiasecResultViewModel(resultData)}
+          viewModel={assembleRiasecResultViewModel(resultData, locale)}
           attemptId={attemptId}
         />
       </div>

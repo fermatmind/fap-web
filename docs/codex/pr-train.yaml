@@ -30014,6 +30014,49 @@ prs:
     content_authority: CONTROL acceptance of independently stored W9 evidence only
     repository_rule_impact: CONTROL-only QA acceptance; no authority, runtime, import, publication, discoverability, or deployment change
 
+  - id: EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w4-riasec-frontend-locale-guard-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01: enforce exact RIASEC locale and form projection"
+    depends_on: [EN-PARITY-W4-RIASEC-AUTHORITY-PROMOTION-REPAIR-01]
+    mode: execute
+    train_scope: w4_riasec_frontend_locale_form_safe_surface_guard
+    status: in_progress
+    scope:
+      - Require requested page locale, backend deep-content envelope locale, slot locale, and RIASEC form identity to agree before reader-visible content is rendered.
+      - Reject English Han leakage, malformed 60Q contextual/structural slots, duplicate or missing slot identities, and non-safe share/PDF/history variants without frontend content fallback.
+    allowed_paths:
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - components/result/RichResultReport.tsx
+      - lib/riasec/resultAssembler.ts
+      - scripts/ops/check-mbti-pdf-print-asset-hash.mjs
+      - tests/contracts/riasec-*.contract.test.ts
+      - tests/contracts/riasec-*.contract.test.tsx
+      - tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify backend/CMS authority, reader copy, SEO, sitemap, llms, canonical/noindex policy, private data, receipts, W9 evidence, or V2 lane files.
+      - Add frontend editorial fallback, static content authority, or a private result/report/history URL enumeration.
+    required_local_checks:
+      - focused RIASEC locale/form/safe-surface Vitest contracts
+      - touched-file ESLint
+      - pnpm typecheck
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend-authoritative RIASEC projection only; frontend renders an exact guarded projection
+    repository_rule_impact: runtime guard only; no content authority, discoverability, or deployment change
+
   - id: EN-CONTENT-PARITY-V2-DEPLOYED-EXECUTOR-PROVENANCE-01
     repo: fap-web
     base: main

@@ -116,7 +116,7 @@ describe("RIASEC V11 deep copy smoke acceptance", () => {
     add140QCardSlot(projection, "140q_environment_card_copy", "environment_card", "Backend fixture 140Q environment card");
     add140QCardSlot(projection, "140q_role_card_copy", "role_responsibility_card", "Backend fixture 140Q role card");
 
-    const viewModel = assembleRiasecResultViewModel(buildReport(projection));
+    const viewModel = assembleRiasecResultViewModel(buildReport(projection), "zh");
 
     expect(viewModel.deepContentSlots).toMatchObject({
       schemaVersion: "riasec.deep_content_slots.v1",

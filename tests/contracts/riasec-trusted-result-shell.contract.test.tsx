@@ -205,7 +205,7 @@ function cloneReport(report: ReportResponse): ReportResponse {
 
 describe("RIASEC trusted result shell", () => {
   it("assembles the 3-minute card and six-dimension map from backend projection v2", () => {
-    const viewModel = assembleRiasecResultViewModel(buildRiasecReport());
+    const viewModel = assembleRiasecResultViewModel(buildRiasecReport(), "zh");
 
     expect(viewModel.topCode).toBe("RIA");
     expect(viewModel.formCode).toBe("riasec_60");
@@ -279,7 +279,7 @@ describe("RIASEC trusted result shell", () => {
       <RiasecResultShell
         locale="zh"
         attemptId="attempt-riasec"
-        viewModel={assembleRiasecResultViewModel(buildRiasecReport())}
+        viewModel={assembleRiasecResultViewModel(buildRiasecReport(), "zh")}
       />
     );
 
@@ -400,7 +400,7 @@ describe("RIASEC trusted result shell", () => {
       <RiasecResultShell
         locale="zh"
         attemptId="attempt-riasec"
-        viewModel={assembleRiasecResultViewModel(report)}
+        viewModel={assembleRiasecResultViewModel(report, "zh")}
       />
     );
 
@@ -481,7 +481,7 @@ describe("RIASEC trusted result shell", () => {
       <RiasecResultShell
         locale="zh"
         attemptId="attempt-riasec"
-        viewModel={assembleRiasecResultViewModel(report)}
+        viewModel={assembleRiasecResultViewModel(report, "zh")}
       />
     );
 
@@ -502,7 +502,7 @@ describe("RIASEC trusted result shell", () => {
       <RiasecResultShell
         locale="zh"
         attemptId="attempt-riasec"
-        viewModel={assembleRiasecResultViewModel(report)}
+        viewModel={assembleRiasecResultViewModel(report, "zh")}
       />
     );
 
@@ -520,7 +520,7 @@ describe("RIASEC trusted result shell", () => {
       <RiasecResultShell
         locale="zh"
         attemptId="attempt-riasec"
-        viewModel={assembleRiasecResultViewModel(report)}
+        viewModel={assembleRiasecResultViewModel(report, "zh")}
       />
     );
 

@@ -57,7 +57,7 @@ function buildReport(projection: Record<string, unknown>): ReportResponse {
 
 describe("RIASEC deep copy slot consumption", () => {
   it("parses authored backend deep content slots from projection v2", () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()));
+    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()), "zh");
 
     expect(viewModel.deepContentSlots).toMatchObject({
       schemaVersion: "riasec.deep_content_slots.v1",
@@ -87,7 +87,7 @@ describe("RIASEC deep copy slot consumption", () => {
   });
 
   it("renders medium_score_reading only when backend provides it", () => {
-    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()));
+    const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()), "zh");
 
     render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_deep_copy" />);
 
@@ -105,7 +105,7 @@ describe("RIASEC deep copy slot consumption", () => {
     const projectionWithoutMedium = clone(readProjection());
     const firstSlot = ((projectionWithoutMedium.deep_content_slots_v1 as Record<string, unknown>).slots as Array<Record<string, unknown>>)[0];
     delete (firstSlot.content as Record<string, unknown>).medium_score_reading;
-    const viewModelWithoutMedium = assembleRiasecResultViewModel(buildReport(projectionWithoutMedium));
+    const viewModelWithoutMedium = assembleRiasecResultViewModel(buildReport(projectionWithoutMedium), "zh");
 
     render(<RiasecResultShell locale="zh" viewModel={viewModelWithoutMedium} attemptId="attempt_riasec_deep_copy_missing_medium" />);
 
@@ -151,7 +151,7 @@ describe("RIASEC deep copy slot consumption", () => {
       }
     );
 
-    const viewModel = assembleRiasecResultViewModel(buildReport(projection));
+    const viewModel = assembleRiasecResultViewModel(buildReport(projection), "zh");
 
     expect(viewModel.deepContentSlots?.slots.map((slot) => slot.slotId)).toEqual([
       "dimension_deep_copy:I",
@@ -175,7 +175,7 @@ describe("RIASEC deep copy slot consumption", () => {
   it("omits deep content rendering when backend envelope is absent or fallback is allowed", () => {
     const missingProjection = readProjection();
     delete missingProjection.deep_content_slots_v1;
-    const missingViewModel = assembleRiasecResultViewModel(buildReport(missingProjection));
+    const missingViewModel = assembleRiasecResultViewModel(buildReport(missingProjection), "zh");
     expect(missingViewModel.deepContentSlots).toBeNull();
 
     const unsafeProjection = clone(readProjection());
@@ -184,7 +184,7 @@ describe("RIASEC deep copy slot consumption", () => {
       ...(unsafeEnvelope.source_policy as Record<string, unknown>),
       frontend_fallback_allowed: true,
     };
-    const unsafeViewModel = assembleRiasecResultViewModel(buildReport(unsafeProjection));
+    const unsafeViewModel = assembleRiasecResultViewModel(buildReport(unsafeProjection), "zh");
     expect(unsafeViewModel.deepContentSlots).toBeNull();
 
     render(<RiasecResultShell locale="zh" viewModel={missingViewModel} />);

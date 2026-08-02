@@ -212,7 +212,7 @@ describe("RIASEC deep copy fixture matrix", () => {
 
     for (const matrixCase of matrix.cases) {
       cleanup();
-      const viewModel = assembleRiasecResultViewModel(buildReport(projectionForCase(matrixCase)));
+      const viewModel = assembleRiasecResultViewModel(buildReport(projectionForCase(matrixCase)), "zh");
       const renderedSlotIds = viewModel.deepContentSlots?.slots.map((slot) => slot.slotId) ?? [];
 
       expect(renderedSlotIds).toEqual(matrixCase.deep_slot_ids);
@@ -238,7 +238,7 @@ describe("RIASEC deep copy fixture matrix", () => {
       throw new Error("missing examples-only career fixture case");
     }
 
-    const viewModel = assembleRiasecResultViewModel(buildReport(projectionForCase(examplesCase)));
+    const viewModel = assembleRiasecResultViewModel(buildReport(projectionForCase(examplesCase)), "zh");
     expect(viewModel.activityExplorer).toMatchObject({
       status: "content_examples_only",
       sourceStatus: "content_example_not_registry_match",

@@ -260,7 +260,7 @@ describe("RIASEC Trusted Result v1.5 smoke acceptance", () => {
   });
 
   it("keeps the formal result view snapshot-bound and examples-only", () => {
-    const viewModel = assembleRiasecResultViewModel(reportPayload());
+    const viewModel = assembleRiasecResultViewModel(reportPayload(), "zh");
 
     expect(viewModel.trustedResultCard).toMatchObject({
       projectionVersion: "riasec.public_projection.v2",
