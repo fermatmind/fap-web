@@ -206,18 +206,34 @@ function laneManifestBindingExistsInBase(binding) {
   }
 }
 
-function registeredTargetContract(v2, base, laneId) {
-  const assetIds = Array.isArray(base.asset_ids)
-    ? [...base.asset_ids]
-    : v2.assets.filter((asset) => asset.lane_id === laneId).map((asset) => asset.asset_id);
+function registeredTargetContract(v2, base, laneId, manifest = null) {
+  const assetIds = Array.isArray(manifest?.asset_ids)
+    ? [...manifest.asset_ids]
+    : Array.isArray(base.asset_ids)
+      ? [...base.asset_ids]
+      : v2.assets.filter((asset) => asset.lane_id === laneId).map((asset) => asset.asset_id);
   const assets = assetIds.map((assetId) => v2.assets.find((asset) => asset.asset_id === assetId));
   if (assets.some((asset) => !asset)) throw new Error(`registered_target_asset_missing=${laneId}`);
   const sumOrNull = (field) => assets.every((asset) => Number.isInteger(asset[field]))
     ? assets.reduce((total, asset) => total + asset[field], 0)
     : null;
+  let expectedCount = sumOrNull("expected_en_count");
+  if (expectedCount === null && manifest?.backend_package_sha256) {
+    const evidence = readBoundJson(manifest.external_package_evidence_ref, manifest.external_package_evidence_sha256);
+    const registration = evidence.authority_target;
+    if (
+      registration?.lane_id === laneId &&
+      registration?.subscope === manifest.subscope &&
+      canonicalJson(registration.asset_ids) === canonicalJson(assetIds) &&
+      Number.isInteger(registration.expected_count) &&
+      registration.expected_count > 0
+    ) {
+      expectedCount = registration.expected_count;
+    }
+  }
   return {
     assetIds,
-    expectedCount: sumOrNull("expected_en_count"),
+    expectedCount,
     counts: {
       cohort_count: assets.length,
       expected_en_assets: sumOrNull("expected_en_count"),
@@ -378,7 +394,7 @@ function allPermissionsFalse(permissions) {
   return permissions && Object.values(permissions).every((value) => value === false);
 }
 
-function assertExternalPackageBinding(manifest, key) {
+function assertExternalPackageBinding(manifest, key, registeredTarget) {
   if (!manifest.backend_package_sha256 || !manifest.external_package_evidence_ref || !manifest.external_package_evidence_sha256) {
     throw new Error(`lane_manifest_external_package_binding_missing=${key}`);
   }
@@ -394,8 +410,77 @@ function assertExternalPackageBinding(manifest, key) {
     evidence.promotion_row_count !== manifest.promotion_row_count ||
     !Array.isArray(evidence.payloads) ||
     evidence.payloads.reduce((total, payload) => total + payload.row_count, 0) !== manifest.promotion_row_count ||
-    !allPermissionsFalse(evidence.permissions)
+    !allPermissionsFalse(evidence.permissions) ||
+    (Array.isArray(manifest.asset_ids) && (
+      !Array.isArray(evidence.authority_target?.asset_ids) ||
+      canonicalJson(evidence.authority_target.asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
+      evidence.authority_target.lane_id !== manifest.lane_id ||
+      evidence.authority_target.subscope !== manifest.subscope ||
+      evidence.authority_target.expected_count !== registeredTarget.expectedCount
+    ))
   ) throw new Error(`lane_manifest_external_package_binding_invalid=${key}`);
+
+  const snapshot = evidence.snapshot;
+  if (!snapshot) return;
+  if (
+    typeof snapshot.root !== "string" ||
+    !snapshot.root.startsWith("generated/en-content-parity/") ||
+    snapshot.root.split("/").includes("..") ||
+    typeof snapshot.package_manifest_ref !== "string" ||
+    !snapshot.package_manifest_ref.startsWith(`${snapshot.root}/`) ||
+    !/^[a-f0-9]{64}$/.test(snapshot.package_manifest_sha256 ?? "") ||
+    !Array.isArray(snapshot.files) ||
+    snapshot.files.length !== snapshot.package_file_count ||
+    !Number.isInteger(snapshot.physical_file_count) ||
+    snapshot.physical_file_count !== snapshot.files.length + 1 ||
+    new Set(snapshot.files.map((file) => file.path)).size !== snapshot.files.length
+  ) throw new Error(`lane_manifest_external_package_snapshot_invalid=${key}`);
+  const backendManifest = readBoundJson(snapshot.package_manifest_ref, snapshot.package_manifest_sha256);
+  if (
+    backendManifest.package_sha256 !== manifest.backend_package_sha256 ||
+    backendManifest.lane_id !== manifest.lane_id ||
+    backendManifest.subscope !== (evidence.authority_target?.production_subscope ?? manifest.subscope) ||
+    backendManifest.expected_row_count !== manifest.promotion_row_count ||
+    backendManifest.source_commit !== (evidence.package_source_commit ?? evidence.source_commit) ||
+    canonicalJson(backendManifest.files) !== canonicalJson(snapshot.files) ||
+    sha256Bytes(backendManifest.files.map((file) => `${file.path}\0${String(file.sha256).toLowerCase()}\n`).join("")) !== manifest.backend_package_sha256 ||
+    canonicalJson(listPackageFiles(snapshot.root)) !== canonicalJson([snapshot.package_manifest_ref, ...snapshot.files.map((file) => `${snapshot.root}/${file.path}`)].sort())
+  ) throw new Error(`lane_manifest_external_package_snapshot_invalid=${key}`);
+  for (const file of snapshot.files) {
+    if (
+      typeof file?.path !== "string" ||
+      file.path.startsWith("/") ||
+      file.path.split("/").includes("..") ||
+      !/^[a-f0-9]{64}$/.test(file?.sha256 ?? "")
+    ) throw new Error(`lane_manifest_external_package_snapshot_invalid=${key}`);
+    readBoundBytes(`${snapshot.root}/${file.path}`, file.sha256);
+  }
+  const externalW9 = evidence.w9;
+  if (externalW9) {
+    if (
+      typeof externalW9.backend_report_path !== "string" ||
+      typeof externalW9.source_report_ref !== "string" ||
+      !/^[a-f0-9]{64}$/.test(externalW9.source_report_sha256 ?? "") ||
+      !/^[a-f0-9]{40}$/.test(externalW9.reviewed_source_commit ?? "") ||
+      externalW9.verdict !== "PASS"
+    ) throw new Error(`lane_manifest_external_w9_binding_invalid=${key}`);
+    const sourceReport = readBoundJson(externalW9.source_report_ref, externalW9.source_report_sha256);
+    const normalizedReport = readBoundJson(manifest.qa_report_ref, manifest.gate_lineage.find((entry) => entry.status === "qa_pass")?.report_sha256);
+    if (
+      sourceReport.schema_version !== "fermatmind.en_parity.independent_w9_report.v1" ||
+      sourceReport.review_kind !== "independent_w9" ||
+      sourceReport.verdict !== "PASS" ||
+      sourceReport.package_sha256 !== manifest.backend_package_sha256 ||
+      sourceReport.lane_id !== manifest.lane_id ||
+      sourceReport.subscope !== evidence.authority_target?.production_subscope ||
+      sourceReport.reviewed_row_count !== manifest.promotion_row_count ||
+      sourceReport.reviewed_source_commit !== externalW9.reviewed_source_commit ||
+      !Object.values(sourceReport.checks ?? {}).every((value) => value === "PASS") ||
+      normalizedReport.external_report?.report_ref !== externalW9.source_report_ref ||
+      normalizedReport.external_report?.report_sha256 !== externalW9.source_report_sha256 ||
+      normalizedReport.external_report?.source_commit !== externalW9.reviewed_source_commit
+    ) throw new Error(`lane_manifest_external_w9_binding_invalid=${key}`);
+  }
 }
 
 function assertLegacyW9Binding(manifest, report, key) {
@@ -425,7 +510,7 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
     throw new Error(`lane_manifest_cannot_materialize_blocked_state=${key}`);
   }
   if (Object.hasOwn(manifest, "counts")) throw new Error(`lane_manifest_counts_forbidden=${key}`);
-  if (base.counts && canonicalJson(base.counts) !== canonicalJson(registeredTarget.counts)) {
+  if (!Array.isArray(manifest.asset_ids) && base.counts && canonicalJson(base.counts) !== canonicalJson(registeredTarget.counts)) {
     throw new Error(`registered_target_counts_invalid=${key}`);
   }
   const baseIndex = stateIndex(base.status);
@@ -523,7 +608,11 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
       throw new Error(`lane_manifest_independent_w9_report_invalid=${key}`);
     }
     const currentPrHead = process.env.EN_PARITY_CURRENT_PR_HEAD ?? "";
-    if (verifyReviewedCommit && currentPrHead !== "") {
+    const externallyReviewed = report.reviewed_source_repository === "fermatmind/fap-api";
+    if (externallyReviewed && report.external_report?.source_commit !== report.reviewed_source_commit) {
+      throw new Error(`lane_manifest_external_w9_source_commit_invalid=${key}`);
+    }
+    if (verifyReviewedCommit && currentPrHead !== "" && !externallyReviewed) {
       try {
         execFileSync("git", ["merge-base", "--is-ancestor", legacyW9 ? manifest.reviewed_source_commit : report.reviewed_source_commit, currentPrHead], {
           stdio: "ignore",
@@ -548,7 +637,7 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
     throw new Error(`lane_manifest_count_contract_invalid=${key}`);
   }
   if (manifest.backend_package_sha256 !== null && manifest.backend_package_sha256 !== undefined) {
-    assertExternalPackageBinding(manifest, key);
+    assertExternalPackageBinding(manifest, key, registeredTarget);
   }
   const dryRunRequired = targetIndex >= stateIndex("dry_run_ready");
   if (dryRunRequired) {
@@ -617,7 +706,7 @@ export function applyMaterializationInputs(v2, inputs) {
       initialMaterializationBase(target, manifest),
       manifest,
       key,
-      registeredTargetContract(v2, target, binding.lane_id),
+      registeredTargetContract(v2, target, binding.lane_id, manifest),
       !laneManifestBindingExistsInBase(binding),
     );
     for (const field of [

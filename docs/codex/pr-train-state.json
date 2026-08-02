@@ -56096,8 +56096,8 @@
     "base": "main",
     "branch": "codex/en-parity-w5-enneagram-web-consumer-v2-01",
     "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-AUTHORITY-ADAPTER-V2-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "897f24b2b53aac5308f5cb04dd6479674d17c5f2",
+    "status": "merged",
+    "commit_sha": "45e988ff1e14a36a4583a62ead4369b885a853bc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1997",
     "checks": {
       "dependency": {"status": "pass", "evidence": "fap-api PR #3515 merged as 0336cbc64b8ecac54b1622c09cc742e944ad612c; fap-api origin/main contains the W5 private authority adapter."},
@@ -56105,10 +56105,10 @@
       "github_required_checks": {"status": "pass", "evidence": "PR #1997 exact head 897f24b2b53aac5308f5cb04dd6479674d17c5f2 passed build, four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision or actionable review comment."}
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "merged_at": "2026-08-02T18:26:19Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -56124,7 +56124,44 @@
       ,{"at": "2026-08-03T02:40:00+08:00", "status": "ci_repair_local_verified", "summary": "The first Enneagram freeze run exposed locale-less legacy fixtures still passing through RichResultReport's generic fallback. The same-scope repair makes Enneagram fail closed before that generic fallback, converts legacy fixtures into rejection assertions, and marks the valid V2 preview envelope/slots explicitly English. The expanded required Enneagram contract group passes 65/65 with touched ESLint, typecheck, and diff checks."}
       ,{"at": "2026-08-03T02:55:00+08:00", "status": "ci_repair_local_verified", "summary": "CI then identified three same-scope regressions: lint rejected test/helper bindings named module, an asset-backed Chinese fixture omitted the now-required envelope/slot locale, and the shared RichResultReport change intentionally drifted the guarded MBTI print-input hash. Renamed the bindings, made the fixture a valid zh envelope/slot, and refreshed only the deterministic hash guard. Focused contracts pass 71/71; full ESLint, typecheck, JSON/YAML parse, print-hash check, scope validation, and diff checks pass."}
       ,{"at": "2026-08-03T03:10:00+08:00", "status": "ready_to_merge", "summary": "PR #1997 exact head 897f24b2b53aac5308f5cb04dd6479674d17c5f2 is CLEAN. Build, all four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts pass; no required review decision or actionable comment remains. This ledger readiness commit must complete its own required-check cycle before squash merge."}
+      ,{"at": "2026-08-02T18:26:19Z", "status": "merged", "summary": "Reconciled against GitHub: PR #1997 squash-merged as 45e988ff1e14a36a4583a62ead4369b885a853bc; origin/main contains the merge commit and the remote task branch is deleted. The local branch cleanup was completed before this W5 control-envelope train item."}
     ],
-    "updated_at": "2026-08-03T03:10:00+08:00"
+    "updated_at": "2026-08-03T00:00:00Z"
+  },
+  "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01": {
+    "id": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01: register the verified W5 Enneagram package in V2 control",
+    "base": "main",
+    "branch": "codex/en-parity-w5-enneagram-control-envelope-v2-01",
+    "depends_on": ["EN-PARITY-W5-ENNEAGRAM-PRIVATE-CONTENT-PACKAGE-V2-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "76f9329fad44dd3d4078b273c300d63fc0df3861",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1998",
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "fap-api PR #3518 merged as e2470dab99c21f5776f8a0e848ceb81eddfa0c51; origin/main contains the exact W5 630-row package."},
+      "package_binding": {"status": "pass", "evidence": "Read-only preflight confirmed backend package SHA 8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5, 649 declared package files, 630 identities, 1,332 source assets, and backend W9 PASS SHA 6516d035cff4aa59e97a85eff2b28b384b5501b6037b0f7c4caaeca5070e64f2."},
+      "local_validation": {"status": "pass", "evidence": "Two deterministic source rebuilds produced local envelope SHA 30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048; V2 materialization and validator passed, focused contracts passed 28/28, focused ESLint passed, JSON/YAML parse passed, all 630 snapshot identities reconciled, all 649 package files plus manifest were non-symlinked and SHA-checked, and no CJK was found in the English control payloads."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1998 head 76f9329fad44dd3d4078b273c300d63fc0df3861 passed build, all contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-03T00:00:00Z", "status": "in_progress", "summary": "Started from fap-web origin/main after W5 backend producer and web-consumer PRs merged. Scope is an immutable V2 external package snapshot and generated control master only; CMS, registry, promotion, deployment, discoverability, and public-profile regeneration remain out of scope."}
+      ,{"at": "2026-08-03T00:00:00Z", "status": "local_verified", "summary": "Built the exact non-symlinked backend snapshot twice with stable local envelope SHA 30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048. The generated V2 master and validator pass; focused V2/W5 contracts pass 28/28, focused ESLint and JSON/YAML checks pass. No CMS, registry, promotion, deployment, SEO, sitemap, llms, or Search Channel mutation occurred."}
+      ,{"at": "2026-08-03T00:00:00Z", "status": "github_checks_pending", "summary": "Pushed commit 290fa87fbf42a7ef08214a939da6e614d7029cef and opened PR #1998. Required GitHub checks are pending; production deployment, preflight/import/readback/activation/live QA, receipt binding, CMS/registry writes, SEO, and Search Channel actions remain deferred."}
+      ,{"at": "2026-08-03T00:00:00Z", "status": "ready_to_merge", "summary": "PR #1998 repair head 76f9329fad44dd3d4078b273c300d63fc0df3861 passed build, all contract shards and aggregate contracts, both freezes, CodeQL analysis, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision; final 669-file scope audit passed."}
+    ],
+    "updated_at": "2026-08-03T00:00:00Z"
   }
 }

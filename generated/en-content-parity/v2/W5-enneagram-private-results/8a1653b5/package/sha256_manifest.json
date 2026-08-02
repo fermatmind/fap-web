@@ -1,0 +1,14 @@
+{
+  "schema_version": "fermatmind.en_content_parity_package_payload_manifest.v2",
+  "artifact_kind": "package_payload_manifest",
+  "package_root": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package",
+  "record_identity_field": "asset_id",
+  "record_ids_sha256": "31cf922d27be48970f7cca8dad70e9e7a05d4681d8cd3fd85800c7cac1303960",
+  "payloads": [
+    {
+      "path": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package/records.jsonl",
+      "sha256": "c2c5055790dfdff82c80dce21880e47453d4537ffb7ce72bbeceacd28132b905",
+      "row_count": 630
+    }
+  ]
+}

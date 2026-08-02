@@ -30265,3 +30265,49 @@ prs:
     deploy_allowed: false
     content_authority: CONTROL acceptance of independently stored W9 evidence only
     repository_rule_impact: CONTROL-only QA acceptance; no authority, runtime, import, publication, discoverability, or deployment change
+
+  - id: EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01
+    repo: fap-web
+    base: main
+    branch: codex/en-parity-w5-enneagram-control-envelope-v2-01
+    title: "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01: register the verified W5 Enneagram package in V2 control"
+    status: in_progress
+    depends_on: [EN-PARITY-W5-ENNEAGRAM-PRIVATE-CONTENT-PACKAGE-V2-01]
+    mode: execute
+    train_scope: w5_enneagram_private_result_control_envelope_v2
+    scope:
+      - Bind the exact fap-api W5 private Enneagram package SHA, source commit, 649-file package inventory, 630 unique identities, and W9 PASS evidence into a non-symlinked fap-web control snapshot.
+      - Materialize the read-only V2 control master through its generator only; retain the completed 58/58 public profile cohort as a read-only regression control.
+      - Reconcile only the already-merged W5 web-consumer ledger entry needed by this train item.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-inputs.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.schema.json
+      - generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/**
+      - generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/**
+      - scripts/seo/build-en-content-parity-control-v2.mjs
+      - scripts/seo/build-w5-enneagram-v2-lane-materialization.mjs
+      - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - tests/contracts/en-content-parity-w5-enneagram-control-envelope.v2.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Hand-edit the V2 master, change V1 audit history, generate or rewrite public profile content, write CMS or registry state, execute promotion, deploy, or modify SEO discoverability.
+      - Add a launch-ready, manual CONTROL acceptance, receipt, sitemap, llms, JSON-LD, canonical, indexability, or Search Channel change.
+    required_local_checks:
+      - node scripts/seo/build-w5-enneagram-v2-lane-materialization.mjs
+      - node scripts/seo/build-en-content-parity-control-v2.mjs --check
+      - node scripts/seo/validate-en-content-parity-control-v2.mjs
+      - focused V2 control and W5 envelope contracts
+      - focused ESLint
+      - JSON/YAML parse, 630 identity/SHA reconciliation, scope validation, and git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: exact backend-authoritative W5 private-result package; frontend stores only a validated immutable control snapshot
+    repository_rule_impact: V2 provenance/control binding only; no runtime content authority, discoverability, promotion, or deployment change

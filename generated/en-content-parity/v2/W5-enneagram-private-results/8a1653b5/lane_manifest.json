@@ -1,0 +1,72 @@
+{
+  "$schema": "./en-content-parity-control-master.v2.schema.json",
+  "schema_version": "fermatmind.en_content_parity_lane_manifest.v2",
+  "artifact_kind": "lane_manifest",
+  "lane_id": "W5",
+  "subscope": null,
+  "status": "qa_pass",
+  "blocked_from_status": null,
+  "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+  "backend_package_sha256": "8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5",
+  "asset_ids": [
+    "ENPARITY-W5-ENNEAGRAM-RESULT-CONTENT"
+  ],
+  "qa_report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
+  "gate_lineage": [
+    {
+      "status": "package_frozen",
+      "evidence_owner_lane_id": "W5",
+      "report_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package_freeze_evidence.json",
+      "report_sha256": "42dfe20ecdf340bcd29d48b205836c99a11f8b40f3db2b2127b11ac14b3f7c31",
+      "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+      "accepted_at": "2026-08-03T00:00:00Z"
+    },
+    {
+      "status": "qa_pass",
+      "evidence_owner_lane_id": "W9",
+      "report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
+      "report_sha256": "e78bdf6f8327b4c33fcd828080542631450bc745fe273fc0a2bf5f53de512822",
+      "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
+      "accepted_at": "2026-08-03T00:00:00Z"
+    }
+  ],
+  "legacy_lineage": [],
+  "blockers": [],
+  "transition_trace": [
+    {
+      "from_status": "not_started",
+      "to_status": "inventory_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/inventory_frozen_evidence.json",
+      "evidence_sha256": "fd65526f0e653ea19656542061194f745e419abe37ade8736495563d7d2602db",
+      "recorded_at": "2026-08-03T00:00:00Z"
+    },
+    {
+      "from_status": "inventory_frozen",
+      "to_status": "package_in_progress",
+      "evidence_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package_in_progress_evidence.json",
+      "evidence_sha256": "cb54e478eba196d74102cd133555c0d5b33558845ff621b222f75e2c0a12a5f3",
+      "recorded_at": "2026-08-03T00:00:00Z"
+    },
+    {
+      "from_status": "package_in_progress",
+      "to_status": "package_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package_freeze_evidence.json",
+      "evidence_sha256": "42dfe20ecdf340bcd29d48b205836c99a11f8b40f3db2b2127b11ac14b3f7c31",
+      "recorded_at": "2026-08-03T00:00:00Z"
+    },
+    {
+      "from_status": "package_frozen",
+      "to_status": "qa_pass",
+      "evidence_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
+      "evidence_sha256": "e78bdf6f8327b4c33fcd828080542631450bc745fe273fc0a2bf5f53de512822",
+      "recorded_at": "2026-08-03T00:00:00Z"
+    }
+  ],
+  "reviewed_source_commit": "44bd661c18dd470ae8d2dca48f101f37db306418",
+  "expected_count": 630,
+  "promotion_row_count": 630,
+  "w9_review_binding_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/same_pr_w9_binding.json",
+  "w9_review_binding_sha256": "aa5df9efc8db65f34f1aa492da580eac26afeccd9a35e8bece9fdc1a1e5427c2",
+  "external_package_evidence_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/external_package_evidence.json",
+  "external_package_evidence_sha256": "f78e36cef101f8678232909e0fea599a659a11ed7a601b994f5c8376c87b7b16"
+}
