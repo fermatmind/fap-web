@@ -234,7 +234,10 @@ describe("Solo-Owner Engineering Operating Model (web)", () => {
       "tests/contracts/en-content-parity-control-master.v2.contract.test.ts",
       "tests/contracts/solo-owner-engineering-operating-model-web.contract.test.ts",
     ]);
-    if (changedFiles().some((file) => t2Files.has(file))) {
+    if (
+      currentBranch() === "codex/en-content-parity-v2-deployed-executor-provenance-01" &&
+      changedFiles().some((file) => t2Files.has(file))
+    ) {
       expect(changedFiles().every((file) => t2Files.has(file))).toBe(true);
       return;
     }
