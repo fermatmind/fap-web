@@ -1,0 +1,15 @@
+{
+  "artifact_kind": "inventory_frozen_evidence",
+  "lane_id": "W4",
+  "logical_asset_count": 14,
+  "promotion_row_count": 1550,
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  }
+}

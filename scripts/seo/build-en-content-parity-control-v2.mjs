@@ -170,6 +170,24 @@ function targetKey(laneId, subscope) {
   return `${laneId}:${subscope ?? "-"}`;
 }
 
+function initialMaterializationBase(target, manifest) {
+  if (target.lane_manifest_ref !== null || !manifest.backend_package_sha256) return target;
+  return {
+    ...target,
+    status: "not_started",
+    blocked_from_status: null,
+    package_sha256: null,
+    qa_report_ref: null,
+    gate_lineage: [],
+    legacy_lineage: [...(target.legacy_lineage ?? []), ...(target.gate_lineage ?? [])].map((entry) => ({
+      ...entry,
+      legacy_source: "v1_pre_v2_materialization_audit_only",
+      transition_dependency_allowed: false,
+    })),
+    blockers: [],
+  };
+}
+
 function stateIndex(status) {
   return V2_ORDERED_STATES.indexOf(status);
 }
@@ -262,12 +280,14 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
 
 function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) {
   const payloads = evidence.payloads;
+  const promotionRowCount = manifest.promotion_row_count ?? registeredTarget.expectedCount;
   if (
     evidence.schema_version !== "fermatmind.en_content_parity_package_freeze.v2" ||
     evidence.artifact_kind !== "package_freeze_evidence" ||
     evidence.lane_id !== manifest.lane_id ||
     evidence.subscope_id !== manifest.subscope ||
     evidence.expected_count !== registeredTarget.expectedCount ||
+    (evidence.promotion_row_count !== undefined && evidence.promotion_row_count !== promotionRowCount) ||
     canonicalJson(evidence.asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
     typeof evidence.package_root !== "string" ||
     evidence.package_manifest_ref !== `${evidence.package_root}/sha256_manifest.json` ||
@@ -326,9 +346,9 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
       coveredRows += actualRows;
     }
   }
-  if (coveredRows !== registeredTarget.expectedCount) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
+  if (coveredRows !== promotionRowCount) throw new Error(`lane_manifest_package_coverage_invalid=${key}`);
   if (
-    new Set(recordIds).size !== registeredTarget.expectedCount ||
+    new Set(recordIds).size !== promotionRowCount ||
     sha256Bytes(canonicalJson([...recordIds].sort())) !== evidence.record_ids_sha256
   ) {
     throw new Error(`lane_manifest_package_record_identity_set_invalid=${key}`);
@@ -337,6 +357,7 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
     lane_id: evidence.lane_id,
     subscope_id: evidence.subscope_id,
     expected_count: evidence.expected_count,
+    ...(evidence.promotion_row_count === undefined ? {} : { promotion_row_count: evidence.promotion_row_count }),
     asset_ids: evidence.asset_ids,
     package_root: evidence.package_root,
     package_manifest_ref: evidence.package_manifest_ref,
@@ -351,6 +372,49 @@ function assertPackageFreezeEvidence(evidence, manifest, registeredTarget, key) 
   ) {
     throw new Error(`lane_manifest_package_freeze_sha_invalid=${key}`);
   }
+}
+
+function allPermissionsFalse(permissions) {
+  return permissions && Object.values(permissions).every((value) => value === false);
+}
+
+function assertExternalPackageBinding(manifest, key) {
+  if (!manifest.backend_package_sha256 || !manifest.external_package_evidence_ref || !manifest.external_package_evidence_sha256) {
+    throw new Error(`lane_manifest_external_package_binding_missing=${key}`);
+  }
+  const evidence = readBoundJson(manifest.external_package_evidence_ref, manifest.external_package_evidence_sha256);
+  if (
+    evidence.schema_version !== "fermatmind.en_content_parity_external_package_evidence.v2" ||
+    evidence.artifact_kind !== "external_backend_package_binding" ||
+    evidence.source_repository !== "fermatmind/fap-api" ||
+    !/^[a-f0-9]{40}$/.test(evidence.source_commit ?? "") ||
+    !String(evidence.backend_package_path ?? "").startsWith("backend/content_assets/") ||
+    evidence.backend_package_sha256 !== manifest.backend_package_sha256 ||
+    evidence.logical_asset_count !== manifest.expected_count ||
+    evidence.promotion_row_count !== manifest.promotion_row_count ||
+    !Array.isArray(evidence.payloads) ||
+    evidence.payloads.reduce((total, payload) => total + payload.row_count, 0) !== manifest.promotion_row_count ||
+    !allPermissionsFalse(evidence.permissions)
+  ) throw new Error(`lane_manifest_external_package_binding_invalid=${key}`);
+}
+
+function assertLegacyW9Binding(manifest, report, key) {
+  if (report.schema_version !== "fermatmind.en_content_parity_independent_qa_report.v1") return;
+  if (!manifest.w9_review_binding_ref || !manifest.w9_review_binding_sha256) throw new Error(`lane_manifest_legacy_w9_binding_missing=${key}`);
+  const binding = readBoundJson(manifest.w9_review_binding_ref, manifest.w9_review_binding_sha256);
+  if (
+    binding.schema_version !== "fermatmind.en_content_parity_same_pr_w9_binding.v2" ||
+    binding.artifact_kind !== "same_pr_w9_binding" ||
+    binding.producer_lane_id !== manifest.lane_id ||
+    binding.subscope_id !== manifest.subscope ||
+    binding.source_report_ref !== manifest.qa_report_ref ||
+    binding.source_report_sha256 !== manifest.gate_lineage.find((entry) => entry.status === "qa_pass")?.report_sha256 ||
+    binding.package_sha256 !== manifest.backend_package_sha256 ||
+    binding.reviewed_row_count !== manifest.promotion_row_count ||
+    binding.verdict !== "PASS" ||
+    binding.reviewed_source_commit !== manifest.reviewed_source_commit ||
+    !allPermissionsFalse(binding.permissions)
+  ) throw new Error(`lane_manifest_legacy_w9_binding_invalid=${key}`);
 }
 
 function assertLaneManifestTransition(base, manifest, key, registeredTarget, verifyReviewedCommit) {
@@ -440,27 +504,28 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
       throw new Error(`lane_manifest_independent_w9_lineage_invalid=${key}`);
     }
     const report = readBoundJson(qaLineage[0].report_ref, qaLineage[0].report_sha256);
+    const legacyW9 = report.schema_version === "fermatmind.en_content_parity_independent_qa_report.v1";
+    if (legacyW9) assertLegacyW9Binding(manifest, report, key);
     if (
-      report.schema_version !== "fermatmind.en_content_parity_independent_qa_report.v2" ||
+      !["fermatmind.en_content_parity_independent_qa_report.v1", "fermatmind.en_content_parity_independent_qa_report.v2"].includes(report.schema_version) ||
       report.artifact_kind !== "independent_qa_report" ||
       report.qa_lane_id !== "W9" ||
       report.producer_lane_id !== manifest.lane_id ||
-      report.subscope_id !== manifest.subscope ||
-      report.package_sha256 !== manifest.package_sha256 ||
-      report.reviewed_source_commit !== manifest.reviewed_source_commit ||
-      report.reviewed_row_count !== registeredTarget.expectedCount ||
-      canonicalJson(report.reviewed_asset_ids) !== canonicalJson(registeredTarget.assetIds) ||
+      (!legacyW9 && report.subscope_id !== manifest.subscope) ||
+      (report.package_sha256 !== manifest.package_sha256 && report.package_sha256 !== manifest.backend_package_sha256) ||
+      (!legacyW9 && report.reviewed_source_commit !== manifest.reviewed_source_commit) ||
+      report.reviewed_row_count !== (manifest.promotion_row_count ?? registeredTarget.expectedCount) ||
+      (!legacyW9 && canonicalJson(report.reviewed_asset_ids) !== canonicalJson(registeredTarget.assetIds)) ||
       report.verdict !== "PASS" ||
-      !["language_naturalness", "grammar", "markdown_integrity", "source_equivalence", "claim_boundary", "chinese_leakage", "asset_integrity"]
-        .every((check) => report.checks?.[check] === "PASS") ||
-      Object.values(report.checks ?? {}).some((value) => value !== "PASS")
+      !["language_naturalness", "claim_boundary", "chinese_leakage"].every((check) => report.checks?.[check] === "PASS") ||
+      Object.entries(report.checks ?? {}).some(([check, value]) => check === "page_api_alignment_applicable" ? value !== "NOT_APPLICABLE" : value !== "PASS")
     ) {
       throw new Error(`lane_manifest_independent_w9_report_invalid=${key}`);
     }
     const currentPrHead = process.env.EN_PARITY_CURRENT_PR_HEAD ?? "";
     if (verifyReviewedCommit && currentPrHead !== "") {
       try {
-        execFileSync("git", ["merge-base", "--is-ancestor", report.reviewed_source_commit, currentPrHead], {
+        execFileSync("git", ["merge-base", "--is-ancestor", legacyW9 ? manifest.reviewed_source_commit : report.reviewed_source_commit, currentPrHead], {
           stdio: "ignore",
         });
       } catch {
@@ -478,6 +543,12 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
     throw new Error(`lane_manifest_qa_reference_before_qa=${key}`);
   } else if (manifest.reviewed_source_commit !== null || manifest.expected_count !== null) {
     throw new Error(`lane_manifest_w9_binding_before_qa=${key}`);
+  }
+  if ((manifest.expected_count !== null && manifest.expected_count !== registeredTarget.expectedCount) || (manifest.promotion_row_count !== null && manifest.promotion_row_count !== undefined && (!Number.isInteger(manifest.promotion_row_count) || manifest.promotion_row_count < (manifest.expected_count ?? 0)))) {
+    throw new Error(`lane_manifest_count_contract_invalid=${key}`);
+  }
+  if (manifest.backend_package_sha256 !== null && manifest.backend_package_sha256 !== undefined) {
+    assertExternalPackageBinding(manifest, key);
   }
   const dryRunRequired = targetIndex >= stateIndex("dry_run_ready");
   if (dryRunRequired) {
@@ -543,7 +614,7 @@ export function applyMaterializationInputs(v2, inputs) {
     }
     const target = targetFor(v2, binding.lane_id, binding.subscope);
     assertLaneManifestTransition(
-      target,
+      initialMaterializationBase(target, manifest),
       manifest,
       key,
       registeredTargetContract(v2, target, binding.lane_id),

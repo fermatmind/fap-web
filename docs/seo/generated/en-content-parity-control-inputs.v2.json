@@ -2,6 +2,13 @@
   "$schema": "./en-content-parity-control-master.v2.schema.json",
   "schema_version": "fermatmind.en_content_parity_control_inputs.v2",
   "artifact_kind": "control_materialization_inputs",
-  "lane_manifests": [],
+  "lane_manifests": [
+    {
+      "lane_id": "W4",
+      "subscope": null,
+      "path": "generated/en-content-parity/v2/W4-riasec/f3f2463f/lane_manifest.json",
+      "sha256": "8d4e7cf1b2c46849386a319175d90f42cbb0bdff7b283e52058defc8fb2f69b4"
+    }
+  ],
   "receipt_chains": []
 }

@@ -30014,6 +30014,49 @@ prs:
     content_authority: CONTROL acceptance of independently stored W9 evidence only
     repository_rule_impact: CONTROL-only QA acceptance; no authority, runtime, import, publication, discoverability, or deployment change
 
+  - id: EN-PARITY-W4-RIASEC-V2-LANE-MATERIALIZATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w4-riasec-v2-lane-materialization-01
+    base: main
+    title: "EN-PARITY-W4-RIASEC-V2-LANE-MATERIALIZATION-01: bind exact W4 package and same-PR W9 evidence"
+    depends_on: [EN-PARITY-W4-RIASEC-AUTHORITY-PROMOTION-REPAIR-01, EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01]
+    mode: execute
+    train_scope: w4_riasec_v2_lane_materialization_same_pr_w9
+    status: in_progress
+    scope:
+      - Bind a non-symlinked physical nine-payload W4 snapshot to a local V2 package envelope without changing the backend package SHA.
+      - Materialize only W4 through package_frozen and qa_pass with the exact W9 report binding and an empty receipt chain.
+    allowed_paths:
+      - generated/en-content-parity/v2/W4-riasec/f3f2463f/**
+      - docs/seo/generated/en-content-parity-control-inputs.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.schema.json
+      - scripts/seo/build-en-content-parity-control-v2.mjs
+      - scripts/seo/build-w4-riasec-v2-lane-materialization.mjs
+      - scripts/seo/validate-en-content-parity-control-v2.mjs
+      - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Change V1 audit artifacts, frontend runtime, backend authority, CMS, receipts, publication, SEO, sitemap, llms, search, private data, or deployment.
+    required_local_checks:
+      - W4 V2 physical package and W9 binding validator
+      - V2 deterministic materializer twice and V2 master contract
+      - touched-file ESLint
+      - git diff --check
+      - git diff --cached --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend fap-api exact W4 package; fap-web stores a read-only V2 control snapshot
+    repository_rule_impact: V2 control provenance only; no CMS/runtime/discoverability/deployment authority change
+
   - id: EN-PARITY-W4-RIASEC-FRONTEND-LOCALE-GUARD-01
     repo: fap-web
     repo_path: <workspace>/fap-web

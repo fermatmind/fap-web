@@ -1,0 +1,90 @@
+{
+  "$schema": "./en-content-parity-control-master.v2.schema.json",
+  "schema_version": "fermatmind.en_content_parity_lane_manifest.v2",
+  "artifact_kind": "lane_manifest",
+  "lane_id": "W4",
+  "subscope": null,
+  "status": "qa_pass",
+  "blocked_from_status": null,
+  "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+  "backend_package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+  "qa_report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+  "gate_lineage": [
+    {
+      "status": "package_frozen",
+      "evidence_owner_lane_id": "W4",
+      "report_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/package_freeze_evidence.json",
+      "report_sha256": "e123b24ae97473e56a27dd94d3ba0dc83cbddbe1954f4153532c7604d30ef4a5",
+      "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+      "accepted_at": "2026-08-02T17:50:00Z"
+    },
+    {
+      "status": "qa_pass",
+      "evidence_owner_lane_id": "W9",
+      "report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+      "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+      "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+      "accepted_at": "2026-08-02T17:50:00Z"
+    }
+  ],
+  "legacy_lineage": [
+    {
+      "status": "package_frozen",
+      "evidence_owner_lane_id": "W4",
+      "report_ref": "generated/en-content-parity/W4-riasec/editorial_review.json",
+      "report_sha256": "b8e39eebd501e727fd08babbd9367548ba5417a0820c134946da9eef7409c8a5",
+      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "accepted_at": "2026-08-01T18:52:23Z",
+      "legacy_source": "v1_pre_v2_materialization_audit_only",
+      "transition_dependency_allowed": false
+    },
+    {
+      "status": "qa_pass",
+      "evidence_owner_lane_id": "W9",
+      "report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+      "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "accepted_at": "2026-08-01T20:50:30Z",
+      "legacy_source": "v1_pre_v2_materialization_audit_only",
+      "transition_dependency_allowed": false
+    }
+  ],
+  "blockers": [],
+  "transition_trace": [
+    {
+      "from_status": "not_started",
+      "to_status": "inventory_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/inventory_frozen_evidence.json",
+      "evidence_sha256": "71dd91485680eac93d88dabaa337ea30a8708bee881b1a8808f0c0e549f39926",
+      "recorded_at": "2026-08-02T17:50:00Z"
+    },
+    {
+      "from_status": "inventory_frozen",
+      "to_status": "package_in_progress",
+      "evidence_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/package_in_progress_evidence.json",
+      "evidence_sha256": "35908d532826151e807d038e0d298e8cee204554e36839a41eb13ca1ab4ddaa5",
+      "recorded_at": "2026-08-02T17:50:00Z"
+    },
+    {
+      "from_status": "package_in_progress",
+      "to_status": "package_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/package_freeze_evidence.json",
+      "evidence_sha256": "e123b24ae97473e56a27dd94d3ba0dc83cbddbe1954f4153532c7604d30ef4a5",
+      "recorded_at": "2026-08-02T17:50:00Z"
+    },
+    {
+      "from_status": "package_frozen",
+      "to_status": "qa_pass",
+      "evidence_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
+      "evidence_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
+      "recorded_at": "2026-08-02T17:50:00Z"
+    }
+  ],
+  "reviewed_source_commit": "c42d61db914d151216204c76c6964f0193ca0a1f",
+  "expected_count": 14,
+  "promotion_row_count": 1550,
+  "w9_review_binding_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/same_pr_w9_binding.json",
+  "w9_review_binding_sha256": "14721b81af716e6cb12d576f5af3a2fb6f2b182522b7fa6a5e7a7b64efe7ee40",
+  "external_package_evidence_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/external_package_evidence.json",
+  "external_package_evidence_sha256": "92d06cf1d4651e1ab10bfcc575e133d2325189ecc9422c58e74b22664e4b5436"
+}
