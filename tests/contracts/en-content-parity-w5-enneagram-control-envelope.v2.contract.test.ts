@@ -11,6 +11,15 @@ const ARTIFACT_ROOT = "generated/en-content-parity/v2/W5-enneagram-private-resul
 const BACKEND_SHA = "8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5";
 const hash = (value: string | Buffer) => createHash("sha256").update(value).digest("hex");
 const read = (relativePath: string) => JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
+const readRegularFileNoFollow = (absolutePath: string) => {
+  const descriptor = fs.openSync(absolutePath, fs.constants.O_RDONLY | fs.constants.O_NOFOLLOW);
+  try {
+    expect(fs.fstatSync(descriptor).isFile()).toBe(true);
+    return fs.readFileSync(descriptor);
+  } finally {
+    fs.closeSync(descriptor);
+  }
+};
 
 describe("W5 Enneagram private-result V2 control envelope", () => {
   it("binds the exact non-symlinked fap-api package, every physical file, and all 630 identities", () => {
@@ -40,8 +49,7 @@ describe("W5 Enneagram private-result V2 control envelope", () => {
     expect(new Set(records.map((record: { asset_id: string }) => record.asset_id)).size).toBe(630);
     for (const file of evidence.snapshot.files) {
       const physicalPath = path.join(ROOT, evidence.snapshot.root, file.path);
-      expect(fs.lstatSync(physicalPath).isSymbolicLink()).toBe(false);
-      expect(hash(fs.readFileSync(physicalPath))).toBe(file.sha256);
+      expect(hash(readRegularFileNoFollow(physicalPath))).toBe(file.sha256);
     }
   });
 
