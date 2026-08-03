@@ -30,7 +30,9 @@ export function EQSaveShareRelated({
           <h2 className="text-lg font-semibold text-slate-950">
             {locale === "zh" ? "保存、分享与继续探索" : "Save, Share, and Continue"}
           </h2>
-          {attemptId ? <p className="mt-1 text-xs text-slate-500">{attemptId}</p> : null}
+          <p className="mt-1 text-xs text-slate-400">
+            {locale === "zh" ? "报告ID已隐藏" : "Report ID redacted"}
+          </p>
         </div>
         <div className="flex flex-wrap gap-2">
           <Button type="button" variant="outline" disabled>

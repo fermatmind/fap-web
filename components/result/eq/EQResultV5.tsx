@@ -1,5 +1,6 @@
 import type { ReportResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
+import { isEqPrivateResultLocaleCompatible } from "@/lib/eq/privateResultLocale";
 import { EQActionPrescription } from "./EQActionPrescription";
 import { EQCareerEnvironmentLens } from "./EQCareerEnvironmentLens";
 import { EQCrossAssessmentContext } from "./EQCrossAssessmentContext";
@@ -33,6 +34,10 @@ export function EQResultV5({
 }) {
   if (isEqV5AccessRestricted(reportData)) {
     return <EQResultV5AccessRestricted locale={locale} />;
+  }
+
+  if (!isEqPrivateResultLocaleCompatible(reportData, locale)) {
+    return null;
   }
 
   const viewModel = normalizeEqV5Report(reportData, locale);
