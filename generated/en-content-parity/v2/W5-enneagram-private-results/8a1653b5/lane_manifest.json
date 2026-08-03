@@ -4,10 +4,10 @@
   "artifact_kind": "lane_manifest",
   "lane_id": "W5",
   "subscope": null,
-  "status": "qa_pass",
+  "status": "live_qa_pass",
   "blocked_from_status": null,
   "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
-  "backend_package_sha256": "8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5",
+  "backend_package_sha256": "6cf94223db167c41729f3d106741e874c7e70427f7369c1099018a52693ef4d2",
   "asset_ids": [
     "ENPARITY-W5-ENNEAGRAM-RESULT-CONTENT"
   ],
@@ -60,6 +60,13 @@
       "evidence_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
       "evidence_sha256": "e78bdf6f8327b4c33fcd828080542631450bc745fe273fc0a2bf5f53de512822",
       "recorded_at": "2026-08-03T00:00:00Z"
+    },
+    {
+      "from": "qa_pass",
+      "to": "live_qa_pass",
+      "reason": "promotion_receipt_chain_verified",
+      "workflow_run_id": "30814888432",
+      "receipt_sha256": "1c7d9810b8e40a030f8ad2acde8b242a6893c08e0d9d08f2f79ad301c637abc2"
     }
   ],
   "reviewed_source_commit": "44bd661c18dd470ae8d2dca48f101f37db306418",
