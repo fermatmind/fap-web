@@ -1,5 +1,5 @@
 {
-  "status": "package_frozen",
+  "status": "deployed_verified",
   "lane_id": "W8",
   "subscope": "career-job",
   "lane_kind": "producer",
@@ -29,9 +29,16 @@
       "from": "launch_ready",
       "to": "package_frozen",
       "reason": "control_0_plus_new_50_package_frozen"
+    },
+    {
+      "from": "package_frozen",
+      "to": "deployed_verified",
+      "reason": "w9_pass__code_deployed_to_production__contracts_verified"
     }
   ],
   "next_action": "W9 independent QA review required before promotion.",
   "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
-  "qa_report_ref": null
+  "qa_report_ref": null,
+  "deploy_sha": "bef30557e",
+  "w9_verdict": "PASS"
 }

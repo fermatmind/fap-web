@@ -925,7 +925,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "package_frozen",
+      "status": "deployed_verified",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W8-career-job/",
       "target_asset_types": [
@@ -957,12 +957,12 @@
         "frontend_fail_closed_locale_rendering",
         "contract_locks_api",
         "contract_locks_web",
-        "producer_package_frozen"
+        "producer_package_frozen",
+        "deployed_to_production",
+        "w9_independent_qa_pass"
       ],
-      "blockers": [
-        "w9_pending"
-      ],
-      "next_action": "W9 independent QA review required before promotion.",
+      "blockers": [],
+      "next_action": "Cache refresh pending; closeout complete.",
       "legacy_lineage": [],
       "lane_manifest_ref": null,
       "promotion_receipts": [],
@@ -973,7 +973,10 @@
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
       },
-      "promotion_row_count": 50
+      "promotion_row_count": 50,
+      "backend_package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
+      "source_repository": "fermatmind/fap-api",
+      "deploy_sha": "bef30557e"
     },
     {
       "lane_id": "W9",
