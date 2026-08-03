@@ -833,7 +833,7 @@
       ],
       "dependencies": [],
       "launch_state": "registered",
-      "status": "not_started",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W7-eq/",
       "target_asset_types": [
@@ -841,24 +841,31 @@
         "eq_report_content",
         "eq_share_projection"
       ],
-      "subscopes": [],
+      "subscopes": [
+        "eq"
+      ],
       "counts": {
         "cohort_count": 1,
         "expected_en_assets": null,
-        "current_en_assets": null,
+        "current_en_assets": 51,
         "remaining_en_assets": null,
         "unknown_inventory_cohorts": 1
       },
       "source_inventory_refs": [
         "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md"
       ],
-      "package_sha256": null,
+      "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
       "qa_report_ref": null,
-      "gate_lineage": [],
+      "gate_lineage": [
+        "norm_authority_gate",
+        "share_projection_gate",
+        "history_projection_gate",
+        "w9_independent_qa"
+      ],
       "blockers": [],
-      "next_action": "Hold until wave 2 packages are available for QA and capacity is free.",
+      "next_action": "Await production deployment authorization for promotion.",
       "legacy_lineage": [],
-      "lane_manifest_ref": null,
+      "lane_manifest_ref": "generated/en-content-parity/W7-eq/lane_manifest.json",
       "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
@@ -866,7 +873,10 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "backend_package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
+      "promotion_row_count": 2,
+      "source_repository": "fermatmind/fap-api"
     },
     {
       "lane_id": "W8",

@@ -1,0 +1,48 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_share_surface_matrix.v1",
+  "scale": "EQ_60",
+  "surfaces": [
+    {
+      "surface": "EQ result save/share module",
+      "repository": "fap-web",
+      "current_behavior": "分享按钮禁用",
+      "dedicated_eq_projection": false,
+      "public_runtime_enabled": false,
+      "verdict": "SAFE_DISABLED"
+    },
+    {
+      "surface": "shared backend ShareService",
+      "repository": "fap-api",
+      "current_behavior": "EQ 无专用 builder，落入通用 payload",
+      "dedicated_eq_projection": false,
+      "public_runtime_enabled": "Unknown",
+      "verdict": "BLOCKED_DO_NOT_TREAT_AS_AUTHORITY"
+    },
+    {
+      "surface": "/[locale]/share/[id]",
+      "repository": "fap-web",
+      "current_behavior": "通用分享消费面",
+      "dedicated_eq_projection": false,
+      "public_runtime_enabled": "Unknown",
+      "verdict": "BLOCKED_FOR_EQ"
+    },
+    {
+      "surface": "commercial_conversion_assets.share",
+      "repository": "fap-api compiled pack",
+      "current_behavior": "内容动作候选，requires_payment=false",
+      "dedicated_eq_projection": false,
+      "public_runtime_enabled": false,
+      "verdict": "CONTENT_CANDIDATE_NOT_RUNTIME_AUTHORITY"
+    }
+  ],
+  "release_gates": [
+    "专用后端 projection schema 与 serializer",
+    "allowlist/denylist contract tests",
+    "撤销与过期合同",
+    "英文内容与 claim gate 独立 W9",
+    "人类 exact-SHA 审批",
+    "私有路由、PDF、历史与分析泄露回归",
+    "单独 runtime enablement PR"
+  ],
+  "current_share_authoritative_count": 0
+}

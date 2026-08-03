@@ -1,0 +1,56 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_dimension_module_matrix.v1",
+  "scale": "EQ_60",
+  "dimensions": [
+    {
+      "code": "SA",
+      "canonical_name": "self_awareness",
+      "result_section": "self_awareness",
+      "english_result_blocks": 6,
+      "band_specific_blocks": 5,
+      "fallback_blocks": 1,
+      "reader_modules": ["score_system", "core_formulations", "mechanism_map", "reality_translation", "reality_scene_variants", "career_environment", "action_prescriptions", "result_page_depth_modules", "personalization_routes"],
+      "norm_gate": "BLOCKED_ACTIVE_CALIBRATED_AUTHORITY_UNKNOWN"
+    },
+    {
+      "code": "ER",
+      "canonical_name": "emotion_regulation",
+      "result_section": "emotion_regulation",
+      "english_result_blocks": 6,
+      "band_specific_blocks": 5,
+      "fallback_blocks": 1,
+      "reader_modules": ["score_system", "core_formulations", "mechanism_map", "reality_translation", "reality_scene_variants", "career_environment", "action_prescriptions", "result_page_depth_modules", "personalization_routes"],
+      "norm_gate": "BLOCKED_ACTIVE_CALIBRATED_AUTHORITY_UNKNOWN"
+    },
+    {
+      "code": "EM",
+      "canonical_name": "empathy_social_awareness",
+      "result_section": "empathy",
+      "english_result_blocks": 6,
+      "band_specific_blocks": 5,
+      "fallback_blocks": 1,
+      "reader_modules": ["score_system", "core_formulations", "mechanism_map", "reality_translation", "reality_scene_variants", "career_environment", "action_prescriptions", "result_page_depth_modules", "personalization_routes"],
+      "norm_gate": "BLOCKED_ACTIVE_CALIBRATED_AUTHORITY_UNKNOWN"
+    },
+    {
+      "code": "RM",
+      "canonical_name": "relationship_management",
+      "result_section": "relationship_management",
+      "english_result_blocks": 6,
+      "band_specific_blocks": 5,
+      "fallback_blocks": 1,
+      "reader_modules": ["score_system", "core_formulations", "mechanism_map", "reality_translation", "reality_scene_variants", "career_environment", "action_prescriptions", "result_page_depth_modules", "personalization_routes"],
+      "norm_gate": "BLOCKED_ACTIVE_CALIBRATED_AUTHORITY_UNKNOWN"
+    }
+  ],
+  "cross_dimension_modules": [
+    {"module":"global_overview","english_result_blocks":1,"status":"compiled_current","norm_gate":"required_for_percentile"},
+    {"module":"quality_notice","english_result_blocks":9,"status":"compiled_current","norm_gate":"not_required"},
+    {"module":"cross_quadrant_insight","english_result_blocks":7,"status":"compiled_current","norm_gate":"scientific_boundary"},
+    {"module":"action_plan_14d","english_result_blocks":7,"status":"compiled_current","norm_gate":"scientific_boundary"},
+    {"module":"scientific_contract","localized_identity_count":1,"status":"compiled_current","norm_gate":"declares_provisional_boundary"},
+    {"module":"cross_assessment_context","localized_identity_count":52,"status":"compiled_current","norm_gate":"no_score_fusion"},
+    {"module":"sjt_bridge","localized_identity_count":5,"status":"planned_unavailable","counted":false}
+  ],
+  "identity_rule": "只使用后端编译包中存在的 SA、ER、EM、RM；不从 UI 或通用 EQ 术语推导新维度。"
+}

@@ -1,0 +1,63 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_norm_authority_matrix.v1",
+  "scale": "EQ_60",
+  "repository_evidence": {
+    "resolver": "DB-backed NormGroupResolver",
+    "fallback_chains_configured_for": ["zh-CN", "en"],
+    "calibrated_runtime_mapping": "CALIBRATED only",
+    "provisional_runtime_mapping": ["PROVISIONAL", "BOOTSTRAP", "RETIRED"],
+    "repo_seed_rows": 1,
+    "repo_seed": {
+      "locale": "zh-CN",
+      "group": "all",
+      "age_band": "18-60",
+      "version": "bootstrap_v1",
+      "status": "PROVISIONAL",
+      "sample_n": 2000,
+      "source": "bootstrap",
+      "production_active_proven": false
+    }
+  },
+  "surfaces": [
+    {
+      "surface": "global_percentile",
+      "compiled_english_content": true,
+      "frontend_display": true,
+      "required_authority": "active CALIBRATED norm group for resolved locale/cohort/version",
+      "english_authority_state": "MISSING_OR_UNKNOWN",
+      "production_state": "Unknown",
+      "verdict": "BLOCKED",
+      "required_behavior": "无校准权威时隐藏百分位并显示边界安全的 raw/standard score 解释。"
+    },
+    {
+      "surface": "dimension_percentile",
+      "dimensions": ["SA", "ER", "EM", "RM"],
+      "compiled_english_content": true,
+      "required_authority": "active CALIBRATED dimension norms tied to version",
+      "english_authority_state": "MISSING_OR_UNKNOWN",
+      "production_state": "Unknown",
+      "verdict": "BLOCKED"
+    },
+    {
+      "surface": "bands_levels",
+      "compiled_levels": ["foundational", "developing", "stable", "proficient", "integrated"],
+      "report_block_variants": ["baseline", "developing", "competent", "proficient", "exceptional", "fallback"],
+      "required_authority": "versioned score/band contract; percentile-derived claims additionally require calibrated norm",
+      "authority_state": "PARTIAL",
+      "verdict": "CLAIM_GATED"
+    },
+    {
+      "surface": "scientific_contract_norm_statement",
+      "authority_state": "PRESENT",
+      "verdict": "SAFE_BOUNDARY_PRESENT",
+      "notes": "边界说明自身不能替代英文 active/calibrated 常模证据。"
+    }
+  ],
+  "forbidden_inference": [
+    "配置中存在 en fallback chain 不代表英文常模已导入或激活。",
+    "repo seed 的 is_active 字段不证明生产数据库当前激活。",
+    "bootstrap/provisional 不能宣称为最终、全球或能力排名常模。",
+    "fixture、测试与 staging smoke 不计生产常模证据。"
+  ],
+  "required_pr": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01"
+}

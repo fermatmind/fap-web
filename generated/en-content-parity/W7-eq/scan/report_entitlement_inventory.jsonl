@@ -1,0 +1,8 @@
+{"surface_id":"eq60.report","authority":"fap-api Eq60ReportComposer","access_state":"ready","variant":"full","all_results_free":true,"locked":false,"blur":false,"paywall":false,"english_content_count":51,"status":"ALREADY_SATISFIED","notes":"付费 entitlement 不得改变 EQ 当前 full/free 结果合同。"}
+{"surface_id":"eq_core","authority":"fap-api ReportAccess","sections":["disclaimer_top","global_overview","quality_notice","self_awareness","emotion_regulation","empathy","relationship_management","methodology","disclaimer_bottom"],"compiled_locale_rows":74,"english_rows":37,"access_level":"free","status":"ALREADY_SATISFIED"}
+{"surface_id":"eq_cross_insights","authority":"fap-api ReportAccess","sections":["cross_quadrant_insight"],"compiled_locale_rows":14,"english_rows":7,"access_level":"free","status":"ALREADY_SATISFIED"}
+{"surface_id":"eq_growth_plan","authority":"fap-api ReportAccess","sections":["action_plan_14d"],"compiled_locale_rows":14,"english_rows":7,"access_level":"free","status":"ALREADY_SATISFIED"}
+{"surface_id":"eq_full","authority":"fap-api ReportAccess","sections":["all_required_layout_sections"],"access_level":"free","status":"ALREADY_SATISFIED","notes":"运行时模块名不等于付费层。"}
+{"surface_id":"eq60.pdf","authority":"fap-api report_access + PDF endpoint","entitlement":"ready/full/unlocked","access_level":"free","status":"PARTIAL","blocker":"交付存在 attempt_id 文件名泄露，且英文 PDF 完整性尚无独立 W9 证据。"}
+{"surface_id":"eq60.share","authority":"dedicated EQ projection required","entitlement":"not_applicable_until_projection_exists","status":"MISSING","blocker":"不能复用通用 payload 作为 EQ 公开分享权威。"}
+{"surface_id":"eq60.history","authority":"fap-api /me/attempts projection","entitlement":"private owner reentry","status":"PARTIAL","blocker":"EQ 未获得专用 access_summary/history actions。"}

@@ -20,6 +20,14 @@
       "subscope": "W3-ARTICLES",
       "path": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/lane_manifest.json",
       "sha256": "7209590107d946822678550a06b980e4d1de35e0c9bbdfc21c0b6672ddccbd44"
+    },
+    {
+      "lane_id": "W7",
+      "subscope": "eq",
+      "status": "inventory_frozen",
+      "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
+      "manifest_path": "generated/en-content-parity/W7-eq/package_manifest.json",
+      "lane_manifest_path": "generated/en-content-parity/W7-eq/lane_manifest.json"
     }
   ],
   "receipt_chains": [

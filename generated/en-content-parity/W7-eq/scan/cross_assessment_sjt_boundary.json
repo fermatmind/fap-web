@@ -1,0 +1,36 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_cross_assessment_sjt_boundary.v1",
+  "scale": "EQ_60",
+  "cross_assessment": {
+    "compiled_localized_identity_count": 52,
+    "status": "compiled_current",
+    "allowed": [
+      "以低风险、非决定性的方式提示其他测评可提供不同视角",
+      "明确各测评构念不同，不做分数融合",
+      "只使用后端已解析的本地化资产"
+    ],
+    "denied": [
+      "从 EQ 推断 MBTI、Big Five、RIASEC、Enneagram 或 IQ 结果",
+      "形成招聘、岗位适配或工作表现判断",
+      "把跨测评线索说成验证、预测或因果证据",
+      "客户端生成官方跨测评结论"
+    ]
+  },
+  "sjt": {
+    "module": "EQ_SJT_16",
+    "compiled_localized_identity_count": 5,
+    "available": false,
+    "status": "planned_unavailable",
+    "integrated_report_runtime_visibility": false,
+    "counted_in_w7_reader_inventory": false,
+    "w7_verdict": "OUT_OF_SCOPE_AND_MUST_REMAIN_DISABLED",
+    "rule": "不得把已合并的 skeleton、scorer、take flow、integrated composer 或 smoke 当作当前可用产品与英文 parity 资产。"
+  },
+  "future_unlock_conditions": [
+    "SJT 独立产品/内容授权",
+    "场景内容与评分的独立验证",
+    "能力主张边界审校",
+    "独立 W9 与人类 exact-SHA 审批",
+    "明确的 runtime visibility gate"
+  ]
+}

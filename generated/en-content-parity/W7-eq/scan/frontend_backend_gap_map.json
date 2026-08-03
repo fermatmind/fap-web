@@ -1,0 +1,78 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_frontend_backend_gap_map.v1",
+  "scale": "EQ_60",
+  "gaps": [
+    {
+      "id": "GAP-EQ-01",
+      "backend_state": "51 英文结果块与 559 个读者深度节点已编译",
+      "frontend_state": "EQResultV5 已消费主要 v5/resolved assets",
+      "gap": "内容存在不等于独立英文 W9 或冻结 producer 包完成",
+      "owner": "W7 control + W9",
+      "disposition": "REQUIRED_AFTER_LAUNCH_READY"
+    },
+    {
+      "id": "GAP-EQ-02",
+      "backend_state": "NormGroupResolver 支持 en chain；repo 只含 zh-CN provisional/bootstrap seed",
+      "frontend_state": "百分位字段存在即展示",
+      "gap": "没有 active/calibrated norm authority 消费门",
+      "owner": "fap-api then fap-web",
+      "disposition": "REQUIRED_SPLIT"
+    },
+    {
+      "id": "GAP-EQ-03",
+      "backend_state": "ShareService 无专用 EQ serializer",
+      "frontend_state": "分享按钮禁用；通用 share 页面存在",
+      "gap": "缺少最小公开投影、撤销/过期与安全门",
+      "owner": "fap-api",
+      "disposition": "REQUIRED_SCHEMA_FIRST_RUNTIME_LATER"
+    },
+    {
+      "id": "GAP-EQ-04",
+      "backend_state": "PDF 私有交付已实现，但文件名包含 attempt_id",
+      "frontend_state": "可下载 PDF",
+      "gap": "交付隐私与英文完整性未独立锁定",
+      "owner": "fap-api",
+      "disposition": "REQUIRED"
+    },
+    {
+      "id": "GAP-EQ-05",
+      "backend_state": "历史列表可出现 EQ，但无专用 access_summary/actions",
+      "frontend_state": "无 EQ history consumer",
+      "gap": "英文历史摘要、重入、PDF 动作缺失",
+      "owner": "fap-api then fap-web",
+      "disposition": "REQUIRED_SPLIT"
+    },
+    {
+      "id": "GAP-EQ-06",
+      "backend_state": "报告 payload 含 reader-safe localized fields 与 internal IDs",
+      "frontend_state": "缺本地化字段时多个组件显示内部 id",
+      "gap": "读者字段消费失败打开",
+      "owner": "fap-web",
+      "disposition": "REQUIRED"
+    },
+    {
+      "id": "GAP-EQ-07",
+      "backend_state": "attempt_id 是私有访问标识",
+      "frontend_state": "保存/分享模块正文显示原始 attempt_id",
+      "gap": "私有字段进入可见 UI",
+      "owner": "fap-web",
+      "disposition": "REQUIRED"
+    },
+    {
+      "id": "GAP-EQ-08",
+      "backend_state": "EQ full/free entitlement 已强制",
+      "frontend_state": "V5 消费路径已门控 locked/paywall payload",
+      "gap": "无",
+      "owner": "none",
+      "disposition": "ALREADY_SATISFIED"
+    },
+    {
+      "id": "GAP-EQ-09",
+      "backend_state": "SJT planned_unavailable",
+      "frontend_state": "历史 take flow 存在但当前结果桥不可用",
+      "gap": "不能将代码存在误作上线",
+      "owner": "future separate program",
+      "disposition": "OUT_OF_SCOPE"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_share_projection_allowlist.v1",
+  "scale": "EQ_60",
+  "runtime_status": "NOT_IMPLEMENTED",
+  "policy": "专用 EQ serializer 仅可从后端权威报告生成最小公开投影；缺字段时失败关闭，不回退到完整报告或通用 payload。",
+  "allowed_fields": [
+    {"field":"scale_identity","required":true,"constraints":"固定 EQ_60，不接受客户端覆盖"},
+    {"field":"public_safe_title","required":true,"constraints":"本地化、经内容审校、无诊断或能力认证含义"},
+    {"field":"public_safe_summary","required":true,"constraints":"短摘要；不得复制完整报告正文"},
+    {"field":"band_or_level","required":false,"constraints":"仅在版本化解释合同允许时；不得伪装为能力排名"},
+    {"field":"dimension_summaries","required":false,"constraints":"只允许 SA/ER/EM/RM 的审校后短摘要；不得含原始向量或百分位，除非另有常模公开门"},
+    {"field":"scientific_boundary","required":true,"constraints":"必须说明 self-report、非临床、非招聘、非认证能力"},
+    {"field":"cta","required":true,"constraints":"只指向公开测试入口或安全说明页；不得指向私有报告"},
+    {"field":"locale","required":true,"constraints":"en 或 zh-CN；不得客户端混合拼接"},
+    {"field":"projection_version","required":true,"constraints":"后端签发的分享投影版本"},
+    {"field":"expiry_state","required":true,"constraints":"可验证、默认有限期"},
+    {"field":"revocation_state","required":true,"constraints":"撤销后失败关闭"}
+  ],
+  "claim_gates": {
+    "percentile": "DENY_BY_DEFAULT",
+    "career_fit": "DENY",
+    "job_performance": "DENY",
+    "clinical_or_hiring_use": "DENY",
+    "ability_certification": "DENY"
+  }
+}

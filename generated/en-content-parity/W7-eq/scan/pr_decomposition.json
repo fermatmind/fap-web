@@ -1,0 +1,510 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_pr_decomposition.v1",
+  "scale": "EQ_60",
+  "scan_only": true,
+  "current_execution": {
+    "implementation_pr_authorized": false,
+    "producer_pr_authorized": false,
+    "runtime_enablement_authorized": false,
+    "recommended_first_executable_pr": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+    "reason": "百分位是当前最高 claim 风险；先让后端在常模权威缺失时失败关闭，才能安全冻结英文内容和验证前端。"
+  },
+  "candidates": [
+    {
+      "id": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+      "title": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01: fail close EQ percentile claims without calibrated authority",
+      "repository": "fap-api",
+      "scope": "只收紧 EQ-60 global/dimension percentile 与 norm status 的运行时授权；不导入生产常模、不修改正文。",
+      "likely_files": [
+        "backend/app/Services/EQ/NormGroupResolver.php",
+        "backend/app/Services/EQ/Eq60ReportComposer.php",
+        "backend/tests/Feature/EQ",
+        "backend/tests/Unit/EQ"
+      ],
+      "depends_on": [],
+      "required_local_checks": [
+        "cd backend && php artisan test --filter=Eq60Norm",
+        "cd backend && php artisan test --filter=Eq60Report",
+        "git diff --check"
+      ],
+      "no_go": [
+        "不得把 PROVISIONAL/BOOTSTRAP 当 CALIBRATED。",
+        "不得写生产 DB、激活常模或伪造英文 norm row。",
+        "不得更改评分、题库或报告正文。"
+      ],
+      "acceptance_criteria": [
+        "无 active CALIBRATED authority 时 global/dimension percentile 及其读者文案失败关闭。",
+        "norm_status、norm_version 与 locale/cohort/version 绑定可被合同验证。",
+        "已有 zh/en fallback chain 不再被解释成常模已存在。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+        "title": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01: fail close EQ percentile claims without calibrated authority",
+        "repository": "fap-api",
+        "depends_on": [],
+        "goal": "Fail close EQ-60 percentile claims unless an active calibrated norm authority is resolved for the exact locale/cohort/version.",
+        "allowed_paths": ["backend/app/Services/EQ", "backend/tests/Feature/EQ", "backend/tests/Unit/EQ"],
+        "local_checks": ["cd backend && php artisan test --filter=Eq60Norm", "cd backend && php artisan test --filter=Eq60Report", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+        "status": "not_started",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": null,
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 执行 EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01，严格按 pr_decomposition.json 的 scope、allowed_paths、checks 和 no_go 完成 fap-api PR 全生命周期。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01",
+      "title": "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01: gate EQ percentile rendering by calibrated status",
+      "repository": "fap-web",
+      "scope": "前端只在后端明确给出校准常模授权时显示 EQ 百分位；否则显示安全空态或非百分位解释。",
+      "likely_files": ["components/result/eq/EQEvidenceSnapshot.tsx", "components/result/eq", "tests/contracts/eq-result-v5-renderer.contract.test.tsx"],
+      "depends_on": ["EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01"],
+      "required_local_checks": [
+        "pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx --reporter=dot",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "no_go": ["不得前端推导 norm status。", "不得新增本地官方解释正文。", "不得改变 EQ 评分。"],
+      "acceptance_criteria": [
+        "provisional/missing/unknown norm 不渲染百分位数字或百分位派生措辞。",
+        "calibrated contract fixture 仍能渲染允许的百分位。",
+        "英文与中文行为一致。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01",
+        "title": "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01: gate EQ percentile rendering by calibrated status",
+        "repository": "fap-web",
+        "depends_on": ["EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01"],
+        "goal": "Render EQ-60 percentile content only when the backend projection explicitly proves calibrated norm authority.",
+        "allowed_paths": ["components/result/eq", "tests/contracts/eq-result-v5-renderer.contract.test.tsx"],
+        "local_checks": ["pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx --reporter=dot", "pnpm typecheck", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 在 EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01 合并后执行 EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01，严格限制在 EQ renderer 与对应 contract。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01",
+      "title": "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01: remove private IDs and fail closed on internal labels",
+      "repository": "fap-web",
+      "scope": "删除 EQ 结果页可见 attempt_id，并让缺失本地化字段的 reader 模块不再显示内部 asset/route id。",
+      "likely_files": ["components/result/eq", "tests/contracts/eq-result-v5-renderer.contract.test.tsx", "tests/contracts/result-private-leak.contract.test.tsx"],
+      "depends_on": [],
+      "required_local_checks": [
+        "pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx tests/contracts/result-private-leak.contract.test.tsx --reporter=dot",
+        "pnpm typecheck",
+        "git diff --check"
+      ],
+      "no_go": ["不得暴露替代私有标识。", "不得生成前端官方 fallback 正文。", "不得修改非 EQ 结果组件。"],
+      "acceptance_criteria": [
+        "可见 DOM 不含原始 attempt_id。",
+        "缺 title/label/headline 时不显示 route_id、asset_id 或其他内部 id。",
+        "正常已本地化资产渲染不回退。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01",
+        "title": "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01: remove private IDs and fail closed on internal labels",
+        "repository": "fap-web",
+        "depends_on": [],
+        "goal": "Remove raw attempt identifiers from the EQ reader surface and fail closed instead of rendering internal asset or route identifiers.",
+        "allowed_paths": ["components/result/eq", "tests/contracts/eq-result-v5-renderer.contract.test.tsx", "tests/contracts/result-private-leak.contract.test.tsx"],
+        "local_checks": ["pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx tests/contracts/result-private-leak.contract.test.tsx --reporter=dot", "pnpm typecheck", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01",
+        "status": "not_started",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": null,
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 执行 EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01，删除 EQ reader 的原始 attempt_id 与内部 id fallback，并完成聚焦合同、typecheck、PR、检查与合并。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01",
+      "title": "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01: redact EQ private identifiers from PDF delivery metadata",
+      "repository": "fap-api",
+      "scope": "只修 EQ PDF 文件名与 filename hint 的 attempt_id 泄露，并锁定 EQ 内部元数据为空。",
+      "likely_files": ["backend/app/Services/Reports/ReportPdfDocumentService.php", "backend/tests/Feature/Reports", "backend/tests/Unit/Reports"],
+      "depends_on": [],
+      "required_local_checks": ["cd backend && php artisan test --filter=ReportPdf", "git diff --check"],
+      "no_go": ["不得改 PDF 正文。", "不得放宽私有访问/no-store。", "不得把 hash 写入 header。"],
+      "acceptance_criteria": [
+        "EQ 下载文件名与 filename hint 不含 attempt_id。",
+        "Content-Disposition 保持安全、可下载且 locale 行为可预测。",
+        "EQ 不输出 content/release/registry hash 或 private URL。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01",
+        "title": "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01: redact EQ private identifiers from PDF delivery metadata",
+        "repository": "fap-api",
+        "depends_on": [],
+        "goal": "Remove raw attempt identifiers from EQ PDF filenames and hints while preserving private no-store delivery.",
+        "allowed_paths": ["backend/app/Services/Reports/ReportPdfDocumentService.php", "backend/tests/Feature/Reports", "backend/tests/Unit/Reports"],
+        "local_checks": ["cd backend && php artisan test --filter=ReportPdf", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01",
+        "status": "not_started",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": null,
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 执行 EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01，只修 fap-api 的 EQ PDF delivery metadata 私有标识泄露并完成 PR 全生命周期。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-HISTORY-PROJECTION-01",
+      "title": "EN-PARITY-W7-EQ-HISTORY-PROJECTION-01: add private EQ history and reentry projection",
+      "repository": "fap-api",
+      "scope": "为 owner-only history 增加 EQ 英文安全摘要、结果重入与 PDF 动作；分享动作保持关闭。",
+      "likely_files": ["backend/app/Services/Attempts/MeAttemptsService.php", "backend/tests/Feature/EQ/Eq60HistoryListTest.php"],
+      "depends_on": ["EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01"],
+      "required_local_checks": ["cd backend && php artisan test --filter=Eq60HistoryListTest", "git diff --check"],
+      "no_go": ["不得返回完整报告正文。", "不得返回私有 token/raw answers。", "不得启用 share。"],
+      "acceptance_criteria": [
+        "EQ history item 有版本化、最小、owner-only 的 access_summary。",
+        "英文/中文标题与重入动作由后端权威返回。",
+        "PDF 动作使用安全 endpoint；share 动作明确 absent/disabled。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-HISTORY-PROJECTION-01",
+        "title": "EN-PARITY-W7-EQ-HISTORY-PROJECTION-01: add private EQ history and reentry projection",
+        "repository": "fap-api",
+        "depends_on": ["EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01"],
+        "goal": "Add a minimal owner-only EQ history projection with localized reentry and PDF actions while keeping share disabled.",
+        "allowed_paths": ["backend/app/Services/Attempts/MeAttemptsService.php", "backend/tests/Feature/EQ/Eq60HistoryListTest.php"],
+        "local_checks": ["cd backend && php artisan test --filter=Eq60HistoryListTest", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-HISTORY-PROJECTION-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 在 EQ PDF privacy gate 合并后执行 EN-PARITY-W7-EQ-HISTORY-PROJECTION-01，只增加 owner-only EQ history/reentry projection。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01",
+      "title": "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01: consume private EQ history and reentry actions",
+      "repository": "fap-web",
+      "scope": "消费后端 EQ history projection；不本地发明摘要，不启用分享或比较。",
+      "likely_files": ["app/(localized)/[locale]/(app)/history", "components/history", "lib/api", "tests/contracts"],
+      "depends_on": ["EN-PARITY-W7-EQ-HISTORY-PROJECTION-01"],
+      "required_local_checks": ["pnpm exec vitest run tests/contracts/*history* --reporter=dot", "pnpm typecheck", "git diff --check"],
+      "no_go": ["不得新增本地 EQ editorial fallback。", "不得显示 attempt_id。", "不得启用 share/compare。"],
+      "acceptance_criteria": [
+        "英文 history 能安全显示摘要并重入结果/PDF。",
+        "空/旧 projection 有明确空态且不显示内部字段。",
+        "其他量表 history 不回归。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01",
+        "title": "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01: consume private EQ history and reentry actions",
+        "repository": "fap-web",
+        "depends_on": ["EN-PARITY-W7-EQ-HISTORY-PROJECTION-01"],
+        "goal": "Consume the backend-authoritative private EQ history projection without local editorial fallback, sharing, comparison, or private identifiers.",
+        "allowed_paths": ["app/(localized)/[locale]/(app)/history", "components/history", "lib/api", "tests/contracts"],
+        "local_checks": ["pnpm exec vitest run tests/contracts/*history* --reporter=dot", "pnpm typecheck", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for EN-PARITY-W7-EQ-HISTORY-PROJECTION-01",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 在后端 EQ history projection 合并后执行 EN-PARITY-W7-EQ-HISTORY-CONSUMER-01，只做后端权威投影消费与聚焦回归。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01",
+      "title": "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01: define fail-closed EQ public share projection",
+      "repository": "fap-api",
+      "scope": "新增专用 EQ share projection schema、serializer、allow/deny 与测试，但保持 runtime 不可创建、不可公开读取。",
+      "likely_files": ["backend/app/Services/Share", "backend/app/Http/Resources", "backend/tests/Feature/Share", "backend/tests/Unit/Share"],
+      "depends_on": ["EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01"],
+      "required_local_checks": ["cd backend && php artisan test --filter=Share", "cd backend && php artisan test --filter=Eq60", "git diff --check"],
+      "no_go": ["不得启用 create/read runtime。", "不得复用完整报告 payload。", "不得允许 denylist 字段。"],
+      "acceptance_criteria": [
+        "EQ 使用独立 serializer，不落入通用 payload。",
+        "allowlist、denylist、expiry、revocation 与 claim gate 全部失败关闭。",
+        "测试证明 runtime flag/visibility 仍关闭。"
+      ],
+      "verdict": "REQUIRED",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01",
+        "title": "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01: define fail-closed EQ public share projection",
+        "repository": "fap-api",
+        "depends_on": ["EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01"],
+        "goal": "Define and test a dedicated minimal EQ public share projection while keeping all EQ share runtime creation and public reads disabled.",
+        "allowed_paths": ["backend/app/Services/Share", "backend/app/Http/Resources", "backend/tests/Feature/Share", "backend/tests/Unit/Share"],
+        "local_checks": ["cd backend && php artisan test --filter=Share", "cd backend && php artisan test --filter=Eq60", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for EN-PARITY-W7-EQ-NORM-AUTHORITY-GATE-01",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 在 EQ norm authority gate 合并后执行 EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01，只定义并测试 fail-closed schema，明确禁止 runtime enablement。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01",
+      "title": "EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01: freeze exact English EQ result and report inventory",
+      "repository": "fap-web",
+      "scope": "在 W7 launch_ready 后，把后端权威的英文读者身份冻结成 producer package、记录精确来源 hash 与 candidate master patch；不写 CMS/生产。",
+      "likely_files": ["generated/en-content-parity/W7-eq/producer"],
+      "depends_on": [
+        "EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01",
+        "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01",
+        "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01",
+        "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01",
+        "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01",
+        "CONTROL_STATE:W7.launch_state=launch_ready"
+      ],
+      "required_local_checks": [
+        "node scripts/seo/validate-en-content-parity-control.mjs",
+        "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot",
+        "package-specific schema/hash/private-field/claim-boundary validators",
+        "git diff --check"
+      ],
+      "no_go": ["不得写 master manifest。", "不得写 CMS/生产。", "不得发布、启用 share 或提交 sitemap/llms。", "不得重建后替换已冻结 SHA。"],
+      "acceptance_criteria": [
+        "冻结完整目标身份集合与单一 package SHA。",
+        "expected/current/remaining 数量在 package 中成为精确整数。",
+        "candidate patch 只提交给 control window，不自行接受。",
+        "每项可追溯至编译 hash、asset identity 与 claim/privacy gate。"
+      ],
+      "verdict": "REQUIRED_BLOCKED_CONTROL_AND_DEPENDENCIES",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01",
+        "title": "EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01: freeze exact English EQ result and report inventory",
+        "repository": "fap-web",
+        "depends_on": ["EN-PARITY-W7-EQ-NORM-CONSUMER-GATE-01", "EN-PARITY-W7-EQ-READER-PRIVACY-GATE-01", "EN-PARITY-W7-EQ-PDF-PRIVACY-GATE-01", "EN-PARITY-W7-EQ-HISTORY-CONSUMER-01", "EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01"],
+        "goal": "Freeze the exact backend-authoritative English EQ reader asset set and submit a candidate master-manifest patch without CMS, production, release, or runtime writes.",
+        "allowed_paths": ["generated/en-content-parity/W7-eq/producer"],
+        "local_checks": ["node scripts/seo/validate-en-content-parity-control.mjs", "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for W7 launch_ready and all listed contract dependencies",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 当 W7=launch_ready 且全部合同依赖合并后，执行 EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01；只冻结 producer package 与 candidate patch，不写 master/CMS/生产/发布。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01",
+      "title": "EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01: independently review the frozen EQ English package",
+      "repository": "fap-web",
+      "scope": "W9 对 exact frozen package SHA 的每个注册资产与行做独立内容、claim、norm、privacy、share、PDF、history 与 locale QA。",
+      "likely_files": ["generated/en-content-parity/W9-authority/EQ_60"],
+      "depends_on": ["EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01"],
+      "required_local_checks": ["W9 package-completeness validator", "W9 claim/privacy/locale validator", "sha256 exact-package binding check", "git diff --check"],
+      "no_go": ["Producer 不得自审。", "不得改 frozen package。", "不得授权 CMS/import/release。"],
+      "acceptance_criteria": [
+        "W9 报告物理存于注册 authority 目录。",
+        "逐项覆盖所有注册资产与行。",
+        "报告明确命名 exact package SHA，所有必需检查 PASS 才可 qa_pass。"
+      ],
+      "verdict": "REQUIRED_BLOCKED_DEPENDENCY",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01",
+        "title": "EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01: independently review the frozen EQ English package",
+        "repository": "fap-web",
+        "depends_on": ["EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01"],
+        "goal": "Perform independent W9 row-complete QA against the exact frozen EQ English package SHA without modifying the producer package or authorizing release.",
+        "allowed_paths": ["generated/en-content-parity/W9-authority/EQ_60"],
+        "local_checks": ["W9 package-completeness validator", "W9 claim/privacy/locale validator", "sha256 exact-package binding check", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for exact frozen package SHA",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 在 EN-PARITY-W7-EQ-PRODUCER-PACKAGE-01 的 exact frozen SHA 已固定后，以独立 W9 窗口执行 EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01，不修改 producer package。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01",
+      "title": "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01: accept exact-SHA EQ parity transitions",
+      "repository": "fap-web",
+      "scope": "控制窗口核对 producer candidate patch、W9 exact-SHA 报告与人工证据后，按状态机接受所允许的 master transition。",
+      "likely_files": ["docs/seo/generated/en-content-parity-control-master.v1.json", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "depends_on": ["EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01"],
+      "required_local_checks": ["node scripts/seo/validate-en-content-parity-control.mjs", "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot", "git diff --check"],
+      "no_go": ["不得越级状态。", "不得把 draft_imported 当 published。", "不得以 producer 自审替代 W9。", "不得在缺人工 exact-SHA 证据时授权 CMS 或发布。"],
+      "acceptance_criteria": [
+        "只接受 candidate patch 中与 exact frozen SHA 和 W9 报告一致的字段。",
+        "所有权限默认 false，除非对应独立证据明确解锁。",
+        "状态转换符合 blocked_from_status 与顺序规则。"
+      ],
+      "verdict": "REQUIRED_BLOCKED_DEPENDENCY",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01",
+        "title": "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01: accept exact-SHA EQ parity transitions",
+        "repository": "fap-web",
+        "depends_on": ["EN-PARITY-W7-EQ-W9-INDEPENDENT-QA-01"],
+        "goal": "Let the control window accept only exact-SHA, independently reviewed EQ parity state transitions without conflating import, publication, indexability, or release.",
+        "allowed_paths": ["docs/seo/generated/en-content-parity-control-master.v1.json", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+        "local_checks": ["node scripts/seo/validate-en-content-parity-control.mjs", "pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for exact frozen package SHA, independent W9 report, and any separately required human evidence",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 以控制窗口执行 EN-PARITY-W7-EQ-CONTROL-ACCEPT-01，只接受与 frozen SHA、W9 报告和独立人工证据一致的 master transition。"
+    },
+    {
+      "id": "EN-PARITY-W7-EQ-SHARE-RUNTIME-01",
+      "title": "EN-PARITY-W7-EQ-SHARE-RUNTIME-01: enable exact-version EQ public share projection",
+      "repository": "fap-api",
+      "scope": "在 schema、W9、control 与人工 exact-SHA 审批全部完成后，单独启用专用 EQ share projection；不公开完整报告。",
+      "likely_files": ["backend/app/Services/Share", "backend/app/Http/Controllers/Share", "backend/config", "backend/tests/Feature/Share"],
+      "depends_on": ["EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01", "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01", "HUMAN_EXACT_SHA_SHARE_APPROVAL"],
+      "required_local_checks": ["cd backend && php artisan test --filter=Share", "cd backend && php artisan test --filter=Eq60", "git diff --check"],
+      "no_go": ["不得公开私有报告/PDF/token。", "不得跳过 revocation/expiry。", "不得把 runtime enablement 与 schema/body PR 合并。"],
+      "acceptance_criteria": [
+        "仅 exact approved projection version 可创建与读取。",
+        "denylist 字段在 serializer、存储、日志和响应均不存在。",
+        "撤销/过期立即失败关闭。",
+        "前端分享按钮仍需独立 consumer PR 后才可启用。"
+      ],
+      "verdict": "REQUIRED_BUT_NOT_EXECUTABLE",
+      "required_manifest_entry": {
+        "id": "EN-PARITY-W7-EQ-SHARE-RUNTIME-01",
+        "title": "EN-PARITY-W7-EQ-SHARE-RUNTIME-01: enable exact-version EQ public share projection",
+        "repository": "fap-api",
+        "depends_on": ["EN-PARITY-W7-EQ-SHARE-PROJECTION-SCHEMA-01", "EN-PARITY-W7-EQ-CONTROL-ACCEPT-01"],
+        "goal": "Enable only the exact approved EQ public share projection after schema, independent QA, control acceptance, and human exact-SHA approval.",
+        "allowed_paths": ["backend/app/Services/Share", "backend/app/Http/Controllers/Share", "backend/config", "backend/tests/Feature/Share"],
+        "local_checks": ["cd backend && php artisan test --filter=Share", "cd backend && php artisan test --filter=Eq60", "git diff --check"],
+        "stop_if_changed_files_outside_scope": true,
+        "merge_policy": {"github_checks_required": true, "squash": true}
+      },
+      "required_state_entry": {
+        "id": "EN-PARITY-W7-EQ-SHARE-RUNTIME-01",
+        "status": "blocked_dependency",
+        "commit_sha": null,
+        "pr_url": null,
+        "checks": [],
+        "failure_reason": "Waiting for projection schema, control acceptance, W9, and human exact-SHA share approval",
+        "merged_at": null,
+        "remote_branch_deleted": false,
+        "local_cleanup_executed": false
+      },
+      "follow_up_execution_prompt": "/goal 仅在 schema、W9、control acceptance 与人工 exact-SHA share approval 全部满足后执行 EN-PARITY-W7-EQ-SHARE-RUNTIME-01；不得同时启用前端按钮。"
+    }
+  ],
+  "evaluated_not_required_or_deferred": [
+    {
+      "scope": "重写全部英文 EQ 结果正文",
+      "verdict": "NOT_REQUIRED_CURRENT_EVIDENCE",
+      "reason": "51 个英文结果块与 559 个读者深度节点已存在；只有 W9 发现具体缺陷时才拆 exact-asset 修复 PR。"
+    },
+    {
+      "scope": "新增 EQ 付费解锁层",
+      "verdict": "NOT_REQUIRED_AND_FORBIDDEN",
+      "reason": "当前权威是 full/free；parity 不得改变 entitlement。"
+    },
+    {
+      "scope": "EQ-SJT 上线",
+      "verdict": "OUT_OF_SCOPE",
+      "reason": "compiled authority 为 planned_unavailable。"
+    },
+    {
+      "scope": "EQ SEO/GEO、sitemap、llms 或 indexability",
+      "verdict": "OUT_OF_SCOPE",
+      "reason": "139 个 SEO/GEO 本地化节点被扫描排除，且 W7 当前无相关写权限。"
+    },
+    {
+      "scope": "生产常模导入/激活",
+      "verdict": "SEPARATELY_CONTROLLED",
+      "reason": "需要真实数据、dry-run、审批与生产权限；本扫描不能授权或伪造。"
+    },
+    {
+      "scope": "前端 share 按钮启用",
+      "verdict": "DEFERRED_AFTER_BACKEND_RUNTIME",
+      "reason": "必须在专用后端 runtime 通过后再拆独立 consumer PR。"
+    }
+  ]
+}

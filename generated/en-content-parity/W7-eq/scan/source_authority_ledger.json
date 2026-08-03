@@ -1,0 +1,100 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_source_authority_ledger.v1",
+  "entries": [
+    {
+      "source_id": "w7_master_control",
+      "repository": "fap-web",
+      "path": "docs/seo/generated/en-content-parity-control-master.v1.json",
+      "authority_for": ["W7 registration", "status", "permissions", "wave sequencing"],
+      "authority_level": "CONTROL",
+      "observed_state": "registered/not_started",
+      "write_allowed": false
+    },
+    {
+      "source_id": "eq_compiled_manifest",
+      "repository": "fap-api",
+      "path": "backend/content_packs/EQ_60/v1/compiled/manifest.json",
+      "authority_for": ["compiled hashes", "pack version", "compiled file identities"],
+      "authority_level": "COMPILED_BACKEND"
+    },
+    {
+      "source_id": "eq_report_compiled",
+      "repository": "fap-api",
+      "path": "backend/content_packs/EQ_60/v1/compiled/report.compiled.json",
+      "authority_for": ["51 English result blocks", "layout", "module/access fields"],
+      "authority_level": "COMPILED_BACKEND"
+    },
+    {
+      "source_id": "eq_report_assets_compiled",
+      "repository": "fap-api",
+      "path": "backend/content_packs/EQ_60/v1/compiled/report_assets.compiled.json",
+      "authority_for": ["reader depth assets", "science boundaries", "route metadata", "SJT state"],
+      "authority_level": "COMPILED_BACKEND"
+    },
+    {
+      "source_id": "eq_report_composer",
+      "repository": "fap-api",
+      "path": "backend/app/Services/EQ/Eq60ReportComposer.php",
+      "authority_for": ["eq_60.report.v2", "free/full entitlement", "SJT unavailable state"],
+      "authority_level": "RUNTIME_BACKEND"
+    },
+    {
+      "source_id": "eq_norm_resolver",
+      "repository": "fap-api",
+      "path": "backend/app/Services/EQ/NormGroupResolver.php",
+      "authority_for": ["runtime norm lookup", "status mapping"],
+      "authority_level": "RUNTIME_BACKEND",
+      "production_data_visibility": false
+    },
+    {
+      "source_id": "eq_norm_seed",
+      "repository": "fap-api",
+      "path": "backend/content_packs/EQ_60/v1/norms",
+      "authority_for": ["repository baseline seed only"],
+      "authority_level": "BASELINE_NOT_PRODUCTION_PROOF"
+    },
+    {
+      "source_id": "eq_frontend_renderer",
+      "repository": "fap-web",
+      "path": "components/result/eq",
+      "authority_for": ["visible consumption behavior", "fallback behavior", "disabled share UI"],
+      "authority_level": "FRONTEND_CONSUMER",
+      "content_authority": false
+    },
+    {
+      "source_id": "eq_history_projection",
+      "repository": "fap-api",
+      "path": "backend/app/Services/Attempts/MeAttemptsService.php",
+      "authority_for": ["private history projection"],
+      "authority_level": "RUNTIME_BACKEND"
+    },
+    {
+      "source_id": "eq_pdf_delivery",
+      "repository": "fap-api",
+      "path": "backend/app/Services/Reports/ReportPdfDocumentService.php",
+      "authority_for": ["PDF delivery metadata and filename"],
+      "authority_level": "RUNTIME_BACKEND"
+    },
+    {
+      "source_id": "historical_prs",
+      "repositories": ["fap-web", "fap-api"],
+      "source": "GitHub merged PR readback on 2026-07-30 plus local git history",
+      "authority_for": ["merged implementation history"],
+      "authority_level": "EXTERNAL_STATE_VERIFIED"
+    },
+    {
+      "source_id": "staging_llm_smoke",
+      "repository": "fap-web",
+      "path": "docs/result-page-agents/eq60-staging-llm-smoke.md",
+      "authority_for": ["historical smoke context only"],
+      "authority_level": "NON_CONTENT_NON_PRODUCTION_AUTHORITY",
+      "counted": false
+    }
+  ],
+  "precedence": [
+    "W7 control manifest governs permissions and lifecycle.",
+    "Backend compiled/runtime authority governs report content and projection.",
+    "Frontend is a consumer and cannot invent missing official content.",
+    "Fixtures, tests, baseline seeds and smoke reports never prove production activation."
+  ]
+}

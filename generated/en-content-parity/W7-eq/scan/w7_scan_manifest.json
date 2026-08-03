@@ -1,0 +1,84 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_scan_manifest.v1",
+  "window": "W7",
+  "scale": "EQ_60",
+  "scan_type": "planning_only_deep_scan",
+  "generated_on": "2026-07-30",
+  "repositories": {
+    "fap_web": {
+      "path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "branch": "main",
+      "head_sha": "8078c9bf587560727969883dc13c81eb5e5a7365",
+      "origin_main_sha": "8078c9bf587560727969883dc13c81eb5e5a7365"
+    },
+    "fap_api": {
+      "path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "branch": "main",
+      "head_sha": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe",
+      "origin_main_sha": "a6ee41bf42270a8f85bf2e4c079edef75cf00dfe"
+    }
+  },
+  "control_state": {
+    "master_manifest": "docs/seo/generated/en-content-parity-control-master.v1.json",
+    "launch_state": "registered",
+    "status": "not_started",
+    "next_action": "hold_until_wave_2_and_capacity",
+    "master_manifest_modified": false,
+    "candidate_patch_created": false,
+    "write_permissions": {
+      "producer_package": false,
+      "cms": false,
+      "production": false,
+      "seo_runtime": false,
+      "sitemap": false,
+      "llms": false,
+      "indexability": false,
+      "public_release": false
+    }
+  },
+  "compiled_authority": {
+    "pack": "EQ_60/v1",
+    "content_hash": "22a0bda15b41014c893560e66dfe6757823da39bfc12793c700c37b064de0221",
+    "compiled_hash": "2e1db568ee83aed9fbfe5f22a6f947450ec9bbae8b49f85fd8b606499830437a",
+    "report_compiled_hash": "2e9f054d8ef7eb7064aae2fec54bfb27fd77f087bd004f704666899d21cd71b5",
+    "report_assets_compiled_hash": "d552792ec5a5ccde27a2b934eb57f6afe73a8403e43b8b66a6afaf4887e52616"
+  },
+  "inventory_summary": {
+    "english_result_block_identities": 51,
+    "reader_report_asset_localized_identities": 559,
+    "current_english_reader_identity_total": 610,
+    "internal_runtime_localized_identities_excluded": 219,
+    "seo_geo_localized_identities_excluded": 139,
+    "sjt_localized_identities_excluded": 5,
+    "share_authoritative_identity_count": 0,
+    "expected_frozen_target_count": "Unknown",
+    "remaining_target_count": "Unknown",
+    "counting_note": "610 是扫描时可识别的英文读者内容身份，不是 producer 冻结包数量，也不代表已经通过独立 W9 或发布门。"
+  },
+  "scan_verdict": "BLOCKED_BEFORE_PRODUCER",
+  "blocking_findings": [
+    "W7 仍为 registered/not_started，未获 producer、CMS、生产或发布写权限。",
+    "仓库仅能证明一个 zh-CN bootstrap/provisional 常模种子；英文 active/calibrated 常模与生产激活状态均无法由仓库证明。",
+    "EQ 没有专用分享 serializer、projection allowlist 执行门或可撤销公开分享合同；当前前端分享按钮禁用。",
+    "EQ 历史记录缺少专用摘要、英文重入动作与 report_access/history 投影。",
+    "结果页可见地输出 attempt_id；PDF 文件名也包含 attempt_id。",
+    "百分位内容与前端展示没有被 active/calibrated norm authority 明确失败关闭。",
+    "多个英文组件在本地化字段缺失时回退显示内部 id，存在失败打开的内部标识暴露风险。"
+  ],
+  "non_blocking_positive_evidence": [
+    "51 个英文结果块与对应 51 个中文块一一存在，均为 free。",
+    "922 个 report asset 本地化节点都有 en 与 zh-CN，英文节点未发现汉字混入。",
+    "科学边界明确限制临床、招聘、认证能力与工作表现预测等过度解读。",
+    "EQ 当前 entitlement 由后端强制为 full/free，不存在以英文内容修补付费解锁语义的需求。",
+    "私有结果路由已有 noindex 与浏览器分析事件 hard-stop 合同。"
+  ],
+  "artifact_count": 20,
+  "forbidden_outputs_absent": [
+    "content_package.json",
+    "producer_package.json",
+    "master_manifest_patch.candidate.json",
+    "cms_import.json",
+    "release.json",
+    "publish.json"
+  ]
+}

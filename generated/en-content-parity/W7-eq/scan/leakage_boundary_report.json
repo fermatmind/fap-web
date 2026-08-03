@@ -1,0 +1,82 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_leakage_boundary_report.v1",
+  "scale": "EQ_60",
+  "findings": [
+    {
+      "id": "LEAK-EQ-01",
+      "severity": "HIGH",
+      "surface": "EQSaveShareRelated",
+      "repository": "fap-web",
+      "leaked_class": "attempt_id",
+      "behavior": "私有结果页正文可见地渲染原始 attemptId。",
+      "verdict": "CONFIRMED",
+      "required_fix": "删除可见原始 ID；如需客服用途，使用后端生成的非敏感短引用且默认不展示。"
+    },
+    {
+      "id": "LEAK-EQ-02",
+      "severity": "HIGH",
+      "surface": "EQ PDF Content-Disposition / filename hint",
+      "repository": "fap-api",
+      "leaked_class": "attempt_id",
+      "behavior": "下载文件名模式包含原始 attemptId。",
+      "verdict": "CONFIRMED",
+      "required_fix": "改为不含私有标识的本地化稳定文件名，并加入 header 回归。"
+    },
+    {
+      "id": "LEAK-EQ-03",
+      "severity": "MEDIUM",
+      "surface": "多个 EQ 英文组件的 title/label fallback",
+      "repository": "fap-web",
+      "leaked_class": "internal_asset_or_route_id",
+      "behavior": "本地化字段缺失时回退显示内部 id。",
+      "verdict": "FAIL_OPEN_RISK",
+      "required_fix": "本地化 reader 字段缺失时跳过模块或显示固定产品级空态，不显示内部 id。"
+    },
+    {
+      "id": "LEAK-EQ-04",
+      "severity": "LOW",
+      "surface": "私有结果页 analytics",
+      "repository": "fap-web",
+      "leaked_class": "attempt_id",
+      "behavior": "组件调用中存在 attempt_id，但 tracking client 对 /result 私有路径 hard-stop。",
+      "verdict": "NO_NETWORK_LEAK_OBSERVED_CONTRACT_PRESENT",
+      "required_fix": "保留并扩展 EQ 私有路径回归；禁止把调用参数存在误判为实际网络泄露。"
+    },
+    {
+      "id": "LEAK-EQ-05",
+      "severity": "LOW",
+      "surface": "英文编译正文",
+      "repository": "fap-api",
+      "leaked_class": "zh_content",
+      "behavior": "51 个英文结果块与 922 个 report asset 英文本地化节点中未发现汉字。",
+      "verdict": "PASS"
+    },
+    {
+      "id": "LEAK-EQ-06",
+      "severity": "LOW",
+      "surface": "EQ PDF internal metadata headers",
+      "repository": "fap-api",
+      "leaked_class": "content_or_release_hash",
+      "behavior": "EQ 当前服务路径返回相关内部元数据为 null。",
+      "verdict": "NO_LEAK_OBSERVED",
+      "required_fix": "加入 EQ 专项合同，防止未来通用服务变化导致回归。"
+    }
+  ],
+  "deny_classes": [
+    "attempt_id",
+    "user_id",
+    "account_id",
+    "email",
+    "phone",
+    "private URL or token",
+    "raw answers",
+    "raw score vector",
+    "internal selector trace",
+    "norm internal id",
+    "source refs",
+    "QA/editor notes",
+    "order/payment/benefit",
+    "content/release/registry hash"
+  ],
+  "overall_verdict": "BLOCKED_UNTIL_CONFIRMED_LEAKS_FIXED"
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_claim_boundary_findings.v1",
+  "scale": "EQ_60",
+  "summary": {
+    "forbidden_positive_claims_observed": 0,
+    "safe_negative_boundary_families_observed": ["clinical", "diagnosis", "hiring", "certification", "ability", "job_performance", "career_prediction"],
+    "numeric_reliability_or_validity_values_observed": 0,
+    "percentile_gated_result_blocks": 21,
+    "overall": "BOUNDARIES_PRESENT_BUT_NORM_GATE_INCOMPLETE"
+  },
+  "findings": [
+    {
+      "id": "CLAIM-EQ-01",
+      "severity": "HIGH",
+      "surface": "英文 global/dimension percentile 文本与变量",
+      "evidence": "21 个英文结果块引用 percentile 语义或变量；前端存在百分位展示。",
+      "boundary": "英文 active/calibrated 常模未获仓库或生产证据。",
+      "verdict": "BLOCKED",
+      "required_fix": "百分位必须由 locale/cohort/version 的 active CALIBRATED authority 显式授权；否则失败关闭。"
+    },
+    {
+      "id": "CLAIM-EQ-02",
+      "severity": "MEDIUM",
+      "surface": "psychometric_evidence_status",
+      "evidence": "content_validity=preliminary；internal_consistency、test_retest、factor_structure、criterion_validity、measurement_invariance=planned；norm_status=provisional。",
+      "verdict": "SAFE_IF_PRESERVED",
+      "required_fix": "不得升级为具体信度、效度、常模或不变性结论；未知值保持 Unknown。"
+    },
+    {
+      "id": "CLAIM-EQ-03",
+      "severity": "LOW",
+      "surface": "scientific_contract 与 do_not_overread",
+      "evidence": "临床、招聘、能力认证、职业预测和工作表现词语均作为否定边界出现。",
+      "verdict": "ALLOWED_NEGATIVE_BOUNDARY",
+      "required_fix": "QA 不得把否定边界的关键词命中误报为正向违规。"
+    },
+    {
+      "id": "CLAIM-EQ-04",
+      "severity": "MEDIUM",
+      "surface": "cross_assessment_context",
+      "evidence": "已存在构念差异与不融合分数边界。",
+      "verdict": "CLAIM_GATED",
+      "required_fix": "禁止由跨测评内容生成招聘、岗位适配、因果、验证或预测结论。"
+    },
+    {
+      "id": "CLAIM-EQ-05",
+      "severity": "HIGH",
+      "surface": "EQ-SJT",
+      "evidence": "五个 SJT 本地化节点均 planned_unavailable；integrated report runtime visibility=false。",
+      "verdict": "OUT_OF_SCOPE",
+      "required_fix": "不得将历史 scorer/flow/composer/smoke 描述为已上线能力测量或 parity 内容。"
+    }
+  ],
+  "product_boundary": "EQ-60 是自我报告解释工具，不是医疗诊断、招聘筛选、认证能力测试、职业结果预测或工作表现预测工具。"
+}

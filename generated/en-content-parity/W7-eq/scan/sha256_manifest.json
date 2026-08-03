@@ -1,0 +1,28 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_scan_sha256_manifest.v1",
+  "algorithm": "sha256",
+  "generated_on": "2026-07-30",
+  "self_excluded": true,
+  "file_count": 19,
+  "files": [
+    {"path":"claim_boundary_findings.json","sha256":"dc18dfdff7b38309042040d3c04e44f7154de3dc68114bc5ab1e3275f1fe0694"},
+    {"path":"compiled_content_inventory.jsonl","sha256":"497148dcc7737fa48deeb8e7a85fbc97eb6ad7d5f4ea493efeffce180ccd651a"},
+    {"path":"cross_assessment_sjt_boundary.json","sha256":"4885ef9b2b69c59bceea629cd554afd77cb7fa3cb14d810c60512d59377660d8"},
+    {"path":"dimension_module_matrix.json","sha256":"f99d8c95bebf71020a332957a3e0135507e4dc00f660a4fec7b9771f77bfb1b3"},
+    {"path":"frontend_backend_gap_map.json","sha256":"6c16df619a0aba8d69fc038e9b9ab03fa7ccc4343daccd499299c00672c3def3"},
+    {"path":"handoff.md","sha256":"1b50aae16135366f167af73dce56600280d111053e26c7d753963938b67d3603"},
+    {"path":"historical_task_disposition.json","sha256":"cf7e6012a4b19e5f2259dd538cb56bb8bdd89fe6a240a4d77b00d5210cc9f54e"},
+    {"path":"leakage_boundary_report.json","sha256":"810c7010855500dd057c7fbe9679210c58872ce3e6a67bb5ba32a81b944681c5"},
+    {"path":"norm_authority_matrix.json","sha256":"ccd58d90e552aafd917d255ec376502924b532f52c0f3349bf11341bc17117bd"},
+    {"path":"pdf_history_surface_matrix.json","sha256":"b8b73e335d49aba450bcc205ffd23910bb6c285eb5a18f16b2d11af081395ee8"},
+    {"path":"pr_decomposition.json","sha256":"be5a66e0b6e03b49b2bbeb1c0e91b8127a49f8cf6115f1bed203c7cad8a9ba5d"},
+    {"path":"report_entitlement_inventory.jsonl","sha256":"b51190cbfe60d84083793166e34a901442fc7b5df7a3e1257465727b01b13bf8"},
+    {"path":"result_content_inventory.jsonl","sha256":"79346a4830e0e32d5a9636350a6d759a409ad010dce6e92a0c9cfcc8dac79c56"},
+    {"path":"share_projection_allowlist.json","sha256":"b0e07486741f5c58b90c955b552f0aa70d3b4e79bd6ca52b993f8f4c3616ac76"},
+    {"path":"share_projection_denylist.json","sha256":"1b97732f080dd4c435f92e616b3f97517d54ffc972aa31834ced081b002df95f"},
+    {"path":"share_surface_matrix.json","sha256":"1a6fb852ffdb79bc06b8c38a35e14a5285cf369583f9923e18d89ef79bd44c73"},
+    {"path":"source_authority_ledger.json","sha256":"665be55b494e7f660df055d9672ef8c4b4d098478b40c2c6537fb9874c066394"},
+    {"path":"w7_pr_dependency_dag.md","sha256":"3d681bb9b9248b612b5e2fb59b82c83c7992ef7851b2edc3f27e8435655a84bd"},
+    {"path":"w7_scan_manifest.json","sha256":"8cc251805910b1d5e9fcda654b51b83a1b105253a5a0086133dfbcd787b354b9"}
+  ]
+}

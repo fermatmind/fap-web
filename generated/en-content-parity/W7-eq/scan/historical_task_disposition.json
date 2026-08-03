@@ -1,0 +1,74 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_historical_task_disposition.v1",
+  "verified_on": "2026-07-30",
+  "verification": "GitHub merged PR readback + local main history",
+  "items": [
+    {
+      "capability": "EQ full/free backend contract",
+      "merged_prs": ["fap-api #1522"],
+      "disposition": "ALREADY_SATISFIED",
+      "notes": "当前 composer 与 compiled blocks 均证明 free/full。"
+    },
+    {
+      "capability": "EQ v5 report assets, canonical fixtures and delivery",
+      "merged_prs": ["fap-api #1523", "fap-api #1526", "fap-api #1531", "fap-web #855", "fap-web #856", "fap-web #859"],
+      "disposition": "ALREADY_SATISFIED_FOUNDATION",
+      "notes": "fixture 与 renderer 已落地；不等于 W7 英文 W9 或生产完整性。"
+    },
+    {
+      "capability": "EQ personalization route/depth/scene assets",
+      "merged_prs": ["fap-api #1791", "fap-web #938", "fap-api #2455-#2459", "fap-web #1458", "fap-api #2483/#2486/#2519/#2522/#2526/#2531", "fap-web #1476", "fap-api #2675", "fap-api #3391"],
+      "disposition": "ALREADY_SATISFIED_FOUNDATION",
+      "notes": "route_id、signal_signature、selected_asset_ids 属内部选择元数据，不计英文读者内容身份。"
+    },
+    {
+      "capability": "EQ science/claim boundary repair",
+      "merged_prs": ["fap-api #2587", "fap-api #2589", "fap-api #2604-#2675", "fap-api #2828"],
+      "disposition": "ALREADY_SATISFIED_WITH_NEW_NORM_GAP",
+      "notes": "否定边界与 evidence status 已明显收紧；百分位的 active/calibrated authority gate 仍缺。"
+    },
+    {
+      "capability": "EQ Agent",
+      "merged_prs": ["fap-web #1417/#1433", "fap-api #2401/#2407/#2410/#2412/#2416/#2420/#2422/#2430/#2433/#2808"],
+      "disposition": "OUT_OF_W7_CONTENT_SCOPE",
+      "notes": "Agent runtime/smoke 不是 W7 英文结果内容权威。"
+    },
+    {
+      "capability": "EQ-SJT",
+      "merged_prs": ["fap-api #1532/#1813/#1818/#1822/#1824", "fap-web #945"],
+      "disposition": "NOT_RUNTIME_READY",
+      "notes": "当前编译权威仍为 planned_unavailable，不能重做为 W7 parity 或误报上线。"
+    },
+    {
+      "capability": "EQ staging LLM smoke",
+      "merged_prs": ["fap-web #1479"],
+      "disposition": "HISTORICAL_SMOKE_ONLY",
+      "notes": "不计 producer、W9、生产、CMS 或内容权威。"
+    },
+    {
+      "capability": "EQ English active norm",
+      "merged_prs": [],
+      "disposition": "MISSING",
+      "notes": "未找到 EQ 专项英文常模导入、激活、漂移与公开 claim gate 合并记录。"
+    },
+    {
+      "capability": "EQ dedicated share projection",
+      "merged_prs": [],
+      "disposition": "MISSING",
+      "notes": "未找到专用 serializer、allow/deny、撤销/过期与 runtime gate。"
+    },
+    {
+      "capability": "EQ dedicated history/reentry",
+      "merged_prs": [],
+      "disposition": "MISSING",
+      "notes": "未找到 EQ access_summary、history actions 与前端 consumer。"
+    },
+    {
+      "capability": "EQ PDF attempt-id redaction",
+      "merged_prs": [],
+      "disposition": "MISSING",
+      "notes": "通用 PDF/print 安全历史不能替代当前 EQ 文件名实证。"
+    }
+  ],
+  "range_notation_note": "#2455-#2459 与 #2604-#2675 仅表示相关 EQ 专项合并序列；本文件不把区间内无关编号算作证据。"
+}

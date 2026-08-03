@@ -1,0 +1,10 @@
+{
+  "schema": "fermatmind.v2_sha256_manifest.v1",
+  "lane": "W7",
+  "subscope": "eq",
+  "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
+  "files": {
+    "package_manifest.json": "41710069bc81374ff02340c38afedf1fd45559747fea0178775ed1977ba462cf",
+    "lane_manifest.json": "d40b532dbf610db3241757fb9111277cb674e4f14a449002fe05f49e5f778de4"
+  }
+}

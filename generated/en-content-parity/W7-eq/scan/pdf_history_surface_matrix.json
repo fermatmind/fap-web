@@ -1,0 +1,45 @@
+{
+  "schema": "fermatmind.en_content_parity.w7_eq_pdf_history_surface_matrix.v1",
+  "scale": "EQ_60",
+  "pdf": {
+    "authority": "fap-api report_access + ReportPdfDocumentService",
+    "endpoint_state": "implemented",
+    "access_contract": "private no-store, full/unlocked, app/pdf",
+    "english_delivery_fixture_state": "present",
+    "live_content_completeness": "Unknown",
+    "independent_w9_state": "missing",
+    "privacy_findings": [
+      {
+        "field": "Content-Disposition filename",
+        "current_pattern": "<scale>_report_<attemptId>.pdf",
+        "verdict": "LEAK",
+        "required_behavior": "使用不含 attempt_id 的稳定安全文件名"
+      },
+      {
+        "field": "X-Report-Filename-Hint",
+        "current_pattern": "includes attemptId",
+        "verdict": "LEAK",
+        "required_behavior": "删除或改为无私有标识提示"
+      },
+      {
+        "field": "internal metadata headers",
+        "verdict": "NO_EQ_LEAK_OBSERVED",
+        "notes": "EQ 当前服务返回相关内部字段为 null；仍需合同锁定。"
+      }
+    ],
+    "overall_verdict": "PARTIAL_BLOCKED"
+  },
+  "history": {
+    "authority": "fap-api /me/attempts",
+    "generic_eq_listing": "present",
+    "dedicated_eq_access_summary": "missing",
+    "dedicated_eq_actions": "missing",
+    "frontend_eq_history_consumer": "missing",
+    "english_label_and_reentry_contract": "missing",
+    "history_href_in_report_access": "missing_for_eq",
+    "compare_contract": "missing",
+    "share_action": "must_remain_absent_until_share_projection_gate",
+    "overall_verdict": "MISSING"
+  },
+  "split_rule": "PDF 交付隐私与 history 重入是两个独立责任域，必须拆成不同 PR。"
+}
