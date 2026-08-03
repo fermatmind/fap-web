@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "57c106af3122b0447c776b6cf24caef07211cd01a3c96c538f62e204364d46d0",
+    "inputs_sha256": "c7152b6cacf14c1fb7982d8717cdcbf20d10a15a018b3d54434ea388169ae58c",
     "lane_manifest_count": 2,
-    "receipt_chain_count": 0
+    "receipt_chain_count": 1
   },
   "state_machine": {
     "ordered_states": [
@@ -205,7 +205,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-CROSS-COMPARISONS"
           ],
-          "status": "dry_run_ready",
+          "status": "live_qa_pass",
           "blocked_from_status": null,
           "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-comparisons/deecc817-renderer-2f388c32/independent_qa_report.json",
@@ -240,7 +240,11 @@
           "same_pr_allowed": false,
           "legacy_lineage": [],
           "lane_manifest_ref": null,
-          "promotion_receipts": [],
+          "promotion_receipts": [
+            "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/draft-import.json",
+            "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/publication.json",
+            "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/live-qa.json"
+          ],
           "release_policy": {
             "cms_draft_import": "auto_after_dry_run_pass",
             "public_publish": "auto_after_import_readback_pass",

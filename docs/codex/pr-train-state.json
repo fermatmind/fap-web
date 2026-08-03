@@ -55510,7 +55510,7 @@
     "base": "main",
     "branch": "codex/en-parity-control-w3-articles-package-refrozen-10-01",
     "depends_on": ["EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "09a736563b93d389e07ca3c77181983863431738",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1975",
     "checks": {
@@ -55910,7 +55910,7 @@
     "base": "main",
     "branch": "codex/en-parity-control-w3-articles-qa-pass-refrozen-10-01",
     "depends_on": ["EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01"],
-    "status": "in_progress",
+    "status": "github_checks_pending",
     "commit_sha": "8bd44279bc52f49660dad9bfce995284f0314039",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1987",
     "checks": {"dependency": {"status": "pass", "evidence": "GitHub confirms #1986 is merged as 6ca1bfac1fef6adecbaa48e0035b6fce197f2936 and origin/main contains the exact PASS W9 evidence."}, "candidate_binding": {"status": "pass", "evidence": "The accepted W9 report SHA is a286486e040b410a28224732e6a4cf61d42255db43e92bba3905bdf0af52caf4, row-evidence SHA is 8e89f95b763cdffc5d60093a4d2b603a680385e1f49a3ccc8dcdd2a02eef646f, and frozen package SHA is d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a."}, "local_validation": {"status": "pass", "evidence": "Validated the original W9 candidate against the exact pre-transition master and the updated master after acceptance. After CI exposed stale frozen-only assumptions in the registered Career Guide Batch A/B validators, both now permit only the exact frozen Article state or this exact W9 qa_pass lineage. The control and both batch validators, focused 71/71 contracts, focused ESLint, JSON/YAML parsing, exact report/row-evidence SHA recomputation, all-false permission audit, changed-file scope audit, and diff checks pass."}, "github_required_checks": {"status": "pass", "evidence": "PR #1987 exact implementation head 8bd44279bc52f49660dad9bfce995284f0314039 passed build, all four contract shards and aggregate contracts, Big Five and Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts. The final ledger head must complete its own fresh required-check cycle before merge."}},
@@ -55992,8 +55992,8 @@
     "base": "main",
     "branch": "codex/en-content-parity-v2-deployed-executor-provenance-01",
     "status": "ready_to_merge",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "79fed7844e2ee261c7c873ee16269d476e09b946",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1999",
     "checks": {"dependency": {"status": "passed", "evidence": "T1 PR #3513 merged as 1f863f4b8f63d86149d5bc0fe7563c4936e86446 and fap-api origin/main contains that merge SHA."}, "local_validation": {"status": "passed", "evidence": "Focused 32 tests, ESLint, and complete contract shard 4 passed after the scope-contract repair."}, "github_required_checks": {"status": "passed", "evidence": "CI run 30758203502 and CodeQL run 30758203509 passed all build, four contract shards, Big Five/Enneagram freezes, CodeQL, and no-new-alert checks."}},
     "failure_reason": null,
     "merged_at": null,
@@ -56127,6 +56127,80 @@
       ,{"at": "2026-08-02T18:26:19Z", "status": "merged", "summary": "Reconciled against GitHub: PR #1997 squash-merged as 45e988ff1e14a36a4583a62ead4369b885a853bc; origin/main contains the merge commit and the remote task branch is deleted. The local branch cleanup was completed before this W5 control-envelope train item."}
     ],
     "updated_at": "2026-08-03T00:00:00Z"
+  },
+  "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01": {
+    "id": "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01",
+    "repo": "fap-web",
+    "title": "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01: materialize exact comparison V2 receipt chain",
+    "base": "main",
+    "branch": "codex/w1-mbti-comparisons-v2-receipt-materialize-01",
+    "depends_on": [],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The active W1 MBTI end-to-end goal explicitly authorizes this exact T7 manifest/state entry."
+      },
+      "t6_receipt_provenance": {
+        "status": "pass",
+        "evidence": "fap-api workflow run 30781185656 attempt 1 completed successfully on b52532e6122ee9aa86c5a13f5e1a7fc9d4973701. Its artifact content-promotion-W1-30781185656-1 supplied the exact three-receipt chain for package deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "The deterministic V2 builder writes and rechecks the same master SHA b8cdd6d997d39a330338abf6a15166425839263035c7ecec67a68ccb935514fd. The V2 validator re-downloaded the trusted artifact and verified its GitHub provenance, exact receipt bytes, ordered chain, package/count/policy bindings, and explicit production-subscope mapping. Focused contracts passed 26/26; focused ESLint, JSON/YAML parse, non-symlink checks, and diff checks passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1999 head 0e5533c452a98d0290c19eec3adde8b153cd4963 passed build, all four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-03T03:16:46Z",
+        "status": "in_progress",
+        "summary": "Started from clean fap-web main after verified T6 success. Scope is limited to byte-identical immutable comparison promotion receipts, V2 input registration, and deterministic master materialization; no result receipt, CMS, promotion, deployment, or discoverability action is included."
+      },
+      {
+        "at": "2026-08-03T03:22:29Z",
+        "status": "local_verified",
+        "summary": "Registered only the exact comparison receipt chain and generated the V2 master. The validator proved GitHub run 30781185656 attempt 1, trusted artifact bytes, receipt order, source/workflow reachability, package SHA, release-policy SHA, and seven-record count; W1 result-content remains dry_run_ready with no receipts. A same-scope validator repair bounds large GitHub compare responses, and receipt_subscope explicitly preserves the backend mbti-comparisons identity without changing the control target."
+      },
+      {
+        "at": "2026-08-03T03:22:29Z",
+        "status": "committed",
+        "summary": "Committed the exact T7 implementation as 79fed7844e2ee261c7c873ee16269d476e09b946 after all manifest local checks and strict path-limited staging passed."
+      },
+      {
+        "at": "2026-08-03T03:23:47Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed T7 head 0f0113ad505a02218a1700ce746f997825906ddf and opened PR #1999. Required build, four contract shards, Big Five/Enneagram freezes, and CodeQL are pending; no result promotion/materialization, CMS, deployment, or discoverability action is included."
+      },
+      {
+        "at": "2026-08-03T03:28:32Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1999 head 0e5533c452a98d0290c19eec3adde8b153cd4963 is CLEAN and passed every required GitHub check. This final ledger-only readiness head must complete its own required-check cycle before squash merge; no scope or authority changes are introduced."
+      }
+    ],
+    "updated_at": "2026-08-03T03:28:32Z"
   },
   "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01": {
     "id": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01",
