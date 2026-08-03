@@ -218,7 +218,7 @@ function registeredTargetContract(v2, base, laneId, manifest = null) {
     ? assets.reduce((total, asset) => total + asset[field], 0)
     : null;
   let expectedCount = sumOrNull("expected_en_count");
-  if (expectedCount === null && manifest?.backend_package_sha256) {
+  if (manifest?.backend_package_sha256) {
     const evidence = readBoundJson(manifest.external_package_evidence_ref, manifest.external_package_evidence_sha256);
     const registration = evidence.authority_target;
     if (
@@ -246,6 +246,7 @@ function registeredTargetContract(v2, base, laneId, manifest = null) {
 
 function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
   const content = { ...evidence };
+  const promotionExpectedCount = manifest.promotion_row_count ?? registeredTarget.expectedCount;
   delete content.receipt_content_sha256;
   const zeroMutationFields = [
     "private_payload_read_count",
@@ -261,7 +262,7 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
     evidence.result !== "SUCCEEDED" ||
     evidence.phase !== "preflight" ||
     evidence.lane !== manifest.lane_id ||
-    evidence.subscope !== manifest.subscope ||
+    evidence.subscope !== (manifest.promotion_subscope ?? manifest.subscope) ||
     evidence.source_repository !== "fermatmind/fap-api" ||
     !/^[a-f0-9]{40}$/.test(evidence.source_commit ?? "") ||
     !/^[a-z0-9_]{1,96}$/.test(evidence.adapter ?? "") ||
@@ -269,11 +270,11 @@ function assertDryRunEvidence(evidence, manifest, registeredTarget, key) {
       evidence.package_path ?? "",
     ) ||
     String(evidence.package_path ?? "").includes("..") ||
-    evidence.package_sha256 !== manifest.package_sha256 ||
+    evidence.package_sha256 !== (manifest.backend_package_sha256 ?? manifest.package_sha256) ||
     evidence.release_policy_sha256 !== BACKEND_PROMOTION_CONTRACT.release_policy_sha256 ||
-    evidence.expected_count !== registeredTarget.expectedCount ||
+    evidence.expected_count !== promotionExpectedCount ||
     evidence.written_count !== 0 ||
-    evidence.readback_count !== registeredTarget.expectedCount ||
+    evidence.readback_count !== promotionExpectedCount ||
     evidence.published_count !== 0 ||
     evidence.previous_receipt_sha256 !== null ||
     evidence.rollback_reference !== null ||
@@ -551,7 +552,8 @@ function assertLaneManifestTransition(base, manifest, key, registeredTarget, ver
   if (packageRequired !== (typeof manifest.package_sha256 === "string")) {
     throw new Error(`lane_manifest_package_binding_invalid=${key}`);
   }
-  if (manifestLineage.some((entry) => entry.package_sha256 !== manifest.package_sha256)) {
+  if (manifestLineage.some((entry) => entry.package_sha256 !== manifest.package_sha256
+    && !(entry.status === "dry_run_ready" && entry.package_sha256 === manifest.backend_package_sha256))) {
     throw new Error(`lane_manifest_lineage_package_mismatch=${key}`);
   }
   if (expectedStatuses.includes("package_frozen")) {
@@ -717,6 +719,9 @@ export function applyMaterializationInputs(v2, inputs) {
       "gate_lineage",
       "legacy_lineage",
       "blockers",
+      "backend_package_sha256",
+      "promotion_subscope",
+      "promotion_row_count",
     ]) {
       if (Object.hasOwn(manifest, field)) target[field] = manifest[field];
     }
@@ -737,13 +742,14 @@ export function applyMaterializationInputs(v2, inputs) {
     if (chain.release_policy_sha256 !== v2.authority.backend_promotion_contract.release_policy_sha256) {
       throw new Error(`receipt_chain_release_policy_mismatch=${key}`);
     }
-    if (target.package_sha256 !== chain.package_sha256) {
+    if ((target.backend_package_sha256 ?? target.package_sha256) !== chain.package_sha256) {
       throw new Error(`receipt_chain_package_mismatch=${key}`);
     }
-    if (chain.expected_count !== registeredTargetContract(v2, target, chain.lane_id).expectedCount) {
+    if (chain.expected_count !== (target.promotion_row_count ?? registeredTargetContract(v2, target, chain.lane_id).expectedCount)) {
       throw new Error(`receipt_chain_registered_count_mismatch=${key}`);
     }
     target.status = chain.target_status;
+    if (target.backend_package_sha256) target.package_sha256 = target.backend_package_sha256;
     target.promotion_receipts = [...chain.receipt_paths];
   }
   recomputeSplitLaneStatuses(v2);

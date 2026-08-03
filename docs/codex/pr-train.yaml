@@ -30397,3 +30397,45 @@ prs:
     deploy_allowed: false
     content_authority: fap-api remains the package, CMS, promotion, and receipt authority; fap-web stores only verified immutable receipt bytes and a generated read-only control summary
     repository_rule_impact: V2 receipt provenance/control binding only; no runtime content authority, promotion, deployment, or discoverability change
+
+  - id: EN-PARITY-W4-RIASEC-V2-RECEIPT-INGESTION-01
+    repo: fap-web
+    base: main
+    branch: codex/en-parity-w4-riasec-v2-receipt-ingestion-01
+    title: "EN-PARITY-W4-RIASEC-V2-RECEIPT-INGESTION-01: materialize exact W4 promotion receipts"
+    status: in_progress
+    depends_on: [EN-PARITY-W4-RIASEC-V2-LANE-MATERIALIZATION-01]
+    mode: execute
+    train_scope: w4_riasec_v2_receipt_ingestion
+    scope:
+      - Bind the exact successful W4 preflight and three promotion receipt bytes from trusted fap-api workflow run 30781490356.
+      - Materialize only W4 to live_qa_pass through the deterministic V2 control generator while retaining separate local-envelope and backend package identities.
+    allowed_paths:
+      - docs/seo/generated/en-content-parity-control-inputs.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.schema.json
+      - generated/en-content-parity/v2/W4-riasec/f3f2463f/**
+      - scripts/seo/build-en-content-parity-control-v2.mjs
+      - scripts/seo/validate-en-content-parity-control-v2.mjs
+      - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - tests/contracts/en-content-parity-w4-riasec-receipt-materialization.v2.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify V1 history, CMS/runtime/SEO authority, deployment, workflow dispatch, or any non-W4 content package.
+    required_local_checks:
+      - focused V2 control and W4 receipt contracts
+      - node scripts/seo/build-en-content-parity-control-v2.mjs --check
+      - node scripts/seo/validate-en-content-parity-control-v2.mjs
+      - JSON/YAML parse and git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend promotion receipts retained as immutable fap-web control evidence
+    repository_rule_impact: V2 provenance/control binding only; no runtime, discoverability, or deployment change
+

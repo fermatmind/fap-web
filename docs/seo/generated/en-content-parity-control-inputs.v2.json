@@ -7,7 +7,7 @@
       "lane_id": "W4",
       "subscope": null,
       "path": "generated/en-content-parity/v2/W4-riasec/f3f2463f/lane_manifest.json",
-      "sha256": "8d4e7cf1b2c46849386a319175d90f42cbb0bdff7b283e52058defc8fb2f69b4"
+      "sha256": "62333dd2346c24ae9b6f5d89d1559fe8550497749b8e828283884363532bf122"
     },
     {
       "lane_id": "W5",
@@ -43,6 +43,20 @@
         "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/draft-import.json",
         "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/publication.json",
         "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/live-qa.json"
+      ]
+    },
+    {
+      "lane_id": "W4",
+      "subscope": null,
+      "receipt_subscope": "riasec",
+      "target_status": "live_qa_pass",
+      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "expected_count": 1550,
+      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
+      "receipt_paths": [
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/draft-import.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/publication.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/live-qa.json"
       ]
     }
   ]

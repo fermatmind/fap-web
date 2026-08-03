@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "13aa18cfcd43ac4e744484ef1fbfd7c4971e72f6e24ff32de877245013cadfdd",
+    "inputs_sha256": "7239815a0e095bcf711e2694d50ed9ef1f44de2493dc9105296aaf070ede7e81",
     "lane_manifest_count": 2,
-    "receipt_chain_count": 2
+    "receipt_chain_count": 3
   },
   "state_machine": {
     "ordered_states": [
@@ -570,7 +570,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "qa_pass",
+      "status": "live_qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W4-riasec/",
       "target_asset_types": [
@@ -589,7 +589,7 @@
       "source_inventory_refs": [
         "docs/codex/riasec-full-content-pack-asset-inventory.md"
       ],
-      "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
+      "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
       "qa_report_ref": "generated/en-content-parity/W9-independent-qa/riasec/w4-riasec-f3f2463f/independent_qa_report.json",
       "gate_lineage": [
         {
@@ -607,6 +607,14 @@
           "report_sha256": "f2c0f83871ecae1ed76bd742f0ddcf20de71f7980c012bc5cd1affe72dd46882",
           "package_sha256": "6f46e0795d3531ca08cf95272cc7d8c1fd4921a94f92c1b6e1ca9ee73160ffba",
           "accepted_at": "2026-08-02T17:50:00Z"
+        },
+        {
+          "status": "dry_run_ready",
+          "evidence_owner_lane_id": "fap-api",
+          "report_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/preflight.json",
+          "report_sha256": "9934855e5bd934e915d82fea96c23ad91a2d67afc9f6e8daf4f9065c475a4dc4",
+          "package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+          "accepted_at": "2026-08-03T03:19:57Z"
         }
       ],
       "blockers": [],
@@ -634,14 +642,21 @@
         }
       ],
       "lane_manifest_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/lane_manifest.json",
-      "promotion_receipts": [],
+      "promotion_receipts": [
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/draft-import.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/publication.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/live-qa.json"
+      ],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
         "public_publish": "auto_after_import_readback_pass",
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "backend_package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "promotion_subscope": "riasec",
+      "promotion_row_count": 1550
     },
     {
       "lane_id": "W5",
@@ -710,7 +725,9 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "backend_package_sha256": "8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5",
+      "promotion_row_count": 630
     },
     {
       "lane_id": "W6",
