@@ -57586,9 +57586,9 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-V2-LANE-MATERIALIZATION-01"
     ],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "15f509746c23cc8352e4ed5442e8b9d8beee1d6d",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2000",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -57615,6 +57615,12 @@
         "from": "in_progress",
         "to": "committed",
         "note": "Committed exact W4 receipt bytes, V2 input binding, deterministic materialization, and focused contract coverage."
+      },
+      {
+        "at": "2026-08-03T03:36:00Z",
+        "from": "committed",
+        "to": "pr_open",
+        "note": "Opened PR #2000 after exact receipt-byte, materializer, validator, and scope checks passed."
       }
     ]
   }
