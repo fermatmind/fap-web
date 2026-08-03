@@ -56128,6 +56128,61 @@
     ],
     "updated_at": "2026-08-03T00:00:00Z"
   },
+  "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01": {
+    "id": "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01",
+    "repo": "fap-web",
+    "title": "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01: materialize exact comparison V2 receipt chain",
+    "base": "main",
+    "branch": "codex/w1-mbti-comparisons-v2-receipt-materialize-01",
+    "depends_on": [],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The active W1 MBTI end-to-end goal explicitly authorizes this exact T7 manifest/state entry."
+      },
+      "t6_receipt_provenance": {
+        "status": "pass",
+        "evidence": "fap-api workflow run 30781185656 attempt 1 completed successfully on b52532e6122ee9aa86c5a13f5e1a7fc9d4973701. Its artifact content-promotion-W1-30781185656-1 supplied the exact three-receipt chain for package deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "The deterministic V2 builder writes and rechecks the same master SHA b8cdd6d997d39a330338abf6a15166425839263035c7ecec67a68ccb935514fd. The V2 validator re-downloaded the trusted artifact and verified its GitHub provenance, exact receipt bytes, ordered chain, package/count/policy bindings, and explicit production-subscope mapping. Focused contracts passed 26/26; focused ESLint, JSON/YAML parse, non-symlink checks, and diff checks passed."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-08-03T03:16:46Z",
+        "status": "in_progress",
+        "summary": "Started from clean fap-web main after verified T6 success. Scope is limited to byte-identical immutable comparison promotion receipts, V2 input registration, and deterministic master materialization; no result receipt, CMS, promotion, deployment, or discoverability action is included."
+      },
+      {
+        "at": "2026-08-03T03:22:29Z",
+        "status": "local_verified",
+        "summary": "Registered only the exact comparison receipt chain and generated the V2 master. The validator proved GitHub run 30781185656 attempt 1, trusted artifact bytes, receipt order, source/workflow reachability, package SHA, release-policy SHA, and seven-record count; W1 result-content remains dry_run_ready with no receipts. A same-scope validator repair bounds large GitHub compare responses, and receipt_subscope explicitly preserves the backend mbti-comparisons identity without changing the control target."
+      }
+    ],
+    "updated_at": "2026-08-03T03:22:29Z"
+  },
   "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01": {
     "id": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01",
     "repo": "fap-web",

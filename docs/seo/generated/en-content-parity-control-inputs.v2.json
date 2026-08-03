@@ -16,5 +16,20 @@
       "sha256": "6ae650a6a0be863fd22653c7d976a42670e8409d9cd34699bd145aee541807dd"
     }
   ],
-  "receipt_chains": []
+  "receipt_chains": [
+    {
+      "lane_id": "W1",
+      "subscope": "W1-MBTI-COMPARISONS",
+      "receipt_subscope": "mbti-comparisons",
+      "target_status": "live_qa_pass",
+      "package_sha256": "deecc8175fb43ba3730d6513b496a0ab6834459108e3b24e25550bbf40e001a2",
+      "expected_count": 7,
+      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
+      "receipt_paths": [
+        "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/draft-import.json",
+        "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/publication.json",
+        "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/live-qa.json"
+      ]
+    }
+  ]
 }

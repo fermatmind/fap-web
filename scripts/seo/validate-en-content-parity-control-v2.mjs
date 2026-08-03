@@ -188,7 +188,7 @@ export function verifyGithubWorkflowProvenance(entries) {
     execFileSync(
       "gh",
       ["api", `repos/fermatmind/fap-api/actions/runs/${runId}`],
-      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024 },
     ),
   );
   const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
@@ -197,8 +197,8 @@ export function verifyGithubWorkflowProvenance(entries) {
   const minimumComparison = JSON.parse(
     execFileSync(
       "gh",
-      ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}`],
-      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+      ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}?per_page=1`],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024 },
     ),
   );
   if (!["ahead", "identical"].includes(minimumComparison.status)) {
@@ -211,8 +211,8 @@ export function verifyGithubWorkflowProvenance(entries) {
     const comparison = JSON.parse(
       execFileSync(
         "gh",
-        ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}`],
-        { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] },
+        ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}?per_page=1`],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024 },
       ),
     );
     if (!["ahead", "identical"].includes(comparison.status)) throw new Error(error);
@@ -584,6 +584,7 @@ function validateReceiptShape(receipt, label, errors, schema) {
  *   entries: Array<{bytes:string, receipt?:Record<string, unknown>}>,
  *   lane: string,
  *   subscope?: string|null,
+ *   receiptSubscope?: string|null,
  *   packageSha256: string,
  *   expectedCount: number,
  *   releasePolicySha256: string,
@@ -596,6 +597,7 @@ export function validateReceiptChain({
   entries,
   lane,
   subscope = null,
+  receiptSubscope = subscope,
   packageSha256,
   expectedCount,
   releasePolicySha256,
@@ -622,7 +624,7 @@ export function validateReceiptChain({
   assert(sameValue(receipts.map((item) => item.phase), RECEIPT_PHASES.slice(0, entries.length)), "receipt phases are out of order", errors);
   for (const [index, receipt] of receipts.entries()) {
     assert(receipt.lane === lane, `receipt[${index}]: cross-lane receipt`, errors);
-    assert(receipt.subscope === subscope, `receipt[${index}]: cross-subscope receipt`, errors);
+    assert(receipt.subscope === receiptSubscope, `receipt[${index}]: cross-subscope receipt`, errors);
     assert(receipt.package_sha256 === packageSha256, `receipt[${index}]: cross-package or stale receipt`, errors);
     assert(receipt.expected_count === expectedCount, `receipt[${index}]: expected count mismatch`, errors);
     assert(receipt.release_policy_sha256 === releasePolicySha256, `receipt[${index}]: release policy mismatch`, errors);
@@ -720,6 +722,7 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
         entries: registeredEntries,
         lane: chain.lane_id,
         subscope: chain.subscope,
+        receiptSubscope: chain.receipt_subscope,
         packageSha256: chain.package_sha256,
         expectedCount: chain.expected_count,
         releasePolicySha256: chain.release_policy_sha256,
