@@ -1,5 +1,5 @@
 {
-  "status": "qa_pass",
+  "status": "live_qa_pass",
   "lane_id": "W7",
   "subscope": "eq",
   "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
@@ -22,7 +22,15 @@
       "from": "inventory_frozen",
       "to": "qa_pass",
       "reason": "w9_independent_qa_pass"
+    },
+    {
+      "from": "qa_pass",
+      "to": "live_qa_pass",
+      "reason": "promotion_receipt_chain_verified",
+      "workflow_run_id": "30832388682",
+      "receipt_sha256": "c1341638f628d2317bc251e2aba2e3a6d86821e69b37edae798a6898b8a281e9"
     }
   ],
-  "w9_verdict": "PASS"
+  "w9_verdict": "PASS",
+  "backend_package_sha256": "a841ea3f4723adf1d7d3776866ca5d2a55dc05fb7f6754f63827f5130763f387"
 }

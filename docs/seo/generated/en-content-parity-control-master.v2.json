@@ -833,7 +833,7 @@
       ],
       "dependencies": [],
       "launch_state": "registered",
-      "status": "qa_pass",
+      "status": "live_qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W7-eq/",
       "target_asset_types": [
@@ -863,10 +863,37 @@
         "w9_independent_qa"
       ],
       "blockers": [],
-      "next_action": "Await production deployment authorization for promotion.",
+      "next_action": null,
       "legacy_lineage": [],
       "lane_manifest_ref": "generated/en-content-parity/W7-eq/lane_manifest.json",
-      "promotion_receipts": [],
+      "promotion_receipts": [
+        {
+          "receipt_kind": "content_promotion_preflight_receipt",
+          "phase": "preflight",
+          "receipt_sha256": "967ff64e5ae8b6bd3676ad48a3cbd37b17c261664a4c56ea332a5414acfd8afa",
+          "result": "SUCCEEDED"
+        },
+        {
+          "receipt_kind": "cms_draft_import_receipt",
+          "phase": "draft-import",
+          "receipt_sha256": "58e7ceeb61f57de70d60ee11c356b05da32063fadff0bc3213b33ebdef1fe21a",
+          "result": "SUCCEEDED",
+          "rollback_reference": "content-release-snapshot:23"
+        },
+        {
+          "receipt_kind": "cms_publication_receipt",
+          "phase": "publish",
+          "receipt_sha256": "0e8416507234301f25768864c91615846c13fc8d0ca82fc8af2d12254a21d57b",
+          "result": "SUCCEEDED",
+          "rollback_reference": "content-release-snapshot:22"
+        },
+        {
+          "receipt_kind": "cms_live_qa_receipt",
+          "phase": "live-qa",
+          "receipt_sha256": "c1341638f628d2317bc251e2aba2e3a6d86821e69b37edae798a6898b8a281e9",
+          "result": "SUCCEEDED"
+        }
+      ],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
         "public_publish": "auto_after_import_readback_pass",
@@ -874,9 +901,10 @@
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
       },
-      "backend_package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
+      "backend_package_sha256": "a841ea3f4723adf1d7d3776866ca5d2a55dc05fb7f6754f63827f5130763f387",
       "promotion_row_count": 2,
-      "source_repository": "fermatmind/fap-api"
+      "source_repository": "fermatmind/fap-api",
+      "workflow_run_id": "30832388682"
     },
     {
       "lane_id": "W8",

@@ -116,6 +116,21 @@
         "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/publication.json",
         "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/live-qa.json"
       ]
+    },
+    {
+      "lane_id": "W7",
+      "subscope": "eq",
+      "receipt_subscope": "eq",
+      "target_status": "live_qa_pass",
+      "package_sha256": "a841ea3f4723adf1d7d3776866ca5d2a55dc05fb7f6754f63827f5130763f387",
+      "expected_count": 2,
+      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
+      "receipt_paths": [
+        "generated/en-content-parity/W7-eq/preflight.json",
+        "generated/en-content-parity/W7-eq/draft-import.json",
+        "generated/en-content-parity/W7-eq/publication.json",
+        "generated/en-content-parity/W7-eq/live-qa.json"
+      ]
     }
   ]
 }
