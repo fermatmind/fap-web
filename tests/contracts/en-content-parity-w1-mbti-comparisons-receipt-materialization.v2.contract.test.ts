@@ -20,7 +20,7 @@ function sha256(filePath: string) {
 }
 
 describe("W1 MBTI comparison V2 promotion receipt materialization", () => {
-  it("binds the complete exact successful backend receipt chain and leaves result content unchanged", () => {
+  it("binds the complete exact successful backend receipt chain and preserves result promotion receipts", () => {
     const inputs = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/seo/generated/en-content-parity-control-inputs.v2.json"), "utf8"));
     const master = JSON.parse(fs.readFileSync(path.join(ROOT, "docs/seo/generated/en-content-parity-control-master.v2.json"), "utf8"));
     const chain = inputs.receipt_chains.find((entry: { lane_id: string; subscope: string }) => entry.lane_id === "W1" && entry.subscope === "W1-MBTI-COMPARISONS");
@@ -43,8 +43,7 @@ describe("W1 MBTI comparison V2 promotion receipt materialization", () => {
       promotion_receipts: RECEIPT_PATHS,
     });
     expect(w1.subscopes.find((subscope: { id: string }) => subscope.id === "W1-MBTI-RESULT-CONTENT")).toMatchObject({
-      status: "dry_run_ready",
-      promotion_receipts: [],
+      status: "live_qa_pass",
     });
     expect(validateV2Control()).toMatchObject({ ok: true, receipt_count: 0 });
   });
