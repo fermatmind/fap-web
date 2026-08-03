@@ -55510,7 +55510,7 @@
     "base": "main",
     "branch": "codex/en-parity-control-w3-articles-package-refrozen-10-01",
     "depends_on": ["EN-PARITY-W3-ARTICLE-PACKAGE-REWORK-10-01"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "09a736563b93d389e07ca3c77181983863431738",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1975",
     "checks": {
@@ -56150,6 +56150,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "The deterministic V2 builder writes and rechecks the same master SHA b8cdd6d997d39a330338abf6a15166425839263035c7ecec67a68ccb935514fd. The V2 validator re-downloaded the trusted artifact and verified its GitHub provenance, exact receipt bytes, ordered chain, package/count/policy bindings, and explicit production-subscope mapping. Focused contracts passed 26/26; focused ESLint, JSON/YAML parse, non-symlink checks, and diff checks passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1999 head 0e5533c452a98d0290c19eec3adde8b153cd4963 passed build, all four contract shards and aggregate contracts, Big Five/Enneagram freezes, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN with no required review decision."
       }
     },
     "failure_reason": null,
@@ -56189,9 +56193,14 @@
         "at": "2026-08-03T03:23:47Z",
         "status": "github_checks_pending",
         "summary": "Pushed T7 head 0f0113ad505a02218a1700ce746f997825906ddf and opened PR #1999. Required build, four contract shards, Big Five/Enneagram freezes, and CodeQL are pending; no result promotion/materialization, CMS, deployment, or discoverability action is included."
+      },
+      {
+        "at": "2026-08-03T03:28:32Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1999 head 0e5533c452a98d0290c19eec3adde8b153cd4963 is CLEAN and passed every required GitHub check. This final ledger-only readiness head must complete its own required-check cycle before squash merge; no scope or authority changes are introduced."
       }
     ],
-    "updated_at": "2026-08-03T03:23:47Z"
+    "updated_at": "2026-08-03T03:28:32Z"
   },
   "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01": {
     "id": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01",
