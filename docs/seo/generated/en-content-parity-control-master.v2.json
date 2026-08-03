@@ -924,8 +924,8 @@
         "Do not write CMS, import, publish, edit SEO runtime, master manifest, or frontend editorial fallbacks."
       ],
       "dependencies": [],
-      "launch_state": "registered",
-      "status": "not_started",
+      "launch_state": "launch_ready",
+      "status": "launch_ready",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W8-career-job/",
       "target_asset_types": [
@@ -933,7 +933,9 @@
         "career_job_reader_projection",
         "career_job_locale_leakage_finding"
       ],
-      "subscopes": [],
+      "subscopes": [
+        "career-job"
+      ],
       "counts": {
         "cohort_count": 1,
         "expected_en_assets": 1046,
@@ -949,9 +951,15 @@
       ],
       "package_sha256": null,
       "qa_report_ref": null,
-      "gate_lineage": [],
+      "gate_lineage": [
+        "api_public_allowlist",
+        "locale_field_projection",
+        "frontend_fail_closed_locale_rendering",
+        "contract_locks_api",
+        "contract_locks_web"
+      ],
       "blockers": [],
-      "next_action": "Hold until wave 2 packages are available for QA, then create the first control_previous plus new_50 audit batch.",
+      "next_action": "Execute W8-05-BATCH-001: produce control_0 + new_50 candidate package.",
       "legacy_lineage": [],
       "lane_manifest_ref": null,
       "promotion_receipts": [],
