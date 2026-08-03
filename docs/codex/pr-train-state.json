@@ -57586,8 +57586,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-V2-LANE-MATERIALIZATION-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "15f509746c23cc8352e4ed5442e8b9d8beee1d6d",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -57597,6 +57597,10 @@
       "task4_receipts": {
         "status": "pass",
         "evidence": "Trusted fap-api main workflow run 30781490356 succeeded with exact W4 preflight plus draft-import, publication, and live-QA receipts bound to package f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb and 1550 rows."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24 focused V2 and W4 receipt contracts passed (26 tests); deterministic materializer --check, V2 validator, JSON/YAML parsing, and diff checks passed."
       }
     },
     "transitions": [
@@ -57605,6 +57609,12 @@
         "from": "user_authorized",
         "to": "in_progress",
         "note": "Started exact W4 receipt ingestion from a clean origin/main worktree after successful trusted promotion receipt recovery."
+      },
+      {
+        "at": "2026-08-03T03:35:00Z",
+        "from": "in_progress",
+        "to": "committed",
+        "note": "Committed exact W4 receipt bytes, V2 input binding, deterministic materialization, and focused contract coverage."
       }
     ]
   }
