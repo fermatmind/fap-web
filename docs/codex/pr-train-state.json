@@ -55992,7 +55992,7 @@
     "base": "main",
     "branch": "codex/en-content-parity-v2-deployed-executor-provenance-01",
     "status": "ready_to_merge",
-    "commit_sha": null,
+    "commit_sha": "79fed7844e2ee261c7c873ee16269d476e09b946",
     "pr_url": null,
     "checks": {"dependency": {"status": "passed", "evidence": "T1 PR #3513 merged as 1f863f4b8f63d86149d5bc0fe7563c4936e86446 and fap-api origin/main contains that merge SHA."}, "local_validation": {"status": "passed", "evidence": "Focused 32 tests, ESLint, and complete contract shard 4 passed after the scope-contract repair."}, "github_required_checks": {"status": "passed", "evidence": "CI run 30758203502 and CodeQL run 30758203509 passed all build, four contract shards, Big Five/Enneagram freezes, CodeQL, and no-new-alert checks."}},
     "failure_reason": null,
@@ -56179,6 +56179,11 @@
         "at": "2026-08-03T03:22:29Z",
         "status": "local_verified",
         "summary": "Registered only the exact comparison receipt chain and generated the V2 master. The validator proved GitHub run 30781185656 attempt 1, trusted artifact bytes, receipt order, source/workflow reachability, package SHA, release-policy SHA, and seven-record count; W1 result-content remains dry_run_ready with no receipts. A same-scope validator repair bounds large GitHub compare responses, and receipt_subscope explicitly preserves the backend mbti-comparisons identity without changing the control target."
+      },
+      {
+        "at": "2026-08-03T03:22:29Z",
+        "status": "committed",
+        "summary": "Committed the exact T7 implementation as 79fed7844e2ee261c7c873ee16269d476e09b946 after all manifest local checks and strict path-limited staging passed."
       }
     ],
     "updated_at": "2026-08-03T03:22:29Z"
