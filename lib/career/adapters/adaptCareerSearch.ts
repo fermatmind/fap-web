@@ -126,7 +126,7 @@ function adaptItem(raw: Record<string, unknown>, locale: "en" | "zh"): CareerSea
   const title =
     locale === "zh"
       ? canonicalZh ?? canonicalEn ?? humanizeSlug(canonicalSlug)
-      : canonicalEn ?? canonicalZh ?? humanizeSlug(canonicalSlug);
+      : canonicalEn ?? humanizeSlug(canonicalSlug);
 
   return {
     authoritySource: "career_backend_conservative_search.v0.5",

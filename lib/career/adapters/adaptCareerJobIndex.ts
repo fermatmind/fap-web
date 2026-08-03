@@ -111,7 +111,7 @@ function adaptItem(raw: Record<string, unknown>, locale: "en" | "zh"): CareerJob
   const title =
     locale === "zh"
       ? canonicalZh ?? canonicalEn ?? humanizeSlug(canonicalSlug)
-      : canonicalEn ?? canonicalZh ?? humanizeSlug(canonicalSlug);
+      : canonicalEn ?? humanizeSlug(canonicalSlug);
 
   return {
     authoritySource: "career_backend_lightweight_index.v0.5",
@@ -129,9 +129,7 @@ function adaptItem(raw: Record<string, unknown>, locale: "en" | "zh"): CareerJob
     },
     titles: {
       title,
-      canonicalEn,
-      canonicalZh,
-      searchH1Zh: normalizeString(titles.search_h1_zh),
+      ...(locale === "zh" ? { canonicalEn, canonicalZh, searchH1Zh: normalizeString(titles.search_h1_zh) } : { canonicalEn }),
     },
     truthSummary: {
       truthMarket: normalizeString(truthSummary.truth_market),

@@ -623,7 +623,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const titleEn = normalizeString(titles.canonical_en);
   const titleZh = normalizeString(titles.canonical_zh);
   const title =
-    input.locale === "zh" ? titleZh ?? titleEn ?? humanizeSlug(slug) : titleEn ?? titleZh ?? humanizeSlug(slug);
+    input.locale === "zh" ? titleZh ?? titleEn ?? humanizeSlug(slug) : titleEn ?? humanizeSlug(slug);
 
   const scoreBundle = buildScoreBundle(raw);
   const warnings = buildWarnings(raw);
