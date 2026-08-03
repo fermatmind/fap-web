@@ -442,7 +442,7 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "qa_pass",
+          "status": "live_qa_pass",
           "blocked_from_status": null,
           "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/independent_qa_report.json",
@@ -469,7 +469,11 @@
           "same_pr_allowed": false,
           "legacy_lineage": [],
           "lane_manifest_ref": null,
-          "promotion_receipts": [],
+          "promotion_receipts": [
+            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/draft-import.json",
+            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/publication.json",
+            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/live-qa.json"
+          ],
           "release_policy": {
             "cms_draft_import": "auto_after_dry_run_pass",
             "public_publish": "auto_after_import_readback_pass",
