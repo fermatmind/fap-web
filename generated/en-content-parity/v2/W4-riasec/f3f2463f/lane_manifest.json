@@ -95,11 +95,11 @@
       "recorded_at": "2026-08-03T03:19:57Z"
     }
   ],
-  "reviewed_source_commit": "f6827bc87f5ea33e4e5687713d4aa2b95ebc4ea0",
+  "reviewed_source_commit": "251e8250c4ff47fbc7cdd0dfe617a5b1eb0fd599",
   "expected_count": 14,
   "promotion_row_count": 1550,
   "w9_review_binding_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/same_pr_w9_binding.json",
-  "w9_review_binding_sha256": "f313a43c1cf3c690c32b410082a8462ca1b38d19e9e59fff2a6b076dbbf01929",
+  "w9_review_binding_sha256": "dfdb0e2aa85ae51a265038abac44559a27fcf13cd6cd175a63d8400c28efee93",
   "external_package_evidence_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/external_package_evidence.json",
   "external_package_evidence_sha256": "92d06cf1d4651e1ab10bfcc575e133d2325189ecc9422c58e74b22664e4b5436",
   "promotion_subscope": "riasec"

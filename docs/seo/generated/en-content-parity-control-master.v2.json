@@ -51,7 +51,7 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "6c61435a20d4a8da6aeaae40e805afe70c388a1b4dad9766c1da6335ec8c6c3f",
+    "inputs_sha256": "7239815a0e095bcf711e2694d50ed9ef1f44de2493dc9105296aaf070ede7e81",
     "lane_manifest_count": 2,
     "receipt_chain_count": 3
   },
