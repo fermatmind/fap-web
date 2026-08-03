@@ -3392,6 +3392,7 @@ prs:
       - public copy/content files
     rollback_note: "Remove MBTI network-observable funnel dispatch changes, click_unlock/create_order network observability, docs, contracts, and train metadata."
 
+
   - id: PR-GRAPH-01
     repo: fap-web
     repo_path: <workspace>/fap-web-pr-graph
@@ -12198,6 +12199,7 @@ prs:
       - No CMS mutation, sitemap change, deploy, Search Channel action, URL submission, or frontend-authored content fallback is introduced.
     rollback_note: "Revert PR-03 follow-up llms content-page detail authority fallback and focused contract updates if llms content-page exposure regresses."
 
+
   - id: IQ-PAID-REPORT-02
     repo: fap-web
     repo_path: <workspace>/fap-web
@@ -12251,6 +12253,7 @@ prs:
       - Paid IQ report sections, PDF placeholders, certificate placeholders, and detailed dimension payloads are hidden unless backend contract indicates full entitlement.
       - No local IQ claims or report conclusions are added.
     rollback_note: "Revert IQ paid report frontend entitlement-state rendering if backend contract interpretation or paid-field redaction regresses."
+
 
   - id: IQ-CMS-MEDIA-02
     repo: fap-web
@@ -23030,6 +23033,7 @@ prs:
       auto_merge: true
     next_task: PR-EQ-AGENT-04
 
+
   - id: ASSESSMENT-HUB-QA-COMMON-CONTRACT-01
     repo: fap-web
     repo_path: <workspace>/fap-web
@@ -30308,7 +30312,6 @@ prs:
     deploy_allowed: false
     content_authority: exact backend-authoritative W5 private-result package; frontend stores only a validated immutable control snapshot
     repository_rule_impact: V2 provenance/control binding only; no runtime content authority, discoverability, promotion, or deployment change
-<<<<<<< ours
 
   - id: W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01
     repo: fap-web
@@ -30352,7 +30355,48 @@ prs:
     deploy_allowed: false
     content_authority: fap-api remains the package, CMS, promotion, and receipt authority; fap-web stores only verified immutable receipt bytes and a generated read-only control summary
     repository_rule_impact: V2 receipt provenance/control binding only; no runtime content authority, promotion, deployment, or discoverability change
-||||||| base
+
+  - id: W1-MBTI-RESULT-CONTENT-V2-RECEIPT-MATERIALIZE-01
+    repo: fap-web
+    base: main
+    branch: codex/w1-mbti-result-content-v2-receipt-materialize-01
+    title: "W1-MBTI-RESULT-CONTENT-V2-RECEIPT-MATERIALIZE-01: materialize exact result V2 receipt chain"
+    depends_on: [W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01]
+    mode: execute
+    train_scope: w1_mbti_result_content_v2_exact_receipt_materialization
+    status: in_progress
+    scope:
+      - Bind only the exact successful fap-api T8 artifact receipt bytes for W1-MBTI-RESULT-CONTENT package 9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3.
+      - Materialize the generated V2 control master through the official deterministic builder, advancing only W1-MBTI-RESULT-CONTENT to live_qa_pass.
+    allowed_paths:
+      - generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/**
+      - docs/seo/generated/en-content-parity-control-inputs.v2.json
+      - docs/seo/generated/en-content-parity-control-master.v2.json
+      - tests/contracts/en-content-parity-control-master.v2.contract.test.ts
+      - tests/contracts/en-content-parity-w1-mbti-comparisons-receipt-materialization.v2.contract.test.ts
+      - tests/contracts/en-content-parity-w1-mbti-result-content-receipt-materialization.v2.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Hand-edit the V2 master, change comparison receipt bytes or history, alter V1 audit history, or modify frontend/runtime/backend code.
+      - Dispatch promotion, deploy, write CMS/database/SEO/search state, or add sitemap, llms, canonical, indexability, or Search Channel changes.
+    required_local_checks:
+      - node scripts/seo/build-en-content-parity-control-v2.mjs --write
+      - node scripts/seo/build-en-content-parity-control-v2.mjs --check
+      - node scripts/seo/validate-en-content-parity-control-v2.mjs
+      - focused V2 control and W1 result receipt materialization contracts
+      - focused ESLint
+      - JSON/YAML parse, exact artifact byte/SHA and non-symlink reconciliation, scope validation, and git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: fap-api remains the package, CMS, promotion, and receipt authority; fap-web stores only verified immutable receipt bytes and a generated read-only control summary
+    repository_rule_impact: V2 receipt provenance/control binding only; no runtime content authority, promotion, deployment, or discoverability change
 
   - id: EN-PARITY-W4-RIASEC-V2-RECEIPT-INGESTION-01
     repo: fap-web
@@ -30394,4 +30438,4 @@ prs:
     deploy_allowed: false
     content_authority: backend promotion receipts retained as immutable fap-web control evidence
     repository_rule_impact: V2 provenance/control binding only; no runtime, discoverability, or deployment change
->>>>>>> theirs
+
