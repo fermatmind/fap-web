@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "13aa18cfcd43ac4e744484ef1fbfd7c4971e72f6e24ff32de877245013cadfdd",
+    "inputs_sha256": "0435cabe082cf5aa8598bd1789bd55c94908e093d8509f88592499335a12b453",
     "lane_manifest_count": 2,
-    "receipt_chain_count": 2
+    "receipt_chain_count": 3
   },
   "state_machine": {
     "ordered_states": [
@@ -578,17 +578,7 @@
         "riasec_pair_blend",
         "riasec_share_pdf_history_variant"
       ],
-      "subscopes": [
-        {
-          "status": "live_qa_pass",
-          "expected_count": 1550,
-          "promotion_receipts": [
-            "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/draft-import.json",
-            "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/publication.json",
-            "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/live-qa.json"
-          ]
-        }
-      ],
+      "subscopes": [],
       "counts": {
         "cohort_count": 1,
         "expected_en_assets": 14,
@@ -652,14 +642,21 @@
         }
       ],
       "lane_manifest_ref": "generated/en-content-parity/v2/W4-riasec/f3f2463f/lane_manifest.json",
-      "promotion_receipts": [],
+      "promotion_receipts": [
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/draft-import.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/publication.json",
+        "generated/en-content-parity/v2/W4-riasec/f3f2463f/receipts/30781490356-1/live-qa.json"
+      ],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
         "public_publish": "auto_after_import_readback_pass",
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "backend_package_sha256": "f3f2463fadd827e586d39d42ecd9e6418b7cb7f36a0697eb06dcead8292f54eb",
+      "promotion_subscope": "riasec",
+      "promotion_row_count": 1550
     },
     {
       "lane_id": "W5",
@@ -728,7 +725,9 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "backend_package_sha256": "8a1653b5053b7ab910957543c8bb831b8c0759aaec82a7200e5c13c08a5e98d5",
+      "promotion_row_count": 630
     },
     {
       "lane_id": "W6",
