@@ -30,6 +30,20 @@
         "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/publication.json",
         "generated/en-content-parity/v2/W1-mbti/comparisons/deecc8175f/receipts/30781185656-1/live-qa.json"
       ]
+    },
+    {
+      "lane_id": "W1",
+      "subscope": "W1-MBTI-RESULT-CONTENT",
+      "receipt_subscope": "mbti-results",
+      "target_status": "live_qa_pass",
+      "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
+      "expected_count": 46,
+      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
+      "receipt_paths": [
+        "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/draft-import.json",
+        "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/publication.json",
+        "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/live-qa.json"
+      ]
     }
   ]
 }

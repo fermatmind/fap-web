@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "c7152b6cacf14c1fb7982d8717cdcbf20d10a15a018b3d54434ea388169ae58c",
+    "inputs_sha256": "13aa18cfcd43ac4e744484ef1fbfd7c4971e72f6e24ff32de877245013cadfdd",
     "lane_manifest_count": 2,
-    "receipt_chain_count": 1
+    "receipt_chain_count": 2
   },
   "state_machine": {
     "ordered_states": [
@@ -189,7 +189,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "dry_run_ready",
+      "status": "live_qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W1-mbti/",
       "target_asset_types": [
@@ -261,7 +261,7 @@
           "asset_ids": [
             "ENPARITY-W1-MBTI-RESULT-CONTENT"
           ],
-          "status": "dry_run_ready",
+          "status": "live_qa_pass",
           "blocked_from_status": null,
           "package_sha256": "9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/W1-mbti-result-content/9325013b-renderer-643b7a80/independent_qa_report.json",
@@ -296,7 +296,11 @@
           "same_pr_allowed": false,
           "legacy_lineage": [],
           "lane_manifest_ref": null,
-          "promotion_receipts": [],
+          "promotion_receipts": [
+            "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/draft-import.json",
+            "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/publication.json",
+            "generated/en-content-parity/v2/W1-mbti/results/9325013b/receipts/30782204005-1/live-qa.json"
+          ],
           "release_policy": {
             "cms_draft_import": "auto_after_dry_run_pass",
             "public_publish": "auto_after_import_readback_pass",

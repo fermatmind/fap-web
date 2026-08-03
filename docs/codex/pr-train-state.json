@@ -56202,6 +56202,40 @@
     ],
     "updated_at": "2026-08-03T03:28:32Z"
   },
+  "W1-MBTI-RESULT-CONTENT-V2-RECEIPT-MATERIALIZE-01": {
+    "id": "W1-MBTI-RESULT-CONTENT-V2-RECEIPT-MATERIALIZE-01",
+    "repo": "fap-web",
+    "title": "W1-MBTI-RESULT-CONTENT-V2-RECEIPT-MATERIALIZE-01: materialize exact result V2 receipt chain",
+    "base": "main",
+    "branch": "codex/w1-mbti-result-content-v2-receipt-materialize-01",
+    "depends_on": ["W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01"],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The active W1 MBTI end-to-end goal explicitly authorizes this exact T9 manifest/state entry."},
+      "dependency": {"status": "pass", "evidence": "T7 PR #1999 merged as 4fc958f144753c7000f2ed9e0696e708e4e47521 and fap-web origin/main contains that merge commit."},
+      "t8_receipt_provenance": {"status": "pass", "evidence": "fap-api workflow run 30782204005 attempt 1 completed successfully with the exact result package SHA 9325013b870fd2496efc0882656240f91ce28ff4faaf1da42fb3dde3577b0ed3 and 46-row binding."}
+      ,"local_validation": {"status": "pass", "evidence": "The deterministic V2 builder rechecked master SHA ad12bf2bae94f1b2b85472eec6eef0e85dcf14d7aeba14f443d1c33328ca1562. The validator re-downloaded trusted artifacts for both W1 receipt chains and verified exact bytes, ordered predecessors, package/count/policy bindings, and GitHub workflow provenance. Focused contracts passed 27/27; ESLint, JSON/YAML, non-symlink, and diff checks passed."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-08-03T03:38:47Z", "status": "in_progress", "summary": "Started from clean fap-web main after verified T8 success. Scope is limited to byte-identical immutable result promotion receipts, V2 input registration, and deterministic master materialization; no deployment, CMS, or discoverability action is included."}
+      ,{"at": "2026-08-03T03:40:35Z", "status": "local_verified", "summary": "Registered only the exact result receipt chain and generated the V2 master. The validator proved T8 GitHub run 30782204005 attempt 1, artifact bytes, receipt order, source/workflow reachability, package SHA, release-policy SHA, and 46-record count. W1 comparison remains live_qa_pass with its original T6 receipts."}
+    ],
+    "updated_at": "2026-08-03T03:40:35Z"
+  },
   "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01": {
     "id": "EN-PARITY-W5-ENNEAGRAM-CONTROL-ENVELOPE-V2-01",
     "repo": "fap-web",
