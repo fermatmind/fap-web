@@ -1,0 +1,11 @@
+{
+  "schema": "fermatmind.v2_sha256_manifest.v1",
+  "lane": "W8",
+  "subscope": "career-job",
+  "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
+  "files": {
+    "control_0_identity_baseline.json": "2ad4315d51ead45e5a0547854697e49cfc0e6cf003f990462892ba1edc00eade",
+    "new_50_seed_manifest.json": "ecef2b8c2f85d6eab1047a866f84012309dd419b99deda91754191075dd922f0",
+    "package_manifest.json": "eae0174494cb362cefe2b3fcc11a3cf5416df6319e767a287445bab31b42eb68"
+  }
+}

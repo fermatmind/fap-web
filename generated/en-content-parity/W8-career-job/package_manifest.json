@@ -1,0 +1,27 @@
+{
+  "schema": "fermatmind.w8_career_job.producer_package_manifest.v1",
+  "lane": "W8",
+  "subscope": "career-job",
+  "pack_id": "career-job",
+  "pack_version": "control_0_plus_new_50",
+  "frozen_at": "2026-08-03",
+  "strategy": "control_0_plus_new_50",
+  "controls": {
+    "identity_baseline": {
+      "count": 1046,
+      "locale_pairs": 2092,
+      "sha256": "2ad4315d51ead45e5a0547854697e49cfc0e6cf003f990462892ba1edc00eade"
+    }
+  },
+  "new_rows": {
+    "count": 50,
+    "sha256": "ecef2b8c2f85d6eab1047a866f84012309dd419b99deda91754191075dd922f0"
+  },
+  "compiled_hash": "ec2d356766cf990a3e9219c6f349a7196ee33df6644f6a1818947664de661d61",
+  "source_authority": {
+    "repository": "fermatmind/fap-web"
+  },
+  "w9_status": "pending",
+  "runtime_activation": false,
+  "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456"
+}

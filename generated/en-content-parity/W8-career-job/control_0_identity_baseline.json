@@ -1,0 +1,11 @@
+{
+  "schema_version": "w8.control_0_identity_baseline.v1",
+  "lane_id": "W8",
+  "subscope": "career-job",
+  "frozen_at": "2026-08-03",
+  "source": "immutable 1046x2 career identity baseline",
+  "identity_count": 1046,
+  "locale_pairs": 2092,
+  "unique_slugs": 1046,
+  "unique_uuids": 1046
+}

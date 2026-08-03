@@ -925,7 +925,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "launch_ready",
+      "status": "package_frozen",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W8-career-job/",
       "target_asset_types": [
@@ -949,17 +949,20 @@
         "https://api.fermatmind.com/api/v0.5/career/jobs?locale=en&org_id=0",
         "https://api.fermatmind.com/api/v0.5/career/jobs?locale=zh-CN&org_id=0"
       ],
-      "package_sha256": null,
+      "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
       "qa_report_ref": null,
       "gate_lineage": [
         "api_public_allowlist",
         "locale_field_projection",
         "frontend_fail_closed_locale_rendering",
         "contract_locks_api",
-        "contract_locks_web"
+        "contract_locks_web",
+        "producer_package_frozen"
       ],
-      "blockers": [],
-      "next_action": "Execute W8-05-BATCH-001: produce control_0 + new_50 candidate package.",
+      "blockers": [
+        "w9_pending"
+      ],
+      "next_action": "W9 independent QA review required before promotion.",
       "legacy_lineage": [],
       "lane_manifest_ref": null,
       "promotion_receipts": [],
@@ -969,7 +972,8 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      }
+      },
+      "promotion_row_count": 50
     },
     {
       "lane_id": "W9",

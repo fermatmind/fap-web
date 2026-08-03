@@ -1,0 +1,17 @@
+{
+  "schema": "fermatmind.w8_career_job.source_ledger.v1",
+  "lane_id": "W8",
+  "subscope": "career-job",
+  "frozen_baseline": {
+    "occupation_count": 1046,
+    "locale_pairs": 2092
+  },
+  "seed_plan": {
+    "seed_count": 50,
+    "ordinals": "1-50"
+  },
+  "package_files": {
+    "control_0_identity_baseline.json": "2ad4315d51ead45e5a0547854697e49cfc0e6cf003f990462892ba1edc00eade",
+    "new_50_seed_manifest.json": "ecef2b8c2f85d6eab1047a866f84012309dd419b99deda91754191075dd922f0"
+  }
+}

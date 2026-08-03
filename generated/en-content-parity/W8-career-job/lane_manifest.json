@@ -1,5 +1,5 @@
 {
-  "status": "launch_ready",
+  "status": "package_frozen",
   "lane_id": "W8",
   "subscope": "career-job",
   "lane_kind": "producer",
@@ -24,9 +24,14 @@
       "from": "not_started",
       "to": "launch_ready",
       "reason": "pr_1_2_3_complete__api_allowlist_locale_projection_contract_locks"
+    },
+    {
+      "from": "launch_ready",
+      "to": "package_frozen",
+      "reason": "control_0_plus_new_50_package_frozen"
     }
   ],
-  "next_action": "Execute W8-05-BATCH-001: produce control_0 + new_50 candidate package.",
-  "package_sha256": null,
+  "next_action": "W9 independent QA review required before promotion.",
+  "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
   "qa_report_ref": null
 }
