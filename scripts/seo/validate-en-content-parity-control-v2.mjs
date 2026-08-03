@@ -272,17 +272,15 @@ function verifyPreflightWorkflowProvenance(entry) {
   const runId = String(receipt.workflow_run_id ?? "");
   const run = JSON.parse(
     execFileSync("gh", ["api", `repos/fermatmind/fap-api/actions/runs/${runId}`], {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
+      encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024,
     }),
   );
   const minimumExecutorCommit = readJson(V2_PATH).authority.backend_promotion_contract.minimum_executor_commit;
   const t1RepairCommit = "1f863f4b8f63d86149d5bc0fe7563c4936e86446";
   const sourceCommit = String(receipt.source_commit ?? "");
   const minimumComparison = JSON.parse(
-    execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}`], {
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
+    execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${minimumExecutorCommit}...${sourceCommit}?per_page=1`], {
+      encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024,
     }),
   );
   if (!["ahead", "identical"].includes(minimumComparison.status)) throw new Error("preflight_source_predates_minimum_executor_commit");
@@ -291,9 +289,8 @@ function verifyPreflightWorkflowProvenance(entry) {
     [t1RepairCommit, "preflight_workflow_head_predates_deployed_executor_provenance_repair"],
   ]) {
     const comparison = JSON.parse(
-      execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}`], {
-        encoding: "utf8",
-        stdio: ["ignore", "pipe", "pipe"],
+      execFileSync("gh", ["api", `repos/fermatmind/fap-api/compare/${requiredCommit}...${run.head_sha}?per_page=1`], {
+        encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], maxBuffer: 2 * 1024 * 1024,
       }),
     );
     if (!["ahead", "identical"].includes(comparison.status)) throw new Error(error);

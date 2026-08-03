@@ -110,6 +110,9 @@
           "anyOf": [{ "$ref": "#/$defs/content_status" }, { "type": "null" }]
         },
         "package_sha256": { "$ref": "#/$defs/sha256_or_null" },
+        "promotion_row_count": { "type": ["integer", "null"], "minimum": 1 },
+        "backend_package_sha256": { "$ref": "#/$defs/sha256_or_null" },
+        "promotion_subscope": { "type": ["string", "null"] },
         "qa_report_ref": { "type": ["string", "null"] },
         "gate_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
         "legacy_lineage": { "type": "array", "items": { "$ref": "#/$defs/lineage" } },
@@ -360,6 +363,7 @@
         "expected_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] }
         ,"promotion_row_count": { "anyOf": [{ "type": "integer", "minimum": 1 }, { "type": "null" }] }
         ,"backend_package_sha256": { "$ref": "#/$defs/sha256_or_null" }
+        ,"promotion_subscope": { "type": ["string", "null"] }
         ,"w9_review_binding_ref": { "type": ["string", "null"] }
         ,"w9_review_binding_sha256": { "$ref": "#/$defs/sha256_or_null" }
         ,"external_package_evidence_ref": { "type": ["string", "null"] }
@@ -384,6 +388,7 @@
             "properties": {
               "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
               "subscope": { "type": ["string", "null"] },
+              "receipt_subscope": { "type": ["string", "null"] },
               "path": { "type": "string", "minLength": 1 },
               "sha256": { "$ref": "#/$defs/sha256" }
             }
