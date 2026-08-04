@@ -4,7 +4,7 @@
   "artifact_kind": "generated_read_only_master",
   "control_id": "EN-PARITY-CONTROL-AUTOMATION-V2-01",
   "is_master": true,
-  "generated_at": "2026-07-30T11:31:43.611Z",
+  "generated_at": "2026-08-04T03:22:00Z",
   "authority": {
     "content_source_of_truth": "backend_cms_public_api",
     "frontend_role": "render_interact_and_adapt_only",
@@ -426,7 +426,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "qa_pass",
+      "status": "live_qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
@@ -490,7 +490,7 @@
           "asset_ids": [
             "ENPARITY-W3-CAREER-GUIDES"
           ],
-          "status": "qa_pass",
+          "status": "live_qa_pass",
           "blocked_from_status": null,
           "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",

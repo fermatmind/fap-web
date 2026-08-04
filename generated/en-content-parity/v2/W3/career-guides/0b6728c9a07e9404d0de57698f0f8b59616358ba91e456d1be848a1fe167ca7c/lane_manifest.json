@@ -1,0 +1,95 @@
+{
+  "$schema": "./en-content-parity-control-master.v2.schema.json",
+  "schema_version": "fermatmind.en_content_parity_lane_manifest.v2",
+  "artifact_kind": "lane_manifest",
+  "lane_id": "W3",
+  "subscope": "W3-CAREER-GUIDES",
+  "status": "dry_run_ready",
+  "blocked_from_status": null,
+  "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+  "backend_package_sha256": "b7a2919c45d44d2a108d8b4c735428fee300decc23dd057d98e8dc1f6a5df858",
+  "qa_report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/W3-career-guides-0b6728c9/independent_qa_report.json",
+  "gate_lineage": [
+    {
+      "status": "package_frozen",
+      "evidence_owner_lane_id": "W3",
+      "report_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json",
+      "report_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+      "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+      "accepted_at": "2026-08-02T12:00:00Z"
+    },
+    {
+      "status": "qa_pass",
+      "evidence_owner_lane_id": "W9",
+      "report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/W3-career-guides-0b6728c9/independent_qa_report.json",
+      "report_sha256": "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815",
+      "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+      "accepted_at": "2026-08-02T12:00:00Z"
+    },
+    {
+      "status": "dry_run_ready",
+      "evidence_owner_lane_id": "fap-api",
+      "report_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json",
+      "report_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+      "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+      "accepted_at": "2026-08-04T03:20:00Z"
+    }
+  ],
+  "legacy_lineage": [],
+  "blockers": [],
+  "transition_trace": [
+    {
+      "from_status": "not_started",
+      "to_status": "inventory_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json.json",
+      "evidence_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+      "recorded_at": "2026-08-02T12:00:00Z"
+    },
+    {
+      "from_status": "inventory_frozen",
+      "to_status": "package_frozen",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json.json",
+      "evidence_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+      "recorded_at": "2026-08-02T12:00:00Z"
+    },
+    {
+      "from_status": "package_frozen",
+      "to_status": "qa_pass",
+      "evidence_ref": "generated/en-content-parity/W9-independent-qa/career-guides/W3-career-guides-0b6728c9/independent_qa_report.json",
+      "evidence_sha256": "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815",
+      "recorded_at": "2026-08-02T12:00:00Z"
+    },
+    {
+      "from_status": "qa_pass",
+      "to_status": "dry_run_ready",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json.json",
+      "evidence_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+      "recorded_at": "2026-08-04T03:20:00Z"
+    },
+    {
+      "from_status": "dry_run_ready",
+      "to_status": "draft_imported",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/draft-import.json.json",
+      "evidence_sha256": "00f47f25c4a0af3a57383aca28b1e026b988fe1720a8e47678c5c64bc4264eda",
+      "recorded_at": "2026-08-04T03:22:00Z"
+    },
+    {
+      "from_status": "draft_imported",
+      "to_status": "published",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/publication.json.json",
+      "evidence_sha256": "07072771ff604140a0ba067c443dfb80f61e12a482f7fdddedb7bdcdf3685fc3",
+      "recorded_at": "2026-08-04T03:22:00Z"
+    },
+    {
+      "from_status": "published",
+      "to_status": "live_qa_pass",
+      "evidence_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/live-qa.json.json",
+      "evidence_sha256": "99b45b6e746c83d48f3d234813fe03b7df8785d5cf0cf5ce253986e98a4befdb",
+      "recorded_at": "2026-08-04T03:22:00Z"
+    }
+  ],
+  "reviewed_source_commit": "f9b835c03adfdf89139c1ea9eb3c4f0db5099bd1",
+  "expected_count": 20,
+  "promotion_row_count": 20,
+  "promotion_subscope": "W3-CAREER-GUIDES"
+}
