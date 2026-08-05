@@ -90,7 +90,7 @@ describe("W5 Enneagram private-result V2 control envelope", () => {
     const w5 = inputs.lane_manifests.find((entry: { lane_id: string }) => entry.lane_id === "W5");
     expect(w5).toBeDefined();
     expect(buildV2().lanes.find((lane: { lane_id: string }) => lane.lane_id === "W5")).toMatchObject({
-      status: "qa_pass",
+      status: "live_qa_pass",
       package_sha256: "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
     });
     expect(validateV2Control()).toMatchObject({ ok: true, lane_count: 9, receipt_count: 0 });
