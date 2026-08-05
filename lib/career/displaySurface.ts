@@ -41,12 +41,14 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "riasec_fit_block",
   "personality_fit_block",
   "definition_block",
+  "career_ai_description_block",
   "responsibilities_block",
   "work_context_block",
   "market_signal_card",
   "adjacent_career_comparison_table",
   "ai_impact_table",
   "career_risk_cards",
+  "career_path_block",
   "contract_project_risk_block",
   "next_steps_block",
   "faq_block",
@@ -248,6 +250,10 @@ const COMPONENT_KEYED_SECTION_DEFINITIONS: Partial<Record<CareerDisplayComponent
     component: "DefinitionBlock",
     fallbackHeading: { zh: "职业定义", en: "What Does This Career Do?" },
   },
+  career_ai_description_block: {
+    component: "CareerAiDescriptionBlock",
+    fallbackHeading: { zh: "AI 职业解读", en: "AI Career Analysis" },
+  },
   responsibilities_block: {
     component: "ResponsibilitiesBlock",
     fallbackHeading: { zh: "核心职责", en: "Core Responsibilities" },
@@ -271,6 +277,10 @@ const COMPONENT_KEYED_SECTION_DEFINITIONS: Partial<Record<CareerDisplayComponent
   career_risk_cards: {
     component: "CareerRiskCards",
     fallbackHeading: { zh: "职业风险", en: "Career Risks" },
+  },
+  career_path_block: {
+    component: "CareerPathBlock",
+    fallbackHeading: { zh: "职业发展路径", en: "Career Path" },
   },
   contract_project_risk_block: {
     component: "ContractRiskBlock",

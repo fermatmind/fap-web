@@ -632,12 +632,14 @@ export function CareerDisplaySurface({
   const riasecFit = findSection(visibleSections, "RIASECFitBlock");
   const personalityFit = findSection(visibleSections, "PersonalityFitBlock");
   const definition = findSection(visibleSections, "DefinitionBlock");
+  const aiDescription = findSection(visibleSections, "CareerAiDescriptionBlock");
   const responsibilities = findSection(visibleSections, "ResponsibilitiesBlock");
   const workContext = findSection(visibleSections, "WorkContextBlock");
   const marketSignal = findSection(visibleSections, "MarketSignalCard");
   const comparison = findSection(visibleSections, "AdjacentCareerComparisonTable");
   const aiImpact = findSection(visibleSections, "AIImpactTable");
   const careerRisks = findSection(visibleSections, "CareerRiskCards");
+  const careerPath = findSection(visibleSections, "CareerPathBlock");
   const contractRisks = findSection(visibleSections, "ContractRiskBlock");
   const nextSteps = findSection(visibleSections, "NextStepsBlock");
   const faq = findSection(visibleSections, "CareerFAQBlock");
@@ -695,6 +697,7 @@ export function CareerDisplaySurface({
       </SectionGroup>
       <SectionGroup title={profileGroupTitle} description={profileGroupDescription}>
         {definition ? <EvidenceContainer section={definition} testId="definition-block" /> : null}
+        {aiDescription ? <EvidenceContainer section={aiDescription} testId="career-ai-description-block" /> : null}
         {responsibilities ? <EvidenceContainer section={responsibilities} testId="responsibilities-block" /> : null}
         {workContext ? <EvidenceContainer section={workContext} testId="work-context-block" /> : null}
         {snapshots.map((section, index) => (
@@ -713,6 +716,7 @@ export function CareerDisplaySurface({
       {salarySlot}
       <SectionGroup title={riskGroupTitle}>
         {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
+        {careerPath ? <EvidenceContainer section={careerPath} testId="career-path-block" /> : null}
         {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
         {aiImpactSlot ? (
           aiImpactSlot
