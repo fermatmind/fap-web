@@ -48,6 +48,8 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe("actors");
     expect(surface?.locale).toBe("en");
     expect(surface?.componentOrder).toContain("market_signal_card");
+    expect(surface?.componentOrder).toContain("career_ai_description_block");
+    expect(surface?.componentOrder).toContain("career_path_block");
     expect(surface?.faqItems).toHaveLength(2);
     expect(surface?.claimPermissions.integrityState).toBe("full");
     expect(surface?.claimPermissions.allowAiStrategy).toBe(true);
@@ -62,11 +64,13 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("riasec-fit-block")).toHaveTextContent("RIASEC Fit");
     expect(screen.getByTestId("personality-fit-block")).toHaveTextContent("Personality Fit");
     expect(screen.getByTestId("definition-block")).toHaveTextContent("What Do Actors Do?");
+    expect(screen.getByTestId("career-ai-description-block")).toHaveTextContent("AI Career Analysis");
     expect(screen.getByTestId("responsibilities-block")).toHaveTextContent("Core Responsibilities");
     expect(screen.getByTestId("work-context-block")).toHaveTextContent("Where Do Actors Work?");
     expect(screen.getByTestId("comparison-block")).toHaveTextContent("Actors Compared With Adjacent Roles");
     expect(screen.getByTestId("ai-impact-block")).toHaveTextContent("Will AI Replace Actors?");
     expect(screen.getByTestId("career-risks-block")).toHaveTextContent("What Are the Biggest Risks of Acting?");
+    expect(screen.getByTestId("career-path-block")).toHaveTextContent("Career Path");
     expect(screen.getByTestId("contract-risks-block")).toHaveTextContent("Contract and Project Risks");
     expect(screen.getByTestId("career-decision-action-block")).toHaveTextContent("Next: verify fit with FermatMind tests");
     expect(screen.queryByTestId("next-steps-block")).not.toBeInTheDocument();
@@ -90,7 +94,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe(slug);
     expect(surface?.subject.path).toBe(`/en/career/jobs/${slug}`);
     expect(surface?.subject.title).toBe(titleEn);
-    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.componentOrder).toHaveLength(26);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.sources).toHaveLength(2);
     expect(surface?.reviewValidity?.lastReviewed).toBe("2026-05-03");
@@ -140,7 +144,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.componentOrder).toHaveLength(26);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.claimPermissions.evidenceBasis.crosswalk).toBe("direct");
 
@@ -339,7 +343,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.componentOrder).toHaveLength(26);
     expect(surface?.claimPermissions.integrityState).toBe("full");
 
     render(<CareerDisplaySurface surface={surface} />);

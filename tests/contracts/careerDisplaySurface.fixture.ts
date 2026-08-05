@@ -126,6 +126,17 @@ export function buildActorsDisplaySurfaceFixture() {
             source_key: "onet_actors",
           },
           {
+            id: "ai_description",
+            component: "CareerAiDescriptionBlock",
+            heading: "AI 职业解读",
+            intro: "基于职业数据和大五人格框架的 AI 解读，帮助理解职业匹配的深层逻辑。",
+            body: [
+              "职业定义基于 BLS O*NET 标准分类，任务描述来自职业信息网络数据库。",
+              "AI 影响评估基于公开研究的任务暴露分析，非预测性结论。",
+            ],
+            source_key: "onet_definition",
+          },
+          {
             id: "responsibilities",
             component: "ResponsibilitiesBlock",
             heading: "演员的日常工作包括什么？",
@@ -176,6 +187,20 @@ export function buildActorsDisplaySurfaceFixture() {
             intro: "演员职业具有高不确定性。",
             career_risks: ["收入不稳定", "项目空档期"],
             caveat: "这不是收入预测。",
+          },
+          {
+            id: "career_path",
+            component: "CareerPathBlock",
+            heading: "职业发展路径",
+            intro: "入门、中级、高级、专家四级的职级定义、薪资范围和核心技能。",
+            rows: [
+              ["入门级 (Entry)", "0-2年经验", "基础技能训练", "协助执行"],
+              ["中级 (Mid)", "3-5年经验", "独立执行", "项目负责"],
+              ["高级 (Senior)", "6-10年经验", "团队带领", "策略制定"],
+              ["专家级 (Expert)", "10+年经验", "行业影响力", "标准制定"],
+            ],
+            caveat: "职级数据为行业参考，不是薪资预测或晋升保证。",
+            source_key: "career_path_baseline",
           },
           {
             id: "contract_risks",
@@ -277,6 +302,17 @@ export function buildActorsDisplaySurfaceFixture() {
             source_key: "onet_actors",
           },
           {
+            id: "ai_description",
+            component: "CareerAiDescriptionBlock",
+            heading: "AI Career Analysis",
+            intro: "AI-powered career interpretation based on occupational data and the Big Five personality framework.",
+            body: [
+              "The career definition follows BLS O*NET Standard Occupational Classification.",
+              "AI impact assessment is based on task exposure analysis from public research, not predictive claims.",
+            ],
+            source_key: "onet_definition",
+          },
+          {
             id: "responsibilities",
             component: "ResponsibilitiesBlock",
             heading: "Core Responsibilities",
@@ -325,6 +361,20 @@ export function buildActorsDisplaySurfaceFixture() {
             intro: "Acting is financially volatile.",
             career_risks: ["short assignments", "income instability"],
             caveat: "This page is not an income forecast.",
+          },
+          {
+            id: "career_path",
+            component: "CareerPathBlock",
+            heading: "Career Path",
+            intro: "Four career levels with role definitions, salary ranges, and core skills.",
+            rows: [
+              ["Entry", "0-2 years", "Foundation training", "Assisted execution"],
+              ["Mid", "3-5 years", "Independent execution", "Project ownership"],
+              ["Senior", "6-10 years", "Team leadership", "Strategy development"],
+              ["Expert", "10+ years", "Industry influence", "Standard setting"],
+            ],
+            caveat: "Career path data is an industry reference, not a salary prediction or promotion guarantee.",
+            source_key: "career_path_baseline",
           },
           {
             id: "contract_risks",
