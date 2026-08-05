@@ -34,8 +34,8 @@ export async function generateMetadata({
       locale,
       pathname: isZh ? "/zh" : pathname,
       canonicalPathname: pathname,
-      title: "FermatMind",
-      description: "FermatMind",
+      title: "FermatMind — Free Personality Tests and Career Assessments",
+      description: "Discover your personality type with free, scientifically-backed tests. MBTI, Big Five, Enneagram, IQ, and career assessments.",
       imagePath: DEFAULT_SHARE_IMAGE_URL,
       noindex: true,
       alternatesByLocale: {

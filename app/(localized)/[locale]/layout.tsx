@@ -46,10 +46,11 @@ const fmMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FermatMind",
+    default: "FermatMind — Free Personality Tests and Career Assessments",
     template: "%s | FermatMind",
   },
-  description: "FermatMind assessments and personality tests.",
+  description:
+    "Scientifically-backed personality tests, career assessments, and IQ tests. Discover your MBTI type, Big Five traits, Enneagram type, and get personalized career recommendations.",
   robots: isConfiguredStagingSiteUrl()
     ? {
         index: false,

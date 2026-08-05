@@ -42,10 +42,11 @@ const fmMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "FermatMind · 费马测试",
+    default: "费马测试 — 免费人格测评、职业测试与智商检测 | FermatMind",
     template: "%s | FermatMind",
   },
-  description: "费马测试提供人格、能力与职业方向测评。",
+  description:
+    "科学的人格测评平台。MBTI十六型人格测试、大五人格、九型人格、智商测试、职业兴趣测评。获取详细分析报告和个性化职业推荐。免费在线测试。",
   robots: isConfiguredStagingSiteUrl()
     ? {
         index: false,
