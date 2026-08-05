@@ -27,8 +27,8 @@ export async function generateMetadata(): Promise<Metadata> {
     return buildPageMetadata({
       locale: ROOT_LOCALE,
       pathname: ROOT_PATH,
-      title: "FermatMind",
-      description: "FermatMind",
+      title: "费马测试 — 免费人格测评、职业测试与智商检测",
+      description: "科学的人格测评平台。MBTI十六型人格测试、大五人格、九型人格、智商测试、职业兴趣测评。",
       imagePath: DEFAULT_SHARE_IMAGE_URL,
       noindex: true,
       alternatesByLocale: {
