@@ -12,6 +12,7 @@ import type {
 type AdaptCareerJobIndexInput = {
   locale: "en" | "zh";
   payload: CareerJobIndexResponseRaw | null;
+  includeNonIndexable?: boolean;
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {

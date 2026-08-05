@@ -601,8 +601,8 @@ export type CareerJobIndexCardAdapter = {
   titles: {
     title: string;
     canonicalEn: string | null;
-    canonicalZh: string | null;
-    searchH1Zh: string | null;
+    canonicalZh?: string | null;
+    searchH1Zh?: string | null;
   };
   truthSummary: {
     truthMarket: string | null;
