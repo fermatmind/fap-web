@@ -289,6 +289,8 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
             aria-hidden="true"
             className="relative mx-auto h-[31rem] w-auto max-w-full object-contain drop-shadow-[0_25px_55px_rgba(133,113,218,0.20)]"
             loading="eager"
+            fetchpriority="high"
+            decoding="async"
           />
         </div>
       </Container>
