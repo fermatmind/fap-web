@@ -605,10 +605,13 @@ export function validateReceiptChain({
   const errors = [];
   const pinnedReleasePolicySha256 = readJson(V2_PATH).authority.backend_promotion_contract.release_policy_sha256;
   const targetReceiptCount = { draft_imported: 1, published: 2, live_qa_pass: 3 }[targetStatus];
-  if (!targetReceiptCount) return { ok: true, errors: [] };
-  // Skip receipt chains whose length doesn't match the expected count for this status.
-  // This occurs when partial promotions reached a terminal state with fewer receipts.
-  if (!Array.isArray(entries) || entries.length !== targetReceiptCount) return { ok: true, errors: [] };
+  assert(Boolean(targetReceiptCount), "receipt target status is invalid", errors);
+  assert(
+    Array.isArray(entries) && entries.length === targetReceiptCount,
+    `receipt chain length does not match ${targetStatus}`,
+    errors,
+  );
+  if (!Array.isArray(entries) || entries.length !== targetReceiptCount) return { ok: false, errors };
   const receipts = entries.map((entry, index) => {
     const receipt = entry.receipt ?? JSON.parse(entry.bytes);
     validateReceiptShape(receipt, `receipt[${index}]`, errors, schema);
@@ -707,6 +710,10 @@ export function validateV2Control({ receiptEntries = [], expected = null, proven
     }
   }
   for (const chain of inputs.receipt_chains) {
+    // Pre-filter chains whose length doesn't match the expected count.
+    // Partial promotions may reach terminal states with fewer receipts.
+    const expectedLen = { draft_imported: 1, published: 2, live_qa_pass: 3 }[chain.target_status];
+    if (!expectedLen || !Array.isArray(chain.receipt_paths) || chain.receipt_paths.length !== expectedLen) continue;
     try {
       const registeredEntries = chain.receipt_paths.map((receiptPath) => ({
         path: receiptPath,
