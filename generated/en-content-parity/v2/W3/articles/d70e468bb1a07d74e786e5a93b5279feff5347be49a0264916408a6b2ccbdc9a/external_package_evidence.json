@@ -1,0 +1,70 @@
+{
+  "schema_version": "fermatmind.en_content_parity_external_package_evidence.v2",
+  "artifact_kind": "external_backend_package_binding",
+  "source_repository": "fermatmind/fap-api",
+  "source_commit": "924523c24bc5a0e999c8d4e29ffdb5b5f34ffc41",
+  "backend_package_path": "backend/content_assets/en-content-parity/W3/articles/d70e468b",
+  "backend_manifest_path": "backend/content_assets/en-content-parity/W3/articles/d70e468b/promotion_manifest.json",
+  "backend_manifest_sha256": "61640142b0172f24c082ae754f087b858fd8510fffa00f9b6c2495753c98973e",
+  "backend_package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+  "logical_asset_count": 17,
+  "promotion_row_count": 10,
+  "payloads": [
+    {
+      "path": "payloads/assets.jsonl",
+      "sha256": "e849ef9cdc2adae30cd466f5815434a34530a35ff3e3dd910d7ef80443f1c05b",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/claim_boundary_report.json",
+      "sha256": "6425e2d10f558bdb2ca55340b2cbf6fc82c982cf12ec09cfbfd48f2e759ef7d4",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/dry_run_readiness.json",
+      "sha256": "fbc5937cf5339f896e6f8072068235aa3c0e5d6c38fa3d512fd53d92baf03f0b",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/editorial_review.json",
+      "sha256": "753caafa4c979a335aac2cd3b1ebc11ca70f2aa9246c2696ea1a947ff1554c6e",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/handoff.md",
+      "sha256": "838d825dfb60766ce785d3e9d3ade8dd9b8c2a638b9e3bcdc0feab4bbb88f73a",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/master_manifest_patch.candidate.json",
+      "sha256": "a261d9d5eb20518be41b222f8cbc7e1a9943195e15db46e060699630a595da7d",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/scope_manifest.json",
+      "sha256": "dfdbe5ed183af2f197c0947cd9f8103a767daf11c86543f3993b89e6233bdc74",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/sha256_manifest.json",
+      "sha256": "21f87efd05260fff1f228d5dd4b2b6dffe1e66cebb303873a2efbcbe218ce29e",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/source_ledger.json",
+      "sha256": "bf3715005ca1e6d4b9062e51bf96528a0440acb49d455b88198a2ae028b9ee95",
+      "row_count": 1
+    },
+    {
+      "path": "payloads/translation_map.json",
+      "sha256": "53f5f1c94fc9256a686523e533861538774c4a4d1d40c160b63fff9fad7a1da1",
+      "row_count": 1
+    }
+  ],
+  "permissions": {
+    "read_private_payload": false,
+    "write_cms": false,
+    "deploy": false,
+    "seo_mutation": false
+  }
+}
