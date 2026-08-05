@@ -760,6 +760,39 @@ async function buildCareerJobDetailPathsFromAuthority() {
   }
 }
 
+async function buildCareerIndustryAndFamilyPathsFromDataset() {
+  try {
+    const industryPaths = new Set();
+    const familyPaths = new Set();
+    for (const { localePrefix, apiLocale } of CMS_LOCALES) {
+      const params = new URLSearchParams({ locale: apiLocale });
+      const dataset = await fetchJsonWithTimeout(
+        `${buildApiUrl("/v0.5/career/datasets/occupations")}?${params.toString()}`
+      );
+      // Industry slugs from facet_distributions
+      const industries = dataset?.facet_distributions?.industries
+        ?? dataset?.facet_distributions?.industry
+        ?? {};
+      for (const slug of Object.keys(industries)) {
+        if (slug && typeof slug === "string") {
+          industryPaths.add(`/${localePrefix}/career/industries/${slug}`);
+        }
+      }
+      // Family slugs from dataset members
+      const members = Array.isArray(dataset?.members) ? dataset.members : [];
+      for (const member of members) {
+        const slug = member?.family_slug;
+        if (slug && typeof slug === "string") {
+          familyPaths.add(`/${localePrefix}/career/family/${slug}`);
+        }
+      }
+    }
+    return { industries: [...industryPaths], families: [...familyPaths] };
+  } catch {
+    return { industries: [], families: [] };
+  }
+}
+
 async function buildCareerRecommendationDetailPathsFromAuthority() {
   try {
     const paths = new Set();
@@ -933,6 +966,7 @@ async function buildAdditionalSitemapEntries() {
     methodPaths,
     dataPaths,
     careerJobApiPaths,
+    careerIndustryAndFamilyPaths,
     careerRecommendationApiPaths,
     personalityPaths,
     personalityComparisonPaths,
@@ -945,6 +979,7 @@ async function buildAdditionalSitemapEntries() {
     buildValidatedCmsPaths("/v0.5/methods", buildMethodDetailPaths),
     buildValidatedCmsPaths("/v0.5/data", buildDataDetailPaths),
     buildCareerJobDetailPathsFromAuthority(),
+    buildCareerIndustryAndFamilyPathsFromDataset(),
     buildCareerRecommendationDetailPathsFromAuthority(),
     buildPersonalityDetailPathsFromAuthority(),
     buildPersonalityComparisonPathsFromAuthority(),
@@ -961,6 +996,8 @@ async function buildAdditionalSitemapEntries() {
     ...methodPaths,
     ...dataPaths,
     ...careerJobApiPaths,
+    ...careerIndustryAndFamilyPaths.industries,
+    ...careerIndustryAndFamilyPaths.families,
     ...careerRecommendationApiPaths,
     ...personalityPaths,
     ...personalityComparisonPaths,

@@ -37,6 +37,7 @@ import {
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
 } from "@/lib/career/displaySurface";
+import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
 import { fetchCareerAiImpactAssetPreview } from "@/lib/career/api/fetchCareerAiImpactAssetPreview";
 import { fetchCareerJobExplainability } from "@/lib/career/api/fetchCareerJobExplainability";
@@ -814,6 +815,85 @@ export async function generateMetadata({
   });
 }
 
+/** Build 3-5 FAQ items from legacy job data for JSON-LD rich results. */
+function buildLegacyCareerFaqItems(job: CareerJobBundleAdapter, locale: Locale) {
+  const items: Array<{ question: string; answer: string }> = [];
+  const zh = locale === "zh";
+  const tl = job.truthLayer;
+
+  if (tl.medianPayUsdAnnual != null) {
+    items.push({
+      question: zh ? "这个职业的平均薪资是多少？" : "What is the average salary for this career?",
+      answer: zh
+        ? `中位年薪约 $${tl.medianPayUsdAnnual.toLocaleString()} 美元。`
+        : `Median annual pay is approximately $${tl.medianPayUsdAnnual.toLocaleString()}.`,
+    });
+  }
+  if (tl.outlookDescription) {
+    items.push({
+      question: zh ? "这个职业的未来前景如何？" : "What is the job outlook for this career?",
+      answer: tl.outlookDescription,
+    });
+  }
+  if (tl.entryEducation) {
+    items.push({
+      question: zh ? "入行需要什么学历？" : "What education is required to enter this career?",
+      answer: tl.entryEducation,
+    });
+  }
+  if (tl.aiExposure != null) {
+    const level = tl.aiExposure >= 70 ? (zh ? "较高" : "High") : tl.aiExposure >= 40 ? (zh ? "中等" : "Moderate") : (zh ? "较低" : "Low");
+    items.push({
+      question: zh ? "这个职业会被 AI 取代吗？" : "Will AI replace this career?",
+      answer: zh
+        ? `AI 对该职业的潜在影响为${level}（AI 暴露指数 ${tl.aiExposure}/100）。`
+        : `AI exposure for this career is ${level} (score ${tl.aiExposure}/100).`,
+    });
+  }
+  if (tl.workExperience) {
+    items.push({
+      question: zh ? "需要多少工作经验？" : "How much work experience is needed?",
+      answer: tl.workExperience,
+    });
+  }
+  return items.slice(0, 5);
+}
+
+/** Internal link matrix for career job pages — adjacent careers from aliasIndex. */
+function CareerJobRelatedLinks({ job, locale }: { job: CareerJobBundleAdapter; locale: Locale }) {
+  const zh = locale === "zh";
+  const links: Array<{ href: string; label: string }> = [];
+
+  // Adjacent careers from aliasIndex
+  const adjacentJobs = (job.aliasIndex ?? []).slice(0, 3);
+  for (const alias of adjacentJobs) {
+    if (alias.normalized !== job.slug) {
+      links.push({
+        href: buildCareerJobFrontendUrl(locale, alias.normalized),
+        label: zh ? `类似职业：${alias.alias}` : `Similar career: ${alias.alias}`,
+      });
+    }
+  }
+
+  if (links.length === 0) return null;
+  return (
+    <section className="mt-10 border-t border-slate-200 pt-6" data-testid="career-job-related-links">
+      <h2 className="mb-3 text-lg font-semibold text-slate-800">
+        {zh ? "相关推荐" : "Related"}
+      </h2>
+      <ul className="space-y-2">
+        {links.map((link) => (
+          <li key={link.href}>
+            <a href={link.href} className="text-sm text-blue-600 hover:underline">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
 export default async function CareerJobDetailPage({
   params,
   searchParams,
@@ -886,6 +966,7 @@ export default async function CareerJobDetailPage({
             }
             salarySlot={<CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />}
           />
+          {shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
         </Container>
       </main>
     );
@@ -936,6 +1017,13 @@ export default async function CareerJobDetailPage({
         />
         {shouldRenderOccupationJsonLd(job) ? <JsonLd id={`career-job-occupation-${job.slug}`} data={job.structuredData.occupation} /> : null}
         {job.structuredData.breadcrumbList ? <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={job.structuredData.breadcrumbList} /> : null}
+        {/* Legacy FAQPage JSON-LD: gated by the same claim permissions as Occupation schema */}
+        {!displaySurface && shouldRenderOccupationJsonLd(job) ? (() => {
+          const legacyFaqItems = buildLegacyCareerFaqItems(job, locale);
+          return legacyFaqItems.length > 0
+            ? <JsonLd id={`career-job-legacy-faq-${job.slug}`} data={buildFAQPageJsonLd(legacyFaqItems)} />
+            : null;
+        })() : null}
         <Breadcrumb
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -1198,6 +1286,7 @@ export default async function CareerJobDetailPage({
         ) : null}
           </>
         )}
+        {shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
       </Container>
     </main>
   );
