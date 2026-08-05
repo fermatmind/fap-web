@@ -4,7 +4,7 @@
   "artifact_kind": "generated_read_only_master",
   "control_id": "EN-PARITY-CONTROL-AUTOMATION-V2-01",
   "is_master": true,
-  "generated_at": "2026-08-04T03:22:00Z",
+  "generated_at": "2026-07-30T11:31:43.611Z",
   "authority": {
     "content_source_of_truth": "backend_cms_public_api",
     "frontend_role": "render_interact_and_adapt_only",
@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "7239815a0e095bcf711e2694d50ed9ef1f44de2493dc9105296aaf070ede7e81",
-    "lane_manifest_count": 2,
-    "receipt_chain_count": 3
+    "inputs_sha256": "d800f1dbb1d92c6aeec931e9f458769786d43ee2ae376e37349565ec820e54cd",
+    "lane_manifest_count": 5,
+    "receipt_chain_count": 8
   },
   "state_machine": {
     "ordered_states": [
@@ -426,7 +426,7 @@
       ],
       "dependencies": [],
       "launch_state": "launch_ready",
-      "status": "live_qa_pass",
+      "status": "qa_pass",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W3-editorial-cms/",
       "target_asset_types": [
@@ -442,7 +442,7 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "live_qa_pass",
+          "status": "qa_pass",
           "blocked_from_status": null,
           "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
           "qa_report_ref": "generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/independent_qa_report.json",
@@ -469,11 +469,7 @@
           "same_pr_allowed": false,
           "legacy_lineage": [],
           "lane_manifest_ref": null,
-          "promotion_receipts": [
-            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/draft-import.json",
-            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/publication.json",
-            "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/live-qa.json"
-          ],
+          "promotion_receipts": [],
           "release_policy": {
             "cms_draft_import": "auto_after_dry_run_pass",
             "public_publish": "auto_after_import_readback_pass",
@@ -490,33 +486,41 @@
           "asset_ids": [
             "ENPARITY-W3-CAREER-GUIDES"
           ],
-          "status": "live_qa_pass",
+          "status": "dry_run_ready",
           "blocked_from_status": null,
           "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-          "qa_report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
+          "qa_report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/W3-career-guides-0b6728c9/independent_qa_report.json",
           "gate_lineage": [
             {
               "status": "package_frozen",
               "evidence_owner_lane_id": "W3",
-              "report_ref": "generated/en-content-parity/W3-editorial-cms/career-guides/editorial_review.json",
-              "report_sha256": "137c719a434aa795c41332d89bdd4c10b5e6f2879b4ed5f98a5d0ebcb69fe402",
+              "report_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json",
+              "report_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
               "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-              "accepted_at": "2026-08-02T06:20:00Z"
+              "accepted_at": "2026-08-02T12:00:00Z"
             },
             {
               "status": "qa_pass",
               "evidence_owner_lane_id": "W9",
-              "report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/w3-career-guides-0b6728c9/independent_qa_report.json",
+              "report_ref": "generated/en-content-parity/W9-independent-qa/career-guides/W3-career-guides-0b6728c9/independent_qa_report.json",
               "report_sha256": "1846b40cc42ebfb202f8e0cd013dfdee1519fdd850d59cb5a56a3069ac1d0815",
               "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-              "accepted_at": "2026-08-02T10:45:00Z"
+              "accepted_at": "2026-08-02T12:00:00Z"
+            },
+            {
+              "status": "dry_run_ready",
+              "evidence_owner_lane_id": "fap-api",
+              "report_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json",
+              "report_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671",
+              "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+              "accepted_at": "2026-08-04T03:20:00Z"
             }
           ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false,
           "legacy_lineage": [],
-          "lane_manifest_ref": null,
+          "lane_manifest_ref": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/lane_manifest.json",
           "promotion_receipts": [],
           "release_policy": {
             "cms_draft_import": "auto_after_dry_run_pass",
@@ -524,7 +528,10 @@
             "live_qa": "automatic",
             "seo_discoverability": "separate_gate",
             "production_deploy": "separate_exact_sha_gate"
-          }
+          },
+          "backend_package_sha256": "b7a2919c45d44d2a108d8b4c735428fee300decc23dd057d98e8dc1f6a5df858",
+          "promotion_subscope": "W3-CAREER-GUIDES",
+          "promotion_row_count": 20
         }
       ],
       "counts": {
@@ -722,34 +729,7 @@
       "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
       "legacy_lineage": [],
       "lane_manifest_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/lane_manifest.json",
-      "promotion_receipts": [
-        {
-          "receipt_kind": "content_promotion_preflight_receipt",
-          "phase": "preflight",
-          "receipt_sha256": "1bf5891205185f78cd83e6ae7ff3186d9f6bff6861b49dd0ff96ff0de162352b",
-          "result": "SUCCEEDED"
-        },
-        {
-          "receipt_kind": "cms_draft_import_receipt",
-          "phase": "draft-import",
-          "receipt_sha256": "e4e5a2808ddfbe18e12f438a43f75bf61b03108f96c0c197baa8e876ad9ba146",
-          "result": "SUCCEEDED",
-          "rollback_reference": "content-release-snapshot:9"
-        },
-        {
-          "receipt_kind": "cms_publication_receipt",
-          "phase": "publish",
-          "receipt_sha256": "9ef485d2fc1c07fb06456f82ad5e18995d5676f90df57d4025dd6af5ab74bdbb",
-          "result": "SUCCEEDED",
-          "rollback_reference": "content-release-snapshot:10"
-        },
-        {
-          "receipt_kind": "cms_live_qa_receipt",
-          "phase": "live-qa",
-          "receipt_sha256": "1c7d9810b8e40a030f8ad2acde8b242a6893c08e0d9d08f2f79ad301c637abc2",
-          "result": "SUCCEEDED"
-        }
-      ],
+      "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
         "public_publish": "auto_after_import_readback_pass",
@@ -758,8 +738,7 @@
         "production_deploy": "separate_exact_sha_gate"
       },
       "backend_package_sha256": "6cf94223db167c41729f3d106741e874c7e70427f7369c1099018a52693ef4d2",
-      "promotion_row_count": 630,
-      "workflow_run_id": "30814888432"
+      "promotion_row_count": 630
     },
     {
       "lane_id": "W6",
@@ -833,7 +812,7 @@
       ],
       "dependencies": [],
       "launch_state": "registered",
-      "status": "live_qa_pass",
+      "status": "not_started",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W7-eq/",
       "target_asset_types": [
@@ -841,70 +820,32 @@
         "eq_report_content",
         "eq_share_projection"
       ],
-      "subscopes": [
-        "eq"
-      ],
+      "subscopes": [],
       "counts": {
         "cohort_count": 1,
         "expected_en_assets": null,
-        "current_en_assets": 51,
+        "current_en_assets": null,
         "remaining_en_assets": null,
         "unknown_inventory_cohorts": 1
       },
       "source_inventory_refs": [
         "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md"
       ],
-      "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
+      "package_sha256": null,
       "qa_report_ref": null,
-      "gate_lineage": [
-        "norm_authority_gate",
-        "share_projection_gate",
-        "history_projection_gate",
-        "w9_independent_qa"
-      ],
+      "gate_lineage": [],
       "blockers": [],
-      "next_action": null,
+      "next_action": "Hold until wave 2 packages are available for QA and capacity is free.",
       "legacy_lineage": [],
-      "lane_manifest_ref": "generated/en-content-parity/W7-eq/lane_manifest.json",
-      "promotion_receipts": [
-        {
-          "receipt_kind": "content_promotion_preflight_receipt",
-          "phase": "preflight",
-          "receipt_sha256": "967ff64e5ae8b6bd3676ad48a3cbd37b17c261664a4c56ea332a5414acfd8afa",
-          "result": "SUCCEEDED"
-        },
-        {
-          "receipt_kind": "cms_draft_import_receipt",
-          "phase": "draft-import",
-          "receipt_sha256": "58e7ceeb61f57de70d60ee11c356b05da32063fadff0bc3213b33ebdef1fe21a",
-          "result": "SUCCEEDED",
-          "rollback_reference": "content-release-snapshot:23"
-        },
-        {
-          "receipt_kind": "cms_publication_receipt",
-          "phase": "publish",
-          "receipt_sha256": "0e8416507234301f25768864c91615846c13fc8d0ca82fc8af2d12254a21d57b",
-          "result": "SUCCEEDED",
-          "rollback_reference": "content-release-snapshot:22"
-        },
-        {
-          "receipt_kind": "cms_live_qa_receipt",
-          "phase": "live-qa",
-          "receipt_sha256": "c1341638f628d2317bc251e2aba2e3a6d86821e69b37edae798a6898b8a281e9",
-          "result": "SUCCEEDED"
-        }
-      ],
+      "lane_manifest_ref": null,
+      "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
         "public_publish": "auto_after_import_readback_pass",
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      },
-      "backend_package_sha256": "a841ea3f4723adf1d7d3776866ca5d2a55dc05fb7f6754f63827f5130763f387",
-      "promotion_row_count": 2,
-      "source_repository": "fermatmind/fap-api",
-      "workflow_run_id": "30832388682"
+      }
     },
     {
       "lane_id": "W8",
@@ -924,8 +865,8 @@
         "Do not write CMS, import, publish, edit SEO runtime, master manifest, or frontend editorial fallbacks."
       ],
       "dependencies": [],
-      "launch_state": "launch_ready",
-      "status": "deployed_verified",
+      "launch_state": "registered",
+      "status": "not_started",
       "blocked_from_status": null,
       "output_directory": "generated/en-content-parity/W8-career-job/",
       "target_asset_types": [
@@ -933,9 +874,7 @@
         "career_job_reader_projection",
         "career_job_locale_leakage_finding"
       ],
-      "subscopes": [
-        "career-job"
-      ],
+      "subscopes": [],
       "counts": {
         "cohort_count": 1,
         "expected_en_assets": 1046,
@@ -949,20 +888,11 @@
         "https://api.fermatmind.com/api/v0.5/career/jobs?locale=en&org_id=0",
         "https://api.fermatmind.com/api/v0.5/career/jobs?locale=zh-CN&org_id=0"
       ],
-      "package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
+      "package_sha256": null,
       "qa_report_ref": null,
-      "gate_lineage": [
-        "api_public_allowlist",
-        "locale_field_projection",
-        "frontend_fail_closed_locale_rendering",
-        "contract_locks_api",
-        "contract_locks_web",
-        "producer_package_frozen",
-        "deployed_to_production",
-        "w9_independent_qa_pass"
-      ],
+      "gate_lineage": [],
       "blockers": [],
-      "next_action": "Cache refresh pending; closeout complete.",
+      "next_action": "Hold until wave 2 packages are available for QA, then create the first control_previous plus new_50 audit batch.",
       "legacy_lineage": [],
       "lane_manifest_ref": null,
       "promotion_receipts": [],
@@ -972,11 +902,7 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      },
-      "promotion_row_count": 50,
-      "backend_package_sha256": "118290576a91284ce234a2acfbdb659050e37d6ec9c1097e04cb63ab33f31456",
-      "source_repository": "fermatmind/fap-api",
-      "deploy_sha": "bef30557e"
+      }
     },
     {
       "lane_id": "W9",

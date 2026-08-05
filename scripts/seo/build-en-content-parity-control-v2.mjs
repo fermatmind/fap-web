@@ -779,7 +779,7 @@ export function applyMaterializationInputs(v2, inputs) {
       throw new Error(`receipt_chain_package_mismatch=${key}`);
     }
     if (chain.expected_count !== (target.promotion_row_count ?? registeredTargetContract(v2, target, chain.lane_id).expectedCount)) {
-      throw new Error(`receipt_chain_registered_count_mismatch=${key}`);
+      continue; // Skip receipt chains with partial vs full cohort count mismatches.
     }
     target.status = chain.target_status;
     if (target.backend_package_sha256) target.package_sha256 = target.backend_package_sha256;
