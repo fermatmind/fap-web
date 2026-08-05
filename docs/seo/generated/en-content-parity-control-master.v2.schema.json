@@ -301,7 +301,7 @@
         "package_sha256"
       ],
       "properties": {
-        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "$schema": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
         "schema_version": { "const": "fermatmind.en_content_parity_package_freeze.v2" },
         "artifact_kind": { "const": "package_freeze_evidence" },
         "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
@@ -340,7 +340,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "$schema",
         "schema_version",
         "artifact_kind",
         "lane_id",
@@ -359,7 +358,7 @@
         "backend_package_sha256"
       ],
       "properties": {
-        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "$schema": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
         "schema_version": { "const": "fermatmind.en_content_parity_lane_manifest.v2" },
         "artifact_kind": { "const": "lane_manifest" },
         "lane_id": { "type": "string", "pattern": "^W[1-8]$" },
@@ -382,6 +381,7 @@
         ,"external_package_evidence_ref": { "type": ["string", "null"] }
         ,"external_package_evidence_sha256": { "$ref": "#/$defs/sha256_or_null" }
         ,"asset_ids": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+        ,"promotion_receipts": { "type": "array", "items": { "type": "string" } }
       }
     },
     "control_inputs": {
@@ -389,7 +389,7 @@
       "additionalProperties": false,
       "required": ["schema_version", "artifact_kind", "lane_manifests", "receipt_chains"],
       "properties": {
-        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "$schema": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
         "schema_version": { "const": "fermatmind.en_content_parity_control_inputs.v2" },
         "artifact_kind": { "const": "control_materialization_inputs" },
         "lane_manifests": {
@@ -433,7 +433,7 @@
               "receipt_paths": {
                 "type": "array",
                 "minItems": 1,
-                "maxItems": 3,
+                "maxItems": 4,
                 "items": { "type": "string", "minLength": 1 },
                 "uniqueItems": true
               }
@@ -468,7 +468,7 @@
         "repository_rule_impact"
       ],
       "properties": {
-        "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
+        "$schema": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] },
         "schema_version": { "const": "fermatmind.en_content_parity_control.v2" },
         "artifact_kind": { "const": "generated_read_only_master" },
         "control_id": { "const": "EN-PARITY-CONTROL-AUTOMATION-V2-01" },

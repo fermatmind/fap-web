@@ -22,14 +22,6 @@
       "sha256": "7209590107d946822678550a06b980e4d1de35e0c9bbdfc21c0b6672ddccbd44"
     },
     {
-      "lane_id": "W7",
-      "subscope": "eq",
-      "status": "inventory_frozen",
-      "package_sha256": "893b512562bd39a71b06dc2bd3f39d7a4979326ae7850e41a0cc8816a05c159c",
-      "manifest_path": "generated/en-content-parity/W7-eq/package_manifest.json",
-      "lane_manifest_path": "generated/en-content-parity/W7-eq/lane_manifest.json"
-    },
-    {
       "lane_id": "W3",
       "subscope": "W3-CAREER-GUIDES",
       "path": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/lane_manifest.json",
@@ -136,35 +128,6 @@
         "generated/en-content-parity/W7-eq/draft-import.json",
         "generated/en-content-parity/W7-eq/publication.json",
         "generated/en-content-parity/W7-eq/live-qa.json"
-      ]
-    },
-    {
-      "lane": "W3",
-      "subscope": "W3-CAREER-GUIDES",
-      "package_sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
-      "source_commit": "f9b835c03adfdf89139c1ea9eb3c4f0db5099bd1",
-      "workflow_run_id": "manual-cg-99666",
-      "receipts": [
-        {
-          "phase": "preflight",
-          "receipt_path": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/preflight.json",
-          "receipt_sha256": "07f608eb24eaa02e3c51b37fab2ff902751c90bd24d1cbb1d9679b5f9c366671"
-        },
-        {
-          "phase": "draft-import",
-          "receipt_path": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/draft-import.json",
-          "receipt_sha256": "00f47f25c4a0af3a57383aca28b1e026b988fe1720a8e47678c5c64bc4264eda"
-        },
-        {
-          "phase": "publish",
-          "receipt_path": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/publication.json",
-          "receipt_sha256": "07072771ff604140a0ba067c443dfb80f61e12a482f7fdddedb7bdcdf3685fc3"
-        },
-        {
-          "phase": "live-qa",
-          "receipt_path": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c/live-qa.json",
-          "receipt_sha256": "99b45b6e746c83d48f3d234813fe03b7df8785d5cf0cf5ce253986e98a4befdb"
-        }
       ]
     }
   ]

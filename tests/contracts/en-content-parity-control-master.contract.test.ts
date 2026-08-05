@@ -3269,7 +3269,7 @@ describe("English content parity control master", () => {
     }
   });
 
-  it("accepts only the two registered W3 package subdirectories", () => {
+  it("accepts only the registered W3 package subdirectories", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-"));
     const articleAsset = manifest.assets.find((entry) => entry.asset_id === "ENPARITY-W3-ARTICLES");
     if (!articleAsset) {
