@@ -104,7 +104,7 @@ export default async function LocalizedRootLayout({
       <head>
         <link rel="preconnect" href="https://static.lingcecdn.com" />
         <link rel="dns-prefetch" href="https://static.lingcecdn.com" />
-        <link rel="preload" as="image" href="https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png" fetchpriority="high" />
+        <link rel="preload" as="image" href="https://static.lingcecdn.com/www/myfunquizcom/assets/img/home/top.png" fetchPriority="high" />
       </head>
       <body
         className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}
