@@ -23,6 +23,12 @@
     },
     {
       "$ref": "#/$defs/package_rework_reset"
+    },
+    {
+      "$ref": "#/$defs/lane_manifest"
+    },
+    {
+      "$ref": "#/$defs/control_materialization_inputs"
     }
   ],
   "$defs": {
@@ -1649,6 +1655,170 @@
           "$ref": "#/$defs/permissions"
         }
       }
+    },
+    "lane_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schema_version",
+        "artifact_kind",
+        "lane_id",
+        "subscope",
+        "status",
+        "blocked_from_status",
+        "package_sha256",
+        "backend_package_sha256",
+        "qa_report_ref",
+        "gate_lineage",
+        "legacy_lineage",
+        "blockers",
+        "transition_trace",
+        "reviewed_source_commit",
+        "expected_count"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_lane_manifest.v2"
+        },
+        "artifact_kind": {
+          "const": "lane_manifest"
+        },
+        "lane_id": {
+          "type": "string",
+          "pattern": "^W[1-9]\\d*$"
+        },
+        "subscope": {
+          "type": ["string", "null"]
+        },
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "blocked_from_status": {
+          "type": ["string", "null"],
+          "enum": [
+            "not_started",
+            "inventory_frozen",
+            "package_in_progress",
+            "package_frozen",
+            "qa_pass",
+            "dry_run_ready",
+            "draft_imported",
+            "editorial_approved",
+            "published",
+            "live_qa_pass",
+            "blocked",
+            null
+          ]
+        },
+        "package_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "backend_package_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "asset_ids": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "qa_report_ref": {
+          "type": ["string", "null"]
+        },
+        "gate_lineage": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "legacy_lineage": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "blockers": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "transition_trace": {
+          "type": "array",
+          "items": { "type": "object" }
+        },
+        "reviewed_source_commit": {
+          "type": ["string", "null"]
+        },
+        "expected_count": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "promotion_row_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "promotion_subscope": {
+          "type": ["string", "null"]
+        },
+        "w9_review_binding_ref": {
+          "type": ["string", "null"]
+        },
+        "w9_review_binding_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "external_package_evidence_ref": {
+          "type": ["string", "null"]
+        },
+        "external_package_evidence_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        }
+      }
+    },
+    "control_materialization_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "schema_version",
+        "artifact_kind",
+        "lane_manifests",
+        "receipt_chains"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_control_inputs.v2"
+        },
+        "artifact_kind": {
+          "const": "control_materialization_inputs"
+        },
+        "lane_manifests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["lane_id", "subscope"],
+            "properties": {
+              "lane_id": { "type": "string" },
+              "subscope": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "receipt_chains": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["lane_id", "subscope", "target_status"],
+            "properties": {
+              "lane_id": { "type": "string" },
+              "subscope": { "type": ["string", "null"] },
+              "target_status": { "type": "string" }
+            }
+          }
+        }
+      }
     }
   }
 }
+
