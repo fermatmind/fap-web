@@ -36,7 +36,8 @@
         "package_in_progress",
         "package_frozen",
         "qa_pass",
-        "dry_run_ready"
+        "dry_run_ready",
+        "live_qa_pass"
       ]
     },
     "release_policy": {
@@ -80,16 +81,32 @@
       "additionalProperties": false
     },
     "lane_transition": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["from_status", "to_status", "evidence_ref", "evidence_sha256", "recorded_at"],
-      "properties": {
-        "from_status": { "$ref": "#/$defs/lane_manifest_status" },
-        "to_status": { "$ref": "#/$defs/lane_manifest_status" },
-        "evidence_ref": { "type": "string", "minLength": 1 },
-        "evidence_sha256": { "$ref": "#/$defs/sha256" },
-        "recorded_at": { "type": "string", "format": "date-time" }
-      }
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from_status", "to_status", "evidence_ref", "evidence_sha256", "recorded_at"],
+          "properties": {
+            "from_status": { "$ref": "#/$defs/lane_manifest_status" },
+            "to_status": { "$ref": "#/$defs/lane_manifest_status" },
+            "evidence_ref": { "type": "string", "minLength": 1 },
+            "evidence_sha256": { "$ref": "#/$defs/sha256" },
+            "recorded_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["from", "to", "reason"],
+          "properties": {
+            "from": { "$ref": "#/$defs/content_status" },
+            "to": { "$ref": "#/$defs/content_status" },
+            "reason": { "type": "string", "minLength": 1 },
+            "workflow_run_id": { "type": "string" },
+            "receipt_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
     },
     "target": {
       "type": "object",
@@ -337,13 +354,9 @@
         "blockers",
         "transition_trace",
         "reviewed_source_commit",
-        "expected_count"
-        ,"promotion_row_count"
-        ,"backend_package_sha256"
-        ,"w9_review_binding_ref"
-        ,"w9_review_binding_sha256"
-        ,"external_package_evidence_ref"
-        ,"external_package_evidence_sha256"
+        "expected_count",
+        "promotion_row_count",
+        "backend_package_sha256"
       ],
       "properties": {
         "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
@@ -374,7 +387,7 @@
     "control_inputs": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["$schema", "schema_version", "artifact_kind", "lane_manifests", "receipt_chains"],
+      "required": ["schema_version", "artifact_kind", "lane_manifests", "receipt_chains"],
       "properties": {
         "$schema": { "const": "./en-content-parity-control-master.v2.schema.json" },
         "schema_version": { "const": "fermatmind.en_content_parity_control_inputs.v2" },
@@ -433,7 +446,6 @@
       "type": "object",
       "additionalProperties": false,
       "required": [
-        "$schema",
         "schema_version",
         "artifact_kind",
         "control_id",
