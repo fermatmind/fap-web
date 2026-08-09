@@ -94,6 +94,14 @@ describe("production artifact promotion receipt", () => {
     expect(workflow.slice(resumeIndex, promoteIndex)).toContain(
       "mv -f '$REMOTE_RELEASE_ARCHIVE_PART' '$REMOTE_RELEASE_ARCHIVE'",
     );
+    expect(workflow).toContain("PM2_CONFIG_SHA256=\"$(sha256sum ecosystem.config.cjs");
+    expect(workflow).toContain("ecosystem.config.cjs \\");
+    expect(workflow).toContain(
+      "install -m 0644 '$REMOTE_CONTROL_DIR/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs'",
+    );
+    expect(workflow).toContain(
+      "sha256sum '$APP_DIR/ecosystem.config.cjs'",
+    );
   });
 
   it("contains no source rebuild, dependency install, or mutable artifact identity", () => {
