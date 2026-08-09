@@ -130,6 +130,7 @@ export interface GuardContext {
   isManualDispatch: boolean;
   deploySha: string;
   manualRiskApproval: string;
+  directMainCommitCount?: number;
   associatedPull: {
     number: number;
     title: string;
@@ -169,12 +170,33 @@ export function evaluateDeployGuard(ctx: GuardContext): GuardResult {
     return empty("deploy SHA must be a 40-char lowercase hex");
   }
 
-  // 2. Associated PR is required (1 merged main PR).
+  // 2. Automatic deploys require every range commit to belong to one merged
+  // main PR. A manual recovery may cover direct main commits only when the
+  // operator supplies the exact SHA-bound risk approval.
+  if ((ctx.directMainCommitCount ?? 0) > 0) {
+    if (!ctx.isManualDispatch) {
+      return empty("direct main commits require manual SHA-bound recovery");
+    }
+    if (!validateManualRiskApproval(ctx.manualRiskApproval, ctx.deploySha)) {
+      return empty("direct main commits require exact manual risk approval");
+    }
+    return {
+      allowed: true,
+      deploySha: ctx.deploySha,
+      associatedPr: ctx.associatedPull?.number ?? null,
+      manualRiskApprovalUsed: true,
+      riskyLabels: [],
+      riskyFiles: [],
+      reason: "manual risk approval validated for direct main commits",
+    };
+  }
+
+  // 3. Associated PR is required when no direct-main recovery is present.
   if (!ctx.associatedPull) {
     return empty("no merged main PR found for deploy SHA");
   }
 
-  // 3. Manual risk approval overrides risky-path checks.
+  // 4. Manual risk approval overrides risky-path checks.
   if (ctx.isManualDispatch && ctx.manualRiskApproval.length > 0) {
     if (validateManualRiskApproval(ctx.manualRiskApproval, ctx.deploySha)) {
       return {
@@ -190,10 +212,10 @@ export function evaluateDeployGuard(ctx: GuardContext): GuardResult {
     return empty("manual risk approval token invalid (must match APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>)");
   }
 
-  // 4. Risky label check.
+  // 5. Risky label check.
   const riskyLabels = findRisky(ctx.associatedPull.labels.map((l) => l.toLowerCase()), RISKY_LABEL_PATTERNS);
 
-  // 5. Risky file check.
+  // 6. Risky file check.
   const riskyFiles = findRisky(ctx.associatedPull.changedFiles, RISKY_PATH_PATTERNS);
 
   if (riskyLabels.length > 0 || riskyFiles.length > 0) {
@@ -212,7 +234,7 @@ export function evaluateDeployGuard(ctx: GuardContext): GuardResult {
     };
   }
 
-  // 6. All checks passed.
+  // 7. All checks passed.
   return {
     allowed: true,
     deploySha: ctx.deploySha,

@@ -87,6 +87,48 @@ describe("evaluateDeployGuard — non-risky passes", () => {
   });
 });
 
+describe("evaluateDeployGuard — direct main commit recovery", () => {
+  it("keeps automatic deployment fail-closed", () => {
+    const r = evaluateDeployGuard(safeCtx({ directMainCommitCount: 1 }));
+    expect(r.allowed).toBe(false);
+    expect(r.reason).toContain("manual SHA-bound recovery");
+  });
+
+  it("rejects manual recovery without the exact SHA-bound approval", () => {
+    const r = evaluateDeployGuard(
+      safeCtx({ isManualDispatch: true, deploySha: VALID_SHA, directMainCommitCount: 1 })
+    );
+    expect(r.allowed).toBe(false);
+    expect(r.reason).toContain("exact manual risk approval");
+  });
+
+  it("allows manual recovery with the exact SHA-bound approval", () => {
+    const r = evaluateDeployGuard(
+      safeCtx({
+        isManualDispatch: true,
+        deploySha: VALID_SHA,
+        manualRiskApproval: `APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${VALID_SHA}`,
+        directMainCommitCount: 2,
+      })
+    );
+    expect(r.allowed).toBe(true);
+    expect(r.manualRiskApprovalUsed).toBe(true);
+    expect(r.reason).toContain("direct main commits");
+  });
+
+  it("rejects a mismatched approval", () => {
+    const r = evaluateDeployGuard(
+      safeCtx({
+        isManualDispatch: true,
+        deploySha: VALID_SHA,
+        manualRiskApproval: APPROVAL_1639,
+        directMainCommitCount: 1,
+      })
+    );
+    expect(r.allowed).toBe(false);
+  });
+});
+
 describe("evaluateDeployGuard — risky labels", () => {
   it.each(["no-auto-production", "cms", "llms", "search", "sitemap", "deploy", "content-release"])(
     'blocks risky label "%s"',

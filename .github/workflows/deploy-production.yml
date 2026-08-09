@@ -247,6 +247,7 @@ jobs:
               }
 
               const pullsByNumber = new Map();
+              const directMainCommits = [];
               for (const commit of commits) {
                 const associatedPulls = await github.paginate(
                   github.rest.repos.listPullRequestsAssociatedWithCommit,
@@ -259,11 +260,21 @@ jobs:
                       .map((pull) => [pull.number, pull]),
                   ).values(),
                 ];
-                if (mergedMainPulls.length !== 1) {
+                if (mergedMainPulls.length > 1) {
                   core.setFailed(
                     `Production auto-deploy policy failed closed: expected exactly one merged main PR for range commit ${commit.sha}, found ${mergedMainPulls.length}.`,
                   );
                   return;
+                }
+                if (mergedMainPulls.length === 0) {
+                  if (!isManualDispatch) {
+                    core.setFailed(
+                      `Production auto-deploy policy failed closed: expected exactly one merged main PR for range commit ${commit.sha}, found 0.`,
+                    );
+                    return;
+                  }
+                  directMainCommits.push(commit.sha);
+                  continue;
                 }
                 pullsByNumber.set(mergedMainPulls[0].number, mergedMainPulls[0]);
               }
@@ -332,7 +343,7 @@ jobs:
                   .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename))),
               )];
 
-              if (riskyLabels.length > 0 || riskyFiles.length > 0) {
+              if (directMainCommits.length > 0 || riskyLabels.length > 0 || riskyFiles.length > 0) {
                 if (!isManualDispatch) {
                   core.setOutput('auto_deploy_allowed', 'false');
                   core.notice([
@@ -346,6 +357,9 @@ jobs:
 
                 core.warning([
                   'Authorized manual risky production revision.',
+                  directMainCommits.length > 0
+                    ? `Direct main commits covered by exact SHA approval: ${directMainCommits.length}`
+                    : 'Direct main commits: none',
                   riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
                   riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
                   'The deploy job remains gated by the protected production GitHub Environment.',
