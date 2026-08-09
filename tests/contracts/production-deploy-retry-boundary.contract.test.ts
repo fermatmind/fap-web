@@ -142,9 +142,11 @@ describe("production deploy retry boundary", () => {
     expect(smokeStart).toBeGreaterThan(revisionStart);
     expect(revisionStep).toContain("poll_deployed_revision");
     expect(revisionStep).toContain('"${PUBLIC_BASE_URL%/}/revision" "$DEPLOY_SHA"');
-    expect(revisionStep).not.toContain("ssh ");
+    expect(revisionStep).toContain("retry_ssh_transport origin-revision");
+    expect(revisionStep).toContain("http://127.0.0.1:${APP_PORT}/revision");
+    expect(revisionStep).toContain("else");
+    expect(revisionStep).toContain("poll_deployed_revision");
     expect(revisionStep).not.toContain("deploy_web_pm2.sh");
-    expect(revisionStep).not.toContain("retry_ssh_transport");
     expect(helper).toContain("curl --fail --silent --show-error");
   });
 });

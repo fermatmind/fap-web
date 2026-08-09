@@ -12,9 +12,14 @@ on:
         required: true
         type: string
       manual_risk_approval:
-        description: "APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>"
+        description: "APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>; append :PRE_DNS_ORIGIN when pre-DNS origin recovery is enabled."
         required: true
         type: string
+      pre_dns_origin_recovery:
+        description: "Verify the new release through 127.0.0.1 before public DNS points at this origin. Manual exact-SHA dispatch only."
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   actions: read
@@ -74,7 +79,9 @@ jobs:
               return;
             }
 
-            const expectedManualApproval = `APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}`;
+            const preDnsOriginRecovery = context.payload.inputs?.pre_dns_origin_recovery === 'true';
+            const approvalSuffix = preDnsOriginRecovery ? ':PRE_DNS_ORIGIN' : '';
+            const expectedManualApproval = `APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}${approvalSuffix}`;
             if (isManualDispatch && process.env.MANUAL_RISK_APPROVAL !== expectedManualApproval) {
               core.setOutput('auto_deploy_allowed', 'false');
               core.setFailed('Manual production deploy failed closed: manual_risk_approval must exactly match the SHA-bound approval text.');
@@ -413,6 +420,7 @@ jobs:
       CORE_PUBLIC_PATH: ${{ secrets.WEB_PRODUCTION_CORE_PUBLIC_PATH || vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
       RUN_SITEMAP_HEALTH: ${{ secrets.WEB_PRODUCTION_RUN_SITEMAP_HEALTH || vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
       AUTHORIZATION_MODE: ${{ needs.policy-guard.outputs.authorization_mode }}
+      PRE_DNS_ORIGIN_RECOVERY: ${{ inputs.pre_dns_origin_recovery || false }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
       ARTIFACT_TRANSFER_ATTEMPTS: "3"
@@ -451,6 +459,18 @@ jobs:
           : "${PUBLIC_BASE_URL:=https://fermatmind.com}"
           : "${CORE_PUBLIC_PATH:=/zh/personality/intj-a}"
           : "${RUN_SITEMAP_HEALTH:=1}"
+          case "$PRE_DNS_ORIGIN_RECOVERY" in
+            true|false) ;;
+            *) echo "invalid pre-DNS origin recovery mode" >&2; exit 1 ;;
+          esac
+          if [[ "$PRE_DNS_ORIGIN_RECOVERY" == "true" && "$AUTHORIZATION_MODE" != "manual_sha_bound_recovery" ]]; then
+            echo "pre-DNS origin recovery requires a manual exact-SHA dispatch" >&2
+            exit 1
+          fi
+          DEPLOY_PROBE_BASE_URL="$PUBLIC_BASE_URL"
+          if [[ "$PRE_DNS_ORIGIN_RECOVERY" == "true" ]]; then
+            DEPLOY_PROBE_BASE_URL="http://127.0.0.1:${APP_PORT}"
+          fi
           test -f ecosystem.config.cjs
           PM2_CONFIG_SHA256="$(sha256sum ecosystem.config.cjs | awk '{print $1}')"
           [[ "$PM2_CONFIG_SHA256" =~ ^[0-9a-f]{64}$ ]]
@@ -464,6 +484,7 @@ jobs:
             echo "APP_MANAGER=$APP_MANAGER"
             echo "SYSTEMD_SERVICE=$SYSTEMD_SERVICE"
             echo "PUBLIC_BASE_URL=$PUBLIC_BASE_URL"
+            echo "DEPLOY_PROBE_BASE_URL=$DEPLOY_PROBE_BASE_URL"
             echo "CORE_PUBLIC_PATH=$CORE_PUBLIC_PATH"
             echo "RUN_SITEMAP_HEALTH=$RUN_SITEMAP_HEALTH"
             echo "PM2_CONFIG_SHA256=$PM2_CONFIG_SHA256"
@@ -868,16 +889,25 @@ jobs:
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
             -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
             -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && install -m 0644 '$REMOTE_CONTROL_DIR/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && test \"\$(sha256sum '$APP_DIR/ecosystem.config.cjs' | awk '{print \$1}')\" = '$PM2_CONFIG_SHA256' && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
+            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && install -m 0644 '$REMOTE_CONTROL_DIR/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && test \"\$(sha256sum '$APP_DIR/ecosystem.config.cjs' | awk '{print \$1}')\" = '$PM2_CONFIG_SHA256' && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$DEPLOY_PROBE_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
 
       - name: Poll deployed revision endpoint
         shell: bash
         run: |
           set -euo pipefail
           source scripts/production_deploy_retry.sh
-          poll_deployed_revision "${PUBLIC_BASE_URL%/}/revision" "$DEPLOY_SHA"
+          if [[ "$PRE_DNS_ORIGIN_RECOVERY" == "true" ]]; then
+            retry_ssh_transport origin-revision \
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+              -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+              -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+              "curl -fsS --max-time 10 'http://127.0.0.1:${APP_PORT}/revision' | grep -Fq '\"revision\":\"$DEPLOY_SHA\"'"
+          else
+            poll_deployed_revision "${PUBLIC_BASE_URL%/}/revision" "$DEPLOY_SHA"
+          fi
 
       - name: Smoke production public surfaces
+        if: env.PRE_DNS_ORIGIN_RECOVERY != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -905,6 +935,7 @@ jobs:
           done
 
       - name: Run read-only test landing regression smoke
+        if: env.PRE_DNS_ORIGIN_RECOVERY != 'true'
         id: test_landing_smoke
         continue-on-error: true
         shell: bash
