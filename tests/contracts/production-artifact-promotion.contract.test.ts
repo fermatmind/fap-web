@@ -118,4 +118,20 @@ describe("production artifact promotion receipt", () => {
     expect(workflow).toContain("Promote receipt-bound immutable release");
     expect(workflow).toContain("fap-web-production-receipt-${{ needs.policy-guard.outputs.deploy_sha }}");
   });
+
+  it("supports a manual-only SHA-bound pre-DNS origin recovery probe", () => {
+    expect(workflow).toContain("pre_dns_origin_recovery:");
+    expect(workflow).toContain(":PRE_DNS_ORIGIN");
+    expect(workflow).toContain(
+      'PRE_DNS_ORIGIN_RECOVERY: ${{ inputs.pre_dns_origin_recovery || false }}',
+    );
+    expect(workflow).toContain(
+      'pre-DNS origin recovery requires a manual exact-SHA dispatch',
+    );
+    expect(workflow).toContain(
+      'DEPLOY_PROBE_BASE_URL="http://127.0.0.1:${APP_PORT}"',
+    );
+    expect(workflow).toContain("retry_ssh_transport origin-revision");
+    expect(workflow).toContain("if: env.PRE_DNS_ORIGIN_RECOVERY != 'true'");
+  });
 });
