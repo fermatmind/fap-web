@@ -70,8 +70,14 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("Associated PRs:");
   });
 
-  it("fails closed for direct main commits, missing or ambiguous PRs, and GitHub API errors", () => {
-    expect(workflow).toContain("mergedMainPulls.length !== 1");
+  it("fails closed for automatic direct-main commits and ambiguous PRs while permitting exact manual recovery", () => {
+    expect(workflow).toContain("const directMainCommits = []");
+    expect(workflow).toContain("mergedMainPulls.length > 1");
+    expect(workflow).toContain("mergedMainPulls.length === 0");
+    expect(workflow).toContain("if (!isManualDispatch)");
+    expect(workflow).toContain("directMainCommits.push(commit.sha)");
+    expect(workflow).toContain("directMainCommits.length > 0 || riskyLabels.length > 0 || riskyFiles.length > 0");
+    expect(workflow).toContain("Direct main commits covered by exact SHA approval");
     expect(workflow).toContain("expected exactly one merged main PR for range commit");
     expect(workflow).toContain("found ${mergedMainPulls.length}");
     expect(workflow).toContain("catch (error)");

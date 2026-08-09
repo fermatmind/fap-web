@@ -44,7 +44,9 @@ describe("SECURITY-123-WEB-01 production approval guard", () => {
 
   it("keeps automatic risky deploys fail-closed and manual risky deploys environment-gated", () => {
     expect(workflow).toContain("const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';");
-    expect(workflow).toContain("if (riskyLabels.length > 0 || riskyFiles.length > 0)");
+    expect(workflow).toContain(
+      "if (directMainCommits.length > 0 || riskyLabels.length > 0 || riskyFiles.length > 0)"
+    );
     expect(workflow).toContain("if (!isManualDispatch)");
     expect(workflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
     expect(workflow).toContain("The deploy job remains gated by the protected production GitHub Environment.");
