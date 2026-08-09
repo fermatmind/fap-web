@@ -91,6 +91,7 @@ describe("production deploy retry boundary", () => {
 
     expect(controlStep).toContain("retry_ssh_transport control-files");
     expect(controlStep).toContain("scripts/install_standalone_release.sh");
+    expect(controlStep).toContain("ecosystem.config.cjs");
     expect(controlStep).not.toContain('"$RELEASE_ARCHIVE"');
 
     expect(resumeStep).toContain("--partial");
@@ -103,6 +104,10 @@ describe("production deploy retry boundary", () => {
     expect(resumeStep).toContain("mv -f '$REMOTE_RELEASE_ARCHIVE_PART' '$REMOTE_RELEASE_ARCHIVE'");
 
     expect(deployStep).toContain("Business promotion is intentionally single-shot");
+    expect(deployStep).toContain(
+      "install -m 0644 '$REMOTE_CONTROL_DIR/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs'",
+    );
+    expect(deployStep).toContain("PM2_CONFIG_SHA256");
     expect(deployStep).toContain("RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE'");
     expect(deployStep).not.toContain("scp ");
     expect(deployStep).not.toContain("rsync");

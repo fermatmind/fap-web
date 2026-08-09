@@ -451,6 +451,9 @@ jobs:
           : "${PUBLIC_BASE_URL:=https://fermatmind.com}"
           : "${CORE_PUBLIC_PATH:=/zh/personality/intj-a}"
           : "${RUN_SITEMAP_HEALTH:=1}"
+          test -f ecosystem.config.cjs
+          PM2_CONFIG_SHA256="$(sha256sum ecosystem.config.cjs | awk '{print $1}')"
+          [[ "$PM2_CONFIG_SHA256" =~ ^[0-9a-f]{64}$ ]]
 
           {
             echo "DEPLOY_SHA=$DEPLOY_SHA"
@@ -463,6 +466,7 @@ jobs:
             echo "PUBLIC_BASE_URL=$PUBLIC_BASE_URL"
             echo "CORE_PUBLIC_PATH=$CORE_PUBLIC_PATH"
             echo "RUN_SITEMAP_HEALTH=$RUN_SITEMAP_HEALTH"
+            echo "PM2_CONFIG_SHA256=$PM2_CONFIG_SHA256"
             echo "RUN_CMS_BASELINE_STAGING_SMOKE=0"
             echo "RUN_CONTENT_RELEASE_REVALIDATE_SMOKE=0"
           } >> "$GITHUB_ENV"
@@ -781,6 +785,7 @@ jobs:
             scripts/install_standalone_release.sh \
             scripts/deploy_web_pm2.sh \
             scripts/rolling_reload_pm2.sh \
+            ecosystem.config.cjs \
             "$DEPLOY_USER@$DEPLOY_HOST:$REMOTE_CONTROL_DIR/"
 
       - name: Resume and verify receipt-bound release archive
@@ -863,7 +868,7 @@ jobs:
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
             -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
             -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
+            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && install -m 0644 '$REMOTE_CONTROL_DIR/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && test \"\$(sha256sum '$APP_DIR/ecosystem.config.cjs' | awk '{print \$1}')\" = '$PM2_CONFIG_SHA256' && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
 
       - name: Poll deployed revision endpoint
         shell: bash
