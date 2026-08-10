@@ -1,0 +1,64 @@
+{
+  "schema_version": "performance.l1.interval-baseline.v1",
+  "task_id": "NONCAREER-L1-INTERVAL-BASELINE-01",
+  "generated_at": "2026-08-10T06:34:00.000Z",
+  "timezone": "Asia/Shanghai",
+  "source_base_commit": "5c5bb64dfc328f9a77ac685f369bc79357bd7a17",
+  "runtime_revision": "UNKNOWN_NOT_EXPOSED",
+  "browser_tool": "@playwright/cli Chromium",
+  "protocol": {
+    "registry": "exact Window 7 L1 registry from performance_l1_samples.csv",
+    "definitions": 10,
+    "required_complete_windows": 3,
+    "minimum_interval_minutes": 30,
+    "concurrency": 1,
+    "observation_window_ms": 2200,
+    "network": "local unthrottled",
+    "cache": "one shared browser context; first navigation then sequential reuse",
+    "private_flow_boundary": "public landing/start boundary only; no answer, submit, result, order or payment access"
+  },
+  "accepted_windows": [
+    {
+      "window_id": "L1-WINDOW-20260810-01",
+      "start": "2026-08-10T06:32:17.644Z",
+      "end": "2026-08-10T06:32:43.192Z",
+      "timezone": "Asia/Shanghai",
+      "definition_rows": 10,
+      "measurement_success_rows": 10,
+      "semantic_success_rows": 10,
+      "registry_complete": true,
+      "artifact": "performance_l1_interval_samples.csv",
+      "artifact_sha256": "59c017cfe8de170a015b63a23ac52368e9dd248a8a519bf021d5c85f85a9c220"
+    }
+  ],
+  "excluded_context_windows": [
+    {
+      "source": "performance_l1_samples.csv",
+      "start": "2026-08-10T04:23:35.737Z",
+      "end": "2026-08-10T04:25:06.115Z",
+      "reason": "Historical baseline uses three consecutive attempts per definition inside one capture period; it is preserved as context and not recoded as an accepted interval window."
+    },
+    {
+      "source": "critical_lab_remeasurement.csv",
+      "start": "2026-08-10T06:09:06.883Z",
+      "end": "2026-08-10T06:09:12.157Z",
+      "reason": "PR2 remeasured one L1 definition and one L2 definition only; it does not cover the complete ten-definition L1 registry."
+    }
+  ],
+  "summary": {
+    "accepted_complete_windows": 1,
+    "missing_complete_windows": 2,
+    "interval_pairs_evaluable": 0,
+    "interval_requirement_satisfied": false,
+    "status": "BASELINE_WINDOW_INCOMPLETE",
+    "field_evidence_status": "INSUFFICIENT_FIELD_DATA"
+  },
+  "decision": "One genuine complete registry window was captured. Two additional complete windows separated by at least 30 minutes are unavailable in this bounded PR execution; no long blocking sleep, copied observation or fabricated interval was used.",
+  "limitations": [
+    "The accepted evidence contains one current complete window, not the required three.",
+    "Measurements are local, unthrottled laboratory observations and are not field Core Web Vitals.",
+    "Mobile profiles use a mobile viewport with desktop Chrome user agent.",
+    "The runtime did not expose an exact application revision.",
+    "A shared browser context means later rows may reuse browser cache."
+  ]
+}

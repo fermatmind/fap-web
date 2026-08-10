@@ -49,6 +49,20 @@ The historical L1 table remains the frozen first-window baseline. The follow-up 
 
 The follow-up closes the collector-null failure. It does not prove a field-CWV improvement, and the first-navigation question-window miss remains a diagnosis candidate outside this evidence-only PR.
 
+## Interval baseline status
+
+The dedicated interval protocol captured one new complete L1 registry window with 10/10 HTTP and semantic successes. It did not manufacture the two missing windows or count the historical consecutive attempts and PR2 partial-registry remeasurement as interval windows.
+
+| Requirement | Retained result | Verdict |
+| --- | --- | --- |
+| Fixed L1 registry | 10 definitions; EN/ZH hub, MBTI/RIASEC landing and four public bootstrap forms | complete for accepted window |
+| Complete current windows | 1 of 3 | insufficient |
+| Separation | no evaluable pair; two complete windows remain missing | not proven |
+| Evidence class | local unthrottled Playwright lab evidence | LAB_ONLY |
+| Overall interval status | `BASELINE_WINDOW_INCOMPLETE` | retained |
+
+The accepted window ran from `2026-08-10T06:32:17.644Z` to `2026-08-10T06:32:43.192Z` in `Asia/Shanghai`. Detailed rows and the counting decision are frozen in `performance_l1_interval_samples.csv` and `l1_interval_baseline_manifest.json`.
+
 ## Root cause and impact
 
 The top L1 signal is a shared landing/test layout shift. The symptom is VERIFIED in lab; the exact component cause is INFERRED until layout-shift sources are captured. Possible user/conversion impact is CTA instability; SEO impact is UNKNOWN without field CLS.

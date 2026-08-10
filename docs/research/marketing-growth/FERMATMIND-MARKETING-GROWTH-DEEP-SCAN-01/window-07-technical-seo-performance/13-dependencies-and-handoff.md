@@ -22,6 +22,8 @@ The operator-authorized completion train is strictly serial:
 
 Each item starts only after its predecessor is merged, synced and cleaned. Unavailable external measurement/search data remains truthful sidecar evidence and does not authorize fabricated cohort or field conclusions.
 
+`NONCAREER-L1-INTERVAL-BASELINE-01` retained one complete current L1 registry window (10/10 definitions) but could not establish the required three windows separated by at least 30 minutes. Two complete windows remain missing; `BASELINE_WINDOW_INCOMPLETE` and its sidecar stay open. This external evidence gap does not affect the PR's local checks, required GitHub checks, scope validation or merge policy, so the serial train may continue after merge and cleanup. Final closeout must remain `PARTIALLY_BLOCKED` unless later exact evidence closes the gap.
+
 ## Exact handoff order
 
 1. Capture L1 layout-shift sources and execute the focused L1 CLS PR without touching APIs or L3.

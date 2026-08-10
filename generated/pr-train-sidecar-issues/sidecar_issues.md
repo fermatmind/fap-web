@@ -411,12 +411,16 @@
 - blocker type: insufficient interval baseline
 - affected surface: Window 7 L1 interval evidence
 - evidence: the field-evidence baseline records L1 as insufficient; a point-in-time laboratory sample does not establish the requested observation interval.
-- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`
-- why not current PR scope: this PR can only correct the status; interval collection belongs to `NONCAREER-L1-INTERVAL-BASELINE-01`.
+- latest evidence PR id / branch: `NONCAREER-L1-INTERVAL-BASELINE-01` / `codex/noncareer-l1-interval-baseline-01`
+- updated at: `2026-08-10T06:36:15Z`
+- latest evidence: one genuine complete current L1 registry window captured all 10 fixed definitions successfully; the required count is 3, so 2 complete windows remain missing and no >=30-minute interval pair is evaluable.
+- completed / required / missing windows: 1 / 3 / 2
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_l1_interval_samples.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/l1_interval_baseline_manifest.json`
+- why not current PR scope: the current PR captured all evidence safely available in one bounded execution; two further complete registry windows require future wall-clock-separated collection and are an external evidence gap, not a product-code defect.
 - required checks / scope validation / merge policy affected: no / no / no
 - severity: high
 - recommended owner: technical growth measurement operator
-- recommended follow-up: run the declared L1 interval protocol and publish evidence or an explicit unavailable verdict.
+- recommended follow-up: capture two additional complete fixed-registry windows at genuine >=30-minute separation, append without overwriting this window, and re-evaluate the interval baseline. Until then retain `BASELINE_WINDOW_INCOMPLETE` and `PARTIALLY_BLOCKED` at closeout.
 - status: open
 
 ## Window 7 GSC/GA4 Cohort Data Unavailable

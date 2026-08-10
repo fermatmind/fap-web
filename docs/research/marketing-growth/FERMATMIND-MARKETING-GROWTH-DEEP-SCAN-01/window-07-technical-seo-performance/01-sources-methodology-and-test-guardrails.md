@@ -33,6 +33,19 @@ Official definitions were refreshed from [Chrome Web Vitals](https://web.dev/art
 - Anonymous PSI returned quota failure; no usable CrUX/GSC/RUM dataset was available.
 - Three well-spaced L1 windows were not completed: **BASELINE_WINDOW_INCOMPLETE**.
 
+## L1 interval baseline — 2026-08-10
+
+`NONCAREER-L1-INTERVAL-BASELINE-01` retained one new complete ten-definition L1 registry window in `performance_l1_interval_samples.csv`.
+
+- Window `L1-WINDOW-20260810-01` ran serially from `2026-08-10T06:32:17.644Z` through `2026-08-10T06:32:43.192Z` in the declared `Asia/Shanghai` timezone using `@playwright/cli Chromium`.
+- All ten fixed definitions returned HTTP 200, completed measurement and passed their public semantic gate. The registry covers the existing EN/ZH Tests Hub, MBTI and RIASEC landings, and the four fixed public question-bootstrap forms.
+- The historical L1 baseline is preserved as point-in-time context, not recoded as an accepted interval window. Its three attempts per definition were consecutive inside one capture period.
+- The PR2 remeasurement is also excluded from interval counting because it covered only one L1 definition plus one L2 definition rather than the complete L1 registry.
+- Accepted windows: 1 of 3. Missing complete windows: 2. No evaluable >=30-minute interval pair exists, so the result remains **BASELINE_WINDOW_INCOMPLETE**.
+- These are local unthrottled laboratory observations, not field Core Web Vitals. No long blocking sleep, copied observation, answer, submit or private-flow access was used.
+
+Artifacts: `performance_l1_interval_samples.csv` and `l1_interval_baseline_manifest.json`.
+
 ## Critical lab remeasurement — 2026-08-10
 
 `NONCAREER-CRITICAL-LAB-REMEASUREMENT-01` reran only the two definitions represented by historical `LAB-028`–`LAB-030` and `LAB-034`–`LAB-036`. The original six failure rows and their source-file hashes remain unchanged.

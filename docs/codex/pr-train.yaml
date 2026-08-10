@@ -12209,7 +12209,7 @@ prs:
       - IQ-PAID-REPORT-01
     mode: execute
     train_scope: iq_production_launch
-    status: in_progress
+    status: local_verified
     title: "IQ-PAID-REPORT-02 render paid report entitlement states"
     goal: "Render IQ paid-report free, paid, unauthorized, and error states from backend contract only."
     in_scope:
@@ -30675,7 +30675,7 @@ prs:
     depends_on: [NONCAREER-AUDIT-STATUS-RECONCILIATION-01]
     mode: execute
     train_scope: noncareer_window7_critical_lab_remeasurement
-    status: ready_to_merge
+    status: merged
     goal: Preserve the six historical tool failures, retry the exact RIASEC zh bootstrap and Big Five zh landing definitions, and retain standard Lighthouse TBT and Speed Index separately from long-task proxies.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
@@ -30718,7 +30718,7 @@ prs:
     depends_on: [NONCAREER-CRITICAL-LAB-REMEASUREMENT-01]
     mode: execute
     train_scope: noncareer_window7_l1_interval_baseline
-    status: planned
+    status: in_progress
     goal: Capture three genuine interval-separated Window 7 L1 public-page measurement windows without changing product code or accessing private assessment flows.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
