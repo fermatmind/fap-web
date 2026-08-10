@@ -58314,8 +58314,8 @@
     "depends_on": [
       "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "7f243b3913b409a91ff1292d97da852fb911d8b9",
+    "status": "ready_to_merge",
+    "commit_sha": "805b4734219e021cc702d4e19ed96530658f056c",
     "pr_url": "https://github.com/FermatMind/fap-web/pull/2041",
     "checks": {
       "dependency": {
@@ -58333,6 +58333,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Ruby CSV/JSON/YAML validation passed for fixed header, zero rows, UTF-8/formula safety, SHA provenance, exact registry classification, M01 window semantics, diagnostic intersections, privacy/write boundaries and missing-data decision. The exact 10-path allowlist, pnpm lint:spacing and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2041 head 805b4734219e021cc702d4e19ed96530658f056c passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary and no-new-code-scanning-alerts. GitHub reported CLEAN and MERGEABLE with no review block."
       }
     },
     "failure_reason": null,
@@ -58342,7 +58346,7 @@
     "scope_validation": {
       "allowed_paths_only": false,
       "local_validation_passed": false,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -58382,12 +58386,18 @@
         "from": "committed",
         "to": "github_checks_pending",
         "note": "Pushed the exact 10-path scope and opened PR #2041 at head 7f243b3913b409a91ff1292d97da852fb911d8b9. Required GitHub checks are pending; no GSC/GA4, CMS, production, search submission, indexability, or deployment mutation occurred."
+      },
+      {
+        "at": "2026-08-10T07:32:54Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required GitHub and security checks passed on head 805b4734219e021cc702d4e19ed96530658f056c. The exact 10-path scope, zero-row artifact SHA, missing-data verdict and clean worktree were revalidated; PR #2041 is CLEAN and MERGEABLE with no review block."
       }
     ],
     "sidecar_issues": [
       "window7-gsc-ga4-cohort-data-unavailable-20260810"
     ],
-    "updated_at": "2026-08-10T07:27:46Z"
+    "updated_at": "2026-08-10T07:32:54Z"
   },
   "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
     "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
