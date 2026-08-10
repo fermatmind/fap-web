@@ -113,9 +113,12 @@
     },
     {
       "id": "B03_TECHNICAL_EVIDENCE",
-      "source": "repository search and existing assessment reports",
-      "status": "UNKNOWN",
-      "limitation": "No completed six-assessment technical-manual evidence inventory artifact was found."
+      "source": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/authority-b03-technical-manual-evidence/technical_manual_inventory.json",
+      "sha256": "bbef0a734aae19f7759e49b1dae24fca2afa25b46652777b309a8bd1ce572893",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T14:32:36+08:00",
+      "inventory_status": "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+      "limitation": "The six-assessment evidence map is complete, but missing public sample, norm, reliability, validity, reviewer and technical-manual evidence remains UNKNOWN; this reference does not join or authorize the W3 package."
     },
     {
       "id": "SERP_ONET_INTEREST_PROFILER",
