@@ -95,7 +95,7 @@
       "https://fermatmind.com/zh/personality",
       "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
     ],
-    "cannibalization": "UNKNOWN pending complete query×page export",
+    "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
     "current_title": "MBTI 是什么？16 型人格测试入门指南 | FermatMind",
     "current_h1": "MBTI 性格测试是什么？16 型人格能告诉你什么，不能告诉你什么",
     "current_cta": "开始免费 MBTI 测试",
@@ -370,16 +370,55 @@
       "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
     },
     "current_gsc_query_page_baseline": {
-      "status": "UNKNOWN_BLOCKED_OAUTH",
-      "row_count": 0,
-      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+      "grain": "query_x_page_after_country_device_aggregation",
+      "source": "article_m01_query_page_evidence.csv",
+      "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "windows": {
+        "current28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 13,
+          "clicks": 1.0,
+          "impressions": 115.0,
+          "ctr": 0.00869565,
+          "position": 19.8435
+        },
+        "prev28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 13,
+          "clicks": 0.0,
+          "impressions": 57.0,
+          "ctr": 0.0,
+          "position": 20.7018
+        },
+        "day90": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 16,
+          "clicks": 1.0,
+          "impressions": 172.0,
+          "ctr": 0.00581395,
+          "position": 20.1279
+        }
+      },
+      "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
     },
     "current_priority": {
-      "rank": 4,
-      "score": 39.7669,
+      "rank": 5,
       "tier": "P2",
-      "formula_version": "window5_page_opportunity.v1",
-      "controlled_serp_not_observed": true
+      "formula_version": "window5_query_owner_priority.v2",
+      "sort_contract": [
+        "actionable_owner_conflict desc",
+        "article_non_owner_impressions desc",
+        "estimated_missed_clicks desc",
+        "page_impressions desc",
+        "refresh_id asc"
+      ],
+      "actionable_owner_conflict": false,
+      "article_non_owner_impressions": 0.0,
+      "estimated_missed_clicks": 0.0,
+      "locale_position_bucket_median_ctr": 0.0,
+      "position_bucket": "11-20",
+      "page_impressions": 600.0,
+      "matched_exact_alias_count": 13
     }
   },
   "body_revision": [

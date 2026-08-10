@@ -1,7 +1,9 @@
 {
-  "version": "article_topic_owner_registry.v2-evidence-closeout",
-  "captured_at": "2026-08-10T18:30:00+08:00",
+  "version": "article_topic_owner_registry.v3-m01-query-page-delta",
+  "captured_at": "2026-08-10T06:06:20Z",
   "policy": "one-query-one-primary-owner",
+  "query_normalization": "Unicode NFKC + casefold + collapsed whitespace",
+  "actionable_conflict_rule": "current28 impressions >= 10; >=2 public pages; current owner differs or non-owner share >= 20%",
   "owners": [
     {
       "topic": "MBTI",
@@ -9,17 +11,17 @@
       "query": "MBTI 测试 / 免费测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "supporting_articles": "https://fermatmind.com/zh/articles/mbti-basics",
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 6 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -27,17 +29,17 @@
       "query": "MBTI 是什么 / 16型人格是什么",
       "intent": "informational",
       "funnel_stage": "awareness",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/articles/mbti-basics",
       "proposed_primary_owner": "https://fermatmind.com/zh/articles/mbti-basics",
       "supporting_articles": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 3 exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -51,11 +53,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -69,11 +71,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -81,17 +83,17 @@
       "query": "大五人格测试 / OCEAN 测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/articles/big-five-tool-guide",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "supporting_articles": "https://fermatmind.com/zh/articles/big-five-tool-guide",
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "ACTIONABLE_OWNER_CONFLICT: 1 exact aliases; non-owner impressions=25",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -99,17 +101,17 @@
       "query": "大五人格是什么 / 分数怎么看",
       "intent": "method",
       "funnel_stage": "awareness",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/articles/big-five-tool-guide",
       "proposed_primary_owner": "https://fermatmind.com/zh/articles/big-five-tool-guide",
       "supporting_articles": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -123,11 +125,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -135,17 +137,17 @@
       "query": "Big Five personality test",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
       "proposed_primary_owner": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
       "supporting_articles": "https://fermatmind.com/en/articles/big-five-tool-guide",
       "assessment_landing": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -153,17 +155,17 @@
       "query": "霍兰德职业兴趣测试 / RIASEC 测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "supporting_articles": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 4 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -177,11 +179,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -195,11 +197,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "CAREER_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
       "dependency": "Career C06 current completion artifact missing; career owner gate closed",
-      "evidence_status": "DESIGN_ONLY; C06 MISSING; current query×page ranking UNKNOWN"
+      "evidence_status": "DESIGN_ONLY; C06 MISSING; current exact query evidence Unknown"
     },
     {
       "topic": "RIASEC",
@@ -207,17 +209,17 @@
       "query": "what is RIASEC / Holland Code meaning",
       "intent": "informational",
       "funnel_stage": "awareness",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
       "proposed_primary_owner": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
       "supporting_articles": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "assessment_landing": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/en/career",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -225,17 +227,17 @@
       "query": "RIASEC career test / Holland Code test",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
       "proposed_primary_owner": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "supporting_articles": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
       "assessment_landing": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/en/career",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -243,17 +245,17 @@
       "query": "九型人格测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "supporting_articles": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
       "assessment_landing": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -267,11 +269,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -285,11 +287,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "IQ",
@@ -297,17 +299,17 @@
       "query": "IQ 测试 / 智商测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "supporting_articles": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
       "assessment_landing": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "IQ",
@@ -315,17 +317,17 @@
       "query": "在线 IQ 测试准吗 / 分数解释",
       "intent": "method",
       "funnel_stage": "awareness",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
       "proposed_primary_owner": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
       "supporting_articles": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "assessment_landing": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "IQ",
@@ -339,11 +341,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "EQ",
@@ -351,17 +353,17 @@
       "query": "情商测试 / EQ 测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "Unknown",
+      "current_ranking_page": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "supporting_articles": "https://fermatmind.com/zh/articles/eq-test-tool-guide",
       "assessment_landing": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
       "topic": "EQ",
@@ -375,11 +377,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
       "topic": "EQ",
@@ -393,19 +395,19 @@
       "assessment_landing": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending non-empty query×page export",
+      "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
-      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     }
   ],
   "upstream_dependency_state": {
-    "assessment_A01": "DESIGN_OWNER_CONSUMED; current query ranking UNKNOWN",
+    "assessment_A01": "DESIGN_OWNER_CONSUMED",
     "personality_P03_P05": "DESIGN_OWNER_AND_GRAPH_CONSUMED; implementation not started",
     "career_C06": "MISSING_CURRENT_COMPLETION_ARTIFACT; gate closed",
     "topic_graph_G03_G04": "DESIGN_CONSUMED; backend/frontend implementation not started",
-    "M01_query_page": "UNKNOWN_BLOCKED_OAUTH; 0 rows",
+    "M01_query_page": "COMPLETE; 12336 safe rows; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
     "publication_authorized": false
   }
 }
