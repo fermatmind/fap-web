@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     concurrency:
-      group: deploy-web-staging-${{ github.repository }}
+      group: fap-web-production-api-read
       cancel-in-progress: false
     environment:
       name: staging

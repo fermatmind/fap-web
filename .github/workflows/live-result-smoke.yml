@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: live-result-smoke
+  group: fap-web-production-api-read
   cancel-in-progress: false
 
 jobs:

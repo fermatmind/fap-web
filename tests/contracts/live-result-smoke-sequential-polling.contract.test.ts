@@ -32,7 +32,7 @@ describe("live result smoke sequential polling", () => {
     const workflow = readFileSync(".github/workflows/live-result-smoke.yml", "utf8");
     const script = readFileSync("scripts/ops/check-live-result-smoke.mjs", "utf8");
 
-    expect(workflow).toContain("group: live-result-smoke");
+    expect(workflow).toContain("group: fap-web-production-api-read");
     expect(workflow).toContain("cancel-in-progress: false");
     expect(workflow).not.toContain("RESULT_SMOKE_REPORT_POLL_MS");
     expect(script).not.toContain("Promise.all([");

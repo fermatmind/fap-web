@@ -8,10 +8,17 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: fap-web-ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    concurrency:
+      group: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'fap-web-production-api-read' || format('fap-web-ci-build-{0}', github.run_id) }}
+      cancel-in-progress: false
     permissions:
       attestations: write
       contents: read
@@ -22,7 +29,7 @@ jobs:
       # avoids granting the CI build job access to protected production secrets.
       NEXT_PUBLIC_ANALYTICS_ENABLED: "true"
       NEXT_PUBLIC_ANALYTICS_ENV: production
-      NEXT_PUBLIC_API_URL: https://api.fermatmind.com
+      NEXT_PUBLIC_API_URL: ${{ github.event_name == 'pull_request' && 'https://staging-api.fermatmind.com' || 'https://api.fermatmind.com' }}
       NEXT_PUBLIC_BAIDU_TONGJI_ID: 71df4ab76c73cb563d267
       NEXT_PUBLIC_GA_MEASUREMENT_ID: G-5TBDR9KBLW
       NEXT_PUBLIC_RELEASE: ${{ github.sha }}
