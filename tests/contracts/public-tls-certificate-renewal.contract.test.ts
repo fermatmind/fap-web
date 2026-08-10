@@ -31,6 +31,9 @@ describe("Alibaba public TLS certificate renewal", () => {
   it("uses persistent ACME webroots for production Web and staging", () => {
     expect(webIngress).toContain("root /www/acme;");
     expect(stagingAcme).toContain("root /var/www/letsencrypt;");
+    expect(stagingAcme).toContain("location / {");
+    expect(stagingAcme).toContain('return 301 https://$host$request_uri;');
+    expect(stagingAcme).toContain("server-level return");
   });
 
   it("reloads only the role-specific ingress after installing renewed files", () => {

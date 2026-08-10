@@ -22,7 +22,7 @@ The daily `Live result smoke` workflow checks the verified certificate chain and
 1. Merge the exact PR with required checks green.
 2. Apply the production Web ACME location only through `Web Public Ingress Control`: run `preflight`, obtain the emitted SHA-bound phrase, then run separately authorized `apply`.
 3. On production Web, create the persistent webroot, install Certbot and the versioned hook, issue/renew `fermatmind.com` plus `www.fermatmind.com`, and enable `certbot.timer`.
-4. On staging, install the versioned ACME include with an exact pre-change config hash, create the webroot, validate `/usr/local/nginx/sbin/nginx -t`, reload Nginx, install Certbot and the versioned hook, issue/renew the two staging names, and enable `certbot.timer`.
+4. On staging, install the versioned ACME include with an exact pre-change config hash, remove the HTTP vhost's server-level redirect because the versioned include owns the equivalent `location /` redirect, create the webroot, validate `/usr/local/nginx/sbin/nginx -t`, reload Nginx, install Certbot and the versioned hook, issue/renew the two staging names, and enable `certbot.timer`.
 5. Run `certbot renew --dry-run` on both hosts. Verify public certificate chains, all four HTTPS health endpoints, and that the application revisions did not change.
 
 Every server mutation requires a preflight receipt bound to the current host identities, certificate hashes, ingress hashes, source SHA, candidate configuration SHA, and versioned hook SHA. Do not use direct SSH to edit the production Web ingress. Do not print private keys, ACME account material, or certificate file contents.
