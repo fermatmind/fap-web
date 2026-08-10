@@ -1,0 +1,1437 @@
+{
+  "version": "article.top10-current-state.v1",
+  "captured_at": "2026-08-10T13:45:00+08:00",
+  "items": {
+    "ARTICLE-REFRESH-01": {
+      "canonical": "https://fermatmind.com/zh/articles/big-five-tool-guide",
+      "current_title": "大五人格测试工具：怎么用、怎么看分数与边界 | FermatMind",
+      "current_meta": "大五人格测试适合支持结构化自我反思，不应用于诊断、筛选或预测。本文说明测试前、作答时、读报告后的核对方法与产品信息 Unknown 边界。",
+      "current_h1": "大五人格测试工具使用与边界指南",
+      "current_snippet": "Not observed in controlled Top 10",
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "大五人格测试工具使用与边界指南"
+        },
+        {
+          "level": "h2",
+          "text": "一个醒目的数字，可能还缺少关键信息"
+        },
+        {
+          "level": "h2",
+          "text": "测试前：把焦虑改写成能观察的问题"
+        },
+        {
+          "level": "h2",
+          "text": "作答时：如实回答，也把当时情境记下来"
+        },
+        {
+          "level": "h2",
+          "text": "读报告后，先做一次“报告审计”"
+        },
+        {
+          "level": "h2",
+          "text": "把标签变成七天观察，而不是人格判决"
+        },
+        {
+          "level": "h2",
+          "text": "同属大五框架，也不代表工具可以互换"
+        },
+        {
+          "level": "h2",
+          "text": "别让一份报告代替真实对话"
+        },
+        {
+          "level": "h2",
+          "text": "FermatMind 产品信息：必须保留为 Unknown 的部分"
+        },
+        {
+          "level": "h2",
+          "text": "参考来源与下一步"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=big-five-tool-guide&content_id=3&target_action=seo_cta_start_test&test_slug=big-five-personality-test-ocean-model&target_test_slug=big-five-personality-test-ocean-model&cta_id=start_test&landing_path=%2Fzh%2Farticles%2Fbig-five-tool-guide&entrypoint=seo_cta"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-02": {
+      "canonical": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "current_title": "INFJ 男性为什么常被认为少见？数据来源与类型误读 | FermatMind",
+      "current_meta": "INFJ 男性真的少见吗？本文区分测试样本、人口比例、性别表达规范和可见度偏差，不把高敏感或情绪克制等同于 INFJ。",
+      "current_h1": "INFJ 男性为什么常被认为少见？数据来源、性别规范与类型误读",
+      "current_snippet": "Not observed in controlled Top 10",
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "快速答案"
+        },
+        {
+          "level": "h2",
+          "text": "“少见”首先是一个数据问题"
+        },
+        {
+          "level": "h2",
+          "text": "类型结果为什么可能发生变化"
+        },
+        {
+          "level": "h2",
+          "text": "性别规范可能影响的是表达与可见度"
+        },
+        {
+          "level": "h2",
+          "text": "怎样阅读“最稀有类型”的比例报道"
+        },
+        {
+          "level": "h2",
+          "text": "四种常见的可见度偏差"
+        },
+        {
+          "level": "h3",
+          "text": "典型印象偏差"
+        },
+        {
+          "level": "h3",
+          "text": "自我选择偏差"
+        },
+        {
+          "level": "h3",
+          "text": "标签记忆偏差"
+        },
+        {
+          "level": "h3",
+          "text": "角色遮蔽"
+        },
+        {
+          "level": "h2",
+          "text": "如果你是 INFJ 男性，可以怎样使用结果"
+        },
+        {
+          "level": "h2",
+          "text": "与他人谈这件事时避免三种伤害"
+        },
+        {
+          "level": "h2",
+          "text": "不要把类型问题医学化"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "INFJ 男性到底占多少？"
+        },
+        {
+          "level": "h3",
+          "text": "社会压力会让 INFJ 男性测成别的类型吗？"
+        },
+        {
+          "level": "h3",
+          "text": "高敏感男性就是 INFJ 吗？"
+        },
+        {
+          "level": "h3",
+          "text": "INFJ 男性更适合某些职业吗？"
+        },
+        {
+          "level": "h3",
+          "text": "怎样判断结果是否适合自己？"
+        },
+        {
+          "level": "h2",
+          "text": "参考来源"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=are-infj-men-rare-or-socially-silenced&content_id=11&target_action=seo_cta_start_test&test_slug=mbti-personality-test-16-personality-types&target_test_slug=mbti-personality-test-16-personality-types&cta_id=start_test&landing_path=%2Fzh%2Farticles%2Fare-infj-men-rare-or-socially-silenced&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/mbti-narrative-portrait",
+        "https://fermatmind.com/support/mbti-facts"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-03": {
+      "canonical": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
+      "current_title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind",
+      "current_meta": "九型人格测试适合做自我观察，不适合当专业诊断。本文解释9种类型、核心动机、核心恐惧、结果怎么看，以及九型人格和MBTI、大五人格、EQ的区别。",
+      "current_h1": "九型人格测试准吗？9种类型、核心动机和结果解读一次讲清",
+      "current_snippet": {
+        "rank": 2,
+        "title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind | FermatMind",
+        "snippet": "2026年6月25日 - 本文只把九型人格作为自我观察和类型语言来解释：它用于整理核心动机、注意力模式和压力反应假设，而不是作为专业诊断、临床评估、招聘筛选或人生结果判断。证据边界按 mixed evidence 谨慎处理，FermatMind 不宣称 RHETI、Enneagram Institute 或 official Enneagram instrument 等价。 · 根据当前公开测试入口，FermatMind 的九型人格测试是一个面向自我理解的公开测试入口，支持九型人格 profile / ranking 的结果框架，并提供不同答题形式。它适合用于教育性自我理解，不适合被写成诊断、招聘筛选或正式临床评估。"
+      },
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "Quick answer：九型人格测试准吗？"
+        },
+        {
+          "level": "h2",
+          "text": "这篇文章会帮你解决什么问题？"
+        },
+        {
+          "level": "h2",
+          "text": "边界声明：这篇文章不能替代什么？"
+        },
+        {
+          "level": "h2",
+          "text": "适合谁读这篇文章？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格测试到底准不准？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格是什么：为什么它讲“核心动机”？"
+        },
+        {
+          "level": "h2",
+          "text": "Method and theory｜方法与理论"
+        },
+        {
+          "level": "h2",
+          "text": "FermatMind 九型人格测试公开支持什么？"
+        },
+        {
+          "level": "h2",
+          "text": "9 种类型的安全解释表"
+        },
+        {
+          "level": "h2",
+          "text": "核心动机、核心恐惧、核心欲望怎么理解？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格结果怎么看？"
+        },
+        {
+          "level": "h2",
+          "text": "“最像我的类型”不一定是最舒服的类型"
+        },
+        {
+          "level": "h2",
+          "text": "类型不是身份，也不是命运"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格能帮助你观察什么？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格不能替你判断什么？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格和 MBTI 有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格和大五人格有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "九型人格和 EQ / 情绪能力有什么关系？"
+        },
+        {
+          "level": "h2",
+          "text": "如何把九型结果转成现实观察计划？"
+        },
+        {
+          "level": "h2",
+          "text": "什么时候建议做九型人格测试？"
+        },
+        {
+          "level": "h2",
+          "text": "下一步怎么做"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格测试准吗？"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格的 9 种类型分别代表什么？"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格结果怎么看？"
+        },
+        {
+          "level": "h3",
+          "text": "核心动机、核心恐惧和核心欲望是什么意思？"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格可以诊断心理问题吗？"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格和 MBTI 有什么区别？"
+        },
+        {
+          "level": "h3",
+          "text": "九型人格和大五人格有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "相关阅读 / internal links"
+        },
+        {
+          "level": "h2",
+          "text": "可信度与边界"
+        },
+        {
+          "level": "h2",
+          "text": "开始九型人格测试"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=enneagram-personality-test-explained&content_id=51&target_action=seo_cta_article_cta_1&test_slug=enneagram-personality-test-nine-types&target_test_slug=enneagram-personality-test-nine-types&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fenneagram-personality-test-explained&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=enneagram-personality-test-explained&content_id=51&target_action=seo_cta_article_cta_2&test_slug=enneagram-personality-test-nine-types&target_test_slug=enneagram-personality-test-nine-types&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fenneagram-personality-test-explained&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/mbti-basics",
+        "https://fermatmind.com/zh/articles/big-five-tool-guide",
+        "https://fermatmind.com/zh/articles/eq-test-tool-guide"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-04": {
+      "canonical": "https://fermatmind.com/zh/articles/gaokao-major-adjustment-unacceptable-major-checklist",
+      "current_title": "高考志愿要不要服从调剂？先排除不能接受专业 | FermatMind",
+      "current_meta": "填院校专业组前，别先争服从调剂。先把全部专业分成不能接受、待验证、可接受，再用课程、硬条件和家庭成本判断能否承担调剂风险。",
+      "current_h1": "高考志愿要不要服从调剂？先看院校专业组里的“不能接受专业”",
+      "current_snippet": "Not observed in controlled Top 10",
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "快速答案：先别急着点“服从”，先把最坏结果写出来"
+        },
+        {
+          "level": "h2",
+          "text": "真正让人焦虑的，不是“调剂”，是看不见的最坏结果"
+        },
+        {
+          "level": "h2",
+          "text": "第一步：先确认你面对的是哪种志愿模式"
+        },
+        {
+          "level": "h2",
+          "text": "第二步：别只看学校名，把组内所有专业复制出来"
+        },
+        {
+          "level": "h2",
+          "text": "第三步：三栏清单比“喜欢/不喜欢”更管用"
+        },
+        {
+          "level": "h3",
+          "text": "可直接复制的院校专业组三栏表"
+        },
+        {
+          "level": "h2",
+          "text": "“不能接受专业”不是一句狠话，要写出证据"
+        },
+        {
+          "level": "h3",
+          "text": "1. 硬条件红线：选科、体检、单科、语种"
+        },
+        {
+          "level": "h3",
+          "text": "2. 长期课程红线：不是难不难，是你能不能长期面对"
+        },
+        {
+          "level": "h3",
+          "text": "3. 工作活动红线：用 RIASEC 把“不喜欢”说具体"
+        },
+        {
+          "level": "h3",
+          "text": "4. 现实成本红线：学费、城市、学制、家庭承受力"
+        },
+        {
+          "level": "h3",
+          "text": "5. 转专业红线：只能靠转出去才愿意读，就不是低风险"
+        },
+        {
+          "level": "h2",
+          "text": "如果组里有 1-2 个不能接受专业，怎么办？"
+        },
+        {
+          "level": "h3",
+          "text": "三种可落地结论"
+        },
+        {
+          "level": "h2",
+          "text": "两个家庭场景：怎么把争吵改成表格"
+        },
+        {
+          "level": "h3",
+          "text": "场景一：孩子想冲计算机，父母看重学校层次"
+        },
+        {
+          "level": "h3",
+          "text": "场景二：父母推荐医学，孩子更想读传播"
+        },
+        {
+          "level": "h2",
+          "text": "给家长和学生的一段沟通脚本"
+        },
+        {
+          "level": "h2",
+          "text": "如果已经被调剂到不喜欢的专业，先别把它等同于失败"
+        },
+        {
+          "level": "h2",
+          "text": "什么时候用霍兰德职业兴趣测试？"
+        },
+        {
+          "level": "h2",
+          "text": "这篇文章和其他高考选专业文章怎么配合？"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "高考志愿要不要服从调剂？"
+        },
+        {
+          "level": "h3",
+          "text": "服从调剂会被调到不喜欢的专业吗？"
+        },
+        {
+          "level": "h3",
+          "text": "高考志愿不服从调剂会怎样？"
+        },
+        {
+          "level": "h3",
+          "text": "院校专业组里有一个不能接受专业，还能填吗？"
+        },
+        {
+          "level": "h3",
+          "text": "专业+院校模式还需要考虑服从调剂吗？"
+        },
+        {
+          "level": "h3",
+          "text": "被调剂到不喜欢的专业怎么办？"
+        },
+        {
+          "level": "h3",
+          "text": "霍兰德职业兴趣测试能决定要不要服从调剂吗？"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 能用来判断专业组是否能接受吗？"
+        },
+        {
+          "level": "h3",
+          "text": "FermatMind 是官方志愿填报系统吗？"
+        },
+        {
+          "level": "h2",
+          "text": "下一步：今晚只做一件事，把“不能接受”写成证据"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=gaokao-major-adjustment-unacceptable-major-checklist&content_id=58&target_action=seo_cta_article_cta_1&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fgaokao-major-adjustment-unacceptable-major-checklist&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=gaokao-major-adjustment-unacceptable-major-checklist&content_id=58&target_action=seo_cta_article_cta_2&test_slug=mbti-personality-test-16-personality-types&target_test_slug=mbti-personality-test-16-personality-types&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fgaokao-major-adjustment-unacceptable-major-checklist&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+        "https://fermatmind.com/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+        "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+        "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-05": {
+      "canonical": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "current_title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
+      "current_meta": "解释 RIASEC 六种职业兴趣类型、霍兰德测试能说明什么，以及如何把结果用于专业和职业探索。",
+      "current_h1": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+      "current_snippet": {
+        "rank": 1,
+        "title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
+        "snippet": "2026年6月23日 - RIASEC 是一种职业兴趣模型。它把人们对工作活动、问题类型和职业环境的偏好整理成六个方向：现实型、研究型、艺术型、社会型、企业型和常规型。 · 它也常被称为霍兰德职业兴趣模型，英文里经常用 Holland Code 表示。RIASEC 不是用来给你贴一个固定标签，也不是替你决定“应该做什么职业”。它更像一张职业探索地图：帮助你看清哪些活动更能激发你的持续投入，哪些环境可能让你长期消耗。"
+      },
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "Quick answer：霍兰德职业兴趣测试主要帮你看什么？"
+        },
+        {
+          "level": "h2",
+          "text": "这篇文章适合谁读？"
+        },
+        {
+          "level": "h2",
+          "text": "霍兰德职业兴趣测试 / RIASEC 是什么？"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC 六型怎么理解？"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC 不是测能力，而是看职业兴趣和工作环境"
+        },
+        {
+          "level": "h2",
+          "text": "霍兰德结果怎么看？"
+        },
+        {
+          "level": "h3",
+          "text": "1. 前两到三个高分区域比单一最高分更重要"
+        },
+        {
+          "level": "h3",
+          "text": "2. 分数接近时，不要急着下结论"
+        },
+        {
+          "level": "h3",
+          "text": "3. 低 differentiation 不是失败"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC 六型与工作环境有什么关系？"
+        },
+        {
+          "level": "h2",
+          "text": "consistency、differentiation、congruence 怎么理解？"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC、MBTI 和大五人格有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC 能帮助你判断什么？"
+        },
+        {
+          "level": "h2",
+          "text": "RIASEC 不能替你判断什么？"
+        },
+        {
+          "level": "h2",
+          "text": "做完 RIASEC 后，怎么验证结果？"
+        },
+        {
+          "level": "h2",
+          "text": "什么时候建议做霍兰德职业兴趣测试？"
+        },
+        {
+          "level": "h2",
+          "text": "下一步怎么做"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "霍兰德职业兴趣测试是什么？"
+        },
+        {
+          "level": "h3",
+          "text": "RIASEC 六型分别代表什么？"
+        },
+        {
+          "level": "h3",
+          "text": "霍兰德结果怎么看？"
+        },
+        {
+          "level": "h3",
+          "text": "霍兰德职业兴趣测试能告诉我最适合的职业吗？"
+        },
+        {
+          "level": "h3",
+          "text": "RIASEC 和 MBTI 有什么区别？"
+        },
+        {
+          "level": "h3",
+          "text": "RIASEC 和大五人格可以一起看吗？"
+        },
+        {
+          "level": "h3",
+          "text": "做完 RIASEC 测试后下一步应该做什么？"
+        },
+        {
+          "level": "h2",
+          "text": "相关阅读"
+        },
+        {
+          "level": "h2",
+          "text": "下一步：开始职业兴趣探索"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=riasec-holland-career-interest-test-explained&content_id=40&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fzh%2Farticles%2Friasec-holland-career-interest-test-explained&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+        "https://fermatmind.com/zh/articles/mbti-basics",
+        "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences",
+        "https://fermatmind.com/zh/articles/career-confusion-test-map",
+        "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-06": {
+      "canonical": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
+      "current_title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
+      "current_meta": "在线 IQ 测试可以观察矩阵推理、模式识别和抽象问题解决表现，但不等于正式智力测验。本文解释智商分数、题型、正式测验边界和安全使用方式。",
+      "current_h1": "在线 IQ 测试准吗？智商分数、题型和正式测验的区别一次讲清",
+      "current_snippet": {
+        "rank": 1,
+        "title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
+        "snippet": "2026年6月25日 - 如果你的意思是：在线测试能不能观察我在某些推理题上的表现？可以。FermatMind 当前公开 IQ 测试主要围绕矩阵推理、模式识别和抽象问题解决，这些任务可以帮助你观察自己在特定认知题型中的表现。 · 如果你的意思是：在线测试能不能给出和正式智力测验等价的结论？不能这样写。正式智力测验通常需要标准化施测条件、明确常模、专业解释和更严格的测量流程。一个公开在线测试如果没有公开这些依据，就不能被写成正式智力测验，也不能把结果解释成人群排名或临床判断。"
+      },
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "Quick answer：在线 IQ 测试准吗？"
+        },
+        {
+          "level": "h2",
+          "text": "适合谁读这篇文章"
+        },
+        {
+          "level": "h2",
+          "text": "在线 IQ 测试到底准不准？"
+        },
+        {
+          "level": "h2",
+          "text": "IQ 测试通常在测什么？"
+        },
+        {
+          "level": "h2",
+          "text": "FermatMind 当前 IQ 测试公开支持哪些题型 / 能力任务？"
+        },
+        {
+          "level": "h2",
+          "text": "在线 IQ 测试和正式智力测验有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "IQ 分数怎么看：原始分、任务表现、维度参考"
+        },
+        {
+          "level": "h2",
+          "text": "为什么“多少分算高”不能脱离常模？"
+        },
+        {
+          "level": "h2",
+          "text": "IQ 不能替你判断什么"
+        },
+        {
+          "level": "h2",
+          "text": "IQ 和 EQ 有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "IQ 测试结果如何转成可验证的学习 / 训练计划"
+        },
+        {
+          "level": "h2",
+          "text": "什么时候建议做 IQ 测试？"
+        },
+        {
+          "level": "h2",
+          "text": "下一步怎么做"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "在线 IQ 测试准吗？"
+        },
+        {
+          "level": "h3",
+          "text": "FermatMind 的 IQ 测试是正式智商测验吗？"
+        },
+        {
+          "level": "h3",
+          "text": "IQ 分数怎么看？"
+        },
+        {
+          "level": "h3",
+          "text": "IQ 测试通常有哪些题型？"
+        },
+        {
+          "level": "h3",
+          "text": "IQ 能决定一个人的能力吗？"
+        },
+        {
+          "level": "h3",
+          "text": "IQ 和 EQ 有什么区别？"
+        },
+        {
+          "level": "h3",
+          "text": "做完 IQ 测试后下一步应该做什么？"
+        },
+        {
+          "level": "h2",
+          "text": "相关阅读"
+        },
+        {
+          "level": "h2",
+          "text": "可信度与边界"
+        },
+        {
+          "level": "h2",
+          "text": "开始 IQ 测试"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=iq-test-score-and-limits-explained&content_id=50&target_action=seo_cta_primary_iq_test&test_slug=iq-test-intelligence-quotient-assessment&target_test_slug=iq-test-intelligence-quotient-assessment&cta_id=primary_iq_test&landing_path=%2Fzh%2Farticles%2Fiq-test-score-and-limits-explained&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/iq-test-growth-guide",
+        "https://fermatmind.com/zh/articles/iq-test-tool-guide",
+        "https://fermatmind.com/zh/articles/iq-test-narrative-portrait"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-07": {
+      "canonical": "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan",
+      "current_title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
+      "current_meta": "专业不对口找工作，先别急着把路堵死。用JD动词、课程项目、技能证据、实习验证和霍兰德兴趣，搭出跨专业求职路径。",
+      "current_h1": "专业不对口怎么找工作？JD拆解、技能证据和实习验证清单",
+      "current_snippet": {
+        "rank": 4,
+        "title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
+        "snippet": "2026年7月2日 - 专业不对口找工作，先别急着把路堵死。用JD动词、课程项目、技能证据、实习验证和霍兰德兴趣，搭出跨专业求职路径。"
+      },
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "快速答案：专业不对口找工作，先把“专业名”翻译成“岗位证据”"
+        },
+        {
+          "level": "h2",
+          "text": "1. 先分型：你到底是哪一种“不对口”？"
+        },
+        {
+          "level": "h2",
+          "text": "2. 不同年级的打法不同：不要用毕业焦虑压垮大一，也不要用大一幻想安慰应届生"
+        },
+        {
+          "level": "h2",
+          "text": "3. 读 JD：不要只看岗位名，要提取重复技能动词"
+        },
+        {
+          "level": "h2",
+          "text": "4. 证据强度有等级：不要把“看过课”误当成“能做事”"
+        },
+        {
+          "level": "h2",
+          "text": "5. 把专业证据翻译成岗位证据：你的专业不一定没用，只是还没被翻译"
+        },
+        {
+          "level": "h2",
+          "text": "6. 用霍兰德/RIASEC 看“工作活动”，不要让它替你判职业"
+        },
+        {
+          "level": "h2",
+          "text": "7. 30 天验证计划：不要用焦虑替代行动"
+        },
+        {
+          "level": "h2",
+          "text": "8. 90 天证据建设路线：课程要变成作品，作品要推向市场"
+        },
+        {
+          "level": "h2",
+          "text": "9. 简历怎么写：少道歉，多连接"
+        },
+        {
+          "level": "h3",
+          "text": "示例 1：文科专业转用户研究/产品助理"
+        },
+        {
+          "level": "h3",
+          "text": "示例 2：理工科转内容/运营"
+        },
+        {
+          "level": "h3",
+          "text": "示例 3：商科转数据分析"
+        },
+        {
+          "level": "h2",
+          "text": "10. 什么时候跨专业路径不够，需要正式训练？"
+        },
+        {
+          "level": "h2",
+          "text": "11. 和家长、导师、辅导员沟通前，准备这 5 份证据"
+        },
+        {
+          "level": "h2",
+          "text": "12. 本文负责什么，不负责什么"
+        },
+        {
+          "level": "h2",
+          "text": "下一步：先把兴趣结果转成岗位验证问题"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "专业不对口还能找工作吗？"
+        },
+        {
+          "level": "h3",
+          "text": "跨专业就业最重要的证据是什么？"
+        },
+        {
+          "level": "h3",
+          "text": "霍兰德职业兴趣测试能不能决定我适合什么工作？"
+        },
+        {
+          "level": "h3",
+          "text": "简历里怎么解释专业不对口？"
+        },
+        {
+          "level": "h3",
+          "text": "没有相关实习怎么办？"
+        },
+        {
+          "level": "h3",
+          "text": "哪些岗位不能只靠兴趣和项目跨过去？"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=major-career-mismatch-job-search-skills-plan&content_id=72&target_action=seo_cta_article_cta_1&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fmajor-career-mismatch-job-search-skills-plan&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=major-career-mismatch-job-search-skills-plan&content_id=72&target_action=seo_cta_article_cta_2&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fmajor-career-mismatch-job-search-skills-plan&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences",
+        "https://fermatmind.com/zh/articles/career-confusion-test-map"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-08": {
+      "canonical": "https://fermatmind.com/zh/articles/mbti-basics",
+      "current_title": "MBTI 是什么？16 型人格测试入门指南 | FermatMind",
+      "current_meta": "从四个维度了解 MBTI 是什么、16 型人格如何阅读，以及测试结果适合怎样用于自我反思。",
+      "current_h1": "MBTI 性格测试是什么？16 型人格能告诉你什么，不能告诉你什么",
+      "current_snippet": "Not observed in controlled Top 10",
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "Quick answer：MBTI 性格测试主要帮你看什么？"
+        },
+        {
+          "level": "h2",
+          "text": "这篇文章适合谁读？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 性格测试是什么？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 四个字母分别代表什么？"
+        },
+        {
+          "level": "h2",
+          "text": "16 型人格是怎么组合出来的？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 能帮助你观察什么？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 不能替你判断什么？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 结果怎么看？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 准吗：如何理解它的边界？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 和大五人格有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "MBTI 和 RIASEC / 霍兰德职业兴趣测试有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "如何把 MBTI 结果转成可验证的行动？"
+        },
+        {
+          "level": "h2",
+          "text": "什么时候建议做 MBTI 测试？"
+        },
+        {
+          "level": "h2",
+          "text": "下一步怎么做"
+        },
+        {
+          "level": "h2",
+          "text": "常见问题"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 是什么？"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 四个字母分别代表什么？"
+        },
+        {
+          "level": "h3",
+          "text": "16 型人格能告诉我什么？"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 准吗？"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 能决定职业吗？"
+        },
+        {
+          "level": "h3",
+          "text": "FermatMind 是官方 MBTI 测试吗？"
+        },
+        {
+          "level": "h3",
+          "text": "MBTI 和大五人格有什么区别？"
+        },
+        {
+          "level": "h2",
+          "text": "相关阅读"
+        },
+        {
+          "level": "h2",
+          "text": "下一步：开始 MBTI 性格测试"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=mbti-basics&content_id=8&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=mbti-personality-test-16-personality-types&target_test_slug=mbti-personality-test-16-personality-types&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fzh%2Farticles%2Fmbti-basics&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/articles/mbti-personality-test-science-vs-pseudoscience",
+        "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+        "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+        "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-09": {
+      "canonical": "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
+      "current_title": "情绪稳定性、压力恢复与清楚沟通 | FermatMind",
+      "current_meta": "Big Five Authority V2 draft candidate pending manual review.",
+      "current_h1": "情绪稳定性、压力恢复与清楚沟通",
+      "current_snippet": {
+        "rank": 1,
+        "title": "大五人格情绪稳定性低怎么办？压力触发、恢复节奏和沟通 ...",
+        "snippet": "2026年7月4日 - 测量自己，看见职业，训练未来。 · © 2026 FermatMind. 保留所有权利。"
+      },
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "先明确判断边界"
+        },
+        {
+          "level": "h2",
+          "text": "更稳妥的推理顺序"
+        },
+        {
+          "level": "h2",
+          "text": "具体场景"
+        },
+        {
+          "level": "h2",
+          "text": "反例与细节"
+        },
+        {
+          "level": "h2",
+          "text": "三步行动框架"
+        },
+        {
+          "level": "h2",
+          "text": "本文不能得出什么结论"
+        },
+        {
+          "level": "h2",
+          "text": "公开来源与限制"
+        },
+        {
+          "level": "h2",
+          "text": "继续查看权威入口"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/zh/topics",
+        "https://fermatmind.com/zh/career/guides",
+        "https://fermatmind.com/zh/articles",
+        "https://fermatmind.com/zh/science",
+        "https://fermatmind.com/zh/method-boundaries",
+        "https://fermatmind.com/zh/item-design-notes",
+        "https://fermatmind.com/zh/reliability-validity",
+        "https://fermatmind.com/zh/data-privacy",
+        "https://fermatmind.com/zh/common-misconceptions",
+        "https://fermatmind.com/zh/about",
+        "https://fermatmind.com/zh/brand",
+        "https://fermatmind.com/zh/charter",
+        "https://fermatmind.com/zh/foundation",
+        "https://fermatmind.com/zh/careers",
+        "https://fermatmind.com/zh/support",
+        "https://fermatmind.com/zh/privacy",
+        "https://fermatmind.com/zh/terms",
+        "https://fermatmind.com/zh/policies",
+        "https://fermatmind.com/",
+        "https://fermatmind.com/zh/tests",
+        "https://fermatmind.com/zh/personality",
+        "https://fermatmind.com/zh/career",
+        "https://fermatmind.com/zh/business",
+        "https://fermatmind.com/zh/tests?q=",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=big-five-emotional-stability-stress-recovery-communication&content_id=78&target_action=seo_cta_article_cta_1&test_slug=big-five-personality-test-ocean-model&target_test_slug=big-five-personality-test-ocean-model&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fredacted&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=big-five-emotional-stability-stress-recovery-communication&content_id=78&target_action=seo_cta_article_cta_2&test_slug=big-five-personality-test-ocean-model&target_test_slug=big-five-personality-test-ocean-model&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fredacted&entrypoint=seo_cta",
+        "https://fermatmind.com/zh/personality/big-five/neuroticism",
+        "https://fermatmind.com/zh/personality/big-five"
+      ],
+      "live_http_status": 200
+    },
+    "ARTICLE-REFRESH-10": {
+      "canonical": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "current_title": "What Is RIASEC? Holland Code Career Test Guide | FermatMind",
+      "current_meta": "Learn what RIASEC means, how the Holland Code career interest model works, and when to use a free career interest test for exploration.",
+      "current_h1": "What Is RIASEC? Understanding Holland Code Career Interests",
+      "current_snippet": "Not observed in controlled Top 10",
+      "current_outline": [
+        {
+          "level": "h3",
+          "text": "FAQ"
+        },
+        {
+          "level": "h2",
+          "text": "What Is RIASEC? How the Holland Code Supports Career Exploration"
+        },
+        {
+          "level": "h2",
+          "text": "1. The core definition of RIASEC"
+        },
+        {
+          "level": "h2",
+          "text": "2. How the RIASEC / Holland Code model works"
+        },
+        {
+          "level": "h2",
+          "text": "3. The six interest areas: definitions and combinations"
+        },
+        {
+          "level": "h3",
+          "text": "3.1 Realistic: working with concrete systems"
+        },
+        {
+          "level": "h3",
+          "text": "3.2 Investigative: understanding systems and causes"
+        },
+        {
+          "level": "h3",
+          "text": "3.3 Artistic: expression, design, and open-ended problems"
+        },
+        {
+          "level": "h3",
+          "text": "3.4 Social: work directed toward people"
+        },
+        {
+          "level": "h3",
+          "text": "3.5 Enterprising: influence, resources, and outcomes"
+        },
+        {
+          "level": "h3",
+          "text": "3.6 Conventional: building order in complex systems"
+        },
+        {
+          "level": "h2",
+          "text": "4. Why compound interest codes matter"
+        },
+        {
+          "level": "h2",
+          "text": "5. The Holland hexagon: consistency, differentiation, and congruence"
+        },
+        {
+          "level": "h3",
+          "text": "5.1 Consistency"
+        },
+        {
+          "level": "h3",
+          "text": "5.2 Differentiation"
+        },
+        {
+          "level": "h3",
+          "text": "5.3 Congruence"
+        },
+        {
+          "level": "h2",
+          "text": "6. RIASEC vs MBTI vs Big Five in career exploration"
+        },
+        {
+          "level": "h2",
+          "text": "7. How to use RIASEC for career exploration"
+        },
+        {
+          "level": "h2",
+          "text": "8. What should a full report help you examine?"
+        },
+        {
+          "level": "h2",
+          "text": "9. Limits of RIASEC"
+        },
+        {
+          "level": "h2",
+          "text": "10. What to do next"
+        },
+        {
+          "level": "h2",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": "h3",
+          "text": "Is RIASEC a career test?"
+        },
+        {
+          "level": "h3",
+          "text": "Is the Holland Code the same as RIASEC?"
+        },
+        {
+          "level": "h3",
+          "text": "Can RIASEC tell me my best career?"
+        },
+        {
+          "level": "h3",
+          "text": "What are consistency and differentiation in the Holland Code?"
+        },
+        {
+          "level": "h3",
+          "text": "Is RIASEC or MBTI better for career choice?"
+        },
+        {
+          "level": "h3",
+          "text": "Should I use Big Five together with RIASEC?"
+        }
+      ],
+      "current_internal_links": [
+        "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+        "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+        "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+        "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+        "https://fermatmind.com/en/topics",
+        "https://fermatmind.com/en/career/guides",
+        "https://fermatmind.com/en/articles",
+        "https://fermatmind.com/en/science",
+        "https://fermatmind.com/en/method-boundaries",
+        "https://fermatmind.com/en/item-design-notes",
+        "https://fermatmind.com/en/reliability-validity",
+        "https://fermatmind.com/en/data-privacy",
+        "https://fermatmind.com/en/common-misconceptions",
+        "https://fermatmind.com/en/about",
+        "https://fermatmind.com/en/brand",
+        "https://fermatmind.com/en/charter",
+        "https://fermatmind.com/en/foundation",
+        "https://fermatmind.com/en/careers",
+        "https://fermatmind.com/en/support",
+        "https://fermatmind.com/en/privacy",
+        "https://fermatmind.com/en/terms",
+        "https://fermatmind.com/en/policies",
+        "https://fermatmind.com/en",
+        "https://fermatmind.com/en/tests",
+        "https://fermatmind.com/en/personality",
+        "https://fermatmind.com/en/career",
+        "https://fermatmind.com/en/business",
+        "https://fermatmind.com/en/tests?q=",
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=what-is-riasec-holland-code-career-interest-test&content_id=41&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fen%2Farticles%2Fwhat-is-riasec-holland-code-career-interest-test&entrypoint=seo_cta"
+      ],
+      "live_http_status": 200
+    }
+  }
+}

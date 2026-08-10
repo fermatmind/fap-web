@@ -1,8 +1,8 @@
 # Top 10 query × SERP refresh briefs
 
-Captured at: 2026-08-10T12:00:00+08:00
+Acceptance revalidated at: 2026-08-10
 
-Selection unit: locale-page. Cohort: 9 ZH + 1 EN. Selection reproduces the strategy-locked first cohort using historical GSC baseline, current API/live evidence and current web-search samples. [article_serp_results.csv](article_serp_results.csv) is not a location/device-controlled Google Top 10; Top-10 SERP completeness stays UNKNOWN.
+Selection unit: locale-page. Cohort: 9 ZH + 1 EN. Selection reproduces the strategy-locked first cohort using historical GSC baseline, current API/live evidence and a controlled Brave Search snapshot. [article_serp_results.csv](article_serp_results.csv) now has exactly 100 rows: ranks 1–10 for each of ten queries. Country, search/UI language, stateless request and desktop user-agent controls are recorded in [article_controlled_serp_snapshots.json](article_controlled_serp_snapshots.json). This is a complete Top 10 for that provider capture, not a Google/GSC, city, personalized or future-rank guarantee.
 
 | # | Locale | Article | Query | Historical baseline | Primary metric |
 |---:|---|---|---|---|---|
@@ -17,4 +17,4 @@ Selection unit: locale-page. Cohort: 9 ZH + 1 EN. Selection reproduces the strat
 | 9 | zh | big-five-emotional-stability-stress-recovery-communication | 大五人格 情绪稳定性低 怎么办 | 0/155, pos 12.54 | CTR + action section engagement |
 | 10 | en | what-is-riasec-holland-code-career-interest-test | what is RIASEC Holland Code | 2/1755, pos 25.07 | ranking recovery + CTR + test click |
 
-Exact keep/revise/remove, source, CTA, FAQ, guardrail and 7/14/28-day fields are in the aggregate package JSON and ten individual package files. Competitor patterns were summarized; no competitor copy or structure was imitated.
+Current title, meta, H1, observed snippet status, outline and internal links are preserved in [article_top10_current_state.json](article_top10_current_state.json) and attached to every package. Exact body, source, CTA, FAQ, claim boundary, unresolved Unknown and 7/14/28-day fields are in the aggregate package JSON and ten individual package files. Competitor pages were used only to identify answer gaps; no competitor copy or distinctive structure was reused.

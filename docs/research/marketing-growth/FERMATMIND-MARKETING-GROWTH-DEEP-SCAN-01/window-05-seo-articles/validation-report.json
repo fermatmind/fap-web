@@ -1,115 +1,11 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01",
-  "validated_at": "2026-08-10T12:00:00+08:00",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-ACCEPTANCE-REPAIR",
+  "validated_at": "2026-08-10T13:23:51+08:00",
   "status": "PASS_WITH_DECLARED_EVIDENCE_BLOCKERS",
+  "acceptance_repair_complete": true,
   "checks": [
     {
-      "name": "required:00-executive-decision.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:01-sources-and-evidence-boundary.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:02-article-authority-inventory.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:03-article-performance-classification.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:04-top10-query-serp-refresh-briefs.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:05-assessment-topic-ownership.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:06-article-to-test-coverage-click-audit.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:07-public-topic-edge-design.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:08-top10-cms-refresh-cohort.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:09-top10-cms-refresh-package-qa.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:10-method-asset-source-ledger.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:11-method-asset-content-package.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:12-new-article-write-no-write.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:13-dead-content-90-day-plan.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:14-30-day-article-operations.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:15-implementation-dependencies-and-handoff.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:16-final-status.md",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
       "name": "required:article_performance_ledger.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_classification.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_query_ownership.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_top10_refresh_registry.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_serp_results.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
@@ -119,37 +15,17 @@
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_public_edge_registry.csv",
+      "name": "required:article_serp_results.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_cms_refresh_cohort.csv",
+      "name": "required:article_controlled_serp_snapshots.json",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_new_write_decisions.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_dead_candidate_ledger.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:method_asset_source_ledger.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_source_manifest.json",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_topic_owner_registry.json",
+      "name": "required:article_top10_current_state.json",
       "status": "PASS",
       "detail": "required artifact exists"
     },
@@ -159,24 +35,29 @@
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_method_asset_package.json",
+      "name": "required:article_top10_reference_ledger.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_90_day_review_spec.json",
+      "name": "required:article_source_manifest.json",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "csv_parse:article_performance_ledger.csv",
+      "name": "required:00-executive-decision.md",
       "status": "PASS",
-      "detail": "129 data rows; 67 headers"
+      "detail": "required artifact exists"
     },
     {
-      "name": "csv_formula_safety:article_performance_ledger.csv",
+      "name": "required:09-top10-cms-refresh-package-qa.md",
       "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:16-final-status.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
     },
     {
       "name": "csv_parse:article_classification.csv",
@@ -185,56 +66,6 @@
     },
     {
       "name": "csv_formula_safety:article_classification.csv",
-      "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
-    },
-    {
-      "name": "csv_parse:article_query_ownership.csv",
-      "status": "PASS",
-      "detail": "22 data rows; 16 headers"
-    },
-    {
-      "name": "csv_formula_safety:article_query_ownership.csv",
-      "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
-    },
-    {
-      "name": "csv_parse:article_top10_refresh_registry.csv",
-      "status": "PASS",
-      "detail": "10 data rows; 15 headers"
-    },
-    {
-      "name": "csv_formula_safety:article_top10_refresh_registry.csv",
-      "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
-    },
-    {
-      "name": "csv_parse:article_serp_results.csv",
-      "status": "PASS",
-      "detail": "18 data rows; 17 headers"
-    },
-    {
-      "name": "csv_formula_safety:article_serp_results.csv",
-      "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
-    },
-    {
-      "name": "csv_parse:article_to_test_coverage.csv",
-      "status": "PASS",
-      "detail": "129 data rows; 23 headers"
-    },
-    {
-      "name": "csv_formula_safety:article_to_test_coverage.csv",
-      "status": "PASS",
-      "detail": "0 unsafe leading formula cells"
-    },
-    {
-      "name": "csv_parse:article_public_edge_registry.csv",
-      "status": "PASS",
-      "detail": "375 data rows; 18 headers"
-    },
-    {
-      "name": "csv_formula_safety:article_public_edge_registry.csv",
       "status": "PASS",
       "detail": "0 unsafe leading formula cells"
     },
@@ -249,6 +80,16 @@
       "detail": "0 unsafe leading formula cells"
     },
     {
+      "name": "csv_parse:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 20 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
       "name": "csv_parse:article_new_write_decisions.csv",
       "status": "PASS",
       "detail": "7 data rows; 12 headers"
@@ -259,12 +100,72 @@
       "detail": "0 unsafe leading formula cells"
     },
     {
-      "name": "csv_parse:article_dead_candidate_ledger.csv",
+      "name": "csv_parse:article_performance_ledger.csv",
       "status": "PASS",
-      "detail": "129 data rows; 20 headers"
+      "detail": "129 data rows; 70 headers"
     },
     {
-      "name": "csv_formula_safety:article_dead_candidate_ledger.csv",
+      "name": "csv_formula_safety:article_performance_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_public_edge_registry.csv",
+      "status": "PASS",
+      "detail": "375 data rows; 18 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_public_edge_registry.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_query_ownership.csv",
+      "status": "PASS",
+      "detail": "22 data rows; 16 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_query_ownership.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_serp_results.csv",
+      "status": "PASS",
+      "detail": "100 data rows; 19 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_serp_results.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_to_test_coverage.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 25 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_to_test_coverage.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_top10_reference_ledger.csv",
+      "status": "PASS",
+      "detail": "38 data rows; 12 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_top10_reference_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_top10_refresh_registry.csv",
+      "status": "PASS",
+      "detail": "10 data rows; 15 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_top10_refresh_registry.csv",
       "status": "PASS",
       "detail": "0 unsafe leading formula cells"
     },
@@ -279,137 +180,206 @@
       "detail": "0 unsafe leading formula cells"
     },
     {
-      "name": "json_parse:article_source_manifest.json",
+      "name": "json_parse:article_90_day_review_spec.json",
       "status": "PASS",
-      "detail": "valid JSON object"
+      "detail": "valid JSON"
     },
     {
-      "name": "json_parse:article_topic_owner_registry.json",
+      "name": "json_parse:article_controlled_serp_snapshots.json",
       "status": "PASS",
-      "detail": "valid JSON object"
-    },
-    {
-      "name": "json_parse:article_top10_cms_refresh_packages.json",
-      "status": "PASS",
-      "detail": "valid JSON object"
+      "detail": "valid JSON"
     },
     {
       "name": "json_parse:article_method_asset_package.json",
       "status": "PASS",
-      "detail": "valid JSON object"
+      "detail": "valid JSON"
     },
     {
-      "name": "json_parse:article_90_day_review_spec.json",
+      "name": "json_parse:article_source_manifest.json",
       "status": "PASS",
-      "detail": "valid JSON object"
+      "detail": "valid JSON"
     },
     {
-      "name": "ledger_row_count",
+      "name": "json_parse:article_top10_cms_refresh_packages.json",
       "status": "PASS",
-      "detail": "129 current locale-page rows"
+      "detail": "valid JSON"
     },
     {
-      "name": "ledger_unique_article_ids",
+      "name": "json_parse:article_top10_current_state.json",
       "status": "PASS",
-      "detail": "129 unique article identities"
+      "detail": "valid JSON"
     },
     {
-      "name": "counting_units",
+      "name": "json_parse:article_topic_owner_registry.json",
       "status": "PASS",
-      "detail": "129 identities / 95 translation groups / 111 sitemap URLs are distinct units"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_count",
+      "name": "json_parse:packages/method-asset/method-asset-content-package.json",
       "status": "PASS",
-      "detail": "10 packages"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_unit",
+      "name": "json_parse:packages/method-asset/source-ledger.json",
       "status": "PASS",
-      "detail": "locale-page"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_existing_ids",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-01-big-five-tool-guide.json",
       "status": "PASS",
-      "detail": "every package binds an existing article identity"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_status_boundary",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-02-are-infj-men-rare-or-socially-silenced.json",
       "status": "PASS",
-      "detail": "content package only; no draft/publish/search submit"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_cta_public_canonical",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-03-enneagram-personality-test-explained.json",
       "status": "PASS",
-      "detail": "all package CTAs use one of six public canonical assessment landings"
+      "detail": "valid JSON"
     },
     {
-      "name": "top10_no_private_url",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-04-gaokao-major-adjustment-unacceptable-major-checklist.json",
       "status": "PASS",
-      "detail": "no private/result/order/share/payment/history/token/session package href"
+      "detail": "valid JSON"
     },
     {
-      "name": "faq_visible_schema_parity",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-05-riasec-holland-career-interest-test-explained.json",
       "status": "PASS",
-      "detail": "visible FAQ and expected schema counts equal for all packages"
+      "detail": "valid JSON"
     },
     {
-      "name": "unknown_review_fields",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-06-iq-test-score-and-limits-explained.json",
       "status": "PASS",
-      "detail": "all post-publication review fields remain Unknown"
+      "detail": "valid JSON"
     },
     {
-      "name": "method_status",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-07-major-career-mismatch-job-search-skills-plan.json",
       "status": "PASS",
-      "detail": "METHOD_ASSET_PACKAGE_READY_NOT_PUBLISHED"
+      "detail": "valid JSON"
     },
     {
-      "name": "method_claim_sources",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-08-mbti-basics.json",
       "status": "PASS",
-      "detail": "every supported claim maps to a source; unsupported product claim remains Unknown"
+      "detail": "valid JSON"
     },
     {
-      "name": "method_boundary",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-09-big-five-emotional-stability-stress-recovery-communication.json",
       "status": "PASS",
-      "detail": "not imported or published"
+      "detail": "valid JSON"
     },
     {
-      "name": "dead_content_wait",
+      "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-10-what-is-riasec-holland-code-career-interest-test.json",
       "status": "PASS",
-      "detail": "2026-11-08; no action authorized"
+      "detail": "valid JSON"
     },
     {
-      "name": "current_cms_cta_audit_complete",
+      "name": "json_parse:validation-report.json",
       "status": "PASS",
-      "detail": "2 current CMS alias targets detected and preserved as audit findings"
+      "detail": "valid JSON"
     },
     {
-      "name": "scope_only",
+      "name": "r01_row_count",
       "status": "PASS",
-      "detail": "50 worktree status entries; all under declared output directory"
+      "detail": "129/129 locale pages"
     },
     {
-      "name": "no_product_code",
+      "name": "r01_live_http",
       "status": "PASS",
-      "detail": "no runtime/frontend/public asset files changed"
+      "detail": "129/129 live HTTP 200"
+    },
+    {
+      "name": "r01_schema_fields_separated",
+      "status": "PASS",
+      "detail": "backend declarations and live JSON-LD have separate columns"
+    },
+    {
+      "name": "r01_jsonld_parse",
+      "status": "PASS",
+      "detail": "all live JSON-LD blocks parsed without error"
+    },
+    {
+      "name": "r01_schema_semantics",
+      "status": "PASS",
+      "detail": "live schema state follows parsed HTML and is not inferred from backend declarations"
+    },
+    {
+      "name": "r05_row_count",
+      "status": "PASS",
+      "detail": "129/129 locale pages"
+    },
+    {
+      "name": "r05_live_http",
+      "status": "PASS",
+      "detail": "129/129 live HTTP 200"
+    },
+    {
+      "name": "r05_cta_visibility",
+      "status": "PASS",
+      "detail": "129/129 CTA paths observed"
+    },
+    {
+      "name": "r05_cta_evidence",
+      "status": "PASS",
+      "detail": "visibility evidence records normalized href semantics"
+    },
+    {
+      "name": "controlled_serp_csv",
+      "status": "PASS",
+      "detail": "100 rows; 10 queries; ranks 1-10 with country/device controls"
+    },
+    {
+      "name": "controlled_serp_snapshots",
+      "status": "PASS",
+      "detail": "10 provider snapshots with 10 results and explicit controls"
+    },
+    {
+      "name": "top10_current_state",
+      "status": "PASS",
+      "detail": "10 current title/meta/H1/snippet/outline/internal-link snapshots; all live 200"
+    },
+    {
+      "name": "top10_package_contract",
+      "status": "PASS",
+      "detail": "10 full, article-specific, source-backed packages; content-only and not imported"
+    },
+    {
+      "name": "top10_body_uniqueness",
+      "status": "PASS",
+      "detail": "10/10 unique body SHA-256 values"
+    },
+    {
+      "name": "top10_faq_specificity",
+      "status": "PASS",
+      "detail": "40/40 topic-specific FAQ questions are unique"
+    },
+    {
+      "name": "english_v2_freeze_gate",
+      "status": "PASS",
+      "detail": "EN package requires independent V2 control and remains unfrozen"
+    },
+    {
+      "name": "reference_ledger",
+      "status": "PASS",
+      "detail": "38 unique direct-source rows match all package references"
+    },
+    {
+      "name": "source_manifest",
+      "status": "PASS",
+      "detail": "manifest records 129 live pages and controlled-provider SERP boundary"
     }
   ],
-  "declared_findings": {
-    "current_cms_noncanonical_cta_aliases": [
-      {
-        "locale": "en",
-        "slug": "big-five-personality-test-vs-mbti",
-        "href": "https://fermatmind.com/en/tests/big-five-personality-test"
-      },
-      {
-        "locale": "zh",
-        "slug": "big-five-personality-test-vs-mbti",
-        "href": "https://fermatmind.com/zh/tests/big-five-personality-test"
-      }
-    ],
-    "live_http_unknown_count": 19,
-    "current_gsc_complete_export": "Unknown",
-    "ga4_url_level_attribution": "Unknown"
-  },
-  "failures": []
+  "declared_evidence_blockers": [
+    "current complete GSC query×page×country×device exports",
+    "GA4 article URL attribution and M04/M06 funnel truth",
+    "A01, P03-P05, C06, G03/G04 and B03 cross-window authority artifacts"
+  ],
+  "forbidden_actions_performed": [
+
+  ],
+  "failure_count": 0,
+  "failures": [
+
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01",
-  "captured_at": "2026-08-10T12:00:00+08:00",
+  "captured_at": "2026-08-10T13:45:00+08:00",
   "counting_units": {
     "cms_article_identity": {
       "count": 129,
@@ -25,8 +25,8 @@
       "status": "VERIFIED"
     },
     "live_http_200": {
-      "count": 110,
-      "unknown_or_non_200": 19,
+      "count": 129,
+      "unknown_or_non_200": 0,
       "status": "VERIFIED by bounded live GET"
     },
     "gsc_observed_article_url": {
@@ -42,7 +42,7 @@
     {
       "source": "fap-api public articles list/detail",
       "url_path": "https://api.fermatmind.com/api/v0.5/articles",
-      "captured_at": "2026-08-10T12:00:00+08:00",
+      "captured_at": "2026-08-10T13:45:00+08:00",
       "locale": "zh-CN/en",
       "country_device": "not applicable",
       "date_window": "current read",
@@ -52,7 +52,7 @@
     {
       "source": "backend sitemap generator",
       "url_path": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
-      "captured_at": "2026-08-10T12:00:00+08:00",
+      "captured_at": "2026-08-10T13:45:00+08:00",
       "locale": "en/zh",
       "country_device": "not applicable",
       "date_window": "current read",
@@ -62,7 +62,7 @@
     {
       "source": "live HTML",
       "url_path": "129 current public article canonicals",
-      "captured_at": "2026-08-10T12:00:00+08:00",
+      "captured_at": "2026-08-10T13:45:00+08:00",
       "locale": "en/zh",
       "country_device": "CN/server fetch; device neutral HTML",
       "date_window": "current read",
@@ -90,14 +90,34 @@
       "limitation": "article URL breakdown unavailable; consent gate"
     },
     {
-      "source": "current web search samples",
-      "url_path": "article_serp_results.csv",
-      "captured_at": "2026-08-10T12:00:00+08:00",
+      "source": "controlled Brave Search Top 10 snapshots",
+      "url_path": "article_controlled_serp_snapshots.json + article_serp_results.csv",
+      "captured_at": "2026-08-10T13:45:00+08:00",
       "locale": "en/zh",
-      "country_device": "Unknown",
+      "country_device": "CN for zh / US for en; desktop Chrome user-agent; stateless logged-out request",
       "date_window": "current",
-      "evidence_status": "VERIFIED_SAMPLE",
-      "limitation": "not location/device-controlled Google Top 10"
+      "evidence_status": "VERIFIED_CONTROLLED_PROVIDER_SNAPSHOT",
+      "limitation": "provider-specific observed order; not GSC, Google, city/personalized or future-rank guarantee"
+    },
+    {
+      "source": "current live Top 10 article state",
+      "url_path": "article_top10_current_state.json",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "locale": "en/zh",
+      "country_device": "server HTML; device-neutral source",
+      "date_window": "current read",
+      "evidence_status": "VERIFIED",
+      "limitation": "captures title, meta, H1, outline and HTML links; not viewport-level visual QA"
+    },
+    {
+      "source": "Top 10 direct-source reference ledger",
+      "url_path": "article_top10_reference_ledger.csv",
+      "captured_at": "2026-08-10",
+      "locale": "en/zh",
+      "country_device": "not applicable",
+      "date_window": "current source review",
+      "evidence_status": "VERIFIED_DIRECT_SOURCES",
+      "limitation": "general research, standards and official policy support only their named claims; not FermatMind product validation"
     }
   ],
   "prohibited_data_read": false,

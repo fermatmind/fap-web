@@ -5,7 +5,7 @@
     "article_id": 41,
     "locale": "en",
     "translation_group_id": "riasec-explanation-article-2026-06-v2",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 67,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": true,
-    "english_v2_freeze_sha": "Unknown"
+    "english_v2_freeze_sha": "Unknown",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "f828f72a6364df9b54e661014189a5eeddcfd21657cbd3feee1fca09a9927c74"
   },
   "cms_fields": {
     "title": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits",
@@ -71,7 +74,7 @@
       "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "What Is RIASEC? Understanding Holland Code Career Interests",
+    "current_title": "What Is RIASEC? Holland Code Career Test Guide | FermatMind",
     "current_h1": "What Is RIASEC? Understanding Holland Code Career Interests",
     "current_cta": "Take the free RIASEC test",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -111,76 +114,325 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "what is RIASEC Holland Code",
+      "provider": "Brave Search web SERP",
+      "country_control": "US query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://www.careerkey.org/fit/personality/holland-code-assessment-riasec",
+          "domain": "careerkey.org",
+          "title": "Holland Code Assessment and RIASEC | Career Key",
+          "snippet": "Holland Code and abbreviation RIASEC refer to John Holland's 6 personality types. Career Key's assessment uses a unique matching system instead of 3-letter codes.",
+          "rank": 1
+        },
+        {
+          "url": "https://openpsychometrics.org/tests/RIASEC/",
+          "domain": "openpsychometrics.org",
+          "title": "Holland Code (RIASEC) Test",
+          "snippet": "This is an interactive version of the IIP RIASEC Markers · The Holland Occupational Themes is a theory of personality that focuses on career and vocational choice. It groups people on the basis of their suitability for six different categories of occupations.",
+          "rank": 2
+        },
+        {
+          "url": "https://jobcannon.io/tests/riasec",
+          "domain": "jobcannon.io",
+          "title": "Free Holland Code (RIASEC) Test: Your 3-Letter Career Code",
+          "snippet": "The RIASEC model, also known as Holland Codes, is the gold standard for career interest assessment. Developed by psychologist John Holland in 1959, it identifies six work personality types that predict career satisfaction and success.",
+          "rank": 3
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Holland_Codes",
+          "domain": "en.wikipedia.org",
+          "title": "Holland Codes - Wikipedia",
+          "snippet": "2026年6月22日 - The Holland Codes serve as a component of the interests assessment, the Strong Interest Inventory. In addition, the US Department of Labor's Employment and Training Administration has been using an updated and expanded version of the RIASEC model in the \"Interests\" section of its free online ...",
+          "rank": 4
+        },
+        {
+          "url": "https://talentinsights.com/blog/holland-code-personality-types/",
+          "domain": "talentinsights.com",
+          "title": "Holland Code Personality Types Explained: RIASEC Career Interests",
+          "snippet": "2026年6月10日 - Holland Code personality types, also called RIASEC career interests, describe the kinds of work environments people are naturally drawn toward. The six Holland environments are Realistic, Investigative, Artistic, Social, Enterprising, and ...",
+          "rank": 5
+        },
+        {
+          "url": "https://www.assessment.com/post/holland-codes-riasec-explained-simple-guide-to-career-interests-fit",
+          "domain": "assessment.com",
+          "title": "Holland Codes (RIASEC) Explained: Simple Guide to Career Interests & Fit",
+          "snippet": "Holland Codes also called RIASEC are a simple way to describe your career interests. Psychologist John Holland grouped most work interests into six types. Your top 2–3 letters (e.g., ISE or ARS) form a shorthand of what motivates you and the kinds of tasks, people, and environments you prefer.",
+          "rank": 6
+        },
+        {
+          "url": "https://students-hub.com/en/holland",
+          "domain": "students-hub.com",
+          "title": "Free Holland Code Career Test (RIASEC) — Find Your Major & Career | Students Hub",
+          "snippet": "The Holland Code (RIASEC) is a globally recognized scientific tool for identifying your career interests and discovering the university majors best suited to your personality.",
+          "rank": 7
+        },
+        {
+          "url": "https://high5test.com/what-are-holland-codes/",
+          "domain": "high5test.com",
+          "title": "What Are Holland Codes? A Guide to RIASEC Career Matching",
+          "snippet": "2025年12月29日 - Holland Codes, also known as the RIASEC model, is a six‐type system of vocational interests developed by psychologist John L. Holland. At its core, Holland’s person–environment fit theory posits that people experience greater satisfaction, ...",
+          "rank": 8
+        },
+        {
+          "url": "https://riasectest.com/",
+          "domain": "riasectest.com",
+          "title": "Riasec Test Online - RiasecTest.com",
+          "snippet": "... A Riasec Test, often referred to as the Holland Code or RIASEC assessment, is a career guidance tool. It identifies your primary interests across six categories: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional.",
+          "rank": 9
+        },
+        {
+          "url": "https://personalityjunkie.com/holland-code-riasec-career-interests-myers-briggs-types/",
+          "domain": "personalityjunkie.com",
+          "title": "Holland Code (RIASEC) Career Interests & Myers-Briggs Types | Personality Junkie",
+          "snippet": "These include the Realistic (R), Investigative (I), Artistic (A), Social (S), Enterprising (E), and Conventional (C) domains—collectively known as “RIASEC.” · After identifying your top two or three interest themes, the letters can be ...",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "Learn what RIASEC means, how the Holland Code career interest model works, and when to use a free career interest test for exploration.",
+    "current_snippet": "Not observed in controlled Top 10",
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "What Is RIASEC? How the Holland Code Supports Career Exploration"
+      },
+      {
+        "level": "h2",
+        "text": "1. The core definition of RIASEC"
+      },
+      {
+        "level": "h2",
+        "text": "2. How the RIASEC / Holland Code model works"
+      },
+      {
+        "level": "h2",
+        "text": "3. The six interest areas: definitions and combinations"
+      },
+      {
+        "level": "h3",
+        "text": "3.1 Realistic: working with concrete systems"
+      },
+      {
+        "level": "h3",
+        "text": "3.2 Investigative: understanding systems and causes"
+      },
+      {
+        "level": "h3",
+        "text": "3.3 Artistic: expression, design, and open-ended problems"
+      },
+      {
+        "level": "h3",
+        "text": "3.4 Social: work directed toward people"
+      },
+      {
+        "level": "h3",
+        "text": "3.5 Enterprising: influence, resources, and outcomes"
+      },
+      {
+        "level": "h3",
+        "text": "3.6 Conventional: building order in complex systems"
+      },
+      {
+        "level": "h2",
+        "text": "4. Why compound interest codes matter"
+      },
+      {
+        "level": "h2",
+        "text": "5. The Holland hexagon: consistency, differentiation, and congruence"
+      },
+      {
+        "level": "h3",
+        "text": "5.1 Consistency"
+      },
+      {
+        "level": "h3",
+        "text": "5.2 Differentiation"
+      },
+      {
+        "level": "h3",
+        "text": "5.3 Congruence"
+      },
+      {
+        "level": "h2",
+        "text": "6. RIASEC vs MBTI vs Big Five in career exploration"
+      },
+      {
+        "level": "h2",
+        "text": "7. How to use RIASEC for career exploration"
+      },
+      {
+        "level": "h2",
+        "text": "8. What should a full report help you examine?"
+      },
+      {
+        "level": "h2",
+        "text": "9. Limits of RIASEC"
+      },
+      {
+        "level": "h2",
+        "text": "10. What to do next"
+      },
+      {
+        "level": "h2",
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "level": "h3",
+        "text": "Is RIASEC a career test?"
+      },
+      {
+        "level": "h3",
+        "text": "Is the Holland Code the same as RIASEC?"
+      },
+      {
+        "level": "h3",
+        "text": "Can RIASEC tell me my best career?"
+      },
+      {
+        "level": "h3",
+        "text": "What are consistency and differentiation in the Holland Code?"
+      },
+      {
+        "level": "h3",
+        "text": "Is RIASEC or MBTI better for career choice?"
+      },
+      {
+        "level": "h3",
+        "text": "Should I use Big Five together with RIASEC?"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/en/topics",
+      "https://fermatmind.com/en/career/guides",
+      "https://fermatmind.com/en/articles",
+      "https://fermatmind.com/en/science",
+      "https://fermatmind.com/en/method-boundaries",
+      "https://fermatmind.com/en/item-design-notes",
+      "https://fermatmind.com/en/reliability-validity",
+      "https://fermatmind.com/en/data-privacy",
+      "https://fermatmind.com/en/common-misconceptions",
+      "https://fermatmind.com/en/about",
+      "https://fermatmind.com/en/brand",
+      "https://fermatmind.com/en/charter",
+      "https://fermatmind.com/en/foundation",
+      "https://fermatmind.com/en/careers",
+      "https://fermatmind.com/en/support",
+      "https://fermatmind.com/en/privacy",
+      "https://fermatmind.com/en/terms",
+      "https://fermatmind.com/en/policies",
+      "https://fermatmind.com/en",
+      "https://fermatmind.com/en/tests",
+      "https://fermatmind.com/en/personality",
+      "https://fermatmind.com/en/career",
+      "https://fermatmind.com/en/business",
+      "https://fermatmind.com/en/tests?q=",
+      "https://fermatmind.com/en/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=what-is-riasec-holland-code-career-interest-test&content_id=41&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fen%2Farticles%2Fwhat-is-riasec-holland-code-career-interest-test&entrypoint=seo_cta"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "Quick answer",
-      "draft": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits. Start with a plain definition, then distinguish what the result describes from ability, eligibility, diagnosis, or guaranteed outcomes."
+      "section": "The short answer",
+      "draft_markdown": "RIASEC is a framework for describing vocational interests across six broad areas: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional. A result can help you name work activities you may want to explore. It does not identify one perfect career, prove that you have a skill, or guarantee satisfaction, income, admission, or hiring.\n\nThe framework and a particular questionnaire are not the same thing. Before interpreting any score, check the instrument, version, language, item count, scoring method, comparison group, and stated purpose. FermatMind's current public materials do not provide product-specific reliability, validity, norms, percentiles, or cross-language equivalence values. Those evidence fields remain Unknown and must not be borrowed from another RIASEC instrument."
     },
     {
-      "section": "What the model organizes",
-      "draft": "Explain the dimensions in observable language. Keep the result as a profile, not a fixed identity, and state the instrument/version whenever available."
+      "section": "The six interest areas",
+      "draft_markdown": "- **Realistic (R):** practical, physical, technical, outdoor, or equipment-related activities.\n- **Investigative (I):** researching, analyzing, diagnosing, and solving conceptual or scientific problems.\n- **Artistic (A):** creating, designing, writing, performing, or working with open-ended expression.\n- **Social (S):** teaching, helping, advising, caring, and supporting development.\n- **Enterprising (E):** persuading, leading, selling, negotiating, and mobilizing resources.\n- **Conventional (C):** organizing information, maintaining records, following procedures, and supporting reliable operations.\n\nThese are interest categories, not personality verdicts. Someone can enjoy investigative tasks and still dislike a specific research job. A person can also perform a task well without wanting it to dominate their working week."
     },
     {
-      "section": "How to use the result",
-      "draft": "Turn the top signals into two hypotheses, collect one supporting example and one counterexample, and test one reversible action in a real setting."
+      "section": "What a three-letter Holland code means",
+      "draft_markdown": "Many reports show the three highest areas, such as IAS or SEC. The order suggests relative prominence within that instrument and response, but it is not a complete identity. Close scores may make the order unstable; different forms or current experiences can also change the result.\n\nDo not assume that a code maps mechanically to one occupation. Occupational databases may associate jobs with interest profiles, yet local job titles, tasks, entry requirements, and working conditions vary. Treat matches as a research queue."
     },
     {
-      "section": "Limits and evidence",
-      "draft": "Separate general model evidence from FermatMind-specific evidence. Reliability, validity, norms, percentile meaning, and sample composition remain Unknown unless a public technical record supports them."
+      "section": "A five-step interpretation method",
+      "draft_markdown": "1. **Verify the instrument.** Record its name, version, form length, language, and date.\n2. **Read all six scores.** Note gaps and ties instead of focusing only on the top code.\n3. **Translate scores into activities.** Write two tasks you enjoy and one counterexample for each leading area.\n4. **Research occupations.** Compare daily tasks, tools, work context, education, licensing, and Job Zone requirements.\n5. **Run a small experiment.** Try an informational interview, short course, volunteer task, job shadow, or portfolio exercise before making a costly commitment.\n\nFor example, an Investigative–Artistic result might prompt you to compare data visualization, science communication, user research, and laboratory roles. The test has generated hypotheses; the experiments provide evidence."
+    },
+    {
+      "section": "RIASEC does not measure skill or employability",
+      "draft_markdown": "Interest asks what activities attract or sustain attention. Skill asks what you can currently do to a required standard. Employability also depends on qualifications, evidence, location, language, accessibility, labor demand, and employer decisions. These questions must be assessed separately.\n\nA high Social score does not certify counseling competence. A high Enterprising score does not prove sales performance. Regulated occupations may require specific education, supervised practice, or licenses regardless of interest."
+    },
+    {
+      "section": "Comparing 60-item and longer forms",
+      "draft_markdown": "Form length can affect coverage, fatigue, and score precision, but “more items” does not automatically mean a tool is valid for every purpose. Compare the exact instrument documentation: intended population, administration, scoring, reliability, validity, norms, accessibility, and language adaptation.\n\nO*NET publishes documentation for its Interest Profiler, including multiple forms and a Mini Interest Profiler API. That documentation supports claims about those named instruments only. It does not validate a different website's RIASEC test."
+    },
+    {
+      "section": "Language and cultural adaptation",
+      "draft_markdown": "Translating words is not enough. Test adaptation should examine construct relevance, item meaning, administration, scoring, and evidence in the target population. A result in one language should not be claimed equivalent to another version unless the instrument provides appropriate evidence."
+    },
+    {
+      "section": "Safe uses and boundaries",
+      "draft_markdown": "RIASEC can support career exploration, question generation, and low-risk experiments. It should not be used as the sole basis for hiring, school admission, ability certification, mental-health diagnosis, or deterministic career recommendations. Keep practical constraints and counterevidence visible."
     },
     {
       "section": "Next step",
-      "draft": "Use a focused public CTA to https://fermatmind.com/en/tests/holland-career-interest-test-riasec; do not promise matching, success, hiring, admission, or income outcomes."
+      "draft_markdown": "You can use the [FermatMind RIASEC career interest test](https://fermatmind.com/en/tests/holland-career-interest-test-riasec) as a structured exploration prompt. Afterward, turn your leading areas into three occupations to research and one small activity to try. Do not treat the code as a final career decision."
+    },
+    {
+      "section": "References",
+      "draft_markdown": "1. O*NET Resource Center. [O*NET Interest Profiler Manual](https://www.onetcenter.org/reports/IP_Manual.html).\n2. O*NET Web Services. [Mini Interest Profiler API Reference](https://services.onetcenter.org/reference/mnm/ip/ip_interests).\n3. O*NET OnLine. [Scales, Ratings, and Standardized Scores](https://www.onetonline.org/help/online/scales).\n4. International Test Commission. (2017). [ITC Guidelines for Translating and Adapting Tests, Second Edition](https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf)."
     }
   ],
   "faq_entries": [
     {
-      "question": "What does this framework measure?",
-      "answer": "It organizes self-reported interests or preferences for exploration; it does not measure every skill or guarantee an outcome."
+      "question": "What do the six RIASEC letters mean?",
+      "answer": "They stand for Realistic, Investigative, Artistic, Social, Enterprising, and Conventional vocational interests."
     },
     {
-      "question": "Can one result choose a career or major for me?",
-      "answer": "No. Use the result to form options, then verify requirements, work activities, constraints, and real experience."
+      "question": "Does a three-letter Holland code identify one best career?",
+      "answer": "No. It creates occupations to investigate; tasks, skills, qualifications, context, and constraints still need direct evidence."
     },
     {
-      "question": "Why might results change?",
-      "answer": "Item wording, context, recent experience, response style, and the instrument version can all affect a self-report result."
+      "question": "Is a longer RIASEC form always more accurate?",
+      "answer": "No. Form length alone does not establish validity; examine the named instrument's purpose, coverage, reliability, validity, norms, and population."
     },
     {
-      "question": "What should I do next?",
-      "answer": "Write down two hypotheses, one counterexample, and one low-risk action to test before making a high-stakes decision."
+      "question": "Can RIASEC be used to screen applicants?",
+      "answer": "This guide does not support using an interest result alone for hiring, admission, ability certification, diagnosis, or deterministic recommendations."
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "Start the public RIASEC interest assessment",
     "href": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
     "target_test_slug": "holland-career-interest-test-riasec",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/en/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/en/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -197,6 +449,117 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-10-what-is-riasec-holland-code-career-interest-test.md",
+  "body_markdown": "# What Is RIASEC? A Practical Guide to Holland Career Interest Codes\n\n## The short answer\n\nRIASEC is a framework for describing vocational interests across six broad areas: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional. A result can help you name work activities you may want to explore. It does not identify one perfect career, prove that you have a skill, or guarantee satisfaction, income, admission, or hiring.\n\nThe framework and a particular questionnaire are not the same thing. Before interpreting any score, check the instrument, version, language, item count, scoring method, comparison group, and stated purpose. FermatMind's current public materials do not provide product-specific reliability, validity, norms, percentiles, or cross-language equivalence values. Those evidence fields remain Unknown and must not be borrowed from another RIASEC instrument.\n\n## The six interest areas\n\n- **Realistic (R):** practical, physical, technical, outdoor, or equipment-related activities.\n- **Investigative (I):** researching, analyzing, diagnosing, and solving conceptual or scientific problems.\n- **Artistic (A):** creating, designing, writing, performing, or working with open-ended expression.\n- **Social (S):** teaching, helping, advising, caring, and supporting development.\n- **Enterprising (E):** persuading, leading, selling, negotiating, and mobilizing resources.\n- **Conventional (C):** organizing information, maintaining records, following procedures, and supporting reliable operations.\n\nThese are interest categories, not personality verdicts. Someone can enjoy investigative tasks and still dislike a specific research job. A person can also perform a task well without wanting it to dominate their working week.\n\n## What a three-letter Holland code means\n\nMany reports show the three highest areas, such as IAS or SEC. The order suggests relative prominence within that instrument and response, but it is not a complete identity. Close scores may make the order unstable; different forms or current experiences can also change the result.\n\nDo not assume that a code maps mechanically to one occupation. Occupational databases may associate jobs with interest profiles, yet local job titles, tasks, entry requirements, and working conditions vary. Treat matches as a research queue.\n\n## A five-step interpretation method\n\n1. **Verify the instrument.** Record its name, version, form length, language, and date.\n2. **Read all six scores.** Note gaps and ties instead of focusing only on the top code.\n3. **Translate scores into activities.** Write two tasks you enjoy and one counterexample for each leading area.\n4. **Research occupations.** Compare daily tasks, tools, work context, education, licensing, and Job Zone requirements.\n5. **Run a small experiment.** Try an informational interview, short course, volunteer task, job shadow, or portfolio exercise before making a costly commitment.\n\nFor example, an Investigative–Artistic result might prompt you to compare data visualization, science communication, user research, and laboratory roles. The test has generated hypotheses; the experiments provide evidence.\n\n## RIASEC does not measure skill or employability\n\nInterest asks what activities attract or sustain attention. Skill asks what you can currently do to a required standard. Employability also depends on qualifications, evidence, location, language, accessibility, labor demand, and employer decisions. These questions must be assessed separately.\n\nA high Social score does not certify counseling competence. A high Enterprising score does not prove sales performance. Regulated occupations may require specific education, supervised practice, or licenses regardless of interest.\n\n## Comparing 60-item and longer forms\n\nForm length can affect coverage, fatigue, and score precision, but “more items” does not automatically mean a tool is valid for every purpose. Compare the exact instrument documentation: intended population, administration, scoring, reliability, validity, norms, accessibility, and language adaptation.\n\nO*NET publishes documentation for its Interest Profiler, including multiple forms and a Mini Interest Profiler API. That documentation supports claims about those named instruments only. It does not validate a different website's RIASEC test.\n\n## Language and cultural adaptation\n\nTranslating words is not enough. Test adaptation should examine construct relevance, item meaning, administration, scoring, and evidence in the target population. A result in one language should not be claimed equivalent to another version unless the instrument provides appropriate evidence.\n\n## Safe uses and boundaries\n\nRIASEC can support career exploration, question generation, and low-risk experiments. It should not be used as the sole basis for hiring, school admission, ability certification, mental-health diagnosis, or deterministic career recommendations. Keep practical constraints and counterevidence visible.\n\n## Next step\n\nYou can use the [FermatMind RIASEC career interest test](https://fermatmind.com/en/tests/holland-career-interest-test-riasec) as a structured exploration prompt. Afterward, turn your leading areas into three occupations to research and one small activity to try. Do not treat the code as a final career decision.\n\n## References\n\n1. O*NET Resource Center. [O*NET Interest Profiler Manual](https://www.onetcenter.org/reports/IP_Manual.html).\n2. O*NET Web Services. [Mini Interest Profiler API Reference](https://services.onetcenter.org/reference/mnm/ip/ip_interests).\n3. O*NET OnLine. [Scales, Ratings, and Standardized Scores](https://www.onetonline.org/help/online/scales).\n4. International Test Commission. (2017). [ITC Guidelines for Translating and Adapting Tests, Second Edition](https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf).\n",
+  "body_character_count": 5861,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-10-S02",
+      "title": "O*NET Interest Profiler Manual",
+      "author_or_publisher": "O*NET Resource Center.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.onetcenter.org/reports/IP_Manual.html",
+      "source_type": "official_occupational_instrument_documentation",
+      "claims_supported": "RIASEC instrument documentation, score interpretation and test adaptation",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-10-S03",
+      "title": "Mini Interest Profiler API Reference",
+      "author_or_publisher": "O*NET Web Services.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://services.onetcenter.org/reference/mnm/ip/ip_interests",
+      "source_type": "official_occupational_api_documentation",
+      "claims_supported": "RIASEC instrument documentation, score interpretation and test adaptation",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-10-S04",
+      "title": "Scales, Ratings, and Standardized Scores",
+      "author_or_publisher": "O*NET OnLine.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.onetonline.org/help/online/scales",
+      "source_type": "official_occupational_information",
+      "claims_supported": "RIASEC instrument documentation, score interpretation and test adaptation",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-10-S05",
+      "title": "ITC Guidelines for Translating and Adapting Tests, Second Edition",
+      "author_or_publisher": "International Test Commission. (2017).",
+      "year": "2017",
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf",
+      "source_type": "professional_measurement_guideline",
+      "claims_supported": "RIASEC instrument documentation, score interpretation and test adaptation",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-10-S02",
+    "ARTICLE-REFRESH-10-S03",
+    "ARTICLE-REFRESH-10-S04",
+    "ARTICLE-REFRESH-10-S05"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "FermatMind-specific RIASEC form evidence, norms, percentiles and cross-language equivalence",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }

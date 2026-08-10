@@ -5,7 +5,7 @@
     "article_id": 8,
     "locale": "zh",
     "translation_group_id": "article-8",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 72,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "12d81c75e2f022fbfbec1dd4a932e55cef25b6d84bb00ee9d0fee163037b369a"
   },
   "cms_fields": {
     "title": "MBTI 是什么？四组偏好、16 型人格与使用边界",
@@ -68,7 +71,7 @@
       "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "MBTI 性格测试是什么？16 型人格能告诉你什么，不能告诉你什么",
+    "current_title": "MBTI 是什么？16 型人格测试入门指南 | FermatMind",
     "current_h1": "MBTI 性格测试是什么？16 型人格能告诉你什么，不能告诉你什么",
     "current_cta": "开始免费 MBTI 测试",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -108,76 +111,309 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "MBTI 是什么",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://baike.baidu.com/item/%E8%BF%88%E5%B0%94%E6%96%AF%E5%B8%83%E9%87%8C%E6%A0%BC%E6%96%AF%E7%B1%BB%E5%9E%8B%E6%8C%87%E6%A0%87/854525",
+          "domain": "baike.baidu.com",
+          "title": "迈尔斯布里格斯类型指标_百度百科",
+          "snippet": "迈尔斯布里格斯类型指标是在荣格心理类型理论的基础上编制的一种人格类型评估工具。 · MBTI理论认为，人的心理可以通过四个维度来描述，即个体能量的流动方向：外倾（Extraversion, E）与内倾（Introversion, I）偏好；个体获取信息的感知方式：感觉（Sensing, S）与直觉（Intuition, N）偏好；个体处理信息的决策方式：思考（Thinking, T）与情感（Feeling, F）偏好；个体与周围世界的接触方式：判断（Judging, J）与知觉（Perceiving, P）偏好。",
+          "rank": 1
+        },
+        {
+          "url": "https://wiki.mbalib.com/wiki/MBTI%E4%BA%BA%E6%A0%BC%E7%90%86%E8%AE%BA",
+          "domain": "wiki.mbalib.com",
+          "title": "MBTI人格理论 - MBA智库百科",
+          "snippet": "MBTI人格理论(迈尔斯类型指标,Myers Briggs Type Indicator,MBTI)——国际最为流行的职业人格评估工具人的性格倾向，就象分别使用自己的两只手写字一样，都可以写出来，但惯用的那只写出的会比另一只更好。MBTI是根据荣格的心理类型理论著成，目前已经成为权威的性格测试，Psytopic特别制作了这一在线测试，希望能帮助一些朋友。欢迎人力资源部的朋友，在招聘和任职中试用本测试；同时也可作为个人职业生涯规划分析的参考工具。",
+          "rank": 2
+        },
+        {
+          "url": "https://www.16personalities.com/ch/%E7%B1%BB%E5%9E%8B%E6%8F%8F%E8%BF%B0",
+          "domain": "16personalities.com",
+          "title": "人格类型 | 16Personalities",
+          "snippet": "跳到主要内容 · 跳转到无障碍选项 · 登录 简体中文 · 人格类型 · 分析家 · 架构师 · INTJ-A / INTJ-T · 富有想象力且善于策略思考，总有周全的计划。 · 逻辑学家 · INTP-A / INTP-T",
+          "rank": 3
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/620237782",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "通过 MBTI 了解性格,什么是MBTI？ - 知乎",
+          "snippet": "迈尔斯-布里格斯类型指标（Myers–Briggs Type Indicator，MBTI）是由美国作家伊莎贝尔·布里格斯·迈尔斯和她的母亲凯瑟琳·库克·布里格斯共同制定的一种人格类型理论模型。",
+          "rank": 4
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/647252827",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "MBTI性格测试是什么？ - 知乎",
+          "snippet": "2023年8月1日 - MBTI人格测试基于每个人对问题的回答来推断他们独特的性格。MBTI回答了为什么世界上每个人都有不同的个性。没有人是一样的。如今，MBTI越来越受欢迎，并被用作帮助我们了解自己和周围人或追求合适职业的非常准确的人格分类方法。",
+          "rank": 5
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/504111872",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "MBTI是什么 - 知乎",
+          "snippet": "MBTI是Myers–Briggs Type Indicator 由这4个单词的首字母缩写而成，MBTI翻译：迈尔斯-布里格斯类型指标。是由美国作家伊莎贝尔·布里格斯·迈尔斯和她的母亲凯瑟琳·库克·布里格斯共同制定...",
+          "rank": 6
+        },
+        {
+          "url": "https://zh.wikipedia.org/zh-hans/%E9%82%81%E7%88%BE%E6%96%AF-%E5%B8%83%E9%87%8C%E6%A0%BC%E6%96%AF%E9%A1%9E%E5%9E%8B%E6%8C%87%E6%A8%99",
+          "domain": "zh.wikipedia.org",
+          "title": "迈尔斯-布里格斯类型指标 - 维基百科，自由的百科全书",
+          "snippet": "2026年6月30日 - 四组偏好的词义（例如“...类型学）。在类型学中，“偏好”是先天的取向，指的是人们“更喜欢什么”，并无优劣或对错之分，这类似于惯用手。MBTI评量并不衡量能力，它仅表示一种偏好优先于另一种偏好...",
+          "rank": 7
+        },
+        {
+          "url": "https://www.16personalities.com/ch/%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95",
+          "domain": "16personalities.com",
+          "title": "免费人格测试 | 16Personalities",
+          "snippet": "跳到主要内容 · 跳转到无障碍选项 · 登录 简体中文 · Terms & Conditions · Accessibility · Our content is available in multiple languages through both human and AI-assisted translation. While we strive for accuracy, the English version remains the official text",
+          "rank": 8
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/68912379",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "了解MBTI,MBTI解读",
+          "snippet": "知乎，让每一次点击都充满意义 —— 欢迎来到知乎，发现问题背后的世界。",
+          "rank": 9
+        },
+        {
+          "url": "https://www.huxiu.com/article/4835937.html",
+          "domain": "huxiu.com",
+          "title": "过个年，我再一次深刻理解了MBTI测试的价值-虎嗅网",
+          "snippet": "2026年2月20日 - 这个测试最开始是干嘛的呢？其实是帮助女性走入职场的，让女性能更加了解自己是什么样的人，适合什么类型的工作。 · 但是现在，测试不仅应用于女性了，男性也一样可以测。 · 而且，我认为，这个测试已经不仅局限于职场了，关系中也同样适用。 · MBTI测试，主要看一个人的四方面特点：精力来源、认知方式、判断方式、生活态度。",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "从四个维度了解 MBTI 是什么、16 型人格如何阅读，以及测试结果适合怎样用于自我反思。",
+    "current_snippet": "Not observed in controlled Top 10",
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "Quick answer：MBTI 性格测试主要帮你看什么？"
+      },
+      {
+        "level": "h2",
+        "text": "这篇文章适合谁读？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 性格测试是什么？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 四个字母分别代表什么？"
+      },
+      {
+        "level": "h2",
+        "text": "16 型人格是怎么组合出来的？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 能帮助你观察什么？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 不能替你判断什么？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 结果怎么看？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 准吗：如何理解它的边界？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 和大五人格有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "MBTI 和 RIASEC / 霍兰德职业兴趣测试有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "如何把 MBTI 结果转成可验证的行动？"
+      },
+      {
+        "level": "h2",
+        "text": "什么时候建议做 MBTI 测试？"
+      },
+      {
+        "level": "h2",
+        "text": "下一步怎么做"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 是什么？"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 四个字母分别代表什么？"
+      },
+      {
+        "level": "h3",
+        "text": "16 型人格能告诉我什么？"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 准吗？"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 能决定职业吗？"
+      },
+      {
+        "level": "h3",
+        "text": "FermatMind 是官方 MBTI 测试吗？"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 和大五人格有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "相关阅读"
+      },
+      {
+        "level": "h2",
+        "text": "下一步：开始 MBTI 性格测试"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=mbti-basics&content_id=8&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=mbti-personality-test-16-personality-types&target_test_slug=mbti-personality-test-16-personality-types&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fzh%2Farticles%2Fmbti-basics&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/mbti-personality-test-science-vs-pseudoscience",
+      "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "MBTI 是什么？四组偏好、16 型人格与使用边界。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "先说结论",
+      "draft_markdown": "MBTI 用四组偏好描述人们通常更倾向怎样获取能量、注意信息、作出判断和安排外部生活，组合成 16 个类型代码。类型不是能力等级，也不是固定人格证明；同一代码的人仍可能在经历、技能、价值观和行为上差异很大。\n\n阅读结果时，应先确认具体工具和版本，再把类型描述当作可核查的工作假设。费马测试当前公开材料未提供产品特定的信度、效度、常模或跨语言等值数值，因此不能用 MBTI 一般资料替代本产品验证，也不能声称结果能预测职业成功、录用、健康或关系结局。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“MBTI 是什么”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "四个字母分别表示什么",
+      "draft_markdown": "- **E / I（外倾 / 内倾）**：关注能量与注意更常转向外部互动还是内部反思，不等于“会不会社交”。\n- **S / N（实感 / 直觉）**：关注更常留意具体事实与经验，还是模式与可能性，不等于智力高低。\n- **T / F（思考 / 情感）**：关注判断时更常优先一致原则，还是人和价值影响，不等于有没有感情或逻辑。\n- **J / P（判断 / 感知）**：关注对外部生活更偏好计划和确定，还是开放与调整，不等于勤奋或拖延。\n\n字母描述偏好方向，而不是把人的行为切成绝对两类。情境、角色、训练和压力都可能改变可见行为。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "类型代码不是什么",
+      "draft_markdown": "它不是医学或心理诊断，不是招聘筛选标准，不是学习能力证明，也不是“天生适合职业”的许可证。把 INTJ 写成一定擅长战略、把 ESFP 写成一定不擅长分析，都超出了类型代码能支持的范围。\n\n官方 MBTI 资料也强调结果解释和验证过程：报告类型可以作为起点，个人需要结合自身经验判断哪种描述更贴近。在线免费工具是否采用相同题目、计分和验证流程，不能仅凭四字母外观推断。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "五步阅读一份结果",
+      "draft_markdown": "1. **确认工具。** 记录名称、版本、语言、题数和公开方法说明。\n2. **逐维度核对。** 不只看四字母结论，分别找每组偏好的生活证据。\n3. **写反例。** 找出一个明显不符合描述的场景，检查角色和环境影响。\n4. **避免强度误读。** 页面上的接近比例或条形长度不一定等于稳定程度，除非工具明确说明。\n5. **做行为实验。** 选择一个低风险场景，例如会议准备或信息整理，比较不同策略的效果。\n\n举例来说，I 偏好者可以比较提前书面准备和即兴发言的表现；这比得出“我不适合沟通岗位”更可验证。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "为什么结果可能变化",
+      "draft_markdown": "作答状态、题目理解、工具版本、临界分数和真实偏好变化都可能影响结果。类型变化不自动证明某次测试“完全错误”，也不意味着人格突然变成另一个人。若两个维度结果接近，更应回到长期情境和具体行为，而不是追求一个永久标签。\n\n不同语言版本还涉及翻译和文化适配。某个国家或语言样本的统计结果，只能说明该样本和工具版本，不能直接当作全球比例或 FermatMind 产品证据。"
+    },
+    {
+      "section": "职业和关系中怎样使用",
+      "draft_markdown": "在职业探索中，可以用维度提出问题：我更愿意频繁协作还是长时间独立工作？我偏好已有流程还是开放问题？然后用岗位任务、技能证据、试做和访谈验证。不要用类型排除职业，也不要让雇主用类型替代能力评价。\n\n在关系和团队中，类型语言可帮助讨论沟通偏好，但不能把冲突归咎于“类型不合”。更直接的问题是：信息是否清楚、边界是否明确、决定如何形成、行为能否调整。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "如果你想获得一个四维偏好的探索起点，可以进入[MBTI 公开测试](https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types)。完成后为每个字母写一个支持证据和一个反例，再决定哪些描述值得继续验证。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. The Myers-Briggs Company. [Understanding Your MBTI Results](https://myersbriggs.org/my-mbti-personality-type/my-mbti-results/home.htm).\n2. The Myers-Briggs Company. [MBTI Facts](https://www.themyersbriggs.com/en-us/support/mbti-facts).\n3. The Myers-Briggs Company. [MBTI Technical Brief for a Thai Sample](https://www.themyersbriggs.com/-/media/5c0b62318c764223b433d5217ff6be79.ashx).\n4. The Myers-Briggs Company. [MBTI Technical Brief for an Australian Sample](https://www.themyersbriggs.com/-/media/48f42005682f46b99a44b96032ef8b96.ashx)."
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "MBTI 四个维度是什么？",
+      "answer": "它们描述外倾/内倾、实感/直觉、思考/情感、判断/感知四组偏好，不是能力等级。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "MBTI 类型为什么会变化？",
+      "answer": "工具版本、题目理解、作答状态、临界分数和偏好变化都可能影响结果。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "可以用 MBTI 选择或排除职业吗？",
+      "answer": "不应这样使用。类型可以提出岗位探索问题，但不能替代任务研究、技能证据和实际体验。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "所有四字母测试都等同于官方 MBTI 吗？",
+      "answer": "不能凭外观推断。不同工具的题目、计分、证据和解释流程可能不同。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
     "target_test_slug": "mbti-personality-test-16-personality-types",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/mbti-basics",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -194,6 +430,117 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-08-mbti-basics.md",
+  "body_markdown": "# MBTI 是什么？四个维度、类型结果与正确使用方式\n\n## 先说结论\n\nMBTI 用四组偏好描述人们通常更倾向怎样获取能量、注意信息、作出判断和安排外部生活，组合成 16 个类型代码。类型不是能力等级，也不是固定人格证明；同一代码的人仍可能在经历、技能、价值观和行为上差异很大。\n\n阅读结果时，应先确认具体工具和版本，再把类型描述当作可核查的工作假设。费马测试当前公开材料未提供产品特定的信度、效度、常模或跨语言等值数值，因此不能用 MBTI 一般资料替代本产品验证，也不能声称结果能预测职业成功、录用、健康或关系结局。\n\n## 四个字母分别表示什么\n\n- **E / I（外倾 / 内倾）**：关注能量与注意更常转向外部互动还是内部反思，不等于“会不会社交”。\n- **S / N（实感 / 直觉）**：关注更常留意具体事实与经验，还是模式与可能性，不等于智力高低。\n- **T / F（思考 / 情感）**：关注判断时更常优先一致原则，还是人和价值影响，不等于有没有感情或逻辑。\n- **J / P（判断 / 感知）**：关注对外部生活更偏好计划和确定，还是开放与调整，不等于勤奋或拖延。\n\n字母描述偏好方向，而不是把人的行为切成绝对两类。情境、角色、训练和压力都可能改变可见行为。\n\n## 类型代码不是什么\n\n它不是医学或心理诊断，不是招聘筛选标准，不是学习能力证明，也不是“天生适合职业”的许可证。把 INTJ 写成一定擅长战略、把 ESFP 写成一定不擅长分析，都超出了类型代码能支持的范围。\n\n官方 MBTI 资料也强调结果解释和验证过程：报告类型可以作为起点，个人需要结合自身经验判断哪种描述更贴近。在线免费工具是否采用相同题目、计分和验证流程，不能仅凭四字母外观推断。\n\n## 五步阅读一份结果\n\n1. **确认工具。** 记录名称、版本、语言、题数和公开方法说明。\n2. **逐维度核对。** 不只看四字母结论，分别找每组偏好的生活证据。\n3. **写反例。** 找出一个明显不符合描述的场景，检查角色和环境影响。\n4. **避免强度误读。** 页面上的接近比例或条形长度不一定等于稳定程度，除非工具明确说明。\n5. **做行为实验。** 选择一个低风险场景，例如会议准备或信息整理，比较不同策略的效果。\n\n举例来说，I 偏好者可以比较提前书面准备和即兴发言的表现；这比得出“我不适合沟通岗位”更可验证。\n\n## 为什么结果可能变化\n\n作答状态、题目理解、工具版本、临界分数和真实偏好变化都可能影响结果。类型变化不自动证明某次测试“完全错误”，也不意味着人格突然变成另一个人。若两个维度结果接近，更应回到长期情境和具体行为，而不是追求一个永久标签。\n\n不同语言版本还涉及翻译和文化适配。某个国家或语言样本的统计结果，只能说明该样本和工具版本，不能直接当作全球比例或 FermatMind 产品证据。\n\n## 职业和关系中怎样使用\n\n在职业探索中，可以用维度提出问题：我更愿意频繁协作还是长时间独立工作？我偏好已有流程还是开放问题？然后用岗位任务、技能证据、试做和访谈验证。不要用类型排除职业，也不要让雇主用类型替代能力评价。\n\n在关系和团队中，类型语言可帮助讨论沟通偏好，但不能把冲突归咎于“类型不合”。更直接的问题是：信息是否清楚、边界是否明确、决定如何形成、行为能否调整。\n\n## 下一步\n\n如果你想获得一个四维偏好的探索起点，可以进入[MBTI 公开测试](https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types)。完成后为每个字母写一个支持证据和一个反例，再决定哪些描述值得继续验证。\n\n## 参考来源\n\n1. The Myers-Briggs Company. [Understanding Your MBTI Results](https://myersbriggs.org/my-mbti-personality-type/my-mbti-results/home.htm).\n2. The Myers-Briggs Company. [MBTI Facts](https://www.themyersbriggs.com/en-us/support/mbti-facts).\n3. The Myers-Briggs Company. [MBTI Technical Brief for a Thai Sample](https://www.themyersbriggs.com/-/media/5c0b62318c764223b433d5217ff6be79.ashx).\n4. The Myers-Briggs Company. [MBTI Technical Brief for an Australian Sample](https://www.themyersbriggs.com/-/media/48f42005682f46b99a44b96032ef8b96.ashx).\n",
+  "body_character_count": 2109,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-08-S02",
+      "title": "Understanding Your MBTI Results",
+      "author_or_publisher": "The Myers-Briggs Company.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://myersbriggs.org/my-mbti-personality-type/my-mbti-results/home.htm",
+      "source_type": "instrument_owner_guidance",
+      "claims_supported": "official MBTI result interpretation and sample/version limitations",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-08-S03",
+      "title": "MBTI Facts",
+      "author_or_publisher": "The Myers-Briggs Company.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.themyersbriggs.com/en-us/support/mbti-facts",
+      "source_type": "instrument_owner_technical_documentation",
+      "claims_supported": "official MBTI result interpretation and sample/version limitations",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-08-S04",
+      "title": "MBTI Technical Brief for a Thai Sample",
+      "author_or_publisher": "The Myers-Briggs Company.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.themyersbriggs.com/-/media/5c0b62318c764223b433d5217ff6be79.ashx",
+      "source_type": "instrument_owner_technical_documentation",
+      "claims_supported": "official MBTI result interpretation and sample/version limitations",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-08-S05",
+      "title": "MBTI Technical Brief for an Australian Sample",
+      "author_or_publisher": "The Myers-Briggs Company.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.themyersbriggs.com/-/media/48f42005682f46b99a44b96032ef8b96.ashx",
+      "source_type": "instrument_owner_technical_documentation",
+      "claims_supported": "official MBTI result interpretation and sample/version limitations",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-08-S02",
+    "ARTICLE-REFRESH-08-S03",
+    "ARTICLE-REFRESH-08-S04",
+    "ARTICLE-REFRESH-08-S05"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "FermatMind-specific MBTI instrument version, reliability, validity and language equivalence",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }

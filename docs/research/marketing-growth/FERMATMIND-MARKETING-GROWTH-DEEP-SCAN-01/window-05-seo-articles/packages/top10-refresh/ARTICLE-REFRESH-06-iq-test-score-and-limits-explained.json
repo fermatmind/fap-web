@@ -5,7 +5,7 @@
     "article_id": 50,
     "locale": "zh",
     "translation_group_id": "tg_article_iq_test_score_and_limits_explained_2026v1",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 57,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "0dfb461d6ebf661b7d5f25ca9ed8f0bf79a1d678a5fe7079dfc3bf842f35bddd"
   },
   "cms_fields": {
     "title": "在线 IQ 测试准吗？题型、分数解释与正式评估边界",
@@ -69,7 +72,7 @@
       "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "在线 IQ 测试准吗？智商分数、题型和正式测验的区别一次讲清",
+    "current_title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
     "current_h1": "在线 IQ 测试准吗？智商分数、题型和正式测验的区别一次讲清",
     "current_cta": "开始 IQ 智商测试",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -109,76 +112,316 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "在线 IQ 测试 准吗",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
+          "domain": "fermatmind.com",
+          "title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
+          "snippet": "2026年6月25日 - 如果你的意思是：在线测试能不能观察我在某些推理题上的表现？可以。FermatMind 当前公开 IQ 测试主要围绕矩阵推理、模式识别和抽象问题解决，这些任务可以帮助你观察自己在特定认知题型中的表现。 · 如果你的意思是：在线测试能不能给出和正式智力测验等价的结论？不能这样写。正式智力测验通常需要标准化施测条件、明确常模、专业解释和更严格的测量流程。一个公开在线测试如果没有公开这些依据，就不能被写成正式智力测验，也不能把结果解释成人群排名或临床判断。",
+          "rank": 1
+        },
+        {
+          "url": "https://iqeq.com.cn/",
+          "domain": "iqeq.com.cn",
+          "title": "智商测试 | 测智网2026版-1416万人通过的智力测试国际标准版-韦氏免费版",
+          "snippet": "我已阅读并同意 《用户协议》 与 《隐私政策》 进入测试系统 ... 测智网创立于2006年,是国内最早的专业测评机构,十九年来已累计各项测评数据超两千万条。 · 2026版智商测评系统，在原标准智商测评基础上，对千万级测评数据进行大数据分析，对新版试题进行加权计算 ，并引入离差智商算法，使得测评结果更准确。同时改革了排名方式，增加了在可靠样本中抽取万人测评数据进行比对排名，使得排名更加准确客观。",
+          "rank": 2
+        },
+        {
+          "url": "https://iqceshi.cn/",
+          "domain": "iqceshi.cn",
+          "title": "智商测试免费-专业IQ测试题",
+          "snippet": "智商测试免费在线测试。智商测试又称IQ测试或智力测试，它主要基于心理统计学原理，对智力进行科学测量，通过IQ测试就可以对一个人的智力水平进行划分。智商不能代表一个人未来的成就大小，但是和生活中的考试一样，它却能对这群人的成绩高低进行划分，而成绩也不能代表一个人未来的成就大小，但是从统计学角度来看，成绩高的比成绩低的成功的概率更大。从统计学的角度去看待智商，可以具有一定参考价值。",
+          "rank": 3
+        },
+        {
+          "url": "https://international-iq-test.com/zh-Hans/",
+          "domain": "international-iq-test.com",
+          "title": "免费 IQ 测试 (2026) | 国际 IQ 测试",
+          "snippet": "依据 可靠性报告（均值 100、标准差 15；g 载荷约 0.943），国际 IQ 测试似乎是较为可靠的在线选项之一。",
+          "rank": 4
+        },
+        {
+          "url": "https://www.arealme.com/iq/cn/",
+          "domain": "arealme.com",
+          "title": "免费 IQ 测试｜2026 数据校准版：即时出分与认知画像",
+          "snippet": "1天前 - 关于这套测试，有一点始终不变：完全免费。看结果不收费，不要邮箱，不用注册。我希望一切都摆在明面上，简单、好用。页面下方还有个评论区——晒晒你的分数，或者，吐槽一下也行。 · 这里也必须坦诚说明：无监督的在线 IQ 测试无法像专业测评那样控制测试环境、设备、语言、作答动机和干扰因素。这个结果只能作为了解自身能力的参考，不是临床诊断，也不是正式认可的 IQ 分数。如果你因医疗、教育或法律用途需要正式结果，应接受由合格专业人员一对一实施的标准化测评。在在线测试的边界内，我们已经不再停留于固定答案表，而是把严谨的题目设计与持续的真实数据校准结合起来。",
+          "rank": 5
+        },
+        {
+          "url": "https://www.dajiazhao.com/iqceshi.htm",
+          "domain": "dajiazhao.com",
+          "title": "超准《IQ测试》,在线《智商测试》",
+          "snippet": "ǹڽȨIQԣӭμӣ30ɣ33⣩ · 2.з,ѡͬһ: A.3/5 B.3/7 C.3/9",
+          "rank": 6
+        },
+        {
+          "url": "https://www.zxgj.cn/g/zhishang",
+          "domain": "zxgj.cn",
+          "title": "免费 智商测试 - 在线工具网(zxgj.cn) - 工作生活好帮手",
+          "snippet": "这个靠谱吗？大家测出来是不是都特别高？我135，不过做得有点慢，35分钟完成的 · 站长回复：相对靠谱，但是我更希望你把这个当成训练模式，以此来提高自己，而不是给自己定性，我坚信你还可以飞得更高。 ... 您好，我想知道这些测试准确度如何，先测了门萨的，120，一看评论区人均150，然后又测了这个的，145，但是互联网上能查到的数据，智商120以上的人只占2%，而且我自己也没多聪明，数学也不好，玩个解谜游戏都费劲吧啦，还有就是，您是真人吗",
+          "rank": 7
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/669900527",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "免费且权威的智商测试资源汇总 - 知乎",
+          "snippet": "测试链接：[AhaSlides](https://ahaslides.com/zh-CN/blog/free-iq-test/) 智商XAM 由麦吉尔大学研究生团队创建。他们声称这个测试比其他快速智商测试更准确，专注于评估综合智力。",
+          "rank": 8
+        },
+        {
+          "url": "https://iq.bmcx.com/",
+          "domain": "iq.bmcx.com",
+          "title": "IQ测试 - 智商测试 - 智力测试",
+          "snippet": "全部40道IQ题算完后，可以得到您的智商哦，据说爱因斯坦的智商有160，算算您和天才差多远。 · 智力测试完，然后将得到的智商测试指数对应下面的表格，可以查出你比多少人聪明！（多少人比你笨） ... JavaScript / Html / Css 格式化 汉字笔画查询 粥谱大全 酒方大全 进程查询 绕口令大全 佛学大辞典 车牌查询 交通标志 邮箱图标 在线...",
+          "rank": 9
+        },
+        {
+          "url": "https://www.cognifit.com/cn/iq-test-iqbe",
+          "domain": "cognifit.com",
+          "title": "智商测试",
+          "snippet": "如果您正在考虑参加 IQ 测试，您应该记住一些事项。首先，确保您从合格的来源进行了信誉良好的智商测试。那里有很多虚假的智商测试，你不想浪费时间去做其中之一。",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "在线 IQ 测试可以观察矩阵推理、模式识别和抽象问题解决表现，但不等于正式智力测验。本文解释智商分数、题型、正式测验边界和安全使用方式。",
+    "current_snippet": {
+      "rank": 1,
+      "title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
+      "snippet": "2026年6月25日 - 如果你的意思是：在线测试能不能观察我在某些推理题上的表现？可以。FermatMind 当前公开 IQ 测试主要围绕矩阵推理、模式识别和抽象问题解决，这些任务可以帮助你观察自己在特定认知题型中的表现。 · 如果你的意思是：在线测试能不能给出和正式智力测验等价的结论？不能这样写。正式智力测验通常需要标准化施测条件、明确常模、专业解释和更严格的测量流程。一个公开在线测试如果没有公开这些依据，就不能被写成正式智力测验，也不能把结果解释成人群排名或临床判断。"
+    },
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "Quick answer：在线 IQ 测试准吗？"
+      },
+      {
+        "level": "h2",
+        "text": "适合谁读这篇文章"
+      },
+      {
+        "level": "h2",
+        "text": "在线 IQ 测试到底准不准？"
+      },
+      {
+        "level": "h2",
+        "text": "IQ 测试通常在测什么？"
+      },
+      {
+        "level": "h2",
+        "text": "FermatMind 当前 IQ 测试公开支持哪些题型 / 能力任务？"
+      },
+      {
+        "level": "h2",
+        "text": "在线 IQ 测试和正式智力测验有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "IQ 分数怎么看：原始分、任务表现、维度参考"
+      },
+      {
+        "level": "h2",
+        "text": "为什么“多少分算高”不能脱离常模？"
+      },
+      {
+        "level": "h2",
+        "text": "IQ 不能替你判断什么"
+      },
+      {
+        "level": "h2",
+        "text": "IQ 和 EQ 有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "IQ 测试结果如何转成可验证的学习 / 训练计划"
+      },
+      {
+        "level": "h2",
+        "text": "什么时候建议做 IQ 测试？"
+      },
+      {
+        "level": "h2",
+        "text": "下一步怎么做"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "在线 IQ 测试准吗？"
+      },
+      {
+        "level": "h3",
+        "text": "FermatMind 的 IQ 测试是正式智商测验吗？"
+      },
+      {
+        "level": "h3",
+        "text": "IQ 分数怎么看？"
+      },
+      {
+        "level": "h3",
+        "text": "IQ 测试通常有哪些题型？"
+      },
+      {
+        "level": "h3",
+        "text": "IQ 能决定一个人的能力吗？"
+      },
+      {
+        "level": "h3",
+        "text": "IQ 和 EQ 有什么区别？"
+      },
+      {
+        "level": "h3",
+        "text": "做完 IQ 测试后下一步应该做什么？"
+      },
+      {
+        "level": "h2",
+        "text": "相关阅读"
+      },
+      {
+        "level": "h2",
+        "text": "可信度与边界"
+      },
+      {
+        "level": "h2",
+        "text": "开始 IQ 测试"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=iq-test-score-and-limits-explained&content_id=50&target_action=seo_cta_primary_iq_test&test_slug=iq-test-intelligence-quotient-assessment&target_test_slug=iq-test-intelligence-quotient-assessment&cta_id=primary_iq_test&landing_path=%2Fzh%2Farticles%2Fiq-test-score-and-limits-explained&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/iq-test-growth-guide",
+      "https://fermatmind.com/zh/articles/iq-test-tool-guide",
+      "https://fermatmind.com/zh/articles/iq-test-narrative-portrait"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "在线 IQ 测试准吗？题型、分数解释与正式评估边界。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "先说结论",
+      "draft_markdown": "在线 IQ 测试可以让你观察自己在某些题型上的当次表现，但不能仅凭一个总分判断“智力高低”，也不能替代由合格专业人员实施和解释的标准化评估。题目覆盖、施测条件、计时方式、计分规则、参照样本和误差说明都会影响分数能否被解释。\n\n如果一个页面没有公开工具名称和版本、常模来源、信度、效度、标准误或置信区间，就不应把它的数字写成精确百分位，更不能据此作出诊断、录取、招聘或能力定论。费马测试当前公开材料未提供产品特定的信度、效度、常模和百分位依据，这些证据状态应保持 Unknown。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“在线 IQ 测试 准吗”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "“IQ 分数”不是脱离工具存在的数字",
+      "draft_markdown": "心理与教育测量标准强调：分数的解释必须与测量目的、适用人群和证据相连。同样是推理题，不同工具可能覆盖词汇、工作记忆、加工速度、视觉空间或矩阵推理中的不同部分；只做一种题型，不能代表所有认知能力。\n\n在线页面常把原始答对数转换成看似熟悉的分数。转换是否有意义，取决于它是否来自合适的标准化样本和明确方法。若页面只显示“120”而没有参照群体、误差范围和转换方法，最多只能把它当作该页面内部的反馈，不能把它等同于某个正式量表的分数。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "常见题型分别观察什么",
+      "draft_markdown": "- **矩阵与图形规律**：观察抽象关系和非语言推理，但也受题型熟悉度影响。\n- **数列与规则发现**：涉及模式识别；数学训练和策略会影响表现。\n- **词语与类比**：依赖语言、教育和文化经验，跨语言比较尤其谨慎。\n- **空间旋转**：观察空间表征，但设备尺寸、交互方式和练习效应可能干扰。\n- **记忆或速度任务**：对时间、注意状态、环境和设备延迟更敏感。\n\n因此，“我这次矩阵题做得好”是可观察事实；“我在所有认知能力上都高于某比例的人”则需要更多证据。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "五步检查一份在线结果",
+      "draft_markdown": "1. **确认工具身份。** 记录名称、版本、题数、语言和完成日期。\n2. **确认测量范围。** 看它测的是单一题型还是多个认知领域。\n3. **确认分数类型。** 分清原始分、转换分、等级和百分位；没有常模时不要自行换算。\n4. **确认误差与条件。** 睡眠、焦虑、练习、计时、网络和设备都会影响当次表现。\n5. **确认用途。** 自我观察可以低风险使用；高风险决定必须采用与目的匹配的正式证据。\n\n最稳妥的记录方式是写下“这次在哪些题型、什么条件下表现如何”，而不是把数字固化成身份标签。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "为什么重复测试会变",
+      "draft_markdown": "变化可能来自练习效应、题目记忆、近期状态、随机误差或工具本身。第二次更高不必然表示能力永久提升，较低也不表示能力退化。只有在工具公开重测证据、等值版本和误差信息时，差异才更容易解释。\n\n如果只是为了了解题型，可以间隔一段时间并记录条件；不要连续刷题后把升高分数当成跨情境能力证明。"
+    },
+    {
+      "section": "什么时候需要正式评估",
+      "draft_markdown": "当问题涉及学习支持、临床判断、法定便利安排或其他高风险用途时，应由合格专业人员选择合适工具，并结合访谈、背景材料和多项证据解释。正式评估也不是“一个分数决定一切”，而是有明确用途、标准化流程和解释边界的证据组合。"
+    },
+    {
+      "section": "使用边界",
+      "draft_markdown": "在线结果不能替代医疗或心理诊断，不能用于招聘筛选、升学录取、能力认证或人生结果预测。它可以作为探索某类题型的起点，但任何结论都应保留反例、误差和情境解释。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "如果你只是想体验一组结构化推理题，可以进入[IQ 智商公开测试](https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment)。完成后只记录题型表现和作答条件；若页面未公开产品特定常模和测量证据，不要自行推导百分位或正式能力结论。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. AERA, APA, & NCME. (2014). [Standards for Educational and Psychological Testing](https://www.testingstandards.net/).\n2. National Academies of Sciences, Engineering, and Medicine. (2015). [Psychological Testing and Assessment](https://www.ncbi.nlm.nih.gov/books/NBK305233/).\n3. International Test Commission. (2013). [ITC Guidelines on Test Use](https://www.intestcom.org/files/guideline_test_use.pdf).\n4. Educational Testing Service. (2018). [Reliability and comparability of scores](https://www.ets.org/research/policy_research_reports/publications/report/2018/jysw.html)."
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "在线 IQ 分数等于正式智力测验分数吗？",
+      "answer": "不能默认等同。两者可能在题型、标准化流程、常模、计分和解释目的上不同。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "没有常模能算 IQ 百分位吗？",
+      "answer": "不能。百分位必须绑定明确的参照样本和转换方法，页面未公开时不应自行推算。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "重复测试分数变高说明智力提升了吗？",
+      "answer": "不一定。练习、题目记忆、状态和随机误差都可能造成变化。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "什么时候需要正式评估？",
+      "answer": "涉及临床、学习支持、法定便利安排或其他高风险用途时，应由合格专业人员选择并解释合适工具。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
     "target_test_slug": "iq-test-intelligence-quotient-assessment",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -195,6 +438,117 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-06-iq-test-score-and-limits-explained.md",
+  "body_markdown": "# 在线 IQ 测试准吗？题型、分数与正式评估边界\n\n## 先说结论\n\n在线 IQ 测试可以让你观察自己在某些题型上的当次表现，但不能仅凭一个总分判断“智力高低”，也不能替代由合格专业人员实施和解释的标准化评估。题目覆盖、施测条件、计时方式、计分规则、参照样本和误差说明都会影响分数能否被解释。\n\n如果一个页面没有公开工具名称和版本、常模来源、信度、效度、标准误或置信区间，就不应把它的数字写成精确百分位，更不能据此作出诊断、录取、招聘或能力定论。费马测试当前公开材料未提供产品特定的信度、效度、常模和百分位依据，这些证据状态应保持 Unknown。\n\n## “IQ 分数”不是脱离工具存在的数字\n\n心理与教育测量标准强调：分数的解释必须与测量目的、适用人群和证据相连。同样是推理题，不同工具可能覆盖词汇、工作记忆、加工速度、视觉空间或矩阵推理中的不同部分；只做一种题型，不能代表所有认知能力。\n\n在线页面常把原始答对数转换成看似熟悉的分数。转换是否有意义，取决于它是否来自合适的标准化样本和明确方法。若页面只显示“120”而没有参照群体、误差范围和转换方法，最多只能把它当作该页面内部的反馈，不能把它等同于某个正式量表的分数。\n\n## 常见题型分别观察什么\n\n- **矩阵与图形规律**：观察抽象关系和非语言推理，但也受题型熟悉度影响。\n- **数列与规则发现**：涉及模式识别；数学训练和策略会影响表现。\n- **词语与类比**：依赖语言、教育和文化经验，跨语言比较尤其谨慎。\n- **空间旋转**：观察空间表征，但设备尺寸、交互方式和练习效应可能干扰。\n- **记忆或速度任务**：对时间、注意状态、环境和设备延迟更敏感。\n\n因此，“我这次矩阵题做得好”是可观察事实；“我在所有认知能力上都高于某比例的人”则需要更多证据。\n\n## 五步检查一份在线结果\n\n1. **确认工具身份。** 记录名称、版本、题数、语言和完成日期。\n2. **确认测量范围。** 看它测的是单一题型还是多个认知领域。\n3. **确认分数类型。** 分清原始分、转换分、等级和百分位；没有常模时不要自行换算。\n4. **确认误差与条件。** 睡眠、焦虑、练习、计时、网络和设备都会影响当次表现。\n5. **确认用途。** 自我观察可以低风险使用；高风险决定必须采用与目的匹配的正式证据。\n\n最稳妥的记录方式是写下“这次在哪些题型、什么条件下表现如何”，而不是把数字固化成身份标签。\n\n## 为什么重复测试会变\n\n变化可能来自练习效应、题目记忆、近期状态、随机误差或工具本身。第二次更高不必然表示能力永久提升，较低也不表示能力退化。只有在工具公开重测证据、等值版本和误差信息时，差异才更容易解释。\n\n如果只是为了了解题型，可以间隔一段时间并记录条件；不要连续刷题后把升高分数当成跨情境能力证明。\n\n## 什么时候需要正式评估\n\n当问题涉及学习支持、临床判断、法定便利安排或其他高风险用途时，应由合格专业人员选择合适工具，并结合访谈、背景材料和多项证据解释。正式评估也不是“一个分数决定一切”，而是有明确用途、标准化流程和解释边界的证据组合。\n\n## 使用边界\n\n在线结果不能替代医疗或心理诊断，不能用于招聘筛选、升学录取、能力认证或人生结果预测。它可以作为探索某类题型的起点，但任何结论都应保留反例、误差和情境解释。\n\n## 下一步\n\n如果你只是想体验一组结构化推理题，可以进入[IQ 智商公开测试](https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment)。完成后只记录题型表现和作答条件；若页面未公开产品特定常模和测量证据，不要自行推导百分位或正式能力结论。\n\n## 参考来源\n\n1. AERA, APA, & NCME. (2014). [Standards for Educational and Psychological Testing](https://www.testingstandards.net/).\n2. National Academies of Sciences, Engineering, and Medicine. (2015). [Psychological Testing and Assessment](https://www.ncbi.nlm.nih.gov/books/NBK305233/).\n3. International Test Commission. (2013). [ITC Guidelines on Test Use](https://www.intestcom.org/files/guideline_test_use.pdf).\n4. Educational Testing Service. (2018). [Reliability and comparability of scores](https://www.ets.org/research/policy_research_reports/publications/report/2018/jysw.html).\n",
+  "body_character_count": 2153,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-06-S02",
+      "title": "Standards for Educational and Psychological Testing",
+      "author_or_publisher": "AERA, APA, & NCME. (2014).",
+      "year": "2014",
+      "doi": "Unknown",
+      "url": "https://www.testingstandards.net/",
+      "source_type": "professional_measurement_standard",
+      "claims_supported": "score interpretation, standardization, reliability and formal-assessment boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-06-S03",
+      "title": "Psychological Testing and Assessment",
+      "author_or_publisher": "National Academies of Sciences, Engineering, and Medicine. (2015).",
+      "year": "2015",
+      "doi": "Unknown",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK305233/",
+      "source_type": "national_academies_reference",
+      "claims_supported": "score interpretation, standardization, reliability and formal-assessment boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-06-S04",
+      "title": "ITC Guidelines on Test Use",
+      "author_or_publisher": "International Test Commission. (2013).",
+      "year": "2013",
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_use.pdf",
+      "source_type": "professional_measurement_guideline",
+      "claims_supported": "score interpretation, standardization, reliability and formal-assessment boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-06-S05",
+      "title": "Reliability and comparability of scores",
+      "author_or_publisher": "Educational Testing Service. (2018).",
+      "year": "2018",
+      "doi": "Unknown",
+      "url": "https://www.ets.org/research/policy_research_reports/publications/report/2018/jysw.html",
+      "source_type": "testing_organization_research",
+      "claims_supported": "score interpretation, standardization, reliability and formal-assessment boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-06-S02",
+    "ARTICLE-REFRESH-06-S03",
+    "ARTICLE-REFRESH-06-S04",
+    "ARTICLE-REFRESH-06-S05"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "FermatMind-specific IQ instrument coverage, reliability, validity, norms, percentiles and error",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }
