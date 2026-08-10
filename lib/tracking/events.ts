@@ -23,6 +23,7 @@ export const TRACKING_EVENTS = {
   PURCHASE_SUCCESS: "purchase_success",
   REPORT_UNLOCK: "report_unlock",
   REPORT_READY: "report_ready",
+  CONTINUE_EXPLORATION: "continue_exploration",
   PRIVATE_URL_SEEN: "private_url_seen",
 
   // Legacy events (keep for backward compatibility)
@@ -127,6 +128,25 @@ export const TRACKING_EVENTS = {
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
+
+export const CONTINUE_EXPLORATION_ACTION_CATEGORIES = {
+  READ_RELATED_CONTENT: "read_related_content",
+} as const;
+
+export type ContinueExplorationActionCategory =
+  (typeof CONTINUE_EXPLORATION_ACTION_CATEGORIES)[keyof typeof CONTINUE_EXPLORATION_ACTION_CATEGORIES];
+
+const CONTINUE_EXPLORATION_FIELDS = [
+  "action_category",
+  "scale_code",
+  "form_code",
+  "locale",
+  "entry_surface",
+  "source_page_type",
+  "organic_channel",
+  "device_class",
+  "result_state",
+] as const;
 
 export const STANDARD_COMMERCIAL_EVENTS = [
   TRACKING_EVENTS.LANDING_PV,
@@ -417,6 +437,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   purchase_success: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   report_unlock: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   report_ready: [...COMMON_COMMERCIAL_EVENT_FIELDS, "phase", "stage_detail", "locked"],
+  continue_exploration: [...CONTINUE_EXPLORATION_FIELDS],
   private_url_seen: [
     "event_version",
     "event_time",
@@ -615,11 +636,13 @@ export function filterTrackingPayload(
   eventName: TrackingEventName,
   payload: Record<string, unknown>
 ): Record<string, string | number | boolean | null> {
-  const allowed = [
-    ...EVENT_FIELD_WHITELIST[eventName],
-    ...TRACKING_ATTRIBUTION_FIELDS,
-    ...SEARCH_INTELLIGENCE_TRACKING_FIELDS,
-  ];
+  const allowed = eventName === TRACKING_EVENTS.CONTINUE_EXPLORATION
+    ? [...CONTINUE_EXPLORATION_FIELDS]
+    : [
+        ...EVENT_FIELD_WHITELIST[eventName],
+        ...TRACKING_ATTRIBUTION_FIELDS,
+        ...SEARCH_INTELLIGENCE_TRACKING_FIELDS,
+      ];
 
   return allowed.reduce<Record<string, string | number | boolean | null>>((acc, key) => {
     const normalizedKey = key.toLowerCase();
@@ -634,6 +657,15 @@ export function filterTrackingPayload(
         STANDARD_COMMERCIAL_FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)));
     if (forbidden) return acc;
     if (isRiasecResultCodeField(payload, key)) return acc;
+    if (
+      eventName === TRACKING_EVENTS.CONTINUE_EXPLORATION &&
+      key === "action_category" &&
+      !Object.values(CONTINUE_EXPLORATION_ACTION_CATEGORIES).includes(
+        payload[key] as ContinueExplorationActionCategory
+      )
+    ) {
+      return acc;
+    }
 
     if (Object.prototype.hasOwnProperty.call(payload, key)) {
       if (isLikelyEmailPayloadValue(payload[key])) return acc;

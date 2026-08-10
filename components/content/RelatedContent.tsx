@@ -1,11 +1,26 @@
+"use client";
+
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { RelatedContentItem } from "@/lib/content";
+import { trackEvent } from "@/lib/analytics";
+import {
+  CONTINUE_EXPLORATION_ACTION_CATEGORIES,
+  TRACKING_EVENTS,
+} from "@/lib/tracking/events";
+import { shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
 
 type RelatedContentProps = {
   title: string;
   items: RelatedContentItem[];
 };
+
+function isPublicRelatedContentHref(href: string): boolean {
+  return href.startsWith("/") &&
+    !href.startsWith("//") &&
+    !href.includes("?") &&
+    !shouldSuppressAnalyticsForUrl(href);
+}
 
 export function RelatedContent({ title, items }: RelatedContentProps) {
   if (items.length === 0) {
@@ -22,7 +37,18 @@ export function RelatedContent({ title, items }: RelatedContentProps) {
           <Card key={`${item.href}-${item.slug}`} className="border-[var(--fm-border)] bg-[var(--fm-surface)] shadow-[var(--fm-shadow-sm)]">
             <CardHeader className="space-y-2">
               <CardTitle className="text-lg font-semibold text-[var(--fm-text)]">
-                <Link href={item.href} className="hover:text-[var(--fm-accent)]">
+                <Link
+                  href={item.href}
+                  className="hover:text-[var(--fm-accent)]"
+                  onClick={() => {
+                    if (!isPublicRelatedContentHref(item.href)) return;
+                    trackEvent(TRACKING_EVENTS.CONTINUE_EXPLORATION, {
+                      action_category:
+                        CONTINUE_EXPLORATION_ACTION_CATEGORIES.READ_RELATED_CONTENT,
+                      entry_surface: "related_content",
+                    });
+                  }}
+                >
                   {item.title}
                 </Link>
               </CardTitle>
