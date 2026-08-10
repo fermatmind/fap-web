@@ -1,0 +1,19 @@
+{
+  "status": "UNKNOWN_UNSUPPORTED_GSC_SEARCH_ANALYTICS_DIMENSION",
+  "evidence_status": "UNKNOWN",
+  "property": "sc-domain:fermatmind.com",
+  "requested_dimension": "language",
+  "observed_ui": "No language dimension is exposed in the GSC Performance report.",
+  "official_api_dimensions": [
+    "date",
+    "hour",
+    "country",
+    "device",
+    "page",
+    "query",
+    "searchAppearance"
+  ],
+  "decision": "Do not infer language from query text, country, page path, or locale.",
+  "official_api_documentation": "https://developers.google.com/webmaster-tools/v1/searchanalytics/query",
+  "captured_at": "2026-08-10T05:21:48Z"
+}

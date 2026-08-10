@@ -1,0 +1,130 @@
+{
+  "status": "COMPLETE_VERIFIED_SEARCH_ANALYTICS_API",
+  "evidence_status": "VERIFIED",
+  "property": "sc-domain:fermatmind.com",
+  "requested_dimensions": [
+    "query",
+    "page",
+    "country",
+    "device"
+  ],
+  "official_api_documentation": "https://developers.google.com/webmaster-tools/v1/searchanalytics/query",
+  "authorization_scope_used": "https://www.googleapis.com/auth/webmasters.readonly",
+  "authorization_handling": {
+    "writable_scope_selected": false,
+    "readonly_scope_selected": true,
+    "authenticated_read_request_executed": true,
+    "search_console_write_executed": false,
+    "credentials_or_tokens_stored": false,
+    "cookies_stored": false,
+    "oauth_url_stored": false,
+    "account_identifier_stored": false,
+    "raw_api_response_stored": false,
+    "note": "Only privacy-filtered aggregate projections were persisted."
+  },
+  "historical_authorization_attempt": {
+    "attempted_at": "2026-08-10T05:30:20Z",
+    "surface": "official Google Search Console API Explorer",
+    "result": "no_authenticated_response",
+    "credentials_or_tokens_stored": false
+  },
+  "authorization_checkpoint": {
+    "prepared_at": "2026-08-10T05:39:03Z",
+    "request_schema_warnings": 0,
+    "writable_scope_selected": false,
+    "readonly_scope_selected": true,
+    "user_confirmation_received": true,
+    "authenticated_request_executed": true
+  },
+  "request_contract": {
+    "dimensions": [
+      "query",
+      "page",
+      "country",
+      "device"
+    ],
+    "type": "web",
+    "aggregationType": "auto",
+    "dataState": "final",
+    "rowLimit": 25000,
+    "dimensionFilterGroups": [],
+    "pagination_rule": "startRow increments by 25000 until a returned page is shorter than rowLimit or empty"
+  },
+  "request_results": [
+    {
+      "window_id": "current28",
+      "startDate": "2026-07-13",
+      "endDate": "2026-08-09",
+      "start_rows_requested": [
+        0,
+        25000
+      ],
+      "returned_rows_by_page": [
+        3922,
+        0
+      ],
+      "source_rows": 3922,
+      "safe_rows": 3863,
+      "responseAggregationType": "byPage",
+      "pagination_complete": true,
+      "privacy_exclusions": {
+        "malformed_keys": 0,
+        "page_private_route": 0,
+        "page_query_or_fragment": 7,
+        "query_email_like": 0,
+        "query_phone_like": 52,
+        "query_secret_like": 0
+      }
+    },
+    {
+      "window_id": "prev28",
+      "startDate": "2026-06-15",
+      "endDate": "2026-07-12",
+      "start_rows_requested": [
+        0
+      ],
+      "returned_rows_by_page": [
+        2646
+      ],
+      "source_rows": 2646,
+      "safe_rows": 2482,
+      "responseAggregationType": "byPage",
+      "pagination_complete": true,
+      "privacy_exclusions": {
+        "malformed_keys": 0,
+        "page_private_route": 0,
+        "page_query_or_fragment": 1,
+        "query_email_like": 0,
+        "query_phone_like": 163,
+        "query_secret_like": 0
+      }
+    },
+    {
+      "window_id": "day90",
+      "startDate": "2026-05-12",
+      "endDate": "2026-08-09",
+      "start_rows_requested": [
+        0
+      ],
+      "returned_rows_by_page": [
+        6215
+      ],
+      "source_rows": 6215,
+      "safe_rows": 5991,
+      "responseAggregationType": "byPage",
+      "pagination_complete": true,
+      "privacy_exclusions": {
+        "malformed_keys": 0,
+        "page_private_route": 0,
+        "page_query_or_fragment": 8,
+        "query_email_like": 0,
+        "query_phone_like": 216,
+        "query_secret_like": 0
+      }
+    }
+  ],
+  "output_csv": "gsc_query_page_country_device.csv",
+  "output_csv_rows": 12336,
+  "extracted_at": "2026-08-10T06:06:20Z",
+  "availability_boundary": "Search Analytics returns top rows and does not guarantee every possible row; pagination completion does not imply event-level exhaustiveness."
+}

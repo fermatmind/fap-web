@@ -1,0 +1,257 @@
+{
+  "schema_version": "fermatmind.measurement.m01.gsc-export.v1",
+  "objective_id": "FERMATMIND-MEASUREMENT-M01-GSC-EXPORT-01",
+  "status": "COMPLETE",
+  "property": "sc-domain:fermatmind.com",
+  "search_type": "web",
+  "captured_at": "2026-08-10T05:21:48Z",
+  "combined_api_extracted_at": "2026-08-10T06:06:20Z",
+  "data_freshness": {
+    "performance_ui_observed": "last updated 4.5 hours ago",
+    "performance_latest_requested_date": "2026-08-09",
+    "page_indexing_snapshot_date": "2026-08-07"
+  },
+  "date_semantics": "GSC report dates; Search Analytics API documentation defines request dates in Pacific Time.",
+  "filters": {
+    "property": "sc-domain:fermatmind.com",
+    "search_type": "web",
+    "additional_ui_filters": [],
+    "safe_page_exclusion": "all query/fragment URLs and result/report/attempt/order/checkout/payment/pay route families",
+    "safe_query_exclusion": "email-like, phone-like, and secret-like patterns"
+  },
+  "windows": {
+    "current28": {
+      "source_dir": "current28",
+      "start": "2026-07-13",
+      "end": "2026-08-09",
+      "requested_days": 28
+    },
+    "prev28": {
+      "source_dir": "prev28",
+      "start": "2026-06-15",
+      "end": "2026-07-12",
+      "requested_days": 28
+    },
+    "day90": {
+      "source_dir": "day90",
+      "start": "2026-05-12",
+      "end": "2026-08-09",
+      "requested_days": 90
+    }
+  },
+  "row_limit_and_pagination": {
+    "ui_row_limit": 1000,
+    "ui_pagination": "exported top rows only; query/page tables at 1000 are capped",
+    "api_row_limit": 25000,
+    "api_pagination_executed": true,
+    "api_pagination": {
+      "current28": {
+        "start_rows_requested": [0, 25000],
+        "returned_rows_by_page": [3922, 0],
+        "complete": true
+      },
+      "prev28": {
+        "start_rows_requested": [0],
+        "returned_rows_by_page": [2646],
+        "complete": true
+      },
+      "day90": {
+        "start_rows_requested": [0],
+        "returned_rows_by_page": [6215],
+        "complete": true
+      }
+    },
+    "availability_boundary": "Search Analytics returns top rows and does not guarantee every possible row; completed pagination does not prove event-level exhaustiveness."
+  },
+  "available_evidence": {
+    "single_dimension_exports": [
+      "query",
+      "page",
+      "country",
+      "device",
+      "date"
+    ],
+    "combined_query_page_country_device": "VERIFIED_SEARCH_ANALYTICS_API",
+    "language": "UNKNOWN_UNSUPPORTED",
+    "page_indexing": "VERIFIED_CATEGORY_LEVEL"
+  },
+  "source_counts": {
+    "current28": {
+      "query_source_rows": 1000,
+      "query_safe_rows": 973,
+      "page_source_rows": 1000,
+      "page_safe_rows": 992,
+      "country_rows": 180,
+      "device_rows": 3,
+      "daily_rows": 28
+    },
+    "prev28": {
+      "query_source_rows": 914,
+      "query_safe_rows": 834,
+      "page_source_rows": 832,
+      "page_safe_rows": 831,
+      "country_rows": 190,
+      "device_rows": 3,
+      "daily_rows": 28
+    },
+    "day90": {
+      "query_source_rows": 1000,
+      "query_safe_rows": 946,
+      "page_source_rows": 1000,
+      "page_safe_rows": 993,
+      "country_rows": 205,
+      "device_rows": 3,
+      "daily_rows": 71
+    }
+  },
+  "combined_api_counts": {
+    "current28": {
+      "source_rows": 3922,
+      "safe_rows": 3863
+    },
+    "prev28": {
+      "source_rows": 2646,
+      "safe_rows": 2482
+    },
+    "day90": {
+      "source_rows": 6215,
+      "safe_rows": 5991
+    },
+    "total_safe_rows": 12336
+  },
+  "privacy_exclusions": {
+    "current28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 27,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 6,
+      "page_private_route_excluded": 2
+    },
+    "prev28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 80,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 1,
+      "page_private_route_excluded": 0
+    },
+    "day90": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 54,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 5,
+      "page_private_route_excluded": 2
+    }
+  },
+  "combined_api_privacy_exclusions": {
+    "current28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 52,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 7,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    },
+    "prev28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 163,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 1,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    },
+    "day90": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 216,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 8,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    }
+  },
+  "source_archives": [
+    {
+      "role": "current28",
+      "source_filename": "fermatmind.com-Performance-on-Search-2026-08-10.zip",
+      "sha256": "14665cedaa256666020547a54063bbb75e10d6d800811263d838508421fd25a8",
+      "stored_in_repository": false,
+      "reason_not_stored": "Raw UI archive can contain private or parameterized page rows; only sanitized projections are retained."
+    },
+    {
+      "role": "prev28",
+      "source_filename": "fermatmind.com-Performance-on-Search-2026-08-10 (1).zip",
+      "sha256": "64887399509b33a2430280182bcaeb6be88543f75c8557e028fbd0299d4b80e3",
+      "stored_in_repository": false,
+      "reason_not_stored": "Raw UI archive can contain private or parameterized page rows; only sanitized projections are retained."
+    },
+    {
+      "role": "day90",
+      "source_filename": "fermatmind.com-Performance-on-Search-2026-08-10 (2).zip",
+      "sha256": "d6d902bdb3012f0dd5890c8f14e6a6f396b9a90279531390a51f5df2a87d4934",
+      "stored_in_repository": false,
+      "reason_not_stored": "Raw UI archive can contain private or parameterized page rows; only sanitized projections are retained."
+    },
+    {
+      "role": "page_indexing",
+      "source_filename": "fermatmind.com-Coverage-2026-08-10.zip",
+      "sha256": "146d2307ef3d57577b324b833a03b71c6453ff3000ece8c8186c690bd2426314",
+      "stored_in_repository": false,
+      "reason_not_stored": "Raw UI archive can contain private or parameterized page rows; only sanitized projections are retained."
+    }
+  ],
+  "files": [
+    {
+      "path": "gsc_window_summary.csv",
+      "sha256": "b83a630e7993c4e472069ec9a588e613dba5a6b53679b068eea4408967a6bb51"
+    },
+    {
+      "path": "gsc_query_single_dimension.csv",
+      "sha256": "1120d24aaee34e5416df1af28ec05fe2988306c6690bf6693d78821921c7ac41"
+    },
+    {
+      "path": "gsc_page_single_dimension.csv",
+      "sha256": "ce34c2804de5f55dcab4f5037f617d2a374615c5cfe37915f38737d76867ddff"
+    },
+    {
+      "path": "gsc_country_single_dimension.csv",
+      "sha256": "2a1067ab0872327ddbfbacac2ccdce1897b6717933426b42bc5744119595d275"
+    },
+    {
+      "path": "gsc_device_single_dimension.csv",
+      "sha256": "40cdce9627733fcdf093467faa348864cbc41025dc7b6ba0a6d781a27493305b"
+    },
+    {
+      "path": "gsc_daily.csv",
+      "sha256": "4ccb463d99450a1766c2456b80c946b6f21554e6e42e2a7e36cef1917c71319d"
+    },
+    {
+      "path": "gsc_query_page_country_device.csv",
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691"
+    },
+    {
+      "path": "gsc_query_page_country_device_status.json",
+      "sha256": "7a1a890d854b85565c0280ea26485de08414d0495eddcdbc9eb942226a89007b"
+    },
+    {
+      "path": "gsc_language_status.json",
+      "sha256": "8ad0abb4a795fa6e1823326563c563e6bf3c12785d4ea52e9dbdf4db85e6ec3d"
+    },
+    {
+      "path": "gsc_page_indexing_summary.csv",
+      "sha256": "b11a3c23fc705e972ae4a5a5d45923b804648b3e6d59cfbf041a71d2894f3c50"
+    },
+    {
+      "path": "gsc_page_indexing_daily.csv",
+      "sha256": "c4d22649094a4221922fd4b760bfdce03441197a910e4819f3883f3b4bcdfbd7"
+    }
+  ],
+  "authorization_and_write_boundary": {
+    "oauth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+    "writable_scope_selected": false,
+    "search_console_write_executed": false,
+    "production_write_executed": false,
+    "token_cookie_credential_or_account_identifier_stored": false,
+    "raw_api_response_stored": false
+  },
+  "production_write": false,
+  "private_data_stored": false
+}
