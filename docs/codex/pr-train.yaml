@@ -30718,7 +30718,7 @@ prs:
     depends_on: [NONCAREER-CRITICAL-LAB-REMEASUREMENT-01]
     mode: execute
     train_scope: noncareer_window7_l1_interval_baseline
-    status: in_progress
+    status: merged
     goal: Capture three genuine interval-separated Window 7 L1 public-page measurement windows without changing product code or accessing private assessment flows.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
@@ -30758,7 +30758,7 @@ prs:
     depends_on: [NONCAREER-L1-INTERVAL-BASELINE-01]
     mode: execute
     train_scope: noncareer_window7_attribution_canonical_evidence_completion
-    status: planned
+    status: ready_to_merge
     goal: Complete internal-link, cache-key-risk, and CTA-attribution evidence for the exact 20 synthetic public canonical samples without changing canonical or discoverability runtime.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/06-attribution-param-canonical-audit.md

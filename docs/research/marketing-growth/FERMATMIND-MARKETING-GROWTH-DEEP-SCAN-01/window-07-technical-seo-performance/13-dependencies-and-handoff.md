@@ -24,6 +24,8 @@ Each item starts only after its predecessor is merged, synced and cleaned. Unava
 
 `NONCAREER-L1-INTERVAL-BASELINE-01` retained one complete current L1 registry window (10/10 definitions) but could not establish the required three windows separated by at least 30 minutes. Two complete windows remain missing; `BASELINE_WINDOW_INCOMPLETE` and its sidecar stay open. This external evidence gap does not affect the PR's local checks, required GitHub checks, scope validation or merge policy, so the serial train may continue after merge and cleanup. Final closeout must remain `PARTIALLY_BLOCKED` unless later exact evidence closes the gap.
 
+`NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01` completed all 20 V2 evidence rows without changing canonical or CTA runtime. Canonical, unexpected cross-document/private propagation and shared-proxy bypass pass 20/20. Live approved-parameter CTA propagation is 8 pass / 8 fail, with four `ref`/`source` samples remaining contract-unknown. The propagation gap is a nonblocking sidecar because the current evidence-only scope explicitly forbids runtime repair; it does not affect required checks, scope validation or merge policy.
+
 ## Exact handoff order
 
 1. Capture L1 layout-shift sources and execute the focused L1 CLS PR without touching APIs or L3.

@@ -55665,9 +55665,9 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "ready_to_merge",
+    "commit_sha": "a895e88de0e851d1209e9c273febe8ac65a49e23",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2037",
     "checks": {
       "serial_predecessor": {
         "status": "pass",
@@ -58122,19 +58122,32 @@
     "depends_on": [
       "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {},
+    "status": "merged",
+    "commit_sha": "f0b43145df0e002f00d2716c52cbcdf00180dca6",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2031",
+    "checks": {
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Exact 10-row fixed-registry evidence, UTF-8/formula/privacy guards, SHA binding, interval arithmetic, JSON/YAML parsing, pnpm lint:spacing, diff, and 10-path scope validation passed."
+      },
+      "interval_requirement": {
+        "status": "external_evidence_incomplete_nonblocking",
+        "evidence": "One of three required complete windows is retained; BASELINE_WINDOW_INCOMPLETE remains open without affecting required checks or merge policy."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2031 final head 4d8096bb430f1fc4c9bce82832fd32b66053f61d passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, and no-new-code-scanning-alerts."
+      }
+    },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T06:52:13Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -58179,12 +58192,18 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All required checks passed and the exact 10-path evidence scope was revalidated against origin/main. PR #2031 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T06:52:13Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2031 squash-merged as f0b43145df0e002f00d2716c52cbcdf00180dca6. origin/main contained the merge commit, local main was synchronized, both task branches were removed, and post-merge evidence revalidation passed before PR4 began."
       }
     ],
     "sidecar_issues": [
       "window7-l1-interval-baseline-incomplete-20260810"
     ],
-    "updated_at": "2026-08-10T06:47:22Z"
+    "updated_at": "2026-08-10T06:52:13Z"
   },
   "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
     "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
@@ -58195,18 +58214,39 @@
     "depends_on": [
       "NONCAREER-L1-INTERVAL-BASELINE-01"
     ],
-    "status": "planned",
+    "status": "local_verified",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {},
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #2031 is merged as f0b43145df0e002f00d2716c52cbcdf00180dca6; origin/main and local main were synchronized, both PR3 branches were deleted, and post-merge evidence revalidation passed before PR4 began."
+      },
+      "v2_public_evidence": {
+        "status": "pass_with_retained_findings",
+        "evidence": "All 20 exact V1 identities were retained in V2; HTTP/canonical, unexpected cross-document/private propagation, and shared-proxy bypass pass 20/20. Exact cache-key composition remains UNKNOWN. Approved-key live CTA propagation is 8 pass / 8 fail and ref/source is 4 unknown, with the runtime gap recorded as nonblocking sidecar evidence."
+      },
+      "repository_contract_evidence": {
+        "status": "pass",
+        "evidence": "Existing focused attribution contracts passed 3 files / 9 tests under Node 24, confirming the eight approved query keys and visible Article/test CTA propagation contracts without changing runtime code."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Ruby CSV/JSON/YAML validation passed for exact 34-column header, 20-row V1 identity match, result arithmetic, timestamps, canonical/cache/internal-link/CTA partitions, UTF-8/formula safety, privacy URL guards, V1/V2 SHA bindings, manifest summary, sidecar status, and the exact 8-path allowlist. pnpm lint:spacing and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2037 head e93bf65445d71e7856b2de8f49c5f833ed700114 passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
+      }
+    },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
-      "github_checks_green": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -58222,9 +58262,42 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal; execution waits for the L1 interval baseline merge and cleanup."
+      },
+      {
+        "at": "2026-08-10T06:54:00Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean origin/main after PR3 merge, sync, cleanup, and post-merge revalidation. Scope is limited to the exact 20 synthetic public definitions, read-only V2 evidence, docs, train metadata, and sidecar bookkeeping; no canonical, CTA, metadata, middleware, CMS, search, production, or deployment mutation."
+      },
+      {
+        "at": "2026-08-10T07:05:22Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All exact-definition, V1/V2 identity, canonical, internal-link, cache-boundary, CTA partition, formula/privacy, SHA, documentation, sidecar, focused-contract, formatting, diff, and changed-path checks passed. The 8/8/4 live CTA result remains truthful nonblocking evidence rather than an in-scope runtime repair."
+      },
+      {
+        "at": "2026-08-10T07:05:59Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 8-path evidence scope and rebased cleanly onto origin/main a931f8cd without changing V2 artifact bytes; implementation commit is a895e88de0e851d1209e9c273febe8ac65a49e23."
+      },
+      {
+        "at": "2026-08-10T07:06:43Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2037 at head 9f45b15a55a23749adc134f01968364d298b0d49. Required GitHub checks are pending."
+      },
+      {
+        "at": "2026-08-10T07:11:55Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required checks passed and the exact 8-path evidence scope was revalidated against origin/main after one transient read-only fetch reset succeeded on retry. PR #2037 is CLEAN and MERGEABLE with no review block."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-public-cta-attribution-propagation-gaps-20260810"
+    ],
+    "updated_at": "2026-08-10T07:11:55Z"
   },
   "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01": {
     "id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",

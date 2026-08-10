@@ -473,3 +473,20 @@
 - recommended owner: L1 assessment runtime owner
 - recommended follow-up: diagnose guest-auth and RIASEC question timing in a dedicated scope and protect MBTI/RIASEC priority before proposing a runtime change.
 - status: open
+
+## Window 7 Public CTA Attribution Propagation Gaps
+
+- id: `window7-public-cta-attribution-propagation-gaps-20260810`
+- detected at: `2026-08-10T07:01:29Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01` / `codex/noncareer-attribution-canonical-evidence-completion-01`
+- blocker type: observed public CTA attribution continuity gap
+- affected surface: sampled homepage, Tests Hub and personality-page public test links
+- evidence: all 20 sampled responses retained correct parameter-free canonicals and shared-proxy bypass. Of 16 samples using approved attribution keys, 8 sampled test-landing/article contexts propagated the exact synthetic value to a public test CTA and 8 sampled homepage/Tests Hub/personality contexts did not. Four `ref`/`source` samples remain contract-unknown.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/attribution_canonical_samples_v2.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/canonical_audit_manifest_v2.json`
+- why not current PR scope: the current PR is evidence-only and explicitly forbids CTA, canonical, metadata, middleware, CMS or runtime changes. The finding requires a separately scoped attribution-continuity decision before implementation.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: medium
+- recommended owner: public acquisition and tracking runtime owner
+- recommended follow-up: decide whether approved inbound attribution must persist across homepage, Tests Hub and personality-to-test navigation; if yes, implement and contract-test only those public transitions in a separate PR without widening candidate-only `ref`/`source`.
+- status: open

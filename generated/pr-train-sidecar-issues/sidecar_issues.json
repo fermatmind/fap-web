@@ -558,5 +558,24 @@
     "recommended_owner": "L1 assessment runtime owner",
     "recommended_follow_up": "Diagnose the guest-auth and RIASEC question waterfall in a separate scoped task, reproduce with a pinned clean-context protocol, and protect MBTI/RIASEC priority before proposing any runtime change.",
     "status": "open"
+  },
+  {
+    "id": "window7-public-cta-attribution-propagation-gaps-20260810",
+    "detected_at": "2026-08-10T07:01:29Z",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
+    "branch": "codex/noncareer-attribution-canonical-evidence-completion-01",
+    "blocker_type": "observed_public_cta_attribution_continuity_gap",
+    "affected_surface": "Sampled homepage, Tests Hub, and personality-page public test links",
+    "evidence": "All 20 sampled responses retained correct parameter-free canonicals and shared-proxy bypass. Of 16 samples using approved attribution keys, 8 sampled test-landing/article contexts propagated the exact synthetic value to a public test CTA and 8 sampled homepage/Tests Hub/personality contexts did not. Four ref/source samples remain contract-unknown.",
+    "reproduction_or_evidence_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/attribution_canonical_samples_v2.csv; docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/canonical_audit_manifest_v2.json",
+    "why_not_current_pr_scope": "The current PR is evidence-only and explicitly forbids CTA, canonical, metadata, middleware, CMS, or runtime changes. The finding requires a separately scoped attribution-continuity decision before implementation.",
+    "required_checks_affected": false,
+    "scope_validation_affected": false,
+    "merge_policy_affected": false,
+    "severity": "medium",
+    "recommended_owner": "public acquisition and tracking runtime owner",
+    "recommended_follow_up": "Decide whether approved inbound attribution must persist across homepage, Tests Hub, and personality-to-test navigation. If yes, implement and contract-test only those public transitions in a separate PR without widening candidate-only ref/source.",
+    "status": "open"
   }
 ]
