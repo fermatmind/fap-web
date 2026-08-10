@@ -58314,8 +58314,8 @@
     "depends_on": [
       "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "48e7199f662ab782f0a074ebce3d6ecfddb1ec91",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -58370,12 +58370,18 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "Read-only provenance, exact current/prior 90-day contract, fixed-header zero-row artifact, registry cohort counts, GSC diagnostic intersections, privacy/formula/UTF-8 guards, JSON/YAML parsing, documentation, sidecar, spacing, diff and exact changed-path validation passed. Missing prior90 GSC and both GA4 windows remain truthful nonblocking evidence."
+      },
+      {
+        "at": "2026-08-10T07:26:52Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 6d9bab4e without changing artifact bytes; implementation commit is 48e7199f662ab782f0a074ebce3d6ecfddb1ec91. Post-rebase evidence, scope, spacing and diff validation passed."
       }
     ],
     "sidecar_issues": [
       "window7-gsc-ga4-cohort-data-unavailable-20260810"
     ],
-    "updated_at": "2026-08-10T07:25:41Z"
+    "updated_at": "2026-08-10T07:26:52Z"
   },
   "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
     "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
