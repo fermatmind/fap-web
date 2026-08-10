@@ -1,0 +1,95 @@
+{
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
+  "captured_at": "2026-08-10T18:30:00+08:00",
+  "origin_main_at_preflight": "30798c088dd212c7de1b2415c10afceeab6e2f72",
+  "origin_main_at_final_fetch": "8aaf49c16dd514b64f3f58d55f594c1c0a085950",
+  "scope": "window-05-seo-articles only",
+  "upstream_source_mode": "M01/M04/M06/A01/P03-P05 are workspace-provided evidence; G03/G04 is merged origin/main evidence; exact source bytes are recorded below; the safe M01 article projection is copied into this package",
+  "dependencies": [
+    {
+      "id": "M01",
+      "status": "PARTIALLY_BLOCKED_CONSUMED",
+      "window5_decision": "page single-dimension article projection consumed; query×page×country×device remains 0 rows/OAuth-blocked",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_page_single_dimension.csv",
+      "source_sha256": "4ffc93d96f0db3e25d4fca2cf9b5615cbc532528e6e625bbff8ba3ccf72ec8cf"
+    },
+    {
+      "id": "M04",
+      "status": "PARTIALLY_BLOCKED",
+      "window5_decision": "aggregate GA4 observed; backend truth and article URL attribution unavailable",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/05-ga4-backend-truth-reconciliation.md",
+      "source_sha256": "7ad44f6e36298dd23428ede2dd3ca554801f4c8a8514022b2b62ecc60e2569fe"
+    },
+    {
+      "id": "M06",
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "window5_decision": "privacy boundary consumed; no approved public topic-edge click event",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/event_contract.json",
+      "source_sha256": "7374f2f1c63a563d32ceceb443c14e9c1029ec57b9fe40a35b780b7f8b5b1c57"
+    },
+    {
+      "id": "A01",
+      "status": "DESIGN_OWNER_CONSUMED",
+      "window5_decision": "assessment owner design consumed; current query ranking/cannibalization blocked by M01",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-03-assessment-seo/assessment_query_owner_registry.json",
+      "source_sha256": "4832f47f61641dc7703993424cb673d792097025b4f5f73bca208447d2b1ac8a"
+    },
+    {
+      "id": "P03-P05",
+      "status": "DESIGN_CONSUMED",
+      "window5_decision": "personality owner/graph design consumed; implementation not started",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-04-personality-seo/personality_query_owner_registry.json",
+      "source_sha256": "51dc1e49396cd7777b344d1a3424262c970e12ce21ef68469c366edaa8a4d74e"
+    },
+    {
+      "id": "Career C06",
+      "status": "MISSING_CURRENT_COMPLETION_ARTIFACT",
+      "window5_decision": "career gate remains closed",
+      "source_path": "Not found",
+      "source_sha256": "Unknown"
+    },
+    {
+      "id": "G03/G04",
+      "status": "DESIGN_CONSUMED_FROM_ORIGIN_MAIN",
+      "window5_decision": "merged Window 6 query-owner/graph closeout consumed; G03 governed review remains and backend/frontend implementation has not started",
+      "source_commit": "8aaf49c16dd514b64f3f58d55f594c1c0a085950",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/topic_graph_backend_contract.json",
+      "source_sha256": "a0eaa7825565cab0aef18da3f1f6b844a68921338c1c16ea87f3b924b7057af7",
+      "additional_sources": [
+        {
+          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/query_owner_parent_next_step.csv",
+          "sha256": "64ce081c419264920b5728ae8f3a39d619ef1cbcba61e89f0afdead949901791"
+        },
+        {
+          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/topic_graph_frontend_contract.json",
+          "sha256": "8053624cec852554a58147be5205de075a64cbf62b32693f458d387f37044b44"
+        },
+        {
+          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/14-final-status-and-handoff.md",
+          "sha256": "aa3c49dd63e11c7389b30797e116f10171074b65c866976dc7082b512b291155"
+        }
+      ]
+    },
+    {
+      "id": "Authority B03",
+      "status": "MISSING_COMPLETED_AUTHORITY_ARTIFACT",
+      "window5_decision": "method package remains ready-not-published; B03 not satisfied",
+      "source_path": "Not found",
+      "source_sha256": "Unknown"
+    }
+  ],
+  "m01_integrity_note": {
+    "page_source_sha256": "4ffc93d96f0db3e25d4fca2cf9b5615cbc532528e6e625bbff8ba3ccf72ec8cf",
+    "manifest_sha256_at_closeout": "1a461728e04d3c20c525234ca5e329851606a7b0af9c25dcc9ed350b942346d7",
+    "validation_report_sha256_at_closeout": "3115c2212c392d3df282d9fd473623d7056ee9c073d8f08e4842184473e7d7a2",
+    "status": "INTEGRITY_PARTIAL",
+    "reason": "all currently declared M01 payload hashes match, but validation_report records a stale manifest SHA; only the independently hash-bound page CSV is consumed"
+  },
+  "writes": {
+    "cms_import": false,
+    "cms_publication": false,
+    "database": false,
+    "production": false,
+    "sitemap_llms_robots": false
+  }
+}

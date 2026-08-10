@@ -1,9 +1,9 @@
 # Implementation dependencies and handoff
 
-Acceptance revalidated at: 2026-08-10
+Evidence closeout revalidated at: 2026-08-10T18:30:00+08:00
 
-The acceptance-repair scope is complete: live audit semantics, controlled SERP evidence and all ten full body packages pass local validation. Dependencies still not satisfied in this workspace are M01 current GSC export, M04/M06 funnel truth/event contract, A01 owner audit, P03-P05 personality maps, Career C06, G03/G04 graph authority, and Authority B03. The report consumes historical artifacts where available and never upgrades them to current facts.
+The evidence-closeout scope is complete for every provided safe artifact. M01 page evidence is consumed; M04 aggregate observations and the M06 privacy/proposal boundary are recorded; A01, P03-P05 and G03/G04 design artifacts are consumed without upgrading them to implementation authority. The exact upstream source paths, SHA-256 values, limitations and write boundary are in [article_evidence_closeout_dependencies.json](article_evidence_closeout_dependencies.json).
 
-Next exact task: `/goal FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT，提供窗口2 M01/M04/M06、窗口3 A01、窗口4 P03-P05、Authority B03 当前产物后，仅重算本目录 UNKNOWN/HISTORICAL 字段、Top10 SERP/GSC 优先级与最终状态；不得导入或发布 CMS。`
+Remaining upstream tasks are concrete and separate: finish a non-empty M01 query×page export; establish M04 backend article attribution; approve and implement the M06 event contract; complete Career C06; implement the G03/G04 backend/frontend graph contracts; and complete Authority B03. Until then, current query ownership/cannibalization, article conversion, career edges, new graph edges and method-asset publication remain blocked.
 
-A later, separate exact CMS goal may create drafts only after operator review and EN V2 package freeze. This acceptance repair did not import or publish any package. Indexability/sitemap/llms and search submission remain independent gates.
+A later, separate exact CMS goal may create drafts only after operator review and EN V2 package freeze. This evidence closeout did not import or publish any package. Indexability/sitemap/llms and search submission remain independent gates.

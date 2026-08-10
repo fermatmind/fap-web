@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "0dfb461d6ebf661b7d5f25ca9ed8f0bf79a1d678a5fe7079dfc3bf842f35bddd"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "0dfb461d6ebf661b7d5f25ca9ed8f0bf79a1d678a5fe7079dfc3bf842f35bddd",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "在线 IQ 测试准吗？题型、分数解释与正式评估边界",
@@ -57,12 +58,36 @@
       "在线智商测试题型"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 0,
-      "impressions": 116,
-      "ctr": "0%",
-      "position": "6.11",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 118,
+          "ctr": "0.0%",
+          "position": 6.03,
+          "source_row_rank": 79
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 0,
+          "impressions": 356,
+          "ctr": "0.0%",
+          "position": 8.94,
+          "source_row_rank": 46
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 474,
+          "ctr": "0.0%",
+          "position": 8.22,
+          "source_row_rank": 90
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "score_interpretation",
     "current_owner": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
@@ -339,7 +364,27 @@
       "https://fermatmind.com/zh/articles/iq-test-narrative-portrait"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 0,
+      "impressions": 116,
+      "ctr": "0%",
+      "position": "6.11",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 8,
+      "score": 19.5688,
+      "tier": "P3",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": false
+    }
   },
   "body_revision": [
     {
@@ -531,7 +576,7 @@
   ],
   "unresolved_unknowns": [
     "FermatMind-specific IQ instrument coverage, reliability, validity, norms, percentiles and error",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

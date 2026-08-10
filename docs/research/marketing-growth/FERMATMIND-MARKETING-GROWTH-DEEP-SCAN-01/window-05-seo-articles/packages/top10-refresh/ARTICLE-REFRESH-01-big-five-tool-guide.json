@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "0b4543b96ea9159315bafdb38a2fbe98124cfcc56be58354d3cece9942905456"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "0b4543b96ea9159315bafdb38a2fbe98124cfcc56be58354d3cece9942905456",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "大五人格测试结果怎么看？OCEAN 五维、分数与使用边界",
@@ -55,12 +56,36 @@
       "OCEAN 分数怎么看"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 8,
-      "impressions": 817,
-      "ctr": "0.98%",
-      "position": "7.61",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 11,
+          "impressions": 676,
+          "ctr": "1.63%",
+          "position": 7.91,
+          "source_row_rank": 5
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 7,
+          "impressions": 1515,
+          "ctr": "0.46%",
+          "position": 7.78,
+          "source_row_rank": 4
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 18,
+          "impressions": 2191,
+          "ctr": "0.82%",
+          "position": 7.82,
+          "source_row_rank": 5
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "method_and_interpretation",
     "current_owner": "https://fermatmind.com/zh/articles/big-five-tool-guide",
@@ -277,7 +302,27 @@
       "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=big-five-tool-guide&content_id=3&target_action=seo_cta_start_test&test_slug=big-five-personality-test-ocean-model&target_test_slug=big-five-personality-test-ocean-model&cta_id=start_test&landing_path=%2Fzh%2Farticles%2Fbig-five-tool-guide&entrypoint=seo_cta"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 8,
+      "impressions": 817,
+      "ctr": "0.98%",
+      "position": "7.61",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 6,
+      "score": 25.8104,
+      "tier": "P2",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": true
+    }
   },
   "body_revision": [
     {
@@ -465,7 +510,7 @@
   ],
   "unresolved_unknowns": [
     "FermatMind-specific Big Five instrument version, reliability, validity, norms, percentiles and language equivalence",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

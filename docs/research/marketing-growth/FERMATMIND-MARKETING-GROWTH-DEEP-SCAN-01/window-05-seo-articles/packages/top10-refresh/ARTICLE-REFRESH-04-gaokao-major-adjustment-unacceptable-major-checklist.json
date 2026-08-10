@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "e5a023364c6573e2ffdcda66a562e5875c49e12ecdb3aef438cb2f069d89c586"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "e5a023364c6573e2ffdcda66a562e5875c49e12ecdb3aef438cb2f069d89c586",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "高考志愿要不要服从调剂？先核对规则与不能接受专业清单",
@@ -60,12 +61,36 @@
       "不能接受的专业清单"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 1,
-      "impressions": 986,
-      "ctr": "0.1%",
-      "position": "6.56",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 1,
+          "impressions": 1085,
+          "ctr": "0.09%",
+          "position": 6.58,
+          "source_row_rank": 25
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 5,
+          "impressions": 3132,
+          "ctr": "0.16%",
+          "position": 7.56,
+          "source_row_rank": 6
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 6,
+          "impressions": 4217,
+          "ctr": "0.14%",
+          "position": 7.31,
+          "source_row_rank": 12
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "decision_checklist",
     "current_owner": "https://fermatmind.com/zh/articles/gaokao-major-adjustment-unacceptable-major-checklist",
@@ -374,7 +399,27 @@
       "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 1,
+      "impressions": 986,
+      "ctr": "0.1%",
+      "position": "6.56",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 1,
+      "score": 167.4734,
+      "tier": "P1",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": true
+    }
   },
   "body_revision": [
     {
@@ -548,7 +593,7 @@
   ],
   "unresolved_unknowns": [
     "reader's province, score, institution, programme and current official adjustment rules",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

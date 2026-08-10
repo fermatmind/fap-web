@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "12d81c75e2f022fbfbec1dd4a932e55cef25b6d84bb00ee9d0fee163037b369a"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "12d81c75e2f022fbfbec1dd4a932e55cef25b6d84bb00ee9d0fee163037b369a",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "MBTI 是什么？四组偏好、16 型人格与使用边界",
@@ -55,12 +56,36 @@
       "MBTI 测试 局限"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 2,
-      "impressions": 646,
-      "ctr": "0.31%",
-      "position": "16.33",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 1,
+          "impressions": 600,
+          "ctr": "0.17%",
+          "position": 16.73,
+          "source_row_rank": 26
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 3,
+          "impressions": 1328,
+          "ctr": "0.23%",
+          "position": 14.14,
+          "source_row_rank": 12
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 4,
+          "impressions": 1952,
+          "ctr": "0.2%",
+          "position": 14.88,
+          "source_row_rank": 16
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "definition_and_limits",
     "current_owner": "https://fermatmind.com/zh/articles/mbti-basics",
@@ -335,7 +360,27 @@
       "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 2,
+      "impressions": 646,
+      "ctr": "0.31%",
+      "position": "16.33",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 4,
+      "score": 39.7669,
+      "tier": "P2",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": true
+    }
   },
   "body_revision": [
     {
@@ -523,7 +568,7 @@
   ],
   "unresolved_unknowns": [
     "FermatMind-specific MBTI instrument version, reliability, validity and language equivalence",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

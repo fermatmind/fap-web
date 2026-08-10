@@ -1,8 +1,8 @@
 # Article authority inventory
 
-Acceptance revalidated at: 2026-08-10
+Evidence closeout revalidated at: 2026-08-10T18:30:00+08:00
 
-The complete 129-row locale-page ledger is [article_performance_ledger.csv](article_performance_ledger.csv). CMS/public API identity, publication flags, SEO/landing/answer surfaces, live status/H1/canonical/robots/schema, sitemap and llms observations are current. All 129 canonical pages returned 200 during the bounded revalidation. Backend-declared structured-data keys and parsed live JSON-LD types are separate columns. GSC is joined only where a historical URL row exists; per-article GA4 and downstream conversion remain UNKNOWN.
+The complete 129-row locale-page ledger is [article_performance_ledger.csv](article_performance_ledger.csv). CMS/public API identity, publication flags, SEO/landing/answer surfaces, live status/H1/canonical/robots/schema, sitemap and llms observations are current. All 129 canonical pages returned 200 during the bounded revalidation. Backend-declared structured-data keys and parsed live JSON-LD types are separate columns. M01 page-grain metrics are joined for current28/prev28/day90 only where the source row exists; capped-export absence remains Unknown. Per-article GA4, query×page ownership and downstream conversion remain UNKNOWN.
 
 ## Reconciliation
 

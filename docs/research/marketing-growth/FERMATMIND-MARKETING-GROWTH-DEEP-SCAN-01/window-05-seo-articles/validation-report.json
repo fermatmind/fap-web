@@ -1,41 +1,76 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-ACCEPTANCE-REPAIR",
-  "validated_at": "2026-08-10T13:23:51+08:00",
-  "status": "PASS_WITH_DECLARED_EVIDENCE_BLOCKERS",
-  "acceptance_repair_complete": true,
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
+  "validated_at": "2026-08-10T18:30:00+08:00",
+  "status": "PASS_WITH_DECLARED_UPSTREAM_BLOCKERS",
+  "evidence_closeout_complete": true,
   "checks": [
+    {
+      "name": "required:00-executive-decision.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:01-sources-and-evidence-boundary.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:03-article-performance-classification.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:04-top10-query-serp-refresh-briefs.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:15-implementation-dependencies-and-handoff.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:16-final-status.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_classification.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_cms_refresh_cohort.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_evidence_closeout_dependencies.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_gsc_page_evidence.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
     {
       "name": "required:article_performance_ledger.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_to_test_coverage.csv",
+      "name": "required:article_public_edge_registry.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:article_serp_results.csv",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_controlled_serp_snapshots.json",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_top10_current_state.json",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_top10_cms_refresh_packages.json",
-      "status": "PASS",
-      "detail": "required artifact exists"
-    },
-    {
-      "name": "required:article_top10_reference_ledger.csv",
+      "name": "required:article_query_ownership.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
@@ -45,17 +80,17 @@
       "detail": "required artifact exists"
     },
     {
-      "name": "required:00-executive-decision.md",
+      "name": "required:article_top10_cms_refresh_packages.json",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:09-top10-cms-refresh-package-qa.md",
+      "name": "required:article_top10_refresh_registry.csv",
       "status": "PASS",
       "detail": "required artifact exists"
     },
     {
-      "name": "required:16-final-status.md",
+      "name": "required:article_topic_owner_registry.json",
       "status": "PASS",
       "detail": "required artifact exists"
     },
@@ -72,7 +107,7 @@
     {
       "name": "csv_parse:article_cms_refresh_cohort.csv",
       "status": "PASS",
-      "detail": "10 data rows; 21 headers"
+      "detail": "10 data rows; 31 headers"
     },
     {
       "name": "csv_formula_safety:article_cms_refresh_cohort.csv",
@@ -86,6 +121,16 @@
     },
     {
       "name": "csv_formula_safety:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_gsc_page_evidence.csv",
+      "status": "PASS",
+      "detail": "164 data rows; 16 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_gsc_page_evidence.csv",
       "status": "PASS",
       "detail": "0 unsafe leading formula cells"
     },
@@ -162,7 +207,7 @@
     {
       "name": "csv_parse:article_top10_refresh_registry.csv",
       "status": "PASS",
-      "detail": "10 data rows; 15 headers"
+      "detail": "10 data rows; 25 headers"
     },
     {
       "name": "csv_formula_safety:article_top10_refresh_registry.csv",
@@ -186,6 +231,11 @@
     },
     {
       "name": "json_parse:article_controlled_serp_snapshots.json",
+      "status": "PASS",
+      "detail": "valid JSON"
+    },
+    {
+      "name": "json_parse:article_evidence_closeout_dependencies.json",
       "status": "PASS",
       "detail": "valid JSON"
     },
@@ -280,100 +330,138 @@
       "detail": "valid JSON"
     },
     {
-      "name": "r01_row_count",
+      "name": "portfolio_count",
       "status": "PASS",
-      "detail": "129/129 locale pages"
+      "detail": "expected 129; observed 129"
     },
     {
-      "name": "r01_live_http",
+      "name": "gsc_projection_count",
       "status": "PASS",
-      "detail": "129/129 live HTTP 200"
+      "detail": "expected {\"current28\"=>58, \"prev28\"=>48, \"day90\"=>58}; observed {\"current28\"=>58, \"prev28\"=>48, \"day90\"=>58}"
     },
     {
-      "name": "r01_schema_fields_separated",
+      "name": "gsc_projection_source_sha",
       "status": "PASS",
-      "detail": "backend declarations and live JSON-LD have separate columns"
+      "detail": "all projected rows preserve M01 evidence status"
     },
     {
-      "name": "r01_jsonld_parse",
+      "name": "capped_absence_stays_unknown",
       "status": "PASS",
-      "detail": "all live JSON-LD blocks parsed without error"
+      "detail": "0 absent source rows incorrectly materialized"
     },
     {
-      "name": "r01_schema_semantics",
+      "name": "classification_counts",
       "status": "PASS",
-      "detail": "live schema state follows parsed HTML and is not inferred from backend declarations"
+      "detail": "expected {\"Unclassified\"=>57, \"Authority\"=>50, \"Near Winner\"=>14, \"Traffic\"=>8}; observed {\"Unclassified\"=>57, \"Authority\"=>50, \"Near Winner\"=>14, \"Traffic\"=>8}"
     },
     {
-      "name": "r05_row_count",
+      "name": "classification_ledgers_match",
       "status": "PASS",
-      "detail": "129/129 locale pages"
+      "detail": "performance and classification ledgers agree"
     },
     {
-      "name": "r05_live_http",
+      "name": "per_article_ga4_unknown",
       "status": "PASS",
-      "detail": "129/129 live HTTP 200"
+      "detail": "all per-article GA4 and conversion fields remain Unknown"
     },
     {
-      "name": "r05_cta_visibility",
+      "name": "top10_priority_order",
       "status": "PASS",
-      "detail": "129/129 CTA paths observed"
+      "detail": "expected ARTICLE-REFRESH-04,ARTICLE-REFRESH-03,ARTICLE-REFRESH-10,ARTICLE-REFRESH-08,ARTICLE-REFRESH-05,ARTICLE-REFRESH-01,ARTICLE-REFRESH-07,ARTICLE-REFRESH-06,ARTICLE-REFRESH-09,ARTICLE-REFRESH-02; observed ARTICLE-REFRESH-04,ARTICLE-REFRESH-03,ARTICLE-REFRESH-10,ARTICLE-REFRESH-08,ARTICLE-REFRESH-05,ARTICLE-REFRESH-01,ARTICLE-REFRESH-07,ARTICLE-REFRESH-06,ARTICLE-REFRESH-09,ARTICLE-REFRESH-02"
     },
     {
-      "name": "r05_cta_evidence",
+      "name": "top10_priority_unique",
       "status": "PASS",
-      "detail": "visibility evidence records normalized href semantics"
+      "detail": "priority ranks are exactly 1..10"
     },
     {
-      "name": "controlled_serp_csv",
+      "name": "top10_current_grain",
       "status": "PASS",
-      "detail": "100 rows; 10 queries; ranks 1-10 with country/device controls"
+      "detail": "all refresh rows identify page grain and query×page Unknown"
     },
     {
-      "name": "controlled_serp_snapshots",
+      "name": "cohort_priority_matches",
       "status": "PASS",
-      "detail": "10 provider snapshots with 10 results and explicit controls"
+      "detail": "cohort and refresh registry priority fields agree"
     },
     {
-      "name": "top10_current_state",
+      "name": "top10_package_count",
       "status": "PASS",
-      "detail": "10 current title/meta/H1/snippet/outline/internal-link snapshots; all live 200"
+      "detail": "expected 10; observed 10"
     },
     {
-      "name": "top10_package_contract",
+      "name": "top10_package_integrity",
       "status": "PASS",
-      "detail": "10 full, article-specific, source-backed packages; content-only and not imported"
+      "detail": "0 errors: "
     },
     {
-      "name": "top10_body_uniqueness",
+      "name": "query_owner_current_unknown",
       "status": "PASS",
-      "detail": "10/10 unique body SHA-256 values"
+      "detail": "all current query ranking/cannibalization fields remain Unknown"
     },
     {
-      "name": "top10_faq_specificity",
+      "name": "career_gate_closed",
       "status": "PASS",
-      "detail": "40/40 topic-specific FAQ questions are unique"
+      "detail": "Career C06 missing state is explicit"
     },
     {
-      "name": "english_v2_freeze_gate",
+      "name": "edge_dependency_closeout",
       "status": "PASS",
-      "detail": "EN package requires independent V2 control and remains unfrozen"
+      "detail": "design artifacts consumed; implementation and M06 blockers explicit"
     },
     {
-      "name": "reference_ledger",
+      "name": "no_edge_publication_expansion",
       "status": "PASS",
-      "detail": "38 unique direct-source rows match all package references"
+      "detail": "only 129 already-current CMS assessment CTA edges remain authorized"
     },
     {
-      "name": "source_manifest",
+      "name": "dead_content_not_authorized",
       "status": "PASS",
-      "detail": "manifest records 129 live pages and controlled-provider SERP boundary"
+      "detail": "all 129 rows remain non-actionable"
+    },
+    {
+      "name": "dead_day90_source_limited",
+      "status": "PASS",
+      "detail": "58 observed and 71 capped-export Unknown rows"
+    },
+    {
+      "name": "m01_source_hash",
+      "status": "PASS",
+      "detail": "exact M01 page source SHA is bound"
+    },
+    {
+      "name": "missing_c06_b03",
+      "status": "PASS",
+      "detail": "C06 and B03 remain missing"
+    },
+    {
+      "name": "zero_external_writes",
+      "status": "PASS",
+      "detail": "CMS/database/production/sitemap writes are all false"
+    },
+    {
+      "name": "source_manifest_counts",
+      "status": "PASS",
+      "detail": "source manifest records 58/48/58"
+    },
+    {
+      "name": "scope_guard",
+      "status": "PASS",
+      "detail": "37 changed paths; all must remain under Window 5"
+    },
+    {
+      "name": "package_bodies_unchanged",
+      "status": "PASS",
+      "detail": "no Top 10 Markdown body changed"
     }
   ],
   "declared_evidence_blockers": [
-    "current complete GSC query×page×country×device exports",
-    "GA4 article URL attribution and M04/M06 funnel truth",
-    "A01, P03-P05, C06, G03/G04 and B03 cross-window authority artifacts"
+    "M01 query×page×country×device export has zero data rows; exact query ranking and cannibalization remain Unknown",
+    "M04 backend truth and per-article GA4 attribution are unavailable",
+    "M06 is proposed and has no approved public topic-edge event implementation",
+    "Career C06 current completion artifact is missing",
+    "G03/G04 backend/frontend graph implementation has not started",
+    "Authority B03 completed authority artifact is missing"
   ],
   "forbidden_actions_performed": [
 
