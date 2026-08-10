@@ -1,0 +1,101 @@
+{
+  "schema_version": "fermatmind.public_topic_edge_contract.proposal.v1",
+  "status": "PUBLIC_TOPIC_GRAPH_IMPLEMENTATION_READY_NOT_STARTED",
+  "authority": "fap-api CMS/backend only",
+  "design_only": true,
+  "identity": {
+    "source_type": "required allowlisted enum",
+    "source_id": "required stable entity identity; prefer translation_group_uuid",
+    "source_locale": "required en|zh-CN",
+    "relation_type": [
+      "parent",
+      "child",
+      "breadcrumb",
+      "sibling",
+      "compare",
+      "related_article",
+      "related_personality",
+      "related_career",
+      "take_assessment",
+      "learn_more",
+      "prerequisite",
+      "deeper_method"
+    ],
+    "target_type": "required allowlisted enum",
+    "target_id": "required stable entity identity",
+    "target_locale": "required en|zh-CN"
+  },
+  "fields": {
+    "visible_label": "required localized approved label",
+    "context": "optional plain-text context with claim guard",
+    "position": "required nonnegative stable integer",
+    "active": "required boolean",
+    "review_state": [
+      "draft",
+      "review_needed",
+      "approved",
+      "hold",
+      "rejected"
+    ],
+    "evidence_refs": "required list for approval-sensitive edges",
+    "version": "immutable optimistic-lock identity",
+    "valid_from": "optional UTC timestamp",
+    "valid_until": "optional UTC timestamp",
+    "created_by_identity": "auditable backend identity, never public PII",
+    "updated_by_identity": "auditable backend identity, never public PII",
+    "target_publication_eligibility": "required resolved backend truth",
+    "target_canonical": "required owned public canonical",
+    "public_api_projection": "only approved active currently eligible edges"
+  },
+  "backend_responsibilities": [
+    "source and target existence",
+    "locale consistency",
+    "relation allowlist",
+    "private target rejection",
+    "publication eligibility",
+    "indexability constraints",
+    "canonical target resolution",
+    "stable ordering",
+    "deduplication",
+    "invalid edge fail closed",
+    "stale target suppression",
+    "cache invalidation",
+    "readback",
+    "audit/version identity",
+    "Career C06 gate",
+    "public API contract tests"
+  ],
+  "public_projection": {
+    "endpoint_proposal": "/api/v0.5/public-topic-edges?source_type={type}&source_id={id}&locale={locale}",
+    "ordering": [
+      "position asc",
+      "relation_type asc",
+      "target_type asc",
+      "target_id asc"
+    ],
+    "empty": "200 with empty items and explicit authority/readback metadata",
+    "unavailable": "5xx or explicit unavailable state; never local editorial fallback",
+    "career_gate": "omit every Career source/target until current C06 truth passes"
+  },
+  "forbidden": [
+    "slug inference",
+    "file-exists publication inference",
+    "strict=false private acceptance",
+    "frontend completion of missing content",
+    "local editorial fallback on API failure",
+    "schema/llms/sitemap as edge proof"
+  ],
+  "implementation_pr": {
+    "id": "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01",
+    "repo": "fap-api",
+    "title": "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01: expose CMS-authoritative public topic edges",
+    "depends_on": [
+      "G03 governed edge registry",
+      "A01",
+      "P03-P05",
+      "R04",
+      "C06 before Career activation",
+      "Program Controller manifest registration"
+    ]
+  }
+}

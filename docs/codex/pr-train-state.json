@@ -57745,5 +57745,133 @@
       }
     ],
     "updated_at": "2026-08-10T05:32:22Z"
+  },
+  "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01: close Window 6 registry and handoff gaps",
+    "base": "main",
+    "branch": "codex/public-topic-graph-audit-closeout-01",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "6d26a80c437ddb5b781dc7f9cfb029dc926b1b88",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2024",
+    "checks": {
+      "artifact_inventory": {
+        "status": "passed",
+        "evidence": "Exact 35 files: 15 Markdown, 12 CSV, and 8 JSON."
+      },
+      "structured_data": {
+        "status": "passed",
+        "evidence": "All CSV files parsed with fixed unique headers and UTF-8; all JSON parsed; formula-injection scan passed."
+      },
+      "identity_recomputation": {
+        "status": "passed",
+        "evidence": "Corpus SHA 37c07f747cc2d99a6f986678c3af01789d069efff09c1cf1f47879fb9f8a46d6, Full graph SHA 2efc77e81df2c36bc8465b0350c40fa6f4d0ecc51e51e0d8842e4d1c13742fbd, and Contextual graph SHA 29dfef3bbe16e24d775dc8fde57000779cb542f952262c01c4cd5084cce1e21b recomputed and matched."
+      },
+      "registry_and_privacy": {
+        "status": "passed",
+        "evidence": "422 query rows, zero owner conflicts, zero blank next_step_canonical values, zero private canonical graph leaks, and zero violations across 282 Career-gated edge rows."
+      },
+      "manifest_state_parse": {
+        "status": "passed",
+        "evidence": "PR train YAML and state JSON parse successfully."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #2024 head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88 passed build, all contract shards and aggregation, both contract freezes, CodeQL analysis, and no-new-code-scanning-alerts; merge state CLEAN."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {
+        "at": "2026-08-10T05:21:15Z",
+        "status": "in_progress",
+        "summary": "Initialized the operator-authorized Window 6 closeout from latest origin/main in an isolated worktree; no production recrawl or write is permitted."
+      },
+      {
+        "at": "2026-08-10T05:25:00Z",
+        "status": "local_checks_passed_ready_to_push",
+        "summary": "Exact artifact inventory, CSV/JSON/UTF-8/formula, corpus and graph SHA, owner, privacy, Career gate, manifest/state parse, and scope checks passed."
+      },
+      {
+        "at": "2026-08-10T05:28:00Z",
+        "status": "committed",
+        "summary": "Committed the scoped closeout and rebased onto latest origin/main; post-rebase validation passed."
+      },
+      {
+        "at": "2026-08-10T05:30:00Z",
+        "status": "pr_open_pending_github_checks",
+        "summary": "Pushed the scoped branch and opened PR #2024; waiting for all required GitHub checks."
+      },
+      {
+        "at": "2026-08-10T05:42:27Z",
+        "status": "ready_to_merge",
+        "summary": "All required checks passed on head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88; GitHub reports CLEAN and exact scope revalidation passed."
+      }
+    ]
+  },
+  "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01: approve privacy-safe topic edge measurement contract",
+    "base": "main",
+    "branch": "codex/public-topic-graph-edge-click-contract-01",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01"
+    ],
+    "status": "pending_dependency",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": "Waiting for PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01 to merge.",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": []
+  },
+  "PUBLIC-TOPIC-GRAPH-RENDERER-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges",
+    "base": "main",
+    "branch": "codex/public-topic-graph-renderer-01",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01",
+      "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
+    ],
+    "status": "pending_dependency",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": "Waiting for the backend authority contract and approved edge-click contract to merge; Career remains closed until C06 PASS.",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": []
+  },
+  "PUBLIC-TOPIC-GRAPH-POST-C06-AUDIT-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-POST-C06-AUDIT-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-POST-C06-AUDIT-01: capture Career post-recovery graph and pre-post diff",
+    "base": "main",
+    "branch": "codex/public-topic-graph-post-c06-audit-01",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
+      "PUBLIC-TOPIC-GRAPH-RENDERER-01",
+      "CAREER-1046-TRUTH-RESCAN-06"
+    ],
+    "status": "pending_dependency",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": "Waiting for renderer merge and current Career C06 PASS; CAREER_LINK_PUBLICATION_GATE remains CLOSED.",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": []
   }
 }

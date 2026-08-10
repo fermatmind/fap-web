@@ -1,0 +1,17 @@
+{
+  "schema_version": "fermatmind.public_corpus_manifest.v1",
+  "status": "CAREER_POST_GRAPH_WAITING_ON_C06",
+  "evidence_level": "UNKNOWN_NOT_CRAWLED",
+  "captured_at": null,
+  "prerequisites": {
+    "C02": "UNKNOWN",
+    "C03": "NOT_RESTORED_CURRENT_LIVE_553_ZERO_CAREER",
+    "C05": "UNKNOWN",
+    "C06": "NOT_COMPLETED_CURRENT_WINDOW",
+    "unique_slugs_1046": "NOT_VERIFIED_CURRENT",
+    "localized_targets_2092": "NOT_VERIFIED_CURRENT",
+    "runtime_stability": "NOT_PROVEN"
+  },
+  "career_link_publication_gate": "closed",
+  "items": []
+}

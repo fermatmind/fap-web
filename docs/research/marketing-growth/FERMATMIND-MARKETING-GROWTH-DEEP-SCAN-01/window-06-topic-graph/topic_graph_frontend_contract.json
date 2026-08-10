@@ -1,0 +1,98 @@
+{
+  "schema_version": "fermatmind.public_topic_edge_renderer.proposal.v1",
+  "status": "PUBLIC_TOPIC_GRAPH_IMPLEMENTATION_READY_NOT_STARTED",
+  "design_only": true,
+  "authority": "consume fap-api public API only",
+  "rendering": {
+    "SSR_visible_HTML": true,
+    "deterministic": "same validated payload yields byte-stable ordered anchor structure",
+    "ordering": "preserve backend position then stable identity tiebreaker",
+    "no_slug_inference": true,
+    "no_local_mapping": true,
+    "no_editorial_copy": true,
+    "empty_payload": "render no module or minimal non-editorial shell",
+    "api_error": "explicitly unavailable/no module; never pretend success",
+    "canonical_hreflang_metadata_unchanged": true,
+    "tracking_parameters_excluded_from_canonical": true,
+    "locale_mismatch_fail_closed": true,
+    "private_target_fail_closed": true,
+    "career_gate": "do not render until current C06 passes"
+  },
+  "validation": [
+    "deterministic order",
+    "duplicate edge",
+    "invalid relation",
+    "missing target",
+    "inactive target",
+    "unqualified target",
+    "locale mismatch",
+    "private target",
+    "empty API",
+    "API timeout",
+    "no local fallback",
+    "safe tracking payload",
+    "tracking query absent from canonical",
+    "Career gate",
+    "server-rendered visible links"
+  ],
+  "tracking_requirement": {
+    "status": "M06_PROPOSAL_CONSUMED_WAITING_APPROVAL_NO_PUBLIC_EDGE_CLICK_EVENT",
+    "m06_source": "window-02-measurement/event_contract.json",
+    "m06_contract_status": "PROPOSED_MEASUREMENT_CONTRACT",
+    "edge_click_event_defined_by_m06": false,
+    "proposed_fields_only": [
+      "source_surface",
+      "source_entity",
+      "target_surface",
+      "target_entity",
+      "relation_type",
+      "locale",
+      "display_region",
+      "position",
+      "destination_public_canonical",
+      "anonymous_session_attribution"
+    ],
+    "m06_allowed_low_cardinality_fields": [
+      "scale_code",
+      "form_code",
+      "locale",
+      "entry_surface",
+      "source_page_type",
+      "source_content_type",
+      "source_slug",
+      "target_action",
+      "organic_channel",
+      "device_class",
+      "result_state"
+    ],
+    "forbidden_fields": [
+      "user_identifier",
+      "attempt_identifier",
+      "report_identifier",
+      "order_identifier",
+      "any_token",
+      "email",
+      "phone",
+      "full_url",
+      "query_string",
+      "answers",
+      "question_level_data",
+      "score_detail",
+      "payment_credential",
+      "free_text",
+      "unapproved_error_stack"
+    ]
+  },
+  "implementation_pr": {
+    "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01 merged",
+      "approved backend fixture",
+      "Measurement M06",
+      "Career C06 for Career rendering",
+      "Program Controller manifest registration"
+    ]
+  }
+}
