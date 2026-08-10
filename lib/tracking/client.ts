@@ -375,12 +375,19 @@ export async function trackClientEvent({
 
   const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
   if (shouldSuppressAnalyticsForUrl(path)) return;
-  const safePath = sanitizeAnalyticsTrackingUrl(path) ?? "";
+  const sanitizedPath = sanitizeAnalyticsTrackingUrl(path) ?? "";
+  const safePath = normalizedEventName === "continue_exploration"
+    ? sanitizedPath.split("?")[0] ?? ""
+    : sanitizedPath;
   const rawPayload = enrichStandardConversionPayload(
     normalizedEventName,
     enrichPayloadForSearchIntelligence(payload ?? {}, safePath)
   );
   const filteredPayload = filterTrackingPayload(normalizedEventName, rawPayload);
+  if (
+    normalizedEventName === "continue_exploration" &&
+    typeof filteredPayload.action_category !== "string"
+  ) return;
   if (shouldSuppressDuplicateConversionDispatch(normalizedEventName, safePath, filteredPayload)) return;
   dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
 
