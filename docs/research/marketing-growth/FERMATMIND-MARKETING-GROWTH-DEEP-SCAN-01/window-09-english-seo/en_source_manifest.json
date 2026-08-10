@@ -1,6 +1,6 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T07:07:54Z",
+  "captured_at": "2026-08-10T07:27:42Z",
   "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
   "csv_provenance_contract": [
     "source",
@@ -27,7 +27,10 @@
     "GSC_EXACT_EXPORT_BLOCKED",
     "BLOCKED_OVERBROAD_OAUTH_SCOPE",
     "VERIFIED_GSC_SEARCH_ANALYTICS_API_AGGREGATE",
-    "VERIFIED_GSC_SEARCH_ANALYTICS_API_QUERY_PAGE_MARKET_DEVICE"
+    "VERIFIED_GSC_SEARCH_ANALYTICS_API_QUERY_PAGE_MARKET_DEVICE",
+    "VERIFIED_GSC_AND_CURRENT_SERP_SAMPLE_WITH_LIMITATIONS",
+    "UNKNOWN_NOT_RETURNED_IN_PRIVACY_FILTERED_TOP_ROWS",
+    "VERIFIED_CURRENT_SAMPLE_WITHOUT_STABLE_RANK"
   ],
   "sources": [
     {
@@ -343,6 +346,82 @@
         "/en/career/industries/__unknown__"
       ],
       "limitation": "Sitemap is discoverability evidence, not sole content authority. Canonical eligibility also consumes repository/backend route contracts; no discoverability mutation was made."
+    },
+    {
+      "id": "E02_M01_RIASEC_QUERY_BASELINE",
+      "source": "window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:06:20Z",
+      "limitation": "Privacy-filtered Search Analytics top rows; absent exact queries are UNKNOWN, not zero."
+    },
+    {
+      "id": "E02_LIVE_RIASEC_LOOKUP",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=en",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T07:27:42Z",
+      "observed_facts": {
+        "scale_code": "RIASEC",
+        "forms": [
+          {
+            "form_code": "riasec_60",
+            "questions": 60,
+            "minutes": 8,
+            "default": true
+          },
+          {
+            "form_code": "riasec_140",
+            "questions": 140,
+            "minutes": 18,
+            "default": false
+          }
+        ],
+        "paywall_mode": "free_only",
+        "is_public": true,
+        "is_indexable": true
+      },
+      "limitation": "Public API authority at capture time; no CMS write performed."
+    },
+    {
+      "id": "E02_LIVE_RIASEC_TECHNICAL_NOTE",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/RIASEC/technical-note",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T07:27:42Z",
+      "observed_facts": [
+        "interest_not_ability_personality_job_fit_or_outcome",
+        "140Q_contextual_not_more_accurate",
+        "cross_form_raw_scores_not_directly_comparable",
+        "occupation_examples_not_recommendations"
+      ],
+      "limitation": "Public method boundary; reliability, validity, sample/norm, reviewer, and public changelog remain UNKNOWN under B03."
+    },
+    {
+      "id": "E02_LIVE_RIASEC_PAGE",
+      "source": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T07:27:42Z",
+      "observed_title": "Free Holland Career Interest Test | RIASEC Full Report | FermatMind",
+      "observed_h1": "Free Holland Career Interest Test with Full Report",
+      "limitation": "Read-only HTML observation; proposed CMS metadata/first-fold experiment remains unapplied."
+    },
+    {
+      "id": "E02_SERP_SNAPSHOT_2026_08_10",
+      "source": "Current web search samples for the 10 required query intents plus form-choice queries",
+      "status": "VERIFIED_CURRENT_SAMPLE_WITHOUT_STABLE_RANK",
+      "captured_at": "2026-08-10T07:27:42Z",
+      "queries": [
+        "RIASEC test",
+        "Holland Code test",
+        "career interest test",
+        "career aptitude test",
+        "career personality test",
+        "what is RIASEC",
+        "RIASEC types",
+        "Holland career test",
+        "RIASEC 60 question test",
+        "RIASEC 140 question test"
+      ],
+      "limitation": "Non-personalized research sample; not an exact US/UK/device rank export, not a complete Top 10, and not a stable ranking guarantee."
     }
   ],
   "goal_status": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
