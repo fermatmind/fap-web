@@ -57882,9 +57882,9 @@
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
       "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
     ],
-    "status": "local_checks_passed_ready_to_push",
-    "commit_sha": "5bc3f039387b43bf38d1ebd7a7394335edb44979",
-    "pr_url": null,
+    "status": "pr_open_pending_github_checks",
+    "commit_sha": "e8b30378d70eda2e7f10314f767e9c4ec77921f8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2040",
     "checks": {
       "governed_registry_validation": {
         "status": "passed",
@@ -57914,6 +57914,11 @@
         "at": "2026-08-10T07:22:00Z",
         "status": "local_checks_passed_ready_to_push",
         "summary": "Committed the governed review as 5bc3f039387b43bf38d1ebd7a7394335edb44979 after rebasing onto latest origin/main. All structured-data, governance, Career, determinism and exact-scope checks pass twice; no edge is active or publication-authorized."
+      },
+      {
+        "at": "2026-08-10T07:25:00Z",
+        "status": "pr_open_pending_github_checks",
+        "summary": "Pushed exact head e8b30378d70eda2e7f10314f767e9c4ec77921f8 and opened PR #2040. Required GitHub checks are pending; activation/publication remains false for every candidate."
       }
     ]
   },
