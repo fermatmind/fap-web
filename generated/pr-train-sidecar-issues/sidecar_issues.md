@@ -431,13 +431,15 @@
 - PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
 - blocker type: external search and analytics data unavailable
 - affected surface: Window 7 non-career GSC and GA4 cohort evidence
-- evidence: the frozen 525-page cohort exists, but no privacy-safe GSC/GA4 export is present; search visibility and analytics conclusions remain unknown.
-- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_discoverability_cohort.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`
-- why not current PR scope: this PR cannot invent external console facts; collection belongs to `NONCAREER-GSC-GA4-COHORT-EVIDENCE-01`.
+- latest evidence PR id / branch: `NONCAREER-GSC-GA4-COHORT-EVIDENCE-01` / `codex/noncareer-gsc-ga4-cohort-evidence-01`
+- updated at: `2026-08-10T07:19:27Z`
+- evidence: a privacy-safe read-only M01 GSC export is now verified for current/previous 28-day and current 90-day context, but the required prior 90-day GSC window is absent and no authorized GA4 current/prior 90-day export exists. The eligible cohort artifact is therefore fixed-header with zero data rows; search and analytics conclusions remain unknown.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_gsc_ga4_cohort_evidence.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_gsc_ga4_cohort_manifest.json`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/m01_export_manifest.json`
+- why not current PR scope: this evidence PR exhausts currently authorized read-only repository sources but cannot invent or mutate missing external GSC/GA4 windows. Production analytics access, credentials, property changes and exports remain outside scope.
 - required checks / scope validation / merge policy affected: no / no / no
 - severity: high
 - recommended owner: search and analytics authority owner
-- recommended follow-up: attempt read-only privacy-safe aggregate exports and otherwise retain unavailable/unknown without secrets or identifiers.
+- recommended follow-up: supply privacy-safe read-only prior 90-day GSC and current/prior 90-day GA4 aggregate exports bound to the same registry, then rerun the cohort evidence contract without storing secrets or identifiers.
 - status: open
 
 ## Window 7 Field CWV/RUM Data Unavailable

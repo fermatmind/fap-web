@@ -30793,7 +30793,7 @@ prs:
     depends_on: [NONCAREER-L1-INTERVAL-BASELINE-01]
     mode: execute
     train_scope: noncareer_window7_attribution_canonical_evidence_completion
-    status: ready_to_merge
+    status: merged
     goal: Complete internal-link, cache-key-risk, and CTA-attribution evidence for the exact 20 synthetic public canonical samples without changing canonical or discoverability runtime.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/06-attribution-param-canonical-audit.md
@@ -30832,7 +30832,7 @@ prs:
     depends_on: [NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01]
     mode: execute
     train_scope: noncareer_window7_gsc_ga4_cohort_evidence
-    status: planned
+    status: ready_to_merge
     goal: Use only currently authorized read-only sources to verify L2/L3 search and analytics cohorts, or retain an explicit insufficient-data artifact without fabricating rankings or traffic.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/03-l2-big-five-baseline.md

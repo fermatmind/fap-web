@@ -58273,9 +58273,9 @@
     "depends_on": [
       "NONCAREER-L1-INTERVAL-BASELINE-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "merged",
+    "commit_sha": "577e89cb2682c5a57e1b760e853ebd4260c0cdb7",
+    "pr_url": "https://github.com/FermatMind/fap-web/pull/2037",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -58299,14 +58299,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T07:16:24Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -58351,12 +58351,18 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All required checks passed and the exact 8-path evidence scope was revalidated against origin/main after one transient read-only fetch reset succeeded on retry. PR #2037 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T07:16:24Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2037 squash-merged as 577e89cb2682c5a57e1b760e853ebd4260c0cdb7. origin/main contained the merge commit, local main was synchronized, both task branches were removed, and post-merge V2 SHA/evidence revalidation passed before PR5 began."
       }
     ],
     "sidecar_issues": [
       "window7-public-cta-attribution-propagation-gaps-20260810"
     ],
-    "updated_at": "2026-08-10T07:11:55Z"
+    "updated_at": "2026-08-10T07:16:24Z"
   },
   "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01": {
     "id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
@@ -58367,10 +58373,31 @@
     "depends_on": [
       "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
     ],
-    "status": "planned",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {},
+    "status": "ready_to_merge",
+    "commit_sha": "805b4734219e021cc702d4e19ed96530658f056c",
+    "pr_url": "https://github.com/FermatMind/fap-web/pull/2041",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #2037 is merged as 577e89cb2682c5a57e1b760e853ebd4260c0cdb7; origin/main and local main were synchronized, both PR4 branches were deleted, and post-merge evidence revalidation passed before PR5 began."
+      },
+      "read_only_source_provenance": {
+        "status": "pass_with_missing_required_windows",
+        "evidence": "M01 manifest, validation report and page-source SHA-256 bindings match exactly. M01 is COMPLETE for sc-domain:fermatmind.com/web with current28, prev28 and current90/day90 evidence. Required prior90 GSC and both GA4 90-day windows are unavailable; no write or secret request was executed."
+      },
+      "cohort_artifact": {
+        "status": "pass_insufficient_data_zero_rows",
+        "evidence": "The fixed 18-column CSV contains zero data rows and SHA-256 c588bb8507077a46c05769ad5d6fd9a954ef2f14e0429d194eddf313117c3d64. Frozen registry counts are exactly L2 Big Five 106, L3 non-Big-Five personality 253 and L3 articles 113; no Career/private URL, identifier, ranking or traffic value is emitted."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Ruby CSV/JSON/YAML validation passed for fixed header, zero rows, UTF-8/formula safety, SHA provenance, exact registry classification, M01 window semantics, diagnostic intersections, privacy/write boundaries and missing-data decision. The exact 10-path allowlist, pnpm lint:spacing and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2041 head 805b4734219e021cc702d4e19ed96530658f056c passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary and no-new-code-scanning-alerts. GitHub reported CLEAN and MERGEABLE with no review block."
+      }
+    },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -58378,7 +58405,7 @@
     "scope_validation": {
       "allowed_paths_only": false,
       "local_validation_passed": false,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -58394,9 +58421,42 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal; execution waits for attribution/canonical V2 evidence merge and cleanup."
+      },
+      {
+        "at": "2026-08-10T07:18:00Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean origin/main after PR4 merge, sync, cleanup, and post-merge revalidation. Scope is limited to authorized read-only GSC/GA4 cohort evidence, Window 7 docs, train metadata, and sidecar bookkeeping; no secrets, Career/private URLs, search mutation, analytics-property mutation, CMS/production write, sitemap submission, indexing request, or deployment."
+      },
+      {
+        "at": "2026-08-10T07:25:41Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "Read-only provenance, exact current/prior 90-day contract, fixed-header zero-row artifact, registry cohort counts, GSC diagnostic intersections, privacy/formula/UTF-8 guards, JSON/YAML parsing, documentation, sidecar, spacing, diff and exact changed-path validation passed. Missing prior90 GSC and both GA4 windows remain truthful nonblocking evidence."
+      },
+      {
+        "at": "2026-08-10T07:26:52Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 6d9bab4e without changing artifact bytes; implementation commit is 48e7199f662ab782f0a074ebce3d6ecfddb1ec91. Post-rebase evidence, scope, spacing and diff validation passed."
+      },
+      {
+        "at": "2026-08-10T07:27:46Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Pushed the exact 10-path scope and opened PR #2041 at head 7f243b3913b409a91ff1292d97da852fb911d8b9. Required GitHub checks are pending; no GSC/GA4, CMS, production, search submission, indexability, or deployment mutation occurred."
+      },
+      {
+        "at": "2026-08-10T07:32:54Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required GitHub and security checks passed on head 805b4734219e021cc702d4e19ed96530658f056c. The exact 10-path scope, zero-row artifact SHA, missing-data verdict and clean worktree were revalidated; PR #2041 is CLEAN and MERGEABLE with no review block."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-gsc-ga4-cohort-data-unavailable-20260810"
+    ],
+    "updated_at": "2026-08-10T07:32:54Z"
   },
   "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
     "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
