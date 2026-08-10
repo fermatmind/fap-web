@@ -1,0 +1,4 @@
+interface:
+  display_name: "FermatMind Frontend Deploy SRE"
+  short_description: "Verify and operate exact-SHA fap-web releases"
+  default_prompt: "Verify or operate a FermatMind frontend release through the protected exact-SHA GitHub workflows, then report receipts, smoke checks, and rollback readiness."
