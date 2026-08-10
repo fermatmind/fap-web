@@ -30758,7 +30758,7 @@ prs:
     depends_on: [NONCAREER-L1-INTERVAL-BASELINE-01]
     mode: execute
     train_scope: noncareer_window7_attribution_canonical_evidence_completion
-    status: local_verified
+    status: committed
     goal: Complete internal-link, cache-key-risk, and CTA-attribution evidence for the exact 20 synthetic public canonical samples without changing canonical or discoverability runtime.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/06-attribution-param-canonical-audit.md

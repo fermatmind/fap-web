@@ -55665,8 +55665,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "a895e88de0e851d1209e9c273febe8ac65a49e23",
     "pr_url": null,
     "checks": {
       "serial_predecessor": {
@@ -58252,12 +58252,18 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "All exact-definition, V1/V2 identity, canonical, internal-link, cache-boundary, CTA partition, formula/privacy, SHA, documentation, sidecar, focused-contract, formatting, diff, and changed-path checks passed. The 8/8/4 live CTA result remains truthful nonblocking evidence rather than an in-scope runtime repair."
+      },
+      {
+        "at": "2026-08-10T07:05:59Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 8-path evidence scope and rebased cleanly onto origin/main a931f8cd without changing V2 artifact bytes; implementation commit is a895e88de0e851d1209e9c273febe8ac65a49e23."
       }
     ],
     "sidecar_issues": [
       "window7-public-cta-attribution-propagation-gaps-20260810"
     ],
-    "updated_at": "2026-08-10T07:05:22Z"
+    "updated_at": "2026-08-10T07:05:59Z"
   },
   "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01": {
     "id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
