@@ -10,6 +10,7 @@ RELEASE_MANIFEST_DIGEST="${RELEASE_MANIFEST_DIGEST:-}"
 RELEASE_ARCHIVE="${RELEASE_ARCHIVE:-}"
 DEPLOY_SCRIPT="${DEPLOY_SCRIPT:-}"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-}"
+RELEASES_TO_KEEP="${RELEASES_TO_KEEP:-3}"
 
 log() {
   printf '[install_standalone_release] %s\n' "$*"
@@ -49,6 +50,12 @@ require_bin tar
 require_bin sha256sum
 require_bin mv
 require_bin ln
+require_bin realpath
+require_bin stat
+
+[[ "$RELEASES_TO_KEEP" =~ ^[1-9][0-9]*$ ]] || fail "RELEASES_TO_KEEP must be a positive integer"
+(( RELEASES_TO_KEEP >= 2 && RELEASES_TO_KEEP <= 10 )) \
+  || fail "RELEASES_TO_KEEP must be between 2 and 10"
 
 actual_archive_sha256="$(sha256sum "$RELEASE_ARCHIVE" | awk '{print $1}')"
 [[ "$actual_archive_sha256" == "$ARCHIVE_SHA256" ]] || fail "release archive digest mismatch after transport"
@@ -75,6 +82,102 @@ previous_target=""
 legacy_release=""
 active_switched=0
 install_complete=0
+
+cleanup_release_history() {
+  local active_release
+  local releases_root
+  local previous_release=""
+  local candidate
+  local resolved
+  local keep_count=0
+  local -a protected_releases=()
+  local -a candidates=()
+
+  releases_root="$(realpath "$releases_dir")"
+  active_release="$(realpath "$active_link")"
+  [[ "$active_release" == "${releases_root}/"* ]] || fail "active release escaped releases directory"
+  protected_releases+=("$active_release")
+  keep_count=1
+
+  if [[ -L "${releases_dir}/previous" ]]; then
+    previous_release="$(realpath "${releases_dir}/previous")"
+    [[ "$previous_release" == "${releases_root}/"* ]] || fail "previous release escaped releases directory"
+    if [[ "$previous_release" != "$active_release" ]]; then
+      protected_releases+=("$previous_release")
+      keep_count=$((keep_count + 1))
+    fi
+  fi
+
+  while IFS= read -r candidate; do
+    [[ -n "$candidate" ]] || continue
+    resolved="$(realpath "$candidate")"
+    [[ "$resolved" == "${releases_root}/"* ]] || fail "release candidate escaped releases directory"
+    if printf '%s\n' "${protected_releases[@]}" | grep -Fqx "$resolved"; then
+      continue
+    fi
+    candidates+=("$resolved")
+  done < <(
+    find "$releases_dir" -mindepth 1 -maxdepth 1 -type d ! -name '.incoming.*' -print0 \
+      | while IFS= read -r -d '' candidate; do
+          printf '%s\t%s\n' "$(stat -c '%Z' "$candidate")" "$candidate"
+        done \
+      | sort -rn \
+      | cut -f2-
+  )
+
+  for candidate in "${candidates[@]}"; do
+    if (( keep_count < RELEASES_TO_KEEP )); then
+      keep_count=$((keep_count + 1))
+      continue
+    fi
+    log "remove inactive release: $(basename "$candidate")"
+    rm -rf -- "$candidate"
+  done
+
+  for candidate in "${releases_dir}"/.incoming.*; do
+    [[ -d "$candidate" ]] || continue
+    [[ "$candidate" == "$incoming_dir" ]] && continue
+    resolved="$(realpath "$candidate")"
+    [[ "$resolved" == "${releases_root}/.incoming."* ]] || fail "incoming release escaped releases directory"
+    log "remove stale incoming release: $(basename "$candidate")"
+    rm -rf -- "$candidate"
+  done
+}
+
+cleanup_transport_history() {
+  local archive_directory
+  local transport_root
+  local candidate
+  local resolved
+  local keep_count=0
+
+  archive_directory="$(realpath "$(dirname "$RELEASE_ARCHIVE")")"
+  transport_root="$(realpath "$(dirname "$archive_directory")")"
+  case "$(basename "$transport_root")" in
+    .deploy-artifacts|.deploy-incoming) ;;
+    *) return 0 ;;
+  esac
+  [[ "$transport_root" == "${APP_DIR%/}/"* ]] || fail "transport directory escaped application root"
+
+  while IFS= read -r candidate; do
+    [[ -n "$candidate" ]] || continue
+    resolved="$(realpath "$candidate")"
+    [[ "$resolved" == "${transport_root}/"* ]] || fail "transport candidate escaped transport root"
+    if (( keep_count < RELEASES_TO_KEEP )); then
+      keep_count=$((keep_count + 1))
+      continue
+    fi
+    log "remove stale transport directory: $(basename "$candidate")"
+    rm -rf -- "$candidate"
+  done < <(
+    find "$transport_root" -mindepth 1 -maxdepth 1 -type d -print0 \
+      | while IFS= read -r -d '' candidate; do
+          printf '%s\t%s\n' "$(stat -c '%Z' "$candidate")" "$candidate"
+        done \
+      | sort -rn \
+      | cut -f2-
+  )
+}
 
 rollback_active_release() {
   local rollback_revision=""
@@ -161,4 +264,6 @@ if [[ -n "$previous_target" ]]; then
 fi
 
 install_complete=1
+cleanup_release_history
+cleanup_transport_history
 log "immutable release activated: sha=${DEPLOY_SHA} artifact=${ARTIFACT_DIGEST}"
