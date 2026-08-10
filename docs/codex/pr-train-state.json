@@ -58314,9 +58314,9 @@
     "depends_on": [
       "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
     ],
-    "status": "committed",
-    "commit_sha": "48e7199f662ab782f0a074ebce3d6ecfddb1ec91",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "7f243b3913b409a91ff1292d97da852fb911d8b9",
+    "pr_url": "https://github.com/FermatMind/fap-web/pull/2041",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -58376,12 +58376,18 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 6d9bab4e without changing artifact bytes; implementation commit is 48e7199f662ab782f0a074ebce3d6ecfddb1ec91. Post-rebase evidence, scope, spacing and diff validation passed."
+      },
+      {
+        "at": "2026-08-10T07:27:46Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Pushed the exact 10-path scope and opened PR #2041 at head 7f243b3913b409a91ff1292d97da852fb911d8b9. Required GitHub checks are pending; no GSC/GA4, CMS, production, search submission, indexability, or deployment mutation occurred."
       }
     ],
     "sidecar_issues": [
       "window7-gsc-ga4-cohort-data-unavailable-20260810"
     ],
-    "updated_at": "2026-08-10T07:26:52Z"
+    "updated_at": "2026-08-10T07:27:46Z"
   },
   "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
     "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
