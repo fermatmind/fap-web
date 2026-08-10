@@ -57952,8 +57952,8 @@
       "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01",
       "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01"
     ],
-    "status": "github_checks_pending_retry_2",
-    "commit_sha": "0daa5740247c2bbab304f291f5071e657e71ad57",
+    "status": "ready_to_merge",
+    "commit_sha": "2f009f31b6b8f025be00b617b8cbccb274492d50",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2050",
     "checks": {
       "dependencies": {
@@ -57977,11 +57977,11 @@
         "evidence": "Exactly the seventeen manifest-allowlisted files are changed; state JSON and manifest YAML parse, the unrelated SEO-OPS-02 manifest entry is unchanged, and git diff --check passes."
       },
       "github_required_checks": {
-        "status": "pending_retry_2",
-        "evidence": "PR #2050 head b73cb511bf5d5bb39c11548ee4bdda514dde7e33 failed contract-shard-1: 11 article-answer-surface assertions suspended during synchronous static rendering because the new nested async edge module had no Suspense boundary. Same-scope fix commit 0daa5740247c2bbab304f291f5071e657e71ad57 adds a null fallback Suspense boundary to the three allowed callsites; focused article plus renderer contracts passed 23/23 with scoped ESLint, spacing, typecheck, production build and git diff --check. Retry 2 is pending."
+        "status": "passed",
+        "evidence": "PR #2050 retry-2 head 2f009f31b6b8f025be00b617b8cbccb274492d50 passed build, all four contract shards and contracts aggregate, Big Five and Enneagram freezes, JavaScript/TypeScript analysis, CodeQL and no-new-code-scanning-alerts. The first-head contract-shard-1 failure and same-scope Suspense repair remain recorded in history."
       }
     },
-    "failure_reason": "First GitHub head b73cb511bf5d5bb39c11548ee4bdda514dde7e33 failed contract-shard-1 on article-answer-surface synchronous rendering. Same-scope fix commit 0daa5740247c2bbab304f291f5071e657e71ad57 is locally verified; required-check retry 2 is pending.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -58020,6 +58020,11 @@
         "at": "2026-08-10T08:55:50Z",
         "status": "github_checks_pending_retry_2",
         "summary": "Rebased the three scoped PR commits onto latest origin/main 38e3050b after non-overlapping Window 9 closeout #2049 merged. Exact manifest parity remains seventeen files with no conflict; same-scope fix commit is now 0daa5740247c2bbab304f291f5071e657e71ad57 and required-check retry 2 is pending."
+      },
+      {
+        "at": "2026-08-10T09:01:27Z",
+        "status": "ready_to_merge",
+        "summary": "Retry-2 head 2f009f31b6b8f025be00b617b8cbccb274492d50 passed all eleven GitHub required/security checks. GitHub reports CLEAN and MERGEABLE; exact seventeen-file manifest scope and local validation remain satisfied."
       }
     ]
   },
