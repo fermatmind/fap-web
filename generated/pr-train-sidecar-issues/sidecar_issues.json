@@ -472,8 +472,10 @@
     "merge_policy_affected": false,
     "severity": "medium",
     "recommended_owner": "technical growth measurement operator",
-    "recommended_follow_up": "Remeasure only the six failed sample identities with pinned settings, append auditable results without rewriting the frozen baseline, and report any still-unavailable attempts as external measurement gaps.",
-    "status": "open"
+    "recommended_follow_up": "Completed by NONCAREER-CRITICAL-LAB-REMEASUREMENT-01; preserve the frozen historical failures and use the versioned follow-up artifacts for the current collector outcome.",
+    "resolved_at": "2026-08-10T06:16:48Z",
+    "resolution_evidence": "Six formal Playwright attempts and six Lighthouse 13.4.1 audits completed without collector/runtime error. Historical LAB-028 through LAB-036 remain unchanged; follow-up evidence is in critical_lab_remeasurement.csv, lighthouse_lab_samples.csv, and critical_lab_remeasurement_manifest.json.",
+    "status": "resolved"
   },
   {
     "id": "window7-l1-interval-baseline-incomplete-20260810",
@@ -530,6 +532,25 @@
     "severity": "high",
     "recommended_owner": "performance telemetry authority owner",
     "recommended_follow_up": "Attempt privacy-safe field evidence retrieval; implement only default-off aggregate RUM product code in its dedicated PR, and require separate authority before any production enablement or data collection.",
+    "status": "open"
+  },
+  {
+    "id": "window7-riasec-first-navigation-question-window-miss-20260810",
+    "detected_at": "2026-08-10T06:10:02.267Z",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
+    "branch": "codex/noncareer-critical-lab-remeasurement-01",
+    "blocker_type": "observed_runtime_timing_gap",
+    "affected_surface": "zh RIASEC 60-question public bootstrap",
+    "evidence": "The isolated-context first formal Playwright measurement completed with HTTP 200 and no collector error but did not reach the first-question semantic gate inside the bounded observation window. The two same-context repeat attempts rendered question 1/60 with five options. All three Lighthouse audits completed successfully.",
+    "reproduction_or_evidence_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement.csv; docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement_manifest.json",
+    "why_not_current_pr_scope": "This PR is evidence-only and forbids product/API/authentication/runtime changes. One bounded first-navigation miss is not enough to authorize a repair; waterfall attribution and a dedicated implementation scope are required.",
+    "required_checks_affected": false,
+    "scope_validation_affected": false,
+    "merge_policy_affected": false,
+    "severity": "medium",
+    "recommended_owner": "L1 assessment runtime owner",
+    "recommended_follow_up": "Diagnose the guest-auth and RIASEC question waterfall in a separate scoped task, reproduce with a pinned clean-context protocol, and protect MBTI/RIASEC priority before proposing any runtime change.",
     "status": "open"
   }
 ]

@@ -57881,13 +57881,13 @@
     "base": "main",
     "branch": "codex/noncareer-audit-status-reconciliation-01",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "ca420eeaf74632343562191fa375364857b5d5e7",
+    "status": "merged",
+    "commit_sha": "8bc5689155eae362c4baa02b938dda729ad2a95b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2025",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T06:03:07Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "authorization": {
         "status": "pass",
@@ -57914,7 +57914,7 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -57959,9 +57959,15 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All GitHub checks passed and the exact seven-path scope was revalidated against origin/main; PR #2025 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T06:03:07Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2025 squash-merged as 8bc5689155eae362c4baa02b938dda729ad2a95b. origin/main contains the merge commit, local main was fast-forwarded to the same commit, both task branches were removed, and the dedicated worktree was clean before PR2 began."
       }
     ],
-    "updated_at": "2026-08-10T05:57:30Z"
+    "updated_at": "2026-08-10T06:03:07Z"
   },
   "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01": {
     "id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
@@ -57972,18 +57978,43 @@
     "depends_on": [
       "NONCAREER-AUDIT-STATUS-RECONCILIATION-01"
     ],
-    "status": "planned",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {},
+    "status": "ready_to_merge",
+    "commit_sha": "979188d3744307b7e2c55ced9dcd722d457c3a81",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2028",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #2025 is merged as 8bc5689155eae362c4baa02b938dda729ad2a95b, origin/main and local main were synchronized, and PR1 branches were cleaned before this branch started."
+      },
+      "historical_evidence_preservation": {
+        "status": "pass",
+        "evidence": "performance_l1_samples.csv SHA-256 remains 11a293581dc563980d7975d4a34d9c9695355378e871701881a722ba9ca2c015 and performance_l2_samples.csv remains bae8cb7e730591055420f28fab4bb59e1acb0120f9de78df772ce7d53b1b40a4; LAB-028 through LAB-036 are unchanged."
+      },
+      "playwright_remeasurement": {
+        "status": "pass",
+        "evidence": "Six frozen serial Playwright rows completed with HTTP 200 and zero collector failures. Big Five rendered 3/3; RIASEC rendered within the bounded window on 2/3 and retained the isolated-context window miss truthfully."
+      },
+      "lighthouse_remeasurement": {
+        "status": "pass",
+        "evidence": "Six Lighthouse 13.4.1 desktop audits completed with runtime_error null and populated Speed Index. All measured standard audit TBT values are 0 ms and are explicitly separated from Playwright long-task proxies."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Ruby CSV/JSON/YAML validation passed for exact headers, row counts, UTF-8/formula safety, artifact hashes, historical-source hashes, semantic outcomes, Lighthouse provenance, sidecar reconciliation, and the exact 12-path allowlist. Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2028 head a9e0918f6a61c6b217579219891df9784bc1e699 passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
+      }
+    },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
-      "github_checks_green": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -57999,9 +58030,43 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal; execution waits for status reconciliation merge and cleanup."
+      },
+      {
+        "at": "2026-08-10T06:04:00Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean origin/main after PR1 post-merge verification. Scope is limited to versioned public lab evidence, docs, train metadata, and sidecars; no runtime, assessment submission, CMS, production, or deployment action."
+      },
+      {
+        "at": "2026-08-10T06:18:47Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All bounded measurement, evidence integrity, provenance, formula/privacy, documentation, sidecar, formatting, diff, and changed-path checks passed. The branch is ready for commit, rebase onto the unrelated Window 9 main advance, and GitHub validation."
+      },
+      {
+        "at": "2026-08-10T06:19:49Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 12-path evidence scope and rebased cleanly onto origin/main 5b4d5bb0 without changing measurement bytes; implementation commit is 979188d3744307b7e2c55ced9dcd722d457c3a81."
+      },
+      {
+        "at": "2026-08-10T06:20:37Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2028 at head 9cb5811ce5d29612e0a603d5dfcc7546ac8793c4. GitHub reports MERGEABLE with required checks pending."
+      },
+      {
+        "at": "2026-08-10T06:24:54Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required checks passed and the exact 12-path evidence scope was revalidated against origin/main. PR #2028 is CLEAN and MERGEABLE with no review block."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-critical-lab-tool-failures-20260810",
+      "window7-riasec-first-navigation-question-window-miss-20260810"
+    ],
+    "updated_at": "2026-08-10T06:24:54Z"
   },
   "NONCAREER-L1-INTERVAL-BASELINE-01": {
     "id": "NONCAREER-L1-INTERVAL-BASELINE-01",
