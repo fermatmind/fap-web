@@ -57635,7 +57635,7 @@
     "base": "main",
     "branch": "codex/assessment-landing-runtime-recovery-01",
     "depends_on": [],
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "commit_sha": "0c888c0eed4eb14b2b942424e7bcf5c136acb44f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2023",
     "failure_reason": null,
@@ -57686,12 +57686,16 @@
       "scope_and_format": {
         "status": "pass",
         "evidence": "git diff --check passed; generated diagnostics were restored; the remaining six modified files are all explicitly allowlisted and contain no CMS, backend, scoring, sitemap, indexability, or deployment change."
+      },
+      "github_checks_attempt_1": {
+        "status": "pass",
+        "evidence": "PR #2023 head fad73b86c57fc78b9f7221fec4dc60cbefdeb420 passed build, four contract shards plus aggregation, Big Five freeze, Enneagram freeze, CodeQL analysis, and the no-new-code-scanning-alerts gate."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -57732,8 +57736,14 @@
         "from": "committed",
         "to": "pr_open",
         "note": "Pushed the scoped branch and opened PR #2023 with validation, deferred deployment, and repository-rule impact recorded."
+      },
+      {
+        "at": "2026-08-10T05:32:22Z",
+        "from": "pr_open",
+        "to": "ready_to_merge",
+        "note": "All required CI and code-scanning checks passed on PR head fad73b86c57fc78b9f7221fec4dc60cbefdeb420; recorded ready_to_merge before the final ledger push and merge recheck."
       }
     ],
-    "updated_at": "2026-08-10T05:26:26Z"
+    "updated_at": "2026-08-10T05:32:22Z"
   }
 }
