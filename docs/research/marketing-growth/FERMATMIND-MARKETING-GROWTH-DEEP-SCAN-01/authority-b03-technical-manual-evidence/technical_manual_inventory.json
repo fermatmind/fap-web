@@ -1,0 +1,589 @@
+{
+  "artifact_kind": "fermatmind_six_assessment_technical_manual_evidence_inventory",
+  "schema_version": "1.0.0",
+  "captured_at": "2026-08-10T14:32:36+08:00",
+  "goal_id": "FERMATMIND-AUTHORITY-B03-TECHNICAL-MANUAL-EVIDENCE-01",
+  "goal_status": "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+  "repository_bindings": {
+    "fap_web_commit": "5b4d5bb050497ec04652989e0d500b71870de34b",
+    "fap_api_commit": "4ad35bd2b15448569a3bafc6bd27f6ad115dc014"
+  },
+  "status_vocabulary": [
+    "VERIFIED",
+    "INFERRED",
+    "UNKNOWN"
+  ],
+  "status_rule": "Every status applies only to its adjacent statement. VERIFIED implementation facts do not verify psychometric quality or public claims.",
+  "global_claim_boundary": {
+    "allowed": [
+      "Describe the exact FermatMind form, construct boundary and scoring behavior only where the inventory marks the fact VERIFIED.",
+      "Frame results as structured self-reflection and a working hypothesis.",
+      "State evidence gaps explicitly as UNKNOWN."
+    ],
+    "forbidden": [
+      "Most accurate, scientifically proven, authoritative, certified, clinical-grade or diagnostic claims.",
+      "Claims that a score predicts health, hiring, admission, income, legal, financial or other high-stakes outcomes.",
+      "Claims of official affiliation, endorsement, licensing or exact equivalence to a named third-party instrument without version-bound public evidence.",
+      "Specific sample, norm, reliability, validity, percentile or reviewer claims not bound to public FermatMind evidence for the exact form.",
+      "Using theory-only research as validation of FermatMind items, translations, scoring, norms or reports."
+    ]
+  },
+  "assessments": [
+    {
+      "scale_id": "MBTI",
+      "display_name": "FermatMind MBTI-style personality preference assessment",
+      "identity": {
+        "status": "VERIFIED",
+        "public_slug": "mbti-personality-test-16-personality-types",
+        "public_scale_code": "MBTI",
+        "implementation_pack": "MBTI.cn-mainland.zh-CN.v0.3",
+        "statement": "The public registry exposes one FermatMind assessment with 144-item and 93-item forms. The repository does not establish that either form is the official Myers-Briggs Type Indicator instrument.",
+        "source_ids": ["PUB_MBti_LOOKUP", "API_MBti_PACKS"]
+      },
+      "forms": [
+        {
+          "form_id": "mbti_144",
+          "item_count": 144,
+          "default": true,
+          "status": "VERIFIED",
+          "scoring_spec_version": "2026.01",
+          "source_ids": ["PUB_MBti_LOOKUP", "API_MBti_144_SPEC"]
+        },
+        {
+          "form_id": "mbti_93",
+          "item_count": 93,
+          "default": false,
+          "status": "VERIFIED",
+          "scoring_spec_version": "2026.01.mbti_93",
+          "source_ids": ["PUB_MBti_LOOKUP", "API_MBti_93_SPEC"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry/content packs own identity, forms and scoring contracts; the public API projects them and fap-web consumes them.",
+        "source_ids": ["API_SCALE_CONFIG", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "UNKNOWN",
+        "verified_facts": "SHA-bound item banks and keyed scoring files exist.",
+        "unknowns": "Public item provenance, license chain, development sample, translation/adaptation method and external reviewer are not documented in the reviewed public evidence.",
+        "source_ids": ["API_MBti_PACKS", "PUBLIC_ITEM_DESIGN_NOTES"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "Keyed items contribute to E/I, S/N, T/F and J/P preference axes; the runtime derives axis summaries and a type code. Implementation and contract checks do not establish psychometric validity.",
+        "source_ids": ["API_MBti_144_SPEC", "API_MBti_93_SPEC"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "Repository norm files carry internal norm IDs and versions, including a form-93 provisional label.",
+        "unknowns": "No public, exact-form sample size, recruitment frame, representativeness analysis, norm construction, reviewer or approved percentile interpretation was found.",
+        "source_ids": ["API_MBti_144_NORMS", "API_MBti_93_NORMS", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "No public FermatMind form-specific reliability coefficient, sample or reviewed method was found.",
+        "source_ids": ["PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "No public FermatMind form-specific validity study was found; preference theory and runtime tests are not implementation validation.",
+        "source_ids": ["PUBLIC_RELIABILITY_VALIDITY", "PUBLIC_SCIENCE"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "No named psychometric reviewer and version-bound review date were found in public evidence.",
+        "source_ids": ["PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "Preference-style self-report is a reflection aid, not a diagnosis or fixed identity.",
+          "The public technical-note API returned SCALE_NOT_SUPPORTED at capture time.",
+          "Official Myers-Briggs instrument equivalence, licensing and endorsement remain UNKNOWN."
+        ],
+        "source_ids": ["PUB_MBti_TECH_API", "PUBLIC_METHOD_BOUNDARIES"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["MBTI.cn-mainland.zh-CN.v0.3", "2026.01", "2026.01.mbti_93"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["API_MBti_PACKS", "API_MBti_144_SPEC", "API_MBti_93_SPEC"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=en",
+        "https://fermatmind.com/en/science",
+        "https://fermatmind.com/en/reliability-validity",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "FermatMind offers 144-item and 93-item preference-style forms that summarize four preference axes for self-reflection; results are working hypotheses.",
+        "forbidden": "Do not call the forms official MBTI instruments; do not claim licensed equivalence, diagnostic use, accuracy, reliability, validity, normative percentile meaning, stability or outcome prediction."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "Identity/forms/scoring are traceable, but public item provenance, sample/norm methods, reliability, validity, reviewer and technical manual remain incomplete."
+    },
+    {
+      "scale_id": "BIG5",
+      "display_name": "FermatMind Big Five personality assessment",
+      "identity": {
+        "status": "VERIFIED",
+        "public_slug": "big-five-personality-test-ocean-model",
+        "public_scale_code": "BIG5_OCEAN",
+        "implementation_pack": "BIG5_OCEAN/v1",
+        "statement": "The public registry exposes 120-item and 90-item FermatMind Big Five forms covering five domains and thirty facets.",
+        "source_ids": ["PUB_BIG5_LOOKUP", "API_BIG5_PACKS"]
+      },
+      "forms": [
+        {
+          "form_id": "big5_120",
+          "item_count": 120,
+          "default": true,
+          "status": "VERIFIED",
+          "scoring_spec_version": "big5_spec_2026Q1_v1",
+          "source_ids": ["PUB_BIG5_LOOKUP", "API_BIG5_120_POLICY"]
+        },
+        {
+          "form_id": "big5_90",
+          "item_count": 90,
+          "default": false,
+          "status": "VERIFIED",
+          "scoring_spec_version": "big5_spec_2026Q2_form90_v1",
+          "source_ids": ["PUB_BIG5_LOOKUP", "API_BIG5_90_POLICY"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry/content packs own identity, forms and scoring contracts; public APIs are the frontend authority boundary.",
+        "source_ids": ["API_SCALE_CONFIG", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "UNKNOWN",
+        "verified_facts": "Repository source catalog and bilingual item banks exist and the implementation is structured around five domains and thirty facets.",
+        "unknowns": "The reviewed public evidence does not prove exact equivalence to BFI-2, NEO inventories or an IPIP instrument, nor a complete public license/adaptation/reviewer chain for the current forms.",
+        "source_ids": ["API_BIG5_PACKS", "API_BIG5_BLOCKED_ASSUMPTIONS", "PUBLIC_ITEM_DESIGN_NOTES"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "Five-point self-report items, including reverse-keyed items, feed facet and domain means. The implementation may calculate norm-referenced outputs or use a provisional raw-mean fallback; this does not authorize public norm or percentile claims.",
+        "source_ids": ["API_BIG5_120_POLICY", "API_BIG5_90_POLICY"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "Compiled norm files and internal source identifiers exist for both forms.",
+        "unknowns": "No public exact-form sample size, recruitment, representativeness, weighting, norm-review record or claim-eligible percentile contract was found.",
+        "source_ids": ["API_BIG5_120_NORMS", "API_BIG5_90_NORMS", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "No public current-form FermatMind reliability coefficients with sample and method were found.",
+        "source_ids": ["API_BIG5_BLOCKED_ASSUMPTIONS", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "Big Five theory is well established, but no public study validates the exact FermatMind forms, translations, scoring and reports.",
+        "source_ids": ["API_BIG5_BLOCKED_ASSUMPTIONS", "THEORY_BIG5_GOLDBERG", "THEORY_BIG5_BFI2"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "The authority ledger records the named-reviewer gap; no public version-bound psychometric review was found.",
+        "source_ids": ["API_BIG5_BLOCKED_ASSUMPTIONS"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "Trait scores are continuous self-report descriptions, not diagnoses or fixed identities.",
+          "The public technical-note API returned SCALE_NOT_SUPPORTED at capture time.",
+          "External Big Five research is THEORY_ONLY and does not validate FermatMind implementation."
+        ],
+        "source_ids": ["PUB_BIG5_TECH_API", "PUBLIC_METHOD_BOUNDARIES", "API_BIG5_TECH_TRUST"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["big5_ipipneo120_v3.0.0", "big5_spec_2026Q1_v1", "big5_ipipneo90_v3.0.0", "big5_spec_2026Q2_form90_v1"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["API_BIG5_120_POLICY", "API_BIG5_90_POLICY"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=big-five-personality-test-ocean-model&locale=en",
+        "https://fermatmind.com/en/science",
+        "https://fermatmind.com/en/reliability-validity",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "FermatMind offers 120-item and 90-item self-report forms that summarize five continuous Big Five domains and associated facets for self-reflection.",
+        "forbidden": "Do not claim exact BFI-2, NEO or IPIP instrument equivalence; do not publish precise norm, percentile, reliability, validity, reviewer, diagnosis or outcome-prediction claims from this inventory."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "Implementation is traceable, but public form provenance, norms, psychometric results, reviewer and supported technical note remain incomplete."
+    },
+    {
+      "scale_id": "ENNEAGRAM",
+      "display_name": "FermatMind Enneagram personality-pattern assessment",
+      "identity": {
+        "status": "VERIFIED",
+        "public_slug": "enneagram-personality-test-nine-types",
+        "public_scale_code": "ENNEAGRAM",
+        "implementation_pack": "ENNEAGRAM",
+        "statement": "The public registry exposes a 105-item Likert form and a 144-item forced-choice form as distinct score spaces.",
+        "source_ids": ["PUB_ENNEAGRAM_LOOKUP", "PUB_ENNEAGRAM_TECH_API", "API_ENNEAGRAM_PACKS"]
+      },
+      "forms": [
+        {
+          "form_id": "enneagram_likert_105",
+          "item_count": 105,
+          "default": true,
+          "status": "VERIFIED",
+          "scoring_spec_version": "enneagram_likert_105_spec_v1",
+          "source_ids": ["PUB_ENNEAGRAM_LOOKUP", "API_ENNEAGRAM_105_POLICY"]
+        },
+        {
+          "form_id": "enneagram_forced_choice_144",
+          "item_count": 144,
+          "default": false,
+          "status": "VERIFIED",
+          "scoring_spec_version": "enneagram_forced_choice_144_spec_v1",
+          "source_ids": ["PUB_ENNEAGRAM_LOOKUP", "API_ENNEAGRAM_144_POLICY"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry, content packs and Enneagram technical-note service own the public method contract.",
+        "source_ids": ["API_SCALE_CONFIG", "API_ENNEAGRAM_TECH_SERVICE", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "UNKNOWN",
+        "verified_facts": "Versioned internal source assets and compiled item banks exist for both forms.",
+        "unknowns": "Public item provenance, license/adaptation chain, development sample and named item-reviewer evidence were not found.",
+        "source_ids": ["API_ENNEAGRAM_PACKS", "PUBLIC_ITEM_DESIGN_NOTES"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "The 105-item form aggregates weighted -2..2 Likert contributions across nine types; the 144-item form aggregates forced-choice wins/exposures. Both expose within-form Top-3/gap summaries, not standardized scores or percentiles, and must not be numerically compared across forms.",
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API", "API_ENNEAGRAM_105_POLICY", "API_ENNEAGRAM_144_POLICY"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "The public technical note explicitly withholds standardized-score and percentile interpretation.",
+        "unknowns": "No public norm sample, sample size, recruitment frame or norm construction was found.",
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "Retake stability is pending sample and the public technical note does not report a form-specific reliability estimate.",
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "The public note does not claim clinical validity, hiring suitability or cross-form numeric equivalence; external Enneagram research is not validation of FermatMind forms.",
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API", "THEORY_ENNEAGRAM_REVIEW"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "No named psychometric reviewer with version-bound public review date was found.",
+        "source_ids": ["API_ENNEAGRAM_BLOCKED_ASSUMPTIONS"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "The two forms occupy different score spaces and are not directly comparable.",
+          "Scores are descriptive within-form outputs, not standardized scores or percentiles.",
+          "No clinical, hiring, accuracy or prediction claim is authorized."
+        ],
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API", "PUBLIC_METHOD_BOUNDARIES"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["enneagram_technical_note.v0.1", "enneagram_likert_105_spec_v1", "enneagram_forced_choice_144_spec_v1"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["PUB_ENNEAGRAM_TECH_API", "API_ENNEAGRAM_105_POLICY", "API_ENNEAGRAM_144_POLICY"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=enneagram-personality-test-nine-types&locale=en",
+        "https://api.fermatmind.com/api/v0.3/scales/ENNEAGRAM/technical-note",
+        "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types/technical-note",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "FermatMind offers distinct 105-item Likert and 144-item forced-choice Enneagram forms that provide within-form descriptive nine-type and Top-3 pattern summaries for self-reflection.",
+        "forbidden": "Do not call the outputs standardized, percentile-based, clinically valid, suitable for hiring, accurate, predictive or numerically equivalent across forms."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "A public technical note exists, but public item provenance, norm sample, reliability/validity results, reviewer and changelog remain incomplete."
+    },
+    {
+      "scale_id": "RIASEC",
+      "display_name": "FermatMind RIASEC career-interest assessment",
+      "identity": {
+        "status": "VERIFIED",
+        "public_slug": "holland-career-interest-test-riasec",
+        "public_scale_code": "RIASEC",
+        "implementation_pack": "RIASEC",
+        "statement": "The public registry exposes one flagship RIASEC interest assessment with 60-item and 140-item forms.",
+        "source_ids": ["PUB_RIASEC_LOOKUP", "PUB_RIASEC_TECH_API", "API_RIASEC_PACKS"]
+      },
+      "forms": [
+        {
+          "form_id": "riasec_60",
+          "item_count": 60,
+          "default": true,
+          "status": "VERIFIED",
+          "scoring_spec_version": "riasec_standard_60_v1",
+          "source_ids": ["PUB_RIASEC_LOOKUP", "API_RIASEC_60_POLICY"]
+        },
+        {
+          "form_id": "riasec_140",
+          "item_count": 140,
+          "default": false,
+          "status": "VERIFIED",
+          "scoring_spec_version": "riasec_enhanced_140_v1",
+          "source_ids": ["PUB_RIASEC_LOOKUP", "API_RIASEC_140_POLICY"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry, content packs and RIASEC technical-note service own the public method contract.",
+        "source_ids": ["API_SCALE_CONFIG", "API_RIASEC_TECH_SERVICE", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "UNKNOWN",
+        "verified_facts": "Versioned internal design assets and compiled item banks exist for both forms.",
+        "unknowns": "Public item lineage, adaptation/license chain, development sample and named item reviewer were not found; O*NET sources validate their own instrument, not FermatMind forms.",
+        "source_ids": ["API_RIASEC_PACKS", "API_RIASEC_SCIENCE_AUDIT", "THEORY_ONET_IP"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "The 60-item form sums ten items for each R/I/A/S/E/C dimension and maps results to 0-100. The 140-item form uses 22 items per dimension plus eight quality items and weights activity/environment/role components 0.70/0.15/0.15. The two forms are separate score spaces.",
+        "source_ids": ["API_RIASEC_60_POLICY", "API_RIASEC_140_POLICY", "PUB_RIASEC_TECH_API"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "The public note documents within-form scoring and rejects raw cross-form deltas.",
+        "unknowns": "No public representative sample, sample size, norm construction or percentile interpretation was found.",
+        "source_ids": ["PUB_RIASEC_TECH_API", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "No public current-form reliability coefficient, sample or method was found.",
+        "source_ids": ["PUB_RIASEC_TECH_API", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "RIASEC theory and O*NET Interest Profiler evidence do not validate FermatMind's 60-item or 140-item forms; no public FermatMind validity result was found.",
+        "source_ids": ["PUB_RIASEC_TECH_API", "API_RIASEC_SCIENCE_AUDIT", "THEORY_ONET_MANUAL"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "No named psychometric reviewer with a version-bound review date was found in public evidence.",
+        "source_ids": ["PUB_RIASEC_TECH_API"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "RIASEC measures expressed interests, not ability, personality, values, job fit or future outcomes.",
+          "The 140-item form is not authorized as more accurate than the 60-item form.",
+          "Occupation links are examples for exploration, not recommendations, hiring decisions or guarantees."
+        ],
+        "source_ids": ["PUB_RIASEC_TECH_API", "PUBLIC_METHOD_BOUNDARIES"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["riasec_technical_note.v0.1", "riasec.method_boundary.v0.1", "riasec_standard_60_v1", "riasec_enhanced_140_v1"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["PUB_RIASEC_TECH_API", "API_RIASEC_60_POLICY", "API_RIASEC_140_POLICY"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=en",
+        "https://api.fermatmind.com/api/v0.3/scales/RIASEC/technical-note",
+        "https://fermatmind.com/en/tests/holland-career-interest-test-riasec/technical-note",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "FermatMind offers distinct 60-item and 140-item RIASEC forms that summarize expressed interests across six dimensions and can provide examples for further career exploration.",
+        "forbidden": "Do not claim ability, personality, values, job fit, hiring suitability, career recommendation, outcome prediction, cross-form numeric equivalence or that 140 items is more accurate."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "A bounded public method note exists, but item lineage, sample/norm evidence, reliability, validity, reviewer and public changelog remain incomplete."
+    },
+    {
+      "scale_id": "IQ_RAVEN",
+      "display_name": "FermatMind reasoning practice assessment (legacy public code IQ_RAVEN)",
+      "identity": {
+        "status": "INFERRED",
+        "public_slug": "iq-test-intelligence-quotient-assessment",
+        "public_scale_code": "IQ_RAVEN",
+        "implementation_pack": "IQ_INTELLIGENCE_QUOTIENT-CN-v0.3.0-DEMO",
+        "statement": "The public registry retains an IQ_RAVEN code/slug, while the reviewed runtime pack contains a FermatMind owner-original 30-item bank. The legacy name is not evidence of equivalence to Raven's Progressive Matrices.",
+        "source_ids": ["PUB_IQ_LOOKUP", "API_IQ_OWNER30"]
+      },
+      "forms": [
+        {
+          "form_id": "IQ_OWNER_ORIGINAL_30",
+          "item_count": 30,
+          "default": "UNKNOWN",
+          "status": "VERIFIED",
+          "public_registry_exposure": "UNKNOWN",
+          "scoring_spec_version": "iq_owner_original_30_runtime_scoring_v1",
+          "source_ids": ["API_IQ_OWNER30", "API_IQ_OWNER30_SPEC"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry/content pack owns public identity and runtime scoring; the repository bank declares FermatMind owner-original content.",
+        "source_ids": ["API_SCALE_CONFIG", "API_IQ_OWNER30", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "VERIFIED",
+        "verified_facts": "The current 30-item bank declares owner-original items and prohibits public answer-key/solution exposure.",
+        "unknowns": "Any Raven item lineage, licensed relationship, equivalence, adaptation evidence or external item reviewer remains UNKNOWN.",
+        "source_ids": ["API_IQ_OWNER30", "PUBLIC_ITEM_DESIGN_NOTES"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "The private key yields a raw score from 0 to 30 plus NPR, VSI and VSPR domain summaries. The runtime service marks the item bank production_ready=false, and the contract disables IQ/percentile claims without an eligible population norm.",
+        "source_ids": ["API_IQ_OWNER30_SPEC", "API_IQ_RUNTIME_SERVICE", "API_IQ_NORM_AUTHORITY"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "The owner-original bank requires a claim-eligible population norm before IQ or percentile interpretation; a beta standard-score path is marked production_normed=false and claim_eligible=false.",
+        "unknowns": "No public eligible norm record, sample size, recruitment, representativeness, locking/review evidence or percentile authority was found.",
+        "source_ids": ["API_IQ_OWNER30", "API_IQ_BETA_SCORE", "API_IQ_NORM_AUTHORITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "No public reliability estimate with sample and method for the owner-original 30-item bank was found.",
+        "source_ids": ["PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "No public validity study or evidence of equivalence to Raven's Progressive Matrices was found.",
+        "source_ids": ["PUBLIC_RELIABILITY_VALIDITY", "API_IQ_OWNER30"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "No named psychometric reviewer and version-bound public review date were found.",
+        "source_ids": ["API_IQ_NORM_AUTHORITY"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "Treat the exposed activity as reasoning practice with raw/domain summaries only when the runtime contract permits.",
+          "Do not expose item text, answer keys, solutions or private evidence paths.",
+          "The public technical-note API returned SCALE_NOT_SUPPORTED and public lookup exposed no forms at capture time."
+        ],
+        "source_ids": ["PUB_IQ_TECH_API", "PUB_IQ_LOOKUP", "API_IQ_OWNER30"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["IQ_INTELLIGENCE_QUOTIENT-CN-v0.3.0-DEMO", "iq_owner_original_30_runtime_scoring_v1", "iq_scoring_v2"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["API_IQ_OWNER30", "API_IQ_OWNER30_SPEC", "API_IQ_RUNTIME_SERVICE"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=iq-test-intelligence-quotient-assessment&locale=en",
+        "https://fermatmind.com/en/science",
+        "https://fermatmind.com/en/reliability-validity",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "Only describe the current owner-original 30-item implementation as reasoning practice with a raw score and bounded domain summaries when those outputs are actually exposed by the public runtime.",
+        "forbidden": "Do not call it Raven or an official/equivalent Raven instrument; do not claim IQ estimation, percentile, population norm, intelligence diagnosis, accuracy, reliability, validity or education/employment outcome prediction."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "The runtime bank is traceable, but public form exposure, Raven relationship, production readiness, eligible norms, psychometric results, reviewer and technical manual remain unverified."
+    },
+    {
+      "scale_id": "EQ",
+      "display_name": "FermatMind 60-item emotional-intelligence self-report assessment",
+      "identity": {
+        "status": "INFERRED",
+        "public_slug": "eq-test-emotional-intelligence-assessment",
+        "public_scale_code": "EQ_60",
+        "implementation_pack": "EQ_60/v1",
+        "statement": "The repository contains a 60-item, four-dimension self-report pack; the public lookup exposes the assessment but did not enumerate forms at capture time.",
+        "source_ids": ["PUB_EQ_LOOKUP", "API_EQ_PACK"]
+      },
+      "forms": [
+        {
+          "form_id": "EQ_60_RUNTIME_PACK",
+          "item_count": 60,
+          "default": "UNKNOWN",
+          "status": "VERIFIED",
+          "public_registry_exposure": "UNKNOWN",
+          "scoring_spec_version": "eq60_spec_2026_v2",
+          "source_ids": ["API_EQ_PACK", "API_EQ_POLICY"]
+        }
+      ],
+      "authority_owner": {
+        "status": "VERIFIED",
+        "statement": "fap-api registry/content pack owns identity and runtime scoring; fap-web is a consumer.",
+        "source_ids": ["API_SCALE_CONFIG", "API_EQ_PACK", "HUB_AUTHORITY_PACKET"]
+      },
+      "item_question_source": {
+        "status": "UNKNOWN",
+        "verified_facts": "A bilingual runtime item bank exists and internal source labels are present.",
+        "unknowns": "Internal labels do not prove an official Goleman instrument, license, equivalence, item provenance, adaptation method or external review.",
+        "source_ids": ["API_EQ_PACK", "API_EQ_EVIDENCE_STATUS", "PUBLIC_ITEM_DESIGN_NOTES"]
+      },
+      "scoring_method": {
+        "status": "VERIFIED",
+        "statement": "Five-point self-report items, including reverse-keyed items, feed SA, ER, EM and RM raw summaries. The policy can calculate provisional normalized outputs and quality indicators; provisional implementation does not authorize public norm or percentile claims.",
+        "source_ids": ["API_EQ_POLICY", "API_EQ_EVIDENCE_STATUS"]
+      },
+      "sample_norm": {
+        "status": "UNKNOWN",
+        "verified_facts": "The evidence-status record labels norms provisional/bootstrap.",
+        "unknowns": "No public sample size, recruitment, representativeness, norm construction, approval or claim-eligible percentile interpretation was found.",
+        "source_ids": ["API_EQ_EVIDENCE_STATUS", "PUBLIC_RELIABILITY_VALIDITY"]
+      },
+      "reliability": {
+        "status": "UNKNOWN",
+        "statement": "Internal consistency and test-retest work are listed as planned; no public result is available.",
+        "source_ids": ["API_EQ_EVIDENCE_STATUS"]
+      },
+      "validity": {
+        "status": "UNKNOWN",
+        "statement": "Factor structure, criterion validity and measurement invariance are listed as planned; content mapping is preliminary and not formal criterion validation or an ability measure.",
+        "source_ids": ["API_EQ_EVIDENCE_STATUS"]
+      },
+      "reviewer": {
+        "status": "UNKNOWN",
+        "statement": "The evidence-status record calls for psychometric, boundary and localization review but does not provide a named completed reviewer and review date.",
+        "source_ids": ["API_EQ_EVIDENCE_STATUS"]
+      },
+      "limitations": {
+        "status": "VERIFIED",
+        "items": [
+          "This is a self-report observation framework, not a validated ability measure or clinical diagnosis.",
+          "Norm and psychometric work is provisional or planned.",
+          "The public technical-note API returned SCALE_NOT_SUPPORTED and public lookup exposed no forms at capture time."
+        ],
+        "source_ids": ["API_EQ_EVIDENCE_STATUS", "PUB_EQ_TECH_API", "PUB_EQ_LOOKUP"]
+      },
+      "changelog_version": {
+        "status": "VERIFIED",
+        "implementation_versions": ["EQ_60/v1", "eq60_spec_2026_v2", "v1.0_normed_validity"],
+        "public_changelog_status": "UNKNOWN",
+        "source_ids": ["API_EQ_PACK", "API_EQ_POLICY"]
+      },
+      "public_evidence_urls": [
+        "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=eq-test-emotional-intelligence-assessment&locale=en",
+        "https://fermatmind.com/en/science",
+        "https://fermatmind.com/en/reliability-validity",
+        "https://fermatmind.com/en/method-boundaries"
+      ],
+      "public_claim_scope": {
+        "status": "VERIFIED",
+        "allowed": "FermatMind has a 60-item self-report implementation that summarizes observations across SA, ER, EM and RM dimensions; interpretations must be framed as provisional reflection.",
+        "forbidden": "Do not call it an official Goleman instrument or validated emotional-intelligence ability measure; do not claim population norms, percentiles, reliability, validity, clinical use, accuracy or outcome prediction."
+      },
+      "inventory_outcome": "INFERRED",
+      "blocking_reason": "The runtime pack and explicit evidence-gap record are traceable, but public form exposure, provenance, norms, completed psychometrics, reviewer and technical manual remain unverified."
+    }
+  ]
+}

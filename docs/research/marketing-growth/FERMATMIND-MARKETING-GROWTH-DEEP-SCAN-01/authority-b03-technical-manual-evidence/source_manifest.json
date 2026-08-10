@@ -1,0 +1,409 @@
+{
+  "artifact_kind": "fermatmind_b03_technical_evidence_source_manifest",
+  "schema_version": "1.0.0",
+  "captured_at": "2026-08-10T14:32:36+08:00",
+  "repository_bindings": {
+    "fap_web": {
+      "repository": "FermatMind/fap-web",
+      "commit": "5b4d5bb050497ec04652989e0d500b71870de34b"
+    },
+    "fap_api": {
+      "repository": "FermatMind/fap-api",
+      "commit": "4ad35bd2b15448569a3bafc6bd27f6ad115dc014"
+    }
+  },
+  "artifact_hashes": {
+    "technical_manual_inventory.json": "bbef0a734aae19f7759e49b1dae24fca2afa25b46652777b309a8bd1ce572893",
+    "technical_manual_inventory.csv": "5f9ced011433348d5f3bc8fd094ad4a3893db88bd215faa077b35d2ba504352f"
+  },
+  "classification_rules": {
+    "IMPLEMENTATION": "Verifies repository implementation facts only; never psychometric quality.",
+    "PUBLIC_PRODUCT": "Verifies the public FermatMind response or visible method statement observed at capture time.",
+    "THEORY_ONLY": "Describes a construct or third-party instrument; never validates FermatMind implementation.",
+    "CLAIM_GUARD": "Constrains wording and preserves UNKNOWN; it is not affirmative psychometric evidence."
+  },
+  "sources": [
+    {
+      "id": "API_SCALE_CONFIG",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/config/content_packs.php",
+      "limitation": "Registry/config authority only."
+    },
+    {
+      "id": "HUB_AUTHORITY_PACKET",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-web@5b4d5bb050497ec04652989e0d500b71870de34b/docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json",
+      "limitation": "Authority and indexability contract; not assessment validation."
+    },
+    {
+      "id": "PUBLIC_SCIENCE",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://fermatmind.com/en/science",
+      "observed_at": "2026-08-10",
+      "limitation": "General method boundary; not an exact-form technical manual."
+    },
+    {
+      "id": "PUBLIC_ITEM_DESIGN_NOTES",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "https://fermatmind.com/en/item-design-notes",
+      "observed_at": "2026-08-10",
+      "limitation": "States that complete item-bank structure and validation are not publicly provided."
+    },
+    {
+      "id": "PUBLIC_RELIABILITY_VALIDITY",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "https://fermatmind.com/en/reliability-validity",
+      "observed_at": "2026-08-10",
+      "limitation": "Explicitly preserves unavailable FermatMind reliability, validity, sample and norm values as UNKNOWN."
+    },
+    {
+      "id": "PUBLIC_METHOD_BOUNDARIES",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "https://fermatmind.com/en/method-boundaries",
+      "observed_at": "2026-08-10",
+      "limitation": "General no-diagnosis/no-high-stakes-outcome boundary."
+    },
+    {
+      "id": "PUB_MBti_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms mbti_144 and mbti_93."
+    },
+    {
+      "id": "PUB_MBti_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/MBTI/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 422; SCALE_NOT_SUPPORTED.",
+      "limitation": "Negative availability evidence, not a technical note."
+    },
+    {
+      "id": "API_MBti_PACKS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "sources": [
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3/manifest.json",
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3-form-93/manifest.json"
+      ]
+    },
+    {
+      "id": "API_MBti_144_SPEC",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3/scoring_spec.json"
+    },
+    {
+      "id": "API_MBti_93_SPEC",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3-form-93/scoring_spec.json"
+    },
+    {
+      "id": "API_MBti_144_NORMS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3/norms.json",
+      "limitation": "Internal file presence/version does not authorize public norm claims."
+    },
+    {
+      "id": "API_MBti_93_NORMS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/MBTI-CN-v0.3-form-93/norms.json",
+      "limitation": "Internally labelled provisional; no public sample/review authority."
+    },
+    {
+      "id": "PUB_BIG5_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=big-five-personality-test-ocean-model&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms big5_120 and big5_90."
+    },
+    {
+      "id": "PUB_BIG5_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/BIG5_OCEAN/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 422; SCALE_NOT_SUPPORTED.",
+      "limitation": "Negative availability evidence, not a technical note."
+    },
+    {
+      "id": "API_BIG5_PACKS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "sources": [
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1/compiled/manifest.json",
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1-form-90/compiled/manifest.json"
+      ]
+    },
+    {
+      "id": "API_BIG5_120_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_BIG5_90_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1-form-90/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_BIG5_120_NORMS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1/compiled/norms.compiled.json",
+      "limitation": "Internal norm configuration; public sample/review authority absent."
+    },
+    {
+      "id": "API_BIG5_90_NORMS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/BIG5_OCEAN/v1-form-90/compiled/norms.compiled.json",
+      "limitation": "Internal norm configuration; public sample/review authority absent."
+    },
+    {
+      "id": "API_BIG5_BLOCKED_ASSUMPTIONS",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/docs/seo/personality/big-five-authority-v2/big5-authority-v2-source-ledger-05/BLOCKED_OR_UNVERIFIED_ASSUMPTIONS.md"
+    },
+    {
+      "id": "API_BIG5_TECH_TRUST",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/docs/seo/personality/big-five-authority-v2/big5-authority-v2-technical-trust-23/README.md"
+    },
+    {
+      "id": "THEORY_BIG5_GOLDBERG",
+      "class": "THEORY_ONLY",
+      "status": "VERIFIED",
+      "source": "https://doi.org/10.1037/0022-3514.59.6.1216",
+      "limitation": "Construct history only; not FermatMind validation."
+    },
+    {
+      "id": "THEORY_BIG5_BFI2",
+      "class": "THEORY_ONLY",
+      "status": "VERIFIED",
+      "source": "https://doi.org/10.1037/pspp0000096",
+      "limitation": "BFI-2 evidence only; not proof of form equivalence or FermatMind validation."
+    },
+    {
+      "id": "PUB_ENNEAGRAM_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=enneagram-personality-test-nine-types&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms enneagram_likert_105 and enneagram_forced_choice_144."
+    },
+    {
+      "id": "PUB_ENNEAGRAM_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/ENNEAGRAM/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 200; schema enneagram.technical_note.v1; version enneagram_technical_note.v0.1."
+    },
+    {
+      "id": "API_ENNEAGRAM_PACKS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "sources": [
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/ENNEAGRAM/v1-likert-105/compiled/manifest.json",
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/ENNEAGRAM/v1-forced-choice-144/compiled/manifest.json"
+      ]
+    },
+    {
+      "id": "API_ENNEAGRAM_105_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/ENNEAGRAM/v1-likert-105/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_ENNEAGRAM_144_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/ENNEAGRAM/v1-forced-choice-144/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_ENNEAGRAM_TECH_SERVICE",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/app/Services/Enneagram/EnneagramTechnicalNoteService.php"
+    },
+    {
+      "id": "API_ENNEAGRAM_BLOCKED_ASSUMPTIONS",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/docs/seo/personality/enneagram-authority-v2/enneagram-public-authority-v2-source-ledger-07/BLOCKED_OR_UNVERIFIED_ASSUMPTIONS.md"
+    },
+    {
+      "id": "THEORY_ENNEAGRAM_REVIEW",
+      "class": "THEORY_ONLY",
+      "status": "VERIFIED",
+      "source": "https://doi.org/10.1002/jclp.23097",
+      "limitation": "Systematic review of Enneagram studies/instruments; not FermatMind validation."
+    },
+    {
+      "id": "PUB_RIASEC_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms riasec_60 and riasec_140."
+    },
+    {
+      "id": "PUB_RIASEC_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/RIASEC/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 200; schema riasec.technical_note.v1; versions riasec_technical_note.v0.1 and riasec.method_boundary.v0.1."
+    },
+    {
+      "id": "API_RIASEC_PACKS",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "sources": [
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/RIASEC/v1-standard-60/compiled/manifest.json",
+        "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/RIASEC/v1-enhanced-140/compiled/manifest.json"
+      ]
+    },
+    {
+      "id": "API_RIASEC_60_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/RIASEC/v1-standard-60/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_RIASEC_140_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/RIASEC/v1-enhanced-140/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_RIASEC_TECH_SERVICE",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/app/Services/Riasec/RiasecTechnicalNoteService.php"
+    },
+    {
+      "id": "API_RIASEC_SCIENCE_AUDIT",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/docs/riasec/riasec-result-content-science-audit-2026-07-02.json"
+    },
+    {
+      "id": "THEORY_ONET_IP",
+      "class": "THEORY_ONLY",
+      "status": "VERIFIED",
+      "source": "https://www.onetcenter.org/IP.html",
+      "limitation": "O*NET instrument information only; no affiliation or FermatMind equivalence."
+    },
+    {
+      "id": "THEORY_ONET_MANUAL",
+      "class": "THEORY_ONLY",
+      "status": "VERIFIED",
+      "source": "https://www.onetcenter.org/reports/IP_Manual.html",
+      "limitation": "O*NET Interest Profiler manual only; not FermatMind-form validation."
+    },
+    {
+      "id": "PUB_IQ_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=iq-test-intelligence-quotient-assessment&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms array empty."
+    },
+    {
+      "id": "PUB_IQ_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/IQ_RAVEN/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 422; SCALE_NOT_SUPPORTED.",
+      "limitation": "Negative availability evidence, not a technical note."
+    },
+    {
+      "id": "API_IQ_OWNER30",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/IQ_INTELLIGENCE_QUOTIENT-CN-v0.3.0-DEMO/banks/IQ_OWNER_ORIGINAL_30/manifest.json",
+      "limitation": "Owner-original declaration/runtime metadata; not psychometric validation or Raven equivalence."
+    },
+    {
+      "id": "API_IQ_OWNER30_SPEC",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/content_packages/default/CN_MAINLAND/zh-CN/IQ_INTELLIGENCE_QUOTIENT-CN-v0.3.0-DEMO/banks/IQ_OWNER_ORIGINAL_30/scoring_spec.json",
+      "limitation": "Answer key is private and must not be copied into public evidence."
+    },
+    {
+      "id": "API_IQ_RUNTIME_SERVICE",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/app/Services/Iq/IqOwnerOriginal30BankService.php",
+      "limitation": "Runtime contract and version metadata only; private answer-key content is excluded."
+    },
+    {
+      "id": "API_IQ_BETA_SCORE",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/app/Services/Assessment/IqBetaStandardScore.php",
+      "limitation": "Marks the random-simulation baseline as non-production-normed and not claim eligible."
+    },
+    {
+      "id": "API_IQ_NORM_AUTHORITY",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/docs/iq/iq-production-norm-authority.md"
+    },
+    {
+      "id": "PUB_EQ_LOOKUP",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=eq-test-emotional-intelligence-assessment&locale=en",
+      "observed_at": "2026-08-10",
+      "observed_fact": "ok=true; forms array empty."
+    },
+    {
+      "id": "PUB_EQ_TECH_API",
+      "class": "PUBLIC_PRODUCT",
+      "status": "VERIFIED",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/EQ_60/technical-note",
+      "observed_at": "2026-08-10",
+      "observed_fact": "HTTP 422; SCALE_NOT_SUPPORTED.",
+      "limitation": "Negative availability evidence, not a technical note."
+    },
+    {
+      "id": "API_EQ_PACK",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/EQ_60/v1/compiled/manifest.json"
+    },
+    {
+      "id": "API_EQ_POLICY",
+      "class": "IMPLEMENTATION",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/EQ_60/v1/compiled/policy.compiled.json"
+    },
+    {
+      "id": "API_EQ_EVIDENCE_STATUS",
+      "class": "CLAIM_GUARD",
+      "status": "VERIFIED",
+      "source": "repo://fap-api@4ad35bd2b15448569a3bafc6bd27f6ad115dc014/backend/content_packs/EQ_60/v1/raw/report_assets/psychometric_evidence_status.json",
+      "limitation": "Evidence-gap record: planned/provisional work must not be rewritten as completed validation."
+    }
+  ]
+}

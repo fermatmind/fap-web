@@ -1,0 +1,87 @@
+{
+  "artifact_kind": "fermatmind_b03_technical_evidence_validation_report",
+  "validated_at": "2026-08-10T14:37:34+08:00",
+  "validation_status": "PASS",
+  "inventory_goal_status": "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+  "repository_bindings": {
+    "fap_web_commit": "5b4d5bb050497ec04652989e0d500b71870de34b",
+    "fap_api_commit": "4ad35bd2b15448569a3bafc6bd27f6ad115dc014"
+  },
+  "checks": [
+    {
+      "id": "JSON_STRUCTURE",
+      "status": "PASS",
+      "result": "technical_manual_inventory.json and source_manifest.json parse; exactly six expected scale IDs are present; all required evidence and claim-boundary fields are present."
+    },
+    {
+      "id": "CSV_PARSE_AND_COVERAGE",
+      "status": "PASS",
+      "result": "Ruby CSV parser read 6 rows and 16 columns; scale IDs match the JSON inventory and each row retains an INFERRED inventory outcome."
+    },
+    {
+      "id": "UNKNOWN_PRESERVATION",
+      "status": "PASS",
+      "result": "Every assessment retains sample/norm, reliability, validity, reviewer and public changelog as UNKNOWN; IQ/Raven and EQ also retain unknown public form exposure and third-party equivalence where applicable."
+    },
+    {
+      "id": "CLAIM_BOUNDARY",
+      "status": "PASS",
+      "result": "Allowed-claim fields contain only bounded self-reflection/interest/reasoning-practice statements; global and per-scale forbidden claims remain explicit; theory-only sources are never used as FermatMind validation."
+    },
+    {
+      "id": "SOURCE_ID_CLOSURE",
+      "status": "PASS",
+      "result": "All 53 source IDs are used and every inventory source reference resolves to exactly one manifest source."
+    },
+    {
+      "id": "REPOSITORY_TRACEABILITY",
+      "status": "PASS",
+      "result": "All 36 repo:// source paths exist in their bound read-only fap-web or fap-api worktree and carry the exact declared 40-character commit SHA."
+    },
+    {
+      "id": "ARTIFACT_HASHES",
+      "status": "PASS",
+      "result": "SHA-256 matches technical_manual_inventory.json bbef0a734aae19f7759e49b1dae24fca2afa25b46652777b309a8bd1ce572893 and technical_manual_inventory.csv 5f9ced011433348d5f3bc8fd094ad4a3893db88bd215faa077b35d2ba504352f."
+    },
+    {
+      "id": "PUBLIC_LOOKUP_LIVE",
+      "status": "PASS",
+      "result": "On 2026-08-10, all six canonical lookup URLs returned ok=true with exact public scale codes; MBTI, Big Five, Enneagram and RIASEC forms/counts matched the inventory; IQ_RAVEN and EQ_60 returned empty forms arrays."
+    },
+    {
+      "id": "PUBLIC_TECHNICAL_NOTE_LIVE",
+      "status": "PASS",
+      "result": "On 2026-08-10, Enneagram and RIASEC technical-note endpoints returned HTTP 200; MBTI, BIG5_OCEAN, IQ_RAVEN and EQ_60 returned HTTP 422 SCALE_NOT_SUPPORTED."
+    },
+    {
+      "id": "PUBLIC_METHOD_PAGES_LIVE",
+      "status": "PASS",
+      "result": "Science, item-design-notes, reliability-validity and method-boundaries English pages returned HTTP 200."
+    },
+    {
+      "id": "WINDOW9_REFERENCE_ISOLATION",
+      "status": "PASS",
+      "result": "After removing the B03_TECHNICAL_EVIDENCE source object, the current Window 9 source manifest is byte-equivalent as normalized JSON to HEAD; no W3 package or other Window 9 conclusion changed."
+    },
+    {
+      "id": "SCOPE",
+      "status": "PASS",
+      "result": "Changed paths are limited to the independent authority-b03-technical-manual-evidence directory and the single Window 9 source-manifest reference."
+    },
+    {
+      "id": "GIT_DIFF_CHECK",
+      "status": "PASS",
+      "result": "git diff --check completed with no whitespace errors."
+    }
+  ],
+  "commands": [
+    "jq -e <six-assessment, required-field and UNKNOWN assertions> technical_manual_inventory.json",
+    "ruby -rcsv -e <row, column, scale-set and evidence-status assertions> technical_manual_inventory.csv",
+    "node <source-ID closure, claim-boundary, repo-path, SHA-binding and artifact-hash validator>",
+    "node <live canonical lookup, technical-note status and public method-page validator>",
+    "diff -u <HEAD Window 9 manifest without B03> <current Window 9 manifest without B03>",
+    "git status --porcelain=v1 <path allowlist assertion>",
+    "git diff --check"
+  ],
+  "interpretation": "PASS validates the inventory artifact and its conservative evidence mapping. It does not convert UNKNOWN psychometric evidence into verified evidence, so the inventory goal remains partially blocked."
+}
