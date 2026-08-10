@@ -57881,7 +57881,7 @@
     "base": "main",
     "branch": "codex/noncareer-audit-status-reconciliation-01",
     "depends_on": [],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "ca420eeaf74632343562191fa375364857b5d5e7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2025",
     "failure_reason": null,
@@ -57906,14 +57906,14 @@
         "evidence": "Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. Ruby CSV/JSON/YAML reconciliation, sidecar schema/path/deduplication checks, exact sample/formula guards, git diff --check, and the seven-path allowlist all passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "PR #2025 head 6cee437d3f9eca0b7be45e0ec91f3abf41fb53cc passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -57953,9 +57953,15 @@
         "from": "committed",
         "to": "github_checks_pending",
         "note": "Opened PR #2025, preserved the concurrently merged Window 6 manifest/state entries while rebasing onto origin/main 8aaf49c1, and updated the implementation commit to ca420eeaf74632343562191fa375364857b5d5e7. Required checks are pending."
+      },
+      {
+        "at": "2026-08-10T05:57:30Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All GitHub checks passed and the exact seven-path scope was revalidated against origin/main; PR #2025 is CLEAN and MERGEABLE with no review block."
       }
     ],
-    "updated_at": "2026-08-10T05:52:52Z"
+    "updated_at": "2026-08-10T05:57:30Z"
   },
   "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01": {
     "id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",

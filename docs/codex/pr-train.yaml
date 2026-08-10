@@ -30634,7 +30634,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: noncareer_window7_audit_status_reconciliation
-    status: in_progress
+    status: ready_to_merge
     goal: Replace the unsupported overall COMPLETE declaration with PARTIALLY_BLOCKED while preserving verified local Window 7 findings and registering the exact seven-item completion train.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/00-executive-decision.md
