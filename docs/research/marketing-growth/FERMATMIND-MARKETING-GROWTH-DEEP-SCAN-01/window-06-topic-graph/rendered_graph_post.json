@@ -1,0 +1,12 @@
+{
+  "schema_version": "fermatmind.rendered_graph_observation.v1",
+  "status": "CAREER_POST_GRAPH_WAITING_ON_C06",
+  "evidence_level": "UNKNOWN_NOT_CRAWLED",
+  "reason": "G06 prerequisites are not all satisfied; no historical 1046 list was crawled as current authority.",
+  "career_link_publication_gate": "closed",
+  "pages": [],
+  "graphs": {
+    "full": null,
+    "contextual": null
+  }
+}

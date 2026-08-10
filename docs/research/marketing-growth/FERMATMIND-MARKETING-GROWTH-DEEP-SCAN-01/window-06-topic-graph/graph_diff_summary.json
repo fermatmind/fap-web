@@ -1,0 +1,26 @@
+{
+  "schema_version": "fermatmind.topic_graph_diff_summary.v1",
+  "status": "CAREER_POST_GRAPH_WAITING_ON_C06",
+  "comparison_status": "UNKNOWN_NOT_COMPARABLE",
+  "same_crawler_required": true,
+  "pre": {
+    "corpus_sha256": "37c07f747cc2d99a6f986678c3af01789d069efff09c1cf1f47879fb9f8a46d6",
+    "full_graph_sha256": "2efc77e81df2c36bc8465b0350c40fa6f4d0ecc51e51e0d8842e4d1c13742fbd",
+    "contextual_graph_sha256": "29dfef3bbe16e24d775dc8fde57000779cb542f952262c01c4cd5084cce1e21b",
+    "crawl_complete": true
+  },
+  "post": {
+    "corpus_sha256": null,
+    "full_graph_sha256": null,
+    "contextual_graph_sha256": null
+  },
+  "cohorts": [
+    "non-Career common cohort",
+    "Career pre-known cohort",
+    "Career post verified cohort",
+    "sitewide total",
+    "EN/ZH",
+    "Full/Contextual"
+  ],
+  "warning": "Absolute edge growth after adding a Career cohort would not by itself prove quality improvement."
+}

@@ -1,0 +1,93 @@
+{
+  "schema_version": "fermatmind.topic_graph_crawler_config.v1",
+  "audit_id": "FERMATMIND-PUBLIC-TOPIC-GRAPH-AUDIT-01",
+  "crawler_version": "fermatmind-live-rendered-topic-graph/1.0.0",
+  "captured_at": "2026-08-10T12:01:11+08:00",
+  "timezone": "Asia/Shanghai",
+  "browser_engine": "chromium",
+  "browser_version": "145.0.7632.6",
+  "playwright_version": "1.58.2",
+  "render_mode": "headless Chromium DOMContentLoaded plus bounded hydration settle",
+  "concurrency": 2,
+  "per_worker_delay_ms": 350,
+  "hydration_settle_ms": 650,
+  "navigation_timeout_ms": 20000,
+  "max_retries_per_url": 2,
+  "retry_backoff_ms": [1000, 2500],
+  "checkpoint_every_urls": 50,
+  "user_agent": "FermatMindTopicGraphAudit/1.0 (+read-only; max-concurrency=2)",
+  "seed_urls": [
+    "https://fermatmind.com/en",
+    "https://fermatmind.com/zh",
+    "https://fermatmind.com/en/tests",
+    "https://fermatmind.com/zh/tests",
+    "https://fermatmind.com/en/articles",
+    "https://fermatmind.com/zh/articles",
+    "https://fermatmind.com/en/personality",
+    "https://fermatmind.com/zh/personality"
+  ],
+  "conditional_seed_urls": [
+    "https://fermatmind.com/en/career",
+    "https://fermatmind.com/zh/career"
+  ],
+  "corpus_sources": [
+    "https://fermatmind.com/sitemap.xml",
+    "https://api.fermatmind.com/api/v0.5/seo/sitemap-source"
+  ],
+  "normalization_rules": {
+    "scheme": "force https for owned hosts",
+    "owned_hosts": ["fermatmind.com", "www.fermatmind.com"],
+    "canonical_host": "fermatmind.com",
+    "trailing_slash": "remove except root",
+    "fragments": "strip",
+    "tracking_parameters": "strip known attribution parameters; preserve functional parameters in observation but exclude query-bearing URLs from corpus identity",
+    "locale": "preserve en and zh path segments; record cross-locale edges",
+    "canonical_target": "prefer successfully rendered self canonical; never infer missing canonical from slug",
+    "redirects": "record final URL and status chain evidence",
+    "case": "lowercase scheme and host only; preserve path case and flag noncanonical path case",
+    "url_encoding": "WHATWG URL parse and percent-encoding normalization"
+  },
+  "excluded_url_rules": [
+    "non-http(s) schemes",
+    "external hosts from internal graph",
+    "private take/result/report/order/share/payment/checkout/account/profile/app paths from crawl corpus",
+    "fragments as separate nodes",
+    "tracking-only query variants as separate nodes"
+  ],
+  "private_route_observation_policy": "Never crawl private routes; redact raw/resolved/normalized private destinations to a PRIVATE_ROUTE_REDACTED category before graph analysis and artifact publication.",
+  "public_path_exceptions": [
+    "/en/personality/big-five/facets/order",
+    "/zh/personality/big-five/facets/order"
+  ],
+  "private_route_segments": [
+    "take",
+    "result",
+    "results",
+    "report",
+    "reports",
+    "order",
+    "orders",
+    "share",
+    "payment",
+    "payments",
+    "pay",
+    "checkout",
+    "account",
+    "profile",
+    "app"
+  ],
+  "retry_policy": "Initial attempt plus at most two light retries for timeout, navigation error, or 5xx; never retry stable 4xx.",
+  "pause_policy": "Stop adding requests when three or more timeout/5xx outcomes occur in the latest twenty completed URLs or when observed latency sharply exceeds the bounded navigation timeout.",
+  "resource_policy": "Block image, media, and font requests; keep HTML, CSS, and script rendering; do not click, submit, authenticate, start attempts, or warm caches.",
+  "internal_authority_proxy": {
+    "name": "FermatMind Internal Authority Proxy",
+    "not_google_pagerank": true,
+    "formula": "Iterative damping score over visible crawlable internal links: S_0(v)=1/N; S_{t+1}(v)=(1-d)/N+d*(dangling_mass/N+sum_{u->v} S_t(u)/outdegree(u)); d=0.85; 50 iterations; duplicate source-target links collapsed; computed separately for Full and Contextual graphs."
+  },
+  "known_limitations": [
+    "GSC observed URL export is not available to this task as a live account readback.",
+    "A successful rendered crawl observes links but does not make crawler output backend/CMS edge authority.",
+    "Blocked image/font/media requests reduce production load and may differ from a fully loaded visual viewport without changing SSR/hydrated anchor enumeration in expected templates.",
+    "A timeout, 5xx, or render failure is classified as TRANSIENT_FAILURE and never directly as an orphan."
+  ]
+}

@@ -1,0 +1,7 @@
+cohort,metric,pre_value,post_value,delta,classification,note
+non_career_common_cohort,corpus_count,553,UNKNOWN,UNKNOWN,unknown,Post Career authority corpus not available.
+sitewide_full_graph,node_count,553,UNKNOWN,UNKNOWN,unknown,G06 blocked.
+sitewide_full_graph,unique_edge_count,17064,UNKNOWN,UNKNOWN,unknown,G06 blocked.
+sitewide_contextual_graph,unique_edge_count,4467,UNKNOWN,UNKNOWN,unknown,G06 blocked.
+sitewide_full_graph,true_orphan_count,49,UNKNOWN,UNKNOWN,unknown,Pre crawl incomplete or post unavailable.
+career_post_verified_cohort,corpus_count,0,UNKNOWN,UNKNOWN,unknown,Current authority exposes zero Career details; historical 2092 not treated as current.
