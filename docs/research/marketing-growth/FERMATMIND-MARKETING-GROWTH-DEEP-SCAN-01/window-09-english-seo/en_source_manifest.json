@@ -1,6 +1,6 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T13:48:53+08:00",
+  "captured_at": "2026-08-10T07:07:54Z",
   "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
   "csv_provenance_contract": [
     "source",
@@ -25,7 +25,9 @@
     "CANDIDATE_ONLY",
     "WAITING_ON_C06_C07",
     "GSC_EXACT_EXPORT_BLOCKED",
-    "BLOCKED_OVERBROAD_OAUTH_SCOPE"
+    "BLOCKED_OVERBROAD_OAUTH_SCOPE",
+    "VERIFIED_GSC_SEARCH_ANALYTICS_API_AGGREGATE",
+    "VERIFIED_GSC_SEARCH_ANALYTICS_API_QUERY_PAGE_MARKET_DEVICE"
   ],
   "sources": [
     {
@@ -299,6 +301,48 @@
         "search_appearance": 0
       },
       "limitation": "Operator-local UI ZIP is not committed. Normalized evidence is committed; dimension tables are separate and may omit anonymized or low-volume rows."
+    },
+    {
+      "id": "M01_GSC_COMBINED_SAFE_JOINT",
+      "source": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:06:20Z",
+      "date_windows": [
+        "2026-07-13/2026-08-09",
+        "2026-06-15/2026-07-12",
+        "2026-05-12/2026-08-09"
+      ],
+      "rows": 12336,
+      "grain": "window × query × page × country × device",
+      "limitation": "Privacy-filtered Search Analytics top rows; completed pagination does not establish event-level or full long-tail exhaustiveness. Language and searchAppearance are not supplied by this joint evidence."
+    },
+    {
+      "id": "M01_EXPORT_MANIFEST",
+      "source": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/m01_export_manifest.json",
+      "sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:06:20Z",
+      "oauth_scope": "https://www.googleapis.com/auth/webmasters.readonly",
+      "production_write": false,
+      "limitation": "Manifest binds sanitized repository artifacts; raw API responses and credentials are intentionally not stored."
+    },
+    {
+      "id": "LIVE_EN_CANONICAL_ROUTE_REVALIDATION",
+      "source": "https://fermatmind.com/sitemap.xml plus repository/backend canonical route contracts",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T07:07:54Z",
+      "observed_m01_en_urls": 158,
+      "eligible_canonical_urls": 152,
+      "excluded_returned_urls": [
+        "/en/personality/big-five/high-conscientiousness",
+        "/en/personality/big-five/low-agreeableness",
+        "/en/personality/big-five/low-conscientiousness",
+        "/en/personality/big-five/low-extraversion",
+        "/en/tests/mbti-personality-test-16-personality-types-MBTI",
+        "/en/career/industries/__unknown__"
+      ],
+      "limitation": "Sitemap is discoverability evidence, not sole content authority. Canonical eligibility also consumes repository/backend route contracts; no discoverability mutation was made."
     }
   ],
   "goal_status": "GSC_EXACT_EXPORT_BLOCKED",

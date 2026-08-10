@@ -1,29 +1,47 @@
 {
+  "schema_version": "fermatmind.window09.en-market-segment.v2",
   "artifact_kind": "english_market_segment_spec",
+  "status": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
+  "generated_at": "2026-08-10T07:07:54Z",
+  "source": {
+    "objective_id": "FERMATMIND-MEASUREMENT-M01-GSC-EXPORT-01",
+    "combined_safe_file": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+    "combined_safe_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+    "manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+    "source_safe_rows": 12336,
+    "eligible_en_rows": 4192,
+    "eligible_en_pages": 152,
+    "grain": "window × query × page × country × device"
+  },
   "locale_rule": {
-    "page_locale": "verified canonical path beginning /en/",
-    "user_language": "UNKNOWN because GSC exposes no reliable user-language dimension"
+    "page_locale": "Exact https://fermatmind.com/en canonical cohort, including /en; current route authority excludes redirect-only Big Five high-*/low-*/emotional-stability aliases, legacy MBTI uppercase alias, query/fragment URLs, and __unknown__ career family.",
+    "user_language": "UNKNOWN_UNSUPPORTED_GSC_SEARCH_ANALYTICS_DIMENSION",
+    "country_is_language": false
   },
   "country_groups": {
     "US": {
-      "predicate": "country=USA",
+      "predicate": "country=usa",
       "mutually_exclusive": true
     },
     "UK": {
-      "predicate": "country=GBR",
+      "predicate": "country=gbr",
       "mutually_exclusive": true
     },
     "OTHER": {
-      "predicate": "country NOT IN (USA, GBR)",
+      "predicate": "country NOT IN (usa,gbr)",
       "mutually_exclusive": true
     },
     "GLOBAL": {
-      "predicate": "all countries",
+      "predicate": "all eligible country rows",
       "mutually_exclusive": false,
-      "note": "Total view; never add to US+UK+OTHER."
+      "note": "Independent all-country view; never add as a fourth market."
     }
   },
-  "invariant": "US, UK, and OTHER are mutually exclusive within the same returned country table. GLOBAL is an independent total and must never be added to them. Equality is not asserted while GSC dimension suppression exists.",
+  "invariants": [
+    "US, UK and OTHER are mutually exclusive and exhaust the retained privacy-filtered returned-safe rows.",
+    "GLOBAL is recomputed independently from all retained rows and is never added to US+UK+OTHER.",
+    "Equality between GLOBAL and the three market groups applies only to this retained returned-safe dataset, not to suppressed or unavailable GSC rows."
+  ],
   "devices": [
     "mobile",
     "desktop",
@@ -37,13 +55,37 @@
     "hubs/content pages",
     "homepage"
   ],
-  "current_data_state": "GSC_EXACT_EXPORT_BLOCKED: four /en/ UI export windows verified; exact query×page×country×device rows unavailable and search-appearance tables empty.",
-  "e01_status": "GSC_EXACT_EXPORT_BLOCKED",
-  "completion_gate": "Read-only Search Analytics API export of query×page×country×device×date for all four windows, plus separate search appearance if required.",
-  "share_denominators": {
-    "country": "Sum of returned country-dimension rows only.",
-    "device": "Sum of returned device-dimension rows only.",
-    "global": "Independent daily-chart total."
+  "windows": {
+    "current28": {
+      "start": "2026-07-13",
+      "end": "2026-08-09"
+    },
+    "prev28": {
+      "start": "2026-06-15",
+      "end": "2026-07-12"
+    },
+    "day90": {
+      "start": "2026-05-12",
+      "end": "2026-08-09"
+    }
   },
-  "prior_year": "UNKNOWN: first available daily row in the 90-day request is 2026-05-31."
+  "branded_query_rule": "case-insensitive contains fermatmind, fermat mind, or 费马测试",
+  "search_appearance": "UNKNOWN_UNAVAILABLE_EQUIVALENT_JOINT_EVIDENCE",
+  "availability_boundary": "Search Analytics returns top rows and does not guarantee every possible row; completed pagination does not prove event-level or full long-tail exhaustiveness.",
+  "privacy_boundary": "Only M01 privacy-filtered safe rows are consumed. Filtered or unavailable rows are not treated as zero.",
+  "outputs": {
+    "en_gsc_country_device.csv": "all market × device × surface aggregates",
+    "en_query_page_opportunities.csv": "selected exact query-page market-device aggregates; clicks>0 or impressions>=10 plus top 10 per bucket"
+  },
+  "explicitly_not_changed": [
+    "CMS",
+    "runtime",
+    "canonical",
+    "hreflang",
+    "schema",
+    "sitemap",
+    "llms",
+    "indexability",
+    "search submission"
+  ]
 }
