@@ -1,6 +1,6 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
-  "captured_at": "2026-08-10T18:30:00+08:00",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-M04-ATTRIBUTION-CLOSEOUT",
+  "captured_at": "2026-08-10T09:22:06+00:00",
   "dependency_reconciled_on": "2026-08-10",
   "counting_units": {
     "cms_article_identity": {
@@ -37,6 +37,14 @@
       "cohort_count": 129,
       "status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
       "limitation": "Top 1000 UI export per window; absent URLs remain Unknown; query×page is 0 rows"
+    },
+    "m04_article_attribution": {
+      "requested_count": 129,
+      "safe_exact_mapping": 112,
+      "not_returned_by_public_indexable_export": 17,
+      "identity_lock_failed": 0,
+      "aggregate_unavailable": 0,
+      "status": "M04_ARTICLE_ATTRIBUTION_ACCEPTED_WITH_RESULT_READY_CONTRACT_GAP"
     }
   },
   "sources": [
@@ -71,15 +79,19 @@
       "limitation": "not a browser/mobile visual audit"
     },
     {
-      "source": "M04 historical GA4 observation and current backend read-only capability reconciliation",
-      "url_path": "article_evidence_closeout_dependencies.json",
-      "captured_at": "2026-08-10T18:30:00+08:00",
-      "locale": "aggregate",
-      "country_device": "aggregate",
+      "source": "M04 production backend read-only article attribution acceptance",
+      "url_path": "article_m04_attribution_evidence.json",
+      "captured_at": "2026-08-10T09:22:06+00:00",
+      "locale": "en/zh exact identity locked",
+      "country_device": "aggregate; no country/device or private identity retained",
       "date_window": "2026-07-13_to_2026-08-09",
-      "evidence_status": "READ_ONLY_ARTICLE_EXPORT_AVAILABLE_ACCEPTANCE_PENDING",
-      "source_sha256": "4dbe71d76adb8943fbadb51a93cd860ca92dc5be5250292a25c98345eda412b0",
-      "limitation": "the exact-id and expected-slug backend exporter exists, but no production article-level observation is written into this package yet; result_ready has no article aggregate dimension"
+      "evidence_status": "M04_ARTICLE_ATTRIBUTION_ACCEPTED_WITH_RESULT_READY_CONTRACT_GAP",
+      "source_sha256": "a63e8cabbc886f9507a599468512fa5dcdd4866634b84265bd4d060516eaccfc",
+      "deployed_backend_revision": "40020ab7ef269ee56ce597e9f2fd2fbb99e83549",
+      "requested_articles": 129,
+      "safe_exact_mapping": 112,
+      "not_returned_by_public_indexable_export": 17,
+      "limitation": "112 returned rows have verified zero click/start/complete observations; 17 non-returned rows are Unknown; result_ready remains Unknown for all 129 because its aggregate has no article dimension; production revision predates #3593 and #3596"
     },
     {
       "source": "controlled Brave Search Top 10 snapshots",

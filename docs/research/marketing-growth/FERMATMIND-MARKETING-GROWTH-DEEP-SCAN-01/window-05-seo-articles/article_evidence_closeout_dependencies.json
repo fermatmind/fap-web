@@ -1,12 +1,12 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
-  "captured_at": "2026-08-10T18:30:00+08:00",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-M04-ATTRIBUTION-CLOSEOUT",
+  "captured_at": "2026-08-10T09:22:06+00:00",
   "dependency_reconciled_on": "2026-08-10",
   "origin_main_at_preflight": "30798c088dd212c7de1b2415c10afceeab6e2f72",
   "origin_main_at_final_fetch": "7f4265802ac1346a72ce53e0ee18d10002b6c78e",
   "fap_api_origin_main_at_reconciliation": "8e352dc727e131101f741be99a0a69f4178a7329",
   "scope": "window-05-seo-articles only",
-  "upstream_source_mode": "M01 is complete consumed evidence; M04 is an available read-only capability awaiting Window5 execution; M06/M07, G03, backend Authority and G04 are merged repository facts with explicit no-production/no-publication boundaries; B03 is complete as an inventory and partially blocked as technical evidence; exact source bytes are recorded below",
+  "upstream_source_mode": "M01 is complete consumed evidence; M04 production read-only acceptance safely mapped 112 articles and left 17 non-returned articles Unknown, while result_ready remains Unknown for all 129 because no article-safe aggregate dimension exists; M06/M07, G03, backend Authority and G04 remain repository facts with explicit no-production/no-publication boundaries; B03 is complete as an inventory and partially blocked as technical evidence",
   "dependencies": [
     {
       "id": "M01",
@@ -17,12 +17,22 @@
     },
     {
       "id": "M04",
-      "status": "READ_ONLY_ARTICLE_EXPORT_AVAILABLE_ACCEPTANCE_PENDING",
-      "window5_decision": "the backend has an exact article-id plus expected-slug read-only observation exporter; Window5 has not yet executed production acceptance, so article-level values remain Unknown",
+      "status": "M04_ARTICLE_ATTRIBUTION_ACCEPTED_WITH_RESULT_READY_CONTRACT_GAP",
+      "window5_decision": "production read-only acceptance safely mapped 112 articles with verified zero click/start/complete observations; 17 articles not returned by the public/indexable exporter remain Unknown; result_ready remains Unknown for all 129 because the aggregate has no article identity",
       "source_repository": "FermatMind/fap-api",
-      "source_commit": "8e352dc727e131101f741be99a0a69f4178a7329",
-      "source_path": "backend/app/Services/SeoIntel/ArticleWeeklySeoObservationExportService.php",
-      "source_sha256": "4dbe71d76adb8943fbadb51a93cd860ca92dc5be5250292a25c98345eda412b0"
+      "deployed_revision": "40020ab7ef269ee56ce597e9f2fd2fbb99e83549",
+      "deployed_revision_contains_measurement_pr_3593": false,
+      "deployed_revision_contains_result_ready_pr_3596": false,
+      "exporter_schema_version": "article_weekly_seo_observation_export.v1",
+      "source_path": "article_m04_attribution_evidence.json",
+      "source_sha256": "a63e8cabbc886f9507a599468512fa5dcdd4866634b84265bd4d060516eaccfc",
+      "date_window": "2026-07-13_to_2026-08-09",
+      "requested_articles": 129,
+      "safe_exact_mapping": 112,
+      "not_returned_by_public_indexable_export": 17,
+      "identity_lock_failed": 0,
+      "aggregate_unavailable": 0,
+      "read_only": true
     },
     {
       "id": "M06",
@@ -55,7 +65,8 @@
       "source_repository": "FermatMind/fap-api",
       "source_commit": "f9a64c517552a195c3e3e05b591a0f8cc11dd964",
       "source_path": "backend/app/Services/Analytics/ResultReadyEventRecorder.php",
-      "source_sha256": "0486a9938d6a4de7533865f33f75227fc5fb4deaac4bd95d254b7979305de1e9"
+      "source_sha256": "0486a9938d6a4de7533865f33f75227fc5fb4deaac4bd95d254b7979305de1e9",
+      "production_observation_boundary": "M04 observed deployed revision 40020ab7ef269ee56ce597e9f2fd2fbb99e83549, which predates #3596; no article-level or production result_ready observation is claimed"
     },
     {
       "id": "A01",
@@ -123,5 +134,6 @@
     "database": false,
     "production": false,
     "sitemap_llms_robots": false
-  }
+  },
+  "origin_main_at_m04_preflight": "480379d3f7a73e07defa57d79037a5f687607816"
 }

@@ -1,7 +1,7 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-DEPENDENCY-RECONCILE",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-M04-ATTRIBUTION-CLOSEOUT",
   "validated_on": "2026-08-10",
-  "status": "PASS_WITH_DECLARED_REMAINING_BLOCKERS",
+  "status": "PASS_WITH_RESULT_READY_CONTRACT_GAP",
   "m01_delta_complete": true,
   "summary": {
     "article_ledger_rows": 129,
@@ -9,7 +9,7 @@
     "public_edge_rows": 375,
     "query_owner_rows": 22,
     "csv_files": 16,
-    "json_payload_files": 20
+    "json_payload_files": 21
   },
   "declared_remaining_blockers": [
     "M04 result_ready has no article-safe aggregate dimension",
@@ -182,7 +182,7 @@
     {
       "name": "csv_parse:article_performance_ledger.csv",
       "status": "PASS",
-      "detail": "129 data rows; 70 headers"
+      "detail": "129 data rows; 72 headers"
     },
     {
       "name": "csv_unique_headers:article_performance_ledger.csv",
@@ -351,6 +351,11 @@
     },
     {
       "name": "json_parse:article_evidence_closeout_dependencies.json",
+      "status": "PASS",
+      "detail": "valid JSON and UTF-8"
+    },
+    {
+      "name": "json_parse:article_m04_attribution_evidence.json",
       "status": "PASS",
       "detail": "valid JSON and UTF-8"
     },
@@ -558,6 +563,31 @@
       "name": "no_parameterized_urls",
       "status": "PASS",
       "detail": "no query strings or fragments in governed evidence URLs"
+    },
+    {
+      "name": "m04_article_identity_and_schema",
+      "status": "PASS",
+      "detail": "129 deterministic article states; 112 exact identity locks; complete and result-ready fields present"
+    },
+    {
+      "name": "m04_zero_unknown_boundary",
+      "status": "PASS",
+      "detail": "112 safe rows carry verified zero click/start/complete; 17 non-returned rows remain Unknown"
+    },
+    {
+      "name": "m04_writeback_consistency",
+      "status": "PASS",
+      "detail": "ledger and coverage states exactly match the privacy-safe evidence registry"
+    },
+    {
+      "name": "m04_read_only_privacy_boundary",
+      "status": "PASS",
+      "detail": "read-only export; no private identifiers, event rows, environment values or write attempts retained"
+    },
+    {
+      "name": "m04_result_ready_boundary",
+      "status": "PASS",
+      "detail": "result_ready remains Unknown; result_view is not substituted"
     }
   ]
 }
