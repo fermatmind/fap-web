@@ -51,6 +51,8 @@ import {
   LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS,
   LLMS_FULL_ARTIFACT_OPTIONAL_SOURCE_TIMEOUT_MS,
   LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY,
+  LLMS_FULL_RUNTIME_ENRICHMENT_CONCURRENCY_PER_GROUP,
+  LLMS_FULL_RUNTIME_SOURCE_CONCURRENCY,
 } from "@/lib/seo/llmsRouteBudget";
 import {
   getCachedLlmsFullText,
@@ -91,7 +93,6 @@ const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
 const MAX_FAQ_ITEMS = 2;
 const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
-const ENRICHMENT_CONCURRENCY = 4;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
@@ -190,11 +191,13 @@ export function llmsFullSourceTimeoutMs(
 }
 
 export function llmsFullSourceConcurrency(buildProfile: LlmsFullBuildProfile): number {
-  return buildProfile === "artifact" ? LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY : Number.MAX_SAFE_INTEGER;
+  return buildProfile === "artifact"
+    ? LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY
+    : LLMS_FULL_RUNTIME_SOURCE_CONCURRENCY;
 }
 
 export function llmsFullEnrichmentConcurrency(): number {
-  return ENRICHMENT_CONCURRENCY;
+  return LLMS_FULL_RUNTIME_ENRICHMENT_CONCURRENCY_PER_GROUP;
 }
 
 export async function resolveLlmsFullEntryGroups<T>(

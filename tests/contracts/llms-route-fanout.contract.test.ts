@@ -88,8 +88,12 @@ describe("llms route fanout budget contract", () => {
 
   it("keeps llms-full detail enrichment bounded separately from list enumeration", () => {
     const source = readSource("app/llms-full.txt/route.ts");
+    const budgets = readSource("lib/seo/llmsRouteBudget.ts");
 
-    expect(source).toContain("const ENRICHMENT_CONCURRENCY = 4");
+    expect(budgets).toContain("LLMS_FULL_RUNTIME_SOURCE_CONCURRENCY = 2");
+    expect(budgets).toContain("LLMS_FULL_RUNTIME_ENRICHMENT_CONCURRENCY_PER_GROUP = 1");
+    expect(source).toContain("LLMS_FULL_RUNTIME_SOURCE_CONCURRENCY");
+    expect(source).toContain("LLMS_FULL_RUNTIME_ENRICHMENT_CONCURRENCY_PER_GROUP");
     expect(source).toContain("getCachedLlmsFullText");
     expect(source).toContain("buildDegradedLlmsFullText");
     expect(source).toContain("X-FermatMind-LLMS-Full-Mode");

@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 describe("PARITY-06 llms-full non-Trust orchestration", () => {
-  it("keeps runtime budgets unchanged and bounds artifact-only source work", async () => {
+  it("bounds runtime and artifact source work independently", async () => {
     const {
       llmsFullContentPageTimeoutMs,
       llmsFullEnrichmentConcurrency,
@@ -22,14 +22,14 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     expect(llmsFullContentPageTimeoutMs("runtime")).toBe(5_000);
     expect(llmsFullSourceTimeoutMs("runtime", "hard", 8_000)).toBe(8_000);
     expect(llmsFullSourceTimeoutMs("runtime", "optional", 1_500)).toBe(1_500);
-    expect(llmsFullSourceConcurrency("runtime")).toBe(Number.MAX_SAFE_INTEGER);
-    expect(llmsFullEnrichmentConcurrency()).toBe(4);
+    expect(llmsFullSourceConcurrency("runtime")).toBe(2);
+    expect(llmsFullEnrichmentConcurrency()).toBe(1);
 
     expect(llmsFullContentPageTimeoutMs("artifact")).toBe(60_000);
     expect(llmsFullSourceTimeoutMs("artifact", "hard", 8_000)).toBe(60_000);
     expect(llmsFullSourceTimeoutMs("artifact", "optional", 1_500)).toBe(30_000);
     expect(llmsFullSourceConcurrency("artifact")).toBe(3);
-    expect(llmsFullEnrichmentConcurrency()).toBe(4);
+    expect(llmsFullEnrichmentConcurrency()).toBe(1);
   });
 
   it("uses a five-minute fail-closed operator deadline without changing the public response deadline", () => {

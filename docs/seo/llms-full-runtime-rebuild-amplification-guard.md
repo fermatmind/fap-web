@@ -13,6 +13,9 @@ later public reads repeated the same expensive work.
 - Record a 15-minute shared failure cooldown when a build fails or produces a non-cacheable artifact.
 - During an active lease or cooldown, preserve the existing bounded degraded response instead of
   starting another backend fanout.
+- Schedule at most two top-level CMS/API sources during runtime rebuilds.
+- Limit runtime detail enrichment to one request per content group, bounding its four parallel
+  groups to four concurrent detail requests; keep offline artifact builds at three sources.
 - Clear the cooldown and lease together with the response cache when the trusted content-release
   revalidation path explicitly invalidates `llms-full`.
 - Keep stale and complete cache quality gates unchanged.
