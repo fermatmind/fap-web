@@ -30675,7 +30675,7 @@ prs:
     depends_on: [NONCAREER-AUDIT-STATUS-RECONCILIATION-01]
     mode: execute
     train_scope: noncareer_window7_critical_lab_remeasurement
-    status: local_verified
+    status: committed
     goal: Preserve the six historical tool failures, retry the exact RIASEC zh bootstrap and Big Five zh landing definitions, and retain standard Lighthouse TBT and Speed Index separately from long-task proxies.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md

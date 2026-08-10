@@ -57978,8 +57978,8 @@
     "depends_on": [
       "NONCAREER-AUDIT-STATUS-RECONCILIATION-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "979188d3744307b7e2c55ced9dcd722d457c3a81",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -58042,13 +58042,19 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "All bounded measurement, evidence integrity, provenance, formula/privacy, documentation, sidecar, formatting, diff, and changed-path checks passed. The branch is ready for commit, rebase onto the unrelated Window 9 main advance, and GitHub validation."
+      },
+      {
+        "at": "2026-08-10T06:19:49Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 12-path evidence scope and rebased cleanly onto origin/main 5b4d5bb0 without changing measurement bytes; implementation commit is 979188d3744307b7e2c55ced9dcd722d457c3a81."
       }
     ],
     "sidecar_issues": [
       "window7-critical-lab-tool-failures-20260810",
       "window7-riasec-first-navigation-question-window-miss-20260810"
     ],
-    "updated_at": "2026-08-10T06:18:47Z"
+    "updated_at": "2026-08-10T06:19:49Z"
   },
   "NONCAREER-L1-INTERVAL-BASELINE-01": {
     "id": "NONCAREER-L1-INTERVAL-BASELINE-01",
