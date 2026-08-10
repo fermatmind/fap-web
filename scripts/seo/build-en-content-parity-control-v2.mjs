@@ -778,7 +778,14 @@ export function applyMaterializationInputs(v2, inputs) {
     if ((target.backend_package_sha256 ?? target.package_sha256) !== chain.package_sha256) {
       throw new Error(`receipt_chain_package_mismatch=${key}`);
     }
-    if (chain.expected_count !== (target.promotion_row_count ?? registeredTargetContract(v2, target, chain.lane_id).expectedCount)) {
+    // Receipt counts bind backend authority records. Depending on the lane,
+    // the registered asset count or the lane-specific promotion row count is
+    // the authoritative backend cohort size. Accept only one of those exact
+    // declared counts; this also supports one local envelope row that expands
+    // to multiple authority records (for example, the W3 Article cohort).
+    const registeredCount = registeredTargetContract(v2, target, chain.lane_id).expectedCount;
+    const acceptedCounts = new Set([registeredCount, target.promotion_row_count].filter(Number.isInteger));
+    if (!acceptedCounts.has(chain.expected_count)) {
       continue; // Skip receipt chains with partial vs full cohort count mismatches.
     }
     target.status = chain.target_status;
