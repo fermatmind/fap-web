@@ -57635,9 +57635,9 @@
     "base": "main",
     "branch": "codex/assessment-landing-runtime-recovery-01",
     "depends_on": [],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "0c888c0eed4eb14b2b942424e7bcf5c136acb44f",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2023",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -57726,8 +57726,14 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the six-file allowlisted implementation and evidence set as 0c888c0eed4eb14b2b942424e7bcf5c136acb44f."
+      },
+      {
+        "at": "2026-08-10T05:26:26Z",
+        "from": "committed",
+        "to": "pr_open",
+        "note": "Pushed the scoped branch and opened PR #2023 with validation, deferred deployment, and repository-rule impact recorded."
       }
     ],
-    "updated_at": "2026-08-10T05:25:38Z"
+    "updated_at": "2026-08-10T05:26:26Z"
   }
 }
