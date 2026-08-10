@@ -1,0 +1,49 @@
+tier,surface,locale,url,run,status,ttfb,fcp,lcp,cls,tbt_proxy,bytes,evidence,limitation
+"L2","big_five_assessment_landing","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model","1","success","1513.0999999940395","2076","2076","0.07701421800947868","0","346418","LAB_ONLY","unthrottled; not field"
+"L2","big_five_assessment_landing","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model","2","success","3319.9000000059605","4708","5212","0","0","346418","LAB_ONLY","unthrottled; not field"
+"L2","big_five_assessment_landing","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model","3","success","702","1100","2736","0.47985781990521326","0","372827","LAB_ONLY","unthrottled; not field"
+"L2","big_five_assessment_landing","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model","1","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"
+"L2","big_five_assessment_landing","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model","2","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"
+"L2","big_five_assessment_landing","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model","3","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"
+"L2","big_five_public_hub","en","https://fermatmind.com/en/personality/big-five","1","success","517.3000000119209","568","568","0.07701421800947868","0","389483","LAB_ONLY","unthrottled; not field"
+"L2","big_five_public_hub","en","https://fermatmind.com/en/personality/big-five","2","success","202.80000001192093","268","268","0.07701421800947868","0","388885","LAB_ONLY","unthrottled; not field"
+"L2","big_five_public_hub","en","https://fermatmind.com/en/personality/big-five","3","success","697.4000000059605","752","752","0.07701421800947868","0","388885","LAB_ONLY","unthrottled; not field"
+"L2","big_five_public_hub","zh","https://fermatmind.com/zh/personality/big-five","1","success","208.59999999403954","264","440","0.04513888888888889","0","389063","LAB_ONLY","unthrottled; not field"
+"L2","big_five_public_hub","zh","https://fermatmind.com/zh/personality/big-five","2","success","400","444","572","0.04513888888888889","0","414994","LAB_ONLY","unthrottled; not field"
+"L2","big_five_public_hub","zh","https://fermatmind.com/zh/personality/big-five","3","success","373.09999999403954","412","576","0.04513888888888889","0","389064","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","en","https://fermatmind.com/en/personality/big-five/openness","1","success","162.09999999403954","244","244","0.04513888888888889","0","379858","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","en","https://fermatmind.com/en/personality/big-five/openness","2","success","129.30000001192093","212","212","0.04513888888888889","0","379857","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","en","https://fermatmind.com/en/personality/big-five/openness","3","success","142","228","228","0.04513888888888889","0","379856","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","zh","https://fermatmind.com/zh/personality/big-five/neuroticism","1","success","213.2000000178814","280","280","0.07701421800947868","0","380127","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","zh","https://fermatmind.com/zh/personality/big-five/neuroticism","2","success","233.90000000596046","280","280","0.07701421800947868","0","380124","LAB_ONLY","unthrottled; not field"
+"L2","big_five_dimension","zh","https://fermatmind.com/zh/personality/big-five/neuroticism","3","success","199.2000000178814","248","248","0.07701421800947868","0","380129","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","en","https://fermatmind.com/en/personality/big-five/openness-high","1","success","127.30000001192093","284","284","0.07701421800947868","0","379851","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","en","https://fermatmind.com/en/personality/big-five/openness-high","2","success","546.8000000119209","660","660","0.07701421800947868","0","405789","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","en","https://fermatmind.com/en/personality/big-five/openness-high","3","success","116","196","196","0.07701421800947868","0","379859","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","zh","https://fermatmind.com/zh/personality/big-five/neuroticism-low","1","success","142.80000001192093","204","204","0.04513888888888889","0","380130","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","zh","https://fermatmind.com/zh/personality/big-five/neuroticism-low","2","success","218.10000002384186","268","268","0.04513888888888889","0","380128","LAB_ONLY","unthrottled; not field"
+"L2","big_five_pole","zh","https://fermatmind.com/zh/personality/big-five/neuroticism-low","3","success","232.80000001192093","284","284","0.04513888888888889","0","372158","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","en","https://fermatmind.com/en/personality/big-five/facets/imagination","1","success","155.19999998807907","600","600","0.04513888888888889","0","405789","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","en","https://fermatmind.com/en/personality/big-five/facets/imagination","2","success","120.5","572","572","0.04513888888888889","0","379859","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","en","https://fermatmind.com/en/personality/big-five/facets/imagination","3","success","154.5","232","232","0.04513888888888889","0","379854","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","zh","https://fermatmind.com/zh/personality/big-five/facets/values","1","success","245.60000002384186","344","344","0.07701421800947868","0","380128","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","zh","https://fermatmind.com/zh/personality/big-five/facets/values","2","success","135.5","280","280","0","0","406058","LAB_ONLY","unthrottled; not field"
+"L2","big_five_facet","zh","https://fermatmind.com/zh/personality/big-five/facets/values","3","success","151.59999999403954","228","228","0.07701421800947868","0","380127","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model/take","1","success","69.10000002384186","428","1348","1.0213808204625345","0","495667","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model/take","2","success","89.89999997615814","168","636","1.0983950384720131","0","495668","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","en","https://fermatmind.com/en/tests/big-five-personality-test-ocean-model/take","3","success","85.40000000596046","128","456","0.766754667916545","0","495667","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model/take","1","success","76.19999998807907","156","1292","0.6579444444444444","0","495724","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model/take","2","success","78.40000000596046","164","624","0.4474389574759945","0","495723","LAB_ONLY","unthrottled; not field"
+"L2","big_five_question_bootstrap","zh","https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model/take","3","success","75.5","328","812","0.6579444444444444","0","495723","LAB_ONLY","unthrottled; not field"

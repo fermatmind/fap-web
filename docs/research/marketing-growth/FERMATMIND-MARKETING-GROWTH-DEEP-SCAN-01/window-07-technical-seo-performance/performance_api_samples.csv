@@ -1,0 +1,4 @@
+url,status,duration_ms,evidence
+"https://fermatmind.com/sitemap.xml","200","197","LAB_ONLY"
+"https://api.fermatmind.com/api/v0.5/seo/sitemap-source","200","170","LAB_ONLY"
+"https://fermatmind.com/llms-full.txt","200","7936","LAB_ONLY degraded"

@@ -1,0 +1,4 @@
+id,repo,scope,dependency,status
+"PUBLIC-SURFACE-L1-PERFORMANCE-BUDGET-01","fap-web","L1 contracts","stable profile","READY_NOT_STARTED"
+"NONCAREER-DISCOVERABILITY-AUTHORITY-GUARD-01","fap-api","versioned set guard","Career C06","WAITING"
+"NONCAREER-DISCOVERABILITY-CONSUMER-GUARD-01","fap-web","consumer guard","backend+C06","WAITING"
