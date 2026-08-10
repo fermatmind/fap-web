@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -363,10 +363,12 @@ export default async function TopicDetailPage({
         />
       ) : null}
 
-      <PublicTopicEdgeModule
-        source={topic.id ? { type: "topic", id: topic.id, locale: toApiLocale(locale) } : null}
-        entrySurface="topic_detail"
-      />
+      <Suspense fallback={null}>
+        <PublicTopicEdgeModule
+          source={topic.id ? { type: "topic", id: topic.id, locale: toApiLocale(locale) } : null}
+          entrySurface="topic_detail"
+        />
+      </Suspense>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">

@@ -56879,7 +56879,7 @@
     "depends_on": [
       "EN-PARITY-W9-W3-ARTICLES-INDEPENDENT-QA-REFROZEN-10-01"
     ],
-    "status": "github_checks_pending",
+    "status": "same_scope_ci_fix_local_passed_ready_to_push",
     "commit_sha": "8bd44279bc52f49660dad9bfce995284f0314039",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1987",
     "checks": {
@@ -57970,18 +57970,18 @@
       },
       "production_build": {
         "status": "passed",
-        "evidence": "The earlier API-only command exposed the isolated worktree's missing NEXT_PUBLIC_SITE_URL during /llms.txt page-data collection. After the final G03 alignment, the environment-complete command with PATH=/usr/local/bin:$PATH, NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com passed next build and postbuild on Node 24.14.0."
+        "evidence": "The earlier API-only command exposed the isolated worktree's missing NEXT_PUBLIC_SITE_URL during /llms.txt page-data collection. After the final G03 alignment and again after the same-scope Suspense CI fix, the environment-complete command with PATH=/usr/local/bin:$PATH, NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com passed next build and postbuild on Node 24.14.0."
       },
       "scope_and_metadata": {
         "status": "passed",
         "evidence": "Exactly the seventeen manifest-allowlisted files are changed; state JSON and manifest YAML parse, the unrelated SEO-OPS-02 manifest entry is unchanged, and git diff --check passes."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #2050 opened from implementation commit ba28716111604b333798ff2f6d7da1316e77053b; required GitHub checks are pending on the ledger update head."
+        "status": "failed_retry_pending",
+        "evidence": "PR #2050 head b73cb511bf5d5bb39c11548ee4bdda514dde7e33 failed contract-shard-1: 11 article-answer-surface assertions suspended during synchronous static rendering because the new nested async edge module had no Suspense boundary. The same-scope fix adds a null fallback Suspense boundary to the three allowed callsites; focused article plus renderer contracts passed 23/23 with scoped ESLint, typecheck and git diff --check before retry push."
       }
     },
-    "failure_reason": null,
+    "failure_reason": "First GitHub head b73cb511bf5d5bb39c11548ee4bdda514dde7e33 failed contract-shard-1 on article-answer-surface synchronous rendering. Same-scope Suspense fix is locally verified and awaiting a new required-check run.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -58010,6 +58010,11 @@
         "at": "2026-08-10T08:48:45Z",
         "status": "github_checks_pending",
         "summary": "Opened PR #2050 from implementation commit ba28716111604b333798ff2f6d7da1316e77053b after all declared local checks passed. This ledger transition is the only follow-up change; GitHub required checks must pass before merge."
+      },
+      {
+        "at": "2026-08-10T08:53:10Z",
+        "status": "same_scope_ci_fix_local_passed_ready_to_push",
+        "summary": "Diagnosed contract-shard-1 on head b73cb511: article-answer-surface synchronously renders the async Article page and the nested PublicTopicEdgeModule suspended without a boundary. Added Suspense fallback=null around the allowed Article, Topic and MBTI callsites; renderer and article-answer-surface focused contracts passed 23/23, scoped ESLint, spacing, typecheck, environment-complete production build and git diff --check passed. No fallback content, graph inference or authority change was introduced."
       }
     ]
   },

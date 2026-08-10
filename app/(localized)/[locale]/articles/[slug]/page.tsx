@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -446,10 +447,12 @@ export default async function ArticleDetailPage({
         </article>
       </div>
 
-      <PublicTopicEdgeModule
-        source={article.id ? { type: "article", id: article.id, locale: toApiLocale(locale) } : null}
-        entrySurface="article_detail"
-      />
+      <Suspense fallback={null}>
+        <PublicTopicEdgeModule
+          source={article.id ? { type: "article", id: article.id, locale: toApiLocale(locale) } : null}
+          entrySurface="article_detail"
+        />
+      </Suspense>
 
       <div className="space-y-6">
         <RelatedContent

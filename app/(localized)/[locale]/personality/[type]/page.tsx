@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { connection } from "next/server";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -2067,10 +2067,12 @@ export default async function PersonalityDetailPage({
           />
         ) : null}
       </div>
-      <PublicTopicEdgeModule
-        source={detail.id ? { type: "personality_profile", id: detail.id, locale: toApiLocale(locale) } : null}
-        entrySurface="personality_detail"
-      />
+      <Suspense fallback={null}>
+        <PublicTopicEdgeModule
+          source={detail.id ? { type: "personality_profile", id: detail.id, locale: toApiLocale(locale) } : null}
+          entrySurface="personality_detail"
+        />
+      </Suspense>
     </main>
   );
 }
