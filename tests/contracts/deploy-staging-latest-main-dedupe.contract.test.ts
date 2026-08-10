@@ -31,8 +31,9 @@ describe("staging latest-main deployment deduplication", () => {
     );
   });
 
-  it("uses one non-cancelling auto/manual concurrency lane and exact-SHA dedupe key", () => {
-    expect(workflow).toContain("group: fap-web-production-api-read");
+  it("uses a dedicated non-cancelling staging lane and exact-SHA dedupe key", () => {
+    expect(workflow).toContain("group: fap-web-staging-deploy");
+    expect(workflow).not.toContain("group: fap-web-production-api-read");
     expect(workflow).toContain("cancel-in-progress: false");
     expect(workflow).toContain(
       "const dedupeKey = `${context.repo.owner}/${context.repo.repo}:staging:${sha}`;"
