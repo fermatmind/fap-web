@@ -1,0 +1,12 @@
+evidence_status,snapshot_date,scope,record_type,reason,source,validation_state,pages,limitation
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,aggregate,indexed,Google system,NOT_APPLICABLE,969,Property-level category evidence; not page-level and not personality-only.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,aggregate,not_indexed,Google system,NOT_APPLICABLE,2133,Property-level category evidence; not page-level and not personality-only.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,被“noindex”标记排除了,网站,未启动,197,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,重复网页，用户未选定规范网页,网站,未启动,182,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,备用网页（有适当的规范标记）,网站,未启动,85,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,未找到 (404),网站,未启动,61,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,网页会自动重定向,网站,未启动,59,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,服务器错误 (5xx),网站,未启动,7,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,已发现 - 尚未编入索引,Google 系统,未启动,1387,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,已抓取 - 尚未编入索引,Google 系统,未启动,146,Category total only; no page URLs were stored to preserve the public/private boundary.
+VERIFIED_GSC_PAGE_INDEXING_CATEGORY,2026-08-07,ALL_KNOWN_PAGES,exclusion_reason,重复网页，Google 选择的规范网页与用户指定的不同,Google 系统,未启动,9,Category total only; no page URLs were stored to preserve the public/private boundary.
