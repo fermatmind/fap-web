@@ -1,0 +1,65 @@
+{
+  "schema_version": "fermatmind.personality.p02-p06.validation.v1",
+  "objective_id": "FERMATMIND-PERSONALITY-SEO-GRAPH-01-P02-P06",
+  "status": "PASS",
+  "validated_at": "2026-08-10T06:54:30Z",
+  "scope": "window-04-personality-seo P02/P06 only",
+  "m01_input": {
+    "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+    "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+    "rows": 12336,
+    "status": "COMPLETE_VERIFIED_SEARCH_ANALYTICS_API",
+    "manifest_status": "COMPLETE"
+  },
+  "profiles": {
+    "public_inventory_rows": 357,
+    "gsc_evidence_rows": 1827,
+    "top20_rows": 40,
+    "top20_en": 20,
+    "top20_zh_CN": 20,
+    "query_owner_rows": 364,
+    "multi_page_query_rows": 12,
+    "material_conflicts": 2,
+    "material_conflicts_en": 0,
+    "material_conflicts_zh_CN": 2,
+    "legacy_alias_rows": 20,
+    "legacy_alias_current28_residual": 4
+  },
+  "checks": {
+    "m01_only_gsc_authority": "pass",
+    "csv_parse": "pass",
+    "json_parse": "pass",
+    "unique_headers": "pass",
+    "top20_locale_parity": "pass_20_each",
+    "query_owner_registry_parity": "pass",
+    "formula_injection": "pass",
+    "private_or_parameterized_url": "pass",
+    "sensitive_query_patterns": "pass_inherited_and_revalidated",
+    "numeric_ranges": "pass",
+    "page_indexing": "unknown_not_inferred",
+    "language": "unknown_not_inferred",
+    "writes_executed": "none"
+  },
+  "files": {
+    "00-executive-decision.md": "579b6052dbb9b664dec3128a6dcb08f2f48ce9feef0638681d1dd256ebc8f23f",
+    "01-sources-and-evidence-boundary.md": "bac16adfe8206d59e86ebb1e538e44062845f999cfba112f6977e4200dc1d7f9",
+    "02-personality-public-url-inventory.md": "d068ae51b3f2cc9a378b529ad0d64f634a77bdef62041f9227707b64f19f935c",
+    "03-top20-high-impression-low-ctr.md": "535b332d73ac0da83ad3280ddfbeeab0b6a826bef9f7eb27e2fb8f3ad5385883",
+    "04-mbti-query-ownership.md": "0fc7b8f366b93896936cfaf96588af4eeeeb444ef667d6549aed66b12cc6a8e5",
+    "07-cannibalization-and-legacy-alias.md": "bab9657fb4b3b448869dc8158fcea629f6842674d4017849dbfb2d1db0675aac",
+    "15-final-status-and-handoff.md": "65aafbd4a331634f834e934be5e4c8c5a026144059bc9a41b87796a8a756afac",
+    "personality_public_url_inventory.csv": "ba755e85ff96cd50d7274bfae9d148d4f7a34dffac467615de4d8afa80309725",
+    "personality_gsc_page_query.csv": "1f1b7823d69ce1a309482334469c20df9ddefb21830b1c969ca1f95eb225acba",
+    "personality_top20_opportunities.csv": "5667603a1e9646eb36835825eb60f973d989d03d7c3b3fbb11c232cd3ff92718",
+    "personality_query_ownership.csv": "4de8f390f12373c58a7bd8b5fd809bb1bc5d16b2af4944f3c8c3564219372c11",
+    "personality_cannibalization.csv": "07a153df4fd2b2bb11a639c6fc18d52f3a39988030407a17489b1d6ddd579a91",
+    "personality_legacy_alias_audit.csv": "f5ba0cb1a5cd88458158d397c66429118a63e6072c07a5cebbe5395761faa188",
+    "personality_query_owner_registry.json": "bdc32f919b3d20f6b7503aa5a2cdf134b1b0dc757fb2aa3911e7ba0c558c9e13",
+    "personality_source_manifest.json": "c35cf3343c481ff5ce4fa3b11e3d2c4e2202fdb2353ac3b337cdbad668d64b47"
+  },
+  "limitations": [
+    "Search Analytics top-row availability means NOT_RETURNED is not zero.",
+    "Route locale is not a GSC language dimension.",
+    "Page-level Page Indexing and URL Inspection remain UNKNOWN."
+  ]
+}

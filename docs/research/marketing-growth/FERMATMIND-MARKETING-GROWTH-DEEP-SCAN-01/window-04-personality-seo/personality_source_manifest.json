@@ -1,0 +1,150 @@
+{
+  "ledger_id": "FERMATMIND-PERSONALITY-SEO-GRAPH-01-source-ledger",
+  "created_at": "2026-08-10T04:28:07.972Z",
+  "sources": [
+    {
+      "id": "SRC-LIVE-SITEMAP-20260810",
+      "source_type": "internal_product",
+      "title": "FermatMind live sitemap",
+      "url": "https://fermatmind.com/sitemap.xml",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current public discoverability membership and lastmod projection.",
+      "limitations": "Sitemap proves discoverability membership, not indexing, ranking, graph authority, or CMS correctness.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-LLMS-20260810",
+      "source_type": "internal_product",
+      "title": "FermatMind live llms and llms-full",
+      "url": "https://fermatmind.com/llms.txt",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current AI/GEO entry-surface membership.",
+      "limitations": "llms membership is not evidence of indexing, citation, or graph proof.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-MBTI-API-20260810",
+      "source_type": "internal_product",
+      "title": "FermatMind MBTI public API",
+      "url": "https://api.fermatmind.com/api/v0.5/personality",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current MBTI base/variant public authority projection.",
+      "limitations": "Public API projection is not GSC or CMS database read access.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-PERSONALITY-ASSET-API-20260810",
+      "source_type": "internal_product",
+      "title": "FermatMind personality content asset public API",
+      "url": "https://api.fermatmind.com/api/v0.5/personality-content-assets",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current Big Five and Enneagram public authority projections.",
+      "limitations": "Only publicly readable rows are observable.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-CLAIM-GUARDS",
+      "source_type": "internal_product",
+      "title": "SEO/GEO and public claim boundaries",
+      "url": "docs/claims/seo-geo-llms-claim-guards.md",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Sitemap, llms, JSON-LD, evidence, personality, and career claim boundaries.",
+      "limitations": "Governance contract, not empirical validation.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-MBTI-RUNNER",
+      "source_type": "internal_product",
+      "title": "Public profile agent runner contract",
+      "url": ".agents/skills/public-profile-seo-asset-factory/runbooks/personality-public-profile-agent-runner.md",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Draft-only MBTI recommendation boundaries and QA gates.",
+      "limitations": "Runner output is not CMS truth or publication authority.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-SERP-EN-INTP-AT",
+      "source_type": "competitor",
+      "title": "INTP-A and INTP-T SERP reference pattern",
+      "url": "https://personalitytest.io/blog/intp-a-intp-t",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Search results emphasize meaning, differences, stress, work, relationships, strengths, and limitations.",
+      "limitations": "Competitor copy and claims are not transferable evidence; used only for intent-pattern review.",
+      "credibility": 2
+    },
+    {
+      "id": "SRC-LIVE-INTP-A-EN",
+      "source_type": "internal_product",
+      "title": "Live EN INTP-A surface",
+      "url": "https://fermatmind.com/en/personality/intp-a",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current reader-visible metadata and content snapshot for the first revision cohort.",
+      "limitations": "Runtime HTML can change after capture.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-INTP-A-ZH",
+      "source_type": "internal_product",
+      "title": "Live ZH INTP-A surface",
+      "url": "https://fermatmind.com/zh/personality/intp-a",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current reader-visible metadata and content snapshot for the first revision cohort.",
+      "limitations": "Runtime HTML can change after capture.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-INTP-AT-EN",
+      "source_type": "internal_product",
+      "title": "Live EN INTP A/T comparison",
+      "url": "https://fermatmind.com/en/personality/intp-a-vs-intp-t",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current reader-visible comparison snapshot.",
+      "limitations": "Runtime HTML can change after capture.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-LIVE-INTP-AT-ZH",
+      "source_type": "internal_product",
+      "title": "Live ZH INTP A/T comparison",
+      "url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "accessed_at": "2026-08-10T04:28:07.972Z",
+      "claim": "Current reader-visible comparison snapshot.",
+      "limitations": "Runtime HTML can change after capture.",
+      "credibility": 5
+    },
+    {
+      "id": "SRC-GSC-M01-20260810",
+      "source_type": "internal_product",
+      "title": "FERMATMIND-MEASUREMENT-M01-GSC-EXPORT-01",
+      "url": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+      "accessed_at": "2026-08-10T06:54:30Z",
+      "claim": "Sole GSC authority for current28, prev28, and day90 P02/P06 query-page recomputation.",
+      "limitations": "Search Analytics top-row aggregate; language unsupported; page-level indexing unavailable.",
+      "credibility": 5,
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691"
+    }
+  ],
+  "evidence_gaps": [
+    "GSC language is unsupported and remains UNKNOWN; route locale is used only for EN/zh-CN segmentation.",
+    "Page-level Page Indexing / URL Inspection evidence is unavailable; category evidence cannot be projected to a URL.",
+    "A01, R04, C06, M06, and G03 remain independent owning-lane dependencies for later implementation.",
+    "Full production CMS database access is not used; existing public inventory remains the backend-authority mapping boundary."
+  ],
+  "schema_version": "fermatmind.personality.p02-p06.source-ledger.v2",
+  "revalidated_at": "2026-08-10T06:54:30Z",
+  "gsc_authority_rule": {
+    "sole_source_id": "SRC-GSC-M01-20260810",
+    "excluded_sources": [
+      "SRC-GSC-SCAN-20260810",
+      "SRC-GSC-HISTORICAL-20260622"
+    ],
+    "reason": "Earlier summaries and historical snapshots are not mixed into current P02/P06 metrics."
+  },
+  "writes_executed": {
+    "search_console": false,
+    "cms": false,
+    "database": false,
+    "production": false,
+    "sitemap_llms_indexability": false
+  }
+}
