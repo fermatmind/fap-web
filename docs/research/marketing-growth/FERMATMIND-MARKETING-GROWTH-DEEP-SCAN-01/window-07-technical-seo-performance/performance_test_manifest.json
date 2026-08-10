@@ -115,6 +115,29 @@
     "evidence_level": "LAB_ONLY",
     "status": "REMEASUREMENT_COMPLETE_WITH_RETAINED_RUNTIME_TIMING_GAP"
   },
+  "l1_interval_baseline": {
+    "task_id": "NONCAREER-L1-INTERVAL-BASELINE-01",
+    "captured_at_start": "2026-08-10T06:32:17.644Z",
+    "captured_at_end": "2026-08-10T06:32:43.192Z",
+    "timezone": "Asia/Shanghai",
+    "browser_tool": "@playwright/cli Chromium",
+    "runtime_revision": "UNKNOWN_NOT_EXPOSED",
+    "manifest": "l1_interval_baseline_manifest.json",
+    "artifact": "performance_l1_interval_samples.csv",
+    "artifact_sha256": "59c017cfe8de170a015b63a23ac52368e9dd248a8a519bf021d5c85f85a9c220",
+    "fixed_registry_definitions": 10,
+    "accepted_complete_windows": 1,
+    "required_complete_windows": 3,
+    "minimum_interval_minutes": 30,
+    "missing_complete_windows": 2,
+    "interval_pairs_evaluable": 0,
+    "measurement_success_rows": 10,
+    "semantic_success_rows": 10,
+    "historical_consecutive_attempts_counted": false,
+    "partial_registry_remeasurement_counted": false,
+    "evidence_level": "LAB_ONLY",
+    "status": "BASELINE_WINDOW_INCOMPLETE"
+  },
   "field": {
     "inp": "UNKNOWN",
     "crux": "INSUFFICIENT_FIELD_DATA",
@@ -136,6 +159,6 @@
     "Lighthouse attempts returned NO_FCP and are retained as tool failure; Speed Index unavailable",
     "The follow-up remeasurement preserves the historical NO_FCP attempts and records six successful Lighthouse 13.4.1 desktop audits separately; this does not rewrite the original baseline.",
     "INP unavailable because no field data",
-    "Three interval-separated key-page windows were not completed: BASELINE_WINDOW_INCOMPLETE."
+    "Only one of three required complete L1 registry windows was captured; no >=30-minute interval pair is evaluable and BASELINE_WINDOW_INCOMPLETE remains."
   ]
 }

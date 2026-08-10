@@ -55612,9 +55612,9 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "ready_to_merge",
+    "commit_sha": "d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2031",
     "checks": {
       "serial_predecessor": {
         "status": "pass",
@@ -57382,7 +57382,7 @@
     "base": "main",
     "branch": "codex/w1-mbti-comparisons-v2-receipt-materialize-01",
     "depends_on": [],
-    "status": "in_progress",
+    "status": "local_verified",
     "commit_sha": null,
     "pr_url": null,
     "checks": {
@@ -57826,7 +57826,28 @@
     "status": "pending_dependency",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {},
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #2028 is merged as ecb45b95755e0a29521f2ae48d9fbe1a29869daf, origin/main contained the merge commit, local main was synchronized, and both PR2 task branches were cleaned before PR3 began."
+      },
+      "fixed_registry_capture": {
+        "status": "pass",
+        "evidence": "One serial Playwright window retained all 10 fixed L1 definitions with HTTP 200, measurement success, and semantic success; no answer, submit, result, order, payment, private route, cache bypass, or production write occurred."
+      },
+      "interval_requirement": {
+        "status": "external_evidence_incomplete_nonblocking",
+        "evidence": "Accepted complete windows are 1/3, two remain missing, and no >=30-minute pair is evaluable. Historical consecutive attempts and the PR2 partial-registry remeasurement were not counted; BASELINE_WINDOW_INCOMPLETE remains open in sidecar evidence."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Ruby CSV/JSON/YAML validation passed for exact 40-column header, 10-row definition set, timestamps, HTTP/semantic outcomes, UTF-8/formula safety, private-route guard, SHA binding, interval arithmetic, sidecar status, and the exact 10-path allowlist. Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #2031 head 4ad88ffc0f9127dad37b08263337e9054b7b2bc5 passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
+      }
+    },
     "failure_reason": "Waiting for PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01 to merge.",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -57978,8 +57999,8 @@
     "depends_on": [
       "NONCAREER-AUDIT-STATUS-RECONCILIATION-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "979188d3744307b7e2c55ced9dcd722d457c3a81",
+    "status": "merged",
+    "commit_sha": "ecb45b95755e0a29521f2ae48d9fbe1a29869daf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2028",
     "checks": {
       "dependency": {
@@ -58008,14 +58029,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T06:29:14Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -58060,13 +58081,19 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All required checks passed and the exact 12-path evidence scope was revalidated against origin/main. PR #2028 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T06:29:14Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2028 squash-merged as ecb45b95755e0a29521f2ae48d9fbe1a29869daf. origin/main contained the merge commit, local main was synchronized, both task branches were removed, and the dedicated worktree was clean before PR3 began."
       }
     ],
     "sidecar_issues": [
       "window7-critical-lab-tool-failures-20260810",
       "window7-riasec-first-navigation-question-window-miss-20260810"
     ],
-    "updated_at": "2026-08-10T06:24:54Z"
+    "updated_at": "2026-08-10T06:29:14Z"
   },
   "NONCAREER-L1-INTERVAL-BASELINE-01": {
     "id": "NONCAREER-L1-INTERVAL-BASELINE-01",
@@ -58077,7 +58104,7 @@
     "depends_on": [
       "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "checks": {},
@@ -58086,9 +58113,9 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
-      "github_checks_green": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -58104,9 +58131,42 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal; execution waits for critical lab remeasurement merge and cleanup."
+      },
+      {
+        "at": "2026-08-10T06:30:00Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean origin/main after PR2 post-merge verification. Scope is limited to the fixed public L1 registry, evidence docs, train metadata, and sidecar bookkeeping; no product code, assessment submission, private flow, production write, or deployment action."
+      },
+      {
+        "at": "2026-08-10T06:38:47Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All fixed-registry evidence, integrity, formula/privacy, lab-versus-field, interval truthfulness, documentation, sidecar, formatting, diff, and changed-path checks passed. One of three complete windows is retained and the nonblocking external evidence gap remains BASELINE_WINDOW_INCOMPLETE."
+      },
+      {
+        "at": "2026-08-10T06:40:04Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 9947167a without changing measurement bytes; implementation commit is d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d."
+      },
+      {
+        "at": "2026-08-10T06:40:50Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2031 at head 1dc42039028a402b631cb90c99fed062a2599962. Required GitHub checks are pending."
+      },
+      {
+        "at": "2026-08-10T06:47:22Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required checks passed and the exact 10-path evidence scope was revalidated against origin/main. PR #2031 is CLEAN and MERGEABLE with no review block."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-l1-interval-baseline-incomplete-20260810"
+    ],
+    "updated_at": "2026-08-10T06:47:22Z"
   },
   "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
     "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
