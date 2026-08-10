@@ -30872,7 +30872,7 @@ prs:
     depends_on: [NONCAREER-GSC-GA4-COHORT-EVIDENCE-01]
     mode: execute
     train_scope: public_cwv_rum_privacy_safe_instrumentation
-    status: committed
+    status: github_checks_pending
     goal: Add a disabled-by-default, fail-closed Web Vitals collector, public route-family classifier, allowlisted payload schema, no-op sink boundary, and privacy tests without enabling production tracking.
     allowed_paths:
       - app/providers.tsx

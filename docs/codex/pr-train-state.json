@@ -58473,9 +58473,9 @@
     "depends_on": [
       "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01"
     ],
-    "status": "committed",
-    "commit_sha": "bc28ecfc55cb23c1b932c724d329ff9b65c51d69",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "f79e1caaf9c0412ada5557aff756944598ddd76b",
+    "pr_url": "https://github.com/FermatMind/fap-web/pull/2044",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -58545,13 +58545,19 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the exact 11-path implementation scope at bc28ecfc55cb23c1b932c724d329ff9b65c51d69 on current origin/main 22a03aef. The worktree is clean and no production tracking flag, endpoint, vendor, secret, deployment or generated SEO inventory is included."
+      },
+      {
+        "at": "2026-08-10T07:55:42Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Pushed the exact 11-path scope and opened PR #2044 at head f79e1caaf9c0412ada5557aff756944598ddd76b. Required GitHub checks are pending; the collector remains default-off/no-op and no production tracking, analytics-property, CMS, search, deployment or server action occurred."
       }
     ],
     "sidecar_issues": [
       "window7-field-cwv-rum-data-unavailable-20260810",
       "metadata-surface-inventory-eq-history-drift-20260810"
     ],
-    "updated_at": "2026-08-10T07:54:47Z"
+    "updated_at": "2026-08-10T07:55:42Z"
   },
   "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01": {
     "id": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01",
