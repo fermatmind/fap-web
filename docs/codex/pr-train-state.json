@@ -55612,9 +55612,9 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "committed",
+    "status": "github_checks_pending",
     "commit_sha": "d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2031",
     "checks": {
       "serial_predecessor": {
         "status": "pass",
@@ -57842,6 +57842,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Ruby CSV/JSON/YAML validation passed for exact 40-column header, 10-row definition set, timestamps, HTTP/semantic outcomes, UTF-8/formula safety, private-route guard, SHA binding, interval arithmetic, sidecar status, and the exact 10-path allowlist. Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #2031 opened; required checks are pending inspection."
       }
     },
     "failure_reason": "Waiting for PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01 to merge.",
@@ -58145,12 +58149,18 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 9947167a without changing measurement bytes; implementation commit is d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d."
+      },
+      {
+        "at": "2026-08-10T06:40:50Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2031 at head 1dc42039028a402b631cb90c99fed062a2599962. Required GitHub checks are pending."
       }
     ],
     "sidecar_issues": [
       "window7-l1-interval-baseline-incomplete-20260810"
     ],
-    "updated_at": "2026-08-10T06:40:04Z"
+    "updated_at": "2026-08-10T06:40:50Z"
   },
   "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
     "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
