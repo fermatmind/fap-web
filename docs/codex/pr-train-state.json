@@ -57627,5 +57627,123 @@
         "note": "Opened PR #2000 after exact receipt-byte, materializer, validator, and scope checks passed."
       }
     ]
+  },
+  "ASSESSMENT-LANDING-RUNTIME-RECOVERY-01": {
+    "id": "ASSESSMENT-LANDING-RUNTIME-RECOVERY-01",
+    "repo": "fap-web",
+    "title": "ASSESSMENT-LANDING-RUNTIME-RECOVERY-01: repair IQ and EQ public landing runtime",
+    "base": "main",
+    "branch": "codex/assessment-landing-runtime-recovery-01",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "0c888c0eed4eb14b2b942424e7bcf5c136acb44f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2023",
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The active end-to-end goal explicitly authorizes ASSESSMENT-LANDING-RUNTIME-RECOVERY-01 and its exact manifest/state registration."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The item has no declared dependency and started from fap-web origin/main 072e0d16c2ec0f8c32cfaff6f8cc7d6fbcf7a57a."
+      },
+      "reproduction": {
+        "status": "pass",
+        "evidence": "Both locales of the IQ and EQ public landings reproduced an HTTP 200 streamed error response locally against the production public API. The API returned public/indexable lookup authority with forms: [], complete localized catalog facts, and valid landing_surface_v1; lib/content.ts rejected forms.length === 0 before the landing loader could render."
+      },
+      "build_attempt_1": {
+        "status": "fail",
+        "evidence": "The first Node 24 production build did not compile source because Turbopack rejected the isolated worktree's temporary node_modules symlink as pointing outside the filesystem root. The symlink is worktree infrastructure, not a tracked change; it will be replaced with a lockfile-frozen local install before retry."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "The three declared focused contract files passed 53/53 tests, including bilingual IQ/EQ formless lookup acceptance, incomplete-evidence rejection, MBTI regression rejection, healthy render coverage, and HTTP 200 error-shell detection."
+      },
+      "local_runtime_reproduction": {
+        "status": "pass",
+        "evidence": "A local Next development server using the production public API returned healthy HTTP 200 HTML for all four canonical IQ/EQ English and Chinese landings, with fresh read-source markers, visible landing structure, the expected CTA targets, and no streamed error shell."
+      },
+      "eslint": {
+        "status": "pass",
+        "evidence": "The exact manifest-declared focused ESLint command completed with exit code 0."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck completed with exit code 0 under Node 24."
+      },
+      "build_attempt_2": {
+        "status": "pass",
+        "evidence": "After replacing the ignored external dependency symlink with pnpm install --frozen-lockfile, the exact production-API pnpm build completed successfully, including TypeScript validation and generation of 192 static pages."
+      },
+      "full_contract_suite": {
+        "status": "pass",
+        "evidence": "pnpm test:contract passed all four shards: 813 test files and 4871 tests, exit code 0."
+      },
+      "scope_and_format": {
+        "status": "pass",
+        "evidence": "git diff --check passed; generated diagnostics were restored; the remaining six modified files are all explicitly allowlisted and contain no CMS, backend, scoring, sitemap, indexability, or deployment change."
+      },
+      "github_checks_attempt_1": {
+        "status": "pass",
+        "evidence": "PR #2023 head fad73b86c57fc78b9f7221fec4dc60cbefdeb420 passed build, four contract shards plus aggregation, Big Five freeze, Enneagram freeze, CodeQL analysis, and the no-new-code-scanning-alerts gate."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": true,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:08:43Z",
+        "from": "user_authorized",
+        "to": "in_progress",
+        "note": "Started from latest main in an isolated worktree because the user's detached primary worktree contained unrelated untracked audit files that collide with newer main paths; no user files were touched."
+      },
+      {
+        "at": "2026-08-10T05:12:00Z",
+        "from": "in_progress",
+        "to": "local_check_retry",
+        "note": "Initial production build was blocked before source compilation by Turbopack rejecting the temporary external node_modules symlink. Replacing only that ignored worktree dependency link with a frozen local install, then rerunning the exact build."
+      },
+      {
+        "at": "2026-08-10T05:24:11Z",
+        "from": "local_check_retry",
+        "to": "local_verified",
+        "note": "Focused contracts, bilingual local runtime rendering, focused lint, typecheck, production-API build, all 813 contract files, diff hygiene, and exact allowed-path validation passed."
+      },
+      {
+        "at": "2026-08-10T05:25:38Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the six-file allowlisted implementation and evidence set as 0c888c0eed4eb14b2b942424e7bcf5c136acb44f."
+      },
+      {
+        "at": "2026-08-10T05:26:26Z",
+        "from": "committed",
+        "to": "pr_open",
+        "note": "Pushed the scoped branch and opened PR #2023 with validation, deferred deployment, and repository-rule impact recorded."
+      },
+      {
+        "at": "2026-08-10T05:32:22Z",
+        "from": "pr_open",
+        "to": "ready_to_merge",
+        "note": "All required CI and code-scanning checks passed on PR head fad73b86c57fc78b9f7221fec4dc60cbefdeb420; recorded ready_to_merge before the final ledger push and merge recheck."
+      }
+    ],
+    "updated_at": "2026-08-10T05:32:22Z"
   }
 }

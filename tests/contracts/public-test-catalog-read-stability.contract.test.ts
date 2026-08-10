@@ -17,6 +17,44 @@ function jsonResponse(payload: unknown, status = 200): Response {
   });
 }
 
+function formlessLookupPayload({
+  scaleCode,
+  slug,
+  locale,
+}: {
+  scaleCode: "IQ_RAVEN" | "EQ_60" | "MBTI";
+  slug: string;
+  locale: "en" | "zh";
+}) {
+  const responseLocale = locale === "zh" ? "zh-CN" : "en";
+  return {
+    ok: true,
+    primary_slug: slug,
+    slug,
+    requested_slug: slug,
+    resolved_from_alias: false,
+    scale_code: scaleCode,
+    locale: responseLocale,
+    is_public: true,
+    is_indexable: true,
+    forms: [],
+    capabilities: { questions: true },
+    content_i18n_json: {
+      [locale]: {
+        title: `${scaleCode} authority`,
+        description: `${scaleCode} authority description`,
+        catalog: { questions_count: scaleCode === "EQ_60" ? 60 : 30, time_minutes: 10 },
+      },
+    },
+    landing_surface_v1: {
+      version: "landing.surface.v1",
+      entry_surface: "test_detail",
+      start_test_target: `/${locale}/tests/${slug}/take`,
+      cta_bundle: [],
+    },
+  };
+}
+
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
@@ -133,6 +171,58 @@ describe("public test lookup read stability", () => {
       seo_title: "Backend title",
       is_indexable: true,
       forms: [{ form_code: "mbti_93" }],
+    });
+  });
+
+  it.each([
+    ["IQ_RAVEN", SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN, "zh"],
+    ["IQ_RAVEN", SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN, "en"],
+    ["EQ_60", SCALE_CANONICAL_SLUG_MAP.EQ_60, "zh"],
+    ["EQ_60", SCALE_CANONICAL_SLUG_MAP.EQ_60, "en"],
+  ] as const)(
+    "accepts backend-authoritative formless %s lookup facts for the %s landing",
+    async (scaleCode, slug, locale) => {
+      vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(
+        formlessLookupPayload({ scaleCode, slug, locale }),
+      )));
+
+      await expect(getTestLookup(slug, locale)).resolves.toMatchObject({
+        scale_code: scaleCode,
+        locale: locale === "zh" ? "zh-CN" : "en",
+        forms: [],
+        is_public: true,
+      });
+    },
+  );
+
+  it("does not generalize the formless compatibility boundary to MBTI", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(
+      formlessLookupPayload({
+        scaleCode: "MBTI",
+        slug: SCALE_CANONICAL_SLUG_MAP.MBTI,
+        locale: "en",
+      }),
+    )));
+
+    await expect(getTestLookup(SCALE_CANONICAL_SLUG_MAP.MBTI, "en")).rejects.toMatchObject({
+      name: "PublicReadError",
+      kind: "contract",
+    });
+  });
+
+  it("rejects a formless IQ lookup when catalog facts or the start target are incomplete", async () => {
+    const payload = formlessLookupPayload({
+      scaleCode: "IQ_RAVEN",
+      slug: SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN,
+      locale: "en",
+    });
+    payload.content_i18n_json.en.catalog.questions_count = 0;
+    payload.landing_surface_v1.start_test_target = "";
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
+
+    await expect(getTestLookup(SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN, "en")).rejects.toMatchObject({
+      name: "PublicReadError",
+      kind: "contract",
     });
   });
 

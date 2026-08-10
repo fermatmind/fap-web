@@ -30439,3 +30439,53 @@ prs:
     content_authority: backend promotion receipts retained as immutable fap-web control evidence
     repository_rule_impact: V2 provenance/control binding only; no runtime, discoverability, or deployment change
 
+  - id: ASSESSMENT-LANDING-RUNTIME-RECOVERY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-landing-runtime-recovery-01
+    base: main
+    title: "ASSESSMENT-LANDING-RUNTIME-RECOVERY-01: repair IQ and EQ public landing runtime"
+    depends_on: []
+    mode: execute
+    train_scope: assessment_landing_runtime_recovery
+    status: ready_to_merge
+    scope:
+      - Accept backend-authoritative formless public lookup payloads only for IQ_RAVEN and EQ_60 when localized catalog facts and the public landing start target are complete.
+      - Restore healthy server rendering for the canonical IQ and EQ test landings in both English and Chinese.
+      - Extend the fail-closed runtime smoke gate so all four IQ/EQ locale landings fail on non-200 responses, lookup mismatch, missing visible landing structure, or an HTTP 200 error shell.
+    allowed_paths:
+      - lib/content.ts
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/error.tsx
+      - lib/tests/testLandingData.ts
+      - tests/contracts/public-test-catalog-read-stability.contract.test.ts
+      - tests/contracts/test-landing-read-resilience.contract.test.ts
+      - tests/contracts/test-landing-runtime-smoke.contract.test.ts
+      - scripts/deploy/test-landing-runtime-smoke.mjs
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify CMS content, page blocks, landing surfaces, backend/API authority, assessment questions, scoring, attempts, results, orders, payments, sitemap, llms, canonical, redirects, or indexability.
+      - Add frontend-authored public test facts or editorial fallback content.
+      - Change MBTI, Big Five, Enneagram, RIASEC, mental-health, take, result, or report behavior beyond preserving existing smoke coverage.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-test-catalog-read-stability.contract.test.ts tests/contracts/test-landing-read-resilience.contract.test.ts tests/contracts/test-landing-runtime-smoke.contract.test.ts
+      - pnpm exec eslint lib/content.ts 'app/(localized)/[locale]/tests/[slug]/page.tsx' 'app/(localized)/[locale]/tests/[slug]/error.tsx' lib/tests/testLandingData.ts tests/contracts/public-test-catalog-read-stability.contract.test.ts tests/contracts/test-landing-read-resilience.contract.test.ts tests/contracts/test-landing-runtime-smoke.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')"
+      - git diff --check
+      - scope validation
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: backend public scale lookup and landing-surface API remain authoritative
+    repository_rule_impact: frontend lookup compatibility and deployment smoke coverage only; no content ownership, discoverability, indexability, CMS, or backend authority change
