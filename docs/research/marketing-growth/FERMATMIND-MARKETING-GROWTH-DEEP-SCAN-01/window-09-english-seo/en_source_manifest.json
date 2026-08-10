@@ -1,7 +1,7 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T08:02:26Z",
-  "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
+  "captured_at": "2026-08-10T08:44:09Z",
+  "acceptance_repair_status": "WINDOW_09_FINAL_RECONCILIATION_COMPLETE_WITH_EXTERNAL_GATES",
   "csv_provenance_contract": [
     "source",
     "captured_at",
@@ -22,15 +22,17 @@
     "INFERRED",
     "UNKNOWN",
     "HISTORICAL",
+    "SUPERSEDED_HISTORICAL",
     "CANDIDATE_ONLY",
     "WAITING_ON_C06_C07",
-    "GSC_EXACT_EXPORT_BLOCKED",
     "BLOCKED_OVERBROAD_OAUTH_SCOPE",
     "VERIFIED_GSC_SEARCH_ANALYTICS_API_AGGREGATE",
     "VERIFIED_GSC_SEARCH_ANALYTICS_API_QUERY_PAGE_MARKET_DEVICE",
     "VERIFIED_GSC_AND_CURRENT_SERP_SAMPLE_WITH_LIMITATIONS",
     "UNKNOWN_NOT_RETURNED_IN_PRIVACY_FILTERED_TOP_ROWS",
-    "VERIFIED_CURRENT_SAMPLE_WITHOUT_STABLE_RANK"
+    "VERIFIED_CURRENT_SAMPLE_WITHOUT_STABLE_RANK",
+    "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+    "FERMATMIND_ENGLISH_SEO_PARTIALLY_BLOCKED"
   ],
   "sources": [
     {
@@ -57,9 +59,9 @@
     {
       "id": "GSC_EXACT_HANDOFF",
       "source": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/GSC_EXACT_EXPORT_HANDOFF.md",
-      "status": "VERIFIED",
+      "status": "SUPERSEDED_HISTORICAL",
       "date_window": "2026-07-10/2026-08-06",
-      "limitation": "Records exact bulk query×page, country/device/search-appearance data as missing."
+      "limitation": "Historical pre-M01 handoff only. Its missing joint-row conclusion is superseded by the verified M01 read-only Search Analytics API export; equivalent joint searchAppearance evidence remains unavailable."
     },
     {
       "id": "RIASEC_CATALOG_API",
@@ -573,7 +575,7 @@
       "limitation": "Read-only public projection. Package/receipt provenance comes from the trusted receipt chain; public exposure alone is not promotion evidence or discoverability authorization."
     }
   ],
-  "goal_status": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
+  "goal_status": "FERMATMIND_ENGLISH_SEO_PARTIALLY_BLOCKED",
   "gsc_complete_day_end": "2026-08-09",
   "gsc_locale_filter": "GSC page URL belongs to the verified https://fermatmind.com/en canonical cohort, including /en; country is never language.",
   "gsc_dimension_semantics": {
@@ -612,5 +614,38 @@
     "search_console_write": false,
     "production_write": false,
     "limitation": "Search Analytics top-row availability and M01 privacy filtering remain; language and equivalent searchAppearance evidence remain UNKNOWN."
+  },
+  "final_closeout": {
+    "status": "FERMATMIND_ENGLISH_SEO_PARTIALLY_BLOCKED",
+    "reconciled_at": "2026-08-10T08:44:09Z",
+    "completed_scopes": {
+      "E01": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
+      "E02": "RIASEC_EXACT_BASELINE_AND_CMS_EXPERIMENT_PROPOSAL_READY_NOT_APPLIED",
+      "E03": "EN_PERSONALITY_PAGE_LEVEL_AUDIT_COMPLETE_CANDIDATES_NOT_APPLIED",
+      "E04": "EN_ARTICLE_LEDGER_EXACT_MARKET_SPLIT_COMPLETE_ACTIONS_NOT_APPLIED",
+      "E06": "W3_ARTICLES_LIVE_QA_PASS_DISCOVERABILITY_NOT_AUTHORIZED"
+    },
+    "exact_evidence": {
+      "m01_joint_rows": 12336,
+      "m01_joint_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "m01_manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+      "b03_inventory_sha256": "bbef0a734aae19f7759e49b1dae24fca2afa25b46652777b309a8bd1ce572893",
+      "w3_article_package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+      "v2_master_sha256": "977dccd44fa1cfd4f0fcc5552cf4a6f4a0bd622bba5ffeae97f25b3e30e78bf7"
+    },
+    "remaining_gates": {
+      "b03": "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+      "career": "WAITING_ON_C06_C07",
+      "career_guide_package": "CAREER_GUIDE_PACKAGE_WAITING_EXACT_SLUG_CONFIRMATION",
+      "observation_window": "ENGLISH_PILOT_WAITING_28_DAY_WINDOW"
+    },
+    "limitations": [
+      "M01 is privacy-filtered top-row Search Analytics evidence; absent rows are UNKNOWN, not zero.",
+      "User language and equivalent joint searchAppearance evidence remain UNKNOWN.",
+      "W3 Article live QA does not authorize indexability, sitemap, llms, Search Channel or deployment.",
+      "No final EXPAND or STOP verdict exists before a complete 28-day post-release window."
+    ],
+    "production_deploy_triggered": false,
+    "manual_server_deploy_triggered": false
   }
 }
