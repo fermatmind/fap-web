@@ -1,4 +1,4 @@
-month,tier,status,lcp,inp,cls
-"2026-08","L1","INSUFFICIENT_FIELD_DATA","","",""
-"2026-08","L2","INSUFFICIENT_FIELD_DATA","","",""
-"2026-08","L3","INSUFFICIENT_FIELD_DATA","","",""
+reporting_month,tier,source_freshness,sample_size,metric_coverage,lcp_p75_ms,inp_p75_ms,cls_p75,classification,month_over_month,release_annotations,regression_cohort,likely_cause,action_owner,next_pr_or_monitor,data_limitations
+2026-08,L1,NO_READABLE_FIELD_SOURCE,INSUFFICIENT_FIELD_DATA,none,,,,INSUFFICIENT_FIELD_DATA,UNKNOWN,556da366,UNKNOWN,UNKNOWN,product/performance,PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01,CrUX/PSI keyless access unavailable; GSC/RUM/GA4 CWV unreadable; lab not substituted.
+2026-08,L2,NO_READABLE_FIELD_SOURCE,INSUFFICIENT_FIELD_DATA,none,,,,INSUFFICIENT_FIELD_DATA,UNKNOWN,556da366,UNKNOWN,UNKNOWN,SEO/content/performance,PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01,CrUX/PSI keyless access unavailable; GSC/RUM/GA4 CWV unreadable; lab not substituted.
+2026-08,L3,NO_READABLE_FIELD_SOURCE,INSUFFICIENT_FIELD_DATA,none,,,,INSUFFICIENT_FIELD_DATA,UNKNOWN,556da366,UNKNOWN,UNKNOWN,SEO/content/performance,PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01,CrUX/PSI keyless access unavailable; GSC/RUM/GA4 CWV unreadable; lab not substituted.

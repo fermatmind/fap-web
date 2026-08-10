@@ -1,9 +1,41 @@
 {
-  "samples": 20,
-  "ssr_pass": 20,
-  "hydrated_pass": 20,
+  "schema_version": "canonical.audit.v1",
+  "captured_at": "2026-08-10T04:50:00.000Z",
+  "params": [
+    "fbclid",
+    "gclid",
+    "msclkid",
+    "ref",
+    "source",
+    "utm_campaign",
+    "utm_content",
+    "utm_medium",
+    "utm_source",
+    "utm_term"
+  ],
+  "approved_attribution_contract_params": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "gclid",
+    "msclkid",
+    "fbclid"
+  ],
+  "candidate_only_params": [
+    "ref",
+    "source"
+  ],
+  "sample_count": 20,
+  "ssr_pass_count": 20,
+  "hydrated_pass_count": 20,
+  "sitemap_or_llms_parameter_url_count": 0,
+  "privacy": "Only technical_audit was used; no user, result, attempt, order, payment, email, phone, token or session value.",
   "gsc": "UNKNOWN",
-  "rows": [
+  "url_inspection": "UNKNOWN",
+  "conclusion": "Sampled SSR and hydrated metadata normalize attribution parameters to same-locale base canonical; historical deindexing remains unproven.",
+  "samples": [
     {
       "sampleId": "01",
       "surface": "homepage",

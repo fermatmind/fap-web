@@ -1,17 +1,58 @@
 {
+  "schema_version": "noncareer.shrink.guard.spec.v1",
   "status": "READY_WAITING_ON_C06",
-  "baseline": {
-    "url_sha": "cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79",
-    "identity_sha": "b1a79072fda69eaf73572f637fb7b50e399b61b5d5b7ed5016d77e52e7e8e679"
+  "baseline_reference": {
+    "manifest": "noncareer_discoverability_manifest.json",
+    "exact_url_set_sha256": "2804a0f64a358ba27bd5e417989f573d5d684d0b601893dcea93d87675dae8ad",
+    "exact_identity_set_sha256": "b1a79072fda69eaf73572f637fb7b50e399b61b5d5b7ed5016d77e52e7e8e679",
+    "versioned_not_constant": true,
+    "exact_normalized_path_set_sha256": "cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79"
   },
-  "compare": [
-    "exact set",
-    "surface",
-    "locale"
-  ],
+  "backend_authority_guard": {
+    "repo": "fap-api",
+    "candidate_id": "NONCAREER-DISCOVERABILITY-AUTHORITY-GUARD-01",
+    "inputs": [
+      "current complete authority",
+      "previous verified release",
+      "intentional publication-change identity",
+      "last-known-good cohort"
+    ],
+    "comparisons": [
+      "exact URL/identity set",
+      "surface cohort",
+      "locale cohort",
+      "eligibility projection"
+    ],
+    "fail_closed_conditions": [
+      "non-zero cohort becomes zero",
+      "surface disappears without versioned publication change",
+      "locale disappears",
+      "authority projection missing or partial",
+      "cold-start returns empty",
+      "permissive mode swallows incomplete result"
+    ]
+  },
+  "frontend_consumer_guard": {
+    "repo": "fap-web",
+    "candidate_id": "NONCAREER-DISCOVERABILITY-CONSUMER-GUARD-01",
+    "depends_on": [
+      "backend authority guard",
+      "Career C06 complete"
+    ],
+    "requirements": [
+      "consume backend authority",
+      "separate Career and non-Career",
+      "no local SEO/content fallback",
+      "no manual generated artifact edits",
+      "reject empty/partial success",
+      "stale last-known-good or explicit failure",
+      "exact set and per-surface/per-locale assertions",
+      "allow versioned intentional publication change"
+    ]
+  },
   "forbidden": [
-    "fixed 553",
-    "Career mix",
-    "fallback"
+    "fixed aggregate count assertion",
+    "Career migration mixed into baseline",
+    "dynamic nonce HTML caching"
   ]
 }

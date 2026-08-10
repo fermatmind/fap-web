@@ -1,5 +1,33 @@
-# noncareer consumer shrink guard
+# Non-Career frontend consumer shrink guard
 
-VERIFIED: 525 non-Career URLs / 306 identities; URL SHA cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79; 525/525 HTTP 200; canonical 20/20; aliases 20/20 one-hop 301; four IQ/EQ canonical gaps. LAB_ONLY performance; FIELD_VERIFIED none; field/GSC UNKNOWN. L1>L2>L3. No code/CMS/production/Career/manifest write.
+Candidate: **NONCAREER-DISCOVERABILITY-CONSUMER-GUARD-01**
 
-Frontend consumes authority; no local fallback; depends backend+C06.
+Repository: **fap-web**
+Status: **READY_WAITING_ON_C06**
+
+## Dependencies
+
+1. NONCAREER-DISCOVERABILITY-AUTHORITY-GUARD-01 merged.
+2. Career C06 complete.
+
+## Requirements
+
+- Consume backend authority and separate Career from non-Career.
+- Never add a local SEO enumeration or CMS-content fallback.
+- Never hand-edit generated sitemap/llms artifacts.
+- Treat empty/partial authority responses as failure, not successful empty state.
+- Use architecture-approved stale LKG or an explicit failure state.
+- Emit exact set, locale and surface diffs.
+- Allow a legitimate versioned publication change to update the cohort.
+
+## Required fixtures
+
+- One whole locale disappears.
+- One surface disappears.
+- Cold-start empty response.
+- Partial authority load.
+- Unchanged set remains stable.
+- Intentional versioned publication change succeeds.
+- Career growth while non-Career shrinks still fails.
+
+The consumer guard cannot compensate for a missing backend authority contract and cannot introduce frontend editorial truth.

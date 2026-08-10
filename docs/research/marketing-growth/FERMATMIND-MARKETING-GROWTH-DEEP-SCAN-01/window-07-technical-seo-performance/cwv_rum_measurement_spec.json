@@ -1,16 +1,193 @@
 {
-  "status": "BASELINE_INSUFFICIENT",
-  "primary": [
-    "LCP p75",
-    "INP p75",
-    "CLS p75"
+  "schema_version": "field.cwv.rum.measurement.spec.v1",
+  "status": "FIELD_CWV_RUM_MONITOR_SPEC_COMPLETE",
+  "baseline_status": "FIELD_CWV_RUM_BASELINE_INSUFFICIENT_DATA",
+  "source_priority": [
+    "production RUM",
+    "CrUX",
+    "GSC Core Web Vitals",
+    "backend/API telemetry",
+    "synthetic lab"
   ],
-  "forbidden": [
-    "query",
-    "private URL",
+  "primary_metrics": [
+    {
+      "metric": "LCP",
+      "role": "primary",
+      "aggregation": "p75",
+      "good": "<=2500ms",
+      "needs_improvement": ">2500ms and <=4000ms",
+      "poor": ">4000ms",
+      "source_priority": "RUM/CrUX",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "no query"
+    },
+    {
+      "metric": "INP",
+      "role": "primary",
+      "aggregation": "p75",
+      "good": "<=200ms",
+      "needs_improvement": ">200ms and <=500ms",
+      "poor": ">500ms",
+      "source_priority": "RUM/CrUX",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "no interaction text/answers"
+    },
+    {
+      "metric": "CLS",
+      "role": "primary",
+      "aggregation": "p75",
+      "good": "<=0.1",
+      "needs_improvement": ">0.1 and <=0.25",
+      "poor": ">0.25",
+      "source_priority": "RUM/CrUX",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "no DOM text"
+    }
+  ],
+  "driver_metrics": [
+    {
+      "metric": "TTFB",
+      "role": "driver",
+      "aggregation": "p75",
+      "good": "baseline-dependent",
+      "needs_improvement": "baseline-dependent",
+      "poor": "baseline-dependent",
+      "source_priority": "RUM/server",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "route family only"
+    },
+    {
+      "metric": "FCP",
+      "role": "driver",
+      "aggregation": "p75",
+      "good": "baseline-dependent",
+      "needs_improvement": "baseline-dependent",
+      "poor": "baseline-dependent",
+      "source_priority": "RUM",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "route family only"
+    },
+    {
+      "metric": "API latency",
+      "role": "driver",
+      "aggregation": "p95",
+      "good": "baseline-dependent",
+      "needs_improvement": "baseline-dependent",
+      "poor": "baseline-dependent",
+      "source_priority": "backend telemetry",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "endpoint template only"
+    }
+  ],
+  "guardrails": [
+    {
+      "metric": "5xx/timeout rate",
+      "role": "guardrail",
+      "aggregation": "rate",
+      "good": "baseline-dependent",
+      "needs_improvement": "stable-baseline alert",
+      "poor": "operational threshold",
+      "source_priority": "edge/backend",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "no query/body"
+    },
+    {
+      "metric": "sample coverage",
+      "role": "guardrail",
+      "aggregation": "count/rate",
+      "good": "fresh and representative",
+      "needs_improvement": "material MoM drop",
+      "poor": "insufficient data",
+      "source_priority": "RUM pipeline",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "aggregate only"
+    },
+    {
+      "metric": "assessment start/complete",
+      "role": "guardrail",
+      "aggregation": "rate",
+      "good": "no L1 regression",
+      "needs_improvement": "baseline-dependent",
+      "poor": "baseline-dependent",
+      "source_priority": "governed analytics",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "no answers/scores/private IDs"
+    },
+    {
+      "metric": "Organic Qualified Assessment Completes",
+      "role": "business_guardrail",
+      "aggregation": "count/rate",
+      "good": "no L1 regression",
+      "needs_improvement": "baseline-dependent",
+      "poor": "baseline-dependent",
+      "source_priority": "governed attribution",
+      "dimensions": "tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",
+      "privacy": "approved attribution tokens only"
+    }
+  ],
+  "field_aggregation": {
+    "percentile": 75,
+    "evaluate_mobile_desktop_separately": true,
+    "monthly_window": "calendar month",
+    "insufficient_data": "Emit INSUFFICIENT_FIELD_DATA; never zero; never substitute lab."
+  },
+  "allowed_dimensions": [
+    "tier",
+    "surface/template",
+    "locale",
+    "mobile/desktop",
+    "browser family",
+    "coarse country/region",
+    "navigation type",
+    "release/build identity"
+  ],
+  "forbidden_payload": [
+    "full URL",
+    "query string",
     "attempt/result/order",
     "answers/scores",
-    "PII"
+    "email/phone",
+    "token/session",
+    "user-identifying ID",
+    "private URL"
   ],
-  "official": "https://web.dev/articles/vitals"
+  "route_normalization": {
+    "emit": "Public route family/template and approved slug class only.",
+    "strip": [
+      "query",
+      "fragment",
+      "private identifiers"
+    ],
+    "private_routes": "Drop event."
+  },
+  "monthly_output": [
+    "reporting month",
+    "source freshness",
+    "sample size",
+    "metric coverage",
+    "tier p75",
+    "CWV classification",
+    "month-over-month",
+    "release annotations",
+    "regression cohort",
+    "likely cause",
+    "action owner",
+    "next PR/monitor",
+    "limitations"
+  ],
+  "alert_design": [
+    "official CWV poor boundary",
+    "material regression from stable L1 baseline",
+    "5xx/timeout anomaly",
+    "sample coverage collapse",
+    "analytics interruption"
+  ],
+  "baseline_required_before_relative_alerts": true,
+  "official_sources": [
+    "https://web.dev/articles/vitals",
+    "https://web.dev/articles/defining-core-web-vitals-thresholds",
+    "https://developer.chrome.com/docs/crux/api",
+    "https://developers.google.com/speed/docs/insights/v5/get-started"
+  ],
+  "production_write_required": "Yes. A separately controlled approval is required to add or change production tracking."
 }

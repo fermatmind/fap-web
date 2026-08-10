@@ -1,7 +1,121 @@
 {
-  "rows": 108,
-  "success": 102,
-  "failures": 6,
-  "field": "UNKNOWN",
-  "lab": "LAB_ONLY"
+  "schema_version": "performance.test.manifest.v1",
+  "generated_at": "2026-08-10T04:50:00.000Z",
+  "timezone": "Asia/Shanghai",
+  "source_git_sha": "556da366",
+  "runtime_revision": "38b5625dd917dceb6eeb3843259e7f7731cb66ce",
+  "browser_tool": "@playwright/cli Chromium",
+  "measurement_window": {
+    "start": "2026-08-10T04:23:35Z",
+    "end": "2026-08-10T04:31:00Z",
+    "timezone": "Asia/Shanghai"
+  },
+  "sampling": {
+    "concurrency": 1,
+    "page_definitions": 36,
+    "attempts_per_definition": 3,
+    "total_rows": 108,
+    "successful_rows": 102,
+    "failed_rows": 6,
+    "cold_warm": "Run 1 cold-ish with shared browser cache not cleared; runs 2-3 warm."
+  },
+  "profiles": {
+    "mobile": "390x844 viewport with desktop Chrome UA",
+    "desktop": "1440x960 desktop Chrome",
+    "network": "Local network, unthrottled"
+  },
+  "tier_summary": {
+    "L1": {
+      "tier": "L1",
+      "total_rows": 30,
+      "successful_rows": 27,
+      "error_rows": 3,
+      "ttfb_ms": {
+        "median": 118.9,
+        "p75": 154.3,
+        "p95": 361.6
+      },
+      "fcp_p75_ms": 636,
+      "lcp_p75_ms": 1236,
+      "cls_p75": 0.48,
+      "lab_tbt_proxy_p75_ms": 0,
+      "request_count_p75": 29,
+      "transferred_bytes_p75": 495668,
+      "js_bytes_p75": 310672,
+      "css_bytes_p75": 55335,
+      "image_bytes_p75": 0,
+      "font_bytes_p75": 101860
+    },
+    "L2": {
+      "tier": "L2",
+      "total_rows": 36,
+      "successful_rows": 33,
+      "error_rows": 3,
+      "ttfb_ms": {
+        "median": 162.1,
+        "p75": 245.6,
+        "p95": 1513.1
+      },
+      "fcp_p75_ms": 444,
+      "lcp_p75_ms": 636,
+      "cls_p75": 0.08,
+      "lab_tbt_proxy_p75_ms": 0,
+      "request_count_p75": 32,
+      "transferred_bytes_p75": 405789,
+      "js_bytes_p75": 199680,
+      "css_bytes_p75": 55335,
+      "image_bytes_p75": 0,
+      "font_bytes_p75": 101860
+    },
+    "L3": {
+      "tier": "L3",
+      "total_rows": 42,
+      "successful_rows": 42,
+      "error_rows": 0,
+      "ttfb_ms": {
+        "median": 157.6,
+        "p75": 328.4,
+        "p95": 2177.2
+      },
+      "fcp_p75_ms": 656,
+      "lcp_p75_ms": 1700,
+      "cls_p75": 0.45,
+      "lab_tbt_proxy_p75_ms": 0,
+      "request_count_p75": 31,
+      "transferred_bytes_p75": 381852,
+      "js_bytes_p75": 194851,
+      "css_bytes_p75": 55335,
+      "image_bytes_p75": 0,
+      "font_bytes_p75": 101860
+    }
+  },
+  "lighthouse": {
+    "attempts": 3,
+    "result": "MEASUREMENT_TOOL_FAILURE_NO_FCP",
+    "speed_index": "UNKNOWN",
+    "tbt": "UNKNOWN",
+    "failed_attempts_retained": true
+  },
+  "field": {
+    "inp": "UNKNOWN",
+    "crux": "INSUFFICIENT_FIELD_DATA",
+    "gsc_cwv": "UNKNOWN",
+    "rum": "UNKNOWN",
+    "ga4_web_vitals": "UNKNOWN"
+  },
+  "safeguards": [
+    "No assessment answers or submissions",
+    "No payment/order/private result/attempt URL",
+    "Serial measurements",
+    "Tool failures retained",
+    "Dynamic nonce HTML cache boundary unchanged"
+  ],
+  "limitations": [
+    "local network unthrottled",
+    "mobile is viewport-only with desktop Chrome UA",
+    "shared browser cache was not cleared before first run",
+    "Lighthouse attempts returned NO_FCP and are retained as tool failure; Speed Index unavailable",
+    "INP unavailable because no field data",
+    "Three interval-separated key-page windows were not completed: BASELINE_WINDOW_INCOMPLETE."
+  ]
 }

@@ -1,5 +1,24 @@
-# dependencies and handoff
+# Dependencies and handoff
 
-VERIFIED: 525 non-Career URLs / 306 identities; URL SHA cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79; 525/525 HTTP 200; canonical 20/20; aliases 20/20 one-hop 301; four IQ/EQ canonical gaps. LAB_ONLY performance; FIELD_VERIFIED none; field/GSC UNKNOWN. L1>L2>L3. No code/CMS/production/Career/manifest write.
+## Missing or gated inputs
 
-Next: L1 trace, preload, metadata owner, C06 guards, approved RUM.
+- Career C06 completion artifact: not found in repository evidence/current PR search.
+- Current M01/M04/M05/M06, full GSC query×page exports and GSC CWV: unavailable.
+- Production RUM and GA4 Web Vitals: unavailable.
+- Current independent Topic Graph corpus: unavailable; live backend sitemap-source is this freeze's authority.
+- IQ/EQ metadata repository owner: pending authority payload versus consumer projection trace.
+
+## Exact handoff order
+
+1. Capture L1 layout-shift sources and execute the focused L1 CLS PR without touching APIs or L3.
+2. Route-scope the global homepage image preload in an independent PR.
+3. Trace IQ/EQ SEO authority ownership, then execute the exact four-route metadata contract PR.
+4. Complete Career C06.
+5. Implement backend authority guard.
+6. Implement dependent frontend consumer guard.
+7. Obtain production tracking approval and implement privacy-safe RUM.
+8. Collect a full reporting month before setting relative regression alerts.
+
+## Production write boundary
+
+No production write is needed to read/use this report. RUM instrumentation, deployment, CMS/database change, secrets or ingress modification remain separately controlled actions.

@@ -1,5 +1,25 @@
-# big five legacy alias audit
+# Big Five legacy alias audit
 
-VERIFIED: 525 non-Career URLs / 306 identities; URL SHA cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79; 525/525 HTTP 200; canonical 20/20; aliases 20/20 one-hop 301; four IQ/EQ canonical gaps. LAB_ONLY performance; FIELD_VERIFIED none; field/GSC UNKNOWN. L1>L2>L3. No code/CMS/production/Career/manifest write.
+## Cohort
 
-All 20 exact locked redirects pass; zero enumeration/internal links.
+The backend-locked ten aliases were checked in EN and ZH for 20 locale paths:
+
+- `high-*` and `low-*` aliases for openness, conscientiousness, extraversion and agreeableness.
+- `high-neuroticism`.
+- `emotional-stability` → `neuroticism-low`.
+
+## Result
+
+All 20 paths satisfy the locked contract:
+
+1. Initial HTTP status is 301.
+2. Exactly one redirect hop occurs.
+3. The target exactly matches the locked locale target and returns 200.
+4. Synthetic attribution query is preserved on redirect.
+5. Route configuration/request evidence shows no legacy CMS fetch/render before redirect.
+6. Alias is absent from sitemap, hreflang, llms, llms-full and frontend canonical catalog.
+7. The 525-page SSR link scan found zero internal inbound links to aliases.
+
+No alias returned 200/302, used multiple hops or leaked into public enumeration. Per-path evidence is in `big_five_alias_audit.csv`.
+
+GSC impressions remain UNKNOWN because current GSC data was unavailable. Passing HTTP/enumeration checks do not prove zero historical search impressions.
