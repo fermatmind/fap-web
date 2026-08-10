@@ -20,7 +20,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 6 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -38,7 +38,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 3 exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -56,7 +56,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -74,7 +74,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -92,7 +92,7 @@
       "cannibalization": "ACTIONABLE_OWNER_CONFLICT: 1 exact aliases; non-owner impressions=25",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -110,7 +110,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -128,7 +128,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -146,7 +146,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -164,7 +164,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 4 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -182,7 +182,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -218,7 +218,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -236,7 +236,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -254,7 +254,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -272,7 +272,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -290,7 +290,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -308,7 +308,7 @@
       "cannibalization": "OBSERVED_MULTI_PAGE_NO_ACTIONABLE_CONFLICT: 1 exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -326,7 +326,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -344,7 +344,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -362,7 +362,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     },
     {
@@ -380,7 +380,7 @@
       "cannibalization": "Unknown: no current28 row for reviewed exact aliases",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "M01_COMPLETE; current exact reviewed alias not observed; no publication authority"
     },
     {
@@ -398,7 +398,7 @@
       "cannibalization": "OBSERVED_SINGLE_PAGE_NO_ACTIONABLE_CONFLICT",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05/G03 owner design consumed",
+      "dependency": "M01 complete; combined_sha256=9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691; A01/P03-P05 design consumed; G03 governed review complete without activation or publication authority",
       "evidence_status": "VERIFIED_M01_QUERY_PAGE_SOURCE_LIMITED; exact aliases only; no publication authority"
     }
   ],

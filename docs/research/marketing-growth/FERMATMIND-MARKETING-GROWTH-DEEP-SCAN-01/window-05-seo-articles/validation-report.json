@@ -1,41 +1,22 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-M01-DELTA-01",
-  "validated_at": "2026-08-10T18:30:00+08:00",
-  "status": "PASS_WITH_DECLARED_NON_M01_BLOCKERS",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-DEPENDENCY-RECONCILE",
+  "validated_on": "2026-08-10",
+  "status": "PASS_WITH_DECLARED_REMAINING_BLOCKERS",
   "m01_delta_complete": true,
-  "source": {
-    "combined_rows": 12336,
-    "current28": 3863,
-    "prev28": 2482,
-    "day90": 5991,
-    "combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
-    "manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322"
-  },
   "summary": {
-    "reviewed_exact_aliases": 106,
-    "query_page_window_rows": 391,
-    "current28_decisions": 114,
-    "actionable_owner_conflicts": 1,
-    "operator_queries_excluded": 1,
-    "multi_page_unmapped": 7,
-    "top10_priority_order": [
-      "ARTICLE-REFRESH-01",
-      "ARTICLE-REFRESH-10",
-      "ARTICLE-REFRESH-04",
-      "ARTICLE-REFRESH-03",
-      "ARTICLE-REFRESH-08",
-      "ARTICLE-REFRESH-07",
-      "ARTICLE-REFRESH-02",
-      "ARTICLE-REFRESH-05",
-      "ARTICLE-REFRESH-09",
-      "ARTICLE-REFRESH-06"
-    ]
+    "article_ledger_rows": 129,
+    "article_coverage_rows": 129,
+    "public_edge_rows": 375,
+    "query_owner_rows": 22,
+    "csv_files": 16,
+    "json_payload_files": 20
   },
-  "declared_non_m01_blockers": [
-    "M04 per-article attribution unavailable",
-    "M06 runtime event implementation unavailable",
+  "declared_remaining_blockers": [
+    "M04 result_ready has no article-safe aggregate dimension",
     "Career C06 unavailable",
-    "Authority B03 and G03/G04 implementation unavailable"
+    "graph production deployment and imported edge rows are not proven",
+    "Authority B03 technical evidence remains partially blocked",
+    "CMS import, publication and English V2 promotion remain separate scopes"
   ],
   "checks": [
     {
@@ -361,107 +342,127 @@
     {
       "name": "json_parse:article_90_day_review_spec.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_controlled_serp_snapshots.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_evidence_closeout_dependencies.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_method_asset_package.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_source_manifest.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_top10_cms_refresh_packages.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_top10_current_state.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:article_topic_owner_registry.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/method-asset/method-asset-content-package.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/method-asset/source-ledger.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-01-big-five-tool-guide.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-02-are-infj-men-rare-or-socially-silenced.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-03-enneagram-personality-test-explained.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-04-gaokao-major-adjustment-unacceptable-major-checklist.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-05-riasec-holland-career-interest-test-explained.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-06-iq-test-score-and-limits-explained.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-07-major-career-mismatch-job-search-skills-plan.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-08-mbti-basics.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-09-big-five-emotional-stability-stress-recovery-communication.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
     },
     {
       "name": "json_parse:packages/top10-refresh/ARTICLE-REFRESH-10-what-is-riasec-holland-code-career-interest-test.json",
       "status": "PASS",
-      "detail": "valid UTF-8 JSON"
+      "detail": "valid JSON and UTF-8"
+    },
+    {
+      "name": "portfolio_row_counts",
+      "status": "PASS",
+      "detail": "129 ledger rows; 129 coverage rows; 375 edge rows"
+    },
+    {
+      "name": "dependency_reconciliation",
+      "status": "PASS",
+      "detail": "M06, M07, G03, backend Authority, G04 and B03 statuses match merged authority and declared boundaries"
+    },
+    {
+      "name": "stale_dependency_text_absent",
+      "status": "PASS",
+      "detail": "obsolete M06, G03/G04 and B03 status strings are absent"
+    },
+    {
+      "name": "edge_and_owner_status_only_reconciliation",
+      "status": "PASS",
+      "detail": "375 analytics notes reconciled to implemented-not-deployment-proven; publication states unchanged; ownership notes retain no-activation boundary"
     },
     {
       "name": "m01_source_status",
       "status": "PASS",
-      "detail": "merged M01 package is complete and valid"
+      "detail": "merged M01 package is complete and consumed"
     },
     {
       "name": "m01_source_rows",
@@ -471,7 +472,7 @@
     {
       "name": "m01_source_sha",
       "status": "PASS",
-      "detail": "combined source SHA matches merged authority"
+      "detail": "combined source manifest SHA matches merged authority"
     },
     {
       "name": "alias_registry",
@@ -496,12 +497,12 @@
     {
       "name": "country_device_aggregation",
       "status": "PASS",
-      "detail": "clicks/impressions summed, CTR recomputed and position impression-weighted for every evidence row"
+      "detail": "clicks/impressions and derived CTR remain internally consistent; position and non-owner fields are present after country/device aggregation"
     },
     {
       "name": "actionable_conflict_contract",
       "status": "PASS",
-      "detail": "one actionable conflict; public-canonical threshold enforced"
+      "detail": "one actionable conflict; public-canonical threshold preserved"
     },
     {
       "name": "operator_exclusion",
@@ -526,7 +527,7 @@
     {
       "name": "top10_priority_order",
       "status": "PASS",
-      "detail": "order=['ARTICLE-REFRESH-01', 'ARTICLE-REFRESH-10', 'ARTICLE-REFRESH-04', 'ARTICLE-REFRESH-03', 'ARTICLE-REFRESH-08', 'ARTICLE-REFRESH-07', 'ARTICLE-REFRESH-02', 'ARTICLE-REFRESH-05', 'ARTICLE-REFRESH-09', 'ARTICLE-REFRESH-06']"
+      "detail": "order=[\"ARTICLE-REFRESH-01\", \"ARTICLE-REFRESH-10\", \"ARTICLE-REFRESH-04\", \"ARTICLE-REFRESH-03\", \"ARTICLE-REFRESH-08\", \"ARTICLE-REFRESH-07\", \"ARTICLE-REFRESH-02\", \"ARTICLE-REFRESH-05\", \"ARTICLE-REFRESH-09\", \"ARTICLE-REFRESH-06\"]"
     },
     {
       "name": "top10_owner_conflict_first",
@@ -536,7 +537,7 @@
     {
       "name": "top10_missed_clicks",
       "status": "PASS",
-      "detail": "observed locale/position bucket medians create no missed-click separation"
+      "detail": "observed locale/position bucket medians preserve the existing missed-click ordering"
     },
     {
       "name": "aggregate_priority_order",
@@ -551,7 +552,7 @@
     {
       "name": "privacy_denylist",
       "status": "PASS",
-      "detail": "no private identifiers, auth material or payment fields"
+      "detail": "no private identifier, auth material or payment identifier keys"
     },
     {
       "name": "no_parameterized_urls",
