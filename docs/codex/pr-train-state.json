@@ -57872,6 +57872,65 @@
       }
     ]
   },
+  "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01: govern non-Career public topic edge candidates",
+    "base": "main",
+    "branch": "codex/public-topic-graph-g03-governed-review-01",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
+      "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "8aa609d1b2b06afb7b284de3be9f356cd828f411",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2040",
+    "checks": {
+      "governed_registry_validation": {
+        "status": "passed",
+        "evidence": "422 owner rows and 4,805 candidate edges have deterministic explained states; 3,268 non-Career candidates approved, 1,255 non-Career held, and all 282 Career edges blocked with activation/publication false."
+      },
+      "structured_data_and_scope": {
+        "status": "passed",
+        "evidence": "All Window 6 CSV/JSON and Program Controller YAML/JSON parse; unique headers, UTF-8, formula safety, privacy, canonical, relation, locale, identity, label, owner, eligibility, M01 alignment, deterministic SHA, exact scope and diff checks pass twice."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #2040 exact head 8aa609d1b2b06afb7b284de3be9f356cd828f411 passed all 11 CI and CodeQL checks; GitHub reported CLEAN and MERGEABLE before this final ledger-only head."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {
+        "at": "2026-08-10T07:12:00Z",
+        "status": "user_authorized",
+        "summary": "Registered the exact operator-authorized G03 scope after PR #2036 merged. Only Window 6 and Program Controller files are allowed; Career remains fail-closed on C06."
+      },
+      {
+        "at": "2026-08-10T07:16:00Z",
+        "status": "in_progress",
+        "summary": "Started deterministic review of all 422 owners and 4,805 candidate edges against the public-canonical, relation, locale, identity, label, owner, eligibility and Career gates."
+      },
+      {
+        "at": "2026-08-10T07:22:00Z",
+        "status": "local_checks_passed_ready_to_push",
+        "summary": "Committed the governed review as 5bc3f039387b43bf38d1ebd7a7394335edb44979 after rebasing onto latest origin/main. All structured-data, governance, Career, determinism and exact-scope checks pass twice; no edge is active or publication-authorized."
+      },
+      {
+        "at": "2026-08-10T07:25:00Z",
+        "status": "pr_open_pending_github_checks",
+        "summary": "Pushed exact head e8b30378d70eda2e7f10314f767e9c4ec77921f8 and opened PR #2040. Required GitHub checks are pending; activation/publication remains false for every candidate."
+      },
+      {
+        "at": "2026-08-10T07:27:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #2040 exact head 8aa609d1b2b06afb7b284de3be9f356cd828f411 passed all 11 CI and CodeQL checks. GitHub reported CLEAN and MERGEABLE, and the exact Window 6 plus Program Controller scope remains valid. This ledger-only final head must pass required checks again before squash merge."
+      }
+    ]
+  },
   "PUBLIC-TOPIC-GRAPH-RENDERER-01": {
     "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",
     "repo": "fap-web",
