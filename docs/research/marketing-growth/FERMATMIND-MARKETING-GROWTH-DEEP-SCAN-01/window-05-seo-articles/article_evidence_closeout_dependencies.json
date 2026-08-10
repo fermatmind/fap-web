@@ -1,43 +1,73 @@
 {
   "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
   "captured_at": "2026-08-10T18:30:00+08:00",
+  "dependency_reconciled_on": "2026-08-10",
   "origin_main_at_preflight": "30798c088dd212c7de1b2415c10afceeab6e2f72",
-  "origin_main_at_final_fetch": "8aaf49c16dd514b64f3f58d55f594c1c0a085950",
+  "origin_main_at_final_fetch": "7f4265802ac1346a72ce53e0ee18d10002b6c78e",
+  "fap_api_origin_main_at_reconciliation": "8e352dc727e131101f741be99a0a69f4178a7329",
   "scope": "window-05-seo-articles only",
-  "upstream_source_mode": "M01/M04/M06/A01/P03-P05 are workspace-provided evidence; G03/G04 is merged origin/main evidence; exact source bytes are recorded below; the safe M01 article projection is copied into this package",
+  "upstream_source_mode": "M01 is complete consumed evidence; M04 is an available read-only capability awaiting Window5 execution; M06/M07, G03, backend Authority and G04 are merged repository facts with explicit no-production/no-publication boundaries; B03 is complete as an inventory and partially blocked as technical evidence; exact source bytes are recorded below",
   "dependencies": [
     {
       "id": "M01",
-      "status": "PARTIALLY_BLOCKED_CONSUMED",
-      "window5_decision": "page single-dimension article projection consumed; query×page×country×device remains 0 rows/OAuth-blocked",
-      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/gsc_page_single_dimension.csv",
-      "source_sha256": "4ffc93d96f0db3e25d4fca2cf9b5615cbc532528e6e625bbff8ba3ccf72ec8cf"
+      "status": "QUERY_PAGE_EXPORT_COMPLETE_CONSUMED",
+      "window5_decision": "12,336 privacy-filtered query×page×country×device rows and the page baseline are consumed through the Window5 M01 delta; absent or unmapped evidence remains Unknown",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m01-gsc-export/m01_export_manifest.json",
+      "source_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322"
     },
     {
       "id": "M04",
-      "status": "PARTIALLY_BLOCKED",
-      "window5_decision": "aggregate GA4 observed; backend truth and article URL attribution unavailable",
-      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/05-ga4-backend-truth-reconciliation.md",
-      "source_sha256": "7ad44f6e36298dd23428ede2dd3ca554801f4c8a8514022b2b62ecc60e2569fe"
+      "status": "READ_ONLY_ARTICLE_EXPORT_AVAILABLE_ACCEPTANCE_PENDING",
+      "window5_decision": "the backend has an exact article-id plus expected-slug read-only observation exporter; Window5 has not yet executed production acceptance, so article-level values remain Unknown",
+      "source_repository": "FermatMind/fap-api",
+      "source_commit": "8e352dc727e131101f741be99a0a69f4178a7329",
+      "source_path": "backend/app/Services/SeoIntel/ArticleWeeklySeoObservationExportService.php",
+      "source_sha256": "4dbe71d76adb8943fbadb51a93cd860ca92dc5be5250292a25c98345eda412b0"
     },
     {
       "id": "M06",
-      "status": "PROPOSED_NOT_IMPLEMENTED",
-      "window5_decision": "privacy boundary consumed; no approved public topic-edge click event",
+      "status": "MEASUREMENT_CONTRACT_AND_READ_MODEL_MERGED_EDGE_CLICK_RUNTIME_IMPLEMENTED_NOT_DEPLOYMENT_PROVEN",
+      "window5_decision": "fap-api #3593 merged the privacy-safe event contract and read model; fap-web #2036 approved public_topic_edge_click and #2050 implemented its consent-gated renderer callsite, but no production deployment, dispatch or receipt is claimed",
       "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/event_contract.json",
-      "source_sha256": "7374f2f1c63a563d32ceceb443c14e9c1029ec57b9fe40a35b780b7f8b5b1c57"
+      "source_sha256": "60b955fcf067614a3f55e255c53ba5b90e949821bb9d34bf74bf917b4d426a18",
+      "merge_evidence": [
+        {
+          "repository": "FermatMind/fap-api",
+          "pr": 3593,
+          "merge_commit": "b463aaf0378e03eb138c6299afe3662725f14575"
+        },
+        {
+          "repository": "FermatMind/fap-web",
+          "pr": 2036,
+          "merge_commit": "ced4b621782853caa7a7388c3e82f04d82a278f2"
+        },
+        {
+          "repository": "FermatMind/fap-web",
+          "pr": 2050,
+          "merge_commit": "7f4265802ac1346a72ce53e0ee18d10002b6c78e"
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "status": "RESULT_READY_REPOSITORY_IMPLEMENTATION_ACTIVE_NO_ARTICLE_DIMENSION",
+      "window5_decision": "fap-api #3596 merged backend-authoritative result_ready emission; repository state does not prove production observation, and its aggregate dimensions cannot identify an article",
+      "source_repository": "FermatMind/fap-api",
+      "source_commit": "f9a64c517552a195c3e3e05b591a0f8cc11dd964",
+      "source_path": "backend/app/Services/Analytics/ResultReadyEventRecorder.php",
+      "source_sha256": "0486a9938d6a4de7533865f33f75227fc5fb4deaac4bd95d254b7979305de1e9"
     },
     {
       "id": "A01",
       "status": "DESIGN_OWNER_CONSUMED",
-      "window5_decision": "assessment owner design consumed; current query ranking/cannibalization blocked by M01",
+      "window5_decision": "assessment owner design and the completed M01 evidence are consumed without runtime publication authority",
       "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-03-assessment-seo/assessment_query_owner_registry.json",
       "source_sha256": "4832f47f61641dc7703993424cb673d792097025b4f5f73bca208447d2b1ac8a"
     },
     {
       "id": "P03-P05",
       "status": "DESIGN_CONSUMED",
-      "window5_decision": "personality owner/graph design consumed; implementation not started",
+      "window5_decision": "personality owner and graph design are consumed; no frontend fallback or publication authority is introduced",
       "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-04-personality-seo/personality_query_owner_registry.json",
       "source_sha256": "51dc1e49396cd7777b344d1a3424262c970e12ce21ef68469c366edaa8a4d74e"
     },
@@ -49,41 +79,43 @@
       "source_sha256": "Unknown"
     },
     {
-      "id": "G03/G04",
-      "status": "DESIGN_CONSUMED_FROM_ORIGIN_MAIN",
-      "window5_decision": "merged Window 6 query-owner/graph closeout consumed; G03 governed review remains and backend/frontend implementation has not started",
-      "source_commit": "8aaf49c16dd514b64f3f58d55f594c1c0a085950",
-      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/topic_graph_backend_contract.json",
-      "source_sha256": "a0eaa7825565cab0aef18da3f1f6b844a68921338c1c16ea87f3b924b7057af7",
-      "additional_sources": [
-        {
-          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/query_owner_parent_next_step.csv",
-          "sha256": "64ce081c419264920b5728ae8f3a39d619ef1cbcba61e89f0afdead949901791"
-        },
-        {
-          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/topic_graph_frontend_contract.json",
-          "sha256": "8053624cec852554a58147be5205de075a64cbf62b32693f458d387f37044b44"
-        },
-        {
-          "path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/14-final-status-and-handoff.md",
-          "sha256": "aa3c49dd63e11c7389b30797e116f10171074b65c866976dc7082b512b291155"
-        }
-      ]
+      "id": "G03",
+      "status": "GOVERNED_REVIEW_COMPLETE_NOT_ACTIVATED_NOT_PUBLISHED",
+      "window5_decision": "422 owner rows and 4,805 candidate edges were reviewed; 3,268 are backend-modeling candidates, 1,255 non-Career rows are HOLD and 282 Career rows remain blocked on C06",
+      "source_commit": "5466522801be6f71d01f0af96a495a84bddd059f",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/g03_governed_review.json",
+      "source_sha256": "79b65bc75bf6d27077f2a160a2cd09c1d0be95d8264e0db72a59d2d72b3814bf"
+    },
+    {
+      "id": "Public Topic Graph Authority",
+      "status": "NON_CAREER_BACKEND_AUTHORITY_CONTRACT_MERGED_NOT_DEPLOYMENT_CLAIM",
+      "window5_decision": "fap-api #3594 and #3605 merged the CMS-authoritative non-Career read contract and G03 alignment; no production migration, CMS import, deployment or activation is claimed",
+      "source_repository": "FermatMind/fap-api",
+      "source_commit": "2a2f01c0c17d2ec6e4b5c28cd4ae5fe26df9207d",
+      "source_path": "backend/docs/seo/public-topic-edge-authority-contract.md",
+      "source_sha256": "5a211489f1b58d615580e729c2b69668c75a414ce118de344338f8b241a9f7db"
+    },
+    {
+      "id": "G04",
+      "status": "FRONTEND_RENDERER_IMPLEMENTED_NOT_DEPLOYMENT_PROVEN",
+      "window5_decision": "fap-web #2050 implemented a fail-closed backend-authoritative renderer without local fallback; production deployment and imported edge rows are not proven",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/09-fap-web-edge-renderer.md",
+      "source_sha256": "4cd1bb6411bc11aaaa5abc66270ab3529420b7e0c826cd989089cf10ad9da1d6"
     },
     {
       "id": "Authority B03",
-      "status": "MISSING_COMPLETED_AUTHORITY_ARTIFACT",
-      "window5_decision": "method package remains ready-not-published; B03 not satisfied",
-      "source_path": "Not found",
-      "source_sha256": "Unknown"
+      "status": "B03_TECHNICAL_EVIDENCE_PARTIALLY_BLOCKED",
+      "window5_decision": "the six-assessment inventory and structural validation are complete, but FermatMind-specific sample, norm, reliability, validity, named-reviewer and public-changelog evidence remain incomplete",
+      "source_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/authority-b03-technical-manual-evidence/validation_report.json",
+      "source_sha256": "f1818e6e831d5dd115e9c6488262037292da21edf0b3a669aa1431baeb4446c2"
     }
   ],
   "m01_integrity_note": {
     "page_source_sha256": "4ffc93d96f0db3e25d4fca2cf9b5615cbc532528e6e625bbff8ba3ccf72ec8cf",
-    "manifest_sha256_at_closeout": "1a461728e04d3c20c525234ca5e329851606a7b0af9c25dcc9ed350b942346d7",
-    "validation_report_sha256_at_closeout": "3115c2212c392d3df282d9fd473623d7056ee9c073d8f08e4842184473e7d7a2",
-    "status": "INTEGRITY_PARTIAL",
-    "reason": "all currently declared M01 payload hashes match, but validation_report records a stale manifest SHA; only the independently hash-bound page CSV is consumed"
+    "manifest_sha256_at_closeout": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+    "validation_report_sha256_at_closeout": "fb557a407b0cf73cd03c6d01910cec2656f31485e33b85d08d6278c3e93c77f9",
+    "status": "INTEGRITY_COMPLETE_CONSUMED",
+    "reason": "the current M01 validation report records the actual manifest SHA, and the Window5 query-page delta consumes the complete privacy-filtered export without changing the page baseline"
   },
   "writes": {
     "cms_import": false,

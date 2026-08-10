@@ -1,6 +1,7 @@
 {
   "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
   "captured_at": "2026-08-10T18:30:00+08:00",
+  "dependency_reconciled_on": "2026-08-10",
   "counting_units": {
     "cms_article_identity": {
       "count": 129,
@@ -70,15 +71,15 @@
       "limitation": "not a browser/mobile visual audit"
     },
     {
-      "source": "M04 GA4/backend truth reconciliation",
-      "url_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/05-ga4-backend-truth-reconciliation.md",
+      "source": "M04 historical GA4 observation and current backend read-only capability reconciliation",
+      "url_path": "article_evidence_closeout_dependencies.json",
       "captured_at": "2026-08-10T18:30:00+08:00",
       "locale": "aggregate",
       "country_device": "aggregate",
       "date_window": "2026-07-13_to_2026-08-09",
-      "evidence_status": "PARTIALLY_BLOCKED",
-      "source_sha256": "7ad44f6e36298dd23428ede2dd3ca554801f4c8a8514022b2b62ecc60e2569fe",
-      "limitation": "aggregate GA4 only; backend truth and article URL attribution unavailable"
+      "evidence_status": "READ_ONLY_ARTICLE_EXPORT_AVAILABLE_ACCEPTANCE_PENDING",
+      "source_sha256": "4dbe71d76adb8943fbadb51a93cd860ca92dc5be5250292a25c98345eda412b0",
+      "limitation": "the exact-id and expected-slug backend exporter exists, but no production article-level observation is written into this package yet; result_ready has no article aggregate dimension"
     },
     {
       "source": "controlled Brave Search Top 10 snapshots",
@@ -128,8 +129,8 @@
       "locale": "not applicable",
       "country_device": "not applicable",
       "date_window": "current workspace snapshot",
-      "evidence_status": "MIXED; see per-dependency status",
-      "limitation": "design artifacts do not authorize CMS import, publication, graph implementation, or current query-rank claims"
+      "evidence_status": "RECONCILED_MIXED; see per-dependency status",
+      "limitation": "merged contracts, governed candidates and implemented fail-closed renderer callsites do not prove CMS import, publication, production deployment, telemetry dispatch/receipt, imported edge rows, edge activation or current query-rank claims"
     }
   ],
   "prohibited_data_read": false,
