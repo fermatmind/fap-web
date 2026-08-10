@@ -30448,7 +30448,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: assessment_landing_runtime_recovery
-    status: local_verified
+    status: committed
     scope:
       - Accept backend-authoritative formless public lookup payloads only for IQ_RAVEN and EQ_60 when localized catalog facts and the public landing start target are complete.
       - Restore healthy server rendering for the canonical IQ and EQ test landings in both English and Chinese.
