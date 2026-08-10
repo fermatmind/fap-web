@@ -1,0 +1,2631 @@
+{
+  "schema_version": "fermatmind.window5.m04.article_attribution.v1",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-M04-ATTRIBUTION-CLOSEOUT",
+  "captured_at": "2026-08-10T09:21:55+00:00",
+  "captured_through": "2026-08-10T09:22:06+00:00",
+  "source": {
+    "repository": "FermatMind/fap-api",
+    "deployed_backend_revision": "40020ab7ef269ee56ce597e9f2fd2fbb99e83549",
+    "deployed_revision_contains_measurement_pr_3593": false,
+    "deployed_revision_contains_result_ready_pr_3596": false,
+    "command": "articles:weekly-seo-observation-export",
+    "exporter_schema_version": "article_weekly_seo_observation_export.v1",
+    "date_range": {
+      "from": "2026-07-13",
+      "to": "2026-08-09"
+    },
+    "batch_count": 6,
+    "requested_article_count": 129,
+    "returned_article_count": 112,
+    "raw_merged_sha256": "33fde38462e0b9f1f0f7d3b5aa4524f6f86b2e009ba652cee4125dbc325d607e"
+  },
+  "safety": {
+    "read_only": true,
+    "cms_content_write_attempted": false,
+    "publish_attempted": false,
+    "external_search_submission_attempted": false,
+    "schema_hreflang_write_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "raw_event_rows_collected": false,
+    "raw_logs_collected": false,
+    "environment_or_credentials_collected": false,
+    "private_identifiers_collected": false,
+    "view_result_not_used_as_result_ready": true
+  },
+  "summary": {
+    "safe_exact_mapping": 112,
+    "not_returned_by_public_indexable_export": 17,
+    "identity_lock_failed": 0,
+    "aggregate_unavailable": 0,
+    "observed_aggregate_totals": {
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0
+    },
+    "result_ready_safe_article_rows": 0,
+    "result_ready_unknown_rows": 129,
+    "non_monotonic_observed_aggregate_warnings": 0
+  },
+  "articles": [
+    {
+      "article_id": 26,
+      "locale": "en",
+      "slug": "are-infj-men-rare-or-socially-silenced",
+      "canonical_path": "/en/articles/are-infj-men-rare-or-socially-silenced",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 27,
+      "locale": "en",
+      "slug": "best-valentines-date-by-personality-and-relationship-science",
+      "canonical_path": "/en/articles/best-valentines-date-by-personality-and-relationship-science",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 81,
+      "locale": "en",
+      "slug": "big-five-conscientiousness-low-procrastination-task-plan",
+      "canonical_path": "/en/articles/big-five-conscientiousness-low-procrastination-task-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 79,
+      "locale": "en",
+      "slug": "big-five-emotional-stability-stress-recovery-communication",
+      "canonical_path": "/en/articles/big-five-emotional-stability-stress-recovery-communication",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 186,
+      "locale": "en",
+      "slug": "big-five-growth-guide",
+      "canonical_path": "/en/articles/big-five-growth-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 187,
+      "locale": "en",
+      "slug": "big-five-narrative-portrait",
+      "canonical_path": "/en/articles/big-five-narrative-portrait",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 35,
+      "locale": "en",
+      "slug": "big-five-personality-test-vs-mbti",
+      "canonical_path": "/en/articles/big-five-personality-test-vs-mbti",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 188,
+      "locale": "en",
+      "slug": "big-five-tool-guide",
+      "canonical_path": "/en/articles/big-five-tool-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 47,
+      "locale": "en",
+      "slug": "career-interest-test-vs-personality-test",
+      "canonical_path": "/en/articles/career-interest-test-vs-personality-test",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 29,
+      "locale": "en",
+      "slug": "childhood-dream-job-still-shapes-career-choice",
+      "canonical_path": "/en/articles/childhood-dream-job-still-shapes-career-choice",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 49,
+      "locale": "en",
+      "slug": "choose-career-using-personality-tests",
+      "canonical_path": "/en/articles/choose-career-using-personality-tests",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 189,
+      "locale": "en",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "canonical_path": "/en/articles/college-major-choice-holland-mbti-career-test",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 190,
+      "locale": "en",
+      "slug": "enneagram-personality-test-explained",
+      "canonical_path": "/en/articles/enneagram-personality-test-explained",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 69,
+      "locale": "en",
+      "slug": "enneagram-workplace-friction-core-motivations",
+      "canonical_path": "/en/articles/enneagram-workplace-friction-core-motivations",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 191,
+      "locale": "en",
+      "slug": "eq-test-tool-guide",
+      "canonical_path": "/en/articles/eq-test-tool-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 192,
+      "locale": "en",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "canonical_path": "/en/articles/gaokao-major-adjustment-unacceptable-major-checklist",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 193,
+      "locale": "en",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "canonical_path": "/en/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 194,
+      "locale": "en",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "canonical_path": "/en/articles/gaokao-score-major-shortlist-riasec-checklist",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 32,
+      "locale": "en",
+      "slug": "holland-career-interest-test-can-and-cannot-tell-you",
+      "canonical_path": "/en/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 65,
+      "locale": "en",
+      "slug": "hot-major-fit-riasec-course-career-checklist",
+      "canonical_path": "/en/articles/hot-major-fit-riasec-course-career-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 28,
+      "locale": "en",
+      "slug": "how-16-personality-types-talk-to-an-ai-coach",
+      "canonical_path": "/en/articles/how-16-personality-types-talk-to-an-ai-coach",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 24,
+      "locale": "en",
+      "slug": "how-personality-shapes-attitude-toward-ai",
+      "canonical_path": "/en/articles/how-personality-shapes-attitude-toward-ai",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 195,
+      "locale": "en",
+      "slug": "iq-test-growth-guide",
+      "canonical_path": "/en/articles/iq-test-growth-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 196,
+      "locale": "en",
+      "slug": "iq-test-narrative-portrait",
+      "canonical_path": "/en/articles/iq-test-narrative-portrait",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 197,
+      "locale": "en",
+      "slug": "iq-test-score-and-limits-explained",
+      "canonical_path": "/en/articles/iq-test-score-and-limits-explained",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 198,
+      "locale": "en",
+      "slug": "iq-test-tool-guide",
+      "canonical_path": "/en/articles/iq-test-tool-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 73,
+      "locale": "en",
+      "slug": "major-career-mismatch-job-search-skills-plan",
+      "canonical_path": "/en/articles/major-career-mismatch-job-search-skills-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 85,
+      "locale": "en",
+      "slug": "major-category-program-tracking-riasec-choice-checklist",
+      "canonical_path": "/en/articles/major-category-program-tracking-riasec-choice-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 199,
+      "locale": "en",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "canonical_path": "/en/articles/math-not-good-computer-ai-major-course-riasec-checklist",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 200,
+      "locale": "en",
+      "slug": "mbti-basics",
+      "canonical_path": "/en/articles/mbti-basics",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 61,
+      "locale": "en",
+      "slug": "mbti-full-report-career-relationship-communication",
+      "canonical_path": "/en/articles/mbti-full-report-career-relationship-communication",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 201,
+      "locale": "en",
+      "slug": "mbti-growth-guide",
+      "canonical_path": "/en/articles/mbti-growth-guide",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 202,
+      "locale": "en",
+      "slug": "mbti-narrative-portrait",
+      "canonical_path": "/en/articles/mbti-narrative-portrait",
+      "attribution_status": "NOT_RETURNED_BY_PUBLIC_INDEXABLE_EXPORT",
+      "identity_lock": {
+        "article_id": "Unknown",
+        "expected_slug": "Unknown",
+        "locale": "Unknown",
+        "canonical_path": "Unknown",
+        "release_closeout_identity": "Unknown"
+      },
+      "aggregate_table_available": "Unknown",
+      "article_to_test_clicks_28d": "Unknown",
+      "test_starts_attributed_28d": "Unknown",
+      "test_completes_attributed_28d": "Unknown",
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "not returned by public/indexable exporter; result_ready has no article-safe aggregate dimension"
+    },
+    {
+      "article_id": 34,
+      "locale": "en",
+      "slug": "mbti-personality-test-science-vs-pseudoscience",
+      "canonical_path": "/en/articles/mbti-personality-test-science-vs-pseudoscience",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 39,
+      "locale": "en",
+      "slug": "mbti-vs-holland-code-career-choice",
+      "canonical_path": "/en/articles/mbti-vs-holland-code-career-choice",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 71,
+      "locale": "en",
+      "slug": "unwanted-major-adjustment-riasec-transfer-plan",
+      "canonical_path": "/en/articles/unwanted-major-adjustment-riasec-transfer-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 75,
+      "locale": "en",
+      "slug": "unwanted-major-repeat-or-stay-riasec-decision-checklist",
+      "canonical_path": "/en/articles/unwanted-major-repeat-or-stay-riasec-decision-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 41,
+      "locale": "en",
+      "slug": "what-is-riasec-holland-code-career-interest-test",
+      "canonical_path": "/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 25,
+      "locale": "en",
+      "slug": "which-love-script-fits-you-best",
+      "canonical_path": "/en/articles/which-love-script-fits-you-best",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 42,
+      "locale": "en",
+      "slug": "why-mbti-and-holland-code-results-dont-match",
+      "canonical_path": "/en/articles/why-mbti-and-holland-code-results-dont-match",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 136,
+      "locale": "zh",
+      "slug": "apply-personality-research-without-overclaiming",
+      "canonical_path": "/zh/articles/apply-personality-research-without-overclaiming",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 11,
+      "locale": "zh",
+      "slug": "are-infj-men-rare-or-socially-silenced",
+      "canonical_path": "/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 12,
+      "locale": "zh",
+      "slug": "best-valentines-date-by-personality-and-relationship-science",
+      "canonical_path": "/zh/articles/best-valentines-date-by-personality-and-relationship-science",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 137,
+      "locale": "zh",
+      "slug": "big-five-30-day-observation-and-review-plan",
+      "canonical_path": "/zh/articles/big-five-30-day-observation-and-review-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 138,
+      "locale": "zh",
+      "slug": "big-five-30-facets-explained-with-model-caveats",
+      "canonical_path": "/zh/articles/big-five-30-facets-explained-with-model-caveats",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 139,
+      "locale": "zh",
+      "slug": "big-five-communication-needs-conversation-prompts",
+      "canonical_path": "/zh/articles/big-five-communication-needs-conversation-prompts",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 140,
+      "locale": "zh",
+      "slug": "big-five-conflict-patterns-observe-before-explaining",
+      "canonical_path": "/zh/articles/big-five-conflict-patterns-observe-before-explaining",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 80,
+      "locale": "zh",
+      "slug": "big-five-conscientiousness-low-procrastination-task-plan",
+      "canonical_path": "/zh/articles/big-five-conscientiousness-low-procrastination-task-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 141,
+      "locale": "zh",
+      "slug": "big-five-couples-conversation-not-relationship-prediction",
+      "canonical_path": "/zh/articles/big-five-couples-conversation-not-relationship-prediction",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 142,
+      "locale": "zh",
+      "slug": "big-five-cross-cultural-research-and-translation-limits",
+      "canonical_path": "/zh/articles/big-five-cross-cultural-research-and-translation-limits",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 143,
+      "locale": "zh",
+      "slug": "big-five-decision-journal-observe-style-not-quality",
+      "canonical_path": "/zh/articles/big-five-decision-journal-observe-style-not-quality",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 78,
+      "locale": "zh",
+      "slug": "big-five-emotional-stability-stress-recovery-communication",
+      "canonical_path": "/zh/articles/big-five-emotional-stability-stress-recovery-communication",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 144,
+      "locale": "zh",
+      "slug": "big-five-evidence-strength-from-one-study-to-review",
+      "canonical_path": "/zh/articles/big-five-evidence-strength-from-one-study-to-review",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 145,
+      "locale": "zh",
+      "slug": "big-five-feedback-preferences-as-hypotheses",
+      "canonical_path": "/zh/articles/big-five-feedback-preferences-as-hypotheses",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 146,
+      "locale": "zh",
+      "slug": "big-five-friendship-differences-without-compatibility-scores",
+      "canonical_path": "/zh/articles/big-five-friendship-differences-without-compatibility-scores",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 147,
+      "locale": "zh",
+      "slug": "big-five-goal-setting-use-results-as-hypotheses",
+      "canonical_path": "/zh/articles/big-five-goal-setting-use-results-as-hypotheses",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 1,
+      "locale": "zh",
+      "slug": "big-five-growth-guide",
+      "canonical_path": "/zh/articles/big-five-growth-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 148,
+      "locale": "zh",
+      "slug": "big-five-leadership-reflection-not-leader-prediction",
+      "canonical_path": "/zh/articles/big-five-leadership-reflection-not-leader-prediction",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 149,
+      "locale": "zh",
+      "slug": "big-five-learning-preferences-test-dont-prescribe",
+      "canonical_path": "/zh/articles/big-five-learning-preferences-test-dont-prescribe",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 150,
+      "locale": "zh",
+      "slug": "big-five-meeting-participation-without-personality-labels",
+      "canonical_path": "/zh/articles/big-five-meeting-participation-without-personality-labels",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 151,
+      "locale": "zh",
+      "slug": "big-five-model-history-from-words-to-traits",
+      "canonical_path": "/zh/articles/big-five-model-history-from-words-to-traits",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 152,
+      "locale": "zh",
+      "slug": "big-five-myths-types-destiny-and-perfect-scores",
+      "canonical_path": "/zh/articles/big-five-myths-types-destiny-and-perfect-scores",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 2,
+      "locale": "zh",
+      "slug": "big-five-narrative-portrait",
+      "canonical_path": "/zh/articles/big-five-narrative-portrait",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 153,
+      "locale": "zh",
+      "slug": "big-five-personal-boundaries-traits-do-not-override-consent",
+      "canonical_path": "/zh/articles/big-five-personal-boundaries-traits-do-not-override-consent",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 36,
+      "locale": "zh",
+      "slug": "big-five-personality-test-vs-mbti",
+      "canonical_path": "/zh/articles/big-five-personality-test-vs-mbti",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 154,
+      "locale": "zh",
+      "slug": "big-five-planning-system-run-a-two-week-experiment",
+      "canonical_path": "/zh/articles/big-five-planning-system-run-a-two-week-experiment",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 155,
+      "locale": "zh",
+      "slug": "big-five-retest-differences-measurement-and-context",
+      "canonical_path": "/zh/articles/big-five-retest-differences-measurement-and-context",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 156,
+      "locale": "zh",
+      "slug": "big-five-score-ranges-what-high-middle-low-can-mean",
+      "canonical_path": "/zh/articles/big-five-score-ranges-what-high-middle-low-can-mean",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 157,
+      "locale": "zh",
+      "slug": "big-five-self-regulation-build-a-context-plan",
+      "canonical_path": "/zh/articles/big-five-self-regulation-build-a-context-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 158,
+      "locale": "zh",
+      "slug": "big-five-self-report-bias-and-response-context",
+      "canonical_path": "/zh/articles/big-five-self-report-bias-and-response-context",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 159,
+      "locale": "zh",
+      "slug": "big-five-stress-response-patterns-without-diagnosis",
+      "canonical_path": "/zh/articles/big-five-stress-response-patterns-without-diagnosis",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 160,
+      "locale": "zh",
+      "slug": "big-five-study-limitations-sample-measures-and-causality",
+      "canonical_path": "/zh/articles/big-five-study-limitations-sample-measures-and-causality",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 161,
+      "locale": "zh",
+      "slug": "big-five-teamwork-conversation-guide-not-fit-score",
+      "canonical_path": "/zh/articles/big-five-teamwork-conversation-guide-not-fit-score",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 3,
+      "locale": "zh",
+      "slug": "big-five-tool-guide",
+      "canonical_path": "/zh/articles/big-five-tool-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 162,
+      "locale": "zh",
+      "slug": "big-five-traits-are-continuums-not-boxes",
+      "canonical_path": "/zh/articles/big-five-traits-are-continuums-not-boxes",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 163,
+      "locale": "zh",
+      "slug": "big-five-vs-disc-measurement-and-workplace-language",
+      "canonical_path": "/zh/articles/big-five-vs-disc-measurement-and-workplace-language",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 164,
+      "locale": "zh",
+      "slug": "big-five-vs-enneagram-traits-and-motivation-stories",
+      "canonical_path": "/zh/articles/big-five-vs-enneagram-traits-and-motivation-stories",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 165,
+      "locale": "zh",
+      "slug": "big-five-vs-riasec-personality-traits-and-career-interests",
+      "canonical_path": "/zh/articles/big-five-vs-riasec-personality-traits-and-career-interests",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 166,
+      "locale": "zh",
+      "slug": "big-five-work-environment-preferences-as-experiments",
+      "canonical_path": "/zh/articles/big-five-work-environment-preferences-as-experiments",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 167,
+      "locale": "zh",
+      "slug": "can-big-five-personality-traits-change-over-time",
+      "canonical_path": "/zh/articles/can-big-five-personality-traits-change-over-time",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 48,
+      "locale": "zh",
+      "slug": "career-confusion-test-map",
+      "canonical_path": "/zh/articles/career-confusion-test-map",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 46,
+      "locale": "zh",
+      "slug": "career-interest-vs-personality-test-differences",
+      "canonical_path": "/zh/articles/career-interest-vs-personality-test-differences",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 13,
+      "locale": "zh",
+      "slug": "childhood-dream-job-still-shapes-career-choice",
+      "canonical_path": "/zh/articles/childhood-dream-job-still-shapes-career-choice",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 52,
+      "locale": "zh",
+      "slug": "college-major-choice-holland-mbti-career-test",
+      "canonical_path": "/zh/articles/college-major-choice-holland-mbti-career-test",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 168,
+      "locale": "zh",
+      "slug": "daily-wellbeing-support-personality-is-one-context",
+      "canonical_path": "/zh/articles/daily-wellbeing-support-personality-is-one-context",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 51,
+      "locale": "zh",
+      "slug": "enneagram-personality-test-explained",
+      "canonical_path": "/zh/articles/enneagram-personality-test-explained",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 68,
+      "locale": "zh",
+      "slug": "enneagram-workplace-friction-core-motivations",
+      "canonical_path": "/zh/articles/enneagram-workplace-friction-core-motivations",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 4,
+      "locale": "zh",
+      "slug": "eq-test-tool-guide",
+      "canonical_path": "/zh/articles/eq-test-tool-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 58,
+      "locale": "zh",
+      "slug": "gaokao-major-adjustment-unacceptable-major-checklist",
+      "canonical_path": "/zh/articles/gaokao-major-adjustment-unacceptable-major-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 55,
+      "locale": "zh",
+      "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "canonical_path": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 53,
+      "locale": "zh",
+      "slug": "gaokao-score-major-shortlist-riasec-checklist",
+      "canonical_path": "/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 169,
+      "locale": "zh",
+      "slug": "habits-and-big-five-traits-behavior-is-not-identity",
+      "canonical_path": "/zh/articles/habits-and-big-five-traits-behavior-is-not-identity",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 31,
+      "locale": "zh",
+      "slug": "holland-career-interest-test-can-and-cannot-tell-you",
+      "canonical_path": "/zh/articles/holland-career-interest-test-can-and-cannot-tell-you",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 64,
+      "locale": "zh",
+      "slug": "hot-major-fit-riasec-course-career-checklist",
+      "canonical_path": "/zh/articles/hot-major-fit-riasec-course-career-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 14,
+      "locale": "zh",
+      "slug": "how-16-personality-types-talk-to-an-ai-coach",
+      "canonical_path": "/zh/articles/how-16-personality-types-talk-to-an-ai-coach",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 15,
+      "locale": "zh",
+      "slug": "how-personality-shapes-attitude-toward-ai",
+      "canonical_path": "/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 170,
+      "locale": "zh",
+      "slug": "how-to-discuss-big-five-results-with-someone-else",
+      "canonical_path": "/zh/articles/how-to-discuss-big-five-results-with-someone-else",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 171,
+      "locale": "zh",
+      "slug": "how-to-place-new-big-five-research-in-context",
+      "canonical_path": "/zh/articles/how-to-place-new-big-five-research-in-context",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 172,
+      "locale": "zh",
+      "slug": "how-to-read-a-big-five-research-paper",
+      "canonical_path": "/zh/articles/how-to-read-a-big-five-research-paper",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 173,
+      "locale": "zh",
+      "slug": "how-to-read-big-five-results-without-self-labeling",
+      "canonical_path": "/zh/articles/how-to-read-big-five-results-without-self-labeling",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 5,
+      "locale": "zh",
+      "slug": "iq-test-growth-guide",
+      "canonical_path": "/zh/articles/iq-test-growth-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 6,
+      "locale": "zh",
+      "slug": "iq-test-narrative-portrait",
+      "canonical_path": "/zh/articles/iq-test-narrative-portrait",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 50,
+      "locale": "zh",
+      "slug": "iq-test-score-and-limits-explained",
+      "canonical_path": "/zh/articles/iq-test-score-and-limits-explained",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 7,
+      "locale": "zh",
+      "slug": "iq-test-tool-guide",
+      "canonical_path": "/zh/articles/iq-test-tool-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 174,
+      "locale": "zh",
+      "slug": "life-events-and-personality-change-what-research-can-say",
+      "canonical_path": "/zh/articles/life-events-and-personality-change-what-research-can-say",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 72,
+      "locale": "zh",
+      "slug": "major-career-mismatch-job-search-skills-plan",
+      "canonical_path": "/zh/articles/major-career-mismatch-job-search-skills-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 84,
+      "locale": "zh",
+      "slug": "major-category-program-tracking-riasec-choice-checklist",
+      "canonical_path": "/zh/articles/major-category-program-tracking-riasec-choice-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 59,
+      "locale": "zh",
+      "slug": "math-not-good-computer-ai-major-course-riasec-checklist",
+      "canonical_path": "/zh/articles/math-not-good-computer-ai-major-course-riasec-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 8,
+      "locale": "zh",
+      "slug": "mbti-basics",
+      "canonical_path": "/zh/articles/mbti-basics",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 60,
+      "locale": "zh",
+      "slug": "mbti-full-report-career-relationship-communication",
+      "canonical_path": "/zh/articles/mbti-full-report-career-relationship-communication",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 9,
+      "locale": "zh",
+      "slug": "mbti-growth-guide",
+      "canonical_path": "/zh/articles/mbti-growth-guide",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 10,
+      "locale": "zh",
+      "slug": "mbti-narrative-portrait",
+      "canonical_path": "/zh/articles/mbti-narrative-portrait",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 33,
+      "locale": "zh",
+      "slug": "mbti-personality-test-science-vs-pseudoscience",
+      "canonical_path": "/zh/articles/mbti-personality-test-science-vs-pseudoscience",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 37,
+      "locale": "zh",
+      "slug": "mbti-vs-holland-career-choice",
+      "canonical_path": "/zh/articles/mbti-vs-holland-career-choice",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 175,
+      "locale": "zh",
+      "slug": "ocean-traits-what-the-five-letters-mean",
+      "canonical_path": "/zh/articles/ocean-traits-what-the-five-letters-mean",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 176,
+      "locale": "zh",
+      "slug": "openness-and-creativity-related-not-the-same",
+      "canonical_path": "/zh/articles/openness-and-creativity-related-not-the-same",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 177,
+      "locale": "zh",
+      "slug": "personality-test-norms-percentiles-and-unknowns",
+      "canonical_path": "/zh/articles/personality-test-norms-percentiles-and-unknowns",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 178,
+      "locale": "zh",
+      "slug": "procrastination-is-not-a-big-five-personality-label",
+      "canonical_path": "/zh/articles/procrastination-is-not-a-big-five-personality-label",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 179,
+      "locale": "zh",
+      "slug": "reliability-and-validity-in-personality-tests-explained",
+      "canonical_path": "/zh/articles/reliability-and-validity-in-personality-tests-explained",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 40,
+      "locale": "zh",
+      "slug": "riasec-holland-career-interest-test-explained",
+      "canonical_path": "/zh/articles/riasec-holland-career-interest-test-explained",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 180,
+      "locale": "zh",
+      "slug": "stress-recovery-log-separate-patterns-from-traits",
+      "canonical_path": "/zh/articles/stress-recovery-log-separate-patterns-from-traits",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 181,
+      "locale": "zh",
+      "slug": "track-personality-related-behavior-without-chasing-scores",
+      "canonical_path": "/zh/articles/track-personality-related-behavior-without-chasing-scores",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 70,
+      "locale": "zh",
+      "slug": "unwanted-major-adjustment-riasec-transfer-plan",
+      "canonical_path": "/zh/articles/unwanted-major-adjustment-riasec-transfer-plan",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 74,
+      "locale": "zh",
+      "slug": "unwanted-major-repeat-or-stay-riasec-decision-checklist",
+      "canonical_path": "/zh/articles/unwanted-major-repeat-or-stay-riasec-decision-checklist",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 182,
+      "locale": "zh",
+      "slug": "using-big-five-and-mbti-together-without-equating-them",
+      "canonical_path": "/zh/articles/using-big-five-and-mbti-together-without-equating-them",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 183,
+      "locale": "zh",
+      "slug": "when-personality-content-is-not-enough-seek-professional-help",
+      "canonical_path": "/zh/articles/when-personality-content-is-not-enough-seek-professional-help",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 184,
+      "locale": "zh",
+      "slug": "when-to-retest-big-five-and-what-a-score-change-means",
+      "canonical_path": "/zh/articles/when-to-retest-big-five-and-what-a-score-change-means",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 16,
+      "locale": "zh",
+      "slug": "which-love-script-fits-you-best",
+      "canonical_path": "/zh/articles/which-love-script-fits-you-best",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    },
+    {
+      "article_id": 185,
+      "locale": "zh",
+      "slug": "why-big-five-is-not-a-personality-type-system",
+      "canonical_path": "/zh/articles/why-big-five-is-not-a-personality-type-system",
+      "attribution_status": "SAFE_EXACT_MAPPING",
+      "identity_lock": {
+        "article_id": true,
+        "expected_slug": true,
+        "locale": true,
+        "canonical_path": true,
+        "release_closeout_identity": true
+      },
+      "aggregate_table_available": true,
+      "article_to_test_clicks_28d": 0,
+      "test_starts_attributed_28d": 0,
+      "test_completes_attributed_28d": 0,
+      "result_ready_attributed_28d": "Unknown",
+      "gap": "result_ready has no article-safe aggregate dimension; qualified-complete contract remains unavailable"
+    }
+  ]
+}
