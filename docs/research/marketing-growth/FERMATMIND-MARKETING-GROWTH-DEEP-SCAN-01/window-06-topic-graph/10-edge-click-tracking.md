@@ -10,4 +10,6 @@ Required fields are `edge_id`, `locale`, `source_surface`, `target_surface`, `re
 
 Consent must already be granted when the activation occurs. Unknown or denied consent hard-stops dispatch, and no queued event is replayed later. The client suppresses the same `edge_id|source_surface|display_region|position_bucket|target_action` activation for 2 seconds, performs no retry, and creates no user, anonymous, session or event identifier. The exact backend `target_canonical` is the `href`; no tracking parameter is appended.
 
+The event relation allowlist is the merged G03/backend allowlist: `breadcrumb`, `learn_more`, `take_assessment`. Explicit cross-locale approval is a renderer eligibility gate, not an event field; source/target canonicals and `cross_locale_approved` remain absent from telemetry.
+
 No runtime callsite or consent change is included here, no telemetry is sent, and deployment is not claimed.

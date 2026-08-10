@@ -1,8 +1,17 @@
 {
   "schema_version": "fermatmind.public_topic_edge_renderer.proposal.v1",
-  "status": "PUBLIC_TOPIC_GRAPH_IMPLEMENTATION_READY_NOT_STARTED",
+  "status": "BACKEND_G03_ALIGNED_IMPLEMENTATION_READY_NOT_STARTED",
   "design_only": true,
   "authority": "consume fap-api public API only",
+  "backend_projection": {
+    "endpoint": "/api/v0.5/public-topic-edges?source_type={type}&source_id={id}&locale={locale}",
+    "schema_version": "public-topic-edges.v1",
+    "authority_version": "cms-public-topic-edge-authority.v1",
+    "source_canonical_readback_required": true,
+    "cross_locale_approval_field": "cross_locale_approved",
+    "authority_unavailable": "503 AUTHORITY_UNAVAILABLE with empty items",
+    "career_link_publication_gate": "CLOSED"
+  },
   "rendering": {
     "SSR_visible_HTML": true,
     "deterministic": "same validated payload yields byte-stable ordered anchor structure",
@@ -14,7 +23,7 @@
     "api_error": "explicitly unavailable/no module; never pretend success",
     "canonical_hreflang_metadata_unchanged": true,
     "tracking_parameters_excluded_from_canonical": true,
-    "locale_mismatch_fail_closed": true,
+    "locale_mismatch_fail_closed": "unless explicit backend cross_locale_approved=true and canonical/locale validation passes",
     "private_target_fail_closed": true,
     "career_gate": "do not render until current C06 passes"
   },
@@ -75,7 +84,7 @@
       "locale": ["en", "zh-CN"],
       "source_surface": ["article", "content_page", "personality_profile", "topic"],
       "target_surface": ["article", "content_page", "personality_profile", "topic"],
-      "relation_type": ["parent", "next_step", "related", "supporting_evidence", "take_assessment", "alternate_locale"],
+      "relation_type": ["breadcrumb", "learn_more", "take_assessment"],
       "display_region": ["public_topic_edges"],
       "position_bucket": ["first", "early", "middle", "late"],
       "target_action": ["open_public_edge"],
@@ -131,6 +140,7 @@
     "title": "PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges",
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01 merged",
+      "G03 authority alignment PR #3605 merged",
       "approved backend fixture",
       "approved Measurement M06 contract",
       "Career C06 for Career rendering",

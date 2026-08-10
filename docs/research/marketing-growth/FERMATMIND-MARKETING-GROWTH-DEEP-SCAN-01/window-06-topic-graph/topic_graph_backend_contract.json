@@ -1,110 +1,67 @@
 {
-  "schema_version": "fermatmind.public_topic_edge_contract.proposal.v1",
-  "status": "G03_GOVERNED_INPUT_READY_BACKEND_IMPLEMENTATION_NOT_STARTED",
+  "schema_version": "fermatmind.public_topic_edge_contract.v1",
+  "status": "BACKEND_G03_ALIGNMENT_MERGED_NO_PRODUCTION_IMPORT",
   "authority": "fap-api CMS/backend only",
-  "design_only": true,
+  "design_only": false,
+  "implementation_evidence": {
+    "initial_contract_pr": 3594,
+    "initial_contract_merge_commit": "663cd88ded47bc84b4393c2060140c21fa14b6a1",
+    "g03_alignment_pr": 3605,
+    "g03_alignment_merge_commit": "2a2f01c0c17d2ec6e4b5c28cd4ae5fe26df9207d",
+    "g03_source_merge_commit": "5466522801be6f71d01f0af96a495a84bddd059f",
+    "production_imported": false,
+    "production_migration_applied": false
+  },
+  "identity": {
+    "source_type": ["article", "content_page", "personality_profile", "topic"],
+    "source_id": "required positive backend model id",
+    "source_locale": ["en", "zh-CN"],
+    "source_canonical": "required exact current backend canonical",
+    "relation_type": ["breadcrumb", "learn_more", "take_assessment"],
+    "target_type": ["article", "content_page", "personality_profile", "topic"],
+    "target_id": "required positive backend model id",
+    "target_locale": ["en", "zh-CN"],
+    "cross_locale_approved": "required boolean; locale mismatch fails closed unless true"
+  },
+  "public_projection": {
+    "endpoint": "/api/v0.5/public-topic-edges?source_type={type}&source_id={id}&locale={locale}",
+    "schema_version": "public-topic-edges.v1",
+    "authority_version": "cms-public-topic-edge-authority.v1",
+    "ordering": ["position asc", "relation_type asc", "target_type asc", "target_id asc", "target_locale asc", "id asc"],
+    "empty": "200 with empty items and explicit authority/readback metadata",
+    "unavailable": "503 with authority.reason=AUTHORITY_UNAVAILABLE and empty items",
+    "frontend_fallback_allowed": false,
+    "target_truth_readback": "live",
+    "career_link_publication_gate": "CLOSED"
+  },
+  "eligibility": [
+    "exact source and target backend existence",
+    "current public and indexable source and target",
+    "exact stored/live source canonical equality",
+    "exact stored/live target canonical equality",
+    "active and publication_allowed",
+    "approved review state with evidence and version",
+    "current validity window",
+    "target_publication_eligible",
+    "owned public canonical outside private paths",
+    "explicit cross-locale approval for locale mismatch",
+    "Career source and target excluded before current C06 PASS"
+  ],
   "g03_governed_input": {
-    "source": "public_edge_registry.csv",
-    "summary": "g03_governed_review.json",
+    "owner_rows": 422,
+    "edge_rows": 4805,
     "approved_non_career_candidates": 3268,
     "held_non_career_candidates": 1255,
     "career_blocked_candidates": 282,
-    "production_imported": false,
-    "authority_claimed": false
-  },
-  "identity": {
-    "source_type": "required allowlisted enum",
-    "source_id": "required stable entity identity; prefer translation_group_uuid",
-    "source_locale": "required en|zh-CN",
-    "relation_type": [
-      "parent",
-      "child",
-      "breadcrumb",
-      "sibling",
-      "compare",
-      "related_article",
-      "related_personality",
-      "related_career",
-      "take_assessment",
-      "learn_more",
-      "prerequisite",
-      "deeper_method"
-    ],
-    "target_type": "required allowlisted enum",
-    "target_id": "required stable entity identity",
-    "target_locale": "required en|zh-CN"
-  },
-  "fields": {
-    "visible_label": "required localized approved label",
-    "context": "optional plain-text context with claim guard",
-    "position": "required nonnegative stable integer",
-    "active": "required boolean",
-    "review_state": [
-      "draft",
-      "review_needed",
-      "approved",
-      "hold",
-      "rejected"
-    ],
-    "evidence_refs": "required list for approval-sensitive edges",
-    "version": "immutable optimistic-lock identity",
-    "valid_from": "optional UTC timestamp",
-    "valid_until": "optional UTC timestamp",
-    "created_by_identity": "auditable backend identity, never public PII",
-    "updated_by_identity": "auditable backend identity, never public PII",
-    "target_publication_eligibility": "required resolved backend truth",
-    "target_canonical": "required owned public canonical",
-    "public_api_projection": "only approved active currently eligible edges"
-  },
-  "backend_responsibilities": [
-    "source and target existence",
-    "locale consistency",
-    "relation allowlist",
-    "private target rejection",
-    "publication eligibility",
-    "indexability constraints",
-    "canonical target resolution",
-    "stable ordering",
-    "deduplication",
-    "invalid edge fail closed",
-    "stale target suppression",
-    "cache invalidation",
-    "readback",
-    "audit/version identity",
-    "Career C06 gate",
-    "public API contract tests"
-  ],
-  "public_projection": {
-    "endpoint_proposal": "/api/v0.5/public-topic-edges?source_type={type}&source_id={id}&locale={locale}",
-    "ordering": [
-      "position asc",
-      "relation_type asc",
-      "target_type asc",
-      "target_id asc"
-    ],
-    "empty": "200 with empty items and explicit authority/readback metadata",
-    "unavailable": "5xx or explicit unavailable state; never local editorial fallback",
-    "career_gate": "omit every Career source/target until current C06 truth passes"
+    "neutral_global_home_cross_locale_candidates": 102,
+    "authority_claimed_by_fixture": false,
+    "production_imported": false
   },
   "forbidden": [
     "slug inference",
     "file-exists publication inference",
-    "strict=false private acceptance",
-    "frontend completion of missing content",
-    "local editorial fallback on API failure",
-    "schema/llms/sitemap as edge proof"
-  ],
-  "implementation_pr": {
-    "id": "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01",
-    "repo": "fap-api",
-    "title": "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01: expose CMS-authoritative public topic edges",
-    "depends_on": [
-      "G03 governed edge registry",
-      "A01",
-      "P03-P05",
-      "R04",
-      "C06 before Career activation",
-      "Program Controller manifest registration"
-    ]
-  }
+    "frontend completion or local editorial fallback",
+    "crawler/schema/sitemap/llms observations as edge proof",
+    "Career activation before current C06 PASS"
+  ]
 }

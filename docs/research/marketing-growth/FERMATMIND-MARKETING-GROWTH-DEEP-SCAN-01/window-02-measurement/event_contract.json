@@ -30,6 +30,7 @@
   },
   "destination_policy": {
     "href": "exact backend-approved target_canonical",
+    "cross_locale_requires_backend_approval": true,
     "tracking_parameters_in_href": false,
     "tracking_parameters_in_canonical_identity": false,
     "slug_or_url_inference": false
@@ -38,7 +39,7 @@
     "locale": ["en", "zh-CN"],
     "source_surface": ["article", "content_page", "personality_profile", "topic"],
     "target_surface": ["article", "content_page", "personality_profile", "topic"],
-    "relation_type": ["parent", "next_step", "related", "supporting_evidence", "take_assessment", "alternate_locale"],
+    "relation_type": ["breadcrumb", "learn_more", "take_assessment"],
     "display_region": ["public_topic_edges"],
     "position_bucket": ["first", "early", "middle", "late"],
     "target_action": ["open_public_edge"],
