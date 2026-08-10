@@ -55612,7 +55612,7 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2031",
     "checks": {
@@ -57844,8 +57844,8 @@
         "evidence": "Ruby CSV/JSON/YAML validation passed for exact 40-column header, 10-row definition set, timestamps, HTTP/semantic outcomes, UTF-8/formula safety, private-route guard, SHA binding, interval arithmetic, sidecar status, and the exact 10-path allowlist. Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. git diff --check passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #2031 opened; required checks are pending inspection."
+        "status": "pass",
+        "evidence": "PR #2031 head 4ad88ffc0f9127dad37b08263337e9054b7b2bc5 passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
       }
     },
     "failure_reason": "Waiting for PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01 to merge.",
@@ -58113,9 +58113,9 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
-      "github_checks_green": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -58155,12 +58155,18 @@
         "from": "committed",
         "to": "github_checks_pending",
         "note": "Opened PR #2031 at head 1dc42039028a402b631cb90c99fed062a2599962. Required GitHub checks are pending."
+      },
+      {
+        "at": "2026-08-10T06:47:22Z",
+        "from": "github_checks_pending",
+        "to": "ready_to_merge",
+        "note": "All required checks passed and the exact 10-path evidence scope was revalidated against origin/main. PR #2031 is CLEAN and MERGEABLE with no review block."
       }
     ],
     "sidecar_issues": [
       "window7-l1-interval-baseline-incomplete-20260810"
     ],
-    "updated_at": "2026-08-10T06:40:50Z"
+    "updated_at": "2026-08-10T06:47:22Z"
   },
   "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
     "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
