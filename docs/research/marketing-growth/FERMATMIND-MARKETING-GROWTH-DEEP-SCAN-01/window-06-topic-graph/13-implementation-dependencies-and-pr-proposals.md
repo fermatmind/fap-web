@@ -4,7 +4,7 @@
 
 Repo: fap-api
 Title: `PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01: expose CMS-authoritative public topic edges`
-Depends: G03 governed registry, A01, P03–P05, R04, C06 before Career activation, Program Controller registration.
+Depends: completed G03 governed registry, A01, P03–P05, R04; C06 remains required only before any later Career activation; fap-api Program Controller registration is next.
 Likely scope: edge model/existing relation extension, public API resource/service, validation/publication gate, cache/readback, focused contracts, repository rule impact.
 Checks: focused PHP contracts, route list, scoped Pint, Composer validate/audit, JSON/YAML, diff/scope.
 
@@ -20,7 +20,7 @@ Proposed manifest entry (not applied):
   merge_policy: {github_checks_required: true, squash: true}
 ```
 
-Proposed fap-api state entry (not applied here): `status: pending_dependency`, all SHAs/PR URL/merge facts null or false; unresolved dependencies are G03 governed review and fap-api Program Controller registration. M06 approval is complete. Career remains explicitly excluded from phase one until C06 passes. A01, P03–P05 and R04 are completed inputs and must not appear in the failure reason.
+Proposed fap-api state entry (not applied here): initial `status: user_authorized`, all SHAs/PR URL/merge facts null or false. G03 and M06 are complete. Phase one must reject Career independently of database contents until C06 passes. A01, P03–P05 and R04 are completed inputs and must not appear in the failure reason.
 
 ## PUBLIC-TOPIC-GRAPH-RENDERER-01
 
@@ -46,4 +46,4 @@ Proposed state entry (not applied): `status: pending_dependency`; Career renderi
 
 The fap-web Program Controller entries are now registered. This contract PR reconciles the merged audit dependency and closes M06 approval only; it does not start the renderer.
 
-Handoff status: M06 contract approval is complete and not deployed. Backend implementation must remain non-Career until C06 passes; renderer work remains gated on the backend Authority and its own later PR lifecycle.
+Handoff status: G03 and M06 are complete and not deployed. Register and execute the fap-api Authority contract next, with Career rejected in service and contract tests; renderer work remains a later PR lifecycle.

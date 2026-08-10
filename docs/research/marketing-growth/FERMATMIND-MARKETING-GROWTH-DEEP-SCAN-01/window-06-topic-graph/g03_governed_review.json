@@ -1,0 +1,46 @@
+{
+  "schema_version": "fermatmind.public_topic_graph.g03_governed_review.v1",
+  "task_id": "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01",
+  "reviewed_at": "2026-08-10T07:12:00Z",
+  "status": "PASS_GOVERNED_CANDIDATES_NOT_AUTHORITY_NOT_PUBLISHED",
+  "inputs": {
+    "query_owner_parent_next_step_input_sha256": "64ce081c419264920b5728ae8f3a39d619ef1cbcba61e89f0afdead949901791",
+    "public_edge_registry_input_sha256": "c18ddfafb70965c3c4879c4c02ed8b2900e6ee58bee6ef4c08fe7e598f0f4113",
+    "public_corpus_sha256": "0c7feda64a50e1aafdc92bc079663949c7f08333bde20229f31477d2f0af1c97",
+    "window5_m01_owner_sha256": "e0bcefb05c767a28fff4af041767329b3fc896849b2bbf9a2e266c3842b491f6"
+  },
+  "policy": {
+    "relation_allowlist": [
+      "breadcrumb",
+      "learn_more",
+      "take_assessment"
+    ],
+    "cross_locale_approval": "Only the locale-neutral global homepage may connect to or from an explicit localized public canonical.",
+    "owner_alignment": "Accepted governed owner canonicals or allowlisted structural-neutral surfaces; no query owner is inferred.",
+    "career": "Any Career source or target is BLOCKED_WAITING_ON_C06.",
+    "activation": false,
+    "publication": false,
+    "authority_claimed": false
+  },
+  "owner_rows": {
+    "total": 422,
+    "states": {
+      "BLOCKED_WAITING_ON_C06": 4,
+      "GOVERNED_OWNER_ACCEPTED": 376,
+      "GOVERNED_OWNER_ACCEPTED_PRIVATE_NEXT_STEP_EXCLUDED": 26,
+      "HOLD_NEXT_STEP_UNRESOLVED": 2,
+      "HOLD_OWNER_CANONICAL_UNRESOLVED": 14
+    }
+  },
+  "edge_rows": {
+    "total": 4805,
+    "states": {
+      "APPROVED_FOR_BACKEND_CANDIDATE": 3268,
+      "BLOCKED_WAITING_ON_C06": 282,
+      "HOLD_SELF_OR_DUPLICATE_EDGE": 382,
+      "HOLD_SOURCE_OWNER_UNGOVERNED": 708,
+      "HOLD_TARGET_OWNER_UNGOVERNED": 165
+    },
+    "neutral_global_home_cross_locale_approvals": 102
+  }
+}

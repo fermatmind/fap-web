@@ -57882,7 +57882,7 @@
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
       "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
     ],
-    "status": "user_authorized",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "checks": {},
@@ -57895,6 +57895,11 @@
         "at": "2026-08-10T07:12:00Z",
         "status": "user_authorized",
         "summary": "Registered the exact operator-authorized G03 scope after PR #2036 merged. Only Window 6 and Program Controller files are allowed; Career remains fail-closed on C06."
+      },
+      {
+        "at": "2026-08-10T07:16:00Z",
+        "status": "in_progress",
+        "summary": "Started deterministic review of all 422 owners and 4,805 candidate edges against the public-canonical, relation, locale, identity, label, owner, eligibility and Career gates."
       }
     ]
   },

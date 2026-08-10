@@ -1,8 +1,17 @@
 {
   "schema_version": "fermatmind.public_topic_edge_contract.proposal.v1",
-  "status": "PUBLIC_TOPIC_GRAPH_IMPLEMENTATION_READY_NOT_STARTED",
+  "status": "G03_GOVERNED_INPUT_READY_BACKEND_IMPLEMENTATION_NOT_STARTED",
   "authority": "fap-api CMS/backend only",
   "design_only": true,
+  "g03_governed_input": {
+    "source": "public_edge_registry.csv",
+    "summary": "g03_governed_review.json",
+    "approved_non_career_candidates": 3268,
+    "held_non_career_candidates": 1255,
+    "career_blocked_candidates": 282,
+    "production_imported": false,
+    "authority_claimed": false
+  },
   "identity": {
     "source_type": "required allowlisted enum",
     "source_id": "required stable entity identity; prefer translation_group_uuid",
