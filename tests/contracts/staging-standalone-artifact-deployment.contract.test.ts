@@ -32,6 +32,9 @@ describe("staging standalone artifact deployment boundary", () => {
     expect(installer).not.toContain("pnpm install");
     expect(installer).not.toContain("npm install");
     expect(installer).not.toContain("next build");
+    expect(installer).toContain('RELEASES_TO_KEEP="${RELEASES_TO_KEEP:-3}"');
+    expect(installer).toContain("cleanup_release_history");
+    expect(installer).toContain("cleanup_transport_history");
   });
 
   it("writes a secret-free success receipt binding source and content digests", () => {
@@ -97,6 +100,20 @@ describe("staging standalone artifact deployment boundary", () => {
       expect(success.status, `${success.stdout}\n${success.stderr}`).toBe(0);
       expect(fs.lstatSync(path.join(appDir, ".next/standalone")).isSymbolicLink()).toBe(true);
       expect(fs.readFileSync(path.join(appDir, ".next/standalone/REVISION"), "utf8")).toBe(`${sha}\n`);
+
+      for (let index = 0; index < 4; index += 1) {
+        const oldRelease = path.join(appDir, "releases", `old-${index}`);
+        fs.mkdirSync(oldRelease);
+      }
+      const secondSuccess = spawnSync("bash", ["scripts/install_standalone_release.sh"], {
+        encoding: "utf8",
+        env: baseEnv,
+      });
+      expect(secondSuccess.status, `${secondSuccess.stdout}\n${secondSuccess.stderr}`).toBe(0);
+      const retainedReleases = fs
+        .readdirSync(path.join(appDir, "releases"), { withFileTypes: true })
+        .filter((entry) => entry.isDirectory() && !entry.name.startsWith(".incoming."));
+      expect(retainedReleases.length).toBeLessThanOrEqual(3);
 
       const untouchedApp = path.join(root, "untouched");
       fs.mkdirSync(untouchedApp);

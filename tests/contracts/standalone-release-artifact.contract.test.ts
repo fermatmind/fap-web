@@ -118,7 +118,7 @@ describe("immutable standalone release artifact", () => {
     fs.writeFileSync(path.join(artifact, "unexpected.txt"), "not covered\n");
     const uncovered = verifyArtifact(artifact);
     expect(uncovered.status).not.toBe(0);
-    expect(uncovered.stderr).toContain("protected path set does not match");
+    expect(uncovered.stderr).toContain("non-runtime standalone content is not permitted");
   });
 
   it("fails closed on requested revision or build-configuration incompatibility", () => {
@@ -170,6 +170,34 @@ describe("immutable standalone release artifact", () => {
 
     expect(result.status).not.toBe(0);
     expect(result.stderr).toContain("forbidden secret or private configuration files");
+  });
+
+  it("rejects repository-only skills, docs, and tests from the runtime artifact", () => {
+    for (const forbiddenPath of [".agents/SKILL.md", "docs/runbook.md", "tests/fixture.ts"]) {
+      const root = tempDirectory();
+      const source = createStandalone(root);
+      const target = path.join(source, forbiddenPath);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, "repository-only\n");
+
+      const result = spawnSync(
+        process.execPath,
+        [
+          SCRIPT,
+          "package",
+          `--source=${source}`,
+          `--output=${path.join(root, "artifact")}`,
+          `--git-sha=${SHA}`,
+          "--build-timestamp=2026-07-29T01:02:03Z",
+          "--workflow-run-id=12345",
+          "--workflow-run-attempt=1",
+        ],
+        { env: BUILD_ENV, encoding: "utf8" },
+      );
+
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain("non-runtime standalone content is not permitted");
+    }
   });
 
   it("keeps the CI release candidate on one build and outside deploy workflows", () => {

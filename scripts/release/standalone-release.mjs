@@ -22,6 +22,15 @@ const MANIFEST_FILE = "RELEASE_MANIFEST.json";
 const REVISION_FILE = "REVISION";
 const REVISION_METADATA_FILE = "REVISION_METADATA.json";
 const SHA_PATTERN = /^[0-9a-f]{40}$/;
+const RUNTIME_DIRECTORY_ALLOWLIST = new Set([".next", "generated", "node_modules", "public"]);
+const RUNTIME_FILE_ALLOWLIST = new Set([
+  CHECKSUM_FILE,
+  MANIFEST_FILE,
+  REVISION_FILE,
+  REVISION_METADATA_FILE,
+  "package.json",
+  "server.js",
+]);
 const BUILD_CONFIG_KEYS = [
   "NEXT_PUBLIC_ACCEPT_LEGACY_SCALE_CODE",
   "NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS",
@@ -155,6 +164,18 @@ function assertNoSensitiveFiles(entries) {
   }
 }
 
+function assertRuntimeAllowlist(entries) {
+  const forbidden = entries
+    .map((entry) => entry.path)
+    .filter((entryPath) => {
+      const [root] = entryPath.split("/");
+      return !RUNTIME_DIRECTORY_ALLOWLIST.has(root) && !RUNTIME_FILE_ALLOWLIST.has(entryPath);
+    });
+  if (forbidden.length > 0) {
+    fail(`non-runtime standalone content is not permitted: ${forbidden.join(", ")}`);
+  }
+}
+
 function buildConfigSnapshot(env) {
   const values = BUILD_CONFIG_KEYS.map((name) => `${name}=${env[name] ?? ""}`).join("\n");
   return {
@@ -263,6 +284,7 @@ function packageRelease(options) {
 
   const sourceEntries = walk(source);
   assertNoSensitiveFiles(sourceEntries);
+  assertRuntimeAllowlist(sourceEntries);
   assertReleaseShape(sourceEntries);
 
   rmSync(output, { recursive: true, force: true });
@@ -302,6 +324,7 @@ function packageRelease(options) {
 
   const finalEntries = walk(output).filter((entry) => entry.path !== CHECKSUM_FILE);
   assertNoSensitiveFiles(finalEntries);
+  assertRuntimeAllowlist(finalEntries);
   const checksums = finalEntries
     .sort((left, right) => (left.path < right.path ? -1 : left.path > right.path ? 1 : 0))
     .map((entry) => `${digestEntry(entry)}  ${entry.path}`)
@@ -324,6 +347,7 @@ function verifyRelease(options) {
   const artifact = path.resolve(requireOption(options, "artifact"));
   const entries = walk(artifact);
   assertNoSensitiveFiles(entries);
+  assertRuntimeAllowlist(entries);
   assertReleaseShape(entries);
 
   const entryByPath = new Map(entries.map((entry) => [entry.path, entry]));
