@@ -57753,8 +57753,8 @@
     "base": "main",
     "branch": "codex/public-topic-graph-audit-closeout-01",
     "depends_on": [],
-    "status": "pr_open_pending_github_checks",
-    "commit_sha": "2a9b92b18670ab4dbcc6dedbc2ece9683b8d0d9a",
+    "status": "ready_to_merge",
+    "commit_sha": "6d26a80c437ddb5b781dc7f9cfb029dc926b1b88",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2024",
     "checks": {
       "artifact_inventory": {
@@ -57776,6 +57776,10 @@
       "manifest_state_parse": {
         "status": "passed",
         "evidence": "PR train YAML and state JSON parse successfully."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #2024 head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88 passed build, all contract shards and aggregation, both contract freezes, CodeQL analysis, and no-new-code-scanning-alerts; merge state CLEAN."
       }
     },
     "failure_reason": null,
@@ -57802,6 +57806,11 @@
         "at": "2026-08-10T05:30:00Z",
         "status": "pr_open_pending_github_checks",
         "summary": "Pushed the scoped branch and opened PR #2024; waiting for all required GitHub checks."
+      },
+      {
+        "at": "2026-08-10T05:42:27Z",
+        "status": "ready_to_merge",
+        "summary": "All required checks passed on head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88; GitHub reports CLEAN and exact scope revalidation passed."
       }
     ]
   },
