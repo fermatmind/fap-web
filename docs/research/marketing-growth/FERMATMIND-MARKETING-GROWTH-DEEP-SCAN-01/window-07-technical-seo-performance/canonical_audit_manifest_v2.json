@@ -1,0 +1,74 @@
+{
+  "schema_version": "canonical.audit.v2",
+  "task_id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
+  "captured_at_start": "2026-08-10T06:57:16.000Z",
+  "captured_at_end": "2026-08-10T06:58:14.796Z",
+  "timezone": "Asia/Shanghai",
+  "source_base_commit": "f0b43145df0e002f00d2716c52cbcdf00180dca6",
+  "runtime_revision": "UNKNOWN_NOT_EXPOSED",
+  "browser_tool": "@playwright/cli Chromium",
+  "source_v1_artifact": "attribution_canonical_samples.csv",
+  "source_v1_artifact_sha256": "fe0483233ab97ef3b9526ad2157675a8267a085a56ffe7a1f715f2dca3676de8",
+  "source_v1_manifest": "canonical_audit_manifest.json",
+  "source_v1_manifest_sha256": "bfb123ac89aa012b23ad297944df054dd28f0bdf1e20b7074eef2b772157ba5b",
+  "v2_artifact": "attribution_canonical_samples_v2.csv",
+  "v2_artifact_sha256": "7ff32b93643a8377ba7bd9f4aee57e545327ce801f43852503c3c1ef8410842b",
+  "protocol": {
+    "sample_count": 20,
+    "synthetic_value": "technical_audit",
+    "concurrency": 1,
+    "hydrated_observation_ms": 1000,
+    "mobile_viewport": "390x844",
+    "desktop_viewport": "1440x960",
+    "internal_link_pass_definition": "No exact synthetic parameter is propagated to a private route or an unexpected cross-document non-CTA link. Same-document fragment retention is counted separately; intended public test CTA propagation is counted separately.",
+    "shared_proxy_cache_pass_definition": "Cache-Control is private and no-cache or no-store, and X-Proxy-Cache is BYPASS.",
+    "cta_live_pass_definition": "For an approved attribution parameter, at least one hydrated public test CTA candidate retains the exact synthetic value. Candidate-only ref/source parameters remain UNKNOWN.",
+    "private_boundary": "No click, answer, submit, result, attempt, order, payment, user identifier or private token was used."
+  },
+  "approved_attribution_contract_params": [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_term",
+    "utm_content",
+    "gclid",
+    "msclkid",
+    "fbclid"
+  ],
+  "candidate_only_params": [
+    "ref",
+    "source"
+  ],
+  "summary": {
+    "http_200": 20,
+    "canonical_pass": 20,
+    "internal_link_pass": 20,
+    "unexpected_cross_document_parameter_links": 0,
+    "private_parameter_links": 0,
+    "samples_with_same_document_fragment_retention": 5,
+    "shared_proxy_cache_pass": 20,
+    "cache_key_composition_unknown": 20,
+    "cta_contract_pass": 16,
+    "cta_contract_unknown": 4,
+    "cta_live_propagation_pass": 8,
+    "cta_live_propagation_fail": 8,
+    "cta_live_propagation_unknown": 4,
+    "overall_pass": 8,
+    "overall_fail": 8,
+    "overall_unknown": 4,
+    "status": "EVIDENCE_COMPLETE_WITH_CTA_PROPAGATION_GAPS"
+  },
+  "repository_contract_evidence": {
+    "source": "lib/tracking/attribution.ts and lib/tracking/seoCtaAttribution.ts at source_base_commit",
+    "approved_query_key_count": 8,
+    "ref_source_in_contract": false,
+    "exact_live_runtime_source_match": "UNKNOWN_NOT_EXPOSED"
+  },
+  "decision": "Canonical, unexpected cross-document internal-link propagation, private-link propagation and shared-proxy cache boundaries pass for all 20 samples. Live CTA propagation passes on test landings and sampled articles, fails on sampled homepage, Tests Hub and personality contexts, and remains unknown for ref/source. The runtime gap is sidecar work and no runtime repair is included here.",
+  "limitations": [
+    "The upstream/application cache-key composition is not exposed; only the shared public proxy bypass boundary is verified.",
+    "GSC URL Inspection and historical parameter-index state remain unavailable.",
+    "The live runtime did not expose an exact application revision, so repository contract evidence and live observations are not claimed as exact-SHA identity.",
+    "Selector and output calibration preceded the frozen two-batch retained protocol; only the 20 V2 rows are used for the verdict."
+  ]
+}
