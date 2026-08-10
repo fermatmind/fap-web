@@ -8,6 +8,12 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - Never “fix future PRs” inside the current PR.
 - Stop immediately if changed files drift outside the declared scope and `stop_if_changed_files_outside_scope` is true.
 
+## Local heavy-validation lease
+- Before meaningful local validation, run `fermatmind-task-status` when it is available.
+- Run `pnpm test:contract`, `pnpm build`, `composer test`, unfiltered `php artisan test`, `ci_verify_mbti.sh`, and `verify_mbti.sh` only through `fermatmind-heavy-guard run --task <name> --repo <path> -- <command>`.
+- The lease is machine-wide across `fap-web` and `fap-api`. Exit status `75` means another window owns the heavy slot; run focused checks or wait. Never delete an active lease or kill its process.
+- Lint, typecheck, formatting, and focused Vitest/PHPUnit tests remain parallel-safe and do not require the lease.
+
 ## Goal execution standing authorization
 - FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR/ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
 - A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.

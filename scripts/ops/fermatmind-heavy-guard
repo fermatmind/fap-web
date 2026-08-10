@@ -1,0 +1,231 @@
+#!/usr/bin/env bash
+
+set -uo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  fermatmind-heavy-guard status
+  fermatmind-heavy-guard check
+  fermatmind-heavy-guard run --task <name> [--repo <path>] -- <command> [args...]
+
+Exit 75 means another FermatMind heavy validation owns the machine-wide lease.
+EOF
+}
+
+lock_root="${FERMATMIND_HEAVY_LOCK_ROOT:-${HOME}/.cache/fermatmind}"
+lock_dir="${FERMATMIND_HEAVY_LOCK_DIR:-${lock_root}/heavy-validation.lock}"
+owner_pid_file="${lock_dir}/pid"
+owner_token_file="${lock_dir}/token"
+owner_metadata_file="${lock_dir}/metadata"
+owns_lock=0
+owner_token=""
+
+read_owner_pid() {
+  local pid=""
+
+  [[ -f "$owner_pid_file" ]] || return 1
+  IFS= read -r pid < "$owner_pid_file" || return 1
+  [[ "$pid" =~ ^[0-9]+$ ]] || return 1
+  printf '%s\n' "$pid"
+}
+
+lock_is_live() {
+  local pid=""
+
+  pid="$(read_owner_pid)" || return 1
+  kill -0 "$pid" 2>/dev/null
+}
+
+print_status() {
+  local state="idle"
+
+  if [[ -L "$lock_dir" ]]; then
+    printf 'state=unsafe_symlink\nlock=%s\n' "$lock_dir"
+    return 2
+  fi
+
+  if [[ -d "$lock_dir" ]]; then
+    if lock_is_live; then
+      state="active"
+    else
+      state="stale"
+    fi
+  fi
+
+  printf 'state=%s\nlock=%s\n' "$state" "$lock_dir"
+  if [[ -f "$owner_metadata_file" ]]; then
+    cat "$owner_metadata_file"
+  fi
+
+  [[ "$state" != "active" ]]
+}
+
+clean_known_lock_files() {
+  local target="$1"
+
+  rm -f \
+    "${target}/pid" \
+    "${target}/token" \
+    "${target}/metadata"
+  rmdir "$target" 2>/dev/null
+}
+
+reclaim_stale_lock() {
+  local stale_dir="${lock_dir}.stale.$$.${RANDOM}"
+
+  [[ ! -L "$lock_dir" ]] || {
+    printf 'Refusing unsafe lock symlink: %s\n' "$lock_dir" >&2
+    return 2
+  }
+
+  mv "$lock_dir" "$stale_dir" 2>/dev/null || return 1
+  if ! clean_known_lock_files "$stale_dir"; then
+    printf 'Refusing stale lock with unexpected files: %s\n' "$stale_dir" >&2
+    return 2
+  fi
+}
+
+release_lock() {
+  local recorded_pid="" recorded_token=""
+
+  [[ "$owns_lock" -eq 1 ]] || return 0
+  recorded_pid="$(read_owner_pid 2>/dev/null || true)"
+  if [[ -f "$owner_token_file" ]]; then
+    IFS= read -r recorded_token < "$owner_token_file" || true
+  fi
+
+  if [[ "$recorded_pid" == "$$" && "$recorded_token" == "$owner_token" ]]; then
+    clean_known_lock_files "$lock_dir" || {
+      printf 'Lease cleanup needs attention: %s\n' "$lock_dir" >&2
+      return 1
+    }
+  fi
+  owns_lock=0
+}
+
+acquire_lock() {
+  local task="$1" repo="$2" command_text="$3"
+  local reclaim_status=0
+
+  mkdir -p "$lock_root"
+
+  while ! mkdir "$lock_dir" 2>/dev/null; do
+    if [[ -L "$lock_dir" ]]; then
+      printf 'Refusing unsafe lock symlink: %s\n' "$lock_dir" >&2
+      return 2
+    fi
+    if lock_is_live; then
+      printf 'Another FermatMind heavy validation is active.\n' >&2
+      print_status >&2 || true
+      return 75
+    fi
+    reclaim_stale_lock
+    reclaim_status=$?
+    if [[ "$reclaim_status" -eq 1 ]]; then
+      continue
+    fi
+    [[ "$reclaim_status" -eq 0 ]] || return "$reclaim_status"
+  done
+
+  owns_lock=1
+  owner_token="$$.$(date +%s).${RANDOM}"
+  printf '%s\n' "$$" > "$owner_pid_file"
+  printf '%s\n' "$owner_token" > "$owner_token_file"
+  {
+    printf 'pid=%s\n' "$$"
+    printf 'task=%s\n' "$task"
+    printf 'repo=%s\n' "$repo"
+    printf 'started_at=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    printf 'command=%s\n' "$command_text"
+  } > "$owner_metadata_file"
+}
+
+find_unguarded_heavy_processes() {
+  ps -axo pid=,etime=,command= | awk -v self="$$" -v parent="$PPID" '
+    {
+      pid=$1
+      if (pid == self || pid == parent) next
+      if ($0 ~ /fermatmind-heavy-guard/ || $0 ~ /awk /) next
+      if ($0 ~ /pnpm (run )?(test:contract|build)( |$)/ ||
+          $0 ~ /composer (run )?test( |$)/ ||
+          $0 ~ /php artisan test([[:space:]]+--parallel)?[[:space:]]*$/ ||
+          $0 ~ /(ci_verify_mbti|verify_mbti)\.sh( |$)/ ||
+          $0 ~ /(^|\/)next build( |$)/) print
+    }
+  '
+}
+
+command_name="${1:-}"
+case "$command_name" in
+  status)
+    print_status
+    ;;
+  check)
+    if ! print_status; then
+      exit 75
+    fi
+    ;;
+  run)
+    shift
+    task=""
+    repo="$(pwd -P)"
+    while [[ $# -gt 0 ]]; do
+      case "$1" in
+        --task)
+          [[ $# -ge 2 ]] || { usage >&2; exit 64; }
+          task="$2"
+          shift 2
+          ;;
+        --repo)
+          [[ $# -ge 2 ]] || { usage >&2; exit 64; }
+          repo="$2"
+          shift 2
+          ;;
+        --)
+          shift
+          break
+          ;;
+        *)
+          usage >&2
+          exit 64
+          ;;
+      esac
+    done
+
+    [[ -n "$task" && "$task" != *$'\n'* && $# -gt 0 ]] || {
+      usage >&2
+      exit 64
+    }
+    [[ -d "$repo" ]] || {
+      printf 'Repository path does not exist: %s\n' "$repo" >&2
+      exit 66
+    }
+    repo="$(cd "$repo" && pwd -P)"
+
+    command_text=""
+    printf -v command_text '%q ' "$@"
+    acquire_lock "$task" "$repo" "$command_text" || exit $?
+    trap release_lock EXIT
+    trap 'exit 129' HUP
+    trap 'exit 130' INT
+    trap 'exit 143' TERM
+
+    unguarded_processes="$(find_unguarded_heavy_processes)"
+    if [[ -n "$unguarded_processes" ]]; then
+      printf 'Refusing to overlap an unguarded FermatMind heavy process:\n%s\n' \
+        "$unguarded_processes" >&2
+      exit 75
+    fi
+
+    printf 'lease=acquired\ntask=%s\nrepo=%s\n' "$task" "$repo"
+    "$@"
+    ;;
+  -h|--help|help|'')
+    usage
+    ;;
+  *)
+    usage >&2
+    exit 64
+    ;;
+esac
