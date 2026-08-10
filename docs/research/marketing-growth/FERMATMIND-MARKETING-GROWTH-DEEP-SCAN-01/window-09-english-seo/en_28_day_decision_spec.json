@@ -1,0 +1,80 @@
+{
+  "artifact_kind": "english_pilot_28_day_decision_spec",
+  "status": "ENGLISH_PILOT_WAITING_28_DAY_WINDOW",
+  "clock_starts_after": [
+    "actual publication",
+    "live QA pass"
+  ],
+  "baseline": [
+    "pre-publication 28 days",
+    "publication date",
+    "indexability date",
+    "first sitemap appearance",
+    "first llms appearance",
+    "first GSC impression",
+    "measurement change",
+    "other-site releases",
+    "career recovery date"
+  ],
+  "checkpoints": {
+    "T+0": "live readback",
+    "T+3": "crawl/index early signal",
+    "T+7": "early diagnosis",
+    "T+14": "mid-window observation",
+    "T+28": "formal decision"
+  },
+  "metrics": [
+    "indexed pages",
+    "impressions",
+    "clicks",
+    "CTR",
+    "position",
+    "query count",
+    "US/UK/OTHER",
+    "device",
+    "branded/non-branded",
+    "article_to_test clicks",
+    "assessment starts",
+    "qualified completes",
+    "career_to_assessment clicks",
+    "field CWV",
+    "5xx/timeouts",
+    "locale defects",
+    "claim defects",
+    "cannibalization",
+    "backlinks/citations"
+  ],
+  "decisions": {
+    "EXPAND": [
+      "authority and live QA pass",
+      "no locale/claim/private leakage",
+      "technical stability",
+      "real non-brand demand",
+      "clear ownership",
+      "positive click/CTR or qualified-completion signal",
+      "no thin-page expansion",
+      "next cohort source-ready"
+    ],
+    "HOLD": [
+      "impressions but insufficient sample",
+      "direction unclear",
+      "recrawl incomplete",
+      "career/tracking confounder",
+      "field data insufficient"
+    ],
+    "REFRESH": [
+      "owner correct",
+      "specific snippet/content/CTA gap",
+      "authority and technical state healthy",
+      "enough query evidence"
+    ],
+    "STOP": [
+      "full 28 days and adequate crawl but no useful demand",
+      "material cannibalization",
+      "unsafe/unmaintainable claim risk",
+      "source cost exceeds value",
+      "no product or authority value"
+    ]
+  },
+  "safety_override": "Safety or legal defects may be withdrawn immediately; STOP otherwise means stop expansion, not automatic deletion."
+}

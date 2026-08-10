@@ -1,0 +1,145 @@
+{
+  "artifact_kind": "english_seo_pilot_source_manifest",
+  "captured_at": "2026-08-10T12:28:57+08:00",
+  "evidence_labels": [
+    "VERIFIED",
+    "INFERRED",
+    "UNKNOWN",
+    "HISTORICAL",
+    "CANDIDATE_ONLY",
+    "WAITING_ON_C06_C07"
+  ],
+  "sources": [
+    {
+      "id": "GSC_BASELINE",
+      "source": "/Users/rainie/Desktop/GitHub/fap-web/docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/growth_baseline.json",
+      "status": "VERIFIED",
+      "date_window": "2026-07-13/2026-08-09",
+      "limitation": "Aggregate export; no full query×page×country×device cube."
+    },
+    {
+      "id": "GSC_PAGE_TYPES",
+      "source": "/Users/rainie/Desktop/GitHub/fap-web/docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/page_type_performance.csv",
+      "status": "VERIFIED",
+      "date_window": "2026-07-13/2026-08-09",
+      "limitation": "Page-family aggregates only; country and device unavailable."
+    },
+    {
+      "id": "GSC_CLOSURE",
+      "source": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/03-gsc-evidence-closure.md",
+      "status": "VERIFIED",
+      "date_window": "2026-07-10/2026-08-06",
+      "limitation": "Country and device are separate aggregates, not a cross-dimensional export."
+    },
+    {
+      "id": "GSC_EXACT_HANDOFF",
+      "source": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/GSC_EXACT_EXPORT_HANDOFF.md",
+      "status": "VERIFIED",
+      "date_window": "2026-07-10/2026-08-06",
+      "limitation": "Records exact bulk query×page, country/device/search-appearance data as missing."
+    },
+    {
+      "id": "RIASEC_CATALOG_API",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/catalog?locale=en",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "Backend public API authority; not GSC performance."
+    },
+    {
+      "id": "RIASEC_LOOKUP_API",
+      "source": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=holland-career-interest-test-riasec&locale=en",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "Backend public API authority; live rendered mobile interactions not fully exercised."
+    },
+    {
+      "id": "ARTICLE_API",
+      "source": "https://api.fermatmind.com/api/v0.5/articles?locale=en&per_page=100",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "Public API state; V2 control receipt registration remains separate authority."
+    },
+    {
+      "id": "V2_MASTER",
+      "source": "docs/seo/generated/en-content-parity-control-master.v2.json",
+      "sha256": "cbf20fca977cd31fe9b0b3f64b591f6fd211aa934af502ff175aa33ac01cbbe5",
+      "status": "VERIFIED",
+      "limitation": "Only sitewide English parity control authority."
+    },
+    {
+      "id": "V2_INPUTS",
+      "source": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
+      "sha256": "7ccc5d311f4bb06af9bfa386c223c15c51dbba49482f6df8cc7be3d4e099217a",
+      "status": "VERIFIED",
+      "limitation": "Read-only input registration; no manual materialization performed."
+    },
+    {
+      "id": "W3_ARTICLE_LANE",
+      "source": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/lane_manifest.json",
+      "sha256": "7209590107d946822678550a06b980e4d1de35e0c9bbdfc21c0b6672ddccbd44",
+      "status": "VERIFIED",
+      "limitation": "Control state is dry_run_ready with empty promotion_receipts."
+    },
+    {
+      "id": "CAREER_CLOSURE",
+      "source": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/10-career-seo-boundary-validation.md",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "0 strong_index_ready; sample governance leakage blocks expansion."
+    },
+    {
+      "id": "CAREER_HISTORICAL_DEMAND",
+      "source": "/Users/rainie/Desktop/GitHub/fap-web/docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/career_growth_1046.csv",
+      "status": "HISTORICAL",
+      "limitation": "Historical 1046 inventory is not current publication authority."
+    },
+    {
+      "id": "B03_TECHNICAL_EVIDENCE",
+      "source": "repository search and existing assessment reports",
+      "status": "UNKNOWN",
+      "limitation": "No completed six-assessment technical-manual evidence inventory artifact was found."
+    },
+    {
+      "id": "SERP_ONET_INTEREST_PROFILER",
+      "source": "https://www.onetcenter.org/IP.html",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "US public-method reference; not a FermatMind endorsement or affiliation."
+    },
+    {
+      "id": "SERP_CAREERONESTOP_INTEREST_ASSESSMENT",
+      "source": "https://www.careeronestop.org/Toolkit/Careers/interest-assessment-help.aspx",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "US public career-resource reference; not an exact rank export."
+    },
+    {
+      "id": "SERP_UK_NATIONAL_CAREERS_SERVICE",
+      "source": "https://nationalcareers.service.gov.uk/find-a-course/help-with-choices",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "UK careers/course-choice context; not evidence for a separate regional route."
+    },
+    {
+      "id": "SERP_UCAS_CAREERS_QUIZ",
+      "source": "https://www.ucas.com/advisers/careersquiz",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "UK course/career-theme context; not a direct product-equivalence claim."
+    },
+    {
+      "id": "SERP_LSE_SELF_ASSESSMENT",
+      "source": "https://info.lse.ac.uk/current-students/careers/information-and-resources/career-planning/Self-assessment-and-career-matching-tools",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "Representative UK university self-assessment context; not an exact rank export."
+    },
+    {
+      "id": "SERP_RESEARCH",
+      "source": "Google-indexed public results and authoritative public career resources",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T12:28:57+08:00",
+      "limitation": "Representative SERP sample; not a rank-tracking export and not personalized by exact country/device."
+    }
+  ]
+}
