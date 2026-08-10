@@ -1,0 +1,202 @@
+{
+  "asset_status": "METHOD_ASSET_PACKAGE_READY_NOT_PUBLISHED",
+  "asset_id": "FERMATMIND-METHOD-BIG5-INTERPRETATION-01",
+  "asset_type": "versioned_methodology_manual",
+  "title": "费马测试大五人格测量与安全解释方法手册 v1",
+  "locale": "zh",
+  "intended_cms_surface": "backend content_pages or methodology resource (operator decision required)",
+  "version": "1.0.0-content-package",
+  "author_source": "FermatMind Editorial; source ledger bound",
+  "reviewer_role": "psychometrics/method reviewer + claim-boundary reviewer",
+  "last_reviewed": "Unknown",
+  "changelog": [
+    {
+      "version": "1.0.0-content-package",
+      "date": "2026-08-10",
+      "change": "Initial source-bound package; no CMS draft or publication"
+    }
+  ],
+  "scope": "Explain the Big Five framework, distinguish model evidence from instrument-specific evidence, and give a safe result interpretation workflow.",
+  "methodology": [
+    "Use five-domain trait language as a descriptive framework, not a type or destiny.",
+    "Name the actual instrument/version, item count, scoring transformation and comparison reference before interpreting a score.",
+    "Separate general Big Five evidence from FermatMind-specific reliability, validity, sample and norm evidence.",
+    "Treat a result as a revisable hypothesis; seek supporting examples, counterexamples and context changes.",
+    "For translation/adaptation, require evidence beyond literal translation before claiming score equivalence."
+  ],
+  "intended_use": [
+    "self-reflection",
+    "low-risk behavior experiments",
+    "discussion prompts",
+    "method transparency"
+  ],
+  "prohibited_use": [
+    "medical diagnosis",
+    "hiring screen",
+    "admission decision",
+    "ability credential",
+    "guaranteed career matching",
+    "income or success prediction"
+  ],
+  "limitations": [
+    "FermatMind public materials currently do not provide a product-specific reliability coefficient: Unknown.",
+    "FermatMind public materials currently do not provide product-specific validity evidence: Unknown.",
+    "FermatMind public materials currently do not provide a norming sample or percentile reference: Unknown.",
+    "The exact item-to-domain/facet mapping and scoring transformation are not included in this public package: Unknown and security review required.",
+    "General Big Five research cannot substitute for validation of a particular online questionnaire or translation."
+  ],
+  "evidence_table": [
+    {
+      "source_id": "METHOD-BIG5-001",
+      "claim": "Five-factor lexical structure as general background",
+      "status": "VERIFIED",
+      "limitation": "Does not validate FermatMind's instrument, scoring, norms, or interpretation"
+    },
+    {
+      "source_id": "METHOD-BIG5-002",
+      "claim": "One established 60-item operationalization of five domains and 15 facets",
+      "status": "VERIFIED",
+      "limitation": "BFI-2 structure must not be attributed to another instrument without mapping evidence"
+    },
+    {
+      "source_id": "METHOD-BIG5-003",
+      "claim": "BFI/BFI-2 forms, timing and instrument documentation",
+      "status": "VERIFIED",
+      "limitation": "Official BFI resource, not FermatMind product documentation"
+    },
+    {
+      "source_id": "METHOD-BIG5-004",
+      "claim": "Interpretation should be appropriate to intended use and evidence; avoid over-generalization",
+      "status": "VERIFIED",
+      "limitation": "General guideline, not an instrument validation study"
+    },
+    {
+      "source_id": "METHOD-BIG5-005",
+      "claim": "Translation alone is not sufficient evidence of cross-language equivalence",
+      "status": "VERIFIED",
+      "limitation": "Does not establish parity for FermatMind EN/ZH instruments"
+    },
+    {
+      "source_id": "METHOD-BIG5-006",
+      "claim": "Big Five may describe traits/workplace tendencies but is not a precise career matching engine",
+      "status": "VERIFIED",
+      "limitation": "Governance boundary, not scientific validation"
+    }
+  ],
+  "claim_map": [
+    {
+      "claim_id": "BIG5-METHOD-C01",
+      "claim": "Big Five is a dimensional descriptive framework with five broad domains.",
+      "sources": [
+        "METHOD-BIG5-001",
+        "METHOD-BIG5-002"
+      ],
+      "status": "SUPPORTED_GENERAL_MODEL"
+    },
+    {
+      "claim_id": "BIG5-METHOD-C02",
+      "claim": "Specific instruments may operationalize domains and facets differently.",
+      "sources": [
+        "METHOD-BIG5-002",
+        "METHOD-BIG5-003"
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "claim_id": "BIG5-METHOD-C03",
+      "claim": "Interpretation must match the intended use and available evidence.",
+      "sources": [
+        "METHOD-BIG5-004"
+      ],
+      "status": "SUPPORTED_GUIDELINE"
+    },
+    {
+      "claim_id": "BIG5-METHOD-C04",
+      "claim": "Literal translation is not enough to establish cross-language score equivalence.",
+      "sources": [
+        "METHOD-BIG5-005"
+      ],
+      "status": "SUPPORTED_GUIDELINE"
+    },
+    {
+      "claim_id": "BIG5-METHOD-C05",
+      "claim": "FermatMind-specific reliability, validity and norms are established.",
+      "sources": [],
+      "status": "UNKNOWN_DO_NOT_CLAIM"
+    }
+  ],
+  "unresolved_unknowns": [
+    "instrument version",
+    "item inventory public description",
+    "scoring transformation",
+    "reliability",
+    "validity",
+    "norm sample",
+    "percentile reference",
+    "EN/ZH measurement invariance"
+  ],
+  "faq": [
+    {
+      "question": "大五人格是五种类型吗？",
+      "answer": "不是。它通常用连续维度描述差异；一个人的结果是多个维度的组合，不应被压成固定类型。"
+    },
+    {
+      "question": "分数高或低代表好坏吗？",
+      "answer": "不代表。含义取决于工具、量尺、参照和情境；不同水平在不同场景可能有不同成本与优势。"
+    },
+    {
+      "question": "可以用结果招聘或录取吗？",
+      "answer": "本手册不授权这种用途。FermatMind 测评不是招聘筛选、升学录取或能力认证工具。"
+    },
+    {
+      "question": "为什么复测会变化？",
+      "answer": "作答情境、状态、理解、工具版本和真实变化都可能参与；需要结合测量误差与现实证据审慎解释。"
+    }
+  ],
+  "public_cta": {
+    "label": "开始大五人格公开测评，把结果当作观察假设",
+    "href": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+    "tracking_expectation": "method_asset_to_test_click contract required",
+    "public_canonical_only": true
+  },
+  "related_articles": [
+    "https://fermatmind.com/zh/articles/big-five-tool-guide",
+    "https://fermatmind.com/zh/articles/big-five-30-facets-explained-with-model-caveats",
+    "https://fermatmind.com/zh/articles/big-five-retest-differences-measurement-and-context"
+  ],
+  "related_assessments": [
+    "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model"
+  ],
+  "citation_ready_summary": "大五人格是一种用连续维度描述人格差异的框架。解释任何在线结果前，应核对具体工具、版本、计分与参照，并把一般模型证据与该工具自身证据分开。费马测试目前公开说明中未提供产品特定的信度、效度、常模或百分位数值，因此这些信息保持 Unknown；结果只用于自我观察和低风险行动实验，不用于诊断、招聘、录取或结果保证。",
+  "canonical_proposal": "https://fermatmind.com/zh/methodology/big-five-measurement-and-interpretation",
+  "cms_field_mapping": {
+    "title": "title",
+    "body": "body_markdown",
+    "faq": "visible FAQ fields",
+    "sources": "evidence/reference fields",
+    "version": "version/changelog",
+    "indexability": "separate post-publication gate"
+  },
+  "publication_checklist": [
+    "operator review",
+    "method reviewer",
+    "claim map source check",
+    "Unknown preservation",
+    "CMS field validation",
+    "no indexability widening in same step"
+  ],
+  "live_qa_checklist": [
+    "HTTP/canonical/robots",
+    "visible FAQ equals schema count",
+    "source links resolve",
+    "CTA public canonical",
+    "no hidden claims",
+    "mobile/desktop readback"
+  ],
+  "content_package_only": true,
+  "intended_cms_status": "draft",
+  "requires_operator_review": true,
+  "cms_draft_created": false,
+  "publish_allowed": false,
+  "search_submit_allowed": false
+}

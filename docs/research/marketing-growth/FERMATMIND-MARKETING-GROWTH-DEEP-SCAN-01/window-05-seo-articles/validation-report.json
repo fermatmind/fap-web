@@ -1,0 +1,415 @@
+{
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01",
+  "validated_at": "2026-08-10T12:00:00+08:00",
+  "status": "PASS_WITH_DECLARED_EVIDENCE_BLOCKERS",
+  "checks": [
+    {
+      "name": "required:00-executive-decision.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:01-sources-and-evidence-boundary.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:02-article-authority-inventory.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:03-article-performance-classification.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:04-top10-query-serp-refresh-briefs.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:05-assessment-topic-ownership.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:06-article-to-test-coverage-click-audit.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:07-public-topic-edge-design.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:08-top10-cms-refresh-cohort.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:09-top10-cms-refresh-package-qa.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:10-method-asset-source-ledger.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:11-method-asset-content-package.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:12-new-article-write-no-write.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:13-dead-content-90-day-plan.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:14-30-day-article-operations.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:15-implementation-dependencies-and-handoff.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:16-final-status.md",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_performance_ledger.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_classification.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_query_ownership.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_top10_refresh_registry.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_serp_results.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_to_test_coverage.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_public_edge_registry.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_cms_refresh_cohort.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_new_write_decisions.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:method_asset_source_ledger.csv",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_source_manifest.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_topic_owner_registry.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_top10_cms_refresh_packages.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_method_asset_package.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "required:article_90_day_review_spec.json",
+      "status": "PASS",
+      "detail": "required artifact exists"
+    },
+    {
+      "name": "csv_parse:article_performance_ledger.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 67 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_performance_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_classification.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 10 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_classification.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_query_ownership.csv",
+      "status": "PASS",
+      "detail": "22 data rows; 16 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_query_ownership.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_top10_refresh_registry.csv",
+      "status": "PASS",
+      "detail": "10 data rows; 15 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_top10_refresh_registry.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_serp_results.csv",
+      "status": "PASS",
+      "detail": "18 data rows; 17 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_serp_results.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_to_test_coverage.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 23 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_to_test_coverage.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_public_edge_registry.csv",
+      "status": "PASS",
+      "detail": "375 data rows; 18 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_public_edge_registry.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_cms_refresh_cohort.csv",
+      "status": "PASS",
+      "detail": "10 data rows; 21 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_cms_refresh_cohort.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_new_write_decisions.csv",
+      "status": "PASS",
+      "detail": "7 data rows; 12 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_new_write_decisions.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "129 data rows; 20 headers"
+    },
+    {
+      "name": "csv_formula_safety:article_dead_candidate_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "csv_parse:method_asset_source_ledger.csv",
+      "status": "PASS",
+      "detail": "6 data rows; 12 headers"
+    },
+    {
+      "name": "csv_formula_safety:method_asset_source_ledger.csv",
+      "status": "PASS",
+      "detail": "0 unsafe leading formula cells"
+    },
+    {
+      "name": "json_parse:article_source_manifest.json",
+      "status": "PASS",
+      "detail": "valid JSON object"
+    },
+    {
+      "name": "json_parse:article_topic_owner_registry.json",
+      "status": "PASS",
+      "detail": "valid JSON object"
+    },
+    {
+      "name": "json_parse:article_top10_cms_refresh_packages.json",
+      "status": "PASS",
+      "detail": "valid JSON object"
+    },
+    {
+      "name": "json_parse:article_method_asset_package.json",
+      "status": "PASS",
+      "detail": "valid JSON object"
+    },
+    {
+      "name": "json_parse:article_90_day_review_spec.json",
+      "status": "PASS",
+      "detail": "valid JSON object"
+    },
+    {
+      "name": "ledger_row_count",
+      "status": "PASS",
+      "detail": "129 current locale-page rows"
+    },
+    {
+      "name": "ledger_unique_article_ids",
+      "status": "PASS",
+      "detail": "129 unique article identities"
+    },
+    {
+      "name": "counting_units",
+      "status": "PASS",
+      "detail": "129 identities / 95 translation groups / 111 sitemap URLs are distinct units"
+    },
+    {
+      "name": "top10_count",
+      "status": "PASS",
+      "detail": "10 packages"
+    },
+    {
+      "name": "top10_unit",
+      "status": "PASS",
+      "detail": "locale-page"
+    },
+    {
+      "name": "top10_existing_ids",
+      "status": "PASS",
+      "detail": "every package binds an existing article identity"
+    },
+    {
+      "name": "top10_status_boundary",
+      "status": "PASS",
+      "detail": "content package only; no draft/publish/search submit"
+    },
+    {
+      "name": "top10_cta_public_canonical",
+      "status": "PASS",
+      "detail": "all package CTAs use one of six public canonical assessment landings"
+    },
+    {
+      "name": "top10_no_private_url",
+      "status": "PASS",
+      "detail": "no private/result/order/share/payment/history/token/session package href"
+    },
+    {
+      "name": "faq_visible_schema_parity",
+      "status": "PASS",
+      "detail": "visible FAQ and expected schema counts equal for all packages"
+    },
+    {
+      "name": "unknown_review_fields",
+      "status": "PASS",
+      "detail": "all post-publication review fields remain Unknown"
+    },
+    {
+      "name": "method_status",
+      "status": "PASS",
+      "detail": "METHOD_ASSET_PACKAGE_READY_NOT_PUBLISHED"
+    },
+    {
+      "name": "method_claim_sources",
+      "status": "PASS",
+      "detail": "every supported claim maps to a source; unsupported product claim remains Unknown"
+    },
+    {
+      "name": "method_boundary",
+      "status": "PASS",
+      "detail": "not imported or published"
+    },
+    {
+      "name": "dead_content_wait",
+      "status": "PASS",
+      "detail": "2026-11-08; no action authorized"
+    },
+    {
+      "name": "current_cms_cta_audit_complete",
+      "status": "PASS",
+      "detail": "2 current CMS alias targets detected and preserved as audit findings"
+    },
+    {
+      "name": "scope_only",
+      "status": "PASS",
+      "detail": "50 worktree status entries; all under declared output directory"
+    },
+    {
+      "name": "no_product_code",
+      "status": "PASS",
+      "detail": "no runtime/frontend/public asset files changed"
+    }
+  ],
+  "declared_findings": {
+    "current_cms_noncanonical_cta_aliases": [
+      {
+        "locale": "en",
+        "slug": "big-five-personality-test-vs-mbti",
+        "href": "https://fermatmind.com/en/tests/big-five-personality-test"
+      },
+      {
+        "locale": "zh",
+        "slug": "big-five-personality-test-vs-mbti",
+        "href": "https://fermatmind.com/zh/tests/big-five-personality-test"
+      }
+    ],
+    "live_http_unknown_count": 19,
+    "current_gsc_complete_export": "Unknown",
+    "ga4_url_level_attribution": "Unknown"
+  },
+  "failures": []
+}
