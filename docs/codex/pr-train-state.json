@@ -55665,9 +55665,9 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "committed",
+    "status": "github_checks_pending",
     "commit_sha": "a895e88de0e851d1209e9c273febe8ac65a49e23",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2037",
     "checks": {
       "serial_predecessor": {
         "status": "pass",
@@ -58215,6 +58215,10 @@
       "local_validation": {
         "status": "pass",
         "evidence": "Ruby CSV/JSON/YAML validation passed for exact 34-column header, 20-row V1 identity match, result arithmetic, timestamps, canonical/cache/internal-link/CTA partitions, UTF-8/formula safety, privacy URL guards, V1/V2 SHA bindings, manifest summary, sidecar status, and the exact 8-path allowlist. pnpm lint:spacing and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #2037 opened; required checks are pending inspection."
       }
     },
     "failure_reason": null,
@@ -58258,12 +58262,18 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the exact 8-path evidence scope and rebased cleanly onto origin/main a931f8cd without changing V2 artifact bytes; implementation commit is a895e88de0e851d1209e9c273febe8ac65a49e23."
+      },
+      {
+        "at": "2026-08-10T07:06:43Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2037 at head 9f45b15a55a23749adc134f01968364d298b0d49. Required GitHub checks are pending."
       }
     ],
     "sidecar_issues": [
       "window7-public-cta-attribution-propagation-gaps-20260810"
     ],
-    "updated_at": "2026-08-10T07:05:59Z"
+    "updated_at": "2026-08-10T07:06:43Z"
   },
   "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01": {
     "id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
