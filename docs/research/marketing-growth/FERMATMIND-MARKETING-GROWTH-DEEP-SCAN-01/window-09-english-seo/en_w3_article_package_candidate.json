@@ -1,6 +1,9 @@
 {
   "artifact_kind": "w3_article_package_reference",
   "status": "W3_ARTICLE_PACKAGE_READY_NOT_PROMOTED",
+  "existing_authority_package_reference": true,
+  "window_09_generated_self_contained_package": false,
+  "window_09_package_role": "REPORT_REFERENCE_ONLY",
   "content_package_only": true,
   "cms_draft_created": false,
   "publish_allowed": false,

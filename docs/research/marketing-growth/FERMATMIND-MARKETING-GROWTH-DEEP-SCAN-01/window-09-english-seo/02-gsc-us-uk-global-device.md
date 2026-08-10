@@ -12,4 +12,4 @@ UK and OTHER are **UNKNOWN**, not zero. The retained files do not allow country 
 
 ## Operational decision
 
-Use the current data only to prioritize exact export recovery and narrow page-level experiments. Do not make a regional route decision. The mutual-exclusion contract is encoded in `en_market_segment_spec.json`, and auditable rows are in `en_gsc_country_device.csv`.
+**E01 status: `PARTIAL`.** Use the current data only to prioritize exact export recovery and narrow page-level experiments. Do not make a regional route decision. E01 cannot become complete until the exact EN query×page×country×device export is recovered. The mutual-exclusion contract is encoded in `en_market_segment_spec.json`, and auditable rows are in `en_gsc_country_device.csv`.

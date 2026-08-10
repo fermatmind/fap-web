@@ -19,4 +19,4 @@ An English page is identified by its verified `/en/` canonical, not the visitor 
 - B03 completed six-assessment technical-manual inventory: **UNKNOWN**.
 - C06/C07 completion and formal Career batch: **WAITING_ON_C06_C07**.
 
-Machine-readable provenance and limitations are in `en_source_manifest.json`.
+Every CSV carries the same provenance contract in this order: `source,captured_at,country,device,locale,date_window,query,page,evidence_status,limitation`. Unsupported or unavailable provenance is `UNKNOWN`; verified zero and false values remain only where the underlying evidence actually reports them. Machine-readable source definitions and limitations are in `en_source_manifest.json`.

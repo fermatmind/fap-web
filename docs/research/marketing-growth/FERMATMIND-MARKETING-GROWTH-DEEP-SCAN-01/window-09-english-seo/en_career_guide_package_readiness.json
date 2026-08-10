@@ -1,6 +1,10 @@
 {
   "artifact_kind": "career_guide_package_readiness",
   "status": "CAREER_GUIDE_PACKAGE_WAITING_EXACT_SLUG_CONFIRMATION",
+  "structural_isolation_status": "STRUCTURAL_ISOLATION_PASS",
+  "formal_package_isolation_status": "FORMAL_PACKAGE_ISOLATION_PENDING",
+  "isolation_status": "STRUCTURAL_ISOLATION_PASS / FORMAL_PACKAGE_ISOLATION_PENDING",
+  "full_isolation_pass_claimed": false,
   "content_package_generated": false,
   "report_package_root": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-09-english-seo/packages/career-guides",
   "current_package_root": "NOT_GENERATED",

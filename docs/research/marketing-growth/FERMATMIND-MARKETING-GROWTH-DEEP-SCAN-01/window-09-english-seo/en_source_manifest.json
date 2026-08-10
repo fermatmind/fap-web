@@ -1,6 +1,20 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
   "captured_at": "2026-08-10T12:28:57+08:00",
+  "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
+  "csv_provenance_contract": [
+    "source",
+    "captured_at",
+    "country",
+    "device",
+    "locale",
+    "date_window",
+    "query",
+    "page",
+    "evidence_status",
+    "limitation"
+  ],
+  "missing_value_policy": "Use UNKNOWN for unavailable evidence; retain 0 or false only when directly reported by a verified source.",
   "evidence_labels": [
     "VERIFIED",
     "INFERRED",

@@ -37,5 +37,7 @@
     "hubs/content pages",
     "homepage"
   ],
-  "current_data_state": "PARTIAL: global, device totals and selected country totals exist; exact US/UK/OTHER EN cross-splits are unavailable."
+  "current_data_state": "PARTIAL: global, device totals and selected country totals exist; exact US/UK/OTHER EN cross-splits are unavailable.",
+  "e01_status": "PARTIAL",
+  "completion_gate": "Exact EN query×page×country×device export."
 }
