@@ -527,6 +527,7 @@ function isMbti64PromotedDetailSection(section: CmsPersonalitySection): boolean 
 }
 
 export type PersonalityProjectionViewModel = {
+  id: number | null;
   slug: string;
   routeSlug: string;
   locale: string;
@@ -1409,6 +1410,7 @@ function buildProjectionViewModel(
   const title = fallbackText(projection.summaryCard.title, projection.displayType, projection.canonicalTypeCode);
 
   return {
+    id: detailProfile.id,
     slug: detailProfile.slug,
     routeSlug: runtimeTypeCodeToSlug(projection.runtimeTypeCode) ?? detailProfile.slug,
     locale: detailProfile.locale,

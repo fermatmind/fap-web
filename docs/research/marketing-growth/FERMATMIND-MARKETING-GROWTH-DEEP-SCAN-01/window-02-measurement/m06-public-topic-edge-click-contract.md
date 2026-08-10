@@ -1,6 +1,6 @@
 # M06 public topic edge click contract
 
-Status: `APPROVED_CONTRACT_ONLY_NOT_DEPLOYED`.
+Status: `IMPLEMENTED_RUNTIME_CALLSITE_NOT_DEPLOYMENT_PROVEN`.
 
 The only approved event is `public_topic_edge_click`. It is a browser observation emitted only when a user activates an already rendered, backend-approved public edge. The event contract accepts the backend-issued `edge_id` and the declared low-cardinality rendering context; it does not accept a URL, slug, query, referrer, free text, user/session identity, assessment data or payment data.
 
@@ -14,4 +14,4 @@ The rendered `href` is the exact backend-approved `target_canonical`. Tracking p
 
 The relation allowlist is bound to the merged G03/backend authority contract and is exactly `breadcrumb`, `learn_more` and `take_assessment`. A locale mismatch is not a tracking decision: the renderer must reject it unless the public backend item carries explicit `cross_locale_approved=true` and the source/target locale plus canonical checks pass. Neither the approval flag nor either canonical enters the event payload.
 
-This approval defines a privacy-safe contract only. No runtime callsite was added, no telemetry was sent, no consent behavior changed, and no deployment is claimed. Backend/CMS-approved public edge identity remains authoritative.
+The scoped renderer implementation now provides a runtime callsite only on validated public-topic-edge anchors. It reuses the existing analytics-consent gate and does not change the global consent model. No production dispatch or receipt was observed by this PR, no telemetry delivery is claimed, and deployment is not proven. Backend/CMS-approved public edge identity remains authoritative.

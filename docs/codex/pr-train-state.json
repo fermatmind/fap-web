@@ -57458,7 +57458,7 @@
     "depends_on": [
       "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01"
     ],
-    "status": "in_progress",
+    "status": "local_checks_passed_ready_to_commit",
     "commit_sha": null,
     "pr_url": null,
     "checks": {
@@ -57828,7 +57828,7 @@
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "f2137923f74f301dd28d1dcbf41ee9f8c96447e1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2036",
     "checks": {
@@ -57846,9 +57846,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T07:08:22Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {
         "at": "2026-08-10T06:55:00Z",
@@ -57869,6 +57869,11 @@
         "at": "2026-08-10T07:08:00Z",
         "status": "ready_to_merge",
         "summary": "Exact head f2137923f74f301dd28d1dcbf41ee9f8c96447e1 passed every required GitHub check and CodeQL. Scope remains nine approved docs/contract/ledger files with zero runtime changes, telemetry, consent changes, production writes, CMS mutation, or Search Channel action."
+      },
+      {
+        "at": "2026-08-10T07:20:00Z",
+        "status": "merged",
+        "summary": "Reconciled the dependency against GitHub and origin/main: PR #2036 merged as ced4b621782853caa7a7388c3e82f04d82a278f2, remote and local task branches plus worktree are absent, and post-merge contract validation passed. The isolated baseline repair PR #2039 then merged as dfa44bc6ead312d4dd8792c2c71454c182644f09 to complete dispatch semantics before renderer implementation."
       }
     ]
   },
@@ -57882,8 +57887,8 @@
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
       "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "8aa609d1b2b06afb7b284de3be9f356cd828f411",
+    "status": "merged",
+    "commit_sha": "c10028eb33042ce18ab2e5f60f08447c5f33eb89",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2040",
     "checks": {
       "governed_registry_validation": {
@@ -57900,9 +57905,9 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T07:31:55Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {
         "at": "2026-08-10T07:12:00Z",
@@ -57928,6 +57933,11 @@
         "at": "2026-08-10T07:27:00Z",
         "status": "ready_to_merge",
         "summary": "PR #2040 exact head 8aa609d1b2b06afb7b284de3be9f356cd828f411 passed all 11 CI and CodeQL checks. GitHub reported CLEAN and MERGEABLE, and the exact Window 6 plus Program Controller scope remains valid. This ledger-only final head must pass required checks again before squash merge."
+      },
+      {
+        "at": "2026-08-10T07:42:00Z",
+        "status": "merged",
+        "summary": "Reconciled against GitHub and origin/main: PR #2040 final head c10028eb33042ce18ab2e5f60f08447c5f33eb89 merged at 2026-08-10T07:31:55Z as 5466522801be6f71d01f0af96a495a84bddd059f; all 11 required CI/CodeQL checks passed, origin/main contains the merge, and remote/local task branches plus worktree are absent."
       }
     ]
   },
@@ -57939,17 +57949,60 @@
     "branch": "codex/public-topic-graph-renderer-01",
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01",
-      "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
+      "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01",
+      "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01"
     ],
-    "status": "pending_dependency",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {},
-    "failure_reason": "Waiting for the backend authority contract and approved edge-click contract to merge; Career remains closed until C06 PASS.",
+    "checks": {
+      "dependencies": {
+        "status": "passed",
+        "evidence": "fap-api PR #3594 merged as 663cd88ded47bc84b4393c2060140c21fa14b6a1 and G03 authority alignment PR #3605 merged as 2a2f01c0c17d2ec6e4b5c28cd4ae5fe26df9207d with post-merge authority/OpenAPI verification. fap-web PR #2036 merged as ced4b621782853caa7a7388c3e82f04d82a278f2, dispatch baseline repair PR #2039 merged as dfa44bc6ead312d4dd8792c2c71454c182644f09, G03 governed review PR #2040 merged as 5466522801be6f71d01f0af96a495a84bddd059f with all 282 Career candidates still closed, and G03/M06 alignment repair PR #2047 merged as 619a83495033fc0beecd47eed97a3be02b1e994f."
+      },
+      "career_gate": {
+        "status": "closed",
+        "evidence": "CAREER_LINK_PUBLICATION_GATE remains CLOSED; this renderer accepts only article, content_page, personality_profile and topic sources/targets."
+      },
+      "focused_contracts_and_lint": {
+        "status": "passed",
+        "evidence": "Node 24.14.0: public-topic-graph-renderer.contract.test.tsx passed 10/10 after exact G03 wire-schema and machine-contract alignment; scoped ESLint, pnpm lint:spacing and pnpm typecheck passed."
+      },
+      "production_build": {
+        "status": "passed",
+        "evidence": "The earlier API-only command exposed the isolated worktree's missing NEXT_PUBLIC_SITE_URL during /llms.txt page-data collection. After the final G03 alignment, the environment-complete command with PATH=/usr/local/bin:$PATH, NEXT_PUBLIC_API_URL=https://api.fermatmind.com and NEXT_PUBLIC_SITE_URL=https://fermatmind.com passed next build and postbuild on Node 24.14.0."
+      },
+      "scope_and_metadata": {
+        "status": "passed",
+        "evidence": "Exactly the seventeen manifest-allowlisted files are changed; state JSON and manifest YAML parse, the unrelated SEO-OPS-02 manifest entry is unchanged, and git diff --check passes."
+      }
+    },
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": []
+    "history": [
+      {
+        "at": "2026-08-10T07:21:00Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main dfa44bc6ead312d4dd8792c2c71454c182644f09 after PR2, PR3 and the required PR3 baseline repair merged, synced, cleaned and passed post-merge verification. Scope is the backend-only public edge adapter, shared deterministic SSR renderer, consent-gated GA4-only click dispatch, article/topic callsites, focused contract test, rule impact and Program Controller ledger."
+      },
+      {
+        "at": "2026-08-10T07:39:57Z",
+        "status": "local_checks_passed_ready_to_commit",
+        "summary": "Fast-forwarded over the non-overlapping Window 9 evidence merge 6d9bab4e, corrected the renderer/shared-tracking RSC boundary, and passed Node 24 focused contracts 8/8, scoped ESLint, spacing, typecheck, environment-complete production build, JSON/YAML parse, exact scoped file set and git diff --check. Career remains CLOSED; no production, CMS, search, canonical, sitemap or llms action occurred."
+      },
+      {
+        "at": "2026-08-10T07:42:00Z",
+        "status": "dependency_reconciled",
+        "summary": "Rebased the verified renderer commit onto exact latest origin/main 22a03aef after G03 PR #2040 merged and cleaned. Reconciled the stale G03 ledger and made that governed review an explicit renderer dependency; no G03 evidence bytes or runtime scope changed."
+      },
+      {
+        "at": "2026-08-10T08:46:44Z",
+        "status": "local_checks_passed_ready_to_commit",
+        "summary": "Rebased onto latest origin/main f529288d after the directly blocking G03/M06 alignment repair #2047 merged and cleaned. Bound runtime parsing to fap-api alignment merge 2a2f01c0: locale query, exact three-relation allowlist, item/authority source canonical equality, explicit cross-locale approval and 503 fail-closed behavior; added the numeric-id MBTI callsite and kept unsupported adapters plus all Career edges closed. Node 24 focused contracts 10/10, scoped ESLint, spacing, typecheck, environment-complete production build, JSON/YAML parse, exact seventeen-file scope and git diff --check passed. No production, CMS, search, canonical, sitemap, llms or telemetry-receipt action occurred."
+      }
+    ]
   },
   "PUBLIC-TOPIC-GRAPH-POST-C06-AUDIT-01": {
     "id": "PUBLIC-TOPIC-GRAPH-POST-C06-AUDIT-01",

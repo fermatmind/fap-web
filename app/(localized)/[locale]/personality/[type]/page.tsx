@@ -9,6 +9,7 @@ import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink"
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CrossTypeDetailedSections } from "@/components/personality/CrossTypeDetailedSections";
+import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -36,7 +37,7 @@ import {
   renderProjectionSections,
 } from "@/lib/cms/personality-sections";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import {
   buildMbtiEntryHref,
@@ -2066,6 +2067,10 @@ export default async function PersonalityDetailPage({
           />
         ) : null}
       </div>
+      <PublicTopicEdgeModule
+        source={detail.id ? { type: "personality_profile", id: detail.id, locale: toApiLocale(locale) } : null}
+        entrySurface="personality_detail"
+      />
     </main>
   );
 }

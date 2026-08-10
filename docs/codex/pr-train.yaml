@@ -30528,7 +30528,7 @@ prs:
     base: main
     branch: codex/public-topic-graph-edge-click-contract-01
     title: "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01: approve privacy-safe topic edge measurement contract"
-    status: ready_to_merge
+    status: merged
     depends_on: [PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01]
     mode: execute
     train_scope: public_topic_graph_edge_click_measurement_contract
@@ -30560,7 +30560,7 @@ prs:
     base: main
     branch: codex/public-topic-graph-g03-governed-review-01
     title: "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01: govern non-Career public topic edge candidates"
-    status: ready_to_merge
+    status: merged
     depends_on: [PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01, PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01]
     mode: execute
     train_scope: public_topic_graph_g03_governed_candidate_review
@@ -30595,17 +30595,27 @@ prs:
     base: main
     branch: codex/public-topic-graph-renderer-01
     title: "PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges"
-    status: pending_dependency
-    depends_on: [PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01, PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01]
+    status: in_progress
+    depends_on: [PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01, PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01, PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01]
     mode: execute
     train_scope: public_topic_graph_backend_authoritative_renderer
     scope:
       - Consume only the fap-api public topic-edge projection through a deterministic server-rendered shared renderer and the approved measurement contract, with Career fail-closed until C06.
     allowed_paths:
-      - app/**
-      - components/**
-      - lib/**
-      - tests/contracts/**
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - components/public-topic-graph/PublicTopicEdgeLink.tsx
+      - components/public-topic-graph/PublicTopicEdgeRenderer.tsx
+      - lib/cms/publicTopicEdges.ts
+      - lib/cms/personality.ts
+      - lib/tracking/publicTopicEdge.ts
+      - tests/contracts/public-topic-graph-renderer.contract.test.tsx
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/event_contract.json
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/m06-public-topic-edge-click-contract.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/09-fap-web-edge-renderer.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/10-edge-click-tracking.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/topic_graph_frontend_contract.json
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - AGENTS.md

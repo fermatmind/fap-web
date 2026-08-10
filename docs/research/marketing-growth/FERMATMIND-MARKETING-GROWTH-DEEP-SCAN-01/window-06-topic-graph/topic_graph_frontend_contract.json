@@ -1,7 +1,7 @@
 {
   "schema_version": "fermatmind.public_topic_edge_renderer.proposal.v1",
-  "status": "BACKEND_G03_ALIGNED_IMPLEMENTATION_READY_NOT_STARTED",
-  "design_only": true,
+  "status": "IMPLEMENTED_RUNTIME_CALLSITES_NOT_DEPLOYMENT_PROVEN",
+  "design_only": false,
   "authority": "consume fap-api public API only",
   "backend_projection": {
     "endpoint": "/api/v0.5/public-topic-edges?source_type={type}&source_id={id}&locale={locale}",
@@ -31,13 +31,14 @@
     "deterministic order",
     "duplicate edge",
     "invalid relation",
+    "exact item/authority source canonical equality",
     "missing target",
     "inactive target",
     "unqualified target",
     "locale mismatch",
     "private target",
     "empty API",
-    "API timeout",
+    "API timeout and 503 AUTHORITY_UNAVAILABLE",
     "no local fallback",
     "safe tracking payload",
     "tracking query absent from canonical",
@@ -45,9 +46,9 @@
     "server-rendered visible links"
   ],
   "tracking_requirement": {
-    "status": "M06_PUBLIC_TOPIC_EDGE_CLICK_CONTRACT_APPROVED_NOT_DEPLOYED",
+    "status": "M06_PUBLIC_TOPIC_EDGE_CLICK_RUNTIME_IMPLEMENTED_NOT_DEPLOYMENT_PROVEN",
     "m06_source": "window-02-measurement/event_contract.json",
-    "m06_contract_status": "APPROVED_CONTRACT_ONLY_NOT_DEPLOYED",
+    "m06_contract_status": "IMPLEMENTED_RUNTIME_CALLSITE_NOT_DEPLOYMENT_PROVEN",
     "event_name": "public_topic_edge_click",
     "observation_class": "browser_observation",
     "trigger_semantics": "A user activates a rendered public edge that was approved and issued by the backend authority.",
@@ -92,7 +93,7 @@
       "organic_channel": ["direct", "organic_search", "internal_navigation", "unknown"]
     },
     "edge_click_event_defined_by_m06": true,
-    "runtime_callsite_present": false,
+    "runtime_callsite_present": true,
     "telemetry_sent": false,
     "consent_behavior_changed": false,
     "required_fields": [
@@ -138,6 +139,9 @@
     "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",
     "repo": "fap-web",
     "title": "PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges",
+    "runtime_surfaces": ["article_detail", "personality_detail", "topic_detail"],
+    "content_page_runtime_deferred_without_matching_numeric_authority_id": true,
+    "deployment_proven": false,
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01 merged",
       "G03 authority alignment PR #3605 merged",
