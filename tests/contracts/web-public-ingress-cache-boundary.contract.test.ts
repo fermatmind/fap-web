@@ -39,6 +39,12 @@ describe("versioned public ingress cache boundary", () => {
     expect(result.stdout).toContain("config valid");
   });
 
+  it("keeps ACME challenges on the persistent host-mounted webroot", () => {
+    expect(config).toContain("location ^~ /.well-known/acme-challenge/");
+    expect(config).toContain("root /www/acme;");
+    expect(validate(config.replace("root /www/acme;", "root /tmp/acme;")).status).not.toBe(0);
+  });
+
   it("fails closed on duplicate vhosts, HTML cache, or forced shared-cache headers", () => {
     expect(validate(`${config}\n${config}`).status).not.toBe(0);
     expect(validate(config.replace("listen 443 ssl;", "listen 443;")).status).not.toBe(0);
