@@ -1,0 +1,89 @@
+{
+  "asset_id": "FERMATMIND-METHOD-BIG5-INTERPRETATION-01",
+  "sources": [
+    {
+      "source_id": "METHOD-BIG5-001",
+      "title": "An alternative \"description of personality\": The Big-Five factor structure",
+      "author": "Lewis R. Goldberg",
+      "year": 1990,
+      "doi": "10.1037/0022-3514.59.6.1216",
+      "url": "https://doi.org/10.1037/0022-3514.59.6.1216",
+      "source_type": "peer_reviewed_primary",
+      "claims_supported": "Five-factor lexical structure as general background",
+      "locale": "en",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "Does not validate FermatMind's instrument, scoring, norms, or interpretation"
+    },
+    {
+      "source_id": "METHOD-BIG5-002",
+      "title": "The next Big Five Inventory (BFI-2): Developing and assessing a hierarchical model with 15 facets",
+      "author": "Christopher J. Soto; Oliver P. John",
+      "year": 2017,
+      "doi": "10.1037/pspp0000096",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27055049/",
+      "source_type": "peer_reviewed_primary",
+      "claims_supported": "One established 60-item operationalization of five domains and 15 facets",
+      "locale": "en",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "BFI-2 structure must not be attributed to another instrument without mapping evidence"
+    },
+    {
+      "source_id": "METHOD-BIG5-003",
+      "title": "Big Five Inventory",
+      "author": "Berkeley Personality Lab",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.ocf.berkeley.edu/~johnlab/bfi.html",
+      "source_type": "official_research_lab",
+      "claims_supported": "BFI/BFI-2 forms, timing and instrument documentation",
+      "locale": "en",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "Official BFI resource, not FermatMind product documentation"
+    },
+    {
+      "source_id": "METHOD-BIG5-004",
+      "title": "ITC Guidelines on Test Use, version 1.2",
+      "author": "International Test Commission",
+      "year": 2013,
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_use.pdf",
+      "source_type": "official_professional_guideline",
+      "claims_supported": "Interpretation should be appropriate to intended use and evidence; avoid over-generalization",
+      "locale": "en",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "General guideline, not an instrument validation study"
+    },
+    {
+      "source_id": "METHOD-BIG5-005",
+      "title": "ITC Guidelines for Translating and Adapting Tests, second edition",
+      "author": "International Test Commission",
+      "year": 2017,
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf",
+      "source_type": "official_professional_guideline",
+      "claims_supported": "Translation alone is not sufficient evidence of cross-language equivalence",
+      "locale": "en",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "Does not establish parity for FermatMind EN/ZH instruments"
+    },
+    {
+      "source_id": "METHOD-BIG5-006",
+      "title": "FermatMind Public Claim Runtime Boundary Matrix",
+      "author": "FermatMind repository governance",
+      "year": 2026,
+      "doi": "Unknown",
+      "url": "docs/claims/public-claim-boundary-matrix.md",
+      "source_type": "first_party_governance",
+      "claims_supported": "Big Five may describe traits/workplace tendencies but is not a precise career matching engine",
+      "locale": "en/zh",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "VERIFIED",
+      "limitation": "Governance boundary, not scientific validation"
+    }
+  ]
+}

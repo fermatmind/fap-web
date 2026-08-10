@@ -1,0 +1,105 @@
+{
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01",
+  "captured_at": "2026-08-10T12:00:00+08:00",
+  "counting_units": {
+    "cms_article_identity": {
+      "count": 129,
+      "definition": "one public API article record / stable CMS article id",
+      "status": "VERIFIED"
+    },
+    "translation_group": {
+      "count": 95,
+      "definition": "unique translation_group_id across current public records",
+      "status": "VERIFIED"
+    },
+    "published_locale_page": {
+      "count": 129,
+      "zh": 89,
+      "en": 40,
+      "status": "VERIFIED"
+    },
+    "published_indexable_url": {
+      "count": 111,
+      "zh": 89,
+      "en": 22,
+      "status": "VERIFIED"
+    },
+    "live_http_200": {
+      "count": 110,
+      "unknown_or_non_200": 19,
+      "status": "VERIFIED by bounded live GET"
+    },
+    "gsc_observed_article_url": {
+      "count": 56,
+      "zh": 39,
+      "en": 17,
+      "status": "HISTORICAL",
+      "window": "2026-07-13_to_2026-08-09",
+      "limitation": "current M01 export unavailable"
+    }
+  },
+  "sources": [
+    {
+      "source": "fap-api public articles list/detail",
+      "url_path": "https://api.fermatmind.com/api/v0.5/articles",
+      "captured_at": "2026-08-10T12:00:00+08:00",
+      "locale": "zh-CN/en",
+      "country_device": "not applicable",
+      "date_window": "current read",
+      "evidence_status": "VERIFIED",
+      "limitation": "public records only; no private drafts"
+    },
+    {
+      "source": "backend sitemap generator",
+      "url_path": "https://api.fermatmind.com/api/v0.5/seo/sitemap-source",
+      "captured_at": "2026-08-10T12:00:00+08:00",
+      "locale": "en/zh",
+      "country_device": "not applicable",
+      "date_window": "current read",
+      "evidence_status": "VERIFIED",
+      "limitation": "discoverability surface, not content graph proof"
+    },
+    {
+      "source": "live HTML",
+      "url_path": "129 current public article canonicals",
+      "captured_at": "2026-08-10T12:00:00+08:00",
+      "locale": "en/zh",
+      "country_device": "CN/server fetch; device neutral HTML",
+      "date_window": "current read",
+      "evidence_status": "VERIFIED",
+      "limitation": "not a browser/mobile visual audit"
+    },
+    {
+      "source": "historical GSC article inventory",
+      "url_path": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/article_inventory_validated.csv",
+      "captured_at": "2026-08-07",
+      "locale": "en/zh",
+      "country_device": "aggregate",
+      "date_window": "2026-07-13_to_2026-08-09",
+      "evidence_status": "HISTORICAL",
+      "limitation": "no complete query×page×country×device; 56 observed URLs"
+    },
+    {
+      "source": "historical GA4 scan",
+      "url_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/11-cro-funnel-analysis.md",
+      "captured_at": "2026-08-10",
+      "locale": "aggregate",
+      "country_device": "aggregate",
+      "date_window": "2026-07-13_to_2026-08-09",
+      "evidence_status": "HISTORICAL",
+      "limitation": "article URL breakdown unavailable; consent gate"
+    },
+    {
+      "source": "current web search samples",
+      "url_path": "article_serp_results.csv",
+      "captured_at": "2026-08-10T12:00:00+08:00",
+      "locale": "en/zh",
+      "country_device": "Unknown",
+      "date_window": "current",
+      "evidence_status": "VERIFIED_SAMPLE",
+      "limitation": "not location/device-controlled Google Top 10"
+    }
+  ],
+  "prohibited_data_read": false,
+  "private_or_pii_payloads_collected": false
+}

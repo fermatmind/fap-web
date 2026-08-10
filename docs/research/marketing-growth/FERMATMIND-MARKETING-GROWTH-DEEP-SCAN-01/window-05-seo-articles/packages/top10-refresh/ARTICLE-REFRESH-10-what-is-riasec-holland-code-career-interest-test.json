@@ -1,0 +1,202 @@
+{
+  "package_status": {
+    "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-R07-10",
+    "refresh_id": "ARTICLE-REFRESH-10",
+    "article_id": 41,
+    "locale": "en",
+    "translation_group_id": "riasec-explanation-article-2026-06-v2",
+    "package_version": "article_refresh_package.v1",
+    "current_cms_revision_identity": 67,
+    "content_package_only": true,
+    "intended_cms_status": "draft",
+    "requires_operator_review": true,
+    "cms_draft_created": false,
+    "publish_allowed": false,
+    "search_submit_allowed": false,
+    "english_v2_control_required": true,
+    "english_v2_freeze_sha": "Unknown"
+  },
+  "cms_fields": {
+    "title": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits",
+    "slug": "what-is-riasec-holland-code-career-interest-test",
+    "h1": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits",
+    "seo_title": "What Is RIASEC? Holland Codes and Limits",
+    "seo_description": "Learn what the six RIASEC interests and Holland Codes describe, how to use them for career exploration, and what they cannot predict or guarantee.",
+    "excerpt": "Learn what the six RIASEC interests and Holland Codes describe, how to use them for career exploration, and what they cannot predict or guarantee.",
+    "category": "职业探索",
+    "tags": [
+      "RIASEC",
+      "Holland Code",
+      "career interests",
+      "career exploration",
+      "vocational interests"
+    ],
+    "content_track": "evergreen_knowledge_refresh",
+    "audience_intent": "definition_and_limits",
+    "target_tests": [
+      "holland-career-interest-test-riasec"
+    ],
+    "target_topics": [
+      "RIASEC/Career Decision"
+    ],
+    "claim_level": "exploratory",
+    "sensitivity_level": "career_sensitive",
+    "medical_disclaimer": "Not medical or psychological diagnosis.",
+    "ability_disclaimer": "No ability or outcome guarantee.",
+    "reviewer_requirement": "editorial + subject/method review; official-policy review for current admissions content",
+    "existing_cover_handling": "preserve current CMS Media Library asset unless editor approves a replacement",
+    "cms_media_library_requirement": true
+  },
+  "query_serp_brief": {
+    "primary_query_cluster": "what is RIASEC Holland Code",
+    "supporting_queries": [
+      "RIASEC career interest test",
+      "Holland Code meaning"
+    ],
+    "current_gsc_baseline": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 2,
+      "impressions": 1755,
+      "ctr": "0.11%",
+      "position": "25.07",
+      "status": "HISTORICAL"
+    },
+    "dominant_intent": "definition_and_limits",
+    "current_owner": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+    "competing_fermatmind_pages": [
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
+    ],
+    "cannibalization": "UNKNOWN pending complete query×page export",
+    "current_title": "What Is RIASEC? Understanding Holland Code Career Interests",
+    "current_h1": "What Is RIASEC? Understanding Holland Code Career Interests",
+    "current_cta": "Take the free RIASEC test",
+    "evidence_quality": "no_explicit_external_ref_detected:0",
+    "claim_risk": "career_sensitive",
+    "content_gap": "English SERP is tool-heavy; lead with six interests, code meaning, evidence boundary, then a focused public test CTA.",
+    "differentiation": "visible boundary + reversible action + source-status separation",
+    "exact_refresh_scope": "title/meta/H1 alignment, answer-first block, boundary/source block, contextual CTA and governed internal links; keep slug/canonical",
+    "sections_to_keep": [
+      "unique examples",
+      "existing source-backed explanations",
+      "current public safety boundary"
+    ],
+    "sections_to_revise": [
+      "Quick answer",
+      "What the model organizes",
+      "How to use the result",
+      "Limits and evidence",
+      "Next step"
+    ],
+    "sections_to_remove": [
+      "unsupported certainty",
+      "duplicate generic introduction",
+      "any private or deterministic recommendation path"
+    ],
+    "source_requirements": [
+      "O*NET Interest Profiler official/technical sources; native English editorial review"
+    ],
+    "primary_metric": "ranking recovery + CTR + test click",
+    "guardrails": [
+      "keep slug and canonical",
+      "one query one owner",
+      "no private URL",
+      "no hidden FAQ",
+      "Unknown remains Unknown"
+    ],
+    "review_plan": {
+      "day_7": "index/render/CTA/schema QA only; no outcome claim",
+      "day_14": "directional query/CTR/click review",
+      "day_28": "compare complete window against position/locale bucket"
+    }
+  },
+  "body_revision": [
+    {
+      "section": "Quick answer",
+      "draft": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits. Start with a plain definition, then distinguish what the result describes from ability, eligibility, diagnosis, or guaranteed outcomes."
+    },
+    {
+      "section": "What the model organizes",
+      "draft": "Explain the dimensions in observable language. Keep the result as a profile, not a fixed identity, and state the instrument/version whenever available."
+    },
+    {
+      "section": "How to use the result",
+      "draft": "Turn the top signals into two hypotheses, collect one supporting example and one counterexample, and test one reversible action in a real setting."
+    },
+    {
+      "section": "Limits and evidence",
+      "draft": "Separate general model evidence from FermatMind-specific evidence. Reliability, validity, norms, percentile meaning, and sample composition remain Unknown unless a public technical record supports them."
+    },
+    {
+      "section": "Next step",
+      "draft": "Use a focused public CTA to https://fermatmind.com/en/tests/holland-career-interest-test-riasec; do not promise matching, success, hiring, admission, or income outcomes."
+    }
+  ],
+  "faq_entries": [
+    {
+      "question": "What does this framework measure?",
+      "answer": "It organizes self-reported interests or preferences for exploration; it does not measure every skill or guarantee an outcome."
+    },
+    {
+      "question": "Can one result choose a career or major for me?",
+      "answer": "No. Use the result to form options, then verify requirements, work activities, constraints, and real experience."
+    },
+    {
+      "question": "Why might results change?",
+      "answer": "Item wording, context, recent experience, response style, and the instrument version can all affect a self-report result."
+    },
+    {
+      "question": "What should I do next?",
+      "answer": "Write down two hypotheses, one counterexample, and one low-risk action to test before making a high-stakes decision."
+    }
+  ],
+  "faq_schema": {
+    "source": "CMS visible FAQ fields",
+    "visible_faq_count": 4,
+    "expected_faq_schema_mainEntity_count": 4,
+    "hidden_faq_allowed": false
+  },
+  "cta": {
+    "label": "Start the public RIASEC interest assessment",
+    "href": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+    "target_test_slug": "holland-career-interest-test-riasec",
+    "tracking_expectation": "article_to_test_click",
+    "public_canonical_only": true
+  },
+  "internal_link_plan": [
+    {
+      "href": "https://fermatmind.com/en/articles",
+      "purpose": "article index",
+      "status": "allowed"
+    },
+    {
+      "href": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "purpose": "transactional owner",
+      "status": "allowed"
+    },
+    {
+      "href": "https://fermatmind.com/en/topics",
+      "purpose": "topic parent",
+      "status": "conditional on CMS edge authority"
+    }
+  ],
+  "review_fields": {
+    "publish_date": "Unknown",
+    "indexed_status": "Unknown",
+    "sitemap_seen": "Unknown",
+    "llms_seen": "Unknown",
+    "impressions_7d": "Unknown",
+    "clicks_7d": "Unknown",
+    "ctr_7d": "Unknown",
+    "article_to_test_clicks_7d": "Unknown",
+    "impressions_14d": "Unknown",
+    "clicks_14d": "Unknown",
+    "ctr_14d": "Unknown",
+    "article_to_test_clicks_14d": "Unknown",
+    "impressions_28d": "Unknown",
+    "qualified_completes_28d": "Unknown"
+  }
+}

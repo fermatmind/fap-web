@@ -1,0 +1,41 @@
+{
+  "version": "article_90_day_review_spec.v1",
+  "baseline_captured_at": "2026-08-10T12:00:00+08:00",
+  "formal_review_date": "2026-11-08",
+  "observation_days": 90,
+  "actions_now": 0,
+  "allowed_decisions_after_evidence": [
+    "KEEP",
+    "REFRESH",
+    "CONSOLIDATE",
+    "REDIRECT",
+    "NOINDEX",
+    "UNPUBLISH",
+    "ARCHIVE",
+    "DELETE_CANDIDATE",
+    "NEED_MORE_DATA"
+  ],
+  "required_inputs": [
+    "GSC 90d",
+    "GA4 90d",
+    "article_to_test clicks",
+    "qualified completes",
+    "referring links",
+    "internal-link role",
+    "topic ownership",
+    "content freshness",
+    "claim accuracy",
+    "CMS revision history"
+  ],
+  "pre_action_checks": [
+    "merge/redirect target",
+    "canonical",
+    "translation group",
+    "inbound/external links",
+    "sitemap/llms impact",
+    "internal-link repair",
+    "CMS rollback",
+    "GSC monitor window"
+  ],
+  "execution_authorized": false
+}

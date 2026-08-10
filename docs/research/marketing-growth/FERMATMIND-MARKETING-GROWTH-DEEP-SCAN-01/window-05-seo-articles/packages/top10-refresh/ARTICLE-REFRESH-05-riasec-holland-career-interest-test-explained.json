@@ -1,0 +1,203 @@
+{
+  "package_status": {
+    "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-R07-05",
+    "refresh_id": "ARTICLE-REFRESH-05",
+    "article_id": 40,
+    "locale": "zh",
+    "translation_group_id": "riasec-explanation-article-2026-06-v2",
+    "package_version": "article_refresh_package.v1",
+    "current_cms_revision_identity": 69,
+    "content_package_only": true,
+    "intended_cms_status": "draft",
+    "requires_operator_review": true,
+    "cms_draft_created": false,
+    "publish_allowed": false,
+    "search_submit_allowed": false,
+    "english_v2_control_required": false,
+    "english_v2_freeze_sha": "Not applicable"
+  },
+  "cms_fields": {
+    "title": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界",
+    "slug": "riasec-holland-career-interest-test-explained",
+    "h1": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界",
+    "seo_title": "RIASEC 是什么？六种兴趣与霍兰德代码",
+    "seo_description": "解释 RIASEC 六种职业兴趣和三字码如何辅助职业探索；兴趣不是能力、录用或最佳职业保证。",
+    "excerpt": "解释 RIASEC 六种职业兴趣和三字码如何辅助职业探索；兴趣不是能力、录用或最佳职业保证。",
+    "category": "职业探索",
+    "tags": [
+      "RIASEC",
+      "职业兴趣",
+      "Holland Code",
+      "霍兰德职业兴趣测试",
+      "职业探索",
+      "职业动力"
+    ],
+    "content_track": "evergreen_knowledge_refresh",
+    "audience_intent": "definition_and_limits",
+    "target_tests": [
+      "holland-career-interest-test-riasec"
+    ],
+    "target_topics": [
+      "RIASEC/Career Decision"
+    ],
+    "claim_level": "exploratory",
+    "sensitivity_level": "career_sensitive",
+    "medical_disclaimer": "Not medical or psychological diagnosis.",
+    "ability_disclaimer": "No ability or outcome guarantee.",
+    "reviewer_requirement": "editorial + subject/method review; official-policy review for current admissions content",
+    "existing_cover_handling": "preserve current CMS Media Library asset unless editor approves a replacement",
+    "cms_media_library_requirement": true
+  },
+  "query_serp_brief": {
+    "primary_query_cluster": "RIASEC 是什么",
+    "supporting_queries": [
+      "霍兰德职业兴趣测试",
+      "RIASEC 六种类型"
+    ],
+    "current_gsc_baseline": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 0,
+      "impressions": 220,
+      "ctr": "0%",
+      "position": "7.3",
+      "status": "HISTORICAL"
+    },
+    "dominant_intent": "definition_and_limits",
+    "current_owner": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+    "competing_fermatmind_pages": [
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
+    ],
+    "cannibalization": "UNKNOWN pending complete query×page export",
+    "current_title": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+    "current_h1": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+    "current_cta": "免费做霍兰德职业兴趣测试",
+    "evidence_quality": "no_explicit_external_ref_detected:0",
+    "claim_risk": "career_sensitive",
+    "content_gap": "当前文章已被搜索观察到；应把定义、六维、三字码和不能推断的结论前置。",
+    "differentiation": "visible boundary + reversible action + source-status separation",
+    "exact_refresh_scope": "title/meta/H1 alignment, answer-first block, boundary/source block, contextual CTA and governed internal links; keep slug/canonical",
+    "sections_to_keep": [
+      "unique examples",
+      "existing source-backed explanations",
+      "current public safety boundary"
+    ],
+    "sections_to_revise": [
+      "快速答案",
+      "定义与用户问题",
+      "怎么使用",
+      "局限与边界",
+      "行动与 CTA"
+    ],
+    "sections_to_remove": [
+      "unsupported certainty",
+      "duplicate generic introduction",
+      "any private or deterministic recommendation path"
+    ],
+    "source_requirements": [
+      "O*NET Interest Profiler technical reports + current public model documentation"
+    ],
+    "primary_metric": "CTR + RIASEC landing click",
+    "guardrails": [
+      "keep slug and canonical",
+      "one query one owner",
+      "no private URL",
+      "no hidden FAQ",
+      "Unknown remains Unknown"
+    ],
+    "review_plan": {
+      "day_7": "index/render/CTA/schema QA only; no outcome claim",
+      "day_14": "directional query/CTR/click review",
+      "day_28": "compare complete window against position/locale bucket"
+    }
+  },
+  "body_revision": [
+    {
+      "section": "快速答案",
+      "draft": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+    },
+    {
+      "section": "定义与用户问题",
+      "draft": "解释“RIASEC 是什么”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+    },
+    {
+      "section": "怎么使用",
+      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+    },
+    {
+      "section": "局限与边界",
+      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+    },
+    {
+      "section": "行动与 CTA",
+      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/holland-career-interest-test-riasec。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+    }
+  ],
+  "faq_entries": [
+    {
+      "question": "这篇文章里的测评结果能替我做决定吗？",
+      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+    },
+    {
+      "question": "为什么同一人的结果可能变化？",
+      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+    },
+    {
+      "question": "看到结果后第一步做什么？",
+      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+    },
+    {
+      "question": "什么时候需要专业或官方信息？",
+      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+    }
+  ],
+  "faq_schema": {
+    "source": "CMS visible FAQ fields",
+    "visible_faq_count": 4,
+    "expected_faq_schema_mainEntity_count": 4,
+    "hidden_faq_allowed": false
+  },
+  "cta": {
+    "label": "开始相关公开测评，把结论转成可验证的问题",
+    "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+    "target_test_slug": "holland-career-interest-test-riasec",
+    "tracking_expectation": "article_to_test_click",
+    "public_canonical_only": true
+  },
+  "internal_link_plan": [
+    {
+      "href": "https://fermatmind.com/zh/articles",
+      "purpose": "article index",
+      "status": "allowed"
+    },
+    {
+      "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "purpose": "transactional owner",
+      "status": "allowed"
+    },
+    {
+      "href": "https://fermatmind.com/zh/topics",
+      "purpose": "topic parent",
+      "status": "conditional on CMS edge authority"
+    }
+  ],
+  "review_fields": {
+    "publish_date": "Unknown",
+    "indexed_status": "Unknown",
+    "sitemap_seen": "Unknown",
+    "llms_seen": "Unknown",
+    "impressions_7d": "Unknown",
+    "clicks_7d": "Unknown",
+    "ctr_7d": "Unknown",
+    "article_to_test_clicks_7d": "Unknown",
+    "impressions_14d": "Unknown",
+    "clicks_14d": "Unknown",
+    "ctr_14d": "Unknown",
+    "article_to_test_clicks_14d": "Unknown",
+    "impressions_28d": "Unknown",
+    "qualified_completes_28d": "Unknown"
+  }
+}
