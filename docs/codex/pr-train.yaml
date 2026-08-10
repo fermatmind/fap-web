@@ -30555,6 +30555,41 @@ prs:
     content_authority: measurement design only; backend-approved public canonical identities remain authoritative
     repository_rule_impact: measurement contract approval only; no runtime, consent, authority, or discoverability change
 
+  - id: PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01
+    repo: fap-web
+    base: main
+    branch: codex/public-topic-graph-g03-governed-review-01
+    title: "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01: govern non-Career public topic edge candidates"
+    status: user_authorized
+    depends_on: [PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01, PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01]
+    mode: execute
+    train_scope: public_topic_graph_g03_governed_candidate_review
+    scope:
+      - Govern all 422 owner rows and 4,805 candidate edges deterministically, approving only non-Career candidates that satisfy the public-canonical, relation, locale, identity, label, owner and eligibility gates.
+      - Keep every Career source or target BLOCKED_WAITING_ON_C06 with publication and proposed-active flags false.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-06-topic-graph/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Publish or activate edges, import into CMS, modify runtime code, crawler inputs, sitemap, llms, canonical, production, or Career eligibility.
+      - Promote crawl/sitemap observations into CMS/backend authority or infer owners for unresolved rows.
+    required_local_checks:
+      - exact 422 owner rows and 4805 candidate-edge rows with no unexplained UNKNOWN status
+      - public canonical/relation/locale/identity/label/owner/indexability/Career gates
+      - CSV/JSON/YAML/UTF-8/formula-injection/privacy/determinism validation
+      - exact scope validation and git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: governed candidate review only; fap-api/CMS remains public edge authority
+    repository_rule_impact: Program Controller registration and candidate governance only; no runtime, publication, authority, consent, discoverability, or production change
+
   - id: PUBLIC-TOPIC-GRAPH-RENDERER-01
     repo: fap-web
     base: main

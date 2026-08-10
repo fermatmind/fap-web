@@ -57872,6 +57872,32 @@
       }
     ]
   },
+  "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01": {
+    "id": "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-TOPIC-GRAPH-G03-GOVERNED-REVIEW-01: govern non-Career public topic edge candidates",
+    "base": "main",
+    "branch": "codex/public-topic-graph-g03-governed-review-01",
+    "depends_on": [
+      "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01",
+      "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01"
+    ],
+    "status": "user_authorized",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {
+        "at": "2026-08-10T07:12:00Z",
+        "status": "user_authorized",
+        "summary": "Registered the exact operator-authorized G03 scope after PR #2036 merged. Only Window 6 and Program Controller files are allowed; Career remains fail-closed on C06."
+      }
+    ]
+  },
   "PUBLIC-TOPIC-GRAPH-RENDERER-01": {
     "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",
     "repo": "fap-web",
