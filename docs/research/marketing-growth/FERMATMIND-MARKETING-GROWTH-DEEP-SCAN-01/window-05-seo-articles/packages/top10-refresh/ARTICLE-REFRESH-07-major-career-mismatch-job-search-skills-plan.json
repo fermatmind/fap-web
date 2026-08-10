@@ -5,7 +5,7 @@
     "article_id": 72,
     "locale": "zh",
     "translation_group_id": "tg_major_career_mismatch_job_search_skills_2026v1",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 92,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "c8351b441897474e80d1f6433905a9bab954db31eb9f803c8ca03aa21afbf97e"
   },
   "cms_fields": {
     "title": "专业不对口怎么找工作？JD 拆解、技能证据与验证清单",
@@ -72,7 +75,7 @@
       "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "专业不对口怎么找工作？JD拆解、技能证据和实习验证清单",
+    "current_title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
     "current_h1": "专业不对口怎么找工作？JD拆解、技能证据和实习验证清单",
     "current_cta": "先做霍兰德职业兴趣测试，把兴趣转成岗位验证问题",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -112,76 +115,316 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "专业不对口 怎么找工作",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://zhuanlan.zhihu.com/p/26166339",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "专业不对口以及跨岗位找工作 - 知乎",
+          "snippet": "就是进一家公司做行政工作（助理，文员之类），优先考虑大一点的公司，因为这些工作本身就不限制专业，因为工资太低，技术含量也不高。进去之后不管怎么样都好好干，任劳任怨，给老板一个好印象，一年之后申请换岗，这种成功例子的非常多，关键在于如何让老板赏识你（重要的在于你一定要把安排给你的工作做到极致，而不是本末倒置去花小心思取悦老板）。",
+          "rank": 1
+        },
+        {
+          "url": "https://aeo.uibe.edu.cn/front/showContent.jspa?channelId=643&contentId=2567",
+          "domain": "aeo.uibe.edu.cn",
+          "title": "求职：专业可以不对口，能力不能不对口",
+          "snippet": "在毕业之后挺长一段时间，我都没有找到合适的工作，最终迫于就业压力，我选择了一份与自己的专业没有任何关系的工作，在营业厅做了客服代表。我在接下来的工作中，很快就发现了，我选择的工作，不仅与我专业不对口，...",
+          "rank": 2
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/27355814",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "专业不对口，如何找工作？ - 知乎",
+          "snippet": "由于专业不对口而困扰的，无外乎就是这样一个原因： ... 历史学、哲学、环境科学、生物技术等等，如果偏执于在本专业工作，那么就业面极其狭窄，前景也难说乐观。 · 因此，在秋招来临之前，最直接有效的办法，就是多找实习。",
+          "rank": 3
+        },
+        {
+          "url": "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan",
+          "domain": "fermatmind.com",
+          "title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
+          "snippet": "2026年7月2日 - 专业不对口找工作，先别急着把路堵死。用JD动词、课程项目、技能证据、实习验证和霍兰德兴趣，搭出跨专业求职路径。",
+          "rank": 4
+        },
+        {
+          "url": "https://ecust.edu.cn/2023/0215/c734a170694/page.htm",
+          "domain": "ecust.edu.cn",
+          "title": "【东方网】毕业生求职记|专业和岗位不对口怎么办？她另辟蹊径找到“免卷金牌”",
+          "snippet": "东方网记者傅文婧2月14日报道：本科专业和心仪的岗位“不对口”，这是很多高校毕业生会面临的“两难”，华东理工大学化学工程与工艺专业2023届本科毕业生徐丹也曾遇到这样的困扰，但在求职过程中，她充分挖掘自己的其他优势，经过勇敢争取最终如愿与心仪企业签约。 · “本科专业只是匹配某岗位的理由之一，而不是决定性理由。”在徐丹看来，充分挖掘自己的其他优势很重要。“找到足够的理由与岗位匹配，勇敢地去争取。”刚进入大学时，徐丹和大部分同学一样，并没有明确自己将来适合做什么样的工作。“那时候，我不知道我的前途会是什么样子，只是在听优秀学长学姐侃侃而谈自己经历的时候，对那个闪闪发光而又遥不可及的金融领域心生向往。”",
+          "rank": 5
+        },
+        {
+          "url": "http://gscass.org.cn/Mobile/Employment/view/id/109",
+          "domain": "gscass.org.cn",
+          "title": "找工作一定要专业对口吗",
+          "snippet": "职场风声 又到高考填报志愿的关键时期,又一批考生和家长要在各类专业之间思来想去,小心翼翼地揣测四年后的就业情形。一研究机构曾对200例职业再定位的案例进行了专项研究,发现“专业对口”让六成毕业生就业尽折腰,最终不得不重头来过,重新定位。 毕业生:找专业对口的工作咋这么难 小敏大学学的专业是法律。毕业后,她想当一名律师,但跑遍了所在城市的所有律师事务所,虽然在校各科成绩非常优异,但由于缺乏经验,没有一个单位录用她。最后在父",
+          "rank": 6
+        },
+        {
+          "url": "https://www.zhihu.com/question/19889552",
+          "domain": "zhihu.com",
+          "title": "想从事与专业不对口的工作，该怎么办？ - 知乎",
+          "snippet": "2011年10月23日 - 保持自己的兴趣和梦想，理解为什么要选择那个行业，那个行业是做什么的，怎样做，对自己的职业规划来说是否现实。很多时候，兴趣不能变成工作，甚至不能持续地让你对它保持兴趣。找些行内人来交流，就能更清晰地让你明白，自己是否真的想进那个行业。 · 最后这些答案都清晰了的话，就去寻找最重要问题的答案：怎么进那个行业。也许通过面试，也许通过资格考试，也许通过个人人脉，也许也许。总之，你会遇到各种大门，也能找到各种敲门砖和钥匙。",
+          "rank": 7
+        },
+        {
+          "url": "https://www.100chui.com/article/134408.html",
+          "domain": "100chui.com",
+          "title": "专业不对口，如何求职？-锤子简历",
+          "snippet": "首页 > 求职技巧> 专业不对口，如何求职？ · 分享 · 定制 · 专业不对口，如何求职？ · 作者：悟空小编 2022/03/13 00:10:02 阅读 190 · 又到了找工作的热门季节，很多人在求职浪潮中，已经拼尽能力，却也不找到一个适合自己...",
+          "rank": 8
+        },
+        {
+          "url": "https://hrss.qingdao.gov.cn/zxzx_47/gzdt_47/202206/t20220613_6129491.shtml",
+          "domain": "hrss.qingdao.gov.cn",
+          "title": "市人力资源市场系列职业指导：帮你支招 专业与职业不对口怎么办？",
+          "snippet": "支招：已经工作几年的人...有相关工作经验和专业背景的人，成本和风险都会比较大，大多数公司不会这样。 · 实际上，对于任何求职者来说，都没有绝对的专业对口与不对口；任何专业出身的人，只要学会寻找相交点，根据人生每个阶段的具体情况来构造自己的职业生涯道路，打开职业选择面，都可以找到适合自己...",
+          "rank": 9
+        },
+        {
+          "url": "http://paper.people.com.cn/rmrbhwb/page/2016-09/12/06/rmrbhwb2016091206.pdf",
+          "domain": "paper.people.com.cn",
+          "title": "06 06 在多元又变化的大环境下，职业前景、薪资、城市、 专业，还有兴趣……怎么选？ 在多元又变化的大环境下，职业前景、薪资、城市、",
+          "snippet": "专业，还有兴趣……怎么选？ · 回国工作 · 专业不对口咋办？ · 杨心怡 · 回国工作 · 专业不对口咋办？ · 杨心怡 · 海归回国就业，对他们来说是一 · 个新的开始。他们要学会再次融入， · 也要学着将自己在国外多年所学的知 ·",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "专业不对口找工作，先别急着把路堵死。用JD动词、课程项目、技能证据、实习验证和霍兰德兴趣，搭出跨专业求职路径。",
+    "current_snippet": {
+      "rank": 4,
+      "title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
+      "snippet": "2026年7月2日 - 专业不对口找工作，先别急着把路堵死。用JD动词、课程项目、技能证据、实习验证和霍兰德兴趣，搭出跨专业求职路径。"
+    },
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "快速答案：专业不对口找工作，先把“专业名”翻译成“岗位证据”"
+      },
+      {
+        "level": "h2",
+        "text": "1. 先分型：你到底是哪一种“不对口”？"
+      },
+      {
+        "level": "h2",
+        "text": "2. 不同年级的打法不同：不要用毕业焦虑压垮大一，也不要用大一幻想安慰应届生"
+      },
+      {
+        "level": "h2",
+        "text": "3. 读 JD：不要只看岗位名，要提取重复技能动词"
+      },
+      {
+        "level": "h2",
+        "text": "4. 证据强度有等级：不要把“看过课”误当成“能做事”"
+      },
+      {
+        "level": "h2",
+        "text": "5. 把专业证据翻译成岗位证据：你的专业不一定没用，只是还没被翻译"
+      },
+      {
+        "level": "h2",
+        "text": "6. 用霍兰德/RIASEC 看“工作活动”，不要让它替你判职业"
+      },
+      {
+        "level": "h2",
+        "text": "7. 30 天验证计划：不要用焦虑替代行动"
+      },
+      {
+        "level": "h2",
+        "text": "8. 90 天证据建设路线：课程要变成作品，作品要推向市场"
+      },
+      {
+        "level": "h2",
+        "text": "9. 简历怎么写：少道歉，多连接"
+      },
+      {
+        "level": "h3",
+        "text": "示例 1：文科专业转用户研究/产品助理"
+      },
+      {
+        "level": "h3",
+        "text": "示例 2：理工科转内容/运营"
+      },
+      {
+        "level": "h3",
+        "text": "示例 3：商科转数据分析"
+      },
+      {
+        "level": "h2",
+        "text": "10. 什么时候跨专业路径不够，需要正式训练？"
+      },
+      {
+        "level": "h2",
+        "text": "11. 和家长、导师、辅导员沟通前，准备这 5 份证据"
+      },
+      {
+        "level": "h2",
+        "text": "12. 本文负责什么，不负责什么"
+      },
+      {
+        "level": "h2",
+        "text": "下一步：先把兴趣结果转成岗位验证问题"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "专业不对口还能找工作吗？"
+      },
+      {
+        "level": "h3",
+        "text": "跨专业就业最重要的证据是什么？"
+      },
+      {
+        "level": "h3",
+        "text": "霍兰德职业兴趣测试能不能决定我适合什么工作？"
+      },
+      {
+        "level": "h3",
+        "text": "简历里怎么解释专业不对口？"
+      },
+      {
+        "level": "h3",
+        "text": "没有相关实习怎么办？"
+      },
+      {
+        "level": "h3",
+        "text": "哪些岗位不能只靠兴趣和项目跨过去？"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=major-career-mismatch-job-search-skills-plan&content_id=72&target_action=seo_cta_article_cta_1&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fmajor-career-mismatch-job-search-skills-plan&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=major-career-mismatch-job-search-skills-plan&content_id=72&target_action=seo_cta_article_cta_2&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fmajor-career-mismatch-job-search-skills-plan&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences",
+      "https://fermatmind.com/zh/articles/career-confusion-test-map"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "专业不对口怎么找工作？JD 拆解、技能证据与验证清单。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "先说结论",
+      "draft_markdown": "专业和目标岗位不一致，不等于没有资格求职，也不等于必须从零开始。更有效的做法是把“专业名称不匹配”拆成四个可核查问题：岗位实际做什么、入门通常需要什么、你已经有哪些可迁移技能、还缺哪一项可验证证据。\n\n职业兴趣或人格测评可以帮助生成探索方向，但不能证明你适合某个岗位，更不能替代学历、执照、作品、实习、技能测试和招聘规则。最终是否申请，应以真实职位要求和自己的约束为准。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“专业不对口 怎么找工作”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "先区分三种“不对口”",
+      "draft_markdown": "第一种是**名称不同但任务相近**。例如专业课训练过数据整理、访谈、写作或项目协作，而目标岗位也需要这些任务。此时重点是翻译证据。\n\n第二种是**任务有交集但缺关键门槛**。你可能具备分析能力，却缺少指定软件、作品集或行业经验。此时需要一个短期补证计划。\n\n第三种是**受监管或硬资格限制**。某些职业要求执照、认证、特定教育或法定培训。兴趣和通用技能不能绕过这些门槛，必须查询当地官方规则。\n\n把自己归到哪一种，比笼统地说“我专业不对口”更能决定下一步。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "用岗位任务而不是职位想象做研究",
+      "draft_markdown": "先收集 15 至 30 条同类真实职位，记录反复出现的任务、工具、成果和资格。再用 O*NET 等职业信息资源核对典型任务、技能、知识和 Job Zone，但不要把数据库描述当作每个雇主的精确要求。\n\n建立四列表格：\n\n| 岗位要求 | 我已有的证据 | 缺口 | 下一步 |\n| --- | --- | --- | --- |\n| 撰写分析报告 | 课程研究报告、社团复盘 | 缺行业样例 | 重写一份公开数据案例 |\n| 使用指定工具 | 做过同类工具 | 缺目标软件 | 完成一个小型项目 |\n| 与客户沟通 | 访谈、志愿活动 | 缺商业场景 | 模拟需求澄清并记录 |\n\n这里的关键不是把每门课都包装成工作经验，而是只写能被作品、记录或第三方经历支持的内容。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "把可迁移技能写成证据",
+      "draft_markdown": "“沟通能力强”很难核查；“访谈 12 位用户，整理问题并把重复反馈归为 4 类”更清楚。可采用“任务—行动—结果—边界”结构：\n\n- 任务：当时需要解决什么；\n- 行动：你实际做了什么；\n- 结果：产出、反馈或可量化变化；\n- 边界：哪些部分由团队完成，哪些数字不能归因于你。\n\n课程项目、志愿活动、个人项目和兼职都可能成为证据，但不要虚构客户、收入、职责或结果。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/holland-career-interest-test-riasec。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "一个四周的低风险补证计划",
+      "draft_markdown": "**第一周：定义目标。** 只选一个岗位族，整理职位样本和硬门槛。\n\n**第二周：做最小作品。** 选择一个高频任务，用公开资料完成可展示成果，例如分析、原型、文章、代码或流程方案。\n\n**第三周：获取反馈。** 请从业者、老师或同行针对岗位标准评价，不只问“好不好”。记录需要修正的具体项。\n\n**第四周：小批量申请。** 针对岗位重写简历和求职信，跟踪投递、面试和反馈。样本很小时不要过度解读拒绝；持续修正目标、证据或渠道。"
+    },
+    {
+      "section": "简历和面试如何解释转向",
+      "draft_markdown": "用三句话即可：过去积累了什么证据；为什么转向这个岗位的具体任务；已经采取了什么行动弥补缺口。避免“我一直热爱”“测评说我最适合”这种无法核验的说法。\n\n若招聘信息把某学历列为“required”，不要自行假设可绕过；若列为“preferred”，可以用相关成果说明可迁移性，但是否接受仍由雇主决定。"
+    },
+    {
+      "section": "测评在这里能做什么",
+      "draft_markdown": "RIASEC、人格或能力自评可以帮助你生成待验证的岗位假设，例如“我是否更愿意做分析任务”“我是否喜欢频繁客户互动”。随后要用职位研究、信息访谈、短项目和实际反馈验证。它们不能给出唯一职业答案，也不能保证录用、收入或满意度。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "如果你需要一个职业兴趣的结构化起点，可以使用[霍兰德职业兴趣公开测试](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)，然后把前两项兴趣维度转换为三个待研究岗位，而不是直接当作职业推荐。岗位资料可继续通过 O*NET、BLS 和当地官方资格页面核对。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. U.S. Bureau of Labor Statistics. [How to Find a Job](https://www.bls.gov/ooh/how-to-find-a-job/home.htm).\n2. O*NET OnLine. [Occupation Search and Career Exploration](https://www.onetonline.org/).\n3. O*NET OnLine. [Job Zones](https://www.onetonline.org/help/online/zones).\n4. U.S. Bureau of Labor Statistics. [Resources for Jobseekers](https://www.bls.gov/audience/jobseekers.htm)."
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "专业不对口还应该投递吗？",
+      "answer": "先核对岗位硬门槛。若任务相关且要求为偏好项，可用真实作品和经历说明可迁移技能；受监管资格不能绕过。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "怎样证明可迁移技能？",
+      "answer": "用任务、行动、结果和边界描述，并附作品、记录或第三方经历；不要只写抽象能力词。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "没有实习能做什么补证？",
+      "answer": "可选择一个岗位高频任务完成小型公开项目，获取针对岗位标准的反馈，再小批量申请。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "职业兴趣测试能保证转行成功吗？",
+      "answer": "不能。它只能生成探索方向，录用和发展还取决于技能证据、资格、市场、约束与雇主决定。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
     "target_test_slug": "holland-career-interest-test-riasec",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -198,6 +441,117 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-07-major-career-mismatch-job-search-skills-plan.md",
+  "body_markdown": "# 专业不对口怎么找工作？从岗位任务到技能证据的求职方案\n\n## 先说结论\n\n专业和目标岗位不一致，不等于没有资格求职，也不等于必须从零开始。更有效的做法是把“专业名称不匹配”拆成四个可核查问题：岗位实际做什么、入门通常需要什么、你已经有哪些可迁移技能、还缺哪一项可验证证据。\n\n职业兴趣或人格测评可以帮助生成探索方向，但不能证明你适合某个岗位，更不能替代学历、执照、作品、实习、技能测试和招聘规则。最终是否申请，应以真实职位要求和自己的约束为准。\n\n## 先区分三种“不对口”\n\n第一种是**名称不同但任务相近**。例如专业课训练过数据整理、访谈、写作或项目协作，而目标岗位也需要这些任务。此时重点是翻译证据。\n\n第二种是**任务有交集但缺关键门槛**。你可能具备分析能力，却缺少指定软件、作品集或行业经验。此时需要一个短期补证计划。\n\n第三种是**受监管或硬资格限制**。某些职业要求执照、认证、特定教育或法定培训。兴趣和通用技能不能绕过这些门槛，必须查询当地官方规则。\n\n把自己归到哪一种，比笼统地说“我专业不对口”更能决定下一步。\n\n## 用岗位任务而不是职位想象做研究\n\n先收集 15 至 30 条同类真实职位，记录反复出现的任务、工具、成果和资格。再用 O*NET 等职业信息资源核对典型任务、技能、知识和 Job Zone，但不要把数据库描述当作每个雇主的精确要求。\n\n建立四列表格：\n\n| 岗位要求 | 我已有的证据 | 缺口 | 下一步 |\n| --- | --- | --- | --- |\n| 撰写分析报告 | 课程研究报告、社团复盘 | 缺行业样例 | 重写一份公开数据案例 |\n| 使用指定工具 | 做过同类工具 | 缺目标软件 | 完成一个小型项目 |\n| 与客户沟通 | 访谈、志愿活动 | 缺商业场景 | 模拟需求澄清并记录 |\n\n这里的关键不是把每门课都包装成工作经验，而是只写能被作品、记录或第三方经历支持的内容。\n\n## 把可迁移技能写成证据\n\n“沟通能力强”很难核查；“访谈 12 位用户，整理问题并把重复反馈归为 4 类”更清楚。可采用“任务—行动—结果—边界”结构：\n\n- 任务：当时需要解决什么；\n- 行动：你实际做了什么；\n- 结果：产出、反馈或可量化变化；\n- 边界：哪些部分由团队完成，哪些数字不能归因于你。\n\n课程项目、志愿活动、个人项目和兼职都可能成为证据，但不要虚构客户、收入、职责或结果。\n\n## 一个四周的低风险补证计划\n\n**第一周：定义目标。** 只选一个岗位族，整理职位样本和硬门槛。\n\n**第二周：做最小作品。** 选择一个高频任务，用公开资料完成可展示成果，例如分析、原型、文章、代码或流程方案。\n\n**第三周：获取反馈。** 请从业者、老师或同行针对岗位标准评价，不只问“好不好”。记录需要修正的具体项。\n\n**第四周：小批量申请。** 针对岗位重写简历和求职信，跟踪投递、面试和反馈。样本很小时不要过度解读拒绝；持续修正目标、证据或渠道。\n\n## 简历和面试如何解释转向\n\n用三句话即可：过去积累了什么证据；为什么转向这个岗位的具体任务；已经采取了什么行动弥补缺口。避免“我一直热爱”“测评说我最适合”这种无法核验的说法。\n\n若招聘信息把某学历列为“required”，不要自行假设可绕过；若列为“preferred”，可以用相关成果说明可迁移性，但是否接受仍由雇主决定。\n\n## 测评在这里能做什么\n\nRIASEC、人格或能力自评可以帮助你生成待验证的岗位假设，例如“我是否更愿意做分析任务”“我是否喜欢频繁客户互动”。随后要用职位研究、信息访谈、短项目和实际反馈验证。它们不能给出唯一职业答案，也不能保证录用、收入或满意度。\n\n## 下一步\n\n如果你需要一个职业兴趣的结构化起点，可以使用[霍兰德职业兴趣公开测试](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)，然后把前两项兴趣维度转换为三个待研究岗位，而不是直接当作职业推荐。岗位资料可继续通过 O*NET、BLS 和当地官方资格页面核对。\n\n## 参考来源\n\n1. U.S. Bureau of Labor Statistics. [How to Find a Job](https://www.bls.gov/ooh/how-to-find-a-job/home.htm).\n2. O*NET OnLine. [Occupation Search and Career Exploration](https://www.onetonline.org/).\n3. O*NET OnLine. [Job Zones](https://www.onetonline.org/help/online/zones).\n4. U.S. Bureau of Labor Statistics. [Resources for Jobseekers](https://www.bls.gov/audience/jobseekers.htm).\n",
+  "body_character_count": 2127,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-07-S02",
+      "title": "How to Find a Job",
+      "author_or_publisher": "U.S. Bureau of Labor Statistics.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.bls.gov/ooh/how-to-find-a-job/home.htm",
+      "source_type": "official_labour_information",
+      "claims_supported": "job research, occupational requirements, Job Zones and job-search evidence",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-07-S03",
+      "title": "Occupation Search and Career Exploration",
+      "author_or_publisher": "O*NET OnLine.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.onetonline.org/",
+      "source_type": "official_occupational_information",
+      "claims_supported": "job research, occupational requirements, Job Zones and job-search evidence",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-07-S04",
+      "title": "Job Zones",
+      "author_or_publisher": "O*NET OnLine.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.onetonline.org/help/online/zones",
+      "source_type": "official_occupational_information",
+      "claims_supported": "job research, occupational requirements, Job Zones and job-search evidence",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-07-S05",
+      "title": "Resources for Jobseekers",
+      "author_or_publisher": "U.S. Bureau of Labor Statistics.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.bls.gov/audience/jobseekers.htm",
+      "source_type": "official_labour_information",
+      "claims_supported": "job research, occupational requirements, Job Zones and job-search evidence",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-07-S02",
+    "ARTICLE-REFRESH-07-S03",
+    "ARTICLE-REFRESH-07-S04",
+    "ARTICLE-REFRESH-07-S05"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "reader-specific target role, jurisdiction, regulated requirements and employer decision",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }

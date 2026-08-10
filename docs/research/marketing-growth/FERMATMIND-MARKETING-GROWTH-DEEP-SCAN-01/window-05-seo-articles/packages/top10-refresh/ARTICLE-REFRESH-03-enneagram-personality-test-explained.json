@@ -5,7 +5,7 @@
     "article_id": 51,
     "locale": "zh",
     "translation_group_id": "tg_article_enneagram_personality_test_explained_2026v1",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 73,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "3ef4d8f507bd45ca898c30ffb223dbb82b67db48681a9fb2667b5529db743530"
   },
   "cms_fields": {
     "title": "九型人格测试准吗？核心动机、误判原因与结果边界",
@@ -67,7 +70,7 @@
       "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "九型人格测试准吗？9种类型、核心动机和结果解读一次讲清",
+    "current_title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind",
     "current_h1": "九型人格测试准吗？9种类型、核心动机和结果解读一次讲清",
     "current_cta": "开始九型人格测试",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -107,76 +110,345 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "九型人格测试 准吗",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://www.zxgj.cn/g/jiuxingrenge36",
+          "domain": "zxgj.cn",
+          "title": "九型人格测试简洁版 - 在线工具网(zxgj.cn) - 工作生活好帮手",
+          "snippet": "挺准的，做完简题，在看九型人格的书非常实用，很喜欢，这个测试非常好用",
+          "rank": 1
+        },
+        {
+          "url": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
+          "domain": "fermatmind.com",
+          "title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind | FermatMind",
+          "snippet": "2026年6月25日 - 本文只把九型人格作为自我观察和类型语言来解释：它用于整理核心动机、注意力模式和压力反应假设，而不是作为专业诊断、临床评估、招聘筛选或人生结果判断。证据边界按 mixed evidence 谨慎处理，FermatMind 不宣称 RHETI、Enneagram Institute 或 official Enneagram instrument 等价。 · 根据当前公开测试入口，FermatMind 的九型人格测试是一个面向自我理解的公开测试入口，支持九型人格 profile / ranking 的结果框架，并提供不同答题形式。它适合用于教育性自我理解，不适合被写成诊断、招聘筛选或正式临床评估。",
+          "rank": 2
+        },
+        {
+          "url": "https://www.zxgj.cn/g/jiuxingrenge144",
+          "domain": "zxgj.cn",
+          "title": "九型人格测试完整版 - 在线工具网(zxgj.cn) - 工作生活好帮手",
+          "snippet": "站长回复：按照类型分类的人格测验，都会存在一定的误差，另外随着年龄和经历的变动，测试结果也会有所改变的。这是正常情况的。 ... 会变动成第三型和第六型的第九型简直不要太准，尤其是平时九，上升时变成害怕被忽视的三这一点，简直看清我自己！",
+          "rank": 3
+        },
+        {
+          "url": "https://minke8.cn/jxrg.html",
+          "domain": "minke8.cn",
+          "title": "九型人格测试免费-人格测试-九型人格分析",
+          "snippet": "九型人格测试免费在线测试。人格又称个性，所以人格测试也称个性测试，性格和人格区别在于，人格包含性格，人格是各种稳定心理特征的总和，包括性格、兴趣、爱好、气质、能力等。九型人格测试基于九型人格分析理论，把人格划分为九种，分别为：完美型人格、成就型人格、助人型人格、自我型人格、忠诚型人格、理智型人格、活跃型人格、领袖型人格、和平型人格。九型人格测试是近年来才兴起的个性测验，对于了解自己的人格特点，可作为一个参考。",
+          "rank": 4
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/354981757",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "荣格八维与九型人格部分免费测试链接整理 - 知乎",
+          "snippet": "以下链接，除了最后的全英文306题的九型人格测试，都是我自己测试过的。个人觉得这些测试的参考值较高（也仅供参考，据观察还是有很多人的真实人格类型与测试结果并不一致）。配图是该网站测试完后的结果图。",
+          "rank": 5
+        },
+        {
+          "url": "https://baike.baidu.com/item/%E4%B9%9D%E5%9E%8B%E4%BA%BA%E6%A0%BC%E6%B5%8B%E8%AF%95/3243572",
+          "domain": "baike.baidu.com",
+          "title": "九型人格测试_百度百科",
+          "snippet": "最后我们必须声明，任何一种依靠测试就给纷繁复杂的人格和人格分类的方法都不是完全可靠的，甚至是不靠谱的。现实中有许多朋友拿九型人格测试后给自己贴标签，这对个人的成长是不利的。",
+          "rank": 6
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/37090208",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "测试 | 最全九型人格解析和测评（含代表人物），永久收藏 - 知乎",
+          "snippet": "2018年5月21日 - 前言：在这个世界上，有谁不关心自己的性格，又有谁不想去了解身边人呢，亲人、老板、还有同学同事。在性格心理学中，九型人格就是一套最为实用且精确的学问，通过性格类型的觉察，你可以在最短时间内看到自己的思维模式、情绪模式以及行为模式的规律，帮助你认清自己。",
+          "rank": 7
+        },
+        {
+          "url": "https://www.sohu.com/a/1015537311_122670099",
+          "domain": "sohu.com",
+          "title": "九型人格：流行背后的真相——它真的准吗？有权威性吗？_测试_科学_工具",
+          "snippet": "2026年4月28日 - 目前，主流心理学界并未将九型人格纳入科学体系，它也未被广泛用于学术研究和临床诊断。2011年，科学怀疑论者罗伯特·托德·卡罗尔更是将九型人格列入伪科学理论列表，认为它“无法测试，因为过于模糊可塑，任何相关事物都能被强加进去以适配理论”。即便它在商业、社交领域应用广泛，不少企业将其用于招聘、团队建设，甚至有电商平台售卖相关题库供人“伪装”人格以适配岗位，但这并不代表它具备科学权威性，更多是利用其通俗性满足了市场需求。",
+          "rank": 8
+        },
+        {
+          "url": "https://enneagram-personality.com/zh-Hans/",
+          "domain": "enneagram-personality.com",
+          "title": "九型人格测试免费 (2026) - 开始测试",
+          "snippet": "超过 81.3% 的受测者表示，本测试准确识别了他们的九型人格主类型。",
+          "rank": 9
+        },
+        {
+          "url": "https://www.apesk.com/ninehouse/",
+          "domain": "apesk.com",
+          "title": "九型人格（Ninehouse）完整版测试",
+          "snippet": "九型人格学（Enneagram/Ninehouse）是一个有2000多年历史的古老学问，它按照人们习惯性的思维模式，情绪反应和行为习惯等性格特质，将人的性格分为九种――1号性格：完美主义者; 2号性格：给予者; 3号性格：实干者; 4号性格：悲情浪漫者; 5号性格：观察者; 6号性格：怀疑论者; 7号性格：享乐主义者; 8号性格：保护者; 9号性格：调停者。",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "九型人格测试适合做自我观察，不适合当专业诊断。本文解释9种类型、核心动机、核心恐惧、结果怎么看，以及九型人格和MBTI、大五人格、EQ的区别。",
+    "current_snippet": {
+      "rank": 2,
+      "title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind | FermatMind",
+      "snippet": "2026年6月25日 - 本文只把九型人格作为自我观察和类型语言来解释：它用于整理核心动机、注意力模式和压力反应假设，而不是作为专业诊断、临床评估、招聘筛选或人生结果判断。证据边界按 mixed evidence 谨慎处理，FermatMind 不宣称 RHETI、Enneagram Institute 或 official Enneagram instrument 等价。 · 根据当前公开测试入口，FermatMind 的九型人格测试是一个面向自我理解的公开测试入口，支持九型人格 profile / ranking 的结果框架，并提供不同答题形式。它适合用于教育性自我理解，不适合被写成诊断、招聘筛选或正式临床评估。"
+    },
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "Quick answer：九型人格测试准吗？"
+      },
+      {
+        "level": "h2",
+        "text": "这篇文章会帮你解决什么问题？"
+      },
+      {
+        "level": "h2",
+        "text": "边界声明：这篇文章不能替代什么？"
+      },
+      {
+        "level": "h2",
+        "text": "适合谁读这篇文章？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格测试到底准不准？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格是什么：为什么它讲“核心动机”？"
+      },
+      {
+        "level": "h2",
+        "text": "Method and theory｜方法与理论"
+      },
+      {
+        "level": "h2",
+        "text": "FermatMind 九型人格测试公开支持什么？"
+      },
+      {
+        "level": "h2",
+        "text": "9 种类型的安全解释表"
+      },
+      {
+        "level": "h2",
+        "text": "核心动机、核心恐惧、核心欲望怎么理解？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格结果怎么看？"
+      },
+      {
+        "level": "h2",
+        "text": "“最像我的类型”不一定是最舒服的类型"
+      },
+      {
+        "level": "h2",
+        "text": "类型不是身份，也不是命运"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格能帮助你观察什么？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格不能替你判断什么？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格和 MBTI 有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格和大五人格有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "九型人格和 EQ / 情绪能力有什么关系？"
+      },
+      {
+        "level": "h2",
+        "text": "如何把九型结果转成现实观察计划？"
+      },
+      {
+        "level": "h2",
+        "text": "什么时候建议做九型人格测试？"
+      },
+      {
+        "level": "h2",
+        "text": "下一步怎么做"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格测试准吗？"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格的 9 种类型分别代表什么？"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格结果怎么看？"
+      },
+      {
+        "level": "h3",
+        "text": "核心动机、核心恐惧和核心欲望是什么意思？"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格可以诊断心理问题吗？"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格和 MBTI 有什么区别？"
+      },
+      {
+        "level": "h3",
+        "text": "九型人格和大五人格有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "相关阅读 / internal links"
+      },
+      {
+        "level": "h2",
+        "text": "可信度与边界"
+      },
+      {
+        "level": "h2",
+        "text": "开始九型人格测试"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=enneagram-personality-test-explained&content_id=51&target_action=seo_cta_article_cta_1&test_slug=enneagram-personality-test-nine-types&target_test_slug=enneagram-personality-test-nine-types&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fenneagram-personality-test-explained&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=enneagram-personality-test-explained&content_id=51&target_action=seo_cta_article_cta_2&test_slug=enneagram-personality-test-nine-types&target_test_slug=enneagram-personality-test-nine-types&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fenneagram-personality-test-explained&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/mbti-basics",
+      "https://fermatmind.com/zh/articles/big-five-tool-guide",
+      "https://fermatmind.com/zh/articles/eq-test-tool-guide"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "九型人格测试准吗？核心动机、误判原因与结果边界。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "简短答案",
+      "draft_markdown": "不能只用“描述很像我”判断九型人格测试是否准确。对一个测量工具来说，“准”至少包含四个不同问题：结果是否稳定、结构是否符合理论、分数是否支持预定用途、解释是否会造成误用。2021 年一篇系统综述汇总了 104 个独立样本，发现九型人格研究的信度和效度证据是混合的；部分结果与理论有一定一致性，但因子研究常未得到完整九因素结构，对“翼”和类型间移动等次级理论的研究也较少。\n\n这意味着九型人格可以作为反思语言，但不能据此宣称任何在线版本都已被验证，更不能把类型当成诊断、能力或命运。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“九型人格测试 准吗”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "理论、量表和结果要分开",
+      "draft_markdown": "九型人格理论描述九种核心动机及相关叙事；具体测试则把这些概念转成题目和计分；最终结果是某个版本在某次作答中的输出。理论有研究，不等于所有网络测试有同样证据。两个网站都写“九型人格”，也可能使用不同题目、量尺、切点和类型判定方法。\n\n阅读结果前，应查找工具名称、版本、题目来源、计分说明、信度、效度、样本和适用范围。找不到时，最诚实的结论是“产品特定证据 Unknown”，而不是用一篇关于其他工具的研究为当前结果背书。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "四个“准确性”问题",
+      "draft_markdown": "### 1. 结果稳定吗？\n\n如果短时间复测变化很大，可能与题目、作答状态、理解方式或计分边界有关。但复测一致也不自动证明解释正确；稳定只是测量质量的一部分。\n\n### 2. 九种类型结构得到支持吗？\n\n系统综述指出，部分因子分析与理论有局部一致，但常得到少于九个因素。不能把“研究里出现一些相关性”改写成“九型结构已被完全证实”。\n\n### 3. 分数支持什么用途？\n\n用于个人反思的证据要求，与用于招聘、临床、教育分流等高风险决定不同。没有对应验证，就不能扩大用途。本文只允许低风险自我观察，不授权筛选或诊断。\n\n### 4. 解释能否被反驳？\n\n如果任何行为都能事后解释成某一类型，用户就很难发现错误。一个更好的解释应允许反例：哪些场景符合、哪些不符合、哪些可能由角色、压力或关系造成。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "如何降低误判",
+      "draft_markdown": "先不看类型名称，写下最近三个重要选择以及当时最担心失去什么；再阅读两个得分接近的类型描述，寻找能区分它们的具体动机证据；请熟悉你的人只反馈可观察行为，不让对方替你“定型”；最后保留一个反例，并在两周后重新复盘。\n\n所谓“核心动机”不能直接从一次行为推断。帮助同事可能来自关心、责任、规则、声誉或避免冲突。只有把行为放回情境，类型语言才可能帮助提问，而不是制造确定答案。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "关于翼、成长方向和类型变化",
+      "draft_markdown": "这些概念在流行内容中常被写得很确定，但现有综述认为次级理论支持有限。若产品没有公开具体证据，应把它们写成理论框架或探索提示，而不是经过验证的个人事实。结果变化也不必被解释成“人格升级”或“测错了”；工具差异、作答状态和理解变化都可能参与。"
+    },
+    {
+      "section": "使用边界",
+      "draft_markdown": "九型人格结果可以支持反思、沟通和低风险实验；不能用于医疗诊断、心理治疗替代、招聘淘汰、升学录取、能力认证或职业结果预测。若你正在经历持续痛苦或安全风险，应寻找合格专业支持，而不是依赖类型文章做判断。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "如需形成一份结构化探索起点，可以进入[九型人格公开测评](https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types)。请记录吻合证据和反例，不把结果视为固定身份。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. Hook, J. N., et al. (2021). [The Enneagram: A systematic review of the literature and directions for future research](https://pubmed.ncbi.nlm.nih.gov/33332604/). DOI: 10.1002/jclp.23097.\n2. International Test Commission. (2013). [ITC Guidelines on Test Use](https://www.intestcom.org/files/guideline_test_use.pdf).\n3. AERA, APA, & NCME. (2014). [Standards for Educational and Psychological Testing](https://www.testingstandards.net/)."
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "九型人格的九个类型是临床诊断吗？",
+      "answer": "不是。九型类型不能诊断心理健康状况，也不能替代专业评估或治疗。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "翼型和箭头有统一的科学解释吗？",
+      "answer": "不同体系的解释并不完全一致。使用前要注明具体来源，不能把流派说法当成统一、已验证事实。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "九型结果可以决定职业吗？",
+      "answer": "不能。它最多生成反思问题；职业选择还需岗位任务、技能证据、资格、约束和现实试做。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "九型人格研究证据充分吗？",
+      "answer": "系统综述发现研究质量和测量一致性存在限制，应按具体工具和具体主张判断，而不是把整个体系写成已完全验证。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
     "target_test_slug": "enneagram-personality-test-nine-types",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -193,6 +465,103 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-03-enneagram-personality-test-explained.md",
+  "body_markdown": "# 九型人格测试准吗？把“准”拆成四个可核查问题\n\n## 简短答案\n\n不能只用“描述很像我”判断九型人格测试是否准确。对一个测量工具来说，“准”至少包含四个不同问题：结果是否稳定、结构是否符合理论、分数是否支持预定用途、解释是否会造成误用。2021 年一篇系统综述汇总了 104 个独立样本，发现九型人格研究的信度和效度证据是混合的；部分结果与理论有一定一致性，但因子研究常未得到完整九因素结构，对“翼”和类型间移动等次级理论的研究也较少。\n\n这意味着九型人格可以作为反思语言，但不能据此宣称任何在线版本都已被验证，更不能把类型当成诊断、能力或命运。\n\n## 理论、量表和结果要分开\n\n九型人格理论描述九种核心动机及相关叙事；具体测试则把这些概念转成题目和计分；最终结果是某个版本在某次作答中的输出。理论有研究，不等于所有网络测试有同样证据。两个网站都写“九型人格”，也可能使用不同题目、量尺、切点和类型判定方法。\n\n阅读结果前，应查找工具名称、版本、题目来源、计分说明、信度、效度、样本和适用范围。找不到时，最诚实的结论是“产品特定证据 Unknown”，而不是用一篇关于其他工具的研究为当前结果背书。\n\n## 四个“准确性”问题\n\n### 1. 结果稳定吗？\n\n如果短时间复测变化很大，可能与题目、作答状态、理解方式或计分边界有关。但复测一致也不自动证明解释正确；稳定只是测量质量的一部分。\n\n### 2. 九种类型结构得到支持吗？\n\n系统综述指出，部分因子分析与理论有局部一致，但常得到少于九个因素。不能把“研究里出现一些相关性”改写成“九型结构已被完全证实”。\n\n### 3. 分数支持什么用途？\n\n用于个人反思的证据要求，与用于招聘、临床、教育分流等高风险决定不同。没有对应验证，就不能扩大用途。本文只允许低风险自我观察，不授权筛选或诊断。\n\n### 4. 解释能否被反驳？\n\n如果任何行为都能事后解释成某一类型，用户就很难发现错误。一个更好的解释应允许反例：哪些场景符合、哪些不符合、哪些可能由角色、压力或关系造成。\n\n## 如何降低误判\n\n先不看类型名称，写下最近三个重要选择以及当时最担心失去什么；再阅读两个得分接近的类型描述，寻找能区分它们的具体动机证据；请熟悉你的人只反馈可观察行为，不让对方替你“定型”；最后保留一个反例，并在两周后重新复盘。\n\n所谓“核心动机”不能直接从一次行为推断。帮助同事可能来自关心、责任、规则、声誉或避免冲突。只有把行为放回情境，类型语言才可能帮助提问，而不是制造确定答案。\n\n## 关于翼、成长方向和类型变化\n\n这些概念在流行内容中常被写得很确定，但现有综述认为次级理论支持有限。若产品没有公开具体证据，应把它们写成理论框架或探索提示，而不是经过验证的个人事实。结果变化也不必被解释成“人格升级”或“测错了”；工具差异、作答状态和理解变化都可能参与。\n\n## 使用边界\n\n九型人格结果可以支持反思、沟通和低风险实验；不能用于医疗诊断、心理治疗替代、招聘淘汰、升学录取、能力认证或职业结果预测。若你正在经历持续痛苦或安全风险，应寻找合格专业支持，而不是依赖类型文章做判断。\n\n## 下一步\n\n如需形成一份结构化探索起点，可以进入[九型人格公开测评](https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types)。请记录吻合证据和反例，不把结果视为固定身份。\n\n## 参考来源\n\n1. Hook, J. N., et al. (2021). [The Enneagram: A systematic review of the literature and directions for future research](https://pubmed.ncbi.nlm.nih.gov/33332604/). DOI: 10.1002/jclp.23097.\n2. International Test Commission. (2013). [ITC Guidelines on Test Use](https://www.intestcom.org/files/guideline_test_use.pdf).\n3. AERA, APA, & NCME. (2014). [Standards for Educational and Psychological Testing](https://www.testingstandards.net/).\n",
+  "body_character_count": 1891,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-03-S02",
+      "title": "The Enneagram: A systematic review of the literature and directions for future research",
+      "author_or_publisher": "Hook, J. N., et al. (2021).",
+      "year": "2021",
+      "doi": "10.1002",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33332604/",
+      "source_type": "peer_reviewed_research_index",
+      "claims_supported": "systematic-review evidence limits and general test-use boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-03-S03",
+      "title": "ITC Guidelines on Test Use",
+      "author_or_publisher": "International Test Commission. (2013).",
+      "year": "2013",
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_use.pdf",
+      "source_type": "professional_measurement_guideline",
+      "claims_supported": "systematic-review evidence limits and general test-use boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-03-S04",
+      "title": "Standards for Educational and Psychological Testing",
+      "author_or_publisher": "AERA, APA, & NCME. (2014).",
+      "year": "2014",
+      "doi": "Unknown",
+      "url": "https://www.testingstandards.net/",
+      "source_type": "professional_measurement_standard",
+      "claims_supported": "systematic-review evidence limits and general test-use boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-03-S02",
+    "ARTICLE-REFRESH-03-S03",
+    "ARTICLE-REFRESH-03-S04"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "FermatMind-specific Enneagram reliability, validity, norms and agreement across schools",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }

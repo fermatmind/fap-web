@@ -5,7 +5,7 @@
     "article_id": 58,
     "locale": "zh",
     "translation_group_id": "tg_gaokao_adjustment_unacceptable_major_2026v1",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 78,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "e5a023364c6573e2ffdcda66a562e5875c49e12ecdb3aef438cb2f069d89c586"
   },
   "cms_fields": {
     "title": "高考志愿要不要服从调剂？先核对规则与不能接受专业清单",
@@ -74,7 +77,7 @@
       "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "高考志愿要不要服从调剂？先看院校专业组里的“不能接受专业”",
+    "current_title": "高考志愿要不要服从调剂？先排除不能接受专业 | FermatMind",
     "current_h1": "高考志愿要不要服从调剂？先看院校专业组里的“不能接受专业”",
     "current_cta": "做一次霍兰德职业兴趣测试，把“不喜欢”拆成可验证任务",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -114,76 +117,342 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "高考志愿 服从调剂",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://gaokao.eol.cn/zhengce/baokao/202105/t20210528_2115468.shtml",
+          "domain": "gaokao.eol.cn",
+          "title": "要不要服从调剂？ —中国教育在线 - 高考",
+          "snippet": "填报高考志愿时，考生会遇到是否服从调剂的选项。服从调剂一般有两种情况：一是服从院校调剂，一是服从专业调剂。“院校调剂”，是当你的分数达到了某批次录取控制分数线，而你所填的各个志愿学校都未录取你时，如果填了服从院校调剂，即可能被调剂到该批次其他院校；“专业调剂”，当你的档案被某所大学调入后，所填的各个专业均未录取时，如果你填了同意调剂，就有可能被该校其他专业录取。",
+          "rank": 1
+        },
+        {
+          "url": "https://m.gaokao.cn/zd/9110",
+          "domain": "m.gaokao.cn",
+          "title": "服从调剂是什么意思",
+          "snippet": "努力加载中",
+          "rank": 2
+        },
+        {
+          "url": "https://www.dxsbb.com/news/48691.html",
+          "domain": "dxsbb.com",
+          "title": "专业服从调剂是什么意思，不服从调剂会退档吗？_大学生必备网",
+          "snippet": "2026年5月21日 - 在平行志愿投档中，如果...的分数线不够，是不是就不能被该专业录取了，这时候如果你选择了专业服从调剂，学校就会将你调剂到其他分数低的专业，如果你不服从专业调剂，学校就会做退档处理。...",
+          "rank": 3
+        },
+        {
+          "url": "https://gaokao.eol.cn/zhengce/baokao/202105/t20210528_2115469.shtml",
+          "domain": "gaokao.eol.cn",
+          "title": "报考服从调剂是什么意思? —中国教育在线 - 高考",
+          "snippet": "填报高考志愿时，考生会遇到是否服从调剂的选项。服从调剂一般有两种情况：一是服从院校调剂，一是服从专业调剂。“院校调剂”，是当你的分数达到了某批次录取控制分数线，而你所填的各个志愿学校都未录取你时，如果填了服从院校调剂，即可能被调剂到该批次其他院校；“专业调剂”，当你的档案被某所大学调入后，所填的各个专业均未录取时，如果你填了同意调剂，就有可能被该校其他专业录取。",
+          "rank": 4
+        },
+        {
+          "url": "https://baike.baidu.com/item/%E6%9C%8D%E4%BB%8E%E8%B0%83%E5%89%82/3661734",
+          "domain": "baike.baidu.com",
+          "title": "服从调剂_百度百科",
+          "snippet": "服从调剂是高考录取中的专业分配机制，指考生达到院校投档线但未达到所报专业录取线时，由学校将其调配至同一院校专业组内未录满专业的录取方式。若考生不服从调剂，将被退档至下一批次或征求志愿环节。 [1] ...",
+          "rank": 5
+        },
+        {
+          "url": "http://www.diebian.net/gaokao/415.html",
+          "domain": "diebian.net",
+          "title": "高考专业调剂的原则是什么_蝶变志愿",
+          "snippet": "因为是平行志愿，被学校退档后，第二个及后面平行志愿填报的学校就无法录取你了，这时就要看你是否填报了学校服从调剂，如果填报了，招考办就会把你调剂录取到缺额的学校。如果你没有填报学校服从调剂，你就只能落榜了。 · 服从调剂是指高考分数达到所填报学校的投档线，但未达到所报专业录取分数线，同时该校仍有专业未录满可以录取你，这样你服从专业调剂了便会被未录满的专业录取，若不服从调剂该学校便不能录取你，于是就会被退档。简而言之，服从调剂就是从所填报院校中满足的专业随机挑选一个专业。会增加录取的几率。",
+          "rank": 6
+        },
+        {
+          "url": "https://edu.southcn.com/node_26799a7394/7ee7a2e5d1.shtml",
+          "domain": "edu.southcn.com",
+          "title": "填高考志愿，是不是一定要“服从专业调剂”？_南方网",
+          "snippet": "2023年5月17日 - 1.“服从调剂”，指的是“服从专业组内调剂”。 · 2.调剂专业只能在同一个院校专业组中进行，不会跨其他院校专业组。 · 3.如果同时报考两个批次志愿，对前一个批次的专业不喜欢，可选择不服从专业调剂，但最下面的批次要填服从调剂。比如：如果同时报了提前批次和本科批次，考生在提前批次选择“否”，退档将会退档到本科批次。",
+          "rank": 7
+        },
+        {
+          "url": "https://edu.southcn.com/node_26799a7394/1784af978b.shtml",
+          "domain": "edu.southcn.com",
+          "title": "高考志愿填报中，到底要不要“服从调剂”？丨柯大侠笔记_南方网",
+          "snippet": "2024年5月23日 - 如果不填服从调剂，表示考生不愿服从调剂到其它专业。这时如果考生达不到所填专业的分数线，或者不符合专业录取条件（身体条件、文化课成绩、单科成绩等要求），考生将很可能会失去录取的机会，退档的可能性将大大增加。",
+          "rank": 8
+        },
+        {
+          "url": "https://blog.csdn.net/zhouyueyong/article/details/144523872",
+          "domain": "blog.csdn.net",
+          "title": "高考志愿攻略：如何巧妙处理服从调剂与定向调配？-CSDN博客",
+          "snippet": "2024年12月18日 - 最后，考生要密切关注招生政策的变化，包括招生计划的调整、录取规则的修订、加分政策、特殊类型招生政策等。招生政策每年可能会有所变动，考生需及时掌握最新信息，确保志愿填报符合政策要求，避免因政策不明导致填报失误。 ... 服从调剂是指在高考志愿填报中，考生选择服从院校专业组内的专业调剂。当考生的高考成绩达到所填报院校专业组的投档分数线，但未被所填报的专业录取时，如果考生服从调剂，招生院校将把考生调剂到该院校专业组内尚有招生计划的其他专业进行录取。",
+          "rank": 9
+        },
+        {
+          "url": "https://zs.csmu.edu.cn/?list_37%2F680.html=",
+          "domain": "zs.csmu.edu.cn",
+          "title": "学考填志愿前，先决定要不要服从调剂！招生资讯",
+          "snippet": "“服从专业调剂”是指考生同意被该院校在所填报的专业组中的任何专业录取，但不会被调剂该校其他专业组。 · 由于考生填报专业志愿不均衡，专业录取生源冷热不均，有的专业出现计划空额，有的专业考生爆满。",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "填院校专业组前，别先争服从调剂。先把全部专业分成不能接受、待验证、可接受，再用课程、硬条件和家庭成本判断能否承担调剂风险。",
+    "current_snippet": "Not observed in controlled Top 10",
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "快速答案：先别急着点“服从”，先把最坏结果写出来"
+      },
+      {
+        "level": "h2",
+        "text": "真正让人焦虑的，不是“调剂”，是看不见的最坏结果"
+      },
+      {
+        "level": "h2",
+        "text": "第一步：先确认你面对的是哪种志愿模式"
+      },
+      {
+        "level": "h2",
+        "text": "第二步：别只看学校名，把组内所有专业复制出来"
+      },
+      {
+        "level": "h2",
+        "text": "第三步：三栏清单比“喜欢/不喜欢”更管用"
+      },
+      {
+        "level": "h3",
+        "text": "可直接复制的院校专业组三栏表"
+      },
+      {
+        "level": "h2",
+        "text": "“不能接受专业”不是一句狠话，要写出证据"
+      },
+      {
+        "level": "h3",
+        "text": "1. 硬条件红线：选科、体检、单科、语种"
+      },
+      {
+        "level": "h3",
+        "text": "2. 长期课程红线：不是难不难，是你能不能长期面对"
+      },
+      {
+        "level": "h3",
+        "text": "3. 工作活动红线：用 RIASEC 把“不喜欢”说具体"
+      },
+      {
+        "level": "h3",
+        "text": "4. 现实成本红线：学费、城市、学制、家庭承受力"
+      },
+      {
+        "level": "h3",
+        "text": "5. 转专业红线：只能靠转出去才愿意读，就不是低风险"
+      },
+      {
+        "level": "h2",
+        "text": "如果组里有 1-2 个不能接受专业，怎么办？"
+      },
+      {
+        "level": "h3",
+        "text": "三种可落地结论"
+      },
+      {
+        "level": "h2",
+        "text": "两个家庭场景：怎么把争吵改成表格"
+      },
+      {
+        "level": "h3",
+        "text": "场景一：孩子想冲计算机，父母看重学校层次"
+      },
+      {
+        "level": "h3",
+        "text": "场景二：父母推荐医学，孩子更想读传播"
+      },
+      {
+        "level": "h2",
+        "text": "给家长和学生的一段沟通脚本"
+      },
+      {
+        "level": "h2",
+        "text": "如果已经被调剂到不喜欢的专业，先别把它等同于失败"
+      },
+      {
+        "level": "h2",
+        "text": "什么时候用霍兰德职业兴趣测试？"
+      },
+      {
+        "level": "h2",
+        "text": "这篇文章和其他高考选专业文章怎么配合？"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "高考志愿要不要服从调剂？"
+      },
+      {
+        "level": "h3",
+        "text": "服从调剂会被调到不喜欢的专业吗？"
+      },
+      {
+        "level": "h3",
+        "text": "高考志愿不服从调剂会怎样？"
+      },
+      {
+        "level": "h3",
+        "text": "院校专业组里有一个不能接受专业，还能填吗？"
+      },
+      {
+        "level": "h3",
+        "text": "专业+院校模式还需要考虑服从调剂吗？"
+      },
+      {
+        "level": "h3",
+        "text": "被调剂到不喜欢的专业怎么办？"
+      },
+      {
+        "level": "h3",
+        "text": "霍兰德职业兴趣测试能决定要不要服从调剂吗？"
+      },
+      {
+        "level": "h3",
+        "text": "MBTI 能用来判断专业组是否能接受吗？"
+      },
+      {
+        "level": "h3",
+        "text": "FermatMind 是官方志愿填报系统吗？"
+      },
+      {
+        "level": "h2",
+        "text": "下一步：今晚只做一件事，把“不能接受”写成证据"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=gaokao-major-adjustment-unacceptable-major-checklist&content_id=58&target_action=seo_cta_article_cta_1&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=article_cta_1&landing_path=%2Fzh%2Farticles%2Fgaokao-major-adjustment-unacceptable-major-checklist&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=gaokao-major-adjustment-unacceptable-major-checklist&content_id=58&target_action=seo_cta_article_cta_2&test_slug=mbti-personality-test-16-personality-types&target_test_slug=mbti-personality-test-16-personality-types&cta_id=article_cta_2&landing_path=%2Fzh%2Farticles%2Fgaokao-major-adjustment-unacceptable-major-checklist&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "https://fermatmind.com/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+      "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "高考志愿要不要服从调剂？先核对规则与不能接受专业清单。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "先说结论",
+      "draft_markdown": "“是否服从专业调剂”没有脱离省份、年份、批次、院校专业组和招生章程的统一答案。它通常影响考生在已投档后、所报专业无法满足时，是否接受学校按规则安排到其他有余额且符合条件的专业。选择不服从可能增加退档风险；选择服从则可能进入并非首选的专业。两种风险都需要结合当年官方规则判断。\n\n本文只提供核对框架，不替代省级考试院、高校招生章程和正式志愿系统。2026 年各地规则仍有差异，填报时必须重新读取本人省份、目标院校和目标专业组的当前文件。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“高考志愿 服从调剂”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "先确认“调剂发生在哪里”",
+      "draft_markdown": "部分地区以院校专业组为填报单位，调剂通常受同一专业组范围限制；不同批次和计划类型也可能有不同规则。上海 2026 年实施办法明确提示考生核对院校专业组科目要求，并说明因不服从专业调剂或不符合专业录取条件可能被退档。云南 2026 年问答则强调招生章程会列出专业条件和录取规则。\n\n所以，不要只问“服从会不会被调到最差专业”，应逐项确认：调剂范围、专业录取条件、体检与单科要求、外语语种、学费、培养校区、专业分流、转专业规则，以及不服从时的退档处理。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "建立“不能接受专业”清单",
+      "draft_markdown": "把目标院校专业组内的专业分成三类：\n\n1. **愿意直接填报。** 课程和发展方向基本符合，可以列入志愿顺序。\n2. **可以接受但需补证据。** 例如课程不熟悉、就业方向不清楚，需要查看培养方案、实习和毕业去向。\n3. **明确不能接受。** 例如体检不符合、学费无法承担、培养地点不可接受、核心课程与长期约束冲突。\n\n“不喜欢名字”不是充分证据，“无法承担学费”或“不满足身体条件”则是明确约束。清单必须来自当年招生计划、章程和培养方案，而不是短视频排名。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "用三种情景比较风险",
+      "draft_markdown": "### 情景 A：不服从，专业志愿都无法满足\n\n根据具体规则，可能被退档。要进一步确认本批次退档后还有哪些机会，是否会影响后续批次或征集志愿。\n\n### 情景 B：服从，被调剂到可接受专业\n\n这可能保留进入院校的机会，但仍需核对课程、校区和费用。不要把“可以接受”写成“以后一定能转专业”；转专业规则必须另查。\n\n### 情景 C：服从，被调剂到不能接受专业\n\n如果该专业触及明确硬约束，服从的代价可能大于退档风险。此时应重新审视是否选择该专业组，而不是寄希望于入学后必然改变。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/holland-career-interest-test-riasec。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "填报前检查表",
+      "draft_markdown": "- 省份、年份、批次和计划类型是否正确；\n- 院校专业组包含哪些专业，调剂是否仅在组内；\n- 是否有体检、单科、语种、性别或其他录取条件；\n- 学费、校区、住宿和培养方式是否能接受；\n- 所有专业志愿无法满足且不服从时如何处理；\n- 服从后学校按什么规则安排专业；\n- 转专业、专业分流是否有公开规则，不能靠口头承诺；\n- 已保存当年官方页面和招生章程版本。"
+    },
+    {
+      "section": "兴趣测评能做什么",
+      "draft_markdown": "RIASEC 等兴趣工具可以帮助你整理“更愿意接触哪些任务和环境”，但不能替代录取规则，也不能决定你是否应该服从调剂。兴趣结果最多用于比较专业课程和活动场景；最终选择还要加入成绩、科目条件、费用、地域和风险承受能力。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "先完成官方规则与专业清单核对。如需补充兴趣线索，可使用[RIASEC 公开测评](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)，但不得把结果当成录取或专业适配保证。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. 阳光高考（2026）。[上海市2026年普通高等学校招生志愿填报与投档录取实施办法](https://gaokao.chsi.com.cn/gkxx/zc/ss/202604/20260402/2293456817.html)。\n2. 阳光高考（2026）。[云南省2026年高考志愿填报百问百答](https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260629/2293848519.html)。\n3. 阳光高考（2026）。[北京服装学院2026年本科招生章程](https://gaokao.chsi.com.cn/zsgs/zhangcheng/listVerifedZszc--infoId-7682346056%2Cmethod-view%2CschId-12.dhtml)。"
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "服从专业调剂就一定不会退档吗？",
+      "answer": "不能这样承诺。录取结果取决于当年、当地和院校官方规则、专业要求、投档条件及考生情况。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "怎样制作不可接受专业清单？",
+      "answer": "逐项核对培养方案、身体或科目限制、费用、校区、职业门槛和个人底线，并保留官方页面截图与日期。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "往年规则可以直接用于 2026 年吗？",
+      "answer": "不可以。往年材料只能帮助理解术语，最终必须以报考年度省级考试院和院校正式文件为准。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "兴趣测试能替我决定是否服从调剂吗？",
+      "answer": "不能。兴趣结果只能补充探索线索，不能替代招生规则、成绩条件、费用和风险承受能力。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
     "target_test_slug": "holland-career-interest-test-riasec",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/gaokao-major-adjustment-unacceptable-major-checklist",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -200,6 +469,103 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-04-gaokao-major-adjustment-unacceptable-major-checklist.md",
+  "body_markdown": "# 高考志愿要不要服从调剂？先看省份规则，再列不能接受的专业\n\n## 先说结论\n\n“是否服从专业调剂”没有脱离省份、年份、批次、院校专业组和招生章程的统一答案。它通常影响考生在已投档后、所报专业无法满足时，是否接受学校按规则安排到其他有余额且符合条件的专业。选择不服从可能增加退档风险；选择服从则可能进入并非首选的专业。两种风险都需要结合当年官方规则判断。\n\n本文只提供核对框架，不替代省级考试院、高校招生章程和正式志愿系统。2026 年各地规则仍有差异，填报时必须重新读取本人省份、目标院校和目标专业组的当前文件。\n\n## 先确认“调剂发生在哪里”\n\n部分地区以院校专业组为填报单位，调剂通常受同一专业组范围限制；不同批次和计划类型也可能有不同规则。上海 2026 年实施办法明确提示考生核对院校专业组科目要求，并说明因不服从专业调剂或不符合专业录取条件可能被退档。云南 2026 年问答则强调招生章程会列出专业条件和录取规则。\n\n所以，不要只问“服从会不会被调到最差专业”，应逐项确认：调剂范围、专业录取条件、体检与单科要求、外语语种、学费、培养校区、专业分流、转专业规则，以及不服从时的退档处理。\n\n## 建立“不能接受专业”清单\n\n把目标院校专业组内的专业分成三类：\n\n1. **愿意直接填报。** 课程和发展方向基本符合，可以列入志愿顺序。\n2. **可以接受但需补证据。** 例如课程不熟悉、就业方向不清楚，需要查看培养方案、实习和毕业去向。\n3. **明确不能接受。** 例如体检不符合、学费无法承担、培养地点不可接受、核心课程与长期约束冲突。\n\n“不喜欢名字”不是充分证据，“无法承担学费”或“不满足身体条件”则是明确约束。清单必须来自当年招生计划、章程和培养方案，而不是短视频排名。\n\n## 用三种情景比较风险\n\n### 情景 A：不服从，专业志愿都无法满足\n\n根据具体规则，可能被退档。要进一步确认本批次退档后还有哪些机会，是否会影响后续批次或征集志愿。\n\n### 情景 B：服从，被调剂到可接受专业\n\n这可能保留进入院校的机会，但仍需核对课程、校区和费用。不要把“可以接受”写成“以后一定能转专业”；转专业规则必须另查。\n\n### 情景 C：服从，被调剂到不能接受专业\n\n如果该专业触及明确硬约束，服从的代价可能大于退档风险。此时应重新审视是否选择该专业组，而不是寄希望于入学后必然改变。\n\n## 填报前检查表\n\n- 省份、年份、批次和计划类型是否正确；\n- 院校专业组包含哪些专业，调剂是否仅在组内；\n- 是否有体检、单科、语种、性别或其他录取条件；\n- 学费、校区、住宿和培养方式是否能接受；\n- 所有专业志愿无法满足且不服从时如何处理；\n- 服从后学校按什么规则安排专业；\n- 转专业、专业分流是否有公开规则，不能靠口头承诺；\n- 已保存当年官方页面和招生章程版本。\n\n## 兴趣测评能做什么\n\nRIASEC 等兴趣工具可以帮助你整理“更愿意接触哪些任务和环境”，但不能替代录取规则，也不能决定你是否应该服从调剂。兴趣结果最多用于比较专业课程和活动场景；最终选择还要加入成绩、科目条件、费用、地域和风险承受能力。\n\n## 下一步\n\n先完成官方规则与专业清单核对。如需补充兴趣线索，可使用[RIASEC 公开测评](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)，但不得把结果当成录取或专业适配保证。\n\n## 参考来源\n\n1. 阳光高考（2026）。[上海市2026年普通高等学校招生志愿填报与投档录取实施办法](https://gaokao.chsi.com.cn/gkxx/zc/ss/202604/20260402/2293456817.html)。\n2. 阳光高考（2026）。[云南省2026年高考志愿填报百问百答](https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260629/2293848519.html)。\n3. 阳光高考（2026）。[北京服装学院2026年本科招生章程](https://gaokao.chsi.com.cn/zsgs/zhangcheng/listVerifedZszc--infoId-7682346056%2Cmethod-view%2CschId-12.dhtml)。\n",
+  "body_character_count": 1839,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-04-S02",
+      "title": "上海市2026年普通高等学校招生志愿填报与投档录取实施办法",
+      "author_or_publisher": "阳光高考（2026）。",
+      "year": "2026",
+      "doi": "Unknown",
+      "url": "https://gaokao.chsi.com.cn/gkxx/zc/ss/202604/20260402/2293456817.html",
+      "source_type": "official_admissions_source",
+      "claims_supported": "2026 province- and institution-specific admissions and adjustment rules",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-04-S03",
+      "title": "云南省2026年高考志愿填报百问百答",
+      "author_or_publisher": "阳光高考（2026）。",
+      "year": "2026",
+      "doi": "Unknown",
+      "url": "https://gaokao.chsi.com.cn/gkxx/zc/ss/202606/20260629/2293848519.html",
+      "source_type": "official_admissions_source",
+      "claims_supported": "2026 province- and institution-specific admissions and adjustment rules",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-04-S04",
+      "title": "北京服装学院2026年本科招生章程",
+      "author_or_publisher": "阳光高考（2026）。",
+      "year": "2026",
+      "doi": "Unknown",
+      "url": "https://gaokao.chsi.com.cn/zsgs/zhangcheng/listVerifedZszc--infoId-7682346056%2Cmethod-view%2CschId-12.dhtml",
+      "source_type": "official_admissions_source",
+      "claims_supported": "2026 province- and institution-specific admissions and adjustment rules",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-04-S02",
+    "ARTICLE-REFRESH-04-S03",
+    "ARTICLE-REFRESH-04-S04"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "reader's province, score, institution, programme and current official adjustment rules",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }

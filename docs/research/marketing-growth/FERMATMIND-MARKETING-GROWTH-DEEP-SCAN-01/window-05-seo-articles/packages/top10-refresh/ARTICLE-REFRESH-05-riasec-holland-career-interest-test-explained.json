@@ -5,7 +5,7 @@
     "article_id": 40,
     "locale": "zh",
     "translation_group_id": "riasec-explanation-article-2026-06-v2",
-    "package_version": "article_refresh_package.v1",
+    "package_version": "article_refresh_package.v2",
     "current_cms_revision_identity": 69,
     "content_package_only": true,
     "intended_cms_status": "draft",
@@ -14,7 +14,10 @@
     "publish_allowed": false,
     "search_submit_allowed": false,
     "english_v2_control_required": false,
-    "english_v2_freeze_sha": "Not applicable"
+    "english_v2_freeze_sha": "Not applicable",
+    "status": "READY_NOT_IMPORTED",
+    "assembled_at": "2026-08-10T13:19:33+08:00",
+    "body_sha256": "84ff7a59c9e0a989cb49e4002f57acfe41588a57b3b6656338582ce71ab3c029"
   },
   "cms_fields": {
     "title": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界",
@@ -72,7 +75,7 @@
       "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
     ],
     "cannibalization": "UNKNOWN pending complete query×page export",
-    "current_title": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
+    "current_title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
     "current_h1": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
     "current_cta": "免费做霍兰德职业兴趣测试",
     "evidence_quality": "no_explicit_external_ref_detected:0",
@@ -112,76 +115,326 @@
       "day_7": "index/render/CTA/schema QA only; no outcome claim",
       "day_14": "directional query/CTR/click review",
       "day_28": "compare complete window against position/locale bucket"
-    }
+    },
+    "controlled_serp": {
+      "query": "RIASEC 是什么",
+      "provider": "Brave Search web SERP",
+      "country_control": "CN query parameter",
+      "device_control": "desktop Chrome user-agent",
+      "personalization": "stateless logged-out HTTP request",
+      "captured_at": "2026-08-10T13:45:00+08:00",
+      "limitation": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP.",
+      "top_10": [
+        {
+          "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+          "domain": "fermatmind.com",
+          "title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
+          "snippet": "2026年6月23日 - RIASEC 是一种职业兴趣模型。它把人们对工作活动、问题类型和职业环境的偏好整理成六个方向：现实型、研究型、艺术型、社会型、企业型和常规型。 · 它也常被称为霍兰德职业兴趣模型，英文里经常用 Holland Code 表示。RIASEC 不是用来给你贴一个固定标签，也不是替你决定“应该做什么职业”。它更像一张职业探索地图：帮助你看清哪些活动更能激发你的持续投入，哪些环境可能让你长期消耗。",
+          "rank": 1
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/404088137",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "霍兰德(RIASEC)职业兴趣量表和MBTI类型 - 知乎",
+          "snippet": "霍兰德量表是最有用的职业兴趣工具之一。它包括约翰·霍兰德描述的六个兴趣主题/领域和兴趣清单。这些包括务实 (R)、探究 (I)、艺术 (A)、社会 (S)、进取 (E) 和常规 (C) ——统称为“...",
+          "rank": 2
+        },
+        {
+          "url": "https://assess.com/what-is-riasec-assessment/",
+          "domain": "assess.com",
+          "title": "Personality Assessment to Improve HR Recruitment & Selection | Assessment Systems",
+          "snippet": "2026年5月14日 - Based on theory from John Holland, ... that align with their level on six personality factors: Realistic, Investigative, Artistic, Social, Enterprising, and Conventional (RIASEC)....",
+          "rank": 3
+        },
+        {
+          "url": "https://types.yuzeli.com/survey/holland",
+          "domain": "types.yuzeli.com",
+          "title": "霍兰德兴趣画像测评 - 按阶段选择兴趣画像入口 - 心理测试 - 心理成长",
+          "snippet": "本入口下的各阶段测评参考 Holland RIASEC 职业兴趣理论。RIASEC 将职业兴趣分为现实型、研究型、艺术型、社会型、企业型、常规型六个方向，用于帮助人们理解自己更容易被哪些活动、任务和职业环境吸引。",
+          "rank": 4
+        },
+        {
+          "url": "https://enrolluhmc.com/riasec/",
+          "domain": "enrolluhmc.com",
+          "title": "UHMC-RIASEC",
+          "snippet": "The RIASEC test asks questions about your aspirations, activities, skills, and interests in different jobs to help you discover careers and fields of study that are likely to satisfy you.",
+          "rank": 5
+        },
+        {
+          "url": "https://blog.csdn.net/weixin_44135121/article/details/137863179",
+          "domain": "blog.csdn.net",
+          "title": "如何找到自己感兴趣的工作？(1个测评5分钟出结果)_职业世界地图-CSDN博客",
+          "snippet": "2024年4月17日 - 不管你走哪条路，要想获得成就，都需要付出很多的时间和精力，这世上几乎不存在【钱多事少离家近】的工作。所以未来有那么长时间，我们何不选择一个我们真正喜欢和热爱的事业来为之奋斗一生呢。那么问题来了，我如何知道我喜欢什么工作呢？ · 给大家介绍一个业内非常有名的职业测评工具，即霍兰德职业测评。可扫描以下二维码，找一个安静的环境，只需要5分钟，就可以出来结果。 · 霍兰德代码一共有6个，分别是 RICSEA，这6个代码按照2个大维度进行区别职业类型。",
+          "rank": 6
+        },
+        {
+          "url": "https://hourlightkey.com/quiz-riasec.html",
+          "domain": "hourlightkey.com",
+          "title": "RIASEC 職業興趣測驗｜你天生燒在哪條職涯？｜馥靈之鑰",
+          "snippet": "RIASEC 是「霍蘭德職業興趣理論」（Holland Codes）的縮寫，由美國心理學家 John L.",
+          "rank": 7
+        },
+        {
+          "url": "https://zhuanlan.zhihu.com/p/674867477",
+          "domain": "zhuanlan.zhihu.com",
+          "title": "职识分子｜霍兰德职业兴趣测评——六边形解密 - 知乎",
+          "snippet": "霍兰德代码既可以评估人的兴趣，也可以归纳岗位的特性，实现二者之间匹配性的评估。霍兰德代码将人和职业归类为六种类型：现实型（Realistic）、研究型（Investigative）、艺术型（Artistic）、社会型（Social）、企业型（Enterprising）和传统型（Conventional），通常简称为RIASEC六边形。参考O*NET的职位数据，我们发现R现实型和C传统型职位数量居于前列，而A艺术型职位数量相对较少。",
+          "rank": 8
+        },
+        {
+          "url": "https://www.eduplus.hk/dse/game.jsp",
+          "domain": "eduplus.hk",
+          "title": "職場探索 | DSE點修科",
+          "snippet": "RIASEC這六個字母所代表的，就是有名的「Holland職業代碼」系統。這個系統由John Holland博士於1985年提出，其主要目的在於建立「興趣」、「性格」、「職業」之間的對應關係，並據以對職業進行分類。經過20多年的修正改善，這個系統可說是目前最被廣為接受的職涯探索工具與職業分類體系之一。",
+          "rank": 9
+        },
+        {
+          "url": "https://openpsychometrics.org/tests/RIASEC/",
+          "domain": "openpsychometrics.org",
+          "title": "Holland Code (RIASEC) Test",
+          "snippet": "This is an interactive version of the IIP RIASEC Markers · The Holland Occupational Themes is a theory of personality that focuses on career and vocational choice. It groups people on the basis of their suitability for six different categories of occupations.",
+          "rank": 10
+        }
+      ]
+    },
+    "current_meta": "解释 RIASEC 六种职业兴趣类型、霍兰德测试能说明什么，以及如何把结果用于专业和职业探索。",
+    "current_snippet": {
+      "rank": 1,
+      "title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
+      "snippet": "2026年6月23日 - RIASEC 是一种职业兴趣模型。它把人们对工作活动、问题类型和职业环境的偏好整理成六个方向：现实型、研究型、艺术型、社会型、企业型和常规型。 · 它也常被称为霍兰德职业兴趣模型，英文里经常用 Holland Code 表示。RIASEC 不是用来给你贴一个固定标签，也不是替你决定“应该做什么职业”。它更像一张职业探索地图：帮助你看清哪些活动更能激发你的持续投入，哪些环境可能让你长期消耗。"
+    },
+    "current_outline": [
+      {
+        "level": "h3",
+        "text": "FAQ"
+      },
+      {
+        "level": "h2",
+        "text": "Quick answer：霍兰德职业兴趣测试主要帮你看什么？"
+      },
+      {
+        "level": "h2",
+        "text": "这篇文章适合谁读？"
+      },
+      {
+        "level": "h2",
+        "text": "霍兰德职业兴趣测试 / RIASEC 是什么？"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC 六型怎么理解？"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC 不是测能力，而是看职业兴趣和工作环境"
+      },
+      {
+        "level": "h2",
+        "text": "霍兰德结果怎么看？"
+      },
+      {
+        "level": "h3",
+        "text": "1. 前两到三个高分区域比单一最高分更重要"
+      },
+      {
+        "level": "h3",
+        "text": "2. 分数接近时，不要急着下结论"
+      },
+      {
+        "level": "h3",
+        "text": "3. 低 differentiation 不是失败"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC 六型与工作环境有什么关系？"
+      },
+      {
+        "level": "h2",
+        "text": "consistency、differentiation、congruence 怎么理解？"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC、MBTI 和大五人格有什么区别？"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC 能帮助你判断什么？"
+      },
+      {
+        "level": "h2",
+        "text": "RIASEC 不能替你判断什么？"
+      },
+      {
+        "level": "h2",
+        "text": "做完 RIASEC 后，怎么验证结果？"
+      },
+      {
+        "level": "h2",
+        "text": "什么时候建议做霍兰德职业兴趣测试？"
+      },
+      {
+        "level": "h2",
+        "text": "下一步怎么做"
+      },
+      {
+        "level": "h2",
+        "text": "常见问题"
+      },
+      {
+        "level": "h3",
+        "text": "霍兰德职业兴趣测试是什么？"
+      },
+      {
+        "level": "h3",
+        "text": "RIASEC 六型分别代表什么？"
+      },
+      {
+        "level": "h3",
+        "text": "霍兰德结果怎么看？"
+      },
+      {
+        "level": "h3",
+        "text": "霍兰德职业兴趣测试能告诉我最适合的职业吗？"
+      },
+      {
+        "level": "h3",
+        "text": "RIASEC 和 MBTI 有什么区别？"
+      },
+      {
+        "level": "h3",
+        "text": "RIASEC 和大五人格可以一起看吗？"
+      },
+      {
+        "level": "h3",
+        "text": "做完 RIASEC 测试后下一步应该做什么？"
+      },
+      {
+        "level": "h2",
+        "text": "相关阅读"
+      },
+      {
+        "level": "h2",
+        "text": "下一步：开始职业兴趣探索"
+      }
+    ],
+    "current_internal_links": [
+      "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "https://fermatmind.com/zh/topics",
+      "https://fermatmind.com/zh/career/guides",
+      "https://fermatmind.com/zh/articles",
+      "https://fermatmind.com/zh/science",
+      "https://fermatmind.com/zh/method-boundaries",
+      "https://fermatmind.com/zh/item-design-notes",
+      "https://fermatmind.com/zh/reliability-validity",
+      "https://fermatmind.com/zh/data-privacy",
+      "https://fermatmind.com/zh/common-misconceptions",
+      "https://fermatmind.com/zh/about",
+      "https://fermatmind.com/zh/brand",
+      "https://fermatmind.com/zh/charter",
+      "https://fermatmind.com/zh/foundation",
+      "https://fermatmind.com/zh/careers",
+      "https://fermatmind.com/zh/support",
+      "https://fermatmind.com/zh/privacy",
+      "https://fermatmind.com/zh/terms",
+      "https://fermatmind.com/zh/policies",
+      "https://fermatmind.com/",
+      "https://fermatmind.com/zh/tests",
+      "https://fermatmind.com/zh/personality",
+      "https://fermatmind.com/zh/career",
+      "https://fermatmind.com/zh/business",
+      "https://fermatmind.com/zh/tests?q=",
+      "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=riasec-holland-career-interest-test-explained&content_id=40&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fzh%2Farticles%2Friasec-holland-career-interest-test-explained&entrypoint=seo_cta",
+      "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "https://fermatmind.com/zh/articles/mbti-basics",
+      "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences",
+      "https://fermatmind.com/zh/articles/career-confusion-test-map",
+      "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you"
+    ],
+    "live_http_status": 200,
+    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
   },
   "body_revision": [
     {
-      "section": "快速答案",
-      "draft": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界。先用两三句话直接回答用户问题，再明确“结果是观察假设，不是能力、身份、健康、录用、升学或职业结果的裁决”。"
+      "section": "简短答案",
+      "draft_markdown": "RIASEC 是一种组织职业兴趣的六维框架：现实型（R）、研究型（I）、艺术型（A）、社会型（S）、企业型（E）和常规型（C）。结果通常是六个分数或排序，前三个较突出的字母常被写成“三字码”。它描述“你更愿意接触哪些活动和环境”，不是能力证书，也不是一份自动生成的最佳职业名单。\n\nO*NET Interest Profiler 是一个基于 RIASEC 的公开职业兴趣工具，技术手册说明了其题目、计分、信效度研究和职业链接方法。它是理解如何记录工具证据的好例子，但其研究不能自动验证费马测试的题目、计分或中英文版本。"
     },
     {
-      "section": "定义与用户问题",
-      "draft": "解释“RIASEC 是什么”里的核心概念和常见混淆。把工具、模型、分数、类型/维度和现实决策分开，不把相关性写成因果。"
+      "section": "六类兴趣分别关注什么",
+      "draft_markdown": "- **现实型 R：** 偏好动手、设备、材料、户外或具体操作任务。\n- **研究型 I：** 偏好分析、解释、实验和解决复杂问题。\n- **艺术型 A：** 偏好创作、表达、设计和开放式问题。\n- **社会型 S：** 偏好帮助、教学、支持和人与人的互动。\n- **企业型 E：** 偏好影响、组织、谈判、推动目标和承担商业责任。\n- **常规型 C：** 偏好结构、数据、流程、记录和可预测的标准。\n\n每个人都可能在六类活动中表现出兴趣，只是相对顺序不同。一个职业也通常包含多种任务，不能因为职业名称对应某个字母，就忽略实际岗位差异。"
     },
     {
-      "section": "怎么使用",
-      "draft": "采用“核对工具与版本 → 明确分数/分类含义 → 记录吻合证据 → 主动找反例 → 做一次低风险验证”的五步流程。每一步给出可观察行为，不要求用户接受标签。"
+      "section": "三字码怎么读",
+      "draft_markdown": "三字码是前三个相对突出的兴趣维度，不是三个“身份标签”。例如 IAS 可以提示一个人愿意同时接触分析、创作和助人活动，但不能说明他已经具备相关技能，也不能排除其他活动。\n\n阅读三字码时，应看分数差距。如果前三名非常接近，顺序变化未必有实际意义；如果工具没有公开误差、量尺和参照依据，就不要过度解释一两分的差异。更重要的是把字母翻译成任务：你愿意研究什么、创作什么、帮助谁，以及在什么约束下持续投入。"
     },
     {
-      "section": "局限与边界",
-      "draft": "一般理论来源与 FermatMind 产品证据分层陈述。若公开资料未提供本产品的样本、信度、效度、常模或百分位依据，统一写 Unknown，不用行业研究替代产品验证。"
+      "section": "从结果到职业探索的四步法",
+      "draft_markdown": "### 1. 写活动，不先写职业名\n\n每个高分维度列出三项你实际愿意做的活动，并写出最近证据。不要只写“我适合设计师”，而要写“我愿意反复调整视觉方案并接受反馈”。\n\n### 2. 查看岗位任务和要求\n\n使用职业信息来源核对岗位的具体任务、技能、知识、教育和训练要求。O*NET 等资料反映美国职业体系；在中国使用时还要结合本地招聘、教育和执业规则。\n\n### 3. 区分兴趣、能力和约束\n\n兴趣回答“愿不愿意接触”，能力证据回答“目前能不能完成”，约束则包括时间、费用、地域、健康和资格。三者必须分别收集，不能让兴趣分数代替全部判断。\n\n### 4. 做低成本验证\n\n选择一项课程、访谈、志愿活动、项目或工作样本，记录投入感、学习速度、反馈和现实代价。验证结果可以支持或反驳最初假设。"
     },
     {
-      "section": "行动与 CTA",
-      "draft": "CTA 只指向 https://fermatmind.com/zh/tests/holland-career-interest-test-riasec。文案描述“开始测量/形成探索假设”，不承诺最佳职业、准确身份、成功、收入、录用或升学结果。"
+      "section": "RIASEC 与人格测试有什么不同",
+      "draft_markdown": "RIASEC 主要组织职业活动兴趣；大五等人格模型描述更广泛的行为倾向；MBTI 类框架使用偏好语言。它们回答的问题不同，不应把不同结果强行换算成同一职业结论。兴趣高也不保证绩效，某种人格倾向也不决定职业。"
+    },
+    {
+      "section": "翻译与版本边界",
+      "draft_markdown": "将 RIASEC 题目翻译成另一种语言，不等于两个版本测量完全相同。跨语言使用应说明翻译、文化适应、施测和计分依据。费马测试公开资料尚未给出产品特定的信度、效度、常模、百分位或中英文等值数值，这些信息保持 Unknown。"
+    },
+    {
+      "section": "下一步",
+      "draft_markdown": "你可以使用[RIASEC 公开测评](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)形成兴趣假设，然后把前三个维度转成任务清单和现实验证。结果不能替代职业资格、招聘要求或个人决定。"
+    },
+    {
+      "section": "参考来源",
+      "draft_markdown": "1. Rounds, J., Hoff, K., & Lewis, P. (Eds.). (2021). [O*NET Interest Profiler Manual](https://www.onetcenter.org/reports/IP_Manual.html).\n2. National Center for O*NET Development. [RIASEC interests API reference](https://services.onetcenter.org/reference/mnm/ip/ip_interests).\n3. O*NET OnLine. [Scales, ratings, and standardized scores](https://www.onetonline.org/help/online/scales).\n4. International Test Commission. (2017). [Guidelines for Translating and Adapting Tests](https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf)."
     }
   ],
   "faq_entries": [
     {
-      "question": "这篇文章里的测评结果能替我做决定吗？",
-      "answer": "不能。结果只用于形成可核查的观察假设；专业、职业、健康、录用或升学决定还需要规则、能力证据、约束和现实体验。"
+      "question": "RIASEC 六个字母分别是什么？",
+      "answer": "分别是现实型、研究型、艺术型、社会型、企业型和常规型，描述的是职业活动兴趣方向。"
     },
     {
-      "question": "为什么同一人的结果可能变化？",
-      "answer": "工具版本、题目语境、近期状态、参照群体和作答方式都可能影响自陈结果；变化不自动证明人格突然改变或某次结果绝对错误。"
+      "question": "三字母代码能直接匹配唯一职业吗？",
+      "answer": "不能。代码只能生成待研究职业，仍需核对任务、技能、资格、环境和现实约束。"
     },
     {
-      "question": "看到结果后第一步做什么？",
-      "answer": "先核对工具、分数含义和比较依据，再写下一个吻合证据、一个反例和一个低风险验证动作。"
+      "question": "60 题和 140 题哪个一定更准？",
+      "answer": "不能只按题量判断。要看具体工具的用途、覆盖、施测、信效度、常模和目标人群证据。"
     },
     {
-      "question": "什么时候需要专业或官方信息？",
-      "answer": "涉及医疗、招生、录用、法律或高风险职业决策时，应优先查官方规则或合格专业人士；本文不能替代这些判断。"
+      "question": "RIASEC 能用于招聘淘汰吗？",
+      "answer": "本文不支持把兴趣结果单独用于招聘、录取、能力认证或确定性职业推荐。"
     }
   ],
   "faq_schema": {
     "source": "CMS visible FAQ fields",
     "visible_faq_count": 4,
     "expected_faq_schema_mainEntity_count": 4,
-    "hidden_faq_allowed": false
+    "hidden_faq_allowed": false,
+    "faq_action": "Replace generic FAQ placeholders with these article-specific visible entries; emit FAQPage only when the same entries render visibly."
   },
   "cta": {
     "label": "开始相关公开测评，把结论转成可验证的问题",
     "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
     "target_test_slug": "holland-career-interest-test-riasec",
     "tracking_expectation": "article_to_test_click",
-    "public_canonical_only": true
+    "public_canonical_only": true,
+    "cta_action": "Keep one visible contextual CTA to the existing public canonical test; no private route and no outcome promise."
   },
   "internal_link_plan": [
     {
-      "href": "https://fermatmind.com/zh/articles",
-      "purpose": "article index",
-      "status": "allowed"
+      "href": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "purpose": "canonical self-owner",
+      "status": "current live 200; canonical only"
     },
     {
       "href": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
-      "purpose": "transactional owner",
-      "status": "allowed"
-    },
-    {
-      "href": "https://fermatmind.com/zh/topics",
-      "purpose": "topic parent",
-      "status": "conditional on CMS edge authority"
+      "purpose": "contextual public test CTA",
+      "status": "existing public canonical"
     }
   ],
   "review_fields": {
@@ -198,6 +451,117 @@
     "ctr_14d": "Unknown",
     "article_to_test_clicks_14d": "Unknown",
     "impressions_28d": "Unknown",
-    "qualified_completes_28d": "Unknown"
+    "qualified_completes_28d": "Unknown",
+    "average_position_7d": "Unknown",
+    "average_position_14d": "Unknown",
+    "average_position_28d": "Unknown"
+  },
+  "body_markdown_path": "packages/top10-refresh/ARTICLE-REFRESH-05-riasec-holland-career-interest-test-explained.md",
+  "body_markdown": "# RIASEC 是什么？六类职业兴趣、三字码和使用边界\n\n## 简短答案\n\nRIASEC 是一种组织职业兴趣的六维框架：现实型（R）、研究型（I）、艺术型（A）、社会型（S）、企业型（E）和常规型（C）。结果通常是六个分数或排序，前三个较突出的字母常被写成“三字码”。它描述“你更愿意接触哪些活动和环境”，不是能力证书，也不是一份自动生成的最佳职业名单。\n\nO*NET Interest Profiler 是一个基于 RIASEC 的公开职业兴趣工具，技术手册说明了其题目、计分、信效度研究和职业链接方法。它是理解如何记录工具证据的好例子，但其研究不能自动验证费马测试的题目、计分或中英文版本。\n\n## 六类兴趣分别关注什么\n\n- **现实型 R：** 偏好动手、设备、材料、户外或具体操作任务。\n- **研究型 I：** 偏好分析、解释、实验和解决复杂问题。\n- **艺术型 A：** 偏好创作、表达、设计和开放式问题。\n- **社会型 S：** 偏好帮助、教学、支持和人与人的互动。\n- **企业型 E：** 偏好影响、组织、谈判、推动目标和承担商业责任。\n- **常规型 C：** 偏好结构、数据、流程、记录和可预测的标准。\n\n每个人都可能在六类活动中表现出兴趣，只是相对顺序不同。一个职业也通常包含多种任务，不能因为职业名称对应某个字母，就忽略实际岗位差异。\n\n## 三字码怎么读\n\n三字码是前三个相对突出的兴趣维度，不是三个“身份标签”。例如 IAS 可以提示一个人愿意同时接触分析、创作和助人活动，但不能说明他已经具备相关技能，也不能排除其他活动。\n\n阅读三字码时，应看分数差距。如果前三名非常接近，顺序变化未必有实际意义；如果工具没有公开误差、量尺和参照依据，就不要过度解释一两分的差异。更重要的是把字母翻译成任务：你愿意研究什么、创作什么、帮助谁，以及在什么约束下持续投入。\n\n## 从结果到职业探索的四步法\n\n### 1. 写活动，不先写职业名\n\n每个高分维度列出三项你实际愿意做的活动，并写出最近证据。不要只写“我适合设计师”，而要写“我愿意反复调整视觉方案并接受反馈”。\n\n### 2. 查看岗位任务和要求\n\n使用职业信息来源核对岗位的具体任务、技能、知识、教育和训练要求。O*NET 等资料反映美国职业体系；在中国使用时还要结合本地招聘、教育和执业规则。\n\n### 3. 区分兴趣、能力和约束\n\n兴趣回答“愿不愿意接触”，能力证据回答“目前能不能完成”，约束则包括时间、费用、地域、健康和资格。三者必须分别收集，不能让兴趣分数代替全部判断。\n\n### 4. 做低成本验证\n\n选择一项课程、访谈、志愿活动、项目或工作样本，记录投入感、学习速度、反馈和现实代价。验证结果可以支持或反驳最初假设。\n\n## RIASEC 与人格测试有什么不同\n\nRIASEC 主要组织职业活动兴趣；大五等人格模型描述更广泛的行为倾向；MBTI 类框架使用偏好语言。它们回答的问题不同，不应把不同结果强行换算成同一职业结论。兴趣高也不保证绩效，某种人格倾向也不决定职业。\n\n## 翻译与版本边界\n\n将 RIASEC 题目翻译成另一种语言，不等于两个版本测量完全相同。跨语言使用应说明翻译、文化适应、施测和计分依据。费马测试公开资料尚未给出产品特定的信度、效度、常模、百分位或中英文等值数值，这些信息保持 Unknown。\n\n## 下一步\n\n你可以使用[RIASEC 公开测评](https://fermatmind.com/zh/tests/holland-career-interest-test-riasec)形成兴趣假设，然后把前三个维度转成任务清单和现实验证。结果不能替代职业资格、招聘要求或个人决定。\n\n## 参考来源\n\n1. Rounds, J., Hoff, K., & Lewis, P. (Eds.). (2021). [O*NET Interest Profiler Manual](https://www.onetcenter.org/reports/IP_Manual.html).\n2. National Center for O*NET Development. [RIASEC interests API reference](https://services.onetcenter.org/reference/mnm/ip/ip_interests).\n3. O*NET OnLine. [Scales, ratings, and standardized scores](https://www.onetonline.org/help/online/scales).\n4. International Test Commission. (2017). [Guidelines for Translating and Adapting Tests](https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf).\n",
+  "body_character_count": 2109,
+  "internal_link_action": "Retain only public canonical links verified in the live article/test surfaces; do not add private reports, attempts, orders or speculative topic edges.",
+  "references": [
+    {
+      "source_id": "ARTICLE-REFRESH-05-S02",
+      "title": "O*NET Interest Profiler Manual",
+      "author_or_publisher": "Rounds, J., Hoff, K., & Lewis, P. (Eds.). (2021).",
+      "year": "2021",
+      "doi": "Unknown",
+      "url": "https://www.onetcenter.org/reports/IP_Manual.html",
+      "source_type": "official_occupational_instrument_documentation",
+      "claims_supported": "RIASEC form documentation, scoring and language-adaptation boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-05-S03",
+      "title": "RIASEC interests API reference",
+      "author_or_publisher": "National Center for O*NET Development.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://services.onetcenter.org/reference/mnm/ip/ip_interests",
+      "source_type": "official_occupational_api_documentation",
+      "claims_supported": "RIASEC form documentation, scoring and language-adaptation boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-05-S04",
+      "title": "Scales, ratings, and standardized scores",
+      "author_or_publisher": "O*NET OnLine.",
+      "year": "Unknown",
+      "doi": "Unknown",
+      "url": "https://www.onetonline.org/help/online/scales",
+      "source_type": "official_occupational_information",
+      "claims_supported": "RIASEC form documentation, scoring and language-adaptation boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    },
+    {
+      "source_id": "ARTICLE-REFRESH-05-S05",
+      "title": "Guidelines for Translating and Adapting Tests",
+      "author_or_publisher": "International Test Commission. (2017).",
+      "year": "2017",
+      "doi": "Unknown",
+      "url": "https://www.intestcom.org/files/guideline_test_adaptation_2ed.pdf",
+      "source_type": "professional_measurement_guideline",
+      "claims_supported": "RIASEC form documentation, scoring and language-adaptation boundaries",
+      "accessed_at": "2026-08-10",
+      "evidence_status": "DIRECT_SOURCE_REVIEWED",
+      "limitation": "Supports the named source/instrument/policy only; does not validate FermatMind product metrics."
+    }
+  ],
+  "reference_ledger_source_ids": [
+    "ARTICLE-REFRESH-05-S02",
+    "ARTICLE-REFRESH-05-S03",
+    "ARTICLE-REFRESH-05-S04",
+    "ARTICLE-REFRESH-05-S05"
+  ],
+  "claim_boundary_checklist": [
+    {
+      "check": "general research is not presented as FermatMind product validation",
+      "status": "PASS"
+    },
+    {
+      "check": "product-specific reliability, validity, norms and percentiles remain Unknown when unpublished",
+      "status": "PASS"
+    },
+    {
+      "check": "no medical, hiring, admission, ability or deterministic career claim",
+      "status": "PASS"
+    },
+    {
+      "check": "sources are direct research, standards, instrument-owner or official-policy pages",
+      "status": "PASS"
+    },
+    {
+      "check": "CTA describes exploration and uses a public canonical URL",
+      "status": "PASS"
+    }
+  ],
+  "unresolved_unknowns": [
+    "FermatMind-specific RIASEC form evidence, norms, percentiles and zh/en equivalence",
+    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "future CMS draft identity, editor decision, publish date and post-publish outcomes"
+  ],
+  "answer_surface_schema_alignment": {
+    "answer_first_visible": true,
+    "faq_content_visible": true,
+    "faq_schema_count_matches_visible_content": true,
+    "schema_is_not_graph_or_citation_proof": true,
+    "publication_or_indexability_claimed": false
+  },
+  "final_self_check": {
+    "article_specific_body": true,
+    "body_is_complete_cms_draft": true,
+    "references_traceable": true,
+    "claim_boundaries_visible": true,
+    "faq_is_article_specific": true,
+    "cta_is_public_and_non_deterministic": true,
+    "current_state_and_controlled_serp_attached": true,
+    "cms_import_or_publication_performed": false
   }
 }
