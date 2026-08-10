@@ -57458,9 +57458,9 @@
     "depends_on": [
       "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01"
     ],
-    "status": "local_checks_passed_ready_to_commit",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "ba28716111604b333798ff2f6d7da1316e77053b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2050",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -57975,6 +57975,10 @@
       "scope_and_metadata": {
         "status": "passed",
         "evidence": "Exactly the seventeen manifest-allowlisted files are changed; state JSON and manifest YAML parse, the unrelated SEO-OPS-02 manifest entry is unchanged, and git diff --check passes."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #2050 opened from implementation commit ba28716111604b333798ff2f6d7da1316e77053b; required GitHub checks are pending on the ledger update head."
       }
     },
     "failure_reason": null,
@@ -58001,6 +58005,11 @@
         "at": "2026-08-10T08:46:44Z",
         "status": "local_checks_passed_ready_to_commit",
         "summary": "Rebased onto latest origin/main f529288d after the directly blocking G03/M06 alignment repair #2047 merged and cleaned. Bound runtime parsing to fap-api alignment merge 2a2f01c0: locale query, exact three-relation allowlist, item/authority source canonical equality, explicit cross-locale approval and 503 fail-closed behavior; added the numeric-id MBTI callsite and kept unsupported adapters plus all Career edges closed. Node 24 focused contracts 10/10, scoped ESLint, spacing, typecheck, environment-complete production build, JSON/YAML parse, exact seventeen-file scope and git diff --check passed. No production, CMS, search, canonical, sitemap, llms or telemetry-receipt action occurred."
+      },
+      {
+        "at": "2026-08-10T08:48:45Z",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #2050 from implementation commit ba28716111604b333798ff2f6d7da1316e77053b after all declared local checks passed. This ledger transition is the only follow-up change; GitHub required checks must pass before merge."
       }
     ]
   },

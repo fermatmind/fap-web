@@ -12264,7 +12264,7 @@ prs:
       - IQ-CMS-MEDIA-01
     mode: execute
     train_scope: iq_production_launch
-    status: in_progress
+    status: open
     title: "IQ-CMS-MEDIA-02 render CMS media without frontend fallbacks"
     goal: "Render IQ CMS media metadata with minimal shell behavior when media authority is missing."
     in_scope:
