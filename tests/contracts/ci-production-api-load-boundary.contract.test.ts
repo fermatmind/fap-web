@@ -24,11 +24,18 @@ describe("production API CI load boundary", () => {
     expect(ci).toContain("format('fap-web-ci-build-{0}', github.run_id)");
   });
 
-  it("serializes every long-lived workflow that reads production API", () => {
-    for (const workflow of [staging, production, liveResultSmoke]) {
+  it("serializes every long-lived workflow that directly reads production API", () => {
+    for (const workflow of [production, liveResultSmoke]) {
       expect(workflow).toContain(productionReadGroup);
       expect(workflow).toContain("cancel-in-progress: false");
     }
+  });
+
+  it("does not deadlock staging artifact waits behind the main build production lane", () => {
+    expect(staging).toContain("group: fap-web-staging-deploy");
+    expect(staging).toContain("cancel-in-progress: false");
+    expect(staging).not.toContain(productionReadGroup);
+    expect(staging).toContain("Wait for exact-SHA CI artifact");
   });
 
   it("does not move API-independent contract and freeze jobs into the production lane", () => {
