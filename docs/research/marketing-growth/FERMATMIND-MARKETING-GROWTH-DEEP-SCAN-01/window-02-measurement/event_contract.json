@@ -1,6 +1,6 @@
 {
   "schema_version": "fermatmind.measurement.public_topic_edge_click.v1",
-  "status": "APPROVED_CONTRACT_ONLY_NOT_DEPLOYED",
+  "status": "IMPLEMENTED_RUNTIME_CALLSITE_NOT_DEPLOYMENT_PROVEN",
   "approved_at": "2026-08-10T06:55:00Z",
   "event_name": "public_topic_edge_click",
   "observation_class": "browser_observation",
@@ -47,8 +47,8 @@
     "organic_channel": ["direct", "organic_search", "internal_navigation", "unknown"]
   },
   "deployment_state": {
-    "contract_only": true,
-    "runtime_callsite_present": false,
+    "contract_only": false,
+    "runtime_callsite_present": true,
     "telemetry_sent": false,
     "consent_behavior_changed": false,
     "deployment_proven": false
@@ -102,8 +102,8 @@
     "error_stack"
   ],
   "claim_boundary": [
-    "Contract approval does not prove a runtime callsite exists.",
-    "Contract approval does not prove telemetry is being sent or received.",
+    "A runtime callsite exists only on validated rendered public-topic-edge anchors and remains gated by analytics consent.",
+    "Runtime implementation does not prove telemetry is being sent or received in production.",
     "A browser observation does not establish CMS authority, causal attribution, conversion, or user identity."
   ]
 }

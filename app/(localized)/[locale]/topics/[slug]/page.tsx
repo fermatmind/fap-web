@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { connection } from "next/server";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -10,6 +10,7 @@ import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySectio
 import { MbtiScenarioDeepDiveSection } from "@/components/content/MbtiScenarioDeepDiveSection";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Container } from "@/components/layout/Container";
+import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,7 +25,7 @@ import {
 import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
 import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { MBTI_TYPE_GROUPS } from "@/lib/mbti/mbtiTypeContentPack";
@@ -361,6 +362,13 @@ export default async function TopicDetailPage({
           }
         />
       ) : null}
+
+      <Suspense fallback={null}>
+        <PublicTopicEdgeModule
+          source={topic.id ? { type: "topic", id: topic.id, locale: toApiLocale(locale) } : null}
+          entrySurface="topic_detail"
+        />
+      </Suspense>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div className="space-y-4">

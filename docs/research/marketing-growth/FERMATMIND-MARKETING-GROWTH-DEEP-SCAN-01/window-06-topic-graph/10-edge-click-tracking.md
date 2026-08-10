@@ -1,6 +1,6 @@
 # Edge click tracking
 
-Status: **M06_PUBLIC_TOPIC_EDGE_CLICK_CONTRACT_APPROVED_NOT_DEPLOYED**. Window 2 `event_contract.json` approves the single event `public_topic_edge_click` as a contract-only browser observation. Its trigger is a user activating an already rendered, backend-approved public edge.
+Status: **M06_PUBLIC_TOPIC_EDGE_CLICK_RUNTIME_IMPLEMENTED_NOT_DEPLOYMENT_PROVEN**. Window 2 `event_contract.json` defines the single event `public_topic_edge_click` as a browser observation. Its trigger is a user activating an already rendered, backend-approved public edge.
 
 A01, P03/P04/P05 and R04 are completed registry inputs. G03 governed review, backend Authority, the later renderer and the Career C06 activation gate remain separate dependencies. M06 no longer blocks the measurement contract.
 
@@ -12,4 +12,4 @@ Consent must already be granted when the activation occurs. Unknown or denied co
 
 The event relation allowlist is the merged G03/backend allowlist: `breadcrumb`, `learn_more`, `take_assessment`. Explicit cross-locale approval is a renderer eligibility gate, not an event field; source/target canonicals and `cross_locale_approved` remain absent from telemetry.
 
-No runtime callsite or consent change is included here, no telemetry is sent, and deployment is not claimed.
+A runtime callsite now exists only on the validated renderer anchors and reuses the existing analytics-consent check. The implementation does not change global consent behavior, does not prove a production dispatch or receipt, and does not claim deployment.

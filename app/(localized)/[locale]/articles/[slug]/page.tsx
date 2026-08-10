@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -7,6 +8,7 @@ import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLin
 import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
+import { PublicTopicEdgeModule } from "@/components/public-topic-graph/PublicTopicEdgeRenderer";
 import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
@@ -21,7 +23,7 @@ import type { RelatedContentItem } from "@/lib/content";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
@@ -444,6 +446,13 @@ export default async function ArticleDetailPage({
           ) : null}
         </article>
       </div>
+
+      <Suspense fallback={null}>
+        <PublicTopicEdgeModule
+          source={article.id ? { type: "article", id: article.id, locale: toApiLocale(locale) } : null}
+          entrySurface="article_detail"
+        />
+      </Suspense>
 
       <div className="space-y-6">
         <RelatedContent
