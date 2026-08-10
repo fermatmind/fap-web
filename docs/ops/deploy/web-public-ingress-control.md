@@ -6,6 +6,8 @@ The public Next.js runtime emits a request-specific CSP nonce. Any shared cache 
 
 The canonical candidate is `deploy/openresty/fap-web-public.conf`. It keeps long-lived caching only for content-hashed `/_next/static/**` assets, bounded favicon responses, and the existing static `/share/**` surface. API forwarding, sitemap, llms feeds, `/revision`, tests, articles, and all other page routes continue through the generic non-caching proxy location.
 
+The HTTP vhost serves ACME challenges from `/www/acme`, backed by the persistent host directory `/opt/fermatmind/openresty/www/acme`. Changing that path or placing challenges in the container-only filesystem is rejected by the config validator.
+
 ## Versioned controls
 
 - `.github/workflows/web-public-ingress-config.yml` validates the candidate structure and runs `openresty -t` using the exact observed production image digest.

@@ -59,6 +59,9 @@ async function main() {
   const cachedLocations = locations.filter(({ body }) => /\bproxy_cache\s+(?!off\b)[^;]+;/.test(body));
   const cachedArguments = new Set(cachedLocations.map(({ argument }) => argument.replace(/\s+/g, " ")));
   const generic = publicHttpsLocations.find(({ argument }) => argument.replace(/\s+/g, " ") === "/");
+  const publicHttpServers = servers.filter(({ body }) => !/\blisten\s+[^;]*443[^;]*ssl[^;]*;/.test(body));
+  const acmeLocations = publicHttpServers.flatMap(({ body }) => extractBlocks(body, "location"))
+    .filter(({ argument }) => argument.replace(/\s+/g, " ") === "^~ /.well-known/acme-challenge/");
   const failures = [];
 
   if (servers.length !== 2) failures.push("candidate must contain exactly one HTTP and one HTTPS server block");
@@ -70,6 +73,10 @@ async function main() {
     }
   }
   if (!generic) failures.push("generic non-static location is missing");
+  if (acmeLocations.length !== 1) failures.push("HTTP vhost must contain exactly one ACME challenge location");
+  if (acmeLocations[0] && !/\broot\s+\/www\/acme\s*;/.test(acmeLocations[0].body)) {
+    failures.push("ACME challenge root must use the persistent /www/acme mount");
+  }
   if (generic && !/\bproxy_cache\s+off\s*;/.test(generic.body)) failures.push("generic location must disable proxy_cache");
   if (generic && !/\bproxy_no_cache\s+1\s*;/.test(generic.body)) failures.push("generic location must set proxy_no_cache 1");
   if (generic && !/\bproxy_cache_bypass\s+1\s*;/.test(generic.body)) failures.push("generic location must set proxy_cache_bypass 1");
