@@ -58373,8 +58373,8 @@
     "depends_on": [
       "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "805b4734219e021cc702d4e19ed96530658f056c",
+    "status": "merged",
+    "commit_sha": "13aab64c6be1616a5ed39343a32d7c9ef950d197",
     "pr_url": "https://github.com/FermatMind/fap-web/pull/2041",
     "checks": {
       "dependency": {
@@ -58399,14 +58399,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T07:37:29Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -58451,12 +58451,18 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All required GitHub and security checks passed on head 805b4734219e021cc702d4e19ed96530658f056c. The exact 10-path scope, zero-row artifact SHA, missing-data verdict and clean worktree were revalidated; PR #2041 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T07:37:29Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2041 squash-merged as 13aab64c6be1616a5ed39343a32d7c9ef950d197 after final required checks passed on ready-ledger head c073cf171672d70cc012ecfcf5973b41473e82cc. origin/main contained the merge commit, local main was synchronized, both task branches were removed, and post-merge zero-row artifact SHA revalidation passed before PR6 began."
       }
     ],
     "sidecar_issues": [
       "window7-gsc-ga4-cohort-data-unavailable-20260810"
     ],
-    "updated_at": "2026-08-10T07:32:54Z"
+    "updated_at": "2026-08-10T07:37:29Z"
   },
   "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
     "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
@@ -58467,17 +58473,42 @@
     "depends_on": [
       "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01"
     ],
-    "status": "planned",
+    "status": "local_verified",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {},
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR #2041 is merged as 13aab64c6be1616a5ed39343a32d7c9ef950d197; origin/main and local main were synchronized, both PR5 branches were deleted, and post-merge artifact revalidation passed before this branch started from origin/main 22a03aef."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "The new privacy-safe instrumentation contract passed 6/6 tests for default-off mounting, allowlisted non-Career route classification, exact coarse payload schema, fail-closed inputs, transport-free source boundaries, and monitor/registry alignment."
+      },
+      "focused_lint_and_typecheck": {
+        "status": "pass",
+        "evidence": "Focused ESLint passed with zero warnings after the in-scope no-op parameter correction, and pnpm typecheck passed."
+      },
+      "full_contracts": {
+        "status": "pass",
+        "evidence": "pnpm test:contract passed all four shards: 815 files and 4,881 tests. Existing React act/prefetch diagnostics did not fail checks and were not modified outside scope."
+      },
+      "production_build": {
+        "status": "pass_with_external_generated_drift_sidecar",
+        "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build passed Next 16.1.2 compilation, TypeScript, 208/208 static pages and postbuild. The build exposed pre-existing EQ history metadata-inventory drift; build-only generated changes were excluded and recorded as a nonblocking sidecar."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "CSV/JSON/YAML parsing, fixed registry header/count/status, formula safety, exact payload allowlist, default-off/no-op/no-endpoint contract, sidecar integrity, pnpm lint:spacing, git diff --check and exact 11-path changed-file scope validation passed."
+      }
+    },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
@@ -58496,9 +58527,25 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal. Production activation, analytics property mutation, secrets, and deployment remain separately controlled and forbidden."
+      },
+      {
+        "at": "2026-08-10T07:39:30Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean latest origin/main after PR5 merge, sync, cleanup and post-merge revalidation. Scope is limited to a framework Web Vitals observer behind an exact default-off flag, public non-Career route classifier, coarse allowlisted payload, intentional no-op sink, contracts, docs, sidecar and train bookkeeping; no endpoint, vendor, secret, production flag/config, analytics property, CMS, SEO runtime, Career enumeration, deploy or production write."
+      },
+      {
+        "at": "2026-08-10T07:53:45Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "Focused contract 6/6, zero-warning focused ESLint, typecheck, all four contract shards (815 files / 4,881 tests), production-env build (208/208 static pages), CSV/JSON/YAML/privacy/formula validation, spacing, diff and exact 11-path scope validation passed. RUM remains default-off with a no-op sink and no production tracking, endpoint, vendor or deployment change."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-field-cwv-rum-data-unavailable-20260810",
+      "metadata-surface-inventory-eq-history-drift-20260810"
+    ],
+    "updated_at": "2026-08-10T07:53:45Z"
   },
   "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01": {
     "id": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01",

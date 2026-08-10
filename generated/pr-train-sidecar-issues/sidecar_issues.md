@@ -450,13 +450,15 @@
 - PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
 - blocker type: external field CWV and RUM data unavailable
 - affected surface: Window 7 field Core Web Vitals and public-page RUM evidence
-- evidence: no sufficient CrUX cohort or production RUM sample exists; laboratory results cannot be relabeled as field CWV.
-- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md`
-- why not current PR scope: this PR only reconciles evidence; retrieval and default-off instrumentation are separate scopes, and production enablement is excluded from the train.
+- latest evidence PR id / branch: `PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01` / `codex/public-cwv-rum-privacy-safe-instrumentation-01`
+- updated at: `2026-08-10T07:44:53Z`
+- evidence: no sufficient CrUX cohort or production RUM sample exists; laboratory results cannot be relabeled as field CWV. A privacy-safe collector boundary is now implemented but remains default-off with an intentional no-op sink, so it produces no field data and does not change the insufficient baseline.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md`; `lib/tracking/webVitals.ts`
+- why not current PR scope: this scope may add only default-off no-op product code. CrUX retrieval, a real sink, production flag/config changes, analytics property mutation and deployment require separate authority and remain forbidden.
 - required checks / scope validation / merge policy affected: no / no / no
 - severity: high
 - recommended owner: performance telemetry authority owner
-- recommended follow-up: attempt privacy-safe field retrieval; keep RUM default-off and require separate authority for any production enablement.
+- recommended follow-up: obtain privacy-safe field evidence independently or separately authorize a reviewed sink plus exact production activation/deployment; then collect a full reporting month before relative alerts.
 - status: open
 
 ## Window 7 RIASEC First-Navigation Question Window Miss
@@ -491,4 +493,21 @@
 - severity: medium
 - recommended owner: public acquisition and tracking runtime owner
 - recommended follow-up: decide whether approved inbound attribution must persist across homepage, Tests Hub and personality-to-test navigation; if yes, implement and contract-test only those public transitions in a separate PR without widening candidate-only `ref`/`source`.
+- status: open
+
+## Metadata Surface Inventory Missing EQ History Route
+
+- id: `metadata-surface-inventory-eq-history-drift-20260810`
+- detected at: `2026-08-10T07:52:00Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01` / `codex/public-cwv-rum-privacy-safe-instrumentation-01`
+- blocker type: pre-existing generated metadata inventory drift
+- affected surface: generated metadata surface inventory
+- evidence: the required production build passed but regenerated `metadata-surface-inventory.v1.csv/json` to add the tracked private noindex route `app/(localized)/[locale]/(app)/history/eq/page.tsx`, which has existed on main since commit `770662f2529ad5d4fa777c710bf25dd5edfc5eb2`. The build-only output was removed from this PR to preserve its exact RUM scope.
+- evidence path: `app/(localized)/[locale]/(app)/history/eq/page.tsx`; `docs/seo/generated/metadata-surface-inventory.v1.csv`; `docs/seo/generated/metadata-surface-inventory.v1.json`
+- why not current PR scope: this PR may change only the declared CWV/RUM runtime, contract, audit-doc, sidecar and train paths. Refreshing SEO-generated inventories is an independent metadata governance scope and would violate the manifest allowlist.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: low
+- recommended owner: SEO metadata inventory owner
+- recommended follow-up: regenerate and review the metadata surface inventory in a dedicated scoped PR, confirming the EQ history route remains private noindex and excluded from public discovery surfaces.
 - status: open

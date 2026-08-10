@@ -21,6 +21,35 @@ const LANDING_PV_STORAGE_PREFIX = "fm_landing_pv_sent_v1:";
 
 export type AnalyticsProperties = Record<string, unknown>;
 
+export type PublicWebVitalPayload = Readonly<{
+  schema_version: "public_cwv_rum.v1";
+  metric: "CLS" | "FCP" | "INP" | "LCP" | "TTFB";
+  value: number;
+  rating: "good" | "needs_improvement" | "poor";
+  tier: "L1" | "L2" | "L3";
+  surface:
+    | "home"
+    | "tests_hub"
+    | "assessment_landing"
+    | "personality_hub"
+    | "personality_detail"
+    | "articles_hub"
+    | "article_detail"
+    | "topics_hub"
+    | "topic_detail"
+    | "content_page";
+  locale: "en" | "zh" | "neutral";
+  device: "mobile" | "desktop";
+  navigation_type:
+    | "navigate"
+    | "reload"
+    | "back_forward"
+    | "back_forward_cache"
+    | "prerender"
+    | "restore"
+    | "unknown";
+}>;
+
 const isBrowser = () => typeof window !== "undefined";
 
 export function getAnonymousId(): string {
@@ -36,6 +65,11 @@ export function clearAnalyticsQueue(): void {
   } catch {
     // Ignore cleanup errors.
   }
+}
+
+export function emitPublicWebVital(payload: PublicWebVitalPayload): void {
+  void payload;
+  // Intentionally no-op. A separately authorized PR must add any sink or transport.
 }
 
 export function initAnalytics(): void {
