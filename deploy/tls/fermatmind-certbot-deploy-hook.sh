@@ -64,9 +64,9 @@ reload_staging() {
 
 case "$role" in
   production-web)
-    readonly container="fermatmind-openresty"
+    readonly container_name="fermatmind-openresty"
     readonly target="/opt/fermatmind/openresty/www/sites/fermatmind.com/ssl"
-    with_rollback "$target" "" reload_production_web "$container" \
+    with_rollback "$target" "" reload_production_web "$container_name" \
       || fail "renewed production Web certificate failed validation or reload; prior pair restored"
     ;;
   staging)

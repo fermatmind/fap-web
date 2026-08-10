@@ -41,6 +41,9 @@ describe("Alibaba public TLS certificate renewal", () => {
     expect(deployHook).toContain("systemctl reload nginx.service");
     expect(deployHook).toContain("with_rollback");
     expect(deployHook).toContain("prior pair restored");
+    expect(deployHook).toContain('readonly container_name="fermatmind-openresty"');
+    expect(deployHook).toContain('reload_production_web "$container_name"');
+    expect(deployHook).not.toContain('readonly container="fermatmind-openresty"');
     expect(deployHook).not.toContain("restart");
     expect(() => execFileSync("bash", ["-n", "deploy/tls/fermatmind-certbot-deploy-hook.sh"])).not.toThrow();
   });
