@@ -57978,9 +57978,9 @@
     "depends_on": [
       "NONCAREER-AUDIT-STATUS-RECONCILIATION-01"
     ],
-    "status": "committed",
+    "status": "github_checks_pending",
     "commit_sha": "979188d3744307b7e2c55ced9dcd722d457c3a81",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2028",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -58048,13 +58048,19 @@
         "from": "local_verified",
         "to": "committed",
         "note": "Committed the exact 12-path evidence scope and rebased cleanly onto origin/main 5b4d5bb0 without changing measurement bytes; implementation commit is 979188d3744307b7e2c55ced9dcd722d457c3a81."
+      },
+      {
+        "at": "2026-08-10T06:20:37Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2028 at head 9cb5811ce5d29612e0a603d5dfcc7546ac8793c4. GitHub reports MERGEABLE with required checks pending."
       }
     ],
     "sidecar_issues": [
       "window7-critical-lab-tool-failures-20260810",
       "window7-riasec-first-navigation-question-window-miss-20260810"
     ],
-    "updated_at": "2026-08-10T06:19:49Z"
+    "updated_at": "2026-08-10T06:20:37Z"
   },
   "NONCAREER-L1-INTERVAL-BASELINE-01": {
     "id": "NONCAREER-L1-INTERVAL-BASELINE-01",
