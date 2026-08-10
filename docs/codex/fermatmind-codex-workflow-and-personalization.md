@@ -1,7 +1,7 @@
 # Solo-Owner Engineering Operating Model
 
 Status: cross-repository operating model
-Last updated: 2026-08-02
+Last updated: 2026-08-10
 Audience: FermatMind solo owner and Codex agents working in `fap-web` and `fap-api`
 
 ## Purpose
@@ -73,6 +73,50 @@ Use separate Codex threads for separate scopes:
 - One CI-fix thread only for the PR whose checks failed.
 
 Prefer Codex worktrees for risky or parallel implementation. Use local mode only for a small, isolated task or when intentionally continuing a current local branch.
+
+## Multi-window Heavy Validation Lease
+
+Ten Codex windows may work in parallel, but this 8-core / 16-GB Mac must run at most one machine-heavy FermatMind validation at a time. Install the repository tools on the local `PATH`:
+
+```bash
+ln -sfn /Users/rainie/Desktop/GitHub/fap-web/scripts/ops/fermatmind-task-status \
+  /Users/rainie/.local/bin/fermatmind-task-status
+ln -sfn /Users/rainie/Desktop/GitHub/fap-web/scripts/ops/fermatmind-heavy-guard \
+  /Users/rainie/.local/bin/fermatmind-heavy-guard
+```
+
+Every window should inspect shared state before substantial validation:
+
+```bash
+fermatmind-task-status
+```
+
+The following commands are machine-heavy and must run through the cross-repository lease:
+
+- `pnpm test:contract`
+- `pnpm build`
+- `composer test`
+- unfiltered `php artisan test`
+- `backend/scripts/ci_verify_mbti.sh`
+- `backend/scripts/verify_mbti.sh`
+
+Examples:
+
+```bash
+fermatmind-heavy-guard run \
+  --task "fap-web contract suite" \
+  --repo /Users/rainie/Desktop/GitHub/fap-web \
+  -- pnpm test:contract
+
+fermatmind-heavy-guard run \
+  --task "fap-api MBTI verification" \
+  --repo /Users/rainie/Desktop/GitHub/fap-api \
+  -- bash backend/scripts/ci_verify_mbti.sh
+```
+
+The lease uses one atomic directory for both repositories and records PID, task, repository, start time, and command. A second heavy run exits with status `75`; it never kills the owner. It also refuses to overlap a recognizable heavy command started outside the lease. A dead PID is reported as stale and reclaimed on the next acquisition. Do not manually delete an active lease.
+
+Lint, typecheck, formatting, shell syntax checks, and focused Vitest/PHPUnit tests remain parallel-safe and do not use the lease. GitHub Actions are shown by `fermatmind-task-status` for coordination but do not consume the local lease.
 
 ## When To Use Each Surface
 

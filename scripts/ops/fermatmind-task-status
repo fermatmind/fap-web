@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+set -uo pipefail
+
+include_github=1
+if [[ "${1:-}" == "--no-github" ]]; then
+  include_github=0
+  shift
+fi
+if [[ $# -ne 0 ]]; then
+  printf 'Usage: fermatmind-task-status [--no-github]\n' >&2
+  exit 64
+fi
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+repos=(
+  "/Users/rainie/Desktop/GitHub/fap-web"
+  "/Users/rainie/Desktop/GitHub/fap-api"
+)
+repo_slugs=(
+  "fermatmind/fap-web"
+  "fermatmind/fap-api"
+)
+
+printf '== Heavy validation lease ==\n'
+"${script_dir}/fermatmind-heavy-guard" status || true
+
+printf '\n== FermatMind heavy processes ==\n'
+processes="$({
+  ps -axo pid=,etime=,command= | awk '
+    /pnpm (run )?(test:contract|build)( |$)/ ||
+    /composer (run )?test( |$)/ ||
+    /php artisan test( |$)/ ||
+    /(^|\/)phpunit( |$)/ ||
+    /(ci_verify_mbti|verify_mbti)\.sh( |$)/ ||
+    /(^|\/)next build( |$)/ {
+      if ($0 !~ /fermatmind-task-status/ && $0 !~ /awk /) print
+    }
+  '
+} 2>/dev/null)"
+if [[ -n "$processes" ]]; then
+  printf '%s\n' "$processes"
+else
+  printf 'none\n'
+fi
+
+printf '\n== Worktrees ==\n'
+for repo in "${repos[@]}"; do
+  printf '%s\n' "$repo"
+  if [[ ! -d "${repo}/.git" && ! -f "${repo}/.git" ]]; then
+    printf '  unavailable\n'
+    continue
+  fi
+  git -C "$repo" worktree list --porcelain | awk '
+    /^worktree / { path=substr($0,10); branch="detached"; next }
+    /^branch / { branch=$0; sub(/^branch refs\/heads\//,"",branch); next }
+    /^$/ { printf "  %s\t%s\n", branch, path; path=""; branch="detached" }
+    END { if (path != "") printf "  %s\t%s\n", branch, path }
+  '
+done
+
+printf '\n== GitHub queued/running workflows ==\n'
+if [[ "$include_github" -eq 0 ]]; then
+  printf 'skipped (--no-github)\n'
+elif ! command -v gh >/dev/null 2>&1; then
+  printf 'unavailable (gh not installed)\n'
+else
+  for repo_slug in "${repo_slugs[@]}"; do
+    printf '%s\n' "$repo_slug"
+    runs="$(gh run list \
+      --repo "$repo_slug" \
+      --limit 30 \
+      --json databaseId,name,headBranch,status \
+      --jq '.[] | select(.status == "queued" or .status == "in_progress" or .status == "waiting" or .status == "pending") | "  \(.status)\t\(.name)\t\(.headBranch)\trun=\(.databaseId)"' \
+      2>/dev/null || true)"
+    if [[ -n "$runs" ]]; then
+      printf '%s\n' "$runs"
+    else
+      printf '  none or unavailable\n'
+    fi
+  done
+fi
