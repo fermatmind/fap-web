@@ -12,4 +12,6 @@ Dispatch requires analytics consent to be granted at activation time. Unknown or
 
 The rendered `href` is the exact backend-approved `target_canonical`. Tracking parameters never enter the link or canonical identity. Surface, relation, region, position bucket and action values use the machine-contract allowlists; exact DOM paths and inferred slugs/URLs remain forbidden.
 
+The relation allowlist is bound to the merged G03/backend authority contract and is exactly `breadcrumb`, `learn_more` and `take_assessment`. A locale mismatch is not a tracking decision: the renderer must reject it unless the public backend item carries explicit `cross_locale_approved=true` and the source/target locale plus canonical checks pass. Neither the approval flag nor either canonical enters the event payload.
+
 This approval defines a privacy-safe contract only. No runtime callsite was added, no telemetry was sent, no consent behavior changed, and no deployment is claimed. Backend/CMS-approved public edge identity remains authoritative.
