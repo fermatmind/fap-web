@@ -17,7 +17,10 @@ Post-generation QA contract:
 - Claim-boundary checklist and unresolved Unknown list present in every package: PASS.
 - Current title/meta/H1/snippet/outline/internal links and controlled Top 10 attached: PASS.
 - M01 page evidence attached for current28/prev28/day90; source SHA and capped-export limitation recorded: PASS.
-- Historical query signal separated from current page baseline; current query×page kept Unknown: PASS.
+- Historical query signal separated from current page baseline; reviewed M01 query×page delta attached without replacing page metrics: PASS.
+- Query normalization is NFKC + casefold + whitespace collapse; exact aliases only, no fuzzy owner inference: PASS.
+- Operator query retained but excluded; seven unmapped multi-page queries remain `MULTI_PAGE_UNMAPPED`: PASS.
+- Actionable conflicts require two governed public canonicals and cannot be created by legacy/redirect URLs: PASS.
 - Deterministic Top 10 priority ranks are unique 1–10 and aggregate/individual JSON packages match: PASS.
 - Controlled SERP ranks exactly 1–10 for each of ten queries: PASS.
 - Live schema is parsed from HTML and kept separate from backend-declared keys: PASS.

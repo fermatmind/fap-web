@@ -98,7 +98,7 @@
       "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
       "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
     ],
-    "cannibalization": "UNKNOWN pending complete query×page export",
+    "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
     "current_title": "What Is RIASEC? Holland Code Career Test Guide | FermatMind",
     "current_h1": "What Is RIASEC? Understanding Holland Code Career Interests",
     "current_cta": "Take the free RIASEC test",
@@ -381,16 +381,55 @@
       "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
     },
     "current_gsc_query_page_baseline": {
-      "status": "UNKNOWN_BLOCKED_OAUTH",
-      "row_count": 0,
-      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+      "grain": "query_x_page_after_country_device_aggregation",
+      "source": "article_m01_query_page_evidence.csv",
+      "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "windows": {
+        "current28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 17,
+          "clicks": 0.0,
+          "impressions": 307.0,
+          "ctr": 0.0,
+          "position": 43.8958
+        },
+        "prev28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 15,
+          "clicks": 0.0,
+          "impressions": 295.0,
+          "ctr": 0.0,
+          "position": 38.0644
+        },
+        "day90": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 17,
+          "clicks": 0.0,
+          "impressions": 703.0,
+          "ctr": 0.0,
+          "position": 40.2731
+        }
+      },
+      "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
     },
     "current_priority": {
-      "rank": 3,
-      "score": 52.6233,
+      "rank": 2,
       "tier": "P1",
-      "formula_version": "window5_page_opportunity.v1",
-      "controlled_serp_not_observed": true
+      "formula_version": "window5_query_owner_priority.v2",
+      "sort_contract": [
+        "actionable_owner_conflict desc",
+        "article_non_owner_impressions desc",
+        "estimated_missed_clicks desc",
+        "page_impressions desc",
+        "refresh_id asc"
+      ],
+      "actionable_owner_conflict": false,
+      "article_non_owner_impressions": 0.0,
+      "estimated_missed_clicks": 0.0,
+      "locale_position_bucket_median_ctr": 0.0018,
+      "position_bucket": "21-50",
+      "page_impressions": 1637.0,
+      "matched_exact_alias_count": 17
     }
   },
   "body_revision": [

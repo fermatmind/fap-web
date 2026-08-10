@@ -97,7 +97,7 @@
       "https://fermatmind.com/zh/personality",
       "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
     ],
-    "cannibalization": "UNKNOWN pending complete query×page export",
+    "cannibalization": "Unknown: no current28 reviewed exact alias row for this article",
     "current_title": "INFJ 男性为什么常被认为少见？数据来源与类型误读 | FermatMind",
     "current_h1": "INFJ 男性为什么常被认为少见？数据来源、性别规范与类型误读",
     "current_cta": "开始测试",
@@ -354,16 +354,43 @@
       "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
     },
     "current_gsc_query_page_baseline": {
-      "status": "UNKNOWN_BLOCKED_OAUTH",
-      "row_count": 0,
-      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+      "grain": "query_x_page_after_country_device_aggregation",
+      "source": "article_m01_query_page_evidence.csv",
+      "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "windows": {
+        "current28": {
+          "status": "Unknown",
+          "reason": "no reviewed exact alias row"
+        },
+        "prev28": {
+          "status": "Unknown",
+          "reason": "no reviewed exact alias row"
+        },
+        "day90": {
+          "status": "Unknown",
+          "reason": "no reviewed exact alias row"
+        }
+      },
+      "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
     },
     "current_priority": {
-      "rank": 10,
-      "score": 10.0,
-      "tier": "P3",
-      "formula_version": "window5_page_opportunity.v1",
-      "controlled_serp_not_observed": true
+      "rank": 7,
+      "tier": "P2",
+      "formula_version": "window5_query_owner_priority.v2",
+      "sort_contract": [
+        "actionable_owner_conflict desc",
+        "article_non_owner_impressions desc",
+        "estimated_missed_clicks desc",
+        "page_impressions desc",
+        "refresh_id asc"
+      ],
+      "actionable_owner_conflict": false,
+      "article_non_owner_impressions": 0.0,
+      "estimated_missed_clicks": 0.0,
+      "locale_position_bucket_median_ctr": 0.0,
+      "position_bucket": "4-10",
+      "page_impressions": 209.0,
+      "matched_exact_alias_count": 0
     }
   },
   "body_revision": [

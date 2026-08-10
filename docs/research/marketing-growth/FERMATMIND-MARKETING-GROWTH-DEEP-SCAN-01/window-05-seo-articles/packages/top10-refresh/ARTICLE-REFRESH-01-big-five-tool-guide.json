@@ -95,7 +95,7 @@
       "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
       "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model"
     ],
-    "cannibalization": "HISTORICAL: transactional Big Five test query selected article; test landing should be primary",
+    "cannibalization": "ACTIONABLE_OWNER_CONFLICT: 1 exact aliases; article non-owner impressions=25",
     "current_title": "大五人格测试工具：怎么用、怎么看分数与边界 | FermatMind",
     "current_h1": "大五人格测试工具使用与边界指南",
     "current_cta": "开始测试",
@@ -312,16 +312,55 @@
       "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
     },
     "current_gsc_query_page_baseline": {
-      "status": "UNKNOWN_BLOCKED_OAUTH",
-      "row_count": 0,
-      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+      "grain": "query_x_page_after_country_device_aggregation",
+      "source": "article_m01_query_page_evidence.csv",
+      "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "windows": {
+        "current28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 8,
+          "clicks": 2.0,
+          "impressions": 82.0,
+          "ctr": 0.02439024,
+          "position": 10.3902
+        },
+        "prev28": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 5,
+          "clicks": 1.0,
+          "impressions": 103.0,
+          "ctr": 0.00970874,
+          "position": 8.2718
+        },
+        "day90": {
+          "status": "VERIFIED_SOURCE_LIMITED",
+          "matched_alias_count": 8,
+          "clicks": 3.0,
+          "impressions": 185.0,
+          "ctr": 0.01621622,
+          "position": 9.2108
+        }
+      },
+      "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
     },
     "current_priority": {
-      "rank": 6,
-      "score": 25.8104,
-      "tier": "P2",
-      "formula_version": "window5_page_opportunity.v1",
-      "controlled_serp_not_observed": true
+      "rank": 1,
+      "tier": "P1",
+      "formula_version": "window5_query_owner_priority.v2",
+      "sort_contract": [
+        "actionable_owner_conflict desc",
+        "article_non_owner_impressions desc",
+        "estimated_missed_clicks desc",
+        "page_impressions desc",
+        "refresh_id asc"
+      ],
+      "actionable_owner_conflict": true,
+      "article_non_owner_impressions": 25.0,
+      "estimated_missed_clicks": 0.0,
+      "locale_position_bucket_median_ctr": 0.0,
+      "position_bucket": "4-10",
+      "page_impressions": 676.0,
+      "matched_exact_alias_count": 8
     }
   },
   "body_revision": [

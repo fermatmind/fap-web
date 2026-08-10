@@ -1,6 +1,6 @@
 {
-  "version": "article_top10_cms_refresh_packages.v3",
-  "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+  "version": "article_top10_cms_refresh_packages.v4-m01-query-page-delta",
+  "status": "READY_NOT_IMPORTED_M01_QUERY_PAGE_APPLIED",
   "counting_unit": "locale-page",
   "package_count": 10,
   "packages": [
@@ -101,7 +101,7 @@
           "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
           "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model"
         ],
-        "cannibalization": "HISTORICAL: transactional Big Five test query selected article; test landing should be primary",
+        "cannibalization": "ACTIONABLE_OWNER_CONFLICT: 1 exact aliases; article non-owner impressions=25",
         "current_title": "大五人格测试工具：怎么用、怎么看分数与边界 | FermatMind",
         "current_h1": "大五人格测试工具使用与边界指南",
         "current_cta": "开始测试",
@@ -318,16 +318,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 8,
+              "clicks": 2.0,
+              "impressions": 82.0,
+              "ctr": 0.02439024,
+              "position": 10.3902
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 5,
+              "clicks": 1.0,
+              "impressions": 103.0,
+              "ctr": 0.00970874,
+              "position": 8.2718
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 8,
+              "clicks": 3.0,
+              "impressions": 185.0,
+              "ctr": 0.01621622,
+              "position": 9.2108
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 6,
-          "score": 25.8104,
-          "tier": "P2",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": true
+          "rank": 1,
+          "tier": "P1",
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": true,
+          "article_non_owner_impressions": 25.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 676.0,
+          "matched_exact_alias_count": 8
         }
       },
       "body_revision": [
@@ -636,7 +675,7 @@
           "https://fermatmind.com/zh/personality",
           "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "Unknown: no current28 reviewed exact alias row for this article",
         "current_title": "INFJ 男性为什么常被认为少见？数据来源与类型误读 | FermatMind",
         "current_h1": "INFJ 男性为什么常被认为少见？数据来源、性别规范与类型误读",
         "current_cta": "开始测试",
@@ -893,16 +932,43 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "prev28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "day90": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 10,
-          "score": 10.0,
-          "tier": "P3",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": true
+          "rank": 7,
+          "tier": "P2",
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 209.0,
+          "matched_exact_alias_count": 0
         }
       },
       "body_revision": [
@@ -1204,7 +1270,7 @@
           "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
           "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
         "current_title": "九型人格测试准吗？9种类型、核心动机和结果解读 | FermatMind",
         "current_h1": "九型人格测试准吗？9种类型、核心动机和结果解读一次讲清",
         "current_cta": "开始九型人格测试",
@@ -1515,16 +1581,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 2,
+              "clicks": 0.0,
+              "impressions": 2.0,
+              "ctr": 0.0,
+              "position": 22.0
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 3,
+              "clicks": 0.0,
+              "impressions": 7.0,
+              "ctr": 0.0,
+              "position": 31.4286
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 4,
+              "clicks": 0.0,
+              "impressions": 9.0,
+              "ctr": 0.0,
+              "position": 29.3333
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 2,
-          "score": 57.2503,
-          "tier": "P1",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": false
+          "rank": 4,
+          "tier": "P2",
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 620.0,
+          "matched_exact_alias_count": 2
         }
       },
       "body_revision": [
@@ -1823,7 +1928,7 @@
           "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
           "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "Unknown: no current28 reviewed exact alias row for this article",
         "current_title": "高考志愿要不要服从调剂？先排除不能接受专业 | FermatMind",
         "current_h1": "高考志愿要不要服从调剂？先看院校专业组里的“不能接受专业”",
         "current_cta": "做一次霍兰德职业兴趣测试，把“不喜欢”拆成可验证任务",
@@ -2131,16 +2236,43 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "prev28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "day90": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 1,
-          "score": 167.4734,
+          "rank": 3,
           "tier": "P1",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": true
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 1085.0,
+          "matched_exact_alias_count": 0
         }
       },
       "body_revision": [
@@ -2437,7 +2569,7 @@
           "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
           "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
         "current_title": "RIASEC 是什么？霍兰德职业兴趣测试解释 | FermatMind",
         "current_h1": "霍兰德职业兴趣测试是什么？RIASEC 六型如何帮助职业探索",
         "current_cta": "免费做霍兰德职业兴趣测试",
@@ -2729,16 +2861,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 4,
+              "clicks": 0.0,
+              "impressions": 6.0,
+              "ctr": 0.0,
+              "position": 11.8333
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 4,
+              "clicks": 0.0,
+              "impressions": 32.0,
+              "ctr": 0.0,
+              "position": 12.2812
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 5,
+              "clicks": 0.0,
+              "impressions": 39.0,
+              "ctr": 0.0,
+              "position": 12.7179
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 5,
-          "score": 30.1749,
-          "tier": "P2",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": false
+          "rank": 8,
+          "tier": "P3",
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 207.0,
+          "matched_exact_alias_count": 4
         }
       },
       "body_revision": [
@@ -3046,7 +3217,7 @@
           "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
           "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
         "current_title": "在线 IQ 测试准吗？智商分数和题型解释 | FermatMind",
         "current_h1": "在线 IQ 测试准吗？智商分数、题型和正式测验的区别一次讲清",
         "current_cta": "开始 IQ 智商测试",
@@ -3324,16 +3495,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 3,
+              "clicks": 0.0,
+              "impressions": 5.0,
+              "ctr": 0.0,
+              "position": 9.4
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 2,
+              "clicks": 0.0,
+              "impressions": 4.0,
+              "ctr": 0.0,
+              "position": 7.5
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 3,
+              "clicks": 0.0,
+              "impressions": 9.0,
+              "ctr": 0.0,
+              "position": 8.5556
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 8,
-          "score": 19.5688,
+          "rank": 10,
           "tier": "P3",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": false
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 118.0,
+          "matched_exact_alias_count": 3
         }
       },
       "body_revision": [
@@ -3648,7 +3858,7 @@
           "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
           "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "Unknown: no current28 reviewed exact alias row for this article",
         "current_title": "专业不对口怎么找工作？JD拆解与技能证据清单 | FermatMind",
         "current_h1": "专业不对口怎么找工作？JD拆解、技能证据和实习验证清单",
         "current_cta": "先做霍兰德职业兴趣测试，把兴趣转成岗位验证问题",
@@ -3926,16 +4136,43 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "prev28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "day90": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 7,
-          "score": 21.7975,
+          "rank": 6,
           "tier": "P2",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": false
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "4-10",
+          "page_impressions": 211.0,
+          "matched_exact_alias_count": 0
         }
       },
       "body_revision": [
@@ -4246,7 +4483,7 @@
           "https://fermatmind.com/zh/personality",
           "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
         "current_title": "MBTI 是什么？16 型人格测试入门指南 | FermatMind",
         "current_h1": "MBTI 性格测试是什么？16 型人格能告诉你什么，不能告诉你什么",
         "current_cta": "开始免费 MBTI 测试",
@@ -4521,16 +4758,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 13,
+              "clicks": 1.0,
+              "impressions": 115.0,
+              "ctr": 0.00869565,
+              "position": 19.8435
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 13,
+              "clicks": 0.0,
+              "impressions": 57.0,
+              "ctr": 0.0,
+              "position": 20.7018
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 16,
+              "clicks": 1.0,
+              "impressions": 172.0,
+              "ctr": 0.00581395,
+              "position": 20.1279
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 4,
-          "score": 39.7669,
+          "rank": 5,
           "tier": "P2",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": true
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "11-20",
+          "page_impressions": 600.0,
+          "matched_exact_alias_count": 13
         }
       },
       "body_revision": [
@@ -4840,7 +5116,7 @@
           "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
           "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "Unknown: no current28 reviewed exact alias row for this article",
         "current_title": "情绪稳定性、压力恢复与清楚沟通 | FermatMind",
         "current_h1": "情绪稳定性、压力恢复与清楚沟通",
         "current_cta": "先完成大五人格测试，再对照压力触发和恢复清单",
@@ -5054,16 +5330,43 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "prev28": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            },
+            "day90": {
+              "status": "Unknown",
+              "reason": "no reviewed exact alias row"
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
           "rank": 9,
-          "score": 11.487,
           "tier": "P3",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": false
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0,
+          "position_bucket": "11-20",
+          "page_impressions": 146.0,
+          "matched_exact_alias_count": 0
         }
       },
       "body_revision": [
@@ -5377,7 +5680,7 @@
           "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
           "https://fermatmind.com/en/tests/holland-career-interest-test-riasec"
         ],
-        "cannibalization": "UNKNOWN pending complete query×page export",
+        "cannibalization": "NO_ACTIONABLE_OWNER_CONFLICT_OBSERVED_FOR_REVIEWED_EXACT_ALIASES",
         "current_title": "What Is RIASEC? Holland Code Career Test Guide | FermatMind",
         "current_h1": "What Is RIASEC? Understanding Holland Code Career Interests",
         "current_cta": "Take the free RIASEC test",
@@ -5660,16 +5963,55 @@
           "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
         },
         "current_gsc_query_page_baseline": {
-          "status": "UNKNOWN_BLOCKED_OAUTH",
-          "row_count": 0,
-          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+          "grain": "query_x_page_after_country_device_aggregation",
+          "source": "article_m01_query_page_evidence.csv",
+          "source_combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+          "windows": {
+            "current28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 17,
+              "clicks": 0.0,
+              "impressions": 307.0,
+              "ctr": 0.0,
+              "position": 43.8958
+            },
+            "prev28": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 15,
+              "clicks": 0.0,
+              "impressions": 295.0,
+              "ctr": 0.0,
+              "position": 38.0644
+            },
+            "day90": {
+              "status": "VERIFIED_SOURCE_LIMITED",
+              "matched_alias_count": 17,
+              "clicks": 0.0,
+              "impressions": 703.0,
+              "ctr": 0.0,
+              "position": 40.2731
+            }
+          },
+          "limitation": "Search Analytics top rows; reviewed exact aliases only; absence is Unknown, not zero."
         },
         "current_priority": {
-          "rank": 3,
-          "score": 52.6233,
+          "rank": 2,
           "tier": "P1",
-          "formula_version": "window5_page_opportunity.v1",
-          "controlled_serp_not_observed": true
+          "formula_version": "window5_query_owner_priority.v2",
+          "sort_contract": [
+            "actionable_owner_conflict desc",
+            "article_non_owner_impressions desc",
+            "estimated_missed_clicks desc",
+            "page_impressions desc",
+            "refresh_id asc"
+          ],
+          "actionable_owner_conflict": false,
+          "article_non_owner_impressions": 0.0,
+          "estimated_missed_clicks": 0.0,
+          "locale_position_bucket_median_ctr": 0.0018,
+          "position_bucket": "21-50",
+          "page_impressions": 1637.0,
+          "matched_exact_alias_count": 17
         }
       },
       "body_revision": [
@@ -5907,5 +6249,27 @@
       "21+": "0.5%"
     },
     "cms_write_performed": false
+  },
+  "priority_order": [
+    "ARTICLE-REFRESH-01",
+    "ARTICLE-REFRESH-10",
+    "ARTICLE-REFRESH-04",
+    "ARTICLE-REFRESH-03",
+    "ARTICLE-REFRESH-08",
+    "ARTICLE-REFRESH-07",
+    "ARTICLE-REFRESH-02",
+    "ARTICLE-REFRESH-05",
+    "ARTICLE-REFRESH-09",
+    "ARTICLE-REFRESH-06"
+  ],
+  "m01_source": {
+    "combined_rows": 12336,
+    "combined_sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+    "manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+    "decision_window": "current28",
+    "context_windows": [
+      "prev28",
+      "day90"
+    ]
   }
 }
