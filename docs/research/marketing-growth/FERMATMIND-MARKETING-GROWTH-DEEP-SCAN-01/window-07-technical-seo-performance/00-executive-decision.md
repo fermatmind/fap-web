@@ -1,16 +1,16 @@
 # Executive decision
 
-Captured at: 2026-08-10T04:50:00.000Z (Asia/Shanghai)
+Closeout revalidated at: 2026-08-10T08:11:00Z (Asia/Shanghai)
 
 ## Status
 
 - **FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED**
 - **TECHNICAL_PERFORMANCE_PR_CANDIDATES_READY_NOT_STARTED**
 - **NONCAREER_SHRINK_GUARD_READY_WAITING_ON_C06**
-- **FIELD_CWV_RUM_MONITOR_SPEC_COMPLETE**
+- **FIELD_CWV_RUM_INSTRUMENTATION_COMPLETE_DEFAULT_OFF_NOOP**
 - **FIELD_CWV_RUM_BASELINE_INSUFFICIENT_DATA**
 
-T04 exact non-Career discoverability and T06 Big Five alias evidence are complete. T01–T03 retain six critical lab tool failures, unavailable Lighthouse Speed Index/standard TBT and an incomplete three-window L1 baseline. T05 has complete sampled canonical checks but lacks per-sample internal-link and cache-key-risk evidence. T07 contains design-only candidates. T08 is contract-complete but dependency-gated by Career C06. T09 defines a privacy-safe monitor, but no field dataset exists and no production tracking changed.
+T04 exact non-Career discoverability and T06 Big Five alias evidence remain complete. The six historical lab tool failures remain immutable source evidence, while the scoped follow-up completed six Playwright measurements and six Lighthouse 13.4.1 audits with standard Speed Index and TBT populated. The L1 interval follow-up completed one of three required full-registry windows. T05 V2 now records per-sample internal-link and shared-proxy cache evidence for all 20 samples; CTA propagation is 8 pass / 8 fail / 4 contract-unknown. The privacy-safe Web Vitals collector boundary is implemented, tested, default-off and attached to an intentional no-op sink. No field dataset exists and no production tracking changed.
 
 The original completion contract explicitly requires `FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED` when CrUX/RUM is unavailable or safe sampling cannot be completed. The earlier overall `COMPLETE` declaration did not match that contract and is superseded here without rewriting any raw measurement.
 
@@ -39,15 +39,21 @@ The current whole sitemap contains 553 locale-pages, of which 28 are Career URLs
 6. Do not activate shrink guards before Career C06 and a versioned authority update identity.
 7. Field conclusions remain unavailable until governed CrUX/GSC/RUM data exists.
 
-## Acceptance gaps
+## Eight-gate closeout decision
 
-- Six retained `MEASUREMENT_TOOL_FAILURE` rows cover all three attempts for the zh RIASEC question bootstrap and zh Big Five assessment landing definitions.
-- Lighthouse attempts returned `NO_FCP`; Speed Index and standard Lighthouse TBT are UNKNOWN, while the recorded long-task value remains a lab proxy only.
-- Three interval-separated L1 capture windows were not completed.
-- Current GSC/GA4 evidence does not verify the required L2 high-traffic/low-CTR/median or L3 Top 20/median/Top 10 cohorts.
-- The 20 canonical samples do not yet record explicit internal-link leakage and cache-key-risk results; `ref` and `source` CTA retention remains UNKNOWN.
-- Field CWV/RUM is `INSUFFICIENT_FIELD_DATA` and cannot be replaced by lab data.
+| Gate | Result | Evidence |
+| --- | --- | --- |
+| 1. Both formerly failing critical definitions have at least three valid successful measurements | PASS | Six follow-up Playwright measurement-success rows: three per definition. |
+| 2. Standard TBT and Speed Index are verifiable | PASS | Six successful Lighthouse 13.4.1 rows; standard Speed Index populated and standard TBT recorded as the audit output. |
+| 3. Three genuinely time-separated L1 windows are complete | **BLOCKED** | One complete 10-definition window; two missing; no >=30-minute pair. |
+| 4. All 20 attribution samples contain internal-link and cache-risk evidence | PASS | V2 has 20/20 internal-link results and 20/20 shared-proxy bypass results; upstream/app cache-key composition remains explicitly `UNKNOWN_NOT_EXPOSED`, not omitted or inferred. |
+| 5. Current L2/L3 GSC/GA4 cohorts have real data | **BLOCKED** | Required prior-90-day GSC and both GA4 90-day windows are absent; fixed-header evidence has zero fact rows. |
+| 6. Field CWV/RUM has sufficient lawful real data | **BLOCKED** | Field baseline remains insufficient; default-off no-op instrumentation emits nothing. |
+| 7. Lab is not represented as field | PASS | Lab artifacts and field status remain separately classified. |
+| 8. Scope and required checks pass | PASS | Six predecessor PRs passed scope and required checks; closeout scope/checks are the final PR merge gate. |
+
+Five of eight evidence gates pass and three remain blocked. The only truthful final state is **FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED**. This does not block successful completion of the seven-PR train once this closeout PR itself passes scope and required checks.
 
 ## Truth boundary
 
-The original audit modified no product code, CMS content, database, production configuration, OpenResty/CDN cache, redirect, sitemap, llms, Career cohort, deployment or PR-train metadata. This reconciliation changes only Window 7 status text, the explicitly authorized seven-item train metadata and deduplicated sidecar records; raw evidence and public runtime remain unchanged.
+The original audit modified no product code, CMS content, database, production configuration, OpenResty/CDN cache, redirect, sitemap, llms, Career cohort or deployment. The completion train added only versioned evidence plus a frontend product-code measurement boundary that is disabled by default and has no network sink. It did not enable production RUM, deploy, or write CMS, database, secrets, permissions, SEO runtime or production configuration. This closeout changes evidence/status/train bookkeeping only.

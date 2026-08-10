@@ -511,3 +511,37 @@
 - recommended owner: SEO metadata inventory owner
 - recommended follow-up: regenerate and review the metadata surface inventory in a dedicated scoped PR, confirming the EQ history route remains private noindex and excluded from public discovery surfaces.
 - status: open
+
+## Window 7 IQ/EQ Public Metadata Authority Gaps
+
+- id: `window7-iq-eq-public-metadata-authority-gaps-20260810`
+- detected at: `2026-08-10T04:50:00Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01` / `codex/fermatmind-noncareer-technical-growth-audit-closeout-01`
+- blocker type: external SEO metadata authority gap
+- affected surface: four IQ/EQ public sitemap routes missing canonical and `og:url` in the frozen Window 7 observation
+- evidence: the original serial cohort scan retained four IQ/EQ metadata mismatches, and the merged assessment-landing runtime recovery scope explicitly excluded canonical and metadata changes. Closeout found no authorized evidence that the authority/consumer ownership trace has been completed.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_discoverability_manifest.json`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md`
+- why not current PR scope: closeout is evidence/status bookkeeping only and explicitly forbids canonical, metadata, sitemap, SEO runtime or authority changes. The repository owner must first be established from the backend authority payload and frontend projection.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: medium
+- recommended owner: SEO metadata authority owner
+- recommended follow-up: trace the exact four routes through backend authority and frontend projection, then execute one separately scoped metadata contract PR in the owning repository without changing indexability or discovery enumeration.
+- status: open
+
+## Window 7 Career C06 Shrink-Guard Dependency
+
+- id: `window7-career-c06-shrink-guard-dependency-20260810`
+- detected at: `2026-08-10T04:50:00Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01` / `codex/fermatmind-noncareer-technical-growth-audit-closeout-01`
+- blocker type: external declared dependency unavailable
+- affected surface: proposed backend authority and frontend consumer non-Career shrink guards
+- evidence: no Career C06 completion artifact was found in the Window 7 evidence chain. Both shrink-guard specifications require Career C06 before activation so a migration-mixed snapshot cannot become the non-Career authority baseline.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/10-noncareer-authority-shrink-guard.md`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/11-noncareer-consumer-shrink-guard.md`
+- why not current PR scope: this train excludes Career work and product/runtime implementation. Closeout cannot invent a Career completion artifact or activate either guard.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: medium
+- recommended owner: Career C06 authority owner, followed by backend/frontend discoverability guard owners
+- recommended follow-up: complete and verify Career C06, then implement the backend authority guard and dependent frontend consumer guard as separate PR scopes using a versioned authority update identity.
+- status: open

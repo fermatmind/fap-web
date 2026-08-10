@@ -28,6 +28,10 @@ Each item starts only after its predecessor is merged, synced and cleaned. Unava
 
 `NONCAREER-GSC-GA4-COHORT-EVIDENCE-01` verified the available M01 GSC export as read-only and bound it to the frozen L2/L3 registry without copying query rows, page rows, Career URLs or identifiers. M01 contains current/previous 28-day and current 90-day windows, but the required prior 90-day GSC window is absent; no authorized GA4 current/prior 90-day export exists. The task therefore emits a fixed-header, zero-data-row `INSUFFICIENT_DATA_ZERO_ROWS` artifact and preserves every requested search/analytics metric as `UNKNOWN`. This external source gap is recorded in the existing nonblocking sidecar and does not affect required checks, scope validation or merge policy. Final closeout must remain `PARTIALLY_BLOCKED` unless exact missing evidence is later supplied.
 
+`PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01` merged the disabled-by-default collector boundary and passed its focused contract, lint, typecheck, full contract suite, production build, scope validation and GitHub required checks. The observer mounts only behind the exact feature flag and existing privacy gates; its payload is coarse and allowlisted, and its sink is intentionally no-op with no endpoint, vendor, secret or transport. It therefore produces no field evidence and does not change `INSUFFICIENT_FIELD_DATA`. Production activation remains separately controlled.
+
+The closeout revalidation confirms all six predecessor PRs are merged into `origin/main`, their task branches are absent locally and remotely, all 40 current Window 7 files are parseable, frozen cohort/alias invariants hold, and unresolved evidence gaps are represented by deduplicated sidecars. The completion train is ready to close as a successful seven-PR train with the audit itself still `PARTIALLY_BLOCKED`.
+
 ## Exact handoff order
 
 1. Capture L1 layout-shift sources and execute the focused L1 CLS PR without touching APIs or L3.
@@ -36,8 +40,8 @@ Each item starts only after its predecessor is merged, synced and cleaned. Unava
 4. Complete Career C06.
 5. Implement backend authority guard.
 6. Implement dependent frontend consumer guard.
-7. Merge only the disabled-by-default, fail-closed privacy-safe RUM collector and contracts; production activation remains separately controlled.
-8. After separate production tracking approval and activation, collect a full reporting month before setting relative regression alerts.
+7. Completed: the disabled-by-default, fail-closed privacy-safe RUM collector and contracts merged without a sink or production activation.
+8. Future separately controlled work: authorize a reviewed sink and exact production activation/deployment, then collect a full reporting month before setting relative regression alerts.
 
 ## Production write boundary
 

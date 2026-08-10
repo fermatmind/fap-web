@@ -29,7 +29,7 @@ Official definitions were refreshed from [Chrome Web Vitals](https://web.dev/art
 - Mobile: 390×844 viewport with desktop Chrome UA; desktop: 1440×960.
 - Network: local and unthrottled. These are lab diagnostics, not standardized Lighthouse throttling.
 - First attempt is cold-ish only because shared browser cache was not cleared; attempts 2–3 are warm.
-- Lighthouse attempts returned `NO_FCP`; Speed Index and Lighthouse TBT remain UNKNOWN.
+- The original Lighthouse attempts returned `NO_FCP` and remain retained. The follow-up ran six successful Lighthouse 13.4.1 desktop audits with standard Speed Index and TBT populated; these are separate lab-only evidence and do not rewrite the original attempts.
 - Anonymous PSI returned quota failure; no usable CrUX/GSC/RUM dataset was available.
 - Three well-spaced L1 windows were not completed: **BASELINE_WINDOW_INCOMPLETE**.
 
@@ -58,6 +58,18 @@ Artifacts: `performance_l1_interval_samples.csv` and `l1_interval_baseline_manif
 - No answer, submit, private route, cache-bypass header, load test or production write occurred.
 
 Artifacts: `critical_lab_remeasurement.csv`, `lighthouse_lab_samples.csv` and `critical_lab_remeasurement_manifest.json`.
+
+## Completion-train closeout validation — 2026-08-10
+
+Closeout ran from latest `main` after all six predecessor merge commits were verified in `origin/main` and their local/remote task branches were absent.
+
+- All 40 current Window 7 files decoded as UTF-8. The original 31-file package remained present; nine follow-up CSV/JSON artifacts were added by the measurement/evidence PRs.
+- All 16 CSV files parsed with one fixed non-empty header per file, consistent row widths and no spreadsheet-formula-leading cells. All nine JSON files parsed.
+- The non-Career freeze recomputed to 525 absolute URLs, 525 normalized paths and 306 identities with exact SHA-256 values `2804a0f64a358ba27bd5e417989f573d5d684d0b601893dcea93d87675dae8ad`, `cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79` and `b1a79072fda69eaf73572f637fb7b50e399b61b5d5b7ed5016d77e52e7e8e679`.
+- All 28 explicit `/en|zh/career...` URLs remain outside that cohort. All 20 Big Five legacy aliases remain one-hop 301 redirects to the expected 200 target and absent from canonical/discovery catalogs.
+- Canonical V2 has 20 fact rows and does not claim GSC/index verification. The GSC/GA4 cohort evidence has its fixed header and zero fact rows because required sources are missing.
+- The Web Vitals observer is gated by the exact `NEXT_PUBLIC_PUBLIC_CWV_RUM_ENABLED === "true"` condition; repository default and production tracking are false, the sink is intentional no-op and network transport is none.
+- Lab and field classifications remain separate. No production data collection, deployment, CMS/database/SEO runtime write, secret or permission change occurred.
 
 ## Runtime identity
 
