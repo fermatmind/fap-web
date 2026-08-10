@@ -96,6 +96,25 @@
     "tbt": "UNKNOWN",
     "failed_attempts_retained": true
   },
+  "critical_lab_remeasurement": {
+    "task_id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
+    "captured_at_start": "2026-08-10T06:09:06.883Z",
+    "captured_at_end": "2026-08-10T06:12:57.201Z",
+    "manifest": "critical_lab_remeasurement_manifest.json",
+    "playwright_artifact": "critical_lab_remeasurement.csv",
+    "playwright_rows": 6,
+    "playwright_measurement_success_rows": 6,
+    "playwright_tool_failure_rows": 0,
+    "lighthouse_artifact": "lighthouse_lab_samples.csv",
+    "lighthouse_rows": 6,
+    "lighthouse_success_rows": 6,
+    "lighthouse_runtime_error_rows": 0,
+    "speed_index_status": "MEASURED_STANDARD_LIGHTHOUSE",
+    "total_blocking_time_status": "MEASURED_STANDARD_LIGHTHOUSE",
+    "historical_rows_overwritten": false,
+    "evidence_level": "LAB_ONLY",
+    "status": "REMEASUREMENT_COMPLETE_WITH_RETAINED_RUNTIME_TIMING_GAP"
+  },
   "field": {
     "inp": "UNKNOWN",
     "crux": "INSUFFICIENT_FIELD_DATA",
@@ -115,6 +134,7 @@
     "mobile is viewport-only with desktop Chrome UA",
     "shared browser cache was not cleared before first run",
     "Lighthouse attempts returned NO_FCP and are retained as tool failure; Speed Index unavailable",
+    "The follow-up remeasurement preserves the historical NO_FCP attempts and records six successful Lighthouse 13.4.1 desktop audits separately; this does not rewrite the original baseline.",
     "INP unavailable because no field data",
     "Three interval-separated key-page windows were not completed: BASELINE_WINDOW_INCOMPLETE."
   ]

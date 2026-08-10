@@ -397,8 +397,10 @@
 - required checks / scope validation / merge policy affected: no / no / no
 - severity: medium
 - recommended owner: technical growth measurement operator
-- recommended follow-up: remeasure only the six failed identities with pinned settings and preserve any remaining unavailable result truthfully.
-- status: open
+- recommended follow-up: completed by `NONCAREER-CRITICAL-LAB-REMEASUREMENT-01`; preserve frozen historical failures and use the versioned follow-up artifacts for current collector evidence.
+- resolved at: `2026-08-10T06:16:48Z`
+- resolution evidence: six formal Playwright attempts and six Lighthouse 13.4.1 audits completed without collector/runtime error; historical `LAB-028`–`LAB-036` remain unchanged.
+- status: resolved
 
 ## Window 7 L1 Interval Baseline Incomplete
 
@@ -449,4 +451,21 @@
 - severity: high
 - recommended owner: performance telemetry authority owner
 - recommended follow-up: attempt privacy-safe field retrieval; keep RUM default-off and require separate authority for any production enablement.
+- status: open
+
+## Window 7 RIASEC First-Navigation Question Window Miss
+
+- id: `window7-riasec-first-navigation-question-window-miss-20260810`
+- detected at: `2026-08-10T06:10:02.267Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-CRITICAL-LAB-REMEASUREMENT-01` / `codex/noncareer-critical-lab-remeasurement-01`
+- blocker type: observed runtime timing gap
+- affected surface: zh RIASEC 60-question public bootstrap
+- evidence: the isolated-context first formal Playwright measurement completed with HTTP 200 and no collector error but did not reach question 1/60 inside the bounded window; both same-context repeats rendered five options, and all three Lighthouse audits completed.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement_manifest.json`
+- why not current PR scope: this evidence-only PR forbids product/API/authentication/runtime changes; one bounded miss requires separate waterfall attribution before any repair.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: medium
+- recommended owner: L1 assessment runtime owner
+- recommended follow-up: diagnose guest-auth and RIASEC question timing in a dedicated scope and protect MBTI/RIASEC priority before proposing a runtime change.
 - status: open

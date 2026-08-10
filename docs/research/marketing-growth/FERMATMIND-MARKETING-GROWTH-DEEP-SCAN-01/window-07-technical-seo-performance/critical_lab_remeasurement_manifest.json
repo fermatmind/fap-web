@@ -1,0 +1,72 @@
+{
+  "schema_version": "critical.lab.remeasurement.manifest.v1",
+  "generated_at": "2026-08-10T06:13:30Z",
+  "timezone": "Asia/Shanghai",
+  "repo": "fermatmind/fap-web",
+  "base_commit": "8bc5689155eae362c4baa02b938dda729ad2a95b",
+  "live_runtime_revision": "UNKNOWN_NOT_EXPOSED",
+  "task_id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
+  "historical_evidence": {
+    "preserved": true,
+    "l1_path": "performance_l1_samples.csv",
+    "l1_sha256": "11a293581dc563980d7975d4a34d9c9695355378e871701881a722ba9ca2c015",
+    "l2_path": "performance_l2_samples.csv",
+    "l2_sha256": "bae8cb7e730591055420f28fab4bb59e1acb0120f9de78df772ce7d53b1b40a4",
+    "retained_failure_ids": [
+      "LAB-028",
+      "LAB-029",
+      "LAB-030",
+      "LAB-034",
+      "LAB-035",
+      "LAB-036"
+    ]
+  },
+  "playwright_remeasurement": {
+    "tool": "@playwright/cli Chromium",
+    "profile": "desktop viewport 1440x960; desktop Chrome UA; local network unthrottled",
+    "concurrency": 1,
+    "observation_window_ms": 2200,
+    "definitions": 2,
+    "attempts_per_definition": 3,
+    "retained_rows": 6,
+    "measurement_success_rows": 6,
+    "tool_failure_rows": 0,
+    "semantic_rendered_rows": 5,
+    "semantic_window_miss_rows": 1,
+    "artifact": "critical_lab_remeasurement.csv",
+    "artifact_sha256": "4c7a448cfc9a5cedc14ce282895ecc687424892f2932b0a34fdd3eba5b1c270d",
+    "ttfb_definition": "responseStart minus requestStart",
+    "protocol_note": "Interactive snapshots and selector calibration preceded the frozen six-row protocol and are not acceptance samples. Every attempt after protocol freeze is retained."
+  },
+  "lighthouse_remeasurement": {
+    "tool": "Lighthouse 13.4.1",
+    "preset": "desktop",
+    "concurrency": 1,
+    "definitions": 2,
+    "attempts_per_definition": 3,
+    "retained_rows": 6,
+    "successful_rows": 6,
+    "runtime_error_rows": 0,
+    "speed_index_source": "audits.speed-index.numericValue",
+    "total_blocking_time_source": "audits.total-blocking-time.numericValue",
+    "artifact": "lighthouse_lab_samples.csv",
+    "artifact_sha256": "96701698eb9d65a0a74a928c6aba9a5f450c6b4e14026ae210dbca4a70f6cc79",
+    "zero_tbt_interpretation": "All six standard Lighthouse audits measured 0 ms TBT. These values are audit outputs with runtime_error null, not substituted long-task proxies or fallback zeroes."
+  },
+  "outcome": {
+    "status": "REMEASUREMENT_COMPLETE_WITH_RETAINED_RUNTIME_TIMING_GAP",
+    "historical_tool_failures_overwritten": false,
+    "collector_failure_resolved": true,
+    "riasec_coldish_question_window": "1 of 3 formal Playwright attempts did not reach the first-question semantic gate within the bounded window; warm attempts did.",
+    "big_five_landing": "3 of 3 formal Playwright attempts rendered the expected H1 and both public form links.",
+    "field_claim": "NONE_LAB_ONLY"
+  },
+  "safeguards": [
+    "Public URLs only",
+    "No answers or assessment submission",
+    "No result, attempt, order, payment, token, or user identifier",
+    "Serial bounded navigation only",
+    "No cache-bypass header and no load testing",
+    "No product, CMS, database, SEO runtime, ingress, deployment, or production write"
+  ]
+}

@@ -35,6 +35,20 @@ No answers were entered or submitted. The legacy 36Q surface was not used or res
 - LAB_ONLY: the RIASEC EN first question fetch was slower than cached repeat; the sample is too small for a persistent backend conclusion.
 - Two definitions (RIASEC zh question bootstrap and a later L2 definition) failed during DOM collection; all three attempts per definition remain as tool failures.
 
+## Follow-up critical remeasurement
+
+The historical L1 table remains the frozen first-window baseline. The follow-up does not replace `LAB-028`–`LAB-030`; it appends `RELAB-001`–`RELAB-003` plus three standard Lighthouse rows.
+
+| Follow-up evidence | Result | Classification |
+| --- | --- | --- |
+| Playwright collector | 3/3 completed; HTTP 200; no tool failure | LAB_ONLY |
+| First-question semantic gate | 2/3 within the bounded window; isolated-context run remained false | LAB_ONLY; runtime timing gap retained |
+| Standard Lighthouse Speed Index | 1805.69 / 1469.45 / 1254.86 ms | LAB_LIGHTHOUSE |
+| Standard Lighthouse TBT | 0 / 0 / 0 ms | LAB_LIGHTHOUSE; measured audit values, not proxy |
+| Lighthouse runtime error | 0/3 | VERIFIED tool outcome |
+
+The follow-up closes the collector-null failure. It does not prove a field-CWV improvement, and the first-navigation question-window miss remains a diagnosis candidate outside this evidence-only PR.
+
 ## Root cause and impact
 
 The top L1 signal is a shared landing/test layout shift. The symptom is VERIFIED in lab; the exact component cause is INFERRED until layout-shift sources are captured. Possible user/conversion impact is CTA instability; SEO impact is UNKNOWN without field CLS.
