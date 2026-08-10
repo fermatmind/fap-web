@@ -1,30 +1,31 @@
 # GSC Exact Export Handoff
 
-Status: `GSC_EXACT_EXPORT_BLOCKED`
+Status: `SUPERSEDED_BY_M01_READ_ONLY_JOINT_EXPORT`
 
-## Recovered evidence
+The former handoff is closed by the Window 2 M01 package. The previous UI-only evidence and overbroad API Explorer OAuth observation remain historical context, not the current E01 state.
 
-- Property: `sc-domain:fermatmind.com`
-- Search type: `web`
-- Page filter: `contains https://fermatmind.com/en/`
-- Complete-day end: `2026-08-08`
-- UI ZIPs: recent 7 complete days, recent 28 complete days, previous 28 complete days, and recent 90-day request
-- Normalized outputs: `en_gsc_country_device.csv` and `en_query_page_opportunities.csv`
+## Replacement evidence
 
-## Missing evidence
+- objective: `FERMATMIND-MEASUREMENT-M01-GSC-EXPORT-01`
+- property: `sc-domain:fermatmind.com`
+- search type: `web`
+- OAuth scope: `https://www.googleapis.com/auth/webmasters.readonly`
+- source: `window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv`
+- source SHA-256: `9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691`
+- manifest SHA-256: `fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322`
+- safe rows: 12,336
+- grain: `window × query × page × country × device`
+- windows: `current28`, `prev28`, `day90`
+- pagination: completed under the M01 manifest
+- Search Console write: false
+- production write: false
 
-- Exact `query×page×country×device×date` rows
-- Search appearance rows (all four UI CSVs were empty; therefore `UNKNOWN`)
-- Prior-year comparison (requested 90-day range begins 2026-05-11, first returned daily row is 2026-05-31)
+## Boundaries retained
 
-## Next authorized read-only run
+- Search Analytics returns top rows and does not guarantee every possible row; completed pagination is not event-level or full long-tail proof.
+- M01 stores sanitized privacy-filtered projections, not raw API responses or credentials.
+- Language remains unsupported and UNKNOWN.
+- Equivalent joint search-appearance evidence remains UNKNOWN.
+- This handoff closure authorizes no CMS, runtime, canonical, hreflang, schema, sitemap, llms, indexability, search submission, or deployment change.
 
-1. Use Search Console API credentials restricted to `https://www.googleapis.com/auth/webmasters.readonly`.
-2. Run the exact request in `02-gsc-us-uk-global-device.md` for all four windows.
-3. Paginate with `rowLimit=25000` and `startRow=0,25000,...` until the response contains no rows.
-4. Run search appearance as a separate dimension request if the joint query rejects it.
-5. Save request/response bytes and SHA-256; do not expose tokens, cookies, account identifiers, private result URLs, or credentials.
-6. Normalize country codes as `USA`, `GBR`, and `OTHER=NOT IN (USA,GBR)`; keep GLOBAL independent.
-7. Re-run canonical, CSV formula-injection, private-URL, date-window, mutual-exclusion, and scope validators.
-
-The observed API Explorer OAuth URL requested both `webmasters` and `webmasters.readonly`. That overbroad consent was not granted. A read-only-only credential path is required.
+Current normalized E01 outputs are `en_gsc_country_device.csv`, `en_query_page_opportunities.csv`, and `en_market_segment_spec.json`.

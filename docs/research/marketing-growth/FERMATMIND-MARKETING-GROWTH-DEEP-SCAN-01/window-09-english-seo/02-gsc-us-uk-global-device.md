@@ -2,75 +2,65 @@
 
 ## Goal status
 
-**`GSC_EXACT_EXPORT_BLOCKED`**. Four canonical `/en/` UI export windows are verified and normalized, but the Search Console UI provides `query`, `page`, `country`, `device`, `date`, and `search appearance` as separate tables. It does not provide the required `query×page×country×device` joint rows. The official API Explorer can express the joint request, but the observed OAuth flow requested both read/write and read-only scopes; this report-only goal did not approve the broader write scope.
+**`E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE`**. M01 provides 12,336 verified privacy-filtered joint rows at `window × query × page × country × device`; E01 revalidated the English canonical cohort and aggregated 4,192 retained rows across 152 pages. This replaces the previous current-fact claim that the joint export was absent.
 
-This is a data-recovery improvement over the earlier aggregate-only state, not completion of E01.
+This completion applies to the retained Search Analytics returned-safe rows only. It does not claim event-level or full long-tail exhaustiveness, and it does not turn privacy-filtered or unavailable rows into zero.
 
-## Exact GLOBAL totals
+## All-surface market totals
 
-GLOBAL is the independent chart total. It is not a fourth mutually exclusive country group and is never added to US+UK+OTHER.
+GLOBAL is recomputed directly from all eligible rows for each window. It is not added to US+UK+OTHER as a fourth segment.
 
-| Window | Requested dates | Clicks | Impressions | CTR | Position | Returned query rows | Returned page rows | Daily rows actually present |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| recent_7_complete_days | 2026-08-02 → 2026-08-08 | 8 | 3223 | 0.25% | 12.87 | 141 | 355 | 2026-08-02 → 2026-08-08 (7 rows) |
-| recent_28_complete_days | 2026-07-12 → 2026-08-08 | 25 | 13656 | 0.18% | 13.04 | 586 | 479 | 2026-07-12 → 2026-08-08 (28 rows) |
-| previous_28_complete_days | 2026-06-14 → 2026-07-11 | 9 | 10660 | 0.08% | 12.19 | 375 | 388 | 2026-06-14 → 2026-07-11 (28 rows) |
-| recent_90_days | 2026-05-11 → 2026-08-08 | 39 | 26799 | 0.15% | 12.43 | 900 | 563 | 2026-05-31 → 2026-08-08 (70 rows) |
+| Window | Dates | Segment | Clicks | Impressions | CTR | Weighted position | Queries | Pages | Impression share of GLOBAL |
+| --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| current28 | 2026-07-13 → 2026-08-09 | GLOBAL | 4 | 2,450 | 0.1633% | 20.4624 | 512 | 101 | 100.00% |
+| current28 | 2026-07-13 → 2026-08-09 | US | 0 | 447 | 0.0000% | 32.3937 | 185 | 64 | 18.24% |
+| current28 | 2026-07-13 → 2026-08-09 | UK | 0 | 96 | 0.0000% | 30.1875 | 54 | 22 | 3.92% |
+| current28 | 2026-07-13 → 2026-08-09 | OTHER | 4 | 1,907 | 0.2098% | 17.1762 | 398 | 82 | 77.84% |
+| prev28 | 2026-06-15 → 2026-07-12 | GLOBAL | 2 | 1,426 | 0.1403% | 27.7160 | 341 | 77 | 100.00% |
+| prev28 | 2026-06-15 → 2026-07-12 | US | 0 | 451 | 0.0000% | 24.9623 | 136 | 38 | 31.63% |
+| prev28 | 2026-06-15 → 2026-07-12 | UK | 0 | 106 | 0.0000% | 43.9151 | 52 | 13 | 7.43% |
+| prev28 | 2026-06-15 → 2026-07-12 | OTHER | 2 | 869 | 0.2301% | 27.1692 | 240 | 57 | 60.94% |
+| day90 | 2026-05-12 → 2026-08-09 | GLOBAL | 10 | 4,259 | 0.2348% | 23.3365 | 783 | 152 | 100.00% |
+| day90 | 2026-05-12 → 2026-08-09 | US | 1 | 1,014 | 0.0986% | 27.6282 | 292 | 92 | 23.81% |
+| day90 | 2026-05-12 → 2026-08-09 | UK | 0 | 206 | 0.0000% | 37.4709 | 90 | 31 | 4.84% |
+| day90 | 2026-05-12 → 2026-08-09 | OTHER | 9 | 3,039 | 0.2962% | 20.9464 | 598 | 116 | 71.35% |
 
-The 90-day request is `2026-05-11/2026-08-08`, but the first returned daily row is `2026-05-31`; the 20 earlier requested days are absent, not zero. Prior-year comparison is therefore `UNKNOWN`.
+Current28 versus prev28 returned-safe evidence: clicks increased from 2 to 4, impressions increased 71.81%, CTR increased from 0.1403% to 0.1633%, and weighted position changed from 27.7160 to 20.4624 (lower is better). These are search-evidence changes, not business-growth claims.
 
-## Trend
+## GLOBAL device split
 
-- Recent 28 days versus previous 28 days: clicks +177.78%; impressions +28.11%; CTR +116.84%; position changed from 12.19 to 13.04 (higher is worse).
-- Recent 90-day request: 39 clicks, 26799 impressions, 0.15% CTR, position 12.43; only 70 daily rows were returned.
+| Window | Device | Clicks | Impressions | CTR | Weighted position | Impression share | Click share |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| current28 | mobile | 2 | 1,012 | 0.1976% | 9.8211 | 41.31% | 50.00% |
+| current28 | desktop | 2 | 1,413 | 0.1415% | 28.2831 | 57.67% | 50.00% |
+| current28 | tablet | 0 | 25 | 0.0000% | 9.2000 | 1.02% | 0.00% |
+| prev28 | mobile | 1 | 326 | 0.3067% | 15.0031 | 22.86% | 50.00% |
+| prev28 | desktop | 1 | 1,092 | 0.0916% | 31.5275 | 76.58% | 50.00% |
+| prev28 | tablet | 0 | 8 | 0.0000% | 25.5000 | 0.56% | 0.00% |
+| day90 | mobile | 3 | 1,428 | 0.2101% | 11.2990 | 33.53% | 30.00% |
+| day90 | desktop | 7 | 2,797 | 0.2503% | 29.6067 | 65.67% | 70.00% |
+| day90 | tablet | 0 | 34 | 0.0000% | 13.0882 | 0.80% | 0.00% |
 
-## Country and device returned-row shares
+`en_gsc_country_device.csv` contains the complete available market × device × surface aggregate matrix, including branded/non-branded query counts and clicks, query/page counts, and denominator-bound country/device shares. Missing combinations are not emitted as verified zero rows.
 
-These shares use only rows returned in their own dimension table. They are not GLOBAL shares because the 28-day country rows contain 2783 impressions and device rows contain 2783, versus the independent GLOBAL total of 13656 impressions.
+## GLOBAL surface split
 
-| Window | US impression share | UK impression share | OTHER impression share | Mobile impression share | Mobile click share |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Recent 28 complete days | 20.52% | 3.92% | 75.57% | 39.49% | 50.00% |
-| Recent 90-day request | 28.14% | 4.58% | 67.29% | 30.64% | 40.00% |
+| Surface | current28 clicks / impressions | prev28 clicks / impressions | day90 clicks / impressions |
+| --- | ---: | ---: | ---: |
+| assessment | 0 / 40 | 0 / 219 | 0 / 276 |
+| personality | 4 / 1,717 | 0 / 333 | 4 / 2,095 |
+| articles | 0 / 592 | 0 / 606 | 0 / 1,368 |
+| career | 0 / 61 | 0 / 228 | 0 / 373 |
+| hubs/content pages | 0 / 21 | 0 / 15 | 1 / 91 |
+| homepage | 0 / 19 | 2 / 25 | 5 / 56 |
 
-`US = USA`, `UK = GBR`, and `OTHER = all returned country rows excluding USA and GBR`. Country is a market dimension only; it is never used as a proxy for user language. Locale is recognized only from GSC canonical page URLs beginning `https://fermatmind.com/en/`.
+## Query-page evidence
 
-## Query, page, brand and surface evidence
+`en_query_page_opportunities.csv` is derived from the same joint rows, not from separate query and page tables. It retains 983 selected query-page market-device aggregates: every aggregate with a click or at least 10 impressions, plus the top ten impressions in each `window × market × device × surface` bucket. Each row carries exact query, page, market, device, metrics, weighted position, brand flag, and selection rule. It is evidence input only and authorizes no CMS or runtime action.
 
-- Recent 28-day returned-row counts: 586 query rows and 479 page rows. They are separate tables and must not be joined by row order or matching metrics.
-- Branded definition: case-insensitive `fermatmind`, `fermat mind`, or `费马测试`. Recent 28-day query export returned 1 branded query rows and 585 non-branded query rows; returned clicks were 0 branded and 4 non-branded. These are returned-query-row values, not GLOBAL totals.
-- `en_query_page_opportunities.csv` contains top returned queries/pages, near winners (`impressions>=20` and `4<=position<=20`), zero-click high-impression rows (`impressions>=100`), and page-only surface rollups for assessment, personality, articles, career, hubs/content pages, and homepage.
-- Search appearance CSVs were present but empty in all four exports. They are recorded as `UNKNOWN`, not zero.
+## Remaining limitations and non-actions
 
-## Exact handoff
-
-Use a credential flow restricted to `https://www.googleapis.com/auth/webmasters.readonly` and query `sc-domain:fermatmind.com` with:
-
-```json
-{
-  "startDate": "<window-start>",
-  "endDate": "<window-end>",
-  "dimensions": ["query", "page", "country", "device", "date"],
-  "dimensionFilterGroups": [
-    {
-      "groupType": "and",
-      "filters": [
-        {
-          "dimension": "page",
-          "operator": "contains",
-          "expression": "https://fermatmind.com/en/"
-        }
-      ]
-    }
-  ],
-  "type": "web",
-  "aggregationType": "byPage",
-  "rowLimit": 25000,
-  "startRow": 0,
-  "dataState": "final"
-}
-```
-
-Paginate `startRow` until no rows are returned for each required window. Query search appearance separately if Google rejects it in the joint dimension set. Preserve raw responses, request body, exact capture time, property, OAuth scope, pagination offsets, and SHA-256. Google's [Search Analytics query reference](https://developers.google.com/webmaster-tools/v1/searchanalytics/query) states that the API returns top rows and does not guarantee every data row; its [data-limit guidance](https://developers.google.com/webmaster-tools/v1/how-tos/all-your-data#data_limits) must therefore remain an explicit limitation even after API success.
-
-No route, regional content, CMS, product-code, production, sitemap, llms, or V2 action is authorized by this report.
+- Language remains `UNKNOWN_UNSUPPORTED_GSC_SEARCH_ANALYTICS_DIMENSION`; country, query, and URL path are not language proxies.
+- Equivalent joint search-appearance evidence remains `UNKNOWN_UNAVAILABLE_EQUIVALENT_JOINT_EVIDENCE`.
+- Search Analytics top-row availability and the conservative privacy filter remain explicit limitations.
+- No route, regional content, CMS, metadata, canonical, hreflang, schema, sitemap, llms, indexability, search submission, product-code, or production action is authorized.
