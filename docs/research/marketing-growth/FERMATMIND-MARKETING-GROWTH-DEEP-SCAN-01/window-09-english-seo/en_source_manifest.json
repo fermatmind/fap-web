@@ -1,6 +1,6 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T12:28:57+08:00",
+  "captured_at": "2026-08-10T13:48:53+08:00",
   "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
   "csv_provenance_contract": [
     "source",
@@ -17,11 +17,15 @@
   "missing_value_policy": "Use UNKNOWN for unavailable evidence; retain 0 or false only when directly reported by a verified source.",
   "evidence_labels": [
     "VERIFIED",
+    "VERIFIED_GLOBAL_TOTAL",
+    "VERIFIED_RETURNED_ROWS",
     "INFERRED",
     "UNKNOWN",
     "HISTORICAL",
     "CANDIDATE_ONLY",
-    "WAITING_ON_C06_C07"
+    "WAITING_ON_C06_C07",
+    "GSC_EXACT_EXPORT_BLOCKED",
+    "BLOCKED_OVERBROAD_OAUTH_SCOPE"
   ],
   "sources": [
     {
@@ -154,6 +158,172 @@
       "status": "VERIFIED",
       "captured_at": "2026-08-10T12:28:57+08:00",
       "limitation": "Representative SERP sample; not a rank-tracking export and not personalized by exact country/device."
+    },
+    {
+      "id": "GSC_SEARCH_ANALYTICS_API_REFERENCE",
+      "source": "https://developers.google.com/webmaster-tools/v1/searchanalytics/query",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T13:48:53+08:00",
+      "limitation": "Official reference: API results are subject to internal limits and do not guarantee every data row."
+    },
+    {
+      "id": "GSC_SEARCH_ANALYTICS_DATA_LIMITS",
+      "source": "https://developers.google.com/webmaster-tools/v1/how-tos/all-your-data#data_limits",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T13:48:53+08:00",
+      "limitation": "Official data-limit guidance; successful pagination still does not prove exhaustive ground truth."
+    },
+    {
+      "id": "GSC_UI_CSV_RECENT_7_COMPLETE_DAYS",
+      "source": "fermatmind.com-Performance-on-Search-2026-08-10 (1).zip",
+      "sha256": "b047a30c71202bb2a11bf3fe17c0bafc520328e826ac45ea7411ae05af1d0672",
+      "status": "VERIFIED_RETURNED_ROWS",
+      "captured_at": "2026-08-10T13:38:16+08:00",
+      "date_window": "2026-08-02/2026-08-08",
+      "filters": {
+        "property": "sc-domain:fermatmind.com",
+        "search_type": "web",
+        "page": "+https://fermatmind.com/en/"
+      },
+      "files": [
+        "图表.csv",
+        "查询数.csv",
+        "网页.csv",
+        "国家_地区.csv",
+        "设备.csv",
+        "搜索结果呈现.csv",
+        "过滤器.csv"
+      ],
+      "row_counts": {
+        "date": 7,
+        "query": 141,
+        "page": 355,
+        "country": 74,
+        "device": 3,
+        "search_appearance": 0
+      },
+      "limitation": "Operator-local UI ZIP is not committed. Normalized evidence is committed; dimension tables are separate and may omit anonymized or low-volume rows."
+    },
+    {
+      "id": "GSC_UI_CSV_RECENT_28_COMPLETE_DAYS",
+      "source": "fermatmind.com-Performance-on-Search-2026-08-10 (2).zip",
+      "sha256": "0e7d1749755e4bcf86f9349fc4cc22febe256742b81c878c523fbef94cdce1e2",
+      "status": "VERIFIED_RETURNED_ROWS",
+      "captured_at": "2026-08-10T13:38:49+08:00",
+      "date_window": "2026-07-12/2026-08-08",
+      "filters": {
+        "property": "sc-domain:fermatmind.com",
+        "search_type": "web",
+        "page": "+https://fermatmind.com/en/"
+      },
+      "files": [
+        "图表.csv",
+        "查询数.csv",
+        "网页.csv",
+        "国家_地区.csv",
+        "设备.csv",
+        "搜索结果呈现.csv",
+        "过滤器.csv"
+      ],
+      "row_counts": {
+        "date": 28,
+        "query": 586,
+        "page": 479,
+        "country": 128,
+        "device": 3,
+        "search_appearance": 0
+      },
+      "limitation": "Operator-local UI ZIP is not committed. Normalized evidence is committed; dimension tables are separate and may omit anonymized or low-volume rows."
+    },
+    {
+      "id": "GSC_UI_CSV_PREVIOUS_28_COMPLETE_DAYS",
+      "source": "fermatmind.com-Performance-on-Search-2026-08-10 (3).zip",
+      "sha256": "d6163e74f90bd3c831b479d0bfeb1c70bbd82c5feb00f0b9ef99cd090434dc43",
+      "status": "VERIFIED_RETURNED_ROWS",
+      "captured_at": "2026-08-10T13:48:30+08:00",
+      "date_window": "2026-06-14/2026-07-11",
+      "filters": {
+        "property": "sc-domain:fermatmind.com",
+        "search_type": "web",
+        "page": "+https://fermatmind.com/en/"
+      },
+      "files": [
+        "图表.csv",
+        "查询数.csv",
+        "网页.csv",
+        "国家_地区.csv",
+        "设备.csv",
+        "搜索结果呈现.csv",
+        "过滤器.csv"
+      ],
+      "row_counts": {
+        "date": 28,
+        "query": 375,
+        "page": 388,
+        "country": 96,
+        "device": 3,
+        "search_appearance": 0
+      },
+      "limitation": "Operator-local UI ZIP is not committed. Normalized evidence is committed; dimension tables are separate and may omit anonymized or low-volume rows."
+    },
+    {
+      "id": "GSC_UI_CSV_RECENT_90_DAYS",
+      "source": "fermatmind.com-Performance-on-Search-2026-08-10 (4).zip",
+      "sha256": "ca1c923d8ecc9af2610f6aef0f150c67fd36ffc435af78bf4323a623ab8d6587",
+      "status": "VERIFIED_RETURNED_ROWS",
+      "captured_at": "2026-08-10T13:48:53+08:00",
+      "date_window": "2026-05-11/2026-08-08",
+      "filters": {
+        "property": "sc-domain:fermatmind.com",
+        "search_type": "web",
+        "page": "+https://fermatmind.com/en/"
+      },
+      "files": [
+        "图表.csv",
+        "查询数.csv",
+        "网页.csv",
+        "国家_地区.csv",
+        "设备.csv",
+        "搜索结果呈现.csv",
+        "过滤器.csv"
+      ],
+      "row_counts": {
+        "date": 70,
+        "query": 900,
+        "page": 563,
+        "country": 140,
+        "device": 3,
+        "search_appearance": 0
+      },
+      "limitation": "Operator-local UI ZIP is not committed. Normalized evidence is committed; dimension tables are separate and may omit anonymized or low-volume rows."
     }
-  ]
+  ],
+  "goal_status": "GSC_EXACT_EXPORT_BLOCKED",
+  "gsc_complete_day_end": "2026-08-08",
+  "gsc_locale_filter": "GSC canonical page URL begins https://fermatmind.com/en/; country is never language.",
+  "gsc_dimension_semantics": {
+    "GLOBAL": "Independent daily-chart total; never add to US+UK+OTHER.",
+    "US": "USA direct returned country row.",
+    "UK": "GBR direct returned country row; UNKNOWN if absent.",
+    "OTHER": "Sum of returned country rows excluding USA and GBR.",
+    "device_share": "Share of returned device-dimension rows, not GLOBAL, while suppression gap exists.",
+    "query_page": "Separate UI tables; exact joint dimension remains UNKNOWN."
+  },
+  "gsc_api_attempt": {
+    "status": "BLOCKED_OVERBROAD_OAUTH_SCOPE",
+    "endpoint": "Search Analytics: query via official Google APIs Explorer",
+    "requested_dimensions": [
+      "query",
+      "page",
+      "country",
+      "device",
+      "date"
+    ],
+    "observed_scopes": [
+      "https://www.googleapis.com/auth/webmasters",
+      "https://www.googleapis.com/auth/webmasters.readonly"
+    ],
+    "accepted_scopes": [],
+    "limitation": "Report-only goal authorized read-only access; write-capable OAuth consent was not granted."
+  }
 }

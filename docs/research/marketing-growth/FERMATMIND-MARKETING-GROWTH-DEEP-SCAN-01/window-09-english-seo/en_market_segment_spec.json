@@ -23,7 +23,7 @@
       "note": "Total view; never add to US+UK+OTHER."
     }
   },
-  "invariant": "GLOBAL = US + UK + OTHER only when all three mutually exclusive groups come from the same complete export and filters.",
+  "invariant": "US, UK, and OTHER are mutually exclusive within the same returned country table. GLOBAL is an independent total and must never be added to them. Equality is not asserted while GSC dimension suppression exists.",
   "devices": [
     "mobile",
     "desktop",
@@ -37,7 +37,13 @@
     "hubs/content pages",
     "homepage"
   ],
-  "current_data_state": "PARTIAL: global, device totals and selected country totals exist; exact US/UK/OTHER EN cross-splits are unavailable.",
-  "e01_status": "PARTIAL",
-  "completion_gate": "Exact EN query×page×country×device export."
+  "current_data_state": "GSC_EXACT_EXPORT_BLOCKED: four /en/ UI export windows verified; exact query×page×country×device rows unavailable and search-appearance tables empty.",
+  "e01_status": "GSC_EXACT_EXPORT_BLOCKED",
+  "completion_gate": "Read-only Search Analytics API export of query×page×country×device×date for all four windows, plus separate search appearance if required.",
+  "share_denominators": {
+    "country": "Sum of returned country-dimension rows only.",
+    "device": "Sum of returned device-dimension rows only.",
+    "global": "Independent daily-chart total."
+  },
+  "prior_year": "UNKNOWN: first available daily row in the 90-day request is 2026-05-31."
 }
