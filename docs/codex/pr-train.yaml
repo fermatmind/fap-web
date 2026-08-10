@@ -30495,7 +30495,7 @@ prs:
     base: main
     branch: codex/public-topic-graph-audit-closeout-01
     title: "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01: close Window 6 registry and handoff gaps"
-    status: ready_to_merge
+    status: merged
     depends_on: []
     mode: execute
     train_scope: public_topic_graph_window_06_closeout
@@ -30528,7 +30528,7 @@ prs:
     base: main
     branch: codex/public-topic-graph-edge-click-contract-01
     title: "PUBLIC-TOPIC-GRAPH-EDGE-CLICK-CONTRACT-01: approve privacy-safe topic edge measurement contract"
-    status: pending_dependency
+    status: ready_to_merge
     depends_on: [PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01]
     mode: execute
     train_scope: public_topic_graph_edge_click_measurement_contract
