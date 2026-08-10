@@ -3,7 +3,7 @@
 ## Missing or gated inputs
 
 - Career C06 completion artifact: not found in repository evidence/current PR search.
-- Current M01/M04/M05/M06, full GSC query×page exports and GSC CWV: unavailable.
+- M01 is available as a privacy-safe read-only GSC export for current/previous 28-day and current 90-day context. Required prior 90-day GSC cohort evidence, M04/M05/M06 and GSC CWV remain unavailable.
 - Production RUM and GA4 Web Vitals: unavailable.
 - Current independent Topic Graph corpus: unavailable; live backend sitemap-source is this freeze's authority.
 - IQ/EQ metadata repository owner: pending authority payload versus consumer projection trace. `ASSESSMENT-LANDING-RUNTIME-RECOVERY-01` merged on current main, but its declared scope explicitly excluded canonical and metadata changes, so the four-route metadata finding remains open.
@@ -25,6 +25,8 @@ Each item starts only after its predecessor is merged, synced and cleaned. Unava
 `NONCAREER-L1-INTERVAL-BASELINE-01` retained one complete current L1 registry window (10/10 definitions) but could not establish the required three windows separated by at least 30 minutes. Two complete windows remain missing; `BASELINE_WINDOW_INCOMPLETE` and its sidecar stay open. This external evidence gap does not affect the PR's local checks, required GitHub checks, scope validation or merge policy, so the serial train may continue after merge and cleanup. Final closeout must remain `PARTIALLY_BLOCKED` unless later exact evidence closes the gap.
 
 `NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01` completed all 20 V2 evidence rows without changing canonical or CTA runtime. Canonical, unexpected cross-document/private propagation and shared-proxy bypass pass 20/20. Live approved-parameter CTA propagation is 8 pass / 8 fail, with four `ref`/`source` samples remaining contract-unknown. The propagation gap is a nonblocking sidecar because the current evidence-only scope explicitly forbids runtime repair; it does not affect required checks, scope validation or merge policy.
+
+`NONCAREER-GSC-GA4-COHORT-EVIDENCE-01` verified the available M01 GSC export as read-only and bound it to the frozen L2/L3 registry without copying query rows, page rows, Career URLs or identifiers. M01 contains current/previous 28-day and current 90-day windows, but the required prior 90-day GSC window is absent; no authorized GA4 current/prior 90-day export exists. The task therefore emits a fixed-header, zero-data-row `INSUFFICIENT_DATA_ZERO_ROWS` artifact and preserves every requested search/analytics metric as `UNKNOWN`. This external source gap is recorded in the existing nonblocking sidecar and does not affect required checks, scope validation or merge policy. Final closeout must remain `PARTIALLY_BLOCKED` unless exact missing evidence is later supplied.
 
 ## Exact handoff order
 

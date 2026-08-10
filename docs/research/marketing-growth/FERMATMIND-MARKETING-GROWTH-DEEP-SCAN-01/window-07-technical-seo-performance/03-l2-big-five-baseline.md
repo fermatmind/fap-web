@@ -49,3 +49,9 @@ No proposed optimization adds hero/inline/OG media, Markdown/HTML images or fron
 ## Priority guard
 
 The shared quiz shell overlaps L1. Any bundle or API change must demonstrate no MBTI/RIASEC regression before Big Five improvement is accepted.
+
+## GSC/GA4 cohort evidence
+
+`NONCAREER-GSC-GA4-COHORT-EVIDENCE-01` binds L2 to the frozen 106-URL `L2_BIG_FIVE` registry cohort. A currently authorized read-only M01 GSC export provides partial context: exact page-row matches are 88 for current 28 days, 22 for previous 28 days and 74 for current 90 days. These are top-row availability diagnostics, not exhaustive cohort metrics.
+
+The required prior 90-day GSC export is absent, and no authorized GA4 current/prior 90-day export exists in the repository. The 28-day windows are not relabeled as 90-day evidence, and GSC is not used as a substitute for sessions, users or conversions. Consequently the evidence CSV contains its fixed header and zero data rows, with L2 rankings, traffic, medians and analytics outcomes retained as `UNKNOWN` under `INSUFFICIENT_DATA_ZERO_ROWS`.

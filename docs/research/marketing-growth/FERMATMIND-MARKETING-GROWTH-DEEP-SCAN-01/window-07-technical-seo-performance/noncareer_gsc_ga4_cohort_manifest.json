@@ -1,0 +1,118 @@
+{
+  "schema_version": "noncareer.gsc-ga4.cohort-evidence.v1",
+  "task_id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
+  "generated_at": "2026-08-10T07:19:27Z",
+  "timezone": "Asia/Shanghai",
+  "source_base_commit": "577e89cb2682c5a57e1b760e853ebd4260c0cdb7",
+  "status": "INSUFFICIENT_DATA_ZERO_ROWS",
+  "artifact": "noncareer_gsc_ga4_cohort_evidence.csv",
+  "artifact_sha256": "c588bb8507077a46c05769ad5d6fd9a954ef2f14e0429d194eddf313117c3d64",
+  "artifact_data_rows": 0,
+  "required_observation_contract": {
+    "gsc_windows": [
+      "current90",
+      "prior90"
+    ],
+    "ga4_windows": [
+      "current90",
+      "prior90"
+    ],
+    "cohorts": [
+      "L2_BIG_FIVE",
+      "L3_PERSONALITY_NON_BIG_FIVE",
+      "L3_ARTICLES"
+    ],
+    "career_excluded": true,
+    "private_identifiers_forbidden": true
+  },
+  "registry": {
+    "source": "noncareer_discoverability_cohort.csv",
+    "source_sha256": "231930a7a53787581c0ae17dc96e8489723237a94115280d27716f70e56733ee",
+    "total_noncareer_urls": 525,
+    "eligible_groups": {
+      "L2_BIG_FIVE": 106,
+      "L3_PERSONALITY_NON_BIG_FIVE": 253,
+      "L3_ARTICLES": 113
+    },
+    "excluded_from_this_evidence_scope": 53,
+    "excluded_scope_description": "L1 homepage/test surfaces, content/help/company and other public non-Career routes are outside this L2/L3 cohort artifact; all Career and private routes remain excluded."
+  },
+  "gsc_source": {
+    "status": "PARTIAL_WINDOW_COVERAGE_READ_ONLY_VERIFIED",
+    "manifest": "../window-02-measurement/m01-gsc-export/m01_export_manifest.json",
+    "manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+    "validation_report": "../window-02-measurement/m01-gsc-export/validation_report.json",
+    "validation_report_sha256": "fb557a407b0cf73cd03c6d01910cec2656f31485e33b85d08d6278c3e93c77f9",
+    "page_source": "../window-02-measurement/m01-gsc-export/gsc_page_single_dimension.csv",
+    "page_source_sha256": "ce34c2804de5f55dcab4f5037f617d2a374615c5cfe37915f38737d76867ddff",
+    "property": "sc-domain:fermatmind.com",
+    "search_type": "web",
+    "oauth_scope": "webmasters.readonly",
+    "available_windows": {
+      "current28": {
+        "start": "2026-07-13",
+        "end": "2026-08-09"
+      },
+      "prev28": {
+        "start": "2026-06-15",
+        "end": "2026-07-12"
+      },
+      "current90": {
+        "source_id": "day90",
+        "start": "2026-05-12",
+        "end": "2026-08-09",
+        "returned_daily_rows": 71
+      }
+    },
+    "missing_required_windows": {
+      "prior90": {
+        "expected_start": "2026-02-11",
+        "expected_end": "2026-05-11",
+        "status": "UNAVAILABLE_NOT_EXPORTED"
+      }
+    },
+    "exact_page_row_availability_diagnostic": {
+      "L2_BIG_FIVE": {
+        "current28": 88,
+        "prev28": 22,
+        "current90": 74
+      },
+      "L3_PERSONALITY_NON_BIG_FIVE": {
+        "current28": 109,
+        "prev28": 48,
+        "current90": 109
+      },
+      "L3_ARTICLES": {
+        "current28": 58,
+        "prev28": 49,
+        "current90": 59
+      }
+    },
+    "eligibility_decision": "The verified M01 source is useful current context but lacks the required prior90 export. Current28/prev28 must not be relabeled as current90/prior90, and top-row availability must not be treated as exhaustive."
+  },
+  "ga4_source": {
+    "status": "UNAVAILABLE_NO_AUTHORIZED_EXPORT_IN_REPOSITORY",
+    "current90": "UNKNOWN",
+    "prior90": "UNKNOWN",
+    "sessions": "UNKNOWN",
+    "users": "UNKNOWN",
+    "conversions": "UNKNOWN",
+    "write_or_secret_request_executed": false
+  },
+  "decision": "No eligible cohort metric row is emitted because the required prior90 GSC window and both GA4 90-day windows are unavailable. Available 28-day GSC comparisons are not promoted into the 90-day contract, and no ranking, traffic, Top 20, Top 10, median, session, user or conversion value is fabricated.",
+  "sidecar_issue": "window7-gsc-ga4-cohort-data-unavailable-20260810",
+  "privacy": {
+    "raw_query_rows_copied": false,
+    "raw_page_rows_copied": false,
+    "career_urls_in_artifact": 0,
+    "private_urls_in_artifact": 0,
+    "identifiers_or_secrets_in_artifact": 0,
+    "production_or_search_write": false
+  },
+  "limitations": [
+    "Search Analytics returns top rows and does not guarantee event-level exhaustiveness.",
+    "Language is unsupported as a GSC Search Analytics dimension and was not inferred.",
+    "GA4 evidence is unavailable; GSC cannot substitute for analytics sessions, users or conversions.",
+    "The zero-row CSV is an explicit insufficient-data result rather than proof of zero traffic."
+  ]
+}

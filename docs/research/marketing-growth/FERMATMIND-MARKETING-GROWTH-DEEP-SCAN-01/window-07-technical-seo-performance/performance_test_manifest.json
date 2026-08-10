@@ -138,6 +138,31 @@
     "evidence_level": "LAB_ONLY",
     "status": "BASELINE_WINDOW_INCOMPLETE"
   },
+  "gsc_ga4_cohort_evidence": {
+    "task_id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
+    "generated_at": "2026-08-10T07:19:27Z",
+    "manifest": "noncareer_gsc_ga4_cohort_manifest.json",
+    "artifact": "noncareer_gsc_ga4_cohort_evidence.csv",
+    "artifact_sha256": "c588bb8507077a46c05769ad5d6fd9a954ef2f14e0429d194eddf313117c3d64",
+    "artifact_data_rows": 0,
+    "required_windows": {
+      "gsc": ["current90", "prior90"],
+      "ga4": ["current90", "prior90"]
+    },
+    "available_read_only_evidence": {
+      "gsc": ["current28", "prev28", "current90"],
+      "ga4": []
+    },
+    "missing_required_evidence": ["gsc.prior90", "ga4.current90", "ga4.prior90"],
+    "eligible_registry_urls": {
+      "L2_BIG_FIVE": 106,
+      "L3_PERSONALITY_NON_BIG_FIVE": 253,
+      "L3_ARTICLES": 113
+    },
+    "career_excluded": true,
+    "private_identifiers_in_artifact": 0,
+    "status": "INSUFFICIENT_DATA_ZERO_ROWS"
+  },
   "field": {
     "inp": "UNKNOWN",
     "crux": "INSUFFICIENT_FIELD_DATA",
@@ -159,6 +184,7 @@
     "Lighthouse attempts returned NO_FCP and are retained as tool failure; Speed Index unavailable",
     "The follow-up remeasurement preserves the historical NO_FCP attempts and records six successful Lighthouse 13.4.1 desktop audits separately; this does not rewrite the original baseline.",
     "INP unavailable because no field data",
-    "Only one of three required complete L1 registry windows was captured; no >=30-minute interval pair is evaluable and BASELINE_WINDOW_INCOMPLETE remains."
+    "Only one of three required complete L1 registry windows was captured; no >=30-minute interval pair is evaluable and BASELINE_WINDOW_INCOMPLETE remains.",
+    "The read-only GSC source lacks the required prior 90-day window, and no authorized GA4 90-day export exists; the cohort artifact therefore contains zero data rows and does not assert rankings or traffic."
   ]
 }
