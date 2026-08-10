@@ -1,6 +1,6 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T07:44:29Z",
+  "captured_at": "2026-08-10T08:02:26Z",
   "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
   "csv_provenance_contract": [
     "source",
@@ -473,6 +473,57 @@
         "enneagram_detail_in_scope": 54
       },
       "limitation": "Public API read-only projection at capture time. The seven existing cross-type comparisons remain public but noindex, outside sitemap/llms, and held as non-search owners. Hubs/centers are excluded; no CMS or runtime write performed."
+    },
+    {
+      "id": "E04_CURRENT_ARTICLE_API",
+      "source": "https://api.fermatmind.com/api/v0.5/articles?locale=en&per_page=100",
+      "sha256": "6c40be12b867a7757d0cf7000e1244c1dde55b01b503d1b7e5cb79a0162e8759",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T08:02:26Z",
+      "observed_counts": {
+        "total": 40,
+        "public_published": 40,
+        "indexable": 23,
+        "sitemap_eligible": 22,
+        "llms_eligible": 22,
+        "non_indexable_w3": 17
+      },
+      "limitation": "Read-only public API bytes. One indexable Article is currently outside sitemap/llms; E04 does not change discoverability."
+    },
+    {
+      "id": "E04_M01_ARTICLE_MARKET_DEVICE",
+      "source": "window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:06:20Z",
+      "limitation": "Privacy-filtered Search Analytics top rows; missing query/page/market/device cells are UNKNOWN, not zero; country is not language."
+    },
+    {
+      "id": "E04_WINDOW5_ARTICLE_AUTHORITY_OWNER",
+      "source": "window-05-seo-articles Article authority, classification, exact owner, CTA, and 90-day ledgers",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T10:30:00Z",
+      "sha256": {
+        "article_performance_ledger.csv": "ce8d3cfc6dbcd0831e63ab07bde175b3f1ebaf234fb725e2a7e9afb5efacac3d",
+        "article_classification.csv": "aabcb3f3aa60444d4920678112f832101713a5e4d98a79079596c177a5dfd101",
+        "article_m01_query_decisions.csv": "5b201e4b7e7d1a54989ba6c9661f95d149a8ff54d9602e8ec4bb4a71de4b9bd0",
+        "article_m01_query_page_evidence.csv": "2210063134b376e27c7d74518da44b4a9f2cc24506e8f32d52faf9d1129fd9af",
+        "article_to_test_coverage.csv": "5a79fbbbce9f93abccff0b22020283fb5760b2bcea8462b953760341c30d3493",
+        "article_dead_candidate_ledger.csv": "f915e033bcc0424d9c48a72931753684932fd5f92ae1bf06d0b12e28a7842772"
+      },
+      "limitation": "Window 9 supplements exact market/device evidence; it does not replace Window 5 owner or 90-day disposal authority."
+    },
+    {
+      "id": "E04_W3_ARTICLE_ISOLATION_REFERENCE",
+      "source": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/lane_manifest.json",
+      "sha256": "7209590107d946822678550a06b980e4d1de35e0c9bbdfc21c0b6672ddccbd44",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T08:02:26Z",
+      "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
+      "exact_identity_count": 17,
+      "observed_lane_status": "dry_run_ready",
+      "observed_promotion_receipt_refs": 3,
+      "limitation": "Reference only. E04 does not reconcile, register, promote, rewrite, or interpret the receipt chain; exact trusted reconciliation belongs solely to E06."
     }
   ],
   "goal_status": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
