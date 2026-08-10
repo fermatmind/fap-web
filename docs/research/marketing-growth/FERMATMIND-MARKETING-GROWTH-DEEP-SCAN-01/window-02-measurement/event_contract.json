@@ -1,0 +1,68 @@
+{
+  "schema_version": "fermatmind.measurement.public_topic_edge_click.v1",
+  "status": "APPROVED_CONTRACT_ONLY_NOT_DEPLOYED",
+  "approved_at": "2026-08-10T06:55:00Z",
+  "event_name": "public_topic_edge_click",
+  "observation_class": "browser_observation",
+  "trigger_semantics": "A user activates a rendered public edge that was approved and issued by the backend authority.",
+  "deployment_state": {
+    "contract_only": true,
+    "runtime_callsite_present": false,
+    "telemetry_sent": false,
+    "consent_behavior_changed": false,
+    "deployment_proven": false
+  },
+  "identity_boundary": {
+    "edge_identity_authority": "backend-issued public edge identity only",
+    "canonical_or_slug_inference_allowed": false,
+    "user_or_anonymous_identity_allowed": false
+  },
+  "required_fields": {
+    "edge_id": "backend-issued stable public edge identity",
+    "locale": "approved low-cardinality locale",
+    "source_surface": "allowlisted public source surface type",
+    "target_surface": "allowlisted public target surface type",
+    "relation_type": "backend-approved allowlisted relation",
+    "display_region": "allowlisted rendered module region",
+    "position_bucket": "low-cardinality rendered position bucket, never an exact DOM path",
+    "target_action": "allowlisted low-cardinality activation action"
+  },
+  "optional_fields": {
+    "entry_surface": "allowlisted low-cardinality entry surface",
+    "organic_channel": "allowlisted low-cardinality organic channel"
+  },
+  "field_policy": {
+    "additional_properties": false,
+    "free_text_allowed": false,
+    "full_url_or_route_identity_allowed": false,
+    "query_or_referrer_allowed": false
+  },
+  "forbidden_data": [
+    "user_identifier",
+    "anonymous_identifier",
+    "session_identifier",
+    "attempt_identifier",
+    "report_identifier",
+    "order_identifier",
+    "payment_identifier",
+    "payment_data",
+    "token",
+    "email",
+    "phone",
+    "full_url",
+    "slug",
+    "query_string",
+    "fragment",
+    "referrer",
+    "answer",
+    "score",
+    "question_level_data",
+    "free_text",
+    "error_stack"
+  ],
+  "claim_boundary": [
+    "Contract approval does not prove a runtime callsite exists.",
+    "Contract approval does not prove telemetry is being sent or received.",
+    "A browser observation does not establish CMS authority, causal attribution, conversion, or user identity."
+  ]
+}

@@ -11,15 +11,15 @@ INTERNAL AUTHORITY: proxy calculated with frozen formula; not Google PageRank.
 ANOMALIES: 2867 observations across completed subset.
 BACKEND CONTRACT: ready design, not implemented.
 FRONTEND RENDERER: ready design, not shipped.
-TRACKING: M06_PROPOSAL_CONSUMED_WAITING_APPROVAL_NO_PUBLIC_EDGE_CLICK_EVENT.
+TRACKING: M06_PUBLIC_TOPIC_EDGE_CLICK_CONTRACT_APPROVED_NOT_DEPLOYED; no runtime callsite or telemetry.
 CAREER C06: not current-verified; gate closed.
 POST-RECOVERY GRAPH: CAREER_POST_GRAPH_WAITING_ON_C06.
 PRE_POST_DIFF: UNKNOWN_NOT_COMPARABLE.
 VERIFIED: 553 rendered nodes plus current sitemap/backend/directory readbacks.
 INFERRED: Window 4 and Window 5 design rows keep their explicit inferred/partial evidence labels and are not promoted to verified authority.
-UNKNOWN: 0 pending crawl nodes; M06 edge-click approval and Career C02/C03/C06 gates remain unknown.
-BLOCKERS: 0 transient timeouts, 0 unattempted after pause; unresolved items are G03 governed review, Program Controller registration, M06 edge-click approval and current C02/C03/C06 completion truth. C05 is merged backend evidence, not C06 publication truth.
+UNKNOWN: 0 pending crawl nodes; Career C02/C03/C06 gates remain unknown.
+BLOCKERS: 0 transient timeouts, 0 unattempted after pause; unresolved items are G03 governed review, Authority/renderer implementation and current C02/C03/C06 completion truth. M06 edge-click approval is complete; C05 is merged backend evidence, not C06 publication truth.
 CHANGED FILES: this Window 6 directory only.
 VALIDATION: CSV/JSON parse, SHA presence, privacy denylist, timeout-not-orphan, Full/Contextual split, Career inactive, diff-check and final status checks are required.
 PRODUCTION WRITE REQUIRED FOR NEXT STEP: yes for later separately controlled backend implementation or Career recovery; no production write was performed here.
-NEXT EXACT TASK: complete G03 governed review and Program Controller registration, then execute `PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01` without activating Career; approve a public edge-click event before renderer tracking; keep G06 waiting until C02+C03+C05+C06 pass.
+NEXT EXACT TASK: complete G03 governed review and Program Controller registration, then execute `PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01` without activating Career; keep renderer work separate and G06 waiting until C02+C03+C05+C06 pass.

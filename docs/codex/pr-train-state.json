@@ -57753,8 +57753,8 @@
     "base": "main",
     "branch": "codex/public-topic-graph-audit-closeout-01",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "6d26a80c437ddb5b781dc7f9cfb029dc926b1b88",
+    "status": "merged",
+    "commit_sha": "3b761869996e3095c82eb467998643efdd182645",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2024",
     "checks": {
       "artifact_inventory": {
@@ -57779,13 +57779,13 @@
       },
       "github_required_checks": {
         "status": "passed",
-        "evidence": "PR #2024 head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88 passed build, all contract shards and aggregation, both contract freezes, CodeQL analysis, and no-new-code-scanning-alerts; merge state CLEAN."
+        "evidence": "PR #2024 final head 3b761869996e3095c82eb467998643efdd182645 passed build, all contract shards and aggregation, both contract freezes, CodeQL analysis, and no-new-code-scanning-alerts before merge."
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T05:47:27Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {
         "at": "2026-08-10T05:21:15Z",
@@ -57811,6 +57811,11 @@
         "at": "2026-08-10T05:42:27Z",
         "status": "ready_to_merge",
         "summary": "All required checks passed on head 6d26a80c437ddb5b781dc7f9cfb029dc926b1b88; GitHub reports CLEAN and exact scope revalidation passed."
+      },
+      {
+        "at": "2026-08-10T06:55:00Z",
+        "status": "merged",
+        "summary": "Reconciled against GitHub: PR #2024 merged at 2026-08-10T05:47:27Z as 8aaf49c16dd514b64f3f58d55f594c1c0a085950; origin/main contains the merge, and the remote/local task branches and worktree are absent."
       }
     ]
   },
@@ -57823,36 +57828,30 @@
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01"
     ],
-    "status": "pending_dependency",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "checks": {
-      "dependency": {
-        "status": "pass",
-        "evidence": "PR #2028 is merged as ecb45b95755e0a29521f2ae48d9fbe1a29869daf, origin/main contained the merge commit, local main was synchronized, and both PR2 task branches were cleaned before PR3 began."
+      "dependency_reconciliation": {
+        "status": "passed",
+        "evidence": "PR #2024 is MERGED as 8aaf49c16dd514b64f3f58d55f594c1c0a085950, origin/main contains the merge, and its remote/local task branches and worktree are absent."
       },
-      "fixed_registry_capture": {
-        "status": "pass",
-        "evidence": "One serial Playwright window retained all 10 fixed L1 definitions with HTTP 200, measurement success, and semantic success; no answer, submit, result, order, payment, private route, cache bypass, or production write occurred."
-      },
-      "interval_requirement": {
-        "status": "external_evidence_incomplete_nonblocking",
-        "evidence": "Accepted complete windows are 1/3, two remain missing, and no >=30-minute pair is evaluable. Historical consecutive attempts and the PR2 partial-registry remeasurement were not counted; BASELINE_WINDOW_INCOMPLETE remains open in sidecar evidence."
-      },
-      "local_validation": {
-        "status": "pass",
-        "evidence": "Ruby CSV/JSON/YAML validation passed for exact 40-column header, 10-row definition set, timestamps, HTTP/semantic outcomes, UTF-8/formula safety, private-route guard, SHA binding, interval arithmetic, sidecar status, and the exact 10-path allowlist. Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. git diff --check passed."
-      },
-      "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #2031 head 4ad88ffc0f9127dad37b08263337e9054b7b2bc5 passed build, contracts aggregation, all four contract shards, Big Five and Enneagram freeze checks, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts; GitHub reported CLEAN and MERGEABLE."
+      "local_contract_validation": {
+        "status": "passed",
+        "evidence": "Window 2 and Window 6 JSON parse; exact event/field allowlist, privacy denylist, deployment-false, deterministic SHA, YAML/state parse, no-runtime-diff and exact-scope checks pass."
       }
     },
-    "failure_reason": "Waiting for PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01 to merge.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": []
+    "history": [
+      {
+        "at": "2026-08-10T06:55:00Z",
+        "status": "in_progress",
+        "summary": "Dependency PR #2024 is verified merged and cleaned. Started the operator-authorized contract-only Window 2/Window 6 scope; runtime telemetry and consent changes remain prohibited."
+      }
+    ]
   },
   "PUBLIC-TOPIC-GRAPH-RENDERER-01": {
     "id": "PUBLIC-TOPIC-GRAPH-RENDERER-01",

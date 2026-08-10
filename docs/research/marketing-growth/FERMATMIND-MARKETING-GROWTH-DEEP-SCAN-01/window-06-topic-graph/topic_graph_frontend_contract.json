@@ -36,51 +36,53 @@
     "server-rendered visible links"
   ],
   "tracking_requirement": {
-    "status": "M06_PROPOSAL_CONSUMED_WAITING_APPROVAL_NO_PUBLIC_EDGE_CLICK_EVENT",
+    "status": "M06_PUBLIC_TOPIC_EDGE_CLICK_CONTRACT_APPROVED_NOT_DEPLOYED",
     "m06_source": "window-02-measurement/event_contract.json",
-    "m06_contract_status": "PROPOSED_MEASUREMENT_CONTRACT",
-    "edge_click_event_defined_by_m06": false,
-    "proposed_fields_only": [
+    "m06_contract_status": "APPROVED_CONTRACT_ONLY_NOT_DEPLOYED",
+    "event_name": "public_topic_edge_click",
+    "observation_class": "browser_observation",
+    "trigger_semantics": "A user activates a rendered public edge that was approved and issued by the backend authority.",
+    "edge_click_event_defined_by_m06": true,
+    "runtime_callsite_present": false,
+    "telemetry_sent": false,
+    "consent_behavior_changed": false,
+    "required_fields": [
+      "edge_id",
+      "locale",
       "source_surface",
-      "source_entity",
       "target_surface",
-      "target_entity",
       "relation_type",
-      "locale",
       "display_region",
-      "position",
-      "destination_public_canonical",
-      "anonymous_session_attribution"
+      "position_bucket",
+      "target_action"
     ],
-    "m06_allowed_low_cardinality_fields": [
-      "scale_code",
-      "form_code",
-      "locale",
+    "optional_fields": [
       "entry_surface",
-      "source_page_type",
-      "source_content_type",
-      "source_slug",
-      "target_action",
-      "organic_channel",
-      "device_class",
-      "result_state"
+      "organic_channel"
     ],
+    "additional_properties": false,
     "forbidden_fields": [
       "user_identifier",
+      "anonymous_identifier",
+      "session_identifier",
       "attempt_identifier",
       "report_identifier",
       "order_identifier",
-      "any_token",
+      "payment_identifier",
+      "payment_data",
+      "token",
       "email",
       "phone",
       "full_url",
+      "slug",
       "query_string",
-      "answers",
+      "fragment",
+      "referrer",
+      "answer",
       "question_level_data",
-      "score_detail",
-      "payment_credential",
+      "score",
       "free_text",
-      "unapproved_error_stack"
+      "error_stack"
     ]
   },
   "implementation_pr": {
@@ -90,7 +92,7 @@
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUTHORITY-CONTRACT-01 merged",
       "approved backend fixture",
-      "Measurement M06",
+      "approved Measurement M06 contract",
       "Career C06 for Career rendering",
       "Program Controller manifest registration"
     ]

@@ -20,14 +20,14 @@ Proposed manifest entry (not applied):
   merge_policy: {github_checks_required: true, squash: true}
 ```
 
-Proposed state entry (not applied): `status: pending_dependency`, all SHAs/PR URL/merge facts null or false; unresolved dependencies are G03 governed review, M06 edge-click approval where applicable, Career C06 before Career activation, and Program Controller registration. A01, P03–P05 and R04 are completed inputs and must not appear in the failure reason.
+Proposed fap-api state entry (not applied here): `status: pending_dependency`, all SHAs/PR URL/merge facts null or false; unresolved dependencies are G03 governed review and fap-api Program Controller registration. M06 approval is complete. Career remains explicitly excluded from phase one until C06 passes. A01, P03–P05 and R04 are completed inputs and must not appear in the failure reason.
 
 ## PUBLIC-TOPIC-GRAPH-RENDERER-01
 
 Repo: fap-web
 Title: `PUBLIC-TOPIC-GRAPH-RENDERER-01: render and track backend-authoritative public topic edges`
-Depends: authority PR merged, approved fixture, M06, C06 for Career, Program Controller registration.
-Likely scope: API adapter, shared deterministic SSR renderer, privacy-safe event adapter after M06, focused contracts, repository rule impact.
+Depends: authority PR merged, approved fixture, approved M06 contract, C06 for Career, Program Controller registration.
+Likely scope: API adapter, shared deterministic SSR renderer, privacy-safe event adapter under the approved contract, focused contracts, repository rule impact.
 Checks: focused Vitest/contracts, lint touched scope, typecheck, production-API build if required, diff/scope.
 
 Proposed manifest entry (not applied):
@@ -44,6 +44,6 @@ Proposed manifest entry (not applied):
 
 Proposed state entry (not applied): `status: pending_dependency`; Career rendering remains a separate C06-gated activation within the same contract, not default active behavior.
 
-No manifest/state file was modified by this audit.
+The fap-web Program Controller entries are now registered. This contract PR reconciles the merged audit dependency and closes M06 approval only; it does not start the renderer.
 
-Handoff status: the Window 6 closeout is ready once its governed registry review is recorded. Backend implementation must remain non-Career until C06 passes, and renderer tracking must remain gated until the M06 contract is approved.
+Handoff status: M06 contract approval is complete and not deployed. Backend implementation must remain non-Career until C06 passes; renderer work remains gated on the backend Authority and its own later PR lifecycle.
