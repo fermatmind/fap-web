@@ -30924,7 +30924,7 @@ prs:
       - PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01
     mode: execute
     train_scope: noncareer_window7_audit_completion_train_closeout
-    status: local_verified
+    status: committed
     goal: Revalidate every original and follow-up Window 7 artifact from latest main, reconcile the six predecessor PRs, and publish only the evidence-supported COMPLETE or PARTIALLY_BLOCKED final status.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/00-executive-decision.md

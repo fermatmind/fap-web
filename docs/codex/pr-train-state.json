@@ -58589,8 +58589,8 @@
       "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
       "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "4332eb4e203f0ffec905557a4d4cea78fed78dc0",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -58653,6 +58653,12 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "Rebased the isolated nine-path closeout diff onto latest origin/main 43c30a13 after the unrelated Window 9 PR #2045 merged. All artifact, SHA, privacy, truth-boundary, YAML/JSON, diff and exact-scope checks passed; the final audit remains PARTIALLY_BLOCKED because evidence gates 3, 5 and 6 are unmet."
+      },
+      {
+        "at": "2026-08-10T08:21:00Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact nine-path evidence/status/train closeout scope as 4332eb4e203f0ffec905557a4d4cea78fed78dc0 on latest origin/main 43c30a13; no runtime, production tracking, CMS, DB, SEO runtime, Career, deployment, secret or permission change is included."
       }
     ],
     "sidecar_issues": [
@@ -58665,6 +58671,6 @@
       "window7-career-c06-shrink-guard-dependency-20260810",
       "metadata-surface-inventory-eq-history-drift-20260810"
     ],
-    "updated_at": "2026-08-10T08:18:34Z"
+    "updated_at": "2026-08-10T08:21:00Z"
   }
 }
