@@ -1,6 +1,6 @@
 {
   "artifact_kind": "english_seo_pilot_source_manifest",
-  "captured_at": "2026-08-10T07:27:42Z",
+  "captured_at": "2026-08-10T07:44:29Z",
   "acceptance_repair_status": "WINDOW_09_ACCEPTANCE_REPAIR_COMPLETE_BUT_EVIDENCE_GAPS_REMAIN",
   "csv_provenance_contract": [
     "source",
@@ -422,6 +422,57 @@
         "RIASEC 140 question test"
       ],
       "limitation": "Non-personalized research sample; not an exact US/UK/device rank export, not a complete Top 10, and not a stable ranking guarantee."
+    },
+    {
+      "id": "E03_M01_PERSONALITY_PAGE_MARKET_DEVICE",
+      "source": "window-02-measurement/m01-gsc-export/gsc_query_page_country_device.csv",
+      "sha256": "9b7c470aa39aff0e6062c41fe5d71e2e8164159747953d42bd032046cc10f691",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:06:20Z",
+      "limitation": "Privacy-filtered Search Analytics top rows; absent page/query/market/device rows are UNKNOWN, not zero; country is not language."
+    },
+    {
+      "id": "E03_WINDOW4_PERSONALITY_AUTHORITY_OWNER",
+      "source": "window-04-personality-seo authority inventory, query ownership, and cannibalization ledgers",
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T06:54:30Z",
+      "sha256": {
+        "personality_public_url_inventory.csv": "ba755e85ff96cd50d7274bfae9d148d4f7a34dffac467615de4d8afa80309725",
+        "personality_query_ownership.csv": "4de8f390f12373c58a7bd8b5fd809bb1bc5d16b2af4944f3c8c3564219372c11",
+        "personality_cannibalization.csv": "07a153df4fd2b2bb11a639c6fc18d52f3a39988030407a17489b1d6ddd579a91"
+      },
+      "limitation": "Window 9 supplements page/market/device evidence and does not override the Window 4 owner contract."
+    },
+    {
+      "id": "E03_G03_GOVERNED_EDGE_CANDIDATES",
+      "source": "window-06-topic-graph/public_edge_registry.csv",
+      "sha256": "2c99d0ba87db7d854b35275f5ed07d2468a49decc273b6e3aafc3654d7103655",
+      "status": "CANDIDATE_ONLY",
+      "captured_at": "2026-08-10T07:12:00Z",
+      "limitation": "Governed candidate edges are not proof of current runtime links or publication authority; career-related edges remain dependency-gated."
+    },
+    {
+      "id": "E03_LIVE_PERSONALITY_API_REVALIDATION",
+      "source": [
+        "https://api.fermatmind.com/api/v0.5/personality?locale=en&org_id=0&scale_code=MBTI&page=1&per_page=100&include_variants=0",
+        "https://api.fermatmind.com/api/v0.5/personality?locale=en&org_id=0&scale_code=MBTI&page=1&per_page=100&include_variants=1",
+        "https://api.fermatmind.com/api/v0.5/personality/comparisons?locale=en&org_id=0",
+        "https://api.fermatmind.com/api/v0.5/personality-content-assets?locale=en&framework=big_five&per_page=100&org_id=0",
+        "https://api.fermatmind.com/api/v0.5/personality-content-assets?locale=en&framework=enneagram&per_page=100&org_id=0"
+      ],
+      "status": "VERIFIED",
+      "captured_at": "2026-08-10T07:44:29Z",
+      "observed_counts": {
+        "mbti_base": 16,
+        "mbti_variants": 32,
+        "mbti_at_comparisons": 16,
+        "mbti_cross_type_held": 7,
+        "big_five_total": 52,
+        "big_five_detail_in_scope": 50,
+        "enneagram_total": 58,
+        "enneagram_detail_in_scope": 54
+      },
+      "limitation": "Public API read-only projection at capture time. The seven existing cross-type comparisons remain public but noindex, outside sitemap/llms, and held as non-search owners. Hubs/centers are excluded; no CMS or runtime write performed."
     }
   ],
   "goal_status": "E01_GSC_EXACT_MARKET_SPLIT_REFRESH_COMPLETE",
