@@ -1,5 +1,35 @@
-# l2 big five baseline
+# L2 Big Five baseline
 
-VERIFIED: 525 non-Career URLs / 306 identities; URL SHA cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79; 525/525 HTTP 200; canonical 20/20; aliases 20/20 one-hop 301; four IQ/EQ canonical gaps. LAB_ONLY performance; FIELD_VERIFIED none; field/GSC UNKNOWN. L1>L2>L3. No code/CMS/production/Career/manifest write.
+## Coverage
 
-Big Five EN/ZH hub/dimension/pole/facet; text-only preserved.
+- EN/ZH assessment landing and Test Hub entry.
+- Start/question load without submit.
+- Public hub, dimension, pole and facet examples.
+- EN/ZH and mobile/desktop profiles with cold-ish/warm attempts.
+- Public APIs and the permanent text-only rendering boundary.
+
+| Metric | L2 | Evidence |
+| --- | --- | --- |
+| Rows | 36: 33 success / 3 tool failures | LAB_ONLY |
+| TTFB | median 162.1 ms; p75 245.6 ms; p95 1513.1 ms | LAB_ONLY |
+| FCP p75 | 444 ms | LAB_ONLY |
+| LCP p75 | 636 ms | LAB_ONLY |
+| CLS p75 | 0.08 | LAB_ONLY |
+| TBT proxy p75 | 0 ms | LAB_ONLY; not INP |
+| Transferred p75 | 405789 B | LAB_ONLY |
+| Field CWV/INP | UNKNOWN | No readable field source |
+
+## Findings
+
+- The zh assessment landing definition failed in DOM collection; its three failure rows remain in the CSV.
+- A high cold-ish EN landing TTFB is not promoted to a bilingual or persistent incident.
+- Successful EN/ZH question lookup and question requests returned 200.
+- Public hub/dimension/pole/facet samples did not introduce page images in the observed resource set.
+
+## Text-only boundary
+
+No proposed optimization adds hero/inline/OG media, Markdown/HTML images or frontend image fallback. Legacy media fields remain ignored. Performance work must preserve the permanent Big Five/Enneagram text-only contracts.
+
+## Priority guard
+
+The shared quiz shell overlaps L1. Any bundle or API change must demonstrate no MBTI/RIASEC regression before Big Five improvement is accepted.

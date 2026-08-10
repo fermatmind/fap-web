@@ -1,4 +1,11 @@
-metric,aggregation,good,privacy
-"LCP","p75","<=2500ms","no query"
-"INP","p75","<=200ms","no answers"
-"CLS","p75","<=0.1","no DOM text"
+metric,role,aggregation,good,needs_improvement,poor,source_priority,dimensions,privacy
+LCP,primary,p75,<=2500ms,>2500ms and <=4000ms,>4000ms,RUM/CrUX,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",no query
+INP,primary,p75,<=200ms,>200ms and <=500ms,>500ms,RUM/CrUX,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",no interaction text/answers
+CLS,primary,p75,<=0.1,>0.1 and <=0.25,>0.25,RUM/CrUX,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",no DOM text
+TTFB,driver,p75,baseline-dependent,baseline-dependent,baseline-dependent,RUM/server,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",route family only
+FCP,driver,p75,baseline-dependent,baseline-dependent,baseline-dependent,RUM,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",route family only
+API latency,driver,p95,baseline-dependent,baseline-dependent,baseline-dependent,backend telemetry,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",endpoint template only
+5xx/timeout rate,guardrail,rate,baseline-dependent,stable-baseline alert,operational threshold,edge/backend,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",no query/body
+sample coverage,guardrail,count/rate,fresh and representative,material MoM drop,insufficient data,RUM pipeline,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",aggregate only
+assessment start/complete,guardrail,rate,no L1 regression,baseline-dependent,baseline-dependent,governed analytics,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",no answers/scores/private IDs
+Organic Qualified Assessment Completes,business_guardrail,count/rate,no L1 regression,baseline-dependent,baseline-dependent,governed attribution,"tier,surface,locale,device,browser_family,coarse_region,navigation_type,release",approved attribution tokens only
