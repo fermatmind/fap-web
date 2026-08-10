@@ -1,0 +1,43 @@
+tier,surface,locale,url,run,status,ttfb,fcp,lcp,cls,tbt_proxy,bytes,evidence,limitation
+"L1","tests_hub","en","https://fermatmind.com/en/tests","1","success","123.69999998807907","412","1068","0.47985781990521326","0","372666","LAB_ONLY","unthrottled; not field"
+"L1","tests_hub","en","https://fermatmind.com/en/tests","2","success","118.90000000596046","180","732","0.47985781990521326","0","372666","LAB_ONLY","unthrottled; not field"
+"L1","tests_hub","en","https://fermatmind.com/en/tests","3","success","150.7000000178814","272","620","0.47985781990521326","0","372667","LAB_ONLY","unthrottled; not field"
+"L1","tests_hub","zh","https://fermatmind.com/zh/tests","1","success","95.10000002384186","248","612","0.26665625","0","372720","LAB_ONLY","unthrottled; not field"
+"L1","tests_hub","zh","https://fermatmind.com/zh/tests","2","success","80.10000002384186","156","576","0.26665625","0","372720","LAB_ONLY","unthrottled; not field"
+"L1","tests_hub","zh","https://fermatmind.com/zh/tests","3","success","107.5","180","528","0.26665625","18","372720","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types","1","success","102.40000000596046","196","1236","0.47985781990521326","0","374222","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types","2","success","222.90000000596046","844","844","0","0","374221","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types","3","success","185.5","284","1736","0.47985781990521326","0","374219","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types","1","success","130.5","512","1184","0.44822222222222224","0","374274","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types","2","success","69.30000001192093","432","1040","0.4077777777777778","2","374274","LAB_ONLY","unthrottled; not field"
+"L1","mbti_landing","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types","3","success","104.90000000596046","184","1136","0.44822222222222224","0","374273","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec","1","success","76.80000001192093","364","1024","0.47985781990521326","0","374220","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec","2","success","67","144","504","0.47985781990521326","0","374219","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec","3","success","361.59999999403954","412","1088","0.47985781990521326","0","374219","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec","1","success","76.7000000178814","636","1816","0.44822222222222224","0","374274","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec","2","success","154.2999999821186","648","1572","0.4077777777777778","0","374273","LAB_ONLY","unthrottled; not field"
+"L1","riasec_landing","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec","3","success","142.7000000178814","948","1792","0.4077777777777778","0","374275","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_93","1","success","130.89999997615814","220","584","0.2979922747130568","0","495668","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_93","2","success","116.39999997615814","564","748","0.2979922747130568","0","495670","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","en","https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_93","3","success","129.2999999821186","200","252","0.2191416690999753","0","495668","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144","1","success","76.09999999403954","484","640","0.33556481481481476","0","495723","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144","2","success","75.09999999403954","160","236","0.3094043209876543","0","495723","LAB_ONLY","unthrottled; not field"
+"L1","mbti_question_bootstrap","zh","https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144","3","success","69.40000000596046","644","740","0.33556481481481476","0","495724","LAB_ONLY","unthrottled; not field"
+"L1","riasec_question_bootstrap","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec/take?form=riasec_140","1","success","165.39999997615814","368","1324","0.29615588710945395","0","495668","LAB_ONLY","unthrottled; not field"
+"L1","riasec_question_bootstrap","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec/take?form=riasec_140","2","success","302.30000001192093","2692","3092","0.29615588710945395","0","493798","LAB_ONLY","unthrottled; not field"
+"L1","riasec_question_bootstrap","en","https://fermatmind.com/en/tests/holland-career-interest-test-riasec/take?form=riasec_140","3","success","496.19999998807907","808","808","0.2979922747130568","0","467867","LAB_ONLY","unthrottled; not field"
+"L1","riasec_question_bootstrap","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60","1","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"
+"L1","riasec_question_bootstrap","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60","2","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"
+"L1","riasec_question_bootstrap","zh","https://fermatmind.com/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60","3","tool_failure","","","","","","","LAB_ONLY","Error: page.evaluate: TypeError: Cannot read properties of null (reading 'innerText')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:1398)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+"

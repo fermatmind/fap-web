@@ -1,0 +1,17 @@
+{
+  "status": "READY_WAITING_ON_C06",
+  "baseline": {
+    "url_sha": "cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79",
+    "identity_sha": "b1a79072fda69eaf73572f637fb7b50e399b61b5d5b7ed5016d77e52e7e8e679"
+  },
+  "compare": [
+    "exact set",
+    "surface",
+    "locale"
+  ],
+  "forbidden": [
+    "fixed 553",
+    "Career mix",
+    "fallback"
+  ]
+}

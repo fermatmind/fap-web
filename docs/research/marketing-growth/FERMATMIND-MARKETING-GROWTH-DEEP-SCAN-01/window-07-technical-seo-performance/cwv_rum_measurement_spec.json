@@ -1,0 +1,16 @@
+{
+  "status": "BASELINE_INSUFFICIENT",
+  "primary": [
+    "LCP p75",
+    "INP p75",
+    "CLS p75"
+  ],
+  "forbidden": [
+    "query",
+    "private URL",
+    "attempt/result/order",
+    "answers/scores",
+    "PII"
+  ],
+  "official": "https://web.dev/articles/vitals"
+}

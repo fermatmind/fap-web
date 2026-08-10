@@ -1,0 +1,4 @@
+metric,aggregation,good,privacy
+"LCP","p75","<=2500ms","no query"
+"INP","p75","<=200ms","no answers"
+"CLS","p75","<=0.1","no DOM text"

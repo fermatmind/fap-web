@@ -1,0 +1,4 @@
+id,tier,cause,evidence,candidate
+"RC1","L1","shared layout shift","lab CLS p75 ~0.48","L1 CLS PR"
+"RC2","shared","global top.png preload","source/header VERIFIED","preload scope PR"
+"RC3","L3","IQ/EQ metadata projection","4 canonical gaps VERIFIED","metadata contract PR"
