@@ -55612,8 +55612,8 @@
     "depends_on": [
       "EN-PARITY-W4-RIASEC-INVENTORY-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d",
     "pr_url": null,
     "checks": {
       "serial_predecessor": {
@@ -58139,12 +58139,18 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "All fixed-registry evidence, integrity, formula/privacy, lab-versus-field, interval truthfulness, documentation, sidecar, formatting, diff, and changed-path checks passed. One of three complete windows is retained and the nonblocking external evidence gap remains BASELINE_WINDOW_INCOMPLETE."
+      },
+      {
+        "at": "2026-08-10T06:40:04Z",
+        "from": "local_verified",
+        "to": "committed",
+        "note": "Committed the exact 10-path evidence scope and rebased cleanly onto origin/main 9947167a without changing measurement bytes; implementation commit is d63653d5a2fbd0a3389500b6d6a6cc7aafd5c39d."
       }
     ],
     "sidecar_issues": [
       "window7-l1-interval-baseline-incomplete-20260810"
     ],
-    "updated_at": "2026-08-10T06:38:47Z"
+    "updated_at": "2026-08-10T06:40:04Z"
   },
   "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
     "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
