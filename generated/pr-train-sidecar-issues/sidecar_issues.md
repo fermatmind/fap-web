@@ -382,3 +382,71 @@
 - whether required checks are affected: yes; CONTROL B cannot accept a stale candidate, so current-master candidate validation and the repair PR's required checks must pass before CONTROL B begins.
 - recommended follow-up: merge this minimal candidate-rebase repair, rerun candidate validation on the exact current master, then execute only EN-PARITY-CONTROL-W2-PACKAGE-IN-PROGRESS-01. Avoid concurrent CONTROL master merges until the W2 acceptance completes.
 - observed at: 2026-08-01T14:48:00+08:00
+
+## Window 7 Critical Laboratory Tool Failures
+
+- id: `window7-critical-lab-tool-failures-20260810`
+- detected at: `2026-08-10T05:37:47Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
+- blocker type: external measurement tool failure
+- affected surface: Window 7 critical-route laboratory performance evidence
+- evidence: the frozen L1/L2/L3 set contains 108 attempts, 102 successful observations, and 6 tool failures; failed attempts cannot be counted as passing samples.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_l1_samples.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_l2_samples.csv`
+- why not current PR scope: this PR reconciles status only; pinned reruns belong to `NONCAREER-CRITICAL-LAB-REMEASUREMENT-01`.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: medium
+- recommended owner: technical growth measurement operator
+- recommended follow-up: remeasure only the six failed identities with pinned settings and preserve any remaining unavailable result truthfully.
+- status: open
+
+## Window 7 L1 Interval Baseline Incomplete
+
+- id: `window7-l1-interval-baseline-incomplete-20260810`
+- detected at: `2026-08-10T05:37:47Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
+- blocker type: insufficient interval baseline
+- affected surface: Window 7 L1 interval evidence
+- evidence: the field-evidence baseline records L1 as insufficient; a point-in-time laboratory sample does not establish the requested observation interval.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`
+- why not current PR scope: this PR can only correct the status; interval collection belongs to `NONCAREER-L1-INTERVAL-BASELINE-01`.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: high
+- recommended owner: technical growth measurement operator
+- recommended follow-up: run the declared L1 interval protocol and publish evidence or an explicit unavailable verdict.
+- status: open
+
+## Window 7 GSC/GA4 Cohort Data Unavailable
+
+- id: `window7-gsc-ga4-cohort-data-unavailable-20260810`
+- detected at: `2026-08-10T05:37:47Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
+- blocker type: external search and analytics data unavailable
+- affected surface: Window 7 non-career GSC and GA4 cohort evidence
+- evidence: the frozen 525-page cohort exists, but no privacy-safe GSC/GA4 export is present; search visibility and analytics conclusions remain unknown.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_discoverability_cohort.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`
+- why not current PR scope: this PR cannot invent external console facts; collection belongs to `NONCAREER-GSC-GA4-COHORT-EVIDENCE-01`.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: high
+- recommended owner: search and analytics authority owner
+- recommended follow-up: attempt read-only privacy-safe aggregate exports and otherwise retain unavailable/unknown without secrets or identifiers.
+- status: open
+
+## Window 7 Field CWV/RUM Data Unavailable
+
+- id: `window7-field-cwv-rum-data-unavailable-20260810`
+- detected at: `2026-08-10T05:37:47Z`
+- repo: `fermatmind/fap-web`
+- PR id / branch: `NONCAREER-AUDIT-STATUS-RECONCILIATION-01` / `codex/noncareer-audit-status-reconciliation-01`
+- blocker type: external field CWV and RUM data unavailable
+- affected surface: Window 7 field Core Web Vitals and public-page RUM evidence
+- evidence: no sufficient CrUX cohort or production RUM sample exists; laboratory results cannot be relabeled as field CWV.
+- evidence path: `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv`; `docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md`
+- why not current PR scope: this PR only reconciles evidence; retrieval and default-off instrumentation are separate scopes, and production enablement is excluded from the train.
+- required checks / scope validation / merge policy affected: no / no / no
+- severity: high
+- recommended owner: performance telemetry authority owner
+- recommended follow-up: attempt privacy-safe field retrieval; keep RUM default-off and require separate authority for any production enablement.
+- status: open

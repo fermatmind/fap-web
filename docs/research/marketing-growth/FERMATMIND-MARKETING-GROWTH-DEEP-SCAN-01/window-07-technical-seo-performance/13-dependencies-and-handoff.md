@@ -6,7 +6,21 @@
 - Current M01/M04/M05/M06, full GSC query×page exports and GSC CWV: unavailable.
 - Production RUM and GA4 Web Vitals: unavailable.
 - Current independent Topic Graph corpus: unavailable; live backend sitemap-source is this freeze's authority.
-- IQ/EQ metadata repository owner: pending authority payload versus consumer projection trace.
+- IQ/EQ metadata repository owner: pending authority payload versus consumer projection trace. `ASSESSMENT-LANDING-RUNTIME-RECOVERY-01` merged on current main, but its declared scope explicitly excluded canonical and metadata changes, so the four-route metadata finding remains open.
+
+## Window 7 completion-train dependencies
+
+The operator-authorized completion train is strictly serial:
+
+1. `NONCAREER-AUDIT-STATUS-RECONCILIATION-01`
+2. `NONCAREER-CRITICAL-LAB-REMEASUREMENT-01`
+3. `NONCAREER-L1-INTERVAL-BASELINE-01`
+4. `NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01`
+5. `NONCAREER-GSC-GA4-COHORT-EVIDENCE-01`
+6. `PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01`
+7. `FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01`
+
+Each item starts only after its predecessor is merged, synced and cleaned. Unavailable external measurement/search data remains truthful sidecar evidence and does not authorize fabricated cohort or field conclusions.
 
 ## Exact handoff order
 
@@ -16,9 +30,9 @@
 4. Complete Career C06.
 5. Implement backend authority guard.
 6. Implement dependent frontend consumer guard.
-7. Obtain production tracking approval and implement privacy-safe RUM.
-8. Collect a full reporting month before setting relative regression alerts.
+7. Merge only the disabled-by-default, fail-closed privacy-safe RUM collector and contracts; production activation remains separately controlled.
+8. After separate production tracking approval and activation, collect a full reporting month before setting relative regression alerts.
 
 ## Production write boundary
 
-No production write is needed to read/use this report. RUM instrumentation, deployment, CMS/database change, secrets or ingress modification remain separately controlled actions.
+No production write is needed to read/use or reconcile this report. The completion train does not authorize deployment, CMS/database changes, secrets, ingress modification, Search Console mutation or production RUM activation.

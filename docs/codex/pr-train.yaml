@@ -30624,3 +30624,300 @@ prs:
     deploy_allowed: false
     content_authority: current fap-api/CMS Career authority bound to C06; crawler evidence is observational only
     repository_rule_impact: post-recovery evidence only; no runtime or authority change
+
+  - id: NONCAREER-AUDIT-STATUS-RECONCILIATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/noncareer-audit-status-reconciliation-01
+    base: main
+    title: "NONCAREER-AUDIT-STATUS-RECONCILIATION-01: reconcile Window 7 status with verified evidence"
+    depends_on: []
+    mode: execute
+    train_scope: noncareer_window7_audit_status_reconciliation
+    status: ready_to_merge
+    goal: Replace the unsupported overall COMPLETE declaration with PARTIALLY_BLOCKED while preserving verified local Window 7 findings and registering the exact seven-item completion train.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/00-executive-decision.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/14-final-status.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify original Window 7 CSV or JSON measurements, product/runtime code, tests, CMS, Career, SEO runtime, sitemap, llms, canonical behavior, deployment, or production state.
+      - Claim lab evidence as field evidence or mark the overall audit COMPLETE while required evidence remains unavailable.
+    required_local_checks:
+      - parse every Window 7 CSV with a standards-compliant CSV parser and verify UTF-8/formula safety
+      - parse every Window 7 JSON plus docs/codex/pr-train-state.json and parse docs/codex/pr-train.yaml
+      - verify 108 lab rows retain 102 success and 6 tool failures and field data remains insufficient
+      - verify active Window 7 status is PARTIALLY_BLOCKED and no active overall COMPLETE declaration remains
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: Window 7 evidence remains report-only; backend/CMS and public APIs remain authoritative.
+    repository_rule_impact: Status and train-governance correction only; no runtime, content-authority, discoverability, or deployment change.
+
+  - id: NONCAREER-CRITICAL-LAB-REMEASUREMENT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/noncareer-critical-lab-remeasurement-01
+    base: main
+    title: "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01: complete failed critical lab measurements"
+    depends_on: [NONCAREER-AUDIT-STATUS-RECONCILIATION-01]
+    mode: execute
+    train_scope: noncareer_window7_critical_lab_remeasurement
+    status: planned
+    goal: Preserve the six historical tool failures, retry the exact RIASEC zh bootstrap and Big Five zh landing definitions, and retain standard Lighthouse TBT and Speed Index separately from long-task proxies.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/02-l1-mbti-riasec-baseline.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/03-l2-big-five-baseline.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/08-performance-root-causes.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_test_manifest.json
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement.csv
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/lighthouse_lab_samples.csv
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/critical_lab_remeasurement_manifest.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Overwrite historical failed rows, change product pages/APIs/scoring, submit assessments, access private results/orders/payments, alter ingress/cache/SEO runtime, or perform load testing.
+    required_local_checks:
+      - execute the exact bounded public-page measurement protocol and retain all attempts
+      - parse changed CSV/JSON, verify UTF-8/fixed headers/formula safety, and verify historical failure rows remain unchanged
+      - verify standard Lighthouse TBT and Speed Index are not replaced by long-task proxy or zero
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    repository_rule_impact: Versioned lab evidence only; no public runtime or authority change.
+
+  - id: NONCAREER-L1-INTERVAL-BASELINE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/noncareer-l1-interval-baseline-01
+    base: main
+    title: "NONCAREER-L1-INTERVAL-BASELINE-01: capture interval-separated L1 performance windows"
+    depends_on: [NONCAREER-CRITICAL-LAB-REMEASUREMENT-01]
+    mode: execute
+    train_scope: noncareer_window7_l1_interval_baseline
+    status: planned
+    goal: Capture three genuine interval-separated Window 7 L1 public-page measurement windows without changing product code or accessing private assessment flows.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/02-l1-mbti-riasec-baseline.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_test_manifest.json
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_l1_interval_samples.csv
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/l1_interval_baseline_manifest.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Fabricate interval separation, add L1 definitions, modify runtime code, submit assessments, access private pages, stress production, or overwrite prior windows.
+    required_local_checks:
+      - verify three capture windows are each at least 30 minutes apart or retain BASELINE_WINDOW_INCOMPLETE with sidecar evidence
+      - parse changed CSV/JSON, verify UTF-8/fixed headers/formula safety, and verify lab/field separation
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    repository_rule_impact: Read-only L1 measurement evidence only; no runtime or authority change.
+
+  - id: NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/noncareer-attribution-canonical-evidence-completion-01
+    base: main
+    title: "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01: complete attribution canonical evidence"
+    depends_on: [NONCAREER-L1-INTERVAL-BASELINE-01]
+    mode: execute
+    train_scope: noncareer_window7_attribution_canonical_evidence_completion
+    status: planned
+    goal: Complete internal-link, cache-key-risk, and CTA-attribution evidence for the exact 20 synthetic public canonical samples without changing canonical or discoverability runtime.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/06-attribution-param-canonical-audit.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/attribution_canonical_samples_v2.csv
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/canonical_audit_manifest_v2.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Change sitemap, llms, canonical, noindex, JSON-LD, metadata, middleware, CTA runtime, CMS authority, or production/search state.
+    required_local_checks:
+      - verify all 20 V2 rows explicitly record internal-link, cache-key-risk, and CTA-attribution results with PASS/FAIL/UNKNOWN truthfully separated
+      - parse changed CSV/JSON, verify UTF-8/fixed headers/formula safety, and verify no private identifier appears
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: Canonical and discoverability remain backend/CMS-authoritative; this PR records read-only evidence only.
+    repository_rule_impact: Canonical audit evidence only; no canonical, enumeration, indexability, or runtime mutation.
+
+  - id: NONCAREER-GSC-GA4-COHORT-EVIDENCE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/noncareer-gsc-ga4-cohort-evidence-01
+    base: main
+    title: "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01: verify non-Career search and analytics cohorts"
+    depends_on: [NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01]
+    mode: execute
+    train_scope: noncareer_window7_gsc_ga4_cohort_evidence
+    status: planned
+    goal: Use only currently authorized read-only sources to verify L2/L3 search and analytics cohorts, or retain an explicit insufficient-data artifact without fabricating rankings or traffic.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/03-l2-big-five-baseline.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/04-l3-personality-article-baseline.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_test_manifest.json
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_gsc_ga4_cohort_evidence.csv
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/noncareer_gsc_ga4_cohort_manifest.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Request/store secrets, mutate GSC/GA4/CMS/production, submit sitemap or indexing requests, include Career/private URLs, or fabricate Top 20/Top 10/median cohorts.
+    required_local_checks:
+      - validate read-only source provenance and the current/prior 90-day observation windows, or emit an explicit zero-row insufficient-data artifact
+      - parse changed CSV/JSON, verify UTF-8/fixed headers/formula safety, Career exclusion, and absence of private identifiers
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    repository_rule_impact: Read-only search/analytics evidence only; no discoverability, CMS, analytics-property, or runtime mutation.
+
+  - id: PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-cwv-rum-privacy-safe-instrumentation-01
+    base: main
+    title: "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01: add disabled-by-default privacy-safe field CWV instrumentation"
+    depends_on: [NONCAREER-GSC-GA4-COHORT-EVIDENCE-01]
+    mode: execute
+    train_scope: public_cwv_rum_privacy_safe_instrumentation
+    status: planned
+    goal: Add a disabled-by-default, fail-closed Web Vitals collector, public route-family classifier, allowlisted payload schema, no-op sink boundary, and privacy tests without enabling production tracking.
+    allowed_paths:
+      - app/providers.tsx
+      - lib/analytics.ts
+      - lib/tracking/webVitals.ts
+      - tests/contracts/public-cwv-rum-privacy-safe-instrumentation.contract.test.ts
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_rum_measurement_spec.json
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_rum_metric_registry.csv
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Enable production tracking, add a vendor/endpoint/secret, transmit complete URL/query/private routes or user data, modify analytics production flags, assessment/payment/result behavior, SEO runtime, Career enumeration, deployment, or CMS authority.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-cwv-rum-privacy-safe-instrumentation.contract.test.ts
+      - pnpm exec eslint app/providers.tsx lib/analytics.ts lib/tracking/webVitals.ts tests/contracts/public-cwv-rum-privacy-safe-instrumentation.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - parse changed CSV/JSON and docs/codex manifest/state
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: Existing backend/CMS and analytics authority remain unchanged; the collector is disabled by default and cannot emit without a future controlled activation.
+    repository_rule_impact: Frontend product-code-only measurement boundary; no content ownership, SEO/discoverability, production tracking, or deployment change.
+
+  - id: FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fermatmind-noncareer-technical-growth-audit-closeout-01
+    base: main
+    title: "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01: close out the Window 7 evidence train"
+    depends_on:
+      - NONCAREER-AUDIT-STATUS-RECONCILIATION-01
+      - NONCAREER-CRITICAL-LAB-REMEASUREMENT-01
+      - NONCAREER-L1-INTERVAL-BASELINE-01
+      - NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01
+      - NONCAREER-GSC-GA4-COHORT-EVIDENCE-01
+      - PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01
+    mode: execute
+    train_scope: noncareer_window7_audit_completion_train_closeout
+    status: planned
+    goal: Revalidate every original and follow-up Window 7 artifact from latest main, reconcile the six predecessor PRs, and publish only the evidence-supported COMPLETE or PARTIALLY_BLOCKED final status.
+    allowed_paths:
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/00-executive-decision.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/01-sources-methodology-and-test-guardrails.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/13-dependencies-and-handoff.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/14-final-status.md
+      - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/performance_test_manifest.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Implement product/runtime fixes, canonical/sitemap/llms/indexability changes, analytics activation, CMS/DB/production writes, Career work, ingress/cache changes, deployment, or any predecessor omission.
+    required_local_checks:
+      - parse and validate every original and follow-up Window 7 CSV/JSON artifact with UTF-8/formula/privacy guards
+      - recompute the non-Career exact URL/path/identity SHAs and verify Career exclusions and Big Five alias invariants
+      - verify RUM is disabled by default and lab/field evidence remains separated
+      - verify the final status is COMPLETE only if all eight goal-defined evidence gates pass; otherwise retain PARTIALLY_BLOCKED
+      - git diff --check
+      - changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: Window 7 remains an evidence package; backend/CMS/public APIs remain authoritative for public content and discoverability.
+    repository_rule_impact: Evidence and train closeout only; no runtime, content-authority, discoverability, production tracking, or deployment change.
