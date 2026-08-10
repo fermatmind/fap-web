@@ -57828,8 +57828,8 @@
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01"
     ],
-    "status": "pr_open_pending_github_checks",
-    "commit_sha": "2e24d18385538144ef368aedec16346affe379ea",
+    "status": "ready_to_merge",
+    "commit_sha": "f2137923f74f301dd28d1dcbf41ee9f8c96447e1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/2036",
     "checks": {
       "dependency_reconciliation": {
@@ -57839,6 +57839,10 @@
       "local_contract_validation": {
         "status": "passed",
         "evidence": "Window 2 and Window 6 JSON parse; exact event/field allowlist, privacy denylist, deployment-false, deterministic SHA, YAML/state parse, no-runtime-diff and exact-scope checks pass."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "Exact head f2137923f74f301dd28d1dcbf41ee9f8c96447e1 passed build, four contract shards, aggregate contracts, Big Five and Enneagram freezes, CodeQL analysis, and no-new-code-scanning-alerts; GitHub reports CLEAN and no outstanding review decision."
       }
     },
     "failure_reason": null,
@@ -57860,6 +57864,11 @@
         "at": "2026-08-10T07:05:00Z",
         "status": "pr_open_pending_github_checks",
         "summary": "Pushed the scoped branch and opened PR #2036. Required GitHub checks are pending; no runtime telemetry, consent, CMS, production or search action occurred."
+      },
+      {
+        "at": "2026-08-10T07:08:00Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head f2137923f74f301dd28d1dcbf41ee9f8c96447e1 passed every required GitHub check and CodeQL. Scope remains nine approved docs/contract/ledger files with zero runtime changes, telemetry, consent changes, production writes, CMS mutation, or Search Channel action."
       }
     ]
   },
