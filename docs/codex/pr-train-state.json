@@ -57881,9 +57881,9 @@
     "base": "main",
     "branch": "codex/noncareer-audit-status-reconciliation-01",
     "depends_on": [],
-    "status": "committed",
-    "commit_sha": "acb8282292e290304024fe90c357fc1a28fe7bea",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "ca420eeaf74632343562191fa375364857b5d5e7",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2025",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -57946,10 +57946,16 @@
         "at": "2026-08-10T05:50:04Z",
         "from": "local_verified",
         "to": "committed",
-        "note": "Committed the seven-path reconciled scope at acb8282292e290304024fe90c357fc1a28fe7bea; no runtime or production mutation is included."
+        "note": "Committed the seven-path reconciled scope; no runtime or production mutation is included."
+      },
+      {
+        "at": "2026-08-10T05:52:52Z",
+        "from": "committed",
+        "to": "github_checks_pending",
+        "note": "Opened PR #2025, preserved the concurrently merged Window 6 manifest/state entries while rebasing onto origin/main 8aaf49c1, and updated the implementation commit to ca420eeaf74632343562191fa375364857b5d5e7. Required checks are pending."
       }
     ],
-    "updated_at": "2026-08-10T05:50:04Z"
+    "updated_at": "2026-08-10T05:52:52Z"
   },
   "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01": {
     "id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
