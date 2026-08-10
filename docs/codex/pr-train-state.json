@@ -57458,8 +57458,8 @@
     "depends_on": [
       "W1-MBTI-COMPARISONS-V2-RECEIPT-MATERIALIZE-01"
     ],
-    "status": "local_checks_passed_ready_to_push",
-    "commit_sha": "2e24d18385538144ef368aedec16346affe379ea",
+    "status": "in_progress",
+    "commit_sha": null,
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -57828,9 +57828,9 @@
     "depends_on": [
       "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open_pending_github_checks",
+    "commit_sha": "2e24d18385538144ef368aedec16346affe379ea",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/2036",
     "checks": {
       "dependency_reconciliation": {
         "status": "passed",
@@ -57855,6 +57855,11 @@
         "at": "2026-08-10T07:02:00Z",
         "status": "local_checks_passed_ready_to_push",
         "summary": "Committed the contract-only implementation as 2e24d18385538144ef368aedec16346affe379ea. JSON/YAML, exact fields, privacy denylist, deployment-false, deterministic SHA, no-runtime-diff and scope checks passed twice."
+      },
+      {
+        "at": "2026-08-10T07:05:00Z",
+        "status": "pr_open_pending_github_checks",
+        "summary": "Pushed the scoped branch and opened PR #2036. Required GitHub checks are pending; no runtime telemetry, consent, CMS, production or search action occurred."
       }
     ]
   },
