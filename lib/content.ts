@@ -109,6 +109,26 @@ function toNullableString(value: unknown): string | null {
   return normalized || null;
 }
 
+function supportsCatalogBackedFormlessLookup(
+  row: Record<string, unknown>,
+  scaleCode: string,
+  locale: Locale,
+  landingSurface: Record<string, unknown>,
+): boolean {
+  if (scaleCode !== "IQ_RAVEN" && scaleCode !== "EQ_60") {
+    return false;
+  }
+
+  const localizedContent = toRecord(toRecord(row.content_i18n_json)[locale]);
+  const catalog = toRecord(localizedContent.catalog);
+  const capabilities = toRecord(row.capabilities);
+
+  return capabilities.questions === true
+    && toNumber(catalog.questions_count) > 0
+    && toNumber(catalog.time_minutes) > 0
+    && toString(landingSurface.start_test_target).length > 0;
+}
+
 function normalizeLookupPayload(payload: unknown, requestedSlug: string, locale: Locale): TestLookup {
   const row = toRecord(payload);
   const primarySlug = resolveCanonicalSlug(toString(row.primary_slug ?? row.slug));
@@ -119,6 +139,12 @@ function normalizeLookupPayload(payload: unknown, requestedSlug: string, locale:
   const responseLocale = toString(row.locale);
   const forms = Array.isArray(row.forms) ? row.forms : [];
   const landingSurface = toRecord(row.landing_surface_v1);
+  const formAuthorityValid = forms.length > 0
+    ? forms.every((form) => {
+        const node = toRecord(form);
+        return toString(node.form_code).length > 0 && toNumber(node.question_count) > 0;
+      })
+    : supportsCatalogBackedFormlessLookup(row, scaleCode, locale, landingSurface);
   const localeMatches =
     locale === "zh"
       ? responseLocale === "zh" || responseLocale.toLowerCase() === "zh-cn"
@@ -133,11 +159,7 @@ function normalizeLookupPayload(payload: unknown, requestedSlug: string, locale:
     || !localeMatches
     || !toString(row.requested_slug)
     || typeof row.is_indexable !== "boolean"
-    || forms.length === 0
-    || forms.some((form) => {
-      const node = toRecord(form);
-      return !toString(node.form_code) || toNumber(node.question_count) <= 0;
-    })
+    || !formAuthorityValid
     || Object.keys(landingSurface).length === 0
     || !row.content_i18n_json
     || typeof row.content_i18n_json !== "object"

@@ -18,6 +18,8 @@ const PUBLIC_API_V0_3_PREFIX = "/api/v0.3";
 
 const MBTI_SLUG = "mbti-personality-test-16-personality-types";
 const BIG5_SLUG = "big-five-personality-test-ocean-model";
+const IQ_SLUG = "iq-test-intelligence-quotient-assessment";
+const EQ_SLUG = "eq-test-emotional-intelligence-assessment";
 const MBTI_FORM = "mbti_144";
 const BIG5_FORM = "big5_120";
 
@@ -54,6 +56,50 @@ const CHECKS = [
     scaleCode: "BIG5_OCEAN",
     formCode: BIG5_FORM,
     ctaMarker: `test-detail-landing-cta-${BIG5_FORM}`,
+  },
+  {
+    kind: "landing",
+    checkName: "zh_iq_landing",
+    path: `/zh/tests/${IQ_SLUG}`,
+    locale: "zh",
+    apiLocale: "zh",
+    slug: IQ_SLUG,
+    scaleCode: "IQ_RAVEN",
+    formCode: null,
+    ctaMarker: "test-detail-landing-cta-owner_original_30",
+  },
+  {
+    kind: "landing",
+    checkName: "en_iq_landing",
+    path: `/en/tests/${IQ_SLUG}`,
+    locale: "en",
+    apiLocale: "en",
+    slug: IQ_SLUG,
+    scaleCode: "IQ_RAVEN",
+    formCode: null,
+    ctaMarker: "test-detail-landing-cta-owner_original_30",
+  },
+  {
+    kind: "landing",
+    checkName: "zh_eq_landing",
+    path: `/zh/tests/${EQ_SLUG}`,
+    locale: "zh",
+    apiLocale: "zh",
+    slug: EQ_SLUG,
+    scaleCode: "EQ_60",
+    formCode: null,
+    ctaMarker: "test-detail-landing-cta-eq-60",
+  },
+  {
+    kind: "landing",
+    checkName: "en_eq_landing",
+    path: `/en/tests/${EQ_SLUG}`,
+    locale: "en",
+    apiLocale: "en",
+    slug: EQ_SLUG,
+    scaleCode: "EQ_60",
+    formCode: null,
+    ctaMarker: "test-detail-landing-cta-eq-60",
   },
   {
     kind: "take",
@@ -313,11 +359,22 @@ function assertLookup(payload, {
       ? payload.slug.trim()
       : "";
   const forms = Array.isArray(payload.forms) ? payload.forms : [];
-  const form = forms.find((candidate) => (
+  const form = nonEmptyString(formCode) ? forms.find((candidate) => (
     candidate
     && typeof candidate === "object"
     && candidate.form_code === formCode
-  ));
+  )) : null;
+  const localizedContent = payload.content_i18n_json?.[locale === "zh" ? "zh" : locale];
+  const catalog = localizedContent?.catalog;
+  const supportsFormlessCatalog = formCode === null
+    && (scaleCode === "IQ_RAVEN" || scaleCode === "EQ_60")
+    && forms.length === 0
+    && payload.capabilities?.questions === true
+    && Number.isInteger(Number(catalog?.questions_count))
+    && Number(catalog?.questions_count) > 0
+    && Number.isInteger(Number(catalog?.time_minutes))
+    && Number(catalog?.time_minutes) > 0
+    && nonEmptyString(payload.landing_surface_v1?.start_test_target);
   const responseLocale = nonEmptyString(payload.locale) ? payload.locale.trim() : "";
   const localeMatches = locale === "zh"
     ? responseLocale === "zh" || responseLocale.toLowerCase() === "zh-cn"
@@ -329,8 +386,7 @@ function assertLookup(payload, {
     || primarySlug !== slug
     || payload.scale_code !== scaleCode
     || !localeMatches
-    || !form
-    || form.is_public === false
+    || (!supportsFormlessCatalog && (!form || form.is_public === false))
   ) {
     throw new SmokeFailure("lookup_authority_mismatch", {
       httpStatus,
@@ -338,7 +394,7 @@ function assertLookup(payload, {
     });
   }
 
-  const questionCount = Number(form.question_count);
+  const questionCount = Number(form?.question_count ?? catalog?.questions_count);
   return {
     formCode,
     questionCount: Number.isInteger(questionCount) && questionCount > 0

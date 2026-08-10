@@ -9,9 +9,15 @@ import {
 
 const MBTI_SLUG = "mbti-personality-test-16-personality-types";
 const BIG5_SLUG = "big-five-personality-test-ocean-model";
+const IQ_SLUG = "iq-test-intelligence-quotient-assessment";
+const EQ_SLUG = "eq-test-emotional-intelligence-assessment";
 const MBTI_ZH_PATH = `/zh/tests/${MBTI_SLUG}`;
 const MBTI_EN_PATH = `/en/tests/${MBTI_SLUG}`;
 const BIG5_ZH_PATH = `/zh/tests/${BIG5_SLUG}`;
+const IQ_ZH_PATH = `/zh/tests/${IQ_SLUG}`;
+const IQ_EN_PATH = `/en/tests/${IQ_SLUG}`;
+const EQ_ZH_PATH = `/zh/tests/${EQ_SLUG}`;
+const EQ_EN_PATH = `/en/tests/${EQ_SLUG}`;
 const MBTI_TAKE_PATH = `/zh/tests/${MBTI_SLUG}/take`;
 const API_V0_3_PREFIX = "/api/v0.3";
 const QUESTION_PATH = `${API_V0_3_PREFIX}/scales/MBTI/questions`;
@@ -35,10 +41,18 @@ type FixtureOverrides = Partial<Record<
   | "zh_mbti_landing"
   | "en_mbti_landing"
   | "zh_big5_landing"
+  | "zh_iq_landing"
+  | "en_iq_landing"
+  | "zh_eq_landing"
+  | "en_eq_landing"
   | "zh_mbti_take"
   | "zh_mbti_lookup"
   | "en_mbti_lookup"
   | "zh_big5_lookup"
+  | "zh_iq_lookup"
+  | "en_iq_lookup"
+  | "zh_eq_lookup"
+  | "en_eq_lookup"
   | "mbti_questions",
   FixtureHandler
 >>;
@@ -55,7 +69,7 @@ function lookupPayload({
 }: {
   slug: string;
   scaleCode: string;
-  formCode: string;
+  formCode: string | null;
   locale: string;
 }) {
   return {
@@ -68,15 +82,20 @@ function lookupPayload({
     locale,
     is_public: true,
     is_indexable: true,
-    forms: [{
+    forms: formCode ? [{
       form_code: formCode,
       question_count: 2,
       is_public: true,
-    }],
+    }] : [],
+    capabilities: { questions: true },
     content_i18n_json: {
       [locale]: {
         title: `${scaleCode} fixture`,
         description: "Fixture description",
+        catalog: {
+          questions_count: scaleCode === "EQ_60" ? 60 : 30,
+          time_minutes: 10,
+        },
       },
     },
     landing_surface_v1: {
@@ -154,6 +173,12 @@ function defaultReply(key: keyof FixtureOverrides): FixtureReply {
       return { body: landingHtml("mbti-landing-primary-cta") };
     case "zh_big5_landing":
       return { body: landingHtml("test-detail-landing-cta-big5_120") };
+    case "zh_iq_landing":
+    case "en_iq_landing":
+      return { body: landingHtml("test-detail-landing-cta-owner_original_30") };
+    case "zh_eq_landing":
+    case "en_eq_landing":
+      return { body: landingHtml("test-detail-landing-cta-eq-60") };
     case "zh_mbti_take":
       return { body: "<!doctype html><html><body><main>Take fixture</main></body></html>" };
     case "zh_mbti_lookup":
@@ -183,6 +208,14 @@ function defaultReply(key: keyof FixtureOverrides): FixtureReply {
           locale: "zh",
         }),
       };
+    case "zh_iq_lookup":
+      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: null, locale: "zh" }) };
+    case "en_iq_lookup":
+      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: null, locale: "en" }) };
+    case "zh_eq_lookup":
+      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: null, locale: "zh" }) };
+    case "en_eq_lookup":
+      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: null, locale: "en" }) };
     case "mbti_questions":
       return { body: questionPayload() };
   }
@@ -193,6 +226,10 @@ function routeKey(url: URL): keyof FixtureOverrides | null {
   if (url.pathname === MBTI_ZH_PATH) return "zh_mbti_landing";
   if (url.pathname === MBTI_EN_PATH) return "en_mbti_landing";
   if (url.pathname === BIG5_ZH_PATH) return "zh_big5_landing";
+  if (url.pathname === IQ_ZH_PATH) return "zh_iq_landing";
+  if (url.pathname === IQ_EN_PATH) return "en_iq_landing";
+  if (url.pathname === EQ_ZH_PATH) return "zh_eq_landing";
+  if (url.pathname === EQ_EN_PATH) return "en_eq_landing";
   if (url.pathname === MBTI_TAKE_PATH) return "zh_mbti_take";
   if (url.pathname === QUESTION_PATH) return "mbti_questions";
   if (url.pathname !== `${API_V0_3_PREFIX}/scales/lookup`) return null;
@@ -202,6 +239,10 @@ function routeKey(url: URL): keyof FixtureOverrides | null {
   if (slug === MBTI_SLUG && locale === "zh") return "zh_mbti_lookup";
   if (slug === MBTI_SLUG && locale === "en") return "en_mbti_lookup";
   if (slug === BIG5_SLUG && locale === "zh") return "zh_big5_lookup";
+  if (slug === IQ_SLUG && locale === "zh") return "zh_iq_lookup";
+  if (slug === IQ_SLUG && locale === "en") return "en_iq_lookup";
+  if (slug === EQ_SLUG && locale === "zh") return "zh_eq_lookup";
+  if (slug === EQ_SLUG && locale === "en") return "en_eq_lookup";
   return null;
 }
 
@@ -263,7 +304,7 @@ afterEach(async () => {
 });
 
 describe("test landing runtime smoke semantic gate", () => {
-  it("passes zh MBTI, en MBTI, Big Five, take, and the read-only mbti_144 pack", async () => {
+  it("passes bilingual MBTI, IQ, EQ, Big Five, take, and the read-only mbti_144 pack", async () => {
     const receipt = await runFixture();
 
     expect(receipt.result).toBe("pass");
@@ -281,6 +322,14 @@ describe("test landing runtime smoke semantic gate", () => {
       result: "pass",
       authority_identity_result: "pass",
     });
+    for (const checkName of ["zh_iq_landing", "en_iq_landing", "zh_eq_landing", "en_eq_landing"]) {
+      expect(check(receipt, checkName)).toMatchObject({
+        result: "pass",
+        http_status: 200,
+        authority_identity_result: "pass",
+        request_surface: "landing_html+lookup_api",
+      });
+    }
     expect(check(receipt, "zh_mbti_take_route")).toMatchObject({
       result: "pass",
       http_status: 200,
@@ -355,6 +404,22 @@ describe("test landing runtime smoke semantic gate", () => {
       }),
     });
     expect(check(receipt, "zh_mbti_landing").diagnostic_summary[0]?.category)
+      .toBe("test_landing_error_shell");
+  });
+
+  it("fails an IQ or EQ HTTP 200 error shell instead of treating it as a healthy landing", async () => {
+    const receipt = await runFixture({
+      en_iq_landing: () => ({
+        body: '<main data-testid="test-landing-error-shell">Retry</main>',
+      }),
+      zh_eq_landing: () => ({
+        body: '<main data-testid="test-landing-error-shell">重试</main>',
+      }),
+    });
+
+    expect(check(receipt, "en_iq_landing").diagnostic_summary[0]?.category)
+      .toBe("test_landing_error_shell");
+    expect(check(receipt, "zh_eq_landing").diagnostic_summary[0]?.category)
       .toBe("test_landing_error_shell");
   });
 
