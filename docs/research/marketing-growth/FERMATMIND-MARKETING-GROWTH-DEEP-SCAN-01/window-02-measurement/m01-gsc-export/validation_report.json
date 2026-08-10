@@ -1,0 +1,109 @@
+{
+  "objective_id": "FERMATMIND-MEASUREMENT-M01-GSC-EXPORT-01",
+  "status": "PASS",
+  "ui_captured_at": "2026-08-10T05:21:48Z",
+  "combined_api_extracted_at": "2026-08-10T06:06:20Z",
+  "checks": {
+    "csv_parse": "pass",
+    "json_parse": "pass",
+    "unique_headers": "pass",
+    "formula_injection": "pass",
+    "private_or_parameterized_url": "pass",
+    "sensitive_query_patterns": "pass",
+    "single_dimension_key_uniqueness": "pass",
+    "combined_key_uniqueness": "pass_12336_rows",
+    "numeric_ranges": "pass",
+    "api_pagination": "pass_all_windows_complete",
+    "page_indexing_reason_sum": "pass_2133",
+    "manifest_file_hashes": "pass",
+    "combined_grain": "verified_search_analytics_api",
+    "language": "unknown_not_inferred"
+  },
+  "csv_profiles": {
+    "gsc_country_single_dimension.csv": {
+      "rows": 575,
+      "columns": 16,
+      "headers_unique": true
+    },
+    "gsc_daily.csv": {
+      "rows": 127,
+      "columns": 10,
+      "headers_unique": true
+    },
+    "gsc_device_single_dimension.csv": {
+      "rows": 9,
+      "columns": 16,
+      "headers_unique": true
+    },
+    "gsc_page_indexing_daily.csv": {
+      "rows": 69,
+      "columns": 6,
+      "headers_unique": true
+    },
+    "gsc_page_indexing_summary.csv": {
+      "rows": 11,
+      "columns": 9,
+      "headers_unique": true
+    },
+    "gsc_page_single_dimension.csv": {
+      "rows": 2816,
+      "columns": 16,
+      "headers_unique": true
+    },
+    "gsc_query_page_country_device.csv": {
+      "rows": 12336,
+      "columns": 15,
+      "headers_unique": true
+    },
+    "gsc_query_single_dimension.csv": {
+      "rows": 2753,
+      "columns": 16,
+      "headers_unique": true
+    },
+    "gsc_window_summary.csv": {
+      "rows": 3,
+      "columns": 22,
+      "headers_unique": true
+    }
+  },
+  "combined_window_rows": {
+    "current28": 3863,
+    "prev28": 2482,
+    "day90": 5991,
+    "total": 12336
+  },
+  "manifest_sha256": "fb1c063528edde64aadca8f6fd9b39231e7a276eb898625a398c5b59cb0b0322",
+  "combined_api_privacy_exclusions": {
+    "current28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 52,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 7,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    },
+    "prev28": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 163,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 1,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    },
+    "day90": {
+      "query_email_like_excluded": 0,
+      "query_phone_like_excluded": 216,
+      "query_secret_like_excluded": 0,
+      "page_query_or_fragment_excluded": 8,
+      "page_private_route_excluded": 0,
+      "malformed_keys_excluded": 0
+    }
+  },
+  "limitations": [
+    "Search Analytics returns top rows and does not guarantee every possible row; pagination completion does not imply event-level exhaustiveness.",
+    "GSC UI query/page exports are capped at 1,000 rows.",
+    "The conservative phone-like privacy filter may exclude harmless numeric queries.",
+    "Page Indexing evidence is property/category level.",
+    "Language is unsupported as a Search Analytics dimension and remains UNKNOWN."
+  ]
+}
