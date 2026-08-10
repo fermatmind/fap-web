@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, readFile, rename, rm, unlink, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
@@ -9,6 +9,14 @@ type LlmsFullResponseCache = {
   text: string;
   cachedAtMs: number;
 };
+
+type LlmsFullBuildCooldown = {
+  siteUrl: string;
+  retryAfterMs: number;
+};
+
+export const LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS = 15 * 60 * 1000;
+const LLMS_FULL_BUILD_LEASE_STALE_MS = 5 * 60 * 1000;
 
 let llmsFullResponseCache: LlmsFullResponseCache | null = null;
 let llmsFullBuildPromise:
@@ -39,6 +47,20 @@ export function getLlmsFullSharedCachePath(siteUrl = "default"): string {
   return path.join(
     getLlmsFullSharedCacheDirectory(),
     `fermatmind-llms-full-response-cache.${siteCacheId(siteUrl)}.v1.json`
+  );
+}
+
+export function getLlmsFullBuildCooldownPath(siteUrl = "default"): string {
+  return path.join(
+    getLlmsFullSharedCacheDirectory(),
+    `fermatmind-llms-full-build-cooldown.${siteCacheId(siteUrl)}.v1.json`
+  );
+}
+
+function getLlmsFullBuildLeasePath(siteUrl: string): string {
+  return path.join(
+    getLlmsFullSharedCacheDirectory(),
+    `fermatmind-llms-full-build-lease.${siteCacheId(siteUrl)}.v1.lock`
   );
 }
 
@@ -108,12 +130,118 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
   }
 }
 
+async function hasActiveBuildCooldown(siteUrl: string): Promise<boolean> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return false;
+  }
+
+  try {
+    const raw = await readFile(getLlmsFullBuildCooldownPath(siteUrl), "utf8");
+    const payload = JSON.parse(raw) as Partial<LlmsFullBuildCooldown>;
+
+    return payload.siteUrl === siteUrl && Number(payload.retryAfterMs) > Date.now();
+  } catch {
+    return false;
+  }
+}
+
+async function writeBuildCooldown(siteUrl: string): Promise<void> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return;
+  }
+
+  let temporaryDirectory: string | null = null;
+
+  try {
+    const target = getLlmsFullBuildCooldownPath(siteUrl);
+    await mkdir(path.dirname(target), { recursive: true });
+    temporaryDirectory = await mkdtemp(path.join(path.dirname(target), ".fermatmind-llms-full-cooldown-"));
+    const temporary = path.join(temporaryDirectory, "cooldown.json");
+    const payload: LlmsFullBuildCooldown = {
+      siteUrl,
+      retryAfterMs: Date.now() + LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS,
+    };
+    await writeFile(temporary, `${JSON.stringify(payload)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+      mode: 0o600,
+    });
+    await rename(temporary, target);
+  } catch {
+    // A failed cooldown write must not replace the explicit degraded response.
+  } finally {
+    if (temporaryDirectory) {
+      void rm(temporaryDirectory, { force: true, recursive: true }).catch(() => undefined);
+    }
+  }
+}
+
+async function clearBuildCooldown(siteUrl: string): Promise<void> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return;
+  }
+
+  await unlink(getLlmsFullBuildCooldownPath(siteUrl)).catch(() => undefined);
+}
+
+async function acquireBuildLease(siteUrl: string): Promise<{
+  acquired: boolean;
+  release: () => Promise<void>;
+}> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return { acquired: true, release: async () => undefined };
+  }
+
+  const leasePath = getLlmsFullBuildLeasePath(siteUrl);
+  await mkdir(path.dirname(leasePath), { recursive: true });
+
+  const tryAcquire = async (): Promise<boolean> => {
+    try {
+      await mkdir(leasePath, { mode: 0o700 });
+      return true;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "EEXIST") {
+        throw error;
+      }
+      return false;
+    }
+  };
+
+  try {
+    if (!(await tryAcquire())) {
+      const leaseStat = await stat(leasePath).catch(() => null);
+      if (!leaseStat || Date.now() - leaseStat.mtimeMs <= LLMS_FULL_BUILD_LEASE_STALE_MS) {
+        return { acquired: false, release: async () => undefined };
+      }
+
+      await rm(leasePath, { force: true, recursive: true });
+      if (!(await tryAcquire())) {
+        return { acquired: false, release: async () => undefined };
+      }
+    }
+
+    return {
+      acquired: true,
+      release: async () => {
+        await rm(leasePath, { force: true, recursive: true });
+      },
+    };
+  } catch {
+    // Keep the existing in-process single-flight behavior if the shared directory is unavailable.
+    return { acquired: true, release: async () => undefined };
+  }
+}
+
 export function clearLlmsFullResponseCache(siteUrl?: string): void {
   llmsFullResponseCache = null;
   llmsFullBuildPromise = null;
   if (isSharedLlmsFullCacheEnabled()) {
     if (siteUrl) {
-      void unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined);
+      void Promise.all([
+        unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined),
+        unlink(getLlmsFullBuildCooldownPath(siteUrl)).catch(() => undefined),
+        rm(getLlmsFullBuildLeasePath(siteUrl), { force: true, recursive: true }).catch(() => undefined),
+      ]);
       return;
     }
 
@@ -123,8 +251,8 @@ export function clearLlmsFullResponseCache(siteUrl?: string): void {
 
       await Promise.all(
         entries
-          .filter((entry) => /^fermatmind-llms-full-response-cache(?:\.[a-f0-9]{16})?\.v1\.json$/.test(entry))
-          .map((entry) => unlink(path.join(cacheDirectory, entry)).catch(() => undefined))
+          .filter((entry) => /^fermatmind-llms-full-(?:response-cache|build-cooldown|build-lease)(?:\.[a-f0-9]{16})?\.v1\.(?:json|lock)$/.test(entry))
+          .map((entry) => rm(path.join(cacheDirectory, entry), { force: true, recursive: true }).catch(() => undefined))
       );
     })();
   }
@@ -176,17 +304,35 @@ export function getOrStartLlmsFullBuild(
 ): Promise<string | null> {
   const nextCachePolicyKey = cachePolicyKey(options);
   if (!llmsFullBuildPromise || llmsFullBuildPromise.siteUrl !== siteUrl || llmsFullBuildPromise.cachePolicyKey !== nextCachePolicyKey) {
-    const promise = buildText(siteUrl)
-      .then((text) => {
+    const promise = (async () => {
+      if (await hasActiveBuildCooldown(siteUrl)) {
+        return null;
+      }
+
+      const lease = await acquireBuildLease(siteUrl);
+      if (!lease.acquired) {
+        return null;
+      }
+
+      try {
+        if (await hasActiveBuildCooldown(siteUrl)) {
+          return null;
+        }
+
+        const text = await buildText(siteUrl).catch(() => null);
         if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
-          void writeLlmsFullResponseCache(siteUrl, text, options);
+          await writeLlmsFullResponseCache(siteUrl, text, options);
+          await clearBuildCooldown(siteUrl);
 
           return text;
         }
 
+        await writeBuildCooldown(siteUrl);
         return null;
-      })
-      .catch(() => null)
+      } finally {
+        await lease.release();
+      }
+    })()
       .finally(() => {
         if (llmsFullBuildPromise?.promise === promise) {
           llmsFullBuildPromise = null;
