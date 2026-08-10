@@ -30495,7 +30495,7 @@ prs:
     base: main
     branch: codex/public-topic-graph-audit-closeout-01
     title: "PUBLIC-TOPIC-GRAPH-AUDIT-CLOSEOUT-01: close Window 6 registry and handoff gaps"
-    status: local_checks_passed_ready_to_push
+    status: committed
     depends_on: []
     mode: execute
     train_scope: public_topic_graph_window_06_closeout

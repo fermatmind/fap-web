@@ -57382,8 +57382,8 @@
     "base": "main",
     "branch": "codex/w1-mbti-comparisons-v2-receipt-materialize-01",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "c2a2953abef1f789bc0bc347023c01128c6653ca",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -57792,6 +57792,11 @@
         "at": "2026-08-10T05:25:00Z",
         "status": "local_checks_passed_ready_to_push",
         "summary": "Exact artifact inventory, CSV/JSON/UTF-8/formula, corpus and graph SHA, owner, privacy, Career gate, manifest/state parse, and scope checks passed."
+      },
+      {
+        "at": "2026-08-10T05:28:00Z",
+        "status": "committed",
+        "summary": "Committed the scoped closeout and rebased onto latest origin/main; post-rebase validation passed."
       }
     ]
   },
