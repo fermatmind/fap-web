@@ -57873,5 +57873,323 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "history": []
+  },
+  "NONCAREER-AUDIT-STATUS-RECONCILIATION-01": {
+    "id": "NONCAREER-AUDIT-STATUS-RECONCILIATION-01",
+    "repo": "fap-web",
+    "title": "NONCAREER-AUDIT-STATUS-RECONCILIATION-01: reconcile Window 7 status with verified evidence",
+    "base": "main",
+    "branch": "codex/noncareer-audit-status-reconciliation-01",
+    "depends_on": [],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The explicit end-to-end /goal authorizes the exact seven-item Window 7 completion train, manifest/state initialization, PR lifecycle, merge, and cleanup without production writes."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This first train item has no dependency and started from clean fap-web origin/main 30798c088dd212c7de1b2415c10afceeab6e2f72."
+      },
+      "evidence_reconciliation": {
+        "status": "pass",
+        "evidence": "Parsed every Window 7 CSV/JSON artifact and reconciled the contract against 108 attempts: 102 success and six retained tool failures (LAB-028/029/030/034/035/036). All L1/L2/L3 field rows remain INSUFFICIENT_FIELD_DATA, so the active overall status is PARTIALLY_BLOCKED."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 with pnpm 10.28.1: pnpm lint:spacing passed. Ruby CSV/JSON/YAML reconciliation, sidecar schema/path/deduplication checks, exact sample/formula guards, git diff --check, and the seven-path allowlist all passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "sidecar_issues": [
+      "window7-critical-lab-tool-failures-20260810",
+      "window7-l1-interval-baseline-incomplete-20260810",
+      "window7-gsc-ga4-cohort-data-unavailable-20260810",
+      "window7-field-cwv-rum-data-unavailable-20260810"
+    ],
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": "user_authorized",
+        "to": "in_progress",
+        "note": "Started PR1 from clean latest origin/main in the isolated non-Career audit worktree. Scope is limited to Window 7 status truth, exact seven-item train metadata, and deduplicated sidecars; original measurements and runtime remain untouched."
+      },
+      {
+        "at": "2026-08-10T05:48:00Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All PR1 evidence, formatting, structural, formula, sidecar, diff, and changed-path checks passed under canonical Node 24; ready for explicit-path commit and GitHub validation."
+      }
+    ],
+    "updated_at": "2026-08-10T05:48:00Z"
+  },
+  "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01": {
+    "id": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
+    "repo": "fap-web",
+    "title": "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01: complete failed critical lab measurements",
+    "base": "main",
+    "branch": "codex/noncareer-critical-lab-remeasurement-01",
+    "depends_on": [
+      "NONCAREER-AUDIT-STATUS-RECONCILIATION-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal; execution waits for status reconciliation merge and cleanup."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
+  },
+  "NONCAREER-L1-INTERVAL-BASELINE-01": {
+    "id": "NONCAREER-L1-INTERVAL-BASELINE-01",
+    "repo": "fap-web",
+    "title": "NONCAREER-L1-INTERVAL-BASELINE-01: capture interval-separated L1 performance windows",
+    "base": "main",
+    "branch": "codex/noncareer-l1-interval-baseline-01",
+    "depends_on": [
+      "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal; execution waits for critical lab remeasurement merge and cleanup."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
+  },
+  "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01": {
+    "id": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
+    "repo": "fap-web",
+    "title": "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01: complete attribution canonical evidence",
+    "base": "main",
+    "branch": "codex/noncareer-attribution-canonical-evidence-completion-01",
+    "depends_on": [
+      "NONCAREER-L1-INTERVAL-BASELINE-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal; execution waits for the L1 interval baseline merge and cleanup."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
+  },
+  "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01": {
+    "id": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
+    "repo": "fap-web",
+    "title": "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01: verify non-Career search and analytics cohorts",
+    "base": "main",
+    "branch": "codex/noncareer-gsc-ga4-cohort-evidence-01",
+    "depends_on": [
+      "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal; execution waits for attribution/canonical V2 evidence merge and cleanup."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
+  },
+  "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01": {
+    "id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
+    "repo": "fap-web",
+    "title": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01: add disabled-by-default privacy-safe field CWV instrumentation",
+    "base": "main",
+    "branch": "codex/public-cwv-rum-privacy-safe-instrumentation-01",
+    "depends_on": [
+      "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "runtime_change": true,
+    "production_tracking_enabled": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal. Production activation, analytics property mutation, secrets, and deployment remain separately controlled and forbidden."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
+  },
+  "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01": {
+    "id": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01",
+    "repo": "fap-web",
+    "title": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01: close out the Window 7 evidence train",
+    "base": "main",
+    "branch": "codex/fermatmind-noncareer-technical-growth-audit-closeout-01",
+    "depends_on": [
+      "NONCAREER-AUDIT-STATUS-RECONCILIATION-01",
+      "NONCAREER-CRITICAL-LAB-REMEASUREMENT-01",
+      "NONCAREER-L1-INTERVAL-BASELINE-01",
+      "NONCAREER-ATTRIBUTION-CANONICAL-EVIDENCE-COMPLETION-01",
+      "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
+      "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": false,
+      "local_validation_passed": false,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-08-10T05:37:47Z",
+        "from": null,
+        "to": "planned",
+        "note": "Registered by the explicit seven-item completion-train /goal; execution waits for all six predecessor PRs to merge, sync, and clean up."
+      }
+    ],
+    "updated_at": "2026-08-10T05:37:47Z"
   }
 }

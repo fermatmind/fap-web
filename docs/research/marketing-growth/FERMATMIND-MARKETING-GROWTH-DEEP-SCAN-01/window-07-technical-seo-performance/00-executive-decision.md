@@ -4,14 +4,15 @@ Captured at: 2026-08-10T04:50:00.000Z (Asia/Shanghai)
 
 ## Status
 
-- **FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_COMPLETE**
-- **FERMATMIND_NONCAREER_TECHNICAL_BASELINE_COMPLETE**
+- **FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED**
 - **TECHNICAL_PERFORMANCE_PR_CANDIDATES_READY_NOT_STARTED**
 - **NONCAREER_SHRINK_GUARD_READY_WAITING_ON_C06**
 - **FIELD_CWV_RUM_MONITOR_SPEC_COMPLETE**
 - **FIELD_CWV_RUM_BASELINE_INSUFFICIENT_DATA**
 
-T01–T06 report-only evidence is complete. T07 contains design-only candidates and changes no product code. T08 is contract-complete but cannot be implemented until Career C06 establishes a clean dependency boundary. T09 defines a privacy-safe monitor; no production tracking changed.
+T04 exact non-Career discoverability and T06 Big Five alias evidence are complete. T01–T03 retain six critical lab tool failures, unavailable Lighthouse Speed Index/standard TBT and an incomplete three-window L1 baseline. T05 has complete sampled canonical checks but lacks per-sample internal-link and cache-key-risk evidence. T07 contains design-only candidates. T08 is contract-complete but dependency-gated by Career C06. T09 defines a privacy-safe monitor, but no field dataset exists and no production tracking changed.
+
+The original completion contract explicitly requires `FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED` when CrUX/RUM is unavailable or safe sampling cannot be completed. The earlier overall `COMPLETE` declaration did not match that contract and is superseded here without rewriting any raw measurement.
 
 ## Executive decision
 
@@ -38,6 +39,15 @@ The current whole sitemap contains 553 locale-pages, of which 28 are Career URLs
 6. Do not activate shrink guards before Career C06 and a versioned authority update identity.
 7. Field conclusions remain unavailable until governed CrUX/GSC/RUM data exists.
 
+## Acceptance gaps
+
+- Six retained `MEASUREMENT_TOOL_FAILURE` rows cover all three attempts for the zh RIASEC question bootstrap and zh Big Five assessment landing definitions.
+- Lighthouse attempts returned `NO_FCP`; Speed Index and standard Lighthouse TBT are UNKNOWN, while the recorded long-task value remains a lab proxy only.
+- Three interval-separated L1 capture windows were not completed.
+- Current GSC/GA4 evidence does not verify the required L2 high-traffic/low-CTR/median or L3 Top 20/median/Top 10 cohorts.
+- The 20 canonical samples do not yet record explicit internal-link leakage and cache-key-risk results; `ref` and `source` CTA retention remains UNKNOWN.
+- Field CWV/RUM is `INSUFFICIENT_FIELD_DATA` and cannot be replaced by lab data.
+
 ## Truth boundary
 
-No product code, CMS content, database, production configuration, OpenResty/CDN cache, redirect, sitemap, llms, Career cohort, deployment or PR-train manifest/state was modified by this audit.
+The original audit modified no product code, CMS content, database, production configuration, OpenResty/CDN cache, redirect, sitemap, llms, Career cohort, deployment or PR-train metadata. This reconciliation changes only Window 7 status text, the explicitly authorized seven-item train metadata and deduplicated sidecar records; raw evidence and public runtime remain unchanged.
