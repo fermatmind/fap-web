@@ -4,6 +4,8 @@
 
 Protect the existing backend-authoritative cohort and run only page-specific experiments where current impressions exist. INTP-A (1,322 impressions, 2 clicks, position 9.4 in the retained page snapshot) and 3w2/3w4/5w6 zero-click near-winners are the clearest candidates.
 
+**E03 status: `PAGE_LEVEL_AUDIT_INCOMPLETE`.** The 11-row ledger includes page rows and framework/family aggregates; it is not a complete page-level inventory and must not be represented as one.
+
 ## Boundaries
 
 This window does not override window-04 query ownership. Country splits, per-page conversion, native-English editorial quality, and competing-page maps are UNKNOWN unless a row says otherwise.

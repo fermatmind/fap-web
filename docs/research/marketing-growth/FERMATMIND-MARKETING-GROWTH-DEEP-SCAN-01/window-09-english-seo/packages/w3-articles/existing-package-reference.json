@@ -1,5 +1,7 @@
 {
   "artifact_kind": "w3_article_existing_package_reference",
+  "reference_scope": "EXISTING_AUTHORITY_PACKAGE",
+  "window_09_generated_self_contained_package": false,
   "package_root": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
   "package_sha256": "d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a",
   "lane_manifest": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/lane_manifest.json",
