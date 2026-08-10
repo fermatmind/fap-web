@@ -1,6 +1,6 @@
 # Field CWV / RUM monthly monitor
 
-Status: **FIELD_CWV_RUM_MONITOR_SPEC_COMPLETE**
+Status: **FIELD_CWV_RUM_MONITOR_SPEC_AND_DISABLED_COLLECTOR_COMPLETE**
 
 Baseline: **FIELD_CWV_RUM_BASELINE_INSUFFICIENT_DATA**
 
@@ -30,8 +30,16 @@ Allowed dimensions: tier, template/surface, locale, device, browser family, coar
 
 Forbidden payload: complete URL/query, attempt/result/order, answers/scores, email/phone, token/session, user ID or private URL. Emit a route family/template only; strip query and fragment; drop private routes.
 
+## Disabled collector contract
+
+`PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01` adds a frontend product-code-only collector boundary using the framework Web Vitals observer. It is not active unless `NEXT_PUBLIC_PUBLIC_CWV_RUM_ENABLED` is exactly `true`; the current repository and production configuration do not enable it.
+
+Even after a future explicit flag change, collection fails closed unless analytics consent, production environment, approved host, referrer, query and public-route gates all pass. The route classifier covers only allowlisted non-Career public families and drops assessment-taking, result, history, order, share, payment, API, Career and unknown routes.
+
+The payload allowlist contains only schema version, metric, rounded value, rating, L1/L2/L3 tier, coarse surface, locale, mobile/desktop and navigation type. It excludes full URL, pathname, slug, query, fragment, Web Vitals id/delta/entries, DOM/interaction content, session, user and private identifiers. The current sink is an intentional no-op with no endpoint, vendor, beacon or network transport. Production activation and any real sink require separate authorization and are not part of this train.
+
 ## Monthly output
 
 Reporting month, freshness, sample size, coverage, tier p75, classification, month-over-month, release annotations, regression cohort, likely cause, owner, next PR/monitor and limitations.
 
-No readable field dataset was available. Monthly values stay blank/`INSUFFICIENT_FIELD_DATA`; they are never zero and never replaced by lab results. Relative alerts wait for a stable baseline. Production instrumentation needs separately controlled tracking approval.
+No readable field dataset was available. Monthly values stay blank/`INSUFFICIENT_FIELD_DATA`; they are never zero and never replaced by lab results. Relative alerts wait for a stable baseline. Implementing a disabled no-op collector does not create field evidence or enable production tracking.

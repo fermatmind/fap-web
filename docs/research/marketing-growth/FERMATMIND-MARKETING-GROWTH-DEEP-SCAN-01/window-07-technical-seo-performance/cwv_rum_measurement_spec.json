@@ -1,6 +1,6 @@
 {
-  "schema_version": "field.cwv.rum.measurement.spec.v1",
-  "status": "FIELD_CWV_RUM_MONITOR_SPEC_COMPLETE",
+  "schema_version": "field.cwv.rum.measurement.spec.v2",
+  "status": "FIELD_CWV_RUM_MONITOR_SPEC_AND_DISABLED_COLLECTOR_COMPLETE",
   "baseline_status": "FIELD_CWV_RUM_BASELINE_INSUFFICIENT_DATA",
   "source_priority": [
     "production RUM",
@@ -160,6 +160,60 @@
     ],
     "private_routes": "Drop event."
   },
+  "instrumentation_contract": {
+    "task_id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
+    "implementation_status": "IMPLEMENTED_DISABLED_BY_DEFAULT_NOOP",
+    "feature_flag": "NEXT_PUBLIC_PUBLIC_CWV_RUM_ENABLED",
+    "enabled_only_when_exact_value": "true",
+    "repository_default": false,
+    "production_tracking_enabled": false,
+    "observer": "next/web-vitals",
+    "observed_metrics": [
+      "CLS",
+      "FCP",
+      "INP",
+      "LCP",
+      "TTFB"
+    ],
+    "required_runtime_gates": [
+      "explicit feature flag",
+      "analytics consent",
+      "production deployment environment",
+      "approved hostname",
+      "non-polluting referrer",
+      "non-sensitive query",
+      "allowlisted public non-Career route family"
+    ],
+    "payload_allowlist": [
+      "schema_version",
+      "metric",
+      "value",
+      "rating",
+      "tier",
+      "surface",
+      "locale",
+      "device",
+      "navigation_type"
+    ],
+    "route_output": "coarse family only; no URL, pathname, slug, query or fragment",
+    "excluded_routes": [
+      "assessment take",
+      "history",
+      "result",
+      "order",
+      "share",
+      "pay/payment",
+      "API",
+      "Career",
+      "unknown"
+    ],
+    "sink": "intentional no-op",
+    "network_transport": "none",
+    "endpoint": "none",
+    "vendor": "none",
+    "secret": "none",
+    "activation_authority": "separate explicit production tracking authorization"
+  },
   "monthly_output": [
     "reporting month",
     "source freshness",
@@ -189,5 +243,5 @@
     "https://developer.chrome.com/docs/crux/api",
     "https://developers.google.com/speed/docs/insights/v5/get-started"
   ],
-  "production_write_required": "Yes. A separately controlled approval is required to add or change production tracking."
+  "production_write_required": "Yes for activation or a real sink. This PR performs no production write and leaves tracking disabled with an intentional no-op sink."
 }

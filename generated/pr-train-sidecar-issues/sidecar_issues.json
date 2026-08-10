@@ -532,15 +532,18 @@
     "branch": "codex/noncareer-audit-status-reconciliation-01",
     "blocker_type": "external_field_cwv_and_rum_data_unavailable",
     "affected_surface": "Window 7 field Core Web Vitals and public-page RUM evidence",
-    "evidence": "The audit contains no sufficient CrUX field cohort and no production RUM sample. Field performance must remain unknown; laboratory observations cannot be relabeled as field CWV.",
-    "reproduction_or_evidence_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv; docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md",
-    "why_not_current_pr_scope": "This reconciliation PR is documentation and ledger correction only. CrUX retrieval belongs to the evidence task, while disabled-by-default privacy-safe instrumentation belongs to PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01; production enablement is outside the train.",
+    "latest_evidence_pr_id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
+    "latest_evidence_branch": "codex/public-cwv-rum-privacy-safe-instrumentation-01",
+    "updated_at": "2026-08-10T07:44:53Z",
+    "evidence": "The audit contains no sufficient CrUX field cohort and no production RUM sample. Field performance remains unknown and laboratory observations cannot be relabeled as field CWV. A privacy-safe collector boundary is implemented but remains default-off with an intentional no-op sink, so it produces no field data and does not change the insufficient baseline.",
+    "reproduction_or_evidence_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/cwv_monthly_baseline.csv; docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/12-field-cwv-rum-monitor.md; lib/tracking/webVitals.ts",
+    "why_not_current_pr_scope": "This scope may add only default-off no-op product code. CrUX retrieval, a real sink, production flag/config changes, analytics property mutation and deployment require separate authority and remain forbidden.",
     "required_checks_affected": false,
     "scope_validation_affected": false,
     "merge_policy_affected": false,
     "severity": "high",
     "recommended_owner": "performance telemetry authority owner",
-    "recommended_follow_up": "Attempt privacy-safe field evidence retrieval; implement only default-off aggregate RUM product code in its dedicated PR, and require separate authority before any production enablement or data collection.",
+    "recommended_follow_up": "Obtain privacy-safe field evidence independently or separately authorize a reviewed sink plus exact production activation and deployment; then collect a full reporting month before relative alerts.",
     "status": "open"
   },
   {
@@ -579,6 +582,25 @@
     "severity": "medium",
     "recommended_owner": "public acquisition and tracking runtime owner",
     "recommended_follow_up": "Decide whether approved inbound attribution must persist across homepage, Tests Hub, and personality-to-test navigation. If yes, implement and contract-test only those public transitions in a separate PR without widening candidate-only ref/source.",
+    "status": "open"
+  },
+  {
+    "id": "metadata-surface-inventory-eq-history-drift-20260810",
+    "detected_at": "2026-08-10T07:52:00Z",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
+    "branch": "codex/public-cwv-rum-privacy-safe-instrumentation-01",
+    "blocker_type": "pre_existing_generated_metadata_inventory_drift",
+    "affected_surface": "Generated metadata surface inventory",
+    "evidence": "The required production build passed but regenerated metadata-surface-inventory.v1.csv/json to add the tracked private noindex route app/(localized)/[locale]/(app)/history/eq/page.tsx, which has existed on main since commit 770662f2529ad5d4fa777c710bf25dd5edfc5eb2. The build-only output was removed from this PR to preserve its exact RUM scope.",
+    "reproduction_or_evidence_path": "app/(localized)/[locale]/(app)/history/eq/page.tsx; docs/seo/generated/metadata-surface-inventory.v1.csv; docs/seo/generated/metadata-surface-inventory.v1.json",
+    "why_not_current_pr_scope": "This PR may change only the declared CWV/RUM runtime, contract, audit-doc, sidecar and train paths. Refreshing SEO-generated inventories is an independent metadata governance scope and would violate the manifest allowlist.",
+    "required_checks_affected": false,
+    "scope_validation_affected": false,
+    "merge_policy_affected": false,
+    "severity": "low",
+    "recommended_owner": "SEO metadata inventory owner",
+    "recommended_follow_up": "Regenerate and review the metadata surface inventory in a dedicated scoped PR, confirming the EQ history route remains private noindex and excluded from public discovery surfaces.",
     "status": "open"
   }
 ]
