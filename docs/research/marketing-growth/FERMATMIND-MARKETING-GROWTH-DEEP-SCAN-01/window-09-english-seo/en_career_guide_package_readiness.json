@@ -1,0 +1,48 @@
+{
+  "artifact_kind": "career_guide_package_readiness",
+  "status": "CAREER_GUIDE_PACKAGE_WAITING_EXACT_SLUG_CONFIRMATION",
+  "content_package_generated": false,
+  "report_package_root": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-09-english-seo/packages/career-guides",
+  "current_package_root": "NOT_GENERATED",
+  "current_package_sha256": "NOT_GENERATED",
+  "c06": "WAITING_ON_C06_C07",
+  "c07": "WAITING_ON_C06_C07",
+  "operator_exact_slugs": [],
+  "formal_batch_confirmed": false,
+  "current_candidate_count": 5,
+  "current_candidates_status": "CANDIDATE_ONLY",
+  "required_inputs": [
+    "C06 engineering/publication/production truth",
+    "C07 locale/governance closure",
+    "operator-confirmed exact slugs",
+    "frozen PASS block assets",
+    "backend public projection",
+    "source/evidence/trust/synthesis ledgers",
+    "page assembly PASS",
+    "search projection quarantine"
+  ],
+  "allowed_asset_families": [
+    "identity",
+    "work activities",
+    "fit",
+    "skills/entry",
+    "risk/future",
+    "adjacent careers",
+    "salary only after independent salary gate",
+    "page assembly"
+  ],
+  "search_projection_container": "career_kg_search_projection_candidate",
+  "historical_v2_reference_only": {
+    "root": "generated/en-content-parity/v2/W3/career-guides/0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+    "sha256": "0b6728c9a07e9404d0de57698f0f8b59616358ba91e456d1be848a1fe167ca7c",
+    "state": "dry_run_ready",
+    "use_for_current_batch": false,
+    "reason": "Existing historical lane cannot replace C06/C07 and operator exact-slug confirmation for this pilot."
+  },
+  "import_allowed": false,
+  "publish_allowed": false,
+  "indexability_allowed": false,
+  "sitemap_allowed": false,
+  "llms_allowed": false,
+  "search_queue_allowed": false
+}

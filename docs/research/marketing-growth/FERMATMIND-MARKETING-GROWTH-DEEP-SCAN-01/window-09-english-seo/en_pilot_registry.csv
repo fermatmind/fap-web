@@ -1,0 +1,9 @@
+cohort,scope,status,authority,package_root,package_sha,decision,next_gate
+E01 GSC market split,US/UK/OTHER/GLOBAL + device,PARTIALLY_BLOCKED,GSC retained exports,N/A,N/A,HOLD_FOR_EXACT_EXPORT,exact country×device×query×page export
+E02 RIASEC,/en/tests/holland-career-interest-test-riasec,BASELINE_COMPLETE,fap-api scale API + live SERP,N/A,N/A,LOW_RISK_EXPERIMENT_CANDIDATE,CMS-authoritative change proposal and pre/post measurement
+E03 Personality,already-shown/backend-authoritative EN pages,BASELINE_COMPLETE,backend personality APIs + GSC,N/A,N/A,PROTECT_AND_TARGETED_METADATA,window-04 ownership handoff + exact rows
+E04 Articles,40 current EN API records,BASELINE_COMPLETE,CMS API + article ledger,N/A,N/A,REFRESH_SHOWN_PAGES_HOLD_NEW_WORK,per-query evidence and window-05 90-day disposal
+E05 Career candidates,5 research candidates,WAITING_ON_C06_C07,none for formal batch,packages/career-guides,NOT_GENERATED,CANDIDATE_ONLY,C06+C07+operator exact slugs
+E06 W3 Articles,17 exact article identities,W3_ARTICLE_PACKAGE_READY_NOT_PROMOTED,V2 master,generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a,d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a,HOLD_CONTROL_STATE,trusted receipt-chain registration outside this goal
+E07 Career Guides,no formal current package,CAREER_GUIDE_PACKAGE_WAITING_EXACT_SLUG_CONFIRMATION,Career factory + backend,packages/career-guides,NOT_GENERATED,WAIT,C06+C07+operator exact slugs
+E08 28-day review,all actually released pilot cohorts,ENGLISH_PILOT_WAITING_28_DAY_WINDOW,future GSC/analytics/live QA,N/A,N/A,NO_EXPAND_OR_STOP_YET,complete 28-day observation window

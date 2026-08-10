@@ -1,0 +1,9 @@
+{
+  "artifact_kind": "career_guide_readiness_reference",
+  "status": "CAREER_GUIDE_PACKAGE_WAITING_EXACT_SLUG_CONFIRMATION",
+  "package_generated": false,
+  "package_sha256": "NOT_GENERATED",
+  "c06": "WAITING",
+  "c07": "WAITING",
+  "operator_exact_slugs": []
+}

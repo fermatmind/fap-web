@@ -1,0 +1,15 @@
+# W3 Article Package QA
+
+The V2 master binds exact W9 QA PASS evidence at `generated/en-content-parity/W9-independent-qa/articles/w3-articles-d70e468b/independent_qa_report.json` to package SHA `d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a`. Package freeze, QA pass, and dry-run-ready appear in order; no later state is accepted in the master.
+
+## Verified package properties
+
+- Dedicated root and exact physical payload inventory.
+- Source ledger with 17 unique stable identities.
+- Source repository and commit bound by external-package evidence.
+- Payload SHAs, claim-boundary review, translation/rework audit, dry-run mapping, and rollback identity.
+- No package bytes were modified by this report.
+
+## Blocking discrepancy
+
+Current public API readback exposes the 17 records but leaves all 17 non-indexable and out of sitemap/llms, while the control master contains no promotion receipt chain. QA integrity does not resolve that authority mismatch; no state transition is claimed.

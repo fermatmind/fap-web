@@ -1,0 +1,11 @@
+query_id,query,surface,country,device,locale,date_window,page,clicks,impressions,ctr,position,evidence_status,limitation,decision
+Q01,free RIASEC test,assessment,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/tests/holland-career-interest-test-riasec,1,158,0.6%,10.9,HISTORICAL,Near winner; country/device unavailable,E02 low-risk snippet/first-fold candidate
+Q02,intp-a,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/intp-a,1,578,0.17%,7.3,VERIFIED,Query-level retained snapshot; exact date differs from page aggregate,Metadata experiment
+Q03,intp a,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/intp-a,1,361,0.28%,8.8,VERIFIED,Query-level retained snapshot,Metadata experiment
+Q04,intp-a meaning,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/intp-a,1,150,0.67%,10.5,VERIFIED,Query-level retained snapshot,Visible definition alignment
+Q05,3w2,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/enneagram/wings/3w2,0,98,0%,8.3,VERIFIED,Country/device unavailable,Metadata/visible definition candidate
+Q06,3w4,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/enneagram/wings/3w4,0,38,0%,6.7,VERIFIED,Country/device unavailable,Metadata/visible definition candidate
+Q07,5w6,personality,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/personality/enneagram/wings/5w6,0,40,0%,10.4,VERIFIED,Country/device unavailable,Metadata/visible definition candidate
+Q08,what is RIASEC / Holland Code,article,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/articles/what-is-riasec-holland-code-career-interest-test,2,1755,0.11%,25.07,VERIFIED,2026-07-10..2026-08-06 closure snapshot,Refresh query alignment; retain assessment distinction
+Q09,MBTI vs Holland Code career choice,article,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/articles/mbti-vs-holland-code-career-choice,0,56,0%,8.05,VERIFIED,Country/device unavailable,Snippet and intent refresh
+Q10,career job cluster,career,GLOBAL,ALL,en,2026-07-10/2026-08-06,/en/career/jobs/{slug},3,6518,0.05%,UNKNOWN,VERIFIED,Family aggregate; no complete query×page candidates,Do not expand until C06/C07

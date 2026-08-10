@@ -1,0 +1,41 @@
+{
+  "artifact_kind": "english_market_segment_spec",
+  "locale_rule": {
+    "page_locale": "verified canonical path beginning /en/",
+    "user_language": "UNKNOWN because GSC exposes no reliable user-language dimension"
+  },
+  "country_groups": {
+    "US": {
+      "predicate": "country=USA",
+      "mutually_exclusive": true
+    },
+    "UK": {
+      "predicate": "country=GBR",
+      "mutually_exclusive": true
+    },
+    "OTHER": {
+      "predicate": "country NOT IN (USA, GBR)",
+      "mutually_exclusive": true
+    },
+    "GLOBAL": {
+      "predicate": "all countries",
+      "mutually_exclusive": false,
+      "note": "Total view; never add to US+UK+OTHER."
+    }
+  },
+  "invariant": "GLOBAL = US + UK + OTHER only when all three mutually exclusive groups come from the same complete export and filters.",
+  "devices": [
+    "mobile",
+    "desktop",
+    "tablet"
+  ],
+  "surfaces": [
+    "assessment",
+    "personality",
+    "articles",
+    "career",
+    "hubs/content pages",
+    "homepage"
+  ],
+  "current_data_state": "PARTIAL: global, device totals and selected country totals exist; exact US/UK/OTHER EN cross-splits are unavailable."
+}
