@@ -169,6 +169,13 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     }
 
     currentPaths = fullCohortPaths();
+    const { clearLlmsFullResponseCache, getLlmsFullBuildCooldownPath } = await import(
+      "@/lib/seo/llmsFullResponseCache"
+    );
+    clearLlmsFullResponseCache(SITE_URL);
+    await vi.waitFor(() => {
+      expect(fs.existsSync(getLlmsFullBuildCooldownPath(SITE_URL))).toBe(false);
+    });
     const generatedResponse = await GET();
     const generatedText = await generatedResponse.text();
     expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
