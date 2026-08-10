@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "84ff7a59c9e0a989cb49e4002f57acfe41588a57b3b6656338582ce71ab3c029"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "84ff7a59c9e0a989cb49e4002f57acfe41588a57b3b6656338582ce71ab3c029",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界",
@@ -58,12 +59,36 @@
       "RIASEC 六种类型"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 0,
-      "impressions": 220,
-      "ctr": "0%",
-      "position": "7.3",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 207,
+          "ctr": "0.0%",
+          "position": 6.86,
+          "source_row_rank": 66
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 4,
+          "impressions": 966,
+          "ctr": "0.41%",
+          "position": 8.15,
+          "source_row_rank": 9
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 4,
+          "impressions": 1347,
+          "ctr": "0.3%",
+          "position": 8.0,
+          "source_row_rank": 17
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "definition_and_limits",
     "current_owner": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
@@ -356,7 +381,27 @@
       "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 0,
+      "impressions": 220,
+      "ctr": "0%",
+      "position": "7.3",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 5,
+      "score": 30.1749,
+      "tier": "P2",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": false
+    }
   },
   "body_revision": [
     {
@@ -544,7 +589,7 @@
   ],
   "unresolved_unknowns": [
     "FermatMind-specific RIASEC form evidence, norms, percentiles and zh/en equivalence",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

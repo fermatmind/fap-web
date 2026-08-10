@@ -1,6 +1,6 @@
 {
-  "version": "article_topic_owner_registry.v1",
-  "captured_at": "2026-08-10T12:00:00+08:00",
+  "version": "article_topic_owner_registry.v2-evidence-closeout",
+  "captured_at": "2026-08-10T18:30:00+08:00",
   "policy": "one-query-one-primary-owner",
   "owners": [
     {
@@ -15,11 +15,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -33,11 +33,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -51,11 +51,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "MBTI",
@@ -69,11 +69,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -81,17 +81,17 @@
       "query": "大五人格测试 / OCEAN 测试",
       "intent": "transactional",
       "funnel_stage": "consideration",
-      "current_ranking_page": "https://fermatmind.com/zh/articles/big-five-tool-guide (HISTORICAL GSC conflict)",
+      "current_ranking_page": "Unknown",
       "proposed_primary_owner": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "supporting_articles": "https://fermatmind.com/zh/articles/big-five-tool-guide",
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "VERIFIED historical wrong owner",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -105,11 +105,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -123,11 +123,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Big Five",
@@ -141,11 +141,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -159,11 +159,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -177,11 +177,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -195,11 +195,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/zh/career",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "CAREER_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "Career C06 before new career edges",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "Career C06 current completion artifact missing; career owner gate closed",
+      "evidence_status": "DESIGN_ONLY; C06 MISSING; current query×page ranking UNKNOWN"
     },
     {
       "topic": "RIASEC",
@@ -213,11 +213,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/en/career",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "RIASEC",
@@ -231,11 +231,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
       "public_personality_page": "Unknown",
       "career_page": "https://fermatmind.com/en/career",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -249,11 +249,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -267,11 +267,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/zh/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "Enneagram",
@@ -285,11 +285,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
       "public_personality_page": "https://fermatmind.com/en/personality",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "IQ",
@@ -303,11 +303,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "IQ",
@@ -321,11 +321,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "IQ",
@@ -339,11 +339,11 @@
       "assessment_landing": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "EQ",
@@ -357,11 +357,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "EQ",
@@ -375,11 +375,11 @@
       "assessment_landing": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ARTICLE_OR_ENTITY_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     },
     {
       "topic": "EQ",
@@ -393,11 +393,19 @@
       "assessment_landing": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
       "public_personality_page": "Unknown",
       "career_page": "Unknown",
-      "cannibalization": "UNKNOWN pending complete query×page export",
+      "cannibalization": "UNKNOWN pending non-empty query×page export",
       "ownership_decision": "ASSESSMENT_LANDING_PRIMARY",
       "rationale": "one-query-one-primary-owner; article supports but does not absorb transactional or entity intent",
-      "dependency": "M01 complete query×page export for validation",
-      "evidence_status": "DESIGN; selected historical rows VERIFIED, remaining query ownership INFERRED"
+      "dependency": "A01/P03-P05/G03 owner design consumed; M01 query×page export remains OAuth-blocked",
+      "evidence_status": "DESIGN_OWNER_CONSUMED; current query ranking/cannibalization UNKNOWN; no publication authority"
     }
-  ]
+  ],
+  "upstream_dependency_state": {
+    "assessment_A01": "DESIGN_OWNER_CONSUMED; current query ranking UNKNOWN",
+    "personality_P03_P05": "DESIGN_OWNER_AND_GRAPH_CONSUMED; implementation not started",
+    "career_C06": "MISSING_CURRENT_COMPLETION_ARTIFACT; gate closed",
+    "topic_graph_G03_G04": "DESIGN_CONSUMED; backend/frontend implementation not started",
+    "M01_query_page": "UNKNOWN_BLOCKED_OAUTH; 0 rows",
+    "publication_authorized": false
+  }
 }

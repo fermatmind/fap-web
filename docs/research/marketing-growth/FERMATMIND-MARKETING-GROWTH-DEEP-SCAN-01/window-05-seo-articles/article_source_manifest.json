@@ -1,6 +1,6 @@
 {
-  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01",
-  "captured_at": "2026-08-10T13:45:00+08:00",
+  "task_id": "FERMATMIND-SEO-ARTICLE-PORTFOLIO-01-EVIDENCE-CLOSEOUT",
+  "captured_at": "2026-08-10T18:30:00+08:00",
   "counting_units": {
     "cms_article_identity": {
       "count": 129,
@@ -30,12 +30,12 @@
       "status": "VERIFIED by bounded live GET"
     },
     "gsc_observed_article_url": {
-      "count": 56,
-      "zh": 39,
-      "en": 17,
-      "status": "HISTORICAL",
-      "window": "2026-07-13_to_2026-08-09",
-      "limitation": "current M01 export unavailable"
+      "current28_count": 58,
+      "prev28_count": 48,
+      "day90_count": 58,
+      "cohort_count": 129,
+      "status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "limitation": "Top 1000 UI export per window; absent URLs remain Unknown; query×page is 0 rows"
     }
   },
   "sources": [
@@ -70,24 +70,15 @@
       "limitation": "not a browser/mobile visual audit"
     },
     {
-      "source": "historical GSC article inventory",
-      "url_path": "/Users/rainie/Desktop/GitHub/fap-api/docs/research/seo/FERMATMIND-FULL-SITE-SEO-STRATEGY-EVIDENCE-ENGINEERING-CLOSURE-04/article_inventory_validated.csv",
-      "captured_at": "2026-08-07",
-      "locale": "en/zh",
-      "country_device": "aggregate",
-      "date_window": "2026-07-13_to_2026-08-09",
-      "evidence_status": "HISTORICAL",
-      "limitation": "no complete query×page×country×device; 56 observed URLs"
-    },
-    {
-      "source": "historical GA4 scan",
-      "url_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/11-cro-funnel-analysis.md",
-      "captured_at": "2026-08-10",
+      "source": "M04 GA4/backend truth reconciliation",
+      "url_path": "docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-02-measurement/05-ga4-backend-truth-reconciliation.md",
+      "captured_at": "2026-08-10T18:30:00+08:00",
       "locale": "aggregate",
       "country_device": "aggregate",
       "date_window": "2026-07-13_to_2026-08-09",
-      "evidence_status": "HISTORICAL",
-      "limitation": "article URL breakdown unavailable; consent gate"
+      "evidence_status": "PARTIALLY_BLOCKED",
+      "source_sha256": "7ad44f6e36298dd23428ede2dd3ca554801f4c8a8514022b2b62ecc60e2569fe",
+      "limitation": "aggregate GA4 only; backend truth and article URL attribution unavailable"
     },
     {
       "source": "controlled Brave Search Top 10 snapshots",
@@ -118,6 +109,27 @@
       "date_window": "current source review",
       "evidence_status": "VERIFIED_DIRECT_SOURCES",
       "limitation": "general research, standards and official policy support only their named claims; not FermatMind product validation"
+    },
+    {
+      "source": "M01 GSC page single-dimension safe article projection",
+      "url_path": "article_gsc_page_evidence.csv",
+      "captured_at": "2026-08-10T18:30:00+08:00",
+      "locale": "en/zh",
+      "country_device": "aggregate; dimension cannot be joined",
+      "date_window": "current28/prev28/day90 ending 2026-08-09",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source_sha256": "4ffc93d96f0db3e25d4fca2cf9b5615cbc532528e6e625bbff8ba3ccf72ec8cf",
+      "limitation": "Top 1000 UI rows; absence is Unknown, not zero; exact query ownership remains Unknown"
+    },
+    {
+      "source": "evidence closeout dependency ledger",
+      "url_path": "article_evidence_closeout_dependencies.json",
+      "captured_at": "2026-08-10T18:30:00+08:00",
+      "locale": "not applicable",
+      "country_device": "not applicable",
+      "date_window": "current workspace snapshot",
+      "evidence_status": "MIXED; see per-dependency status",
+      "limitation": "design artifacts do not authorize CMS import, publication, graph implementation, or current query-rank claims"
     }
   ],
   "prohibited_data_read": false,

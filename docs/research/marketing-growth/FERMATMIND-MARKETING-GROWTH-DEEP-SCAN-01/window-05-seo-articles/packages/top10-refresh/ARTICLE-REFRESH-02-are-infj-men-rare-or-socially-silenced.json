@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "d0030921dbd45fe584d5003ea955b22b980503c903441b66ff53ca986379cb94"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "d0030921dbd45fe584d5003ea955b22b980503c903441b66ff53ca986379cb94",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "INFJ 男性真的少见吗？比例来源、样本限制与类型误读",
@@ -57,12 +58,36 @@
       "INFJ 稀有 数据"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 5,
-      "impressions": 205,
-      "ctr": "2.44%",
-      "position": "8.38",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 6,
+          "impressions": 209,
+          "ctr": "2.87%",
+          "position": 8.3,
+          "source_row_rank": 8
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 4,
+          "impressions": 122,
+          "ctr": "3.28%",
+          "position": 9.9,
+          "source_row_rank": 11
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 12,
+          "impressions": 424,
+          "ctr": "2.83%",
+          "position": 9.84,
+          "source_row_rank": 7
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "evidence_and_misreading",
     "current_owner": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
@@ -319,7 +344,27 @@
       "https://fermatmind.com/support/mbti-facts"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 5,
+      "impressions": 205,
+      "ctr": "2.44%",
+      "position": "8.38",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 10,
+      "score": 10.0,
+      "tier": "P3",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": true
+    }
   },
   "body_revision": [
     {
@@ -503,7 +548,7 @@
   ],
   "unresolved_unknowns": [
     "current population prevalence by locale, instrument and gender; FermatMind-specific MBTI evidence",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "76f46f3315190f391f9827d4dcab9a0f145c11a54596af261a14fc1041087763"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "76f46f3315190f391f9827d4dcab9a0f145c11a54596af261a14fc1041087763",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "大五人格情绪稳定性低怎么办？压力触发、恢复与沟通边界",
@@ -58,12 +59,36 @@
       "情绪稳定性 沟通"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 0,
-      "impressions": 155,
-      "ctr": "0%",
-      "position": "12.54",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 146,
+          "ctr": "0.0%",
+          "position": 12.71,
+          "source_row_rank": 71
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 0,
+          "impressions": 274,
+          "ctr": "0.0%",
+          "position": 15.43,
+          "source_row_rank": 50
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 420,
+          "ctr": "0.0%",
+          "position": 14.48,
+          "source_row_rank": 92
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "practical_support",
     "current_owner": "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
@@ -277,7 +302,27 @@
       "https://fermatmind.com/zh/personality/big-five"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 0,
+      "impressions": 155,
+      "ctr": "0%",
+      "position": "12.54",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 9,
+      "score": 11.487,
+      "tier": "P3",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": false
+    }
   },
   "body_revision": [
     {
@@ -469,7 +514,7 @@
   ],
   "unresolved_unknowns": [
     "FermatMind-specific Big Five scoring direction, norms, error and clinical interpretation",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

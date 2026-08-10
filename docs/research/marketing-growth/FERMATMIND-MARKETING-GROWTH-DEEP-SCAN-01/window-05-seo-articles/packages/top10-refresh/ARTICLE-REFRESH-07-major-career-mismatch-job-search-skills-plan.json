@@ -15,9 +15,10 @@
     "search_submit_allowed": false,
     "english_v2_control_required": false,
     "english_v2_freeze_sha": "Not applicable",
-    "status": "READY_NOT_IMPORTED",
-    "assembled_at": "2026-08-10T13:19:33+08:00",
-    "body_sha256": "c8351b441897474e80d1f6433905a9bab954db31eb9f803c8ca03aa21afbf97e"
+    "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+    "assembled_at": "2026-08-10T18:30:00+08:00",
+    "body_sha256": "c8351b441897474e80d1f6433905a9bab954db31eb9f803c8ca03aa21afbf97e",
+    "cms_write_performed": false
   },
   "cms_fields": {
     "title": "专业不对口怎么找工作？JD 拆解、技能证据与验证清单",
@@ -58,12 +59,36 @@
       "专业不对口 技能证据"
     ],
     "current_gsc_baseline": {
-      "window": "2026-07-13_to_2026-08-09",
-      "clicks": 0,
-      "impressions": 237,
-      "ctr": "0%",
-      "position": "10.18",
-      "status": "HISTORICAL"
+      "grain": "page_single_dimension",
+      "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+      "source": "article_gsc_page_evidence.csv",
+      "windows": {
+        "current28": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 211,
+          "ctr": "0.0%",
+          "position": 9.68,
+          "source_row_rank": 64
+        },
+        "prev28": {
+          "window": "2026-06-15_to_2026-07-12",
+          "clicks": 1,
+          "impressions": 742,
+          "ctr": "0.13%",
+          "position": 14.39,
+          "source_row_rank": 18
+        },
+        "day90": {
+          "window": "2026-05-12_to_2026-08-09",
+          "clicks": 1,
+          "impressions": 953,
+          "ctr": "0.1%",
+          "position": 13.35,
+          "source_row_rank": 35
+        }
+      },
+      "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
     },
     "dominant_intent": "action_plan",
     "current_owner": "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan",
@@ -342,7 +367,27 @@
       "https://fermatmind.com/zh/articles/career-confusion-test-map"
     ],
     "live_http_status": 200,
-    "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+    "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+    "historical_query_signal": {
+      "window": "2026-07-13_to_2026-08-09",
+      "clicks": 0,
+      "impressions": 237,
+      "ctr": "0%",
+      "position": "10.18",
+      "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+    },
+    "current_gsc_query_page_baseline": {
+      "status": "UNKNOWN_BLOCKED_OAUTH",
+      "row_count": 0,
+      "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+    },
+    "current_priority": {
+      "rank": 7,
+      "score": 21.7975,
+      "tier": "P2",
+      "formula_version": "window5_page_opportunity.v1",
+      "controlled_serp_not_observed": false
+    }
   },
   "body_revision": [
     {
@@ -534,7 +579,7 @@
   ],
   "unresolved_unknowns": [
     "reader-specific target role, jurisdiction, regulated requirements and employer decision",
-    "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+    "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
     "future CMS draft identity, editor decision, publish date and post-publish outcomes"
   ],
   "answer_surface_schema_alignment": {

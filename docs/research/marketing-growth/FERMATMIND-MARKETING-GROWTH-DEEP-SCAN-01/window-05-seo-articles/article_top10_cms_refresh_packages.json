@@ -1,6 +1,6 @@
 {
-  "version": "article.top10-cms-refresh-packages.v2",
-  "status": "TOP10_ARTICLE_CMS_REFRESH_PACKAGES_READY_NOT_IMPORTED",
+  "version": "article_top10_cms_refresh_packages.v3",
+  "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
   "counting_unit": "locale-page",
   "package_count": 10,
   "packages": [
@@ -21,9 +21,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "0b4543b96ea9159315bafdb38a2fbe98124cfcc56be58354d3cece9942905456"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "0b4543b96ea9159315bafdb38a2fbe98124cfcc56be58354d3cece9942905456",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "大五人格测试结果怎么看？OCEAN 五维、分数与使用边界",
@@ -61,12 +62,36 @@
           "OCEAN 分数怎么看"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 8,
-          "impressions": 817,
-          "ctr": "0.98%",
-          "position": "7.61",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 11,
+              "impressions": 676,
+              "ctr": "1.63%",
+              "position": 7.91,
+              "source_row_rank": 5
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 7,
+              "impressions": 1515,
+              "ctr": "0.46%",
+              "position": 7.78,
+              "source_row_rank": 4
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 18,
+              "impressions": 2191,
+              "ctr": "0.82%",
+              "position": 7.82,
+              "source_row_rank": 5
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "method_and_interpretation",
         "current_owner": "https://fermatmind.com/zh/articles/big-five-tool-guide",
@@ -283,7 +308,27 @@
           "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=big-five-tool-guide&content_id=3&target_action=seo_cta_start_test&test_slug=big-five-personality-test-ocean-model&target_test_slug=big-five-personality-test-ocean-model&cta_id=start_test&landing_path=%2Fzh%2Farticles%2Fbig-five-tool-guide&entrypoint=seo_cta"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 8,
+          "impressions": 817,
+          "ctr": "0.98%",
+          "position": "7.61",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 6,
+          "score": 25.8104,
+          "tier": "P2",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": true
+        }
       },
       "body_revision": [
         {
@@ -471,7 +516,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific Big Five instrument version, reliability, validity, norms, percentiles and language equivalence",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -509,9 +554,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "d0030921dbd45fe584d5003ea955b22b980503c903441b66ff53ca986379cb94"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "d0030921dbd45fe584d5003ea955b22b980503c903441b66ff53ca986379cb94",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "INFJ 男性真的少见吗？比例来源、样本限制与类型误读",
@@ -551,12 +597,36 @@
           "INFJ 稀有 数据"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 5,
-          "impressions": 205,
-          "ctr": "2.44%",
-          "position": "8.38",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 6,
+              "impressions": 209,
+              "ctr": "2.87%",
+              "position": 8.3,
+              "source_row_rank": 8
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 4,
+              "impressions": 122,
+              "ctr": "3.28%",
+              "position": 9.9,
+              "source_row_rank": 11
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 12,
+              "impressions": 424,
+              "ctr": "2.83%",
+              "position": 9.84,
+              "source_row_rank": 7
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "evidence_and_misreading",
         "current_owner": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
@@ -813,7 +883,27 @@
           "https://fermatmind.com/support/mbti-facts"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 5,
+          "impressions": 205,
+          "ctr": "2.44%",
+          "position": "8.38",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 10,
+          "score": 10.0,
+          "tier": "P3",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": true
+        }
       },
       "body_revision": [
         {
@@ -997,7 +1087,7 @@
       ],
       "unresolved_unknowns": [
         "current population prevalence by locale, instrument and gender; FermatMind-specific MBTI evidence",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -1035,9 +1125,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "3ef4d8f507bd45ca898c30ffb223dbb82b67db48681a9fb2667b5529db743530"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "3ef4d8f507bd45ca898c30ffb223dbb82b67db48681a9fb2667b5529db743530",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "九型人格测试准吗？核心动机、误判原因与结果边界",
@@ -1075,12 +1166,36 @@
           "九型人格 结果怎么看"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 4,
-          "impressions": 555,
-          "ctr": "0.72%",
-          "position": "7.54",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 4,
+              "impressions": 620,
+              "ctr": "0.65%",
+              "position": 7.31,
+              "source_row_rank": 10
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 2,
+              "impressions": 1184,
+              "ctr": "0.17%",
+              "position": 10.98,
+              "source_row_rank": 14
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 6,
+              "impressions": 1804,
+              "ctr": "0.33%",
+              "position": 9.72,
+              "source_row_rank": 13
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "test_limits",
         "current_owner": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
@@ -1390,7 +1505,27 @@
           "https://fermatmind.com/zh/articles/eq-test-tool-guide"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 4,
+          "impressions": 555,
+          "ctr": "0.72%",
+          "position": "7.54",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 2,
+          "score": 57.2503,
+          "tier": "P1",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": false
+        }
       },
       "body_revision": [
         {
@@ -1564,7 +1699,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific Enneagram reliability, validity, norms and agreement across schools",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -1602,9 +1737,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "e5a023364c6573e2ffdcda66a562e5875c49e12ecdb3aef438cb2f069d89c586"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "e5a023364c6573e2ffdcda66a562e5875c49e12ecdb3aef438cb2f069d89c586",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "高考志愿要不要服从调剂？先核对规则与不能接受专业清单",
@@ -1647,12 +1783,36 @@
           "不能接受的专业清单"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 1,
-          "impressions": 986,
-          "ctr": "0.1%",
-          "position": "6.56",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 1,
+              "impressions": 1085,
+              "ctr": "0.09%",
+              "position": 6.58,
+              "source_row_rank": 25
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 5,
+              "impressions": 3132,
+              "ctr": "0.16%",
+              "position": 7.56,
+              "source_row_rank": 6
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 6,
+              "impressions": 4217,
+              "ctr": "0.14%",
+              "position": 7.31,
+              "source_row_rank": 12
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "decision_checklist",
         "current_owner": "https://fermatmind.com/zh/articles/gaokao-major-adjustment-unacceptable-major-checklist",
@@ -1961,7 +2121,27 @@
           "https://fermatmind.com/zh/articles/career-interest-vs-personality-test-differences"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 1,
+          "impressions": 986,
+          "ctr": "0.1%",
+          "position": "6.56",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 1,
+          "score": 167.4734,
+          "tier": "P1",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": true
+        }
       },
       "body_revision": [
         {
@@ -2135,7 +2315,7 @@
       ],
       "unresolved_unknowns": [
         "reader's province, score, institution, programme and current official adjustment rules",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -2173,9 +2353,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "84ff7a59c9e0a989cb49e4002f57acfe41588a57b3b6656338582ce71ab3c029"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "84ff7a59c9e0a989cb49e4002f57acfe41588a57b3b6656338582ce71ab3c029",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "RIASEC 是什么？霍兰德六种职业兴趣、三字码与使用边界",
@@ -2216,12 +2397,36 @@
           "RIASEC 六种类型"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 0,
-          "impressions": 220,
-          "ctr": "0%",
-          "position": "7.3",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 207,
+              "ctr": "0.0%",
+              "position": 6.86,
+              "source_row_rank": 66
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 4,
+              "impressions": 966,
+              "ctr": "0.41%",
+              "position": 8.15,
+              "source_row_rank": 9
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 4,
+              "impressions": 1347,
+              "ctr": "0.3%",
+              "position": 8.0,
+              "source_row_rank": 17
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "definition_and_limits",
         "current_owner": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
@@ -2514,7 +2719,27 @@
           "https://fermatmind.com/zh/articles/holland-career-interest-test-can-and-cannot-tell-you"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 220,
+          "ctr": "0%",
+          "position": "7.3",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 5,
+          "score": 30.1749,
+          "tier": "P2",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": false
+        }
       },
       "body_revision": [
         {
@@ -2702,7 +2927,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific RIASEC form evidence, norms, percentiles and zh/en equivalence",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -2740,9 +2965,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "0dfb461d6ebf661b7d5f25ca9ed8f0bf79a1d678a5fe7079dfc3bf842f35bddd"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "0dfb461d6ebf661b7d5f25ca9ed8f0bf79a1d678a5fe7079dfc3bf842f35bddd",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "在线 IQ 测试准吗？题型、分数解释与正式评估边界",
@@ -2782,12 +3008,36 @@
           "在线智商测试题型"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 0,
-          "impressions": 116,
-          "ctr": "0%",
-          "position": "6.11",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 118,
+              "ctr": "0.0%",
+              "position": 6.03,
+              "source_row_rank": 79
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 0,
+              "impressions": 356,
+              "ctr": "0.0%",
+              "position": 8.94,
+              "source_row_rank": 46
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 474,
+              "ctr": "0.0%",
+              "position": 8.22,
+              "source_row_rank": 90
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "score_interpretation",
         "current_owner": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
@@ -3064,7 +3314,27 @@
           "https://fermatmind.com/zh/articles/iq-test-narrative-portrait"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 116,
+          "ctr": "0%",
+          "position": "6.11",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 8,
+          "score": 19.5688,
+          "tier": "P3",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": false
+        }
       },
       "body_revision": [
         {
@@ -3256,7 +3526,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific IQ instrument coverage, reliability, validity, norms, percentiles and error",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -3294,9 +3564,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "c8351b441897474e80d1f6433905a9bab954db31eb9f803c8ca03aa21afbf97e"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "c8351b441897474e80d1f6433905a9bab954db31eb9f803c8ca03aa21afbf97e",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "专业不对口怎么找工作？JD 拆解、技能证据与验证清单",
@@ -3337,12 +3608,36 @@
           "专业不对口 技能证据"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 0,
-          "impressions": 237,
-          "ctr": "0%",
-          "position": "10.18",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 211,
+              "ctr": "0.0%",
+              "position": 9.68,
+              "source_row_rank": 64
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 1,
+              "impressions": 742,
+              "ctr": "0.13%",
+              "position": 14.39,
+              "source_row_rank": 18
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 1,
+              "impressions": 953,
+              "ctr": "0.1%",
+              "position": 13.35,
+              "source_row_rank": 35
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "action_plan",
         "current_owner": "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan",
@@ -3621,7 +3916,27 @@
           "https://fermatmind.com/zh/articles/career-confusion-test-map"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 237,
+          "ctr": "0%",
+          "position": "10.18",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 7,
+          "score": 21.7975,
+          "tier": "P2",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": false
+        }
       },
       "body_revision": [
         {
@@ -3813,7 +4128,7 @@
       ],
       "unresolved_unknowns": [
         "reader-specific target role, jurisdiction, regulated requirements and employer decision",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -3851,9 +4166,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "12d81c75e2f022fbfbec1dd4a932e55cef25b6d84bb00ee9d0fee163037b369a"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "12d81c75e2f022fbfbec1dd4a932e55cef25b6d84bb00ee9d0fee163037b369a",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "MBTI 是什么？四组偏好、16 型人格与使用边界",
@@ -3891,12 +4207,36 @@
           "MBTI 测试 局限"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 2,
-          "impressions": 646,
-          "ctr": "0.31%",
-          "position": "16.33",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 1,
+              "impressions": 600,
+              "ctr": "0.17%",
+              "position": 16.73,
+              "source_row_rank": 26
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 3,
+              "impressions": 1328,
+              "ctr": "0.23%",
+              "position": 14.14,
+              "source_row_rank": 12
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 4,
+              "impressions": 1952,
+              "ctr": "0.2%",
+              "position": 14.88,
+              "source_row_rank": 16
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "definition_and_limits",
         "current_owner": "https://fermatmind.com/zh/articles/mbti-basics",
@@ -4171,7 +4511,27 @@
           "https://fermatmind.com/zh/articles/big-five-personality-test-vs-mbti"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 2,
+          "impressions": 646,
+          "ctr": "0.31%",
+          "position": "16.33",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 4,
+          "score": 39.7669,
+          "tier": "P2",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": true
+        }
       },
       "body_revision": [
         {
@@ -4359,7 +4719,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific MBTI instrument version, reliability, validity and language equivalence",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -4397,9 +4757,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": false,
         "english_v2_freeze_sha": "Not applicable",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "76f46f3315190f391f9827d4dcab9a0f145c11a54596af261a14fc1041087763"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "76f46f3315190f391f9827d4dcab9a0f145c11a54596af261a14fc1041087763",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "大五人格情绪稳定性低怎么办？压力触发、恢复与沟通边界",
@@ -4440,12 +4801,36 @@
           "情绪稳定性 沟通"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 0,
-          "impressions": 155,
-          "ctr": "0%",
-          "position": "12.54",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 146,
+              "ctr": "0.0%",
+              "position": 12.71,
+              "source_row_rank": 71
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 0,
+              "impressions": 274,
+              "ctr": "0.0%",
+              "position": 15.43,
+              "source_row_rank": 50
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 0,
+              "impressions": 420,
+              "ctr": "0.0%",
+              "position": 14.48,
+              "source_row_rank": 92
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "practical_support",
         "current_owner": "https://fermatmind.com/zh/articles/big-five-emotional-stability-stress-recovery-communication",
@@ -4659,7 +5044,27 @@
           "https://fermatmind.com/zh/personality/big-five"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 0,
+          "impressions": 155,
+          "ctr": "0%",
+          "position": "12.54",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 9,
+          "score": 11.487,
+          "tier": "P3",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": false
+        }
       },
       "body_revision": [
         {
@@ -4851,7 +5256,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific Big Five scoring direction, norms, error and clinical interpretation",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -4889,9 +5294,10 @@
         "search_submit_allowed": false,
         "english_v2_control_required": true,
         "english_v2_freeze_sha": "Unknown",
-        "status": "READY_NOT_IMPORTED",
-        "assembled_at": "2026-08-10T13:19:33+08:00",
-        "body_sha256": "f828f72a6364df9b54e661014189a5eeddcfd21657cbd3feee1fca09a9927c74"
+        "status": "READY_NOT_IMPORTED_EVIDENCE_CLOSED",
+        "assembled_at": "2026-08-10T18:30:00+08:00",
+        "body_sha256": "f828f72a6364df9b54e661014189a5eeddcfd21657cbd3feee1fca09a9927c74",
+        "cms_write_performed": false
       },
       "cms_fields": {
         "title": "What Is RIASEC? Six Holland Interests, Codes, and Honest Limits",
@@ -4931,12 +5337,36 @@
           "Holland Code meaning"
         ],
         "current_gsc_baseline": {
-          "window": "2026-07-13_to_2026-08-09",
-          "clicks": 2,
-          "impressions": 1755,
-          "ctr": "0.11%",
-          "position": "25.07",
-          "status": "HISTORICAL"
+          "grain": "page_single_dimension",
+          "evidence_status": "VERIFIED_GSC_UI_SINGLE_DIMENSION_SOURCE_LIMITED",
+          "source": "article_gsc_page_evidence.csv",
+          "windows": {
+            "current28": {
+              "window": "2026-07-13_to_2026-08-09",
+              "clicks": 3,
+              "impressions": 1637,
+              "ctr": "0.18%",
+              "position": 24.58,
+              "source_row_rank": 11
+            },
+            "prev28": {
+              "window": "2026-06-15_to_2026-07-12",
+              "clicks": 4,
+              "impressions": 2049,
+              "ctr": "0.2%",
+              "position": 18.5,
+              "source_row_rank": 8
+            },
+            "day90": {
+              "window": "2026-05-12_to_2026-08-09",
+              "clicks": 10,
+              "impressions": 4252,
+              "ctr": "0.24%",
+              "position": 20.48,
+              "source_row_rank": 9
+            }
+          },
+          "limitation": "GSC UI Top 1000 rows per single-dimension export; rows cannot be joined across dimensions; absence is Unknown, not zero."
         },
         "dominant_intent": "definition_and_limits",
         "current_owner": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
@@ -5220,7 +5650,27 @@
           "https://fermatmind.com/en/tests/holland-career-interest-test-riasec?entry_surface=article_detail_seo_cta&source_page_type=article_detail&source_route_family=article&source_slug=what-is-riasec-holland-code-career-interest-test&content_id=41&target_action=seo_cta_p0_ctr_primary_test_cta&test_slug=holland-career-interest-test-riasec&target_test_slug=holland-career-interest-test-riasec&cta_id=p0_ctr_primary_test_cta&landing_path=%2Fen%2Farticles%2Fwhat-is-riasec-holland-code-career-interest-test&entrypoint=seo_cta"
         ],
         "live_http_status": 200,
-        "operational_rank_status": "Unknown; controlled provider snapshot is evidence, not GSC position"
+        "operational_rank_status": "Unknown at query×page grain; current page metrics and controlled-provider SERP are separate evidence.",
+        "historical_query_signal": {
+          "window": "2026-07-13_to_2026-08-09",
+          "clicks": 2,
+          "impressions": 1755,
+          "ctr": "0.11%",
+          "position": "25.07",
+          "status": "HISTORICAL_QUERY_SIGNAL_NOT_CURRENT_BASELINE"
+        },
+        "current_gsc_query_page_baseline": {
+          "status": "UNKNOWN_BLOCKED_OAUTH",
+          "row_count": 0,
+          "reason": "M01 query×page×country×device export is header-only; exact query ownership and cannibalization are not observed."
+        },
+        "current_priority": {
+          "rank": 3,
+          "score": 52.6233,
+          "tier": "P1",
+          "formula_version": "window5_page_opportunity.v1",
+          "controlled_serp_not_observed": true
+        }
       },
       "body_revision": [
         {
@@ -5416,7 +5866,7 @@
       ],
       "unresolved_unknowns": [
         "FermatMind-specific RIASEC form evidence, norms, percentiles and cross-language equivalence",
-        "current query-level GSC clicks, impressions, CTR, average position and cannibalization",
+        "current query×page GSC clicks, impressions, CTR, average position and cannibalization (M01 OAuth-blocked)",
         "future CMS draft identity, editor decision, publish date and post-publish outcomes"
       ],
       "answer_surface_schema_alignment": {
@@ -5438,12 +5888,24 @@
       }
     }
   ],
-  "assembled_at": "2026-08-10T13:19:33+08:00",
+  "assembled_at": "2026-08-10T18:30:00+08:00",
   "controlled_serp_evidence": {
     "source": "article_controlled_serp_snapshots.json",
     "query_count": 10,
     "results_per_query": 10,
     "provider": "Brave Search",
     "limitations": "Provider-specific observed order; not GSC ranking and not a guarantee of another engine, city, user, or future SERP."
+  },
+  "evidence_closeout": {
+    "current_gsc_grain": "page_single_dimension",
+    "article_query_page_grain": "UNKNOWN_BLOCKED_OAUTH",
+    "priority_formula": "impressions * max(0, 1 - ctr / position_bucket_target_ctr) / position + 10 when FermatMind not observed in controlled provider Top 10",
+    "position_bucket_target_ctr": {
+      "1-3": "5%",
+      "4-10": "2%",
+      "11-20": "1%",
+      "21+": "0.5%"
+    },
+    "cms_write_performed": false
   }
 }
