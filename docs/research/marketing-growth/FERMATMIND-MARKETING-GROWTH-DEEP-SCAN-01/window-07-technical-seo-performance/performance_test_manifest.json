@@ -170,6 +170,54 @@
     "rum": "UNKNOWN",
     "ga4_web_vitals": "UNKNOWN"
   },
+  "rum_instrumentation": {
+    "task_id": "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01",
+    "implementation_status": "IMPLEMENTED_DISABLED_BY_DEFAULT_NOOP",
+    "feature_flag": "NEXT_PUBLIC_PUBLIC_CWV_RUM_ENABLED",
+    "enabled_only_when_exact_value": "true",
+    "repository_default": false,
+    "production_tracking_enabled": false,
+    "payload_fields": 9,
+    "sink": "intentional no-op",
+    "network_transport": "none",
+    "field_evidence_produced": false
+  },
+  "completion_train_closeout": {
+    "task_id": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01",
+    "revalidated_at": "2026-08-10T08:11:00Z",
+    "source_main_commit": "43c30a13dc15c9e3494135d52d333576ddea176e",
+    "window7_files": 40,
+    "original_files": 31,
+    "followup_files": 9,
+    "csv_files_parsed": 16,
+    "json_files_parsed": 9,
+    "utf8_files_valid": 40,
+    "formula_risk_cells": 0,
+    "noncareer": {
+      "locale_pages": 525,
+      "normalized_paths": 525,
+      "identities": 306,
+      "career_urls_excluded": 28,
+      "career_urls_in_cohort": 0,
+      "exact_url_set_sha256": "2804a0f64a358ba27bd5e417989f573d5d684d0b601893dcea93d87675dae8ad",
+      "exact_normalized_path_set_sha256": "cb221673447dc66a197e77a8042ab9048af78a9dff50fcc5ee1185dda215aa79",
+      "exact_identity_set_sha256": "b1a79072fda69eaf73572f637fb7b50e399b61b5d5b7ed5016d77e52e7e8e679"
+    },
+    "big_five_alias_invariants_passed": 20,
+    "evidence_gates": [
+      {"id": 1, "status": "PASS", "reason": "Both critical definitions have three follow-up Playwright measurement-success rows."},
+      {"id": 2, "status": "PASS", "reason": "Six successful Lighthouse 13.4.1 audits contain standard Speed Index and TBT."},
+      {"id": 3, "status": "BLOCKED", "reason": "Only one of three required complete L1 interval windows exists."},
+      {"id": 4, "status": "PASS", "reason": "All 20 V2 rows contain explicit internal-link and shared-proxy cache evidence; unknown upstream/app cache composition is retained."},
+      {"id": 5, "status": "BLOCKED", "reason": "Required prior90 GSC and both GA4 90-day windows are unavailable; cohort evidence has zero fact rows."},
+      {"id": 6, "status": "BLOCKED", "reason": "No sufficient lawful real Field CWV/RUM dataset exists; instrumentation remains default-off/no-op."},
+      {"id": 7, "status": "PASS", "reason": "Lab and field evidence remain separately classified."},
+      {"id": 8, "status": "PASS_PENDING_CLOSEOUT_PR_MERGE", "reason": "PRs 1-6 passed scope and required checks; closeout PR checks remain its final merge gate."}
+    ],
+    "passed_gates": 5,
+    "blocked_gates": 3,
+    "final_status": "FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED"
+  },
   "safeguards": [
     "No assessment answers or submissions",
     "No payment/order/private result/attempt URL",
@@ -181,7 +229,7 @@
     "local network unthrottled",
     "mobile is viewport-only with desktop Chrome UA",
     "shared browser cache was not cleared before first run",
-    "Lighthouse attempts returned NO_FCP and are retained as tool failure; Speed Index unavailable",
+    "The original Lighthouse attempts returned NO_FCP and are retained as tool failures; standard Speed Index was unavailable in that historical run",
     "The follow-up remeasurement preserves the historical NO_FCP attempts and records six successful Lighthouse 13.4.1 desktop audits separately; this does not rewrite the original baseline.",
     "INP unavailable because no field data",
     "Only one of three required complete L1 registry windows was captured; no >=30-minute interval pair is evaluable and BASELINE_WINDOW_INCOMPLETE remains.",

@@ -58473,8 +58473,8 @@
     "depends_on": [
       "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "04e0f5514bc6bd3d403563f61afdfc6b15d9abd4",
+    "status": "merged",
+    "commit_sha": "ee69ea673d584f4b335e596042e791658fb6036a",
     "pr_url": "https://github.com/FermatMind/fap-web/pull/2044",
     "checks": {
       "dependency": {
@@ -58507,14 +58507,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-08-10T08:05:42Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "runtime_change": true,
     "production_tracking_enabled": false,
@@ -58561,13 +58561,19 @@
         "from": "github_checks_pending",
         "to": "ready_to_merge",
         "note": "All required GitHub and security checks passed on head 04e0f5514bc6bd3d403563f61afdfc6b15d9abd4. The exact 11-path scope, default-off flag absence from production config, no-op/no-transport contract, docs and sidecars were revalidated; PR #2044 is CLEAN and MERGEABLE with no review block."
+      },
+      {
+        "at": "2026-08-10T08:05:42Z",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #2044 merged as ee69ea673d584f4b335e596042e791658fb6036a after all required checks passed. origin/main contains the merge commit, local main was synchronized, the local and remote task branches were deleted, the worktree was clean, and the default-off/no-op source boundary was revalidated."
       }
     ],
     "sidecar_issues": [
       "window7-field-cwv-rum-data-unavailable-20260810",
       "metadata-surface-inventory-eq-history-drift-20260810"
     ],
-    "updated_at": "2026-08-10T08:00:53Z"
+    "updated_at": "2026-08-10T08:11:00Z"
   },
   "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01": {
     "id": "FERMATMIND-NONCAREER-TECHNICAL-GROWTH-AUDIT-CLOSEOUT-01",
@@ -58583,17 +58589,42 @@
       "NONCAREER-GSC-GA4-COHORT-EVIDENCE-01",
       "PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01"
     ],
-    "status": "planned",
+    "status": "local_verified",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {},
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "All six predecessor PRs are merged; origin/main contains merge commits 8bc5689155eae362c4baa02b938dda729ad2a95b, ecb45b95755e0a29521f2ae48d9fbe1a29869daf, f0b43145df0e002f00d2716c52cbcdf00180dca6, 577e89cb2682c5a57e1b760e853ebd4260c0cdb7, 13aab64c6be1616a5ed39343a32d7c9ef950d197 and ee69ea673d584f4b335e596042e791658fb6036a; predecessor local/remote task branches are absent."
+      },
+      "artifact_revalidation": {
+        "status": "pass",
+        "evidence": "All 40 Window 7 files are valid UTF-8; 16 CSVs parse with fixed non-empty headers, consistent widths and no formula-risk cells; nine JSONs parse; referenced follow-up artifact SHAs match."
+      },
+      "cohort_and_alias_invariants": {
+        "status": "pass",
+        "evidence": "Recomputed 525 URL, 525 normalized-path and 306 identity SHAs match the freeze exactly; 28 Career URLs remain excluded with zero Career URLs in the cohort; all 20 Big Five alias invariants pass."
+      },
+      "truth_and_privacy_boundaries": {
+        "status": "pass",
+        "evidence": "Canonical V2 contains 20 evidence rows without GSC/index overclaim; the GSC/GA4 artifact remains zero-row insufficient evidence; lab and field remain separate; RUM is exact-flag default-off with a no-op/no-transport sink and no production collection."
+      },
+      "eight_gate_decision": {
+        "status": "pass",
+        "evidence": "Gates 1, 2, 4, 7 and predecessor portion of 8 pass; gates 3, 5 and 6 remain blocked. The final audit status truthfully remains FERMATMIND_NONCAREER_TECHNICAL_GROWTH_AUDIT_PARTIALLY_BLOCKED."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Window 7 UTF-8/CSV/JSON/formula/privacy validation, all referenced artifact SHAs, non-Career set SHAs, Career exclusion, Big Five alias invariants, canonical V2 truth boundary, zero-row GSC/GA4 evidence, source-level RUM default-off/no-op boundary, sidecar stable-id uniqueness, YAML/JSON parsing, git diff --check and exact nine-path scope validation passed on latest origin/main 43c30a13."
+      }
+    },
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "scope_validation": {
-      "allowed_paths_only": false,
-      "local_validation_passed": false,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
@@ -58610,8 +58641,30 @@
         "from": null,
         "to": "planned",
         "note": "Registered by the explicit seven-item completion-train /goal; execution waits for all six predecessor PRs to merge, sync, and clean up."
+      },
+      {
+        "at": "2026-08-10T08:11:00Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started from clean latest origin/main ee69ea673d584f4b335e596042e791658fb6036a after all six predecessor merges, syncs, branch cleanups and post-merge revalidations. This closeout is evidence/status/train bookkeeping only; no runtime, analytics activation, CMS, DB, SEO runtime, Career, ingress, deployment, secret or permission change is authorized."
+      },
+      {
+        "at": "2026-08-10T08:18:34Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "Rebased the isolated nine-path closeout diff onto latest origin/main 43c30a13 after the unrelated Window 9 PR #2045 merged. All artifact, SHA, privacy, truth-boundary, YAML/JSON, diff and exact-scope checks passed; the final audit remains PARTIALLY_BLOCKED because evidence gates 3, 5 and 6 are unmet."
       }
     ],
-    "updated_at": "2026-08-10T05:37:47Z"
+    "sidecar_issues": [
+      "window7-l1-interval-baseline-incomplete-20260810",
+      "window7-gsc-ga4-cohort-data-unavailable-20260810",
+      "window7-field-cwv-rum-data-unavailable-20260810",
+      "window7-riasec-first-navigation-question-window-miss-20260810",
+      "window7-public-cta-attribution-propagation-gaps-20260810",
+      "window7-iq-eq-public-metadata-authority-gaps-20260810",
+      "window7-career-c06-shrink-guard-dependency-20260810",
+      "metadata-surface-inventory-eq-history-drift-20260810"
+    ],
+    "updated_at": "2026-08-10T08:18:34Z"
   }
 }

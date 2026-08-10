@@ -30872,7 +30872,7 @@ prs:
     depends_on: [NONCAREER-GSC-GA4-COHORT-EVIDENCE-01]
     mode: execute
     train_scope: public_cwv_rum_privacy_safe_instrumentation
-    status: ready_to_merge
+    status: merged
     goal: Add a disabled-by-default, fail-closed Web Vitals collector, public route-family classifier, allowlisted payload schema, no-op sink boundary, and privacy tests without enabling production tracking.
     allowed_paths:
       - app/providers.tsx
@@ -30924,7 +30924,7 @@ prs:
       - PUBLIC-CWV-RUM-PRIVACY-SAFE-INSTRUMENTATION-01
     mode: execute
     train_scope: noncareer_window7_audit_completion_train_closeout
-    status: planned
+    status: local_verified
     goal: Revalidate every original and follow-up Window 7 artifact from latest main, reconcile the six predecessor PRs, and publish only the evidence-supported COMPLETE or PARTIALLY_BLOCKED final status.
     allowed_paths:
       - docs/research/marketing-growth/FERMATMIND-MARKETING-GROWTH-DEEP-SCAN-01/window-07-technical-seo-performance/00-executive-decision.md
