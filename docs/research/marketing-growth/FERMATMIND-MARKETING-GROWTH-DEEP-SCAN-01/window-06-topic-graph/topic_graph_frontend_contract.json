@@ -42,6 +42,46 @@
     "event_name": "public_topic_edge_click",
     "observation_class": "browser_observation",
     "trigger_semantics": "A user activates a rendered public edge that was approved and issued by the backend authority.",
+    "contract_owner": "fap-web measurement governance",
+    "authority_roles": {
+      "fap_api_cms": "Owns edge identity, eligibility, relation, locale and target canonical truth; it is not a click-telemetry recipient in v1.",
+      "fap_web": "Validates the public projection, renders the exact canonical href and dispatches only the approved payload after analytics consent.",
+      "ga4": "Receives an aggregate browser observation only; the event is not a key event.",
+      "backend_analytics": "No v1 forwarding. The generic /api/track transport is prohibited because it adds path and anonymous or session context."
+    },
+    "dispatch_policy": {
+      "consent_required": "analytics_granted_at_activation_time",
+      "unknown_or_denied": "hard_stop",
+      "queue_before_consent": false,
+      "replay_after_consent": false,
+      "transport": "ga4_browser_only",
+      "backend_forwarding": false,
+      "dedup_key": "edge_id|source_surface|display_region|position_bucket|target_action",
+      "dedup_window_ms": 2000,
+      "retry": "none",
+      "idempotency": "One fire-and-forget GA4 dispatch per accepted activation after client dedup; do not generate a user, anonymous, session or event identifier."
+    },
+    "key_event_policy": {
+      "eligible": false,
+      "reason": "A navigation observation is not a conversion or outcome and has no causal or revenue authority."
+    },
+    "destination_policy": {
+      "href": "exact backend-approved target_canonical",
+      "tracking_parameters_in_href": false,
+      "tracking_parameters_in_canonical_identity": false,
+      "slug_or_url_inference": false
+    },
+    "semantic_allowlists": {
+      "locale": ["en", "zh-CN"],
+      "source_surface": ["article", "content_page", "personality_profile", "topic"],
+      "target_surface": ["article", "content_page", "personality_profile", "topic"],
+      "relation_type": ["parent", "next_step", "related", "supporting_evidence", "take_assessment", "alternate_locale"],
+      "display_region": ["public_topic_edges"],
+      "position_bucket": ["first", "early", "middle", "late"],
+      "target_action": ["open_public_edge"],
+      "entry_surface": ["article_detail", "content_page_detail", "personality_detail", "topic_detail"],
+      "organic_channel": ["direct", "organic_search", "internal_navigation", "unknown"]
+    },
     "edge_click_event_defined_by_m06": true,
     "runtime_callsite_present": false,
     "telemetry_sent": false,

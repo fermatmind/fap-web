@@ -6,4 +6,10 @@ The only approved event is `public_topic_edge_click`. It is a browser observatio
 
 Required fields are `edge_id`, `locale`, `source_surface`, `target_surface`, `relation_type`, `display_region`, `position_bucket` and `target_action`. Optional fields are `entry_surface` and `organic_channel`. Additional fields are rejected.
 
+`fap-api`/CMS owns edge identity, eligibility, relation, locale and exact target canonical truth. `fap-web` owns validation, deterministic rendering and consent-gated dispatch. In v1, GA4 is the only telemetry sink and receives an aggregate, non-key browser observation; backend analytics forwarding and the generic `/api/track` transport are prohibited because that transport adds path and anonymous/session context.
+
+Dispatch requires analytics consent to be granted at activation time. Unknown or denied consent is a hard stop; events are neither queued nor replayed after consent changes. Duplicate handler invocations sharing `edge_id|source_surface|display_region|position_bucket|target_action` are suppressed for 2 seconds. Dispatch is fire-and-forget with no retry and no generated user, anonymous, session or event identifier. The event is not eligible as a GA4 key event.
+
+The rendered `href` is the exact backend-approved `target_canonical`. Tracking parameters never enter the link or canonical identity. Surface, relation, region, position bucket and action values use the machine-contract allowlists; exact DOM paths and inferred slugs/URLs remain forbidden.
+
 This approval defines a privacy-safe contract only. No runtime callsite was added, no telemetry was sent, no consent behavior changed, and no deployment is claimed. Backend/CMS-approved public edge identity remains authoritative.
