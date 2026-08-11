@@ -82,11 +82,11 @@ function lookupPayload({
     locale,
     is_public: true,
     is_indexable: true,
-    forms: formCode ? [{
+    forms: [{
       form_code: formCode,
-      question_count: 2,
+      question_count: formCode ? 2 : scaleCode === "EQ_60" ? 60 : 30,
       is_public: true,
-    }] : [],
+    }],
     capabilities: { questions: true },
     content_i18n_json: {
       [locale]: {
@@ -339,6 +339,54 @@ describe("test landing runtime smoke semantic gate", () => {
       authority_identity_result: "pass",
       question_pack_semantic_result: "pass",
       request_surface: "lookup_api+question_pack_api",
+    });
+  });
+
+  it("also accepts the legacy empty forms shape for a catalog-backed IQ landing", async () => {
+    const payload = lookupPayload({
+      slug: IQ_SLUG,
+      scaleCode: "IQ_RAVEN",
+      formCode: null,
+      locale: "zh",
+    });
+    payload.forms = [];
+    const receipt = await runFixture({
+      zh_iq_lookup: () => ({ body: payload }),
+    });
+
+    expect(check(receipt, "zh_iq_landing")).toMatchObject({
+      result: "pass",
+      authority_identity_result: "pass",
+    });
+  });
+
+  it("rejects ambiguous or non-public null-form authority", async () => {
+    const ambiguous = lookupPayload({
+      slug: IQ_SLUG,
+      scaleCode: "IQ_RAVEN",
+      formCode: null,
+      locale: "zh",
+    });
+    ambiguous.forms.push({ ...ambiguous.forms[0] });
+    const hidden = lookupPayload({
+      slug: EQ_SLUG,
+      scaleCode: "EQ_60",
+      formCode: null,
+      locale: "en",
+    });
+    hidden.forms[0].is_public = false;
+    const receipt = await runFixture({
+      zh_iq_lookup: () => ({ body: ambiguous }),
+      en_eq_lookup: () => ({ body: hidden }),
+    });
+
+    expect(check(receipt, "zh_iq_landing")).toMatchObject({
+      result: "fail",
+      authority_identity_result: "fail",
+    });
+    expect(check(receipt, "en_eq_landing")).toMatchObject({
+      result: "fail",
+      authority_identity_result: "fail",
     });
   });
 

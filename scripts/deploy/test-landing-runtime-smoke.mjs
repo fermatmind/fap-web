@@ -364,11 +364,17 @@ function assertLookup(payload, {
     && typeof candidate === "object"
     && candidate.form_code === formCode
   )) : null;
+  const formlessForm = formCode === null && forms.length === 1
+    && forms[0]
+    && typeof forms[0] === "object"
+    && (forms[0].form_code === null || forms[0].form_code === "")
+    ? forms[0]
+    : null;
   const localizedContent = payload.content_i18n_json?.[locale === "zh" ? "zh" : locale];
   const catalog = localizedContent?.catalog;
   const supportsFormlessCatalog = formCode === null
     && (scaleCode === "IQ_RAVEN" || scaleCode === "EQ_60")
-    && forms.length === 0
+    && (forms.length === 0 || (formlessForm && formlessForm.is_public !== false))
     && payload.capabilities?.questions === true
     && Number.isInteger(Number(catalog?.questions_count))
     && Number(catalog?.questions_count) > 0
@@ -394,7 +400,7 @@ function assertLookup(payload, {
     });
   }
 
-  const questionCount = Number(form?.question_count ?? catalog?.questions_count);
+  const questionCount = Number(form?.question_count ?? formlessForm?.question_count ?? catalog?.questions_count);
   return {
     formCode,
     questionCount: Number.isInteger(questionCount) && questionCount > 0
