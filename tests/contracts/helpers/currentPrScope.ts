@@ -955,6 +955,20 @@ const FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const FAP_WEB_AUTO_PRODUCTION_ALL_PRS_01_ALLOWED_FILES = new Set([
+  ".agents/skills/fermatmind-frontend-deploy-sre/SKILL.md",
+  ".agents/skills/fermatmind-frontend-deploy-sre/references/topology-and-control-plane.md",
+  ".github/workflows/deploy-production.yml",
+  "tests/contracts/audit-prr2-web-01-deploy-recovery-lane.contract.test.ts",
+  "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/fap-web-auto-production-all-prs-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+  "tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts",
+  "tests/contracts/security-124-web-01-production-deploy-range-guard.contract.test.ts",
+  "tests/contracts/test-landing-runtime-smoke.contract.test.ts",
+]);
+
 const CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
@@ -4654,6 +4668,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/fap-web-production-auto-deploy-env-fix-01" &&
     FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/fap-web-auto-production-all-prs-01" &&
+    FAP_WEB_AUTO_PRODUCTION_ALL_PRS_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }

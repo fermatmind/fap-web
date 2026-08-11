@@ -47,9 +47,10 @@ describe("AUDIT-PRR2-WEB-01 production recovery lane", () => {
     expect(workflow).toContain("run.conclusion !== 'success'");
     expect(workflow).toContain("Waiting for required checks:");
     expect(workflow).toContain("environment:\n      name: production");
+    expect(workflow).toContain("environment:\n      name: production-web-auto");
     expect(workflow).toContain("authorization_mode: ${{ steps.evaluate.outputs.authorization_mode }}");
     expect(workflow).toContain("manual_sha_bound_recovery");
-    expect(workflow).toContain("automatic_benign");
+    expect(workflow).toContain("automatic_merged_pr");
     expect(workflow).toContain("invalid production authorization mode");
   });
 

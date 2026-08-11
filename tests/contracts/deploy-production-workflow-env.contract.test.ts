@@ -30,7 +30,7 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("Receipt-bound artifact digest does not match");
   });
 
-  it("keeps manual risky deploys SHA-bound, check-gated, and protected-environment gated", () => {
+  it("auto-deploys verified merged PRs while keeping manual recovery protected", () => {
     expect(workflow).toContain("github.event_name == 'workflow_dispatch'");
     expect(workflow).toContain("process.env.GITHUB_EVENT_NAME === 'workflow_dispatch'");
     expect(workflow).toContain("Manual production deploy failed closed: deploy_sha is required.");
@@ -38,7 +38,7 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
     expect(workflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
     expect(workflow).toContain("expected exactly one merged main PR for range commit");
-    expect(workflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_benign" ]]');
+    expect(workflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_merged_pr" ]]');
     expect(workflow).toContain('test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"');
     expect(workflow).toContain('git merge-base --is-ancestor "$DEPLOY_SHA" origin/main');
     for (const requiredCheck of [
@@ -49,12 +49,14 @@ describe("production deploy workflow environment contract", () => {
     ]) {
       expect(workflow).toContain(`'${requiredCheck}'`);
     }
-    expect(workflow).toContain("riskyLabelPatterns");
-    expect(workflow).toContain("riskyPathPatterns");
-    expect(workflow).toContain("Authorized manual risky production revision.");
-    expect(workflow).toContain("protected production GitHub Environment");
+    expect(workflow).not.toContain("riskyLabelPatterns");
+    expect(workflow).not.toContain("riskyPathPatterns");
+    expect(workflow).toContain("Authorized exact-SHA manual production recovery.");
+    expect(workflow).toContain("manual recovery approval gate remains on the protected production GitHub Environment");
     expect(workflow).toContain("fm-analytics-bootstrap");
     expect(workflow).toContain("private analytics smoke failed");
     expect(workflow).toContain("environment:\n      name: production");
+    expect(workflow).toContain("environment:\n      name: production-web-auto");
+    expect(workflow).toContain("needs.manual-recovery-approval.result == 'success'");
   });
 });

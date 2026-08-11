@@ -42,21 +42,21 @@ describe("SECURITY-123-WEB-01 production approval guard", () => {
     expect(workflow).not.toContain("Production manual deploy allowed via risk approval");
   });
 
-  it("keeps automatic risky deploys fail-closed and manual risky deploys environment-gated", () => {
+  it("allows every verified merged-PR range and keeps direct-main automation fail-closed", () => {
     expect(workflow).toContain("const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';");
-    expect(workflow).toContain(
-      "if (directMainCommits.length > 0 || riskyLabels.length > 0 || riskyFiles.length > 0)"
-    );
+    expect(workflow).toContain("expected exactly one merged main PR for range commit");
     expect(workflow).toContain("if (!isManualDispatch)");
-    expect(workflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
-    expect(workflow).toContain("The deploy job remains gated by the protected production GitHub Environment.");
-    expect(workflow).toContain("core.setOutput('auto_deploy_allowed', 'false');");
+    expect(workflow).toContain("isManualDispatch ? 'manual_sha_bound_recovery' : 'automatic_merged_pr'");
+    expect(workflow).not.toContain("riskyLabelPatterns");
+    expect(workflow).not.toContain("riskyPathPatterns");
   });
 
-  it("retains the protected production environment boundary", () => {
+  it("separates approval-free automatic deployment from protected manual recovery", () => {
     expect(workflow).toContain("environment:\n      name: production");
+    expect(workflow).toContain("environment:\n      name: production-web-auto");
     expect(workflow).toContain("needs.policy-guard.outputs.auto_deploy_allowed == 'true'");
     expect(workflow).toContain("needs.policy-guard.outputs.authorization_mode == 'manual_sha_bound_recovery'");
+    expect(workflow).toContain("needs.manual-recovery-approval.result == 'success'");
   });
 
   it("keeps the current PR diff inside the declared WEB-01 scope", () => {

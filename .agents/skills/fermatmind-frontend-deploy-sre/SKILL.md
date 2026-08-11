@@ -21,11 +21,11 @@ Operate `fap-web` through repository workflows. Keep application deployment, pub
 - Use an isolated worktree from `origin/main` for source inspection or changes. Do not touch an active dirty worktree.
 - Discover required checks from the active main ruleset and exact-SHA check runs; do not hard-code a historical check list in the Skill.
 - Use only the exact-SHA standalone artifact produced by CI and the unexpired staging receipt bound to it.
-- Deploy production only through `Deploy Web Production`; never copy Tencent artifacts, build on production, edit `current`, or run direct PM2 promotion.
+- Deploy production only through `Deploy Web Production`; every merged-PR release uses its successful exact-SHA staging receipt and the approval-free `production-web-auto` Environment. Never copy Tencent artifacts, build on production, edit `current`, or run direct PM2 promotion.
 - Apply OpenResty public ingress only through `Web Public Ingress Control`. Keep it separate from application deployment.
 - Treat SSH as read-only unless an action-specific approval explicitly authorizes the exact write.
 - Never print secret values, raw keys, passwords, private paths, or Environment secret contents.
-- Do not retry a failed production deployment automatically.
+- Do not rerun, redispatch, or roll back a failed or ambiguous production deployment automatically.
 - Keep rollback, DNS, service restart, process termination, unlock, and certificate changes separately authorized.
 
 ## Readiness
@@ -47,9 +47,15 @@ Operate `fap-web` through repository workflows. Keep application deployment, pub
 - Verify the staging receipt binds repository, SHA, CI run/attempt, artifact digest, environment, revision, and smoke result.
 - Verify staging Web/API, login entry, MBTI, static chunks, and CMS-backed pages before production eligibility.
 
-## Production
+## Automatic production
 
-Require both exact phrases:
+Every successful latest-`main` staging deployment triggers production once. The policy guard requires the exact SHA, all required checks, an attested standalone artifact, an exact staging receipt, and an unambiguous merged-PR mapping for every commit since the last successful production deployment. The deploy job uses `production-web-auto` without a reviewer.
+
+Do not dispatch or approve a normal merged-PR release manually. If the automatic run fails or becomes ambiguous, stop and switch to `incident`; do not rerun or roll back automatically.
+
+## Manual recovery
+
+Manual recovery remains a separately authorized path on the protected `production` Environment. Require both exact phrases:
 
 ```text
 I explicitly approve frontend Node1 production deploy for SHA <SHA>.
@@ -67,7 +73,7 @@ gh workflow run deploy-production.yml \
   -f manual_risk_approval="APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>"
 ```
 
-Bind monitoring to the resulting run ID. Do not dispatch a second run while the first is pending, running, or ambiguous.
+Bind monitoring to the resulting run ID. Do not dispatch a second run while the first is pending, running, failed, or ambiguous.
 
 ## Post-deploy verification
 
