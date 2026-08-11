@@ -591,11 +591,12 @@ describe("test landing smoke deployment wiring", () => {
       .toBe("node scripts/deploy/test-landing-runtime-smoke.mjs");
   });
 
-  it("preserves existing dispatch/approval topology and adds no deploy trigger", () => {
+  it("preserves manual recovery dispatch while automatic promotion stays staging-receipt driven", () => {
     expect(staging.match(/workflow_dispatch:/g)).toHaveLength(1);
     expect(production.match(/workflow_dispatch:/g)).toHaveLength(1);
     expect(smoke).not.toMatch(/workflow_dispatch|gh workflow run|repository_dispatch/);
     expect(production).toContain("environment:\n      name: production");
+    expect(production).toContain("environment:\n      name: production-web-auto");
     expect(production).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:");
   });
 

@@ -9,6 +9,8 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
   it("reads the previous successful production deployment as the range baseline", () => {
     expect(workflow).toContain("deployments: read");
     expect(workflow).toContain("listDeployments");
+    expect(workflow).toContain("environment: 'production-web-auto'");
+    expect(workflow).toContain("automaticDeployments.length > 0");
     expect(workflow).toContain("environment: 'production'");
     expect(workflow).toContain("listDeploymentStatuses");
     expect(workflow).toContain("status.state === 'success'");
@@ -42,30 +44,24 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).not.toContain("(response) => response.data.check_runs");
   });
 
-  it("treats expected automatic policy denials as successful skips", () => {
-    expect(workflow).toContain("core.notice([");
-    expect(workflow).toContain("Production auto-deploy blocked by policy.");
-    expect(workflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
+  it("treats a superseded automatic SHA as a successful skip", () => {
+    expect(workflow).toContain("Skipping automatic production deploy because");
     expect(workflow).toContain("core.setOutput('auto_deploy_allowed', 'false')");
   });
 
-  it("blocks a risky PR even when a later PR in the deployment range is benign", () => {
+  it("covers every merged PR in the complete baseline-to-target range", () => {
     expect(workflow).toContain("for (const commit of commits)");
     expect(workflow).toContain("pullsByNumber.set");
     expect(workflow).toContain("const pulls = [...pullsByNumber.values()]");
-    expect(workflow).toContain("const labels = pulls");
-    expect(workflow).toContain(".flatMap((pull) => (pull.labels || []).map(normalizeLabelName))");
-    expect(workflow).toContain("for (const pull of pulls)");
-    expect(workflow).toContain("riskyLabels.length > 0 || riskyFiles.length > 0");
-    expect(workflow).toContain("const normalizeLabelName = (label)");
-    expect(workflow).toContain("typeof label === 'string'");
-    expect(workflow).toContain("String(label?.name || '').toLowerCase()");
-    expect(workflow).toContain(".filter(Boolean)");
+    expect(workflow).toContain("pulls.map((pull) => pull.number).join(',')");
+    expect(workflow).not.toContain("riskyLabelPatterns");
+    expect(workflow).not.toContain("riskyPathPatterns");
   });
 
-  it("allows only a complete range whose associated PRs are all benign", () => {
+  it("allows a complete range whose commits all map unambiguously to merged PRs", () => {
     expect(workflow).toContain("Production auto-deploy policy passed for the complete verified main change range.");
     expect(workflow).toContain("core.setOutput('auto_deploy_allowed', 'true')");
+    expect(workflow).toContain("isManualDispatch ? 'manual_sha_bound_recovery' : 'automatic_merged_pr'");
     expect(workflow).toContain("Production deploy range:");
     expect(workflow).toContain("Associated PRs:");
   });
@@ -76,7 +72,6 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("mergedMainPulls.length === 0");
     expect(workflow).toContain("if (!isManualDispatch)");
     expect(workflow).toContain("directMainCommits.push(commit.sha)");
-    expect(workflow).toContain("directMainCommits.length > 0 || riskyLabels.length > 0 || riskyFiles.length > 0");
     expect(workflow).toContain("Direct main commits covered by exact SHA approval");
     expect(workflow).toContain("expected exactly one merged main PR for range commit");
     expect(workflow).toContain("found ${mergedMainPulls.length}");
@@ -92,5 +87,7 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("process.env.MANUAL_RISK_APPROVAL !== expectedManualApproval");
     expect(workflow).not.toContain("manual_risk_approval === 'true'");
     expect(workflow).toContain("environment:\n      name: production");
+    expect(workflow).toContain("environment:\n      name: production-web-auto");
+    expect(workflow).toContain("needs.manual-recovery-approval.result == 'success'");
   });
 });

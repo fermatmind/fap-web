@@ -76,7 +76,7 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     }
 
     expect(productionWorkflow).toContain("git fetch --no-tags origin main:refs/remotes/origin/main");
-    expect(productionWorkflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_benign" ]]');
+    expect(productionWorkflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_merged_pr" ]]');
     expect(productionWorkflow).toContain("test \"$DEPLOY_SHA\" = \"$LATEST_MAIN_SHA\"");
     expect(productionWorkflow).toContain('git merge-base --is-ancestor "$DEPLOY_SHA" origin/main');
     expect(productionWorkflow).toContain("deploy SHA ${deploySha} is not contained in main ${latestMainSha}");
@@ -89,23 +89,22 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(stagingWorkflow).not.toContain("git reset --hard '$GITHUB_SHA'");
   });
 
-  it("keeps risky production PR metadata SHA-bound and environment-gated after verifying the exact main revision", () => {
+  it("keeps automatic merged-PR production and manual recovery SHA-bound after exact-main verification", () => {
     expect(productionWorkflow).toContain("listPullRequestsAssociatedWithCommit");
     expect(productionWorkflow).toContain("expected exactly one merged main PR");
     expect(productionWorkflow).toContain("directMainCommits.push(commit.sha)");
     expect(productionWorkflow).toContain("Direct main commits covered by exact SHA approval");
     expect(productionWorkflow).toContain("Production auto-deploy policy passed for the complete verified main change range.");
-    expect(productionWorkflow).toContain("Production auto-deploy blocked by policy.");
-    expect(productionWorkflow).toContain("core.notice([");
-    expect(productionWorkflow).toContain("riskyLabelPatterns");
-    expect(productionWorkflow).toContain("riskyPathPatterns");
+    expect(productionWorkflow).toContain("automatic_merged_pr");
+    expect(productionWorkflow).not.toContain("riskyLabelPatterns");
+    expect(productionWorkflow).not.toContain("riskyPathPatterns");
     expect(productionWorkflow).toContain("manual_risk_approval:");
     expect(productionWorkflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>");
     expect(productionWorkflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
     expect(productionWorkflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
     expect(productionWorkflow).toContain("if (!isManualDispatch)");
-    expect(productionWorkflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
-    expect(productionWorkflow).toContain("The deploy job remains gated by the protected production GitHub Environment.");
+    expect(productionWorkflow).toContain("name: Approve manual production recovery");
+    expect(productionWorkflow).toContain("name: production-web-auto");
   });
 
   it("moves staging deploy target settings out of the workflow body", () => {
