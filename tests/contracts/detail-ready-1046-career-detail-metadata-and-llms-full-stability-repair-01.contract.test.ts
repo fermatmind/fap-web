@@ -87,7 +87,8 @@ function mockLlmsFullDependencies() {
     isConfiguredStagingDiscoverability: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths,
   }));
   vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
@@ -160,20 +161,22 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
     expect(metadata.robots).toMatchObject({ index: false, follow: false });
   });
 
-  it("serves llms-full from generated cache on repeat reads while preserving approved career URLs and excluded slug safety", async () => {
+  it("serves llms-full only from an offline artifact on repeat reads while preserving approved career URLs and excluded slug safety", async () => {
     const { listBackendSitemapCareerJobPaths, validPaths, excludedPaths } = mockLlmsFullDependencies();
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const route = await import("@/app/llms-full.txt/route");
+    const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
 
-    const firstResponse = await GET();
+    const firstResponse = await route.GET();
     const firstText = await firstResponse.text();
-    const secondResponse = await GET();
+    const secondResponse = await route.GET();
     const secondText = await secondResponse.text();
 
     expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
-    expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    expect(firstResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(secondResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(secondResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
-    expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(1);
+    expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(2);
     expect(secondText).toBe(firstText);
 
     for (const value of validPaths) {

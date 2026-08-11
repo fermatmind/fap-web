@@ -284,31 +284,34 @@ afterEach(() => {
 });
 
 describe("llms-full enrichment contract", () => {
-  it("renders bounded summaries, FAQ, next steps, and safety notes from existing surfaces", async () => {
+  it("serves the deterministic offline enumeration artifact without volatile detail enrichment", async () => {
     mockLlmsFullDependencies({ includeSurfaces: true });
 
-    const { GET, isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const route = await import("@/app/llms-full.txt/route");
+    const artifactText = await route.buildLlmsFullText("https://fermatmind.com", { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText("https://fermatmind.com", artifactText)).resolves.toMatchObject({
+      ok: true,
+    });
+
+    const { GET, isCompleteLlmsFullText } = route;
     const response = await GET();
     const text = await response.text();
 
     expect(text).toContain("## Articles");
     expect(text).toContain("### [en] MBTI Basics | https://fermatmind.com/en/articles/mbti-basics");
-    expect(text).toContain("- Summary: Article answer summary from the CMS answer surface.");
-    expect(text).toContain("- FAQ:");
-    expect(text).toContain("First article question?");
-    expect(text).toContain("Second article question?");
+    expect(text).toContain("- Summary: Article list excerpt.");
+    expect(text).not.toContain("Article answer summary from the CMS answer surface.");
+    expect(text).not.toContain("First article question?");
+    expect(text).not.toContain("Second article question?");
     expect(text).not.toContain("Third article question?");
-    expect(text).toContain("- Next steps:");
-    expect(text).toContain("Take the MBTI test: https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types");
-    expect(text).toContain("Read the MBTI topic: https://fermatmind.com/en/topics/mbti");
-    expect(text).toContain("Open support: https://fermatmind.com/en/support");
+    expect(text).not.toContain("- Next steps:");
     expect(text).not.toContain("Held personality surface");
     expect(text).not.toContain("https://fermatmind.com/zh/personality/esfj-t");
     expect(text).not.toContain("Legacy Big Five alias");
     expect(text).not.toMatch(/https:\/\/fermatmind\.com\/en\/tests\/big-five-personality-test(?:\s|$)/);
     expect(text).not.toContain("Forbidden take flow");
-    expect(text).toContain("Personality answer summary from CMS.");
-    expect(text).toContain("Topic answer summary from CMS.");
+    expect(text).not.toContain("Personality answer summary from CMS.");
+    expect(text).not.toContain("Topic answer summary from CMS.");
     expect(text).toContain("Career guides");
     expect(text).not.toContain("https://fermatmind.com/en/career/guides/career-planning");
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations");
@@ -338,7 +341,13 @@ describe("llms-full enrichment contract", () => {
   it("does not invent summaries when no source surface or list summary exists", async () => {
     mockLlmsFullDependencies({ includeSurfaces: false });
 
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const route = await import("@/app/llms-full.txt/route");
+    const artifactText = await route.buildLlmsFullText("https://fermatmind.com", { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText("https://fermatmind.com", artifactText)).resolves.toMatchObject({
+      ok: true,
+    });
+
+    const { GET } = route;
     const response = await GET();
     const text = await response.text();
     const start = text.indexOf("### [en] Empty article | https://fermatmind.com/en/articles/empty-article");

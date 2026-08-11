@@ -132,7 +132,8 @@ function mockRouteDependencies() {
     getTopicBySlug: vi.fn(async () => null),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => []),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
@@ -180,14 +181,16 @@ function mockRouteDependencies() {
 async function renderLlmsRoutes(): Promise<{ llmsText: string; llmsFullText: string }> {
   mockRouteDependencies();
 
-  const [{ GET: getLlms }, { GET: getLlmsFull }] = await Promise.all([
+  const [llmsRoute, llmsFullRoute] = await Promise.all([
     import("@/app/llms.txt/route"),
     import("@/app/llms-full.txt/route"),
   ]);
+  const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+  await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
 
   const [llmsText, llmsFullText] = await Promise.all([
-    getLlms().then((response) => response.text()),
-    getLlmsFull().then((response) => response.text()),
+    llmsRoute.GET().then((response) => response.text()),
+    llmsFullRoute.GET().then((response) => response.text()),
   ]);
 
   return { llmsText, llmsFullText };

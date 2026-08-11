@@ -45,7 +45,6 @@ import {
   LLMS_FULL_TEST_SOURCE_TIMEOUT_MS,
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
-  LLMS_FULL_RESPONSE_DEADLINE_MS,
   LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS,
   LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS,
   LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS,
@@ -56,7 +55,6 @@ import {
 } from "@/lib/seo/llmsRouteBudget";
 import {
   getCachedLlmsFullText,
-  getOrStartLlmsFullBuild,
   writeLlmsFullResponseCache,
 } from "@/lib/seo/llmsFullResponseCache";
 import { getSiteUrlOrThrow } from "@/lib/site";
@@ -95,7 +93,6 @@ const MAX_NEXT_STEPS = 3;
 const MAX_TEXT_CHARS = 360;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
-const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS = 60_000;
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
@@ -293,7 +290,7 @@ function shouldRequireCompleteTrustContentPageCohort(): boolean {
 }
 
 type LlmsFullResponseMode = "complete" | "degraded";
-type LlmsFullResponseSource = "generated" | "cache" | "stale-cache" | "degraded";
+type LlmsFullResponseSource = "cache" | "stale-cache" | "degraded";
 
 type LlmsLocale = Locale;
 
@@ -928,17 +925,6 @@ export function isCompleteLlmsFullText(
   }
 
   return true;
-}
-
-async function waitForLlmsFullBuildBudget(
-  promise: Promise<string | null>
-): Promise<string | null | typeof LLMS_FULL_RESPONSE_TIMEOUT> {
-  return Promise.race([
-    promise,
-    new Promise<typeof LLMS_FULL_RESPONSE_TIMEOUT>((resolve) => {
-      setTimeout(() => resolve(LLMS_FULL_RESPONSE_TIMEOUT), LLMS_FULL_RESPONSE_DEADLINE_MS);
-    }),
-  ]);
 }
 
 export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
@@ -1749,7 +1735,7 @@ export async function buildAndCacheLlmsFullText(siteUrl: string, text = ""): Pro
   bytes: number;
   careerJobUrlCount: number;
 }> {
-  const resolvedText = text || (await buildLlmsFullText(siteUrl));
+  const resolvedText = text || (await buildLlmsFullText(siteUrl, { buildProfile: "artifact" }));
   const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
   const cacheOptions = {
     isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths),
@@ -1770,22 +1756,16 @@ export async function GET() {
   }
 
   const siteUrl = getSiteUrlOrThrow();
-  const mbtiPersonalityPaths = await withLlmsRouteBudget(
-    (signal) => listBackendSitemapMbtiPersonalityPaths({ signal }),
-    [],
-    { timeoutMs: LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS }
-  );
   const cacheOptions = {
-    isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl, mbtiPersonalityPaths),
+    // The offline writer binds the exact dynamic authority cohort before it stores
+    // the artifact. Public reads only re-run the self-contained safety gates; a
+    // trusted content-release notification clears both fresh and stale artifacts
+    // when authority changes.
+    isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl),
   };
   const freshCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS, cacheOptions);
   if (freshCachedText) {
     return createLlmsFullResponse(freshCachedText, "complete", "cache");
-  }
-
-  const buildResult = await waitForLlmsFullBuildBudget(getOrStartLlmsFullBuild(siteUrl, buildLlmsFullText, cacheOptions));
-  if (typeof buildResult === "string") {
-    return createLlmsFullResponse(buildResult, "complete", "generated");
   }
 
   const staleCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS, cacheOptions);

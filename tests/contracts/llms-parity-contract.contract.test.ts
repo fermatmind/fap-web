@@ -90,6 +90,8 @@ function classifyRouteFamily(pathname: string): string {
 function mockLlmsDependencies() {
   vi.resetModules();
 
+  let cachedLlmsFullText: string | null = null;
+
   const pageTwoZhArticle = {
     slug: "big-five-tool-guide",
     locale: "zh",
@@ -180,11 +182,11 @@ function mockLlmsDependencies() {
     listDailyGivingDiscoverabilityEntries: vi.fn(async () => []),
   }));
   vi.doMock("@/lib/seo/llmsFullResponseCache", () => ({
-    getCachedLlmsFullText: vi.fn(async () => null),
-    getOrStartLlmsFullBuild: vi.fn(async (_siteUrl: string, build: (siteUrl: string) => Promise<string | null>) =>
-      build(SITE_URL)
-    ),
-    writeLlmsFullResponseCache: vi.fn(async () => ({ cached: false, cachePath: "" })),
+    getCachedLlmsFullText: vi.fn(async () => cachedLlmsFullText),
+    writeLlmsFullResponseCache: vi.fn(async (_siteUrl: string, text: string) => {
+      cachedLlmsFullText = text;
+      return { cached: true, cachePath: "/bounded/test-cache.json" };
+    }),
   }));
   vi.doMock("@/lib/cms/articles", () => ({
     listCmsArticlesForLlmsWithLastKnownGood: vi.fn(
@@ -345,13 +347,15 @@ describe("llms parity governance", () => {
     mockLlmsDependencies();
     const policy = readPolicy();
 
-    const [{ GET: getLlms }, { GET: getLlmsFull }] = await Promise.all([
+    const [llmsRoute, llmsFullRoute] = await Promise.all([
       import("@/app/llms.txt/route"),
       import("@/app/llms-full.txt/route"),
     ]);
+    const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
     const [llmsText, llmsFullText] = await Promise.all([
-      getLlms().then((response) => response.text()),
-      getLlmsFull().then((response) => response.text()),
+      llmsRoute.GET().then((response) => response.text()),
+      llmsFullRoute.GET().then((response) => response.text()),
     ]);
 
     const llmsUrls = uniqueSorted(extractCanonicalUrls(llmsText));
@@ -397,13 +401,15 @@ describe("llms parity governance", () => {
     mockLlmsDependencies();
     const policy = readPolicy();
 
-    const [{ GET: getLlms }, { GET: getLlmsFull }] = await Promise.all([
+    const [llmsRoute, llmsFullRoute] = await Promise.all([
       import("@/app/llms.txt/route"),
       import("@/app/llms-full.txt/route"),
     ]);
+    const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
     const [llmsText, llmsFullText] = await Promise.all([
-      getLlms().then((response) => response.text()),
-      getLlmsFull().then((response) => response.text()),
+      llmsRoute.GET().then((response) => response.text()),
+      llmsFullRoute.GET().then((response) => response.text()),
     ]);
     const deniedFamilies = new Set(policy.route_family_policy.denied_route_families);
 
