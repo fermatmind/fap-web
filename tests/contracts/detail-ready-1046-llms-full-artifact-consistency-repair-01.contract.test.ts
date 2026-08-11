@@ -273,9 +273,11 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const artifact = await writer.buildAndCacheLlmsFullText(SITE_URL, text);
     expect(artifact.ok).toBe(true);
 
-    const envelope = JSON.parse(fs.readFileSync(artifact.cachePath, "utf8")) as { cachedAtMs: number };
+    const cachePath = path.join(cacheDir, path.basename(artifact.cachePath));
+    expect(cachePath).toBe(artifact.cachePath);
+    const envelope = JSON.parse(fs.readFileSync(cachePath, "utf8")) as { cachedAtMs: number };
     envelope.cachedAtMs = Date.now() - 2 * 60 * 60 * 1000;
-    fs.writeFileSync(artifact.cachePath, `${JSON.stringify(envelope)}\n`);
+    fs.writeFileSync(cachePath, `${JSON.stringify(envelope)}\n`);
 
     vi.resetModules();
     mockLlmsFullDependencies(() => []);
