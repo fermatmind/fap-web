@@ -84,7 +84,8 @@ function lookupPayload({
     is_indexable: true,
     forms: [{
       form_code: formCode,
-      question_count: formCode ? 2 : scaleCode === "EQ_60" ? 60 : 30,
+      question_count: scaleCode === "EQ_60" ? 60 : scaleCode === "IQ_RAVEN" ? 30 : 2,
+      is_default: true,
       is_public: true,
     }],
     capabilities: { questions: true },
@@ -209,13 +210,13 @@ function defaultReply(key: keyof FixtureOverrides): FixtureReply {
         }),
       };
     case "zh_iq_lookup":
-      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: null, locale: "zh" }) };
+      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: "IQ_OWNER_ORIGINAL_30", locale: "zh" }) };
     case "en_iq_lookup":
-      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: null, locale: "en" }) };
+      return { body: lookupPayload({ slug: IQ_SLUG, scaleCode: "IQ_RAVEN", formCode: "IQ_OWNER_ORIGINAL_30", locale: "en" }) };
     case "zh_eq_lookup":
-      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: null, locale: "zh" }) };
+      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: "eq_60", locale: "zh" }) };
     case "en_eq_lookup":
-      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: null, locale: "en" }) };
+      return { body: lookupPayload({ slug: EQ_SLUG, scaleCode: "EQ_60", formCode: "eq_60", locale: "en" }) };
     case "mbti_questions":
       return { body: questionPayload() };
   }
@@ -360,24 +361,31 @@ describe("test landing runtime smoke semantic gate", () => {
     });
   });
 
-  it("rejects ambiguous or non-public null-form authority", async () => {
+  it("rejects ambiguous, hidden, or null-form catalog authority", async () => {
     const ambiguous = lookupPayload({
       slug: IQ_SLUG,
       scaleCode: "IQ_RAVEN",
-      formCode: null,
+      formCode: "IQ_OWNER_ORIGINAL_30",
       locale: "zh",
     });
     ambiguous.forms.push({ ...ambiguous.forms[0] });
     const hidden = lookupPayload({
       slug: EQ_SLUG,
       scaleCode: "EQ_60",
-      formCode: null,
+      formCode: "eq_60",
       locale: "en",
     });
     hidden.forms[0].is_public = false;
+    const nullForm = lookupPayload({
+      slug: IQ_SLUG,
+      scaleCode: "IQ_RAVEN",
+      formCode: null,
+      locale: "en",
+    });
     const receipt = await runFixture({
       zh_iq_lookup: () => ({ body: ambiguous }),
       en_eq_lookup: () => ({ body: hidden }),
+      en_iq_lookup: () => ({ body: nullForm }),
     });
 
     expect(check(receipt, "zh_iq_landing")).toMatchObject({
@@ -385,6 +393,10 @@ describe("test landing runtime smoke semantic gate", () => {
       authority_identity_result: "fail",
     });
     expect(check(receipt, "en_eq_landing")).toMatchObject({
+      result: "fail",
+      authority_identity_result: "fail",
+    });
+    expect(check(receipt, "en_iq_landing")).toMatchObject({
       result: "fail",
       authority_identity_result: "fail",
     });
