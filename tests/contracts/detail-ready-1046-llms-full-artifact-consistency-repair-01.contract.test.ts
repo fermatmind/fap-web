@@ -85,7 +85,8 @@ function mockLlmsFullDependencies(
     isConfiguredStagingDiscoverability: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths,
   }));
   vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
@@ -158,9 +159,9 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     let currentPaths: string[] = [];
     mockLlmsFullDependencies(() => currentPaths);
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const route = await import("@/app/llms-full.txt/route");
 
-    const incompleteResponse = await GET();
+    const incompleteResponse = await route.GET();
     const incompleteText = await incompleteResponse.text();
     expect(incompleteResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
     expect(careerUrlCount(incompleteText)).toBe(0);
@@ -169,21 +170,13 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     }
 
     currentPaths = fullCohortPaths();
-    const { clearLlmsFullResponseCache, getLlmsFullBuildCooldownPath } = await import(
-      "@/lib/seo/llmsFullResponseCache"
-    );
-    clearLlmsFullResponseCache(SITE_URL);
-    await vi.waitFor(() => {
-      expect(fs.existsSync(getLlmsFullBuildCooldownPath(SITE_URL))).toBe(false);
-    });
-    const generatedResponse = await GET();
-    const generatedText = await generatedResponse.text();
-    expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
-    expect(generatedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    const generatedText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    const artifact = await route.buildAndCacheLlmsFullText(SITE_URL, generatedText);
+    expect(artifact.ok).toBe(true);
     expect(careerUrlCount(generatedText)).toBe(1046 * 2);
 
     currentPaths = [];
-    const cachedResponse = await GET();
+    const cachedResponse = await route.GET();
     const cachedText = await cachedResponse.text();
     expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
@@ -251,7 +244,8 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     let currentPaths = fullCohortPaths();
     mockLlmsFullDependencies(() => currentPaths);
     const firstModule = await import("@/app/llms-full.txt/route");
-    const generatedText = await (await firstModule.GET()).text();
+    const generatedText = await firstModule.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(firstModule.buildAndCacheLlmsFullText(SITE_URL, generatedText)).resolves.toMatchObject({ ok: true });
     expect(careerUrlCount(generatedText)).toBe(1046 * 2);
 
     vi.resetModules();
@@ -265,6 +259,34 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(sharedText).toBe(generatedText);
     expect(careerUrlCount(sharedText)).toBe(1046 * 2);
+  });
+
+  it("serves an expired-fresh complete artifact as stale without starting a runtime rebuild", async () => {
+    const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-stale-artifact-"));
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    mockLlmsFullDependencies(() => fullCohortPaths());
+    const writer = await import("@/app/llms-full.txt/route");
+    const text = await writer.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    const artifact = await writer.buildAndCacheLlmsFullText(SITE_URL, text);
+    expect(artifact.ok).toBe(true);
+
+    const cachePath = path.join(cacheDir, path.basename(artifact.cachePath));
+    expect(cachePath).toBe(artifact.cachePath);
+    const envelope = JSON.parse(fs.readFileSync(cachePath, "utf8")) as { cachedAtMs: number };
+    envelope.cachedAtMs = Date.now() - 2 * 60 * 60 * 1000;
+    fs.writeFileSync(cachePath, `${JSON.stringify(envelope)}\n`);
+
+    vi.resetModules();
+    mockLlmsFullDependencies(() => []);
+    const reader = await import("@/app/llms-full.txt/route");
+    const response = await reader.GET();
+
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("stale-cache");
+    expect(await response.text()).toBe(text);
   });
 
   it("includes eligible published articles and excludes noindex, llms-disabled, and private article hrefs", async () => {
@@ -328,13 +350,14 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
         },
       ],
     });
-    const { GET } = await import("@/app/llms-full.txt/route");
-
-    const response = await GET();
+    const route = await import("@/app/llms-full.txt/route");
+    const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
+    const response = await route.GET();
     const text = await response.text();
 
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
-    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(text).toContain(`${SITE_URL}/en/articles/career-interest-test-vs-personality-test`);
     expect(text).toContain(`${SITE_URL}/zh/articles/career-interest-vs-personality-test-differences`);
     expect(text).not.toContain("draft-article");
@@ -374,9 +397,10 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
       en: enArticles,
       zh: [targetArticle],
     });
-    const { GET } = await import("@/app/llms-full.txt/route");
-
-    const response = await GET();
+    const route = await import("@/app/llms-full.txt/route");
+    const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
+    const response = await route.GET();
     const text = await response.text();
 
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");

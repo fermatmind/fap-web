@@ -1,40 +1,41 @@
-# llms-full runtime rebuild amplification guard
+# llms-full public artifact-read boundary
 
 ## Problem
 
-Production observation after the Alibaba Cloud cutover showed that an uncached or incomplete
-`/llms-full.txt` rebuild could fan out into hundreds of backend public API reads. Two PM2 workers
-could start the same rebuild independently, and a failed quality gate left no complete cache, so
-later public reads repeated the same expensive work.
+Production observation after the Alibaba Cloud cutover showed that even a single guarded
+`/llms-full.txt` runtime rebuild could fan out into hundreds of backend public API reads and contend
+with L1/L2 application traffic. Cross-worker single-flight and cooldown controls reduced duplicate
+work but did not remove the request-time full-enrichment load.
 
 ## Change
 
-- Use an atomic shared-directory lease so only one PM2 worker may build the same site artifact.
-- Record a 15-minute shared failure cooldown when a build fails or produces a non-cacheable artifact.
-- During an active lease or cooldown, preserve the existing bounded degraded response instead of
-  starting another backend fanout.
-- Schedule at most two top-level CMS/API sources during runtime rebuilds.
-- Limit runtime detail enrichment to one request per content group, bounding its four parallel
-  groups to four concurrent detail requests; keep offline artifact builds at three sources.
-- Clear the cooldown and lease together with the response cache when the trusted content-release
-  revalidation path explicitly invalidates `llms-full`.
-- Keep stale and complete cache quality gates unchanged.
+- Public `GET /llms-full.txt` reads only a fresh complete artifact, a valid stale complete artifact,
+  or the bounded degraded projection. It never starts the full builder or detail enrichment.
+- The explicit operator generator is the only complete artifact builder and always uses the
+  `artifact` profile.
+- The protected LLMS Feed Cache Ops workflow binds generation and installation to the exact deployed
+  frontend SHA, 2092 Career URLs, the expected Enneagram cohort, and complete mode.
+- The workflow installs exact bytes atomically, reloads PM2, compares the public body SHA with the
+  offline artifact, and restores the previous artifact when installation or readback fails.
+- Trusted content-release revalidation still removes both fresh and stale artifacts. Until a new
+  protected offline artifact is installed, the public route serves degraded mode and cannot rebuild.
 
 ## Authority and safety
 
 - Backend CMS/public APIs remain the only content and enumeration authority.
-- An incomplete artifact is never stored or labeled as complete.
+- An incomplete artifact is never installed, stored, or labeled as complete.
 - The degraded response remains an availability mode, not a content authority source.
 - No URL, canonical, hreflang, indexability, publication state, CMS data, or backend data changes.
-- No production cache warm, deploy, DNS, Search Channel, or URL submission is part of this PR.
+- The PR performs no production cache write, deploy, DNS, Search Channel, or URL submission. The
+  protected workflow remains a separately authorized production cache operation.
 
 ## Operational outcome
 
-A missing complete artifact can cause at most one shared rebuild attempt per cooldown window instead
-of one attempt per public request and PM2 worker. A trusted content release can still clear the
-cooldown immediately and start a fresh authority-backed rebuild.
+A missing complete artifact causes zero full rebuild attempts from public traffic. The route returns
+the bounded degraded projection until an operator-approved offline artifact installation succeeds.
 
 ## Repository rule impact
 
-This changes only the failure-control behavior of an existing SEO/GEO cache. It preserves the
-backend authority boundary and does not add frontend editorial fallback content or widen exposure.
+This changes the generation SOP and public cache-read behavior of an existing SEO/GEO artifact. It
+preserves backend/CMS/public API authority, adds no frontend editorial fallback, and does not widen
+publication or discoverability eligibility.

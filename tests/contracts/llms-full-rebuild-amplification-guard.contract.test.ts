@@ -1,4 +1,5 @@
 import { access, mkdtemp, readFile, rm } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -24,6 +25,17 @@ afterEach(async () => {
 });
 
 describe("llms-full rebuild amplification guard", () => {
+  it("keeps the public GET path artifact-only while retaining the explicit offline builder", () => {
+    const route = readFileSync(path.join(process.cwd(), "app/llms-full.txt/route.ts"), "utf8");
+    const publicGet = route.slice(route.indexOf("export async function GET()"));
+
+    expect(publicGet).toContain("getCachedLlmsFullText");
+    expect(publicGet).toContain("buildDegradedLlmsFullText");
+    expect(publicGet).not.toContain("getOrStartLlmsFullBuild");
+    expect(publicGet).not.toContain("buildLlmsFullText(");
+    expect(route).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
+  });
+
   it("single-flights builds across module instances and cools down a failed rebuild", async () => {
     await createSharedCacheDirectory();
     const firstModule = await import("@/lib/seo/llmsFullResponseCache");

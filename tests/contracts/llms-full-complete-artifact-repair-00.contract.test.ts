@@ -25,9 +25,10 @@ describe("SEO-OPS-LLMS-FULL-COMPLETE-ARTIFACT-REPAIR-PR-00", () => {
     expect(route).toContain('type LlmsFullResponseMode = "complete" | "degraded"');
     expect(route).toContain("X-FermatMind-LLMS-Full-Source");
     expect(route).toContain('createLlmsFullResponse(freshCachedText, "complete", "cache")');
-    expect(route).toContain('createLlmsFullResponse(buildResult, "complete", "generated")');
     expect(route).toContain('createLlmsFullResponse(staleCachedText, "complete", "stale-cache")');
     expect(route).toContain('createLlmsFullResponse(await buildDegradedLlmsFullText(siteUrl), "degraded", "degraded")');
+    expect(route).not.toContain('"complete", "generated"');
+    expect(route).not.toContain("getOrStartLlmsFullBuild");
   });
 
   it("adds llms surfaces to article content release revalidation", () => {

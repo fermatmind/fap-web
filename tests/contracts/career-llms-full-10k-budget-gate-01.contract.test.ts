@@ -45,7 +45,8 @@ function mockLlmsFullDependencies(paths: () => string[]) {
     isConfiguredStagingDiscoverability: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths,
   }));
   vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
@@ -103,18 +104,20 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
 
     const syntheticPaths = syntheticTenKCareerPaths();
     const { listBackendSitemapCareerJobPaths } = mockLlmsFullDependencies(() => syntheticPaths);
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const route = await import("@/app/llms-full.txt/route");
 
-    const response = await GET();
+    const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
+    const response = await route.GET();
     const text = await response.text();
 
     expect(response.status).toBe(200);
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
-    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
-    expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(1);
-    expect(listBackendSitemapCareerJobPaths.mock.calls[0]?.[0]).toMatchObject({
-      limit: LLMS_ROUTE_LIMITS.careerJobs,
-    });
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
+    expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(2);
+    for (const [options] of listBackendSitemapCareerJobPaths.mock.calls) {
+      expect(options).toMatchObject({ limit: LLMS_ROUTE_LIMITS.careerJobs });
+    }
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeLessThan(20_000);
     expect(careerUrlCount(text)).toBe(LLMS_ROUTE_LIMITS.careerJobs);
     expect(careerUrlCount(text)).toBeLessThan(syntheticPaths.length);
@@ -148,7 +151,7 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
     const sitemapSource = read("lib/seo/backendSitemapSource.ts");
 
     expect(route).toContain("getCachedLlmsFullText");
-    expect(route).toContain("getOrStartLlmsFullBuild");
+    expect(route).not.toContain("getOrStartLlmsFullBuild");
     expect(route).toContain("buildDegradedLlmsFullText");
     expect(route).toContain("listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal })");
     expect(route).not.toContain("fetchCareerJobIndex");
