@@ -70,8 +70,8 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 
 ## Manifest discipline
 - This section applies only when the task explicitly identifies itself as PR-train work. Ordinary PRs must not create or update manifest/state entries merely to record process.
-- For explicit PR-train work under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization, then continuing under the same scope discipline.
-- Outside an execution goal, stop and report a missing requested PR-train item unless the user asks to update the train manifest.
+- Under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization, then continuing under the same scope discipline.
+- Outside an execution goal, stop and report a missing PR-train item unless the user asks to update the train manifest.
 - Never invent a PR id or scope that is not either:
   - already present in the manifest, or
   - explicitly provided by the user.
@@ -99,7 +99,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 
 ## PR discipline
 - Open exactly one PR for the current task.
-- For explicit PR-train work, the PR title must match the PR id and scope from the manifest. Ordinary PRs use a concise scope-matching title and no invented train id.
+- For explicit PR-train work, the following applies: The PR title must match the PR id and scope from the manifest. Ordinary PRs use a concise scope-matching title and no invented train id.
 - The PR body must include:
   - what changed
   - why
