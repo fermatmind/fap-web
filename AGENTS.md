@@ -89,7 +89,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 ## Verification discipline
 - For explicit PR-train work, run all local checks listed in the PR manifest before push. Ordinary work follows the delivery lane and local verification tiers below.
 - If local checks fail, do not open a PR.
-- Record failed checks in `docs/codex/pr-train-state.json`.
+- For explicit PR-train work, record a material unresolved check failure in `docs/codex/pr-train-state.json`. Ordinary PRs must not create a ledger entry for a failed check.
 - Never continue to the next PR after a failed local check.
 - If remote GitHub checks fail after all required local checks pass, Codex may continue to the next PR only when:
   - the current PR `merge_policy.github_checks_required` is false
