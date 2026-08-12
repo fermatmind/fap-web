@@ -44,6 +44,14 @@ else
   printf 'none\n'
 fi
 
+printf '\n== Operation ownership ==\n'
+operation_guard="${script_dir}/fermatmind-operation-guard"
+if [[ -x "$operation_guard" ]]; then
+  "$operation_guard" status || true
+else
+  printf 'unavailable\n'
+fi
+
 printf '\n== Worktrees ==\n'
 for repo in "${repos[@]}"; do
   printf '%s\n' "$repo"

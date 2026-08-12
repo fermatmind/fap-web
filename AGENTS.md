@@ -32,6 +32,13 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - The lease is machine-wide across `fap-web` and `fap-api`. Exit status `75` means another window owns the heavy slot; run focused checks or wait. Never delete an active lease or kill its process.
 - Lint, typecheck, formatting, and focused Vitest/PHPUnit tests remain parallel-safe and do not require the lease.
 
+## Multi-window operation ownership
+
+- Before any controlled GitHub workflow dispatch, derive one deterministic operation key from public immutable identity fields, claim it with `fermatmind-operation-guard`, and execute the dispatch only through its `dispatch` command.
+- The first Codex window is the owner. A different window that receives `decision=attached` may monitor or continue the owner's existing PR/run but must not dispatch, rerun, cancel, replace, or roll back the operation.
+- Never include secrets, approval phrases, content bodies, private paths, or credentials in an operation identity. Only the hashed Codex thread identity may be persisted.
+- Controlled operations never permit stale takeover. Ordinary local operations require an explicit TTL-qualified stale takeover; completed operation records remain immutable coordination evidence.
+
 ## Goal execution standing authorization
 - FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR and, only for explicit PR-train work, its ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
 - A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.

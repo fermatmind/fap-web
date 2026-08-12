@@ -83,6 +83,8 @@ ln -sfn /Users/rainie/Desktop/GitHub/fap-web/scripts/ops/fermatmind-task-status 
   /Users/rainie/.local/bin/fermatmind-task-status
 ln -sfn /Users/rainie/Desktop/GitHub/fap-web/scripts/ops/fermatmind-heavy-guard \
   /Users/rainie/.local/bin/fermatmind-heavy-guard
+ln -sfn /Users/rainie/Desktop/GitHub/fap-web/scripts/ops/fermatmind-operation-guard \
+  /Users/rainie/.local/bin/fermatmind-operation-guard
 ```
 
 Every window should inspect shared state before substantial validation:
@@ -117,6 +119,31 @@ fermatmind-heavy-guard run \
 The lease uses one atomic directory for both repositories and records PID, task, repository, start time, and command. A second heavy run exits with status `75`; it never kills the owner. It also refuses to overlap a recognizable heavy command started outside the lease. A dead PID is reported as stale and reclaimed on the next acquisition. Do not manually delete an active lease.
 
 Lint, typecheck, formatting, shell syntax checks, and focused Vitest/PHPUnit tests remain parallel-safe and do not use the lease. GitHub Actions are shown by `fermatmind-task-status` for coordination but do not consume the local lease.
+
+## Multi-window Operation Ownership
+
+The heavy-validation lease protects local CPU and memory. Separately, every controlled GitHub dispatch and every ordinary operation that could be repeated by another Codex window must use one deterministic operation key and persistent local ownership.
+
+Generate the key only from public immutable identity fields, never from secrets, approval phrases, or content bodies. Claim it before dispatch:
+
+```bash
+operation_key="$(fermatmind-operation-guard key \
+  --repository fermatmind/fap-api \
+  --workflow .github/workflows/example.yml \
+  --scope example \
+  --identity 'control=<sha>|mode=<mode>|receipt=<sha256>')"
+
+fermatmind-operation-guard claim \
+  --key "$operation_key" \
+  --repo fermatmind/fap-api \
+  --scope example \
+  --lane controlled
+
+fermatmind-operation-guard dispatch --key "$operation_key" -- \
+  gh workflow run example.yml -f operation_key="$operation_key"
+```
+
+The first window is the owner. Other windows receive `decision=attached` and may inspect the recorded PR or workflow run, but must not redispatch it. Controlled operations never support stale takeover. Ordinary development operations may use explicit stale takeover after the configured TTL. Completion records remain in the local operation registry so an unchanged operation key cannot execute twice.
 
 ## When To Use Each Surface
 
