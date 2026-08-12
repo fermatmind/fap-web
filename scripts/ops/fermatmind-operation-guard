@@ -1,0 +1,298 @@
+#!/usr/bin/env bash
+
+set -uo pipefail
+
+usage() {
+  cat <<'EOF'
+Usage:
+  fermatmind-operation-guard key --repository <owner/repo> --workflow <path> --scope <scope> --identity <immutable-identity>
+  fermatmind-operation-guard claim --key <sha256> --repo <path-or-slug> --scope <scope> --lane <ordinary|controlled> [options]
+  fermatmind-operation-guard status [--key <sha256>]
+  fermatmind-operation-guard attach --key <sha256>
+  fermatmind-operation-guard heartbeat --key <sha256> [--phase <phase>] [--run-id <id>] [--run-attempt <attempt>]
+  fermatmind-operation-guard complete --key <sha256> --result <success|failed|blocked>
+  fermatmind-operation-guard dispatch --key <sha256> -- <command> [args...]
+
+Claim options:
+  --branch <branch> --pr <number> --phase <phase> --run-id <id> --run-attempt <attempt>
+  --takeover-stale --stale-after <seconds>
+
+Exit 75 means this window does not own the operation. Controlled operations never allow takeover.
+EOF
+}
+
+operation_root="${FERMATMIND_OPERATION_ROOT:-${HOME}/.cache/fermatmind/operations/v1}"
+default_stale_after="${FERMATMIND_OPERATION_STALE_AFTER_SECONDS:-14400}"
+
+die() {
+  printf '%s\n' "$1" >&2
+  exit "${2:-64}"
+}
+
+sha256_text() {
+  if command -v sha256sum >/dev/null 2>&1; then
+    sha256sum | awk '{print $1}'
+  else
+    shasum -a 256 | awk '{print $1}'
+  fi
+}
+
+validate_key() {
+  [[ "$1" =~ ^[0-9a-f]{64}$ ]] || die "operation key must be 64 lowercase hexadecimal characters"
+}
+
+validate_value() {
+  local label="$1" value="$2"
+  [[ -n "$value" && "$value" != *$'\n'* && "$value" != *$'\r'* && "$value" != *$'\t'* && "$value" != *'='* ]] || \
+    die "$label must be non-empty and contain no control characters or equals sign"
+}
+
+validate_optional_value() {
+  local label="$1" value="$2"
+  [[ -z "$value" ]] || validate_value "$label" "$value"
+}
+
+owner_hash() {
+  local owner="${FERMATMIND_OPERATION_OWNER:-${CODEX_THREAD_ID:-}}"
+  [[ -n "$owner" ]] || die "CODEX_THREAD_ID or FERMATMIND_OPERATION_OWNER is required" 78
+  printf '%s' "$owner" | sha256_text
+}
+
+ensure_root() {
+  [[ ! -L "$operation_root" ]] || die "refusing unsafe operation-root symlink: $operation_root" 73
+  mkdir -p "$operation_root"
+  chmod 700 "$operation_root" 2>/dev/null || true
+  [[ -d "$operation_root" && ! -L "$operation_root" ]] || die "invalid operation root: $operation_root" 73
+}
+
+record_path() {
+  printf '%s/%s/metadata\n' "$operation_root" "$1"
+}
+
+read_field() {
+  local record="$1" field="$2"
+  awk -F= -v key="$field" '$1 == key { print substr($0, length(key) + 2); exit }' "$record"
+}
+
+write_record() {
+  local key="$1" repo="$2" scope="$3" lane="$4" branch="$5" pr="$6" phase="$7"
+  local run_id="$8" run_attempt="$9" status="${10}" result="${11}" owner="${12}" created="${13}"
+  local dir="$operation_root/$key" tmp
+  [[ -d "$dir" && ! -L "$dir" ]] || die "unsafe operation directory: $dir" 73
+  tmp="$(mktemp "$dir/.metadata.XXXXXX")"
+  chmod 600 "$tmp"
+  {
+    printf 'schema=fermatmind.local-operation.v1\n'
+    printf 'key=%s\n' "$key"
+    printf 'repo=%s\n' "$repo"
+    printf 'scope=%s\n' "$scope"
+    printf 'lane=%s\n' "$lane"
+    printf 'branch=%s\n' "$branch"
+    printf 'pr=%s\n' "$pr"
+    printf 'phase=%s\n' "$phase"
+    printf 'run_id=%s\n' "$run_id"
+    printf 'run_attempt=%s\n' "$run_attempt"
+    printf 'status=%s\n' "$status"
+    printf 'result=%s\n' "$result"
+    printf 'owner_hash=%s\n' "$owner"
+    printf 'created_epoch=%s\n' "$created"
+    printf 'heartbeat_epoch=%s\n' "$(date +%s)"
+    printf 'updated_at=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+  } > "$tmp"
+  mv -f "$tmp" "$dir/metadata"
+}
+
+print_record() {
+  local key="$1" record
+  validate_key "$key"
+  record="$(record_path "$key")"
+  [[ -f "$record" && ! -L "$record" ]] || die "operation not found: $key" 66
+  cat "$record"
+}
+
+authorize_owner() {
+  local key="$1" record current recorded status
+  validate_key "$key"
+  ensure_root
+  record="$(record_path "$key")"
+  [[ -f "$record" && ! -L "$record" ]] || die "operation not found: $key" 66
+  current="$(owner_hash)"
+  recorded="$(read_field "$record" owner_hash)"
+  status="$(read_field "$record" status)"
+  if [[ "$recorded" != "$current" || "$status" != "active" ]]; then
+    printf 'decision=attached\nkey=%s\nstatus=%s\n' "$key" "$status" >&2
+    return 75
+  fi
+}
+
+command_key() {
+  local repository="" workflow="" scope="" identity=""
+  shift
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --repository) [[ $# -ge 2 ]] || die "missing --repository value"; repository="$2"; shift 2 ;;
+      --workflow) [[ $# -ge 2 ]] || die "missing --workflow value"; workflow="$2"; shift 2 ;;
+      --scope) [[ $# -ge 2 ]] || die "missing --scope value"; scope="$2"; shift 2 ;;
+      --identity) [[ $# -ge 2 ]] || die "missing --identity value"; identity="$2"; shift 2 ;;
+      *) die "unknown key option: $1" ;;
+    esac
+  done
+  validate_value repository "$repository"
+  validate_value workflow "$workflow"
+  validate_value scope "$scope"
+  [[ -n "$identity" && "$identity" != *$'\n'* && "$identity" != *$'\r'* ]] || die "identity is required and must be one line"
+  {
+    printf 'fermatmind.operation.v1\n'
+    printf 'repository=%s\n' "$repository"
+    printf 'workflow=%s\n' "$workflow"
+    printf 'scope=%s\n' "$scope"
+    printf 'identity_sha256=%s\n' "$(printf '%s' "$identity" | sha256_text)"
+  } | sha256_text
+}
+
+command_claim() {
+  local key="" repo="" scope="" lane="" branch="" pr="" phase="claimed" run_id="" run_attempt=""
+  local takeover=0 stale_after="$default_stale_after" current dir record recorded status heartbeat age created stale_dir
+  shift
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --key) key="$2"; shift 2 ;;
+      --repo) repo="$2"; shift 2 ;;
+      --scope) scope="$2"; shift 2 ;;
+      --lane) lane="$2"; shift 2 ;;
+      --branch) branch="$2"; shift 2 ;;
+      --pr) pr="$2"; shift 2 ;;
+      --phase) phase="$2"; shift 2 ;;
+      --run-id) run_id="$2"; shift 2 ;;
+      --run-attempt) run_attempt="$2"; shift 2 ;;
+      --takeover-stale) takeover=1; shift ;;
+      --stale-after) stale_after="$2"; shift 2 ;;
+      *) die "unknown claim option: $1" ;;
+    esac
+  done
+  validate_key "$key"
+  validate_value repo "$repo"; validate_value scope "$scope"; validate_value phase "$phase"
+  validate_optional_value branch "$branch"; validate_optional_value pr "$pr"
+  validate_optional_value run-id "$run_id"; validate_optional_value run-attempt "$run_attempt"
+  [[ "$lane" == ordinary || "$lane" == controlled ]] || die "lane must be ordinary or controlled"
+  [[ "$stale_after" =~ ^[1-9][0-9]*$ ]] || die "stale-after must be a positive integer"
+  current="$(owner_hash)"
+  ensure_root
+  dir="$operation_root/$key"
+  if mkdir "$dir" 2>/dev/null; then
+    chmod 700 "$dir"
+    created="$(date +%s)"
+    write_record "$key" "$repo" "$scope" "$lane" "$branch" "$pr" "$phase" "$run_id" "$run_attempt" active "" "$current" "$created"
+    printf 'decision=owner\nkey=%s\n' "$key"
+    return 0
+  fi
+  [[ -d "$dir" && ! -L "$dir" ]] || die "refusing unsafe operation directory: $dir" 73
+  record="$dir/metadata"
+  [[ -f "$record" && ! -L "$record" ]] || die "operation metadata is missing or unsafe: $key" 73
+  recorded="$(read_field "$record" owner_hash)"
+  status="$(read_field "$record" status)"
+  if [[ "$recorded" == "$current" && "$status" == active ]]; then
+    printf 'decision=owner\nkey=%s\nreentrant=true\n' "$key"
+    return 0
+  fi
+  if [[ "$takeover" -eq 1 ]]; then
+    [[ "$lane" == ordinary ]] || die "controlled operations never allow stale takeover" 75
+    [[ "$(read_field "$record" lane)" == ordinary ]] || die "recorded controlled operation never allows stale takeover" 75
+    heartbeat="$(read_field "$record" heartbeat_epoch)"
+    [[ "$heartbeat" =~ ^[0-9]+$ ]] || die "operation heartbeat is invalid" 73
+    age=$(( $(date +%s) - heartbeat ))
+    [[ "$status" == active && "$age" -ge "$stale_after" ]] || die "operation is not eligible for stale takeover" 75
+    stale_dir="$operation_root/.stale-$key-$(date +%s)-$$"
+    mv "$dir" "$stale_dir" || die "stale takeover lost an ownership race" 75
+    if ! mkdir "$dir" 2>/dev/null; then
+      mv "$stale_dir" "$dir" 2>/dev/null || true
+      die "stale takeover lost an ownership race" 75
+    fi
+    chmod 700 "$dir"
+    created="$(date +%s)"
+    write_record "$key" "$repo" "$scope" "$lane" "$branch" "$pr" "$phase" "$run_id" "$run_attempt" active "" "$current" "$created"
+    printf 'decision=owner\nkey=%s\ntakeover=stale\n' "$key"
+    return 0
+  fi
+  printf 'decision=attached\nkey=%s\nstatus=%s\n' "$key" "$status"
+}
+
+command_status() {
+  local key=""
+  shift
+  if [[ $# -gt 0 ]]; then
+    [[ "$1" == --key && $# -eq 2 ]] || die "status accepts only --key <sha256>"
+    key="$2"
+  fi
+  ensure_root
+  if [[ -n "$key" ]]; then
+    print_record "$key"
+    return
+  fi
+  local found=0 dir
+  for dir in "$operation_root"/[0-9a-f]*; do
+    [[ -d "$dir" && ! -L "$dir" && "$(basename "$dir")" =~ ^[0-9a-f]{64}$ ]] || continue
+    found=1
+    printf '%s\n' '---'
+    cat "$dir/metadata"
+  done
+  [[ "$found" -eq 1 ]] || printf 'state=idle\nroot=%s\n' "$operation_root"
+}
+
+command_update() {
+  local action="$1"; shift
+  local key="" phase="" run_id="" run_attempt="" result=""
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --key) key="$2"; shift 2 ;;
+      --phase) phase="$2"; shift 2 ;;
+      --run-id) run_id="$2"; shift 2 ;;
+      --run-attempt) run_attempt="$2"; shift 2 ;;
+      --result) result="$2"; shift 2 ;;
+      *) die "unknown $action option: $1" ;;
+    esac
+  done
+  authorize_owner "$key" || exit $?
+  local record repo scope lane branch pr old_phase old_run_id old_run_attempt owner created
+  record="$(record_path "$key")"
+  repo="$(read_field "$record" repo)"; scope="$(read_field "$record" scope)"; lane="$(read_field "$record" lane)"
+  branch="$(read_field "$record" branch)"; pr="$(read_field "$record" pr)"; old_phase="$(read_field "$record" phase)"
+  old_run_id="$(read_field "$record" run_id)"; old_run_attempt="$(read_field "$record" run_attempt)"
+  owner="$(read_field "$record" owner_hash)"; created="$(read_field "$record" created_epoch)"
+  [[ -n "$phase" ]] || phase="$old_phase"; [[ -n "$run_id" ]] || run_id="$old_run_id"; [[ -n "$run_attempt" ]] || run_attempt="$old_run_attempt"
+  validate_value phase "$phase"; validate_optional_value run-id "$run_id"; validate_optional_value run-attempt "$run_attempt"
+  if [[ "$action" == complete ]]; then
+    [[ "$result" == success || "$result" == failed || "$result" == blocked ]] || die "result must be success, failed, or blocked"
+    write_record "$key" "$repo" "$scope" "$lane" "$branch" "$pr" complete "$run_id" "$run_attempt" completed "$result" "$owner" "$created"
+    printf 'decision=completed\nkey=%s\nresult=%s\n' "$key" "$result"
+  else
+    [[ -z "$result" ]] || die "heartbeat does not accept --result"
+    write_record "$key" "$repo" "$scope" "$lane" "$branch" "$pr" "$phase" "$run_id" "$run_attempt" active "" "$owner" "$created"
+    printf 'decision=owner\nkey=%s\nheartbeat=updated\n' "$key"
+  fi
+}
+
+command_dispatch() {
+  local key=""
+  shift
+  [[ $# -ge 3 && "$1" == --key ]] || die "dispatch requires --key <sha256> -- <command>"
+  key="$2"; shift 2
+  [[ "$1" == -- ]] || die "dispatch requires -- before the command"
+  shift
+  [[ $# -gt 0 ]] || die "dispatch command is required"
+  authorize_owner "$key" || exit $?
+  command_update heartbeat --key "$key" --phase dispatch >/dev/null
+  "$@"
+}
+
+command_name="${1:-}"
+case "$command_name" in
+  key) command_key "$@" ;;
+  claim) command_claim "$@" ;;
+  status) command_status "$@" ;;
+  attach) [[ $# -eq 3 && "$2" == --key ]] || die "attach requires --key <sha256>"; ensure_root; print_record "$3" ;;
+  heartbeat|complete) command_update "$@" ;;
+  dispatch) command_dispatch "$@" ;;
+  -h|--help|help|'') usage ;;
+  *) usage >&2; exit 64 ;;
+esac

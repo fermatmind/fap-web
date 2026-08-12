@@ -3,6 +3,14 @@ name: Deploy Web Staging
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "AGENTS.md"
+      - "docs/codex/fermatmind-codex-workflow-and-personalization.md"
+      - ".github/workflows/deploy-staging.yml"
+      - "scripts/ops/fermatmind-operation-guard"
+      - "scripts/ops/fermatmind-task-status"
+      - "tests/ops/fermatmind-operation-guard.test.sh"
+      - "tests/contracts/solo-owner-operation-guard.contract.test.ts"
   workflow_dispatch:
     inputs:
       deploy_sha:
