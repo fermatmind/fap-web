@@ -31,6 +31,37 @@ function changedFilesAgainstMain(): string[] {
 }
 
 describe("test detail landing contract", () => {
+  it("collapses branded test metadata to one absolute FermatMind suffix", async () => {
+    const { applyTestDetailMetadataTitleTemplateGuard } = await import(
+      "@/app/(localized)/[locale]/tests/[slug]/page"
+    );
+    const metadata = {
+      title: "Free Holland Career Interest Test (RIASEC) | FermatMind | FermatMind",
+      description: "Backend description.",
+      robots: { index: true, follow: true },
+    };
+
+    const doubleBranded = applyTestDetailMetadataTitleTemplateGuard(
+      metadata,
+      "Free Holland Career Interest Test (RIASEC) | FermatMind | FermatMind"
+    );
+    const singleBranded = applyTestDetailMetadataTitleTemplateGuard(
+      metadata,
+      "Free Holland Career Interest Test (RIASEC) | FermatMind"
+    );
+    const unbranded = applyTestDetailMetadataTitleTemplateGuard(metadata, "Free MBTI Test");
+
+    expect(doubleBranded.title).toEqual({
+      absolute: "Free Holland Career Interest Test (RIASEC) | FermatMind",
+    });
+    expect(singleBranded.title).toEqual({
+      absolute: "Free Holland Career Interest Test (RIASEC) | FermatMind",
+    });
+    expect(doubleBranded.description).toBe("Backend description.");
+    expect(doubleBranded.robots).toMatchObject({ index: true, follow: true });
+    expect(unbranded.title).toBe(metadata.title);
+  });
+
   it("consumes backend landing_surface_v1 instead of inventing test landing truth locally", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 

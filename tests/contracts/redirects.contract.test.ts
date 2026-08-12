@@ -106,4 +106,21 @@ describe("legacy redirect hygiene contract", () => {
       ])
     );
   });
+
+  it("redirects the indexed zh Enneagram test alias to its canonical detail in one hop", async () => {
+    const redirects = await loadRedirects();
+
+    expect(redirects).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          source: "/zh/tests/enneagram-personality-test",
+          destination: "/zh/tests/enneagram-personality-test-nine-types",
+          permanent: true,
+        }),
+      ])
+    );
+    expect(
+      redirects.filter((redirect) => redirect.source === "/zh/tests/enneagram-personality-test")
+    ).toHaveLength(1);
+  });
 });

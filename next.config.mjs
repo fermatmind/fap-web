@@ -252,6 +252,11 @@ const nextConfig = {
         destination: "/en/tests/:path*",
         permanent: true,
       },
+      {
+        source: "/zh/tests/enneagram-personality-test",
+        destination: "/zh/tests/enneagram-personality-test-nine-types",
+        permanent: true,
+      },
       ...bigFiveLegacyExact301Redirects,
       // Redirect legacy /big-five/ paths (missing /personality/ prefix) to canonical /personality/big-five/
       {

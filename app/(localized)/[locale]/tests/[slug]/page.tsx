@@ -525,6 +525,25 @@ type FlagshipFreeTestCopy = {
   freeBoundary: string;
 };
 
+export function applyTestDetailMetadataTitleTemplateGuard(
+  metadata: Metadata,
+  sourceTitle: string
+): Metadata {
+  const normalized = sourceTitle.replace(/\s+/g, " ").trim();
+  const suffixPattern = /(?:\s*\|\s*FermatMind)+$/i;
+  if (!suffixPattern.test(normalized)) {
+    return metadata;
+  }
+
+  const baseTitle = normalized.replace(suffixPattern, "").trim();
+  return {
+    ...metadata,
+    title: {
+      absolute: baseTitle ? `${baseTitle} | FermatMind` : "FermatMind",
+    },
+  };
+}
+
 function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "en" | "zh"): FlagshipFreeTestCopy | null {
   if (locale !== "zh") return null;
 
@@ -835,23 +854,26 @@ export async function generateMetadata({
     || metadataAuthority.shouldNoindexMissingMetadataAuthority
     || iqLaunchSeoGuard.shouldNoindex;
 
-  return buildPageMetadata({
-    locale,
-    pathname: canonical,
-    canonicalPathname: canonical,
-    canonicalRouteFamily: "test_detail",
-    title,
-    description,
-    imagePath: ogImage,
-    noindex: forcedNoindex,
-    noindexFollow: isClinicalDepressionPending,
-    omitLanguageAlternates: isClinicalDepressionPending,
-    alternatesByLocale: {
-      en: alternates.en,
-      zh: alternates.zh,
-      xDefault: alternates["x-default"],
-    },
-  });
+  return applyTestDetailMetadataTitleTemplateGuard(
+    buildPageMetadata({
+      locale,
+      pathname: canonical,
+      canonicalPathname: canonical,
+      canonicalRouteFamily: "test_detail",
+      title,
+      description,
+      imagePath: ogImage,
+      noindex: forcedNoindex,
+      noindexFollow: isClinicalDepressionPending,
+      omitLanguageAlternates: isClinicalDepressionPending,
+      alternatesByLocale: {
+        en: alternates.en,
+        zh: alternates.zh,
+        xDefault: alternates["x-default"],
+      },
+    }),
+    title
+  );
 }
 
 export default async function TestLandingPage({
