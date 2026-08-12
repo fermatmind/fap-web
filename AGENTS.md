@@ -11,6 +11,15 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - No local rule, skill, scan, template, review suggestion, or process convention may weaken, replace, or outrank this first baseline. When multiple compliant paths exist, choose the path with the fewest operator interactions and the shortest validated lead time.
 - Every future scan, implementation report, and PR body MUST include a `Solo-owner efficiency impact` note stating the PR count, required operator-interaction count, and why no shorter safe path exists.
 
+## Delivery risk lanes
+
+- Choose the lowest lane that fully covers the real scope. Strict controls apply to the risky boundary that needs them; they do not spread to unrelated work.
+- **Fast lane:** dependency updates, documentation, small bugs, and low-risk admin features. Use one PR, focused local validation, and merge as soon as required checks are green. Non-required review must not become a revision loop.
+- **Product lane:** user-visible UI, APIs/adapters, and non-payment product flows. Deliver one demo-able end-to-end loop in one PR, collect review once, batch the fixes once, and do not pre-build future scope.
+- **Controlled lane:** production writes, migrations, payments, security, permissions, SEO discoverability, and CMS publication. Preserve the applicable preflight/apply, receipt, approval, exact-scope, and fail-closed boundaries already defined below.
+- PR-train manifest/state and ledger rules apply only when the task explicitly identifies PR-train work. Ordinary PRs must not add process-only entries. For a train task, update only the current item, normally before PR creation and after final merge, with intermediate updates only for a material failure or hold.
+- Read-only investigation, status reporting, and documentation conclusions require only instruction discovery and evidence checks relevant to the question; do not run unrelated runtime commands.
+
 ## Scope discipline
 - One PR = one scope.
 - Never combine adjacent PR scopes.
@@ -24,7 +33,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - Lint, typecheck, formatting, and focused Vitest/PHPUnit tests remain parallel-safe and do not require the lease.
 
 ## Goal execution standing authorization
-- FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR/ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
+- FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR and, only for explicit PR-train work, its ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
 - A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.
 - When that execution goal names a PR-train item, scan/PR card, task id, title, or otherwise unambiguously identifies the scope, it also authorizes creation or update of the exact required `docs/codex/pr-train.yaml` and `docs/codex/pr-train-state.json` entries. A second manifest/state or PR authorization prompt is prohibited.
 - Declared dependency PRs that are already part of the goal or manifest may be completed in dependency order under the same standing authorization. Do not start the dependent PR until its dependency is merged.
@@ -34,11 +43,11 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - The automatic lane MUST preserve exact-SHA staging-to-production identity, required checks, concurrency protection, and bounded smoke gates. It MUST fail closed rather than promote a staging failure or an ambiguous candidate.
 - An automatic production failure MUST NOT retry automatically. Diagnose and repair the same scoped code/workflow issue through the normal PR lifecycle; the next merged fix supplies the next bounded staging-to-production attempt.
 - Infrastructure or ingress changes, secrets or permission changes, CMS/database/content mutations, destructive actions, rollback/recovery, and Search Channel/discoverability writes remain separately controlled and MUST NOT be smuggled through this application deployment lane.
-- If a required check is blocked by a defect already present on `main` and clearly outside the current PR scope, Codex may create, validate, push, open, monitor, and merge a separate minimal ad-hoc baseline-repair PR, then resume the original goal. Keep the repair isolated, prove that the failure predates the current branch, and do not mix the repair into the goal PR. Do not ask for another PR authorization.
+- If a required check is blocked by a defect already present on `main` and clearly outside the current PR scope, report the evidence and keep the current PR isolated. Do not create a sidecar baseline-repair PR unless the user explicitly requests it or a Controlled lane boundary makes the separate repair necessary.
 - Required checks, reviews, branch protection, and merge policies remain mandatory. Standing authorization permits diagnosis and scoped fixes; it never permits merging with failed required checks.
-- Do not mark or report a goal as blocked merely because it needs a missing manifest/state entry, an already-declared dependency, a same-scope CI/review fix, a wait/poll cycle, or an isolated pre-existing baseline repair PR. Resolve those autonomously under this section.
+- Do not mark or report a goal as blocked merely because it needs an explicitly applicable manifest/state entry, an already-declared dependency, a same-scope CI/review fix, or a wait/poll cycle. Resolve those autonomously under this section.
 - Stop for user direction only when the scope or authority owner is materially ambiguous, user-owned changes overlap and cannot be isolated, a production/CMS/database write or other separately controlled action is required, an external review/permission cannot be satisfied, or the necessary repair cannot be isolated and validated safely. Do not treat ordinary branch/commit/push/PR/merge actions as blockers.
-- This section overrides narrower rules below that say to request explicit user authorization for ordinary PR lifecycle, same-scope retry/fix, missing manifest/state initialization, directly blocking ledger reconciliation, or an isolated baseline-repair PR. It does not override an explicitly planning-only/read-only goal or controlled production-publish confirmation requirements.
+- This section overrides narrower rules below that say to request explicit user authorization for ordinary PR lifecycle, same-scope retry/fix, explicitly applicable missing manifest/state initialization, or directly blocking ledger reconciliation. It does not override an explicitly planning-only/read-only goal or controlled production-publish confirmation requirements.
 
 ## Branch discipline
 - Always start from the latest `main`.
@@ -60,6 +69,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - If a dependency is not merged, do not start the dependent PR. Under an active execution goal, complete or wait for the declared dependency under the standing authorization, then continue automatically. Mark `blocked_dependency` and stop only when the dependency cannot be completed safely or requires external authority.
 
 ## Manifest discipline
+- This section applies only when the task explicitly identifies itself as PR-train work. Ordinary PRs must not create or update manifest/state entries merely to record process.
 - Under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization, then continuing under the same scope discipline.
 - Outside an execution goal, stop and report a missing PR-train item unless the user asks to update the train manifest.
 - Never invent a PR id or scope that is not either:
@@ -77,9 +87,9 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - If the user provides a concrete `/goal` or equivalent execution request with an explicit PR id, title, and scope, treat those as user-provided manifest details and add missing manifest/state entries without a second authorization prompt.
 
 ## Verification discipline
-- Run all local checks listed in the PR manifest before push.
+- For explicit PR-train work, run all local checks listed in the PR manifest before push. Ordinary work follows the delivery lane and local verification tiers below.
 - If local checks fail, do not open a PR.
-- Record failed checks in `docs/codex/pr-train-state.json`.
+- For explicit PR-train work, record a material unresolved check failure in `docs/codex/pr-train-state.json`. Ordinary PRs must not create a ledger entry for a failed check.
 - Never continue to the next PR after a failed local check.
 - If remote GitHub checks fail after all required local checks pass, Codex may continue to the next PR only when:
   - the current PR `merge_policy.github_checks_required` is false
@@ -89,7 +99,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 
 ## PR discipline
 - Open exactly one PR for the current task.
-- The PR title must match the PR id and scope from the manifest.
+- For explicit PR-train work, the following applies: The PR title must match the PR id and scope from the manifest. Ordinary PRs use a concise scope-matching title and no invented train id.
 - The PR body must include:
   - what changed
   - why
@@ -138,7 +148,8 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - If running outside a local clone, do not claim local cleanup was executed.
 
 ## State ledger discipline
-- Record every state transition in `docs/codex/pr-train-state.json`.
+- This section applies only to explicit PR-train work. Ordinary PRs must not touch `docs/codex/pr-train-state.json` merely to record process.
+- Update only the current task, normally once before PR creation and once after final merge. Add an intermediate update only for a material failure, hold, or externally visible state that must survive the run; do not log every ordinary edit, retry, review comment, or check poll.
 - If the current PR id is missing from `docs/codex/pr-train-state.json` but exists in the manifest, Codex may initialize the missing state entry before continuing.
 - Update at minimum:
   - status
@@ -150,7 +161,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
   - remote_branch_deleted
   - local_cleanup_executed
 - If the merge has not happened yet, use `merged_at: null`, `remote_branch_deleted: false`, and `local_cleanup_executed: false`, plus a clear pending closeout status. Do not pre-fill final merge facts.
-- Never advance to the next PR after a failed local check unless the manifest permits it. Under an active execution goal, diagnose, fix, and rerun the current scoped check without a new user prompt, and record each retry in the ledger.
+- Never advance to the next PR after a failed local check unless the manifest permits it. Under an active execution goal, diagnose, fix, and rerun the current scoped check without a new user prompt; record only a material unresolved failure or the final result in the ledger.
 - For remote GitHub check failures that are explicitly user-overridden, record the status as `github_checks_failed_user_overridden`, keep the failed GitHub check details, and set `failure_reason` to include the override instruction and date.
 
 ## Ledger reconciliation discipline
@@ -176,7 +187,7 @@ Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personaliza
 - Failed GitHub checks still block merge progression unless the current PR's `merge_policy` does not require GitHub checks.
 - Failed GitHub checks do not have to block starting the next manifest PR when the current PR passed all local manifest checks, the manifest allows local verification, and the user explicitly instructs Codex to override the remote-check stop.
 - Do not improvise around failures.
-- Under an active execution goal, exhaust safe in-scope diagnosis, retry, same-PR repair, declared dependency completion, and isolated baseline-repair alternatives before stopping. Prefer a clean, evidence-backed hold only after those paths are exhausted.
+- Under an active execution goal, exhaust safe in-scope diagnosis, retry, same-PR repair, and declared dependency completion before stopping. Do not create a baseline-repair sidecar without an explicit request or Controlled lane necessity; otherwise prefer a clean, evidence-backed hold.
 - Under an active execution goal, Codex must diagnose and fix that same PR's failing checks automatically when the repair stays within scope. Failed required checks still block merge, but they do not require a new user prompt before diagnosis or a scoped retry.
 - Preflight failures, merge blocks, review requirements, ambiguous repository state, and required-check failures stop the goal only when they cannot be resolved within the standing authorization and declared scope. A recorded user override is still required to disregard a non-required remote check; required checks may never be overridden.
 
