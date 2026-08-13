@@ -150,6 +150,27 @@ export type Big5ResultPageV2Payload = z.infer<typeof big5ResultPageV2PayloadSche
 export type Big5ResultPageV2Module = Big5ResultPageV2Payload["modules"][number];
 export type Big5ResultPageV2Block = Big5ResultPageV2Module["blocks"][number];
 
+export const BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES = ["O", "C", "E", "A", "N"] as const;
+
+export type Big5ResultPageV2CoreDomainCode = typeof BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES[number];
+
+export type Big5ResultPageV2CoreDomain = {
+  code: Big5ResultPageV2CoreDomainCode;
+  score: number;
+  band: string;
+  labelZh: string;
+  labelEn: string;
+  bandLabelZh: string;
+  bandLabelEn: string;
+  summaryZh: string;
+  summaryEn: string;
+};
+
+export type Big5ResultPageV2SemanticDecision =
+  | { mode: "full"; payload: Big5ResultPageV2Payload; reasons: [] }
+  | { mode: "core_only"; payload: Big5ResultPageV2Payload; coreDomains: Big5ResultPageV2CoreDomain[]; reasons: string[] }
+  | { mode: "reject"; payload: null; reasons: string[] };
+
 export type Big5ResultPageV2Gate = {
   isFreeVariant: boolean;
   modulesAllowed: Set<string>;
@@ -183,6 +204,57 @@ export function getBig5ResultPageV2Payload(reportData: ReportResponse | null | u
   }
 
   return parseBig5ResultPageV2Payload(reportData[BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]);
+}
+
+export function hasBig5ResultPageV2Candidate(reportData: ReportResponse | null | undefined): boolean {
+  return Boolean(
+    reportData
+    && typeof reportData === "object"
+    && Object.prototype.hasOwnProperty.call(reportData, BIG5_RESULT_PAGE_V2_PAYLOAD_KEY)
+  );
+}
+
+export function getBig5ResultPageV2SemanticDecision(
+  reportData: ReportResponse | null | undefined
+): Big5ResultPageV2SemanticDecision {
+  if (!hasBig5ResultPageV2Candidate(reportData)) {
+    return { mode: "reject", payload: null, reasons: ["v2_payload_missing"] };
+  }
+
+  return assessBig5ResultPageV2Payload(reportData?.[BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]);
+}
+
+export function assessBig5ResultPageV2Payload(value: unknown): Big5ResultPageV2SemanticDecision {
+  const payload = parseBig5ResultPageV2Payload(value);
+  if (!payload) {
+    return { mode: "reject", payload: null, reasons: ["v2_shape_invalid"] };
+  }
+
+  const reasons = new Set<string>();
+  const projectionDomains = readReliableProjectionDomains(payload, reasons);
+  collectSemanticAnomalies(payload, projectionDomains, reasons);
+
+  if (reasons.size === 0) {
+    return { mode: "full", payload, reasons: [] };
+  }
+
+  const coreDomains = projectionDomains
+    ? extractReliableCoreDomains(payload, projectionDomains)
+    : null;
+  if (coreDomains) {
+    return {
+      mode: "core_only",
+      payload,
+      coreDomains,
+      reasons: Array.from(reasons).sort(),
+    };
+  }
+
+  return {
+    mode: "reject",
+    payload: null,
+    reasons: Array.from(reasons).sort(),
+  };
 }
 
 export function hasBig5ResultPageV2Payload(reportData: ReportResponse | null | undefined): boolean {
@@ -258,4 +330,456 @@ function collectShareForbiddenKeys(value: unknown, path: Array<string | number>,
 
     collectShareForbiddenKeys(child, [...path, key], ctx);
   }
+}
+
+type ProjectionCoreDomain = {
+  code: Big5ResultPageV2CoreDomainCode;
+  score: number;
+  band: string;
+};
+
+const DISPLAY_CONTENT_KEYS = new Set([
+  "title",
+  "heading",
+  "label",
+  "profile_label",
+  "scenario_label",
+  "summary",
+  "short_body",
+  "body",
+  "description",
+  "benefit",
+  "cost",
+  "common_misread",
+  "action",
+  "repair",
+  "boundary",
+  "disclaimer",
+  "bullets",
+  "items",
+  "actions",
+]);
+
+const PLACEHOLDER_PATTERNS = [
+  /pending[_\s-]*asset[_\s-]*resolution/i,
+  /this module is not available yet/i,
+  /temporarily unavailable/i,
+  /此模块暂未启用/u,
+  /待补充/u,
+  /占位/u,
+];
+
+function asSemanticRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function normalizeSemanticText(value: unknown): string {
+  return typeof value === "string" ? value.trim().replace(/\s+/g, " ") : "";
+}
+
+function normalizeSemanticToken(value: unknown): string {
+  return normalizeSemanticText(value).toLowerCase().replace(/[\s-]+/g, "_");
+}
+
+function localizedContentValue(content: Record<string, unknown>, key: string, locale: "zh" | "en"): string {
+  return normalizeSemanticText(content[`${key}_${locale}`] ?? content[key]);
+}
+
+function displayKeyBase(key: string): string {
+  return key.replace(/_(?:zh|en)$/i, "");
+}
+
+function collectDisplayStrings(value: unknown, strings: string[], parentKey = ""): void {
+  if (typeof value === "string") {
+    if (DISPLAY_CONTENT_KEYS.has(displayKeyBase(parentKey))) {
+      const normalized = normalizeSemanticText(value);
+      if (normalized) {
+        strings.push(normalized);
+      }
+    }
+    return;
+  }
+
+  if (Array.isArray(value)) {
+    for (const item of value) {
+      collectDisplayStrings(item, strings, parentKey);
+    }
+    return;
+  }
+
+  const record = asSemanticRecord(value);
+  if (!record) {
+    return;
+  }
+
+  for (const [key, child] of Object.entries(record)) {
+    collectDisplayStrings(child, strings, key);
+  }
+}
+
+function containsPlaceholder(value: unknown): boolean {
+  if (typeof value === "string") {
+    return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(value));
+  }
+
+  if (Array.isArray(value)) {
+    return value.some(containsPlaceholder);
+  }
+
+  const record = asSemanticRecord(value);
+  return record ? Object.values(record).some(containsPlaceholder) : false;
+}
+
+function readReliableProjectionDomains(
+  payload: Big5ResultPageV2Payload,
+  reasons: Set<string>
+): Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain> | null {
+  const projection = asSemanticRecord(payload.projection_v2);
+  const domains = asSemanticRecord(projection?.domains);
+  const domainBands = asSemanticRecord(projection?.domain_bands);
+  const qualityStatus = normalizeSemanticToken(projection?.quality_status);
+  const normStatus = normalizeSemanticToken(projection?.norm_status);
+  if (!qualityStatus || ["d", "invalid", "failed", "low_quality", "unreliable"].includes(qualityStatus)) {
+    reasons.add(qualityStatus ? "core_quality_unreliable" : "core_quality_status_missing");
+    return null;
+  }
+  if (["missing", "invalid", "failed", "unavailable", "unreliable"].includes(normStatus)) {
+    reasons.add("core_norm_unreliable");
+    return null;
+  }
+  if (!domains || !domainBands) {
+    reasons.add("core_projection_missing");
+    return null;
+  }
+
+  const domainKeys = Object.keys(domains).sort();
+  const expectedKeys = [...BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES].sort();
+  if (domainKeys.length !== expectedKeys.length || domainKeys.some((key, index) => key !== expectedKeys[index])) {
+    reasons.add("core_projection_cardinality_invalid");
+    return null;
+  }
+
+  const result = new Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>();
+  for (const code of BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES) {
+    const domain = asSemanticRecord(domains[code]);
+    const score = domain?.score;
+    const band = normalizeSemanticToken(domain?.band);
+    const projectedBand = normalizeSemanticToken(domainBands[code]);
+    if (typeof score !== "number" || !Number.isFinite(score) || score < 0 || score > 100 || !band) {
+      reasons.add(`core_projection_${code.toLowerCase()}_invalid`);
+      return null;
+    }
+    if (!projectedBand || projectedBand !== band) {
+      reasons.add(`core_projection_${code.toLowerCase()}_band_mismatch`);
+      return null;
+    }
+    result.set(code, { code, score, band });
+  }
+
+  const routeBandOrdinals: Record<string, number> = {
+    very_low: 1,
+    low: 2,
+    mid_low: 2,
+    mid: 3,
+    mid_high: 4,
+    high: 4,
+    very_high: 5,
+  };
+  const looksLikeRouteBandScores = Array.from(result.values()).every(
+    (domain) => Number.isInteger(domain.score)
+      && domain.score >= 1
+      && domain.score <= 5
+      && routeBandOrdinals[domain.band] === domain.score
+  );
+  if (looksLikeRouteBandScores) {
+    reasons.add("core_projection_contains_route_band_scores");
+    return null;
+  }
+
+  return result;
+}
+
+function traitCodeFromContent(content: Record<string, unknown>): Big5ResultPageV2CoreDomainCode | null {
+  const trait = asSemanticRecord(content.trait);
+  const code = normalizeSemanticText(trait?.code ?? content.trait_code).toUpperCase();
+  return BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.includes(code as Big5ResultPageV2CoreDomainCode)
+    ? code as Big5ResultPageV2CoreDomainCode
+    : null;
+}
+
+function traitBandFromContent(content: Record<string, unknown>): string {
+  const band = asSemanticRecord(content.band);
+  return normalizeSemanticToken(band?.internal_band ?? content.band);
+}
+
+function semanticSlotKey(block: Big5ResultPageV2Block, content: Record<string, unknown>): string {
+  const traitCode = traitCodeFromContent(content);
+  if (traitCode) {
+    return `${block.module_key}:${block.block_kind}:trait:${traitCode}`;
+  }
+
+  const scenario = normalizeSemanticToken(content.scenario ?? content.scenario_key);
+  if (scenario) {
+    return `${block.module_key}:${block.block_kind}:scenario:${scenario}`;
+  }
+
+  const coupling = normalizeSemanticToken(content.coupling_key);
+  if (coupling) {
+    return `${block.module_key}:${block.block_kind}:coupling:${coupling}`;
+  }
+
+  const slot = normalizeSemanticToken(content.slot_key);
+  return slot ? `${block.module_key}:${block.block_kind}:slot:${slot}` : "";
+}
+
+function polarityGroup(value: unknown): "high" | "low" | null {
+  const token = normalizeSemanticToken(value);
+  if (token === "high" || token === "very_high" || token === "mid_high") {
+    return "high";
+  }
+  if (token === "low" || token === "very_low" || token === "mid_low") {
+    return "low";
+  }
+  return null;
+}
+
+function collectFacetPolarities(value: unknown, result: Map<string, Set<"high" | "low">>): void {
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectFacetPolarities(item, result));
+    return;
+  }
+
+  const record = asSemanticRecord(value);
+  if (!record) {
+    return;
+  }
+
+  const facetRecord = asSemanticRecord(record.facet);
+  const facet = normalizeSemanticText(facetRecord?.code ?? record.facet_code ?? record.facet).toUpperCase();
+  const bandRecord = asSemanticRecord(record.band);
+  const polarity = polarityGroup(
+    record.polarity
+    ?? record.bucket
+    ?? record.level
+    ?? bandRecord?.internal_band
+    ?? (typeof record.band === "string" ? record.band : null)
+  );
+  if (/^[OCEAN][1-6]$/.test(facet) && polarity) {
+    const entries = result.get(facet) ?? new Set<"high" | "low">();
+    entries.add(polarity);
+    result.set(facet, entries);
+  }
+
+  Object.values(record).forEach((child) => collectFacetPolarities(child, result));
+}
+
+function collectFacetPolaritiesFromReference(reference: string, result: Map<string, Set<"high" | "low">>): void {
+  const normalized = reference.toUpperCase().replace(/-/g, "_");
+  const match = normalized.match(/(?:^|[.:_])([OCEAN][1-6])(?:[.:_])(?:VERY_)?(HIGH|LOW)(?:[.:_]|$)/);
+  if (!match) {
+    return;
+  }
+
+  const entries = result.get(match[1]) ?? new Set<"high" | "low">();
+  entries.add(match[2] === "HIGH" ? "high" : "low");
+  result.set(match[1], entries);
+}
+
+function collectSemanticAnomalies(
+  payload: Big5ResultPageV2Payload,
+  projectionDomains: Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain> | null,
+  reasons: Set<string>
+): void {
+  const blockKeys = new Set<string>();
+  const semanticSlots = new Set<string>();
+  const visibleStringOwners = new Map<string, string>();
+  const facetPolarities = new Map<string, Set<"high" | "low">>();
+
+  for (const payloadModule of payload.modules) {
+    for (const block of payloadModule.blocks) {
+      if (blockKeys.has(block.block_key)) {
+        reasons.add("duplicate_block_key");
+      }
+      blockKeys.add(block.block_key);
+
+      const content = asSemanticRecord(block.content);
+      if (!content) {
+        reasons.add("empty_block_content");
+        continue;
+      }
+
+      if (containsPlaceholder(content)) {
+        reasons.add("placeholder_content");
+      }
+
+      const displayStrings: string[] = [];
+      collectDisplayStrings(content, displayStrings);
+      if (displayStrings.length === 0) {
+        reasons.add(block.block_kind === "method_boundary" ? "empty_method_block" : "empty_block_content");
+      }
+
+      for (const displayString of displayStrings) {
+        const normalized = displayString.toLocaleLowerCase().replace(/[\s\p{P}\p{S}]+/gu, "");
+        if (normalized.length < 12) {
+          continue;
+        }
+        const owner = visibleStringOwners.get(normalized);
+        if (owner && owner !== block.block_key) {
+          reasons.add("duplicate_visible_content");
+        } else if (!owner) {
+          visibleStringOwners.set(normalized, block.block_key);
+        }
+      }
+
+      const slot = semanticSlotKey(block, content);
+      if (slot) {
+        if (semanticSlots.has(slot)) {
+          reasons.add("duplicate_semantic_slot");
+        }
+        semanticSlots.add(slot);
+      }
+
+      const traitCode = traitCodeFromContent(content);
+      const traitBand = traitBandFromContent(content);
+      if (traitCode && projectionDomains && traitBand && projectionDomains.get(traitCode)?.band !== traitBand) {
+        reasons.add(`trait_${traitCode.toLowerCase()}_band_mismatch`);
+      }
+
+      collectFacetPolarities(content, facetPolarities);
+      collectFacetPolaritiesFromReference(block.block_key, facetPolarities);
+      for (const registryRef of block.registry_refs ?? []) {
+        collectFacetPolaritiesFromReference(registryRef, facetPolarities);
+      }
+    }
+  }
+
+  if (payload.modules.some((module) => module.blocks.length === 0)) {
+    reasons.add("empty_module");
+  }
+  if (Array.from(facetPolarities.values()).some((polarities) => polarities.size > 1)) {
+    reasons.add("facet_polarity_conflict");
+  }
+}
+
+function extractReliableCoreDomains(
+  payload: Big5ResultPageV2Payload,
+  projectionDomains: Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>
+): Big5ResultPageV2CoreDomain[] | null {
+  const hero = payload.modules.find((payloadModule) => payloadModule.module_key === "module_01_hero");
+  const traitBlocks = (hero?.blocks ?? []).filter((block) => block.block_kind === "trait_bars");
+  const codedTraitBlocks = traitBlocks.filter((block) => {
+    const content = asSemanticRecord(block.content);
+    return content ? traitCodeFromContent(content) !== null : false;
+  });
+  if (codedTraitBlocks.length !== BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.length) {
+    return extractReliableAggregateCoreDomains(traitBlocks, projectionDomains);
+  }
+
+  const byCode = new Map<Big5ResultPageV2CoreDomainCode, Big5ResultPageV2CoreDomain>();
+  const summaries = new Set<string>();
+
+  for (const block of codedTraitBlocks) {
+    const content = asSemanticRecord(block.content);
+    if (!content) {
+      continue;
+    }
+    const code = traitCodeFromContent(content);
+    const projection = code ? projectionDomains.get(code) : null;
+    if (!code || !projection || traitBandFromContent(content) !== projection.band || byCode.has(code)) {
+      return null;
+    }
+
+    const trait = asSemanticRecord(content.trait);
+    const band = asSemanticRecord(content.band);
+    const summaryZh = localizedContentValue(content, "summary", "zh")
+      || localizedContentValue(content, "short_body", "zh")
+      || localizedContentValue(content, "body", "zh");
+    const summaryEn = localizedContentValue(content, "summary", "en")
+      || localizedContentValue(content, "short_body", "en")
+      || localizedContentValue(content, "body", "en");
+    if (!summaryZh && !summaryEn) {
+      return null;
+    }
+    for (const summary of [summaryZh, summaryEn].filter(Boolean)) {
+      const normalized = summary.toLocaleLowerCase().replace(/[\s\p{P}\p{S}]+/gu, "");
+      if (summaries.has(normalized)) {
+        return null;
+      }
+      summaries.add(normalized);
+    }
+
+    byCode.set(code, {
+      code,
+      score: projection.score,
+      band: projection.band,
+      labelZh: normalizeSemanticText(trait?.label_zh ?? trait?.public_name_zh),
+      labelEn: normalizeSemanticText(trait?.label_en ?? trait?.public_name_en),
+      bandLabelZh: normalizeSemanticText(band?.display_band_label_zh ?? band?.display_band_label),
+      bandLabelEn: normalizeSemanticText(band?.display_band_label_en),
+      summaryZh,
+      summaryEn,
+    });
+  }
+
+  if (byCode.size !== BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.length) {
+    return null;
+  }
+
+  return BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.map((code) => byCode.get(code) as Big5ResultPageV2CoreDomain);
+}
+
+const CORE_DOMAIN_ZH_CODE_BY_LABEL: Record<string, Big5ResultPageV2CoreDomainCode> = {
+  开放性: "O",
+  尽责性: "C",
+  外向性: "E",
+  宜人性: "A",
+  情绪性: "N",
+  神经质: "N",
+};
+
+function extractReliableAggregateCoreDomains(
+  traitBlocks: Big5ResultPageV2Block[],
+  projectionDomains: Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>
+): Big5ResultPageV2CoreDomain[] | null {
+  if (traitBlocks.length !== 1) {
+    return null;
+  }
+  const content = asSemanticRecord(traitBlocks[0].content);
+  const rows = Array.isArray(content?.table_zh) ? content.table_zh : null;
+  if (!rows || rows.length !== BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.length) {
+    return null;
+  }
+
+  const byCode = new Map<Big5ResultPageV2CoreDomainCode, Big5ResultPageV2CoreDomain>();
+  for (const value of rows) {
+    const row = asSemanticRecord(value);
+    const labelZh = normalizeSemanticText(row?.["维度"]);
+    const code = CORE_DOMAIN_ZH_CODE_BY_LABEL[labelZh];
+    const scoreValue = row?.["分数"];
+    const score = typeof scoreValue === "number" ? scoreValue : Number(normalizeSemanticText(scoreValue));
+    const projection = code ? projectionDomains.get(code) : null;
+    const summaryZh = normalizeSemanticText(row?.["说明"]);
+    if (!code || !projection || !Number.isFinite(score) || score !== projection.score || !summaryZh || byCode.has(code)) {
+      return null;
+    }
+    byCode.set(code, {
+      code,
+      score,
+      band: projection.band,
+      labelZh,
+      labelEn: "",
+      bandLabelZh: normalizeSemanticText(row?.["位置"]),
+      bandLabelEn: "",
+      summaryZh,
+      summaryEn: "",
+    });
+  }
+
+  return byCode.size === BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.length
+    ? BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.map((code) => byCode.get(code) as Big5ResultPageV2CoreDomain)
+    : null;
 }

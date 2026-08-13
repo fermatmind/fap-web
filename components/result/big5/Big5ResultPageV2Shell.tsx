@@ -1,6 +1,11 @@
 "use client";
 
-import type { Big5ResultPageV2Block, Big5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
+import { Big5CoreSummary, buildBig5V2CoreSummaryItems } from "@/components/result/big5/Big5CoreSummary";
+import type {
+  Big5ResultPageV2Block,
+  Big5ResultPageV2CoreDomain,
+  Big5ResultPageV2Payload,
+} from "@/lib/big5/resultPageV2";
 import type { Locale } from "@/lib/i18n/locales";
 import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
@@ -57,11 +62,6 @@ function pickStringList(content: Record<string, unknown> | undefined, locale: Lo
   return [];
 }
 
-function isDeferred(block: Big5ResultPageV2Block): boolean {
-  const fallbackPolicy = String(block.fallback_policy ?? "").toLowerCase();
-  return fallbackPolicy === "omit_block" || fallbackPolicy === "backend_required" || fallbackPolicy === "share_safe_summary_only";
-}
-
 function Big5ResultPageV2BlockRenderer({ block, locale }: { block: Big5ResultPageV2Block; locale: Locale }) {
   const content = block.content && typeof block.content === "object" && !Array.isArray(block.content)
     ? block.content as Record<string, unknown>
@@ -69,9 +69,7 @@ function Big5ResultPageV2BlockRenderer({ block, locale }: { block: Big5ResultPag
   const title = pickLocalizedText(content, locale, ["title", "heading", "label"]);
   const summary = pickLocalizedText(content, locale, ["summary", "body", "description", "action"]);
   const bullets = pickStringList(content, locale, ["bullets", "items", "actions"]);
-  const showDeferred = isDeferred(block) && !summary && bullets.length === 0;
-
-  if (!title && !summary && bullets.length === 0 && !showDeferred) {
+  if (!title && !summary && bullets.length === 0) {
     return null;
   }
 
@@ -95,11 +93,6 @@ function Big5ResultPageV2BlockRenderer({ block, locale }: { block: Big5ResultPag
           ))}
         </ul>
       ) : null}
-      {showDeferred ? (
-        <p data-testid="big5-v2-deferred" className="m-0 mt-3 text-sm text-slate-500">
-          {locale === "zh" ? "此模块暂未启用" : "This module is not available yet"}
-        </p>
-      ) : null}
     </div>
   );
 }
@@ -107,10 +100,24 @@ function Big5ResultPageV2BlockRenderer({ block, locale }: { block: Big5ResultPag
 export function Big5ResultPageV2Shell({
   locale,
   payload,
+  mode = "full",
+  coreDomains = [],
 }: {
   locale: Locale;
   payload: Big5ResultPageV2Payload;
+  mode?: "full" | "core_only";
+  coreDomains?: Big5ResultPageV2CoreDomain[];
 }) {
+  if (mode === "core_only") {
+    return (
+      <Big5CoreSummary
+        locale={locale}
+        items={buildBig5V2CoreSummaryItems(coreDomains, locale)}
+        source="v2"
+      />
+    );
+  }
+
   const modules = payload.modules.filter((module) => module.blocks.length > 0);
 
   return (

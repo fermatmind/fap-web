@@ -8,27 +8,6 @@ import o59Envelope from "@/tests/fixtures/big5/result_page_v2/canonical_o59_core
 const TESTED_SURFACES = ["result_page_desktop", "result_page_mobile"] as const;
 const M6_SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
 
-const MUST_RENDER_TERMS = [
-  "敏锐的独立思考者",
-  "高敏感 × 中高开放 × 克制进入",
-  "Big Five 描述的是连续人格特质，不是固定人格类型",
-  "不用于医学诊断",
-  "画像名只是辅助理解标签",
-  "不是没尽责",
-  "不是社交差",
-  "不是玻璃心",
-  "开放性 59",
-  "尽责性 32",
-  "外向性 20",
-  "宜人性 55",
-  "情绪性 68",
-  "主导冲突",
-  "不展示超过多少人的排名",
-  "30 / 60 / 90 天路径",
-] as const;
-
-const SCORE_TERMS = ["O59", "C32", "E20", "A55", "N68"] as const;
-
 const MUST_NOT_RENDER_TERMS = [
   "private URL",
   "attempt id",
@@ -88,23 +67,25 @@ describe("Big Five V2 O59 rendered preview contract", () => {
     ]);
   });
 
-  it.each(TESTED_SURFACES)("%s renders the O59 backend payload without compact or metadata leaks", (surface) => {
+  it.each(TESTED_SURFACES)("%s fails closed to the verified O59 five-domain core", (surface) => {
     window.innerWidth = surface === "result_page_mobile" ? 390 : 1440;
 
     render(<RichResultReport locale="zh" reportData={createO59Report()} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "v2");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
-    for (const term of MUST_RENDER_TERMS) {
-      expect(text).toContain(term);
+    for (const [label, score] of [["开放性", "59"], ["尽责性", "32"], ["外向性", "20"], ["宜人性", "55"], ["情绪性", "68"]]) {
+      expect(text).toContain(label);
+      expect(text).toContain(score);
     }
-    expect(text).toMatch(/不用于[^。]*心理治疗/);
-    expect(text).toMatch(/不用于[^。]*招聘筛选/);
-    for (const term of SCORE_TERMS) {
-      expect(text).toContain(term);
-    }
+    expect(text).not.toContain("敏锐的独立思考者");
+    expect(text).not.toContain("30 / 60 / 90 天路径");
+    expect(text).not.toContain("此模块暂未启用");
+    expect(text).not.toContain("pending_asset_resolution");
     for (const term of MUST_NOT_RENDER_TERMS) {
       expect(text).not.toContain(term);
     }

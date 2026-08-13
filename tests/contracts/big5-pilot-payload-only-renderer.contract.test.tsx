@@ -9,15 +9,6 @@ import {
 import pilotEnvelope from "@/tests/fixtures/big5/result_page_v2/pilot_o59_staging_payload_v0_1.payload.json";
 import liveBridgeV2ReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2.projection.json";
 
-const MUST_RENDER_TERMS = [
-  "敏锐的独立思考者",
-  "开放性中位｜优势、代价与使用方式",
-  "尽责性偏低｜优势、代价与使用方式",
-  "外向性偏低｜优势、代价与使用方式",
-  "宜人性中位｜优势、代价与使用方式",
-  "情绪性偏高｜优势、代价与使用方式",
-] as const;
-
 const PILOT_BODY_TERMS = [
   "你更像是在内部完成高强度扫描，再决定是否进入场景的人。",
   "当开放性处在中位时",
@@ -64,20 +55,20 @@ function visibleText(): string {
 }
 
 describe("Big Five V2 pilot payload-only renderer contract", () => {
-  it("renders the backend pilot payload through the V2 shell only", () => {
+  it("rejects the malformed pilot payload instead of publishing its candidate assets", () => {
     render(<RichResultReport locale="zh" reportData={createPilotReport()} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "unavailable");
+    expect(screen.getByTestId("big5-core-summary-unavailable")).toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
-    for (const term of MUST_RENDER_TERMS) {
-      expect(text).toContain(term);
-    }
+    expect(text).not.toContain("敏锐的独立思考者");
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
   });
 
-  it("renders an authoritative V2 payload even when legacy report generation is still flagged", () => {
+  it("fails closed even when a malformed V2 candidate accompanies a generating flag", () => {
     const report = createPilotReport({
       generating: true,
       meta: {
@@ -91,8 +82,9 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
 
     render(<RichResultReport locale="zh" reportData={report} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
-    expect(visibleText()).toContain("敏锐的独立思考者");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "unavailable");
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+    expect(visibleText()).not.toContain("敏锐的独立思考者");
     expect(visibleText()).not.toContain("Report is generating");
     expect(visibleText()).not.toContain("报告生成中");
   });
@@ -106,11 +98,12 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
     }
   });
 
-  it("renders pending pilot modules as neutral unavailable UI without synthesizing body copy", () => {
+  it("does not render pending pilot modules or synthesize body copy", () => {
     render(<RichResultReport locale="zh" reportData={createPilotReport()} />);
 
-    expect(screen.getAllByTestId("big5-v2-deferred").length).toBeGreaterThanOrEqual(1);
-    expect(screen.getAllByTestId("big5-v2-deferred")[0]).toHaveTextContent("此模块暂未启用");
+    expect(screen.queryByTestId("big5-v2-deferred")).not.toBeInTheDocument();
+    expect(visibleText()).not.toContain("此模块暂未启用");
+    expect(visibleText()).not.toContain("pending_asset_resolution");
     expect(visibleText()).not.toContain("根据你的分数");
     expect(visibleText()).not.toContain("你的性格说明");
   });
@@ -163,7 +156,7 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
     }
   });
 
-  it("falls back to the short-term legacy engine when V2 is malformed and legacy payload is present", () => {
+  it("uses only the reliable legacy five-domain core when V2 is malformed", () => {
     const invalidPayload = structuredClone(pilotEnvelope).big5_result_page_v2 as {
       modules: Array<{ blocks: Array<{ content: unknown }> }>;
     };
@@ -182,8 +175,10 @@ describe("Big Five V2 pilot payload-only renderer contract", () => {
     render(<RichResultReport locale="zh" reportData={report} />);
 
     expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
-    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(visibleText()).not.toContain("INVALID_V2_BODY_SHOULD_NOT_RENDER");
-    expect(visibleText()).toContain("结果摘要");
+    expect(visibleText()).toContain("五维核心摘要");
   });
 });
