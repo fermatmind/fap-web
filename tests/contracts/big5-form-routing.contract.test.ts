@@ -1,7 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildBig5TakeHref, normalizeBig5FormCode } from "@/lib/big5/forms";
+import {
+  buildBig5TakeHref,
+  getBig5DurationSummary,
+  listBig5FormMetas,
+  normalizeBig5FormCode,
+} from "@/lib/big5/forms";
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
@@ -13,6 +18,30 @@ describe("big5 form routing contract", () => {
     expect(normalizeBig5FormCode("120")).toBe("big5_120");
     expect(normalizeBig5FormCode("short_90")).toBe("big5_90");
     expect(normalizeBig5FormCode("unknown-form")).toBe("big5_120");
+  });
+
+  it("uses 15/11 as fallback truth and prefers lookup form projections", () => {
+    expect(listBig5FormMetas().map((form) => form.estimatedMinutes)).toEqual([15, 11]);
+    expect(getBig5DurationSummary("zh")).toBe("15分钟 / 11分钟");
+    expect(
+      listBig5FormMetas([
+        { form_code: "big5_120", question_count: 120, estimated_minutes: 16 },
+        { form_code: "big5_90", question_count: 90, estimated_minutes: 12 },
+      ]).map((form) => form.estimatedMinutes)
+    ).toEqual([16, 12]);
+  });
+
+  it("keeps landing, JSON-LD, sticky CTA, and take runtime on lookup forms", () => {
+    const landing = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
+    const take = read("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
+    const sticky = read("components/business/CTASticky.tsx");
+
+    expect(landing).toContain("listBig5FormMetas(lookup?.forms)");
+    expect(landing).toContain("getBig5DurationSummary(locale, lookup?.forms)");
+    expect(landing).toContain("forms={lookup?.forms}");
+    expect(take).toContain("resolveProjectedBig5FormMeta(big5FormCode, lookupRuntime.forms)");
+    expect(sticky).toContain("listBig5FormMetas(forms)");
+    expect(landing).not.toMatch(/BIG5[\s\S]{0,200}(?:120[^\n]*20|90[^\n]*15)/);
   });
 
   it("builds same-slug take routes with explicit form query", () => {

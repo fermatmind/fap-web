@@ -978,12 +978,13 @@ export default async function TestLandingPage({
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
   const showsEqActions = String(test.scale_code ?? "").trim().toUpperCase() === "EQ_60" || test.slug === SCALE_CANONICAL_SLUG_MAP.EQ_60;
   const showsIqActions = isIqScaleCode(test.scale_code) || test.slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN;
+  const big5Forms = listBig5FormMetas(lookup?.forms);
   const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
   const questionSummary = showsMbtiActions
     ? locale === "zh" ? "93题/144题" : "93Q/144Q"
     : showsBig5Actions
-    ? getBig5QuestionSummary(locale)
+    ? getBig5QuestionSummary(locale, lookup?.forms)
     : showsEnneagramActions
     ? locale === "zh" ? "144题/105题" : "144Q/105Q"
     : showsRiasecActions
@@ -994,7 +995,7 @@ export default async function TestLandingPage({
   const durationSummary = showsMbtiActions
     ? getMbtiDurationSummary(locale)
     : showsBig5Actions
-    ? getBig5DurationSummary(locale)
+    ? getBig5DurationSummary(locale, lookup?.forms)
     : showsRiasecActions
     ? getRiasecDurationSummary(locale)
     : `${test.time_minutes} ${locale === "zh" ? "分钟" : "minutes"}`;
@@ -1067,10 +1068,10 @@ export default async function TestLandingPage({
         }),
       }))
     : showsBig5Actions
-      ? listBig5FormMetas().map((form) => ({
+      ? big5Forms.map((form) => ({
           key: form.formCode,
           label: getBig5VariantLabel(form.formCode, locale),
-          summary: getBig5VariantSummary(form.formCode, locale),
+          summary: getBig5VariantSummary(form.formCode, locale, lookup?.forms),
           href: withAttribution(buildBig5TakeHref(test.slug, locale, form.formCode)),
           ctaLabel: getFlagshipFreeTestCtaLabel({
             scaleCode: test.scale_code,
@@ -1375,7 +1376,9 @@ export default async function TestLandingPage({
           name: softwareApplicationName,
           description: softwareApplicationDescription,
           locale,
-          minutes: test.time_minutes,
+          minutes: showsBig5Actions
+            ? big5Forms.find((form) => form.formCode === DEFAULT_BIG5_FORM_CODE)?.estimatedMinutes ?? 15
+            : test.time_minutes,
           featureList: softwareApplicationFeatureList,
         })
       : null;
@@ -1759,6 +1762,7 @@ export default async function TestLandingPage({
               primaryCtaLabel={cmsPrimaryCtaLabel}
               attributionParams={landingAttributionParams}
               attributionPayload={landingAttributionPayload}
+              forms={lookup?.forms}
             />
           </aside>
         ) : null}

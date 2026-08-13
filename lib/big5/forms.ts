@@ -6,22 +6,31 @@ export type Big5FormCode = (typeof BIG5_FORM_CODES)[number];
 
 export const DEFAULT_BIG5_FORM_CODE: Big5FormCode = "big5_120";
 
-type Big5FormMeta = {
+export type Big5FormMeta = {
   formCode: Big5FormCode;
   questionCount: number;
   estimatedMinutes: number;
+};
+
+export type PublicBig5FormProjection = {
+  form_code?: string | null;
+  code?: string | null;
+  question_count?: number | string | null;
+  questions_count?: number | string | null;
+  estimated_minutes?: number | string | null;
+  time_minutes?: number | string | null;
 };
 
 const BIG5_FORM_META: Record<Big5FormCode, Big5FormMeta> = {
   big5_120: {
     formCode: "big5_120",
     questionCount: 120,
-    estimatedMinutes: 20,
+    estimatedMinutes: 15,
   },
   big5_90: {
     formCode: "big5_90",
     questionCount: 90,
-    estimatedMinutes: 15,
+    estimatedMinutes: 11,
   },
 };
 
@@ -60,8 +69,41 @@ export function resolveBig5FormMeta(value: string | null | undefined): Big5FormM
   return BIG5_FORM_META[formCode];
 }
 
-export function listBig5FormMetas(): Big5FormMeta[] {
-  return BIG5_FORM_CODES.map((formCode) => BIG5_FORM_META[formCode]);
+function positiveNumber(value: unknown): number | null {
+  const numberValue = Number(value);
+  return Number.isFinite(numberValue) && numberValue > 0 ? numberValue : null;
+}
+
+function normalizeProjectedForm(value: unknown): Big5FormMeta | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+
+  const row = value as PublicBig5FormProjection;
+  const formCode = BIG5_FORM_ALIAS_MAP.get(String(row.form_code ?? row.code ?? "").trim().toLowerCase());
+  if (!formCode) return null;
+
+  const fallback = BIG5_FORM_META[formCode];
+  return {
+    formCode,
+    questionCount: positiveNumber(row.question_count ?? row.questions_count) ?? fallback.questionCount,
+    estimatedMinutes: positiveNumber(row.estimated_minutes ?? row.time_minutes) ?? fallback.estimatedMinutes,
+  };
+}
+
+export function listBig5FormMetas(forms?: unknown): Big5FormMeta[] {
+  const projected = Array.isArray(forms)
+    ? forms.map(normalizeProjectedForm).filter((form): form is Big5FormMeta => Boolean(form))
+    : [];
+  const byCode = new Map(projected.map((form) => [form.formCode, form]));
+
+  return BIG5_FORM_CODES.map((formCode) => byCode.get(formCode) ?? BIG5_FORM_META[formCode]);
+}
+
+export function resolveProjectedBig5FormMeta(
+  value: string | null | undefined,
+  forms?: unknown
+): Big5FormMeta {
+  const formCode = normalizeBig5FormCode(value);
+  return listBig5FormMetas(forms).find((form) => form.formCode === formCode) ?? BIG5_FORM_META[formCode];
 }
 
 export function getBig5VariantName(formCode: string | null | undefined): string {
@@ -81,8 +123,8 @@ export function getBig5VariantLabel(formCode: string | null | undefined, locale:
   return `${getBig5VariantName(formCode)} · ${getBig5VariantDescriptor(formCode, locale)}`;
 }
 
-export function getBig5VariantSummary(formCode: string | null | undefined, locale: Locale): string {
-  const meta = resolveBig5FormMeta(formCode);
+export function getBig5VariantSummary(formCode: string | null | undefined, locale: Locale, forms?: unknown): string {
+  const meta = resolveProjectedBig5FormMeta(formCode, forms);
   if (locale === "zh") {
     return meta.formCode === "big5_90"
       ? `约 ${meta.estimatedMinutes} 分钟，先看五维轮廓与主要差异。`
@@ -101,14 +143,14 @@ export function getBig5StartLabel(formCode: string | null | undefined, locale: L
   return meta.formCode === "big5_90" ? "Start Quick Read" : "Start Full Trait Profile";
 }
 
-export function getBig5QuestionSummary(locale: Locale): string {
-  return listBig5FormMetas()
+export function getBig5QuestionSummary(locale: Locale, forms?: unknown): string {
+  return listBig5FormMetas(forms)
     .map((form) => (locale === "zh" ? `${form.questionCount}题` : `${form.questionCount} questions`))
     .join(" / ");
 }
 
-export function getBig5DurationSummary(locale: Locale): string {
-  return listBig5FormMetas()
+export function getBig5DurationSummary(locale: Locale, forms?: unknown): string {
+  return listBig5FormMetas(forms)
     .map((form) => (locale === "zh" ? `${form.estimatedMinutes}分钟` : `${form.estimatedMinutes} min`))
     .join(" / ");
 }
