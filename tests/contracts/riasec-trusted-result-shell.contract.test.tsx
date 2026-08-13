@@ -606,6 +606,7 @@ describe("RIASEC trusted result shell", () => {
             body: "不代表职业数据库匹配，除非后端权威数据明确确认。 raw score",
             button_label: "BUTTON LABEL",
             activities_to_validate: ["保留可阅读活动", "score space", "riasec_60_likert5_activity_sum_space.v1"],
+            unknown_cms_internal_field: "不得直接显示的内部字段",
           },
           boundaries: {
             user_visible_boundary: "兴趣信号，不等于能力；不是职业推荐，也不是职业保证。",
@@ -658,6 +659,10 @@ describe("RIASEC trusted result shell", () => {
     expect(text).toContain("复杂问题分析");
     expect(text).toContain("证据材料整理");
     expect(text).toContain("保留可阅读活动");
+    expect(text).toContain("可验证的活动");
+    expect(text).not.toContain("unknown cms internal field");
+    expect(text).not.toContain("不得直接显示的内部字段");
+    expect(screen.getAllByTestId("riasec-deep-content-boundary")).toHaveLength(1);
   });
 
   it("fails closed when backend module visibility hides strong RIASEC modules", () => {

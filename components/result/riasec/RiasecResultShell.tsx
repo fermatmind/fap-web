@@ -43,7 +43,52 @@ const RIASEC_DEBUG_RENDER_PATTERNS = [
   /\bresearch_and_explain\b/gi,
 ];
 
-const RIASEC_HIDDEN_DEEP_CONTENT_KEYS = new Set(["button_label", "score_space", "raw_score"]);
+const RIASEC_DEEP_CONTENT_LABELS: Record<string, { zh: string; en: string }> = {
+  core_reading: { zh: "核心解读", en: "Core reading" },
+  core_drive: { zh: "兴趣线索", en: "Interest signal" },
+  positive_value: { zh: "可观察价值", en: "What to observe" },
+  real_world_cost: { zh: "现实条件", en: "Real-world conditions" },
+  common_misread: { zh: "常见误读", en: "Common misreading" },
+  primary_activity_chain: { zh: "主要活动线索", en: "Primary activity signal" },
+  secondary_support_line: { zh: "辅助活动线索", en: "Secondary activity signal" },
+  tertiary_stabilizer: { zh: "补充活动线索", en: "Additional activity signal" },
+  ordered_code_handling: { zh: "代码阅读方式", en: "How to read the code" },
+  high_score_reading: { zh: "较高分解读", en: "Higher-score reading" },
+  medium_score_reading: { zh: "中等分解读", en: "Middle-score reading" },
+  low_score_safe_reading: { zh: "较低分解读", en: "Lower-score reading" },
+  work_activity_examples: { zh: "可尝试的活动", en: "Activities to try" },
+  activities_to_validate: { zh: "可验证的活动", en: "Activities to validate" },
+  activity_chain: { zh: "活动线索组合", en: "Activity signal combination" },
+  activity_sequence: { zh: "活动顺序", en: "Activity sequence" },
+  deep_report_extension: { zh: "深入阅读", en: "Further reading" },
+  first_experiment: { zh: "首次尝试", en: "First experiment" },
+  free_page_teaser: { zh: "页面摘要", en: "Page summary" },
+  likely_tension: { zh: "可能的张力", en: "Possible tension" },
+  low_risk_validation: { zh: "低风险验证", en: "Low-risk validation" },
+  pair_label: { zh: "兴趣组合", en: "Interest combination" },
+  short_label: { zh: "简要标签", en: "Short label" },
+  strategy_label: { zh: "阅读主题", en: "Reading theme" },
+  when_not_to_overread: { zh: "避免过度解读", en: "When not to overread" },
+  when_to_use_140q: { zh: "何时考虑 140 题", en: "When to consider the 140-item form" },
+  environment_card: { zh: "环境线索", en: "Environment signals" },
+  example_question: { zh: "示例问题", en: "Example question" },
+  question: { zh: "探索问题", en: "Exploration question" },
+  role_responsibility_card: { zh: "角色责任线索", en: "Role-responsibility signals" },
+  selection_basis: { zh: "选择依据", en: "Selection basis" },
+  task_activity_card: { zh: "任务活动线索", en: "Task-activity signals" },
+  what_user_sees: { zh: "你会看到什么", en: "What you will see" },
+  possible_drains: { zh: "可能影响体验的条件", en: "Conditions that may affect the experience" },
+  action_advice: { zh: "下一步", en: "Next step" },
+  interest_activity_focus: { zh: "活动关注点", en: "Activity focus" },
+  context_costs: { zh: "情境成本", en: "Context costs" },
+  misread_guardrails: { zh: "阅读边界", en: "Reading guardrails" },
+  validation_questions: { zh: "验证问题", en: "Questions to explore" },
+  chemistry: { zh: "组合关系", en: "Combination pattern" },
+  micro_experiment: { zh: "小实验", en: "Small experiment" },
+  result_page_teaser: { zh: "结果提示", en: "Result note" },
+  deep_report_extension_hint: { zh: "深入阅读", en: "Further reading" },
+  copy: { zh: "阅读提示", en: "Reading note" },
+};
 
 export function RiasecResultShell({
   locale,
@@ -420,6 +465,10 @@ function RiasecDeepContentSlotsSection({
   slots: RiasecDeepContentSlot[];
   isZh: boolean;
 }) {
+  const boundary = slots
+    .map((slot) => sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary))
+    .find(Boolean);
+
   return (
     <Card data-testid="riasec-deep-content-slots">
       <CardHeader>
@@ -429,6 +478,9 @@ function RiasecDeepContentSlotsSection({
         {slots.map((slot) => (
           <RiasecDeepContentSlotCard key={slot.slotId || `${slot.slotKey}-${slot.moduleKey}`} slot={slot} isZh={isZh} />
         ))}
+        {boundary ? (
+          <p className="text-xs leading-5 text-[var(--fm-text-muted)]" data-testid="riasec-deep-content-boundary">{boundary}</p>
+        ) : null}
       </CardContent>
     </Card>
   );
@@ -443,7 +495,7 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
   const detailEntries = Object.entries(content)
     .filter(([key]) => !["title", "summary", "body"].includes(key))
     .map(([key, value]) => {
-      const label = formatDeepContentKey(key);
+      const label = formatDeepContentKey(key, isZh);
       const values = Array.isArray(value)
         ? value.map((item) => formatRiasecDetailValue(item)).filter(Boolean)
         : formatRiasecDetailValue(value);
@@ -495,21 +547,15 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
             ))}
           </div>
         ) : null}
-        {slot.boundaries.userVisibleBoundary ? (
-          <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">{sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary)}</p>
-        ) : null}
         </div>
       </div>
     </section>
   );
 }
 
-function formatDeepContentKey(key: string): string {
-  if (RIASEC_HIDDEN_DEEP_CONTENT_KEYS.has(key)) {
-    return "";
-  }
-
-  return sanitizeRiasecRenderableText(key.replace(/_/g, " "));
+function formatDeepContentKey(key: string, isZh: boolean): string {
+  const label = RIASEC_DEEP_CONTENT_LABELS[key];
+  return label ? label[isZh ? "zh" : "en"] : "";
 }
 
 function formatRiasecQualityRule(value: string, locale: Locale): string {
