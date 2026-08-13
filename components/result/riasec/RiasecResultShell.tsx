@@ -425,6 +425,7 @@ function RiasecDeepContentSlotsSection({
 }
 
 function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot; isZh: boolean }) {
+  const [expanded, setExpanded] = useState(!slot.selection || slot.selection.isTopThree);
   const { content } = slot;
   const title = sanitizeRiasecRenderableText(content.title);
   const summary = sanitizeRiasecRenderableText(content.summary);
@@ -446,41 +447,49 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
       className="rounded-lg border border-[var(--fm-border)] bg-white p-3"
       data-testid="riasec-deep-content-slot"
     >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
-          {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
-          {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
-        </div>
-        <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
-          {formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
-        </span>
-      </div>
-      {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
-      {detailEntries.length > 0 ? (
-        <div className="mt-3 grid gap-2 md:grid-cols-2">
-          {detailEntries.map(({ key, label, values }) => (
-            <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-                {label}
-              </div>
-              {Array.isArray(values) ? (
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                  {values.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{values}</p>
-              )}
+      <div>
+        <button
+          type="button"
+          className="w-full cursor-pointer text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          aria-expanded={expanded}
+          aria-controls={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
+              {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
             </div>
-          ))}
+            <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
+              {slot.selection
+                ? slot.selection.isTopThree
+                  ? isZh ? "重点维度" : "Key dimension"
+                  : isZh ? "更多维度" : "More dimensions"
+                : formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
+            </span>
+          </div>
+        </button>
+        <div id={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`} hidden={!expanded}>
+        {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
+        {detailEntries.length > 0 ? (
+          <div className="mt-3 grid gap-2 md:grid-cols-2">
+            {detailEntries.map(({ key, label, values }) => (
+              <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
+                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{label}</div>
+                {Array.isArray(values) ? (
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                    {values.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                ) : <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{values}</p>}
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {slot.boundaries.userVisibleBoundary ? (
+          <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">{sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary)}</p>
+        ) : null}
         </div>
-      ) : null}
-      {slot.boundaries.userVisibleBoundary ? (
-        <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">
-          {sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary)}
-        </p>
-      ) : null}
+      </div>
     </section>
   );
 }

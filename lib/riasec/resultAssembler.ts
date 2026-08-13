@@ -95,6 +95,14 @@ export type RiasecDeepContentSlot = {
   locale: string;
   frontendFallbackAllowed: false;
   fallbackBehavior: string;
+  selection: {
+    schemaVersion: string;
+    dimensionCode: string;
+    rank: number;
+    isTopThree: boolean;
+    scoreBand: "high" | "medium" | "low";
+    selectedDetailKey: "high_score_reading" | "medium_score_reading" | "low_score_safe_reading";
+  } | null;
   applicability: {
     formCodes: string[];
     profileShapes: string[];
@@ -738,17 +746,20 @@ function buildDeepContentSlots(
   }
 
   const rawSlots = Array.isArray(rawEnvelope.slots) ? rawEnvelope.slots : [];
-  const seenSlotIds = new Set<string>();
   const slots = rawSlots
     .map((rawSlot) => buildDeepContentSlot(asRecord(rawSlot), context, envelopeLocale))
-    .filter((slot): slot is RiasecDeepContentSlot => {
-      if (!slot || seenSlotIds.has(slot.slotId)) {
-        return false;
-      }
-
-      seenSlotIds.add(slot.slotId);
-      return true;
-    });
+    .filter((slot): slot is RiasecDeepContentSlot => Boolean(slot));
+  const slotIdCounts = new Map<string, number>();
+  const dimensionCounts = new Map<string, number>();
+  for (const slot of slots) {
+    slotIdCounts.set(slot.slotId, (slotIdCounts.get(slot.slotId) ?? 0) + 1);
+    if (slot.selection) {
+      dimensionCounts.set(slot.selection.dimensionCode, (dimensionCounts.get(slot.selection.dimensionCode) ?? 0) + 1);
+    }
+  }
+  const deduplicatedSlots = slots.filter((slot) =>
+    slotIdCounts.get(slot.slotId) === 1 && (!slot.selection || dimensionCounts.get(slot.selection.dimensionCode) === 1)
+  );
 
   return {
     schemaVersion: normalizeText(rawEnvelope.schema_version),
@@ -769,7 +780,7 @@ function buildDeepContentSlots(
       pendingOrUnavailableSlotsOmitted: normalizeBoolean(rawSlotVisibilityPolicy.pending_or_unavailable_slots_omitted),
       frontendInferenceAllowed: false,
     },
-    slots,
+    slots: deduplicatedSlots,
   };
 }
 
@@ -809,6 +820,46 @@ function buildDeepContentSlot(
   if (Object.keys(content).length === 0) {
     return null;
   }
+  const rawSelection = asRecord(rawSlot.selection_v1);
+  let selection: RiasecDeepContentSlot["selection"] = null;
+  if (slotKey === "dimension_deep_copy") {
+    const scoreBand = normalizeText(rawSelection?.score_band);
+    const selectedDetailKey = normalizeText(rawSelection?.selected_detail_key);
+    const dimensionCode = normalizeText(rawSelection?.dimension_code);
+    const rank = Number(rawSelection?.rank);
+    const validDetailKeys = ["high_score_reading", "medium_score_reading", "low_score_safe_reading"] as const;
+    const expectedDetailKey = {
+      high: "high_score_reading",
+      medium: "medium_score_reading",
+      low: "low_score_safe_reading",
+    }[scoreBand];
+    const rawState = asRecord(rawSlot.state) ?? {};
+    const isTopThree = normalizeBoolean(rawSelection?.is_top_three);
+    const expectedVisibility = isTopThree ? "visible" : "collapsed";
+    if (
+      normalizeText(rawSelection?.schema_version) !== "riasec.dimension_interpretation_selection.v1" ||
+      !["high", "medium", "low"].includes(scoreBand) ||
+      !validDetailKeys.includes(selectedDetailKey as (typeof validDetailKeys)[number]) ||
+      selectedDetailKey !== expectedDetailKey ||
+      !["R", "I", "A", "S", "E", "C"].includes(dimensionCode) ||
+      dimensionCode !== normalizeText(rawState.dimension_code) ||
+      slotId !== `dimension_deep_copy:${dimensionCode}` ||
+      !Number.isInteger(rank) || rank < 1 || rank > 6 ||
+      isTopThree !== (rank <= 3) || slotVisibility !== expectedVisibility ||
+      !(selectedDetailKey in content) ||
+      validDetailKeys.filter((key) => key in content).length !== 1
+    ) {
+      return null;
+    }
+    selection = {
+      schemaVersion: "riasec.dimension_interpretation_selection.v1",
+      dimensionCode,
+      rank,
+      isTopThree,
+      scoreBand: scoreBand as "high" | "medium" | "low",
+      selectedDetailKey: selectedDetailKey as (typeof validDetailKeys)[number],
+    };
+  }
 
   const applicability = asRecord(rawSlot.applicability) ?? {};
   const boundaries = asRecord(rawSlot.boundaries) ?? {};
@@ -839,6 +890,7 @@ function buildDeepContentSlot(
     locale: envelopeLocale,
     frontendFallbackAllowed: false,
     fallbackBehavior: normalizeText(rawSlot.fallback_behavior),
+    selection,
     applicability: {
       formCodes,
       profileShapes: normalizeStringList(applicability.profile_shapes),
