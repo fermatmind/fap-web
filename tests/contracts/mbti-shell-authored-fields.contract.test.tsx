@@ -236,6 +236,8 @@ describe("MBTI shell authored fields contract", () => {
       "career_followthrough_loop"
     );
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-result-intro")).not.toBeInTheDocument();
+    expect(document.title).toBe("ENFP-T MBTI 测评结果 | FermatMind");
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();

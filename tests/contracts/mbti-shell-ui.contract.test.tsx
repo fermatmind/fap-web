@@ -318,8 +318,9 @@ describe("MBTI shell UI contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ISFP-T", "zh");
     });
 
-    expect(await screen.findByText("ISFP-T public storage intro one")).toBeInTheDocument();
-    expect(screen.getByText("career public intro one")).toBeInTheDocument();
+    expect(await screen.findByText("career public intro one")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-result-intro")).not.toBeInTheDocument();
+    expect(screen.queryByText("ISFP-T public storage intro one")).not.toBeInTheDocument();
     expect(screen.getByText("growth public intro one")).toBeInTheDocument();
     expect(screen.getByText("relationships public intro one")).toBeInTheDocument();
     expect(screen.getByText("career trait one")).toBeInTheDocument();
