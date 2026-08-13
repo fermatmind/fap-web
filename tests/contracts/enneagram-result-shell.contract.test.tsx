@@ -1344,11 +1344,11 @@ describe("enneagram result shell contract", () => {
 
   it("uses different form badges for E105 and FC144 while keeping one shell", async () => {
     const firstRender = await renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 标准版");
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 五点量表版");
     firstRender.unmount();
 
     await renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 深度版");
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 二选一迫选版");
   });
 
   it("renders all9 profile completeness and top3 cards", async () => {

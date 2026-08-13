@@ -320,8 +320,8 @@ describe("enneagram technical note page contract", () => {
       expect(screen.getByTestId("enneagram-technical-note-error")).toBeInTheDocument();
     });
 
-    expect(screen.getByText("Technical Note 暂不可用")).toBeInTheDocument();
-    expect(screen.getByText("当前无法读取 Technical Note。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
+    expect(screen.getByText("技术说明暂不可用")).toBeInTheDocument();
+    expect(screen.getByText("当前无法读取技术说明。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
   });
 
   it("renders a safe fallback when the response shape is malformed", async () => {
@@ -343,7 +343,7 @@ describe("enneagram technical note page contract", () => {
       expect(screen.getByTestId("enneagram-technical-note-error")).toBeInTheDocument();
     });
 
-    expect(screen.getByText("当前 Technical Note 暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
+    expect(screen.getByText("当前技术说明暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
   });
 
   it("renders the RIASEC technical note from the backend contract without local career-match claims", async () => {

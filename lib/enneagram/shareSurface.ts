@@ -142,7 +142,7 @@ function buildLead(options: {
     }
 
     if (scope === "diffuse") {
-      return "这次结果呈现分散结构，更适合把 Top3 当作阅读入口，而不是直接下单一主型判断。";
+      return "这次结果呈现分散结构，更适合把前三候选当作阅读入口，而不是直接下单一主型判断。";
     }
 
     if (scope === "low_quality") {

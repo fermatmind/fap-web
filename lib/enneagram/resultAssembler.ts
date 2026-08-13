@@ -7,6 +7,7 @@ import type {
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
 import { normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { isEnneagramPrivateResultLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
+import { localizeEnneagramPresentationValue } from "@/lib/enneagram/presentationTerminology";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramTypeRow = {
@@ -482,7 +483,7 @@ function sanitizeAssetBackedContent(value: unknown): Record<string, unknown> {
   );
 }
 
-function normalizeModule(value: unknown): EnneagramReportV2Module | null {
+function normalizeModule(value: unknown, locale: Locale): EnneagramReportV2Module | null {
   const moduleRecord = asRecord(value);
   if (!moduleRecord) {
     return null;
@@ -504,7 +505,10 @@ function normalizeModule(value: unknown): EnneagramReportV2Module | null {
     formVariant: normalizeFormVariant(moduleRecord.form_variant),
     accessLevel: normalizeGateKey(moduleRecord.access_level ?? moduleRecord.accessLevel),
     moduleCode: normalizeGateKey(moduleRecord.module_code ?? moduleRecord.moduleCode),
-    content: kind === "asset_backed_card" ? sanitizeAssetBackedContent(moduleRecord.content) : asRecord(moduleRecord.content) ?? {},
+    content: localizeEnneagramPresentationValue(
+      kind === "asset_backed_card" ? sanitizeAssetBackedContent(moduleRecord.content) : asRecord(moduleRecord.content) ?? {},
+      locale
+    ) as Record<string, unknown>,
     dataRefs: normalizeStringArray(moduleRecord.data_refs),
     registryRefs: normalizeStringArray(moduleRecord.registry_refs),
     provenance: {
@@ -518,17 +522,17 @@ function normalizeModule(value: unknown): EnneagramReportV2Module | null {
   };
 }
 
-function normalizeModules(value: unknown): EnneagramReportV2Module[] {
+function normalizeModules(value: unknown, locale: Locale): EnneagramReportV2Module[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .map((item) => normalizeModule(item))
+    .map((item) => normalizeModule(item, locale))
     .filter((item): item is EnneagramReportV2Module => item !== null);
 }
 
-function normalizePage(value: unknown): EnneagramReportV2Page | null {
+function normalizePage(value: unknown, locale: Locale): EnneagramReportV2Page | null {
   const page = asRecord(value);
   if (!page) {
     return null;
@@ -547,17 +551,17 @@ function normalizePage(value: unknown): EnneagramReportV2Page | null {
     accessLevel: normalizeGateKey(page.access_level ?? page.accessLevel),
     moduleCode: normalizeGateKey(page.module_code ?? page.moduleCode),
     sourceRegistryRefs: normalizeStringArray(page.source_registry_refs),
-    modules: normalizeModules(page.modules),
+    modules: normalizeModules(page.modules, locale),
   };
 }
 
-function normalizePages(value: unknown): EnneagramReportV2Page[] {
+function normalizePages(value: unknown, locale: Locale): EnneagramReportV2Page[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .map((item) => normalizePage(item))
+    .map((item) => normalizePage(item, locale))
     .filter((item): item is EnneagramReportV2Page => item !== null);
 }
 
@@ -574,9 +578,36 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     return null;
   }
 
-  const pages = normalizePages(raw.pages);
-  const modulesFromRoot = normalizeModules(raw.modules);
-  const modules = modulesFromRoot.length > 0 ? modulesFromRoot : pages.flatMap((page) => page.modules);
+  const canonicalizeMethodBoundary = (items: EnneagramReportV2Module[]) => {
+    const hasCanonical = items.some((module) => module.moduleKey === "method_boundary");
+    const seen = new Set<string>();
+
+    return items
+      .filter((module) => !(hasCanonical && module.moduleKey === "methodology_boundary_card"))
+      .map((module) => module.moduleKey === "methodology_boundary_card" ? { ...module, moduleKey: "method_boundary" } : module)
+      .filter((module) => {
+        if (seen.has(module.moduleKey)) return false;
+        seen.add(module.moduleKey);
+        return true;
+      });
+  };
+  const normalizedPages = normalizePages(raw.pages, locale);
+  const hasCanonicalPageBoundary = normalizedPages.some((page) => page.modules.some((module) => module.moduleKey === "method_boundary"));
+  let pageBoundarySeen = false;
+  const pages = normalizedPages.map((page) => ({
+    ...page,
+    modules: page.modules
+      .filter((module) => !(hasCanonicalPageBoundary && module.moduleKey === "methodology_boundary_card"))
+      .map((module) => module.moduleKey === "methodology_boundary_card" ? { ...module, moduleKey: "method_boundary" } : module)
+      .filter((module) => {
+        if (module.moduleKey !== "method_boundary") return true;
+        if (pageBoundarySeen) return false;
+        pageBoundarySeen = true;
+        return true;
+      }),
+  }));
+  const modulesFromRoot = canonicalizeMethodBoundary(normalizeModules(raw.modules, locale));
+  const modules = modulesFromRoot.length > 0 ? modulesFromRoot : canonicalizeMethodBoundary(pages.flatMap((page) => page.modules));
   const moduleMap = Object.fromEntries(modules.map((module) => [module.moduleKey, module])) as Record<string, EnneagramReportV2Module>;
   const form = asRecord(raw.form);
   const registry = asRecord(raw.registry);
@@ -858,7 +889,7 @@ export function assembleEnneagramResultViewModel({
     confidenceLabel: resolveConfidenceLabel(reportV2, projection),
     interpretationScope: reportV2?.classification.interpretationScope ?? "unknown",
     interpretationReason: reportV2?.classification.interpretationReason ?? "",
-    formVariant: normalizeFormVariant(reportV2?.moduleMap.methodology_boundary_card?.formVariant ?? reportV2?.moduleMap.method_boundary?.formVariant),
+    formVariant: normalizeFormVariant(reportV2?.moduleMap.method_boundary?.formVariant),
     methodologyVariant: reportV2?.form.methodologyVariant ?? null,
     registryVersion: reportV2?.registry.registryVersion ?? null,
     registryReleaseHash: reportV2?.registry.registryReleaseHash ?? null,

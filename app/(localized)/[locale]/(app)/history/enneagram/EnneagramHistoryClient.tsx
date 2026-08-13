@@ -82,11 +82,11 @@ function observationActionLabel(action: string | null, locale: "en" | "zh"): str
     case "observe_7_days":
       return locale === "zh" ? "继续观察" : "Continue observing";
     case "do_fc144":
-      return locale === "zh" ? "可补做 FC144 深度版" : "FC144 follow-up is available";
+      return locale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
     case "retest_same_form":
       return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
     case "read_top3":
-      return locale === "zh" ? "先阅读 Top3 与方法边界" : "Read Top 3 and the method boundary first";
+      return locale === "zh" ? "先阅读前三候选与方法边界" : "Read Top 3 and the method boundary first";
     case "no_action":
       return locale === "zh" ? "暂无下一步" : "No immediate next step";
     default:
@@ -131,7 +131,7 @@ export default function EnneagramHistoryClient() {
         : "The same-form compare contract is ready. The compare surface will attach in the next UI step.",
     compareBlocked:
       locale === "zh"
-        ? "这两次结果来自不同题型。它们都属于 FermatMind 九型模型，但分数空间不同，因此不直接比较数值差异。你可以查看两次 Top3 是否重叠，或回到结果页阅读方法边界。"
+        ? "这两次结果来自不同题型。它们都属于 FermatMind 九型模型，但计分空间不同，因此不直接比较数值差异。你可以查看两次前三候选是否重叠，或回到结果页阅读方法边界。"
         : "These two results come from different forms within the FermatMind Enneagram model, but they do not share the same score space. Review Top 3 overlap or return to the result page for the methodology boundary.",
     observationStatus: locale === "zh" ? "观察状态" : "Observation status",
     observationProgress: locale === "zh" ? "观察进度" : "Observation progress",

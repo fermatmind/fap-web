@@ -170,7 +170,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
 
         const note = response.technical_note_v1 ?? null;
         if (!note || !Array.isArray(note.sections)) {
-          setError("当前 Technical Note 暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。");
+          setError("当前技术说明暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。");
           setTechnicalNote(null);
           return;
         }
@@ -182,7 +182,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
         if (!active) {
           return;
         }
-        setError("当前无法读取 Technical Note。你仍可以先按结果页的方法边界阅读本次测量结果。");
+        setError("当前无法读取技术说明。你仍可以先按结果页的方法边界阅读本次测量结果。");
         setTechnicalNote(null);
       })
       .finally(() => {
@@ -258,17 +258,17 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
           返回测试详情
         </Link>
         <div className="space-y-3">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">Technical Note v0.1</p>
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">技术说明 v0.1</p>
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950">{heading}</h1>
           <p className="m-0 max-w-3xl text-base leading-8 text-slate-700">
-            本页只渲染 backend Technical Note contract 返回的 public-safe 方法、边界与数据状态。
+            本页只渲染后端技术说明契约返回的公开安全方法、边界与数据状态。
           </p>
           <p className="m-0 text-sm text-slate-500">{testTitle}</p>
         </div>
         {technicalNote ? (
           <dl className="grid gap-3 text-sm text-slate-600 md:grid-cols-2 xl:grid-cols-4" data-testid={`${testIdPrefix}-meta`}>
             <div>
-              <dt className="font-medium text-slate-500">Technical Note 版本</dt>
+              <dt className="font-medium text-slate-500">技术说明版本</dt>
               <dd className="mt-1 text-slate-900">{technicalNote.technical_note_version ?? "未标注"}</dd>
             </div>
             <div>
@@ -289,14 +289,14 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
 
       {loading ? (
         <section className="py-10" data-testid={`${testIdPrefix}-loading`}>
-          <p className="m-0 text-sm text-slate-600">正在加载 Technical Note…</p>
+          <p className="m-0 text-sm text-slate-600">正在加载技术说明…</p>
         </section>
       ) : null}
 
       {error ? (
         <section className="py-8" data-testid={`${testIdPrefix}-error`}>
           <Alert>
-            <p className="m-0 font-medium">Technical Note 暂不可用</p>
+            <p className="m-0 font-medium">技术说明暂不可用</p>
             <p className="m-0 mt-1">{error}</p>
           </Alert>
         </section>

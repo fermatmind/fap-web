@@ -20,6 +20,7 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import { resolveEnneagramTechnicalNoteHref } from "@/lib/enneagram/technicalNote";
+import { localizeEnneagramPresentationText } from "@/lib/enneagram/presentationTerminology";
 import type {
   EnneagramReportV2Module,
   EnneagramReportV2Page,
@@ -108,21 +109,21 @@ function formBadgeCopy(viewModel: EnneagramResultViewModel, locale: Locale): { l
   const fromModule = viewModel.moduleMap.instant_summary?.content.form_badge;
   if (fromModule && typeof fromModule === "object" && !Array.isArray(fromModule)) {
     return {
-      label: safePublicText((fromModule as Record<string, unknown>).label),
-      body: safePublicText((fromModule as Record<string, unknown>).body),
+      label: localizeEnneagramPresentationText(safePublicText((fromModule as Record<string, unknown>).label), locale),
+      body: localizeEnneagramPresentationText(safePublicText((fromModule as Record<string, unknown>).body), locale),
     };
   }
 
   if (viewModel.formVariant === "fc144" || viewModel.formCode === "enneagram_forced_choice_144") {
     return {
-      label: locale === "zh" ? "FC144 深度版" : "FC144 Deep Form",
-      body: locale === "zh" ? "同模型，不同分数空间。" : "Same model, different score space.",
+      label: locale === "zh" ? "FC144 二选一迫选版" : "FC144 Two-option Forced-choice Form",
+      body: locale === "zh" ? "同一模型，不同计分空间。" : "Same model, different score space.",
     };
   }
 
   return {
-    label: locale === "zh" ? "E105 标准版" : "E105 Standard Form",
-    body: locale === "zh" ? "同模型，不同分数空间。" : "Same model, different score space.",
+    label: locale === "zh" ? "E105 五点量表版" : "E105 Five-point Likert Form",
+    body: locale === "zh" ? "同一模型，不同计分空间。" : "Same model, different score space.",
   };
 }
 
@@ -186,15 +187,15 @@ function observationGuidanceCopy(viewModel: EnneagramResultViewModel, locale: Lo
   switch (viewModel.interpretationScope) {
     case "close_call":
       return locale === "zh"
-        ? "你不需要立刻把自己钉死在一个号码上。接下来 7 天，你要观察的是：你更像 Top1 的核心动力，还是 Top2 的核心动力。"
+        ? "你不需要立刻把自己钉死在一个号码上。接下来 7 天，你要观察的是：你更像第一候选的核心动力，还是第二候选的核心动力。"
         : "You do not need to force a single type immediately. Over the next 7 days, observe whether your core motive fits Top 1 or Top 2 more closely.";
     case "diffuse":
       return locale === "zh"
-        ? "这次结果更适合先观察 Top3 与三中心线索，而不是强行认定单一号码。"
+        ? "这次结果更适合先观察前三候选与三中心线索，而不是强行认定单一号码。"
         : "This result is better used to observe Top 3 and center-level cues before forcing a single-number judgement.";
     case "low_quality":
       return locale === "zh"
-        ? "这次结果可以阅读，但解释边界较宽。更建议在状态稳定时重测同一题型，而不是立刻换成另一个 form。"
+        ? "这次结果可以阅读，但解释边界较宽。更建议在状态稳定时重测同一题型，而不是立刻换成另一题型。"
         : "This result is readable, but the interpretation boundary is wider. Retaking the same form in a steadier state is better than switching forms immediately.";
     case "clear":
     default:
@@ -209,11 +210,11 @@ function observationActionLabel(action: string | null | undefined, locale: Local
     case "observe_7_days":
       return locale === "zh" ? "继续观察" : "Continue observing";
     case "do_fc144":
-      return locale === "zh" ? "可补做 FC144 深度版" : "FC144 follow-up is available";
+      return locale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
     case "retest_same_form":
       return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
     case "read_top3":
-      return locale === "zh" ? "先阅读 Top3 与方法边界" : "Read Top 3 and the method boundary first";
+      return locale === "zh" ? "先阅读前三候选与方法边界" : "Read Top 3 and the method boundary first";
     case "no_action":
       return locale === "zh" ? "暂无下一步" : "No immediate next step";
     default:
@@ -930,7 +931,7 @@ function ObservationModuleRenderer({
               checked={day7Form.wants_fc144}
               onChange={(event) => setDay7Form((current) => ({ ...current, wants_fc144: event.target.checked }))}
             />
-            {isZh ? "我想补做 FC144 深度版" : "I want the FC144 follow-up"}
+            {isZh ? "我想补做 FC144 二选一迫选版" : "I want the FC144 follow-up"}
           </label>
           <label className="flex items-center gap-2 text-sm text-slate-700">
             <input
@@ -1042,7 +1043,7 @@ function ObservationModuleRenderer({
       <p className="m-0 text-sm text-slate-600">
         {state?.suggested_next_action === "do_fc144"
           ? isZh
-            ? "如果你想继续辨析，可以补做 FC144 深度版。"
+            ? "如果你想继续辨析，可以补做 FC144 二选一迫选版。"
             : "If you want a follow-up distinction pass, FC144 is available."
           : state?.suggested_next_action === "retest_same_form"
             ? isZh
@@ -1053,7 +1054,7 @@ function ObservationModuleRenderer({
       <div className="flex flex-wrap gap-2">
         {state?.suggested_next_action === "do_fc144" ? (
           <Link href={fc144Href} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "查看 FC144 深度版" : "Open FC144 form"}
+            {isZh ? "查看 FC144 二选一迫选版" : "Open FC144 form"}
           </Link>
         ) : null}
         {state?.suggested_next_action === "retest_same_form" ? (
@@ -1222,7 +1223,7 @@ function renderModule(
       }));
 
       return (
-        <ModuleCard title={isZh ? "Top 3 候选" : "Top 3 candidates"} testId="enneagram-module-top3-cards">
+        <ModuleCard title={isZh ? "前三候选" : "Top 3 candidates"} testId="enneagram-module-top3-cards">
           <div className="grid gap-3 md:grid-cols-3">
             {cards.map(({ row, coreLogic, workSummary }) => (
               <div key={row.code} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
@@ -1255,7 +1256,7 @@ function renderModule(
       }));
 
       return (
-        <ModuleCard title={isZh ? "All 9 轮廓" : "All 9 profile"} testId="enneagram-module-all9-profile">
+        <ModuleCard title={isZh ? "九型完整轮廓" : "All 9 profile"} testId="enneagram-module-all9-profile">
           <div data-testid="enneagram-v2-all9-profile-count" className="hidden">
             {rows.length}
           </div>
@@ -1265,7 +1266,7 @@ function renderModule(
     }
     case "confidence_band_card":
       return (
-        <ModuleCard title={isZh ? "置信带" : "Confidence band"} testId="enneagram-module-confidence-band-card">
+        <ModuleCard title={isZh ? "解释稳定性" : "Confidence band"} testId="enneagram-module-confidence-band-card">
           <div className="grid gap-3 md:grid-cols-2">
             <div>
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "置信等级" : "Confidence level"}</p>
@@ -1285,7 +1286,7 @@ function renderModule(
             </div>
           </div>
           <p className="m-0 text-xs text-slate-500">
-            {isZh ? "仅在当前 form 的分数空间内解释，不用于跨 form 比较。" : "Interpret within the current form score space only, not across forms."}
+            {isZh ? "仅在当前题型的计分空间内解释，不用于跨题型比较。" : "Interpret within the current form score space only, not across forms."}
           </p>
         </ModuleCard>
       );
@@ -1299,7 +1300,7 @@ function renderModule(
       const coreMotivationDifference = safePublicText(pairEntry?.core_motivation_difference);
       const stressReactionDifference = safePublicText(pairEntry?.stress_reaction_difference);
       return (
-        <ModuleCard title={isZh ? "Close call 辨析" : "Close-call differentiation"} testId="enneagram-module-close-call-card">
+        <ModuleCard title={isZh ? "接近型辨析" : "Close-call differentiation"} testId="enneagram-module-close-call-card">
           <p className="m-0 text-sm text-slate-700">
             {pairTypeA || "?"} vs {pairTypeB || "?"}
           </p>
@@ -1381,7 +1382,7 @@ function renderModule(
           {moduleText(module, "score_space_boundary") ? <p className="m-0">{moduleText(module, "score_space_boundary")}</p> : null}
           {moduleText(module, "non_diagnostic_boundary") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "non_diagnostic_boundary")}</p> : null}
           <p className="m-0 text-xs text-slate-500">
-            {isZh ? "同模型，不同分数空间；跨 form 结果不直接可比。" : "Same model, different score spaces; cross-form results are not directly comparable."}
+            {isZh ? "同一模型，不同计分空间；跨题型结果不直接可比。" : "Same model, different score spaces; cross-form results are not directly comparable."}
           </p>
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
@@ -1390,9 +1391,9 @@ function renderModule(
     case "diffuse_boundary":
       return (
         <ModuleCard title={moduleText(module, "title") || (isZh ? "分散边界" : "Diffuse boundary")} testId="enneagram-module-diffuse-boundary">
-          <p className="m-0">{isZh ? "当前结果分散，需要更多观察。" : "This result is diffuse and needs more observation."}</p>
+          <p className="m-0">{isZh ? "当前结果分布较分散，需要更多观察。" : "This result is diffuse and needs more observation."}</p>
           <p className="m-0 text-sm text-slate-600">
-            {isZh ? "分布较分散，建议先阅读 Top3 与方法边界。" : "The profile is diffuse, so start with Top 3 and the method boundary."}
+            {isZh ? "分布较分散，建议先阅读前三候选与方法边界。" : "The profile is diffuse, so start with Top 3 and the method boundary."}
           </p>
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>

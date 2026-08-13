@@ -362,7 +362,7 @@ describe("enneagram observation surface contract", () => {
   it("shows the assign CTA when no observation has been assigned yet", async () => {
     renderObservationShell("close_call");
 
-    expect(await screen.findByTestId("enneagram-observation-guidance")).toHaveTextContent("Top1");
+    expect(await screen.findByTestId("enneagram-observation-guidance")).toHaveTextContent("第一候选");
     expect(screen.getByTestId("enneagram-observation-assign")).toHaveTextContent("开始 7 天观察");
   });
 
@@ -450,7 +450,7 @@ describe("enneagram observation surface contract", () => {
 
   it("renders diffuse and low-quality guidance without hard retyping language", async () => {
     const diffuseRender = renderObservationShell("diffuse");
-    expect(await screen.findByTestId("enneagram-observation-guidance")).toHaveTextContent("Top3");
+    expect(await screen.findByTestId("enneagram-observation-guidance")).toHaveTextContent("前三候选");
     diffuseRender.unmount();
 
     renderObservationShell("low_quality");
