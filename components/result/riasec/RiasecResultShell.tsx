@@ -43,7 +43,52 @@ const RIASEC_DEBUG_RENDER_PATTERNS = [
   /\bresearch_and_explain\b/gi,
 ];
 
-const RIASEC_HIDDEN_DEEP_CONTENT_KEYS = new Set(["button_label", "score_space", "raw_score"]);
+const RIASEC_DEEP_CONTENT_LABELS: Record<string, { zh: string; en: string }> = {
+  core_reading: { zh: "核心解读", en: "Core reading" },
+  core_drive: { zh: "兴趣线索", en: "Interest signal" },
+  positive_value: { zh: "可观察价值", en: "What to observe" },
+  real_world_cost: { zh: "现实条件", en: "Real-world conditions" },
+  common_misread: { zh: "常见误读", en: "Common misreading" },
+  primary_activity_chain: { zh: "主要活动线索", en: "Primary activity signal" },
+  secondary_support_line: { zh: "辅助活动线索", en: "Secondary activity signal" },
+  tertiary_stabilizer: { zh: "补充活动线索", en: "Additional activity signal" },
+  ordered_code_handling: { zh: "代码阅读方式", en: "How to read the code" },
+  high_score_reading: { zh: "较高分解读", en: "Higher-score reading" },
+  medium_score_reading: { zh: "中等分解读", en: "Middle-score reading" },
+  low_score_safe_reading: { zh: "较低分解读", en: "Lower-score reading" },
+  work_activity_examples: { zh: "可尝试的活动", en: "Activities to try" },
+  activities_to_validate: { zh: "可验证的活动", en: "Activities to validate" },
+  activity_chain: { zh: "活动线索组合", en: "Activity signal combination" },
+  activity_sequence: { zh: "活动顺序", en: "Activity sequence" },
+  deep_report_extension: { zh: "深入阅读", en: "Further reading" },
+  first_experiment: { zh: "首次尝试", en: "First experiment" },
+  free_page_teaser: { zh: "页面摘要", en: "Page summary" },
+  likely_tension: { zh: "可能的张力", en: "Possible tension" },
+  low_risk_validation: { zh: "低风险验证", en: "Low-risk validation" },
+  pair_label: { zh: "兴趣组合", en: "Interest combination" },
+  short_label: { zh: "简要标签", en: "Short label" },
+  strategy_label: { zh: "阅读主题", en: "Reading theme" },
+  when_not_to_overread: { zh: "避免过度解读", en: "When not to overread" },
+  when_to_use_140q: { zh: "何时考虑 140 题", en: "When to consider the 140-item form" },
+  environment_card: { zh: "环境线索", en: "Environment signals" },
+  example_question: { zh: "示例问题", en: "Example question" },
+  question: { zh: "探索问题", en: "Exploration question" },
+  role_responsibility_card: { zh: "角色责任线索", en: "Role-responsibility signals" },
+  selection_basis: { zh: "选择依据", en: "Selection basis" },
+  task_activity_card: { zh: "任务活动线索", en: "Task-activity signals" },
+  what_user_sees: { zh: "你会看到什么", en: "What you will see" },
+  possible_drains: { zh: "可能影响体验的条件", en: "Conditions that may affect the experience" },
+  action_advice: { zh: "下一步", en: "Next step" },
+  interest_activity_focus: { zh: "活动关注点", en: "Activity focus" },
+  context_costs: { zh: "情境成本", en: "Context costs" },
+  misread_guardrails: { zh: "阅读边界", en: "Reading guardrails" },
+  validation_questions: { zh: "验证问题", en: "Questions to explore" },
+  chemistry: { zh: "组合关系", en: "Combination pattern" },
+  micro_experiment: { zh: "小实验", en: "Small experiment" },
+  result_page_teaser: { zh: "结果提示", en: "Result note" },
+  deep_report_extension_hint: { zh: "深入阅读", en: "Further reading" },
+  copy: { zh: "阅读提示", en: "Reading note" },
+};
 
 export function RiasecResultShell({
   locale,
@@ -56,6 +101,7 @@ export function RiasecResultShell({
 }) {
   const isZh = locale === "zh";
   const [shareState, setShareState] = useState<"idle" | "loading" | "copied" | "failed">("idle");
+  const [deepReportOpen, setDeepReportOpen] = useState(false);
   const trackingPayload = useMemo(
     () => buildRiasecTrustedResultTrackingPayload(viewModel, locale),
     [locale, viewModel]
@@ -171,20 +217,62 @@ export function RiasecResultShell({
         className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
       >
         <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-          {isZh ? "3 分钟结果卡" : "3-minute result card"}
+          {viewModel.resultSummary
+            ? isZh ? "结果摘要（约 3 分钟）" : "Result summary (about 3 minutes)"
+            : isZh ? "3 分钟结果卡" : "3-minute result card"}
         </div>
-        <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">{viewModel.topCode}</h1>
-        {formMeta ? (
+        <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">
+          {viewModel.resultSummary?.headline || viewModel.interpretationState?.tieDisplay?.headline || viewModel.topCode}
+        </h1>
+        {viewModel.resultSummary ? (
+          <div className="mt-[var(--fm-space-5)] space-y-5" data-testid="riasec-result-summary">
+            <section>
+              <h2 className="text-xl font-semibold text-[var(--fm-text)]">{viewModel.resultSummary.rankingDisplay}</h2>
+              {viewModel.resultSummary.tieNote ? (
+                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{viewModel.resultSummary.tieNote}</p>
+              ) : null}
+            </section>
+            <section className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+              <h2 className="font-semibold">{isZh ? "作答质量" : "Response quality"}</h2>
+              <p className="mt-1">{viewModel.resultSummary.qualitySummary}</p>
+            </section>
+            <section>
+              <h2 className="font-semibold text-[var(--fm-text)]">{isZh ? "三个阅读重点" : "Three highlights"}</h2>
+              <ul className="mt-3 grid gap-3 md:grid-cols-3">
+                {viewModel.resultSummary.highlights.map((highlight) => (
+                  <li key={highlight.dimensionCode} className="rounded-xl border border-[var(--fm-border)] bg-slate-50 p-4">
+                    <div className="font-semibold text-[var(--fm-text)]">{highlight.dimensionCode} · {highlight.label}</div>
+                    <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{highlight.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+            <section className="rounded-xl bg-blue-50 p-4">
+              <h2 className="font-semibold text-[var(--fm-text)]">{isZh ? "下一步" : "Next step"}</h2>
+              <p className="mt-1 text-sm leading-6 text-[var(--fm-text-muted)]">{viewModel.resultSummary.nextStep}</p>
+            </section>
+            <p className="text-xs leading-5 text-[var(--fm-text-muted)]">{viewModel.resultSummary.boundary}</p>
+          </div>
+        ) : null}
+        {!viewModel.resultSummary && formMeta ? (
           <p className="mt-[var(--fm-space-2)] text-sm font-medium text-[var(--fm-text-muted)]">{formMeta}</p>
         ) : null}
-        {showHeroReading ? (
+        {!viewModel.resultSummary && showHeroReading ? (
           <p className="mt-[var(--fm-space-3)] max-w-3xl text-base leading-7 text-[var(--fm-text-muted)]">
-            {isZh
-              ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
-              : `Your top three interest dimensions are ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}. Clarity index ${viewModel.clarityIndex}, breadth index ${viewModel.breadthIndex}.`}
+            {viewModel.interpretationState?.tieDisplay?.note || (isZh
+              ? `本次较突出的兴趣维度包括 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。`
+              : `The more prominent dimensions in this result include ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}.`)}
           </p>
         ) : null}
-        {boundaryRows.length > 0 ? (
+        {!viewModel.resultSummary && viewModel.interpretationState?.tieDisplay?.alternateCodes.length ? (
+          <p className="mt-2 text-sm text-[var(--fm-text-muted)]">
+            {isZh ? "可同时参考的阅读顺序" : "Additional reading order"}: {viewModel.interpretationState.tieDisplay.alternateCodes.join(" / ")}
+          </p>
+        ) : null}
+        {!viewModel.resultSummary && viewModel.interpretationState?.tieDisplay?.boundary ? (
+          <p className="mt-2 text-xs leading-5 text-[var(--fm-text-muted)]">{viewModel.interpretationState.tieDisplay.boundary}</p>
+        ) : null}
+        {!viewModel.resultSummary && boundaryRows.length > 0 ? (
           <dl className="mt-[var(--fm-space-5)] grid gap-3 sm:grid-cols-2" data-testid="riasec-measurement-boundary">
             {boundaryRows.map(([label, value]) => (
               <div key={label} className="rounded-lg border border-[var(--fm-border)] bg-slate-50 px-3 py-2">
@@ -194,18 +282,34 @@ export function RiasecResultShell({
             ))}
           </dl>
         ) : null}
-        {trustedCard?.occupationExamplesPolicy ? (
+        {!viewModel.resultSummary && trustedCard?.occupationExamplesPolicy ? (
           <p className="mt-[var(--fm-space-3)] text-sm leading-6 text-[var(--fm-text-muted)]">
             {formatRiasecOccupationPolicy(trustedCard.occupationExamplesPolicy, locale)}
           </p>
         ) : null}
-        {viewModel.qualityGrade !== "A" || viewModel.qualityFlags.length > 0 ? (
-          <p className="mt-[var(--fm-space-3)] text-sm text-amber-700">
-            {isZh ? "作答质量提示" : "Response quality"}: {viewModel.qualityGrade}
-            {viewModel.qualityFlags.length > 0 ? ` · ${viewModel.qualityFlags.map((flag) => formatRiasecQualityFlag(flag, locale)).filter(Boolean).join(isZh ? "、" : ", ")}` : ""}
-          </p>
+        {!viewModel.resultSummary && viewModel.qualityDisplay ? (
+          <section className="mt-[var(--fm-space-4)] rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950" data-testid="riasec-quality-display">
+            <h2 className="font-semibold">{viewModel.qualityDisplay.headline}</h2>
+            {viewModel.qualityDisplay.reasons.length > 0 ? (
+              <div className="mt-3">
+                <div className="font-medium">{isZh ? "为什么会有这条提示" : "Why this note appears"}</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {viewModel.qualityDisplay.reasons.map((reason) => <li key={reason}>{reason}</li>)}
+                </ul>
+              </div>
+            ) : null}
+            {viewModel.qualityDisplay.improvements.length > 0 ? (
+              <div className="mt-3">
+                <div className="font-medium">{isZh ? "如何让下次结果更稳定" : "How to improve a future result"}</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {viewModel.qualityDisplay.improvements.map((improvement) => <li key={improvement}>{improvement}</li>)}
+                </ul>
+              </div>
+            ) : null}
+            {viewModel.qualityDisplay.readingBoundary ? <p className="mt-3 text-amber-800">{viewModel.qualityDisplay.readingBoundary}</p> : null}
+          </section>
         ) : null}
-        <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
+        {!viewModel.resultSummary ? <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
           {showShareAction ? (
             <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
               {shareState === "loading"
@@ -225,8 +329,54 @@ export function RiasecResultShell({
               {isZh ? "查看历史记录" : "View history"}
             </Link>
           ) : null}
-        </div>
+        </div> : null}
       </section>
+
+      <details open={deepReportOpen} className="group rounded-2xl border border-[var(--fm-border)] bg-white" data-testid="riasec-deep-report">
+        <summary
+          className="cursor-pointer list-none rounded-2xl px-6 py-5 font-semibold text-[var(--fm-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          onClick={(event) => {
+            event.preventDefault();
+            setDeepReportOpen((value) => !value);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              setDeepReportOpen((value) => !value);
+            }
+          }}
+        >
+          {deepReportOpen
+            ? isZh ? "收起深度报告" : "Close deep report"
+            : isZh ? "展开深度报告" : "Open deep report"}
+        </summary>
+        <div className="space-y-[var(--fm-gap-md)] border-t border-[var(--fm-border)] p-4 md:p-6">
+          {viewModel.resultSummary ? (
+            <Card data-testid="riasec-deep-report-controls">
+              <CardContent className="space-y-4 pt-6">
+                {formMeta ? <p className="text-sm font-medium text-[var(--fm-text-muted)]">{formMeta}</p> : null}
+                {boundaryRows.length > 0 ? (
+                  <dl className="grid gap-3 sm:grid-cols-2" data-testid="riasec-measurement-boundary">
+                    {boundaryRows.map(([label, value]) => (
+                      <div key={label} className="rounded-lg border border-[var(--fm-border)] bg-slate-50 px-3 py-2">
+                        <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{label}</dt>
+                        <dd className="mt-1 break-words text-sm font-medium text-[var(--fm-text)]">{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                ) : null}
+                <div className="flex flex-wrap gap-3">
+                  {showShareAction ? (
+                    <Button type="button" variant="secondary" onClick={() => void handleShare()} disabled={shareState === "loading"}>
+                      {shareState === "loading" ? isZh ? "生成分享链接..." : "Preparing share..." : isZh ? "分享结果" : "Share result"}
+                    </Button>
+                  ) : null}
+                  <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>{isZh ? "重新测试" : "Retake test"}</Link>
+                  {showHistoryAction ? <Link href={historyHref} className={buttonVariants({ variant: "ghost" })}>{isZh ? "查看历史记录" : "View history"}</Link> : null}
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
 
       {showDimensionMap ? (
         <Card data-testid="riasec-six-dimension-map">
@@ -383,6 +533,8 @@ export function RiasecResultShell({
           </CardContent>
         </Card>
       ) : null}
+        </div>
+      </details>
     </div>
   );
 }
@@ -394,6 +546,10 @@ function RiasecDeepContentSlotsSection({
   slots: RiasecDeepContentSlot[];
   isZh: boolean;
 }) {
+  const boundary = slots
+    .map((slot) => sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary))
+    .find(Boolean);
+
   return (
     <Card data-testid="riasec-deep-content-slots">
       <CardHeader>
@@ -403,12 +559,16 @@ function RiasecDeepContentSlotsSection({
         {slots.map((slot) => (
           <RiasecDeepContentSlotCard key={slot.slotId || `${slot.slotKey}-${slot.moduleKey}`} slot={slot} isZh={isZh} />
         ))}
+        {boundary ? (
+          <p className="text-xs leading-5 text-[var(--fm-text-muted)]" data-testid="riasec-deep-content-boundary">{boundary}</p>
+        ) : null}
       </CardContent>
     </Card>
   );
 }
 
 function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot; isZh: boolean }) {
+  const [expanded, setExpanded] = useState(!slot.selection || slot.selection.isTopThree);
   const { content } = slot;
   const title = sanitizeRiasecRenderableText(content.title);
   const summary = sanitizeRiasecRenderableText(content.summary);
@@ -416,7 +576,7 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
   const detailEntries = Object.entries(content)
     .filter(([key]) => !["title", "summary", "body"].includes(key))
     .map(([key, value]) => {
-      const label = formatDeepContentKey(key);
+      const label = formatDeepContentKey(key, isZh);
       const values = Array.isArray(value)
         ? value.map((item) => formatRiasecDetailValue(item)).filter(Boolean)
         : formatRiasecDetailValue(value);
@@ -430,51 +590,53 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
       className="rounded-lg border border-[var(--fm-border)] bg-white p-3"
       data-testid="riasec-deep-content-slot"
     >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <div>
-          {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
-          {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
-        </div>
-        <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
-          {formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
-        </span>
-      </div>
-      {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
-      {detailEntries.length > 0 ? (
-        <div className="mt-3 grid gap-2 md:grid-cols-2">
-          {detailEntries.map(({ key, label, values }) => (
-            <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
-              <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-                {label}
-              </div>
-              {Array.isArray(values) ? (
-                <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                  {values.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{values}</p>
-              )}
+      <div>
+        <button
+          type="button"
+          className="w-full cursor-pointer text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          aria-expanded={expanded}
+          aria-controls={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`}
+          onClick={() => setExpanded((value) => !value)}
+        >
+          <div className="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
+              {summary ? <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{summary}</p> : null}
             </div>
-          ))}
+            <span className="rounded-md bg-slate-100 px-2 py-1 text-xs text-[var(--fm-text-muted)]">
+              {slot.selection
+                ? slot.selection.isTopThree
+                  ? isZh ? "重点维度" : "Key dimension"
+                  : isZh ? "更多维度" : "More dimensions"
+                : formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
+            </span>
+          </div>
+        </button>
+        <div id={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`} hidden={!expanded}>
+        {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
+        {detailEntries.length > 0 ? (
+          <div className="mt-3 grid gap-2 md:grid-cols-2">
+            {detailEntries.map(({ key, label, values }) => (
+              <div key={key} className="rounded-md bg-slate-50 px-3 py-2">
+                <div className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{label}</div>
+                {Array.isArray(values) ? (
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                    {values.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                ) : <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">{values}</p>}
+              </div>
+            ))}
+          </div>
+        ) : null}
         </div>
-      ) : null}
-      {slot.boundaries.userVisibleBoundary ? (
-        <p className="mt-3 text-xs leading-5 text-[var(--fm-text-muted)]">
-          {sanitizeRiasecRenderableText(slot.boundaries.userVisibleBoundary)}
-        </p>
-      ) : null}
+      </div>
     </section>
   );
 }
 
-function formatDeepContentKey(key: string): string {
-  if (RIASEC_HIDDEN_DEEP_CONTENT_KEYS.has(key)) {
-    return "";
-  }
-
-  return sanitizeRiasecRenderableText(key.replace(/_/g, " "));
+function formatDeepContentKey(key: string, isZh: boolean): string {
+  const label = RIASEC_DEEP_CONTENT_LABELS[key];
+  return label ? label[isZh ? "zh" : "en"] : "";
 }
 
 function formatRiasecQualityRule(value: string, locale: Locale): string {
@@ -503,18 +665,6 @@ function formatRiasecSourceStatus(value: string, locale: Locale): string {
   }
 
   return locale === "zh" ? "后端内容示例" : "Backend content example";
-}
-
-function formatRiasecQualityFlag(value: string, locale: Locale): string {
-  if (value === "attention_flag") {
-    return locale === "zh" ? "存在注意力检查提示" : "attention check notice";
-  }
-
-  if (!value || /[_A-Z]/.test(value)) {
-    return "";
-  }
-
-  return value;
 }
 
 function formatRiasecActivityFamily(value: string, locale: Locale): string {

@@ -390,7 +390,8 @@ describe("RIASEC personalization fixture matrix v2", () => {
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-governed-copy-surface")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
-    expect(clearText).toContain("你的前三个兴趣维度依次是");
+    expect(clearText).toContain("本次较突出的兴趣维度包括");
+    expect(clearText).not.toContain("依次是");
 
     const broadText = renderedTextFor(caseById("broad_profile_60q"));
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();

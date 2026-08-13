@@ -7,6 +7,34 @@ export type RiasecDimension = {
   score: number;
 };
 
+export type RiasecQualityDisplay = {
+  schemaVersion: string;
+  locale: string;
+  headline: string;
+  reasons: string[];
+  improvements: string[];
+  readingBoundary: string;
+};
+
+export type RiasecResultSummary = {
+  schemaVersion: string;
+  locale: string;
+  estimatedReadSeconds: number;
+  snapshotBound: boolean;
+  snapshotScope: "persisted_result" | "report_snapshot";
+  headline: string;
+  rankingDisplay: string;
+  tieNote: string;
+  qualitySummary: string;
+  highlights: Array<{
+    dimensionCode: string;
+    label: string;
+    text: string;
+  }>;
+  nextStep: string;
+  boundary: string;
+};
+
 export type RiasecTrustedResultCard = {
   schemaVersion: string;
   projectionVersion: string;
@@ -36,6 +64,19 @@ export type RiasecInterpretationState = {
     displayBoundary: string;
   };
   alternateCodeReason: string | null;
+  tieDisplay: {
+    schemaVersion: string;
+    kind: "none" | "exact_tie" | "near_tie";
+    position: string;
+    dimensions: string[];
+    groups: string[][];
+    orderedCode: string;
+    alternateCodes: string[];
+    orderingPrecisionClaimAllowed: false;
+    headline: string;
+    note: string;
+    boundary: string;
+  } | null;
   topCodeConfidence: {
     level: string;
     meaning: string;
@@ -86,6 +127,14 @@ export type RiasecDeepContentSlot = {
   locale: string;
   frontendFallbackAllowed: false;
   fallbackBehavior: string;
+  selection: {
+    schemaVersion: string;
+    dimensionCode: string;
+    rank: number;
+    isTopThree: boolean;
+    scoreBand: "high" | "medium" | "low";
+    selectedDetailKey: "high_score_reading" | "medium_score_reading" | "low_score_safe_reading";
+  } | null;
   applicability: {
     formCodes: string[];
     profileShapes: string[];
@@ -290,6 +339,8 @@ export type RiasecResultViewModel = {
   breadthIndex: number;
   qualityGrade: string;
   qualityFlags: string[];
+  qualityDisplay: RiasecQualityDisplay | null;
+  resultSummary: RiasecResultSummary | null;
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
   interpretationState: RiasecInterpretationState | null;
@@ -337,6 +388,118 @@ function normalizeRiasecContentLocale(value: unknown): Locale | null {
   }
 
   return null;
+}
+
+function buildQualityDisplay(
+  raw: Record<string, unknown> | null,
+  requestedPageLocale: Locale,
+  qualityState: string,
+  qualityGrade: string
+): RiasecQualityDisplay | null {
+  if (!raw || normalizeText(raw.schema_version) !== "riasec.quality_display.v1") {
+    return null;
+  }
+
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  if (normalizeText(raw.locale) !== expectedLocale) {
+    return null;
+  }
+
+  const headline = normalizeText(raw.headline);
+  const readingBoundary = normalizeText(raw.reading_boundary);
+  const reasons = normalizeStringList(raw.reasons);
+  const improvements = normalizeStringList(raw.improvements);
+  if (!headline || !readingBoundary) {
+    return null;
+  }
+  const isDegraded = qualityState !== "normal" || qualityGrade !== "A";
+  if (isDegraded && (reasons.length === 0 || improvements.length === 0)) {
+    return null;
+  }
+
+  return {
+    schemaVersion: "riasec.quality_display.v1",
+    locale: expectedLocale,
+    headline,
+    reasons,
+    improvements,
+    readingBoundary,
+  };
+}
+
+function buildResultSummary(
+  raw: Record<string, unknown> | null,
+  requestedPageLocale: Locale
+): RiasecResultSummary | null {
+  if (!raw || normalizeText(raw.schema_version) !== "riasec.result_summary.v1") return null;
+
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  const estimatedReadSeconds = Number(raw.estimated_read_seconds);
+  const rawHighlights = Array.isArray(raw.highlights) ? raw.highlights : [];
+  const highlights = rawHighlights.map((item) => {
+    const row = asRecord(item) ?? {};
+    return {
+      dimensionCode: normalizeText(row.dimension_code),
+      label: normalizeText(row.label),
+      text: normalizeText(row.text),
+    };
+  });
+  const headline = normalizeText(raw.headline);
+  const rankingDisplay = normalizeText(raw.ranking_display);
+  const qualitySummary = normalizeText(raw.quality_summary);
+  const nextStep = normalizeText(raw.next_step);
+  const boundary = normalizeText(raw.boundary);
+  const snapshotScope = normalizeText(raw.snapshot_scope);
+  const validHighlights =
+    highlights.length === 3 &&
+    highlights.every((item) => /^[RIASEC]$/.test(item.dimensionCode) && item.label && item.text) &&
+    new Set(highlights.map((item) => item.dimensionCode)).size === highlights.length;
+
+  if (
+    normalizeText(raw.locale) !== expectedLocale ||
+    !Number.isInteger(estimatedReadSeconds) ||
+    estimatedReadSeconds < 1 ||
+    estimatedReadSeconds > 180 ||
+    raw.snapshot_bound !== true ||
+    !["persisted_result", "report_snapshot"].includes(snapshotScope) ||
+    !headline ||
+    !rankingDisplay ||
+    !qualitySummary ||
+    !nextStep ||
+    !boundary ||
+    !validHighlights
+  ) {
+    return null;
+  }
+
+  const visibleText = [
+    headline,
+    rankingDisplay,
+    normalizeText(raw.tie_note),
+    qualitySummary,
+    ...highlights.flatMap((item) => [item.label, item.text]),
+    nextStep,
+    boundary,
+  ].join(requestedPageLocale === "zh" ? "" : " ");
+  const lengthWithinLimit = requestedPageLocale === "zh"
+    ? Array.from(visibleText).length <= 900
+    : visibleText.split(/\s+/).filter(Boolean).length <= 500;
+  if (!lengthWithinLimit) return null;
+
+  return {
+    schemaVersion: "riasec.result_summary.v1",
+    locale: expectedLocale,
+    estimatedReadSeconds,
+    snapshotBound: raw.snapshot_bound,
+    snapshotScope: snapshotScope as "persisted_result" | "report_snapshot",
+    headline,
+    rankingDisplay,
+    tieNote: normalizeText(raw.tie_note),
+    qualitySummary,
+    highlights,
+    nextStep,
+    boundary,
+  };
 }
 
 function isRiasecFormCode(value: string): value is "riasec_60" | "riasec_140" {
@@ -476,6 +639,7 @@ export function assembleRiasecResultViewModel(
   const v2Form = asRecord(projectionV2?.form);
   const v2MeasurementEvidence = asRecord(projectionV2?.measurement_evidence);
   const v2Quality = asRecord(projectionV2?.quality);
+  const v2QualityDisplay = asRecord(v2Quality?.display_v1);
   const v2ContentBoundary = asRecord(projectionV2?.content_boundary);
   const v2Scores = asRecord(projectionV2?.scores);
   const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
@@ -484,6 +648,7 @@ export function assembleRiasecResultViewModel(
   const v2InterpretationState = asRecord(projectionV2?.interpretation_state);
   const v2ModuleVisibilityPolicy = asRecord(projectionV2?.module_visibility_policy);
   const v2DeepContentSlots = asRecord(projectionV2?.deep_content_slots_v1);
+  const v2ResultSummary = asRecord(projectionV2?.result_summary_v1);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -509,6 +674,8 @@ export function assembleRiasecResultViewModel(
     : Array.isArray(projection.quality_flags)
       ? projection.quality_flags.map((flag) => normalizeText(flag)).filter(Boolean)
       : [];
+  const qualityGrade = normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A";
+  const qualityState = normalizeText(v2Quality?.quality_state);
 
   return {
     topCode,
@@ -526,8 +693,10 @@ export function assembleRiasecResultViewModel(
     tertiaryType: normalizeText(v2HollandCode?.tertiary_type) || normalizeText(projection.tertiary_type),
     clarityIndex: normalizeNumber(projection.clarity_index),
     breadthIndex: normalizeNumber(projection.breadth_index),
-    qualityGrade: normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A",
+    qualityGrade,
     qualityFlags,
+    qualityDisplay: buildQualityDisplay(v2QualityDisplay, requestedPageLocale, qualityState, qualityGrade),
+    resultSummary: buildResultSummary(v2ResultSummary, requestedPageLocale),
     dimensions,
     trustedResultCard: projectionV2
       ? {
@@ -544,7 +713,7 @@ export function assembleRiasecResultViewModel(
           validationStatus: normalizeText(v2MeasurementEvidence?.validation_status),
         }
       : null,
-    interpretationState: buildInterpretationState(v2InterpretationState),
+    interpretationState: buildInterpretationState(v2InterpretationState, requestedPageLocale, topCode),
     moduleVisibilityPolicy: buildModuleVisibilityPolicy(v2ModuleVisibilityPolicy),
     deepContentSlots: buildDeepContentSlots(v2DeepContentSlots, {
       requestedPageLocale,
@@ -582,13 +751,19 @@ export function getRiasecModuleVisibility(
   return moduleState?.visibility ?? "hidden";
 }
 
-function buildInterpretationState(rawState: Record<string, unknown> | null): RiasecInterpretationState | null {
+function buildInterpretationState(
+  rawState: Record<string, unknown> | null,
+  requestedPageLocale: Locale,
+  topCode: string
+): RiasecInterpretationState | null {
   if (!rawState) {
     return null;
   }
 
   const nearTieState = asRecord(rawState.near_tie_state) ?? {};
   const alternateCode = asRecord(rawState.alternate_code) ?? {};
+  const rawTieDisplay = asRecord(rawState.tie_display_v1);
+  const rawTieCopy = asRecord(rawTieDisplay?.display_copy);
   const topCodeConfidence = asRecord(rawState.top_code_confidence) ?? {};
   const resultPageStrategy = asRecord(rawState.result_page_strategy) ?? {};
   const rawFieldAuthority = asRecord(rawState.field_authority) ?? {};
@@ -608,6 +783,7 @@ function buildInterpretationState(rawState: Record<string, unknown> | null): Ria
       displayBoundary: normalizeText(alternateCode.display_boundary),
     },
     alternateCodeReason: normalizeText(rawState.alternate_code_reason) || null,
+    tieDisplay: buildTieDisplay(rawTieDisplay, rawTieCopy, rawFieldAuthority, requestedPageLocale, topCode),
     topCodeConfidence: {
       level: normalizeText(topCodeConfidence.level),
       meaning: normalizeText(topCodeConfidence.meaning),
@@ -623,6 +799,77 @@ function buildInterpretationState(rawState: Record<string, unknown> | null): Ria
         .map(([key, value]) => [key, normalizeText(value)])
         .filter(([, value]) => Boolean(value))
     ),
+  };
+}
+
+function buildTieDisplay(
+  rawTieDisplay: Record<string, unknown> | null,
+  rawTieCopy: Record<string, unknown> | null,
+  rawFieldAuthority: Record<string, unknown>,
+  requestedPageLocale: Locale,
+  topCode: string
+): RiasecInterpretationState["tieDisplay"] {
+  if (!rawTieDisplay || !rawTieCopy) return null;
+
+  const kind = normalizeText(rawTieDisplay.kind);
+  const position = normalizeText(rawTieDisplay.position);
+  const dimensions = normalizeStringList(rawTieDisplay.dimensions);
+  const groups = Array.isArray(rawTieDisplay.groups)
+    ? rawTieDisplay.groups.map((group) => normalizeStringList(group)).filter((group) => group.length > 0)
+    : [];
+  const orderedCode = normalizeText(rawTieDisplay.ordered_code);
+  const alternateCodes = normalizeStringList(rawTieDisplay.alternate_codes);
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  const isDimension = (value: string) => /^[RIASEC]$/.test(value);
+  const isCode = (value: string) => /^[RIASEC]{3}$/.test(value) && new Set(value).size === 3;
+  const matches = (expected: string[]) => dimensions.length === expected.length && dimensions.every((value, index) => value === expected[index]);
+  const codesMatch = (expected: string[]) => alternateCodes.length === expected.length && alternateCodes.every((value, index) => value === expected[index]);
+  const flattenedGroups = groups.flat();
+  const commonValid =
+    normalizeText(rawTieDisplay.schema_version) === "riasec.tie_display.v1" &&
+    normalizeText(rawTieDisplay.locale) === expectedLocale &&
+    normalizeText(rawFieldAuthority.tie_display_v1) === "backend_owned" &&
+    ["none", "exact_tie", "near_tie"].includes(kind) &&
+    rawTieDisplay.ordering_precision_claim_allowed === false &&
+    isCode(orderedCode) && orderedCode === topCode &&
+    dimensions.every(isDimension) && new Set(dimensions).size === dimensions.length &&
+    groups.every((group) => group.length >= 2 && group.every(isDimension) && new Set(group).size === group.length) &&
+    alternateCodes.every(isCode) && new Set(alternateCodes).size === alternateCodes.length &&
+    Boolean(normalizeText(rawTieCopy.headline));
+
+  let shapeValid = false;
+  if (kind === "none") {
+    shapeValid = position === "none" && dimensions.length === 0 && groups.length === 0 && alternateCodes.length === 0;
+  } else if (kind === "exact_tie") {
+    shapeValid = position === "exact_groups" && alternateCodes.length === 0 && groups.length > 0 &&
+      flattenedGroups.length === dimensions.length && flattenedGroups.every((value, index) => value === dimensions[index]) && (
+      groups.every((group) => group.some((value) => orderedCode.includes(value)))
+    );
+  } else if (kind === "near_tie") {
+    shapeValid = groups.length === 0 && (
+      (position === "top1_top2_near_tie" && matches([orderedCode[0], orderedCode[1]]) && codesMatch([`${orderedCode[1]}${orderedCode[0]}${orderedCode[2]}`])) ||
+      (position === "top2_top3_near_tie" && matches([orderedCode[1], orderedCode[2]]) && codesMatch([`${orderedCode[0]}${orderedCode[2]}${orderedCode[1]}`])) ||
+      (position === "multi_near_tie" && matches(orderedCode.split("")) && codesMatch([
+        `${orderedCode[1]}${orderedCode[0]}${orderedCode[2]}`,
+        `${orderedCode[0]}${orderedCode[2]}${orderedCode[1]}`,
+      ]))
+    );
+  }
+
+  if (!commonValid || !shapeValid) return null;
+
+  return {
+    schemaVersion: "riasec.tie_display.v1",
+    kind: kind as "none" | "exact_tie" | "near_tie",
+    position,
+    dimensions,
+    groups,
+    orderedCode,
+    alternateCodes,
+    orderingPrecisionClaimAllowed: false,
+    headline: normalizeText(rawTieCopy.headline),
+    note: normalizeText(rawTieCopy.note),
+    boundary: normalizeText(rawTieCopy.boundary),
   };
 }
 
@@ -687,17 +934,20 @@ function buildDeepContentSlots(
   }
 
   const rawSlots = Array.isArray(rawEnvelope.slots) ? rawEnvelope.slots : [];
-  const seenSlotIds = new Set<string>();
   const slots = rawSlots
     .map((rawSlot) => buildDeepContentSlot(asRecord(rawSlot), context, envelopeLocale))
-    .filter((slot): slot is RiasecDeepContentSlot => {
-      if (!slot || seenSlotIds.has(slot.slotId)) {
-        return false;
-      }
-
-      seenSlotIds.add(slot.slotId);
-      return true;
-    });
+    .filter((slot): slot is RiasecDeepContentSlot => Boolean(slot));
+  const slotIdCounts = new Map<string, number>();
+  const dimensionCounts = new Map<string, number>();
+  for (const slot of slots) {
+    slotIdCounts.set(slot.slotId, (slotIdCounts.get(slot.slotId) ?? 0) + 1);
+    if (slot.selection) {
+      dimensionCounts.set(slot.selection.dimensionCode, (dimensionCounts.get(slot.selection.dimensionCode) ?? 0) + 1);
+    }
+  }
+  const deduplicatedSlots = slots.filter((slot) =>
+    slotIdCounts.get(slot.slotId) === 1 && (!slot.selection || dimensionCounts.get(slot.selection.dimensionCode) === 1)
+  );
 
   return {
     schemaVersion: normalizeText(rawEnvelope.schema_version),
@@ -718,7 +968,7 @@ function buildDeepContentSlots(
       pendingOrUnavailableSlotsOmitted: normalizeBoolean(rawSlotVisibilityPolicy.pending_or_unavailable_slots_omitted),
       frontendInferenceAllowed: false,
     },
-    slots,
+    slots: deduplicatedSlots,
   };
 }
 
@@ -758,6 +1008,46 @@ function buildDeepContentSlot(
   if (Object.keys(content).length === 0) {
     return null;
   }
+  const rawSelection = asRecord(rawSlot.selection_v1);
+  let selection: RiasecDeepContentSlot["selection"] = null;
+  if (slotKey === "dimension_deep_copy") {
+    const scoreBand = normalizeText(rawSelection?.score_band);
+    const selectedDetailKey = normalizeText(rawSelection?.selected_detail_key);
+    const dimensionCode = normalizeText(rawSelection?.dimension_code);
+    const rank = Number(rawSelection?.rank);
+    const validDetailKeys = ["high_score_reading", "medium_score_reading", "low_score_safe_reading"] as const;
+    const expectedDetailKey = {
+      high: "high_score_reading",
+      medium: "medium_score_reading",
+      low: "low_score_safe_reading",
+    }[scoreBand];
+    const rawState = asRecord(rawSlot.state) ?? {};
+    const isTopThree = normalizeBoolean(rawSelection?.is_top_three);
+    const expectedVisibility = isTopThree ? "visible" : "collapsed";
+    if (
+      normalizeText(rawSelection?.schema_version) !== "riasec.dimension_interpretation_selection.v1" ||
+      !["high", "medium", "low"].includes(scoreBand) ||
+      !validDetailKeys.includes(selectedDetailKey as (typeof validDetailKeys)[number]) ||
+      selectedDetailKey !== expectedDetailKey ||
+      !["R", "I", "A", "S", "E", "C"].includes(dimensionCode) ||
+      dimensionCode !== normalizeText(rawState.dimension_code) ||
+      slotId !== `dimension_deep_copy:${dimensionCode}` ||
+      !Number.isInteger(rank) || rank < 1 || rank > 6 ||
+      isTopThree !== (rank <= 3) || slotVisibility !== expectedVisibility ||
+      !(selectedDetailKey in content) ||
+      validDetailKeys.filter((key) => key in content).length !== 1
+    ) {
+      return null;
+    }
+    selection = {
+      schemaVersion: "riasec.dimension_interpretation_selection.v1",
+      dimensionCode,
+      rank,
+      isTopThree,
+      scoreBand: scoreBand as "high" | "medium" | "low",
+      selectedDetailKey: selectedDetailKey as (typeof validDetailKeys)[number],
+    };
+  }
 
   const applicability = asRecord(rawSlot.applicability) ?? {};
   const boundaries = asRecord(rawSlot.boundaries) ?? {};
@@ -788,6 +1078,7 @@ function buildDeepContentSlot(
     locale: envelopeLocale,
     frontendFallbackAllowed: false,
     fallbackBehavior: normalizeText(rawSlot.fallback_behavior),
+    selection,
     applicability: {
       formCodes,
       profileShapes: normalizeStringList(applicability.profile_shapes),

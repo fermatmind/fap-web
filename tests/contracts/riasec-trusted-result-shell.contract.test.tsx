@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
@@ -113,6 +114,7 @@ function buildRiasecReport(): ReportResponse {
           profile_shape: "backend_owned",
           near_tie_state: "backend_owned",
           alternate_code: "backend_owned",
+          tie_display_v1: "backend_owned",
           top_code_confidence: "backend_owned",
           reading_strength: "backend_owned",
         },
@@ -309,6 +311,298 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
   });
 
+  it("renders a bounded backend summary and keeps the deep report closed until keyboard activation", async () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.result_summary_v1 = {
+      schema_version: "riasec.result_summary.v1",
+      locale: "zh-CN",
+      estimated_read_seconds: 180,
+      snapshot_bound: true,
+      snapshot_scope: "persisted_result",
+      headline: "你的兴趣结果摘要",
+      ranking_display: "RIA",
+      tie_note: "",
+      quality_summary: "作答状态稳定，可正常阅读。",
+      highlights: [
+        { dimension_code: "R", label: "现实型", text: "留意具体操作是否让你愿意持续投入。" },
+        { dimension_code: "I", label: "研究型", text: "留意分析问题是否让你愿意持续投入。" },
+        { dimension_code: "A", label: "艺术型", text: "留意表达想法是否让你愿意持续投入。" },
+      ],
+      next_step: "安排一次 15–30 分钟的低风险活动。",
+      boundary: "结果只描述本次职业兴趣线索，不代表能力或未来结果。",
+    };
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.resultSummary?.highlights).toHaveLength(3);
+    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+
+    const summary = screen.getByTestId("riasec-result-summary");
+    expect(summary).toHaveTextContent("作答状态稳定");
+    expect(summary).toHaveTextContent("15–30 分钟");
+    expect(summary).toHaveTextContent("不代表能力或未来结果");
+    const deepReport = screen.getByTestId("riasec-deep-report") as HTMLDetailsElement;
+    expect(deepReport.open).toBe(false);
+    const toggle = screen.getByText("展开深度报告");
+    toggle.focus();
+    await userEvent.keyboard("{Enter}");
+    expect(deepReport.open).toBe(true);
+    expect(screen.getByText("收起深度报告")).toBeInTheDocument();
+    await userEvent.keyboard(" ");
+    expect(deepReport.open).toBe(false);
+    expect(screen.getByText("展开深度报告")).toBeInTheDocument();
+  });
+
+  it("fails closed on cross-locale, malformed, or oversized result summaries", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.result_summary_v1 = {
+      schema_version: "riasec.result_summary.v1",
+      locale: "en",
+      estimated_read_seconds: 180,
+      snapshot_bound: true,
+      snapshot_scope: "persisted_result",
+      headline: "Wrong locale",
+      ranking_display: "RIA",
+      quality_summary: "Stable",
+      highlights: [
+        { dimension_code: "R", label: "R", text: "x" },
+        { dimension_code: "I", label: "I", text: "x" },
+        { dimension_code: "A", label: "A", text: "x" },
+      ],
+      next_step: "Next",
+      boundary: "Boundary",
+    };
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
+
+    (projection.result_summary_v1 as Record<string, unknown>).locale = "zh-CN";
+    (projection.result_summary_v1 as Record<string, unknown>).snapshot_bound = false;
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
+
+    (projection.result_summary_v1 as Record<string, unknown>).snapshot_bound = true;
+    (projection.result_summary_v1 as Record<string, unknown>).boundary = "界".repeat(901);
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
+  });
+
+  it("keeps 140Q numeric layer scores without inferring agreement or tension", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projectionV1 = report.riasec_public_projection_v1 as Record<string, unknown>;
+    projectionV1.top_code = "EAR";
+    projectionV1.enhanced_breakdown = {
+      activity: { E: 63 },
+      environment: { E: 83 },
+      role: { E: 42, R: 67, S: 67 },
+    };
+
+    const projectionV2 = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projectionV2.holland_code = {
+      code: "EAR",
+      primary_type: "E",
+      secondary_type: "A",
+      tertiary_type: "R",
+    };
+    projectionV2.form = {
+      ...(projectionV2.form as Record<string, unknown>),
+      form_code: "riasec_140",
+      question_count: 140,
+      form_kind: "enhanced",
+    };
+    projectionV2.structural_difference = {
+      layer_states: { task: "unavailable", environment: "unavailable", role: "unavailable" },
+      score_comparison_allowed: false,
+      raw_score_delta_allowed: false,
+    };
+    projectionV2.module_visibility_policy = {
+      ...(projectionV2.module_visibility_policy as Record<string, unknown>),
+      form_code: "riasec_140",
+      modules: [
+        { key: "hero_activity_chain", visibility: "visible", reason: "standard_reading_available" },
+        { key: "six_dimension_map", visibility: "visible", reason: "dimension_overview_available" },
+        { key: "140q_context_cards", visibility: "visible", reason: "enhanced_breakdown_available" },
+      ],
+    };
+    delete projectionV2.deep_content_slots_v1;
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.enhancedBreakdown).toEqual({
+      activity: { E: 63 },
+      environment: { E: 83 },
+      role: { E: 42, R: 67, S: 67 },
+    });
+
+    render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-140" viewModel={viewModel} />);
+
+    expect(screen.getByText("增强版分层结果")).toBeInTheDocument();
+    expect(screen.getByText("活动兴趣")).toBeInTheDocument();
+    expect(screen.getByText("环境偏好")).toBeInTheDocument();
+    expect(screen.getByText("角色偏好")).toBeInTheDocument();
+    expect(document.body).toHaveTextContent("83");
+    expect(document.body).toHaveTextContent("67");
+    expect(document.body).not.toHaveTextContent("任务、环境和角色线索大体一致");
+    expect(document.body).not.toHaveTextContent("任务兴趣和工作日常线索有张力");
+    expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();
+  });
+
+  it("renders localized quality reasons and actions without exposing raw grades or flags", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.quality = {
+      grade: "C",
+      flags: ["idealization", "low_consistency"],
+      quality_state: "caution",
+      low_quality_strength: "quality_flags_available",
+      display_v1: {
+        schema_version: "riasec.quality_display.v1",
+        locale: "zh-CN",
+        headline: "作答质量提示较明显，本次仅作初步线索，建议状态稳定时重测",
+        reasons: ["部分回答可能偏向理想状态，而不是你通常会做出的选择。"],
+        improvements: ["重测时请选择最接近日常状态的答案，而不是你认为更理想或更受期待的答案。"],
+        reading_boundary: "质量提示只说明本次作答的可读性，不评价你的能力、人格或个人价值。",
+      },
+    };
+
+    render(<RiasecResultShell locale="zh" attemptId="attempt-quality" viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+
+    const quality = screen.getByTestId("riasec-quality-display");
+    expect(quality).toHaveTextContent("本次仅作初步线索");
+    expect(quality).toHaveTextContent("为什么会有这条提示");
+    expect(quality).toHaveTextContent("偏向理想状态");
+    expect(quality).toHaveTextContent("如何让下次结果更稳定");
+    expect(quality).toHaveTextContent("最接近日常状态");
+    expect(quality).toHaveTextContent("不评价你的能力、人格或个人价值");
+    expect(quality).not.toHaveTextContent("idealization");
+    expect(quality).not.toHaveTextContent("low_consistency");
+    expect(quality).not.toHaveTextContent("C ·");
+  });
+
+  it.each([
+    ["exact_tie", "RIA（并列：R/I）", "这些维度本次得分相同", []],
+    ["near_tie", "RIA（R、I接近）", "不宜据此强调先后顺序", ["IRA"]],
+    ["none", "RIA", "本次较突出的兴趣维度包括", []],
+  ] as const)("renders backend-owned %s hero without false ordering precision", (kind, headline, note, alternateCodes) => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind,
+      position: kind === "exact_tie" ? "exact_groups" : kind === "near_tie" ? "top1_top2_near_tie" : "none",
+      dimensions: kind === "exact_tie" ? ["R", "I"] : kind === "near_tie" ? ["R", "I"] : [],
+      groups: kind === "exact_tie" ? [["R", "I"]] : [],
+      ordered_code: "RIA",
+      alternate_codes: alternateCodes,
+      ordering_precision_claim_allowed: false,
+      display_copy: {
+        headline,
+        note: kind === "exact_tie" ? "这些维度本次得分相同，字母顺序不代表高低。" : kind === "near_tie" ? "这些维度分数接近，不宜据此强调先后顺序。" : "",
+        boundary: kind === "none" ? "" : "只描述本次兴趣分数，不代表能力或职业结论。",
+      },
+    };
+
+    render(<RiasecResultShell locale="zh" attemptId={`attempt-${kind}`} viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(headline);
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent(note);
+    expect(screen.getByTestId("riasec-trusted-result-card")).not.toHaveTextContent("依次是");
+    if (alternateCodes.length > 0) {
+      expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("IRA");
+    }
+  });
+
+  it.each([
+    ["wrong locale", { locale: "en" }],
+    ["code mismatch", { ordered_code: "RIC" }],
+    ["duplicate dimension", { dimensions: ["R", "R"] }],
+    ["position mismatch", { position: "top_two_three" }],
+    ["invalid alternate code", { alternate_codes: ["RRR"] }],
+  ])("fails closed on %s tie display payload", (_label, override) => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind: "near_tie",
+      position: "top1_top2_near_tie",
+      dimensions: ["R", "I"],
+      groups: [],
+      ordered_code: "RIA",
+      alternate_codes: ["IRA"],
+      ordering_precision_claim_allowed: false,
+      display_copy: { headline: "RIA（R、I接近）", note: "不宜据此强调先后顺序。", boundary: "暂定阅读阈值。" },
+      ...override,
+    };
+
+    expect(assembleRiasecResultViewModel(report, "zh").interpretationState?.tieDisplay).toBeNull();
+  });
+
+  it("renders a backend-owned three-dimension near tie with only the allowed alternate orders", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind: "near_tie",
+      position: "multi_near_tie",
+      dimensions: ["R", "I", "A"],
+      groups: [],
+      ordered_code: "RIA",
+      alternate_codes: ["IRA", "RAI"],
+      ordering_precision_claim_allowed: false,
+      display_copy: { headline: "RIA（R、I、A接近）", note: "不宜据此强调先后顺序。", boundary: "暂定阅读阈值。" },
+    };
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.interpretationState?.tieDisplay).toMatchObject({ position: "multi_near_tie", alternateCodes: ["IRA", "RAI"] });
+  });
+
+  it("fails closed on malformed or cross-locale quality display payloads", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.quality = {
+      grade: "C",
+      flags: ["idealization"],
+      quality_state: "caution",
+      display_v1: {
+        schema_version: "riasec.quality_display.v1",
+        locale: "zh-CN",
+        headline: "不应出现在英文页",
+        reasons: ["中文原因"],
+        improvements: ["中文建议"],
+        reading_boundary: "中文边界",
+      },
+    };
+
+    const enViewModel = assembleRiasecResultViewModel(report, "en");
+    expect(enViewModel.qualityDisplay).toBeNull();
+    render(<RiasecResultShell locale="en" attemptId="attempt-quality-en" viewModel={enViewModel} />);
+    expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
+    expect(document.body).not.toHaveTextContent("idealization");
+    expect(document.body).not.toHaveTextContent("不应出现在英文页");
+
+    const malformed = cloneReport(report);
+    const malformedQuality = ((malformed.riasec_public_projection_v2 as Record<string, unknown>).quality as Record<string, unknown>);
+    malformedQuality.display_v1 = {
+      schema_version: "unknown.schema",
+      locale: "zh-CN",
+      headline: "不可信标题",
+      reading_boundary: "不可信边界",
+    };
+    expect(assembleRiasecResultViewModel(malformed, "zh").qualityDisplay).toBeNull();
+
+    malformedQuality.display_v1 = {
+      schema_version: "riasec.quality_display.v1",
+      locale: "zh-CN",
+      headline: "作答质量已降级",
+      reasons: [],
+      improvements: [],
+      reading_boundary: "只说明可读性。",
+    };
+    expect(assembleRiasecResultViewModel(malformed, "zh").qualityDisplay).toBeNull();
+  });
+
   it("suppresses RIASEC debug labels and raw keys from visible result output", () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
@@ -386,6 +680,7 @@ describe("RIASEC trusted result shell", () => {
             body: "不代表职业数据库匹配，除非后端权威数据明确确认。 raw score",
             button_label: "BUTTON LABEL",
             activities_to_validate: ["保留可阅读活动", "score space", "riasec_60_likert5_activity_sum_space.v1"],
+            unknown_cms_internal_field: "不得直接显示的内部字段",
           },
           boundaries: {
             user_visible_boundary: "兴趣信号，不等于能力；不是职业推荐，也不是职业保证。",
@@ -438,6 +733,10 @@ describe("RIASEC trusted result shell", () => {
     expect(text).toContain("复杂问题分析");
     expect(text).toContain("证据材料整理");
     expect(text).toContain("保留可阅读活动");
+    expect(text).toContain("可验证的活动");
+    expect(text).not.toContain("unknown cms internal field");
+    expect(text).not.toContain("不得直接显示的内部字段");
+    expect(screen.getAllByTestId("riasec-deep-content-boundary")).toHaveLength(1);
   });
 
   it("fails closed when backend module visibility hides strong RIASEC modules", () => {
@@ -524,7 +823,7 @@ describe("RIASEC trusted result shell", () => {
       />
     );
 
-    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("你的前三个兴趣维度依次是");
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("本次较突出的兴趣维度包括");
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("内容示例，非职业数据库匹配");
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("content_example_not_registry_match");

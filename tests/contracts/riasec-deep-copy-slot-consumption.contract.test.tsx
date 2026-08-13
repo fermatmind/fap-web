@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
@@ -113,6 +114,51 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(screen.queryAllByText("Backend fixture I medium score reading.")).toHaveLength(1);
   });
 
+  it("renders one selected score interpretation per dimension with only the top three expanded", async () => {
+    const projection = clone(readProjection());
+    const envelope = projection.deep_content_slots_v1 as Record<string, unknown>;
+    const source = clone((envelope.slots as Array<Record<string, unknown>>)[0]);
+    const dimensionCodes = ["I", "A", "S", "R", "C", "E"];
+    const scoreKeys = ["high_score_reading", "high_score_reading", "medium_score_reading", "medium_score_reading", "low_score_safe_reading", "low_score_safe_reading"];
+    const dimensionSlots = dimensionCodes.map((code, index) => ({
+      ...clone(source),
+      slot_id: `dimension_deep_copy:${code}`,
+      slot_visibility: index < 3 ? "visible" : "collapsed",
+      selection_v1: {
+        schema_version: "riasec.dimension_interpretation_selection.v1",
+        dimension_code: code,
+        rank: index + 1,
+        is_top_three: index < 3,
+        score_band: index < 2 ? "high" : index < 4 ? "medium" : "low",
+        selected_detail_key: scoreKeys[index],
+      },
+      state: { dimension_code: code },
+      content: {
+        title: `Dimension ${code}`,
+        [scoreKeys[index]]: `Selected reading ${code}`,
+      },
+    }));
+    envelope.slots = dimensionSlots;
+
+    const viewModel = assembleRiasecResultViewModel(buildReport(projection), "zh");
+    expect(viewModel.deepContentSlots?.slots).toHaveLength(6);
+    expect(viewModel.deepContentSlots?.slots.every((slot) => Object.keys(slot.content).filter((key) => key.endsWith("score_reading") || key === "low_score_safe_reading").length === 1)).toBe(true);
+
+    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+    const buttons = screen.getAllByRole("button", { name: /Dimension [RIASEC]/ });
+    expect(buttons).toHaveLength(6);
+    expect(buttons.slice(0, 3).every((button) => button.getAttribute("aria-expanded") === "true")).toBe(true);
+    expect(buttons.slice(3).every((button) => button.getAttribute("aria-expanded") === "false")).toBe(true);
+    const collapsedButton = buttons[3];
+    expect(collapsedButton).toHaveAccessibleName(/Dimension R/);
+    collapsedButton.focus();
+    expect(collapsedButton).toHaveFocus();
+    await userEvent.keyboard("{Enter}");
+    expect(collapsedButton).toHaveAttribute("aria-expanded", "true");
+    await userEvent.keyboard(" ");
+    expect(collapsedButton).toHaveAttribute("aria-expanded", "false");
+  });
+
   it("fails closed for unknown, missing, pending, unavailable, or fallback-enabled slots", () => {
     const projection = clone(readProjection());
     const envelope = projection.deep_content_slots_v1 as Record<string, unknown>;
@@ -147,7 +193,12 @@ describe("RIASEC deep copy slot consumption", () => {
       {
         ...clone(slots[0]),
         slot_id: "dimension_deep_copy:C",
-        content: { title: "Known content renders", future_unknown_field: "Unknown backend field should not render" },
+        selection_v1: {
+          ...(clone(slots[0]).selection_v1 as Record<string, unknown>),
+          dimension_code: "C",
+        },
+        state: { dimension_code: "C" },
+        content: { title: "Known content renders", medium_score_reading: "Selected reading renders", future_unknown_field: "Unknown backend field should not render" },
       }
     );
 
@@ -161,7 +212,7 @@ describe("RIASEC deep copy slot consumption", () => {
       "aspirations_calibration_copy:intro",
       "dimension_deep_copy:C",
     ]);
-    expect(viewModel.deepContentSlots?.slots.at(-1)?.content).toEqual({ title: "Known content renders" });
+    expect(viewModel.deepContentSlots?.slots.at(-1)?.content).toEqual({ title: "Known content renders", medium_score_reading: "Selected reading renders" });
 
     render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
 
@@ -170,6 +221,34 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(screen.queryByText("Unavailable backend slot should not render")).not.toBeInTheDocument();
     expect(screen.queryByText("Fallback enabled slot should not render")).not.toBeInTheDocument();
     expect(screen.queryByText("Unknown backend field should not render")).not.toBeInTheDocument();
+  });
+
+  it("fails closed when dimension selection metadata contradicts band, identity, rank, or visibility", () => {
+    const projection = clone(readProjection());
+    const envelope = projection.deep_content_slots_v1 as Record<string, unknown>;
+    const source = clone((envelope.slots as Array<Record<string, unknown>>)[0]);
+    const invalidSlots = [
+      { selection_v1: { ...(source.selection_v1 as Record<string, unknown>), score_band: "high" } },
+      { selection_v1: { ...(source.selection_v1 as Record<string, unknown>), dimension_code: "X" } },
+      { selection_v1: { ...(source.selection_v1 as Record<string, unknown>), rank: 4, is_top_three: true } },
+      { slot_visibility: "collapsed" },
+    ].map((override, index) => ({
+      ...clone(source),
+      slot_id: `dimension_deep_copy:invalid-${index}`,
+      ...override,
+    }));
+    envelope.slots = invalidSlots;
+
+    expect(assembleRiasecResultViewModel(buildReport(projection), "zh").deepContentSlots?.slots).toEqual([]);
+  });
+
+  it("fails closed for duplicate dimension interpretations", () => {
+    const projection = clone(readProjection());
+    const envelope = projection.deep_content_slots_v1 as Record<string, unknown>;
+    const source = clone((envelope.slots as Array<Record<string, unknown>>)[0]);
+    envelope.slots = [source, clone(source)];
+
+    expect(assembleRiasecResultViewModel(buildReport(projection), "zh").deepContentSlots?.slots).toEqual([]);
   });
 
   it("omits deep content rendering when backend envelope is absent or fallback is allowed", () => {

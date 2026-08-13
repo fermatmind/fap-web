@@ -133,6 +133,14 @@
         "locale": "zh-CN",
         "frontend_fallback_allowed": false,
         "fallback_behavior": "omit_module",
+        "selection_v1": {
+          "schema_version": "riasec.dimension_interpretation_selection.v1",
+          "dimension_code": "I",
+          "rank": 1,
+          "is_top_three": true,
+          "score_band": "medium",
+          "selected_detail_key": "medium_score_reading"
+        },
         "applicability": {
           "form_codes": ["riasec_60", "riasec_140"],
           "profile_shapes": ["clear_code", "blended_code"],

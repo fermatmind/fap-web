@@ -25,6 +25,14 @@ function buildSlot(locale: string, formCodes: FormCode[], overrides: Record<stri
     locale,
     frontend_fallback_allowed: false,
     fallback_behavior: "omit_module",
+    selection_v1: {
+      schema_version: "riasec.dimension_interpretation_selection.v1",
+      dimension_code: "I",
+      rank: 1,
+      is_top_three: true,
+      score_band: "medium",
+      selected_detail_key: "medium_score_reading",
+    },
     applicability: {
       form_codes: formCodes,
       profile_shapes: ["clear_code"],
@@ -32,10 +40,11 @@ function buildSlot(locale: string, formCodes: FormCode[], overrides: Record<stri
       codes: ["IAS"],
       dimensions: ["I"],
     },
-    state: {},
+    state: { dimension_code: "I" },
     content: {
       title: "Authoritative slot",
       summary: "Reader-visible content from the backend projection.",
+      medium_score_reading: "Backend-selected medium score reading.",
     },
     boundaries: {
       user_visible_boundary: "Interest exploration only.",
@@ -151,7 +160,7 @@ describe("RIASEC locale, form, and safe-surface guard", () => {
     const report = buildReport(duplicateAndMissing, "riasec_60");
     const viewModel = assembleRiasecResultViewModel(report, "zh");
 
-    expect(viewModel.deepContentSlots?.slots.map((slot) => slot.slotId)).toEqual(["dimension_deep_copy:I"]);
+    expect(viewModel.deepContentSlots?.slots.map((slot) => slot.slotId)).toEqual([]);
 
     const unsafeSurfaceProjection = {
       ...duplicateAndMissing,

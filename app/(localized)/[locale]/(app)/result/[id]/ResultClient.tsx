@@ -65,7 +65,7 @@ import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec
 import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
-const RESULT_POLL_MAX = 10;
+const RESULT_GENERATION_TIMEOUT_MS = 90_000;
 const RESULT_PROCESSING_MIN_MS = 10_000;
 const RESULT_PROCESSING_PROGRESS_CAP = 92;
 const INVITE_PROGRESS_POLL_MS = 15000;
@@ -107,7 +107,7 @@ declare global {
   }
 }
 
-type ResultClientStatus = "loading" | "generating" | "ready" | "failed" | "email_required";
+type ResultClientStatus = "loading" | "generating" | "timed_out" | "ready" | "failed" | "email_required";
 
 async function settleWithin<T>(promise: Promise<T>, timeoutMs: number): Promise<T | null> {
   let timeoutId: number | null = null;
@@ -349,7 +349,7 @@ function resolveRetryMs(retryAfterSeconds: number | undefined): number {
 
   const retryMs = Math.floor(retryAfterValue * 1000);
   if (retryMs <= 0) return RESULT_POLL_FALLBACK_MS;
-  return Math.min(10000, Math.max(1000, retryMs));
+  return Math.min(RESULT_GENERATION_TIMEOUT_MS, Math.max(1000, retryMs));
 }
 
 function isEmailBindRequiredProblem(error: unknown): error is ApiError {
@@ -396,6 +396,22 @@ function resolveAccessResponseRetryMs(response: {
       typeof response?.retry_after === "number" ? response.retry_after : undefined,
     meta: response?.meta ?? undefined,
   });
+}
+
+function isRecoverableResultLoadError(error: unknown): boolean {
+  return error instanceof ApiError && [408, 429, 500, 502, 503, 504].includes(error.status);
+}
+
+function resolveErrorRetryMs(error: unknown): number {
+  if (!(error instanceof ApiError)) return RESULT_POLL_FALLBACK_MS;
+  const details = asRecord(error.details);
+  return resolveRetryMs(typeof details?.retry_after_seconds === "number" ? details.retry_after_seconds : undefined);
+}
+
+function safeResultFailureMessage(locale: Locale): string {
+  return locale === "zh"
+    ? "暂时无法生成结果。你的答案已经保存，可以稍后重新检查。"
+    : "We could not generate the result right now. Your answers are saved, and you can check again later.";
 }
 
 function hasReadyResultPayload(result: ResultResponse | null): result is ResultResponse & {
@@ -866,6 +882,7 @@ export default function ResultClient({
   const [emailSubmitting, setEmailSubmitting] = useState(false);
   const [emailRecoverySaved, setEmailRecoverySaved] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
+  const [manualRecheckPending, setManualRecheckPending] = useState(false);
   const [pdfReadyMarkerMounted, setPdfReadyMarkerMounted] = useState(false);
   const resultAccessToken = useMemo(
     () => normalizeText(
@@ -887,6 +904,8 @@ export default function ResultClient({
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
   const processingGateStartedAtRef = useRef<number | null>(null);
+  const manualRecoveryPendingRef = useRef(false);
+  const manualRecheckInFlightRef = useRef(false);
   const [processingGateStartedAt, setProcessingGateStartedAt] = useState<number | null>(null);
   const [readyHoldElapsed, setReadyHoldElapsed] = useState(true);
 
@@ -1194,13 +1213,87 @@ export default function ResultClient({
 
     let active = true;
     let retryTimer: number | null = null;
+    let generationTimeoutTimer: number | null = null;
+    let generationTimedOut = false;
+    let finalFailureTracked = false;
     let inviteProgressTimer: number | null = null;
     let inviteProgressRequested = false;
 
-    const scheduleRetry = (attempt: number, delayMs: number) => {
-      if (attempt >= RESULT_POLL_MAX - 1) {
-        return;
+    const enterGenerationTimeout = () => {
+      if (!active || generationTimedOut) return;
+      generationTimedOut = true;
+      if (retryTimer !== null) {
+        window.clearTimeout(retryTimer);
+        retryTimer = null;
       }
+      setReportData(null);
+      setResultData(null);
+      setStatus("timed_out");
+      setError(null);
+      setManualRecheckPending(false);
+      manualRecheckInFlightRef.current = false;
+      trackEvent("result_generation_timeout", {
+        scale_code: routeScaleCodeRef.current,
+        route: "/result/[id]",
+        locale,
+      });
+    };
+
+    const beginGenerationTimeout = () => {
+      if (generationTimeoutTimer !== null) return;
+      generationTimeoutTimer = window.setTimeout(enterGenerationTimeout, RESULT_GENERATION_TIMEOUT_MS);
+    };
+
+    const markGenerating = () => {
+      if (generationTimedOut) return;
+      beginMinimumProcessingGate();
+      setStatus("generating");
+      beginGenerationTimeout();
+    };
+
+    const markReady = () => {
+      if (generationTimedOut) return;
+      if (generationTimeoutTimer !== null) {
+        window.clearTimeout(generationTimeoutTimer);
+        generationTimeoutTimer = null;
+      }
+      setStatus("ready");
+      setManualRecheckPending(false);
+      manualRecheckInFlightRef.current = false;
+      if (manualRecoveryPendingRef.current) {
+        manualRecoveryPendingRef.current = false;
+        trackEvent("result_generation_recovery_succeeded", {
+          scale_code: routeScaleCodeRef.current,
+          route: "/result/[id]",
+          locale,
+        });
+      }
+    };
+
+    const markFailed = (message: string) => {
+      if (!active || generationTimedOut) return;
+      if (generationTimeoutTimer !== null) {
+        window.clearTimeout(generationTimeoutTimer);
+        generationTimeoutTimer = null;
+      }
+      setReportData(null);
+      setResultData(null);
+      setStatus("failed");
+      setError(message);
+      setManualRecheckPending(false);
+      manualRecheckInFlightRef.current = false;
+      if (!finalFailureTracked) {
+        finalFailureTracked = true;
+        trackEvent("result_generation_final_failure", {
+          scale_code: routeScaleCodeRef.current,
+          route: "/result/[id]",
+          locale,
+        });
+      }
+    };
+
+    const scheduleRetry = (attempt: number, delayMs: number) => {
+      if (generationTimedOut) return;
 
       retryTimer = window.setTimeout(() => {
         void load(attempt + 1);
@@ -1359,7 +1452,7 @@ export default function ResultClient({
       const response = usePrintAccessTokenOnly
         ? await fetchAttemptResult(request)
         : await runWithAuthRetry(() => fetchAttemptResult(request));
-      if (!active) {
+      if (!active || generationTimedOut) {
         return { ready: false };
       }
 
@@ -1373,14 +1466,14 @@ export default function ResultClient({
         return { ready: false };
       }
 
-      setStatus("ready");
+      markReady();
       return { ready: true, response };
     };
 
     const loadSubmissionFallback = async (attempt: number) => {
       try {
         const response = await runWithAuthRetry(() => fetchAttemptSubmission({ attemptId, anonId }));
-        if (!active) {
+        if (!active || generationTimedOut) {
           return { handled: false };
         }
 
@@ -1388,8 +1481,7 @@ export default function ResultClient({
         if (response.generating === true || submissionState === "pending" || submissionState === "running") {
           setReportData(null);
           setResultData(null);
-          beginMinimumProcessingGate();
-          setStatus("generating");
+          markGenerating();
           scheduleRetry(attempt, resolveResponseRetryMs(response));
 
           return { handled: true };
@@ -1398,18 +1490,15 @@ export default function ResultClient({
         if (submissionState === "succeeded") {
           setReportData(null);
           setResultData(null);
-          beginMinimumProcessingGate();
-          setStatus("generating");
+          markGenerating();
           scheduleRetry(attempt, RESULT_POLL_FALLBACK_MS);
 
           return { handled: true };
         }
 
         if (submissionState === "failed") {
-          setReportData(null);
-          setResultData(null);
-          setStatus("failed");
-          setError(resolveSubmissionFailureMessage(response, dict.result.reportUnavailable));
+          const rawFailure = resolveSubmissionFailureMessage(response, "");
+          markFailed(isAttemptResubmitConflictMessage(rawFailure) ? rawFailure : safeResultFailureMessage(locale));
 
           return { handled: true };
         }
@@ -1461,7 +1550,7 @@ export default function ResultClient({
 
       try {
         const accessResponse = await fetchReportAccessWithAuthMismatchRetry();
-        if (!active) return;
+        if (!active || generationTimedOut) return;
 
         const nextAccessView = normalizeAttemptReportAccess(accessResponse, locale);
         setAccessView(nextAccessView);
@@ -1506,40 +1595,34 @@ export default function ResultClient({
         if (isProjectionProcessing(nextAccessView)) {
           setReportData(null);
           setResultData(null);
-          beginMinimumProcessingGate();
-          setStatus("generating");
+          markGenerating();
           scheduleRetry(attempt, resolveAccessResponseRetryMs(accessResponse));
           return;
         }
 
         if (isProjectionUnavailable(nextAccessView)) {
           const submissionFallback = await loadSubmissionFallback(attempt);
-          if (!active || submissionFallback.handled) return;
+          if (!active || generationTimedOut || submissionFallback.handled) return;
 
-          setReportData(null);
-          setResultData(null);
-          setStatus("failed");
-          setError(dict.result.reportUnavailable);
+          markFailed(safeResultFailureMessage(locale));
           return;
         }
 
         if (!canLoadRichReport(nextAccessView, { allowLockedPreview: allowMbtiLockedPreview })) {
           setReportData(null);
           const fallback = await loadFallbackResult();
-          if (!active) return;
+          if (!active || generationTimedOut) return;
 
           if (fallback.ready) {
             return;
           }
 
-          setResultData(null);
-          setStatus("failed");
-          setError(dict.result.reportUnavailable);
+          markFailed(safeResultFailureMessage(locale));
           return;
         }
 
         const reportResponse = await fetchReportWithAuthMismatchRetry();
-        if (!active) return;
+        if (!active || generationTimedOut) return;
 
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
@@ -1562,67 +1645,65 @@ export default function ResultClient({
         const eqReportReady = isEqV5ReportResponse(reportResponse);
         const richReportReady = canRenderRichResultReport(reportResponse);
         if (eqReportReady || richReportReady) {
-          setStatus("ready");
+          markReady();
           return;
         }
 
         if (isGeneratingReportResponse(reportResponse)) {
-          beginMinimumProcessingGate();
-          setStatus("generating");
+          markGenerating();
           scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
           return;
         }
 
         setReportData(null);
         const fallback = await loadFallbackResult();
-        if (!active) return;
+        if (!active || generationTimedOut) return;
 
         if (fallback.ready) {
           return;
         }
 
         const submissionFallback = await loadSubmissionFallback(attempt);
-        if (!active || submissionFallback.handled) return;
+        if (!active || generationTimedOut || submissionFallback.handled) return;
 
-        setResultData(null);
-        setStatus("failed");
-        setError(dict.result.reportUnavailable);
+        markFailed(safeResultFailureMessage(locale));
       } catch (reportCause) {
-        if (!active) return;
+        if (!active || generationTimedOut) return;
         if (showEmailGateForError(reportCause)) return;
 
         setReportData(null);
 
         try {
           const fallback = await loadFallbackResult();
-          if (!active) return;
+          if (!active || generationTimedOut) return;
 
           if (fallback.ready) {
             return;
           }
 
           const submissionFallback = await loadSubmissionFallback(attempt);
-          if (!active || submissionFallback.handled) return;
+          if (!active || generationTimedOut || submissionFallback.handled) return;
 
-          setResultData(null);
-          setStatus("failed");
-          setError(dict.result.reportUnavailable);
+          markFailed(safeResultFailureMessage(locale));
         } catch (resultCause) {
-          if (!active) return;
+          if (!active || generationTimedOut) return;
           if (showEmailGateForError(resultCause)) return;
 
           try {
             const submissionFallback = await loadSubmissionFallback(attempt);
-            if (!active || submissionFallback.handled) return;
+            if (!active || generationTimedOut || submissionFallback.handled) return;
           } catch (submissionCause) {
             if (showEmailGateForError(submissionCause)) return;
             resultCause = submissionCause;
           }
 
-          setResultData(null);
-          setStatus("failed");
-          const message = resultCause instanceof Error ? resultCause.message : dict.result.reportUnavailable;
-          setError(message);
+          if (isRecoverableResultLoadError(resultCause)) {
+            markGenerating();
+            scheduleRetry(attempt, resolveErrorRetryMs(resultCause));
+            return;
+          }
+
+          markFailed(safeResultFailureMessage(locale));
 
           const classified = classifyApiError(resultCause);
           trackEvent("result_load_failure", {
@@ -1656,6 +1737,9 @@ export default function ResultClient({
       stopInviteProgressSync();
       if (retryTimer) {
         window.clearTimeout(retryTimer);
+      }
+      if (generationTimeoutTimer !== null) {
+        window.clearTimeout(generationTimeoutTimer);
       }
     };
   }, [
@@ -1697,6 +1781,13 @@ export default function ResultClient({
     const timer = window.setTimeout(() => setReadyHoldElapsed(true), RESULT_PROCESSING_MIN_MS - elapsedMs);
     return () => window.clearTimeout(timer);
   }, [printMode, processingGateStartedAt, status]);
+
+  useEffect(() => {
+    if (status === "failed") {
+      setManualRecheckPending(false);
+      manualRecheckInFlightRef.current = false;
+    }
+  }, [status]);
 
   const hasEqV5Report = reportData ? isEqV5ReportResponse(reportData) : false;
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
@@ -1769,6 +1860,18 @@ export default function ResultClient({
     </section>
   );
   const renderOptionalEmailRecoveryCard = () => (printMode ? null : renderEmailRecoveryCard());
+  const handleResultRecheck = () => {
+    if (manualRecheckInFlightRef.current) return;
+    manualRecheckInFlightRef.current = true;
+    manualRecoveryPendingRef.current = true;
+    setManualRecheckPending(true);
+    trackEvent("result_generation_recheck", {
+      scale_code: routeScaleCodeRef.current,
+      route: "/result/[id]",
+      locale,
+    });
+    setReloadNonce((value) => value + 1);
+  };
 
   const rawViewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
@@ -1958,6 +2061,24 @@ export default function ResultClient({
     );
   }
 
+  if (status === "timed_out") {
+    return (
+      <section className="mx-auto w-full max-w-xl rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-sm)]" data-testid="result-generation-timeout">
+        <h1 className="text-xl font-semibold text-[var(--fm-text)]">
+          {locale === "zh" ? "结果仍在生成" : "Your result is still being generated"}
+        </h1>
+        <p className="mt-2 text-sm leading-6 text-[var(--fm-text-muted)]" role="status">
+          {locale === "zh" ? "结果仍在生成，你的答案已经保存。" : "Your result is still being generated. Your answers have been saved."}
+        </p>
+        <Button className="mt-5" type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
+          {manualRecheckPending
+            ? locale === "zh" ? "正在检查..." : "Checking..."
+            : locale === "zh" ? "重新检查结果" : "Check result again"}
+        </Button>
+      </section>
+    );
+  }
+
   if (viewState === "processing") {
     return (
       <ResultProcessingGate
@@ -2029,10 +2150,28 @@ export default function ResultClient({
     }
 
     if (projectionUnavailable) {
-      return <Alert>{dict.result.reportUnavailable}</Alert>;
+      return (
+        <div className="space-y-3">
+          <Alert>{safeResultFailureMessage(locale)}</Alert>
+          <Button type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
+            {manualRecheckPending
+              ? locale === "zh" ? "正在检查..." : "Checking..."
+              : locale === "zh" ? "重新检查结果" : "Check result again"}
+          </Button>
+        </div>
+      );
     }
 
-    return <Alert>{error ?? dict.result.reportUnavailable}</Alert>;
+    return (
+      <div className="space-y-3">
+        <Alert>{error ?? safeResultFailureMessage(locale)}</Alert>
+        <Button type="button" onClick={handleResultRecheck} disabled={manualRecheckPending} data-testid="result-generation-recheck">
+          {manualRecheckPending
+            ? locale === "zh" ? "正在检查..." : "Checking..."
+            : locale === "zh" ? "重新检查结果" : "Check result again"}
+        </Button>
+      </div>
+    );
   }
 
   if (isIqScaleCode(resolvedScaleCode)) {
