@@ -309,6 +309,65 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
   });
 
+  it("keeps 140Q numeric layer scores without inferring agreement or tension", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projectionV1 = report.riasec_public_projection_v1 as Record<string, unknown>;
+    projectionV1.top_code = "EAR";
+    projectionV1.enhanced_breakdown = {
+      activity: { E: 63 },
+      environment: { E: 83 },
+      role: { E: 42, R: 67, S: 67 },
+    };
+
+    const projectionV2 = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projectionV2.holland_code = {
+      code: "EAR",
+      primary_type: "E",
+      secondary_type: "A",
+      tertiary_type: "R",
+    };
+    projectionV2.form = {
+      ...(projectionV2.form as Record<string, unknown>),
+      form_code: "riasec_140",
+      question_count: 140,
+      form_kind: "enhanced",
+    };
+    projectionV2.structural_difference = {
+      layer_states: { task: "unavailable", environment: "unavailable", role: "unavailable" },
+      score_comparison_allowed: false,
+      raw_score_delta_allowed: false,
+    };
+    projectionV2.module_visibility_policy = {
+      ...(projectionV2.module_visibility_policy as Record<string, unknown>),
+      form_code: "riasec_140",
+      modules: [
+        { key: "hero_activity_chain", visibility: "visible", reason: "standard_reading_available" },
+        { key: "six_dimension_map", visibility: "visible", reason: "dimension_overview_available" },
+        { key: "140q_context_cards", visibility: "visible", reason: "enhanced_breakdown_available" },
+      ],
+    };
+    delete projectionV2.deep_content_slots_v1;
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.enhancedBreakdown).toEqual({
+      activity: { E: 63 },
+      environment: { E: 83 },
+      role: { E: 42, R: 67, S: 67 },
+    });
+
+    render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-140" viewModel={viewModel} />);
+
+    expect(screen.getByText("增强版分层结果")).toBeInTheDocument();
+    expect(screen.getByText("活动兴趣")).toBeInTheDocument();
+    expect(screen.getByText("环境偏好")).toBeInTheDocument();
+    expect(screen.getByText("角色偏好")).toBeInTheDocument();
+    expect(document.body).toHaveTextContent("83");
+    expect(document.body).toHaveTextContent("67");
+    expect(document.body).not.toHaveTextContent("任务、环境和角色线索大体一致");
+    expect(document.body).not.toHaveTextContent("任务兴趣和工作日常线索有张力");
+    expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();
+  });
+
   it("suppresses RIASEC debug labels and raw keys from visible result output", () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
