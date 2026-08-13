@@ -48,7 +48,7 @@ describe("W5 Enneagram private-result locale boundary", () => {
     expect(readEnneagramPrivateLocalizedText({ locale: "en", body_zh: "中文 slot" }, "body", "en")).toBeNull();
   });
 
-  it("classifies explicitly finished malformed or locale-incompatible V2 candidates as invalid", () => {
+  it("requires every Enneagram response not explicitly generating to carry a valid localized V2", () => {
     const valid = {
       ...createEnvelope("en"),
       scale_code: "ENNEAGRAM",
@@ -58,9 +58,11 @@ describe("W5 Enneagram private-result locale boundary", () => {
     expect(isEnneagramPrivateResultContractInvalid(valid, "en")).toBe(false);
     expect(isEnneagramPrivateResultContractInvalid(valid, "zh")).toBe(true);
     expect(isEnneagramPrivateResultContractInvalid({ ...valid, generating: true }, "en")).toBe(false);
+    expect(isEnneagramPrivateResultContractInvalid({ ...valid, generating: undefined }, "en")).toBe(false);
+    expect(isEnneagramPrivateResultContractInvalid({ ...valid, enneagram_report_v2: undefined }, "en")).toBe(true);
     expect(
       isEnneagramPrivateResultContractInvalid(
-        { ...valid, enneagram_report_v2: { locale: "en", pages: [] } },
+        { ...valid, generating: undefined, enneagram_report_v2: { locale: "en", pages: [] } },
         "en"
       )
     ).toBe(true);

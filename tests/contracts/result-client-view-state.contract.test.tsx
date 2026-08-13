@@ -424,7 +424,9 @@ describe("ResultClient view-state contract", () => {
       },
     ],
     ["malformed V2", { enneagram_report_v2: { locale: "en", pages: [] } }],
-  ])("fails closed for an explicitly finished Enneagram report with %s", async (_caseName, overrides) => {
+    ["missing V2", { enneagram_report_v2: undefined }],
+    ["malformed V2 without a generating flag", { generating: undefined, enneagram_report_v2: { locale: "en", pages: [] } }],
+  ])("fails closed for a completed Enneagram report with %s", async (_caseName, overrides) => {
     hoisted.fetchAttemptReport.mockResolvedValue(createEnneagramReport(overrides as Partial<ReportResponse>));
     hoisted.fetchAttemptResult.mockResolvedValue({
       ok: true,

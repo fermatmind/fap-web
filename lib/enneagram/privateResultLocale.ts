@@ -96,22 +96,15 @@ function resolvePrivateResultScaleCode(report: RecordValue): string {
     .toUpperCase();
 }
 
-function hasEnneagramReportV2Candidate(report: RecordValue): boolean {
-  const reportPayload = asRecord(report["report"]);
-  const reportMeta = asRecord(reportPayload?.["_meta"]);
-  return Object.prototype.hasOwnProperty.call(report, "enneagram_report_v2")
-    || Boolean(reportMeta && Object.prototype.hasOwnProperty.call(reportMeta, "enneagram_report_v2"));
-}
-
-function isExplicitlyFinished(report: RecordValue): boolean {
+function isExplicitlyGenerating(report: RecordValue): boolean {
   const meta = asRecord(report["meta"]);
-  return report["generating"] === false || meta?.["generating"] === false;
+  return report["generating"] === true || meta?.["generating"] === true;
 }
 
 export function isEnneagramPrivateResultContractInvalid(reportData: unknown, locale: Locale): boolean {
   const report = asRecord(reportData);
   if (!report || resolvePrivateResultScaleCode(report) !== "ENNEAGRAM") return false;
-  if (!isExplicitlyFinished(report) || !hasEnneagramReportV2Candidate(report)) return false;
+  if (isExplicitlyGenerating(report)) return false;
 
   return !isEnneagramPrivateResultLocaleCompatible(report, locale);
 }
