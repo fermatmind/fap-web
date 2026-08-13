@@ -70,7 +70,7 @@ export function isEnneagramPrivateResultLocaleCompatible(reportData: unknown, lo
 
   const rawModules = v2["modules"];
   const rawPages = v2["pages"];
-  const modules = Array.isArray(rawModules)
+  const modules = Array.isArray(rawModules) && rawModules.length > 0
     ? rawModules
     : (Array.isArray(rawPages)
       ? rawPages.flatMap((page: unknown) => {
@@ -79,9 +79,39 @@ export function isEnneagramPrivateResultLocaleCompatible(reportData: unknown, lo
         })
       : []);
 
+  if (modules.length === 0) return false;
+
   return modules.every((reportModule: unknown) => {
     const content = asRecord(asRecord(reportModule)?.content);
     if (content === null || !isEnneagramPrivateEnvelopeLocaleCompatible(content, locale)) return false;
     return locale !== "en" || !containsCjkText(content);
   });
+}
+
+function resolvePrivateResultScaleCode(report: RecordValue): string {
+  const reportPayload = asRecord(report["report"]);
+  const meta = asRecord(report["meta"]);
+  return String(report["scale_code"] ?? reportPayload?.["scale_code"] ?? meta?.["scale_code"] ?? "")
+    .trim()
+    .toUpperCase();
+}
+
+function hasEnneagramReportV2Candidate(report: RecordValue): boolean {
+  const reportPayload = asRecord(report["report"]);
+  const reportMeta = asRecord(reportPayload?.["_meta"]);
+  return Object.prototype.hasOwnProperty.call(report, "enneagram_report_v2")
+    || Boolean(reportMeta && Object.prototype.hasOwnProperty.call(reportMeta, "enneagram_report_v2"));
+}
+
+function isExplicitlyFinished(report: RecordValue): boolean {
+  const meta = asRecord(report["meta"]);
+  return report["generating"] === false || meta?.["generating"] === false;
+}
+
+export function isEnneagramPrivateResultContractInvalid(reportData: unknown, locale: Locale): boolean {
+  const report = asRecord(reportData);
+  if (!report || resolvePrivateResultScaleCode(report) !== "ENNEAGRAM") return false;
+  if (!isExplicitlyFinished(report) || !hasEnneagramReportV2Candidate(report)) return false;
+
+  return !isEnneagramPrivateResultLocaleCompatible(report, locale);
 }

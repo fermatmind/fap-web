@@ -50,6 +50,7 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { isIqScaleCode } from "@/lib/iq/constants";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
+import { isEnneagramPrivateResultContractInvalid } from "@/lib/enneagram/privateResultLocale";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
@@ -567,6 +568,18 @@ function resolveReportGeneratingMessage(locale: Locale, scaleCode: string): stri
     : "Your result page will appear once the backend has assembled the full page. Minimum wait: 10 seconds.";
 }
 
+export function resolveEnneagramContractErrorCopy(locale: Locale): { message: string; action: string } {
+  return locale === "zh"
+    ? {
+        message: "结果报告数据异常，暂时无法安全展示。请稍后重试。",
+        action: "重新加载",
+      }
+    : {
+        message: "The report data is invalid and cannot be displayed safely right now. Please try again later.",
+        action: "Try again",
+      };
+}
+
 function resolveResultProcessingHeadline(locale: Locale): string {
   return locale === "zh" ? "正在生成你的测评结果..." : "Generating your assessment result...";
 }
@@ -824,7 +837,12 @@ export default function ResultClient({
     [initialReportAccess, locale]
   );
   const initialReportReady = Boolean(
-    initialReportData && (isEqV5ReportResponse(initialReportData) || canRenderRichResultReport(initialReportData))
+    initialReportData
+    && !isEnneagramPrivateResultContractInvalid(initialReportData, locale)
+    && (isEqV5ReportResponse(initialReportData) || canRenderRichResultReport(initialReportData))
+  );
+  const initialEnneagramContractInvalid = Boolean(
+    initialReportData && isEnneagramPrivateResultContractInvalid(initialReportData, locale)
   );
   const initialPrintBootstrapReady = printMode && initialReportReady && Boolean(initialAccessView);
   const initialPrintBootstrapFailed = printMode && Boolean(printBootstrapError) && !initialPrintBootstrapReady;
@@ -841,6 +859,7 @@ export default function ResultClient({
     initialPrintBootstrapReady ? "ready" : initialPrintBootstrapFailed ? "failed" : "loading"
   );
   const [error, setError] = useState<string | null>(() => (initialPrintBootstrapFailed ? dict.result.reportUnavailable : null));
+  const [enneagramContractInvalid, setEnneagramContractInvalid] = useState(initialEnneagramContractInvalid);
   const [email, setEmail] = useState("");
   const [emailGateError, setEmailGateError] = useState<string | null>(null);
   const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
@@ -1145,6 +1164,7 @@ export default function ResultClient({
 
   useEffect(() => {
     if (initialPrintBootstrapReady) {
+      setEnneagramContractInvalid(false);
       setAccessView(initialAccessView);
       setReportData(initialReportData ?? null);
       setResultData(null);
@@ -1168,6 +1188,7 @@ export default function ResultClient({
       setInviteUnlockProgress(null);
       setStatus("failed");
       setError(dict.result.reportUnavailable);
+      setEnneagramContractInvalid(initialEnneagramContractInvalid);
       return;
     }
 
@@ -1410,6 +1431,7 @@ export default function ResultClient({
         setMbtiAccessPath(false);
         setEmailGateError(null);
         setEmailBindFeedback(null);
+        setEnneagramContractInvalid(false);
         resetMinimumProcessingGate();
         inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
@@ -1519,10 +1541,19 @@ export default function ResultClient({
         const reportResponse = await fetchReportWithAuthMismatchRetry();
         if (!active) return;
 
-        setReportData(reportResponse);
-        setResultData(null);
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
+
+        if (isEnneagramPrivateResultContractInvalid(reportResponse, locale)) {
+          setReportData(null);
+          setResultData(null);
+          setEnneagramContractInvalid(true);
+          setStatus("failed");
+          return;
+        }
+
+        setReportData(reportResponse);
+        setResultData(null);
 
         if (reportScaleCode === "MBTI" && !printMode) {
           startInviteProgressSync();
@@ -1639,6 +1670,7 @@ export default function ResultClient({
     initialAccessView,
     initialPrintBootstrapFailed,
     initialPrintBootstrapReady,
+    initialEnneagramContractInvalid,
     initialReportAccess,
     initialReportData,
     locale,
@@ -1671,6 +1703,7 @@ export default function ResultClient({
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
   const resolvedScaleCode = resolveScaleCodeForTelemetry(reportData, resultData);
+  const enneagramContractErrorCopy = resolveEnneagramContractErrorCopy(locale);
   const isMbtiReadyPath = mbtiAccessPath
     || Boolean(reportData?.mbti_public_projection_v1)
     || Boolean(reportData?.mbti_access_hub_v1)
@@ -1939,6 +1972,30 @@ export default function ResultClient({
   }
 
   if (viewState === "failed") {
+    if (enneagramContractInvalid) {
+      return (
+        <section
+          className="space-y-4 rounded-[8px] border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] sm:p-6"
+          data-testid="enneagram-report-contract-error"
+          role="alert"
+        >
+          <p className="m-0 text-sm leading-6 text-[var(--fm-text)]">
+            {enneagramContractErrorCopy.message}
+          </p>
+          <Button
+            type="button"
+            onClick={() => {
+              setEnneagramContractInvalid(false);
+              setStatus("loading");
+              setReloadNonce((value) => value + 1);
+            }}
+          >
+            {enneagramContractErrorCopy.action}
+          </Button>
+        </section>
+      );
+    }
+
     if (isMbtiReadyPath) {
       const retakeHref = resolveRetakeHrefByScale(
         locale,

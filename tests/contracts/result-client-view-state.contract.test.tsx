@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import ResultClient from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
+import ResultClient, {
+  resolveEnneagramContractErrorCopy,
+} from "@/app/(localized)/[locale]/(app)/result/[id]/ResultClient";
 import { ApiError } from "@/lib/api-client";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
@@ -69,6 +71,7 @@ const hoisted = vi.hoisted(() => ({
   shouldLinkAnonAttemptsOnLoginSuccess: vi.fn(() => false),
   pendingAnonLinkAttempts: [] as string[],
   search: "",
+  pathname: "/en/result/attempt-123",
   trackEvent: vi.fn(),
   captureError: vi.fn(),
   classifyApiError: vi.fn(() => ({
@@ -79,7 +82,7 @@ const hoisted = vi.hoisted(() => ({
 }));
 
 vi.mock("next/navigation", () => ({
-  usePathname: () => "/en/result/attempt-123",
+  usePathname: () => hoisted.pathname,
   useSearchParams: () => new URLSearchParams(hoisted.search),
 }));
 
@@ -97,19 +100,22 @@ vi.mock("@/components/result/RichResultReport", () => ({
       || report?.big5_public_projection_v1
       || (report as { big5_result_page_v2?: unknown } | null)?.big5_result_page_v2
       || (report as { riasec_public_projection_v2?: unknown } | null)?.riasec_public_projection_v2
+      || (report as { enneagram_report_v2?: unknown } | null)?.enneagram_report_v2
       || report?.summary
       || report?.report?.sections
       || report?.report?.profile
     ),
   isGeneratingReportResponse: (report: { generating?: boolean; big5_result_page_v2?: unknown } | null) =>
     report?.big5_result_page_v2 ? false : report?.generating === true,
-  resolveReportScaleCode: (report: { report?: { scale_code?: string } } | null) =>
-    report?.report?.scale_code === "MBTI"
+  resolveReportScaleCode: (report: { scale_code?: string; report?: { scale_code?: string } } | null) =>
+    (report?.scale_code ?? report?.report?.scale_code) === "MBTI"
       ? "MBTI"
-      : report?.report?.scale_code === "BIG5_OCEAN"
+      : (report?.scale_code ?? report?.report?.scale_code) === "BIG5_OCEAN"
         ? "BIG5_OCEAN"
-        : report?.report?.scale_code === "RIASEC"
+        : (report?.scale_code ?? report?.report?.scale_code) === "RIASEC"
           ? "RIASEC"
+          : (report?.scale_code ?? report?.report?.scale_code) === "ENNEAGRAM"
+            ? "ENNEAGRAM"
           : null,
   RichResultReport: ({ reportData, accessProjection, snapshotContentStatus }: RichResultReportProps) => (
     <div
@@ -249,6 +255,31 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
   };
 }
 
+function createEnneagramReport(overrides: Partial<ReportResponse> = {}): ReportResponse {
+  return {
+    ok: true,
+    attempt_id: "attempt-123",
+    scale_code: "ENNEAGRAM",
+    generating: false,
+    locale: "en",
+    enneagram_report_v2: {
+      locale: "en",
+      pages: [
+        {
+          page_key: "page_1_result_overview",
+          modules: [
+            {
+              module_key: "instant_summary",
+              content: { locale: "en", title: "Result overview", body: "A bounded working interpretation." },
+            },
+          ],
+        },
+      ],
+    },
+    ...overrides,
+  } as ReportResponse;
+}
+
 function createRiasecSnapshotReport(): ReportResponse {
   return {
     ok: true,
@@ -306,6 +337,7 @@ describe("ResultClient view-state contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     hoisted.search = "";
+    hoisted.pathname = "/en/result/attempt-123";
     hoisted.pendingAnonLinkAttempts = [];
     window.sessionStorage.clear();
     hoisted.getFmToken.mockReturnValue("fm_result_test_token");
@@ -351,6 +383,92 @@ describe("ResultClient view-state contract", () => {
   it("routes the public career next step through the runtime 32-type slug", () => {
     expect(buildMbtiCareerRecommendationHref("en", "ENFP-T")).toBe("/en/career/recommendations/mbti/enfp-t");
     expect(buildMbtiCareerRecommendationHref("zh", "INTJ-A")).toBe("/zh/career/recommendations/mbti/intj-a");
+  });
+
+  it("keeps a valid finished Enneagram V2 report on the rich report path", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue(createEnneagramReport());
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByTestId("enneagram-report-contract-error")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+  });
+
+  it("keeps a genuinely generating Enneagram response in processing", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue(createEnneagramReport({ generating: true }));
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
+    });
+
+    expect(screen.queryByTestId("enneagram-report-contract-error")).not.toBeInTheDocument();
+  });
+
+  it.each([
+    ["missing top-level locale", { locale: undefined }],
+    ["wrong top-level locale", { locale: "zh" }],
+    [
+      "wrong module locale",
+      {
+        enneagram_report_v2: {
+          locale: "en",
+          modules: [{ module_key: "instant_summary", content: { locale: "zh", body: "内部内容 T1" } }],
+        },
+      },
+    ],
+    ["malformed V2", { enneagram_report_v2: { locale: "en", pages: [] } }],
+  ])("fails closed for an explicitly finished Enneagram report with %s", async (_caseName, overrides) => {
+    hoisted.fetchAttemptReport.mockResolvedValue(createEnneagramReport(overrides as Partial<ReportResponse>));
+    hoisted.fetchAttemptResult.mockResolvedValue({
+      ok: true,
+      result: {
+        type_code: "T1",
+        dimensions: [{ code: "T1", percent: 99 }],
+      },
+      meta: { scale_code: "ENNEAGRAM" },
+    } as ResultResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    const errorState = await screen.findByTestId("enneagram-report-contract-error");
+    expect(errorState).toHaveTextContent(
+      "The report data is invalid and cannot be displayed safely right now. Please try again later."
+    );
+    expect(screen.getByRole("button", { name: "Try again" })).toBeInTheDocument();
+    expect(screen.queryByTestId("result-processing-wait")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
+    expect(document.body).not.toHaveTextContent(/T[1-9]/);
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+  });
+
+  it("renders the localized safe contract error and reloads on demand", async () => {
+    expect(resolveEnneagramContractErrorCopy("zh")).toEqual({
+      message: "结果报告数据异常，暂时无法安全展示。请稍后重试。",
+      action: "重新加载",
+    });
+    hoisted.fetchAttemptReport
+      .mockResolvedValueOnce(createEnneagramReport({ locale: undefined }))
+      .mockResolvedValueOnce(createEnneagramReport());
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    expect(await screen.findByTestId("enneagram-report-contract-error")).toHaveTextContent(
+      "The report data is invalid and cannot be displayed safely right now. Please try again later."
+    );
+    fireEvent.click(screen.getByRole("button", { name: "Try again" }));
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledTimes(2);
   });
 
   it("does not persist or link from a raw result URL bearer token", async () => {
