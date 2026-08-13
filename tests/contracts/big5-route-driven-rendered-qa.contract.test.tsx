@@ -13,6 +13,7 @@ import connectiveCoordinatorEnvelope from "@/tests/fixtures/big5/result_page_v2/
 import sharpExploratoryDriverEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_sharp_exploratory_driver_pilot_payload_v0_1.payload.json";
 import orderlySupporterEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_orderly_supporter_pilot_payload_v0_1.payload.json";
 import overloadedInternalizerEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_overloaded_internalizer_pilot_payload_v0_1.payload.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 type RouteDrivenEnvelope = {
   big5_result_page_v2: {
@@ -116,6 +117,24 @@ function expectedVisibleTerms(envelope: RouteDrivenEnvelope): string[] {
 }
 
 describe("Big Five V2 route-driven rendered QA contract", () => {
+  it.each(TESTED_VIEWPORTS)("renders the selected runtime route on %s with five projection-backed dimensions", (_viewport, width) => {
+    window.innerWidth = width;
+    const report = {
+      scale_code: "BIG5_OCEAN",
+      report: { scale_code: "BIG5_OCEAN" },
+      [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: createRuntimeV2Payload(),
+    } as ReportResponse;
+
+    render(<RichResultReport locale="zh" reportData={report} />);
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.getByTestId("big5-v2-module-module_06_application_matrix")).toHaveTextContent("工作场景中的使用方式");
+    expect(screen.getByTestId("big5-v2-module-module_07_collaboration_manual")).toHaveTextContent("协作摩擦成本");
+    expect(visibleText()).not.toContain("pending_asset_resolution");
+    expect(visibleText()).not.toContain("百分位");
+  });
+
   it("covers O59 plus eight route-driven profile-family fixtures", () => {
     expect(ROUTE_DRIVEN_FIXTURES.map((fixture) => fixture.key).sort()).toEqual([
       "complex_explorer_low_structure",

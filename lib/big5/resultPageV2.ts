@@ -113,6 +113,14 @@ const big5ResultPageV2ProjectionSchema = z
   .object({
     schema_version: z.literal("fap.big5.projection.v2"),
     scale_code: z.literal("BIG5_OCEAN"),
+    attempt_id: z.string().optional(),
+    result_version: z.string().optional(),
+    form_code: z.string().optional(),
+    domains: z.record(z.string(), contentValueSchema).optional(),
+    domain_bands: z.record(z.string(), contentValueSchema).optional(),
+    norm_status: z.string().optional(),
+    quality_status: z.string().optional(),
+    percentile_display_allowed: z.boolean().optional(),
     interpretation_scope: z.string().optional(),
     profile_signature: z
       .object({
@@ -342,8 +350,11 @@ const DISPLAY_CONTENT_KEYS = new Set([
   "title",
   "heading",
   "label",
+  "label_role",
+  "public_name",
   "profile_label",
   "scenario_label",
+  "display_band_label",
   "summary",
   "short_body",
   "body",
@@ -358,16 +369,42 @@ const DISPLAY_CONTENT_KEYS = new Set([
   "bullets",
   "items",
   "actions",
+  "form",
+  "question_format",
+  "scoring",
+  "scoring_method",
+  "error",
+  "measurement_error",
+  "non_diagnostic",
+  "diagnostic_boundary",
+  "use_boundary",
 ]);
 
 const PLACEHOLDER_PATTERNS = [
   /pending[_\s-]*asset[_\s-]*resolution/i,
+  /\bplaceholder\b/i,
+  /\bdeferred\b/i,
+  /\bstaging[_\s-]*only\b/i,
   /this module is not available yet/i,
   /temporarily unavailable/i,
   /此模块暂未启用/u,
   /待补充/u,
   /占位/u,
 ];
+
+const MODULE_BLOCK_KINDS: Record<(typeof BIG5_RESULT_PAGE_V2_MODULE_KEYS)[number], ReadonlySet<string>> = {
+  module_00_trust_bar: new Set(["trust_bar"]),
+  module_01_hero: new Set(["hero_summary", "trait_bars"]),
+  module_02_quick_understanding: new Set(["quick_cards"]),
+  module_03_trait_deep_dive: new Set(["trait_deep_dive"]),
+  module_04_coupling: new Set(["coupling_cards"]),
+  module_05_facet_reframe: new Set(["facet_reframe"]),
+  module_06_application_matrix: new Set(["application_matrix"]),
+  module_07_collaboration_manual: new Set(["collaboration_manual"]),
+  module_08_share_save: new Set(["share_save"]),
+  module_09_feedback_data_flywheel: new Set(["feedback_block"]),
+  module_10_method_privacy: new Set(["method_boundary"]),
+};
 
 function asSemanticRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -443,12 +480,12 @@ function readReliableProjectionDomains(
   const domainBands = asSemanticRecord(projection?.domain_bands);
   const qualityStatus = normalizeSemanticToken(projection?.quality_status);
   const normStatus = normalizeSemanticToken(projection?.norm_status);
-  if (!qualityStatus || ["d", "invalid", "failed", "low_quality", "unreliable"].includes(qualityStatus)) {
+  if (!["a", "b", "c", "valid", "acceptable"].includes(qualityStatus)) {
     reasons.add(qualityStatus ? "core_quality_unreliable" : "core_quality_status_missing");
     return null;
   }
-  if (["missing", "invalid", "failed", "unavailable", "unreliable"].includes(normStatus)) {
-    reasons.add("core_norm_unreliable");
+  if (!["available", "calibrated", "provisional"].includes(normStatus)) {
+    reasons.add(normStatus ? "core_norm_unreliable" : "core_norm_status_missing");
     return null;
   }
   if (!domains || !domainBands) {
@@ -464,6 +501,7 @@ function readReliableProjectionDomains(
   }
 
   const result = new Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>();
+  let scoreBandRouteMismatch = false;
   for (const code of BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES) {
     const domain = asSemanticRecord(domains[code]);
     const score = domain?.score;
@@ -476,6 +514,18 @@ function readReliableProjectionDomains(
     if (!projectedBand || projectedBand !== band) {
       reasons.add(`core_projection_${code.toLowerCase()}_band_mismatch`);
       return null;
+    }
+    const expectedBand = score < 20
+      ? "very_low"
+      : score < 40
+        ? "low"
+        : score < 60
+          ? "mid"
+          : score < 80
+            ? "high"
+            : "very_high";
+    if (band !== expectedBand) {
+      scoreBandRouteMismatch = true;
     }
     result.set(code, { code, score, band });
   }
@@ -497,6 +547,10 @@ function readReliableProjectionDomains(
   );
   if (looksLikeRouteBandScores) {
     reasons.add("core_projection_contains_route_band_scores");
+    return null;
+  }
+  if (scoreBandRouteMismatch) {
+    reasons.add("core_projection_score_band_route_mismatch");
     return null;
   }
 
@@ -559,10 +613,13 @@ function collectFacetPolarities(value: unknown, result: Map<string, Set<"high" |
   }
 
   const facetRecord = asSemanticRecord(record.facet);
-  const facet = normalizeSemanticText(facetRecord?.code ?? record.facet_code ?? record.facet).toUpperCase();
+  const facet = normalizeSemanticText(
+    facetRecord?.code ?? record.facet_key ?? record.facet_code ?? record.facet
+  ).toUpperCase();
   const bandRecord = asSemanticRecord(record.band);
   const polarity = polarityGroup(
-    record.polarity
+    record.facet_direction
+    ?? record.polarity
     ?? record.bucket
     ?? record.level
     ?? bandRecord?.internal_band
@@ -575,6 +632,109 @@ function collectFacetPolarities(value: unknown, result: Map<string, Set<"high" |
   }
 
   Object.values(record).forEach((child) => collectFacetPolarities(child, result));
+}
+
+function hasLocalizedContent(content: Record<string, unknown>, keys: string[]): boolean {
+  return keys.some((key) => [key, `${key}_zh`, `${key}_en`].some((candidate) => (
+    normalizeSemanticText(content[candidate]).length > 0
+  )));
+}
+
+function stringTokens(value: unknown): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.flatMap((item) => {
+    if (typeof item === "string" && item.trim()) {
+      return [item.trim()];
+    }
+    const record = asSemanticRecord(item);
+    const token = normalizeSemanticText(record?.code ?? record?.trait ?? record?.trait_code ?? record?.key);
+    return token ? [token] : [];
+  });
+}
+
+function hasRealInteraction(content: Record<string, unknown>, kind: "share_save" | "feedback_block"): boolean {
+  const actionValues = [
+    ...stringTokens(content.actions),
+    ...stringTokens(content.controls),
+  ].map(normalizeSemanticToken);
+  const url = normalizeSemanticText(
+    content.feedback_url ?? content.action_url ?? content.href ?? content.url
+  );
+  if (kind === "feedback_block") {
+    return isSafeInteractionUrl(url);
+  }
+  return actionValues.some((action) => ["share", "save", "copy_link", "download"].includes(action));
+}
+
+function isSafeInteractionUrl(value: string): boolean {
+  if (value.startsWith("/") && !value.startsWith("//")) {
+    return true;
+  }
+  try {
+    return new URL(value).protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function blockHasRequiredContent(
+  block: Big5ResultPageV2Block,
+  content: Record<string, unknown>
+): boolean {
+  const prose = (keys: string[]) => hasLocalizedContent(content, keys);
+  switch (block.block_kind) {
+    case "trust_bar":
+      return prose(["boundary", "summary", "body", "disclaimer"]);
+    case "hero_summary":
+      return prose(["summary", "body", "short_body"]);
+    case "trait_bars":
+      return traitCodeFromContent(content) !== null && traitBandFromContent(content) !== "";
+    case "quick_cards":
+      return prose(["summary", "short_body", "body"]);
+    case "trait_deep_dive":
+      return traitCodeFromContent(content) !== null
+        && prose(["body"])
+        && prose(["benefit"])
+        && prose(["cost"])
+        && prose(["common_misread"])
+        && prose(["action"]);
+    case "coupling_cards":
+      return normalizeSemanticText(content.coupling_key) !== ""
+        && stringTokens(content.involved_traits).length >= 2
+        && prose(["body"])
+        && prose(["benefit"])
+        && prose(["cost"])
+        && prose(["action"]);
+    case "facet_reframe":
+      return /^[OCEAN][1-6]$/.test(normalizeSemanticText(content.facet_key ?? content.facet_code).toUpperCase())
+        && polarityGroup(content.facet_direction) !== null
+        && prose(["body"])
+        && prose(["benefit"])
+        && prose(["cost"])
+        && prose(["action"]);
+    case "application_matrix":
+      return normalizeSemanticToken(content.scenario) !== ""
+        && prose(["body"])
+        && prose(["benefit"])
+        && prose(["cost"])
+        && prose(["action"]);
+    case "collaboration_manual":
+      return normalizeSemanticToken(content.scenario) !== ""
+        && prose(["body"])
+        && prose(["cost"])
+        && prose(["action"]);
+    case "share_save":
+      return prose(["summary", "body"]) && hasRealInteraction(content, "share_save");
+    case "feedback_block":
+      return prose(["summary", "body"]) && hasRealInteraction(content, "feedback_block");
+    case "method_boundary":
+      return prose(["scoring", "scoring_method"])
+        && prose(["error", "measurement_error"])
+        && prose(["non_diagnostic", "diagnostic_boundary"])
+        && prose(["boundary", "use_boundary"]);
+  }
 }
 
 function collectFacetPolaritiesFromReference(reference: string, result: Map<string, Set<"high" | "low">>): void {
@@ -595,11 +755,62 @@ function collectSemanticAnomalies(
   reasons: Set<string>
 ): void {
   const blockKeys = new Set<string>();
+  const moduleKeys = new Set<string>();
   const semanticSlots = new Set<string>();
   const visibleStringOwners = new Map<string, string>();
   const facetPolarities = new Map<string, Set<"high" | "low">>();
+  const traitBarCounts = new Map(BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.map((code) => [code, 0]));
+  const projection = asSemanticRecord(payload.projection_v2);
+  const percentileAllowed = projection?.percentile_display_allowed === true;
+  const facetBuckets = new Map<string, string>();
+  for (const item of Array.isArray(projection?.facet_highlights) ? projection.facet_highlights : []) {
+    const highlight = asSemanticRecord(item);
+    const key = normalizeSemanticText(highlight?.key ?? highlight?.facet).toUpperCase();
+    const bucket = normalizeSemanticToken(highlight?.bucket);
+    if (key) {
+      facetBuckets.set(key, bucket);
+    }
+  }
+
+  if (normalizeSemanticText(payload.content_version) !== "big5_result_page_v2.runtime.v2") {
+    reasons.add("runtime_content_version_invalid");
+  }
+  const profileSignature = asSemanticRecord(projection?.profile_signature);
+  const canonicalProfileKey = normalizeSemanticText(payload.canonical_profile_key);
+  const signatureKey = normalizeSemanticText(profileSignature?.signature_key);
+  if (!canonicalProfileKey || !signatureKey) {
+    reasons.add("runtime_profile_route_missing");
+  } else if (canonicalProfileKey !== signatureKey) {
+    reasons.add("canonical_profile_route_mismatch");
+  }
+  if (!normalizeSemanticText(projection?.attempt_id) || !normalizeSemanticText(projection?.result_version)) {
+    reasons.add("runtime_projection_identity_missing");
+  }
+  if (!["big5_90", "big5_120"].includes(normalizeSemanticToken(projection?.form_code))) {
+    reasons.add("runtime_form_code_invalid");
+  }
+  if (percentileAllowed) {
+    const domains = asSemanticRecord(projection?.domains);
+    for (const code of BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES) {
+      const domain = asSemanticRecord(domains?.[code]);
+      if (domain?.percentile !== undefined && (
+        typeof domain.percentile !== "number"
+        || !Number.isFinite(domain.percentile)
+        || domain.percentile < 0
+        || domain.percentile > 100
+      )) {
+        reasons.add("authorized_percentile_invalid");
+      }
+    }
+  } else if (hasObjectKeyRecursive(projection, new Set(["percentile", "percentiles"]))) {
+    reasons.add("unauthorized_percentile");
+  }
 
   for (const payloadModule of payload.modules) {
+    if (moduleKeys.has(payloadModule.module_key)) {
+      reasons.add("duplicate_module_key");
+    }
+    moduleKeys.add(payloadModule.module_key);
     for (const block of payloadModule.blocks) {
       if (blockKeys.has(block.block_key)) {
         reasons.add("duplicate_block_key");
@@ -615,18 +826,32 @@ function collectSemanticAnomalies(
       if (containsPlaceholder(content)) {
         reasons.add("placeholder_content");
       }
+      if (!MODULE_BLOCK_KINDS[payloadModule.module_key].has(block.block_kind)) {
+        reasons.add("module_block_kind_mismatch");
+      }
+      if (!blockHasRequiredContent(block, content)) {
+        reasons.add(block.block_kind === "method_boundary" ? "empty_method_block" : "incomplete_block_content");
+      }
+      if (hasObjectKeyRecursive(content, new Set(["score", "scores", "percentile", "percentiles"]))) {
+        reasons.add("content_score_authority_violation");
+      }
 
       const displayStrings: string[] = [];
       collectDisplayStrings(content, displayStrings);
-      if (displayStrings.length === 0) {
+      if (displayStrings.length === 0 && block.block_kind !== "trait_bars") {
         reasons.add(block.block_kind === "method_boundary" ? "empty_method_block" : "empty_block_content");
       }
 
+      const blockVisibleStrings = new Set<string>();
       for (const displayString of displayStrings) {
         const normalized = displayString.toLocaleLowerCase().replace(/[\s\p{P}\p{S}]+/gu, "");
         if (normalized.length < 12) {
           continue;
         }
+        if (blockVisibleStrings.has(normalized)) {
+          reasons.add("duplicate_visible_content");
+        }
+        blockVisibleStrings.add(normalized);
         const owner = visibleStringOwners.get(normalized);
         if (owner && owner !== block.block_key) {
           reasons.add("duplicate_visible_content");
@@ -648,6 +873,18 @@ function collectSemanticAnomalies(
       if (traitCode && projectionDomains && traitBand && projectionDomains.get(traitCode)?.band !== traitBand) {
         reasons.add(`trait_${traitCode.toLowerCase()}_band_mismatch`);
       }
+      if (block.block_kind === "trait_bars" && traitCode) {
+        traitBarCounts.set(traitCode, (traitBarCounts.get(traitCode) ?? 0) + 1);
+      }
+
+      if (block.block_kind === "facet_reframe") {
+        const facet = normalizeSemanticText(content.facet_key ?? content.facet_code).toUpperCase();
+        const polarity = polarityGroup(content.facet_direction);
+        const projectedPolarity = polarityGroup(facetBuckets.get(facet));
+        if (!facet || !polarity || !projectedPolarity || polarity !== projectedPolarity) {
+          reasons.add("facet_polarity_projection_mismatch");
+        }
+      }
 
       collectFacetPolarities(content, facetPolarities);
       collectFacetPolaritiesFromReference(block.block_key, facetPolarities);
@@ -660,9 +897,23 @@ function collectSemanticAnomalies(
   if (payload.modules.some((module) => module.blocks.length === 0)) {
     reasons.add("empty_module");
   }
+  if (BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES.some((code) => traitBarCounts.get(code) !== 1)) {
+    reasons.add("trait_bars_cardinality_invalid");
+  }
   if (Array.from(facetPolarities.values()).some((polarities) => polarities.size > 1)) {
     reasons.add("facet_polarity_conflict");
   }
+}
+
+function hasObjectKeyRecursive(value: unknown, keys: ReadonlySet<string>): boolean {
+  if (Array.isArray(value)) {
+    return value.some((item) => hasObjectKeyRecursive(item, keys));
+  }
+  const record = asSemanticRecord(value);
+  if (!record) {
+    return false;
+  }
+  return Object.entries(record).some(([key, child]) => keys.has(key) || hasObjectKeyRecursive(child, keys));
 }
 
 function extractReliableCoreDomains(
@@ -670,7 +921,17 @@ function extractReliableCoreDomains(
   projectionDomains: Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>
 ): Big5ResultPageV2CoreDomain[] | null {
   const hero = payload.modules.find((payloadModule) => payloadModule.module_key === "module_01_hero");
+  const deepDive = payload.modules.find((payloadModule) => payloadModule.module_key === "module_03_trait_deep_dive");
   const traitBlocks = (hero?.blocks ?? []).filter((block) => block.block_kind === "trait_bars");
+  const deepDiveByCode = new Map<Big5ResultPageV2CoreDomainCode, Record<string, unknown>>();
+  for (const block of (deepDive?.blocks ?? []).filter((item) => item.block_kind === "trait_deep_dive")) {
+    const content = asSemanticRecord(block.content);
+    const code = content ? traitCodeFromContent(content) : null;
+    if (!content || !code || deepDiveByCode.has(code)) {
+      return null;
+    }
+    deepDiveByCode.set(code, content);
+  }
   const codedTraitBlocks = traitBlocks.filter((block) => {
     const content = asSemanticRecord(block.content);
     return content ? traitCodeFromContent(content) !== null : false;
@@ -695,12 +956,18 @@ function extractReliableCoreDomains(
 
     const trait = asSemanticRecord(content.trait);
     const band = asSemanticRecord(content.band);
-    const summaryZh = localizedContentValue(content, "summary", "zh")
-      || localizedContentValue(content, "short_body", "zh")
-      || localizedContentValue(content, "body", "zh");
-    const summaryEn = localizedContentValue(content, "summary", "en")
-      || localizedContentValue(content, "short_body", "en")
-      || localizedContentValue(content, "body", "en");
+    const interpretation = deepDiveByCode.get(code) ?? content;
+    const interpretationTrait = asSemanticRecord(interpretation.trait);
+    const interpretationBand = asSemanticRecord(interpretation.band);
+    if (deepDiveByCode.size > 0 && traitBandFromContent(interpretation) !== projection.band) {
+      return null;
+    }
+    const summaryZh = localizedContentValue(interpretation, "summary", "zh")
+      || localizedContentValue(interpretation, "short_body", "zh")
+      || localizedContentValue(interpretation, "body", "zh");
+    const summaryEn = localizedContentValue(interpretation, "summary", "en")
+      || localizedContentValue(interpretation, "short_body", "en")
+      || localizedContentValue(interpretation, "body", "en");
     if (!summaryZh && !summaryEn) {
       return null;
     }
@@ -716,10 +983,21 @@ function extractReliableCoreDomains(
       code,
       score: projection.score,
       band: projection.band,
-      labelZh: normalizeSemanticText(trait?.label_zh ?? trait?.public_name_zh),
-      labelEn: normalizeSemanticText(trait?.label_en ?? trait?.public_name_en),
-      bandLabelZh: normalizeSemanticText(band?.display_band_label_zh ?? band?.display_band_label),
-      bandLabelEn: normalizeSemanticText(band?.display_band_label_en),
+      labelZh: normalizeSemanticText(
+        interpretationTrait?.label_zh ?? interpretationTrait?.public_name_zh ?? trait?.label_zh ?? trait?.public_name_zh
+      ),
+      labelEn: normalizeSemanticText(
+        interpretationTrait?.label_en ?? interpretationTrait?.public_name_en ?? trait?.label_en ?? trait?.public_name_en
+      ),
+      bandLabelZh: normalizeSemanticText(
+        interpretationBand?.display_band_label_zh
+        ?? interpretationBand?.display_band_label
+        ?? band?.display_band_label_zh
+        ?? band?.display_band_label
+      ),
+      bandLabelEn: normalizeSemanticText(
+        interpretationBand?.display_band_label_en ?? band?.display_band_label_en
+      ),
       summaryZh,
       summaryEn,
     });

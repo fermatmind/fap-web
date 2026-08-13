@@ -1,8 +1,11 @@
 "use client";
 
 import { Big5CoreSummary, buildBig5V2CoreSummaryItems } from "@/components/result/big5/Big5CoreSummary";
+import {
+  Big5ResultPageV2BlockRenderer,
+  projectionRecord,
+} from "@/components/result/big5/Big5ResultPageV2Blocks";
 import type {
-  Big5ResultPageV2Block,
   Big5ResultPageV2CoreDomain,
   Big5ResultPageV2Payload,
 } from "@/lib/big5/resultPageV2";
@@ -22,80 +25,6 @@ const MODULE_TITLES: Record<string, { en: string; zh: string }> = {
   module_09_feedback_data_flywheel: { en: "Feedback", zh: "模块反馈" },
   module_10_method_privacy: { en: "Method and privacy", zh: "方法与隐私" },
 };
-
-function pickLocalizedText(content: Record<string, unknown> | undefined, locale: Locale, keys: string[]): string {
-  if (!content) {
-    return "";
-  }
-
-  const suffix = locale === "zh" ? "_zh" : "_en";
-  for (const key of keys) {
-    const localized = content[`${key}${suffix}`];
-    if (typeof localized === "string" && localized.trim()) {
-      return localized.trim();
-    }
-  }
-
-  for (const key of keys) {
-    const value = content[key];
-    if (typeof value === "string" && value.trim()) {
-      return value.trim();
-    }
-  }
-
-  return "";
-}
-
-function pickStringList(content: Record<string, unknown> | undefined, locale: Locale, keys: string[]): string[] {
-  if (!content) {
-    return [];
-  }
-
-  const suffix = locale === "zh" ? "_zh" : "_en";
-  for (const key of keys) {
-    const value = content[`${key}${suffix}`] ?? content[key];
-    if (Array.isArray(value)) {
-      return value.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
-    }
-  }
-
-  return [];
-}
-
-function Big5ResultPageV2BlockRenderer({ block, locale }: { block: Big5ResultPageV2Block; locale: Locale }) {
-  const content = block.content && typeof block.content === "object" && !Array.isArray(block.content)
-    ? block.content as Record<string, unknown>
-    : undefined;
-  const title = pickLocalizedText(content, locale, ["title", "heading", "label"]);
-  const summary = pickLocalizedText(content, locale, ["summary", "body", "description", "action"]);
-  const bullets = pickStringList(content, locale, ["bullets", "items", "actions"]);
-  if (!title && !summary && bullets.length === 0) {
-    return null;
-  }
-
-  return (
-    <div
-      data-testid={`big5-v2-block-${block.block_kind}`}
-      data-block-kind={block.block_kind}
-      data-block-key={block.block_key}
-      data-content-source={block.content_source || undefined}
-      data-fallback-policy={block.fallback_policy || undefined}
-      className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
-    >
-      <div className="flex flex-wrap items-center gap-2">
-        {title ? <h4 className="m-0 text-base font-semibold text-slate-950">{title}</h4> : null}
-      </div>
-      {summary ? <p className="m-0 mt-3 whitespace-pre-wrap text-sm leading-7 text-slate-700">{summary}</p> : null}
-      {bullets.length > 0 ? (
-        <ul className="m-0 mt-3 space-y-2 pl-5 text-sm leading-7 text-slate-700">
-          {bullets.map((item, index) => (
-            <li key={`${block.block_key}-item-${index}`}>{item}</li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
-  );
-}
 
 export function Big5ResultPageV2Shell({
   locale,
@@ -119,6 +48,7 @@ export function Big5ResultPageV2Shell({
   }
 
   const modules = payload.modules.filter((module) => module.blocks.length > 0);
+  const projection = projectionRecord(payload);
 
   return (
     <div
@@ -143,7 +73,13 @@ export function Big5ResultPageV2Shell({
             </div>
             <div className="space-y-3">
               {module.blocks.map((block) => (
-                <Big5ResultPageV2BlockRenderer key={block.block_key} block={block} locale={locale} />
+                <Big5ResultPageV2BlockRenderer
+                  key={block.block_key}
+                  block={block}
+                  payload={payload}
+                  projection={projection}
+                  locale={locale}
+                />
               ))}
             </div>
           </section>

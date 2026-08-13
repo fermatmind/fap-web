@@ -10,13 +10,14 @@ import {
   parseBig5ResultPageV2Payload,
 } from "@/lib/big5/resultPageV2";
 import legacyReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2_missing.projection.json";
-import canonicalEnvelope from "@/tests/fixtures/big5/result_page_v2_canonical_mixed_signature.payload.json";
 import lowQualityEnvelope from "@/tests/fixtures/big5/result_page_v2_low_quality.payload.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 type MutableBig5ResultPageV2Fixture = {
   modules: Array<{
     module_key?: string;
     blocks: Array<{
+      block_key?: string;
       block_kind?: string;
       content?: Record<string, unknown>;
       shareable?: boolean;
@@ -35,7 +36,7 @@ function createLegacyReport(): ReportResponse {
 }
 
 function createCanonicalPayload() {
-  return structuredClone(canonicalEnvelope).big5_result_page_v2 as MutableBig5ResultPageV2Fixture;
+  return createRuntimeV2Payload() as MutableBig5ResultPageV2Fixture;
 }
 
 function createLowQualityPayload() {
@@ -58,6 +59,7 @@ describe("Big Five Result Page V2 frontend consumer", () => {
   });
 
   it("uses the V2 renderer path when a valid big5_result_page_v2 payload is present", () => {
+    expect(assessBig5ResultPageV2Payload(createCanonicalPayload())).toMatchObject({ mode: "full", reasons: [] });
     render(<RichResultReport locale="zh" reportData={withResultPageV2(createCanonicalPayload())} />);
 
     expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
@@ -66,7 +68,17 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).toBeInTheDocument();
     expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).toHaveTextContent("细分维度信号");
     expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).not.toHaveTextContent("Facet 信号");
-    expect(screen.getByTestId("big5-v2-block-trust_bar")).toHaveTextContent("fixture boundary");
+    expect(screen.getByTestId("big5-v2-block-trust_bar")).toHaveTextContent("结果描述连续特质");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.getAllByTestId("big5-v2-block-trait_deep_dive")[0]).toHaveTextContent("正文只解释当前连续维度位置");
+    expect(screen.getAllByText("优势").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("代价").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("行动").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("big5-v2-block-method_boundary")).toHaveTextContent("结果不是医疗或心理诊断");
+    expect(screen.getByRole("button", { name: "分享安全链接" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "保存或打印" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "提交结果反馈" })).toHaveAttribute("href", "/support?topic=result-feedback");
+    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
   });
 
   it("filters paid V2 modules when Big5 access is locked", () => {
@@ -85,13 +97,13 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     );
 
     expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
-    expect(screen.getByText("fixture boundary")).toBeInTheDocument();
-    expect(screen.getByText("fixture hero")).toBeInTheDocument();
-    expect(screen.getByText("fixture quick cards")).toBeInTheDocument();
+    expect(screen.getByText(/结果描述连续特质/)).toBeInTheDocument();
+    expect(screen.getByText(/非固定类型的画像正文/)).toBeInTheDocument();
+    expect(screen.getByText(/短摘要只保留当前最重要/)).toBeInTheDocument();
     expect(screen.queryByTestId("big5-v2-module-module_03_trait_deep_dive")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-v2-module-module_05_facet_reframe")).not.toBeInTheDocument();
-    expect(screen.queryByText("fixture trait deep dive")).not.toBeInTheDocument();
-    expect(screen.queryByText("fixture facet reframe")).not.toBeInTheDocument();
+    expect(screen.queryByText(/开放性正文只解释/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/细分信号来自有限题项/)).not.toBeInTheDocument();
   });
 
   it("can render from the additive V2 payload without treating legacy sections as required", () => {
@@ -145,12 +157,14 @@ describe("Big Five Result Page V2 frontend consumer", () => {
 
   it("fails closed when a method block is empty and never publishes placeholder UI", () => {
     const payload = createCanonicalPayload();
-    payload.modules[5].blocks[0].content = {};
+    const method = payload.modules.find((module) => module.module_key === "module_10_method_privacy");
+    expect(method).toBeDefined();
+    if (method) method.blocks[0].content = {};
 
     render(<RichResultReport locale="zh" reportData={withResultPageV2(payload)} />);
 
-    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(payload)).mode).toBe("reject");
-    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(payload)).mode).toBe("core_only");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "v2");
     expect(screen.getAllByRole("progressbar")).toHaveLength(5);
     expect(screen.queryByTestId("big5-v2-deferred")).not.toBeInTheDocument();
     expect(screen.queryByText("此模块暂未启用")).not.toBeInTheDocument();
@@ -187,13 +201,28 @@ describe("Big Five Result Page V2 frontend consumer", () => {
 
   it("rejects shareable blocks with raw score fields", () => {
     const payload = createCanonicalPayload();
-    payload.modules[8].blocks[0].shareable = true;
-    payload.modules[8].blocks[0].content = {
+    const share = payload.modules.find((module) => module.module_key === "module_08_share_save");
+    expect(share).toBeDefined();
+    if (!share) return;
+    share.blocks[0].shareable = true;
+    share.blocks[0].content = {
       summary_zh: "fixture share",
       raw_score: 68,
     };
 
     expect(parseBig5ResultPageV2Payload(payload)).toBeNull();
+  });
+
+  it("renders authorized percentiles only when the projection explicitly allows them", () => {
+    render(<RichResultReport locale="en" reportData={withResultPageV2(createRuntimeV2Payload({ percentileAllowed: true }))} />);
+
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.getByTestId("big5-v2-percentile-O")).toHaveTextContent("Percentile 59");
+    expect(screen.getByText(/This non-type profile body/)).toBeInTheDocument();
+    expect(screen.getAllByText("Strength").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Trade-off").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Action").length).toBeGreaterThan(0);
+    expect(screen.getByTestId("big5-v2-block-method_boundary")).toHaveTextContent("not a medical or psychological diagnosis");
   });
 
   it("rejects low-quality payloads and exposes only the reliable legacy five-domain core", () => {

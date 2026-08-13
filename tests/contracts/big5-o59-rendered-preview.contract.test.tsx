@@ -4,6 +4,7 @@ import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { BIG5_RESULT_PAGE_V2_PAYLOAD_KEY } from "@/lib/big5/resultPageV2";
 import o59Envelope from "@/tests/fixtures/big5/result_page_v2/canonical_o59_core_body_preview.payload.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 const TESTED_SURFACES = ["result_page_desktop", "result_page_mobile"] as const;
 const M6_SECONDARY_SURFACES = ["pdf", "share_card", "history", "compare"] as const;
@@ -36,7 +37,7 @@ function createO59Report(): ReportResponse {
     report: {
       scale_code: "BIG5_OCEAN",
     },
-    [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: structuredClone(o59Envelope).big5_result_page_v2,
+    [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: createRuntimeV2Payload(),
   } as ReportResponse;
 }
 
@@ -67,14 +68,14 @@ describe("Big Five V2 O59 rendered preview contract", () => {
     ]);
   });
 
-  it.each(TESTED_SURFACES)("%s fails closed to the verified O59 five-domain core", (surface) => {
+  it.each(TESTED_SURFACES)("%s renders the selected O59 runtime payload", (surface) => {
     window.innerWidth = surface === "result_page_mobile" ? 390 : 1440;
 
     render(<RichResultReport locale="zh" reportData={createO59Report()} />);
 
-    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "v2");
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
     expect(screen.getAllByRole("progressbar")).toHaveLength(5);
-    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-core-only-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
