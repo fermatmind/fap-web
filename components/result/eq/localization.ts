@@ -32,6 +32,14 @@ const ZH_QUALITY_FLAG_LABELS: Record<string, string> = {
   NEUTRAL_RESPONSE_BIAS: "中立选项使用较多，结果可能不足以区分当前倾向。",
 };
 
+const EN_QUALITY_FLAG_LABELS: Record<string, string> = {
+  SPEEDING: "Responses were completed unusually quickly; retake when you have enough time and attention.",
+  INCONSISTENT: "Some answers were less internally consistent, so interpret this session cautiously.",
+  LONGSTRING: "The same option was used across a long run of items; review whether that reflects your experience.",
+  EXTREME_RESPONSE_BIAS: "Extreme options were used often; check whether those choices reflect your experience.",
+  NEUTRAL_RESPONSE_BIAS: "Neutral options were used often, which may limit how clearly this session distinguishes tendencies.",
+};
+
 function normalizedTechnicalValue(value: string): string {
   return value.trim().replaceAll("_", " ").replace(/\s+/g, " ").toLowerCase();
 }
@@ -43,6 +51,9 @@ export function localizeEqTechnicalValue(value: string | undefined, locale: Loca
 }
 
 export function localizeEqQualityFlag(flag: string, locale: Locale): string {
-  if (locale !== "zh") return flag;
-  return ZH_QUALITY_FLAG_LABELS[flag.trim().toUpperCase()] ?? "检测到其他需要复核的作答质量信号。";
+  const normalizedFlag = flag.trim().toUpperCase();
+  if (locale === "zh") {
+    return ZH_QUALITY_FLAG_LABELS[normalizedFlag] ?? "检测到其他需要复核的作答质量信号。";
+  }
+  return EN_QUALITY_FLAG_LABELS[normalizedFlag] ?? "Another response-quality signal needs review.";
 }

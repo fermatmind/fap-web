@@ -418,6 +418,10 @@ test("EQ low-confidence report renders only cautious modules", async ({ page }) 
   await expect(page.getByTestId("eq-action-prescription")).toBeVisible();
   await expect(page.getByTestId("eq-scientific-boundary")).toBeVisible();
   await expect(page.getByTestId("eq-save-share-related")).toBeVisible();
+  await expect(page.getByText("Responses were completed unusually quickly")).toBeVisible();
+  await expect(
+    page.getByText(/SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/)
+  ).toHaveCount(0);
 
   for (const testId of [
     "eq-evidence-snapshot",

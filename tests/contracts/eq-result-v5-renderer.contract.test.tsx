@@ -655,11 +655,18 @@ describe("EQ v5 result renderer contract", () => {
     );
 
     rerender(<EQResultV5 locale="en" reportData={responseFromFixture(balancedEn as EqV5Fixture)} />);
-    const enPage = screen.getByTestId("eq-result-v5");
+    let enPage = screen.getByTestId("eq-result-v5");
     expect(enPage).toHaveTextContent("Evidence Snapshot");
     expect(enPage).toHaveTextContent("provisional");
     expect(enPage).not.toHaveTextContent("下一步练习重点");
     expect(enPage).not.toHaveTextContent("阶段性");
+
+    rerender(<EQResultV5 locale="en" reportData={responseFromFixture(lowConfidenceEn as EqV5Fixture)} />);
+    enPage = screen.getByTestId("eq-result-v5");
+    expect(enPage).toHaveTextContent("Responses were completed unusually quickly");
+    expect(enPage).not.toHaveTextContent(
+      /SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
+    );
   });
 
   it("fails closed when root report access says the EQ v5 payload is locked or commerce restricted", () => {
