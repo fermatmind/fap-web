@@ -125,6 +125,10 @@ export const TRACKING_EVENTS = {
   SUBMIT_FAILURE: "submit_failure",
   REPORT_LOAD_FAILURE: "report_load_failure",
   RESULT_LOAD_FAILURE: "result_load_failure",
+  RESULT_GENERATION_TIMEOUT: "result_generation_timeout",
+  RESULT_GENERATION_RECHECK: "result_generation_recheck",
+  RESULT_GENERATION_RECOVERY_SUCCEEDED: "result_generation_recovery_succeeded",
+  RESULT_GENERATION_FINAL_FAILURE: "result_generation_final_failure",
 } as const;
 
 export type TrackingEventName = (typeof TRACKING_EVENTS)[keyof typeof TRACKING_EVENTS];
@@ -530,6 +534,10 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   submit_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   report_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
   result_load_failure: ["scale_code", "stage", "stage_detail", "status_group", "status_code", "error_code", "request_id", "route", "form_code", "locale"],
+  result_generation_timeout: ["scale_code", "route", "locale"],
+  result_generation_recheck: ["scale_code", "route", "locale"],
+  result_generation_recovery_succeeded: ["scale_code", "route", "locale"],
+  result_generation_final_failure: ["scale_code", "route", "locale"],
 };
 
 const CAREER_ATTRIBUTION_EVENTS = [

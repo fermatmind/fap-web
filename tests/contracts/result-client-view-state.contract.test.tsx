@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import ResultClient, {
   resolveEnneagramContractErrorCopy,
@@ -1082,6 +1082,168 @@ describe("ResultClient view-state contract", () => {
     expect(screen.getByText("Your result page will appear once the backend has assembled the full page. Minimum wait: 10 seconds.")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
+  it("stops automatic polling at 90 seconds and recovers the same attempt manually", async () => {
+    vi.useFakeTimers();
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({ report_state: "pending", pdf_state: "unavailable", reason_code: "projection_pending" })
+    );
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
+
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(90_000);
+    });
+    expect(screen.getByTestId("result-generation-timeout")).toHaveTextContent(
+      "Your result is still being generated. Your answers have been saved."
+    );
+    expect(hoisted.trackEvent).toHaveBeenCalledWith("result_generation_timeout", expect.not.objectContaining({ attempt_id: expect.anything() }));
+
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
+    const accessChecksBeforeManualRecovery = hoisted.fetchAttemptReportAccess.mock.calls.length;
+    const recheck = screen.getByTestId("result-generation-recheck");
+    fireEvent.click(recheck);
+    fireEvent.click(recheck);
+    expect(recheck).toBeDisabled();
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(accessChecksBeforeManualRecovery + 1);
+    expect(screen.getByTestId("rich-result-report")).toHaveTextContent("riasec-snapshot-rich-report");
+    expect(hoisted.trackEvent).toHaveBeenCalledWith("result_generation_recovery_succeeded", expect.not.objectContaining({ attempt_id: expect.anything() }));
+  });
+
+  it("honors Retry-After while polling a delayed result", async () => {
+    vi.useFakeTimers();
+    hoisted.fetchAttemptReportAccess
+      .mockResolvedValueOnce(createAccessProjection({
+        report_state: "pending",
+        pdf_state: "unavailable",
+        reason_code: "projection_pending",
+        retry_after_seconds: 7,
+      }))
+      .mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(6_999);
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(1);
+      await Promise.resolve();
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(3_000);
+      await Promise.resolve();
+    });
+    expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+  });
+
+  it("does not let an in-flight poll replace the 90-second recovery state", async () => {
+    vi.useFakeTimers();
+    let resolveInFlight: ((value: ReturnType<typeof createAccessProjection>) => void) | null = null;
+    hoisted.fetchAttemptReportAccess
+      .mockResolvedValueOnce(createAccessProjection({ report_state: "pending", pdf_state: "unavailable" }))
+      .mockImplementationOnce(() => new Promise((resolve) => {
+        resolveInFlight = resolve;
+      }));
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+      await vi.advanceTimersByTimeAsync(3_000);
+    });
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
+    await act(async () => {
+      await vi.advanceTimersByTimeAsync(87_000);
+    });
+    expect(screen.getByTestId("result-generation-timeout")).toBeInTheDocument();
+    await act(async () => {
+      resolveInFlight?.(createAccessProjection({ report_state: "pending", pdf_state: "unavailable" }));
+      await Promise.resolve();
+    });
+    expect(screen.getByTestId("result-generation-timeout")).toBeInTheDocument();
+    expect(screen.queryByTestId("result-processing-wait")).not.toBeInTheDocument();
+  });
+
+  it("keeps the timeout recovery state when an in-flight poll rejects", async () => {
+    vi.useFakeTimers();
+    let rejectInFlight: ((reason: Error) => void) | null = null;
+    hoisted.fetchAttemptReportAccess
+      .mockResolvedValueOnce(createAccessProjection({ report_state: "pending", pdf_state: "unavailable" }))
+      .mockImplementationOnce(() => new Promise((_resolve, reject) => {
+        rejectInFlight = reject;
+      }));
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await act(async () => {
+      await Promise.resolve();
+      await vi.advanceTimersByTimeAsync(3_000);
+      await vi.advanceTimersByTimeAsync(87_000);
+    });
+    expect(screen.getByTestId("result-generation-timeout")).toBeInTheDocument();
+    await act(async () => {
+      rejectInFlight?.(new ApiError({ status: 503, errorCode: "SERVICE_UNAVAILABLE", message: "internal detail" }));
+      await Promise.resolve();
+    });
+    expect(screen.getByTestId("result-generation-timeout")).toBeInTheDocument();
+    expect(screen.queryByRole("alert")).not.toBeInTheDocument();
+  });
+
+  it("localizes final submission failure and offers same-attempt recovery without raw backend text", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({ access_state: "unavailable", report_state: "unavailable", reason_code: "report_unavailable" })
+    );
+    hoisted.fetchAttemptResult.mockRejectedValue(new ApiError({ status: 404, errorCode: "RESULT_NOT_FOUND", message: "result not found." }));
+    hoisted.fetchAttemptSubmission.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-123",
+      generating: false,
+      submission: { id: "sub_failed", state: "failed", error_message: "submission failed." },
+    });
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await waitFor(() => expect(screen.getByRole("alert")).toHaveTextContent("Your answers are saved"));
+    expect(screen.getByRole("alert")).not.toHaveTextContent("submission failed.");
+    expect(screen.getByTestId("result-generation-recheck")).toBeEnabled();
+    expect(hoisted.trackEvent).toHaveBeenCalledTimes(1);
+    expect(hoisted.trackEvent).toHaveBeenCalledWith("result_generation_final_failure", {
+      scale_code: "UNKNOWN",
+      route: "/result/[id]",
+      locale: "en",
+    });
+  });
+
+  it("recovers the same saved attempt after a page refresh", async () => {
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(
+      createAccessProjection({ report_state: "pending", pdf_state: "unavailable", reason_code: "projection_pending" })
+    );
+    const first = render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await waitFor(() => expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument());
+    first.unmount();
+
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+    await waitFor(() => expect(screen.getByTestId("rich-result-report")).toHaveTextContent("riasec-snapshot-rich-report"));
+    expect(hoisted.fetchAttemptSubmission).not.toHaveBeenCalled();
   });
 
   it("renders Big Five V2 payload when legacy generation is still flagged", async () => {
