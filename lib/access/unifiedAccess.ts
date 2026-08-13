@@ -25,6 +25,8 @@ export type AttemptReportAccessView = {
   unlockSource: UnifiedUnlockSource | null;
   reasonCode: string | null;
   accessLevel: string | null;
+  accessMode?: "free_full" | "paid_unlock" | null;
+  paywallSuppressed?: boolean;
   variant: string | null;
   projectionVersion: number;
   modulesAllowed: string[];
@@ -157,6 +159,8 @@ export function normalizeAttemptReportAccess(
     unlockSource: normalizeUnlockSourceField(raw),
     reasonCode: normalizeText(raw.reason_code),
     accessLevel: normalizeAccessTextField(raw, "access_level"),
+    accessMode: raw.access_mode === "free_full" || raw.access_mode === "paid_unlock" ? raw.access_mode : null,
+    paywallSuppressed: raw.paywall_suppressed === true || resolveAccessPayloadRecord(raw)?.paywall_suppressed === true,
     variant: normalizeAccessTextField(raw, "variant"),
     projectionVersion:
       typeof raw.projection_version === "number" && Number.isFinite(raw.projection_version)

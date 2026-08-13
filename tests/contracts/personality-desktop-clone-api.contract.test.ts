@@ -407,6 +407,10 @@ function createValidPayload(tag: string) {
         ctaLabel: `offer cta ${tag}`,
         guarantee: `offer guarantee ${tag}`,
       },
+      faq: [1, 2, 3, 4].map((index) => ({
+        question: `question ${index} ${tag}`,
+        answer: `answer ${index} ${tag}`,
+      })),
     },
     asset_slots: [
       {
@@ -483,6 +487,10 @@ function createValidPayload(tag: string) {
       authority_source: "personality_profile_variant_clone_contents",
       route_mode: "full_code_exact",
       public_route_type: "32-type",
+      package_id: "mbti-zh-result-contract",
+      package_hash: "a".repeat(64),
+      source_hash: "b".repeat(64),
+      revision_no: 7,
     },
   };
 }

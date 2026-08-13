@@ -571,7 +571,9 @@ export function MbtiResultShellLoadingShell({
   void retakeHref;
   void onShare;
   const unlockStageLabel = resolveLoadingUnlockStageLabel(locale, unlockStage);
-  const inviteProgressLabel = resolveLoadingInviteProgressCopy(locale, inviteUnlockProgress);
+  const inviteProgressLabel = unlockStage === "full"
+    ? null
+    : resolveLoadingInviteProgressCopy(locale, inviteUnlockProgress);
 
   return (
     <div
@@ -601,7 +603,7 @@ export function MbtiResultShellLoadingShell({
               {locale === "zh" ? "当前状态" : "Current status"}
             </p>
             <p className="m-0 mt-1 text-sm text-slate-700">{unlockStageLabel}</p>
-            <p className="m-0 mt-1 text-sm text-slate-700">{inviteProgressLabel}</p>
+            {inviteProgressLabel ? <p className="m-0 mt-1 text-sm text-slate-700">{inviteProgressLabel}</p> : null}
           </div>
           <div className="flex flex-wrap items-center gap-3">
             {primaryCtaIsInternal ? (
@@ -673,6 +675,8 @@ export function MbtiResultShell({
   const reportReadyByLegacyRule = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const stagedUnlockStage = accessProjection?.unlockStage ?? null;
   const isUnlockedPostPurchase = stagedUnlockStage === "full" || (stagedUnlockStage === null && reportReadyByLegacyRule);
+  const isFreeFullMode = accessProjection?.accessMode === "free_full" && accessProjection.paywallSuppressed;
+  const hasAuthoritativeAccessMode = accessProjection?.accessMode === "free_full" || accessProjection?.accessMode === "paid_unlock";
   const projectionLocked = accessProjection ? isProjectionLocked(accessProjection) : reportData.locked === true;
   const accessHub = normalizeMbtiAccessHub(reportData.mbti_access_hub_v1 ?? null, locale);
   const mbtiFormSummary = normalizeMbtiFormSummary(reportData.mbti_form_v1 ?? null);
@@ -746,6 +750,7 @@ export function MbtiResultShell({
       fullCode: fullCodeForStorage,
       content: initialDesktopCloneContent.content,
       assetSlots: initialDesktopCloneContent.assetSlots,
+      meta: initialDesktopCloneContent.meta,
     };
   }, [fullCodeForStorage, initialDesktopCloneContent, locale]);
   const canLoadPublicDesktopCloneStorage = (printSnapshotMode || locale === "zh") && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
@@ -754,6 +759,7 @@ export function MbtiResultShell({
     fullCode: string;
     content: MbtiDesktopCloneContent | null;
     assetSlots: PersonalityDesktopCloneAssetSlot[];
+    meta: PersonalityDesktopCloneContentPayload["meta"];
   } | null>(null);
   const resolvedDesktopCloneSnapshot = initialDesktopCloneSnapshot ?? desktopCloneSnapshot;
   const activeDesktopCloneSnapshot =
@@ -1595,7 +1601,7 @@ export function MbtiResultShell({
     });
   }
 
-  if (isUnlockedPostPurchase && attemptId) {
+  if (isUnlockedPostPurchase && attemptId && !isFreeFullMode) {
     ctaSurfaceEntries.push({
       key: "workspace_lite",
       rank: workspaceLiteCtaRank > 0 ? workspaceLiteCtaRank : 999,
@@ -1612,7 +1618,7 @@ export function MbtiResultShell({
         />
       ),
     });
-  } else {
+  } else if (!isFreeFullMode) {
     ctaSurfaceEntries.push({
       key: "unlock_full_report",
       rank: unlockCtaRank > 0 ? unlockCtaRank : 999,
@@ -1667,6 +1673,7 @@ export function MbtiResultShell({
           fullCode: fullCodeForStorage,
           content: payload?.content ?? null,
           assetSlots: payload?.assetSlots ?? [],
+          meta: payload?.meta ?? null,
         });
       }
     })();
@@ -1720,7 +1727,7 @@ export function MbtiResultShell({
         highlights={highlights}
         sections={sections}
         sectionUnlocks={sectionUnlocks}
-        offers={offers}
+        offers={isFreeFullMode ? [] : offers}
         projectionViewModel={projectionViewModel}
         isUnlocked={isUnlockedPostPurchase}
         shareCtaLabel={shareCtaLabel}
@@ -1749,10 +1756,14 @@ export function MbtiResultShell({
         footerNode={footerNode}
         storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}
         storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
+        storageMetaOverride={activeDesktopCloneSnapshot?.meta ?? null}
         storageManagedExternally
         canLoadDesktopCloneStorage={canLoadPublicDesktopCloneStorage}
         snapshotMode={printSnapshotMode}
         snapshotContentStatus={snapshotContentStatus}
+        suppressUnlockSurfaces={isFreeFullMode}
+        storageContentPending={hasAuthoritativeAccessMode && canLoadPublicDesktopCloneStorage && !initialDesktopCloneSnapshot && desktopCloneSnapshot === null}
+        requirePublishedContent={hasAuthoritativeAccessMode}
       />
     </div>
   );

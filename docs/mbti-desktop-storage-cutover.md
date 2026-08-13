@@ -15,8 +15,8 @@
 - Adapter: `/Users/rainie/Desktop/GitHub/fap-web/lib/cms/personality-desktop-clone.ts`
   - `fullCode`: `INFJ-A` -> `infj-a` (exact 32-type slug route)
   - `locale`: `zh`/`zh-CN` -> `zh-CN`
-  - non-zh returns `null` (placeholder path)
-  - shape/meta validation failures return `null`
+  - non-zh returns `null`（英文行为保持不变）
+  - 中文 shape/meta/hash/revision validation 失败返回 `null`，正式结果路由 fail closed
   - P0 modules are parsed as optional fields and never crash rendering when missing:
     - `letters_intro`
     - `overview`
@@ -28,15 +28,13 @@
     - `chapters.relationships.{superpowers,pitfalls}`
   - Compatibility transition fields are retained for contract safety and are not current desktop main-flow render source.
 - Resolver: `/Users/rainie/Desktop/GitHub/fap-web/components/result/mbti/clone/mbtiDesktopClone.resolve.ts`
-  - priority: `storage content` -> `placeholder`
+  - 中文正式结果路由只接受 `storage content`；placeholder 仅保留给隔离组件测试和非中文兼容路径
   - no local registry fallback
   - no baseCode fallback
 
 ## Local registry status
-- `/Users/rainie/Desktop/GitHub/fap-web/components/result/mbti/clone/content/index.ts`
-- `/Users/rainie/Desktop/GitHub/fap-web/components/result/mbti/clone/content/variants/*.zh.ts`
 
-Both are downgraded to migration artifacts / seed history only, not runtime owner.
+旧 `components/result/mbti/clone/content/**` 及对应 registry contracts 已删除。前端不再保存 16 个 base 或 32 个 A/T 变体正文，也不存在可回接的本地正文 fallback。
 
 ## Current coverage
 - Published storage seed expected in backend owner: `32 fullCode` x `zh-CN` for `mbti_desktop_clone_v1`.
@@ -60,8 +58,7 @@ Both are downgraded to migration artifacts / seed history only, not runtime owne
   - `fullCode/baseCode` runtime truth
   - display title / bars / dimension winners
   - actions and CTA wiring
-  - unlock & purchase flow
-  - runtime offer price / access state
+  - access state；`free_full` 时隐藏购买/邀请入口，未来切回 `paid_unlock` 时复用保留的付费能力
 
 ## Not rendered yet (intentionally out-of-scope)
 - Runtime personalization:
@@ -75,5 +72,4 @@ P1 deep-content module rendering status now lives in:
 
 ## Follow-ups
 1. Runtime personalization integration without changing owner boundaries.
-2. Expand `ready` asset coverage in backend owner data (no schema change).
-3. Locale expansion (e.g. `en`) in `fap-api`.
+2. Locale expansion (e.g. `en`) in `fap-api`.

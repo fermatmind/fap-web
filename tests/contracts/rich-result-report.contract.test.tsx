@@ -386,7 +386,7 @@ describe("RichResultReport", () => {
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy hero summary should lose to projection summary.")).not.toBeInTheDocument();
 
-    expect(within(offerComparison).getByText("占位标题：完整报告收口位")).toBeInTheDocument();
+    expect(within(offerComparison).queryByText(/占位/)).not.toBeInTheDocument();
     expect(within(offerComparison).getByText("¥1.99")).toBeInTheDocument();
     expect(within(offerComparison).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
     expect(within(offerComparison).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();

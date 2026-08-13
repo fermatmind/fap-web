@@ -1,6 +1,6 @@
 MBTI 内容真理源规则
 
-状态： v1 正式规则
+状态： v2 正式规则
 适用对象： 产品、工程、内容、运营
 目的： 统一 MBTI 内容系统的编辑边界、发布边界、线上运行边界与热修边界，确保内容长期稳定运营、可追溯、可回滚、可治理。
 
@@ -8,19 +8,13 @@ MBTI 内容真理源规则
 
 1. 背景
 
-当前 MBTI 内容系统并非纯前端内容系统，也并非纯后端内容系统，而是已经形成稳定的混合模式：
-	•	仓库内仍存在完整的前端 authored corpus。
-components/result/mbti/clone/content/index.ts 明确保留了 16 个 base content 与 32 个 fullCode patch；tests/contracts/mbti-desktop-content-registry.contract.test.ts 也要求本地 registry 覆盖全部 32 个 zh fullCode。
-	•	线上 runtime 已存在 published storage read path。
-lib/cms/personality-desktop-clone.ts 会请求 /v0.5/personality/{fullCodeSlug}/desktop-clone，并只接受 mbti_desktop_clone_v1 的 published payload。
-	•	当前结果页 shell 会把 runtime projection 与 storage content 组合消费。
-components/result/mbti/clone/MbtiDesktopCloneShell.tsx 会拉取 storage content，再交给 components/result/mbti/clone/mbtiDesktopClone.resolve.ts；后者明确以 storage 作为内容来源，同时继续保留 projection、headline、dimensions 等 runtime 数据。
-	•	既有文档 docs/mbti-desktop-storage-cutover.md 已明确：
-fap-web 消费 published storage content，本地 32-type registry 不再是 runtime source，而是 migration artifact / seed source。
+中文 MBTI 结果正文已经完成单一 authority 收口：
+	•	唯一编辑包位于 fap-api，由 32 条 `mbti_desktop_clone_v1` 中文资产构成。
+	•	线上 runtime 只读取 `personality_profile_variant_clone_contents` 当前 published revision。
+	•	fap-web 已删除本地 32 型正文 registry；缺少 published clone、full code 不匹配或 hash 非法时直接 fail closed。
+	•	运行时 projection 只提供计分、维度、临界解释、科学边界和访问策略，不构成第二套正文。
 
-因此，MBTI 内容治理必须采用已经确认的长期方案：
-
-双层单向真理源 + 工件化发布
+因此，长期方案是：后端单一编辑包 → 确定性 artifact → 受控发布 → published storage 单一运行 authority。
 
 本规则只定义“谁是编辑真理源、谁是线上运行真理源、二者如何流转、如何热修与如何处理漂移”，不改变任何结果页内容、结果页架构或 runtime 逻辑。
 
@@ -62,7 +56,7 @@ authoring corpus 与 published storage artifact 在同一内容版本语义上�
 
 3.1 编辑真理源
 
-MBTI 内容的唯一编辑真理源是 Git 中的 authored corpus / versioned content package。
+MBTI 中文结果内容的唯一编辑真理源是 fap-api 中的 versioned content package；fap-web 不保存正文副本。
 
 正式规则如下：
 	•	所有常规内容修改，必须先发生在 authored corpus。
