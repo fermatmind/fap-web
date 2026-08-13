@@ -15,7 +15,7 @@ import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
 import { EQSJTBridgeCTA } from "./EQSJTBridgeCTA";
 import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader } from "./types";
-import { isEqV5AccessRestricted, normalizeEqV5Report } from "./utils";
+import { isEqV5AccessRestricted, isLowConfidenceEqResult, normalizeEqV5Report } from "./utils";
 
 export function EQResultV5({
   locale,
@@ -46,20 +46,33 @@ export function EQResultV5({
     return null;
   }
 
+  const lowConfidence = isLowConfidenceEqResult(viewModel);
+
   return (
     <main data-testid="eq-result-v5" className="mx-auto w-full max-w-6xl space-y-6">
       <EQResultHero viewModel={viewModel} />
-      <EQEvidenceSnapshot viewModel={viewModel} />
-      <EQResultDepthModules viewModel={viewModel} />
-      <EQQualityBanner viewModel={viewModel} />
-      <EQEmotionalMatrix viewModel={viewModel} />
-      <EQMechanismCard viewModel={viewModel} />
-      <EQRealitySceneCards viewModel={viewModel} />
-      <EQCareerEnvironmentLens viewModel={viewModel} />
-      <EQActionPrescription viewModel={viewModel} />
-      <EQSJTBridgeCTA viewModel={viewModel} />
+      {lowConfidence ? (
+        <>
+          <EQQualityBanner viewModel={viewModel} />
+          {viewModel.interpretation.action_prescription_id === "retest_reflection" ? (
+            <EQActionPrescription viewModel={viewModel} />
+          ) : null}
+        </>
+      ) : (
+        <>
+          <EQEvidenceSnapshot viewModel={viewModel} />
+          <EQResultDepthModules viewModel={viewModel} />
+          <EQQualityBanner viewModel={viewModel} />
+          <EQEmotionalMatrix viewModel={viewModel} />
+          <EQMechanismCard viewModel={viewModel} />
+          <EQRealitySceneCards viewModel={viewModel} />
+          <EQCareerEnvironmentLens viewModel={viewModel} />
+          <EQActionPrescription viewModel={viewModel} />
+          <EQSJTBridgeCTA viewModel={viewModel} />
+        </>
+      )}
       <EQScientificBoundary viewModel={viewModel} />
-      <EQCrossAssessmentContext viewModel={viewModel} />
+      {lowConfidence ? null : <EQCrossAssessmentContext viewModel={viewModel} />}
       <EQSaveShareRelated
         viewModel={viewModel}
         attemptId={attemptId}

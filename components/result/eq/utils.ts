@@ -8,6 +8,9 @@ import type {
   EqCommercialConversionActionAsset,
   EqCrossAssessmentContextAsset,
   EqCoreFormulationAsset,
+  EqDimensionRanking,
+  EqDimensionRankingEntry,
+  EqDimensionRankingStatus,
   EqV5AssetRefs,
   EqMechanismAsset,
   EqPsychometricEvidenceAsset,
@@ -53,6 +56,37 @@ function stringArray(value: unknown): string[] {
   return Array.isArray(value)
     ? value.map((item) => text(item)).filter(Boolean)
     : [];
+}
+
+const DIMENSION_RANKING_STATUSES = new Set<EqDimensionRankingStatus>([
+  "unique",
+  "tie",
+  "suppressed",
+  "unavailable",
+]);
+
+function normalizeDimensionRankingEntry(value: unknown): EqDimensionRankingEntry | null {
+  const record = asRecord(value);
+  const status = text(record?.status) as EqDimensionRankingStatus;
+  if (!record || !DIMENSION_RANKING_STATUSES.has(status)) {
+    return null;
+  }
+
+  return {
+    status,
+    codes: stringArray(record.codes),
+  };
+}
+
+function normalizeDimensionRanking(value: unknown): EqDimensionRanking | undefined {
+  const record = asRecord(value);
+  const strongest = normalizeDimensionRankingEntry(record?.strongest);
+  const development = normalizeDimensionRankingEntry(record?.development);
+  if (!strongest || !development) {
+    return undefined;
+  }
+
+  return { strongest, development };
 }
 
 function normalizeDimensionScore(value: unknown, fallbackCode?: string): EqV5DimensionScore | null {
@@ -267,6 +301,7 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       core_formulation_id: text(payload.interpretation?.core_formulation_id),
       strongest_dimension: text(payload.interpretation?.strongest_dimension),
       development_lever: text(payload.interpretation?.development_lever),
+      dimension_ranking: normalizeDimensionRanking(payload.interpretation?.dimension_ranking),
       primary_mechanism_ids: stringArray(payload.interpretation?.primary_mechanism_ids),
       primary_scene_ids: stringArray(payload.interpretation?.primary_scene_ids),
       career_environment_ids: stringArray(payload.interpretation?.career_environment_ids),
