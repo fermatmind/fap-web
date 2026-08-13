@@ -28,6 +28,7 @@ export type TestLandingCmsEnrichment = {
 
 const TEST_DETAIL_CMS_LANDING_SURFACE_KEYS: Partial<Record<string, string>> = {
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: "test_detail_mbti_personality_test_16_personality_types",
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: "test_detail_big_five_personality_test_ocean_model",
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: "test_detail_holland_career_interest_test_riasec",
 };
 
