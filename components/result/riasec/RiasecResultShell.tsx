@@ -199,11 +199,27 @@ export function RiasecResultShell({
             {formatRiasecOccupationPolicy(trustedCard.occupationExamplesPolicy, locale)}
           </p>
         ) : null}
-        {viewModel.qualityGrade !== "A" || viewModel.qualityFlags.length > 0 ? (
-          <p className="mt-[var(--fm-space-3)] text-sm text-amber-700">
-            {isZh ? "作答质量提示" : "Response quality"}: {viewModel.qualityGrade}
-            {viewModel.qualityFlags.length > 0 ? ` · ${viewModel.qualityFlags.map((flag) => formatRiasecQualityFlag(flag, locale)).filter(Boolean).join(isZh ? "、" : ", ")}` : ""}
-          </p>
+        {viewModel.qualityDisplay ? (
+          <section className="mt-[var(--fm-space-4)] rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950" data-testid="riasec-quality-display">
+            <h2 className="font-semibold">{viewModel.qualityDisplay.headline}</h2>
+            {viewModel.qualityDisplay.reasons.length > 0 ? (
+              <div className="mt-3">
+                <div className="font-medium">{isZh ? "为什么会有这条提示" : "Why this note appears"}</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {viewModel.qualityDisplay.reasons.map((reason) => <li key={reason}>{reason}</li>)}
+                </ul>
+              </div>
+            ) : null}
+            {viewModel.qualityDisplay.improvements.length > 0 ? (
+              <div className="mt-3">
+                <div className="font-medium">{isZh ? "如何让下次结果更稳定" : "How to improve a future result"}</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5">
+                  {viewModel.qualityDisplay.improvements.map((improvement) => <li key={improvement}>{improvement}</li>)}
+                </ul>
+              </div>
+            ) : null}
+            {viewModel.qualityDisplay.readingBoundary ? <p className="mt-3 text-amber-800">{viewModel.qualityDisplay.readingBoundary}</p> : null}
+          </section>
         ) : null}
         <div className="mt-[var(--fm-space-5)] flex flex-wrap gap-3">
           {showShareAction ? (
@@ -503,18 +519,6 @@ function formatRiasecSourceStatus(value: string, locale: Locale): string {
   }
 
   return locale === "zh" ? "后端内容示例" : "Backend content example";
-}
-
-function formatRiasecQualityFlag(value: string, locale: Locale): string {
-  if (value === "attention_flag") {
-    return locale === "zh" ? "存在注意力检查提示" : "attention check notice";
-  }
-
-  if (!value || /[_A-Z]/.test(value)) {
-    return "";
-  }
-
-  return value;
 }
 
 function formatRiasecActivityFamily(value: string, locale: Locale): string {

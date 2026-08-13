@@ -368,6 +368,83 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();
   });
 
+  it("renders localized quality reasons and actions without exposing raw grades or flags", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.quality = {
+      grade: "C",
+      flags: ["idealization", "low_consistency"],
+      quality_state: "caution",
+      low_quality_strength: "quality_flags_available",
+      display_v1: {
+        schema_version: "riasec.quality_display.v1",
+        locale: "zh-CN",
+        headline: "作答质量提示较明显，本次仅作初步线索，建议状态稳定时重测",
+        reasons: ["部分回答可能偏向理想状态，而不是你通常会做出的选择。"],
+        improvements: ["重测时请选择最接近日常状态的答案，而不是你认为更理想或更受期待的答案。"],
+        reading_boundary: "质量提示只说明本次作答的可读性，不评价你的能力、人格或个人价值。",
+      },
+    };
+
+    render(<RiasecResultShell locale="zh" attemptId="attempt-quality" viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+
+    const quality = screen.getByTestId("riasec-quality-display");
+    expect(quality).toHaveTextContent("本次仅作初步线索");
+    expect(quality).toHaveTextContent("为什么会有这条提示");
+    expect(quality).toHaveTextContent("偏向理想状态");
+    expect(quality).toHaveTextContent("如何让下次结果更稳定");
+    expect(quality).toHaveTextContent("最接近日常状态");
+    expect(quality).toHaveTextContent("不评价你的能力、人格或个人价值");
+    expect(quality).not.toHaveTextContent("idealization");
+    expect(quality).not.toHaveTextContent("low_consistency");
+    expect(quality).not.toHaveTextContent("C ·");
+  });
+
+  it("fails closed on malformed or cross-locale quality display payloads", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.quality = {
+      grade: "C",
+      flags: ["idealization"],
+      quality_state: "caution",
+      display_v1: {
+        schema_version: "riasec.quality_display.v1",
+        locale: "zh-CN",
+        headline: "不应出现在英文页",
+        reasons: ["中文原因"],
+        improvements: ["中文建议"],
+        reading_boundary: "中文边界",
+      },
+    };
+
+    const enViewModel = assembleRiasecResultViewModel(report, "en");
+    expect(enViewModel.qualityDisplay).toBeNull();
+    render(<RiasecResultShell locale="en" attemptId="attempt-quality-en" viewModel={enViewModel} />);
+    expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
+    expect(document.body).not.toHaveTextContent("idealization");
+    expect(document.body).not.toHaveTextContent("不应出现在英文页");
+
+    const malformed = cloneReport(report);
+    const malformedQuality = ((malformed.riasec_public_projection_v2 as Record<string, unknown>).quality as Record<string, unknown>);
+    malformedQuality.display_v1 = {
+      schema_version: "unknown.schema",
+      locale: "zh-CN",
+      headline: "不可信标题",
+      reading_boundary: "不可信边界",
+    };
+    expect(assembleRiasecResultViewModel(malformed, "zh").qualityDisplay).toBeNull();
+
+    malformedQuality.display_v1 = {
+      schema_version: "riasec.quality_display.v1",
+      locale: "zh-CN",
+      headline: "作答质量已降级",
+      reasons: [],
+      improvements: [],
+      reading_boundary: "只说明可读性。",
+    };
+    expect(assembleRiasecResultViewModel(malformed, "zh").qualityDisplay).toBeNull();
+  });
+
   it("suppresses RIASEC debug labels and raw keys from visible result output", () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;

@@ -7,6 +7,15 @@ export type RiasecDimension = {
   score: number;
 };
 
+export type RiasecQualityDisplay = {
+  schemaVersion: string;
+  locale: string;
+  headline: string;
+  reasons: string[];
+  improvements: string[];
+  readingBoundary: string;
+};
+
 export type RiasecTrustedResultCard = {
   schemaVersion: string;
   projectionVersion: string;
@@ -290,6 +299,7 @@ export type RiasecResultViewModel = {
   breadthIndex: number;
   qualityGrade: string;
   qualityFlags: string[];
+  qualityDisplay: RiasecQualityDisplay | null;
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
   interpretationState: RiasecInterpretationState | null;
@@ -337,6 +347,43 @@ function normalizeRiasecContentLocale(value: unknown): Locale | null {
   }
 
   return null;
+}
+
+function buildQualityDisplay(
+  raw: Record<string, unknown> | null,
+  requestedPageLocale: Locale,
+  qualityState: string,
+  qualityGrade: string
+): RiasecQualityDisplay | null {
+  if (!raw || normalizeText(raw.schema_version) !== "riasec.quality_display.v1") {
+    return null;
+  }
+
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  if (normalizeText(raw.locale) !== expectedLocale) {
+    return null;
+  }
+
+  const headline = normalizeText(raw.headline);
+  const readingBoundary = normalizeText(raw.reading_boundary);
+  const reasons = normalizeStringList(raw.reasons);
+  const improvements = normalizeStringList(raw.improvements);
+  if (!headline || !readingBoundary) {
+    return null;
+  }
+  const isDegraded = qualityState !== "normal" || qualityGrade !== "A";
+  if (isDegraded && (reasons.length === 0 || improvements.length === 0)) {
+    return null;
+  }
+
+  return {
+    schemaVersion: "riasec.quality_display.v1",
+    locale: expectedLocale,
+    headline,
+    reasons,
+    improvements,
+    readingBoundary,
+  };
 }
 
 function isRiasecFormCode(value: string): value is "riasec_60" | "riasec_140" {
@@ -476,6 +523,7 @@ export function assembleRiasecResultViewModel(
   const v2Form = asRecord(projectionV2?.form);
   const v2MeasurementEvidence = asRecord(projectionV2?.measurement_evidence);
   const v2Quality = asRecord(projectionV2?.quality);
+  const v2QualityDisplay = asRecord(v2Quality?.display_v1);
   const v2ContentBoundary = asRecord(projectionV2?.content_boundary);
   const v2Scores = asRecord(projectionV2?.scores);
   const v2ActivityExplorer = asRecord(projectionV2?.activity_explorer_v0_1);
@@ -509,6 +557,8 @@ export function assembleRiasecResultViewModel(
     : Array.isArray(projection.quality_flags)
       ? projection.quality_flags.map((flag) => normalizeText(flag)).filter(Boolean)
       : [];
+  const qualityGrade = normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A";
+  const qualityState = normalizeText(v2Quality?.quality_state);
 
   return {
     topCode,
@@ -526,8 +576,9 @@ export function assembleRiasecResultViewModel(
     tertiaryType: normalizeText(v2HollandCode?.tertiary_type) || normalizeText(projection.tertiary_type),
     clarityIndex: normalizeNumber(projection.clarity_index),
     breadthIndex: normalizeNumber(projection.breadth_index),
-    qualityGrade: normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A",
+    qualityGrade,
     qualityFlags,
+    qualityDisplay: buildQualityDisplay(v2QualityDisplay, requestedPageLocale, qualityState, qualityGrade),
     dimensions,
     trustedResultCard: projectionV2
       ? {
