@@ -129,19 +129,21 @@ describe("Big Five V2 expanded route-driven rendered cases", () => {
 
   it.each(canonicalCases.flatMap((goldenCase) =>
     TESTED_VIEWPORTS.map(([viewport, width]) => [goldenCase.case_id, goldenCase, viewport, width] as const)
-  ))("%s renders canonical route-driven payload on %s without metadata leaks", (_caseId, goldenCase, _viewport, width) => {
+  ))("%s fails closed on %s without publishing candidate assets or metadata", (_caseId, goldenCase, _viewport, width) => {
     const envelope = PROFILE_FIXTURES[goldenCase.profile_family];
     expect(envelope).toBeDefined();
     window.innerWidth = width;
 
     render(<RichResultReport locale="zh" reportData={createReport(envelope)} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "unavailable");
+    expect(screen.getByTestId("big5-core-summary-unavailable")).toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
     for (const term of mustRenderTerms(envelope)) {
-      expect(text).toContain(term);
+      expect(text).not.toContain(term);
     }
 
     for (const term of [...MUST_NOT_RENDER_TERMS, ...goldenCase.metadata_non_leak_terms]) {
@@ -149,6 +151,8 @@ describe("Big Five V2 expanded route-driven rendered cases", () => {
     }
 
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
+    expect(text).not.toContain("此模块暂未启用");
+    expect(text).not.toContain("pending_asset_resolution");
   });
 
   it("keeps expanded non-result-page surfaces covered by backend fixture handoff evidence", () => {

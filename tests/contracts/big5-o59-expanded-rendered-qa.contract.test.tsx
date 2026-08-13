@@ -49,37 +49,6 @@ function visibleTokens(): string[] {
     .filter(Boolean);
 }
 
-function expectVisibleTerm(text: string, term: string) {
-  if (term === "O59 / C32 / E20 / A55 / N68") {
-    for (const scoreTerm of ["O59", "C32", "E20", "A55", "N68"]) {
-      expect(text).toContain(scoreTerm);
-    }
-    return;
-  }
-
-  if (term === "不用于心理治疗") {
-    expect(text).toMatch(/不用于[^。]*心理治疗/);
-    return;
-  }
-
-  if (term === "不用于招聘筛选") {
-    expect(text).toMatch(/不用于[^。]*招聘筛选/);
-    return;
-  }
-
-  if (term === "个人成长") {
-    expect(text).toMatch(/个人成长|成长行动|growth\/action/u);
-    return;
-  }
-
-  if (term === "方法与边界说明") {
-    expect(text).toMatch(/方法与边界说明|方法与隐私|中文方法边界/u);
-    return;
-  }
-
-  expect(text).toContain(term);
-}
-
 function expectForbiddenTermAbsent(text: string, term: string) {
   if (term === "all") {
     expect(visibleTokens()).not.toContain("all");
@@ -122,23 +91,30 @@ describe("Big Five V2 O59 expanded rendered QA contract", () => {
     }
   });
 
-  it.each(TESTED_SURFACES)("%s satisfies the expanded O59 visible text and banned term matrix", (surfaceKey) => {
+  it.each(TESTED_SURFACES)("%s fails closed to the verified O59 five-domain core", (surfaceKey) => {
     const surface = surfacesByKey()[surfaceKey];
     window.innerWidth = surfaceKey === "result_page_mobile" ? 390 : 1440;
 
     render(<RichResultReport locale="zh" reportData={createO59Report()} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "v2");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
-    for (const term of surface.expected_visible_terms) {
-      expectVisibleTerm(text, term);
+    for (const scoreTerm of ["59", "32", "20", "55", "68"]) {
+      expect(text).toContain(scoreTerm);
+    }
+    for (const term of ["敏锐的独立思考者", "高敏感 × 中高开放 × 克制进入", "30 / 60 / 90 天路径", "方法与边界说明"]) {
+      expect(text).not.toContain(term);
     }
 
     for (const term of [...surface.forbidden_visible_terms, ...surface.metadata_leak_terms]) {
       expectForbiddenTermAbsent(text, term);
     }
+    expect(text).not.toContain("此模块暂未启用");
+    expect(text).not.toContain("pending_asset_resolution");
   });
 
   it("treats secondary surfaces as covered only through backend fixture and rendered contract evidence", () => {

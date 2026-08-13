@@ -113,17 +113,19 @@ function mustRenderTerms(envelope: RouteDrivenEnvelope): string[] {
 describe("Big Five V2 result-page-only public pilot contract", () => {
   it.each(PUBLIC_RESULT_PAGE_FIXTURES.flatMap((fixture) =>
     TESTED_VIEWPORTS.map(([viewport, width]) => [fixture.key, fixture.envelope, viewport, width] as const)
-  ))("%s renders public pilot result page on %s without legacy fallback or metadata leaks", (_fixtureKey, envelope, _viewport, width) => {
+  ))("%s fails closed on %s without publishing candidate assets or metadata", (_fixtureKey, envelope, _viewport, width) => {
     window.innerWidth = width;
 
     render(<RichResultReport locale="zh" reportData={createPublicPilotReport(envelope)} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "unavailable");
+    expect(screen.getByTestId("big5-core-summary-unavailable")).toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
     for (const term of mustRenderTerms(envelope)) {
-      expect(text).toContain(term);
+      expect(text).not.toContain(term);
     }
 
     for (const term of MUST_NOT_RENDER_TERMS) {
@@ -131,6 +133,8 @@ describe("Big Five V2 result-page-only public pilot contract", () => {
     }
 
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
+    expect(text).not.toContain("此模块暂未启用");
+    expect(text).not.toContain("pending_asset_resolution");
   });
 
   it("keeps PDF, share card, history, and compare covered by backend fixture handoff evidence", () => {

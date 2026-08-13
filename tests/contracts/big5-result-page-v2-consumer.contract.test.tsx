@@ -3,7 +3,9 @@ import { describe, expect, it } from "vitest";
 import { canRenderRichResultReport, RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import {
+  assessBig5ResultPageV2Payload,
   BIG5_RESULT_PAGE_V2_PAYLOAD_KEY,
+  getBig5ResultPageV2SemanticDecision,
   getBig5ResultPageV2Payload,
   parseBig5ResultPageV2Payload,
 } from "@/lib/big5/resultPageV2";
@@ -107,7 +109,7 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
   });
 
-  it("rejects unknown module keys and falls back without synthetic V2 copy", () => {
+  it("rejects unknown module keys and exposes only the reliable legacy five-domain core", () => {
     const payload = createCanonicalPayload();
     payload.modules = [
       ...payload.modules,
@@ -120,29 +122,40 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     render(<RichResultReport locale="zh" reportData={withResultPageV2(payload)} />);
 
     expect(getBig5ResultPageV2Payload(withResultPageV2(payload))).toBeNull();
-    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(payload)).mode).toBe("reject");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
   });
 
-  it("rejects unknown block kinds and falls back without synthetic V2 copy", () => {
+  it("rejects unknown block kinds and exposes only the reliable legacy five-domain core", () => {
     const payload = createCanonicalPayload();
     payload.modules[0].blocks[0].block_kind = "unsupported_interpretation";
 
     render(<RichResultReport locale="zh" reportData={withResultPageV2(payload)} />);
 
     expect(getBig5ResultPageV2Payload(withResultPageV2(payload))).toBeNull();
-    expect(screen.getByTestId("big5-result-shell")).toBeInTheDocument();
+    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(payload)).mode).toBe("reject");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
   });
 
-  it("renders deferred modules with neutral unavailable UI only", () => {
+  it("fails closed when a method block is empty and never publishes placeholder UI", () => {
     const payload = createCanonicalPayload();
     payload.modules[5].blocks[0].content = {};
 
     render(<RichResultReport locale="zh" reportData={withResultPageV2(payload)} />);
 
-    expect(screen.getAllByTestId("big5-v2-deferred").length).toBeGreaterThan(0);
-    expect(screen.getAllByTestId("big5-v2-deferred")[0]).toHaveTextContent("此模块暂未启用");
+    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(payload)).mode).toBe("reject");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-v2-deferred")).not.toBeInTheDocument();
+    expect(screen.queryByText("此模块暂未启用")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByText(/根据你的分数/)).not.toBeInTheDocument();
     expect(screen.queryByText(/你可能是/)).not.toBeInTheDocument();
   });
@@ -183,12 +196,33 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(parseBig5ResultPageV2Payload(payload)).toBeNull();
   });
 
-  it("renders low-quality payloads through the V2 path without adding long-copy fallback", () => {
+  it("rejects low-quality payloads and exposes only the reliable legacy five-domain core", () => {
     render(<RichResultReport locale="zh" reportData={withResultPageV2(createLowQualityPayload())} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("big5-v2-module-module_00_trust_bar")).toBeInTheDocument();
+    expect(getBig5ResultPageV2SemanticDecision(withResultPageV2(createLowQualityPayload())).mode).toBe("reject");
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "legacy");
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByText(/根据你的分数/)).not.toBeInTheDocument();
     expect(screen.queryByText(/你的性格说明/)).not.toBeInTheDocument();
+  });
+
+  it("rejects a missing core dimension and an unrecoverable candidate", () => {
+    const missingDimension = createCanonicalPayload() as MutableBig5ResultPageV2Fixture & {
+      projection_v2: { domains?: Record<string, unknown> };
+    };
+    const projection = missingDimension.projection_v2 as unknown as { domains: Record<string, unknown> };
+    delete projection.domains.N;
+
+    expect(assessBig5ResultPageV2Payload(missingDimension)).toMatchObject({
+      mode: "reject",
+      reasons: expect.arrayContaining(["core_projection_cardinality_invalid"]),
+    });
+    expect(assessBig5ResultPageV2Payload({ schema_version: "broken" })).toEqual({
+      mode: "reject",
+      payload: null,
+      reasons: ["v2_shape_invalid"],
+    });
   });
 });

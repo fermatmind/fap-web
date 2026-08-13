@@ -96,18 +96,20 @@ describe("Big Five V2 pilot rendered QA contract", () => {
     expect(pilotRenderedQaReport.ready_for_production).toBe(false);
   });
 
-  it.each(TESTED_SURFACES)("%s renders the pilot payload without fallback, metadata, or anti-target leaks", (surfaceKey) => {
+  it.each(TESTED_SURFACES)("%s fails closed without publishing pilot candidates or metadata", (surfaceKey) => {
     const surface = surfacesByKey()[surfaceKey];
     window.innerWidth = surface.viewport_width ?? 1440;
 
     render(<RichResultReport locale="zh" reportData={createPilotReport()} />);
 
-    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "unavailable");
+    expect(screen.getByTestId("big5-core-summary-unavailable")).toBeInTheDocument();
+    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
     for (const term of surface.expected_visible_terms ?? []) {
-      expect(text).toContain(term);
+      expect(text).not.toContain(term);
     }
 
     for (const term of surface.forbidden_visible_terms ?? []) {
@@ -115,6 +117,8 @@ describe("Big Five V2 pilot rendered QA contract", () => {
     }
 
     expect(text).not.toContain("FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER");
+    expect(text).not.toContain("此模块暂未启用");
+    expect(text).not.toContain("pending_asset_resolution");
   });
 
   it("claims secondary surface coverage only with backend fixture and fap-web rendered contract evidence", () => {
