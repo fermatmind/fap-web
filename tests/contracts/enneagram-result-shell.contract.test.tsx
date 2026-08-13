@@ -1582,6 +1582,7 @@ describe("enneagram result shell contract", () => {
     expect(summary).toBeDefined();
     if (summary) {
       summary.content = {
+        locale: "zh",
         core_desire: "partial deep dive",
       };
     }

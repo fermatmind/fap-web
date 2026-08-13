@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   isEnneagramPrivateEnvelopeLocaleCompatible,
+  isEnneagramPrivateResultContractInvalid,
   isEnneagramPrivateResultLocaleCompatible,
   isEnneagramPrivateSurfaceLocaleCompatible,
   isSafeEnneagramPrivateText,
@@ -45,5 +46,25 @@ describe("W5 Enneagram private-result locale boundary", () => {
 
   it("never translates a missing English slot on the frontend", () => {
     expect(readEnneagramPrivateLocalizedText({ locale: "en", body_zh: "中文 slot" }, "body", "en")).toBeNull();
+  });
+
+  it("requires every Enneagram response not explicitly generating to carry a valid localized V2", () => {
+    const valid = {
+      ...createEnvelope("en"),
+      scale_code: "ENNEAGRAM",
+      generating: false,
+    };
+
+    expect(isEnneagramPrivateResultContractInvalid(valid, "en")).toBe(false);
+    expect(isEnneagramPrivateResultContractInvalid(valid, "zh")).toBe(true);
+    expect(isEnneagramPrivateResultContractInvalid({ ...valid, generating: true }, "en")).toBe(false);
+    expect(isEnneagramPrivateResultContractInvalid({ ...valid, generating: undefined }, "en")).toBe(false);
+    expect(isEnneagramPrivateResultContractInvalid({ ...valid, enneagram_report_v2: undefined }, "en")).toBe(true);
+    expect(
+      isEnneagramPrivateResultContractInvalid(
+        { ...valid, generating: undefined, enneagram_report_v2: { locale: "en", pages: [] } },
+        "en"
+      )
+    ).toBe(true);
   });
 });
