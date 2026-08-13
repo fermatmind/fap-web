@@ -16,6 +16,7 @@ describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
     expect(source).toContain("getFlagshipFreeTestCopy(test.scale_code, locale)");
     expect(source).toContain("loadTestLandingData(locale, slug)");
     expect(cmsEnrichmentSource).toContain('"test_detail_mbti_personality_test_16_personality_types"');
+    expect(cmsEnrichmentSource).toContain('"test_detail_big_five_personality_test_ocean_model"');
     expect(cmsEnrichmentSource).toContain('"test_detail_holland_career_interest_test_riasec"');
     expect(source).toContain("MBTI免费测试｜16型人格测试");
     expect(source).toContain("大五人格免费测试｜Big Five人格测试");
