@@ -113,6 +113,7 @@ function buildRiasecReport(): ReportResponse {
           profile_shape: "backend_owned",
           near_tie_state: "backend_owned",
           alternate_code: "backend_owned",
+          tie_display_v1: "backend_owned",
           top_code_confidence: "backend_owned",
           reading_strength: "backend_owned",
         },
@@ -400,6 +401,89 @@ describe("RIASEC trusted result shell", () => {
     expect(quality).not.toHaveTextContent("C ·");
   });
 
+  it.each([
+    ["exact_tie", "RIA（并列：R/I）", "这些维度本次得分相同", []],
+    ["near_tie", "RIA（R、I接近）", "不宜据此强调先后顺序", ["IRA"]],
+    ["none", "RIA", "本次较突出的兴趣维度包括", []],
+  ] as const)("renders backend-owned %s hero without false ordering precision", (kind, headline, note, alternateCodes) => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind,
+      position: kind === "exact_tie" ? "exact_groups" : kind === "near_tie" ? "top1_top2_near_tie" : "none",
+      dimensions: kind === "exact_tie" ? ["R", "I"] : kind === "near_tie" ? ["R", "I"] : [],
+      groups: kind === "exact_tie" ? [["R", "I"]] : [],
+      ordered_code: "RIA",
+      alternate_codes: alternateCodes,
+      ordering_precision_claim_allowed: false,
+      display_copy: {
+        headline,
+        note: kind === "exact_tie" ? "这些维度本次得分相同，字母顺序不代表高低。" : kind === "near_tie" ? "这些维度分数接近，不宜据此强调先后顺序。" : "",
+        boundary: kind === "none" ? "" : "只描述本次兴趣分数，不代表能力或职业结论。",
+      },
+    };
+
+    render(<RiasecResultShell locale="zh" attemptId={`attempt-${kind}`} viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(headline);
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent(note);
+    expect(screen.getByTestId("riasec-trusted-result-card")).not.toHaveTextContent("依次是");
+    if (alternateCodes.length > 0) {
+      expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("IRA");
+    }
+  });
+
+  it.each([
+    ["wrong locale", { locale: "en" }],
+    ["code mismatch", { ordered_code: "RIC" }],
+    ["duplicate dimension", { dimensions: ["R", "R"] }],
+    ["position mismatch", { position: "top_two_three" }],
+    ["invalid alternate code", { alternate_codes: ["RRR"] }],
+  ])("fails closed on %s tie display payload", (_label, override) => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind: "near_tie",
+      position: "top1_top2_near_tie",
+      dimensions: ["R", "I"],
+      groups: [],
+      ordered_code: "RIA",
+      alternate_codes: ["IRA"],
+      ordering_precision_claim_allowed: false,
+      display_copy: { headline: "RIA（R、I接近）", note: "不宜据此强调先后顺序。", boundary: "暂定阅读阈值。" },
+      ...override,
+    };
+
+    expect(assembleRiasecResultViewModel(report, "zh").interpretationState?.tieDisplay).toBeNull();
+  });
+
+  it("renders a backend-owned three-dimension near tie with only the allowed alternate orders", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    const interpretation = projection.interpretation_state as Record<string, unknown>;
+    interpretation.tie_display_v1 = {
+      schema_version: "riasec.tie_display.v1",
+      locale: "zh-CN",
+      kind: "near_tie",
+      position: "multi_near_tie",
+      dimensions: ["R", "I", "A"],
+      groups: [],
+      ordered_code: "RIA",
+      alternate_codes: ["IRA", "RAI"],
+      ordering_precision_claim_allowed: false,
+      display_copy: { headline: "RIA（R、I、A接近）", note: "不宜据此强调先后顺序。", boundary: "暂定阅读阈值。" },
+    };
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.interpretationState?.tieDisplay).toMatchObject({ position: "multi_near_tie", alternateCodes: ["IRA", "RAI"] });
+  });
+
   it("fails closed on malformed or cross-locale quality display payloads", () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
@@ -660,7 +744,7 @@ describe("RIASEC trusted result shell", () => {
       />
     );
 
-    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("你的前三个兴趣维度依次是");
+    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("本次较突出的兴趣维度包括");
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-governed-copy-surface")).toHaveTextContent("内容示例，非职业数据库匹配");
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("content_example_not_registry_match");

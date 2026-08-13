@@ -45,6 +45,19 @@ export type RiasecInterpretationState = {
     displayBoundary: string;
   };
   alternateCodeReason: string | null;
+  tieDisplay: {
+    schemaVersion: string;
+    kind: "none" | "exact_tie" | "near_tie";
+    position: string;
+    dimensions: string[];
+    groups: string[][];
+    orderedCode: string;
+    alternateCodes: string[];
+    orderingPrecisionClaimAllowed: false;
+    headline: string;
+    note: string;
+    boundary: string;
+  } | null;
   topCodeConfidence: {
     level: string;
     meaning: string;
@@ -603,7 +616,7 @@ export function assembleRiasecResultViewModel(
           validationStatus: normalizeText(v2MeasurementEvidence?.validation_status),
         }
       : null,
-    interpretationState: buildInterpretationState(v2InterpretationState),
+    interpretationState: buildInterpretationState(v2InterpretationState, requestedPageLocale, topCode),
     moduleVisibilityPolicy: buildModuleVisibilityPolicy(v2ModuleVisibilityPolicy),
     deepContentSlots: buildDeepContentSlots(v2DeepContentSlots, {
       requestedPageLocale,
@@ -641,13 +654,19 @@ export function getRiasecModuleVisibility(
   return moduleState?.visibility ?? "hidden";
 }
 
-function buildInterpretationState(rawState: Record<string, unknown> | null): RiasecInterpretationState | null {
+function buildInterpretationState(
+  rawState: Record<string, unknown> | null,
+  requestedPageLocale: Locale,
+  topCode: string
+): RiasecInterpretationState | null {
   if (!rawState) {
     return null;
   }
 
   const nearTieState = asRecord(rawState.near_tie_state) ?? {};
   const alternateCode = asRecord(rawState.alternate_code) ?? {};
+  const rawTieDisplay = asRecord(rawState.tie_display_v1);
+  const rawTieCopy = asRecord(rawTieDisplay?.display_copy);
   const topCodeConfidence = asRecord(rawState.top_code_confidence) ?? {};
   const resultPageStrategy = asRecord(rawState.result_page_strategy) ?? {};
   const rawFieldAuthority = asRecord(rawState.field_authority) ?? {};
@@ -667,6 +686,7 @@ function buildInterpretationState(rawState: Record<string, unknown> | null): Ria
       displayBoundary: normalizeText(alternateCode.display_boundary),
     },
     alternateCodeReason: normalizeText(rawState.alternate_code_reason) || null,
+    tieDisplay: buildTieDisplay(rawTieDisplay, rawTieCopy, rawFieldAuthority, requestedPageLocale, topCode),
     topCodeConfidence: {
       level: normalizeText(topCodeConfidence.level),
       meaning: normalizeText(topCodeConfidence.meaning),
@@ -682,6 +702,77 @@ function buildInterpretationState(rawState: Record<string, unknown> | null): Ria
         .map(([key, value]) => [key, normalizeText(value)])
         .filter(([, value]) => Boolean(value))
     ),
+  };
+}
+
+function buildTieDisplay(
+  rawTieDisplay: Record<string, unknown> | null,
+  rawTieCopy: Record<string, unknown> | null,
+  rawFieldAuthority: Record<string, unknown>,
+  requestedPageLocale: Locale,
+  topCode: string
+): RiasecInterpretationState["tieDisplay"] {
+  if (!rawTieDisplay || !rawTieCopy) return null;
+
+  const kind = normalizeText(rawTieDisplay.kind);
+  const position = normalizeText(rawTieDisplay.position);
+  const dimensions = normalizeStringList(rawTieDisplay.dimensions);
+  const groups = Array.isArray(rawTieDisplay.groups)
+    ? rawTieDisplay.groups.map((group) => normalizeStringList(group)).filter((group) => group.length > 0)
+    : [];
+  const orderedCode = normalizeText(rawTieDisplay.ordered_code);
+  const alternateCodes = normalizeStringList(rawTieDisplay.alternate_codes);
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  const isDimension = (value: string) => /^[RIASEC]$/.test(value);
+  const isCode = (value: string) => /^[RIASEC]{3}$/.test(value) && new Set(value).size === 3;
+  const matches = (expected: string[]) => dimensions.length === expected.length && dimensions.every((value, index) => value === expected[index]);
+  const codesMatch = (expected: string[]) => alternateCodes.length === expected.length && alternateCodes.every((value, index) => value === expected[index]);
+  const flattenedGroups = groups.flat();
+  const commonValid =
+    normalizeText(rawTieDisplay.schema_version) === "riasec.tie_display.v1" &&
+    normalizeText(rawTieDisplay.locale) === expectedLocale &&
+    normalizeText(rawFieldAuthority.tie_display_v1) === "backend_owned" &&
+    ["none", "exact_tie", "near_tie"].includes(kind) &&
+    rawTieDisplay.ordering_precision_claim_allowed === false &&
+    isCode(orderedCode) && orderedCode === topCode &&
+    dimensions.every(isDimension) && new Set(dimensions).size === dimensions.length &&
+    groups.every((group) => group.length >= 2 && group.every(isDimension) && new Set(group).size === group.length) &&
+    alternateCodes.every(isCode) && new Set(alternateCodes).size === alternateCodes.length &&
+    Boolean(normalizeText(rawTieCopy.headline));
+
+  let shapeValid = false;
+  if (kind === "none") {
+    shapeValid = position === "none" && dimensions.length === 0 && groups.length === 0 && alternateCodes.length === 0;
+  } else if (kind === "exact_tie") {
+    shapeValid = position === "exact_groups" && alternateCodes.length === 0 && groups.length > 0 &&
+      flattenedGroups.length === dimensions.length && flattenedGroups.every((value, index) => value === dimensions[index]) && (
+      groups.every((group) => group.some((value) => orderedCode.includes(value)))
+    );
+  } else if (kind === "near_tie") {
+    shapeValid = groups.length === 0 && (
+      (position === "top1_top2_near_tie" && matches([orderedCode[0], orderedCode[1]]) && codesMatch([`${orderedCode[1]}${orderedCode[0]}${orderedCode[2]}`])) ||
+      (position === "top2_top3_near_tie" && matches([orderedCode[1], orderedCode[2]]) && codesMatch([`${orderedCode[0]}${orderedCode[2]}${orderedCode[1]}`])) ||
+      (position === "multi_near_tie" && matches(orderedCode.split("")) && codesMatch([
+        `${orderedCode[1]}${orderedCode[0]}${orderedCode[2]}`,
+        `${orderedCode[0]}${orderedCode[2]}${orderedCode[1]}`,
+      ]))
+    );
+  }
+
+  if (!commonValid || !shapeValid) return null;
+
+  return {
+    schemaVersion: "riasec.tie_display.v1",
+    kind: kind as "none" | "exact_tie" | "near_tie",
+    position,
+    dimensions,
+    groups,
+    orderedCode,
+    alternateCodes,
+    orderingPrecisionClaimAllowed: false,
+    headline: normalizeText(rawTieCopy.headline),
+    note: normalizeText(rawTieCopy.note),
+    boundary: normalizeText(rawTieCopy.boundary),
   };
 }
 

@@ -173,16 +173,26 @@ export function RiasecResultShell({
         <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
           {isZh ? "3 分钟结果卡" : "3-minute result card"}
         </div>
-        <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">{viewModel.topCode}</h1>
+        <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">
+          {viewModel.interpretationState?.tieDisplay?.headline || viewModel.topCode}
+        </h1>
         {formMeta ? (
           <p className="mt-[var(--fm-space-2)] text-sm font-medium text-[var(--fm-text-muted)]">{formMeta}</p>
         ) : null}
         {showHeroReading ? (
           <p className="mt-[var(--fm-space-3)] max-w-3xl text-base leading-7 text-[var(--fm-text-muted)]">
-            {isZh
-              ? `你的前三个兴趣维度依次是 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。清晰度指数 ${viewModel.clarityIndex}，兴趣广度 ${viewModel.breadthIndex}。`
-              : `Your top three interest dimensions are ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}. Clarity index ${viewModel.clarityIndex}, breadth index ${viewModel.breadthIndex}.`}
+            {viewModel.interpretationState?.tieDisplay?.note || (isZh
+              ? `本次较突出的兴趣维度包括 ${viewModel.primaryType}、${viewModel.secondaryType}、${viewModel.tertiaryType}。`
+              : `The more prominent dimensions in this result include ${viewModel.primaryType}, ${viewModel.secondaryType}, and ${viewModel.tertiaryType}.`)}
           </p>
+        ) : null}
+        {viewModel.interpretationState?.tieDisplay?.alternateCodes.length ? (
+          <p className="mt-2 text-sm text-[var(--fm-text-muted)]">
+            {isZh ? "可同时参考的阅读顺序" : "Additional reading order"}: {viewModel.interpretationState.tieDisplay.alternateCodes.join(" / ")}
+          </p>
+        ) : null}
+        {viewModel.interpretationState?.tieDisplay?.boundary ? (
+          <p className="mt-2 text-xs leading-5 text-[var(--fm-text-muted)]">{viewModel.interpretationState.tieDisplay.boundary}</p>
         ) : null}
         {boundaryRows.length > 0 ? (
           <dl className="mt-[var(--fm-space-5)] grid gap-3 sm:grid-cols-2" data-testid="riasec-measurement-boundary">
