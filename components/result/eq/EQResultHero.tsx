@@ -1,5 +1,6 @@
 import { AlertTriangle } from "lucide-react";
 import type { EqV5ViewModel } from "./types";
+import { localizeEqTechnicalValue } from "./localization";
 import { formatEqScore, isLowConfidenceEqResult } from "./utils";
 
 export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
@@ -47,7 +48,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           <div>
             <p className="text-xs text-slate-500">{locale === "zh" ? "解释置信度" : "Confidence"}</p>
             <p className="mt-1 text-2xl font-semibold uppercase text-slate-950">
-              {quality.confidence_label || quality.level}
+              {localizeEqTechnicalValue(quality.confidence_label || quality.level, locale) || "—"}
             </p>
           </div>
         </div>

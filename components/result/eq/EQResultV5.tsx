@@ -13,7 +13,6 @@ import { EQResultDepthModules } from "./EQResultDepthModules";
 import { EQResultHero } from "./EQResultHero";
 import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
-import { EQSJTBridgeCTA } from "./EQSJTBridgeCTA";
 import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader } from "./types";
 import { isEqV5AccessRestricted, isLowConfidenceEqResult, normalizeEqV5Report } from "./utils";
 
@@ -68,7 +67,6 @@ export function EQResultV5({
           <EQRealitySceneCards viewModel={viewModel} />
           <EQCareerEnvironmentLens viewModel={viewModel} />
           <EQActionPrescription viewModel={viewModel} />
-          <EQSJTBridgeCTA viewModel={viewModel} />
         </>
       )}
       <EQScientificBoundary viewModel={viewModel} />

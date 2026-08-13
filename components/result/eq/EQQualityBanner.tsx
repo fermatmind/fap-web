@@ -1,5 +1,6 @@
 import { Info } from "lucide-react";
 import type { EqV5ViewModel } from "./types";
+import { localizeEqQualityFlag, localizeEqTechnicalValue } from "./localization";
 
 export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { quality, assets, locale } = viewModel;
@@ -16,7 +17,10 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
         <h2 className="font-semibold">{locale === "zh" ? "结果解释置信度" : "Interpretation Confidence"}</h2>
         <p>
           {locale === "zh" ? "等级" : "Level"} {quality.level || "—"} ·{" "}
-          {confidence.label || quality.confidence_label || assets.quality.confidence_label || "—"}
+          {localizeEqTechnicalValue(
+            confidence.label || quality.confidence_label || assets.quality.confidence_label,
+            locale
+          ) || "—"}
         </p>
         {confidence.body ? <p className="leading-6">{confidence.body}</p> : null}
         {confidence.why_this_level ? (
@@ -37,7 +41,7 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
         {flags.length > 0 ? (
           <ul className="list-inside list-disc">
             {flags.map((flag) => (
-              <li key={flag}>{flag}</li>
+              <li key={flag}>{localizeEqQualityFlag(flag, locale)}</li>
             ))}
           </ul>
         ) : null}
