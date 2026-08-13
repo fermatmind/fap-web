@@ -5,7 +5,7 @@ import { notFound, permanentRedirect, redirect } from "next/navigation";
 import { resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { buildApiUrl } from "@/lib/api-base";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
-import { isBig5ScaleCode, normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
+import { isBig5ScaleCode, normalizeBig5FormCode, resolveProjectedBig5FormMeta } from "@/lib/big5/forms";
 import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -66,7 +66,12 @@ async function readRolloutIdentitySeed(): Promise<string | null> {
   return value || null;
 }
 
-async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promise<Record<string, unknown> | null> {
+type LookupRuntimeContext = {
+  capabilities: Record<string, unknown> | null;
+  forms: unknown;
+};
+
+async function fetchLookupRuntimeContext(slug: string, locale: "en" | "zh"): Promise<LookupRuntimeContext> {
   try {
     const response = await fetch(
       buildApiUrl(`/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`),
@@ -78,13 +83,16 @@ async function fetchLookupCapabilities(slug: string, locale: "en" | "zh"): Promi
         ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
-    if (!response.ok) return null;
+    if (!response.ok) return { capabilities: null, forms: null };
 
     const payload = (await response.json()) as Record<string, unknown>;
-    if (payload.ok === false) return null;
-    return (payload.capabilities as Record<string, unknown> | null | undefined) ?? null;
+    if (payload.ok === false) return { capabilities: null, forms: null };
+    return {
+      capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
+      forms: payload.forms ?? null,
+    };
   } catch {
-    return null;
+    return { capabilities: null, forms: null };
   }
 }
 
@@ -144,7 +152,6 @@ export default async function TakePage({
   const big5FormCode = isBig5ScaleCode(test.scale_code)
     ? normalizeBig5FormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
-  const big5FormMeta = big5FormCode ? resolveBig5FormMeta(big5FormCode) : null;
   const enneagramFormCode = isEnneagramScaleCode(test.scale_code)
     ? normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
@@ -183,7 +190,11 @@ export default async function TakePage({
     );
   }
 
-  const capabilities = await fetchLookupCapabilities(slug, locale);
+  const lookupRuntime = await fetchLookupRuntimeContext(slug, locale);
+  const capabilities = lookupRuntime.capabilities;
+  const big5FormMeta = big5FormCode
+    ? resolveProjectedBig5FormMeta(big5FormCode, lookupRuntime.forms)
+    : null;
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode,
     capabilities,

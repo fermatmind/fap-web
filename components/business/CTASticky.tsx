@@ -61,6 +61,7 @@ type CTAStickyProps = {
   primaryCtaLabel?: string | null;
   attributionParams?: AttributionParams;
   attributionPayload?: TrackingAttributionPayload;
+  forms?: unknown;
 };
 
 export function CTASticky({
@@ -73,6 +74,7 @@ export function CTASticky({
   primaryCtaLabel,
   attributionParams = {},
   attributionPayload = {},
+  forms,
 }: CTAStickyProps) {
   const showsMbtiActions = isMbtiScaleCode(scaleCode) || isMbtiSlug(slug);
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
@@ -80,6 +82,7 @@ export function CTASticky({
   const showsRiasecActions = isRiasecScaleCode(scaleCode) || isRiasecSlug(slug);
   const showsEqActions = String(scaleCode ?? "").trim().toUpperCase() === "EQ_60" || slug === SCALE_CANONICAL_SLUG_MAP.EQ_60;
   const mbtiForms = listMbtiFormMetas();
+  const big5Forms = listBig5FormMetas(forms);
   const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
   const mbtiLandingPath = attributionPayload.landing_path ?? localizedPath(`/tests/${slug}`, locale);
@@ -181,7 +184,7 @@ export function CTASticky({
       })
     : null;
   const mbtiSummary = listMbtiFormMetas().map((form) => getMbtiVariantLabel(form.formCode, locale)).join(" / ");
-  const big5Summary = listBig5FormMetas().map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
+  const big5Summary = big5Forms.map((form) => getBig5VariantLabel(form.formCode, locale)).join(" / ");
   const enneagramSummary = listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale)).join(" / ");
   const riasecSummary = listRiasecFormMetas().map((form) => getRiasecVariantLabel(form.formCode, locale)).join(" / ");
 
@@ -238,12 +241,12 @@ export function CTASticky({
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-2">
-                {listBig5FormMetas().map((form) => (
+                {big5Forms.map((form) => (
                   <div key={form.formCode} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
                     <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
                       {getBig5VariantLabel(form.formCode, locale)}
                     </p>
-                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getBig5VariantSummary(form.formCode, locale)}</p>
+                    <p className="m-0 mt-2 text-xs leading-6 text-slate-600">{getBig5VariantSummary(form.formCode, locale, forms)}</p>
                     <TrackedEntryCtaLink
                       href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
                       eventProperties={buildStartClickTrackingProps({
@@ -392,7 +395,7 @@ export function CTASticky({
             </div>
           ) : showsBig5Actions ? (
             <div className="flex w-full gap-2 sm:w-auto">
-              {listBig5FormMetas().map((form) => (
+              {big5Forms.map((form) => (
                 <TrackedEntryCtaLink
                   key={form.formCode}
                   href={withAttribution(buildBig5TakeHref(slug, locale, form.formCode))}
