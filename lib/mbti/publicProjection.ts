@@ -142,6 +142,20 @@ export type MbtiResultProjectionSectionViewModel = {
   selectedBlocks: string[];
 };
 
+export type MbtiScientificContextViewModel = {
+  metricDefinition: string;
+  closeCallRule: string;
+  typeCodeRule: string;
+  atDimension: {
+    label: string;
+    status: string;
+    theoreticalSource: string;
+    calculation: string;
+    scope: string;
+  };
+  useLimits: string[];
+};
+
 export type MbtiPersonalizationAxisViewModel = {
   axis: string;
   axisLabel: string;
@@ -489,6 +503,7 @@ export type MbtiResultProjectionViewModel = {
   dimensions: MbtiPublicProjectionDimensionViewModel[];
   sections: MbtiResultProjectionSectionViewModel[];
   seo: Record<string, unknown> | null;
+  scientificContext: MbtiScientificContextViewModel | null;
   rawProjection: MbtiPublicProjectionV1Raw | null;
   hasProjection: boolean;
   personalization: MbtiResultPersonalizationViewModel | null;
@@ -605,7 +620,10 @@ export type PartnerReadViewModel = {
   attributionScope: string;
 };
 
-type ProjectionCoreViewModel = Omit<MbtiResultProjectionViewModel, "sections" | "hasProjection" | "personalization">;
+type ProjectionCoreViewModel = Omit<
+  MbtiResultProjectionViewModel,
+  "sections" | "hasProjection" | "personalization"
+>;
 
 function normalizeText(...values: unknown[]): string {
   for (const value of values) {
@@ -690,6 +708,40 @@ function resolveRarity(value: unknown): string {
   }
 
   return normalizeText(record.label, record.text, record.value, record.title);
+}
+
+function normalizeScientificContext(value: unknown): MbtiScientificContextViewModel | null {
+  const context = asRecord(value);
+  const atDimension = asRecord(context?.at_dimension);
+  const metricDefinition = normalizeText(context?.metric_definition);
+  const closeCallRule = normalizeText(context?.close_call_rule);
+  const typeCodeRule = normalizeText(context?.type_code_rule);
+  const normalizedAtDimension = {
+    label: normalizeText(atDimension?.label),
+    status: normalizeText(atDimension?.status),
+    theoreticalSource: normalizeText(atDimension?.theoretical_source),
+    calculation: normalizeText(atDimension?.calculation),
+    scope: normalizeText(atDimension?.scope),
+  };
+  const useLimits = normalizeStringArray(context?.use_limits);
+
+  if (
+    !metricDefinition
+    || !closeCallRule
+    || !typeCodeRule
+    || Object.values(normalizedAtDimension).some((item) => !item)
+    || useLimits.length === 0
+  ) {
+    return null;
+  }
+
+  return {
+    metricDefinition,
+    closeCallRule,
+    typeCodeRule,
+    atDimension: normalizedAtDimension,
+    useLimits,
+  };
 }
 
 function toRoundedPercent(value: unknown): number {
@@ -803,6 +855,7 @@ function buildProjectionCore(
     publicTags: Array.from(new Set(publicTags)),
     dimensions,
     seo: asRecord(projection?.seo),
+    scientificContext: normalizeScientificContext(projection?.scientific_context),
     rawProjection: projection,
   };
 }

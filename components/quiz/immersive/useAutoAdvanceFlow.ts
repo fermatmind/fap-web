@@ -13,6 +13,7 @@ export function useAutoAdvanceFlow({
   onLast,
   confirmDelayMs = 200,
   enterDurationMs = 280,
+  lockDuringTransition = false,
 }: {
   currentIndex: number;
   total: number;
@@ -20,6 +21,7 @@ export function useAutoAdvanceFlow({
   onLast: (selection?: LastSelectionContext) => Promise<void> | void;
   confirmDelayMs?: number;
   enterDurationMs?: number;
+  lockDuringTransition?: boolean;
 }) {
   const [transitionDirection, setTransitionDirection] = useState<TransitionDirection>("none");
   const [isTransitioning, setIsTransitioning] = useState(false);
@@ -28,6 +30,7 @@ export function useAutoAdvanceFlow({
   const totalRef = useRef(total);
   const confirmTimerRef = useRef<number | null>(null);
   const settleTimerRef = useRef<number | null>(null);
+  const transitionLockRef = useRef(false);
 
   useEffect(() => {
     indexRef.current = currentIndex;
@@ -60,13 +63,26 @@ export function useAutoAdvanceFlow({
 
   const cancelPending = useCallback(() => {
     clearConfirmTimer();
+    transitionLockRef.current = false;
     setIsTransitioning(false);
   }, []);
 
   const selectAndAdvance = useCallback(
     (onSelect: () => void, selection?: LastSelectionContext) => {
-      onSelect();
-      cancelPending();
+      if (lockDuringTransition && transitionLockRef.current) {
+        return false;
+      }
+
+      transitionLockRef.current = lockDuringTransition;
+      try {
+        onSelect();
+      } catch (error) {
+        transitionLockRef.current = false;
+        throw error;
+      }
+
+      clearConfirmTimer();
+      setIsTransitioning(false);
       clearSettleTimer();
       setTransitionDirection("forward");
       setIsTransitioning(true);
@@ -74,6 +90,7 @@ export function useAutoAdvanceFlow({
       confirmTimerRef.current = window.setTimeout(() => {
         const idx = indexRef.current;
         const safeTotal = totalRef.current;
+        transitionLockRef.current = false;
         setIsTransitioning(false);
 
         if (safeTotal <= 0) {
@@ -90,8 +107,10 @@ export function useAutoAdvanceFlow({
         onMove(Math.min(safeTotal - 1, idx + 1));
         settleToIdle();
       }, confirmDelayMs);
+
+      return true;
     },
-    [cancelPending, confirmDelayMs, onLast, onMove, settleToIdle]
+    [confirmDelayMs, lockDuringTransition, onLast, onMove, settleToIdle]
   );
 
   const goPrevious = useCallback(() => {
@@ -128,6 +147,7 @@ export function useAutoAdvanceFlow({
     return () => {
       clearConfirmTimer();
       clearSettleTimer();
+      transitionLockRef.current = false;
     };
   }, []);
 

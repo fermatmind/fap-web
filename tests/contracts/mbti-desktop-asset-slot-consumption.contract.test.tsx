@@ -370,6 +370,23 @@ describe("MBTI desktop asset slot consumption contract", () => {
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "disabled");
   });
 
+  it("keeps an authority empty alt empty for a decorative ready image", async () => {
+    const payload = createStoragePayload("INFJ-A", "hero-illustration");
+    const heroSlot = payload.assetSlots.find((slot) => slot.slotId === "hero-illustration");
+    if (!heroSlot) throw new Error("Missing hero slot fixture");
+    heroSlot.alt = "";
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(payload);
+
+    renderShell("INFJ-A");
+
+    const image = await waitFor(() => {
+      const candidate = screen.getByTestId("mbti-asset-slot-hero").querySelector("img");
+      expect(candidate).not.toBeNull();
+      return candidate as HTMLImageElement;
+    });
+    expect(image).toHaveAttribute("alt", "");
+  });
+
   it("renders ENTJ-T ready growth asset from storage", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(
       createStoragePayload("ENTJ-T", "growth-illustration"),

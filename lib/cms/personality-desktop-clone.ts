@@ -185,7 +185,7 @@ function isProfileIdentity(value: unknown): value is ProfileIdentity {
   return normalizeText(value.code).length > 0
     && normalizeText(value.name).length > 0
     && normalizeText(value.nickname).length > 0
-    && normalizeText(value.rarity).length > 0
+    && (value.rarity == null || typeof value.rarity === "string" || typeof value.rarity === "number")
     && isStringArray(value.keywords);
 }
 
@@ -834,7 +834,7 @@ function normalizeAssetSlot(value: unknown): PersonalityDesktopCloneAssetSlot | 
   const label = normalizeText(value.label);
   const aspectRatio = normalizeText(value.aspect_ratio ?? value.aspectRatio);
   const status = normalizeText(value.status).toLowerCase();
-  const alt = value.alt == null ? null : normalizeText(value.alt) || null;
+  const alt = value.alt == null ? null : normalizeText(value.alt);
   const slotIdSet = new Set(MBTI_DESKTOP_CLONE_ASSET_SLOT_IDS as readonly string[]);
 
   if (!slotIdSet.has(slotId) || !label || !aspectRatio || !ALLOWED_ASSET_SLOT_STATUSES.has(status)) {

@@ -9,6 +9,7 @@ import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiClone
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
+import { MbtiResultScientificContext } from "@/components/result/mbti/clone/MbtiResultScientificContext";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import {
   getMbtiDesktopAnchorHash,
@@ -41,6 +42,7 @@ import {
 import type { Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
+import { buildMbtiResultScientificInterpretation } from "@/lib/mbti/resultScientificInterpretation";
 import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
 type DesktopCloneTool = {
@@ -115,7 +117,10 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
-function renderCanonicalFaq(projectionViewModel: MbtiResultProjectionViewModel | null | undefined) {
+function renderCanonicalFaq(
+  projectionViewModel: MbtiResultProjectionViewModel | null | undefined,
+  locale: "zh" | "en",
+) {
   const section = projectionViewModel?.sections.find(
     (candidate) => candidate.key === "faq" && candidate.render === "faq"
   );
@@ -138,7 +143,8 @@ function renderCanonicalFaq(projectionViewModel: MbtiResultProjectionViewModel |
 
       seenKeys.add(item.key);
       return true;
-    });
+    })
+    .slice(0, locale === "zh" ? 4 : undefined);
 
   if (!section || items.length === 0) {
     return null;
@@ -150,7 +156,9 @@ function renderCanonicalFaq(projectionViewModel: MbtiResultProjectionViewModel |
       data-section-key="faq"
       className="space-y-5 rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
     >
-      <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">{section.title}</h2>
+      <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+        {locale === "zh" ? "常见问题" : section.title}
+      </h2>
       <div className="space-y-3">
         {items.map((item) => (
           <article
@@ -208,31 +216,20 @@ function resolvePremiumTeaserItems(
 ): PremiumTeaserItem[] {
   const sourceItems = mapCompatibilityTeaserItems(source);
   const fallbackItems = mapFallbackTeaserItems(fallback);
-  const selectedItems = sourceItems.length > 0 ? sourceItems : fallbackItems;
+  const selectedItems = (sourceItems.length > 0 ? sourceItems : fallbackItems)
+    .filter((item) => !item.isPlaceholder && item.title.trim() && item.body.trim())
+    .slice(0, 1);
 
-  const padded = [...selectedItems];
-  const fallbackPool = fallbackItems.length > 0
-    ? fallbackItems
-    : [
-        {
-          title: locale === "zh" ? "更多专属内容" : "More tailored insights",
-          body: locale === "zh" ? "解锁后查看完整章尾建议。" : "Unlock to view the full teaser content.",
-          tone: "neutral" as const,
-          isPlaceholder: true,
-        },
-      ];
+  if (selectedItems.length > 0) return selectedItems;
 
-  let cursor = 0;
-  while (padded.length < 6) {
-    const item = fallbackPool[cursor % fallbackPool.length];
-    padded.push({
-      ...item,
-      isPlaceholder: true,
-    });
-    cursor += 1;
-  }
-
-  return padded.slice(0, 6);
+  return [{
+    title: locale === "zh" ? "解锁后可查看什么" : "What the full report adds",
+    body: locale === "zh"
+      ? "完整报告会补充本章的具体场景、触发信号和可执行建议；此处只说明解锁价值，不模拟内容条数。"
+      : "The full report adds concrete situations, signals and actions without simulating hidden item counts.",
+    tone: "neutral",
+    isPlaceholder: true,
+  }];
 }
 
 function buildPremiumTeaserBlock({
@@ -541,6 +538,10 @@ export function MbtiDesktopCloneShell({
   ]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
+  const scientificInterpretation = buildMbtiResultScientificInterpretation({
+    displayType: fullCodeForStorage,
+    dimensions: traitDimensions,
+  });
   const slotInput = {
     locale,
     headline,
@@ -924,7 +925,10 @@ export function MbtiDesktopCloneShell({
   const shouldRenderRail = !snapshotMode;
   const shouldRenderTrailingNodes = !snapshotMode;
   const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
-  const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel);
+  const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale);
+  const narrativeTitle = (title: string) => cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
+    ? `${title}（探索假设）`
+    : title;
   const deepContentPlaceholderLabel = cloneLocale === "zh"
     ? "正在加载详细章节..."
     : "Loading detailed chapters...";
@@ -972,7 +976,7 @@ export function MbtiDesktopCloneShell({
         id="career"
         anchorId={getMbtiDesktopAnchorId("career")}
         number={Number(slots.chapters.career.step)}
-        title={slots.chapters.career.title}
+        title={narrativeTitle(slots.chapters.career.title)}
         illustrationSlotId={slots.chapters.career.asset.slotId}
         illustrationLabel={slots.chapters.career.asset.label}
         assetSlots={storageAssetSlots}
@@ -1013,7 +1017,7 @@ export function MbtiDesktopCloneShell({
         id="growth"
         anchorId={getMbtiDesktopAnchorId("growth")}
         number={Number(slots.chapters.growth.step)}
-        title={slots.chapters.growth.title}
+        title={narrativeTitle(slots.chapters.growth.title)}
         illustrationSlotId={slots.chapters.growth.asset.slotId}
         illustrationLabel={slots.chapters.growth.asset.label}
         assetSlots={storageAssetSlots}
@@ -1052,7 +1056,7 @@ export function MbtiDesktopCloneShell({
         id="relationships"
         anchorId={getMbtiDesktopAnchorId("relationships")}
         number={Number(slots.chapters.relationships.step)}
-        title={slots.chapters.relationships.title}
+        title={narrativeTitle(slots.chapters.relationships.title)}
         illustrationSlotId={slots.chapters.relationships.asset.slotId}
         illustrationLabel={slots.chapters.relationships.asset.label}
         assetSlots={storageAssetSlots}
@@ -1131,10 +1135,14 @@ export function MbtiDesktopCloneShell({
       <div className={styles.shell}>
         <MbtiCloneHero
           badge={headline.badge}
-          eyebrow={slots.hero.eyebrow}
+          eyebrow={cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
+            ? scientificInterpretation.overallTitle
+            : slots.hero.eyebrow}
           profileIdentity={slots.hero.profileIdentity}
           illustrationSlotId={slots.hero.asset.slotId}
-          summary={slots.hero.summary}
+          summary={cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
+            ? scientificInterpretation.heroSummary
+            : slots.hero.summary}
           illustrationLabel={slots.hero.asset.label}
           assetSlots={storageAssetSlots}
         />
@@ -1145,6 +1153,12 @@ export function MbtiDesktopCloneShell({
               <p>{slots.intro.paragraphs[0]}</p>
               <p>{slots.intro.paragraphs[1]}</p>
             </section>
+
+            <MbtiResultScientificContext
+              locale={locale}
+              context={projectionViewModel?.scientificContext}
+              interpretation={scientificInterpretation}
+            />
 
             {showTopInviteProgress ? (
               <section data-testid="mbti-invite-progress-summary-top" className={styles.mobileInviteSummary}>

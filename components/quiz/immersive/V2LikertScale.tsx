@@ -27,17 +27,20 @@ export function V2LikertScale({
   questionId,
   options,
   value,
+  disabled = false,
   onChange,
 }: {
   questionId: string;
   options: LikertOption[];
   value?: string;
+  disabled?: boolean;
   onChange: (code: string) => void;
 }) {
   const normalized = useMemo(() => normalizeOptions(options), [options]);
   if (normalized.length !== 5) return null;
 
   const moveByArrow = (index: number, event: KeyboardEvent<HTMLElement>) => {
+    if (disabled) return;
     if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
       const next = normalized[Math.min(index + 1, normalized.length - 1)];
@@ -68,6 +71,7 @@ export function V2LikertScale({
               role="radio"
               aria-checked={selected}
               aria-label={option.text}
+              disabled={disabled}
               onClick={() => onChange(option.code)}
               onKeyDown={(event) => moveByArrow(idx, event)}
               className={cn(

@@ -47,7 +47,7 @@ export function MbtiCloneAssetSlot({
   );
 
   const slotLabel = slot?.label?.trim() || fallbackLabel;
-  const slotAlt = slot?.alt?.trim() || slotLabel;
+  const slotAlt = slot?.alt == null ? slotLabel : slot.alt.trim();
   const assetLoadFailed = Boolean(resolvedUrl && failedAssetUrl === resolvedUrl);
   const mode: "ready" | "placeholder" | "disabled" = slot?.status === "disabled"
     ? "disabled"

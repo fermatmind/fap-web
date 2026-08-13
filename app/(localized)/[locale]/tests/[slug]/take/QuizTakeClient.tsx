@@ -1473,6 +1473,7 @@ function QuizTakeInner({
     onLast: handleSubmitWithOverlay,
     confirmDelayMs: 200,
     enterDurationMs: 280,
+    lockDuringTransition: isMbtiScaleCode(normalizedScaleCode),
   });
 
   useEffect(() => {
@@ -1686,6 +1687,7 @@ function QuizTakeInner({
                   text: option.text,
                 }))}
                 value={selectedOptionId}
+                disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
                 onChange={(code) =>
                   selectAndAdvance(() => {
                     handleAnswerSelection(question.id, code);
@@ -1700,6 +1702,7 @@ function QuizTakeInner({
                 questionId={question.id}
                 options={questionOptions}
                 value={selectedOptionId}
+                disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
                 onChange={(code) =>
                   selectAndAdvance(() => {
@@ -1711,6 +1714,12 @@ function QuizTakeInner({
                 }
               />
             )}
+
+            {isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
+              <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
+                {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+              </p>
+            ) : null}
 
             {!isIqScale ? (
               <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
@@ -1793,6 +1802,7 @@ function QuizTakeInner({
               text: option.text,
             }))}
             value={selectedOptionId}
+            disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
             onChange={(code) =>
               selectAndAdvance(() => {
                 handleAnswerSelection(question.id, code);
@@ -1807,6 +1817,7 @@ function QuizTakeInner({
             questionId={question.id}
             options={questionOptions}
             value={selectedOptionId}
+            disabled={isMbtiScaleCode(normalizedScaleCode) && isTransitioning}
             noOptionsLabel={dict.quiz.immersive.noOptions}
             onChange={(code) =>
               selectAndAdvance(() => {
@@ -1818,6 +1829,12 @@ function QuizTakeInner({
             }
           />
         )}
+
+        {isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
+          <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
+            {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+          </p>
+        ) : null}
 
         {!isIqScale ? (
           <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>

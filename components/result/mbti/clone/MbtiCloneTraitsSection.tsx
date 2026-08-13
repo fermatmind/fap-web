@@ -10,6 +10,7 @@ import type { AxisExplainers, MbtiDesktopCloneAssetSlotId } from "@/components/r
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
+import { describeMbtiAxisClarity } from "@/lib/mbti/resultScientificInterpretation";
 
 type TraitTool = {
   label: string;
@@ -152,20 +153,41 @@ export function MbtiCloneTraitsSection({
   const summaryTitle = activeAxis?.axisTitle || summaryTitleFallback;
   const summaryValue =
     typeof activeAxis?.dominantPct === "number" ? `${Math.round(activeAxis.dominantPct)}%` : summaryValueFallback;
-  const summaryLabel = activeAxis?.dominantLabel || summaryLabelFallback;
-  const summaryDescription = activeAxis?.summary || summaryDescriptionFallback;
+  const activeClarity = typeof activeAxis?.dominantPct === "number"
+    ? describeMbtiAxisClarity({
+        axisCode: activeAxis.axisCode,
+        percent: activeAxis.dominantPct,
+        dominantLabel: activeAxis.dominantLabel,
+      })
+    : null;
+  const hasCriticalClarity = locale === "zh" && Boolean(activeClarity && activeClarity.percent <= 55);
+  const summaryLabel = hasCriticalClarity
+    ? activeClarity?.label ?? summaryLabelFallback
+    : activeAxis?.dominantLabel || summaryLabelFallback;
+  const summaryDescription = hasCriticalClarity
+    ? activeClarity?.description ?? summaryDescriptionFallback
+    : activeAxis?.summary || summaryDescriptionFallback;
   const summaryMeta = [
     activeAxis?.leftPole && activeAxis?.rightPole
       ? [activeAxis.leftCode, activeAxis.leftPole].filter(Boolean).join(" ")
           + " / "
           + [activeAxis.rightCode, activeAxis.rightPole].filter(Boolean).join(" ")
       : "",
-    activeAxis?.strengthBand ? resolveStrengthBandLabel(locale, activeAxis.strengthBand) : "",
+    hasCriticalClarity
+      ? activeClarity?.state === "tie"
+        ? "未形成清晰偏好"
+        : "当前仅有轻微偏向"
+      : activeAxis?.strengthBand
+        ? resolveStrengthBandLabel(locale, activeAxis.strengthBand)
+        : "",
   ]
     .filter(Boolean)
     .join(" · ");
   const activeBand = resolveEditorialBand(activeAxis?.dominantPct);
-  const bandNuance = activeAxis && activeBand
+  const bandNuance = !hasCriticalClarity
+    && (locale !== "zh" || activeAxis?.axisCode !== "AT")
+    && activeAxis
+    && activeBand
     ? normalizeText(
         axisExplainers?.[activeAxis.axisCode]?.[activeAxis.dominantPole]?.[activeBand]?.bandNuance,
       )

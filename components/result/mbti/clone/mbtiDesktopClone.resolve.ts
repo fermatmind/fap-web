@@ -88,6 +88,7 @@ function resolveProfileIdentity(
   headline: RichResultHeadline,
   projectionViewModel?: MbtiResultProjectionViewModel | null,
   storageContent?: MbtiDesktopCloneContent | null,
+  suppressRarity = false,
 ): ProfileIdentity {
   const authored = storageContent?.hero.profileIdentity;
 
@@ -95,7 +96,9 @@ function resolveProfileIdentity(
     code: normalizeText(authored?.code, fullCode),
     name: normalizeText(authored?.name, resolveDisplayTitle(headline, projectionViewModel)),
     nickname: normalizeText(authored?.nickname),
-    rarity: normalizeText(authored?.rarity),
+    // Chinese rarity is suppressed until the authority provides a verifiable
+    // source, region, period, sample size and calculation method.
+    rarity: suppressRarity ? "" : normalizeText(authored?.rarity),
     keywords: Array.isArray(authored?.keywords)
       ? authored.keywords.map((keyword) => normalizeText(keyword)).filter((keyword) => keyword.length > 0).slice(0, 6)
       : [],
@@ -144,7 +147,13 @@ export function resolveMbtiDesktopCloneSlots({
   const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
   const authoringLevel = content ? "fullCode" : "placeholder";
   const contentSource = content ? "storage" : "placeholder";
-  const profileIdentity = resolveProfileIdentity(fullCode, headline, projectionViewModel, content);
+  const profileIdentity = resolveProfileIdentity(
+    fullCode,
+    headline,
+    projectionViewModel,
+    content,
+    isZh,
+  );
 
   return {
     meta: {

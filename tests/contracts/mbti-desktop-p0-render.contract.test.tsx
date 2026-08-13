@@ -55,6 +55,7 @@ function createProjectionViewModel(
     dimensions: dimensions as MbtiResultProjectionViewModel["dimensions"],
     sections: [],
     seo: null,
+    scientificContext: null,
     rawProjection: null,
     hasProjection: true,
     personalization: null,
@@ -546,7 +547,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     const hero = await screen.findByTestId("mbti-hero");
     expect(hero).toHaveTextContent("INFJ-A");
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
-    expect(screen.getByTestId("mbti-hero-rarity")).toHaveTextContent("稀有度：rarity infj-a");
+    expect(screen.queryByTestId("mbti-hero-rarity")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-keywords")).toHaveTextContent("keyword 1 infj-a");
     expect(hero).toHaveTextContent("hero infj-a");
   });
@@ -627,7 +628,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     );
   });
 
-  it("renders light band nuance as a separate supplement below the canonical summary", async () => {
+  it("replaces a 54% authored fact claim with a two-sided close-call explanation", async () => {
     vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValueOnce(createStoragePayload("INFJ-A"));
 
     renderShellWithProjection({
@@ -650,11 +651,10 @@ describe("MBTI desktop clone p0 render contract", () => {
     const summaryPane = await screen.findByTestId("mbti-traits-summary-pane");
     expect(summaryPane).toHaveTextContent("Energy");
     expect(summaryPane).toHaveTextContent("54%");
-    expect(summaryPane).toHaveTextContent("Introverted");
-    expect(summaryPane).toHaveTextContent("You prefer to recharge quietly while staying open to close connections.");
-    expect(await screen.findByTestId("mbti-traits-band-nuance")).toHaveTextContent(
-      "你更偏向把能量收回到内在世界，但这种内倾并不排斥连接；在合适的关系和话题里，你依然愿意打开自己。",
-    );
+    expect(summaryPane).toHaveTextContent("当前轻微偏向Introverted");
+    expect(summaryPane).toHaveTextContent("两侧方式都可能在不同情境中被使用");
+    expect(summaryPane).not.toHaveTextContent("You prefer to recharge quietly");
+    expect(screen.queryByTestId("mbti-traits-band-nuance")).not.toBeInTheDocument();
   });
 
   it("renders canonical traits summary on non-zh pages without storage content", async () => {
