@@ -1,8 +1,20 @@
-import type { EqV5ViewModel } from "./types";
+import type { EqDimensionRankingEntry, EqV5ViewModel } from "./types";
 import { formatEqScore, getEqDimensionLabel } from "./utils";
 
 export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { globalScore, dimensions, interpretation, methodology, assets, locale } = viewModel;
+  const strongest = rankingValue(
+    interpretation.dimension_ranking?.strongest,
+    interpretation.strongest_dimension,
+    "strongest",
+    viewModel
+  );
+  const development = rankingValue(
+    interpretation.dimension_ranking?.development,
+    interpretation.development_lever,
+    "development",
+    viewModel
+  );
 
   return (
     <section data-testid="eq-evidence-snapshot" className="space-y-4">
@@ -16,14 +28,12 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
           value={formatEqScore(globalScore?.standard_score)}
           meta={globalScore?.percentile !== undefined ? `${locale === "zh" ? "百分位" : "Percentile"} ${formatEqScore(globalScore.percentile)}` : undefined}
         />
-        <SnapshotMetric
-          label={locale === "zh" ? "最强信号" : "Strongest signal"}
-          value={labelForCode(interpretation.strongest_dimension, dimensions, viewModel)}
-        />
-        <SnapshotMetric
-          label={locale === "zh" ? "发展杠杆" : "Development lever"}
-          value={labelForCode(interpretation.development_lever, dimensions, viewModel)}
-        />
+        {strongest ? (
+          <SnapshotMetric label={locale === "zh" ? "最强信号" : "Strongest signal"} value={strongest} />
+        ) : null}
+        {development ? (
+          <SnapshotMetric label={locale === "zh" ? "发展杠杆" : "Development lever"} value={development} />
+        ) : null}
         <SnapshotMetric
           label={locale === "zh" ? "常模状态" : "Norm status"}
           value={methodology.norm_status || "—"}
@@ -44,6 +54,45 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
       </div>
     </section>
   );
+}
+
+function rankingValue(
+  ranking: EqDimensionRankingEntry | undefined,
+  legacyCode: string | undefined,
+  kind: "strongest" | "development",
+  viewModel: EqV5ViewModel
+): string | null {
+  if (!ranking) {
+    return labelForCode(legacyCode, viewModel.dimensions, viewModel);
+  }
+
+  if (ranking.status === "suppressed") {
+    return null;
+  }
+
+  if (ranking.status === "unavailable") {
+    return "—";
+  }
+
+  const labels = ranking.codes.map((code) => labelForCode(code, viewModel.dimensions, viewModel));
+  if (ranking.status === "unique") {
+    return labels[0] || "—";
+  }
+
+  const isFourWayTie = ranking.codes.length === 4;
+  if (kind === "strongest") {
+    if (isFourWayTie) {
+      return viewModel.locale === "zh" ? "四维并列" : "Four-way tie";
+    }
+    return viewModel.locale === "zh" ? `并列：${labels.join("、")}` : `Tie: ${labels.join(", ")}`;
+  }
+
+  if (isFourWayTie) {
+    return viewModel.locale === "zh" ? "无单一练习重点" : "No single practice focus";
+  }
+  return viewModel.locale === "zh"
+    ? `无单一练习重点：${labels.join("、")}`
+    : `No single practice focus: ${labels.join(", ")}`;
 }
 
 function labelForCode(code: string | undefined, dimensions: EqV5ViewModel["dimensions"], viewModel: EqV5ViewModel): string {

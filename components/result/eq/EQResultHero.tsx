@@ -69,15 +69,39 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
 
       <div className="mt-5 grid gap-3 md:grid-cols-3">
         <HeroSignal
-          label={locale === "zh" ? "主要优势" : "Primary strength"}
+          label={
+            lowConfidence
+              ? locale === "zh"
+                ? "本次质量结论"
+                : "Response quality conclusion"
+              : locale === "zh"
+                ? "主要优势"
+                : "Primary strength"
+          }
           value={lowConfidence ? snapshot.core_judgment || formulation.one_liner : snapshot.top_strength || formulation.primary_strength}
         />
         <HeroSignal
-          label={locale === "zh" ? "最小行动" : "Smallest next action"}
+          label={
+            lowConfidence
+              ? locale === "zh"
+                ? "复测建议"
+                : "Retest guidance"
+              : locale === "zh"
+                ? "最小行动"
+                : "Smallest next action"
+          }
           value={route.next_best_action || snapshot.minimal_action || formulation.development_lever || interpretation.development_lever}
         />
         <HeroSignal
-          label={locale === "zh" ? "分享句" : "Share-safe line"}
+          label={
+            lowConfidence
+              ? locale === "zh"
+                ? "使用边界"
+                : "Use boundary"
+              : locale === "zh"
+                ? "分享句"
+                : "Share-safe line"
+          }
           value={route.save_reason || snapshot.share_safe_sentence || snapshot.do_not_overread || formulation.do_not_overread}
         />
       </div>

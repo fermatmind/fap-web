@@ -1,6 +1,8 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
+import balancedEqFixture from "../fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
 import highEmpathyEqFixture from "../fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
+import lowConfidenceEqFixture from "../fixtures/eq/v5/eq60_v5_low_confidence_en.json";
 
 type EqV5Fixture = {
   report_access: {
@@ -353,23 +355,25 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
   await expect(
-    page.getByTestId("eq-result-hero").getByRole("heading", { name: "High Empathy, Low Recovery" }),
+    page
+      .getByTestId("eq-result-hero")
+      .getByRole("heading", { name: "Self-report pattern: high empathy with lower recovery; read the largest gap first" }),
   ).toBeVisible({
     timeout: 10000,
   });
-  await expect(page.getByText("Evidence Snapshot")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Evidence Snapshot" })).toBeVisible();
   await expect(
     page
       .getByTestId("eq-evidence-snapshot")
-      .getByText("Route evidence: core formulation, dimension pattern, response-quality signals, and selected assets."),
+      .getByText("Route evidence: core formulation, largest dimension gap, response-quality signals, and selected assets."),
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
   await expect(page.getByText("Empathy with a Boundary")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Future scenario module" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Future Scenario Module" })).toBeVisible();
   await expect(page.getByText("Planned, not available yet")).toBeVisible();
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
-  await page.getByRole("button", { name: /Ask (the Agent|the result assistant)/i }).click();
+  await page.getByRole("button", { name: /Ask (assistant|the Agent|the result assistant)/i }).click();
   await expect(page.getByTestId("eq-agent-runtime-drawer")).toBeVisible();
   await expect(page.getByTestId("eq-agent-entry-ready")).toBeVisible();
   await expect(page.getByText("Start with one real situation from this report.")).toBeVisible();
@@ -384,6 +388,72 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
   await expect(page.getByText(/profile:|quality_level:|focus:|bucket:/i)).toHaveCount(0);
   await expect(page.getByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).toHaveCount(0);
+});
+
+test("EQ low-confidence report renders only cautious modules", async ({ page }) => {
+  const attemptId = "eq-low-confidence-001";
+  await mockTrack(page);
+  await mockGuestToken(page, "fm_eq_low_confidence_token_123456");
+  await mockAttemptLinkAnon(page);
+  await mockScaleLookup(page);
+  await mockEqV5ReportAccess(page, attemptId, lowConfidenceEqFixture as EqV5Fixture);
+
+  await page.route(reportRoutePattern(attemptId), async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(eqV5ReportResponse(lowConfidenceEqFixture as EqV5Fixture)),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+  await expect(page.getByTestId("eq-result-v5")).toBeVisible();
+  await expect(page.getByText("Response quality conclusion")).toBeVisible();
+  await expect(page.getByText("Retest guidance")).toBeVisible();
+  await expect(page.getByText("Use boundary")).toBeVisible();
+  await expect(page.getByTestId("eq-quality-banner")).toBeVisible();
+  await expect(page.getByTestId("eq-action-prescription")).toBeVisible();
+  await expect(page.getByTestId("eq-scientific-boundary")).toBeVisible();
+  await expect(page.getByTestId("eq-save-share-related")).toBeVisible();
+
+  for (const testId of [
+    "eq-evidence-snapshot",
+    "eq-result-depth-modules",
+    "eq-emotional-matrix",
+    "eq-mechanism-explanation",
+    "eq-scene-cluster",
+    "eq-career-environment",
+    "eq-sjt-bridge",
+    "eq-cross-assessment-insights",
+  ]) {
+    await expect(page.getByTestId(testId)).toHaveCount(0);
+  }
+  await expect(page.getByRole("button", { name: /share/i })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /ask assistant/i })).toHaveCount(0);
+  await expect(page.getByTestId("eq-save-share-related").getByText(/Big Five|RIASEC|MBTI/)).toHaveCount(0);
+});
+
+test("EQ balanced report renders backend-declared four-way ties", async ({ page }) => {
+  const attemptId = "eq-four-way-tie-001";
+  await mockTrack(page);
+  await mockGuestToken(page, "fm_eq_four_way_tie_token_123456");
+  await mockAttemptLinkAnon(page);
+  await mockScaleLookup(page);
+  await mockEqV5ReportAccess(page, attemptId, balancedEqFixture as EqV5Fixture);
+
+  await page.route(reportRoutePattern(attemptId), async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(eqV5ReportResponse(balancedEqFixture as EqV5Fixture)),
+    });
+  });
+
+  await page.goto(`/en/result/${attemptId}`);
+  const evidence = page.getByTestId("eq-evidence-snapshot");
+  await expect(evidence).toBeVisible();
+  await expect(evidence.getByText("Four-way tie")).toBeVisible();
+  await expect(evidence.getByText("No single practice focus")).toBeVisible();
 });
 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
@@ -655,7 +725,7 @@ test("result page keeps generating state isolated even when offers are already a
   });
 
   await page.goto(`/en/result/${attemptId}`);
-  await expect(page.getByText("Your result is still generating.")).toBeVisible();
+  await expect(page.getByText(/Generating your assessment result|Your result is still generating/)).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 

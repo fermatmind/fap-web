@@ -3,6 +3,18 @@ import type { EqAgentContextPayload, EqAgentRuntimeResponsePayload } from "@/lib
 
 export type EqReportMode = "self_report" | "integrated";
 
+export type EqDimensionRankingStatus = "unique" | "tie" | "suppressed" | "unavailable";
+
+export type EqDimensionRankingEntry = {
+  status: EqDimensionRankingStatus;
+  codes: string[];
+};
+
+export type EqDimensionRanking = {
+  strongest: EqDimensionRankingEntry;
+  development: EqDimensionRankingEntry;
+};
+
 export type EqV5DimensionScore = {
   code?: string;
   raw_score?: number;
@@ -41,6 +53,7 @@ export type EqV5ReportPayload = {
     core_formulation_id?: string;
     strongest_dimension?: string;
     development_lever?: string;
+    dimension_ranking?: EqDimensionRanking;
     primary_mechanism_ids?: string[];
     primary_scene_ids?: string[];
     career_environment_ids?: string[];

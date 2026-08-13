@@ -4,6 +4,12 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { localizedPath } from "@/lib/i18n/locales";
 import { EQAgentEntryGuard, isEqAgentConversionAction } from "./EQAgentEntryGuard";
 import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader, EqV5ViewModel } from "./types";
+import { isLowConfidenceEqResult } from "./utils";
+
+const LOW_CONFIDENCE_CONVERSION_ACTIONS = new Set([
+  "eq.conversion.save_report",
+  "eq.conversion.retest_reminder",
+]);
 
 export function EQSaveShareRelated({
   viewModel,
@@ -19,8 +25,11 @@ export function EQSaveShareRelated({
   sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
 }) {
   const { locale } = viewModel;
+  const lowConfidence = isLowConfidenceEqResult(viewModel);
   const conversionActions = viewModel.assets.commercial_conversion_actions.filter(
-    (action) => !isEqAgentConversionAction(action)
+    (action) =>
+      !isEqAgentConversionAction(action) &&
+      (!lowConfidence || LOW_CONFIDENCE_CONVERSION_ACTIONS.has(String(action.id ?? "").trim()))
   );
 
   return (
@@ -28,17 +37,25 @@ export function EQSaveShareRelated({
       <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
         <div>
           <h2 className="text-lg font-semibold text-slate-950">
-            {locale === "zh" ? "保存、分享与继续探索" : "Save, Share, and Continue"}
+            {lowConfidence
+              ? locale === "zh"
+                ? "保存与重新测试"
+                : "Save and Retake"
+              : locale === "zh"
+                ? "保存、分享与继续探索"
+                : "Save, Share, and Continue"}
           </h2>
           <p className="mt-1 text-xs text-slate-400">
             {locale === "zh" ? "报告ID已隐藏" : "Report ID redacted"}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button type="button" variant="outline" disabled>
-            <Share2 className="mr-2 h-4 w-4" aria-hidden="true" />
-            {locale === "zh" ? "分享" : "Share"}
-          </Button>
+          {lowConfidence ? null : (
+            <Button type="button" variant="outline" disabled>
+              <Share2 className="mr-2 h-4 w-4" aria-hidden="true" />
+              {locale === "zh" ? "分享" : "Share"}
+            </Button>
+          )}
           <Link
             href={localizedPath("/tests/eq-test-emotional-intelligence-assessment/take", locale)}
             className={buttonVariants({ variant: "outline" })}
@@ -48,11 +65,13 @@ export function EQSaveShareRelated({
           </Link>
         </div>
       </div>
-      <div className="mt-4 flex flex-wrap gap-2 text-sm">
-        <RelatedLink href="/tests/big-five-personality-test-ocean-model" locale={locale} label="Big Five" />
-        <RelatedLink href="/tests/holland-career-interest-test-riasec" locale={locale} label="RIASEC" />
-        <RelatedLink href="/tests/mbti-personality-test-16-personality-types" locale={locale} label="MBTI" />
-      </div>
+      {lowConfidence ? null : (
+        <div className="mt-4 flex flex-wrap gap-2 text-sm">
+          <RelatedLink href="/tests/big-five-personality-test-ocean-model" locale={locale} label="Big Five" />
+          <RelatedLink href="/tests/holland-career-interest-test-riasec" locale={locale} label="RIASEC" />
+          <RelatedLink href="/tests/mbti-personality-test-16-personality-types" locale={locale} label="MBTI" />
+        </div>
+      )}
       {conversionActions.length > 0 ? (
         <div className="mt-4 grid gap-3 md:grid-cols-2">
           {conversionActions.map((action) => (
@@ -68,15 +87,17 @@ export function EQSaveShareRelated({
           ))}
         </div>
       ) : null}
-      <div className="mt-4">
-        <EQAgentEntryGuard
-          viewModel={viewModel}
-          attemptId={attemptId}
-          access={agentContextAccess}
-          loadAgentContext={loadAgentContext}
-          sendAgentRuntimeMessage={sendAgentRuntimeMessage}
-        />
-      </div>
+      {lowConfidence ? null : (
+        <div className="mt-4">
+          <EQAgentEntryGuard
+            viewModel={viewModel}
+            attemptId={attemptId}
+            access={agentContextAccess}
+            loadAgentContext={loadAgentContext}
+            sendAgentRuntimeMessage={sendAgentRuntimeMessage}
+          />
+        </div>
+      )}
     </section>
   );
 }
