@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen, within } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
@@ -308,6 +309,79 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-occupation-examples")).toHaveTextContent("内容示例，非职业数据库匹配");
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("Matches");
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
+  });
+
+  it("renders a bounded backend summary and keeps the deep report closed until keyboard activation", async () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.result_summary_v1 = {
+      schema_version: "riasec.result_summary.v1",
+      locale: "zh-CN",
+      estimated_read_seconds: 180,
+      snapshot_bound: true,
+      snapshot_scope: "persisted_result",
+      headline: "你的兴趣结果摘要",
+      ranking_display: "RIA",
+      tie_note: "",
+      quality_summary: "作答状态稳定，可正常阅读。",
+      highlights: [
+        { dimension_code: "R", label: "现实型", text: "留意具体操作是否让你愿意持续投入。" },
+        { dimension_code: "I", label: "研究型", text: "留意分析问题是否让你愿意持续投入。" },
+        { dimension_code: "A", label: "艺术型", text: "留意表达想法是否让你愿意持续投入。" },
+      ],
+      next_step: "安排一次 15–30 分钟的低风险活动。",
+      boundary: "结果只描述本次职业兴趣线索，不代表能力或未来结果。",
+    };
+
+    const viewModel = assembleRiasecResultViewModel(report, "zh");
+    expect(viewModel.resultSummary?.highlights).toHaveLength(3);
+    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+
+    const summary = screen.getByTestId("riasec-result-summary");
+    expect(summary).toHaveTextContent("作答状态稳定");
+    expect(summary).toHaveTextContent("15–30 分钟");
+    expect(summary).toHaveTextContent("不代表能力或未来结果");
+    const deepReport = screen.getByTestId("riasec-deep-report") as HTMLDetailsElement;
+    expect(deepReport.open).toBe(false);
+    const toggle = screen.getByText("展开深度报告");
+    toggle.focus();
+    await userEvent.keyboard("{Enter}");
+    expect(deepReport.open).toBe(true);
+    expect(screen.getByText("收起深度报告")).toBeInTheDocument();
+    await userEvent.keyboard(" ");
+    expect(deepReport.open).toBe(false);
+    expect(screen.getByText("展开深度报告")).toBeInTheDocument();
+  });
+
+  it("fails closed on cross-locale, malformed, or oversized result summaries", () => {
+    const report = cloneReport(buildRiasecReport());
+    const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
+    projection.result_summary_v1 = {
+      schema_version: "riasec.result_summary.v1",
+      locale: "en",
+      estimated_read_seconds: 180,
+      snapshot_bound: true,
+      snapshot_scope: "persisted_result",
+      headline: "Wrong locale",
+      ranking_display: "RIA",
+      quality_summary: "Stable",
+      highlights: [
+        { dimension_code: "R", label: "R", text: "x" },
+        { dimension_code: "I", label: "I", text: "x" },
+        { dimension_code: "A", label: "A", text: "x" },
+      ],
+      next_step: "Next",
+      boundary: "Boundary",
+    };
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
+
+    (projection.result_summary_v1 as Record<string, unknown>).locale = "zh-CN";
+    (projection.result_summary_v1 as Record<string, unknown>).snapshot_bound = false;
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
+
+    (projection.result_summary_v1 as Record<string, unknown>).snapshot_bound = true;
+    (projection.result_summary_v1 as Record<string, unknown>).boundary = "界".repeat(901);
+    expect(assembleRiasecResultViewModel(report, "zh").resultSummary).toBeNull();
   });
 
   it("keeps 140Q numeric layer scores without inferring agreement or tension", () => {

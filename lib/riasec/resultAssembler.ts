@@ -16,6 +16,25 @@ export type RiasecQualityDisplay = {
   readingBoundary: string;
 };
 
+export type RiasecResultSummary = {
+  schemaVersion: string;
+  locale: string;
+  estimatedReadSeconds: number;
+  snapshotBound: boolean;
+  snapshotScope: "persisted_result" | "report_snapshot";
+  headline: string;
+  rankingDisplay: string;
+  tieNote: string;
+  qualitySummary: string;
+  highlights: Array<{
+    dimensionCode: string;
+    label: string;
+    text: string;
+  }>;
+  nextStep: string;
+  boundary: string;
+};
+
 export type RiasecTrustedResultCard = {
   schemaVersion: string;
   projectionVersion: string;
@@ -321,6 +340,7 @@ export type RiasecResultViewModel = {
   qualityGrade: string;
   qualityFlags: string[];
   qualityDisplay: RiasecQualityDisplay | null;
+  resultSummary: RiasecResultSummary | null;
   dimensions: RiasecDimension[];
   trustedResultCard: RiasecTrustedResultCard | null;
   interpretationState: RiasecInterpretationState | null;
@@ -404,6 +424,81 @@ function buildQualityDisplay(
     reasons,
     improvements,
     readingBoundary,
+  };
+}
+
+function buildResultSummary(
+  raw: Record<string, unknown> | null,
+  requestedPageLocale: Locale
+): RiasecResultSummary | null {
+  if (!raw || normalizeText(raw.schema_version) !== "riasec.result_summary.v1") return null;
+
+  const expectedLocale = requestedPageLocale === "zh" ? "zh-CN" : "en";
+  const estimatedReadSeconds = Number(raw.estimated_read_seconds);
+  const rawHighlights = Array.isArray(raw.highlights) ? raw.highlights : [];
+  const highlights = rawHighlights.map((item) => {
+    const row = asRecord(item) ?? {};
+    return {
+      dimensionCode: normalizeText(row.dimension_code),
+      label: normalizeText(row.label),
+      text: normalizeText(row.text),
+    };
+  });
+  const headline = normalizeText(raw.headline);
+  const rankingDisplay = normalizeText(raw.ranking_display);
+  const qualitySummary = normalizeText(raw.quality_summary);
+  const nextStep = normalizeText(raw.next_step);
+  const boundary = normalizeText(raw.boundary);
+  const snapshotScope = normalizeText(raw.snapshot_scope);
+  const validHighlights =
+    highlights.length === 3 &&
+    highlights.every((item) => /^[RIASEC]$/.test(item.dimensionCode) && item.label && item.text) &&
+    new Set(highlights.map((item) => item.dimensionCode)).size === highlights.length;
+
+  if (
+    normalizeText(raw.locale) !== expectedLocale ||
+    !Number.isInteger(estimatedReadSeconds) ||
+    estimatedReadSeconds < 1 ||
+    estimatedReadSeconds > 180 ||
+    raw.snapshot_bound !== true ||
+    !["persisted_result", "report_snapshot"].includes(snapshotScope) ||
+    !headline ||
+    !rankingDisplay ||
+    !qualitySummary ||
+    !nextStep ||
+    !boundary ||
+    !validHighlights
+  ) {
+    return null;
+  }
+
+  const visibleText = [
+    headline,
+    rankingDisplay,
+    normalizeText(raw.tie_note),
+    qualitySummary,
+    ...highlights.flatMap((item) => [item.label, item.text]),
+    nextStep,
+    boundary,
+  ].join(requestedPageLocale === "zh" ? "" : " ");
+  const lengthWithinLimit = requestedPageLocale === "zh"
+    ? Array.from(visibleText).length <= 900
+    : visibleText.split(/\s+/).filter(Boolean).length <= 500;
+  if (!lengthWithinLimit) return null;
+
+  return {
+    schemaVersion: "riasec.result_summary.v1",
+    locale: expectedLocale,
+    estimatedReadSeconds,
+    snapshotBound: raw.snapshot_bound,
+    snapshotScope: snapshotScope as "persisted_result" | "report_snapshot",
+    headline,
+    rankingDisplay,
+    tieNote: normalizeText(raw.tie_note),
+    qualitySummary,
+    highlights,
+    nextStep,
+    boundary,
   };
 }
 
@@ -553,6 +648,7 @@ export function assembleRiasecResultViewModel(
   const v2InterpretationState = asRecord(projectionV2?.interpretation_state);
   const v2ModuleVisibilityPolicy = asRecord(projectionV2?.module_visibility_policy);
   const v2DeepContentSlots = asRecord(projectionV2?.deep_content_slots_v1);
+  const v2ResultSummary = asRecord(projectionV2?.result_summary_v1);
   const v2Dimensions = Array.isArray(v2Scores?.dimensions) ? v2Scores.dimensions : [];
   const dimensions = v2Dimensions.length > 0
     ? v2Dimensions.map((rawDimension) => {
@@ -600,6 +696,7 @@ export function assembleRiasecResultViewModel(
     qualityGrade,
     qualityFlags,
     qualityDisplay: buildQualityDisplay(v2QualityDisplay, requestedPageLocale, qualityState, qualityGrade),
+    resultSummary: buildResultSummary(v2ResultSummary, requestedPageLocale),
     dimensions,
     trustedResultCard: projectionV2
       ? {
