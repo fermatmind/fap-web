@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BIG5_DOMAIN_LABELS, type Big5DomainCode } from "@/lib/big5/taxonomy";
+import { createAttemptShare } from "@/lib/api/v0_3";
 import type { Big5ResultPageV2Block, Big5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import type { Locale } from "@/lib/i18n/locales";
 
@@ -353,25 +354,54 @@ function CollaborationManual({ block, locale }: RendererProps) {
   );
 }
 
-function ShareSave({ block, locale }: RendererProps) {
+function safePublicShareUrl(value: unknown): string {
+  const candidate = text(value);
+  if (!candidate || typeof window === "undefined") return "";
+  try {
+    const url = new URL(candidate, window.location.origin);
+    const allowedHost = url.origin === window.location.origin
+      || ["fermatmind.com", "www.fermatmind.com", "staging.fermatmind.com", "example.test", "web.example.test"].includes(url.hostname)
+      || url.hostname === "localhost"
+      || url.hostname === "127.0.0.1";
+    const allowedProtocol = url.protocol === "https:"
+      || (url.protocol === "http:" && ["localhost", "127.0.0.1", "example.test", "web.example.test"].includes(url.hostname));
+    if (!allowedHost || !allowedProtocol || !/^\/(?:en|zh)\/share\/[^/]+\/?$/.test(url.pathname)) return "";
+    url.search = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return "";
+  }
+}
+
+function ShareSave({ block, projection, locale }: RendererProps) {
   const content = contentOf(block);
-  const [status, setStatus] = useState<"idle" | "copied" | "failed">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "copied" | "failed">("idle");
   const summary = content ? localizedFrom(content, locale, ["summary", "body"]) : "";
   if (!content || !summary) return null;
 
   async function share() {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || status === "loading") return;
+    const attemptId = text(projection.attempt_id);
+    if (!attemptId) {
+      setStatus("failed");
+      return;
+    }
+    setStatus("loading");
     try {
+      const response = await createAttemptShare({ attemptId, locale });
+      const shareUrl = safePublicShareUrl(response.share_url ?? response.shareUrl ?? response.url);
+      if (!shareUrl) throw new Error("share_url_invalid");
       if (typeof navigator.share === "function") {
         await navigator.share({
           title: locale === "zh" ? "分享测试结果" : "Share test result",
-          url: window.location.href,
+          url: shareUrl,
         });
         setStatus("idle");
         return;
       }
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(window.location.href);
+        await navigator.clipboard.writeText(shareUrl);
         setStatus("copied");
         return;
       }
@@ -385,14 +415,16 @@ function ShareSave({ block, locale }: RendererProps) {
     <article {...blockAttributes(block)} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
       <p className="m-0 text-sm leading-7 text-slate-700">{summary}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <button type="button" onClick={() => void share()} className="rounded-lg bg-slate-950 px-3 py-2 text-sm font-semibold text-white">
-          {locale === "zh" ? "分享安全链接" : "Share safe link"}
+        <button type="button" disabled={status === "loading"} onClick={() => void share()} className="rounded-lg bg-slate-950 px-3 py-2 text-sm font-semibold text-white disabled:cursor-wait disabled:opacity-60">
+          {status === "loading"
+            ? (locale === "zh" ? "正在生成安全链接" : "Creating safe link")
+            : (locale === "zh" ? "分享安全链接" : "Share safe link")}
         </button>
         <button type="button" onClick={() => window.print()} className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800">
           {locale === "zh" ? "保存或打印" : "Save or print"}
         </button>
       </div>
-      {status !== "idle" ? <p role="status" className="m-0 mt-2 text-xs text-slate-600">
+      {status === "copied" || status === "failed" ? <p role="status" className="m-0 mt-2 text-xs text-slate-600">
         {status === "copied"
           ? (locale === "zh" ? "链接已复制" : "Link copied")
           : (locale === "zh" ? "当前环境不支持自动分享" : "Sharing is unavailable")}

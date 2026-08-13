@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { canRenderRichResultReport, RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import {
@@ -12,6 +12,19 @@ import {
 import legacyReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2_missing.projection.json";
 import lowQualityEnvelope from "@/tests/fixtures/big5/result_page_v2_low_quality.payload.json";
 import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
+
+const hoisted = vi.hoisted(() => ({
+  createAttemptShare: vi.fn(),
+  writeText: vi.fn(),
+}));
+
+vi.mock("@/lib/api/v0_3", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/api/v0_3")>("@/lib/api/v0_3");
+  return {
+    ...actual,
+    createAttemptShare: hoisted.createAttemptShare,
+  };
+});
 
 type MutableBig5ResultPageV2Fixture = {
   modules: Array<{
@@ -27,6 +40,8 @@ type MutableBig5ResultPageV2Fixture = {
     profile_signature: {
       is_fixed_type?: boolean;
     };
+    domains: Record<string, { score: number; band: string; percentile?: number }>;
+    domain_bands: Record<string, string>;
   };
   [key: string]: unknown;
 };
@@ -51,6 +66,24 @@ function withResultPageV2(payload: unknown): ReportResponse {
 }
 
 describe("Big Five Result Page V2 frontend consumer", () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+    window.history.replaceState({}, "", "/");
+    hoisted.createAttemptShare.mockResolvedValue({
+      ok: true,
+      share_url: "/zh/share/share-big5-v2-public",
+    });
+    hoisted.writeText.mockResolvedValue(undefined);
+    Object.defineProperty(navigator, "share", {
+      configurable: true,
+      value: undefined,
+    });
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: hoisted.writeText },
+    });
+  });
+
   it("keeps the legacy Big Five result path when no V2 payload is present", () => {
     render(<RichResultReport locale="zh" reportData={createLegacyReport()} />);
 
@@ -223,6 +256,40 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.getAllByText("Trade-off").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Action").length).toBeGreaterThan(0);
     expect(screen.getByTestId("big5-v2-block-method_boundary")).toHaveTextContent("not a medical or psychological diagnosis");
+  });
+
+  it("creates a backend public share URL without copying private result tokens", async () => {
+    window.history.replaceState({}, "", "/zh/result/attempt-runtime-v2-test?access_token=secret&result_access_token=private");
+    render(<RichResultReport locale="zh" reportData={withResultPageV2(createCanonicalPayload())} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "分享安全链接" }));
+
+    await waitFor(() => {
+      expect(hoisted.createAttemptShare).toHaveBeenCalledWith({
+        attemptId: "attempt-runtime-v2-test",
+        locale: "zh",
+      });
+    });
+    await waitFor(() => {
+      expect(hoisted.writeText).toHaveBeenCalledWith(expect.stringContaining("/zh/share/share-big5-v2-public"));
+    });
+    expect(String(hoisted.writeText.mock.calls[0]?.[0])).not.toMatch(/access_token|result_access_token|secret|private/);
+  });
+
+  it("trusts matching backend norm bands instead of re-bucketing authoritative scores", () => {
+    const payload = createCanonicalPayload();
+    payload.projection_v2.domains.O.band = "mid_high";
+    payload.projection_v2.domain_bands.O = "mid_high";
+    for (const payloadModule of payload.modules) {
+      for (const block of payloadModule.blocks) {
+        const trait = block.content?.trait as { code?: string } | undefined;
+        if (trait?.code !== "O") continue;
+        const band = block.content?.band as { internal_band?: string } | undefined;
+        if (band) band.internal_band = "mid_high";
+      }
+    }
+
+    expect(assessBig5ResultPageV2Payload(payload)).toMatchObject({ mode: "full", reasons: [] });
   });
 
   it("rejects low-quality payloads and exposes only the reliable legacy five-domain core", () => {

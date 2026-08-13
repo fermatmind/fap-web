@@ -501,7 +501,6 @@ function readReliableProjectionDomains(
   }
 
   const result = new Map<Big5ResultPageV2CoreDomainCode, ProjectionCoreDomain>();
-  let scoreBandRouteMismatch = false;
   for (const code of BIG5_RESULT_PAGE_V2_CORE_DOMAIN_CODES) {
     const domain = asSemanticRecord(domains[code]);
     const score = domain?.score;
@@ -514,18 +513,6 @@ function readReliableProjectionDomains(
     if (!projectedBand || projectedBand !== band) {
       reasons.add(`core_projection_${code.toLowerCase()}_band_mismatch`);
       return null;
-    }
-    const expectedBand = score < 20
-      ? "very_low"
-      : score < 40
-        ? "low"
-        : score < 60
-          ? "mid"
-          : score < 80
-            ? "high"
-            : "very_high";
-    if (band !== expectedBand) {
-      scoreBandRouteMismatch = true;
     }
     result.set(code, { code, score, band });
   }
@@ -549,11 +536,6 @@ function readReliableProjectionDomains(
     reasons.add("core_projection_contains_route_band_scores");
     return null;
   }
-  if (scoreBandRouteMismatch) {
-    reasons.add("core_projection_score_band_route_mismatch");
-    return null;
-  }
-
   return result;
 }
 
