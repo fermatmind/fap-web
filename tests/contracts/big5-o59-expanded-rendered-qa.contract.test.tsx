@@ -3,8 +3,8 @@ import { describe, expect, it } from "vitest";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import { BIG5_RESULT_PAGE_V2_PAYLOAD_KEY } from "@/lib/big5/resultPageV2";
-import o59Envelope from "@/tests/fixtures/big5/result_page_v2/canonical_o59_core_body_preview.payload.json";
 import expandedSurfaceMatrix from "@/tests/fixtures/big5/result_page_v2/o59_expanded_rendered_qa_surface_matrix.v0_1.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 type SurfaceStatus = "pass" | "fail" | "pending_surface";
 
@@ -27,7 +27,7 @@ function createO59Report(): ReportResponse {
     report: {
       scale_code: "BIG5_OCEAN",
     },
-    [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: structuredClone(o59Envelope).big5_result_page_v2,
+    [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: createRuntimeV2Payload(),
   } as ReportResponse;
 }
 
@@ -91,24 +91,26 @@ describe("Big Five V2 O59 expanded rendered QA contract", () => {
     }
   });
 
-  it.each(TESTED_SURFACES)("%s fails closed to the verified O59 five-domain core", (surfaceKey) => {
+  it.each(TESTED_SURFACES)("%s renders the selected O59 runtime payload", (surfaceKey) => {
     const surface = surfacesByKey()[surfaceKey];
     window.innerWidth = surfaceKey === "result_page_mobile" ? 390 : 1440;
 
     render(<RichResultReport locale="zh" reportData={createO59Report()} />);
 
-    expect(screen.getByTestId("big5-core-only-shell")).toHaveAttribute("data-core-source", "v2");
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
     expect(screen.getAllByRole("progressbar")).toHaveLength(5);
-    expect(screen.queryByTestId("big5-result-page-v2-shell")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("big5-core-only-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
 
     const text = visibleText();
     for (const scoreTerm of ["59", "32", "20", "55", "68"]) {
       expect(text).toContain(scoreTerm);
     }
-    for (const term of ["敏锐的独立思考者", "高敏感 × 中高开放 × 克制进入", "30 / 60 / 90 天路径", "方法与边界说明"]) {
-      expect(text).not.toContain(term);
-    }
+    expect(text).toContain("开放性正文只解释当前连续维度位置");
+    expect(text).toContain("场景优势");
+    expect(text).toContain("场景代价");
+    expect(text).toContain("场景行动");
+    expect(text).toContain("方法与边界");
 
     for (const term of [...surface.forbidden_visible_terms, ...surface.metadata_leak_terms]) {
       expectForbiddenTermAbsent(text, term);

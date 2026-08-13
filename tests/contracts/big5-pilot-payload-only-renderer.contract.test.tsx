@@ -8,6 +8,7 @@ import {
 } from "@/lib/big5/resultPageV2";
 import pilotEnvelope from "@/tests/fixtures/big5/result_page_v2/pilot_o59_staging_payload_v0_1.payload.json";
 import liveBridgeV2ReportFixture from "@/tests/fixtures/big5/report_live_bridge_v2.projection.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 const PILOT_BODY_TERMS = [
   "你更像是在内部完成高强度扫描，再决定是否进入场景的人。",
@@ -55,6 +56,21 @@ function visibleText(): string {
 }
 
 describe("Big Five V2 pilot payload-only renderer contract", () => {
+  it("renders the production runtime payload without a legacy report object", () => {
+    const report = {
+      scale_code: "BIG5_OCEAN",
+      [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: createRuntimeV2Payload(),
+    } as ReportResponse;
+
+    expect(canRenderRichResultReport(report)).toBe(true);
+    render(<RichResultReport locale="zh" reportData={report} />);
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getAllByRole("progressbar")).toHaveLength(5);
+    expect(screen.getByText(/这是一段非固定类型的画像正文/)).toBeInTheDocument();
+    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
+  });
+
   it("rejects the malformed pilot payload instead of publishing its candidate assets", () => {
     render(<RichResultReport locale="zh" reportData={createPilotReport()} />);
 

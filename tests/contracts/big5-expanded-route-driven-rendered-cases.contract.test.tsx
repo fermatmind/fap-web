@@ -14,6 +14,7 @@ import overloadedInternalizerEnvelope from "@/tests/fixtures/big5/result_page_v2
 import quietDeepWorkerEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_quiet_deep_worker_pilot_payload_v0_1.payload.json";
 import sharpExploratoryDriverEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_sharp_exploratory_driver_pilot_payload_v0_1.payload.json";
 import vigilantPerfectionistEnvelope from "@/tests/fixtures/big5/result_page_v2/route_driven_vigilant_perfectionist_pilot_payload_v0_1.payload.json";
+import { createRuntimeV2Payload } from "@/tests/fixtures/big5/runtimeV2Payload";
 
 type RouteDrivenEnvelope = {
   big5_result_page_v2: {
@@ -125,6 +126,22 @@ describe("Big Five V2 expanded route-driven rendered cases", () => {
     expect(goldenSummary.ready_for_runtime).toBe(false);
     expect(goldenSummary.ready_for_production).toBe(false);
     expect(goldenSummary.production_go).toBe(false);
+  });
+
+  it("renders the current production contract separately from historical candidate-universe fixtures", () => {
+    const report = {
+      scale_code: "BIG5_OCEAN",
+      report: { scale_code: "BIG5_OCEAN" },
+      [BIG5_RESULT_PAGE_V2_PAYLOAD_KEY]: createRuntimeV2Payload(),
+    } as ReportResponse;
+
+    render(<RichResultReport locale="zh" reportData={report} />);
+
+    expect(screen.getByTestId("big5-result-page-v2-shell")).toBeInTheDocument();
+    expect(screen.getAllByTestId("big5-v2-block-trait_bars")).toHaveLength(5);
+    expect(screen.getAllByTestId("big5-v2-block-application_matrix")).toHaveLength(1);
+    expect(screen.getAllByTestId("big5-v2-block-facet_reframe")).toHaveLength(1);
+    expect(visibleText()).not.toContain("route_matrix_candidate");
   });
 
   it.each(canonicalCases.flatMap((goldenCase) =>
