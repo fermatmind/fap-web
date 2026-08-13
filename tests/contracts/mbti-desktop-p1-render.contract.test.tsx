@@ -58,6 +58,7 @@ function createProjectionViewModel(
     dimensions: dimensions as MbtiResultProjectionViewModel["dimensions"],
     sections: [],
     seo: null,
+    scientificContext: null,
     rawProjection: null,
     hasProjection: true,
     personalization: null,
@@ -743,10 +744,12 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(within(firstTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(firstTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(firstTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
+    expect(firstTeaser.querySelectorAll("article")).toHaveLength(1);
     expect(within(secondTeaserOverlay).getByRole("link", { name: "1.99元直接解锁" })).toBeInTheDocument();
     expect(within(secondTeaserOverlay).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(secondTeaserOverlay).toHaveTextContent("解锁完整报告");
     expect(secondTeaserOverlay).toHaveTextContent(unifiedUnlockBody);
+    expect(secondTeaser.querySelectorAll("article")).toHaveLength(1);
 
     expect(screen.getAllByText("职业优势")).toHaveLength(1);
     expect(screen.getAllByText("职业短板")).toHaveLength(1);
@@ -1067,7 +1070,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const railIdentity = screen.getByTestId("mbti-rail-profile-identity");
     expect(railIdentity).toHaveTextContent("INFJ-A");
     expect(railIdentity).toHaveTextContent("name infj-a · nickname infj-a");
-    expect(railIdentity).toHaveTextContent("稀有度：rarity infj-a");
+    expect(railIdentity).not.toHaveTextContent("稀有度");
     expect(railIdentity).toHaveTextContent("keyword 1 infj-a");
   });
 
@@ -1156,10 +1159,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(summaryPane).toHaveTextContent("Energy");
     expect(summaryPane).toHaveTextContent("54%");
     expect(summaryPane).toHaveTextContent("Introverted");
-    expect(summaryPane).toHaveTextContent("You prefer fewer, deeper interactions and quieter spaces.");
-    expect(summaryPane).toHaveTextContent(
-      "你更偏向把能量收回到内在世界，但这种内倾并不排斥连接；在合适的关系和话题里，你依然愿意打开自己。",
-    );
+    expect(summaryPane).toHaveTextContent("当前轻微偏向Introverted");
+    expect(summaryPane).toHaveTextContent("两侧方式都可能在不同情境中被使用");
+    expect(summaryPane).not.toHaveTextContent("You prefer fewer, deeper interactions");
 
     fireEvent.click(mindAxis);
 

@@ -616,6 +616,24 @@ describe("personality desktop clone api adapter contract", () => {
     expect(result?.content.chapters.relationships.lockedBlocks[0].blurredItems[0]).not.toHaveProperty("is_locked");
   });
 
+  it("accepts suppressed rarity and preserves explicit empty decorative alt text", async () => {
+    const payload = createValidPayload("science-policy");
+    const hero = payload.content.hero as unknown as Record<string, unknown>;
+    const profileIdentity = hero.profile_identity as Record<string, unknown>;
+    profileIdentity.rarity = null;
+    for (const slot of payload.asset_slots) {
+      (slot as { alt: string | null }).alt = "";
+    }
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse(payload)));
+
+    const result = await fetchPersonalityDesktopCloneContent("INFJ-A", "zh");
+
+    expect(result).not.toBeNull();
+    expect(result?.content.hero.profileIdentity?.rarity).toBe("");
+    expect(result?.assetSlots).toHaveLength(7);
+    expect(result?.assetSlots.every((slot) => slot.alt === "")).toBe(true);
+  });
+
   it("returns null when locale is not zh/zh-CN and skips network", async () => {
     const fetchMock = vi.fn();
     vi.stubGlobal("fetch", fetchMock);

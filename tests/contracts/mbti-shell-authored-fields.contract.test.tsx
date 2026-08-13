@@ -146,6 +146,34 @@ describe("MBTI shell authored fields contract", () => {
     expect(faq).not.toHaveTextContent("This incomplete item must stay hidden.");
   });
 
+  it("normalizes the Chinese FAQ heading and visible item count while authority data rolls out", async () => {
+    const reportData = createReportFixture();
+    const projection = asRecord(reportData.mbti_public_projection_v1);
+    const sections = Array.isArray(projection?.sections) ? projection.sections : [];
+
+    sections.push({
+      key: "faq",
+      render: "faq",
+      title: "Frequently asked questions",
+      payload: {
+        items: Array.from({ length: 6 }, (_, index) => ({
+          key: `faq-${index + 1}`,
+          question: `问题 ${index + 1}`,
+          answer: `回答 ${index + 1}`,
+        })),
+      },
+    });
+
+    render(<RichResultReport locale="zh" reportData={reportData} />);
+
+    const faq = await screen.findByTestId("mbti-result-faq");
+    expect(within(faq).getByRole("heading", { level: 2 })).toHaveTextContent("常见问题");
+    expect(faq).not.toHaveTextContent("Frequently asked questions");
+    expect(within(faq).getAllByTestId("mbti-result-faq-item")).toHaveLength(4);
+    expect(faq).toHaveTextContent("问题 4");
+    expect(faq).not.toHaveTextContent("问题 5");
+  });
+
   it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", () => {
     const reportData = createReportFixture();
     reportData.cta = createCustomCta({
@@ -215,7 +243,9 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent(
+    expect(hero).toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(hero).toHaveTextContent("两侧方式都可能出现");
+    expect(hero).not.toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
     expect(screen.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");

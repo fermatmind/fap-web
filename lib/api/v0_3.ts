@@ -1324,6 +1324,7 @@ export type MbtiPublicProjectionV1Raw = {
   summary_card?: MbtiPublicProjectionSummaryCardRaw | null;
   dimensions?: MbtiPublicProjectionDimensionRaw[] | null;
   sections?: Array<Record<string, unknown>> | null;
+  scientific_context?: Record<string, unknown> | null;
   seo?: Record<string, unknown> | null;
   offer_set?: unknown;
   _meta?: Record<string, unknown> | null;

@@ -38,12 +38,14 @@ export function AdaptiveOptionGroup({
   questionId,
   options,
   value,
+  disabled = false,
   noOptionsLabel,
   onChange,
 }: {
   questionId: string;
   options: OptionItem[];
   value?: string;
+  disabled?: boolean;
   noOptionsLabel: string;
   onChange: (code: string) => void;
 }) {
@@ -51,6 +53,7 @@ export function AdaptiveOptionGroup({
   const bubbleMode = isBubbleMode(normalized);
 
   const moveByArrow = (index: number, event: KeyboardEvent<HTMLElement>) => {
+    if (disabled) return;
     if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
       const next = normalized[Math.min(index + 1, normalized.length - 1)];
@@ -80,6 +83,7 @@ export function AdaptiveOptionGroup({
                 role="radio"
                 aria-checked={selected}
                 aria-label={option.text}
+                disabled={disabled}
                 onClick={() => onChange(option.code)}
                 onKeyDown={(event) => moveByArrow(idx, event)}
                 className={cn(
@@ -114,6 +118,7 @@ export function AdaptiveOptionGroup({
             role="radio"
             aria-checked={selected}
             aria-label={option.text}
+            disabled={disabled}
             onClick={() => onChange(option.code)}
             onKeyDown={(event) => moveByArrow(idx, event)}
             className={cn(
