@@ -826,6 +826,41 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.moduleMap.instant_summary.formVariant).toBe("all");
   });
 
+  it("canonicalizes historical method boundaries and renders exactly one localized boundary", () => {
+    const reportData = createV2ReportResponse();
+    reportData.locale = "zh";
+    const raw = reportData.enneagram_report_v2 as unknown as { locale: string; pages: Array<{ modules: Array<Record<string, unknown>> }> };
+    raw.locale = "zh";
+    raw.pages.forEach((page) => page.modules.forEach((module) => {
+      (module.content as Record<string, unknown>).locale = "zh";
+    }));
+    const legacyBoundary = raw.pages[0].modules.find((module) => module.module_key === "methodology_boundary_card");
+    expect(legacyBoundary).toBeDefined();
+    raw.pages[4].modules.push({
+      ...legacyBoundary,
+      module_key: "method_boundary",
+      content: {
+        locale: "zh",
+        form_badge: { label: "E105 标准版" },
+        methodology_copy: "Technical Note：Top3 仅在当前 form 的 score space 内解释。",
+      },
+    });
+
+    const assembled = assembleEnneagramResultViewModel({
+      reportData,
+      locale: "zh",
+      gate: { isFreeVariant: false },
+    });
+    const boundaryModules = assembled.pages.flatMap((page) => page.modules).filter((module) => module.moduleKey === "method_boundary");
+
+    expect(boundaryModules).toHaveLength(1);
+    expect(assembled.moduleMap.methodology_boundary_card).toBeUndefined();
+    expect(assembled.moduleMap.method_boundary.content).toMatchObject({
+      form_badge: { label: "E105 五点量表版" },
+      methodology_copy: "技术说明：前三候选 仅在当前题型的计分空间 内解释。",
+    });
+  });
+
   it("filters V2 paid report modules for restricted Enneagram access while preserving preview-safe modules", () => {
     const assembled = assembleEnneagramResultViewModel({
       reportData: createV2ReportResponse(),
