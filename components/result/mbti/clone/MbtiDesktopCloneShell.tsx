@@ -436,6 +436,26 @@ export function MbtiDesktopCloneShell({
     () => normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [headline.typeCode, projectionViewModel?.displayType],
   );
+
+  useEffect(() => {
+    if (
+      cloneLocale !== "zh"
+      || snapshotMode
+      || !/^[EI][SN][TF][JP]-[AT]$/.test(fullCodeForStorage)
+    ) {
+      return;
+    }
+
+    const previousTitle = document.title;
+    const resultTitle = `${fullCodeForStorage} MBTI 测评结果 | FermatMind`;
+    document.title = resultTitle;
+
+    return () => {
+      if (document.title === resultTitle) {
+        document.title = previousTitle;
+      }
+    };
+  }, [cloneLocale, fullCodeForStorage, snapshotMode]);
   const [storageSnapshot, setStorageSnapshot] = useState<{
     locale: Locale;
     fullCode: string;
@@ -1149,10 +1169,12 @@ export function MbtiDesktopCloneShell({
 
         <div className={styles.pageGrid}>
           <main className={styles.main}>
-            <section className={styles.introBlock}>
-              <p>{slots.intro.paragraphs[0]}</p>
-              <p>{slots.intro.paragraphs[1]}</p>
-            </section>
+            {cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses ? null : (
+              <section className={styles.introBlock} data-testid="mbti-result-intro">
+                <p>{slots.intro.paragraphs[0]}</p>
+                <p>{slots.intro.paragraphs[1]}</p>
+              </section>
+            )}
 
             <MbtiResultScientificContext
               locale={locale}
