@@ -323,6 +323,7 @@ export type MbtiDesktopCloneContent = {
     };
   };
   finalOffer: Omit<MbtiDesktopCloneSlots["finalOffer"], "asset">;
+  faq?: Array<{ question: string; answer: string }>;
 };
 
 export type TextTuplePatch = [string | undefined, string | undefined];

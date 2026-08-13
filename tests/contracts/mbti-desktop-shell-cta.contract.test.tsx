@@ -305,6 +305,17 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
 }
 
 describe("MBTI desktop clone shell CTA wiring", () => {
+  it("hides purchase and invite surfaces when free-full access is authoritative", () => {
+    renderDefaultShell({
+      suppressUnlockSurfaces: true,
+      lockedInviteCtaHref: INVITE_TAKE_HREF,
+    });
+
+    expect(screen.queryByTestId("mbti-offers-primary-cta")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-career-pay-cta")).not.toBeInTheDocument();
+  });
+
   it("keeps chapter teaser lock-card CTA unified by locale and keeps final offer href CTA fallback", async () => {
     render(
       <MbtiDesktopCloneShell

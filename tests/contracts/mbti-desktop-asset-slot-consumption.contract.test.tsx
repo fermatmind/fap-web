@@ -321,7 +321,7 @@ function createStoragePayload(fullCode: "INFJ-A" | "ENTJ-T", readySlot: "hero-il
   };
 }
 
-function renderShell(typeCode: string) {
+function renderShell(typeCode: string, requirePublishedContent = false) {
   return render(
     <MbtiDesktopCloneShell
       locale="zh"
@@ -340,6 +340,7 @@ function renderShell(typeCode: string) {
       retakeHref="/zh/test/mbti"
       primaryCtaLabel="去结算"
       primaryCtaHref="/zh/pay/checkout"
+      requirePublishedContent={requirePublishedContent}
     />,
   );
 }
@@ -418,6 +419,17 @@ describe("MBTI desktop asset slot consumption contract", () => {
 
     expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-mode", "placeholder");
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toHaveAttribute("data-slot-mode", "placeholder");
+  });
+
+  it("fails closed when the production result route has no published clone package", async () => {
+    renderShell("INFJ-A", true);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-desktop-clone-snapshot-error")).toHaveTextContent(
+        "DESKTOP_CLONE_CONTENT_MISSING",
+      );
+    });
+    expect(screen.queryByTestId("mbti-asset-slot-hero")).not.toBeInTheDocument();
   });
 
   it("keeps the shell readable when a Tencent-hosted hero asset has no local fallback", async () => {

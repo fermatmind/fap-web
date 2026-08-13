@@ -1744,6 +1744,10 @@
   color: #b45309;
 }
 
+.packageReceipt {
+  display: none;
+}
+
 @media print {
   .cloneRoot {
     --clone-page-bg: #ffffff;
@@ -1766,6 +1770,15 @@
     color: var(--clone-text);
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+  }
+
+  .packageReceipt {
+    display: block;
+    margin: 6mm 0 0;
+    color: #64748b;
+    font-size: 7pt;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
   }
 
   .shell {

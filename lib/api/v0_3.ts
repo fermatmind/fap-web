@@ -1234,6 +1234,8 @@ export type AttemptReportAccessResponse = {
   retry_after?: number | null;
   retry_after_seconds?: number | null;
   access_level?: string | null;
+  access_mode?: "free_full" | "paid_unlock" | string | null;
+  paywall_suppressed?: boolean | null;
   variant?: string | null;
   projection_version?: number;
   modules_allowed?: string[] | null;

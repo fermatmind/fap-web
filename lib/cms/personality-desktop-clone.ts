@@ -35,6 +35,10 @@ type DesktopCloneApiMeta = {
   authority_source?: string | null;
   route_mode?: string | null;
   public_route_type?: string | null;
+  package_id?: string | null;
+  package_hash?: string | null;
+  source_hash?: string | null;
+  revision_no?: number | null;
   [key: string]: unknown;
 } | null;
 
@@ -295,7 +299,10 @@ function hasRequiredMbtiDesktopCloneContent(value: unknown): value is MbtiDeskto
     return false;
   }
 
-  return isFinalOffer(value.finalOffer);
+  return isFinalOffer(value.finalOffer)
+    && Array.isArray(value.faq)
+    && value.faq.length === 4
+    && value.faq.every((item) => isRecord(item) && normalizeText(item.question).length > 0 && normalizeText(item.answer).length > 0);
 }
 
 function normalizeStrengthWeakness(value: unknown): StrengthWeaknessBlock | undefined {
@@ -822,6 +829,10 @@ function normalizeMbtiDesktopCloneContent(value: unknown): MbtiDesktopCloneConte
       },
     },
     finalOffer: typedContent.finalOffer,
+    faq: typedContent.faq!.map((item) => ({
+      question: normalizeText(item.question),
+      answer: normalizeText(item.answer),
+    })),
   };
 }
 
@@ -994,6 +1005,16 @@ export function normalizeDesktopCloneResponse(
   const publicRouteType = normalizeText(response._meta?.public_route_type);
   if (publicRouteType && publicRouteType !== "32-type") {
     return null;
+  }
+
+  if (expectedLocale === "zh-CN") {
+    const packageId = normalizeText(response._meta?.package_id);
+    const packageHash = normalizeText(response._meta?.package_hash);
+    const sourceHash = normalizeText(response._meta?.source_hash);
+    const revisionNo = Number(response._meta?.revision_no ?? 0);
+    if (!packageId || !/^[a-f0-9]{64}$/.test(packageHash) || !/^[a-f0-9]{64}$/.test(sourceHash) || !Number.isInteger(revisionNo) || revisionNo < 1) {
+      return null;
+    }
   }
 
   return {

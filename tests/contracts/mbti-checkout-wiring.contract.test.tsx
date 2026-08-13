@@ -682,7 +682,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
     expect(screen.getByText("本次类型仅呈轻微偏向")).toBeInTheDocument();
     expect(screen.getByText(/至少一个核心轴只有 51%–55%/)).toBeInTheDocument();
-    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText(/价格|Price/)).toBeInTheDocument();
+    expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByText("¥1.99")).toBeInTheDocument();
     expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByRole("button", { name: "1.99元直接解锁" })).toBeInTheDocument();
     expect(within(getPrimaryByTestId("mbti-offer-comparison")).getByRole("link", { name: "邀2人测完领报告" })).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();

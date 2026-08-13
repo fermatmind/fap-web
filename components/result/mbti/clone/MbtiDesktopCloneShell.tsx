@@ -90,10 +90,19 @@ type MbtiDesktopCloneShellProps = {
   footerNode?: ReactNode;
   storageContentOverride?: MbtiDesktopCloneContent | null;
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
+  storageMetaOverride?: {
+    package_id?: string | null;
+    package_hash?: string | null;
+    source_hash?: string | null;
+    revision_no?: number | null;
+  } | null;
   storageManagedExternally?: boolean;
   canLoadDesktopCloneStorage?: boolean;
   snapshotMode?: boolean;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
+  suppressUnlockSurfaces?: boolean;
+  storageContentPending?: boolean;
+  requirePublishedContent?: boolean;
 };
 
 const LEGACY_OFFER_SECTION_ID = "offer-full";
@@ -120,12 +129,15 @@ function asRecord(value: unknown): Record<string, unknown> | null {
 function renderCanonicalFaq(
   projectionViewModel: MbtiResultProjectionViewModel | null | undefined,
   locale: "zh" | "en",
+  storageFaq: Array<{ question: string; answer: string }> | null = null,
 ) {
   const section = projectionViewModel?.sections.find(
     (candidate) => candidate.key === "faq" && candidate.render === "faq"
   );
   const payload = asRecord(section?.payload);
-  const rawItems = Array.isArray(payload?.items) ? payload.items : [];
+  const rawItems = locale === "zh" && storageFaq
+    ? storageFaq
+    : Array.isArray(payload?.items) ? payload.items : [];
   const seenKeys = new Set<string>();
   const items = rawItems
     .map((item, index) => {
@@ -146,7 +158,7 @@ function renderCanonicalFaq(
     })
     .slice(0, locale === "zh" ? 4 : undefined);
 
-  if (!section || items.length === 0) {
+  if ((locale !== "zh" && !section) || items.length === 0) {
     return null;
   }
 
@@ -157,7 +169,7 @@ function renderCanonicalFaq(
       className="space-y-5 rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
     >
       <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-        {locale === "zh" ? "常见问题" : section.title}
+        {locale === "zh" ? "常见问题" : section?.title}
       </h2>
       <div className="space-y-3">
         {items.map((item) => (
@@ -422,10 +434,14 @@ export function MbtiDesktopCloneShell({
   footerNode = null,
   storageContentOverride,
   storageAssetSlotsOverride,
+  storageMetaOverride,
   storageManagedExternally = false,
   canLoadDesktopCloneStorage,
   snapshotMode = false,
   snapshotContentStatus = null,
+  suppressUnlockSurfaces = false,
+  storageContentPending = false,
+  requirePublishedContent = false,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
@@ -472,6 +488,7 @@ export function MbtiDesktopCloneShell({
   const storageAssetSlots = shouldLoadDesktopCloneStorage
     ? storageAssetSlotsOverride !== undefined ? storageAssetSlotsOverride : activeStorageSnapshot?.assetSlots ?? null
     : null;
+  const storageMeta = storageMetaOverride ?? null;
 
   useEffect(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
@@ -573,9 +590,10 @@ export function MbtiDesktopCloneShell({
     projectionViewModel,
     storageContent,
   };
+  const mustUsePublishedContent = snapshotMode || (cloneLocale === "zh" && requirePublishedContent);
   const strictSlotsResult = resolveMbtiDesktopCloneSlotsResult(slotInput, {
     mode: snapshotMode ? "snapshot" : "normal",
-    allowPlaceholder: !snapshotMode,
+    allowPlaceholder: !mustUsePublishedContent,
   });
   const slots = strictSlotsResult.ok
     ? strictSlotsResult.slots
@@ -589,13 +607,14 @@ export function MbtiDesktopCloneShell({
   const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok;
   const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
-  const unlockedCareerIdeaBlock = isUnlocked
+  const fullContentVisible = snapshotMode || isUnlocked || suppressUnlockSurfaces;
+  const unlockedCareerIdeaBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.career.careerIdeas,
         cloneLocale === "zh" ? "你可能会喜欢的职业选择" : (slots.chapters.career.careerIdeas?.title ?? "Career Ideas"),
       )
     : null;
-  const unlockedWorkStylesBlock = isUnlocked
+  const unlockedWorkStylesBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.career.workStyles,
         cloneLocale === "zh" ? "适合你的工作方式" : (slots.chapters.career.workStyles?.title ?? "Work Styles"),
@@ -620,13 +639,13 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  const unlockedWhatEnergizesBlock = isUnlocked
+  const unlockedWhatEnergizesBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatEnergizes,
         cloneLocale === "zh" ? "什么能让你充满活力？" : (slots.chapters.growth.whatEnergizes?.title ?? "What Energizes You"),
       )
     : null;
-  const unlockedWhatDrainsBlock = isUnlocked
+  const unlockedWhatDrainsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatDrains,
         cloneLocale === "zh" ? "什么让你精力力竭？" : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
@@ -653,13 +672,13 @@ export function MbtiDesktopCloneShell({
       />,
     );
   }
-  const unlockedSuperpowersBlock = isUnlocked
+  const unlockedSuperpowersBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.relationships.superpowers,
         cloneLocale === "zh" ? "你的人际关系优势" : (slots.chapters.relationships.superpowers?.title ?? "Your Relationship Superpowers"),
       )
     : null;
-  const unlockedPitfallsBlock = isUnlocked
+  const unlockedPitfallsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.relationships.pitfalls,
         cloneLocale === "zh" ? "人际关系陷阱" : (slots.chapters.relationships.pitfalls?.title ?? "Relationship Pitfalls"),
@@ -939,13 +958,13 @@ export function MbtiDesktopCloneShell({
     : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = slots.overview ? "overview" : "traits";
-  const showTopInviteProgress = !snapshotMode && isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const showTopInviteProgress = !snapshotMode && !suppressUnlockSurfaces && isMobileViewport && inviteProgressDisplay.showProgressCard;
   const shouldRenderSnapshotStaticShell = snapshotMode;
-  const shouldRenderFinalOffer = !snapshotMode;
+  const shouldRenderFinalOffer = !snapshotMode && !suppressUnlockSurfaces;
   const shouldRenderRail = !snapshotMode;
   const shouldRenderTrailingNodes = !snapshotMode;
   const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
-  const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale);
+  const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale, storageContent?.faq ?? null);
   const narrativeTitle = (title: string) => cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
     ? `${title}（探索假设）`
     : title;
@@ -980,7 +999,7 @@ export function MbtiDesktopCloneShell({
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}
         onCheckout={primaryOffer ? onCheckout : undefined}
-        isUnlocked={snapshotMode || isUnlocked}
+        isUnlocked={fullContentVisible}
         unlockedNode={unlockedOfferNode}
         illustrationSlotId={slots.finalOffer.asset.slotId}
         illustrationLabel={slots.finalOffer.asset.label}
@@ -1007,14 +1026,14 @@ export function MbtiDesktopCloneShell({
         matchedGuides={null}
         traits={slots.chapters.career.influentialTraits}
         traitsUnlock={slots.chapters.career.traitsUnlock}
-        isUnlocked={snapshotMode || isUnlocked}
+        isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={careerPostCoreBlocks}
-        premiumTeasers={snapshotMode || isUnlocked ? [] : [
+        premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
@@ -1046,14 +1065,14 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.growth.weaknesses}
         traits={slots.chapters.growth.influentialTraits}
         traitsUnlock={slots.chapters.growth.traitsUnlock}
-        isUnlocked={snapshotMode || isUnlocked}
+        isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={growthPostCoreBlocks}
-        premiumTeasers={snapshotMode || isUnlocked ? [] : [
+        premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
@@ -1085,14 +1104,14 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.relationships.weaknesses}
         traits={slots.chapters.relationships.influentialTraits}
         traitsUnlock={slots.chapters.relationships.traitsUnlock}
-        isUnlocked={snapshotMode || isUnlocked}
+        isUnlocked={fullContentVisible}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={relationshipsPostCoreBlocks}
-        premiumTeasers={snapshotMode || isUnlocked ? [] : [
+        premiumTeasers={fullContentVisible ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
@@ -1124,7 +1143,15 @@ export function MbtiDesktopCloneShell({
     </>
   );
 
-  if (snapshotContentErrorCode) {
+  if (storageContentPending && mustUsePublishedContent && !snapshotMode) {
+    return (
+      <section data-testid="mbti-desktop-clone-content-loading" className={styles.cloneRoot}>
+        <p>正在加载结果内容...</p>
+      </section>
+    );
+  }
+
+  if (snapshotContentErrorCode || (mustUsePublishedContent && !strictSlotsResult.ok)) {
     return (
       <section
         data-testid="mbti-desktop-clone-snapshot-error"
@@ -1135,7 +1162,7 @@ export function MbtiDesktopCloneShell({
         data-pdf-exclude="true"
         className={styles.cloneRoot}
       >
-        <p>{snapshotContentErrorCode}</p>
+        <p>{snapshotContentErrorCode ?? (!strictSlotsResult.ok ? strictSlotsResult.code : "DESKTOP_CLONE_CONTENT_MISSING")}</p>
       </section>
     );
   }
@@ -1151,6 +1178,9 @@ export function MbtiDesktopCloneShell({
       data-invite-has-invite={hasInvite ? "true" : "false"}
       data-invite-code={sectionInviteCode || undefined}
       data-invite-href={sectionInviteCtaHref || undefined}
+      data-content-package-hash={storageMeta?.package_hash ?? undefined}
+      data-content-source-hash={storageMeta?.source_hash ?? undefined}
+      data-content-revision-no={storageMeta?.revision_no ?? undefined}
     >
       <div className={styles.shell}>
         <MbtiCloneHero
@@ -1224,6 +1254,11 @@ export function MbtiDesktopCloneShell({
             )}
             {shouldRenderFinalOffer && !isMobileViewport ? finalOfferNode : null}
             {shouldRenderTrailingNodes && isDeepContentReady ? trailingNodes : null}
+            {storageMeta?.package_hash ? (
+              <p className={styles.packageReceipt} data-testid="mbti-content-package-receipt">
+                内容包 {storageMeta.package_id ?? "mbti-zh-result"} · {storageMeta.package_hash} · revision {storageMeta.revision_no ?? "-"}
+              </p>
+            ) : null}
           </main>
 
           {shouldRenderRail ? (
