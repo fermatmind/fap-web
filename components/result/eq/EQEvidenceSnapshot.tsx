@@ -1,5 +1,6 @@
 import type { EqDimensionRankingEntry, EqV5ViewModel } from "./types";
 import { formatEqScore, getEqDimensionLabel } from "./utils";
+import { localizeEqTechnicalValue } from "./localization";
 
 export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { globalScore, dimensions, interpretation, methodology, assets, locale } = viewModel;
@@ -32,11 +33,11 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
           <SnapshotMetric label={locale === "zh" ? "最强信号" : "Strongest signal"} value={strongest} />
         ) : null}
         {development ? (
-          <SnapshotMetric label={locale === "zh" ? "发展杠杆" : "Development lever"} value={development} />
+          <SnapshotMetric label={locale === "zh" ? "下一步练习重点" : "Practice focus"} value={development} />
         ) : null}
         <SnapshotMetric
           label={locale === "zh" ? "常模状态" : "Norm status"}
-          value={methodology.norm_status || "—"}
+          value={localizeEqTechnicalValue(methodology.norm_status, locale) || "—"}
           meta={methodology.norm_status === "provisional" ? (locale === "zh" ? "阶段性常模" : "Provisional norms") : undefined}
         />
         <SnapshotMetric

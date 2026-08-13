@@ -7,6 +7,7 @@ import type { EqAgentContextPayload, EqAgentRuntimeResponsePayload, ReportRespon
 import balancedEn from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
 import balancedZh from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
 import highEmpathyEn from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
+import highEmpathyZh from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_zh.json";
 import lowConfidenceEn from "@/tests/fixtures/eq/v5/eq60_v5_low_confidence_en.json";
 import lowConfidenceZh from "@/tests/fixtures/eq/v5/eq60_v5_low_confidence_zh.json";
 
@@ -167,10 +168,10 @@ describe("EQ v5 result renderer contract", () => {
       "Read the gap-related scene first"
     );
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "Save this route so you can later check whether the largest gap appears"
+      "Save this result so you can later check whether the largest gap appears"
     );
     expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Evidence Snapshot");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Route evidence: core formulation");
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("interpretation basis: core interpretation");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Interpretation Confidence");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Why:");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Your response pace and consistency support");
@@ -179,14 +180,12 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-mechanism-section")).toHaveTextContent(
       "Empathy understanding x relationship management"
     );
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("strong empathy cues, heavier recovery load");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Strong empathy cues, heavier recovery load");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Emotional labor: high");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Interview check");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Role observation checklist");
     expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Empathy with a Boundary");
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Future Scenario Module");
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("signals about scenario choices");
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("would not replace the EQ-60 self-report");
+    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Scientific Boundary");
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Content evidence: preliminary");
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Save report");
@@ -217,13 +216,13 @@ describe("EQ v5 result renderer contract", () => {
     render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
 
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("high empathy with lower recovery");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Route evidence: core formulation");
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("interpretation basis: core interpretation");
     expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("How to read this in 30 seconds");
     expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("How to read the evidence");
-    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Route signal");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("strong empathy cues, heavier recovery load");
+    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Observation focus");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Strong empathy cues, heavier recovery load");
     expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Micro script");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Let’s confirm roles, timing, and next steps");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Who owns this, when is it due");
     expect(screen.queryByTestId("eq-cross-assessment-context")).not.toBeInTheDocument();
     expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|unlock|purchase|premium|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
   });
@@ -257,7 +256,7 @@ describe("EQ v5 result renderer contract", () => {
       "Start with one real situation from this report."
     );
     expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("cannot change scores");
-    expect(screen.queryByText(/locked|paywall|SKU_EQ_60_FULL_299|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/paywall|SKU_EQ_60_FULL_299|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
   });
 
   it("opens the EQ Agent runtime drawer and sends a deterministic read-only message", async () => {
@@ -307,7 +306,9 @@ describe("EQ v5 result renderer contract", () => {
     );
     expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent("Use the selected evidence point.");
     expect(screen.getByTestId("eq-agent-runtime-response")).not.toHaveTextContent("eq.conversion.agent_entry");
-    expect(screen.queryByText(/locked|paywall|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId("eq-agent-runtime-response")).not.toHaveTextContent(
+      /paywall|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:|focus:|bucket:/i
+    );
     expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
   });
 
@@ -567,18 +568,19 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.queryByTestId("eq-agent-entry-guard")).not.toBeInTheDocument();
   });
 
-  it("does not render clickable SJT entry when next_module.available is false", () => {
+  it("does not render the SJT roadmap when next_module.available is false", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
 
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Planned, not available yet");
+    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
+    expect(screen.queryByText(/Future Scenario Module|Planned, not available yet/i)).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others|locked/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others/i)).not.toBeInTheDocument();
   });
 
-  it("keeps the SJT entry unavailable even if a payload marks it available before SJT launch", () => {
+  it("does not render the SJT roadmap even if a payload marks it available", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
     const report = reportPayload(reportData);
     const assets = report.assets as Record<string, unknown>;
@@ -596,13 +598,13 @@ describe("EQ v5 result renderer contract", () => {
 
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Planned, not available yet");
+    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-sjt-bridge-link")).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others|locked/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others/i)).not.toBeInTheDocument();
   });
 
-  it("keeps SJT planned unavailable if backend status remains planned", () => {
+  it("does not render the SJT roadmap when backend status remains planned", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
     const report = reportPayload(reportData);
     const assets = report.assets as Record<string, unknown>;
@@ -620,8 +622,44 @@ describe("EQ v5 result renderer contract", () => {
 
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Planned, not available yet");
+    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-sjt-bridge-link")).not.toBeInTheDocument();
+  });
+
+  it("localizes technical values and quality flags on Chinese results without polluting English", () => {
+    const zhReport = responseFromFixture(highEmpathyZh as EqV5Fixture);
+    const { rerender } = render(<EQResultV5 locale="zh" reportData={zhReport} />);
+    let zhPage = screen.getByTestId("eq-result-v5");
+
+    expect(zhPage).toHaveTextContent("下一步练习重点");
+    expect(zhPage).toHaveTextContent("常模状态");
+    expect(zhPage).toHaveTextContent("计分版本");
+    expect(zhPage).toHaveTextContent("内容版本");
+    expect(zhPage).toHaveTextContent("阶段性");
+    expect(zhPage).not.toHaveTextContent(
+      /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
+    );
+
+    rerender(<EQResultV5 locale="zh" reportData={responseFromFixture(lowConfidenceZh as EqV5Fixture)} />);
+    zhPage = screen.getByTestId("eq-result-v5");
+    expect(zhPage).toHaveTextContent("作答速度过快");
+    expect(zhPage).not.toHaveTextContent(/SPEEDING|LOW|low confidence/i);
+
+    rerender(<EQResultV5 locale="zh" reportData={responseFromFixture(balancedZh as EqV5Fixture)} />);
+    zhPage = screen.getByTestId("eq-result-v5");
+    expect(zhPage).toHaveTextContent("四维并列");
+    expect(zhPage).toHaveTextContent("无单一练习重点");
+    expect(zhPage).toHaveTextContent("较成熟");
+    expect(zhPage).not.toHaveTextContent(
+      /Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|provisional|planned/i
+    );
+
+    rerender(<EQResultV5 locale="en" reportData={responseFromFixture(balancedEn as EqV5Fixture)} />);
+    const enPage = screen.getByTestId("eq-result-v5");
+    expect(enPage).toHaveTextContent("Evidence Snapshot");
+    expect(enPage).toHaveTextContent("provisional");
+    expect(enPage).not.toHaveTextContent("下一步练习重点");
+    expect(enPage).not.toHaveTextContent("阶段性");
   });
 
   it("fails closed when root report access says the EQ v5 payload is locked or commerce restricted", () => {

@@ -1,5 +1,6 @@
 import type { EqV5ViewModel } from "./types";
 import { SectionHeading } from "./EQEvidenceSnapshot";
+import { localizeEqTechnicalValue } from "./localization";
 
 export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }) {
   const contract = viewModel.assets.scientific_contract;
@@ -27,9 +28,18 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
           ))}
         </ul>
         <dl className="mt-4 grid gap-3 text-sm md:grid-cols-3">
-          <BoundaryMeta label="norm_status" value={viewModel.methodology.norm_status} />
-          <BoundaryMeta label="scoring_version" value={viewModel.methodology.scoring_version} />
-          <BoundaryMeta label="content_version" value={viewModel.methodology.content_version} />
+          <BoundaryMeta
+            label={viewModel.locale === "zh" ? "常模状态" : "Norm status"}
+            value={localizeEqTechnicalValue(viewModel.methodology.norm_status, viewModel.locale)}
+          />
+          <BoundaryMeta
+            label={viewModel.locale === "zh" ? "计分版本" : "Scoring version"}
+            value={viewModel.methodology.scoring_version}
+          />
+          <BoundaryMeta
+            label={viewModel.locale === "zh" ? "内容版本" : "Content version"}
+            value={viewModel.methodology.content_version}
+          />
         </dl>
         {evidence.length > 0 ? (
           <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -38,7 +48,11 @@ export function EQScientificBoundary({ viewModel }: { viewModel: EqV5ViewModel }
                 <h3 className="font-semibold text-slate-900">
                   {item.user_facing_status_label || item.label || item.id}
                 </h3>
-                {item.status ? <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">{item.status}</p> : null}
+                {item.status ? (
+                  <p className="mt-1 text-xs uppercase tracking-[0.08em] text-slate-500">
+                    {localizeEqTechnicalValue(item.status, viewModel.locale)}
+                  </p>
+                ) : null}
                 {item.what_this_means_for_user || item.user_meaning ? (
                   <p className="mt-2 leading-6 text-slate-700">
                     {item.what_this_means_for_user || item.user_meaning}

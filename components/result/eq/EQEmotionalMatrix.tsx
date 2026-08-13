@@ -1,6 +1,7 @@
 import type { EqV5ViewModel } from "./types";
 import { formatEqScore, getEqDimensionLabel } from "./utils";
 import { SectionHeading } from "./EQEvidenceSnapshot";
+import { localizeEqTechnicalValue } from "./localization";
 
 const MATRIX: Array<{ code: string; axis: "self" | "relationship"; mode: "understand" | "act" }> = [
   { code: "SA", axis: "self", mode: "understand" },
@@ -42,7 +43,10 @@ export function EQEmotionalMatrix({ viewModel }: { viewModel: EqV5ViewModel }) {
                 <div className="mt-3 grid grid-cols-3 gap-2 text-sm">
                   <Metric label={locale === "zh" ? "标准分" : "Score"} value={formatEqScore(score.standard_score)} />
                   <Metric label={locale === "zh" ? "百分位" : "Percentile"} value={formatEqScore(score.percentile)} />
-                  <Metric label={locale === "zh" ? "等级" : "Band"} value={band || "—"} />
+                  <Metric
+                    label={locale === "zh" ? "等级" : "Band"}
+                    value={localizeEqTechnicalValue(band, locale) || "—"}
+                  />
                 </div>
               ) : (
                 <p className="mt-3 text-sm text-slate-500">{locale === "zh" ? "该维度暂不可用。" : "This dimension is unavailable."}</p>

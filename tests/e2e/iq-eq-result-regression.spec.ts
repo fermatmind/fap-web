@@ -1,6 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import balancedEqFixture from "../fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
+import balancedEqZhFixture from "../fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
 import highEmpathyEqFixture from "../fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
 import lowConfidenceEqFixture from "../fixtures/eq/v5/eq60_v5_low_confidence_en.json";
 
@@ -365,13 +366,13 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(
     page
       .getByTestId("eq-evidence-snapshot")
-      .getByText("Route evidence: core formulation, largest dimension gap, response-quality signals, and selected assets."),
+      .getByText("interpretation basis: core interpretation, largest dimension gap, response-quality signals, and selected content."),
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
   await expect(page.getByText("Empathy with a Boundary")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Future Scenario Module" })).toBeVisible();
-  await expect(page.getByText("Planned, not available yet")).toBeVisible();
+  await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
+  await expect(page.getByText(/Future Scenario Module|Planned, not available yet/i)).toHaveCount(0);
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
   await page.getByRole("button", { name: /Ask (assistant|the Agent|the result assistant)/i }).click();
   await expect(page.getByTestId("eq-agent-runtime-drawer")).toBeVisible();
@@ -385,8 +386,10 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByText("This answer stays inside the current report assets.")).toBeVisible();
   await expect(page.getByText("Use the selected evidence point.")).toBeVisible();
   await expect(page.getByText("eq.conversion.agent_entry")).toHaveCount(0);
-  await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
-  await expect(page.getByText(/profile:|quality_level:|focus:|bucket:/i)).toHaveCount(0);
+  await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|blur_others|paywall/i)).toHaveCount(0);
+  await expect(page.getByTestId("eq-agent-runtime-response")).not.toContainText(
+    /profile:|quality_level:|focus:|bucket:/i
+  );
   await expect(page.getByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).toHaveCount(0);
 });
 
@@ -454,6 +457,47 @@ test("EQ balanced report renders backend-declared four-way ties", async ({ page 
   await expect(evidence).toBeVisible();
   await expect(evidence.getByText("Four-way tie")).toBeVisible();
   await expect(evidence.getByText("No single practice focus")).toBeVisible();
+});
+
+test("EQ Chinese result localizes technical labels on mobile and desktop viewports", async ({ page }) => {
+  const attemptId = "eq-zh-mobile-001";
+  await page.setViewportSize({ width: 390, height: 844 });
+  await mockTrack(page);
+  await mockGuestToken(page, "fm_eq_zh_mobile_token_123456");
+  await mockAttemptLinkAnon(page);
+  await mockScaleLookup(page);
+  await mockEqV5ReportAccess(page, attemptId, balancedEqZhFixture as EqV5Fixture);
+
+  await page.route(reportRoutePattern(attemptId), async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify(eqV5ReportResponse(balancedEqZhFixture as EqV5Fixture)),
+    });
+  });
+
+  await page.goto(`/zh/result/${attemptId}`);
+  const result = page.getByTestId("eq-result-v5");
+  await expect(result).toBeVisible();
+  await expect(result.getByText("下一步练习重点", { exact: true }).first()).toBeVisible();
+  await expect(result.getByText("常模状态", { exact: true }).first()).toBeVisible();
+  await expect(result.getByText("计分版本", { exact: true })).toBeVisible();
+  await expect(result.getByText("内容版本", { exact: true })).toBeVisible();
+  await expect(result.getByText("四维并列", { exact: true })).toBeVisible();
+  await expect(result.getByText("无单一练习重点", { exact: true })).toBeVisible();
+  await expect(result).not.toContainText(
+    /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
+  );
+  await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
+  await expect(page.getByText(/未来情境判断模块|计划中，暂未开放/)).toHaveCount(0);
+
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await expect(
+    result.getByRole("heading", { name: "本次自我报告呈现：均衡整合" })
+  ).toBeVisible();
+  await expect(result.getByTestId("eq-evidence-snapshot")).toBeVisible();
+  await expect(result.getByTestId("eq-scientific-boundary")).toBeVisible();
+  await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
 });
 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
