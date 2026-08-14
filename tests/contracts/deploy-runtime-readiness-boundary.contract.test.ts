@@ -54,6 +54,9 @@ describe("deploy runtime readiness boundary", () => {
       expect(body).toContain('--connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC"');
       expect(body).toContain('--max-time "$HTTP_REQUEST_TIMEOUT_SEC"');
     }
+
+    expect(probeHeaders).toContain("printf '%s\\n' \"$headers\" | sed -n '1,20p'");
+    expect(probeHeaders).not.toContain("| head -n 20");
   });
 
   it("keeps the non-cancelling staging lane while allowing cross-region transfer headroom", () => {
