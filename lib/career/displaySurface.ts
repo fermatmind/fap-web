@@ -114,7 +114,10 @@ export type CareerDisplayHeroViewModel = {
   };
 };
 
-export type CareerDisplayTableRow = [string, string] | [string, string, string];
+export type CareerDisplayTableRow =
+  | [string, string]
+  | [string, string, string]
+  | [string, string, string, string];
 
 export type CareerDisplayChecklistItem = {
   title: string;
@@ -681,7 +684,7 @@ function normalizeCta(value: unknown): CareerDisplayCta | null {
   };
 }
 
-function normalizeRows(value: unknown): CareerDisplayTableRow[] {
+function normalizeRows(value: unknown, maxColumns: 3 | 4 = 3): CareerDisplayTableRow[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -690,7 +693,13 @@ function normalizeRows(value: unknown): CareerDisplayTableRow[] {
     .filter(Array.isArray)
     .map((row) => row.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))
     .filter((row) => row.length >= 2)
-    .map((row) => (row.length >= 3 ? [row[0], row[1], row[2]] : [row[0], row[1]]) as CareerDisplayTableRow);
+    .map((row) => (
+      maxColumns === 4 && row.length >= 4
+        ? [row[0], row[1], row[2], row[3]]
+        : row.length >= 3
+          ? [row[0], row[1], row[2]]
+          : [row[0], row[1]]
+    ) as CareerDisplayTableRow);
 }
 
 function normalizeChecklist(value: unknown): Array<string | CareerDisplayChecklistItem> {
@@ -762,6 +771,8 @@ function normalizeSection(value: unknown): CareerDisplaySection | null {
     return null;
   }
 
+  const rows = normalizeRows(raw.rows, component === "CareerPathBlock" ? 4 : 3);
+
   return {
     id,
     component,
@@ -771,7 +782,7 @@ function normalizeSection(value: unknown): CareerDisplaySection | null {
     ...(normalizeString(raw?.intro) ? { intro: normalizeString(raw.intro) ?? undefined } : {}),
     ...(normalizeString(raw?.source_key) ? { sourceKey: normalizeString(raw.source_key) ?? undefined } : {}),
     ...(normalizeStringArray(raw?.source_keys).length > 0 ? { sourceKeys: normalizeStringArray(raw.source_keys) } : {}),
-    ...(normalizeRows(raw?.rows).length > 0 ? { rows: normalizeRows(raw.rows) } : {}),
+    ...(rows.length > 0 ? { rows } : {}),
     ...(normalizeStringArray(raw?.items).length > 0 ? { items: normalizeStringArray(raw.items) } : {}),
     ...(normalizeString(raw?.fit_title) ? { fitTitle: normalizeString(raw.fit_title) ?? undefined } : {}),
     ...(normalizeStringArray(raw?.fit_items).length > 0 ? { fitItems: normalizeStringArray(raw.fit_items) } : {}),

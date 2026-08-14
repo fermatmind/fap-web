@@ -478,12 +478,18 @@ function SectionGroup({
   );
 }
 
+function hideCareerPathSalaryCell(row: CareerDisplayTableRow): CareerDisplayTableRow {
+  return row.length === 4 ? [row[0], row[1], row[2]] : row;
+}
+
 function stripSalaryClaims(section: CareerDisplaySection, allowSalaryComparison: boolean): CareerDisplaySection | null {
   if (allowSalaryComparison) {
     return section;
   }
 
-  const rows = (section.rows ?? []).filter((row) => !rowIncludesSalaryClaim(row));
+  const rows = section.component === "CareerPathBlock"
+    ? (section.rows ?? []).map(hideCareerPathSalaryCell)
+    : (section.rows ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const entryTable = (section.entryTable ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const signalMeta = (section.signalMeta ?? []).filter((row) => !rowIncludesSalaryClaim(row));
   const body = bodyIncludesSalaryClaim(section.body) ? undefined : section.body;
@@ -697,7 +703,14 @@ export function CareerDisplaySurface({
       </SectionGroup>
       <SectionGroup title={profileGroupTitle} description={profileGroupDescription}>
         {definition ? <EvidenceContainer section={definition} testId="definition-block" /> : null}
-        {aiDescription ? <EvidenceContainer section={aiDescription} testId="career-ai-description-block" /> : null}
+        {aiDescription ? (
+          <EvidenceContainer
+            section={aiDescription}
+            testId="career-ai-description-block"
+            bodyFormat="markdown"
+            locale={surface.locale}
+          />
+        ) : null}
         {responsibilities ? <EvidenceContainer section={responsibilities} testId="responsibilities-block" /> : null}
         {workContext ? <EvidenceContainer section={workContext} testId="work-context-block" /> : null}
         {snapshots.map((section, index) => (

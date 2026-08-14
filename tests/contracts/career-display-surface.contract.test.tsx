@@ -43,6 +43,12 @@ const D8_ACTIVE_DISPLAY_SLUGS = [
 ] as const;
 
 describe("career display surface contract", () => {
+  it("does not render a display shell without a validated backend surface", () => {
+    render(<CareerDisplaySurface surface={null} />);
+
+    expect(screen.queryByTestId("career-display-surface")).not.toBeInTheDocument();
+  });
+
   it("adapts and renders the production v4.2 24-component display surface", () => {
     const surface = adaptCareerDisplaySurface(
       buildProductionV42LegacyDisplaySurfaceFixture({
@@ -345,6 +351,74 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("claim-permission-notice-salary")).toHaveTextContent("Direct salary comparison is hidden");
     expect(screen.queryByText(/Salary should not render/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/What salary can I expect/i)).not.toBeInTheDocument();
+  });
+
+  it("renders WorkBuddy AI Markdown without raw markers or images", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    const aiDescription = fixture.page.en.sections.find(
+      (section) => section.component === "CareerAiDescriptionBlock"
+    );
+    if (!aiDescription) {
+      throw new Error("Expected AI description fixture");
+    }
+    aiDescription.body = [
+      "## Role-specific analysis",
+      "> Treat this as a bounded interpretation.",
+      "- **Review** the work context",
+      "- [Compare evidence](https://example.com/evidence)",
+      "![Hidden image](https://example.com/hidden.png)",
+    ];
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    const block = screen.getByTestId("career-ai-description-block");
+    expect(block).not.toHaveTextContent("##");
+    expect(block).not.toHaveTextContent(">");
+    expect(block).not.toHaveTextContent("**");
+    expect(block.querySelector("h3")).toHaveTextContent("Role-specific analysis");
+    expect(block.querySelector("blockquote")).toHaveTextContent("Treat this as a bounded interpretation.");
+    expect(block.querySelector("strong")).toHaveTextContent("Review");
+    expect(screen.getByRole("link", { name: "Compare evidence" })).toHaveAttribute(
+      "href",
+      "https://example.com/evidence"
+    );
+    expect(block.querySelector("img")).toBeNull();
+  });
+
+  it.each([
+    [true, true],
+    [false, false],
+  ] as const)("shows the WorkBuddy salary cell only when salary comparison is %s", (allowSalaryComparison, showsSalary) => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
+      allow_salary_comparison: allowSalaryComparison,
+      blocked_claims: allowSalaryComparison ? [] : ["salary_comparison"],
+    });
+    const careerPath = fixture.page.en.sections.find(
+      (section) => section.component === "CareerPathBlock"
+    );
+    if (!careerPath) {
+      throw new Error("Expected career path fixture");
+    }
+    careerPath.rows = [
+      ["Entry", "0-2 years", "Support scoped delivery", "Salary: $40,000-$55,000"],
+      ["Mid", "3-5 years", "Own independent delivery", "Salary: $55,000-$75,000"],
+      ["Senior", "6-10 years", "Lead complex delivery", "Salary: $75,000-$100,000"],
+      ["Expert", "10+ years", "Set professional standards", "Salary: $100,000+"],
+    ];
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    const pathBlock = screen.getByTestId("career-path-block");
+    expect(pathBlock).toHaveTextContent("Entry");
+    expect(pathBlock).toHaveTextContent("0-2 years");
+    expect(pathBlock).toHaveTextContent("Support scoped delivery");
+    if (showsSalary) {
+      expect(pathBlock).toHaveTextContent("Salary: $40,000-$55,000");
+    } else {
+      expect(pathBlock).not.toHaveTextContent("Salary: $40,000-$55,000");
+      expect(screen.getByTestId("claim-permission-notice-salary")).toBeInTheDocument();
+    }
   });
 
   it("suppresses legacy salary and search-intent metadata when a salary asset is rendered", () => {
