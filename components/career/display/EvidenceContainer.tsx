@@ -1,14 +1,36 @@
 import Link from "next/link";
 import type { CareerDisplayChecklistItem, CareerDisplaySection, CareerDisplayTableRow } from "@/lib/career/displaySurface";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import type { Locale } from "@/lib/i18n/locales";
 
 type EvidenceContainerProps = {
   section: CareerDisplaySection;
   testId?: string;
+  bodyFormat?: "plain" | "markdown";
+  locale?: Locale;
 };
 
-function renderBody(body: CareerDisplaySection["body"]) {
+function renderBody(
+  body: CareerDisplaySection["body"],
+  bodyFormat: EvidenceContainerProps["bodyFormat"],
+  locale: EvidenceContainerProps["locale"],
+) {
   if (!body) {
     return null;
+  }
+
+  if (bodyFormat === "markdown") {
+    const markdown = Array.isArray(body) ? body.join("\n\n") : body;
+
+    return (
+      <div className="fm-content-page-prose mt-4 text-sm" data-testid="career-display-markdown-body">
+        {renderSimpleMarkdown(markdown, {
+          allowImages: false,
+          locale,
+          minimumHeadingLevel: 3,
+        })}
+      </div>
+    );
   }
 
   if (Array.isArray(body)) {
@@ -57,7 +79,9 @@ function TableRows({ rows }: { rows: CareerDisplayTableRow[] }) {
           <li key={row.join(":")} className="list-none rounded-lg border border-slate-200 p-3 text-sm text-slate-700">
             <p className="m-0 font-semibold text-slate-950">{row[0]}</p>
             <p className="m-0 mt-1">{row[1]}</p>
-            {row[2] ? <p className="m-0 mt-1 text-slate-600">{row[2]}</p> : null}
+            {row.slice(2).map((cell, index) => (
+              <p key={`${cell}:${index + 2}`} className="m-0 mt-1 text-slate-600">{cell}</p>
+            ))}
           </li>
         ))}
       </ul>
@@ -65,7 +89,7 @@ function TableRows({ rows }: { rows: CareerDisplayTableRow[] }) {
   );
 }
 
-export function EvidenceContainer({ section, testId }: EvidenceContainerProps) {
+export function EvidenceContainer({ section, testId, bodyFormat = "plain", locale }: EvidenceContainerProps) {
   return (
     <section
       className="rounded-lg border border-slate-200 bg-white p-5"
@@ -77,7 +101,7 @@ export function EvidenceContainer({ section, testId }: EvidenceContainerProps) {
     >
       <h2 className="m-0 text-2xl font-semibold tracking-normal text-slate-950">{section.heading}</h2>
       {section.intro ? <p className="m-0 mt-3 text-sm leading-7 text-slate-700">{section.intro}</p> : null}
-      {renderBody(section.body)}
+      {renderBody(section.body, bodyFormat, locale)}
       {section.answer ? <p className="m-0 mt-4 text-sm leading-7 text-slate-700">{section.answer}</p> : null}
       {section.profile && section.profile.length > 0 ? (
         <ul className="m-0 mt-4 flex list-none flex-wrap gap-2 p-0">
