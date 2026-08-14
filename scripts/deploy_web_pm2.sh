@@ -111,7 +111,7 @@ probe_headers() {
       "$url")"
   fi
 
-  printf '%s\n' "$headers" | head -n 20
+  printf '%s\n' "$headers" | sed -n '1,20p'
 }
 
 wait_for_local_app_ready() {
