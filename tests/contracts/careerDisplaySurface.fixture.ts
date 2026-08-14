@@ -1,4 +1,7 @@
-import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
+import {
+  CAREER_DISPLAY_COMPONENT_ORDER,
+  CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
+} from "@/lib/career/displaySurface";
 
 type SelectedCareerDisplaySurfaceFixtureInput = {
   slug: "actors" | "data-scientists" | "registered-nurses" | "accountants-and-auditors" | string;
@@ -686,4 +689,20 @@ export function buildSelectedCareerDisplaySurfaceFixture({
       raw_ai_exposure_score: 7,
     },
   };
+}
+
+export function buildProductionV42LegacyDisplaySurfaceFixture(
+  input: SelectedCareerDisplaySurfaceFixtureInput = {
+    slug: "adapted-physical-education-specialists",
+    titleEn: "Adapted Physical Education Specialists",
+    titleZh: "专家教育",
+  }
+) {
+  const fixture = buildSelectedCareerDisplaySurfaceFixture(input);
+  fixture.component_order = [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24];
+
+  delete (fixture.page.content as Record<string, unknown>).career_ai_description_block;
+  delete (fixture.page.content as Record<string, unknown>).career_path_block;
+
+  return fixture;
 }
