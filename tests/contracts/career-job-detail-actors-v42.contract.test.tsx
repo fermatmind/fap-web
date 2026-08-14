@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildActorsDisplaySurfaceFixture,
+  buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -189,6 +190,31 @@ function jsonLdPayloads(html: string): string[] {
 }
 
 describe("career job detail Actors v4.2 route integration", () => {
+  it("renders a valid production v4.2 24-component surface instead of the legacy shell", async () => {
+    const slug = "adapted-physical-education-specialists";
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildProductionV42LegacyDisplaySurfaceFixture({
+          slug,
+          titleEn: "Adapted Physical Education Specialists",
+        }),
+      })
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).toContain("Adapted Physical Education Specialists is a real backend component-keyed display_surface_v1 test page.");
+    expect(html).toContain("turns occupational tasks into accountable work outcomes");
+    expect(html).toContain("Analyze task requirements");
+    expect(html).toContain("Career Snapshot: U.S. Reference");
+    expect(html).toContain("Is Adapted Physical Education Specialists a good career fit?");
+    expect(html).not.toContain("暂不提供完整页面");
+    expect(html).not.toContain("display_asset_backed_directory_draft_shell");
+    expect(html).not.toContain("career-job-docx-document");
+  });
+
   it("renders the Chinese Actors v4.2 display surface when backend returns a valid surface", async () => {
     const html = await renderCareerJobPage("zh", "actors", buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }));
 

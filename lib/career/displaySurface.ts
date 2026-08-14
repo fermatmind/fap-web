@@ -59,6 +59,33 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "final_cta",
 ] as const;
 
+export const CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24 = [
+  "breadcrumb",
+  "hero",
+  "fermat_decision_card",
+  "primary_cta",
+  "career_snapshot_primary_locale",
+  "career_snapshot_secondary_locale",
+  "fit_decision_checklist",
+  "riasec_fit_block",
+  "personality_fit_block",
+  "definition_block",
+  "responsibilities_block",
+  "work_context_block",
+  "market_signal_card",
+  "adjacent_career_comparison_table",
+  "ai_impact_table",
+  "career_risk_cards",
+  "contract_project_risk_block",
+  "next_steps_block",
+  "faq_block",
+  "related_next_pages",
+  "source_card",
+  "review_validity_card",
+  "boundary_notice",
+  "final_cta",
+] as const;
+
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
@@ -599,6 +626,20 @@ function normalizeComponentOrder(value: unknown): CareerDisplayComponentId[] | n
 
   const deduped = [...new Set(order)] as CareerDisplayComponentId[];
   return deduped.length === order.length ? deduped : null;
+}
+
+function matchesComponentOrder(
+  actual: readonly CareerDisplayComponentId[],
+  expected: readonly CareerDisplayComponentId[]
+): boolean {
+  return actual.length === expected.length && actual.every((component, index) => component === expected[index]);
+}
+
+function isSupportedComponentOrder(order: readonly CareerDisplayComponentId[]): boolean {
+  return (
+    matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER) ||
+    matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24)
+  );
 }
 
 function resolveLocalizedPage(root: Record<string, unknown>, locale: Locale): Record<string, unknown> | null {
@@ -1211,7 +1252,7 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    componentOrder.length !== CAREER_DISPLAY_COMPONENT_ORDER.length ||
+    !isSupportedComponentOrder(componentOrder) ||
     !page ||
     !hero ||
     sections.length === 0 ||

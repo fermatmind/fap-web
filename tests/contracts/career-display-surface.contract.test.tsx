@@ -5,6 +5,7 @@ import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
+  buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -42,6 +43,35 @@ const D8_ACTIVE_DISPLAY_SLUGS = [
 ] as const;
 
 describe("career display surface contract", () => {
+  it("adapts and renders the production v4.2 24-component display surface", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildProductionV42LegacyDisplaySurfaceFixture({
+        slug: "adapted-physical-education-specialists",
+        titleEn: "Adapted Physical Education Specialists",
+      }),
+      "en"
+    );
+
+    expect(surface).not.toBeNull();
+    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.componentOrder).not.toContain("career_ai_description_block");
+    expect(surface?.componentOrder).not.toContain("career_path_block");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-hero")).toHaveTextContent(
+      "Adapted Physical Education Specialists is a real backend component-keyed display_surface_v1 test page."
+    );
+    expect(screen.getByTestId("definition-block")).toHaveTextContent(
+      "Adapted Physical Education Specialists turns occupational tasks into accountable work outcomes."
+    );
+    expect(screen.getByTestId("responsibilities-block")).toHaveTextContent("Analyze task requirements");
+    expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(
+      "Is Adapted Physical Education Specialists a good career fit?"
+    );
+  });
+
   it("adapts and renders the valid Actors display surface", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
 
@@ -396,6 +426,43 @@ describe("career display surface contract", () => {
     fixture.component_order = [...fixture.component_order, "unknown_component"];
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("rejects a 25-component mixed v4.2 order", () => {
+    const fixture = buildProductionV42LegacyDisplaySurfaceFixture();
+    fixture.component_order.splice(10, 0, "career_ai_description_block");
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("rejects duplicate and incorrectly ordered component ids", () => {
+    const duplicate = buildProductionV42LegacyDisplaySurfaceFixture();
+    duplicate.component_order[23] = duplicate.component_order[22];
+
+    const outOfOrder = buildProductionV42LegacyDisplaySurfaceFixture();
+    [outOfOrder.component_order[10], outOfOrder.component_order[11]] = [
+      outOfOrder.component_order[11],
+      outOfOrder.component_order[10],
+    ];
+
+    expect(adaptCareerDisplaySurface(duplicate, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(outOfOrder, "en")).toBeNull();
+  });
+
+  it("rejects 24-component surfaces with mismatched locale, version, status, or slug", () => {
+    const localeMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const versionMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const statusMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const slugMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+
+    versionMismatch.asset_version = "v4.1";
+    statusMismatch.status = "draft";
+    slugMismatch.asset.slug = "another-career";
+
+    expect(adaptCareerDisplaySurface(localeMismatch, "zh")).toBeNull();
+    expect(adaptCareerDisplaySurface(versionMismatch, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(statusMismatch, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(slugMismatch, "en")).toBeNull();
   });
 
   it("rejects payloads that contain Product schema", () => {
