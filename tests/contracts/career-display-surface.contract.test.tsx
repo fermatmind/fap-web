@@ -117,6 +117,30 @@ describe("career display surface contract", () => {
     expect(screen.queryByTestId("career-display-cta")).not.toBeInTheDocument();
   });
 
+  it("supplements legacy Actors sections with keyed AI description and career path blocks", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    const page = fixture.page.en as unknown as Record<string, unknown>;
+    const legacySections = page.sections as Array<Record<string, unknown>>;
+
+    page.sections = legacySections.filter(
+      (section) => !["CareerAiDescriptionBlock", "CareerPathBlock"].includes(String(section.component))
+    );
+    page.career_ai_description_block = legacySections.find(
+      (section) => section.component === "CareerAiDescriptionBlock"
+    );
+    page.career_path_block = legacySections.find((section) => section.component === "CareerPathBlock");
+
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    expect(surface?.sections.filter((section) => section.component === "CareerAiDescriptionBlock")).toHaveLength(1);
+    expect(surface?.sections.filter((section) => section.component === "CareerPathBlock")).toHaveLength(1);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-ai-description-block")).toHaveTextContent("AI Career Analysis");
+    expect(screen.getByTestId("career-path-block")).toHaveTextContent("Career Path");
+  });
+
   it.each([
     ["data-scientists", "Data Scientists"],
     ["registered-nurses", "Registered Nurses"],
