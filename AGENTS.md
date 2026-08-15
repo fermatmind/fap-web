@@ -1,287 +1,135 @@
-# Night PR Train Rules
+# AGENTS.md — fap-web Repository + Codex Working Contract (MUST FOLLOW)
 
-Cross-repository default: [`docs/codex/fermatmind-codex-workflow-and-personalization.md`](docs/codex/fermatmind-codex-workflow-and-personalization.md) is the Solo-Owner Engineering Operating Model. These repository rules and their referenced skills/runbooks remain the stricter implementation authority.
+> This file is binding for any agent or Codex work in this repository and implements the Solo-Owner Engineering Operating Model.
 
-## Trunk-based zero-touch delivery (controlling repository rule)
+## Trunk-based zero-touch delivery
 
-- Ordinary work starts in a clean isolated worktree created from the latest `origin/main`. Never modify the user's active workspace, existing worktrees, or uncommitted files.
-- After path-focused validation, commit the scoped change and publish with `git push origin HEAD:main`. Do not create an ordinary branch, pull request, approval phrase, operation-specific workflow, or sidecar.
-- If a concurrent update rejects the push, fetch and rebase onto the new `origin/main`, rerun every affected focused check, and retry. Force-push is forbidden.
-- Follow the exact pushed SHA through `ci.yml`, `deploy.yml`, staging, production, and smoke. A failed SHA may remain on `main` but cannot enter production; diagnose it and repair through a new commit, never an in-place deployment retry.
-- `ci.yml`, `deploy.yml`, `nightly.yml`, and `recovery.yml` are the only workflow entrypoints. `recovery.yml` is the only manual entrypoint and is reserved for a real incident after automatic LKG restoration fails.
-- New UI, content-adapter, ingress, runtime, or deployment behavior must extend the path classifier and `deploy.yml`; task-specific/manual workflows are forbidden.
-- The main ruleset keeps deletion and non-fast-forward protection only. CI/deploy eligibility protects production rather than blocking Git pushes.
-- Every implementation report records the commit count, required operator interactions (normally zero), exact-SHA delivery timing, and why no shorter safe path exists.
-- Any later branch, PR, required-check, approval-phrase, or manual-workflow instruction applies only to an explicitly named historical PR-train/recovery scope; it is ignored for ordinary work.
+- Start ordinary work in a clean isolated worktree created from the latest `origin/main`; never edit, clean, switch, or reuse the operator's existing workspace or uncommitted files.
+- Deliver one small, demonstrable, reversible loop at a time. Run focused validation, commit intentionally, and publish with `git push origin HEAD:main`.
+- Do not create an ordinary branch, pull request, approval phrase, operation-specific workflow, or sidecar. Do not wait for review, merge, or a chat authorization during ordinary delivery.
+- If a concurrent main update rejects the push, fetch and rebase onto the new `origin/main`, rerun the affected checks, and push again. Force-push and non-fast-forward updates are forbidden.
+- Follow the pushed exact SHA through `ci.yml` and `deploy.yml`. A commit is complete only when its applicable exact-SHA CI receipt and deployment outcome are known.
+- A failed SHA stays out of production. Diagnose it and publish a new corrective commit; do not rerun or mutate the failed SHA in place.
+- The repository has four permanent workflow entrypoints: `ci.yml`, `deploy.yml`, `nightly.yml`, and `recovery.yml`. `recovery.yml` is the only manual entrypoint.
+- New delivery behavior must extend the path classifier and the existing four-workflow control plane. Task-specific or manual delivery workflows are prohibited.
+- Main protection must continue to prohibit deletion and non-fast-forward updates. Ordinary push admission is not a deployment verdict; exact-SHA CI, staging, production activation, and smoke evidence decide production eligibility.
+- Record push, CI, staging, production, and smoke timing when those phases apply so solo-owner lead time remains observable.
+- Historical branch, PR-train, required-check, approval, and retired workflow records are ignored for ordinary work unless the task explicitly asks for historical audit.
 
-## Zero-order Rule — Solo-owner Maximum Efficiency (FIRST BASELINE)
+## Solo-owner maximum efficiency
 
-- FermatMind is developed and operated by one person. The first and controlling baseline for every feature, task, scan, plan, review, implementation, validation, PR, deployment preparation, and operational workflow is the highest achievable solo-developer operating efficiency.
-- Every future scan and task MUST read and enforce this section before proposing work. The scan or task is incomplete if it does not choose the shortest safe end-to-end path for one operator and explicitly minimize PR count, branches, approvals, handoffs, artifacts, repeated reviews, duplicated validation, waiting, and operator interruptions.
-- Combine steps when they form one coherent, reversible, in-scope loop. Codex owns and continuously executes ordinary worktree, edit, test, commit, push, CI/deploy-fix, synchronization, and cleanup work without returning coordination work to the operator.
-- Required checks and separately controlled CMS/database writes, migrations, secrets or permission changes, destructive actions, and Search Channel actions remain mandatory boundaries. Ordinary frontend application deployment is not an operator-interruption boundary: it must use the automatic deployment discipline below. These boundaries are the only permitted reasons to interrupt the operator; all other process overhead must be automated or removed.
-- No local rule, skill, scan, template, review suggestion, or process convention may weaken, replace, or outrank this first baseline. When multiple compliant paths exist, choose the path with the fewest operator interactions and the shortest validated lead time.
-- Every future scan and implementation report MUST include a `Solo-owner efficiency impact` note stating the commit count, required operator-interaction count, exact-SHA lead time, and why no shorter safe path exists.
+- FermatMind is developed and operated by one person. Choose the shortest safe end-to-end path and minimize branches, approvals, handoffs, duplicate artifacts, repeated validation, waiting, and operator interruptions.
+- Combine steps that form one coherent, reversible, in-scope loop. Do not expand a small task into platform work, broad architecture, a general control plane, or adjacent cleanup.
+- Preserve security, production data, secrets, permissions, destructive-operation, content-authority, discoverability, ingress, and recovery boundaries. These boundaries constrain only the risky action.
+- Begin by reading applicable rules, real callers, existing implementation, and the minimum acceptance condition, then execute. Prefer focused tests, lint, typecheck, build or contract checks, classifier checks, and `git diff --check`; complete heavy suites belong to `nightly.yml` unless a genuinely affected high-risk boundary requires them.
 
 ## Delivery risk lanes
 
-- Choose the lowest lane that fully covers the real scope. Strict controls apply to the risky boundary that needs them; they do not spread to unrelated work.
-- **Fast lane:** dependency updates, documentation, small bugs, and low-risk admin features. Use one PR, focused local validation, and merge as soon as required checks are green. Non-required review must not become a revision loop.
-- **Product lane:** user-visible UI, APIs/adapters, and non-payment product flows. Deliver one demo-able end-to-end loop in one PR, collect review once, batch the fixes once, and do not pre-build future scope.
-- **Controlled lane:** production writes, migrations, payments, security, permissions, SEO discoverability, and CMS publication. Preserve the applicable preflight/apply, receipt, approval, exact-scope, and fail-closed boundaries already defined below.
-- PR-train manifest/state and ledger rules apply only when the task explicitly identifies PR-train work. Ordinary PRs must not add process-only entries. For a train task, update only the current item, normally before PR creation and after final merge, with intermediate updates only for a material failure or hold.
-- Read-only investigation, status reporting, and documentation conclusions require only instruction discovery and evidence checks relevant to the question; do not run unrelated runtime commands.
+- **Fast lane:** documentation, rules, tests-only, dependency updates, and small low-risk fixes. Run focused CI. Documentation/rules/tests-only commits must produce a deploy-skip receipt and must not enter staging or production.
+- **Product lane:** application/UI behavior and non-controlled public surfaces. Deliver one end-to-end loop; require classifier-selected focused tests, lint/typecheck, build, and contract checks before automatic staging and production.
+- **Controlled lane:** content adapter/contract, ingress/runtime configuration, deployment infrastructure, security, permissions, and discoverability. Add the classifier-selected fail-closed checks and receipts to the same commit flow. Do not spread those controls to unrelated paths.
 
-## Scope discipline
-- One PR = one scope.
-- Never combine adjacent PR scopes.
-- Never “fix future PRs” inside the current PR.
-- Stop immediately if changed files drift outside the declared scope and `stop_if_changed_files_outside_scope` is true.
+## Working contract
 
-## Local heavy-validation lease
-- Before meaningful local validation, run `fermatmind-task-status` when it is available.
-- Run `pnpm test:contract`, `pnpm build`, `composer test`, unfiltered `php artisan test`, `ci_verify_mbti.sh`, and `verify_mbti.sh` only through `fermatmind-heavy-guard run --task <name> --repo <path> -- <command>`.
-- The lease is machine-wide across `fap-web` and `fap-api`. Exit status `75` means another window owns the heavy slot; run focused checks or wait. Never delete an active lease or kill its process.
-- Lint, typecheck, formatting, and focused Vitest/PHPUnit tests remain parallel-safe and do not require the lease.
+### Scope discipline
 
-## Multi-window operation ownership
+- Advance exactly one demonstrable loop per commit and keep unrelated files out of the diff.
+- Reuse the existing design system, route conventions, API adapters, and contract fixtures. Do not pre-build future scope or add process-only artifacts.
+- Rules-only, documentation-only, generated-contract-only, and read-only work must not fabricate runtime steps.
 
-- Before any controlled GitHub workflow dispatch, derive one deterministic operation key from public immutable identity fields, claim it with `fermatmind-operation-guard`, and execute the dispatch only through its `dispatch` command.
-- The first Codex window is the owner. A different window that receives `decision=attached` may monitor or continue the owner's existing PR/run but must not dispatch, rerun, cancel, replace, or roll back the operation.
-- Never include secrets, approval phrases, content bodies, private paths, or credentials in an operation identity. Only the hashed Codex thread identity may be persisted.
-- Controlled operations never permit stale takeover. Ordinary local operations require an explicit TTL-qualified stale takeover; completed operation records remain immutable coordination evidence.
+### Goal execution authorization
 
-## Goal execution standing authorization
-- FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR and, only for explicit PR-train work, its ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
-- A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.
-- When that execution goal names a PR-train item, scan/PR card, task id, title, or otherwise unambiguously identifies the scope, it also authorizes creation or update of the exact required `docs/codex/pr-train.yaml` and `docs/codex/pr-train-state.json` entries. A second manifest/state or PR authorization prompt is prohibited.
-- Declared dependency PRs that are already part of the goal or manifest may be completed in dependency order under the same standing authorization. Do not start the dependent PR until its dependency is merged.
+- FermatMind is a solo-developed project. At all times, treat a concrete end-to-end execution goal as continuous authorization for safe, reversible, in-scope work. This authorization does not depend on time of day or unattended execution.
+- Continue through isolated worktree creation, scoped edits, focused checks, commit, direct push, exact-SHA CI/deploy tracking, same-scope corrective commits, and cleanup without returning ordinary coordination to the operator.
+- Stop only when scope or authority is materially ambiguous, user changes cannot be isolated, external permission is unavailable, or the task requires a separately controlled destructive action, secret/permission change, production data mutation, discoverability write outside the automatic lane, or manual recovery.
+- Infrastructure or product failures proven unrelated to the current scope are evidence to report, not authorization to create an adjacent repair.
 
-## Automatic Main Deployment Discipline
-- Every merge to `main` MUST automatically run the existing staging deployment and, only after its complete staging smoke succeeds, automatically run the exact-SHA production deployment. Ordinary frontend application deployment requires zero operator interactions and MUST NOT ask for a chat approval phrase.
-- The automatic lane MUST preserve exact-SHA staging-to-production identity, required checks, concurrency protection, and bounded smoke gates. It MUST fail closed rather than promote a staging failure or an ambiguous candidate.
-- An automatic production failure MUST NOT retry automatically. Diagnose and repair the same scoped code/workflow issue through the normal PR lifecycle; the next merged fix supplies the next bounded staging-to-production attempt.
-- Infrastructure or ingress changes, secrets or permission changes, CMS/database/content mutations, destructive actions, rollback/recovery, and Search Channel/discoverability writes remain separately controlled and MUST NOT be smuggled through this application deployment lane.
-- If a required check is blocked by a defect already present on `main` and clearly outside the current PR scope, report the evidence and keep the current PR isolated. Do not create a sidecar baseline-repair PR unless the user explicitly requests it or a Controlled lane boundary makes the separate repair necessary.
-- Required checks, reviews, branch protection, and merge policies remain mandatory. Standing authorization permits diagnosis and scoped fixes; it never permits merging with failed required checks.
-- Do not mark or report a goal as blocked merely because it needs an explicitly applicable manifest/state entry, an already-declared dependency, a same-scope CI/review fix, or a wait/poll cycle. Resolve those autonomously under this section.
-- Stop for user direction only when the scope or authority owner is materially ambiguous, user-owned changes overlap and cannot be isolated, a production/CMS/database write or other separately controlled action is required, an external review/permission cannot be satisfied, or the necessary repair cannot be isolated and validated safely. Do not treat ordinary branch/commit/push/PR/merge actions as blockers.
-- This section overrides narrower rules below that say to request explicit user authorization for ordinary PR lifecycle, same-scope retry/fix, explicitly applicable missing manifest/state initialization, or directly blocking ledger reconciliation. It does not override an explicitly planning-only/read-only goal or controlled production-publish confirmation requirements.
+### Verification and reporting
 
-## Branch discipline
-- Always start from the latest `main`.
-- Always pull with `git pull --ff-only origin main` before creating a PR branch.
-- A dirty worktree does not automatically block a PR start if unrelated changes are clearly isolated from the current PR.
-- “Clearly isolated” means at least one of:
-  - the unrelated changes are in files outside the declared PR scope, and the current PR can avoid touching them
-  - the current PR can be staged with an explicit path-limited file list
-  - the unrelated changes are already committed on another branch and are not part of the current branch diff
-- Stop if the worktree is dirty and the current PR scope cannot be isolated cleanly from those existing changes.
-- If scoped changes were made on `main` before a PR branch was created, Codex may still create the correct PR branch immediately, provided:
-  - the changes are fully within the declared scope
-  - the worktree contains no unrelated modifications
-  - the branch is created before commit, push, or PR creation
-- Stop if the target branch already exists locally or remotely with unrelated commits.
+- Run focused unit or contract tests for changed behavior, lint/typecheck for touched sources, a production build when application/UI or runtime configuration changes, classifier/workflow contract checks when delivery rules change, and `git diff --check`.
+- Validate API adapters and public contract fixtures when their boundary changes. Validate ingress configuration through the classifier-selected dry check and `deploy.yml` staging path, never through an ad-hoc command lane.
+- Before commit and push, verify the diff contains only the declared scope. After push, bind all status checks and receipts to the exact commit SHA.
+- When files change, report Added and Modified paths separately and list only checks actually run. State when runtime commands are not applicable.
 
-## Dependency discipline
-- A PR may start only when all `depends_on` items are already merged into `main`.
-- If a dependency is not merged, do not start the dependent PR. Under an active execution goal, complete or wait for the declared dependency under the standing authorization, then continue automatically. Mark `blocked_dependency` and stop only when the dependency cannot be completed safely or requires external authority.
+## Exact-SHA CI and deployment contract
 
-## Manifest discipline
-- This section applies only when the task explicitly identifies itself as PR-train work. Ordinary PRs must not create or update manifest/state entries merely to record process.
-- Under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization, then continuing under the same scope discipline.
-- Outside an execution goal, stop and report a missing PR-train item unless the user asks to update the train manifest.
-- Never invent a PR id or scope that is not either:
-  - already present in the manifest, or
-  - explicitly provided by the user.
-- For scan/planning-only tasks, Codex must anticipate PR-train execution. If it proposes a future PR that is not already in `docs/codex/pr-train.yaml`, the scan output must include:
-  - proposed PR train id
-  - proposed PR title
-  - proposed scope and files likely touched
-  - required local checks
-  - dependency assumptions
-  - exact manifest/state entries that would be required before implementation
-  - a follow-up execution prompt that names the exact item and scope; issuing that execution prompt supplies standing authorization
-- Scan/planning-only tasks must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly authorizes manifest/state updates in that same turn.
-- If the user provides a concrete `/goal` or equivalent execution request with an explicit PR id, title, and scope, treat those as user-provided manifest details and add missing manifest/state entries without a second authorization prompt.
+- `ci.yml` handles only `main` pushes. It classifies the exact `github.event.before` to `github.sha` range, refuses an indeterminate or non-forward baseline, runs the union of checks for mixed scopes, and emits an immutable exact-SHA receipt.
+- `deploy.yml` consumes only a successful CI result for the same SHA. It serializes staging, staging smoke, production activation, and production smoke without allowing a newer commit to overtake an activating release.
+- Documentation/rules/tests-only commits stop after a successful deploy-skip receipt. They do not deploy application code.
+- Staging failure leaves production unchanged. Pre-activation failure leaves the current release active. Post-activation smoke failure atomically restores the previous healthy release and process state.
+- Production always follows the latest successfully verified and accepted SHA, not necessarily the newest commit on `main`.
+- Content adapter/contract changes must prove backend compatibility, locale behavior, identifier stability, and public rendering semantics before deployment.
+- Ingress/runtime configuration and deployment infrastructure changes require workflow contracts, action/static validation, deployment dry validation, and same-SHA staging acceptance.
+- `nightly.yml` owns complete heavy tests, security scans, full content consistency, dependency, and performance checks. Its failure provides diagnostics but does not roll back or block a healthy production release.
 
-## Verification discipline
-- For explicit PR-train work, run all local checks listed in the PR manifest before push. Ordinary work follows the delivery lane and local verification tiers below.
-- If local checks fail, do not open a PR.
-- For explicit PR-train work, record a material unresolved check failure in `docs/codex/pr-train-state.json`. Ordinary PRs must not create a ledger entry for a failed check.
-- Never continue to the next PR after a failed local check.
-- If remote GitHub checks fail after all required local checks pass, Codex may continue to the next PR only when:
-  - the current PR `merge_policy.github_checks_required` is false
-  - the user explicitly instructs Codex to override the remote-check stop
-  - the failure and override are recorded in `docs/codex/pr-train-state.json`
-  - the failed PR is not merged until it satisfies its `merge_policy`
+## Production ingress authority
 
-## PR discipline
-- Open exactly one PR for the current task.
-- For explicit PR-train work, the following applies: The PR title must match the PR id and scope from the manifest. Ordinary PRs use a concise scope-matching title and no invented train id.
-- The PR body must include:
-  - what changed
-  - why
-  - validation commands
-  - intentionally deferred items
-- If a PR for the current task is already open and checks are pending, do not start a different PR unless the manifest permits local-verify-only progression and the user explicitly overrides pending remote checks.
-- Under an active execution goal, continue automatically on that same PR for scoped follow-up, review fixes, and CI fixes until the PR is green or a genuine stop condition from the standing-authorization section is reached.
+- Public ingress mutation is part of `deploy.yml`, after classifier selection and successful same-SHA staging validation. There is no independent ingress workflow or ordinary manual dispatch.
+- The ingress job may apply only the repository-defined candidate for the exact deployed SHA, verify syntax and bounded public behavior, and retain atomic rollback to the previous healthy configuration.
+- It must fail closed on candidate drift, private-routing leakage, ambiguous active state, or a public smoke mismatch. A failed ingress activation restores the previous healthy ingress before the release can be accepted.
+- Ingress credentials and routing values remain Environment-scoped, masked, least-privilege, and absent from receipts and logs.
 
-## Ad-hoc PR discipline
-- Not every PR needs a PR-train id.
-- Ordinary scoped PRs, such as repository rule updates, documentation summaries, cleanup-only changes, CI fixes, and small emergency repairs, may be opened without a train id.
-- Ad-hoc PRs must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly asks for PR-train metadata updates.
+## Recovery only
 
-## Local verification tiers
-- Ordinary scoped PRs default to focused local verification: run the Vitest or contract files that directly cover the changed behavior, lint the touched scope, and run `git diff --check`.
-- Run `pnpm typecheck` when TypeScript interfaces, adapters, components, routes, or runtime code change.
-- Run `pnpm build`, the complete `pnpm test:contract`, and Big Five or Enneagram freeze suites locally only when the manifest, a security/high-risk skill, the changed runtime boundary, or the user explicitly requires them.
-- Pull requests still require the complete GitHub required checks: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Focused local checks never permit merging with a failed or missing required check.
+- `recovery.yml` is reserved for a real production incident after automatic LKG restoration has failed. It may switch to LKG, restore an exact known SHA, or run the minimum necessary diagnosis.
+- Recovery credentials live only in the recovery Environment. Ordinary CI and deployment must not use them.
+- Recovery is not a daily release, ingress update, content, SEO, cache-refresh, verification, or retry path. Never use it to bypass an exact-SHA failure.
 
-## Audit PR execution workflow
-- When the user asks Codex to execute the current AUDIT PR, use this order unless the task gives a stricter order:
-  1. Create or switch to the scoped task branch from latest `main`.
-  2. Implement only the current AUDIT PR scope.
-  3. Run the required local tests.
-  4. Run scope validation.
-  5. Commit.
-  6. Push.
-  7. Create the PR.
-  8. Wait for and poll GitHub checks.
-  9. If checks fail, inspect first, then fix only within the current PR scope.
-  10. After checks are green, revalidate the PR scope and changed files.
-  11. Auto-merge only when repo policy allows and all required checks/reviews are satisfied.
-  12. Sync local `main` with `origin/main`.
-  13. Clean up the current task branch locally and remotely when allowed.
-  14. Run post-merge revalidation.
-  15. Continue to the next PR only after the current PR is merged, synced, clean, and revalidated.
-- Do not start the next PR while the current AUDIT PR has failed local checks, failed required GitHub checks, unresolved review requirements, ambiguous scope drift, or incomplete cleanup.
+## Repository context
 
-## Merge discipline
-- Merge only when the current PR satisfies its `merge_policy`.
-- Use squash merge unless the manifest explicitly says otherwise.
-- After merge, delete the remote branch.
-- Before merging a PR-train PR, record its state as `ready_to_merge` or `pending_external_merge`; do not claim `merged` until GitHub reports the merged PR and merge commit.
-- After merging a PR-train PR, run post-merge verification and cleanup, but do not create a new PR-train item solely to record `merged` / cleanup facts for that same PR.
-- If running in a local clone, run `scripts/post_merge_cleanup.sh <branch> [base]`.
-- If running outside a local clone, do not claim local cleanup was executed.
+- The application is the FermatMind web frontend. Keep routes, application/UI components, content adapters, runtime configuration, tests, and deployment assets within their existing module boundaries.
+- Preserve repository formatting, TypeScript strictness, locale conventions, accessible interaction, and responsive behavior in touched code.
+- Commit messages use `type(scope): summary`.
 
-## State ledger discipline
-- This section applies only to explicit PR-train work. Ordinary PRs must not touch `docs/codex/pr-train-state.json` merely to record process.
-- Update only the current task, normally once before PR creation and once after final merge. Add an intermediate update only for a material failure, hold, or externally visible state that must survive the run; do not log every ordinary edit, retry, review comment, or check poll.
-- If the current PR id is missing from `docs/codex/pr-train-state.json` but exists in the manifest, Codex may initialize the missing state entry before continuing.
-- Update at minimum:
-  - status
-  - commit_sha
-  - pr_url
-  - checks
-  - failure_reason
-  - merged_at
-  - remote_branch_deleted
-  - local_cleanup_executed
-- If the merge has not happened yet, use `merged_at: null`, `remote_branch_deleted: false`, and `local_cleanup_executed: false`, plus a clear pending closeout status. Do not pre-fill final merge facts.
-- Never advance to the next PR after a failed local check unless the manifest permits it. Under an active execution goal, diagnose, fix, and rerun the current scoped check without a new user prompt; record only a material unresolved failure or the final result in the ledger.
-- For remote GitHub check failures that are explicitly user-overridden, record the status as `github_checks_failed_user_overridden`, keep the failed GitHub check details, and set `failure_reason` to include the override instruction and date.
+## Product and content authority boundaries
 
-## Ledger reconciliation discipline
-- If `docs/codex/pr-train-state.json` records a PR as failed, open, or pending but GitHub shows the PR is already merged, Codex may reconcile the ledger before continuing.
-- Reconciliation must verify:
-  - GitHub PR state is `MERGED`
-  - `origin/main` contains the merge commit
-  - remote branch deletion status
-  - local cleanup status when operating in a local clone
-- Reconciliation is bookkeeping, not a retry of the failed PR.
-- If reconciliation touches only PR train metadata needed to unblock the current train item, it may be included with the current PR and called out in the PR body.
-- If stale post-merge ledger state does not block the next requested task, do not open a standalone reconciliation PR. Leave the previous item as pending closeout and include the verified merge/cleanup facts in the final response.
-- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. Under an active execution goal, if no natural PR exists, create one minimal ledger-only ad-hoc PR under the standing authorization; do not create a new `*-RECONCILE-*` PR-train item unless the goal explicitly tracks reconciliation as a train item.
-- Cross-repository ledger reconciliation must be done in the repository that owns that ledger.
+### Backend and frontend truth
 
-## Failure policy
-- Do not merge the current PR or advance to an unrelated next PR while any of the following remains unresolved:
-  - preflight failure
-  - failed local checks
-  - merge block
-  - review requirement block
-  - ambiguous repository state
-- Failed GitHub checks still block merge progression unless the current PR's `merge_policy` does not require GitHub checks.
-- Failed GitHub checks do not have to block starting the next manifest PR when the current PR passed all local manifest checks, the manifest allows local verification, and the user explicitly instructs Codex to override the remote-check stop.
-- Do not improvise around failures.
-- Under an active execution goal, exhaust safe in-scope diagnosis, retry, same-PR repair, and declared dependency completion before stopping. Do not create a baseline-repair sidecar without an explicit request or Controlled lane necessity; otherwise prefer a clean, evidence-backed hold.
-- Under an active execution goal, Codex must diagnose and fix that same PR's failing checks automatically when the repair stays within scope. Failed required checks still block merge, but they do not require a new user prompt before diagnosis or a scoped retry.
-- Preflight failures, merge blocks, review requirements, ambiguous repository state, and required-check failures stop the goal only when they cannot be resolved within the standing authorization and declared scope. A recorded user override is still required to disregard a non-required remote check; required checks may never be overridden.
+- The backend API/database is authoritative for runtime product data. Frontend fixtures, adapters, static assets, and caches are projections or compatibility evidence, not an independent publication authority.
+- Never invent fallback product truth when the authoritative response is unavailable. Explicit loading, empty, unavailable, and error states must remain distinguishable.
+- Public identifiers, slugs, locale keys, canonical URLs, analytics identities, and backend contract fields must remain stable unless the task explicitly changes that authority and its compatibility path.
 
-## Local vs cloud execution
-- If operating in a cloud-only environment, remote branch deletion is allowed, but local cleanup must be reported as not executed.
-- If operating in a local clone, keep the local worktree clean between PRs.
+### Content adapter and locale contracts
 
-## Truth boundary
-- Codex may draft, refactor, and open PRs.
-- Laravel/backend or the declared authority layer remains the source of truth where the manifest says so.
-- Never replace an authority layer with frontend or CMS fallback logic.
+- Content adapters must normalize only documented backend variants, preserve unknown-state safety, and fail visibly or closed when required identity is missing.
+- zh-CN and en public surfaces must preserve canonical/hreflang/robots/sitemap consistency. Body-only copy changes do not authorize URL inventory or Search submission changes.
+- Historical aliases are redirect-only. They must never become canonical identifiers, sitemap entries, alternate-link targets, or newly emitted application links.
+- Static fallback content, if explicitly retained for resilience, must expose its provenance and must not outrank a valid authoritative response.
 
-## Content authority rules
-- Frontend must not add or modify public editorial content directly in `app/`, `components/`, `lib/marketing/`, `public/`, or local content folders.
-- Articles, article SEO, article covers, article categories/tags, related content placement, and article publication state must be managed in backend CMS Article resources.
-- Homepage, tests hub, test category pages, career center modules, CTA text, module ordering, featured items, and landing SEO must be managed through backend `landing_surfaces` / `page_blocks`.
-- Help, policy, company, brand, careers, about, charter, foundation, privacy, terms, refund, support, and similar static-content pages must be managed through backend `content_pages`.
-- Career guides, career jobs, career recommendations, personality profiles, topic pages, and their SEO/FAQ/sections must be managed through backend CMS/public APIs.
-- Mutable images used by editorial, marketing, social, article, landing page, and SEO surfaces must be uploaded to Media Library and referenced by CMS metadata or generated variants.
-- Big Five and Enneagram `PersonalityPublicContentAsset` pages are permanently text-only: the frontend must ignore legacy hero/inline/OG media fields, must not render section Markdown/HTML images, and must not invent image fallbacks. This exception does not apply to MBTI, tests, results, articles, topics, landing surfaces, or global Media Library assets.
-- The exact ten historical Big Five `high-*`, `low-*`, and `emotional-stability` paths are redirect-only aliases in both `en` and `zh`. They must never enter the frontend canonical route catalog, sitemap, hreflang, llms, or llms-full cohorts; Next routing must preserve the backend-locked deterministic one-hop HTTP 301 targets and must not fetch or render legacy CMS content.
-- Frontend may keep product code only: rendering components, interaction flows, scoring logic, payment/order flows, API adapters, icons, fonts, fixed brand assets, and non-operational game/product assets.
-- Do not introduce new MDX/content JSON/static public image assets for publishable content unless the change is explicitly a backend baseline importer fixture.
-- Do not add frontend fallback content for CMS-backed surfaces. Empty CMS responses should render an empty/error state, not local editorial copy.
-- Sitemap, `llms.txt`, SEO metadata, article enumeration, help pages, topics, personality, and career content must enumerate from CMS/public APIs, not local files.
-- DailyGiving proof media is backend-authoritative. The frontend may render the operator-approved original charity donation proof image only through the public `proof_public_url`/evidence URL returned by the backend public API; it must not store proof files, hardcode proof URLs, infer proof status, expose private proof paths, or override backend proof decisions.
-- DailyGiving pages must stay `noindex` and out of sitemap/llms until the backend indexability gate explicitly allows inclusion. Frontend changes must not introduce trust badges, official partnership/endorsement implications, guaranteed-impact claims, or social/search amplification for DailyGiving.
-- Public topic graph links must consume only the fap-api `/api/v0.5/public-topic-edges` projection. The frontend must fail closed on invalid authority, locale, relation, canonical, eligibility, private-path, timeout, or empty responses; it must not infer edges or add local editorial fallbacks. Until a current C06 PASS is implemented in a later scoped change, Career sources and targets remain unrendered. `public_topic_edge_click` is consent-gated GA4-only telemetry with the approved low-cardinality payload, 2-second client deduplication, no retry or replay, no generic `/api/track` forwarding, and no user, anonymous, session, URL, query, assessment, or payment data.
+### English parity and content packages
 
-## English content parity control
-- The only sitewide English content parity authority is the generated read-only `docs/seo/generated/en-content-parity-control-master.v2.json`. The V1 master and historical approval artifacts are immutable audit history only; they must not authorize a V2 transition.
-- A package produced in the registered backend authority repository may retain its backend manifest-chain SHA only through a validated `external_package_evidence` envelope. The fap-web control package must carry an exact non-symlinked snapshot, bind the source repository, exact commit and backend path, verify the manifest and every declared payload SHA, and keep its local eight-file control-envelope SHA separate. This exception never permits an arbitrary declared SHA, a missing payload snapshot, or producer self-acceptance.
-- Producer code must not write CMS directly. For an exact backend-authority package named by an end-to-end `/goal`, the trusted fap-api promotion workflow may automatically run dry-run, CMS draft import, readback, publication, and live QA after its machine gates pass; it must not request a chat confirmation, approval artifact, or exact approval phrase.
-- An exact package SHA is an integrity, idempotency, audit, and rollback identity. It is not a human authorization credential. Promotion facts come only from the chained, immutable `cms_draft_import_receipt`, `cms_publication_receipt`, and `cms_live_qa_receipt` emitted by the trusted backend workflow.
-- W3 Articles and Career Guides are sequential, independent scopes. They require separate output directories, packages, SHAs, candidate patches, imports, and PRs.
-- W9 remains an independent reviewer and required check, but it runs against the exact PR head and package SHA in the same Producer PR. A BLOCKED verdict fails that PR and must be repaired and rerun in the same PR; do not create separate W9 evidence, CONTROL BLOCKED, reset, refreeze-acceptance, or status-only CONTROL PRs.
-- The V2 master is deterministically materialized from SHA-bound lane-local manifests and trusted backend receipts registered in `docs/seo/generated/en-content-parity-control-inputs.v2.json`. New preflight and promotion facts are accepted only when their exact bytes are recovered from a successful `main` run of the trusted fap-api workflow. After that exact binding and bytes are merged, the base branch is the durable provenance attestation; later validation must byte-compare against the base and must not depend permanently on an expiring GitHub artifact. Producer and QA work must not edit the master directly, and unrelated lane or global-master changes must not invalidate an unchanged lane-local package SHA.
-- A valid receipt prefix records the latest completed fact: one receipt means `draft_imported`, two mean `published`, and three mean `live_qa_pass`. A failed later phase must not erase a verified earlier phase or permit a state skip.
-- A new V2 `package_frozen` fact must bind a dedicated allowlisted package root, its complete physical file inventory, every payload SHA, parsed JSONL rows, and the unique record-identity set through the deterministic package-freeze evidence contract. W9 `reviewed_source_commit` belongs to the fap-web Producer PR history; backend preflight and promotion receipt `source_commit` belongs to fap-api. These repository identities must be verified independently and must never be forced to equal. For an unchanged package SHA, required PR validation must reject replacing a previously verified receipt state with an older prefix.
-- The V2 ordered path is `not_started → inventory_frozen → package_in_progress → package_frozen → qa_pass → dry_run_ready → draft_imported → published → live_qa_pass`; `editorial_approved` is not a V2 state.
-- CMS draft import and publication are covered by the concrete end-to-end content `/goal` after QA and dry-run gates pass. Ordinary frontend application production deployment follows the automatic main deployment discipline; database migration, infrastructure/ingress changes, secrets or permission changes, destructive operations, sitemap/llms/indexability, and Search Channel submission remain separately controlled actions.
+- English parity work must be bound to an exact content/package identity and exact backend contract evidence. Validate locale completeness, stable identifiers, cross-locale links, canonical/hreflang pairs, robots, sitemap membership, and public rendering for the changed pages.
+- Mixed content changes run the union of applicable contract checks. Missing or stale evidence fails the candidate SHA; it does not create a reviewer or manual authorization step.
+- Keep content-generation sources, reviewed packages, runtime adapters, and derived public output distinct. Deployment may consume an accepted package but must not silently author or broaden it.
 
-## Final V4 upgrade protocols
-- Baseline content may exist only for new environment initialization, DB recovery, baseline imports, disaster recovery, and dry-run validation. Baseline content must not become runtime page-rendering authority.
-- Local development must support local API, test/staging API, or mock API workflows. CMS migration must not require frontend UI development against production CMS.
-- Large content imports must include schema validation and dry-run support before import, especially for career DOCX conversion, slugs, sections, SEO fields, and publication state.
-- Experimental surfaces and heavily interactive product experiences may remain product-code-side unless explicitly converted into operational content.
-- High-traffic CMS-backed entry pages must prefer CMS/API content, then stale last-known-good cache, then a minimal shell. They must not fall back to a full frontend editorial copy set.
-- Business priority is fixed as L1 MBTI, L2 Big Five, and L3 articles/topics/career recommendations/non-core tests. Caching, throttling, degradation, and resource isolation must preserve this order.
+### Product-model surfaces
 
-## RIASEC launch rules
-- Treat RIASEC as one flagship scale with two public forms: `riasec_60` and `riasec_140`.
-- Do not create a parallel frontend stack, backend stack, CMS stack, or share/report stack for RIASEC.
-- Reuse shared flagship patterns from MBTI, Big Five, and Enneagram first.
-- Prefer shared contract and shared service changes over consumer-side inference.
-- Delete the legacy 36Q local product surface; do not keep a localStorage fallback as the formal source.
-- Keep canonical public IA under `/tests/holland-career-interest-test-riasec`.
-- Do not break MBTI, Big Five, or Enneagram existing behavior.
-- Always validate targeted contracts/tests after changes.
+- MBTI, Big Five, Enneagram, RIASEC, V4, Career, and related result/report surfaces must preserve their documented scale identity, scoring topology, route behavior, locale support, and analytics contracts.
+- Description-only edits must not change assignment, score, relation, identity, or URL topology. Structural changes require their affected contract and public-page coverage.
+- Public report and share surfaces must avoid exposing private answers, tenant data, raw entitlement state, or unstable internal identifiers.
+
+### SEO, analytics, and discoverability
+
+- Validate canonical, hreflang, robots, sitemap, llms, structured data, and URL diffs only when their surface is affected. Search/IndexNow/GSC actions occur only after successful exact-SHA production acceptance and only for the allowed changed URLs.
+- Analytics events must preserve consent, stable event names, bounded payloads, and the documented public identifiers. Do not log secrets, private API bodies, or sensitive user answers.
+
+## Security and runtime safety
+
+- Treat authentication, entitlement, checkout/payment handoff, admin operations, tenant boundaries, redirects, CSP/security headers, and production runtime configuration as controlled boundaries.
+- Do not expose secrets, private topology, raw production payloads, internal release paths, or credentials in code, logs, receipts, screenshots, or reports.
+- External navigation and redirect targets must be allowlisted or strictly validated. User-controlled HTML and structured data must remain escaped or sanitized at the correct boundary.
+- Caches and service-worker state are derived behavior. Candidate publication, validation, and activation must not make stale or partial content authoritative; failure retains the last known good version.
 
 ## Rule maintenance
-- Repository rules are part of the architecture contract.
-- Every architecture upgrade, CMS migration, content authority change, API contract change, or publishing workflow change must update these rules in the same PR or in a clearly linked follow-up PR.
-- A PR that changes content ownership, publishing SOP, backend CMS models, public content APIs, media asset handling, SEO generation, sitemap/llms enumeration, or frontend fallback behavior must include a short "Repository rule impact" note.
-- If the change introduces a new content surface, the PR must explicitly state whether that surface is:
-  - CMS/backend-authoritative
-  - frontend product-code-only
-  - temporary migration fallback
-  - deprecated
-- Temporary migration fallback must include an owner, removal condition, and target removal PR/issue.
-- Rules must not lag behind architecture. If implementation and rules conflict, the PR is incomplete until the rules are updated or the conflict is explicitly resolved.
 
-## Production ingress boundary
-- `deploy/openresty/fap-web-public.conf` is the canonical public-web ingress configuration for the existing Node1 OpenResty runtime.
-- CSP nonce-bearing HTML and every other non-static route must bypass shared proxy caches and preserve the application `Cache-Control` response. Only explicitly allowlisted immutable/static resources may use public ingress caching.
-- Public ingress preflight, apply, and rollback must use the protected `Web Public Ingress Control` workflow with the exact latest `main` SHA and exact config/config-set or backup SHA authorization defined by the runbook.
-- Node1 connection values and OpenResty routing metadata used by that workflow must be production environment secrets only. Do not add an Actions-variable fallback or expose their raw values in logs or artifacts.
-- Never perform an unversioned SSH config edit, OpenResty reload, or automatic rollback. Production application deployment remains a separate exact-SHA-controlled workflow invoked automatically only after the same `main` SHA passes complete staging smoke.
+- Change active rules in the same scoped commit that requires them. Keep rules short, enforceable, and tied to a current classifier, test, or product boundary.
+- Do not add task-specific workflows, standing exceptions, shadow ledgers, speculative approval gates, or a second delivery platform.
+- Repository contract tests may assert the trunk discipline and the separation between active, historical, and recovery rules.
+
+## Historical only — not ordinary delivery
+
+- PR-train manifest/state and ledger rules apply only when the task explicitly identifies PR-train work for historical investigation or reconciliation.
+- A second manifest/state or PR authorization prompt is prohibited. This sentence preserves the historical contract test; it does not create an active manifest, branch, or PR workflow.
+- Old branch/PR/audit/merge procedures, reviewer records, required-status receipts, approval phrases, exact content-package credentials, one-off SHA exceptions, and retired workflow names are audit history only and are ignored for ordinary work.
+- They apply only when a task explicitly asks to investigate or preserve that historical event. They never authorize an ordinary branch, PR, manual dispatch, production mutation, retry, rollback, or new exception.
+- Historical details remain available in Git history and repository evidence. Do not copy them into active delivery rules or revive them as a control plane.
