@@ -2,31 +2,87 @@ name: CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
+  # Removed by the one-time direct-push cleanup after the transition PR merges.
   pull_request:
+    branches: [main]
 
 permissions:
+  actions: read
+  attestations: write
   contents: read
+  id-token: write
 
 concurrency:
-  group: fap-web-ci-${{ github.ref }}
-  cancel-in-progress: true
+  group: fap-web-ci-${{ github.repository }}-${{ github.sha }}
+  cancel-in-progress: false
 
 jobs:
-  build:
+  classify:
+    name: classify exact SHA
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
+    outputs:
+      base_sha: ${{ steps.classify.outputs.base_sha }}
+      deploy: ${{ steps.classify.outputs.deploy }}
+      application: ${{ steps.classify.outputs.application }}
+      content: ${{ steps.classify.outputs.content }}
+      ingress: ${{ steps.classify.outputs.ingress }}
+      infrastructure: ${{ steps.classify.outputs.infrastructure }}
+      tests_changed: ${{ steps.classify.outputs.tests_changed }}
+      classification: ${{ steps.classify.outputs.classification }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - id: classify
+        shell: bash
+        env:
+          PUSH_BEFORE: ${{ github.event.before }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+          base_sha="$PUSH_BEFORE"
+          if [ "$GITHUB_EVENT_NAME" = pull_request ]; then base_sha="$PR_BASE"; fi
+          [[ "$base_sha" =~ ^[0-9a-f]{40}$ ]]
+          test "$base_sha" != 0000000000000000000000000000000000000000
+          git cat-file -e "${base_sha}^{commit}"
+          git merge-base --is-ancestor "$base_sha" "$GITHUB_SHA"
+          git diff --no-renames --name-only -z "$base_sha" "$GITHUB_SHA" > "$RUNNER_TEMP/changed-paths"
+          test -s "$RUNNER_TEMP/changed-paths"
+          node .github/trunk/classify-paths.mjs "$RUNNER_TEMP/changed-paths" > trunk-path-classification.json
+          compact="$(jq -c . trunk-path-classification.json)"
+          {
+            echo "base_sha=$base_sha"
+            echo "deploy=$(jq -r .deploy trunk-path-classification.json)"
+            echo "application=$(jq -r .flags.application_ui trunk-path-classification.json)"
+            echo "content=$(jq -r .flags.content_adapter_contract trunk-path-classification.json)"
+            echo "ingress=$(jq -r .flags.ingress_runtime_config trunk-path-classification.json)"
+            echo "infrastructure=$(jq -r .flags.deployment_infrastructure trunk-path-classification.json)"
+            echo "tests_changed=$(jq -r .tests_changed trunk-path-classification.json)"
+            echo "classification=$compact"
+          } >> "$GITHUB_OUTPUT"
+      - run: node --test .github/trunk/*.test.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: trunk-classification-${{ github.sha }}
+          path: trunk-path-classification.json
+          if-no-files-found: error
+          retention-days: 30
+
+  build:
+    name: build
+    needs: classify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     concurrency:
       group: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'fap-web-production-api-read' || format('fap-web-ci-build-{0}', github.run_id) }}
       cancel-in-progress: false
-    permissions:
-      attestations: write
-      contents: read
-      id-token: write
     env:
       NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: fermatmind.com,www.fermatmind.com
-      # These identifiers are public in the client bootstrap. Keeping them here
-      # avoids granting the CI build job access to protected production secrets.
       NEXT_PUBLIC_ANALYTICS_ENABLED: "true"
       NEXT_PUBLIC_ANALYTICS_ENV: production
       NEXT_PUBLIC_API_URL: ${{ github.event_name == 'pull_request' && 'https://staging-api.fermatmind.com' || 'https://api.fermatmind.com' }}
@@ -35,60 +91,55 @@ jobs:
       NEXT_PUBLIC_RELEASE: ${{ github.sha }}
       NEXT_PUBLIC_SITE_URL: https://fermatmind.com
       NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY: "false"
-
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
-          fetch-depth: 2
-
+          fetch-depth: 0
+      - run: git diff --check ${{ needs.classify.outputs.base_sha }} ${{ github.sha }}
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        if: needs.classify.outputs.deploy == 'true'
         with:
           node-version: 24
-
-      - run: corepack enable
-
-      - run: pnpm install --frozen-lockfile
-
-      - run: pnpm lint . --max-warnings=0
-
-      - name: Reject warnings in pull request JavaScript and TypeScript changes
-        if: github.event_name == 'pull_request'
-        shell: bash
-        run: |
-          git diff --name-only --diff-filter=ACMR -z HEAD^1 HEAD -- '*.js' '*.jsx' '*.mjs' '*.cjs' '*.ts' '*.tsx' '*.mts' '*.cts' \
-            | xargs -0 --no-run-if-empty pnpm exec eslint --max-warnings=0 --
-
-      - run: pnpm typecheck
-
-      - run: pnpm build
-
+      - if: needs.classify.outputs.deploy == 'true'
+        run: corepack enable && pnpm install --frozen-lockfile
+      - name: Lint changed application boundary
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        run: pnpm lint . --max-warnings=0
+      - name: Typecheck changed application boundary
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        run: pnpm typecheck
+      - name: Build production standalone application
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        run: pnpm build
       - name: Verify standalone analytics bootstrap without runtime public env
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
-
+      - if: needs.classify.outputs.infrastructure == 'true'
+        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
+      - if: needs.classify.outputs.ingress == 'true'
+        run: node scripts/ops/validate-web-public-ingress-config.mjs && bash scripts/ops/test-web-public-ingress-openresty.sh
+      - name: Ensure immutable standalone build exists
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        run: |
+          if [ ! -d .next/standalone ]; then pnpm build; fi
+      - name: Verify deployable standalone analytics bootstrap
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
       - name: Package and verify immutable standalone release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        shell: bash
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         env:
           RELEASE_DIRECTORY: .next/release/fap-web-${{ github.sha }}
           RELEASE_ARCHIVE: .next/release/fap-web-${{ github.sha }}.tar.gz
         run: |
           set -euo pipefail
-          build_timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-          pnpm release:package -- \
-            --source=.next/standalone \
-            --output="$RELEASE_DIRECTORY" \
-            --git-sha="$GITHUB_SHA" \
-            --build-timestamp="$build_timestamp" \
-            --workflow-run-id="$GITHUB_RUN_ID" \
-            --workflow-run-attempt="$GITHUB_RUN_ATTEMPT" \
-            --require-production-config
+          pnpm release:package -- --source=.next/standalone --output="$RELEASE_DIRECTORY" --git-sha="$GITHUB_SHA" \
+            --build-timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)" --workflow-run-id="$GITHUB_RUN_ID" \
+            --workflow-run-attempt="$GITHUB_RUN_ATTEMPT" --require-production-config
           pnpm release:verify -- --artifact="$RELEASE_DIRECTORY"
-          tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner \
-            -C .next/release -czf "$RELEASE_ARCHIVE" "fap-web-${GITHUB_SHA}"
-
-      - name: Upload exact-SHA standalone release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        id: upload-release
+          tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -C .next/release \
+            -czf "$RELEASE_ARCHIVE" "fap-web-${GITHUB_SHA}"
+      - id: upload-release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: fap-web-standalone-${{ github.sha }}
@@ -96,46 +147,36 @@ jobs:
           compression-level: 0
           if-no-files-found: error
           retention-days: 14
-
-      - name: Attest exact uploaded standalone archive
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4
         with:
           subject-name: fap-web-standalone-${{ github.sha }}.zip
           subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}
-
-      - run: pnpm test:a11y
+      - if: needs.classify.outputs.deploy != 'true'
+        run: echo "Docs/rules/tests-only scope; build and deployment artifact intentionally skipped."
 
   contract-shards:
     name: contract-shard-${{ matrix.shard }}
+    needs: classify
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    permissions:
-      actions: read
-      contents: read
-    env:
-      GH_TOKEN: ${{ github.token }}
-      EN_PARITY_CURRENT_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}
     strategy:
       fail-fast: false
       matrix:
         shard: [1, 2, 3, 4]
-
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           fetch-depth: 0
-
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true' || needs.classify.outputs.tests_changed == 'true'
         with:
           node-version: 24
-
-      - run: corepack enable
-
-      - run: pnpm install --frozen-lockfile
-
       - name: Run contract shard ${{ matrix.shard }} of 4
-        run: pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true' || needs.classify.outputs.tests_changed == 'true'
+        run: corepack enable && pnpm install --frozen-lockfile && pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}
+      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true' && needs.classify.outputs.tests_changed != 'true'
+        run: echo "Frontend contract boundary unchanged."
 
   contracts:
     name: contracts
@@ -143,51 +184,62 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
-
     steps:
-      - name: Require all four contract shards to succeed
-        shell: bash
-        env:
+      - env:
           CONTRACT_MATRIX_RESULT: ${{ needs.contract-shards.result }}
         run: |
-          set -euo pipefail
-          if [[ "$CONTRACT_MATRIX_RESULT" != "success" ]]; then
-            echo "One or more of the four contract shards did not succeed: $CONTRACT_MATRIX_RESULT" >&2
-            exit 1
-          fi
+          if [[ "$CONTRACT_MATRIX_RESULT" != "success" ]]; then exit 1; fi
 
   verify-big5-contract-freeze:
     name: verify-big5-contract-freeze
+    needs: classify
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         with:
           node-version: 24
-
-      - run: corepack enable
-
-      - run: pnpm install --frozen-lockfile
-
-      - run: pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx
+      - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        run: corepack enable && pnpm install --frozen-lockfile && pnpm verify-big5-contract-freeze
+      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
+        run: echo "Big Five adapter unchanged."
 
   verify-enneagram-contract-freeze:
     name: verify-enneagram-contract-freeze
+    needs: classify
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         with:
           node-version: 24
+      - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        run: corepack enable && pnpm install --frozen-lockfile && pnpm verify-enneagram-contract-freeze
+      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
+        run: echo "Enneagram adapter unchanged."
 
-      - run: corepack enable
-
-      - run: pnpm install --frozen-lockfile
-
-      - run: pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx
+  validation-receipt:
+    name: exact-SHA validation receipt
+    needs: [classify, build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          RESULTS: ${{ toJSON(needs) }}
+          CLASSIFICATION: ${{ needs.classify.outputs.classification }}
+        run: |
+          set -euo pipefail
+          jq -e 'to_entries | all(.value.result == "success")' <<< "$RESULTS" >/dev/null
+          jq -n --arg sha "$GITHUB_SHA" --arg run "$GITHUB_RUN_ID" --argjson classification "$CLASSIFICATION" \
+            '{schema_version:"fermatmind.trunk-validation.v1",sha:$sha,ci_run_id:$run,result:"success",classification:$classification}' \
+            > trunk-validation.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: trunk-validation-${{ github.sha }}
+          path: trunk-validation.json
+          if-no-files-found: error
+          retention-days: 90

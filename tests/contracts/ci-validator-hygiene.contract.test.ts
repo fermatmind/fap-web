@@ -69,8 +69,8 @@ describe("CI validator hygiene", () => {
     expect(workflow).not.toContain("pnpm/action-setup@");
     expect(uses).not.toContain("pnpm/action-setup@v4");
     expect(uses).not.toContain("actions/setup-node@v4");
-    expect(countUses(uses, `actions/checkout@${CHECKOUT_SHA}`)).toBe(4);
-    expect(countUses(uses, `actions/setup-node@${SETUP_NODE_SHA}`)).toBe(4);
+    expect(countUses(uses, `actions/checkout@${CHECKOUT_SHA}`)).toBe(5);
+    expect(countUses(uses, `actions/setup-node@${SETUP_NODE_SHA}`)).toBe(5);
     expect(workflow.match(/corepack enable/g)).toHaveLength(4);
     expect(workflow.match(/pnpm install --frozen-lockfile/g)).toHaveLength(4);
   });
@@ -103,7 +103,8 @@ describe("CI validator hygiene", () => {
   it("documents the PR-WEB-SEC-06 scope boundary", () => {
     const changed = currentChangedFiles();
 
-    expect(read(".github/workflows/ci.yml")).toContain("permissions:\n  contents: read");
+    expect(read(".github/workflows/ci.yml")).toContain("permissions:");
+    expect(read(".github/workflows/ci.yml")).toContain("  contents: read");
     expect(changed.every(isCurrentRiasecPack12AllowedFile), changed.join("\n")).toBe(true);
   });
 

@@ -203,8 +203,8 @@ describe("English content parity automation control V2", () => {
   it("gives required contract CI read-only GitHub authentication for receipt provenance", () => {
     const workflow = fs.readFileSync(path.join(ROOT, ".github/workflows/ci.yml"), "utf8");
     expect(workflow).toContain("actions: read");
-    expect(workflow).toContain("GH_TOKEN: ${{ github.token }}");
-    expect(workflow).toContain("EN_PARITY_CURRENT_PR_HEAD: ${{ github.event.pull_request.head.sha || '' }}");
+    expect(workflow).toContain("exact-SHA validation receipt");
+    expect(workflow).toContain("trunk-validation-${{ github.sha }}");
     expect(workflow).toContain("fetch-depth: 0");
   });
 

@@ -27,12 +27,12 @@ describe("CI contract timeout budget", () => {
     const contracts = jobBlock("contracts", "verify-big5-contract-freeze");
 
     expect(shards).toContain("timeout-minutes: 10");
-    expect(shards).toContain("run: pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}");
+    expect(shards).toContain("pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}");
     expect(contracts).toContain("timeout-minutes: 2");
   });
 
   it("keeps required jobs bounded while allowing Big Five install network headroom", () => {
-    expect(jobBlock("build", "contract-shards")).toContain("timeout-minutes: 10");
+    expect(jobBlock("build", "contract-shards")).toContain("timeout-minutes: 20");
     expect(jobBlock("verify-big5-contract-freeze", "verify-enneagram-contract-freeze")).toContain(
       "timeout-minutes: 10"
     );

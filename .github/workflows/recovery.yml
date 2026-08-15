@@ -1,0 +1,101 @@
+name: Recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: diagnose, lkg, or exact_sha
+        required: true
+        type: choice
+        options: [diagnose, lkg, exact_sha]
+      exact_sha:
+        description: Required only for exact_sha recovery
+        required: false
+        type: string
+
+permissions:
+  actions: read
+  attestations: read
+  contents: read
+
+concurrency:
+  group: recovery-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    name: Incident-only recovery
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    environment: production
+    env:
+      MODE: ${{ inputs.mode }}
+      DEPLOY_SHA: ${{ inputs.exact_sha }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_NODE1_APP_NAME || vars.WEB_NODE1_APP_NAME }}
+      APP_PORT: ${{ secrets.WEB_NODE1_APP_PORT || vars.WEB_NODE1_APP_PORT }}
+      APP_MANAGER: ${{ secrets.WEB_NODE1_APP_MANAGER || vars.WEB_NODE1_APP_MANAGER }}
+      SYSTEMD_SERVICE: ${{ secrets.WEB_NODE1_SYSTEMD_SERVICE || vars.WEB_NODE1_SYSTEMD_SERVICE }}
+      PUBLIC_BASE_URL: https://fermatmind.com
+      CORE_PUBLIC_PATH: /zh/personality/intj-a
+      RUN_SITEMAP_HEALTH: "1"
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - run: chmod +x .github/trunk/*.sh scripts/*.sh
+      - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Diagnose or switch to previous LKG
+        if: inputs.mode != 'exact_sha'
+        run: |
+          set -euo pipefail
+          active="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
+          [[ "$active" =~ ^[0-9a-f]{40}$ ]]
+          if [ "$MODE" = diagnose ]; then echo "Active revision is valid; no write performed."; exit 0; fi
+          test "$MODE" = lkg
+          scp -o BatchMode=yes -o StrictHostKeyChecking=yes -P "$DEPLOY_PORT" scripts/deploy_web_pm2.sh scripts/rolling_reload_pm2.sh "$DEPLOY_USER@$DEPLOY_HOST:/tmp/"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "set -euo pipefail; previous=\$(realpath '$APP_DIR/releases/previous'); case \"\$previous\" in '$APP_DIR/releases/'*) ;; *) exit 1;; esac; test -f \"\$previous/REVISION\"; target=\$(tr -d '\r\n' < \"\$previous/REVISION\"); [[ \"\$target\" =~ ^[0-9a-f]{40}\$ ]]; ln -s \"\$previous\" '$APP_DIR/.next/standalone.recovery'; mv -Tf '$APP_DIR/.next/standalone.recovery' '$APP_DIR/.next/standalone'; chmod 700 /tmp/deploy_web_pm2.sh /tmp/rolling_reload_pm2.sh; APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_USER='$DEPLOY_USER' APP_MANAGER='${APP_MANAGER:-pm2}' SYSTEMD_SERVICE='${SYSTEMD_SERVICE:-fap-web.service}' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA=\"\$target\" ROLLING_RELOAD_SCRIPT=/tmp/rolling_reload_pm2.sh /tmp/deploy_web_pm2.sh"
+      - id: artifact
+        if: inputs.mode == 'exact_sha'
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const sha = process.env.DEPLOY_SHA;
+            if (!/^[0-9a-f]{40}$/.test(sha)) return core.setFailed("exact_sha is required");
+            const runs = await github.rest.actions.listWorkflowRuns({ owner: context.repo.owner, repo: context.repo.repo, workflow_id: "ci.yml", branch: "main", event: "push", head_sha: sha, per_page: 20 });
+            const run = runs.data.workflow_runs.find((candidate) => candidate.head_sha === sha && candidate.conclusion === "success");
+            if (!run) return core.setFailed("Exact SHA has no successful main CI run");
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({ owner: context.repo.owner, repo: context.repo.repo, run_id: run.id, per_page: 100 });
+            const matches = artifacts.data.artifacts.filter((a) => a.name === `fap-web-standalone-${sha}` && !a.expired);
+            if (matches.length !== 1 || !/^sha256:[0-9a-f]{64}$/.test(String(matches[0].digest || ""))) return core.setFailed("Exact SHA release artifact is unavailable or ambiguous");
+            core.setOutput("id", String(matches[0].id)); core.setOutput("digest", matches[0].digest);
+      - id: prepared
+        if: inputs.mode == 'exact_sha'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.artifact.outputs.id }}
+          EXPECTED_ARTIFACT_DIGEST: ${{ steps.artifact.outputs.digest }}
+        run: .github/trunk/prepare-web-artifact.sh
+      - name: Activate exact validated SHA
+        if: inputs.mode == 'exact_sha'
+        env:
+          RELEASE_ARCHIVE: ${{ steps.prepared.outputs.archive }}
+          RELEASE_ARCHIVE_SHA256: ${{ steps.prepared.outputs.archive_sha256 }}
+          RELEASE_MANIFEST_DIGEST: ${{ steps.prepared.outputs.manifest_digest }}
+          ARTIFACT_DIGEST: ${{ steps.artifact.outputs.digest }}
+        run: .github/trunk/deploy-web-release.sh

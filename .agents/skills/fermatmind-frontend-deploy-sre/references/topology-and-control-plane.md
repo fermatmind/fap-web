@@ -12,6 +12,15 @@ Do not encode raw IP addresses or credentials in Skills. Resolve targets from Gi
 
 ## Authoritative workflows
 
+The repository has exactly four entrypoints:
+
+- `.github/workflows/ci.yml` classifies the exact main-push diff, runs the validation union, and produces an attested standalone artifact plus exact-SHA receipt.
+- `.github/workflows/deploy.yml` serializes staging, staging smoke, production activation, production smoke, and bounded previous-LKG restoration.
+- `.github/workflows/nightly.yml` owns full regression, security, dependency, and performance checks.
+- `.github/workflows/recovery.yml` is the only manual workflow and is incident-only.
+
+Historical task-specific deployment workflow names are not authority after trunk cutover.
+
 - `.github/workflows/ci.yml`: exact-SHA standalone artifact and attestations.
 - `.github/workflows/deploy-staging.yml`: exact latest-main staging deployment and receipt.
 - `.github/workflows/deploy-production.yml`: exact-SHA production application deployment; merged-PR promotion uses `production-web-auto`, while manual recovery approval remains on protected `production`.
