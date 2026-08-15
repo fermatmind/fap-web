@@ -112,7 +112,7 @@ jobs:
       - if: needs.classify.outputs.infrastructure == 'true'
         run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
       - if: needs.classify.outputs.ingress == 'true'
-        run: node scripts/ops/validate-web-public-ingress-config.mjs && bash scripts/ops/test-web-public-ingress-openresty.sh
+        run: node scripts/ops/validate-web-public-ingress-config.mjs --config deploy/openresty/fap-web-public.conf && bash scripts/ops/test-web-public-ingress-openresty.sh
       - name: Ensure immutable standalone build exists
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         run: |
