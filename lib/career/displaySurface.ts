@@ -936,7 +936,15 @@ function normalizeDisplaySections(
 ): CareerDisplaySection[] {
   const sections = normalizeSections(page.sections);
   if (sections.length > 0) {
-    return sections;
+    const supplementalSections = (["career_ai_description_block", "career_path_block"] as const)
+      .filter((componentId) => componentOrder.includes(componentId))
+      .map((componentId) => normalizeComponentKeyedSection(componentId, page[componentId], locale))
+      .filter(
+        (section): section is CareerDisplaySection =>
+          section !== null && !sections.some((legacySection) => legacySection.component === section.component)
+      );
+
+    return [...sections, ...supplementalSections];
   }
 
   return componentOrder
