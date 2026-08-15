@@ -2,7 +2,9 @@ name: Deploy Web Staging
 
 on:
   push:
-    branches: [main]
+    # One-time transition: keep historical workflow source until direct-push cleanup,
+    # but prevent duplicate deployment beside the new unified deploy.yml.
+    branches: [legacy-transition-disabled]
     paths-ignore:
       - "AGENTS.md"
       - "docs/codex/fermatmind-codex-workflow-and-personalization.md"

@@ -1,14 +1,16 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-describe("solo developer PR flow rules", () => {
+describe("solo developer trunk flow rules", () => {
   const agents = readFileSync("AGENTS.md", "utf8");
   const skill = readFileSync(".agents/skills/fermatmind-pr-train/SKILL.md", "utf8");
   const ci = readFileSync(".github/workflows/ci.yml", "utf8");
 
-  it("keeps one complete PR CI run and one main regression run", () => {
-    expect(ci).toContain('push:\n    branches: ["main"]');
+  it("keeps one exact-SHA main CI and the final transition PR trigger", () => {
+    expect(ci).toContain("push:\n    branches: [main]");
     expect(ci).toContain("pull_request:");
+    expect(ci).toContain("classify exact SHA");
+    expect(ci).toContain("exact-SHA validation receipt");
     for (const requiredJob of [
       "build:",
       "contracts:",

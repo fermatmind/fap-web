@@ -45,7 +45,7 @@ describe("standalone analytics bootstrap contract", () => {
 
   it("runs the no-runtime-env standalone probe after build and before packaging", () => {
     const workflow = readFileSync(".github/workflows/ci.yml", "utf8");
-    const build = workflow.indexOf("- run: pnpm build");
+    const build = workflow.indexOf("run: pnpm build");
     const probe = workflow.indexOf("node scripts/release/verify-standalone-analytics-bootstrap.mjs");
     const packaging = workflow.indexOf("- name: Package and verify immutable standalone release");
 

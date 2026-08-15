@@ -26,19 +26,14 @@ describe("code scanning zero-new-alert gate", () => {
     expect(() => resolveApprovedPerformanceTarget(target)).toThrow();
   });
 
-  it("runs zero-warning lint on changed JS/TS files and gates the PR merge ref after CodeQL", () => {
+  it("runs zero-warning lint in path-aware CI and moves CodeQL to nightly", () => {
     const ci = read(".github/workflows/ci.yml");
-    const codeql = read(".github/workflows/codeql.yml");
+    const nightly = read(".github/workflows/nightly.yml");
 
     expect(ci).toContain("pnpm lint . --max-warnings=0");
-    expect(ci).toContain("eslint --max-warnings=0");
-    expect(ci).toContain("git diff --name-only --diff-filter=ACMR -z HEAD^1 HEAD");
-    expect(codeql).toContain("needs: analyze");
-    expect(codeql).toContain("no-new-code-scanning-alerts");
-    expect(codeql).toContain("refs/pull/${context.issue.number}/merge");
-    expect(codeql).toContain("listAlertsForRepo");
-    expect(codeql).toContain("state: 'open'");
-    expect(codeql).toContain("pr: context.issue.number");
+    expect(ci).toContain("git diff --check");
+    expect(nightly).toContain("CodeQL security scan");
+    expect(nightly).toContain("github/codeql-action/analyze@");
   });
 
   it("does not suppress the outbound file-data CodeQL rule", () => {
