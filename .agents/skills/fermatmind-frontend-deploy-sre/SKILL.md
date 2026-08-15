@@ -17,7 +17,7 @@ Operate `fap-web` through the four-workflow trunk control plane. Keep DNS/certif
 
 ## Invariants
 
-- Resolve and bind one full 40-character SHA. Never substitute latest `main` after approval.
+- Resolve and bind one full 40-character pushed SHA. Never substitute a newer `main` SHA while that activation is in flight.
 - Use an isolated worktree from `origin/main` for source inspection or changes. Do not touch an active dirty worktree.
 - Bind the exact `ci.yml` receipt, classifier result, and attested artifact; the main ruleset does not carry required checks.
 - Use only the exact-SHA standalone artifact produced by CI and the unexpired staging receipt bound to it.
@@ -72,9 +72,9 @@ Use `curl --resolve` before DNS changes. A successful application deploy does no
 
 ## Failure handling
 
-- If transfer fails before promotion, preserve the resumable partial artifact and stop. A new run needs fresh readiness and approval.
+- If transfer fails before promotion, preserve the resumable partial artifact and stop. Repair with a new commit; its successful exact-SHA CI starts a fresh automatic run.
 - If promotion or connection state is ambiguous, switch to `incident`; inspect revision, active release, receipt, PM2, and workflow checkpoints read-only.
-- If smoke fails, recommend rollback only after proving the prior immutable release and migration compatibility.
+- If smoke fails after activation, the installer restores the prior immutable LKG in the same attempt; enter manual recovery only if that restoration fails.
 - Never unlock, restart, terminate, edit, or roll back during diagnosis.
 
 ## Validation for Skill changes
@@ -87,4 +87,4 @@ git diff --check
 
 ## Output
 
-Report exact SHA and PR, ruleset/check status, CI artifact and staging receipt identity, production run ID, deployed revision, PM2 and smoke status, actions performed or skipped, rollback readiness, and remaining risks. Do not print infrastructure secrets or raw connection values.
+Report exact SHA, ruleset evidence, CI artifact and staging receipt identity, production run ID, deployed revision, PM2 and smoke status, actions performed or skipped, rollback readiness, and remaining risks. Mention a PR only for the one-time transition or when the user explicitly requests one. Do not print infrastructure secrets or raw connection values.

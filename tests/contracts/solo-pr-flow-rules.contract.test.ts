@@ -6,9 +6,9 @@ describe("solo developer trunk flow rules", () => {
   const skill = readFileSync(".agents/skills/fermatmind-pr-train/SKILL.md", "utf8");
   const ci = readFileSync(".github/workflows/ci.yml", "utf8");
 
-  it("keeps one exact-SHA main CI and the final transition PR trigger", () => {
+  it("keeps one exact-SHA main CI without a pull request trigger", () => {
     expect(ci).toContain("push:\n    branches: [main]");
-    expect(ci).toContain("pull_request:");
+    expect(ci).not.toContain("pull_request:");
     expect(ci).toContain("classify exact SHA");
     expect(ci).toContain("exact-SHA validation receipt");
     for (const requiredJob of [
@@ -21,11 +21,12 @@ describe("solo developer trunk flow rules", () => {
     }
   });
 
-  it("defaults ordinary local work to focused checks without weakening required checks", () => {
-    expect(agents).toContain("Ordinary scoped PRs default to focused local verification");
-    expect(agents).toContain("Pull requests still require the complete GitHub required checks");
-    expect(skill).toContain("not the default for ordinary ad-hoc PRs");
-    expect(skill).toContain("complete GitHub required checks");
+  it("defaults ordinary work to isolated direct-push delivery", () => {
+    expect(agents).toContain("clean isolated worktree created from the latest `origin/main`");
+    expect(agents).toContain("`git push origin HEAD:main`");
+    expect(agents).toContain("Do not create an ordinary branch, pull request, approval phrase");
+    expect(agents).toContain("ignored for ordinary work");
+    expect(skill).toContain("Use when the user names a PR-train item");
   });
 
   it("treats standing authorization as an always-on solo-development rule", () => {
@@ -36,9 +37,8 @@ describe("solo developer trunk flow rules", () => {
     expect(agents).not.toContain("Unless the goal explicitly requests interactive checkpoints");
   });
 
-  it("keeps ledger reconciliation scoped without requesting repeat authorization", () => {
-    expect(agents).toContain("do not open a standalone reconciliation PR");
-    expect(agents).toContain("create one minimal ledger-only ad-hoc PR under the standing authorization");
-    expect(agents).not.toContain("request explicit user authorization before creating one ledger-only ad-hoc PR");
+  it("keeps ledger work exclusive to explicit PR-train scope", () => {
+    expect(agents).toContain("PR-train manifest/state and ledger rules apply only when the task explicitly identifies PR-train work");
+    expect(agents).toContain("ignored for ordinary work");
   });
 });
