@@ -5,6 +5,7 @@ import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
+  buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -42,6 +43,41 @@ const D8_ACTIVE_DISPLAY_SLUGS = [
 ] as const;
 
 describe("career display surface contract", () => {
+  it("does not render a display shell without a validated backend surface", () => {
+    render(<CareerDisplaySurface surface={null} />);
+
+    expect(screen.queryByTestId("career-display-surface")).not.toBeInTheDocument();
+  });
+
+  it("adapts and renders the production v4.2 24-component display surface", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildProductionV42LegacyDisplaySurfaceFixture({
+        slug: "adapted-physical-education-specialists",
+        titleEn: "Adapted Physical Education Specialists",
+      }),
+      "en"
+    );
+
+    expect(surface).not.toBeNull();
+    expect(surface?.componentOrder).toHaveLength(24);
+    expect(surface?.componentOrder).not.toContain("career_ai_description_block");
+    expect(surface?.componentOrder).not.toContain("career_path_block");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-hero")).toHaveTextContent(
+      "Adapted Physical Education Specialists is a real backend component-keyed display_surface_v1 test page."
+    );
+    expect(screen.getByTestId("definition-block")).toHaveTextContent(
+      "Adapted Physical Education Specialists turns occupational tasks into accountable work outcomes."
+    );
+    expect(screen.getByTestId("responsibilities-block")).toHaveTextContent("Analyze task requirements");
+    expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(
+      "Is Adapted Physical Education Specialists a good career fit?"
+    );
+  });
+
   it("adapts and renders the valid Actors display surface", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
 
@@ -79,6 +115,30 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET");
     expect(screen.queryByTestId("related-next-pages")).not.toBeInTheDocument();
     expect(screen.queryByTestId("career-display-cta")).not.toBeInTheDocument();
+  });
+
+  it("supplements legacy Actors sections with keyed AI description and career path blocks", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    const page = fixture.page.en as unknown as Record<string, unknown>;
+    const legacySections = page.sections as Array<Record<string, unknown>>;
+
+    page.sections = legacySections.filter(
+      (section) => !["CareerAiDescriptionBlock", "CareerPathBlock"].includes(String(section.component))
+    );
+    page.career_ai_description_block = legacySections.find(
+      (section) => section.component === "CareerAiDescriptionBlock"
+    );
+    page.career_path_block = legacySections.find((section) => section.component === "CareerPathBlock");
+
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+
+    expect(surface?.sections.filter((section) => section.component === "CareerAiDescriptionBlock")).toHaveLength(1);
+    expect(surface?.sections.filter((section) => section.component === "CareerPathBlock")).toHaveLength(1);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-ai-description-block")).toHaveTextContent("AI Career Analysis");
+    expect(screen.getByTestId("career-path-block")).toHaveTextContent("Career Path");
   });
 
   it.each([
@@ -317,6 +377,74 @@ describe("career display surface contract", () => {
     expect(screen.queryByText(/What salary can I expect/i)).not.toBeInTheDocument();
   });
 
+  it("renders WorkBuddy AI Markdown without raw markers or images", () => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    const aiDescription = fixture.page.en.sections.find(
+      (section) => section.component === "CareerAiDescriptionBlock"
+    );
+    if (!aiDescription) {
+      throw new Error("Expected AI description fixture");
+    }
+    aiDescription.body = [
+      "## Role-specific analysis",
+      "> Treat this as a bounded interpretation.",
+      "- **Review** the work context",
+      "- [Compare evidence](https://example.com/evidence)",
+      "![Hidden image](https://example.com/hidden.png)",
+    ];
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    const block = screen.getByTestId("career-ai-description-block");
+    expect(block).not.toHaveTextContent("##");
+    expect(block).not.toHaveTextContent(">");
+    expect(block).not.toHaveTextContent("**");
+    expect(block.querySelector("h3")).toHaveTextContent("Role-specific analysis");
+    expect(block.querySelector("blockquote")).toHaveTextContent("Treat this as a bounded interpretation.");
+    expect(block.querySelector("strong")).toHaveTextContent("Review");
+    expect(screen.getByRole("link", { name: "Compare evidence" })).toHaveAttribute(
+      "href",
+      "https://example.com/evidence"
+    );
+    expect(block.querySelector("img")).toBeNull();
+  });
+
+  it.each([
+    [true, true],
+    [false, false],
+  ] as const)("shows the WorkBuddy salary cell only when salary comparison is %s", (allowSalaryComparison, showsSalary) => {
+    const fixture = buildActorsDisplaySurfaceFixture();
+    fixture.claim_permissions = buildDisplaySurfaceClaimPermissions({
+      allow_salary_comparison: allowSalaryComparison,
+      blocked_claims: allowSalaryComparison ? [] : ["salary_comparison"],
+    });
+    const careerPath = fixture.page.en.sections.find(
+      (section) => section.component === "CareerPathBlock"
+    );
+    if (!careerPath) {
+      throw new Error("Expected career path fixture");
+    }
+    careerPath.rows = [
+      ["Entry", "0-2 years", "Support scoped delivery", "Salary: $40,000-$55,000"],
+      ["Mid", "3-5 years", "Own independent delivery", "Salary: $55,000-$75,000"],
+      ["Senior", "6-10 years", "Lead complex delivery", "Salary: $75,000-$100,000"],
+      ["Expert", "10+ years", "Set professional standards", "Salary: $100,000+"],
+    ];
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    const pathBlock = screen.getByTestId("career-path-block");
+    expect(pathBlock).toHaveTextContent("Entry");
+    expect(pathBlock).toHaveTextContent("0-2 years");
+    expect(pathBlock).toHaveTextContent("Support scoped delivery");
+    if (showsSalary) {
+      expect(pathBlock).toHaveTextContent("Salary: $40,000-$55,000");
+    } else {
+      expect(pathBlock).not.toHaveTextContent("Salary: $40,000-$55,000");
+      expect(screen.getByTestId("claim-permission-notice-salary")).toBeInTheDocument();
+    }
+  });
+
   it("suppresses legacy salary and search-intent metadata when a salary asset is rendered", () => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({
@@ -396,6 +524,43 @@ describe("career display surface contract", () => {
     fixture.component_order = [...fixture.component_order, "unknown_component"];
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("rejects a 25-component mixed v4.2 order", () => {
+    const fixture = buildProductionV42LegacyDisplaySurfaceFixture();
+    fixture.component_order.splice(10, 0, "career_ai_description_block");
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("rejects duplicate and incorrectly ordered component ids", () => {
+    const duplicate = buildProductionV42LegacyDisplaySurfaceFixture();
+    duplicate.component_order[23] = duplicate.component_order[22];
+
+    const outOfOrder = buildProductionV42LegacyDisplaySurfaceFixture();
+    [outOfOrder.component_order[10], outOfOrder.component_order[11]] = [
+      outOfOrder.component_order[11],
+      outOfOrder.component_order[10],
+    ];
+
+    expect(adaptCareerDisplaySurface(duplicate, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(outOfOrder, "en")).toBeNull();
+  });
+
+  it("rejects 24-component surfaces with mismatched locale, version, status, or slug", () => {
+    const localeMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const versionMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const statusMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+    const slugMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+
+    versionMismatch.asset_version = "v4.1";
+    statusMismatch.status = "draft";
+    slugMismatch.asset.slug = "another-career";
+
+    expect(adaptCareerDisplaySurface(localeMismatch, "zh")).toBeNull();
+    expect(adaptCareerDisplaySurface(versionMismatch, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(statusMismatch, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(slugMismatch, "en")).toBeNull();
   });
 
   it("rejects payloads that contain Product schema", () => {

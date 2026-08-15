@@ -1,0 +1,298 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  actions: read
+  attestations: read
+  contents: read
+
+concurrency:
+  group: trunk-deploy-${{ github.repository }}
+  cancel-in-progress: false
+
+env:
+  DEPLOY_SHA: ${{ github.event.workflow_run.head_sha }}
+  NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: fermatmind.com,www.fermatmind.com
+  NEXT_PUBLIC_ANALYTICS_ENABLED: "true"
+  NEXT_PUBLIC_ANALYTICS_ENV: production
+  NEXT_PUBLIC_API_URL: https://api.fermatmind.com
+  NEXT_PUBLIC_BAIDU_TONGJI_ID: 71df4ab76c73cb563d267
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: G-5TBDR9KBLW
+  NEXT_PUBLIC_RELEASE: ${{ github.event.workflow_run.head_sha }}
+  NEXT_PUBLIC_SITE_URL: https://fermatmind.com
+  NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY: "false"
+
+jobs:
+  policy:
+    name: Bind successful main CI and release artifact
+    if: >-
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.run_attempt == 1 &&
+      github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      deploy: ${{ steps.receipt.outputs.deploy }}
+      ingress: ${{ steps.receipt.outputs.ingress }}
+      validation_id: ${{ steps.artifacts.outputs.validation_id }}
+      validation_digest: ${{ steps.artifacts.outputs.validation_digest }}
+      release_id: ${{ steps.artifacts.outputs.release_id }}
+      release_digest: ${{ steps.artifacts.outputs.release_digest }}
+    steps:
+      - name: Require successful exact-main push CI
+        env:
+          HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
+          CI_EVENT: ${{ github.event.workflow_run.event }}
+          CI_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          CI_RUN_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          test "$GITHUB_RUN_ATTEMPT" = 1
+          test "$CI_RUN_ATTEMPT" = 1
+          test "$HEAD_BRANCH" = main
+          test "$CI_EVENT" = push
+          test "$CI_CONCLUSION" = success
+          [[ "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]
+      - id: artifacts
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
+        with:
+          script: |
+            const runId = Number(process.env.CI_RUN_ID);
+            const { data } = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner, repo: context.repo.repo, run_id: runId, per_page: 100,
+            });
+            const exact = (name) => data.artifacts.filter((a) => a.name === name && !a.expired);
+            const validation = exact(`trunk-validation-${process.env.DEPLOY_SHA}`);
+            if (validation.length !== 1) return core.setFailed(`Expected one validation artifact; found ${validation.length}`);
+            for (const [prefix, artifact] of [["validation", validation[0]]]) {
+              if (!/^sha256:[0-9a-f]{64}$/.test(String(artifact.digest || ""))) return core.setFailed(`${prefix} digest missing`);
+              core.setOutput(`${prefix}_id`, String(artifact.id));
+              core.setOutput(`${prefix}_digest`, artifact.digest);
+            }
+            const releases = exact(`fap-web-standalone-${process.env.DEPLOY_SHA}`);
+            if (releases.length > 1) return core.setFailed(`Ambiguous release artifact count: ${releases.length}`);
+            if (releases.length === 1) {
+              if (!/^sha256:[0-9a-f]{64}$/.test(String(releases[0].digest || ""))) return core.setFailed("Release digest missing");
+              core.setOutput("release_id", String(releases[0].id));
+              core.setOutput("release_digest", releases[0].digest);
+            }
+      - id: receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.artifacts.outputs.validation_id }}
+          EXPECTED_DIGEST: ${{ steps.artifacts.outputs.validation_digest }}
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
+          RELEASE_ID: ${{ steps.artifacts.outputs.release_id }}
+        run: |
+          set -euo pipefail
+          zip="$RUNNER_TEMP/validation.zip"
+          curl -fsSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID/zip" -o "$zip"
+          test "sha256:$(sha256sum "$zip" | awk '{print $1}')" = "$EXPECTED_DIGEST"
+          unzip -q "$zip" -d "$RUNNER_TEMP/validation"
+          receipt="$RUNNER_TEMP/validation/trunk-validation.json"
+          jq -e --arg sha "$DEPLOY_SHA" --arg run "$CI_RUN_ID" \
+            '.schema_version == "fermatmind.trunk-validation.v1" and .sha == $sha and .ci_run_id == $run and .result == "success"' "$receipt" >/dev/null
+          deploy="$(jq -r .classification.deploy "$receipt")"
+          if [ "$deploy" = true ]; then test -n "$RELEASE_ID"; fi
+          {
+            echo "deploy=$deploy"
+            echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
+          } >> "$GITHUB_OUTPUT"
+
+  staging:
+    name: Staging artifact activation and smoke
+    needs: policy
+    if: needs.policy.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: staging
+    env:
+      DEPLOY_HOST: ${{ secrets.WEB_STAGING_DEPLOY_HOST || vars.WEB_STAGING_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_STAGING_DEPLOY_USER || vars.WEB_STAGING_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_STAGING_DEPLOY_PORT || vars.WEB_STAGING_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_STAGING_APP_DIR || vars.WEB_STAGING_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_STAGING_APP_NAME || vars.WEB_STAGING_APP_NAME }}
+      APP_PORT: ${{ secrets.WEB_STAGING_APP_PORT || vars.WEB_STAGING_APP_PORT }}
+      APP_MANAGER: ${{ secrets.WEB_STAGING_APP_MANAGER || vars.WEB_STAGING_APP_MANAGER }}
+      SYSTEMD_SERVICE: ${{ secrets.WEB_STAGING_SYSTEMD_SERVICE || vars.WEB_STAGING_SYSTEMD_SERVICE }}
+      PUBLIC_BASE_URL: https://staging.fermatmind.com
+      RUN_SITEMAP_HEALTH: "0"
+      CORE_PUBLIC_PATH: ${{ secrets.WEB_STAGING_CORE_PUBLIC_PATH || vars.WEB_STAGING_CORE_PUBLIC_PATH }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - run: chmod +x .github/trunk/*.sh scripts/*.sh
+      - id: artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.policy.outputs.release_id }}
+          EXPECTED_ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+        run: .github/trunk/prepare-web-artifact.sh
+      - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Activate staging candidate and complete smoke
+        env:
+          RELEASE_ARCHIVE: ${{ steps.artifact.outputs.archive }}
+          RELEASE_ARCHIVE_SHA256: ${{ steps.artifact.outputs.archive_sha256 }}
+          RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
+          ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+        run: .github/trunk/deploy-web-release.sh
+      - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: trunk-staging-${{ github.event.workflow_run.head_sha }}
+          path: staging-timing.json
+          retention-days: 90
+
+  production:
+    name: Production ordered activation with atomic LKG fallback
+    needs: [policy, staging]
+    if: needs.staging.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    environment: production-web-auto
+    env:
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_NODE1_APP_NAME || vars.WEB_NODE1_APP_NAME }}
+      APP_PORT: ${{ secrets.WEB_NODE1_APP_PORT || vars.WEB_NODE1_APP_PORT }}
+      APP_MANAGER: ${{ secrets.WEB_NODE1_APP_MANAGER || vars.WEB_NODE1_APP_MANAGER }}
+      SYSTEMD_SERVICE: ${{ secrets.WEB_NODE1_SYSTEMD_SERVICE || vars.WEB_NODE1_SYSTEMD_SERVICE }}
+      PUBLIC_BASE_URL: https://fermatmind.com
+      CORE_PUBLIC_PATH: ${{ secrets.WEB_PRODUCTION_CORE_PUBLIC_PATH || vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
+      RUN_SITEMAP_HEALTH: ${{ secrets.WEB_PRODUCTION_RUN_SITEMAP_HEALTH || vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+      - run: chmod +x .github/trunk/*.sh scripts/*.sh
+      - id: artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ needs.policy.outputs.release_id }}
+          EXPECTED_ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+        run: .github/trunk/prepare-web-artifact.sh
+      - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - id: order
+        name: Refuse stale or out-of-order activation
+        run: |
+          set -euo pipefail
+          active="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
+          [[ "$active" =~ ^[0-9a-f]{40}$ ]]
+          git fetch --no-tags origin "$active"
+          if ! git merge-base --is-ancestor "$active" "$DEPLOY_SHA" || [ "$active" = "$DEPLOY_SHA" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
+      - name: Activate production candidate; installer restores previous release on failed smoke
+        if: steps.order.outputs.skip != 'true'
+        env:
+          RELEASE_ARCHIVE: ${{ steps.artifact.outputs.archive }}
+          RELEASE_ARCHIVE_SHA256: ${{ steps.artifact.outputs.archive_sha256 }}
+          RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
+          ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+        run: .github/trunk/deploy-web-release.sh
+      - name: Record end-to-end timing
+        if: always()
+        env:
+          PUSHED_AT: ${{ github.event.workflow_run.created_at }}
+          CI_COMPLETED_AT: ${{ github.event.workflow_run.updated_at }}
+        run: |
+          jq -n --arg sha "$DEPLOY_SHA" --arg pushed "$PUSHED_AT" --arg ci "$CI_COMPLETED_AT" \
+            --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_smoke_completed_at:$completed}' \
+            > trunk-delivery-timing.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: trunk-production-${{ github.event.workflow_run.head_sha }}
+          path: trunk-delivery-timing.json
+          retention-days: 90
+
+  ingress:
+    name: Apply changed ingress config after exact production smoke
+    needs: [policy, production]
+    if: needs.production.result == 'success' && needs.policy.outputs.ingress == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL }}
+      OPENRESTY_CONTAINER: ${{ secrets.WEB_NODE1_OPENRESTY_CONTAINER }}
+      OPENRESTY_CONFIG_ROOT: ${{ secrets.WEB_NODE1_OPENRESTY_CONFIG_ROOT }}
+      OPENRESTY_MANAGED_FILES: ${{ secrets.WEB_NODE1_OPENRESTY_MANAGED_FILES }}
+      OPENRESTY_PRIMARY_FILE: ${{ secrets.WEB_NODE1_OPENRESTY_PRIMARY_FILE }}
+      OPENRESTY_BACKUP_DIR: ${{ secrets.WEB_NODE1_OPENRESTY_BACKUP_DIR }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Preflight, apply atomically, and verify public ingress
+        run: |
+          set -euo pipefail
+          active="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
+          test "$active" = "$DEPLOY_SHA"
+          node scripts/ops/validate-web-public-ingress-config.mjs --config deploy/openresty/fap-web-public.conf
+          candidate_sha="$(sha256sum deploy/openresty/fap-web-public.conf | awk '{print $1}')"
+          preflight="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' bash -s -- preflight" < scripts/ops/web-public-ingress.sh)"
+          current_sha="$(awk -F= '$1=="current_config_set_sha256"{print $2}' <<< "$preflight")"
+          [[ "$current_sha" =~ ^[0-9a-f]{64}$ ]]
+          remote_candidate="/tmp/fap-web-public-ingress-${GITHUB_RUN_ID}-${DEPLOY_SHA}.conf"
+          scp -o BatchMode=yes -o StrictHostKeyChecking=yes -P "$DEPLOY_PORT" deploy/openresty/fap-web-public.conf "$DEPLOY_USER@$DEPLOY_HOST:$remote_candidate"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' EXPECTED_CONFIG_SET_SHA256='$current_sha' CANDIDATE_CONFIG='$remote_candidate' EXPECTED_CANDIDATE_SHA256='$candidate_sha' RELEASE_ID='${GITHUB_RUN_ID}-${DEPLOY_SHA}' bash -s -- apply" \
+            < scripts/ops/web-public-ingress.sh
+          node scripts/ops/probe-web-public-ingress.mjs --base-url "$PUBLIC_BASE_URL" --enforce
+
+  docs-only:
+    needs: policy
+    if: needs.policy.outputs.deploy != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Docs/rules/tests-only SHA validated; no application deployment."

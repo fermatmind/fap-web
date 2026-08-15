@@ -7,7 +7,7 @@ description: Use for fap-web scope control when Codex must verify changed files,
 Guard fap-web work so Codex changes only the declared files and behavior for the current task.
 
 ## When to use
-- Use before editing, staging, committing, pushing, or preparing a PR in fap-web.
+- Use before editing, staging, committing, or direct-pushing `main` in fap-web.
 - Use when a dirty worktree, broad diff, generated artifact, or accidental source change may affect scope.
 
 ## When not to use
@@ -19,11 +19,11 @@ Guard fap-web work so Codex changes only the declared files and behavior for the
 - Do not stage unrelated dirty files.
 - Do not process Informational findings unless explicitly requested.
 - Do not expose exploit-ready details in public PR titles/bodies.
-- Do not merge unless required checks pass and scope is clean.
+- Do not publish unless focused checks pass and scope is clean; production requires the exact-SHA CI/deploy chain.
 - Do not close security findings unless source/test evidence proves fixed.
 - Stop if active Critical/High/Medium appears during Low/Informational work.
 - Do not weaken previously fixed security boundaries.
-- Required checks for fap-web are build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze.
+- `ci.yml` classification and focused checks must pass for the exact SHA; deployable paths must complete `deploy.yml`.
 - Frontend must not add or modify public editorial content for CMS-backed surfaces.
 
 ## Standard workflow
@@ -31,7 +31,7 @@ Guard fap-web work so Codex changes only the declared files and behavior for the
 2. Inspect current branch, upstream, and `git status --short`.
 3. Compare changed files against the declared scope before staging.
 4. Treat package files, workflows, configs, generated SEO artifacts, public assets, routes, tests, and app source as out of scope unless explicitly named.
-5. Stage only path-limited files after all checks pass.
+5. Stage only path-limited files after all checks pass, then push `HEAD:main` from the isolated worktree.
 6. Report any unrelated dirty files without touching them.
 
 ## Acceptance commands

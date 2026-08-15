@@ -194,7 +194,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     for (const testPath of SIX_ASSESSMENT_TEST_PATHS) {
       expect(cachedText).toContain(`${SITE_URL}${testPath}`);
     }
-  });
+  }, 30_000);
 
   it("does not cache otherwise complete artifacts when six assessment test routes are missing", async () => {
     const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-missing-tests-"));

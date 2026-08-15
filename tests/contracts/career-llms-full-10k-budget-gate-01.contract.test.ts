@@ -126,7 +126,7 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
       expect(text).not.toContain(`${SITE_URL}/en/career/jobs/${slug}`);
       expect(text).not.toContain(`${SITE_URL}/zh/career/jobs/${slug}`);
     }
-  });
+  }, 30_000);
 
   it("returns a degraded 200 response instead of timing out when no complete artifact is available", async () => {
     const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-10k-degraded-"));

@@ -3,16 +3,13 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 const ci = readFileSync(".github/workflows/ci.yml", "utf8");
-const staging = readFileSync(".github/workflows/deploy-staging.yml", "utf8");
-const production = readFileSync(".github/workflows/deploy-production.yml", "utf8");
-const liveResultSmoke = readFileSync(".github/workflows/live-result-smoke.yml", "utf8");
-
-const productionReadGroup = "group: fap-web-production-api-read";
+const deploy = readFileSync(".github/workflows/deploy.yml", "utf8");
 
 describe("production API CI load boundary", () => {
-  it("cancels stale CI runs for the same ref without serializing unrelated refs", () => {
-    expect(ci).toContain("group: fap-web-ci-${{ github.ref }}");
-    expect(ci).toContain("cancel-in-progress: true");
+  it("keeps every exact SHA CI run while serializing its production API build reads", () => {
+    expect(ci).toContain("group: fap-web-ci-${{ github.repository }}-${{ github.sha }}");
+    expect(ci).toContain("cancel-in-progress: false");
+    expect(ci).toContain("'fap-web-production-api-read'");
   });
 
   it("uses staging API for pull requests and production API only for main builds", () => {
@@ -24,18 +21,16 @@ describe("production API CI load boundary", () => {
     expect(ci).toContain("format('fap-web-ci-build-{0}', github.run_id)");
   });
 
-  it("serializes every long-lived workflow that directly reads production API", () => {
-    for (const workflow of [production, liveResultSmoke]) {
-      expect(workflow).toContain(productionReadGroup);
-      expect(workflow).toContain("cancel-in-progress: false");
-    }
+  it("serializes the complete staging-to-production activation lane", () => {
+    expect(deploy).toContain("group: trunk-deploy-${{ github.repository }}");
+    expect(deploy).toContain("cancel-in-progress: false");
+    expect(deploy).toContain("needs: [policy, staging]");
   });
 
-  it("does not deadlock staging artifact waits behind the main build production lane", () => {
-    expect(staging).toContain("group: fap-web-staging-deploy");
-    expect(staging).toContain("cancel-in-progress: false");
-    expect(staging).not.toContain(productionReadGroup);
-    expect(staging).toContain("Wait for exact-SHA CI artifact");
+  it("binds deployment to the successful exact-main CI artifact", () => {
+    expect(deploy).toContain("test \"$HEAD_BRANCH\" = main");
+    expect(deploy).toContain("test \"$CI_EVENT\" = push");
+    expect(deploy).toContain("trunk-validation-${process.env.DEPLOY_SHA}");
   });
 
   it("does not move API-independent contract and freeze jobs into the production lane", () => {

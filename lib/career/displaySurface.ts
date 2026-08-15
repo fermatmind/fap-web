@@ -59,6 +59,33 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "final_cta",
 ] as const;
 
+export const CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24 = [
+  "breadcrumb",
+  "hero",
+  "fermat_decision_card",
+  "primary_cta",
+  "career_snapshot_primary_locale",
+  "career_snapshot_secondary_locale",
+  "fit_decision_checklist",
+  "riasec_fit_block",
+  "personality_fit_block",
+  "definition_block",
+  "responsibilities_block",
+  "work_context_block",
+  "market_signal_card",
+  "adjacent_career_comparison_table",
+  "ai_impact_table",
+  "career_risk_cards",
+  "contract_project_risk_block",
+  "next_steps_block",
+  "faq_block",
+  "related_next_pages",
+  "source_card",
+  "review_validity_card",
+  "boundary_notice",
+  "final_cta",
+] as const;
+
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
@@ -87,7 +114,10 @@ export type CareerDisplayHeroViewModel = {
   };
 };
 
-export type CareerDisplayTableRow = [string, string] | [string, string, string];
+export type CareerDisplayTableRow =
+  | [string, string]
+  | [string, string, string]
+  | [string, string, string, string];
 
 export type CareerDisplayChecklistItem = {
   title: string;
@@ -601,6 +631,20 @@ function normalizeComponentOrder(value: unknown): CareerDisplayComponentId[] | n
   return deduped.length === order.length ? deduped : null;
 }
 
+function matchesComponentOrder(
+  actual: readonly CareerDisplayComponentId[],
+  expected: readonly CareerDisplayComponentId[]
+): boolean {
+  return actual.length === expected.length && actual.every((component, index) => component === expected[index]);
+}
+
+function isSupportedComponentOrder(order: readonly CareerDisplayComponentId[]): boolean {
+  return (
+    matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER) ||
+    matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24)
+  );
+}
+
 function resolveLocalizedPage(root: Record<string, unknown>, locale: Locale): Record<string, unknown> | null {
   const page = isRecord(root.page) ? root.page : null;
   if (!page) {
@@ -640,7 +684,7 @@ function normalizeCta(value: unknown): CareerDisplayCta | null {
   };
 }
 
-function normalizeRows(value: unknown): CareerDisplayTableRow[] {
+function normalizeRows(value: unknown, maxColumns: 3 | 4 = 3): CareerDisplayTableRow[] {
   if (!Array.isArray(value)) {
     return [];
   }
@@ -649,7 +693,13 @@ function normalizeRows(value: unknown): CareerDisplayTableRow[] {
     .filter(Array.isArray)
     .map((row) => row.map((item) => normalizeString(item)).filter((item): item is string => Boolean(item)))
     .filter((row) => row.length >= 2)
-    .map((row) => (row.length >= 3 ? [row[0], row[1], row[2]] : [row[0], row[1]]) as CareerDisplayTableRow);
+    .map((row) => (
+      maxColumns === 4 && row.length >= 4
+        ? [row[0], row[1], row[2], row[3]]
+        : row.length >= 3
+          ? [row[0], row[1], row[2]]
+          : [row[0], row[1]]
+    ) as CareerDisplayTableRow);
 }
 
 function normalizeChecklist(value: unknown): Array<string | CareerDisplayChecklistItem> {
@@ -721,6 +771,8 @@ function normalizeSection(value: unknown): CareerDisplaySection | null {
     return null;
   }
 
+  const rows = normalizeRows(raw.rows, component === "CareerPathBlock" ? 4 : 3);
+
   return {
     id,
     component,
@@ -730,7 +782,7 @@ function normalizeSection(value: unknown): CareerDisplaySection | null {
     ...(normalizeString(raw?.intro) ? { intro: normalizeString(raw.intro) ?? undefined } : {}),
     ...(normalizeString(raw?.source_key) ? { sourceKey: normalizeString(raw.source_key) ?? undefined } : {}),
     ...(normalizeStringArray(raw?.source_keys).length > 0 ? { sourceKeys: normalizeStringArray(raw.source_keys) } : {}),
-    ...(normalizeRows(raw?.rows).length > 0 ? { rows: normalizeRows(raw.rows) } : {}),
+    ...(rows.length > 0 ? { rows } : {}),
     ...(normalizeStringArray(raw?.items).length > 0 ? { items: normalizeStringArray(raw.items) } : {}),
     ...(normalizeString(raw?.fit_title) ? { fitTitle: normalizeString(raw.fit_title) ?? undefined } : {}),
     ...(normalizeStringArray(raw?.fit_items).length > 0 ? { fitItems: normalizeStringArray(raw.fit_items) } : {}),
@@ -884,7 +936,15 @@ function normalizeDisplaySections(
 ): CareerDisplaySection[] {
   const sections = normalizeSections(page.sections);
   if (sections.length > 0) {
-    return sections;
+    const supplementalSections = (["career_ai_description_block", "career_path_block"] as const)
+      .filter((componentId) => componentOrder.includes(componentId))
+      .map((componentId) => normalizeComponentKeyedSection(componentId, page[componentId], locale))
+      .filter(
+        (section): section is CareerDisplaySection =>
+          section !== null && !sections.some((legacySection) => legacySection.component === section.component)
+      );
+
+    return [...sections, ...supplementalSections];
   }
 
   return componentOrder
@@ -1211,7 +1271,7 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    componentOrder.length !== CAREER_DISPLAY_COMPONENT_ORDER.length ||
+    !isSupportedComponentOrder(componentOrder) ||
     !page ||
     !hero ||
     sections.length === 0 ||
