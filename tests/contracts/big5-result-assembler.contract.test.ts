@@ -22,6 +22,33 @@ describe("Big Five canonical private result assembler", () => {
     expect(JSON.stringify(view.visibleSections)).not.toContain("frontend_fallback");
   });
 
+  it("preserves structured D-grade authority for component renderers", () => {
+    const report = canonicalPrivateReport();
+    const engine = report.big5_report_engine_v2!;
+    engine.quality = { grade: "D", confidence_mode: "low" };
+    engine.norm_evidence = { status: "provisional", status_label: "暂定比较", show_precise_percentiles: false };
+    const block = engine.sections?.[6]?.blocks?.[0];
+    expect(block).toBeDefined();
+    Object.assign(block!, {
+      component: "BigFiveActionMatrixScenarioBullets",
+      resolved_copy: {
+        title: "低风险行动",
+        interpretation_qualifier: "这只是当前信号。",
+        items: [{ title: "先观察", why_recommended: "匹配当前证据", completion_signal: "记下一次反馈" }],
+      },
+    });
+
+    const view = assembleBig5ResultViewModel({ locale: "zh", reportData: report, gate });
+    const rendered = view.visibleSections[6]?.blocks[0];
+    expect(view.qualityLevel).toBe("D");
+    expect(view.normsStatus).toBe("暂定比较");
+    expect(view.normEvidence?.show_precise_percentiles).toBe(false);
+    expect(rendered?.component).toBe("BigFiveActionMatrixScenarioBullets");
+    expect((rendered?.resolved_copy as Record<string, unknown>)?.items).toEqual([
+      { title: "先观察", why_recommended: "匹配当前证据", completion_signal: "记下一次反馈" },
+    ]);
+  });
+
   it("fails closed when authority or immutable asset identity is invalid", () => {
     const missingAuthority = canonicalPrivateReport();
     delete missingAuthority.big5_private_result_authority;

@@ -59,6 +59,8 @@ export type Big5ResultViewModel = {
   formSummaryLabel: string | null;
   normsStatus: string;
   qualityLevel: string;
+  quality: Record<string, unknown> | null;
+  normEvidence: Record<string, unknown> | null;
   dimensions: Array<Record<string, unknown>>;
   plannedSections: Big5AssembledSection[];
   visibleSections: Big5AssembledSection[];
@@ -228,12 +230,13 @@ function normalizeCanonicalBlock(block: Big5ReportEngineV2Block, sectionKey: Big
     text(copy.action_hook),
   ].filter(Boolean);
   const title = text(copy.title) || text(copy.label_zh) || text(copy.headline) || text(copy.facet_code);
-  if (!title && !body && bullets.length === 0) return null;
+  if (!text(block.component) && !title && !body && bullets.length === 0) return null;
 
   return {
     id: text(block.block_uid),
     block_uid: text(block.block_uid),
     block_id: text(block.block_id),
+    component: text(block.component),
     kind: renderKind,
     title,
     body,
@@ -333,6 +336,9 @@ export function assembleBig5ResultViewModel({
 }): Big5ResultViewModel {
   const authority = resolveBig5PrivateResultAuthority(reportData);
   const projection = resolveProjection(reportData);
+  const engine = resolveEnginePayload(reportData);
+  const quality = asRecord(engine?.quality) ?? asRecord(reportData.quality) ?? asRecord(reportData.report?.quality);
+  const normEvidence = asRecord(engine?.norm_evidence) ?? asRecord(reportData.norms) ?? asRecord(reportData.report?.norms);
   const plannedSections = authority?.mode === "canonical"
     ? canonicalSections(reportData, locale)
     : authority?.mode === "immutable_legacy_snapshot"
@@ -350,8 +356,10 @@ export function assembleBig5ResultViewModel({
       includeScaleCode: true,
       locale,
     }),
-    normsStatus: text(reportData.norms?.status) || text(asRecord(reportData.report?.norms)?.status),
-    qualityLevel: text(reportData.quality?.level) || text(asRecord(reportData.report?.quality)?.level),
+    normsStatus: text(normEvidence?.status_label) || text(normEvidence?.status),
+    qualityLevel: text(quality?.grade) || text(quality?.level),
+    quality,
+    normEvidence,
     dimensions: dimensions(projection, locale),
     plannedSections,
     visibleSections,

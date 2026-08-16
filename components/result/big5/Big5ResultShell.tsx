@@ -53,6 +53,7 @@ export function Big5ResultShell({
   authority,
   normsStatus,
   qualityLevel,
+  showPrecisePercentiles = true,
   visibleSections,
   lockedSections,
   recommendedOffers,
@@ -69,6 +70,7 @@ export function Big5ResultShell({
   authority?: Big5PrivateResultAuthority | null;
   normsStatus: string;
   qualityLevel: string;
+  showPrecisePercentiles?: boolean;
   visibleSections: ReportSection[];
   lockedSections: ReportSection[];
   recommendedOffers: OfferPayload[];
@@ -97,9 +99,9 @@ export function Big5ResultShell({
             </span>
             {formSummaryLabel ? <span data-testid="big5-form-summary" className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{formSummaryLabel}</span> : null}
             {qualityLevel ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "质量" : "Quality"} · {qualityLevel.toUpperCase()}</span> : null}
-            {normsStatus ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "常模" : "Norms"} · {normsStatus.toUpperCase()}</span> : null}
+            {normsStatus ? <span className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600">{isZh ? "常模" : "Norms"} · {normsStatus}</span> : null}
           </div>
-          {dimensions.length > 0 ? <div data-testid="big5-dimensions"><DimensionBars dimensions={dimensions} /></div> : null}
+          {dimensions.length > 0 && showPrecisePercentiles ? <div data-testid="big5-dimensions"><DimensionBars dimensions={dimensions} /></div> : null}
         </CardContent>
       </Card>
 
@@ -122,6 +124,8 @@ export function Big5ResultShell({
             locale={locale}
             scaleCode="BIG5_OCEAN"
             normsStatus={normsStatus}
+            retakeHref={retakeHref}
+            showPrecisePercentiles={showPrecisePercentiles}
           />
         ))}
       </div>
@@ -137,6 +141,8 @@ export function Big5ResultShell({
               scaleCode="BIG5_OCEAN"
               ctaLabel={isZh ? "解锁报告" : "Unlock report"}
               normsStatus={normsStatus}
+              retakeHref={retakeHref}
+              showPrecisePercentiles={showPrecisePercentiles}
             />
           ))}
         </div>

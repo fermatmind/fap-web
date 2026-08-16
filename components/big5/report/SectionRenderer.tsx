@@ -28,6 +28,8 @@ export function SectionRenderer({
   ctaLabel,
   locale = "en",
   scaleCode,
+  retakeHref,
+  showPrecisePercentiles,
 }: {
   section: Section;
   locked: boolean;
@@ -35,6 +37,8 @@ export function SectionRenderer({
   ctaLabel?: string;
   locale?: "en" | "zh";
   scaleCode?: string;
+  retakeHref?: string;
+  showPrecisePercentiles?: boolean;
 }) {
   const key = text(section.key) || "section";
   const title = text(section.title) || key;
@@ -43,6 +47,12 @@ export function SectionRenderer({
     ? "scroll-mt-28 space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
     : "space-y-2";
   const blocks = Array.isArray(section.blocks) ? section.blocks : [];
+  const qualifier = blocks.map((block) => {
+    const copy = block.resolved_copy;
+    return copy && typeof copy === "object" && !Array.isArray(copy)
+      ? text((copy as Record<string, unknown>).interpretation_qualifier)
+      : "";
+  }).find(Boolean) ?? "";
 
   if (locked) {
     return (
@@ -66,8 +76,9 @@ export function SectionRenderer({
         {text(section.subtitle) ? <p className="m-0 text-sm text-slate-600">{text(section.subtitle)}</p> : null}
       </div>
       <div className="space-y-2">
+        {qualifier ? <p data-testid="big5-interpretation-qualifier" className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">{qualifier}</p> : null}
         {blocks.map((block, index) => (
-          <BlockRenderer key={`${key}-${text(block.id) || index}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} />
+          <BlockRenderer key={`${key}-${text(block.id) || index}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} retakeHref={retakeHref} showPrecisePercentiles={showPrecisePercentiles} />
         ))}
       </div>
     </section>
