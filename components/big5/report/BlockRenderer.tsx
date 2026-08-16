@@ -41,7 +41,7 @@ function QualityNotice({ copy, retakeHref }: { copy: Record<string, unknown>; re
 function SynergyCallout({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
   const evidence = Array.isArray(copy.evidence) ? copy.evidence.map(record).filter(Boolean) as Record<string, unknown>[] : [];
   const fields = [copy.mechanism, copy.strengths, copy.tradeoffs, copy.context_boundary, copy.action_bridge].map(text).filter(Boolean);
-  return <article data-testid="big5-synergy-callout" className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-5">
+  return <article data-testid="big5-synergy-callout" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="rounded-2xl border border-indigo-200 bg-indigo-50/70 p-5">
     <h4 className="m-0 text-base font-semibold text-indigo-950">{text(copy.headline)}</h4>
     {evidence.length > 0 ? <div className="mt-3 flex flex-wrap gap-2">{evidence.map((item, index) => {
       const label = domainLabel(item.code, locale); const value = percentile(item.percentile);
@@ -65,7 +65,7 @@ function NormEvidenceCard({ copy, locale }: { copy: Record<string, unknown>; loc
 function FacetCard({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
   const values = [text(copy.body), text(copy.why_it_matters), text(copy.daily_meaning), text(copy.evidence)].filter(Boolean);
   const trait = domainLabel(copy.domain_code, locale); const delta = percentile(copy.delta_abs);
-  return <article data-testid="big5-facet-anomaly" className="rounded-xl border border-violet-200 bg-white p-4 shadow-sm">
+  return <article data-testid="big5-facet-anomaly" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="rounded-xl border border-violet-200 bg-white p-4 shadow-sm">
     <div className="flex flex-wrap items-center justify-between gap-2"><h4 className="m-0 font-semibold text-slate-900">{text(copy.title)}</h4>{trait ? <Badge>{delta === null || !showPrecise ? trait : `${trait} · Δ${delta}`}</Badge> : null}</div>
     <div className="mt-2 space-y-2 text-sm text-slate-700">{values.map((value) => <p key={value} className="m-0 whitespace-pre-wrap">{value}</p>)}</div>
   </article>;
@@ -73,7 +73,7 @@ function FacetCard({ copy, locale, showPrecise }: { copy: Record<string, unknown
 
 function ActionCards({ copy, locale, showPrecise }: { copy: Record<string, unknown>; locale: "en" | "zh"; showPrecise: boolean }) {
   const items = Array.isArray(copy.items) ? copy.items.map(record).filter(Boolean) as Record<string, unknown>[] : [];
-  return <div data-testid="big5-action-matrix" className="space-y-3">
+  return <div data-testid="big5-action-matrix" data-evidence-mode={showPrecise ? "precise" : "provisional"} className="space-y-3">
     {text(copy.title) ? <h4 className="m-0 font-semibold text-slate-900">{text(copy.title)}</h4> : null}
     {items.map((item, index) => <article key={`${text(item.title)}-${index}`} className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-4">
       <div className="flex flex-wrap items-center justify-between gap-2"><h5 className="m-0 font-semibold text-emerald-950">{text(item.label) || text(item.title)}</h5><div className="flex gap-2">{text(item.time_horizon_label) ? <Badge>{text(item.time_horizon_label)}</Badge> : null}{text(item.difficulty_label) ? <Badge>{text(item.difficulty_label)}</Badge> : null}</div></div>

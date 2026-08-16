@@ -5,7 +5,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const EXPECTED_PRINT_ASSET_HASH = "sha256:6abc029aef61f3d1832e51bd871673665478f86a815107d1ecb20b308b3fd1da";
+const EXPECTED_PRINT_ASSET_HASH = "sha256:e53c69d5c5d7df2c45e3f47825418cc9ecd1c3b53da57703081712d38995aa3c";
 
 const PRINT_ASSET_INPUTS = [
   "app/(localized)/[locale]/(app)/result/[id]",

@@ -38,6 +38,7 @@ describe("Big Five private result page consumer", () => {
     expect(screen.getByText(copy.completion, { exact: false })).toBeInTheDocument();
     expect(screen.queryAllByRole("progressbar")).toHaveLength(0);
     expect(screen.queryByTestId("big5-dimensions")).not.toBeInTheDocument();
+    expect(screen.getAllByTestId("big5-action-matrix").every((node) => node.dataset.evidenceMode === "provisional")).toBe(true);
     expect(screen.queryByText("internal-rule")).not.toBeInTheDocument();
     expect(screen.queryByText("start")).not.toBeInTheDocument();
     expect(screen.queryByText("开放性 · 20")).not.toBeInTheDocument();
