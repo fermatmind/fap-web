@@ -856,6 +856,15 @@ function normalizeComponentKeyedSection(
   }
 
   if (componentId === "career_snapshot_secondary_locale") {
+    if (
+      normalizeString(block.component) ||
+      normalizeString(block.id) ||
+      normalizeString(block.body) ||
+      normalizeRows(block.rows).length > 0
+    ) {
+      return normalizeSection({ ...block, ...base });
+    }
+
     return normalizeSection({
       ...base,
       body: normalizeString(block.limitation),
@@ -880,6 +889,16 @@ function normalizeComponentKeyedSection(
   }
 
   if (componentId === "work_context_block") {
+    if (
+      normalizeString(block.component) ||
+      normalizeString(block.id) ||
+      normalizeString(block.body) ||
+      normalizeStringArray(block.contexts).length > 0 ||
+      normalizeRows(block.entry_table).length > 0
+    ) {
+      return normalizeSection({ ...block, ...base });
+    }
+
     return normalizeSection({
       ...base,
       contexts: normalizeStringArray(block.target_queries),
@@ -918,9 +937,17 @@ function normalizeComponentKeyedSection(
   }
 
   if (componentId === "career_risk_cards") {
+    if (
+      normalizeString(block.component) ||
+      normalizeString(block.id) ||
+      normalizeString(block.intro) ||
+      normalizeStringArray(block.career_risks).length > 0
+    ) {
+      return normalizeSection({ ...block, ...base });
+    }
+
     return normalizeSection({
       ...base,
-      career_risks: normalizeString(block.caveat) ? [normalizeString(block.caveat)] : [],
       caveat: normalizeString(block.caveat),
     });
   }

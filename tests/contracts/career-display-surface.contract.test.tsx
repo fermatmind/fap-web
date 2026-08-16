@@ -170,6 +170,88 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Last reviewed: 2026-05-03");
   });
 
+  it.each([
+    ["en", "Accountants and Auditors", "Work takes place across corporate finance teams", "U.S. figures are a market reference", "Evidence gaps and deadline pressure", "Confirm scope, evidence, and sign-off responsibility"],
+    ["zh", "会计与审计人员", "工作主要发生在企业财务部门", "美国数据只用于观察市场结构", "证据缺口与截止期限压力", "先确认范围、证据和签字责任"],
+  ] as const)("renders complete keyed career sections for %s", (locale, title, workBody, snapshotBody, riskIntro, contractCheck) => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale,
+      titleEn: "Accountants and Auditors",
+      titleZh: "会计与审计人员",
+    });
+    const page = fixture.page.content as Record<string, unknown>;
+    const isZh = locale === "zh";
+
+    page.work_context_block = {
+      id: "work_context",
+      component: "WorkContextBlock",
+      heading: isZh ? "工作场景" : "Work Context",
+      body: workBody,
+      contexts: isZh ? ["企业财务", "事务所审计"] : ["corporate finance", "public accounting"],
+      entry_table: [[isZh ? "企业财务" : "Corporate finance", isZh ? "月结、报表与内控" : "Close, reporting, and controls"]],
+      source_key: "onet_accountants",
+    };
+    page.career_ai_description_block = {
+      id: "career_ai_description",
+      component: "CareerAiDescriptionBlock",
+      heading: isZh ? "AI 职业解读" : "AI Career Analysis",
+      intro: isZh ? "AI 改变的是任务组合。" : "AI changes the task mix.",
+      body: [isZh ? "工具可以加速对账和底稿整理，关键判断仍需追溯证据并由专业人员负责。" : "Tools can accelerate reconciliations and workpaper summaries, while professionals remain accountable for evidence and judgment."],
+      source_key: "onet_accountants",
+    };
+    page.career_snapshot_secondary_locale = {
+      id: "secondary_reference",
+      component: "CareerSnapshotCard",
+      heading: isZh ? "海外参考" : "Mainland China Reference",
+      body: snapshotBody,
+      rows: [[isZh ? "数据边界" : "Data boundary", isZh ? "不等于个人收入" : "Not individual earnings"]],
+      source_key: isZh ? "bls_accountants_ooh" : "nbs_2024_wage",
+    };
+    page.career_risk_cards = {
+      id: "career_risks",
+      component: "CareerRiskCards",
+      heading: isZh ? "职业风险" : "Career Risks",
+      intro: riskIntro,
+      career_risks: [isZh ? "错报与合规责任" : "Misstatement and compliance exposure"],
+      caveat: isZh ? "这是风险识别，不是结果预测。" : "This identifies risks; it does not predict outcomes.",
+    };
+    page.contract_project_risk_block = {
+      id: "contract_risks",
+      component: "ContractRiskBlock",
+      heading: isZh ? "合同与项目风险" : "Contract and Project Risks",
+      checks: [contractCheck],
+      warning: isZh ? "范围变化必须书面确认。" : "Scope changes require written confirmation.",
+    };
+
+    const surface = adaptCareerDisplaySurface(fixture, locale);
+
+    expect(surface?.subject.title).toBe(title);
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("work-context-block")).toHaveTextContent(workBody);
+    expect(screen.getByTestId("work-context-block")).not.toHaveTextContent("career_exploration");
+    expect(screen.getByTestId("career-ai-description-block")).toHaveTextContent(isZh ? "工具可以加速对账和底稿整理" : "Tools can accelerate reconciliations");
+    expect(screen.getByTestId("career-snapshot-secondary")).toHaveTextContent(snapshotBody);
+    expect(screen.getByTestId("career-risks-block")).toHaveTextContent(riskIntro);
+    expect(screen.getByTestId("career-risks-block")).toHaveTextContent(isZh ? "错报与合规责任" : "Misstatement and compliance exposure");
+    expect(screen.getByTestId("contract-risks-block")).toHaveTextContent(contractCheck);
+  });
+
+  it("renders a legacy career-risk caveat once without promoting it to a risk item", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "accountants-and-auditors",
+        titleEn: "Accountants and Auditors",
+      }),
+      "en"
+    );
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getAllByText("This page is not an income forecast.")).toHaveLength(1);
+  });
+
   it("renders preview salary, AI risk, and Fermat test action in the page assembly order", () => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({
