@@ -31,6 +31,7 @@ import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answe
 import type { Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
+import { resolveBig5PrivateResultAuthority, type Big5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
 
 const TECHNICAL_TAG_PREFIXES = [
   "axis:",
@@ -510,6 +511,7 @@ export type MbtiResultProjectionViewModel = {
 };
 
 export type MbtiSharePageViewModel = {
+  big5Authority: Big5PrivateResultAuthority | null;
   scaleCode: string;
   card: MbtiPublicProjectionCardViewModel | null;
   shareId: string;
@@ -2358,6 +2360,10 @@ export function buildSharePageViewModel(
   rawShare?: ShareSummaryResponse | null
 ): MbtiSharePageViewModel {
   const shareScaleCode = normalizeText(rawShare?.scale_code).toUpperCase();
+  const big5Authority = shareScaleCode === "BIG5_OCEAN"
+    ? resolveBig5PrivateResultAuthority(rawShare)
+    : null;
+  const authorityAcceptedShare = shareScaleCode !== "BIG5_OCEAN" || big5Authority !== null;
   const continuityRecord = asRecord(rawShare?.mbti_continuity_v1);
   const shareProjectionMeta = asRecord(asRecord(rawShare?.mbti_public_projection_v1)?._meta);
   const sharePersonalizationRecord = asRecord(shareProjectionMeta?.personalization);
@@ -2391,8 +2397,9 @@ export function buildSharePageViewModel(
     normalizeWorkingLife(asRecord(sharePersonalizationRecord?.working_life_v1) as MbtiWorkingLifeRaw | null);
 
   return {
+    big5Authority,
     scaleCode: shareScaleCode,
-    card: normalizeShareCard(rawShare),
+    card: authorityAcceptedShare ? normalizeShareCard(rawShare) : null,
     shareId: normalizeText(rawShare?.share_id, rawShare?.id),
     shareUrl: normalizeText(rawShare?.share_url),
     attemptId: normalizeText(rawShare?.attempt_id),

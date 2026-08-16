@@ -12,7 +12,6 @@ function read(relativePath: string): string {
 describe("private result leak regression contracts", () => {
   it("keeps private result PDF entry points safety-disabled until a safe export path exists", () => {
     const pdfButton = read("components/big5/pdf/PdfDownloadButton.tsx");
-    const big5Shell = read("components/result/big5/Big5ResultShell.tsx");
     const enneagramShell = read("components/result/enneagram/EnneagramResultShell.tsx");
 
     expect(pdfButton).toContain("safetyDisabled?: boolean");
@@ -20,10 +19,12 @@ describe("private result leak regression contracts", () => {
     expect(pdfButton).toContain("disabled={Boolean(safetyDisabled) || pdfLocked || loading}");
     expect(pdfButton).not.toMatch(/\b(?:access_token|result_lookup_token|privateUrl|private_url)\b/);
 
-    for (const shell of [big5Shell, enneagramShell]) {
-      expect(shell).toContain("safetyDisabled");
-      expect(shell).toContain("private result links out of file footers");
-    }
+    expect(enneagramShell).toContain("safetyDisabled");
+    expect(enneagramShell).toContain("private result links out of file footers");
+
+    const big5Shell = read("components/result/big5/Big5ResultShell.tsx");
+    expect(big5Shell).toContain("data-source-hash");
+    expect(big5Shell).toContain("data-compiled-hash");
   });
 
   it("keeps internal debug payload keys and engine markers out of public result renderers", () => {
@@ -33,13 +34,10 @@ describe("private result leak regression contracts", () => {
 
     expect(riasecShell).not.toMatch(/data-riasec-(?:score-space|scoring-policy|policy|snapshot|raw-score)/);
 
-    for (const source of [big5BlockRenderer, big5SectionRenderer]) {
-      expect(source).toContain("INTERNAL_DEBUG_PATTERNS");
-      expect(source).toContain("AttemptReadController");
-      expect(source).toContain("Big Five Report Engine");
-      expect(source).toContain("PR(?:1|2|3A|3B)");
-      expect(source).toContain("stripInternalDebugText");
-    }
+    expect(big5BlockRenderer).toContain("const title = text(block.title)");
+    expect(big5BlockRenderer).toContain("const body = text(block.body)");
+    expect(big5BlockRenderer).not.toContain("JSON.stringify");
+    expect(big5SectionRenderer).not.toContain("stripInternalDebugText");
   });
 
   it("keeps Enneagram public text rendering scalar-only and object-safe", () => {
@@ -123,7 +121,7 @@ describe("private result leak regression contracts", () => {
   it("keeps focused render contracts covering the known PDF leak token families", () => {
     const urlRedactionContract = read("tests/contracts/result-print-url-redaction.contract.test.ts");
     const printChromeContract = read("tests/contracts/result-private-print-chrome.contract.test.ts");
-    const big5Contract = read("tests/contracts/big5-section-renderer.contract.test.tsx");
+    const big5Contract = read("tests/contracts/big5-pdf-rendered-qa.contract.test.tsx");
     const riasecContract = read("tests/contracts/riasec-trusted-result-shell.contract.test.tsx");
     const enneagramShell = read("components/result/enneagram/EnneagramResultShell.tsx");
 
@@ -147,18 +145,9 @@ describe("private result leak regression contracts", () => {
       expect(printChromeContract).toContain(token);
     }
 
-    for (const token of [
-      "payload",
-      "facet glossary",
-      "precision anomaly rules",
-      "sentence-level modifier",
-      "scenario action rule",
-      "N-only",
-      "production 已接入",
-      "production 接入",
-    ]) {
-      expect(big5Contract).toContain(`not.toContain("${token}")`);
-    }
+    expect(big5Contract).toContain("data-source-hash");
+    expect(big5Contract).toContain("data-compiled-hash");
+    expect(big5Contract).toContain("frontend_fallback");
 
     for (const token of [
       "BUTTON LABEL",

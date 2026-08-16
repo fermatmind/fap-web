@@ -395,12 +395,6 @@
     {
       "file": "components/result/big5/Big5ResultShell.tsx",
       "rule": "no-new-half-step-utility",
-      "snippet": "px-2.5",
-      "count": 1
-    },
-    {
-      "file": "components/result/big5/Big5ResultShell.tsx",
-      "rule": "no-new-half-step-utility",
       "snippet": "py-1.5",
       "count": 1
     },

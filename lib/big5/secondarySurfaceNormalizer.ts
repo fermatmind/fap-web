@@ -1,12 +1,12 @@
 import type { Locale } from "@/lib/i18n/locales";
 import type { MeAttemptItem, MeAttemptsResponse, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
 import { buildBig5FormDisplayLabel, normalizeBig5FormSummary } from "@/lib/big5/formSummary";
+import { resolveBig5PrivateResultAuthority, type Big5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
 import {
   BIG5_DOMAIN_LABELS,
   BIG5_DOMAIN_ORDER,
   BIG5_FACET_LABELS,
   isBig5DomainCode,
-  type Big5DomainCode,
 } from "@/lib/big5/taxonomy";
 
 export type Big5HistoryFacetSummary = {
@@ -38,6 +38,7 @@ export type Big5HistoryShareSummary = {
 };
 
 export type Big5HistoryRowSummary = {
+  authority: Big5PrivateResultAuthority;
   attemptId: string;
   submittedAt: string;
   formCode: string | null;
@@ -52,6 +53,7 @@ export type Big5HistoryRowSummary = {
 };
 
 export type Big5CompareSnapshot = {
+  authority: Big5PrivateResultAuthority | null;
   domainPercentiles: Record<string, number>;
   facetPercentiles: Record<string, number>;
 };
@@ -83,16 +85,6 @@ function normalizeNumericPercentile(value: unknown): number | null {
   return null;
 }
 
-function normalizePercentileFromBody(text: string): number | null {
-  const matched = text.match(/(?:percentile|百分位)\s*([0-9]{1,3})/i);
-  if (!matched) return null;
-
-  const value = Number(matched[1]);
-  if (!Number.isFinite(value)) return null;
-
-  return Math.max(0, Math.min(100, value));
-}
-
 function normalizeMetricCode(value: unknown): string {
   return normalizeText(value).toUpperCase();
 }
@@ -115,43 +107,6 @@ function normalizeFacetDomain(code: string, rawDomain: unknown): string {
   return BIG5_FACET_LABELS[code]?.domain ?? code.slice(0, 1);
 }
 
-function inferDomainCode(label: string): Big5DomainCode | null {
-  const normalized = label.toUpperCase();
-  if (normalized.startsWith("O")) return "O";
-  if (normalized.startsWith("C")) return "C";
-  if (normalized.startsWith("E")) return "E";
-  if (normalized.startsWith("A")) return "A";
-  if (normalized.startsWith("N")) return "N";
-  return null;
-}
-
-function extractMetricPercentile(block: Record<string, unknown>): number | null {
-  const direct =
-    normalizeNumericPercentile(block.percentile) ??
-    normalizeNumericPercentile(block.percentile_value) ??
-    normalizeNumericPercentile(block.metric_percentile) ??
-    normalizeNumericPercentile(block.value) ??
-    normalizeNumericPercentile(block.metric_value);
-
-  if (direct !== null) {
-    return direct;
-  }
-
-  return normalizePercentileFromBody(normalizeText(block.body ?? block.desc));
-}
-
-function extractSections(report: ReportResponse): Array<Record<string, unknown>> {
-  const reportSections = Array.isArray(report.report?.sections) ? report.report.sections : [];
-  if (reportSections.length > 0) {
-    return reportSections as Array<Record<string, unknown>>;
-  }
-
-  const projectionSections = Array.isArray(report.big5_public_projection_v1?.sections)
-    ? report.big5_public_projection_v1.sections
-    : [];
-  return projectionSections as Array<Record<string, unknown>>;
-}
-
 function canExposeHistoryFacetSummaries(accessSummary: Record<string, unknown> | null): boolean {
   if (!accessSummary) {
     return true;
@@ -167,7 +122,9 @@ export function normalizeBig5HistoryRows(
 ): Big5HistoryRowSummary[] {
   const normalizedItems = Array.isArray(items) ? items : [];
 
-  return normalizedItems.map((item) => {
+  return normalizedItems.flatMap((item) => {
+    const authority = resolveBig5PrivateResultAuthority(item);
+    if (!authority) return [];
     const attemptId = normalizeText(item.attempt_id);
     const submittedAt = normalizeText(item.submitted_at);
     const domainsMean = asRecord(item.result_summary?.domains_mean);
@@ -210,6 +167,7 @@ export function normalizeBig5HistoryRows(
       : [];
 
     return {
+      authority,
       attemptId,
       submittedAt,
       formCode: formSummary?.formCode ?? null,
@@ -278,6 +236,10 @@ export function resolveBig5CompareAttemptPair(
 }
 
 export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5CompareSnapshot {
+  const authority = resolveBig5PrivateResultAuthority(report);
+  if (!authority) {
+    return { authority: null, domainPercentiles: {}, facetPercentiles: {} };
+  }
   const domainPercentiles: Record<string, number> = {};
   const facetPercentiles: Record<string, number> = {};
 
@@ -305,43 +267,8 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
     facetPercentiles[code] = percentile;
   }
 
-  const sections = extractSections(report);
-
-  if (Object.keys(domainPercentiles).length === 0) {
-    const domainSection = sections.find((section) => normalizeText(section.key) === "domains_overview");
-    const domainBlocks = Array.isArray(domainSection?.blocks) ? domainSection.blocks : [];
-
-    for (const block of domainBlocks) {
-      const blockRecord = asRecord(block);
-      if (!blockRecord) continue;
-
-      const code = inferDomainCode(
-        normalizeText(blockRecord.metric_code) || normalizeText(blockRecord.title) || normalizeText(blockRecord.body)
-      );
-      const percentile = extractMetricPercentile(blockRecord);
-      if (!code || percentile === null) continue;
-
-      domainPercentiles[code] = percentile;
-    }
-  }
-
-  if (Object.keys(facetPercentiles).length === 0) {
-    const facetSection = sections.find((section) => normalizeText(section.key) === "facet_table");
-    const facetBlocks = Array.isArray(facetSection?.blocks) ? facetSection.blocks : [];
-
-    for (const block of facetBlocks) {
-      const blockRecord = asRecord(block);
-      if (!blockRecord) continue;
-
-      const code = normalizeMetricCode(blockRecord.metric_code || blockRecord.title);
-      const percentile = extractMetricPercentile(blockRecord);
-      if (!code || percentile === null) continue;
-
-      facetPercentiles[code] = percentile;
-    }
-  }
-
   return {
+    authority,
     domainPercentiles,
     facetPercentiles,
   };

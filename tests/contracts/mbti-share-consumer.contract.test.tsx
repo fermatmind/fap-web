@@ -319,6 +319,13 @@ function createBig5ShareFixture(): ShareSummaryResponse {
     share_url: "https://example.com/en/share/share-big5-123",
     id: "share-big5-123",
     scale_code: "BIG5_OCEAN",
+    big5_private_result_authority: {
+      schema_version: "fap.big5.private_result_authority.v1",
+      mode: "canonical",
+      locale: "en",
+      source_hash: "6b107f6779fdaa8fe2c889adc1200943edbc548544b739fa2ac54d00d53deb39",
+      compiled_hash: "29fb4575d9b02c2da17bb1c630b21149aaef6db8ace25ee900d040add206d600",
+    },
     locale: "en",
     type_code: "BIG5",
     type_name: "Big Five personality",

@@ -7,6 +7,7 @@ import { normalizeBig5CompareSnapshot, resolveBig5CompareAttemptPair } from "@/l
 import canonical120ReportFixture from "@/tests/fixtures/big5/report_canonical_120_readable.projection.json";
 import canonical90ReportFixture from "@/tests/fixtures/big5/report_canonical_90_readable.projection.json";
 import canonicalDegradedReportFixture from "@/tests/fixtures/big5/report_canonical_degraded.projection.json";
+import { BIG5_AUTHORITY } from "@/tests/fixtures/big5/canonicalPrivateResult";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/big5",
@@ -43,7 +44,10 @@ vi.mock("@/lib/api/v0_3", async () => {
 });
 
 function asReport(fixture: unknown): ReportResponse {
-  return structuredClone(fixture) as ReportResponse;
+  return {
+    ...(structuredClone(fixture) as ReportResponse),
+    big5_private_result_authority: { ...BIG5_AUTHORITY },
+  };
 }
 
 function percentileByDomain(report: ReportResponse, domain: string): number | null {
@@ -92,6 +96,7 @@ function buildHistoryItem(
     attempt_id: attemptId,
     submitted_at: submittedAt,
     big5_form_v1: report.big5_form_v1,
+    big5_private_result_authority: { ...BIG5_AUTHORITY },
     result_summary: {
       domains_mean: domainsMean,
     },

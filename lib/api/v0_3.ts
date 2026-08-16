@@ -882,6 +882,15 @@ export type Big5PublicProjection = {
   [key: string]: unknown;
 };
 
+export type Big5PrivateResultAuthority = {
+  schema_version?: "fap.big5.private_result_authority.v1" | string;
+  mode?: "canonical" | "immutable_legacy_snapshot" | string;
+  locale?: string;
+  source_hash?: string;
+  compiled_hash?: string;
+  [key: string]: unknown;
+};
+
 export type Big5ReportEngineV2Provenance = {
   atomic_refs?: string[];
   modifier_refs?: string[];
@@ -1073,6 +1082,7 @@ export type ReportResponse = {
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  big5_private_result_authority?: Big5PrivateResultAuthority | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   enneagram_public_projection_v2?: Record<string, unknown> | null;
   enneagram_report_v2?: Record<string, unknown> | null;
@@ -1998,6 +2008,7 @@ export type ShareSummaryResponse = {
   mbti_public_summary_v1?: Record<string, unknown> | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
   big5_public_projection_v1?: Big5PublicProjection | null;
+  big5_private_result_authority?: Big5PrivateResultAuthority | null;
   enneagram_public_summary_v1?: EnneagramPublicSummaryV1 | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
@@ -2406,6 +2417,7 @@ export type MeAttemptItem = {
   type_code?: string;
   mbti_form_v1?: MbtiFormSummaryV1Raw | null;
   big5_form_v1?: Big5FormSummaryV1Raw | null;
+  big5_private_result_authority?: Big5PrivateResultAuthority | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
   access_summary?: {

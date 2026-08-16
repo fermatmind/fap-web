@@ -96,12 +96,12 @@
       "pageFamilies": ["test_detail", "result_report", "share"],
       "sourceFiles": [
         {
-          "path": "lib/big5/interpretation/domainInterpretation.ts",
-          "requiredTokens": ["definition:", "scene_line:"]
+          "path": "lib/big5/privateResultAuthority.ts",
+          "requiredTokens": ["BIG5_PRIVATE_RESULT_AUTHORITY_SCHEMA", "source_hash", "compiled_hash"]
         }
       ],
-      "backendSupport": "Big Five trait-vector report and frontend interpretation layer",
-      "runtimeEvidence": "OCEAN domain interpretation includes definitions, bands, tradeoffs, and scene lines",
+      "backendSupport": "Canonical Big Five private-result authority and compiled report payload",
+      "runtimeEvidence": "Private report copy is compiler-authored and bound to source and compiled hashes",
       "frontendInvented": false,
       "riskLevel": "P2",
       "boundaryRule": "behavior_tendency_not_career_match",

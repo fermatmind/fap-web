@@ -3,10 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
-import {
-  Big5CoreSummary,
-  buildLegacyBig5CoreSummaryItems,
-} from "@/components/result/big5/Big5CoreSummary";
 import { Big5ResultPageV2Shell } from "@/components/result/big5/Big5ResultPageV2Shell";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
@@ -21,7 +17,8 @@ import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/a
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
-import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
+import { assembleBig5ResultViewModel, hasUsableBig5ReportEngineV2 } from "@/lib/big5/resultAssembler";
+import { resolveBig5PrivateResultAuthority } from "@/lib/big5/privateResultAuthority";
 import {
   filterBig5ResultPageV2PayloadForGate,
   getBig5ResultPageV2SemanticDecision,
@@ -1346,7 +1343,19 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
   }
 
   if (scaleCode === "BIG5_OCEAN" && hasBig5ResultPageV2Candidate(reportData)) {
-    return true;
+    const authority = resolveBig5PrivateResultAuthority(reportData);
+    return authority?.mode === "immutable_legacy_snapshot";
+  }
+
+  if (scaleCode === "BIG5_OCEAN") {
+    const authority = resolveBig5PrivateResultAuthority(reportData);
+    if (authority?.mode === "canonical") {
+      return reportData ? hasUsableBig5ReportEngineV2(reportData) : false;
+    }
+    if (authority?.mode === "immutable_legacy_snapshot") {
+      return Array.isArray(reportData?.report?.sections) && reportData.report.sections.length > 0;
+    }
+    return false;
   }
 
   const payload = resolveReportPayload(reportData);
@@ -1473,27 +1482,32 @@ export function RichResultReport({
     : [];
 
   if (scaleCode === "BIG5_OCEAN") {
-    const semanticDecision = getBig5ResultPageV2SemanticDecision(reportData);
-    if (semanticDecision.mode === "full") {
-      return (
-        <Big5ResultPageV2Shell
-          locale={locale}
-          payload={filterBig5ResultPageV2PayloadForGate(semanticDecision.payload, {
-            isFreeVariant: gate.isFreeVariant,
-            modulesAllowed: gate.modulesAllowed,
-          })}
-        />
-      );
-    }
-    if (semanticDecision.mode === "core_only") {
-      return (
-        <Big5ResultPageV2Shell
-          locale={locale}
-          payload={semanticDecision.payload}
-          mode="core_only"
-          coreDomains={semanticDecision.coreDomains}
-        />
-      );
+    const authority = resolveBig5PrivateResultAuthority(reportData);
+    if (!authority) return null;
+    if (authority.mode === "immutable_legacy_snapshot" && hasBig5ResultPageV2Candidate(reportData)) {
+      const semanticDecision = getBig5ResultPageV2SemanticDecision(reportData);
+      if (semanticDecision.mode === "full") {
+        return (
+          <Big5ResultPageV2Shell
+            locale={locale}
+            payload={filterBig5ResultPageV2PayloadForGate(semanticDecision.payload, {
+              isFreeVariant: gate.isFreeVariant,
+              modulesAllowed: gate.modulesAllowed,
+            })}
+          />
+        );
+      }
+      if (semanticDecision.mode === "core_only") {
+        return (
+          <Big5ResultPageV2Shell
+            locale={locale}
+            payload={semanticDecision.payload}
+            mode="core_only"
+            coreDomains={semanticDecision.coreDomains}
+          />
+        );
+      }
+      return null;
     }
 
     const assembled = assembleBig5ResultViewModel({
@@ -1506,16 +1520,7 @@ export function RichResultReport({
         freeSections: gate.freeSections,
       },
     });
-    if (hasBig5ResultPageV2Candidate(reportData)) {
-      const coreItems = buildLegacyBig5CoreSummaryItems(assembled.projection, assembled.dimensions, locale);
-      return (
-        <Big5CoreSummary
-          locale={locale}
-          items={coreItems}
-          source={coreItems.length > 0 ? "legacy" : "unavailable"}
-        />
-      );
-    }
+    if (assembled.plannedSections.length === 0) return null;
 
     const recommendedOffers = resolveRecommendedOffers(assembled.lockedSections, offers);
 
@@ -1529,6 +1534,7 @@ export function RichResultReport({
         tags={tags}
         dimensions={assembled.dimensions}
         projection={assembled.projection}
+        authority={assembled.authority}
         formSummaryLabel={assembled.formSummaryLabel}
         normsStatus={assembled.normsStatus}
         qualityLevel={assembled.qualityLevel}

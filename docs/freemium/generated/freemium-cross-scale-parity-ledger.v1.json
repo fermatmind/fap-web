@@ -139,9 +139,9 @@
         {
           "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
           "requiredTokens": [
-            "filters paid V2 modules when Big5 access is locked",
-            "modules_allowed",
-            "modules_preview"
+            "renders canonical payload with exact authority hashes",
+            "data-authority-mode",
+            "data-source-hash"
           ]
         },
         {

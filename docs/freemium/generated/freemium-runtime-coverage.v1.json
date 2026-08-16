@@ -88,7 +88,7 @@
         },
         {
           "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
-          "requiredTokens": ["filters paid V2 modules when Big5 access is locked", "modules_allowed", "modules_preview"]
+          "requiredTokens": ["renders canonical payload with exact authority hashes", "data-authority-mode", "data-source-hash"]
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         {
           "path": "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
-          "requiredTokens": ["queryByTestId(\"big5-v2-module-module_03_trait_deep_dive\")", "not.toBeInTheDocument"]
+          "requiredTokens": ["ignores the retired result-page candidate for canonical attempts", "big5-result-page-v2-shell", "not.toBeInTheDocument"]
         }
       ]
     },
