@@ -50,6 +50,14 @@ function asReport(fixture: unknown): ReportResponse {
   };
 }
 
+function withQuality(report: ReportResponse, grade: "A" | "B" | "C" | "D"): ReportResponse {
+  report.quality = { ...(report.quality ?? {}), level: grade };
+  if (report.big5_report_engine_v2) {
+    report.big5_report_engine_v2.quality = { grade, level: grade };
+  }
+  return report;
+}
+
 function percentileByDomain(report: ReportResponse, domain: string): number | null {
   const traitVector = Array.isArray(report.big5_public_projection_v1?.trait_vector)
     ? report.big5_public_projection_v1.trait_vector
@@ -154,8 +162,8 @@ describe("BIG5 secondary surfaces contract", () => {
       share_url: "/en/share/share-big5",
     });
 
-    const canonical120 = asReport(canonical120ReportFixture);
-    const canonical90 = asReport(canonical90ReportFixture);
+    const canonical120 = withQuality(asReport(canonical120ReportFixture), "A");
+    const canonical90 = withQuality(asReport(canonical90ReportFixture), "A");
     const canonicalDegraded = asReport(canonicalDegradedReportFixture);
     const latestTopFacet = buildTopFacetSummaries(canonical120, 1)[0];
 
@@ -217,6 +225,8 @@ describe("BIG5 secondary surfaces contract", () => {
     const degradedRow = screen.getByTestId("big5-history-row-attempt-degraded");
     expect(within(degradedRow).getByText("Formal result ready")).toBeInTheDocument();
     expect(within(degradedRow).getByTestId("big5-history-row-quality-attempt-degraded")).toHaveTextContent("Quality · D");
+    expect(within(degradedRow).getByTestId("big5-history-row-norms-attempt-degraded")).toHaveTextContent("Norms · PROVISIONAL");
+    expect(within(degradedRow).queryByText(/ · P\d+/)).not.toBeInTheDocument();
     expect(within(degradedRow).getByRole("button", { name: "Download PDF" })).toBeEnabled();
 
     fireEvent.click(within(latestRow).getByRole("button", { name: "Share result" }));
@@ -339,15 +349,15 @@ describe("BIG5 secondary surfaces contract", () => {
       previous: "history-previous",
     });
 
-    const snapshot = normalizeBig5CompareSnapshot(asReport(canonical120ReportFixture));
+    const snapshot = normalizeBig5CompareSnapshot(withQuality(asReport(canonical120ReportFixture), "A"));
 
     expect(Object.keys(snapshot.domainPercentiles).sort()).toEqual(["A", "C", "E", "N", "O"]);
     expect(Object.keys(snapshot.facetPercentiles)).toHaveLength(30);
   });
 
   it("renders BIG5 compare from shared normalized report data and formal result access state", async () => {
-    const currentReport = asReport(canonical120ReportFixture);
-    const previousReport = asReport(canonical90ReportFixture);
+    const currentReport = withQuality(asReport(canonical120ReportFixture), "A");
+    const previousReport = withQuality(asReport(canonical90ReportFixture), "A");
     const currentO = percentileByDomain(currentReport, "O");
     const previousO = percentileByDomain(previousReport, "O");
     const expectedDelta = currentO !== null && previousO !== null ? Number((currentO - previousO).toFixed(2)) : null;
@@ -452,6 +462,7 @@ describe("BIG5 secondary surfaces contract", () => {
       "/en/result/attempt-current"
     );
     expect(screen.getByRole("button", { name: "Download PDF" })).toBeEnabled();
+    expect(screen.queryByText("Domain percentile delta")).not.toBeInTheDocument();
     expect(screen.queryByText("Current result is still in preview")).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "Unlock to download PDF" })).not.toBeInTheDocument();
   });

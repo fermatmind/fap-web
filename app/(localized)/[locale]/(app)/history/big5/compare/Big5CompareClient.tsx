@@ -198,6 +198,11 @@ export default function Big5CompareClient() {
   const reportLocked = isProjectionLocked(accessView);
   const reportProcessing = isProjectionProcessing(accessView);
   const reportUnavailable = isProjectionUnavailable(accessView);
+  const hasPreciseComparison = Boolean(
+    current && previous
+    && Object.keys(current.domainPercentiles).length > 0
+    && Object.keys(previous.domainPercentiles).length > 0
+  );
   const accessHeadline = reportUnavailable
     ? (isZh ? "正式结果暂时不可用" : "Formal result unavailable")
     : reportProcessing
@@ -266,7 +271,7 @@ export default function Big5CompareClient() {
             </CardContent>
           </Card>
 
-          {reportReady ? (
+          {reportReady && hasPreciseComparison ? (
             <>
               <Card>
                 <CardHeader>

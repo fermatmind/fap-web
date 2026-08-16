@@ -116,6 +116,10 @@ function canExposeHistoryFacetSummaries(accessSummary: Record<string, unknown> |
     && normalizeText(accessSummary.report_state).toLowerCase() === "ready";
 }
 
+function allowsPreciseEvidence(grade: string): boolean {
+  return grade === "A" || grade === "B";
+}
+
 export function normalizeBig5HistoryRows(
   items: MeAttemptItem[] | undefined,
   locale: Locale
@@ -135,6 +139,9 @@ export function normalizeBig5HistoryRows(
     const shareSummary = asRecord(item.share_summary);
     const formSummary = normalizeBig5FormSummary(item.big5_form_v1 ?? null);
     const accessSummary = asRecord(item.access_summary) ? item.access_summary ?? null : null;
+    const qualityLevel = normalizeText(qualitySummary?.level).toUpperCase();
+    const qualityGrade = normalizeText(qualitySummary?.grade).toUpperCase() || qualityLevel;
+    const preciseEvidence = allowsPreciseEvidence(qualityGrade);
     const exposeFacetSummaries = canExposeHistoryFacetSummaries(accessSummary);
 
     const topDomains = BIG5_DOMAIN_ORDER.map((code) => ({
@@ -158,7 +165,7 @@ export function normalizeBig5HistoryRows(
             key,
             label: normalizeFacetLabel(key, facet?.label, locale),
             domain: normalizeFacetDomain(key, facet?.domain),
-            percentile: normalizeNumericPercentile(facet?.percentile),
+            percentile: preciseEvidence ? normalizeNumericPercentile(facet?.percentile) : null,
             bucket: normalizeText(facet?.bucket) || null,
             kind: normalizeText(facet?.kind) || null,
           } satisfies Big5HistoryFacetSummary;
@@ -174,16 +181,20 @@ export function normalizeBig5HistoryRows(
       formSummaryLabel: buildBig5FormDisplayLabel(formSummary, { includeScaleCode: true, locale }),
       topDomains,
       topFacets,
-      qualitySummary: normalizeText(qualitySummary?.level)
+      qualitySummary: qualityLevel
         ? {
-            level: normalizeText(qualitySummary?.level).toUpperCase(),
-            grade: normalizeText(qualitySummary?.grade).toUpperCase() || null,
+            level: qualityLevel,
+            grade: qualityGrade || null,
           }
         : null,
       normsSummary: normalizeText(normsSummary?.status)
         ? {
-            status: normalizeText(normsSummary?.status).toUpperCase(),
-            normsVersion: normalizeText(normsSummary?.norms_version) || null,
+            status: preciseEvidence
+              ? normalizeText(normsSummary?.status).toUpperCase()
+              : qualityGrade === "UNKNOWN"
+                ? (locale === "zh" ? "比较证据不可用" : "UNAVAILABLE")
+                : (locale === "zh" ? "暂定比较" : "PROVISIONAL"),
+            normsVersion: preciseEvidence ? normalizeText(normsSummary?.norms_version) || null : null,
           }
         : null,
       offerSummary: asRecord(offerSummary?.primary_offer)
@@ -239,6 +250,12 @@ export function normalizeBig5CompareSnapshot(report: ReportResponse): Big5Compar
   const authority = resolveBig5PrivateResultAuthority(report);
   if (!authority) {
     return { authority: null, domainPercentiles: {}, facetPercentiles: {} };
+  }
+  const engineQuality = asRecord(report.big5_report_engine_v2)?.quality;
+  const quality = asRecord(engineQuality) ?? asRecord(report.quality) ?? asRecord(report.report?.quality);
+  const grade = (normalizeText(quality?.grade) || normalizeText(quality?.level)).toUpperCase();
+  if (!allowsPreciseEvidence(grade)) {
+    return { authority, domainPercentiles: {}, facetPercentiles: {} };
   }
   const domainPercentiles: Record<string, number> = {};
   const facetPercentiles: Record<string, number> = {};
