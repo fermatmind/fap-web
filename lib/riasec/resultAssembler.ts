@@ -326,6 +326,7 @@ export type RiasecLifecycleCopy = {
 };
 
 export type RiasecResultViewModel = {
+  authority: RiasecPrivateResultAuthorityView | null;
   topCode: string;
   formCode: string | null;
   formKind: string | null;
@@ -354,6 +355,12 @@ export type RiasecResultViewModel = {
     environment: Record<string, number>;
     role: Record<string, number>;
   };
+};
+
+export type RiasecPrivateResultAuthorityView = {
+  mode: "canonical" | "immutable_legacy_snapshot";
+  sourceHash: string;
+  compiledHash: string;
 };
 
 function asRecord(value: unknown): Record<string, unknown> | null {
@@ -613,8 +620,8 @@ const RIASEC_SAFE_SURFACE_VARIANTS = new Map<string, boolean>([
 ]);
 
 type RiasecProjectionContainer =
-  | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">
-  | Pick<ResultResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2">;
+  | Pick<ReportResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2" | "riasec_private_result_authority" | "report">
+  | Pick<ResultResponse, "riasec_public_projection_v1" | "riasec_public_projection_v2" | "riasec_private_result_authority">;
 
 type RiasecDeepContentProjectionContext = {
   requestedPageLocale: Locale;
@@ -622,7 +629,125 @@ type RiasecDeepContentProjectionContext = {
 };
 
 export function hasRiasecProjection(reportData: RiasecProjectionContainer | null | undefined): boolean {
-  return Boolean(asRecord(reportData?.riasec_public_projection_v2) ?? asRecord(reportData?.riasec_public_projection_v1));
+  const projectionV2 = asRecord(reportData?.riasec_public_projection_v2);
+  if (
+    !projectionV2 ||
+    normalizeText(projectionV2?.schema_version) !== "riasec.public_projection.v2" ||
+    normalizeText(projectionV2?.scale_code) !== "RIASEC"
+  ) {
+    return false;
+  }
+
+  const locale = normalizeText(projectionV2.locale);
+  if (locale === "zh-CN" && resolveRiasecPrivateResultAuthority(reportData)?.mode !== "canonical") {
+    return false;
+  }
+  if (locale !== "zh-CN" && locale !== "en") {
+    return false;
+  }
+
+  const hollandCode = asRecord(projectionV2.holland_code);
+  const code = normalizeText(hollandCode?.code);
+  const form = asRecord(projectionV2.form);
+  const dimensions = Array.isArray(asRecord(projectionV2.scores)?.dimensions)
+    ? (asRecord(projectionV2.scores)?.dimensions as unknown[])
+    : [];
+  const dimensionCodes = dimensions.map((item) => normalizeText(asRecord(item)?.code));
+  const quality = asRecord(projectionV2.quality);
+  const interpretation = asRecord(projectionV2.interpretation_state);
+  const modulePolicy = asRecord(projectionV2.module_visibility_policy);
+  const moduleFallback = asRecord(modulePolicy?.fallback_policy);
+  const deepContent = asRecord(projectionV2.deep_content_slots_v1);
+  const deepSourcePolicy = asRecord(deepContent?.source_policy);
+  const lifecycle = asRecord(projectionV2.lifecycle_copy_v1);
+  const activityExplorer = asRecord(projectionV2.activity_explorer_v0_1);
+
+  return /^[RIASEC]{3}$/.test(code) && new Set(code).size === 3
+    && Boolean(normalizeText(hollandCode?.primary_type))
+    && Boolean(normalizeText(hollandCode?.secondary_type))
+    && Boolean(normalizeText(hollandCode?.tertiary_type))
+    && isRiasecFormCode(normalizeText(form?.form_code))
+    && dimensions.length === 6
+    && dimensionCodes.every((dimensionCode) => /^[RIASEC]$/.test(dimensionCode))
+    && new Set(dimensionCodes).size === 6
+    && dimensions.every((item) => Number.isFinite(Number(asRecord(item)?.score)))
+    && dimensions.every((item) => Boolean(normalizeText(asRecord(item)?.label)))
+    && Boolean(normalizeText(quality?.quality_state))
+    && Boolean(interpretation)
+    && normalizeText(modulePolicy?.schema_version) === "riasec.module_visibility_policy.v1"
+    && moduleFallback?.frontend_inference_allowed === false
+    && normalizeText(deepContent?.schema_version) === "riasec.deep_content_slots.v1"
+    && deepSourcePolicy?.frontend_fallback_allowed === false
+    && normalizeText(lifecycle?.schema_version) === "riasec.lifecycle_copy.v1"
+    && lifecycle?.frontend_fallback_allowed === false
+    && normalizeText(activityExplorer?.schema_version) === "riasec.activity_explorer.v0.1";
+}
+
+export function parseRiasecPrivateResultAuthority(value: unknown): RiasecPrivateResultAuthorityView | null {
+  const raw = asRecord(value);
+  if (!raw || normalizeText(raw.schema_version) !== "fap.riasec.private_result_authority.v1") {
+    return null;
+  }
+
+  const mode = normalizeText(raw.mode);
+  if (mode === "immutable_legacy_snapshot") {
+    return normalizeText(raw.authority_id) === ""
+      && normalizeText(raw.source_hash) === ""
+      && normalizeText(raw.compiled_hash) === ""
+      ? { mode, sourceHash: "", compiledHash: "" }
+      : null;
+  }
+  if (
+    mode !== "canonical" ||
+    normalizeText(raw.authority_id) !== "FERMATMIND_RIASEC_PRIVATE_RESULT_ZH_CN_CANONICAL" ||
+    normalizeText(raw.locale) !== "zh-CN" ||
+    normalizeText(raw.compiled_schema) !== "fap.riasec.private_result.compiled.v1" ||
+    normalizeText(raw.compiler_schema) !== "fap.riasec.private_result.compiler.v1" ||
+    normalizeText(raw.compiler_version) !== "1.0.0" ||
+    normalizeText(raw.runtime_contract) !== "riasec.report.v1"
+  ) {
+    return null;
+  }
+
+  const sourceHash = normalizeText(raw.source_hash).toLowerCase();
+  const compiledHash = normalizeText(raw.compiled_hash).toLowerCase();
+  if (!/^[0-9a-f]{64}$/.test(sourceHash) || !/^[0-9a-f]{64}$/.test(compiledHash)) {
+    return null;
+  }
+
+  return { mode, sourceHash, compiledHash };
+}
+
+export function resolveRiasecPrivateResultAuthority(
+  reportData: RiasecProjectionContainer | null | undefined
+): RiasecPrivateResultAuthorityView | null {
+  if (!reportData) return null;
+
+  const projectionV2 = asRecord(reportData.riasec_public_projection_v2);
+  const projectionAuthority = parseRiasecPrivateResultAuthority(projectionV2?.private_result_authority);
+  const reportMeta = asRecord(asRecord((reportData as { report?: unknown }).report)?._meta);
+  const externalAuthority = parseRiasecPrivateResultAuthority(
+    (reportData as { riasec_private_result_authority?: unknown }).riasec_private_result_authority
+      ?? reportMeta?.riasec_private_result_authority
+  );
+
+  if (
+    externalAuthority?.mode === "immutable_legacy_snapshot" &&
+    !asRecord(projectionV2?.private_result_authority)
+  ) {
+    return externalAuthority;
+  }
+  if (projectionAuthority?.mode !== "canonical" || externalAuthority?.mode !== "canonical") {
+    return null;
+  }
+  if (
+    projectionAuthority.sourceHash !== externalAuthority.sourceHash ||
+    projectionAuthority.compiledHash !== externalAuthority.compiledHash
+  ) {
+    return null;
+  }
+
+  return projectionAuthority;
 }
 
 export function assembleRiasecResultViewModel(
@@ -676,8 +801,11 @@ export function assembleRiasecResultViewModel(
       : [];
   const qualityGrade = normalizeText(v2Quality?.grade) || normalizeText(projection.quality_grade) || "A";
   const qualityState = normalizeText(v2Quality?.quality_state);
+  const authority = resolveRiasecPrivateResultAuthority(reportData)
+    ?? parseRiasecPrivateResultAuthority(projectionV2?.private_result_authority);
 
   return {
+    authority,
     topCode,
     formCode,
     formKind: normalizeText(v2Form?.form_kind) || null,
@@ -744,7 +872,7 @@ export function getRiasecModuleVisibility(
 ): RiasecModuleVisibility {
   const policy = viewModel.moduleVisibilityPolicy;
   if (!policy) {
-    return "visible";
+    return "hidden";
   }
 
   const moduleState = policy.modules.find((module) => module.key === moduleKey);
@@ -1268,7 +1396,7 @@ function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): Ria
         activityFamilies: normalizeStringList(family.activity_families),
         sourceStatus: normalizeText(family.source_status),
       };
-    }).filter((family) => family.dimension),
+    }).filter((family) => family.dimension && family.label && family.coreDrive),
     codeActivityPack: {
       status: normalizeText(rawPack.status),
       activities: rawActivities.map((rawActivity) => {
@@ -1299,7 +1427,7 @@ function buildActivityExplorer(rawExplorer: Record<string, unknown> | null): Ria
             };
           }).filter((example) => example.occupationExample),
         };
-      }).filter((activity) => activity.activityKey),
+      }).filter((activity) => activity.activityKey && activity.activityLabel && activity.activityUserCopy),
     },
   };
 }

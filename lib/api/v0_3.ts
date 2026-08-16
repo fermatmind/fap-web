@@ -267,9 +267,24 @@ export type ResultResponse = {
   enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   riasec_public_projection_v2?: Record<string, unknown> | null;
+  riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
   comparative_v1?: ComparativeRaw | null;
   controlled_narrative_v1?: ControlledNarrativeRaw | null;
   cultural_calibration_v1?: CulturalCalibrationRaw | null;
+};
+
+export type RiasecPrivateResultAuthority = {
+  schema_version?: string;
+  authority_id?: string;
+  mode?: "canonical" | "immutable_legacy_snapshot" | string;
+  locale?: string;
+  source_hash?: string;
+  compiled_hash?: string;
+  compiled_schema?: string;
+  compiler_schema?: string;
+  compiler_version?: string;
+  runtime_contract?: string;
+  [key: string]: unknown;
 };
 
 export type OfferPayload = {
@@ -1088,6 +1103,7 @@ export type ReportResponse = {
   enneagram_report_v2?: Record<string, unknown> | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   riasec_public_projection_v2?: Record<string, unknown> | null;
+  riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
   mbti_public_projection_v1?: MbtiPublicProjectionV1Raw | null;
   mbti_read_contract_v1?: MbtiReadContractRaw | null;
   mbti_cross_assessment_v1?: MbtiCrossAssessmentRaw | null;
@@ -2036,6 +2052,7 @@ export type AttemptShareResponse = {
   shareUrl?: string;
   id?: string;
   url?: string;
+  riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
   [key: string]: unknown;
 };
 
@@ -2420,6 +2437,7 @@ export type MeAttemptItem = {
   big5_private_result_authority?: Big5PrivateResultAuthority | null;
   enneagram_form_v1?: EnneagramFormSummaryV1Raw | null;
   riasec_form_v1?: RiasecFormSummaryV1Raw | null;
+  riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
   access_summary?: {
     access_state?: string;
     report_state?: string;

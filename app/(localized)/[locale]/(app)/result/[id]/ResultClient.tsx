@@ -61,7 +61,11 @@ import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personalit
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
-import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
+import {
+  assembleRiasecResultViewModel,
+  hasRiasecProjection,
+  resolveRiasecPrivateResultAuthority,
+} from "@/lib/riasec/resultAssembler";
 import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
@@ -2234,6 +2238,19 @@ export default function ResultClient({
           attemptId={attemptId}
         />
       </div>
+    );
+  }
+
+  if (
+    resolvedScaleCode === "RIASEC" &&
+    resolveRiasecPrivateResultAuthority(resultData)?.mode !== "immutable_legacy_snapshot"
+  ) {
+    return (
+      <Alert>
+        {locale === "zh"
+          ? "结果数据暂时无法安全展示，请稍后重试。"
+          : "The result data cannot be displayed safely right now. Please try again later."}
+      </Alert>
     );
   }
 

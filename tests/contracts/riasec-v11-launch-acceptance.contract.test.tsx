@@ -12,6 +12,18 @@ const ROOT = process.cwd();
 const DEEP_PROJECTION_PATH = path.join(ROOT, "tests/contracts/fixtures/riasec/deep-copy-v1.projection.json");
 const TRUSTED_PROJECTION_PATH = path.join(ROOT, "tests/contracts/fixtures/riasec/trusted-result-v1_5.projection.json");
 const MATRIX_PATH = path.join(ROOT, "tests/contracts/fixtures/riasec/deep-copy-fixture-matrix.v1.json");
+const PRIVATE_AUTHORITY = {
+  schema_version: "fap.riasec.private_result_authority.v1",
+  authority_id: "FERMATMIND_RIASEC_PRIVATE_RESULT_ZH_CN_CANONICAL",
+  mode: "canonical",
+  locale: "zh-CN",
+  source_hash: "a".repeat(64),
+  compiled_hash: "b".repeat(64),
+  compiled_schema: "fap.riasec.private_result.compiled.v1",
+  compiler_schema: "fap.riasec.private_result.compiler.v1",
+  compiler_version: "1.0.0",
+  runtime_contract: "riasec.report.v1",
+};
 
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
@@ -74,10 +86,16 @@ function projectionFrom(filePath: string): Record<string, unknown> {
 }
 
 function reportFrom(projection: Record<string, unknown>, formCode = "riasec_140"): ReportResponse {
+  projection.private_result_authority = PRIVATE_AUTHORITY;
   return {
     ok: true,
     scale_code: "RIASEC",
     type_code: "IAS",
+    riasec_private_result_authority: PRIVATE_AUTHORITY,
+    report: {
+      scale_code: "RIASEC",
+      _meta: { riasec_private_result_authority: PRIVATE_AUTHORITY },
+    },
     riasec_form_v1: {
       form_code: formCode,
       label: formCode === "riasec_140" ? "RIASEC 140Q" : "RIASEC 60Q",
@@ -142,6 +160,7 @@ describe("RIASEC V11 launch acceptance smoke", () => {
     hoisted.createAttemptShare.mockResolvedValue({
       ok: true,
       share_url: "/zh/share/riasec-launch-smoke",
+      riasec_private_result_authority: PRIVATE_AUTHORITY,
     });
     hoisted.writeText.mockResolvedValue(undefined);
     Object.defineProperty(navigator, "clipboard", {
@@ -152,11 +171,11 @@ describe("RIASEC V11 launch acceptance smoke", () => {
     });
   });
 
-  it("accepts RIASEC as a rich result scale so result and report routes use the snapshot projection", () => {
+  it("rejects the pre-authority V11 fixture from the canonical runtime route", () => {
     const report = reportFrom(projectionFrom(DEEP_PROJECTION_PATH), "riasec_60");
 
     expect(resolveReportScaleCode(report)).toBe("RIASEC");
-    expect(canRenderRichResultReport(report)).toBe(true);
+    expect(canRenderRichResultReport(report)).toBe(false);
   });
 
   it("renders the V11 result structure from backend deep slots and fails closed for unsafe slots", () => {

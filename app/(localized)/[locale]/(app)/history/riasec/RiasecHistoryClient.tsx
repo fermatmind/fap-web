@@ -12,6 +12,10 @@ import { fetchRiasecHistory } from "@/lib/riasec/api";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { buildRiasecTakeHref } from "@/lib/riasec/forms";
+import {
+  parseRiasecPrivateResultAuthority,
+  type RiasecPrivateResultAuthorityView,
+} from "@/lib/riasec/resultAssembler";
 
 type ShareState = "idle" | "loading" | "copied" | "failed";
 
@@ -25,6 +29,7 @@ type Row = {
   estimatedMinutes: number | null;
   accessSummary: MeAttemptItem["access_summary"] | null;
   shareEnabled: boolean;
+  authority: RiasecPrivateResultAuthorityView;
 };
 
 function parseDate(value: string): string {
@@ -47,8 +52,11 @@ function normalizeNumber(value: unknown): number | null {
   return Number.isFinite(numberValue) && numberValue > 0 ? numberValue : null;
 }
 
-function normalizeRow(item: MeAttemptItem): Row {
+function normalizeRow(item: MeAttemptItem): Row | null {
   const form = item.riasec_form_v1;
+  const authority = parseRiasecPrivateResultAuthority(item.riasec_private_result_authority);
+  if (!authority) return null;
+
   return {
     attemptId: String(item.attempt_id ?? ""),
     submittedAt: String(item.submitted_at ?? ""),
@@ -59,6 +67,7 @@ function normalizeRow(item: MeAttemptItem): Row {
     estimatedMinutes: normalizeNumber(form?.estimated_minutes),
     accessSummary: item.access_summary ?? null,
     shareEnabled: item.share_summary?.enabled !== false,
+    authority,
   };
 }
 
@@ -115,7 +124,12 @@ export default function RiasecHistoryClient() {
 
       try {
         const history = await fetchRiasecHistory({ page, pageSize: 10, locale });
-        const normalizedRows = (history.items ?? []).map(normalizeRow).filter((row) => row.attemptId);
+        const rawItems = history.items ?? [];
+        const parsedRows = rawItems.map(normalizeRow);
+        if (parsedRows.some((row) => row === null)) {
+          throw new Error(locale === "zh" ? "历史记录数据暂时无法安全展示。" : "History data cannot be displayed safely right now.");
+        }
+        const normalizedRows = parsedRows.filter((row): row is Row => Boolean(row?.attemptId));
         const meta = history.meta ?? {};
         const currentPage = Number((meta as { current_page?: unknown }).current_page ?? page);
         const lastPage = Number((meta as { last_page?: unknown }).last_page ?? currentPage);
@@ -148,7 +162,18 @@ export default function RiasecHistoryClient() {
     const shareTitle = locale === "zh" ? "分享我的 RIASEC 职业兴趣结果" : "Share my RIASEC career interest result";
 
     try {
+      const row = rows.find((item) => item.attemptId === attemptId);
+      if (!row) throw new Error("history_row_missing");
       const shareResponse = await createAttemptShare({ attemptId, locale });
+      const shareAuthority = parseRiasecPrivateResultAuthority(shareResponse.riasec_private_result_authority);
+      if (
+        !shareAuthority ||
+        shareAuthority.mode !== row.authority.mode ||
+        shareAuthority.sourceHash !== row.authority.sourceHash ||
+        shareAuthority.compiledHash !== row.authority.compiledHash
+      ) {
+        throw new Error("share_authority_mismatch");
+      }
       const shareUrl = resolveAbsoluteShareUrl(
         normalizeText(shareResponse.share_url, shareResponse.shareUrl, shareResponse.url)
       );
@@ -207,7 +232,12 @@ export default function RiasecHistoryClient() {
           ].filter(Boolean).join(" · ");
 
           return (
-            <Card key={row.attemptId} data-testid={`riasec-history-row-${row.attemptId}`}>
+            <Card
+              key={row.attemptId}
+              data-testid={`riasec-history-row-${row.attemptId}`}
+              data-riasec-source-hash={row.authority.sourceHash || undefined}
+              data-riasec-compiled-hash={row.authority.compiledHash || undefined}
+            >
               <CardHeader>
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="space-y-1">
@@ -230,6 +260,11 @@ export default function RiasecHistoryClient() {
                 {row.typeCode ? (
                   <p className="m-0" data-testid={`riasec-history-row-code-${row.attemptId}`}>
                     {copy.topCode}: {row.typeCode}
+                  </p>
+                ) : null}
+                {row.authority.mode === "canonical" ? (
+                  <p className="m-0 text-xs text-slate-500">
+                    {locale === "zh" ? "内容修订" : "Content revision"}: {row.authority.sourceHash.slice(0, 12)}
                   </p>
                 ) : null}
                 <div className="flex flex-wrap items-center gap-2">

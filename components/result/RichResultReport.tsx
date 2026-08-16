@@ -25,7 +25,11 @@ import {
   hasBig5ResultPageV2Candidate,
 } from "@/lib/big5/resultPageV2";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
-import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
+import {
+  assembleRiasecResultViewModel,
+  hasRiasecProjection,
+  resolveRiasecPrivateResultAuthority,
+} from "@/lib/riasec/resultAssembler";
 import { isEqV5ReportResponse } from "@/components/result/eq/utils";
 import {
   buildMbtiResultProjectionViewModel,
@@ -1338,8 +1342,14 @@ export function canRenderRichResultReport(reportData: ReportResponse | null | un
     return false;
   }
 
-  if (scaleCode === "RIASEC" && reportData && hasRiasecProjection(reportData)) {
-    return true;
+  if (scaleCode === "RIASEC") {
+    const authority = resolveRiasecPrivateResultAuthority(reportData);
+    if (reportData && hasRiasecProjection(reportData)) {
+      return true;
+    }
+    if (authority?.mode !== "immutable_legacy_snapshot") {
+      return false;
+    }
   }
 
   if (scaleCode === "BIG5_OCEAN" && hasBig5ResultPageV2Candidate(reportData)) {
@@ -1464,14 +1474,20 @@ export function RichResultReport({
     );
   }
 
-  if (scaleCode === "RIASEC" && hasRiasecProjection(reportData)) {
-    return (
-      <RiasecResultShell
-        locale={locale}
-        viewModel={assembleRiasecResultViewModel(reportData, locale)}
-        attemptId={typeof reportData.attempt_id === "string" ? reportData.attempt_id : null}
-      />
-    );
+  if (scaleCode === "RIASEC") {
+    const authority = resolveRiasecPrivateResultAuthority(reportData);
+    if (hasRiasecProjection(reportData)) {
+      return (
+        <RiasecResultShell
+          locale={locale}
+          viewModel={assembleRiasecResultViewModel(reportData, locale)}
+          attemptId={typeof reportData.attempt_id === "string" ? reportData.attempt_id : null}
+        />
+      );
+    }
+    if (authority?.mode !== "immutable_legacy_snapshot") {
+      return null;
+    }
   }
 
   const visibleSections = gate.isFreeVariant
