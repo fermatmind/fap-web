@@ -40,11 +40,12 @@ test("root canonical and hreflang keep chinese home on the bare domain", async (
   expect(html).not.toContain('href="https://fermatmind.com/zh"');
 });
 
-test("legacy zh home redirects to the bare chinese home", async ({ request }) => {
+test("@release legacy zh home redirects to the bare chinese home", async ({ request }) => {
   const response = await request.get("/zh", { maxRedirects: 0 });
 
   expect(response.status()).toBe(308);
-  expect(response.headers().location).toBe("http://localhost:3000/");
+  const location = new URL(response.headers().location, "http://127.0.0.1:3000");
+  expect(`${location.pathname}${location.search}`).toBe("/");
 });
 
 test("localized public gateway keeps personality/topics/help reachable and does not revive /types", async ({ request }) => {
@@ -55,7 +56,8 @@ test("localized public gateway keeps personality/topics/help reachable and does 
 
   const legacyResponse = await request.get("/en/types", { maxRedirects: 0 });
   expect(legacyResponse.status()).toBe(308);
-  expect(legacyResponse.headers().location).toBe("http://localhost:3000/en/personality");
+  const location = new URL(legacyResponse.headers().location, "http://127.0.0.1:3000");
+  expect(`${location.pathname}${location.search}`).toBe("/en/personality");
 });
 
 test("unknown path returns a hard 404 or 410", async ({ request }) => {

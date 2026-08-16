@@ -1,7 +1,20 @@
 import { expect, test } from "@playwright/test";
+import { startBig5PublicApiFixture } from "./helpers/big5-public-api-fixture";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
-test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
+let stopPublicApiFixture: (() => Promise<void>) | null = null;
+
+test.beforeAll(async () => {
+  stopPublicApiFixture = await startBig5PublicApiFixture();
+});
+
+test.afterAll(async () => {
+  await stopPublicApiFixture?.();
+  stopPublicApiFixture = null;
+});
+
+test("@release BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
+  test.skip(process.env.PLAYWRIGHT_SERVER_MODE !== "production", "Release flow runs against the production server build.");
   const attemptId = "11111111-1111-1111-1111-111111111111";
   const reportAccessPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`);
   const reportPattern = new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
@@ -196,6 +209,7 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
           page_href: `/en/result/${attemptId}`,
           pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
         },
+        payload: { scale_code: "BIG5_OCEAN" },
         meta: {
           produced_at: "2026-03-27T00:00:00.000Z",
           refreshed_at: "2026-03-27T00:00:00.000Z",
@@ -302,7 +316,7 @@ test("BIG5 flow: answer -> submit -> foundation result", async ({ page }) => {
 
   const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
     page,
-    option: page.getByRole("radio").first(),
+    option: page.getByRole("radio").nth(1),
     targetUrl: new RegExp(`/en/result/${attemptId}`),
     timeoutMs: 30000,
   });

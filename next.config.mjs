@@ -117,7 +117,11 @@ const bigFiveLegacyExact301Redirects = [
 );
 
 const nextConfig = {
+  agentRules: false,
   output: "standalone",
+  outputFileTracingIncludes: {
+    "/*": ["./node_modules/.pnpm/@swc+helpers@*/node_modules/@swc/helpers/**/*"],
+  },
   staticPageGenerationTimeout: 240,
   assetPrefix: undefined,
   images: {

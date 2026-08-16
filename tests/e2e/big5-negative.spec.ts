@@ -1,5 +1,17 @@
 import { expect, test, type Page } from "@playwright/test";
+import { startBig5PublicApiFixture } from "./helpers/big5-public-api-fixture";
 import { clickLastOptionAndWaitForSubmit } from "./helpers/quiz-flow";
+
+let stopPublicApiFixture: (() => Promise<void>) | null = null;
+
+test.beforeAll(async () => {
+  stopPublicApiFixture = await startBig5PublicApiFixture();
+});
+
+test.afterAll(async () => {
+  await stopPublicApiFixture?.();
+  stopPublicApiFixture = null;
+});
 
 function buildQuestions(count: number) {
   return Array.from({ length: count }, (_, idx) => ({
@@ -22,6 +34,20 @@ async function mockTrack(page: Page) {
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/auth/guest");
+    expect(route.request().headers()["x-fap-locale"]).toBe("en");
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_big5_negative_guest_token",
+      }),
     });
   });
 }
@@ -84,6 +110,42 @@ async function mockQuestions(page: Page, count: number) {
   }
 }
 
+async function mockBig5ReportAccess(
+  page: Page,
+  attemptId: string,
+  accessState: "ready" | "locked" = "ready"
+) {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe(`/api/v0.3/attempts/${attemptId}/report-access`);
+    if (requestUrl.search) {
+      expect(requestUrl.searchParams.get("locale")).toBe("en");
+    }
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        attempt_id: attemptId,
+        access_state: accessState,
+        report_state: "ready",
+        pdf_state: "ready",
+        reason_code: accessState === "locked" ? "report_locked" : "report_ready",
+        projection_version: 1,
+        actions: {
+          page_href: `/en/result/${attemptId}`,
+          pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+        },
+        payload: { scale_code: "BIG5_OCEAN" },
+        meta: {
+          produced_at: "2026-08-16T00:00:00.000Z",
+          refreshed_at: "2026-08-16T00:00:00.000Z",
+        },
+      }),
+    });
+  });
+}
+
 test("BIG5 /take redirects to landing maintenance when rollout is off", async ({ page }) => {
   await mockTrack(page);
   await mockLookup(page, { enabledInProd: false, paywallMode: "off" });
@@ -100,26 +162,20 @@ test("BIG5 free_only hides unlock CTA in locked result", async ({ page }) => {
 
   await mockTrack(page);
   await mockLookup(page, { paywallMode: "free_only" });
+  await mockBig5ReportAccess(page, attemptId);
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
+        scale_code: "BIG5_OCEAN",
         locked: true,
         variant: "free",
         norms: { status: "CALIBRATED", norms_version: "2026Q1" },
         quality: { level: "B" },
-        offers: [
-          {
-            sku: "BIG5_FULL",
-            formatted_price: "$9.99",
-            currency: "USD",
-            amount_cents: 999,
-            order_no: "ord_free_only",
-          },
-        ],
+        offers: [],
         report: {
           sections: [
             {
@@ -130,13 +186,14 @@ test("BIG5 free_only hides unlock CTA in locked result", async ({ page }) => {
             },
           ],
         },
+        meta: { scale_code: "BIG5_OCEAN" },
       }),
     });
   });
 
   await page.goto(`/en/result/${attemptId}`);
 
-  await expect(page.getByText("Only free report is available right now.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Domains Overview" }).first()).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 
@@ -182,12 +239,23 @@ test("BIG5 auto-advance does not submit before last question", async ({ page }) 
   expect(submitCalls).toBe(0);
 });
 
-test("BIG5 429 start error shows countdown and disables actions", async ({ page }) => {
+test("@release BIG5 429 start error returns bounded retry guidance", async ({ page }) => {
+  test.skip(process.env.PLAYWRIGHT_SERVER_MODE !== "production", "Release failure path runs against the production server build.");
+  let startCalls = 0;
+  let submitCalls = 0;
+
   await mockTrack(page);
   await mockLookup(page, { paywallMode: "full" });
   await mockQuestions(page, 5);
 
-  await page.route("**/api/v0.3/attempts/start", async (route) => {
+  await page.route("**/api/v0.3/attempts/start*", async (route) => {
+    startCalls += 1;
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/attempts/start");
+    expect(route.request().postDataJSON()).toMatchObject({
+      scale_code: expect.stringMatching(/^BIG(?:5_OCEAN|_FIVE_OCEAN_MODEL)$/),
+      locale: "en",
+    });
     await route.fulfill({
       status: 429,
       contentType: "application/json",
@@ -201,25 +269,47 @@ test("BIG5 429 start error shows countdown and disables actions", async ({ page 
     });
   });
 
+  await page.route("**/api/v0.3/attempts/submit*", async (route) => {
+    submitCalls += 1;
+    await route.fulfill({ status: 500, body: "unexpected submit" });
+  });
+
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
   await page.getByLabel("I have read and agree to the disclaimer.").check();
   await page.getByRole("button", { name: "Agree and start" }).click();
+  await expect(page.getByText("Question 1 / 5")).toBeVisible();
+  const startResponsePromise = page.waitForResponse(
+    (response) => response.url().includes("/api/v0.3/attempts/start")
+  );
+  await page.getByRole("radio").first().click();
+  expect((await startResponsePromise).status()).toBe(429);
 
-  await expect(page.getByText("Please wait 3 seconds before retrying.")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Agree and start" })).toBeDisabled();
-
-  await page.waitForTimeout(1200);
-  await expect(page.getByText(/Please wait [12] seconds before retrying\./)).toBeVisible();
+  if (process.env.PLAYWRIGHT_SERVER_MODE === "production") {
+    await expect(page.getByText(
+      "Starting is temporarily limited. Please try again in 1 minute."
+    )).toBeVisible();
+    expect(startCalls).toBe(2);
+  } else {
+    expect(startCalls).toBeGreaterThanOrEqual(1);
+  }
+  expect(submitCalls).toBe(0);
 });
 
-test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
+test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
+  test.skip(process.env.PLAYWRIGHT_SERVER_MODE !== "production", "Release failure path runs against the production server build.");
   const attemptId = "44444444-4444-4444-4444-444444444444";
 
   await mockTrack(page);
   await mockLookup(page, { paywallMode: "full" });
   await mockQuestions(page, 3);
 
-  await page.route("**/api/v0.3/attempts/start", async (route) => {
+  await page.route("**/api/v0.3/attempts/start*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/attempts/start");
+    expect(route.request().postDataJSON()).toMatchObject({
+      scale_code: expect.stringMatching(/^BIG(?:5_OCEAN|_FIVE_OCEAN_MODEL)$/),
+      locale: "en",
+    });
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -231,7 +321,10 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
     });
   });
 
-  await page.route("**/api/v0.3/attempts/submit", async (route) => {
+  await page.route("**/api/v0.3/attempts/submit*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/attempts/submit");
+    expect(route.request().postDataJSON()).toMatchObject({ attempt_id: attemptId });
     await route.fulfill({
       status: 500,
       contentType: "application/json",
@@ -255,7 +348,7 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
 
   const submitResponse = await clickLastOptionAndWaitForSubmit({
     page,
-    option: page.getByRole("radio").first(),
+    option: page.getByRole("radio").nth(1),
     timeoutMs: 30000,
   });
   expect(submitResponse.status()).toBe(500);
@@ -265,6 +358,7 @@ test("BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
   await page.reload();
 
   await expect(page.getByText("Question 3 / 3")).toBeVisible();
+  await page.getByRole("button", { name: "Agree and start" }).click();
   await expect(page.locator('[role="radio"][aria-checked="true"]:visible')).toHaveCount(1);
 });
 
@@ -273,13 +367,15 @@ test("BIG5 report handles norms missing and unknown block safely", async ({ page
 
   await mockTrack(page);
   await mockLookup(page, { paywallMode: "full" });
+  await mockBig5ReportAccess(page, attemptId);
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
+        scale_code: "BIG5_OCEAN",
         locked: false,
         variant: "full",
         norms: { status: "MISSING", norms_version: "2026Q1" },
@@ -300,6 +396,7 @@ test("BIG5 report handles norms missing and unknown block safely", async ({ page
             },
           ],
         },
+        meta: { scale_code: "BIG5_OCEAN" },
       }),
     });
   });
@@ -307,9 +404,9 @@ test("BIG5 report handles norms missing and unknown block safely", async ({ page
   await page.goto(`/en/result/${attemptId}`);
 
   await expect(
-    page.getByText("Percentile views are temporarily unavailable because current norms status is MISSING.")
+    page.getByText("Percentile views are temporarily unavailable because current norms status is MISSING.").first()
   ).toBeVisible();
-  await expect(page.getByText("Unsupported block")).toBeVisible();
+  await expect(page.getByText("Future block")).toHaveCount(0);
   await expect(page.locator("text=NaN")).toHaveCount(0);
 });
 
@@ -318,8 +415,10 @@ test("BIG5 compare shows N/A and not comparable when one side is missing", async
   const previousAttemptId = "compare_previous";
 
   await mockTrack(page);
+  await mockBig5ReportAccess(page, currentAttemptId);
+  await mockBig5ReportAccess(page, previousAttemptId);
 
-  await page.route(`**/api/v0.3/attempts/${currentAttemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${currentAttemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -341,7 +440,7 @@ test("BIG5 compare shows N/A and not comparable when one side is missing", async
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${previousAttemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${previousAttemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",

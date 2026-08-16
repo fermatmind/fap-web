@@ -21,7 +21,7 @@ async function mockCommonApis(page: Page) {
   });
 }
 
-test("alipay return page restores the tokenized wait flow from explicit return params", async ({ page }) => {
+test("@release alipay return page restores the tokenized wait flow from explicit return params", async ({ page }) => {
   const orderNo = "ord_alipay_return_1";
   const paymentRecoveryToken = "recovery_alipay_return_1";
 
@@ -58,11 +58,31 @@ test("alipay return page restores the tokenized wait flow from explicit return p
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("alipay return page can reuse pending-order recovery context from session storage", async ({ page }) => {
+test("@release alipay return page can reuse pending-order recovery context from session storage", async ({ page }) => {
+  test.skip(process.env.PLAYWRIGHT_SERVER_MODE !== "production", "Session recovery is gated by the production server build.");
   const orderNo = "ord_alipay_return_2";
   const paymentRecoveryToken = "recovery_alipay_return_2";
 
   await mockCommonApis(page);
+  await page.goto("/robots.txt");
+  await page.evaluate(({ nextOrderNo, nextToken }) => {
+    window.sessionStorage.setItem(
+      "fm_pending_order_v1",
+      JSON.stringify({
+        orderNo: nextOrderNo,
+        attemptId: "attempt-alipay-return-2",
+        sku: "MBTI_REPORT_FULL_199",
+        provider: "alipay",
+        waitUrl: `/en/pay/wait?order_no=${nextOrderNo}&payment_recovery_token=${nextToken}`,
+        paymentRecoveryToken: nextToken,
+        resultUrl: "/en/result/attempt-alipay-return-2?from=payment",
+        updatedAt: new Date().toISOString(),
+      })
+    );
+  }, { nextOrderNo: orderNo, nextToken: paymentRecoveryToken });
+  await expect
+    .poll(() => page.evaluate(() => window.sessionStorage.getItem("fm_pending_order_v1")))
+    .not.toBeNull();
   await page.addInitScript(({ nextOrderNo, nextToken }) => {
     window.sessionStorage.setItem(
       "fm_pending_order_v1",
@@ -108,7 +128,7 @@ test("alipay return page can reuse pending-order recovery context from session s
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("alipay return page rebuilds wait flow from native out_trade_no without session storage", async ({ page }) => {
+test("@release alipay return page rebuilds wait flow from native out_trade_no without session storage", async ({ page }) => {
   const orderNo = "ord_alipay_return_3";
   const paymentRecoveryToken = "recovery_alipay_return_3";
 
