@@ -7,7 +7,10 @@ import type {
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
 import { normalizeEnneagramFormCode, resolveEnneagramFormMeta } from "@/lib/enneagram/forms";
 import { isEnneagramPrivateResultLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
-import { localizeEnneagramPresentationValue } from "@/lib/enneagram/presentationTerminology";
+import {
+  resolveEnneagramPrivateResultAuthority,
+  type EnneagramPrivateResultAuthorityView,
+} from "@/lib/enneagram/privateResultAuthority";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramTypeRow = {
@@ -23,19 +26,6 @@ export type EnneagramTypeRow = {
 export type EnneagramModuleState = "clear" | "close_call" | "diffuse" | "low_quality" | "unknown";
 export type EnneagramModuleVisibility = "visible" | "collapsed" | "placeholder" | "unavailable";
 export type EnneagramFormVariant = "all" | "e105" | "fc144";
-
-export type EnneagramAssetBackedContent = {
-  asset_key: string;
-  asset_type: string;
-  category: string;
-  module_key: string;
-  body_zh: string;
-  short_body_zh: string;
-  cta_zh: string;
-  content_maturity: string;
-  evidence_level: string;
-  version: string;
-};
 
 export type EnneagramReportV2Module = {
   moduleKey: string;
@@ -55,7 +45,6 @@ export type EnneagramReportV2Module = {
     contentMaturity: string;
     evidenceLevel: string;
   };
-  fallbackPolicy: string;
 };
 
 export type EnneagramReportV2Page = {
@@ -82,6 +71,9 @@ export type EnneagramReportV2 = {
     registryReleaseHash: string | null;
     contentMaturity: string | null;
     releaseId: string | null;
+    activeReleaseId: string | null;
+    sourceHash: string | null;
+    compiledHash: string | null;
   };
   classification: {
     interpretationScope: EnneagramModuleState;
@@ -102,10 +94,14 @@ export type EnneagramReportV2 = {
     closeCallRuleVersion: string | null;
     confidencePolicyVersion: string | null;
     qualityPolicyVersion: string | null;
+    canonicalReleaseId: string | null;
+    canonicalSourceHash: string | null;
+    canonicalCompiledHash: string | null;
   };
 };
 
 export type EnneagramResultViewModel = {
+  authority: EnneagramPrivateResultAuthorityView | null;
   projection: EnneagramPublicProjection | null;
   reportV2: EnneagramReportV2 | null;
   schemaVersion: string | null;
@@ -124,6 +120,8 @@ export type EnneagramResultViewModel = {
   methodologyVariant: string | null;
   registryVersion: string | null;
   registryReleaseHash: string | null;
+  sourceHash: string | null;
+  compiledHash: string | null;
   interpretationContextId: string | null;
   pages: EnneagramReportV2Page[];
   modules: EnneagramReportV2Module[];
@@ -145,7 +143,6 @@ const ENNEAGRAM_V2_FREE_MODULES = new Set([
   "top3_cards",
   "confidence_band_card",
   "close_call_card",
-  "methodology_boundary_card",
   "method_boundary",
   "diffuse_boundary",
   "low_quality_boundary",
@@ -366,18 +363,6 @@ function shouldIncludeRestrictedModule(
   const isExplicitlyAllowed = setHasAny(gateKeys, modulesAllowed) || isModuleAllowedByEntitlement(module, modulesAllowed);
   const isExplicitlyPreviewed = setHasAny(gateKeys, modulesPreview);
 
-  if (module.kind === "asset_backed_card") {
-    if (accessLevel === "free") {
-      return true;
-    }
-
-    if (accessLevel === "preview") {
-      return isExplicitlyAllowed || isExplicitlyPreviewed;
-    }
-
-    return isExplicitlyAllowed || isExplicitlyPreviewed;
-  }
-
   if (accessLevelRequiresEntitlement(accessLevel)) {
     return isExplicitlyAllowed;
   }
@@ -457,33 +442,7 @@ function filterEnneagramReportV2ForGate(reportV2: EnneagramReportV2 | null, gate
   };
 }
 
-const ASSET_BACKED_CONTENT_FIELDS = [
-  "asset_key",
-  "asset_type",
-  "category",
-  "module_key",
-  "body_zh",
-  "short_body_zh",
-  "cta_zh",
-  "content_maturity",
-  "evidence_level",
-  "version",
-] as const;
-
-function sanitizeAssetBackedContent(value: unknown): Record<string, unknown> {
-  const record = asRecord(value);
-  if (!record) {
-    return {};
-  }
-
-  return Object.fromEntries(
-    ASSET_BACKED_CONTENT_FIELDS
-      .map((field) => [field, normalizeText(record[field])] as const)
-      .filter(([, fieldValue]) => fieldValue.length > 0)
-  );
-}
-
-function normalizeModule(value: unknown, locale: Locale): EnneagramReportV2Module | null {
+function normalizeModule(value: unknown): EnneagramReportV2Module | null {
   const moduleRecord = asRecord(value);
   if (!moduleRecord) {
     return null;
@@ -505,10 +464,7 @@ function normalizeModule(value: unknown, locale: Locale): EnneagramReportV2Modul
     formVariant: normalizeFormVariant(moduleRecord.form_variant),
     accessLevel: normalizeGateKey(moduleRecord.access_level ?? moduleRecord.accessLevel),
     moduleCode: normalizeGateKey(moduleRecord.module_code ?? moduleRecord.moduleCode),
-    content: localizeEnneagramPresentationValue(
-      kind === "asset_backed_card" ? sanitizeAssetBackedContent(moduleRecord.content) : asRecord(moduleRecord.content) ?? {},
-      locale
-    ) as Record<string, unknown>,
+    content: asRecord(moduleRecord.content) ?? {},
     dataRefs: normalizeStringArray(moduleRecord.data_refs),
     registryRefs: normalizeStringArray(moduleRecord.registry_refs),
     provenance: {
@@ -518,21 +474,20 @@ function normalizeModule(value: unknown, locale: Locale): EnneagramReportV2Modul
       contentMaturity: normalizeText(provenance?.content_maturity, "scaffold"),
       evidenceLevel: normalizeText(provenance?.evidence_level, "descriptive"),
     },
-    fallbackPolicy: normalizeText(moduleRecord.fallback_policy, "fallback_to_generic"),
   };
 }
 
-function normalizeModules(value: unknown, locale: Locale): EnneagramReportV2Module[] {
+function normalizeModules(value: unknown): EnneagramReportV2Module[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .map((item) => normalizeModule(item, locale))
+    .map((item) => normalizeModule(item))
     .filter((item): item is EnneagramReportV2Module => item !== null);
 }
 
-function normalizePage(value: unknown, locale: Locale): EnneagramReportV2Page | null {
+function normalizePage(value: unknown): EnneagramReportV2Page | null {
   const page = asRecord(value);
   if (!page) {
     return null;
@@ -551,17 +506,17 @@ function normalizePage(value: unknown, locale: Locale): EnneagramReportV2Page | 
     accessLevel: normalizeGateKey(page.access_level ?? page.accessLevel),
     moduleCode: normalizeGateKey(page.module_code ?? page.moduleCode),
     sourceRegistryRefs: normalizeStringArray(page.source_registry_refs),
-    modules: normalizeModules(page.modules, locale),
+    modules: normalizeModules(page.modules),
   };
 }
 
-function normalizePages(value: unknown, locale: Locale): EnneagramReportV2Page[] {
+function normalizePages(value: unknown): EnneagramReportV2Page[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .map((item) => normalizePage(item, locale))
+    .map((item) => normalizePage(item))
     .filter((item): item is EnneagramReportV2Page => item !== null);
 }
 
@@ -578,36 +533,9 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     return null;
   }
 
-  const canonicalizeMethodBoundary = (items: EnneagramReportV2Module[]) => {
-    const hasCanonical = items.some((module) => module.moduleKey === "method_boundary");
-    const seen = new Set<string>();
-
-    return items
-      .filter((module) => !(hasCanonical && module.moduleKey === "methodology_boundary_card"))
-      .map((module) => module.moduleKey === "methodology_boundary_card" ? { ...module, moduleKey: "method_boundary" } : module)
-      .filter((module) => {
-        if (seen.has(module.moduleKey)) return false;
-        seen.add(module.moduleKey);
-        return true;
-      });
-  };
-  const normalizedPages = normalizePages(raw.pages, locale);
-  const hasCanonicalPageBoundary = normalizedPages.some((page) => page.modules.some((module) => module.moduleKey === "method_boundary"));
-  let pageBoundarySeen = false;
-  const pages = normalizedPages.map((page) => ({
-    ...page,
-    modules: page.modules
-      .filter((module) => !(hasCanonicalPageBoundary && module.moduleKey === "methodology_boundary_card"))
-      .map((module) => module.moduleKey === "methodology_boundary_card" ? { ...module, moduleKey: "method_boundary" } : module)
-      .filter((module) => {
-        if (module.moduleKey !== "method_boundary") return true;
-        if (pageBoundarySeen) return false;
-        pageBoundarySeen = true;
-        return true;
-      }),
-  }));
-  const modulesFromRoot = canonicalizeMethodBoundary(normalizeModules(raw.modules, locale));
-  const modules = modulesFromRoot.length > 0 ? modulesFromRoot : canonicalizeMethodBoundary(pages.flatMap((page) => page.modules));
+  const pages = normalizePages(raw.pages);
+  const modulesFromRoot = normalizeModules(raw.modules);
+  const modules = modulesFromRoot.length > 0 ? modulesFromRoot : pages.flatMap((page) => page.modules);
   const moduleMap = Object.fromEntries(modules.map((module) => [module.moduleKey, module])) as Record<string, EnneagramReportV2Module>;
   const form = asRecord(raw.form);
   const registry = asRecord(raw.registry);
@@ -627,6 +555,9 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
       registryReleaseHash: normalizeText(registry?.registry_release_hash) || null,
       contentMaturity: normalizeText(registry?.content_maturity) || null,
       releaseId: normalizeText(registry?.release_id) || null,
+      activeReleaseId: normalizeText(registry?.active_release_id) || null,
+      sourceHash: normalizeText(registry?.source_hash).toLowerCase() || null,
+      compiledHash: normalizeText(registry?.compiled_hash).toLowerCase() || null,
     },
     classification: {
       interpretationScope: normalizeModuleState(classification?.interpretation_scope),
@@ -647,6 +578,9 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
       closeCallRuleVersion: normalizeText(provenance?.close_call_rule_version) || null,
       confidencePolicyVersion: normalizeText(provenance?.confidence_policy_version) || null,
       qualityPolicyVersion: normalizeText(provenance?.quality_policy_version) || null,
+      canonicalReleaseId: normalizeText(provenance?.canonical_release_id) || null,
+      canonicalSourceHash: normalizeText(provenance?.canonical_source_hash).toLowerCase() || null,
+      canonicalCompiledHash: normalizeText(provenance?.canonical_compiled_hash).toLowerCase() || null,
     },
   };
 }
@@ -819,27 +753,9 @@ function resolveConfidenceLabel(reportV2: EnneagramReportV2 | null, projection: 
 }
 
 function resolveSummary(reportV2: EnneagramReportV2 | null, projection: EnneagramPublicProjection | null, reportData: ReportResponse): string {
-  return normalizeText(
-    reportV2?.moduleMap.instant_summary?.content.body,
-    reportV2?.moduleMap.instant_summary?.content.title,
-    projection?.summary,
-    projection?.headline,
-    reportData.summary,
-    reportData.report?.summary
-  );
-}
-
-function resolveSections(reportData: ReportResponse, projection: EnneagramPublicProjection | null, locale: Locale): Big5ReportSection[] {
-  if (!isEnneagramPrivateResultLocaleCompatible(reportData, locale)) {
-    return [];
-  }
-
-  const reportSections = normalizeSections(reportData.report?.sections);
-  if (reportSections.length > 0) {
-    return reportSections;
-  }
-
-  return normalizeSections(projection?.sections);
+  void projection;
+  void reportData;
+  return normalizeText(reportV2?.moduleMap.instant_summary?.content.body);
 }
 
 function splitSections(sections: Big5ReportSection[], gate: AccessGate): {
@@ -868,13 +784,19 @@ export function assembleEnneagramResultViewModel({
   gate: AccessGate;
   locale: Locale;
 }): EnneagramResultViewModel {
-  const projection = resolveProjection(reportData, locale);
-  const reportV2 = filterEnneagramReportV2ForGate(resolveReportV2(reportData, locale), gate);
+  const authority = resolveEnneagramPrivateResultAuthority(reportData, locale);
+  const projection = authority?.mode === "canonical" ? resolveProjection(reportData, locale) : null;
+  const reportV2 = authority?.mode === "canonical"
+    ? filterEnneagramReportV2ForGate(resolveReportV2(reportData, locale), gate)
+    : null;
   const formSummary = resolveFormSummary(reportData, projection, reportV2);
-  const sections = resolveSections(reportData, projection, locale);
+  const sections = authority?.mode === "immutable_legacy_snapshot"
+    ? normalizeSections(reportData.report?.sections)
+    : [];
   const split = splitSections(sections, gate);
 
   return {
+    authority,
     projection,
     reportV2,
     schemaVersion: reportV2?.schemaVersion ?? projection?.schema_version ?? null,
@@ -893,6 +815,8 @@ export function assembleEnneagramResultViewModel({
     methodologyVariant: reportV2?.form.methodologyVariant ?? null,
     registryVersion: reportV2?.registry.registryVersion ?? null,
     registryReleaseHash: reportV2?.registry.registryReleaseHash ?? null,
+    sourceHash: authority?.sourceHash || null,
+    compiledHash: authority?.compiledHash || null,
     interpretationContextId: reportV2?.provenance.interpretationContextId ?? null,
     pages: reportV2?.pages ?? [],
     modules: reportV2?.modules ?? [],
@@ -903,5 +827,29 @@ export function assembleEnneagramResultViewModel({
 }
 
 export function hasEnneagramProjection(reportData: ReportResponse | null | undefined, locale: Locale): boolean {
-  return Boolean(reportData && isEnneagramPrivateResultLocaleCompatible(reportData, locale));
+  if (!reportData || resolveEnneagramPrivateResultAuthority(reportData, locale)?.mode !== "canonical") {
+    return false;
+  }
+
+  const reportV2 = resolveReportV2(reportData, locale);
+  if (!reportV2 || reportV2.pages.length === 0 || reportV2.modules.length === 0) {
+    return false;
+  }
+
+  const formCode = reportV2.form.formCode;
+  const requiredModules = ["instant_summary", "top3_cards", "method_boundary"];
+  if (!requiredModules.every((moduleKey) => reportV2.moduleMap[moduleKey])) {
+    return false;
+  }
+
+  return (
+    (formCode === "enneagram_likert_105" || formCode === "enneagram_forced_choice_144") &&
+    Boolean(reportV2.form.methodologyVariant) &&
+    Boolean(normalizeText(reportV2.moduleMap.instant_summary.content.body)) &&
+    moduleArrayLength(reportV2.moduleMap.top3_cards.content.cards) === 3
+  );
+}
+
+function moduleArrayLength(value: unknown): number {
+  return Array.isArray(value) ? value.length : 0;
 }

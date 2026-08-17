@@ -7,12 +7,18 @@ import {
   isSafeEnneagramPrivateText,
   readEnneagramPrivateLocalizedText,
 } from "@/lib/enneagram/privateResultLocale";
+import type { ReportResponse } from "@/lib/api/v0_3";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 function createEnvelope(locale: "en" | "zh", slotLocale: "en" | "zh" = locale) {
   return {
     locale,
     enneagram_report_v2: {
       locale,
+      schema_version: "enneagram.report.v2",
+      scale_code: "ENNEAGRAM",
+      registry: {},
+      provenance: {},
       modules: [{ content: { locale: slotLocale, body_en: "A bounded working interpretation." } }],
     },
   };
@@ -49,11 +55,11 @@ describe("W5 Enneagram private-result locale boundary", () => {
   });
 
   it("requires every Enneagram response not explicitly generating to carry a valid localized V2", () => {
-    const valid = {
+    const valid = bindCanonicalEnneagramReport({
       ...createEnvelope("en"),
       scale_code: "ENNEAGRAM",
       generating: false,
-    };
+    } as ReportResponse, "en");
 
     expect(isEnneagramPrivateResultContractInvalid(valid, "en")).toBe(false);
     expect(isEnneagramPrivateResultContractInvalid(valid, "zh")).toBe(true);

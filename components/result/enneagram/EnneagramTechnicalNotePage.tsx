@@ -17,6 +17,7 @@ import {
 import {
   getEnneagramTechnicalNoteNotClaimedLabel,
   getEnneagramTechnicalNoteStatusLabel,
+  isCanonicalEnneagramTechnicalNote,
 } from "@/lib/enneagram/technicalNote";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
@@ -63,6 +64,7 @@ type TechnicalNotePageProps = Props & {
   pageTestId: string;
   testIdPrefix: string;
   heading: string;
+  validateTechnicalNote?: (note: ScaleTechnicalNoteV1, locale: Locale) => boolean;
 };
 
 function normalizeDisclaimer(entry: ScaleTechnicalNoteDisclaimer | string): { key: string; label: string; copy: string } {
@@ -154,7 +156,7 @@ function renderMetricCard(metric: ScaleMetricDefinition, testIdPrefix: string) {
   );
 }
 
-function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNote, pageTestId, testIdPrefix, heading }: TechnicalNotePageProps) {
+function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNote, pageTestId, testIdPrefix, heading, validateTechnicalNote }: TechnicalNotePageProps) {
   const [technicalNote, setTechnicalNote] = useState<ScaleTechnicalNoteV1 | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -169,7 +171,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
         }
 
         const note = response.technical_note_v1 ?? null;
-        if (!note || !Array.isArray(note.sections)) {
+        if (!note || !Array.isArray(note.sections) || (validateTechnicalNote && !validateTechnicalNote(note, locale))) {
           setError("当前技术说明暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。");
           setTechnicalNote(null);
           return;
@@ -194,7 +196,7 @@ function ScaleTechnicalNotePage({ locale, testSlug, testTitle, fetchTechnicalNot
     return () => {
       active = false;
     };
-  }, [fetchTechnicalNote]);
+  }, [fetchTechnicalNote, locale, validateTechnicalNote]);
 
   const orderedSections = useMemo(() => {
     if (!technicalNote) {
@@ -415,6 +417,7 @@ export function EnneagramTechnicalNotePage({ locale, testSlug, testTitle }: Prop
       pageTestId="enneagram-technical-note-page"
       testIdPrefix="enneagram-technical-note"
       heading="九型人格技术说明"
+      validateTechnicalNote={isCanonicalEnneagramTechnicalNote}
     />
   );
 }

@@ -23,6 +23,11 @@ function createTechnicalNoteResponse() {
     technical_note_v1: {
       schema_version: "enneagram.technical_note.v1",
       scale_code: "ENNEAGRAM",
+      canonical_authority_id: "FERMATMIND_ENNEAGRAM_PRIVATE_RESULT_CANONICAL",
+      canonical_release_id: "00000000-0000-4000-8000-000000000001",
+      canonical_source_hash: "a".repeat(64),
+      canonical_compiled_hash: "b".repeat(64),
+      canonical_locale: "zh-CN",
       registry_version: "enneagram_registry.v1",
       registry_release_hash: "sha256:registry-note",
       technical_note_version: "enneagram_technical_note.v0.1",
@@ -344,6 +349,26 @@ describe("enneagram technical note page contract", () => {
     });
 
     expect(screen.getByText("当前技术说明暂时不可用。你仍可以先按结果页的方法边界阅读本次测量结果。")).toBeInTheDocument();
+  });
+
+  it("fails closed when canonical technical-note identity is missing or mismatched", async () => {
+    const missing = createTechnicalNoteResponse();
+    delete (missing.technical_note_v1 as Record<string, unknown>).canonical_source_hash;
+    hoisted.fetchEnneagramTechnicalNote.mockResolvedValueOnce(missing);
+
+    const first = render(
+      <EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格测试" />
+    );
+    expect(await screen.findByTestId("enneagram-technical-note-error")).toBeInTheDocument();
+    first.unmount();
+
+    const mismatched = createTechnicalNoteResponse();
+    mismatched.technical_note_v1.canonical_compiled_hash = "not-a-canonical-hash";
+    hoisted.fetchEnneagramTechnicalNote.mockResolvedValueOnce(mismatched);
+    render(
+      <EnneagramTechnicalNotePage locale="zh" testSlug="enneagram-personality-test-nine-types" testTitle="九型人格测试" />
+    );
+    expect(await screen.findByTestId("enneagram-technical-note-error")).toBeInTheDocument();
   });
 
   it("renders the RIASEC technical note from the backend contract without local career-match claims", async () => {

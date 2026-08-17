@@ -10,12 +10,6 @@
       "sha256": "62333dd2346c24ae9b6f5d89d1559fe8550497749b8e828283884363532bf122"
     },
     {
-      "lane_id": "W5",
-      "subscope": null,
-      "path": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/lane_manifest.json",
-      "sha256": "a53a73f076ac5cbc4be5fc7ed65240a69fa77a177b0444d4b92dbeca82bf0daf"
-    },
-    {
       "lane_id": "W3",
       "subscope": "W3-ARTICLES",
       "path": "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/lane_manifest.json",
@@ -83,36 +77,6 @@
         "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/draft-import.json",
         "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/publication.json",
         "generated/en-content-parity/v2/W3/articles/d70e468bb1a07d74e786e5a93b5279feff5347be49a0264916408a6b2ccbdc9a/receipts/30797235410-1/live-qa.json"
-      ]
-    },
-    {
-      "lane_id": "W5",
-      "subscope": "enneagram-results",
-      "receipt_subscope": "enneagram-results",
-      "target_status": "live_qa_pass",
-      "package_sha256": "6cf94223db167c41729f3d106741e874c7e70427f7369c1099018a52693ef4d2",
-      "expected_count": 630,
-      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
-      "receipt_paths": [
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/preflight.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/draft-import.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/publication.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/live-qa.json"
-      ]
-    },
-    {
-      "lane_id": "W5",
-      "subscope": "enneagram-results",
-      "receipt_subscope": "enneagram-results",
-      "target_status": "live_qa_pass",
-      "package_sha256": "6cf94223db167c41729f3d106741e874c7e70427f7369c1099018a52693ef4d2",
-      "expected_count": 630,
-      "release_policy_sha256": "cdb60508556e80762c353e73c8a1b9d128d041efb85d659739154957b2f49e9a",
-      "receipt_paths": [
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/preflight.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/draft-import.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/publication.json",
-        "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/receipts/30814888432-1/live-qa.json"
       ]
     },
     {

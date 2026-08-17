@@ -14,6 +14,7 @@ import {
   canonicalJson,
   mapV1Status,
   sha256Bytes,
+  activeV2Assets,
 } from "./build-en-content-parity-control-v2.mjs";
 
 const ROOT = process.cwd();
@@ -496,7 +497,7 @@ export function validateV2Master({
     assert(v2.guardrails?.[field] === false, `${field} must stay false`, errors);
   }
   assert(sameValue(v2.baseline, v1.baseline), "baseline drifted during V1→V2 migration", errors);
-  assert(sameValue(v2.assets, v1.assets), "asset registry drifted during V1→V2 migration", errors);
+  assert(sameValue(v2.assets, activeV2Assets(v1.assets)), "asset registry drifted during V1→V2 migration", errors);
   assert(v2.lanes?.length === v1.lanes?.length, "lane count drifted", errors);
   assert(new Set(v2.lanes?.map((lane) => lane.lane_id)).size === 9, "lane IDs are not unique", errors);
 
@@ -504,8 +505,15 @@ export function validateV2Master({
     const v2Lane = v2.lanes?.find((lane) => lane.lane_id === v1Lane.lane_id);
     assert(Boolean(v2Lane), `${v1Lane.lane_id}: missing from V2`, errors);
     if (!v2Lane) continue;
+    if (v1Lane.lane_id === "W5") {
+      const serializedLane = JSON.stringify(v2Lane);
+      assert(sameValue(v2Lane.target_asset_types, ["enneagram_public_profile"]), "W5: private result target remains active", errors);
+      assert(v2Lane.counts?.cohort_count === 1 && v2Lane.counts?.remaining_en_assets === 0, "W5: public-only counts mismatch", errors);
+      assert(!serializedLane.includes("enneagram_result_content"), "W5: private result asset remains active", errors);
+      assert(!serializedLane.includes("result-page-agent-readiness"), "W5: retired agent control remains active", errors);
+    }
     const splitLaneMaterialized = (v2Lane.subscopes ?? []).some(hasMaterializedFacts);
-    if (!hasMaterializedFacts(v2Lane) && !splitLaneMaterialized) {
+    if (v1Lane.lane_id !== "W5" && !hasMaterializedFacts(v2Lane) && !splitLaneMaterialized) {
       validateTargetMigration(v1Lane, v2Lane, v1Lane.lane_id, errors);
       assert(sameValue(v2Lane.counts, v1Lane.counts), `${v1Lane.lane_id}: counts drifted`, errors);
     }

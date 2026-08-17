@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { assembleEnneagramResultViewModel } from "@/lib/enneagram/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 const hoisted = vi.hoisted(() => ({
   fetchEnneagramObservation: vi.fn(),
@@ -335,7 +336,7 @@ function createV2ReportResponse({
       fallback_policy: "required",
     },
     {
-      module_key: "methodology_boundary_card",
+      module_key: "method_boundary",
       kind: "boundary_card",
       visibility: "visible",
       state: scope,
@@ -1176,7 +1177,7 @@ function createV2ReportResponse({
     }
   }
 
-  return {
+  return bindCanonicalEnneagramReport({
     ok: true,
     locale: "zh",
     attempt_id: "attempt-v2",
@@ -1200,7 +1201,7 @@ function createV2ReportResponse({
         enneagram_report_v2: reportV2,
       },
     },
-  } as ReportResponse;
+  } as ReportResponse, "zh-CN");
 }
 
 async function renderShell(reportData: ReportResponse) {
@@ -1249,7 +1250,7 @@ describe("enneagram result shell contract", () => {
     await renderShell(createV2ReportResponse());
 
     const shell = screen.getByTestId("enneagram-result-shell");
-    expect(within(shell).getByRole("heading", { name: "当前结果更接近 Type 1" })).toBeInTheDocument();
+    expect(within(shell).getByRole("heading", { name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).queryByText(/你最可能是/)).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_2_work_reality")).toBeInTheDocument();
@@ -1320,9 +1321,9 @@ describe("enneagram result shell contract", () => {
     const moduleNode = screen.getByTestId("enneagram-module-close-call-card");
     expect(moduleNode).toBeInTheDocument();
     expect(within(moduleNode).getByText(/1 vs 6/)).toBeInTheDocument();
-    expect(moduleNode).toHaveTextContent("工作假设");
+    expect(moduleNode).toHaveTextContent("motivation contrast");
     expect(moduleNode).not.toHaveTextContent("gap_below_threshold");
-    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("接近型结果");
+    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("close_call");
   });
 
   it("renders diffuse state with the diffuse boundary module", async () => {
@@ -1337,18 +1338,18 @@ describe("enneagram result shell contract", () => {
 
     const moduleNode = screen.getByTestId("enneagram-module-low-quality-boundary");
     expect(moduleNode).toBeInTheDocument();
-    expect(moduleNode).toHaveTextContent("解释边界较宽");
+    expect(moduleNode).toHaveTextContent("质量边界说明");
     expect(moduleNode).not.toHaveTextContent("triggered_operational_signal");
     expect(moduleNode).not.toHaveTextContent("speed_too_fast");
   });
 
   it("uses different form badges for E105 and FC144 while keeping one shell", async () => {
     const firstRender = await renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 五点量表版");
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 标准版");
     firstRender.unmount();
 
     await renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 二选一迫选版");
+    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 深度版");
   });
 
   it("renders all9 profile completeness and top3 cards", async () => {
@@ -1360,7 +1361,7 @@ describe("enneagram result shell contract", () => {
     expect(within(top3).getByText("Type 6")).toBeInTheDocument();
   });
 
-  it("keeps unknown modules safe with the generic fallback renderer", async () => {
+  it("omits unknown modules instead of inventing a generic fallback", async () => {
     await renderShell(
       createV2ReportResponse({
         extraModule: {
@@ -1387,11 +1388,8 @@ describe("enneagram result shell contract", () => {
       })
     );
 
-    const moduleNode = screen.getByTestId("enneagram-module-unknown_future_module");
-    expect(moduleNode).toBeInTheDocument();
-    expect(moduleNode).toHaveTextContent("补充模块");
-    expect(moduleNode).not.toHaveTextContent("unknown_future_module");
-    expect(moduleNode).toHaveTextContent("当前模块使用通用渲染");
+    expect(screen.queryByTestId("enneagram-module-unknown_future_module")).not.toBeInTheDocument();
+    expect(screen.queryByText("Future module")).not.toBeInTheDocument();
   });
 
   it("does not leak unknown recommendation keys on the public result surface", async () => {
@@ -1412,7 +1410,7 @@ describe("enneagram result shell contract", () => {
     await renderShell(report);
 
     const moduleNode = screen.getByTestId("enneagram-module-form-recommendation");
-    expect(moduleNode).toHaveTextContent("继续观察");
+    expect(moduleNode).toHaveTextContent("建议下一步");
     expect(moduleNode).not.toHaveTextContent("future_internal_action_key");
   });
 
@@ -1430,7 +1428,7 @@ describe("enneagram result shell contract", () => {
     const closeCall = overviewModules.find((module) => module.module_key === "close_call_card");
     const workStyle = workModules.find((module) => module.module_key === "work_style_summary");
     const strength = growthModules.find((module) => module.module_key === "strength_expression");
-    const methodBoundary = overviewModules.find((module) => module.module_key === "methodology_boundary_card");
+    const methodBoundary = overviewModules.find((module) => module.module_key === "method_boundary");
     const technicalNote = methodModules.find((module) => module.module_key === "technical_note_link");
 
     if (summary) {

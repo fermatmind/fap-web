@@ -35,7 +35,7 @@
       "editorial_approved": "draft_imported"
     },
     "lane_count": 9,
-    "asset_count": 13,
+    "asset_count": 12,
     "blocked_state_preserved": true,
     "counts_package_qa_and_lineage_preserved": true,
     "human_approval_lineage_mode": "legacy_audit_only_not_transition_evidence",
@@ -51,9 +51,9 @@
   },
   "materialization": {
     "inputs_path": "docs/seo/generated/en-content-parity-control-inputs.v2.json",
-    "inputs_sha256": "7ccc5d311f4bb06af9bfa386c223c15c51dbba49482f6df8cc7be3d4e099217a",
-    "lane_manifest_count": 4,
-    "receipt_chain_count": 7
+    "inputs_sha256": "c8f54508f75d7408d173aa39f0b2c14e1fba0820ed05b14d35b0447427f22551",
+    "lane_manifest_count": 3,
+    "receipt_chain_count": 5
   },
   "state_machine": {
     "ordered_states": [
@@ -708,63 +708,43 @@
     {
       "lane_id": "W5",
       "lane_kind": "producer",
-      "name": "Enneagram English parity",
+      "name": "Enneagram public-profile parity",
       "priority": "L3",
       "wave": 2,
       "authority_owner": "backend_cms_personality",
       "scope": [
-        "Preserve the completed 58/58 public profile cohort without regeneration.",
-        "Inventory and repair only result-registry and private result-surface English gaps."
+        "Preserve the completed 58/58 public profile cohort without regeneration."
       ],
       "do_not": [
         "Do not regenerate the completed public cohort.",
-        "Do not edit CMS, working or published pointers, SEO runtime, master manifest, or frontend editorial content."
+        "Do not create or materialize private-result content; fap-api canonical registry owns that authority."
       ],
       "dependencies": [],
       "launch_state": "registered",
-      "status": "live_qa_pass",
+      "status": "not_started",
       "blocked_from_status": null,
-      "output_directory": "generated/en-content-parity/W5-enneagram/",
+      "output_directory": "docs/seo/personality/enneagram/",
       "target_asset_types": [
-        "enneagram_public_profile",
-        "enneagram_result_content"
+        "enneagram_public_profile"
       ],
       "subscopes": [],
       "counts": {
-        "cohort_count": 2,
-        "expected_en_assets": null,
-        "current_en_assets": null,
-        "remaining_en_assets": null,
-        "unknown_inventory_cohorts": 1
+        "cohort_count": 1,
+        "expected_en_assets": 58,
+        "current_en_assets": 58,
+        "remaining_en_assets": 0,
+        "unknown_inventory_cohorts": 0
       },
       "source_inventory_refs": [
-        "docs/seo/personality/enneagram/full-content-asset-audit-source-of-truth-2026-07-09.json",
-        "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
+        "docs/seo/personality/enneagram/full-content-asset-audit-source-of-truth-2026-07-09.json"
       ],
-      "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
-      "qa_report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
-      "gate_lineage": [
-        {
-          "status": "package_frozen",
-          "evidence_owner_lane_id": "W5",
-          "report_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/package_freeze_evidence.json",
-          "report_sha256": "42dfe20ecdf340bcd29d48b205836c99a11f8b40f3db2b2127b11ac14b3f7c31",
-          "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
-          "accepted_at": "2026-08-03T00:00:00Z"
-        },
-        {
-          "status": "qa_pass",
-          "evidence_owner_lane_id": "W9",
-          "report_ref": "generated/en-content-parity/W9-independent-qa/enneagram/w5-enneagram-private-results-8a1653b5/independent_qa_report.json",
-          "report_sha256": "e78bdf6f8327b4c33fcd828080542631450bc745fe273fc0a2bf5f53de512822",
-          "package_sha256": "30308bb091bae1e5ada0125aada144e696ab9c1fa8bd5951c9f80a136ffc2048",
-          "accepted_at": "2026-08-03T00:00:00Z"
-        }
-      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
       "blockers": [],
-      "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
+      "next_action": "No private-result action; preserve the completed public-profile cohort.",
       "legacy_lineage": [],
-      "lane_manifest_ref": "generated/en-content-parity/v2/W5-enneagram-private-results/8a1653b5/lane_manifest.json",
+      "lane_manifest_ref": null,
       "promotion_receipts": [],
       "release_policy": {
         "cms_draft_import": "auto_after_dry_run_pass",
@@ -772,9 +752,7 @@
         "live_qa": "automatic",
         "seo_discoverability": "separate_gate",
         "production_deploy": "separate_exact_sha_gate"
-      },
-      "backend_package_sha256": "6cf94223db167c41729f3d106741e874c7e70427f7369c1099018a52693ef4d2",
-      "promotion_row_count": 630
+      }
     },
     {
       "lane_id": "W6",
@@ -1170,25 +1148,6 @@
         "The deep scan observed 58 zh-CN and 58 English public Enneagram profile pages."
       ],
       "notes": "Completed public content must not be regenerated."
-    },
-    {
-      "asset_id": "ENPARITY-W5-ENNEAGRAM-RESULT-CONTENT",
-      "lane_id": "W5",
-      "asset_type": "enneagram_result_content",
-      "translation_group": "cohort:enneagram:result-content",
-      "locales": [
-        "zh-CN",
-        "en"
-      ],
-      "authority_source": "backend Enneagram result and report content",
-      "expected_en_count": null,
-      "current_en_count": null,
-      "remaining_en_count": null,
-      "parity_state": "inventory_required",
-      "evidence": [
-        "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
-      ],
-      "notes": "Private result parity is independent from public profile completeness."
     },
     {
       "asset_id": "ENPARITY-W6-IQ-RESULT-CONTENT",

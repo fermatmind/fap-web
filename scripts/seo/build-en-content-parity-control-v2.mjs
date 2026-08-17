@@ -118,6 +118,33 @@ function migrateTarget(target, isProducer) {
   };
 }
 
+function retireW5PrivateResultControl(target) {
+  return {
+    ...target,
+    name: "Enneagram public-profile parity",
+    scope: ["Preserve the completed 58/58 public profile cohort without regeneration."],
+    do_not: [
+      "Do not regenerate the completed public cohort.",
+      "Do not create or materialize private-result content; fap-api canonical registry owns that authority.",
+    ],
+    output_directory: "docs/seo/personality/enneagram/",
+    target_asset_types: ["enneagram_public_profile"],
+    counts: {
+      cohort_count: 1,
+      expected_en_assets: 58,
+      current_en_assets: 58,
+      remaining_en_assets: 0,
+      unknown_inventory_cohorts: 0,
+    },
+    source_inventory_refs: ["docs/seo/personality/enneagram/full-content-asset-audit-source-of-truth-2026-07-09.json"],
+    next_action: "No private-result action; preserve the completed public-profile cohort.",
+  };
+}
+
+export function activeV2Assets(assets) {
+  return assets.filter((asset) => !(asset.lane_id === "W5" && asset.asset_type === "enneagram_result_content"));
+}
+
 function readBoundBytes(relativePath, expectedSha256) {
   if (path.isAbsolute(relativePath) || relativePath.split("/").includes("..")) {
     throw new Error(`unsafe_materialization_input_path=${relativePath}`);
@@ -800,7 +827,8 @@ export function applyMaterializationInputs(v2, inputs) {
 export function migrateV1ToV2(v1, v1Sha256, inputs = null, inputsSha256 = null) {
   const lanes = v1.lanes.map((lane) => {
     const isProducer = lane.lane_kind === "producer";
-    const migrated = migrateTarget(lane, isProducer);
+    const migratedBase = migrateTarget(lane, isProducer);
+    const migrated = lane.lane_id === "W5" ? retireW5PrivateResultControl(migratedBase) : migratedBase;
     migrated.subscopes = (lane.subscopes ?? []).map((subscope) => migrateTarget(subscope, isProducer));
     delete migrated.permissions;
     return migrated;
@@ -829,7 +857,7 @@ export function migrateV1ToV2(v1, v1Sha256, inputs = null, inputsSha256 = null) 
       source_control_id: v1.control_id,
       status_mapping: { editorial_approved: "draft_imported" },
       lane_count: lanes.length,
-      asset_count: v1.assets.length,
+      asset_count: activeV2Assets(v1.assets).length,
       blocked_state_preserved: true,
       counts_package_qa_and_lineage_preserved: true,
       human_approval_lineage_mode: "legacy_audit_only_not_transition_evidence",
@@ -882,7 +910,7 @@ export function migrateV1ToV2(v1, v1Sha256, inputs = null, inputsSha256 = null) 
       legacy_master_manifest_patch_candidate_required: false,
     },
     lanes,
-    assets: v1.assets,
+    assets: activeV2Assets(v1.assets),
     guardrails: {
       producer_direct_cms_write_allowed: false,
       trusted_backend_draft_import_allowed: true,

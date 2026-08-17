@@ -2,6 +2,7 @@ import type { EnneagramPublicSummaryPair, ShareSummaryResponse } from "@/lib/api
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import { isEnneagramPrivateSurfaceLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
+import { resolveEnneagramShareAuthority } from "@/lib/enneagram/privateResultAuthority";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 export type EnneagramShareType = {
@@ -37,8 +38,9 @@ export type EnneagramShareViewModel = {
   generatedAt: string | null;
   publicSurfaceVersion: string | null;
   summaryText: string | null;
+  title: string;
   lead: string;
-  methodologyBoundary: string;
+  methodologyBoundary: string | null;
   startTestHref: string;
 };
 
@@ -126,63 +128,16 @@ function normalizePair(value: EnneagramPublicSummaryPair | null | undefined): En
   };
 }
 
-function buildLead(options: {
-  locale: Locale;
-  scope: EnneagramShareViewModel["interpretationScope"];
-  primaryLabel: string;
-  secondaryLabel: string;
-}): string {
-  const { locale, scope, primaryLabel, secondaryLabel } = options;
-
-  if (locale === "zh") {
-    if (scope === "close_call") {
-      return primaryLabel && secondaryLabel
-        ? `这次结果更接近 ${primaryLabel}，但也和 ${secondaryLabel} 保持近邻竞争。`
-        : "这次结果显示出两个近邻候选，需要结合后续阅读谨慎理解。";
-    }
-
-    if (scope === "diffuse") {
-      return "这次结果呈现分散结构，更适合把前三候选当作阅读入口，而不是直接下单一主型判断。";
-    }
-
-    if (scope === "low_quality") {
-      return "这次结果仍可阅读，但解释边界较宽，建议优先关注方法边界和后续观察。";
-    }
-
-    return primaryLabel ? `这次结果当前更接近 ${primaryLabel}。` : "这次结果提供了一个当前更接近的主候选。";
-  }
-
-  if (scope === "close_call") {
-    return primaryLabel && secondaryLabel
-      ? `This result leans toward ${primaryLabel}, while ${secondaryLabel} remains a close neighboring candidate.`
-      : "This result shows two nearby candidates and should be read cautiously.";
-  }
-
-  if (scope === "diffuse") {
-    return "This result is more diffuse, so the Top 3 is a better reading entry than a hard single-type claim.";
-  }
-
-  if (scope === "low_quality") {
-    return "This result is still readable, but the interpretation boundary is wider than usual.";
-  }
-
-  return primaryLabel ? `This result currently leans toward ${primaryLabel}.` : "This result provides a current best-fit candidate.";
-}
-
-function buildMethodologyBoundary(locale: Locale, formLabel: string, methodologyVariant: string): string {
-  if (locale === "zh") {
-    return `${formLabel || "当前题型"}采用 ${methodologyVariant || "当前方法"}。同属 FermatMind 九型模型，不代表和其他题型处于同一分数空间。`;
-  }
-
-  return `${formLabel || "This form"} uses ${methodologyVariant || "its current method"}. It stays within the FermatMind Enneagram model, but it does not imply the same score space as other forms.`;
-}
-
 export function buildEnneagramShareViewModel(
   rawShare: ShareSummaryResponse | null | undefined,
   locale: Locale
 ): EnneagramShareViewModel | null {
   const rawSummary = asRecord(rawShare?.enneagram_public_summary_v1);
-  if (!isEnneagramPrivateSurfaceLocaleCompatible(rawShare, locale) || !isEnneagramPrivateSurfaceLocaleCompatible(rawSummary, locale)) {
+  if (
+    !isEnneagramPrivateSurfaceLocaleCompatible(rawShare, locale) ||
+    !isEnneagramPrivateSurfaceLocaleCompatible(rawSummary, locale) ||
+    resolveEnneagramShareAuthority(rawShare, locale)?.mode !== "canonical"
+  ) {
     return null;
   }
   const scaleCode = normalizeText(rawShare?.scale_code, rawSummary?.scale_code).toUpperCase();
@@ -210,8 +165,9 @@ export function buildEnneagramShareViewModel(
     topTypes[2] ??
     null;
   const closeCallPair = normalizePair(rawSummary.close_call_pair as EnneagramPublicSummaryPair | null | undefined);
-  const primaryLabel = primaryCandidate?.label ?? "";
-  const secondaryLabel = secondCandidate?.label ?? closeCallPair?.typeB?.label ?? "";
+  const title = normalizeText(rawShare?.title);
+  const summaryText = normalizeText(rawSummary.summary_text);
+  if (!title || !summaryText) return null;
 
   return {
     scaleCode,
@@ -233,9 +189,10 @@ export function buildEnneagramShareViewModel(
     crossFormComparable: rawSummary.cross_form_comparable === true,
     generatedAt: normalizeText(rawSummary.generated_at, rawShare?.created_at) || null,
     publicSurfaceVersion: normalizeText(rawSummary.public_surface_version) || null,
-    summaryText: normalizeText(rawSummary.summary_text) || null,
-    lead: buildLead({ locale, scope: interpretationScope, primaryLabel, secondaryLabel }),
-    methodologyBoundary: buildMethodologyBoundary(locale, formLabel ?? "", methodologyVariant ?? ""),
+    summaryText,
+    title,
+    lead: summaryText,
+    methodologyBoundary: normalizeText(rawSummary.methodology_boundary) || null,
     startTestHref: buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, formCode) || localizedPath(`/tests/${SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM}/take`, locale),
   };
 }

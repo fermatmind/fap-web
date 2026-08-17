@@ -1,6 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import EnneagramHistoryClient from "@/app/(localized)/[locale]/(app)/history/enneagram/EnneagramHistoryClient";
+import { bindCanonicalEnneagramHistoryItem } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/history/enneagram",
@@ -32,7 +33,7 @@ describe("enneagram secondary surfaces contract", () => {
       scale_code: "ENNEAGRAM",
       locale: "en",
       items: [
-        {
+        bindCanonicalEnneagramHistoryItem({
           attempt_id: "attempt-enneagram-105",
           locale: "en",
           submitted_at: "2026-04-20T00:00:00Z",
@@ -88,7 +89,7 @@ describe("enneagram secondary surfaces contract", () => {
               history_href: "/en/history/enneagram",
             },
           },
-        },
+        }, "en"),
       ],
       history_compare: {
         current_attempt_id: "attempt-enneagram-105",
@@ -144,7 +145,7 @@ describe("enneagram secondary surfaces contract", () => {
       scale_code: "ENNEAGRAM",
       locale: "en",
       items: [
-        {
+        bindCanonicalEnneagramHistoryItem({
           attempt_id: "attempt-enneagram-144",
           locale: "en",
           submitted_at: "2026-04-20T00:00:00Z",
@@ -183,7 +184,7 @@ describe("enneagram secondary surfaces contract", () => {
               pdf_href: null,
             },
           },
-        },
+        }, "en"),
       ],
       meta: {
         current_page: 1,

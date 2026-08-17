@@ -4,35 +4,6 @@ import type { EnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 
-function resolveHeadline(viewModel: EnneagramShareViewModel, locale: Locale): string {
-  const primary = viewModel.primaryCandidate?.label ?? "";
-  const secondary = viewModel.secondCandidate?.label ?? viewModel.closeCallPair?.typeB?.label ?? "";
-
-  if (locale === "zh") {
-    if (viewModel.interpretationScope === "close_call") {
-      return primary && secondary ? `${primary} / ${secondary}` : "近邻候选";
-    }
-    if (viewModel.interpretationScope === "diffuse") {
-      return "分散结构";
-    }
-    if (viewModel.interpretationScope === "low_quality") {
-      return "解释边界较宽";
-    }
-    return primary || "当前主候选";
-  }
-
-  if (viewModel.interpretationScope === "close_call") {
-    return primary && secondary ? `${primary} / ${secondary}` : "Near-neighbor candidates";
-  }
-  if (viewModel.interpretationScope === "diffuse") {
-    return "Diffuse profile";
-  }
-  if (viewModel.interpretationScope === "low_quality") {
-    return "Wider interpretation boundary";
-  }
-  return primary || "Current leading candidate";
-}
-
 export default function EnneagramShareSummaryCard({
   locale,
   viewModel,
@@ -55,7 +26,7 @@ export default function EnneagramShareSummaryCard({
   const testsHref = localizedPath("/tests", locale);
   const startTestHref = primaryActionHref || viewModel.startTestHref;
   const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test");
-  const headline = resolveHeadline(viewModel, locale);
+  const headline = viewModel.title;
 
   return (
     <main
@@ -100,9 +71,6 @@ export default function EnneagramShareSummaryCard({
                 >
                   {viewModel.lead}
                 </p>
-                {viewModel.summaryText ? (
-                  <p className="m-0 max-w-3xl text-base leading-7 text-slate-700">{viewModel.summaryText}</p>
-                ) : null}
               </div>
             </div>
 
@@ -142,14 +110,16 @@ export default function EnneagramShareSummaryCard({
               </div>
 
               <div className="space-y-4">
-                <div className="rounded-[24px] border border-white/80 bg-white/88 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {locale === "zh" ? "解释边界" : "Interpretation boundary"}
-                  </p>
-                  <p data-testid="enneagram-share-methodology-boundary" className="m-0 mt-2 text-sm leading-7 text-slate-700">
-                    {viewModel.methodologyBoundary}
-                  </p>
-                </div>
+                {viewModel.methodologyBoundary ? (
+                  <div className="rounded-[24px] border border-white/80 bg-white/88 p-4 shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
+                    <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                      {locale === "zh" ? "解释边界" : "Interpretation boundary"}
+                    </p>
+                    <p data-testid="enneagram-share-methodology-boundary" className="m-0 mt-2 text-sm leading-7 text-slate-700">
+                      {viewModel.methodologyBoundary}
+                    </p>
+                  </div>
+                ) : null}
 
                 {viewModel.closeCallPair ? (
                   <div
@@ -161,9 +131,6 @@ export default function EnneagramShareSummaryCard({
                     </p>
                     <p className="m-0 mt-2 text-sm font-semibold text-slate-900">
                       {viewModel.closeCallPair.typeA?.label ?? "--"} / {viewModel.closeCallPair.typeB?.label ?? "--"}
-                    </p>
-                    <p className="m-0 mt-1 text-sm leading-7 text-slate-700">
-                      {locale === "zh" ? "这两个候选可作为继续观察的工作假设。" : "These two candidates are working hypotheses for further reflection."}
                     </p>
                   </div>
                 ) : null}
@@ -188,18 +155,7 @@ export default function EnneagramShareSummaryCard({
             </div>
           </section>
 
-          <section className="space-y-4">
-            <div className="rounded-[24px] border border-white/80 bg-white/88 p-5 text-sm leading-7 text-slate-700 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                {locale === "zh" ? "公开摘要" : "Public-safe summary"}
-              </p>
-              <p className="m-0 mt-3">
-                {locale === "zh"
-                  ? "把它当作动机模式的反思线索，而不是固定身份或最终判断。"
-                  : "Use this as a reflection cue for motivation patterns, not as a fixed identity or final verdict."}
-              </p>
-            </div>
-          </section>
+          <section aria-hidden="true" />
         </div>
       </div>
     </main>

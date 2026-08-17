@@ -1,6 +1,10 @@
 import type { MeAttemptItem, MeAttemptsResponse, OfferPayload } from "@/lib/api/v0_3";
 import { buildEnneagramFormDisplayLabel, normalizeEnneagramFormSummary } from "@/lib/enneagram/formSummary";
 import { isEnneagramPrivateSurfaceLocaleCompatible } from "@/lib/enneagram/privateResultLocale";
+import {
+  parseEnneagramPrivateResultAuthority,
+  type EnneagramPrivateResultAuthorityView,
+} from "@/lib/enneagram/privateResultAuthority";
 import type { Locale } from "@/lib/i18n/locales";
 
 export type EnneagramHistoryTypeSummary = {
@@ -11,6 +15,7 @@ export type EnneagramHistoryTypeSummary = {
 };
 
 export type EnneagramHistoryRowSummary = {
+  authority: EnneagramPrivateResultAuthorityView;
   attemptId: string;
   submittedAt: string;
   formCode: string | null;
@@ -174,7 +179,18 @@ export function normalizeEnneagramHistoryRows(
     const submittedAt = normalizeText(item.submitted_at);
     const formSummary = normalizeEnneagramFormSummary(item.enneagram_form_v1 ?? null);
     const summary = resolveSummaryRecord(item);
-    if (!isEnneagramPrivateSurfaceLocaleCompatible(item, locale) || !isEnneagramPrivateSurfaceLocaleCompatible(summary, locale)) {
+    const authority = parseEnneagramPrivateResultAuthority(item.enneagram_private_result_authority, locale);
+    const snapshotBinding = asRecord(item.enneagram_snapshot_binding_v1);
+    const canonicalBindingMatches = authority?.mode === "canonical" &&
+      normalizeText(snapshotBinding?.canonical_release_id) === authority.releaseId &&
+      normalizeText(snapshotBinding?.canonical_source_hash).toLowerCase() === authority.sourceHash &&
+      normalizeText(snapshotBinding?.canonical_compiled_hash).toLowerCase() === authority.compiledHash;
+    if (
+      !authority ||
+      (authority.mode === "canonical" && !canonicalBindingMatches) ||
+      !isEnneagramPrivateSurfaceLocaleCompatible(item, locale) ||
+      !isEnneagramPrivateSurfaceLocaleCompatible(summary, locale)
+    ) {
       return [];
     }
     const offerSummary = asRecord(item.offer_summary);
@@ -186,6 +202,7 @@ export function normalizeEnneagramHistoryRows(
       normalizeNumber(item.observation_completion_rate) !== null;
 
     return [{
+      authority,
       attemptId,
       submittedAt,
       formCode: formSummary?.formCode ?? null,

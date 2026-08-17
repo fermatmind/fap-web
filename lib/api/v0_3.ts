@@ -265,6 +265,7 @@ export type ResultResponse = {
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   enneagram_public_projection_v2?: Record<string, unknown> | null;
   enneagram_report_v2?: Record<string, unknown> | null;
+  enneagram_private_result_authority?: EnneagramPrivateResultAuthority | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   riasec_public_projection_v2?: Record<string, unknown> | null;
   riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
@@ -278,6 +279,21 @@ export type RiasecPrivateResultAuthority = {
   authority_id?: string;
   mode?: "canonical" | "immutable_legacy_snapshot" | string;
   locale?: string;
+  source_hash?: string;
+  compiled_hash?: string;
+  compiled_schema?: string;
+  compiler_schema?: string;
+  compiler_version?: string;
+  runtime_contract?: string;
+  [key: string]: unknown;
+};
+
+export type EnneagramPrivateResultAuthority = {
+  schema_version?: string;
+  authority_id?: string;
+  mode?: "canonical" | "immutable_legacy_snapshot" | string;
+  locale?: string;
+  release_id?: string;
   source_hash?: string;
   compiled_hash?: string;
   compiled_schema?: string;
@@ -1101,6 +1117,7 @@ export type ReportResponse = {
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   enneagram_public_projection_v2?: Record<string, unknown> | null;
   enneagram_report_v2?: Record<string, unknown> | null;
+  enneagram_private_result_authority?: EnneagramPrivateResultAuthority | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   riasec_public_projection_v2?: Record<string, unknown> | null;
   riasec_private_result_authority?: RiasecPrivateResultAuthority | null;
@@ -1981,6 +1998,11 @@ export type EnneagramPublicSummaryV1 = {
   generated_at?: string | null;
   public_surface_version?: string | null;
   summary_text?: string | null;
+  methodology_boundary?: string | null;
+  canonical_authority_id?: string | null;
+  canonical_release_id?: string | null;
+  canonical_source_hash?: string | null;
+  canonical_compiled_hash?: string | null;
   [key: string]: unknown;
 };
 
@@ -2026,6 +2048,8 @@ export type ShareSummaryResponse = {
   big5_public_projection_v1?: Big5PublicProjection | null;
   big5_private_result_authority?: Big5PrivateResultAuthority | null;
   enneagram_public_summary_v1?: EnneagramPublicSummaryV1 | null;
+  enneagram_private_result_authority?: EnneagramPrivateResultAuthority | null;
+  enneagram_snapshot_binding_v1?: Record<string, unknown> | null;
   enneagram_public_projection_v1?: EnneagramPublicProjection | null;
   riasec_public_projection_v1?: RiasecPublicProjection | null;
   riasec_public_projection_v2?: Record<string, unknown> | null;

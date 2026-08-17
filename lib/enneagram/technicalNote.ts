@@ -1,6 +1,9 @@
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
+const CANONICAL_AUTHORITY_ID = "FERMATMIND_ENNEAGRAM_PRIVATE_RESULT_CANONICAL";
+const HASH_PATTERN = /^[0-9a-f]{64}$/;
+
 export const ENNEAGRAM_TECHNICAL_NOTE_STATUS_LABELS: Record<string, string> = {
   currently_operational: "当前已运行",
   collecting_data: "正在积累数据",
@@ -40,4 +43,23 @@ export function getEnneagramTechnicalNoteStatusLabel(status: string | null | und
 export function getEnneagramTechnicalNoteNotClaimedLabel(key: string | null | undefined): string {
   const normalized = String(key ?? "").trim();
   return ENNEAGRAM_TECHNICAL_NOTE_NOT_CLAIMED_LABELS[normalized] ?? normalized;
+}
+
+export function isCanonicalEnneagramTechnicalNote(value: unknown, locale: Locale): boolean {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const note = value as Record<string, unknown>;
+  const canonicalLocale = locale === "zh" ? "zh-CN" : "en";
+
+  return (
+    note.schema_version === "enneagram.technical_note.v1" &&
+    note.scale_code === "ENNEAGRAM" &&
+    note.canonical_authority_id === CANONICAL_AUTHORITY_ID &&
+    typeof note.canonical_release_id === "string" &&
+    note.canonical_release_id.trim().length > 0 &&
+    typeof note.canonical_source_hash === "string" &&
+    HASH_PATTERN.test(note.canonical_source_hash.toLowerCase()) &&
+    typeof note.canonical_compiled_hash === "string" &&
+    HASH_PATTERN.test(note.canonical_compiled_hash.toLowerCase()) &&
+    note.canonical_locale === canonicalLocale
+  );
 }

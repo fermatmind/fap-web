@@ -1,9 +1,10 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { RichResultReport, canRenderRichResultReport } from "@/components/result/RichResultReport";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import forcedChoice144Fixture from "@/tests/fixtures/enneagram/report_forced_choice_144.projection.json";
 import likert105Fixture from "@/tests/fixtures/enneagram/report_likert_105.projection.json";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/en/result/attempt-enneagram-105",
@@ -14,7 +15,7 @@ function asReport(fixture: unknown): ReportResponse {
 }
 
 function createRestrictedV2Report(): ReportResponse {
-  return {
+  return bindCanonicalEnneagramReport({
     ok: true,
     locale: "en",
     attempt_id: "attempt-enneagram-preview",
@@ -74,6 +75,36 @@ function createRestrictedV2Report(): ReportResponse {
                     body: "Preview-safe Enneagram copy.",
                   },
                 },
+                {
+                  module_key: "top3_cards",
+                  module_code: "enneagram_core",
+                  access_level: "free",
+                  kind: "cards_grid",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "all",
+                  content: {
+                    locale: "en",
+                    cards: [
+                      { type: "1", type_name_en: "Type 1" },
+                      { type: "6", type_name_en: "Type 6" },
+                      { type: "9", type_name_en: "Type 9" },
+                    ],
+                  },
+                },
+                {
+                  module_key: "method_boundary",
+                  module_code: "enneagram_core",
+                  access_level: "free",
+                  kind: "boundary_card",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "e105",
+                  content: {
+                    locale: "en",
+                    methodology_copy: "Canonical E105 method boundary.",
+                  },
+                },
               ],
             },
             {
@@ -103,7 +134,7 @@ function createRestrictedV2Report(): ReportResponse {
         },
       },
     },
-  } as ReportResponse;
+  } as ReportResponse, "en");
 }
 
 describe("enneagram rich result report contract", () => {
@@ -144,16 +175,8 @@ describe("enneagram rich result report contract", () => {
       />
     );
 
-    const shell = screen.getByTestId("enneagram-result-shell");
-    expect(within(shell).getByTestId("enneagram-form-summary")).toHaveTextContent("Enneagram · 105-question Likert");
-    expect(within(shell).queryByTestId("enneagram-primary-type")).not.toBeInTheDocument();
-    expect(within(shell).queryByTestId("enneagram-top-types")).not.toBeInTheDocument();
-    expect(within(shell).queryByTestId("enneagram-type-vector")).not.toBeInTheDocument();
-    expect(within(shell).getByTestId("enneagram-pdf-entry")).toBeInTheDocument();
-    expect(within(shell).getByText("Retake test")).toHaveAttribute(
-      "href",
-      "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105"
-    );
+    expect(screen.getByTestId("enneagram-canonical-payload-unavailable")).toBeInTheDocument();
+    expect(screen.queryByTestId("enneagram-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-result-shell")).not.toBeInTheDocument();
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
   });

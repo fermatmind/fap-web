@@ -20,7 +20,6 @@ import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import { resolveEnneagramTechnicalNoteHref } from "@/lib/enneagram/technicalNote";
-import { localizeEnneagramPresentationText } from "@/lib/enneagram/presentationTerminology";
 import type {
   EnneagramReportV2Module,
   EnneagramReportV2Page,
@@ -105,65 +104,27 @@ function moduleArray(module: EnneagramReportV2Module | null | undefined, key: st
   return Array.isArray(value) ? value.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object")) : [];
 }
 
-function formBadgeCopy(viewModel: EnneagramResultViewModel, locale: Locale): { label: string; body: string } {
+function formBadgeCopy(viewModel: EnneagramResultViewModel): { label: string; body: string } | null {
   const fromModule = viewModel.moduleMap.instant_summary?.content.form_badge;
   if (fromModule && typeof fromModule === "object" && !Array.isArray(fromModule)) {
     return {
-      label: localizeEnneagramPresentationText(safePublicText((fromModule as Record<string, unknown>).label), locale),
-      body: localizeEnneagramPresentationText(safePublicText((fromModule as Record<string, unknown>).body), locale),
+      label: safePublicText((fromModule as Record<string, unknown>).label),
+      body: safePublicText((fromModule as Record<string, unknown>).body),
     };
   }
 
-  if (viewModel.formVariant === "fc144" || viewModel.formCode === "enneagram_forced_choice_144") {
-    return {
-      label: locale === "zh" ? "FC144 二选一迫选版" : "FC144 Two-option Forced-choice Form",
-      body: locale === "zh" ? "同一模型，不同计分空间。" : "Same model, different score space.",
-    };
-  }
-
-  return {
-    label: locale === "zh" ? "E105 五点量表版" : "E105 Five-point Likert Form",
-    body: locale === "zh" ? "同一模型，不同计分空间。" : "Same model, different score space.",
-  };
+  return null;
 }
 
-function stateLead(viewModel: EnneagramResultViewModel, locale: Locale): string {
-  const primary = viewModel.primaryType?.label ?? viewModel.primaryType?.code ?? "";
-  const secondary = moduleText(viewModel.moduleMap.instant_summary, "secondary_candidate");
-
-  switch (viewModel.interpretationScope) {
-    case "close_call":
-      return locale === "zh"
-        ? `你可能在 ${primary || "当前主候选"} 与 ${secondary || "第二候选"} 之间摇摆`
-        : `You may be oscillating between ${primary || "the current lead"} and ${secondary || "the second candidate"}`;
-    case "diffuse":
-      return locale === "zh" ? "这次结果呈现分散结构" : "This result shows a diffuse profile shape";
-    case "low_quality":
-      return locale === "zh" ? "这次结果可以阅读，但解释边界较宽" : "This result is readable, but the interpretation boundary is wider";
-    case "clear":
-    default:
-      return locale === "zh" ? `当前结果更接近 ${primary || "当前主候选"}` : `This result currently leans toward ${primary || "the current lead"}`;
-  }
+function canonicalResultTitle(viewModel: EnneagramResultViewModel): string {
+  return moduleText(viewModel.moduleMap.instant_summary, "title");
 }
 
-function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): string {
-  const recommendation = moduleText(viewModel.moduleMap.form_recommendation, "recommended_first_action");
-  if (recommendation) {
-    return recommendation;
-  }
-
-  const recommendationKey = moduleText(viewModel.moduleMap.form_recommendation, "recommendation_key");
-  if (recommendationKey === "consider_fc144_followup") {
-    return locale === "zh" ? "如果你仍在犹豫，可补做 FC144 作为后续辨析。" : "If you are still uncertain, FC144 is the next follow-up form.";
-  }
-  if (recommendationKey === "observe_before_retake") {
-    return locale === "zh" ? "先观察一周，再决定是否重测。" : "Observe for a week before deciding to retake.";
-  }
-  if (recommendationKey === "retake_same_form_after_quality_check") {
-    return locale === "zh" ? "先检查答题状态，再决定是否重测同一版本。" : "Check response quality first, then decide whether to retake the same form.";
-  }
-
-  return locale === "zh" ? "把这份结果当作当前工作假设来阅读。" : "Use this result as the current working interpretation.";
+function nextActionHint(viewModel: EnneagramResultViewModel): string {
+  return firstSafePublicText(
+    viewModel.moduleMap.form_recommendation?.content.recommended_first_action,
+    viewModel.moduleMap.form_recommendation?.content.recommendation_copy
+  );
 }
 
 function typeRefLabel(value: unknown, locale: Locale): string {
@@ -183,43 +144,15 @@ function typeRefLabel(value: unknown, locale: Locale): string {
     : firstSafePublicText(record.label, record.type_name_en, record.type, record.code);
 }
 
-function observationGuidanceCopy(viewModel: EnneagramResultViewModel, locale: Locale): string {
-  switch (viewModel.interpretationScope) {
-    case "close_call":
-      return locale === "zh"
-        ? "你不需要立刻把自己钉死在一个号码上。接下来 7 天，你要观察的是：你更像第一候选的核心动力，还是第二候选的核心动力。"
-        : "You do not need to force a single type immediately. Over the next 7 days, observe whether your core motive fits Top 1 or Top 2 more closely.";
-    case "diffuse":
-      return locale === "zh"
-        ? "这次结果更适合先观察前三候选与三中心线索，而不是强行认定单一号码。"
-        : "This result is better used to observe Top 3 and center-level cues before forcing a single-number judgement.";
-    case "low_quality":
-      return locale === "zh"
-        ? "这次结果可以阅读，但解释边界较宽。更建议在状态稳定时重测同一题型，而不是立刻换成另一题型。"
-        : "This result is readable, but the interpretation boundary is wider. Retaking the same form in a steadier state is better than switching forms immediately.";
-    case "clear":
-    default:
-      return locale === "zh"
-        ? "你可以用 7 天观察来验证这个主候选在现实中的稳定性。"
-        : "Use a 7-day observation window to verify whether the current lead remains stable in daily life.";
-  }
+function observationGuidanceCopy(viewModel: EnneagramResultViewModel): string {
+  return firstSafePublicText(
+    viewModel.moduleMap.seven_day_observation?.content.guidance,
+    viewModel.moduleMap.seven_day_observation?.content.body
+  );
 }
 
-function observationActionLabel(action: string | null | undefined, locale: Locale): string {
-  switch (action) {
-    case "observe_7_days":
-      return locale === "zh" ? "继续观察" : "Continue observing";
-    case "do_fc144":
-      return locale === "zh" ? "可补做 FC144 二选一迫选版" : "FC144 follow-up is available";
-    case "retest_same_form":
-      return locale === "zh" ? "建议重测同一题型" : "Retake the same form";
-    case "read_top3":
-      return locale === "zh" ? "先阅读前三候选与方法边界" : "Read Top 3 and the method boundary first";
-    case "no_action":
-      return locale === "zh" ? "暂无下一步" : "No immediate next step";
-    default:
-      return locale === "zh" ? "继续观察" : "Continue observing";
-  }
+function observationActionLabel(viewModel: EnneagramResultViewModel): string {
+  return nextActionHint(viewModel);
 }
 
 function isObservationAssigned(state: EnneagramObservationStateV1 | null): boolean {
@@ -437,48 +370,6 @@ function ModuleProvenance({
   return null;
 }
 
-function AssetBackedCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const isZh = locale === "zh";
-  const category = moduleText(module, "category");
-  const body = moduleText(module, "body_zh");
-  const shortBody = moduleText(module, "short_body_zh");
-  const cta = moduleText(module, "cta_zh");
-  const assetKey = moduleText(module, "asset_key");
-  const title = category ? category.replace(/_/g, " ") : localizedModuleTitle(module.moduleKey, locale);
-
-  return (
-    <ModuleCard title={title} testId={`enneagram-asset-backed-${category || module.moduleKey}`}>
-      <div className="space-y-3 [overflow-wrap:anywhere]">
-        {shortBody ? <p className="m-0 text-sm font-semibold text-slate-800">{shortBody}</p> : null}
-        {body ? <p data-testid="enneagram-asset-backed-body" className="m-0 whitespace-pre-wrap text-sm leading-7 text-slate-700">{body}</p> : null}
-        {cta ? (
-          <p data-testid="enneagram-asset-backed-cta" className="m-0 text-sm font-semibold text-[var(--fm-trust-blue)]">
-            {cta}
-          </p>
-        ) : null}
-        {assetKey ? (
-          <p data-testid="enneagram-asset-backed-provenance" className="m-0 text-xs text-slate-500">
-            {assetKey}
-          </p>
-        ) : null}
-        {!body && moduleText(module, "status") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "status")}</p> : null}
-      </div>
-      <ModuleProvenance
-        module={{
-          ...module,
-          provenance: {
-            ...module.provenance,
-            contentMaturity: moduleText(module, "content_maturity") || module.provenance.contentMaturity,
-            evidenceLevel: moduleText(module, "evidence_level") || module.provenance.evidenceLevel,
-          },
-        }}
-        locale={locale}
-        extraHint={isZh ? "preview only" : "preview only"}
-      />
-    </ModuleCard>
-  );
-}
-
 function TypeDeepDiveSummaryRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
   const cards = [
     { key: "core_desire", label: locale === "zh" ? "核心渴望" : "Core desire" },
@@ -584,9 +475,7 @@ function GroupOverlayRenderer({ module, locale }: { module: EnneagramReportV2Mod
             </div>
           ))}
         </div>
-      ) : (
-        <p className="m-0 text-sm text-slate-600">{locale === "zh" ? "当前还没有可展示的分组表达。" : "There is no available group overlay to show yet."}</p>
-      )}
+      ) : null}
       <ListGroupSections module={module} locale={locale} />
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
@@ -658,7 +547,7 @@ function PlaceholderCardRenderer({ module, locale }: { module: EnneagramReportV2
 
   return (
     <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
-      <p className="m-0">{reason || (locale === "zh" ? "当前仍作为占位显示。": "This module is currently a placeholder.")}</p>
+      {reason ? <p className="m-0">{reason}</p> : null}
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
   );
@@ -955,7 +844,7 @@ function ObservationModuleRenderer({
     return (
       <ModuleCard title={isZh ? "7 天观察任务" : "7-day observation"} testId="enneagram-module-seven-day-observation">
         <p data-testid="enneagram-observation-guidance" className="m-0">
-          {observationGuidanceCopy(viewModel, locale)}
+          {observationGuidanceCopy(viewModel)}
         </p>
 
         {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
@@ -1007,11 +896,6 @@ function ObservationModuleRenderer({
                     {task.phase ? ` · ${task.phase}` : ""}
                   </p>
                   {task.prompt ? <p className="m-0 mt-2 text-sm text-slate-700">{task.prompt}</p> : null}
-                  {task.suggested_next_action ? (
-                    <p className="m-0 mt-2 text-xs text-slate-500">
-                      {observationActionLabel(task.suggested_next_action, locale)}
-                    </p>
-                  ) : null}
                 </div>
               ))}
             </div>
@@ -1038,18 +922,7 @@ function ObservationModuleRenderer({
     <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
       {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
       <p data-testid="enneagram-observation-next-action" className="m-0">
-        {observationActionLabel(state?.suggested_next_action ?? moduleText(module, "recommendation_key"), locale)}
-      </p>
-      <p className="m-0 text-sm text-slate-600">
-        {state?.suggested_next_action === "do_fc144"
-          ? isZh
-            ? "如果你想继续辨析，可以补做 FC144 二选一迫选版。"
-            : "If you want a follow-up distinction pass, FC144 is available."
-          : state?.suggested_next_action === "retest_same_form"
-            ? isZh
-              ? "更适合在状态稳定时重测当前题型。"
-              : "A same-form retake is the safer next step in a steadier state."
-            : moduleText(module, "recommended_first_action") || nextActionHint(viewModel, locale)}
+        {observationActionLabel(viewModel)}
       </p>
       <div className="flex flex-wrap gap-2">
         {state?.suggested_next_action === "do_fc144" ? (
@@ -1094,7 +967,7 @@ function renderScoreBars(items: EnneagramTypeRow[]) {
   );
 }
 
-function renderGenericSummary(module: EnneagramReportV2Module, locale: Locale) {
+function renderGenericSummary(module: EnneagramReportV2Module) {
   const title = moduleText(module, "title");
   const body = moduleText(module, "body");
   const typeSummary = moduleText(module, "type_summary");
@@ -1103,9 +976,11 @@ function renderGenericSummary(module: EnneagramReportV2Module, locale: Locale) {
   const reason = moduleText(module, "reason");
   const lines = [body, typeSummary, value].filter(Boolean);
 
+  if (!title || lines.length === 0) return null;
+
   return (
     <ModuleCard
-      title={title || (locale === "zh" ? "模块占位" : "Module placeholder")}
+      title={title}
       testId={`enneagram-module-${module.moduleKey}`}
     >
       {lines.length > 0 ? lines.map((line) => <p key={line} className="m-0">{line}</p>) : null}
@@ -1136,13 +1011,9 @@ function renderModule(
 ): React.ReactNode {
   const isZh = locale === "zh";
 
-  if (module.kind === "asset_backed_card") {
-    return <AssetBackedCardRenderer module={module} locale={locale} />;
-  }
-
   switch (module.moduleKey) {
     case "instant_summary": {
-      const badge = formBadgeCopy(viewModel, locale);
+      const badge = formBadgeCopy(viewModel);
       const topCandidates = moduleArray(module, "top_candidates");
       return (
         <Card
@@ -1154,9 +1025,11 @@ function renderModule(
               <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
                 {isZh ? "九型人格" : "Enneagram"}
               </span>
-              <span data-testid="enneagram-form-badge" className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-                {badge.label}
-              </span>
+              {badge?.label ? (
+                <span data-testid="enneagram-form-badge" className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
+                  {badge.label}
+                </span>
+              ) : null}
               {viewModel.formSummaryLabel ? (
                 <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
                   {viewModel.formSummaryLabel}
@@ -1165,9 +1038,9 @@ function renderModule(
             </div>
 
             <div className="space-y-2">
-              <h2 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{stateLead(viewModel, locale)}</h2>
+              <h2 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{canonicalResultTitle(viewModel)}</h2>
               <p data-testid="enneagram-v2-summary-body" className="m-0 text-base leading-8 text-slate-700">
-                {moduleText(module, "body") || viewModel.summary}
+                {moduleText(module, "body")}
               </p>
               <p className="m-0 text-sm font-medium text-slate-600">
                 {isZh ? "置信" : "Confidence"} · {moduleText(module, "confidence_level") || viewModel.confidenceLabel || "n/a"}
@@ -1188,19 +1061,15 @@ function renderModule(
               <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "解释状态" : "Interpretation state"}</p>
                 <p data-testid="enneagram-v2-interpretation-scope" className="m-0 mt-2 text-sm text-slate-700">
-                  {viewModel.interpretationScope === "diffuse"
-                    ? isZh ? "分散型结果" : "Diffuse result"
-                    : viewModel.interpretationScope === "close_call"
-                      ? isZh ? "接近型结果" : "Close-call result"
-                      : viewModel.interpretationScope === "low_quality"
-                        ? isZh ? "低质量结果" : "Lower-quality result"
-                        : isZh ? "清晰型结果" : "Clear result"}
+                  {moduleText(module, "interpretation_scope")}
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "下一步" : "Next action"}</p>
-                <p className="m-0 mt-2 text-sm text-slate-700">{nextActionHint(viewModel, locale)}</p>
-              </div>
+              {nextActionHint(viewModel) ? (
+                <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "下一步" : "Next action"}</p>
+                  <p className="m-0 mt-2 text-sm text-slate-700">{nextActionHint(viewModel)}</p>
+                </div>
+              ) : null}
             </div>
           </CardContent>
         </Card>
@@ -1275,19 +1144,10 @@ function renderModule(
             <div>
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "结果结构" : "Profile shape"}</p>
               <p className="m-0 mt-1 text-sm text-slate-700">
-                {viewModel.interpretationScope === "diffuse"
-                  ? isZh ? "分散型结果" : "Diffuse result"
-                  : viewModel.interpretationScope === "close_call"
-                    ? isZh ? "接近型结果" : "Close-call result"
-                    : viewModel.interpretationScope === "low_quality"
-                      ? isZh ? "低质量结果" : "Lower-quality result"
-                      : isZh ? "清晰型结果" : "Clear result"}
+                {moduleText(module, "interpretation_scope")}
               </p>
             </div>
           </div>
-          <p className="m-0 text-xs text-slate-500">
-            {isZh ? "仅在当前题型的计分空间内解释，不用于跨题型比较。" : "Interpret within the current form score space only, not across forms."}
-          </p>
         </ModuleCard>
       );
     case "dominance_gap_card":
@@ -1304,14 +1164,8 @@ function renderModule(
           <p className="m-0 text-sm text-slate-700">
             {pairTypeA || "?"} vs {pairTypeB || "?"}
           </p>
-          <p className="m-0 text-sm text-slate-700">
-            {isZh ? "这是两个可继续观察的工作假设，并非最终类型结论。" : "These are working hypotheses to explore, not a final type conclusion."}
-          </p>
           {coreMotivationDifference ? <p className="m-0">{coreMotivationDifference}</p> : null}
           {stressReactionDifference ? <p className="m-0 text-sm text-slate-600">{stressReactionDifference}</p> : null}
-          {!pairEntry ? (
-            <p className="m-0 text-xs text-slate-500">{isZh ? "当前只提供 scaffold 内容。" : "This currently uses scaffold content."}</p>
-          ) : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
@@ -1346,12 +1200,7 @@ function renderModule(
       return <PlaceholderCardRenderer module={module} locale={locale} />;
     case "blind_spot_card":
     case "blind_spot_in_relationship":
-      return (
-        <ModuleCard title={isZh ? "盲点提示" : "Blind spot"} testId={`enneagram-module-${module.moduleKey}`}>
-          <p className="m-0">{isZh ? "当前没有稳定盲点判定。" : "No stable blind-spot judgement is available yet."}</p>
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
+      return null;
     case "center_summary":
     case "stance_summary":
     case "harmonic_summary":
@@ -1364,14 +1213,10 @@ function renderModule(
             {typeRefLabel(module.content.right, locale) || "n/a"}
           </p>
           {moduleText(module, "strength") ? <p className="m-0">{isZh ? "强度" : "Strength"} · {moduleText(module, "strength")}</p> : null}
-          <p className="m-0 text-xs text-slate-500">
-            {moduleText(module, "boundary_copy") ||
-              (isZh ? "这里只是邻位倾向参考，不是正式 wing 判定。" : "This is an adjacent-wing reference, not a formal wing judgement.")}
-          </p>
+          {moduleText(module, "boundary_copy") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "boundary_copy")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
-    case "methodology_boundary_card":
     case "method_boundary": {
       const badge = module.content.form_badge as Record<string, unknown> | undefined;
       const badgeLabel = safePublicText(badge?.label);
@@ -1381,29 +1226,20 @@ function renderModule(
           {moduleText(module, "methodology_copy") ? <p className="m-0">{moduleText(module, "methodology_copy")}</p> : null}
           {moduleText(module, "score_space_boundary") ? <p className="m-0">{moduleText(module, "score_space_boundary")}</p> : null}
           {moduleText(module, "non_diagnostic_boundary") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "non_diagnostic_boundary")}</p> : null}
-          <p className="m-0 text-xs text-slate-500">
-            {isZh ? "同一模型，不同计分空间；跨题型结果不直接可比。" : "Same model, different score spaces; cross-form results are not directly comparable."}
-          </p>
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
     }
     case "diffuse_boundary":
       return (
-        <ModuleCard title={moduleText(module, "title") || (isZh ? "分散边界" : "Diffuse boundary")} testId="enneagram-module-diffuse-boundary">
-          <p className="m-0">{isZh ? "当前结果分布较分散，需要更多观察。" : "This result is diffuse and needs more observation."}</p>
-          <p className="m-0 text-sm text-slate-600">
-            {isZh ? "分布较分散，建议先阅读前三候选与方法边界。" : "The profile is diffuse, so start with Top 3 and the method boundary."}
-          </p>
+        <ModuleCard title={moduleText(module, "title")} testId="enneagram-module-diffuse-boundary">
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
     case "low_quality_boundary":
       return (
-        <ModuleCard title={moduleText(module, "title") || (isZh ? "质量边界" : "Quality boundary")} testId="enneagram-module-low-quality-boundary">
-          <p className="m-0">
-            {isZh ? "当前结果的解释边界较宽，建议结合状态稳定后再阅读或重测。" : "This result has a wider interpretation boundary. Read it with caution or retake in a steadier state."}
-          </p>
+        <ModuleCard title={moduleText(module, "title")} testId="enneagram-module-low-quality-boundary">
+          {moduleText(module, "body") ? <p className="m-0">{moduleText(module, "body")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
@@ -1432,17 +1268,7 @@ function renderModule(
       if (observation) {
         return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
       }
-      return (
-        <ModuleCard
-          title={isZh ? "Day3 / Day7 反馈" : "Day 3 / Day 7 feedback"}
-          testId="enneagram-module-resonance-feedback-placeholder"
-        >
-          <p className="m-0">
-            {isZh ? "当前 observation API 不可用，反馈入口稍后出现。" : "The live observation API is unavailable, so the feedback entry is deferred."}
-          </p>
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
+      return null;
     case "sample_report_link":
       return <SampleReportRenderer module={module} locale={locale} />;
     case "technical_note_link": {
@@ -1484,22 +1310,16 @@ function renderModule(
       }
       return (
         <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
-          <p className="m-0">{observationActionLabel(moduleText(module, "recommendation_key") || "no_action", locale)}</p>
+          <p className="m-0">{nextActionHint(viewModel)}</p>
           {moduleText(module, "recommended_first_action") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "recommended_first_action")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
       );
     default:
       if (module.kind === "cards_grid" || module.kind === "profile_chart" || module.kind === "summary_card" || module.kind === "metrics_card") {
-        return renderGenericSummary(module, locale);
+        return renderGenericSummary(module);
       }
-      return (
-        <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId={`enneagram-module-${module.moduleKey}`}>
-          <p className="m-0">
-            {isZh ? "当前模块使用通用渲染。" : "This module is using the generic renderer."}
-          </p>
-        </ModuleCard>
-      );
+      return null;
   }
 }
 
@@ -1798,6 +1618,14 @@ export function EnneagramResultShell({
     : null;
 
   if (!reportV2 || reportV2.pages.length === 0) {
+    if (viewModel.authority?.mode !== "immutable_legacy_snapshot") {
+      return (
+        <Alert data-testid="enneagram-canonical-payload-unavailable">
+          {isZh ? "结果内容暂不可用，请稍后重试。" : "Result content is temporarily unavailable. Please try again later."}
+        </Alert>
+      );
+    }
+
     return (
       <LegacyEnneagramResultShell
         locale={locale}
@@ -1815,6 +1643,9 @@ export function EnneagramResultShell({
       data-domain-id="self_understanding"
       data-domain-role="supporting"
       data-domain-envelope-state="metadata_only"
+      data-enneagram-source-hash={viewModel.sourceHash ?? undefined}
+      data-enneagram-compiled-hash={viewModel.compiledHash ?? undefined}
+      data-enneagram-release-id={viewModel.authority?.releaseId || undefined}
       className="space-y-8"
     >
       <SelfUnderstandingDomainBadge locale={locale} />

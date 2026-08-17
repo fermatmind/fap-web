@@ -3,6 +3,7 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import forcedChoice144Fixture from "@/tests/fixtures/enneagram/report_forced_choice_144.projection.json";
 import likert105Fixture from "@/tests/fixtures/enneagram/report_likert_105.projection.json";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 function asReport(fixture: unknown): ReportResponse {
   return structuredClone(fixture) as ReportResponse;
@@ -332,7 +333,7 @@ function createV2ReportResponse({
             fallback_policy: "required",
           },
           {
-            module_key: "methodology_boundary_card",
+            module_key: "method_boundary",
             kind: "boundary_card",
             visibility: "visible",
             state: scope,
@@ -730,7 +731,7 @@ function createV2ReportResponse({
     }
   }
 
-  return {
+  return bindCanonicalEnneagramReport({
     ok: true,
     locale: "en",
     attempt_id: "attempt-v2",
@@ -802,10 +803,44 @@ function createV2ReportResponse({
       ],
       _meta: includeTopLevel ? {} : { enneagram_report_v2: reportV2 },
     },
-  } as ReportResponse;
+  } as ReportResponse, "en");
 }
 
 describe("enneagram result assembler contract", () => {
+  it("fails closed when canonical authority is missing or its source hash mismatches", () => {
+    const missing = createV2ReportResponse();
+    delete missing.enneagram_private_result_authority;
+    if (missing.report?._meta) {
+      delete (missing.report._meta as Record<string, unknown>).enneagram_private_result_authority;
+    }
+    expect(hasEnneagramProjection(missing, "en")).toBe(false);
+    expect(assembleEnneagramResultViewModel({ reportData: missing, locale: "en", gate: { isFreeVariant: false } }).reportV2).toBeNull();
+
+    const mismatched = createV2ReportResponse();
+    const authority = mismatched.enneagram_private_result_authority as Record<string, unknown>;
+    authority.source_hash = "c".repeat(64);
+    expect(hasEnneagramProjection(mismatched, "en")).toBe(false);
+    expect(assembleEnneagramResultViewModel({ reportData: mismatched, locale: "en", gate: { isFreeVariant: false } }).reportV2).toBeNull();
+  });
+
+  it("preserves only an explicitly marked immutable legacy snapshot", () => {
+    const reportData = asReport(likert105Fixture);
+    reportData.enneagram_private_result_authority = {
+      schema_version: "fap.enneagram.private_result_authority.v1",
+      authority_id: "",
+      mode: "immutable_legacy_snapshot",
+      locale: "en",
+      release_id: "",
+      source_hash: "",
+      compiled_hash: "",
+    };
+
+    const assembled = assembleEnneagramResultViewModel({ reportData, locale: "en", gate: { isFreeVariant: false } });
+    expect(assembled.authority?.mode).toBe("immutable_legacy_snapshot");
+    expect(assembled.reportV2).toBeNull();
+    expect(assembled.visibleSections.length + assembled.lockedSections.length).toBeGreaterThan(0);
+  });
+
   it("parses top-level enneagram_report_v2 and prefers it over legacy derivation", () => {
     const reportData = createV2ReportResponse();
     const assembled = assembleEnneagramResultViewModel({
@@ -826,7 +861,7 @@ describe("enneagram result assembler contract", () => {
     expect(assembled.moduleMap.instant_summary.formVariant).toBe("all");
   });
 
-  it("canonicalizes historical method boundaries and renders exactly one localized boundary", () => {
+  it("fails closed instead of translating or normalizing a cross-locale method boundary", () => {
     const reportData = createV2ReportResponse();
     reportData.locale = "zh";
     const raw = reportData.enneagram_report_v2 as unknown as { locale: string; pages: Array<{ modules: Array<Record<string, unknown>> }> };
@@ -834,31 +869,24 @@ describe("enneagram result assembler contract", () => {
     raw.pages.forEach((page) => page.modules.forEach((module) => {
       (module.content as Record<string, unknown>).locale = "zh";
     }));
-    const legacyBoundary = raw.pages[0].modules.find((module) => module.module_key === "methodology_boundary_card");
-    expect(legacyBoundary).toBeDefined();
-    raw.pages[4].modules.push({
-      ...legacyBoundary,
-      module_key: "method_boundary",
-      content: {
+    const methodBoundary = raw.pages[0].modules.find((module) => module.module_key === "method_boundary");
+    expect(methodBoundary).toBeDefined();
+    if (methodBoundary) {
+      methodBoundary.content = {
         locale: "zh",
         form_badge: { label: "E105 标准版" },
         methodology_copy: "Technical Note：Top3 仅在当前 form 的 score space 内解释。",
-      },
-    });
+      };
+    }
 
     const assembled = assembleEnneagramResultViewModel({
       reportData,
       locale: "zh",
       gate: { isFreeVariant: false },
     });
-    const boundaryModules = assembled.pages.flatMap((page) => page.modules).filter((module) => module.moduleKey === "method_boundary");
-
-    expect(boundaryModules).toHaveLength(1);
-    expect(assembled.moduleMap.methodology_boundary_card).toBeUndefined();
-    expect(assembled.moduleMap.method_boundary.content).toMatchObject({
-      form_badge: { label: "E105 五点量表版" },
-      methodology_copy: "技术说明：前三候选 仅在当前题型的计分空间 内解释。",
-    });
+    expect(assembled.reportV2).toBeNull();
+    expect(assembled.pages).toEqual([]);
+    expect(assembled.moduleMap).toEqual({});
   });
 
   it("filters V2 paid report modules for restricted Enneagram access while preserving preview-safe modules", () => {

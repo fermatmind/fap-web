@@ -3,6 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
 import type { ShareSummaryResponse } from "@/lib/api/v0_3";
 import { buildEnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
+import { bindCanonicalEnneagramShare } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/share/share-enneagram-123",
@@ -80,7 +81,7 @@ function expectNoForbiddenPublicBoundaryFields(value: unknown): void {
 }
 
 function createFixture(scope: "clear" | "close_call" | "diffuse" | "low_quality"): ShareSummaryResponse {
-  return {
+  return bindCanonicalEnneagramShare({
     ok: true,
     share_id: "share-enneagram-123",
     id: "share-enneagram-123",
@@ -139,6 +140,7 @@ function createFixture(scope: "clear" | "close_call" | "diffuse" | "low_quality"
       generated_at: "2026-04-25T00:00:00Z",
       public_surface_version: "enneagram_public_summary.v1",
       summary_text: "Public-safe summary text from the backend contract.",
+      methodology_boundary: "Canonical method boundary from the backend contract.",
     },
     public_surface_v1: {
       entry_surface: "enneagram_share_entry",
@@ -147,7 +149,7 @@ function createFixture(scope: "clear" | "close_call" | "diffuse" | "low_quality"
       discoverability_keys: ["public_safe_summary"],
       continue_reading_keys: ["share_take_flow"],
     },
-  };
+  }, "en");
 }
 
 describe("enneagram share surface contract", () => {
@@ -156,6 +158,18 @@ describe("enneagram share surface contract", () => {
     hoisted.pathname = "/en/share/share-enneagram-123";
     hoisted.search = "";
     hoisted.trackShareClick.mockResolvedValue({ id: "share-click-1" });
+  });
+
+  it("fails closed when share authority is missing or hash-bound content mismatches", () => {
+    const missing = createFixture("clear");
+    delete missing.enneagram_private_result_authority;
+    expect(buildEnneagramShareViewModel(missing, "en")).toBeNull();
+
+    const mismatched = createFixture("clear");
+    if (mismatched.enneagram_public_summary_v1) {
+      mismatched.enneagram_public_summary_v1.canonical_source_hash = "c".repeat(64);
+    }
+    expect(buildEnneagramShareViewModel(mismatched, "en")).toBeNull();
   });
 
   it("chooses the Enneagram share surface instead of MBTI fallback", async () => {
@@ -201,8 +215,9 @@ describe("enneagram share surface contract", () => {
 
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
 
-    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Type 1");
-    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("currently leans toward Type 1");
+    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Canonical clear title");
+    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Public-safe summary text from the backend contract.");
+    expect(screen.getByTestId("enneagram-share-methodology-boundary")).toHaveTextContent("Canonical method boundary from the backend contract.");
   });
 
   it("does not render private identifiers, scores, or internal metadata", async () => {
@@ -265,24 +280,24 @@ describe("enneagram share surface contract", () => {
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
 
     expect(await screen.findByTestId("enneagram-share-close-call")).toHaveTextContent("Type 1 / Type 5");
-    expect(screen.getByTestId("enneagram-share-close-call")).toHaveTextContent("working hypotheses");
+    expect(screen.getByTestId("enneagram-share-close-call")).not.toHaveTextContent("working hypotheses");
     expect(screen.getByTestId("enneagram-share-close-call")).not.toHaveTextContent("Top 1 and Top 2 remain close.");
-    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Type 5 remains a close neighboring candidate");
+    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Public-safe summary text from the backend contract.");
   });
 
   it("renders diffuse boundary wording without hard single-type claims", async () => {
     hoisted.getShareSummary.mockResolvedValue(createFixture("diffuse"));
 
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
-    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Diffuse profile");
-    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Top 3 is a better reading entry");
+    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Canonical diffuse title");
+    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Public-safe summary text from the backend contract.");
   });
 
   it("renders low-quality boundary wording", async () => {
     hoisted.getShareSummary.mockResolvedValue(createFixture("low_quality"));
 
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
-    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Wider interpretation boundary");
-    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("interpretation boundary is wider");
+    expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Canonical low_quality title");
+    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("Public-safe summary text from the backend contract.");
   });
 });

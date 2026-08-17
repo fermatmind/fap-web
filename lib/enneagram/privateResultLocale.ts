@@ -1,4 +1,6 @@
 import type { Locale } from "@/lib/i18n/locales";
+import { resolveEnneagramPrivateResultAuthority } from "@/lib/enneagram/privateResultAuthority";
+import type { ReportResponse } from "@/lib/api/v0_3";
 
 const CJK_PATTERN = /[\u3400-\u9fff\uf900-\ufaff]/u;
 
@@ -106,5 +108,8 @@ export function isEnneagramPrivateResultContractInvalid(reportData: unknown, loc
   if (!report || resolvePrivateResultScaleCode(report) !== "ENNEAGRAM") return false;
   if (isExplicitlyGenerating(report)) return false;
 
-  return !isEnneagramPrivateResultLocaleCompatible(report, locale);
+  const authority = resolveEnneagramPrivateResultAuthority(reportData as ReportResponse, locale);
+  if (authority?.mode === "immutable_legacy_snapshot") return false;
+
+  return authority?.mode !== "canonical" || !isEnneagramPrivateResultLocaleCompatible(report, locale);
 }
