@@ -4,6 +4,10 @@ import EnneagramHistoryClient from "@/app/(localized)/[locale]/(app)/history/enn
 import { EnneagramResultShell } from "@/components/result/enneagram/EnneagramResultShell";
 import { assembleEnneagramResultViewModel } from "@/lib/enneagram/resultAssembler";
 import type { ReportResponse } from "@/lib/api/v0_3";
+import {
+  bindCanonicalEnneagramHistoryItem,
+  bindCanonicalEnneagramReport,
+} from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/zh/history/enneagram",
@@ -75,7 +79,7 @@ function createObservationState(overrides: Record<string, unknown> = {}) {
 
 function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "low_quality" = "close_call"): ReportResponse {
   const reportV2 = {
-    locale: "zh",
+    locale: "zh-CN",
     schema_version: "enneagram.report.v2",
     scale_code: "ENNEAGRAM",
     form: {
@@ -136,6 +140,52 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
             },
             fallback_policy: "required",
           },
+          {
+            module_key: "top3_cards",
+            kind: "cards_grid",
+            visibility: "visible",
+            state: scope,
+            form_variant: "all",
+            content: {
+              locale: "zh-CN",
+              cards: [
+                { type: "1", type_name_cn: "类型 1" },
+                { type: "6", type_name_cn: "类型 6" },
+                { type: "9", type_name_cn: "类型 9" },
+              ],
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
+          {
+            module_key: "method_boundary",
+            kind: "boundary_card",
+            visibility: "visible",
+            state: scope,
+            form_variant: "e105",
+            content: {
+              locale: "zh-CN",
+              methodology_copy: "Canonical E105 method boundary.",
+            },
+            data_refs: [],
+            registry_refs: [],
+            provenance: {
+              projection_refs: [],
+              registry_refs: [],
+              policy_refs: [],
+              content_maturity: "scaffold",
+              evidence_level: "descriptive",
+            },
+            fallback_policy: "required",
+          },
         ],
       },
       {
@@ -153,6 +203,7 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
             form_variant: "all",
             content: {
               interpretation_scope: scope,
+              guidance: scope === "diffuse" ? "先观察前三候选。" : scope === "low_quality" ? "请重测同一题型。" : "先观察第一候选。",
               steps: [
                 { day: 1, phase: "motivation", prompt: "Observe the recurring motive." },
                 { day: 7, phase: "resonance", prompt: "Review which candidate still resonates." },
@@ -177,7 +228,7 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
             form_variant: "e105",
             content: {
               recommendation_key: "stay_with_current_form",
-              recommended_first_action: "next action hint",
+              recommended_first_action: "继续观察",
             },
             data_refs: [],
             registry_refs: [],
@@ -211,13 +262,13 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
   for (const page of reportV2.pages) {
     for (const reportModule of page.modules) {
       const mutableModule = reportModule as { content: Record<string, unknown> };
-      mutableModule.content = { ...mutableModule.content, locale: "zh" };
+      mutableModule.content = { ...mutableModule.content, locale: "zh-CN" };
     }
   }
 
-  return {
+  return bindCanonicalEnneagramReport({
     ok: true,
-    locale: "zh",
+    locale: "zh-CN",
     attempt_id: "attempt-observation-1",
     scale_code: "ENNEAGRAM",
     locked: false,
@@ -239,7 +290,7 @@ function createObservationReport(scope: "clear" | "close_call" | "diffuse" | "lo
         enneagram_report_v2: reportV2,
       },
     },
-  } as ReportResponse;
+  } as ReportResponse, "zh-CN");
 }
 
 function renderObservationShell(scope: "clear" | "close_call" | "diffuse" | "low_quality" = "close_call") {
@@ -309,9 +360,9 @@ describe("enneagram observation surface contract", () => {
       scale_code: "ENNEAGRAM",
       locale: "zh",
       items: [
-        {
+        bindCanonicalEnneagramHistoryItem({
           attempt_id: "attempt-observation-1",
-          locale: "zh",
+          locale: "zh-CN",
           submitted_at: "2026-04-25T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_likert_105",
@@ -322,7 +373,7 @@ describe("enneagram observation surface contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
-            locale: "zh",
+            locale: "zh-CN",
             primary_type: { code: "T1", label: "Type 1", score: 88, rank: 1 },
             top_types: [{ code: "T1", label: "Type 1", score: 88, rank: 1 }],
           },
@@ -350,7 +401,7 @@ describe("enneagram observation surface contract", () => {
               pdf_href: "/api/v0.3/attempts/attempt-observation-1/report.pdf",
             },
           },
-        },
+        }, "zh-CN"),
       ],
       meta: {
         current_page: 1,
@@ -482,9 +533,9 @@ describe("enneagram observation surface contract", () => {
       scale_code: "ENNEAGRAM",
       locale: "zh",
       items: [
-        {
+        bindCanonicalEnneagramHistoryItem({
           attempt_id: "attempt-observation-2",
-          locale: "zh",
+          locale: "zh-CN",
           submitted_at: "2026-04-25T00:00:00Z",
           enneagram_form_v1: {
             form_code: "enneagram_likert_105",
@@ -495,7 +546,7 @@ describe("enneagram observation surface contract", () => {
             scale_code: "ENNEAGRAM",
           },
           enneagram_summary_v1: {
-            locale: "zh",
+            locale: "zh-CN",
             primary_type: { code: "T1", label: "Type 1", score: 88, rank: 1 },
             top_types: [{ code: "T1", label: "Type 1", score: 88, rank: 1 }],
           },
@@ -508,7 +559,7 @@ describe("enneagram observation surface contract", () => {
               pdf_href: "/api/v0.3/attempts/attempt-observation-2/report.pdf",
             },
           },
-        },
+        }, "zh-CN"),
       ],
       meta: {
         current_page: 1,

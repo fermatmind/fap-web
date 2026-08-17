@@ -13,6 +13,7 @@ import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 type ChildrenProps = {
   children?: ReactNode;
@@ -256,7 +257,7 @@ function createAccessProjection(overrides: Partial<Record<string, unknown>> = {}
 }
 
 function createEnneagramReport(overrides: Partial<ReportResponse> = {}): ReportResponse {
-  return {
+  const report = bindCanonicalEnneagramReport({
     ok: true,
     attempt_id: "attempt-123",
     scale_code: "ENNEAGRAM",
@@ -264,6 +265,21 @@ function createEnneagramReport(overrides: Partial<ReportResponse> = {}): ReportR
     locale: "en",
     enneagram_report_v2: {
       locale: "en",
+      schema_version: "enneagram.report.v2",
+      scale_code: "ENNEAGRAM",
+      form: {
+        form_code: "enneagram_likert_105",
+        form_kind: "likert",
+        methodology_variant: "e105_standard",
+      },
+      registry: {
+        registry_version: "enneagram_registry.v1",
+      },
+      classification: {
+        interpretation_scope: "clear",
+        confidence_level: "high_confidence",
+        interpretation_reason: "fixture",
+      },
       pages: [
         {
           page_key: "page_1_result_overview",
@@ -272,12 +288,29 @@ function createEnneagramReport(overrides: Partial<ReportResponse> = {}): ReportR
               module_key: "instant_summary",
               content: { locale: "en", title: "Result overview", body: "A bounded working interpretation." },
             },
+            {
+              module_key: "top3_cards",
+              content: {
+                locale: "en",
+                cards: [
+                  { type: "1", type_name_en: "Type 1" },
+                  { type: "6", type_name_en: "Type 6" },
+                  { type: "9", type_name_en: "Type 9" },
+                ],
+              },
+            },
+            {
+              module_key: "method_boundary",
+              form_variant: "e105",
+              content: { locale: "en", methodology_copy: "Canonical E105 method boundary." },
+            },
           ],
         },
       ],
     },
-    ...overrides,
-  } as ReportResponse;
+  } as ReportResponse);
+
+  return Object.assign(report, overrides);
 }
 
 function createRiasecSnapshotReport(): ReportResponse {
