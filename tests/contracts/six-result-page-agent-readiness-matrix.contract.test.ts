@@ -13,7 +13,6 @@ const SOURCE_PROPOSAL_PATHS = [
   "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
   "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
   "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json",
-  "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json",
   "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
 ];
 
@@ -116,6 +115,10 @@ describe("six-scale result-page agent readiness matrix", () => {
       expect(matrixScale.current_readiness).toBe(proposal.current_readiness);
       expect(JSON.stringify(matrixScale.source_artifacts)).toContain(sourcePath);
     }
+
+    expect(SOURCE_PROPOSAL_PATHS).not.toContain(
+      "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json"
+    );
   });
 
   it("uses only the approved readiness verdict vocabulary and keeps holds explicit", () => {
