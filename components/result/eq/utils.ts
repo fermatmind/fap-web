@@ -270,6 +270,7 @@ export function resolveEqV5Authority(
     binding.canonical_release_id !== releaseId || binding.canonical_source_hash !== sourceHash ||
     binding.canonical_compiled_hash !== compiledHash || !HASH_PATTERN.test(text(binding.canonical_payload_sha256)) ||
     binding.locale !== expectedLocale || binding.pack_version !== authority.pack_version ||
+    !text(payload.methodology?.content_version).endsWith(`/${text(authority.pack_version)}`) ||
     !hasRequiredEditorialAssets(payload)) {
     return null;
   }

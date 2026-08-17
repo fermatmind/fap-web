@@ -109,6 +109,7 @@ describe("EQ v5 pure renderer contract", () => {
     ["bad source hash", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).eq60_private_result_authority as Record<string, unknown>).source_hash = "bad"; }],
     ["mismatched compiled hash", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).snapshot_binding_v1 as Record<string, unknown>).canonical_compiled_hash = "d".repeat(64); }],
     ["incompatible schema", (report: Record<string, unknown>) => { report.schema_version = "eq_60.report.v1"; }],
+    ["mismatched pack version", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).eq60_private_result_authority as Record<string, unknown>).pack_version = "v2"; }],
     ["missing backend hero copy", (report: Record<string, unknown>) => { ((report.assets as Record<string, unknown>).personalization_route as Record<string, unknown>).route_headline = ""; }],
   ])("fails closed for %s without compatibility prose", (_label, mutate) => {
     const reportData = structuredClone(standardResponse());
