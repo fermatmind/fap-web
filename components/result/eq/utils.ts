@@ -15,12 +15,14 @@ import type {
   EqMechanismAsset,
   EqPsychometricEvidenceAsset,
   EqQualityConfidenceAsset,
+  EqPrivateResultAuthority,
   EqRealitySceneAsset,
   EqResultPageDepthModuleAsset,
   EqResultSnapshotAsset,
   EqScientificContractAsset,
   EqScoreSystemAsset,
   EqSjtBridgeAsset,
+  EqSnapshotBinding,
   EqV5DimensionScore,
   EqV5ReportPayload,
   EqV5ResolvedAssets,
@@ -31,6 +33,9 @@ import type {
 import type { Locale } from "@/lib/i18n/locales";
 
 const EQ_DIMENSION_ORDER = ["SA", "ER", "EM", "RM"] as const;
+const HASH_PATTERN = /^[a-f0-9]{64}$/;
+const RELEASE_ID_PATTERN = /^[a-f0-9]{8}-[a-f0-9]{4}-[1-5][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
+const AUTHORITY_ID = "FERMATMIND_EQ_60_BILINGUAL_CANONICAL";
 
 export function asRecord(value: unknown): Record<string, unknown> | null {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
@@ -206,6 +211,75 @@ export function isEqV5ReportResponse(reportData: ReportResponse | null | undefin
   return resolveEqV5Payload(reportData) !== null;
 }
 
+function requiredText(record: Record<string, unknown> | null, key: string): boolean {
+  return text(record?.[key]).length > 0;
+}
+
+function hasRequiredEditorialAssets(payload: EqV5ReportPayload): boolean {
+  const assets = asRecord(payload.assets);
+  const snapshot = asRecord(assets?.result_snapshot);
+  const route = asRecord(assets?.personalization_route);
+  const quality = asRecord(assets?.quality_confidence);
+  const science = asRecord(assets?.scientific_contract);
+  const formulation = asRecord(assets?.core_formulation);
+  const action = asRecord(assets?.action_prescription);
+  const lowConfidence = text(payload.interpretation?.core_formulation_id) === "low_confidence_result";
+  const requiredSnapshot = ["headline", "core_judgment", "evidence_point", "minimal_action", "share_safe_sentence", "do_not_overread"];
+  const requiredScience = ["test_definition", "self_report_statement", "non_clinical_statement", "non_hiring_statement", "non_ability_statement", "norm_status_statement", "quality_rules_statement", "version_statement"];
+
+  if (!assets || !requiredSnapshot.every((key) => requiredText(snapshot, key))) return false;
+  if (!["route_headline", "why_this_feels_specific", "evidence_snapshot_label", "next_best_action", "save_reason"].every((key) => requiredText(route, key))) return false;
+  if (!["label", "body", "why_this_level", "how_to_read", "do_not_overread"].every((key) => requiredText(quality, key))) return false;
+  if (!requiredScience.every((key) => requiredText(science, key))) return false;
+  if (!["title", "one_liner", "core_claim", "development_lever", "do_not_overread"].every((key) => requiredText(formulation, key))) return false;
+  if (!["id", "title", "why_this_matters", "do_today"].every((key) => requiredText(action, key))) return false;
+  if (!requiredText(asRecord(payload.methodology), "scoring_version") || !requiredText(asRecord(payload.methodology), "content_version")) return false;
+
+  if (lowConfidence) return true;
+
+  return normalizeDimensions(payload).length === EQ_DIMENSION_ORDER.length &&
+    normalizeAssetArray<EqMechanismAsset>(assets.mechanisms).length > 0 &&
+    normalizeAssetArray<EqRealitySceneAsset>(assets.reality_scenes).length > 0 &&
+    normalizeAssetArray<EqCareerEnvironmentAsset>(assets.career_environment).length > 0;
+}
+
+export function resolveEqV5Authority(
+  reportData: ReportResponse | null | undefined,
+  locale: Locale
+): { authority: EqPrivateResultAuthority; snapshotBinding: EqSnapshotBinding } | null {
+  const payload = resolveEqV5Payload(reportData);
+  if (!payload || payload.schema_version !== "eq_60.report.v2") return null;
+
+  const meta = asRecord(payload._meta);
+  const authority = asRecord(meta?.eq60_private_result_authority);
+  const binding = asRecord(meta?.snapshot_binding_v1);
+  const expectedLocale = locale === "zh" ? "zh-CN" : "en";
+  const releaseId = text(authority?.release_id);
+  const sourceHash = text(authority?.source_hash);
+  const compiledHash = text(authority?.compiled_hash);
+
+  if (!authority || !binding ||
+    authority.schema_version !== "fap.eq60.private_result_authority.v1" ||
+    authority.authority_id !== AUTHORITY_ID || authority.mode !== "canonical_active_release" ||
+    authority.pack_id !== "EQ_60" || text(authority.pack_version) === "" ||
+    authority.locale !== expectedLocale || payload.locale !== expectedLocale ||
+    !Array.isArray(authority.locales) || authority.locales.join("|") !== "zh-CN|en" ||
+    !RELEASE_ID_PATTERN.test(releaseId) || !HASH_PATTERN.test(sourceHash) || !HASH_PATTERN.test(compiledHash) ||
+    binding.schema_version !== "fap.eq60.snapshot_binding.v1" ||
+    binding.canonical_authority_identity !== AUTHORITY_ID ||
+    binding.canonical_release_id !== releaseId || binding.canonical_source_hash !== sourceHash ||
+    binding.canonical_compiled_hash !== compiledHash || !HASH_PATTERN.test(text(binding.canonical_payload_sha256)) ||
+    binding.locale !== expectedLocale || binding.pack_version !== authority.pack_version ||
+    !hasRequiredEditorialAssets(payload)) {
+    return null;
+  }
+
+  return {
+    authority: authority as unknown as EqPrivateResultAuthority,
+    snapshotBinding: binding as unknown as EqSnapshotBinding,
+  };
+}
+
 function hasOfferPayload(value: unknown): boolean {
   if (Array.isArray(value)) {
     return value.length > 0;
@@ -252,7 +326,8 @@ export function isEqV5AccessRestricted(reportData: ReportResponse | null | undef
 
 export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale): EqV5ViewModel | null {
   const payload = resolveEqV5Payload(reportData);
-  if (!payload) return null;
+  const canonical = resolveEqV5Authority(reportData, locale);
+  if (!payload || !canonical) return null;
 
   const assets = normalizeAssetObject<EqV5ResolvedAssets>(payload.assets);
   const refs = assetRefs(payload);
@@ -287,11 +362,13 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
     locale,
     payload,
     lockedAnomaly: isEqV5AccessRestricted(reportData),
+    authority: canonical.authority,
+    snapshotBinding: canonical.snapshotBinding,
     globalScore: normalizeDimensionScore(payload.scores?.global) ?? null,
     dimensions: normalizeDimensions(payload),
     quality: {
-      level: text(payload.quality?.level) || "unknown",
-      confidence_label: text(payload.quality?.confidence_label) || text(assets.quality?.confidence_label) || "unknown",
+      level: text(payload.quality?.level),
+      confidence_label: text(payload.quality?.confidence_label) || text(assets.quality?.confidence_label),
       flags: stringArray(payload.quality?.flags),
       explanation_asset_id: text(payload.quality?.explanation_asset_id) || text(assets.quality?.explanation_asset_id),
     },

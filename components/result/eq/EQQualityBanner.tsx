@@ -1,6 +1,6 @@
 import { Info } from "lucide-react";
 import type { EqV5ViewModel } from "./types";
-import { localizeEqQualityFlag, localizeEqTechnicalValue } from "./localization";
+import { localizeEqTechnicalValue } from "./localization";
 
 export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { quality, assets, locale } = viewModel;
@@ -35,13 +35,14 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
             {confidence.how_to_read}
           </p>
         ) : null}
+        {confidence.retest_note ? <p className="leading-6">{confidence.retest_note}</p> : null}
         {assets.scientific_contract.quality_rules_statement ? (
           <p className="leading-6">{assets.scientific_contract.quality_rules_statement}</p>
         ) : null}
         {flags.length > 0 ? (
           <ul className="list-inside list-disc">
             {flags.map((flag) => (
-              <li key={flag}>{localizeEqQualityFlag(flag, locale)}</li>
+              <li key={flag} className="font-mono text-xs">{flag}</li>
             ))}
           </ul>
         ) : null}

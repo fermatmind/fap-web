@@ -7,8 +7,7 @@ export function EQMechanismCard({ viewModel }: { viewModel: EqV5ViewModel }) {
   return (
     <section data-testid="eq-mechanism-section" className="space-y-4">
       <SectionHeading title={viewModel.locale === "zh" ? "模式机制" : "Pattern Mechanism"} />
-      {mechanisms.length > 0 ? (
-        <div className="grid gap-3 lg:grid-cols-2">
+      <div className="grid gap-3 lg:grid-cols-2">
           {mechanisms.map((item) => (
             <article key={item.id ?? item.title} data-testid="eq-mechanism-card" className="rounded-[8px] border border-slate-200 bg-white p-4">
               <h3 className="text-lg font-semibold text-slate-950">{item.title || item.id}</h3>
@@ -19,12 +18,7 @@ export function EQMechanismCard({ viewModel }: { viewModel: EqV5ViewModel }) {
               <Stacked label={viewModel.locale === "zh" ? "微行动" : "Micro action"} value={item.micro_action} />
             </article>
           ))}
-        </div>
-      ) : (
-        <p className="rounded-[8px] border border-slate-200 bg-white p-4 text-sm text-slate-500">
-          {viewModel.locale === "zh" ? "本次没有足够信号展示组合机制。" : "There is not enough signal to show a mechanism for this result."}
-        </p>
-      )}
+      </div>
     </section>
   );
 }

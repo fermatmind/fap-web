@@ -23,8 +23,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
           <h1 className="text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
             {route.route_headline ||
               snapshot.headline ||
-              formulation.title ||
-              (locale === "zh" ? "结果解释暂不可用" : "Result interpretation unavailable")}
+              formulation.title}
           </h1>
           {route.why_this_feels_specific || snapshot.core_judgment || formulation.one_liner ? (
             <p className="text-base leading-7 text-slate-700">

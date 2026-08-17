@@ -39,10 +39,10 @@ export function isEqPrivateResultLocaleCompatible(reportData: unknown, locale: L
       }
     }
 
-    // Check report blocks/modules for CJK
-    for (const key of ["blocks", "modules", "layout", "report_data", "result"]) {
-      const value = record[key];
-      if (value && typeof value === "object" && !isEqPrivateResultLocaleCompatible(value, locale)) {
+    // The private result payload is single-locale. Any nested CJK copy in an
+    // English report is a mismatched canonical slot, not a frontend fallback.
+    for (const value of Object.values(record)) {
+      if (!isEqPrivateResultLocaleCompatible(value, locale)) {
         return false;
       }
     }

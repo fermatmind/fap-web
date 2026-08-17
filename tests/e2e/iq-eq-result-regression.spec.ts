@@ -1,9 +1,10 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
-import balancedEqFixture from "../fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
-import balancedEqZhFixture from "../fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
-import highEmpathyEqFixture from "../fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
-import lowConfidenceEqFixture from "../fixtures/eq/v5/eq60_v5_low_confidence_en.json";
+import { buildEqRendererContractFixture } from "../fixtures/eq/v5/eq60RendererContractFixture";
+
+const standardEqFixture = buildEqRendererContractFixture("en", "standard");
+const standardEqZhFixture = buildEqRendererContractFixture("zh-CN", "standard");
+const lowConfidenceEqFixture = buildEqRendererContractFixture("en", "low_confidence");
 
 type EqV5Fixture = {
   report_access: {
@@ -280,7 +281,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await mockGuestToken(page, "fm_eq_anchor_token_123456");
   await mockAttemptLinkAnon(page);
   await mockScaleLookup(page);
-  await mockEqV5ReportAccess(page, attemptId, highEmpathyEqFixture as EqV5Fixture);
+  await mockEqV5ReportAccess(page, attemptId, standardEqFixture as EqV5Fixture);
   await mockEqAgentContext(page, attemptId);
   await mockEqAgentRuntime(page, attemptId);
 
@@ -343,7 +344,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(eqV5ReportResponse(highEmpathyEqFixture as EqV5Fixture)),
+      body: JSON.stringify(eqV5ReportResponse(standardEqFixture as EqV5Fixture)),
     });
   });
 
@@ -358,7 +359,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(
     page
       .getByTestId("eq-result-hero")
-      .getByRole("heading", { name: "Self-report pattern: high empathy with lower recovery; read the largest gap first" }),
+      .getByRole("heading", { name: "BACKEND_COPY[en:route.route_headline]" }),
   ).toBeVisible({
     timeout: 10000,
   });
@@ -366,11 +367,11 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(
     page
       .getByTestId("eq-evidence-snapshot")
-      .getByText("interpretation basis: core interpretation, largest dimension gap, response-quality signals, and selected content."),
+      .getByText("BACKEND_COPY[en:route.evidence_snapshot_label]"),
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
-  await expect(page.getByText("Empathy with a Boundary")).toBeVisible();
+  await expect(page.getByText("BACKEND_COPY[en:action.title]")).toBeVisible();
   await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
   await expect(page.getByText(/Future Scenario Module|Planned, not available yet/i)).toHaveCount(0);
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
@@ -390,7 +391,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByTestId("eq-agent-runtime-response")).not.toContainText(
     /profile:|quality_level:|focus:|bucket:/i
   );
-  await expect(page.getByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).toHaveCount(0);
+  await expect(page.getByText(/contract_pattern|contract_mechanism|contract_career|eq60\.signal_signature\.v1/i)).toHaveCount(0);
 });
 
 test("EQ low-confidence report renders only cautious modules", async ({ page }) => {
@@ -418,10 +419,8 @@ test("EQ low-confidence report renders only cautious modules", async ({ page }) 
   await expect(page.getByTestId("eq-action-prescription")).toBeVisible();
   await expect(page.getByTestId("eq-scientific-boundary")).toBeVisible();
   await expect(page.getByTestId("eq-save-share-related")).toBeVisible();
-  await expect(page.getByText("Responses were completed unusually quickly")).toBeVisible();
-  await expect(
-    page.getByText(/SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/)
-  ).toHaveCount(0);
+  await expect(page.getByText("BACKEND_COPY[en:quality.body]")).toBeVisible();
+  await expect(page.getByText("SPEEDING")).toBeVisible();
 
   for (const testId of [
     "eq-evidence-snapshot",
@@ -440,27 +439,27 @@ test("EQ low-confidence report renders only cautious modules", async ({ page }) 
   await expect(page.getByTestId("eq-save-share-related").getByText(/Big Five|RIASEC|MBTI/)).toHaveCount(0);
 });
 
-test("EQ balanced report renders backend-declared four-way ties", async ({ page }) => {
+test("EQ standard report renders backend-declared dimensions without derived tie prose", async ({ page }) => {
   const attemptId = "eq-four-way-tie-001";
   await mockTrack(page);
   await mockGuestToken(page, "fm_eq_four_way_tie_token_123456");
   await mockAttemptLinkAnon(page);
   await mockScaleLookup(page);
-  await mockEqV5ReportAccess(page, attemptId, balancedEqFixture as EqV5Fixture);
+  await mockEqV5ReportAccess(page, attemptId, standardEqFixture as EqV5Fixture);
 
   await page.route(reportRoutePattern(attemptId), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(eqV5ReportResponse(balancedEqFixture as EqV5Fixture)),
+      body: JSON.stringify(eqV5ReportResponse(standardEqFixture as EqV5Fixture)),
     });
   });
 
   await page.goto(`/en/result/${attemptId}`);
   const evidence = page.getByTestId("eq-evidence-snapshot");
   await expect(evidence).toBeVisible();
-  await expect(evidence.getByText("Four-way tie")).toBeVisible();
-  await expect(evidence.getByText("No single practice focus")).toBeVisible();
+  await expect(evidence.getByText("BACKEND_COPY[en:snapshot.evidence_point]")).toBeVisible();
+  await expect(evidence).not.toContainText(/Four-way tie|No single practice focus/);
 });
 
 test("EQ Chinese result localizes technical labels on mobile and desktop viewports", async ({ page }) => {
@@ -470,13 +469,13 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
   await mockGuestToken(page, "fm_eq_zh_mobile_token_123456");
   await mockAttemptLinkAnon(page);
   await mockScaleLookup(page);
-  await mockEqV5ReportAccess(page, attemptId, balancedEqZhFixture as EqV5Fixture);
+  await mockEqV5ReportAccess(page, attemptId, standardEqZhFixture as EqV5Fixture);
 
   await page.route(reportRoutePattern(attemptId), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(eqV5ReportResponse(balancedEqZhFixture as EqV5Fixture)),
+      body: JSON.stringify(eqV5ReportResponse(standardEqZhFixture as EqV5Fixture)),
     });
   });
 
@@ -487,8 +486,7 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
   await expect(result.getByText("常模状态", { exact: true }).first()).toBeVisible();
   await expect(result.getByText("计分版本", { exact: true })).toBeVisible();
   await expect(result.getByText("内容版本", { exact: true })).toBeVisible();
-  await expect(result.getByText("四维并列", { exact: true })).toBeVisible();
-  await expect(result.getByText("无单一练习重点", { exact: true })).toBeVisible();
+  await expect(result.getByText("BACKEND_COPY[zh-CN:route.route_headline]", { exact: true })).toBeVisible();
   await expect(result).not.toContainText(
     /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
   );
@@ -497,7 +495,7 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
 
   await page.setViewportSize({ width: 1440, height: 1000 });
   await expect(
-    result.getByRole("heading", { name: "本次自我报告呈现：均衡整合" })
+    result.getByRole("heading", { name: "BACKEND_COPY[zh-CN:route.route_headline]" })
   ).toBeVisible();
   await expect(result.getByTestId("eq-evidence-snapshot")).toBeVisible();
   await expect(result.getByTestId("eq-scientific-boundary")).toBeVisible();

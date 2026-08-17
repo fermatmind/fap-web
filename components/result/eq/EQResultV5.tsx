@@ -36,13 +36,13 @@ export function EQResultV5({
   }
 
   if (!isEqPrivateResultLocaleCompatible(reportData, locale)) {
-    return null;
+    return <EQResultV5Unavailable locale={locale} />;
   }
 
   const viewModel = normalizeEqV5Report(reportData, locale);
 
   if (!viewModel) {
-    return null;
+    return <EQResultV5Unavailable locale={locale} />;
   }
 
   const lowConfidence = isLowConfidenceEqResult(viewModel);
@@ -78,6 +78,21 @@ export function EQResultV5({
         loadAgentContext={loadAgentContext}
         sendAgentRuntimeMessage={sendAgentRuntimeMessage}
       />
+    </main>
+  );
+}
+
+function EQResultV5Unavailable({ locale }: { locale: Locale }) {
+  return (
+    <main data-testid="eq-result-v5-unavailable" className="mx-auto w-full max-w-3xl">
+      <section className="rounded-[8px] border border-slate-200 bg-white p-5 shadow-sm sm:p-7" role="status">
+        <h1 className="text-xl font-semibold text-slate-950">
+          {locale === "zh" ? "报告暂不可用" : "Report unavailable"}
+        </h1>
+        <p className="mt-3 text-sm leading-6 text-slate-600">
+          {locale === "zh" ? "报告数据未通过完整性校验，请稍后刷新。" : "The report data did not pass integrity checks. Refresh later."}
+        </p>
+      </section>
     </main>
   );
 }

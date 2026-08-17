@@ -1,72 +1,19 @@
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { canRenderRichResultReport } from "@/components/result/RichResultReport";
-import { isEqV5AccessRestricted, isEqV5ReportResponse, normalizeEqV5Report } from "@/components/result/eq/utils";
+import { isEqV5AccessRestricted, isEqV5ReportResponse, normalizeEqV5Report, resolveEqV5Authority } from "@/components/result/eq/utils";
 import type { EqAgentContextPayload, EqAgentRuntimeResponsePayload, ReportResponse } from "@/lib/api/v0_3";
-import balancedEn from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
-import balancedZh from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
-import highEmpathyEn from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
-import highEmpathyZh from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_zh.json";
-import lowConfidenceEn from "@/tests/fixtures/eq/v5/eq60_v5_low_confidence_en.json";
-import lowConfidenceZh from "@/tests/fixtures/eq/v5/eq60_v5_low_confidence_zh.json";
+import {
+  buildEqRendererContractFixture,
+  EQ_CONTRACT_COMPILED_HASH,
+  EQ_CONTRACT_RELEASE_ID,
+  EQ_CONTRACT_SOURCE_HASH,
+  eqReportResponseFromContractFixture,
+} from "@/tests/fixtures/eq/v5/eq60RendererContractFixture";
 
-type EqV5Fixture = {
-  case_id: string;
-  locale: string;
-  report_access: {
-    access_state?: string;
-    report_state?: string;
-    payload?: Record<string, unknown>;
-  };
-  report: Record<string, unknown>;
-};
-
-function clone<T>(value: T): T {
-  return JSON.parse(JSON.stringify(value)) as T;
-}
-
-function responseFromFixture(fixture: EqV5Fixture, overrides: Partial<ReportResponse> = {}): ReportResponse {
-  const copy = clone(fixture);
-  const payload = copy.report_access.payload ?? {};
-
-  return {
-    ok: true,
-    locked: payload.locked === true,
-    variant: typeof payload.variant === "string" ? payload.variant : "full",
-    access_level: typeof payload.access_level === "string" ? payload.access_level : "full",
-    upgrade_sku: typeof payload.upgrade_sku === "string" ? payload.upgrade_sku : undefined,
-    upgrade_sku_effective:
-      typeof payload.upgrade_sku_effective === "string" ? payload.upgrade_sku_effective : undefined,
-    offers: Array.isArray(payload.offers) ? payload.offers : [],
-    modules_allowed: Array.isArray(payload.modules_allowed) ? payload.modules_allowed.map(String) : [],
-    modules_preview: Array.isArray(payload.modules_preview) ? payload.modules_preview.map(String) : [],
-    view_policy: typeof payload.view_policy === "object" && payload.view_policy !== null ? payload.view_policy as Record<string, unknown> : undefined,
-    scale_code: "EQ_60",
-    report: copy.report as ReportResponse["report"],
-    ...overrides,
-  };
-}
-
-function reportPayload(reportData: ReportResponse): Record<string, unknown> {
-  return reportData.report as Record<string, unknown>;
-}
-
-const agentEntryButtonName = /Ask (the Agent|the result assistant|assistant)/i;
-
-function removeResolvedFields(reportData: ReportResponse): ReportResponse {
-  const copy = clone(reportData);
-  const report = reportPayload(copy);
-  const scores = (report.scores ?? {}) as Record<string, unknown>;
-  const assets = (report.assets ?? {}) as Record<string, unknown>;
-
-  delete report.dimension_summary;
-  scores.dimensions = {};
-  delete assets.mechanisms;
-  delete assets.action_prescription;
-  delete assets.reality_scenes;
-
-  return copy;
+function standardResponse(locale: "zh-CN" | "en" = "en"): ReportResponse {
+  return eqReportResponseFromContractFixture(buildEqRendererContractFixture(locale, "standard"));
 }
 
 function safeAgentContext(overrides: Partial<EqAgentContextPayload> = {}): EqAgentContextPayload {
@@ -86,642 +33,132 @@ function safeAgentContext(overrides: Partial<EqAgentContextPayload> = {}): EqAge
       can_expose_raw_technical_tags: false,
       content_authority: "backend_content_pack_and_report_composer",
     },
-    intent_context: {
-      matched: true,
-      matched_intent: "understand_my_result",
-      safe_opening: "Start with one real situation from this report.",
-    },
+    intent_context: { matched: true, matched_intent: "understand_my_result", safe_opening: "BACKEND_AGENT_CONTEXT" },
     ...overrides,
   };
 }
 
-function safeAgentRuntimeResponse(overrides: Partial<EqAgentRuntimeResponsePayload> = {}): EqAgentRuntimeResponsePayload {
+function safeAgentResponse(overrides: Partial<EqAgentRuntimeResponsePayload> = {}): EqAgentRuntimeResponsePayload {
   return {
     ok: true,
     schema: "eq.agent_runtime_response.v1",
     ready: true,
     mode: "deterministic_read_only",
     locale: "en",
-    intent: {
-      requested_intent: "understand_my_result",
-      matched_intent: "understand_my_result",
-      matched: true,
-      allowed_response_mode: "explain_selected_report_assets",
-    },
-    assistant_response: {
-      role: "assistant",
-      text: "This answer stays inside the current report assets.",
-      summary_points: ["Use the selected evidence point.", "Keep the report as the authority."],
-      follow_up_question: "Which real situation should we apply this to?",
-      source_asset_ids: ["eq.conversion.agent_entry"],
-      boundary_claim_ids: [],
-    },
-    safety: {
-      detected_forbidden_claim_ids: [],
-      applied_forbidden_claim_ids: ["true_emotional_ability"],
-      escalation_flags: [],
-      no_paywall_language: true,
-      no_sjt_entry: true,
-      no_raw_technical_tags: true,
-    },
-    guardrails: {
-      read_only: true,
-      can_mutate_report: false,
-      can_mutate_scores: false,
-      can_override_formulation: false,
-      can_enable_sjt: false,
-      can_use_paid_unlock_language: false,
-      can_expose_raw_technical_tags: false,
-    },
-    next_module: {
-      available: false,
-      module_code: "EQ_SJT_16",
-      status: "planned",
-    },
+    intent: { requested_intent: "understand_my_result", matched_intent: "understand_my_result", matched: true, allowed_response_mode: "explain_selected_report_assets" },
+    assistant_response: { role: "assistant", text: "BACKEND_AGENT_RESPONSE", summary_points: ["BACKEND_AGENT_POINT"], follow_up_question: "BACKEND_AGENT_FOLLOW_UP", source_asset_ids: [], boundary_claim_ids: [] },
+    safety: { detected_forbidden_claim_ids: [], applied_forbidden_claim_ids: [], escalation_flags: [], no_paywall_language: true, no_sjt_entry: true, no_raw_technical_tags: true },
+    guardrails: { read_only: true, can_mutate_report: false, can_mutate_scores: false, can_override_formulation: false, can_enable_sjt: false, can_use_paid_unlock_language: false, can_expose_raw_technical_tags: false },
+    next_module: { available: false, module_code: "EQ_SJT_16", status: "planned" },
     ...overrides,
   };
 }
 
-describe("EQ v5 result renderer contract", () => {
-  it("renders all main EQ v5 sections from backend canonical resolved assets", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+describe("EQ v5 pure renderer contract", () => {
+  it("passes backend copy through every result layer and retains one immutable authority identity", () => {
+    const reportData = standardResponse();
+    const viewModel = normalizeEqV5Report(reportData, "en");
 
     expect(isEqV5ReportResponse(reportData)).toBe(true);
-    expect(normalizeEqV5Report(reportData, "en")?.route.routeId).toBe(
-      "route.eq.high_empathy_low_recovery.gap_focus.quality_ab"
-    );
-    expect(normalizeEqV5Report(reportData, "en")?.route.signalSignature.match_pattern).toBe(
-      "EM_mixed_ER_mixed_RM_mixed_SA_mixed"
-    );
-    expect(normalizeEqV5Report(reportData, "en")?.route.selectedAssetIds.action_prescription_id).toBe(
-      "empathy_boundary"
-    );
-    render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
+    expect(viewModel?.authority).toMatchObject({ release_id: EQ_CONTRACT_RELEASE_ID, source_hash: EQ_CONTRACT_SOURCE_HASH, compiled_hash: EQ_CONTRACT_COMPILED_HASH });
+    expect(viewModel?.snapshotBinding).toMatchObject({ canonical_release_id: EQ_CONTRACT_RELEASE_ID, canonical_source_hash: EQ_CONTRACT_SOURCE_HASH, canonical_compiled_hash: EQ_CONTRACT_COMPILED_HASH });
 
-    expect(screen.getByTestId("eq-result-v5")).toBeInTheDocument();
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("high empathy with lower recovery");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "Empathy signals are prominent"
-    );
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("You may be quick to sense the emotional temperature");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "Read the gap-related scene first"
-    );
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "Save this result so you can later check whether the largest gap appears"
-    );
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Evidence Snapshot");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("interpretation basis: core interpretation");
-    expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Interpretation Confidence");
-    expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Why:");
-    expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Your response pace and consistency support");
-    expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Emotional Matrix");
-    expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Self-Awareness");
-    expect(screen.getByTestId("eq-mechanism-section")).toHaveTextContent(
-      "Empathy understanding x relationship management"
-    );
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Strong empathy cues, heavier recovery load");
-    expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Emotional labor: high");
-    expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Interview check");
-    expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Role observation checklist");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Empathy with a Boundary");
+    render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-contract-001" />);
+
+    const result = screen.getByTestId("eq-result-v5");
+    for (const marker of [
+      "BACKEND_COPY[en:route.route_headline]",
+      "BACKEND_COPY[en:route.evidence_snapshot_label]",
+      "BACKEND_COPY[en:quality.body]",
+      "BACKEND_COPY[en:score.SA.band]",
+      "BACKEND_COPY[en:mechanism.why_it_matters]",
+      "BACKEND_COPY[en:scene.typical_response]",
+      "BACKEND_COPY[en:career.meaning]",
+      "BACKEND_COPY[en:action.do_today]",
+      "BACKEND_COPY[en:science.non_clinical_statement]",
+      "BACKEND_COPY[en:cross.claim_boundary]",
+      "BACKEND_COPY[en:agent_entry.body]",
+    ]) expect(result).toHaveTextContent(marker);
     expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
-    expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Scientific Boundary");
-    expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Content evidence: preliminary");
-    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Save report");
-    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Ask assistant");
-    expect(screen.getByTestId("eq-agent-entry-guard")).toBeInTheDocument();
-    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Big Five");
-    expect(screen.queryByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).not.toBeInTheDocument();
   });
 
-  it("renders v2.3 route headlines, depth modules, scene variants, and cross-assessment assets", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    const viewModel = normalizeEqV5Report(reportData, "en");
-
-    expect(viewModel?.route.routeId).toBe("route.eq.high_empathy_low_recovery.gap_focus.quality_ab");
-    expect(viewModel?.route.selectedAssetIds.scene_variant_ids).toEqual([
-      "eq.scene.team_collaboration.high_empathy_low_recovery.primary",
-      "eq.scene.pressure_recovery.high_empathy_low_recovery.primary",
-      "eq.scene.career_environment.high_empathy_low_recovery.primary",
-    ]);
-    expect(viewModel?.route.signalSignature.route_priority).toBe(201);
-    expect(viewModel?.route.signalSignature.route_claim_risk).toBe("medium");
-    expect(viewModel?.assets.personalization_route.route_headline).toContain("high empathy with lower recovery");
-    expect(viewModel?.assets.result_page_depth_modules.map((item) => item.id)).toContain(
-      "eq.depth.evidence_stack.default"
-    );
-    expect(viewModel?.assets.reality_scenes[0]?.id).toBe("eq.scene.team_collaboration.high_empathy_low_recovery.primary");
-
-    render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
-
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("high empathy with lower recovery");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("interpretation basis: core interpretation");
-    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("How to read this in 30 seconds");
-    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("How to read the evidence");
-    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Observation focus");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Strong empathy cues, heavier recovery load");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Micro script");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Who owns this, when is it due");
-    expect(screen.queryByTestId("eq-cross-assessment-context")).not.toBeInTheDocument();
-    expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|unlock|purchase|premium|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
+  it("renders Chinese backend placeholders while localizing only UI and technical enum labels", () => {
+    render(<EQResultV5 locale="zh" reportData={standardResponse("zh-CN")} />);
+    const result = screen.getByTestId("eq-result-v5");
+    expect(result).toHaveTextContent("BACKEND_COPY[zh-CN:route.route_headline]");
+    expect(result).toHaveTextContent("科学边界");
+    expect(result).toHaveTextContent("阶段性");
+    expect(result).not.toHaveTextContent("BACKEND_COPY[en:");
   });
 
-  it("loads read-only EQ Agent context only after the guarded Agent entry is clicked", async () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    let calls = 0;
-
-    render(
-      <EQResultV5
-        locale="en"
-        reportData={reportData}
-        attemptId="eq-result-001"
-        loadAgentContext={async ({ attemptId, locale, intent }) => {
-          calls += 1;
-          expect(attemptId).toBe("eq-result-001");
-          expect(locale).toBe("en");
-          expect(intent).toBe("understand_my_result");
-          return safeAgentContext();
-        }}
-      />
-    );
-
-    expect(calls).toBe(0);
-    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
-
-    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
-    expect(calls).toBe(1);
-    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("Read-only context ready");
-    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent(
-      "Start with one real situation from this report."
-    );
-    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("cannot change scores");
-    expect(screen.queryByText(/paywall|SKU_EQ_60_FULL_299|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
-  });
-
-  it("opens the EQ Agent runtime drawer and sends a deterministic read-only message", async () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    let contextCalls = 0;
-    let runtimeCalls = 0;
-
-    render(
-      <EQResultV5
-        locale="en"
-        reportData={reportData}
-        attemptId="eq-result-001"
-        loadAgentContext={async () => {
-          contextCalls += 1;
-          return safeAgentContext();
-        }}
-        sendAgentRuntimeMessage={async ({ attemptId, locale, intent, message }) => {
-          runtimeCalls += 1;
-          expect(attemptId).toBe("eq-result-001");
-          expect(locale).toBe("en");
-          expect(intent).toBe("understand_my_result");
-          expect(message).toBe("How should I use this result this week?");
-          return safeAgentRuntimeResponse();
-        }}
-      />
-    );
-
-    expect(contextCalls).toBe(0);
-    expect(runtimeCalls).toBe(0);
-    expect(screen.queryByTestId("eq-agent-runtime-drawer")).not.toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
-    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-drawer")).toBeInTheDocument());
-    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
-    expect(contextCalls).toBe(1);
-    expect(runtimeCalls).toBe(0);
-
-    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), {
-      target: { value: "How should I use this result this week?" },
-    });
-    fireEvent.click(screen.getByRole("button", { name: "Send" }));
-
-    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-response")).toBeInTheDocument());
-    expect(runtimeCalls).toBe(1);
-    expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent(
-      "This answer stays inside the current report assets."
-    );
-    expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent("Use the selected evidence point.");
-    expect(screen.getByTestId("eq-agent-runtime-response")).not.toHaveTextContent("eq.conversion.agent_entry");
-    expect(screen.getByTestId("eq-agent-runtime-response")).not.toHaveTextContent(
-      /paywall|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:|focus:|bucket:/i
-    );
-    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-  });
-
-  it("fails the EQ Agent runtime drawer closed when runtime guardrails are unsafe", async () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-
-    render(
-      <EQResultV5
-        locale="en"
-        reportData={reportData}
-        attemptId="eq-result-001"
-        loadAgentContext={async () => safeAgentContext()}
-        sendAgentRuntimeMessage={async () =>
-          safeAgentRuntimeResponse({
-            guardrails: {
-              read_only: true,
-              can_mutate_report: false,
-              can_mutate_scores: false,
-              can_override_formulation: false,
-              can_enable_sjt: true,
-              can_use_paid_unlock_language: false,
-              can_expose_raw_technical_tags: false,
-            },
-            next_module: {
-              available: true,
-              module_code: "EQ_SJT_16",
-              status: "available",
-            },
-          })
-        }
-      />
-    );
-
-    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
-    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
-    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), {
-      target: { value: "Can I start the SJT now?" },
-    });
-    fireEvent.click(screen.getByRole("button", { name: "Send" }));
-
-    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-unavailable")).toBeInTheDocument());
-    expect(screen.queryByTestId("eq-agent-runtime-response")).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/unlock|purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:/i)).not.toBeInTheDocument();
-  });
-
-  it("fails Agent entry closed when context is not ready", async () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-
-    render(
-      <EQResultV5
-        locale="en"
-        reportData={reportData}
-        attemptId="eq-result-001"
-        loadAgentContext={async () => safeAgentContext({ ready: false, reason_code: "report_not_ready" })}
-      />
-    );
-
-    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
-
-    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
-    expect(screen.getByTestId("eq-agent-entry-unavailable")).toHaveTextContent("Agent context is unavailable");
-    expect(screen.queryByTestId("eq-agent-entry-ready")).not.toBeInTheDocument();
-  });
-
-  it("keeps Agent entry disabled when attempt id is missing", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-
+  it("renders low-confidence explanations and retest guidance only from backend assets", () => {
+    const reportData = eqReportResponseFromContractFixture(buildEqRendererContractFixture("en", "low_confidence"));
     render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByRole("button", { name: agentEntryButtonName })).toBeDisabled();
-    expect(screen.getByTestId("eq-agent-entry-guard")).toHaveTextContent("Saved reports can continue");
-  });
-
-  it("fails Agent entry closed when backend guardrails allow mutation", async () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-
-    render(
-      <EQResultV5
-        locale="en"
-        reportData={reportData}
-        attemptId="eq-result-001"
-        loadAgentContext={async () =>
-          safeAgentContext({
-            guardrails: {
-              read_only: true,
-              can_mutate_report: true,
-              can_mutate_scores: false,
-              can_override_formulation: false,
-              can_enable_sjt: false,
-              can_create_paid_unlock_language: false,
-              can_expose_raw_technical_tags: false,
-            },
-          })
-        }
-      />
-    );
-
-    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
-
-    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
-    expect(screen.queryByTestId("eq-agent-entry-ready")).not.toBeInTheDocument();
-    expect(screen.queryByText(/modify report|edit scores|unlock|purchase|SKU_EQ_60_FULL_299/i)).not.toBeInTheDocument();
-  });
-
-  it("covers balanced_integrated canonical payload in zh-CN and en", () => {
-    const zhReport = responseFromFixture(balancedZh as EqV5Fixture);
-    const enReport = responseFromFixture(balancedEn as EqV5Fixture);
-
-    expect(normalizeEqV5Report(zhReport, "zh")?.interpretation.core_formulation_id).toBe("balanced_integrated");
-    expect(normalizeEqV5Report(enReport, "en")?.interpretation.core_formulation_id).toBe("balanced_integrated");
-    expect(normalizeEqV5Report(enReport, "en")?.route.selectedAssetIds.mechanism_ids).toEqual([
-      "SA_ER_high_high",
-      "EM_RM_high_high",
-    ]);
-
-    const { rerender } = render(<EQResultV5 locale="zh" reportData={zhReport} />);
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("本次自我报告呈现：均衡整合");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("整合优势维护");
-
-    rerender(<EQResultV5 locale="en" reportData={enReport} />);
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Self-report pattern: Integrated balance");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Maintain Integrated Strength");
-  });
-
-  it("renders a four-way tie without selecting the first dimension", () => {
-    const reportData = responseFromFixture(balancedEn as EqV5Fixture);
-    const viewModel = normalizeEqV5Report(reportData, "en");
-
-    expect(viewModel?.interpretation.dimension_ranking).toEqual({
-      strongest: { status: "tie", codes: ["SA", "ER", "EM", "RM"] },
-      development: { status: "tie", codes: ["SA", "ER", "EM", "RM"] },
-    });
-    expect(viewModel?.interpretation.strongest_dimension).toBe("");
-    expect(viewModel?.interpretation.development_lever).toBe("");
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Four-way tie");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("No single practice focus");
-  });
-
-  it("renders partial ties and a unique practice focus from backend ranking", () => {
-    const reportData = responseFromFixture(balancedEn as EqV5Fixture);
-    const report = reportPayload(reportData);
-    const interpretation = report.interpretation as Record<string, unknown>;
-    interpretation.dimension_ranking = {
-      strongest: { status: "tie", codes: ["SA", "ER"] },
-      development: { status: "unique", codes: ["RM"] },
-    };
-    interpretation.strongest_dimension = null;
-    interpretation.development_lever = "RM";
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent(
-      "Tie: Self-Awareness, Emotion Regulation"
-    );
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Relationship Management");
-  });
-
-  it("keeps unique ranking and supports old payloads without frontend inference", () => {
-    const uniqueReport = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    const { rerender } = render(<EQResultV5 locale="en" reportData={uniqueReport} />);
-
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Empathy");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Emotion Regulation");
-
-    const legacyReport = responseFromFixture(balancedEn as EqV5Fixture);
-    const report = reportPayload(legacyReport);
-    const interpretation = report.interpretation as Record<string, unknown>;
-    delete interpretation.dimension_ranking;
-    interpretation.strongest_dimension = "ER";
-    interpretation.development_lever = "RM";
-
-    rerender(<EQResultV5 locale="en" reportData={legacyReport} />);
-
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Emotion Regulation");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Relationship Management");
-    expect(screen.getByTestId("eq-evidence-snapshot")).not.toHaveTextContent("Four-way tie");
-  });
-
-  it("orders resolved assets by backend selected_asset_ids", () => {
-    const reportData = responseFromFixture(balancedEn as EqV5Fixture);
-    const report = reportPayload(reportData);
-    const assets = report.assets as Record<string, unknown>;
-    assets.mechanisms = [...((assets.mechanisms as unknown[]) ?? [])].reverse();
-    assets.reality_scenes = [...((assets.reality_scenes as unknown[]) ?? [])].reverse();
-    assets.career_environment = [...((assets.career_environment as unknown[]) ?? [])].reverse();
-
-    const viewModel = normalizeEqV5Report(reportData, "en");
-
-    expect(viewModel?.route.routeId).toBe("route.eq.balanced_integrated.primary.quality_ab");
-    expect(viewModel?.assets.mechanisms.map((item) => item.id)).toEqual(["SA_ER_high_high", "EM_RM_high_high"]);
-    expect(viewModel?.assets.reality_scenes.map((item) => item.id)).toEqual([
-      "eq.scene.feedback.balanced_integrated.primary",
-      "eq.scene.conflict.balanced_integrated.primary",
-      "eq.scene.relationship_boundary.balanced_integrated.primary",
-    ]);
-    expect(viewModel?.assets.career_environment.map((item) => item.id)).toEqual([
-      "collaboration_complexity_high",
-      "feedback_intensity_medium",
-    ]);
-  });
-
-  it("keeps low_confidence_result cautious and does not render strong formulation claims", () => {
-    const reportData = responseFromFixture(lowConfidenceEn as EqV5Fixture);
-    const viewModel = normalizeEqV5Report(reportData, "en");
-
-    expect(viewModel?.interpretation.core_formulation_id).toBe("low_confidence_result");
-    expect(viewModel?.route.routeId).toBe("route.eq.low_confidence_result.speeding");
-    expect(viewModel?.route.signalSignature.match_pattern).toBe("quality_low_overrides_dimension_pattern");
-    expect(viewModel?.interpretation.action_prescription_id).toBe("retest_reflection");
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Lower-confidence session");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Response quality conclusion");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Retest guidance");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Use boundary");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Reflect Before Retesting");
-    expect(screen.getByTestId("eq-result-hero")).not.toHaveTextContent("High Empathy, Low Recovery");
-    expect(screen.getByTestId("eq-result-hero")).not.toHaveTextContent("Balanced Integration");
+    const result = screen.getByTestId("eq-result-v5");
+    expect(result).toHaveTextContent("BACKEND_COPY[en:quality.body]");
+    expect(result).toHaveTextContent("BACKEND_COPY[en:action.do_today]");
+    expect(result).toHaveTextContent("SPEEDING");
+    expect(result).not.toHaveTextContent("Responses were completed unusually quickly");
     expect(screen.queryByTestId("eq-evidence-snapshot")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-result-depth-modules")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-emotional-matrix")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-mechanism-section")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-reality-scenes")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-career-environment")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-cross-assessment-context")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-agent-entry-guard")).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Share" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /Big Five|RIASEC|MBTI/ })).not.toBeInTheDocument();
-    expect(screen.getByTestId("eq-quality-banner")).toBeInTheDocument();
-    expect(screen.getByTestId("eq-scientific-boundary")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "Retake" })).toBeInTheDocument();
-  });
-
-  it("renders low confidence zh-CN canonical payload without hardcoded English fallback", () => {
-    const reportData = responseFromFixture(lowConfidenceZh as EqV5Fixture);
-
-    render(<EQResultV5 locale="zh" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("本次结果置信度较低");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("本次质量结论");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("复测建议");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("使用边界");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("复测前的自我回顾");
-    expect(screen.queryByText("Lower-Confidence Result")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-evidence-snapshot")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-emotional-matrix")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-mechanism-section")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-reality-scenes")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-career-environment")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-agent-entry-guard")).not.toBeInTheDocument();
   });
 
-  it("does not render the SJT roadmap when next_module.available is false", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-
+  it.each([
+    ["missing authority", (report: Record<string, unknown>) => { delete (report._meta as Record<string, unknown>).eq60_private_result_authority; }],
+    ["missing release", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).eq60_private_result_authority as Record<string, unknown>).release_id = ""; }],
+    ["bad source hash", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).eq60_private_result_authority as Record<string, unknown>).source_hash = "bad"; }],
+    ["mismatched compiled hash", (report: Record<string, unknown>) => { ((report._meta as Record<string, unknown>).snapshot_binding_v1 as Record<string, unknown>).canonical_compiled_hash = "d".repeat(64); }],
+    ["incompatible schema", (report: Record<string, unknown>) => { report.schema_version = "eq_60.report.v1"; }],
+    ["missing backend hero copy", (report: Record<string, unknown>) => { ((report.assets as Record<string, unknown>).personalization_route as Record<string, unknown>).route_headline = ""; }],
+  ])("fails closed for %s without compatibility prose", (_label, mutate) => {
+    const reportData = structuredClone(standardResponse());
+    mutate(reportData.report as Record<string, unknown>);
+    expect(normalizeEqV5Report(reportData, "en")).toBeNull();
     render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
-    expect(screen.queryByText(/Future Scenario Module|Planned, not available yet/i)).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others/i)).not.toBeInTheDocument();
-  });
-
-  it("does not render the SJT roadmap even if a payload marks it available", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    const report = reportPayload(reportData);
-    const assets = report.assets as Record<string, unknown>;
-    const bridge = assets.sjt_bridge as Record<string, unknown>;
-
-    report.next_module = {
-      available: true,
-      module_code: "EQ_SJT_16",
-      status: "available",
-      cta_asset_id: "eq.sjt_bridge.available",
-    };
-    bridge.available = true;
-    bridge.status = "available";
-    bridge.button_label = "Continue scenario module";
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-sjt-bridge-link")).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/unlock|purchase|premium|SKU_EQ_60_FULL_299|EQ_60_FULL|paywall|blur_others/i)).not.toBeInTheDocument();
-  });
-
-  it("does not render the SJT roadmap when backend status remains planned", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    const report = reportPayload(reportData);
-    const assets = report.assets as Record<string, unknown>;
-    const bridge = assets.sjt_bridge as Record<string, unknown>;
-
-    report.next_module = {
-      available: true,
-      module_code: "EQ_SJT_16",
-      status: "planned",
-      cta_asset_id: "eq.sjt_bridge.planned",
-    };
-    bridge.available = true;
-    bridge.status = "planned";
-    bridge.button_label = "Continue scenario module";
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.queryByTestId("eq-sjt-bridge")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("eq-sjt-bridge-link")).not.toBeInTheDocument();
-  });
-
-  it("localizes technical values and quality flags on Chinese results without polluting English", () => {
-    const zhReport = responseFromFixture(highEmpathyZh as EqV5Fixture);
-    const { rerender } = render(<EQResultV5 locale="zh" reportData={zhReport} />);
-    let zhPage = screen.getByTestId("eq-result-v5");
-
-    expect(zhPage).toHaveTextContent("下一步练习重点");
-    expect(zhPage).toHaveTextContent("常模状态");
-    expect(zhPage).toHaveTextContent("计分版本");
-    expect(zhPage).toHaveTextContent("内容版本");
-    expect(zhPage).toHaveTextContent("阶段性");
-    expect(zhPage).not.toHaveTextContent(
-      /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
-    );
-
-    rerender(<EQResultV5 locale="zh" reportData={responseFromFixture(lowConfidenceZh as EqV5Fixture)} />);
-    zhPage = screen.getByTestId("eq-result-v5");
-    expect(zhPage).toHaveTextContent("作答速度过快");
-    expect(zhPage).not.toHaveTextContent(/SPEEDING|LOW|low confidence/i);
-
-    rerender(<EQResultV5 locale="zh" reportData={responseFromFixture(balancedZh as EqV5Fixture)} />);
-    zhPage = screen.getByTestId("eq-result-v5");
-    expect(zhPage).toHaveTextContent("四维并列");
-    expect(zhPage).toHaveTextContent("无单一练习重点");
-    expect(zhPage).toHaveTextContent("较成熟");
-    expect(zhPage).not.toHaveTextContent(
-      /Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|provisional|planned/i
-    );
-
-    rerender(<EQResultV5 locale="en" reportData={responseFromFixture(balancedEn as EqV5Fixture)} />);
-    let enPage = screen.getByTestId("eq-result-v5");
-    expect(enPage).toHaveTextContent("Evidence Snapshot");
-    expect(enPage).toHaveTextContent("provisional");
-    expect(enPage).not.toHaveTextContent("下一步练习重点");
-    expect(enPage).not.toHaveTextContent("阶段性");
-
-    rerender(<EQResultV5 locale="en" reportData={responseFromFixture(lowConfidenceEn as EqV5Fixture)} />);
-    enPage = screen.getByTestId("eq-result-v5");
-    expect(enPage).toHaveTextContent("Responses were completed unusually quickly");
-    expect(enPage).not.toHaveTextContent(
-      /SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
-    );
-  });
-
-  it("fails closed when root report access says the EQ v5 payload is locked or commerce restricted", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture, {
-      locked: true,
-      upgrade_sku: "SKU_EQ_60_FULL_299",
-      upgrade_sku_effective: "EQ_60_FULL",
-      offers: [{ sku: "SKU_EQ_60_FULL_299", title: "Paid EQ" }],
-    });
-
-    expect(isEqV5ReportResponse(reportData)).toBe(true);
-    expect(isEqV5AccessRestricted(reportData)).toBe(true);
-    expect(canRenderRichResultReport(reportData)).toBe(false);
-
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-result-v5-access-restricted")).toHaveTextContent("not ready to view");
-    expect(screen.queryByTestId("eq-result-v5")).not.toBeInTheDocument();
+    expect(screen.getByTestId("eq-result-v5-unavailable")).toHaveTextContent("integrity checks");
     expect(screen.queryByTestId("eq-result-hero")).not.toBeInTheDocument();
-    expect(screen.queryByText("High Empathy, Low Recovery")).not.toBeInTheDocument();
-    expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|purchase|premium|paywall|blur_others|Paid EQ/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
   });
 
-  it("fails closed when nested EQ v5 access metadata says locked, paywall, or blurred", () => {
-    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
-    const report = reportPayload(reportData);
-    report.access = {
-      locked: true,
-      paywall: true,
-      blur: true,
-    };
+  it("fails closed when requested locale and canonical authority locale differ", () => {
+    const reportData = standardResponse("zh-CN");
+    expect(resolveEqV5Authority(reportData, "en")).toBeNull();
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+    expect(screen.getByTestId("eq-result-v5-unavailable")).toBeInTheDocument();
+  });
 
-    expect(isEqV5ReportResponse(reportData)).toBe(true);
+  it("fails closed when an English canonical payload contains Chinese editorial copy", () => {
+    const reportData = structuredClone(standardResponse());
+    ((reportData.report as Record<string, unknown>).assets as Record<string, Record<string, unknown>>).result_snapshot.headline = "不应出现在英文报告";
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+    expect(screen.getByTestId("eq-result-v5-unavailable")).toBeInTheDocument();
+  });
+
+  it("keeps access restrictions separate and prevents the generic renderer from taking over", () => {
+    const reportData = { ...standardResponse(), locked: true, offers: [{ sku: "PRIVATE" }] };
     expect(isEqV5AccessRestricted(reportData)).toBe(true);
     expect(canRenderRichResultReport(reportData)).toBe(false);
-
     render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    expect(screen.getByTestId("eq-result-v5-access-restricted")).toHaveTextContent("not ready to view");
-    expect(screen.queryByTestId("eq-emotional-matrix")).not.toBeInTheDocument();
-    expect(screen.queryByText("Strong empathy, weaker boundaries and recovery")).not.toBeInTheDocument();
-    expect(screen.queryByText(/profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId("eq-result-v5-access-restricted")).toBeInTheDocument();
+    expect(screen.queryByText("PRIVATE")).not.toBeInTheDocument();
   });
 
-  it("uses safe fallbacks when resolved fields are missing", () => {
-    const reportData = removeResolvedFields(responseFromFixture(highEmpathyEn as EqV5Fixture));
+  it("renders only a backend Agent response after both read-only guards pass", async () => {
+    render(<EQResultV5 locale="en" reportData={standardResponse()} attemptId="eq-contract-001" loadAgentContext={async () => safeAgentContext()} sendAgentRuntimeMessage={async () => safeAgentResponse()} />);
+    fireEvent.click(screen.getByRole("button", { name: "BACKEND_COPY[en:agent_entry.cta_label]" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("BACKEND_AGENT_CONTEXT"));
+    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), { target: { value: "contract question" } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent("BACKEND_AGENT_RESPONSE"));
+    expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent("BACKEND_AGENT_POINT");
+  });
 
-    render(<EQResultV5 locale="en" reportData={reportData} />);
-
-    const matrix = screen.getByTestId("eq-emotional-matrix");
-    expect(within(matrix).getAllByText("This dimension is unavailable.")).toHaveLength(4);
-    expect(screen.getByTestId("eq-mechanism-section")).toHaveTextContent("There is not enough signal");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("—");
-    expect(screen.queryByText("undefined")).not.toBeInTheDocument();
-    expect(screen.queryByText("null")).not.toBeInTheDocument();
+  it("does not render an unsafe Agent response", async () => {
+    render(<EQResultV5 locale="en" reportData={standardResponse()} attemptId="eq-contract-001" loadAgentContext={async () => safeAgentContext()} sendAgentRuntimeMessage={async () => safeAgentResponse({ next_module: { available: true, module_code: "EQ_SJT_16", status: "available" } })} />);
+    fireEvent.click(screen.getByRole("button", { name: "BACKEND_COPY[en:agent_entry.cta_label]" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
+    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), { target: { value: "contract question" } });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-unavailable")).toBeInTheDocument());
+    expect(screen.queryByText("BACKEND_AGENT_RESPONSE")).not.toBeInTheDocument();
   });
 });

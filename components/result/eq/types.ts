@@ -27,6 +27,8 @@ export type EqV5DimensionScore = {
 };
 
 export type EqV5ReportPayload = {
+  schema_version?: string;
+  locale?: string;
   scale_code?: string;
   eq_report_mode?: EqReportMode;
   measurement_type?: "self_report_trait_mixed_ei" | string;
@@ -75,7 +77,35 @@ export type EqV5ReportPayload = {
   asset_refs?: unknown;
   assets?: EqV5ResolvedAssets;
   report_tags?: string[];
+  _meta?: {
+    eq60_private_result_authority?: EqPrivateResultAuthority;
+    snapshot_binding_v1?: EqSnapshotBinding;
+  };
   [key: string]: unknown;
+};
+
+export type EqPrivateResultAuthority = {
+  schema_version: "fap.eq60.private_result_authority.v1";
+  authority_id: "FERMATMIND_EQ_60_BILINGUAL_CANONICAL";
+  mode: "canonical_active_release";
+  release_id: string;
+  pack_id: "EQ_60";
+  pack_version: string;
+  locale: "zh-CN" | "en";
+  locales: ["zh-CN", "en"];
+  source_hash: string;
+  compiled_hash: string;
+};
+
+export type EqSnapshotBinding = {
+  schema_version: "fap.eq60.snapshot_binding.v1";
+  canonical_authority_identity: "FERMATMIND_EQ_60_BILINGUAL_CANONICAL";
+  canonical_release_id: string;
+  canonical_source_hash: string;
+  canonical_compiled_hash: string;
+  canonical_payload_sha256: string;
+  locale: "zh-CN" | "en";
+  pack_version: string;
 };
 
 export type EqV5SignalSignature = {
@@ -375,6 +405,8 @@ export type EqV5ViewModel = {
   locale: Locale;
   payload: EqV5ReportPayload;
   lockedAnomaly: boolean;
+  authority: EqPrivateResultAuthority;
+  snapshotBinding: EqSnapshotBinding;
   globalScore: EqV5DimensionScore | null;
   dimensions: EqV5DimensionScore[];
   quality: NonNullable<EqV5ReportPayload["quality"]>;

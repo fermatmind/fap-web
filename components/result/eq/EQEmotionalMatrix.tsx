@@ -17,7 +17,6 @@ export function EQEmotionalMatrix({ viewModel }: { viewModel: EqV5ViewModel }) {
     <section data-testid="eq-emotional-matrix" className="space-y-4">
       <SectionHeading
         title={locale === "zh" ? "情绪与关系矩阵" : "Emotional Matrix"}
-        subtitle={locale === "zh" ? "四个维度按对象和行动方式组织。" : "Four dimensions organized by target and response mode."}
       />
       <div className="grid gap-3 md:grid-cols-2">
         {MATRIX.map((cell) => {
@@ -48,9 +47,7 @@ export function EQEmotionalMatrix({ viewModel }: { viewModel: EqV5ViewModel }) {
                     value={localizeEqTechnicalValue(band, locale) || "—"}
                   />
                 </div>
-              ) : (
-                <p className="mt-3 text-sm text-slate-500">{locale === "zh" ? "该维度暂不可用。" : "This dimension is unavailable."}</p>
-              )}
+              ) : null}
               {bandCopy ? <p className="mt-3 text-sm leading-6 text-slate-600">{bandCopy}</p> : null}
             </article>
           );
