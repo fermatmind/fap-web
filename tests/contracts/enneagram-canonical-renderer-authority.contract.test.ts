@@ -1,6 +1,12 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { resolveEnneagramPrivateResultAuthority } from "@/lib/enneagram/privateResultAuthority";
+import type { ReportResponse } from "@/lib/api/v0_3";
+import {
+  bindCanonicalEnneagramReport,
+  canonicalEnneagramAuthority,
+} from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 const ROOT = process.cwd();
 const RENDERER_FILES = [
@@ -15,6 +21,32 @@ function read(relativePath: string): string {
 }
 
 describe("Enneagram canonical renderer authority", () => {
+  it("fails closed when top-level and report metadata authorities disagree", () => {
+    const report = bindCanonicalEnneagramReport({
+      ok: true,
+      locale: "en",
+      scale_code: "ENNEAGRAM",
+      enneagram_report_v2: {
+        locale: "en",
+        schema_version: "enneagram.report.v2",
+        scale_code: "ENNEAGRAM",
+        registry: {},
+        provenance: {},
+        pages: [],
+      },
+      report: {
+        scale_code: "ENNEAGRAM",
+        _meta: {},
+      },
+    } as ReportResponse, "en");
+    (report.report!._meta! as Record<string, unknown>).enneagram_private_result_authority = {
+      ...canonicalEnneagramAuthority("en"),
+      compiled_hash: "c".repeat(64),
+    };
+
+    expect(resolveEnneagramPrivateResultAuthority(report, "en")).toBeNull();
+  });
+
   it("keeps canonical authority and hash validation on every private renderer entry", () => {
     expect(read("lib/enneagram/resultAssembler.ts")).toContain("resolveEnneagramPrivateResultAuthority");
     expect(read("lib/enneagram/shareSurface.ts")).toContain("resolveEnneagramShareAuthority");

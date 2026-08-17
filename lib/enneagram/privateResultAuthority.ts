@@ -99,10 +99,22 @@ export function resolveEnneagramPrivateResultAuthority(
 
   const report = asRecord(reportData.report);
   const meta = asRecord(report?._meta);
-  const external = parseEnneagramPrivateResultAuthority(
-    reportData.enneagram_private_result_authority ?? meta?.enneagram_private_result_authority,
-    locale
-  );
+  const topLevelAuthorityValue = reportData.enneagram_private_result_authority;
+  const metaAuthorityValue = meta?.enneagram_private_result_authority;
+  const topLevelAuthority = topLevelAuthorityValue === undefined
+    ? null
+    : parseEnneagramPrivateResultAuthority(topLevelAuthorityValue, locale);
+  const metaAuthority = metaAuthorityValue === undefined
+    ? null
+    : parseEnneagramPrivateResultAuthority(metaAuthorityValue, locale);
+  if (
+    topLevelAuthorityValue !== undefined &&
+    metaAuthorityValue !== undefined &&
+    !sameAuthority(topLevelAuthority, metaAuthority)
+  ) {
+    return null;
+  }
+  const external = topLevelAuthorityValue !== undefined ? topLevelAuthority : metaAuthority;
   const reportV2 = asRecord(reportData.enneagram_report_v2 ?? meta?.enneagram_report_v2);
 
   if (external?.mode === "immutable_legacy_snapshot" && !reportV2) return external;
