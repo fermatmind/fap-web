@@ -777,13 +777,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const job = await loadCareerJobBundle(locale, slug);
 
-  if (!job) {
+  if (isCareerDisplayManualHoldSlug(slug)) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  if (isCareerDisplayManualHoldSlug(slug)) {
+  const job = await loadCareerJobBundle(locale, slug);
+
+  if (!job) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
@@ -916,15 +917,16 @@ export default async function CareerJobDetailPage({
   searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>;
 }) {
   const { locale: localeParam, slug } = await params;
-  const query = await resolveCareerJobSearchParams(searchParams);
   const locale = resolveLocale(localeParam);
-  const job = await loadCareerJobBundle(locale, slug);
 
-  if (!job) {
+  if (isCareerDisplayManualHoldSlug(slug)) {
     return notFound();
   }
 
-  if (isCareerDisplayManualHoldSlug(slug)) {
+  const query = await resolveCareerJobSearchParams(searchParams);
+  const job = await loadCareerJobBundle(locale, slug);
+
+  if (!job) {
     return notFound();
   }
 
