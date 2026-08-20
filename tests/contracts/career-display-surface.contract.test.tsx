@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
-import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
@@ -168,6 +168,64 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
     expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET Online");
     expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Last reviewed: 2026-05-03");
+  });
+
+  it.each(["en", "zh"] as const)("maps the published accountants boundary array and renders the official hero chrome for %s", (locale) => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale,
+      titleEn: "Accountants and Auditors",
+      titleZh: "会计与审计人员",
+    });
+    const surface = adaptCareerDisplaySurface(fixture, locale);
+
+    expect(surface?.boundaryNotice).toHaveLength(2);
+    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("accountants-hero-stats").children).toHaveLength(3);
+    expect(screen.getByTestId("accountants-assessment-rail")).toBeInTheDocument();
+  });
+
+  it.each([
+    "related_next_pages",
+    "review_validity_card",
+    "boundary_notice",
+    "career_ai_description_block",
+  ])("fails closed for accountants when required API projection field %s is missing", (field) => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      titleEn: "Accountants and Auditors",
+    });
+    const page = fixture.page.content as Record<string, unknown>;
+    delete page[field];
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("fails closed for accountants instead of injecting local related-page fallbacks", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      titleEn: "Accountants and Auditors",
+    });
+    (fixture.page.content as Record<string, unknown>).related_next_pages = {
+      primary_test: "/en/tests/holland-career-interest-test-riasec",
+      related_jobs: [],
+      secondary_tests: [],
+    };
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("fails closed for accountants when published sources are missing", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      titleEn: "Accountants and Auditors",
+    });
+    delete (fixture as { sources?: unknown }).sources;
+
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
   it.each([

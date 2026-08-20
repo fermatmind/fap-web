@@ -1083,8 +1083,14 @@ function normalizeBoundaryNotice(root: Record<string, unknown>, locale: Locale, 
     return supportNotices;
   }
 
-  const pageBoundary = isRecord(page?.boundary_notice) ? page.boundary_notice : {};
-  return normalizeStringArray(pageBoundary.notices);
+  // Current authority publishes each locale's notices as a direct array. Keep
+  // the legacy object form only for non-accountants compatibility.
+  const pageBoundary = page?.boundary_notice;
+  if (Array.isArray(pageBoundary)) {
+    return normalizeStringArray(pageBoundary);
+  }
+
+  return isRecord(pageBoundary) ? normalizeStringArray(pageBoundary.notices) : [];
 }
 
 function normalizeReviewValidity(root: Record<string, unknown>, page?: Record<string, unknown>): CareerDisplayReviewValidity | null {
@@ -1217,16 +1223,19 @@ function relatedPageLabel(href: string): string {
 function normalizeRelatedNextPages(
   value: unknown,
   locale: Locale,
-  hero: CareerDisplayHeroViewModel
+  hero: CareerDisplayHeroViewModel,
+  requirePublishedProjection = false
 ): CareerDisplayRelatedPage[] {
   const raw = isRecord(value) ? value : null;
-  const hrefs = raw
-    ? [
-        normalizeString(raw.primary_test),
-        ...normalizeStringArray(raw.related_jobs),
-        ...normalizeStringArray(raw.secondary_tests),
-      ]
-    : [];
+  const primaryTest = normalizeString(raw?.primary_test);
+  const relatedJobs = normalizeStringArray(raw?.related_jobs);
+  const secondaryTests = normalizeStringArray(raw?.secondary_tests);
+  const hrefs = raw ? [primaryTest, ...relatedJobs, ...secondaryTests] : [];
+  const hasStrictPublishedProjection =
+    Boolean(primaryTest) &&
+    relatedJobs.length > 0 &&
+    secondaryTests.length > 0 &&
+    hrefs.every((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)));
   const publishedPages = [...new Set(hrefs)]
     .filter((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)))
     .map((href) => ({
@@ -1236,7 +1245,11 @@ function normalizeRelatedNextPages(
     }));
 
   if (publishedPages.length > 0) {
-    return publishedPages;
+    return requirePublishedProjection && !hasStrictPublishedProjection ? [] : publishedPages;
+  }
+
+  if (requirePublishedProjection) {
+    return [];
   }
 
   const related = [
@@ -1258,6 +1271,52 @@ function normalizeRelatedNextPages(
   ];
 
   return related.filter((page) => page.href && isKnownTestHref(page.href));
+}
+
+const ACCOUNTANTS_REQUIRED_SECTION_COMPONENTS = [
+  "FermatDecisionCard",
+  "CareerSnapshotCard",
+  "FitDecisionChecklist",
+  "RIASECFitBlock",
+  "PersonalityFitBlock",
+  "DefinitionBlock",
+  "CareerAiDescriptionBlock",
+  "ResponsibilitiesBlock",
+  "WorkContextBlock",
+  "MarketSignalCard",
+  "AdjacentCareerComparisonTable",
+  "AIImpactTable",
+  "CareerRiskCards",
+  "CareerPathBlock",
+  "ContractRiskBlock",
+  "NextStepsBlock",
+  "CareerFAQBlock",
+] as const;
+
+function hasCompleteAccountantsProjection(input: {
+  page: Record<string, unknown>;
+  sections: CareerDisplaySection[];
+  sources: CareerDisplaySource[];
+  reviewValidity: CareerDisplayReviewValidity | null;
+  boundaryNotice: string[];
+  relatedNextPages: CareerDisplayRelatedPage[];
+}): boolean {
+  const boundary = input.page.boundary_notice;
+  if (!Array.isArray(boundary) || boundary.length === 0 || boundary.some((notice) => normalizeString(notice) === null)) {
+    return false;
+  }
+
+  if (input.boundaryNotice.length === 0 || input.sources.length === 0 || !input.reviewValidity || input.relatedNextPages.length === 0) {
+    return false;
+  }
+
+  const sectionCounts = input.sections.reduce<Record<string, number>>((counts, section) => {
+    counts[section.component] = (counts[section.component] ?? 0) + 1;
+    return counts;
+  }, {});
+
+  return ACCOUNTANTS_REQUIRED_SECTION_COMPONENTS.every((component) => sectionCounts[component] !== undefined) &&
+    sectionCounts.CareerSnapshotCard === 2;
 }
 
 export function buildCareerDisplayCtaHref({
@@ -1396,6 +1455,29 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
+  const sources = normalizeSources(root.sources);
+  const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
+  const reviewValidity = normalizeReviewValidity(root, page);
+  const relatedNextPages = normalizeRelatedNextPages(
+    page.related_next_pages,
+    locale,
+    localizedHero,
+    canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG,
+  );
+
+  if (
+    canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
+    !hasCompleteAccountantsProjection({
+      page,
+      sections,
+      sources,
+      reviewValidity,
+      boundaryNotice,
+      relatedNextPages,
+    })
+  ) {
+    return null;
+  }
 
   return {
     surfaceVersion: CAREER_DISPLAY_SURFACE_VERSION,
@@ -1414,10 +1496,10 @@ export function adaptCareerDisplaySurface(
     hero: localizedHero,
     sections,
     faqItems,
-    sources: normalizeSources(root.sources),
-    relatedNextPages: normalizeRelatedNextPages(page.related_next_pages, locale, localizedHero),
-    boundaryNotice: normalizeBoundaryNotice(root, locale, page),
-    reviewValidity: normalizeReviewValidity(root, page),
+    sources,
+    relatedNextPages,
+    boundaryNotice,
+    reviewValidity,
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     cta: {
       label: localizedHero.primaryCta.label,

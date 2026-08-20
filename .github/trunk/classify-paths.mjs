@@ -41,6 +41,7 @@ export function classifyPaths(inputPaths) {
     if (matches(path, [
       /(?:content|cms|adapter|contract|schema|authority)/i,
       /^tests\/contracts\//,
+      /^lib\/career\/displaySurface\.ts$/,
     ])) selected.push("content_adapter_contract");
     if (matches(path, [
       /^deploy\/openresty\//,

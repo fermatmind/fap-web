@@ -564,6 +564,22 @@ export function buildSelectedCareerDisplaySurfaceFixture({
           body: [isZh ? "人格匹配不是诊断。" : "Personality fit is not a diagnosis."],
         },
         definition_block: isZh ? `${title} 负责把职业任务转化为可验证的工作结果。` : `${title} turns occupational tasks into accountable work outcomes.`,
+        ...(slug === "accountants-and-auditors"
+          ? {
+              career_ai_description_block: {
+                id: "career_ai_description",
+                component: "CareerAiDescriptionBlock",
+                heading: isZh ? "AI 职业解读" : "AI Career Analysis",
+                body: isZh ? "AI 可以加速重复任务，但证据判断和责任仍由人承担。" : "AI can accelerate repeatable tasks, while people remain accountable for evidence and judgment.",
+              },
+              career_path_block: {
+                id: "career_path",
+                component: "CareerPathBlock",
+                heading: isZh ? "职业发展路径" : "Career Path",
+                rows: [[isZh ? "起步" : "Entry", isZh ? "建立基础" : "Build a foundation"]],
+              },
+            }
+          : {}),
         responsibilities_block: [isZh ? "分析任务要求" : "Analyze task requirements", isZh ? "维护工作记录" : "Maintain work records"],
         work_context_block: {
           target_queries: [`${title} career`, `${title} salary`],
@@ -619,19 +635,13 @@ export function buildSelectedCareerDisplaySurfaceFixture({
           ],
         },
         related_next_pages: {
-          related_tests: [
-            primaryCtaHref,
+          primary_test: primaryCtaHref,
+          related_jobs: [`/${locale}/career/jobs/financial-analysts`],
+          secondary_tests: [
             `/${locale}/tests/mbti-personality-test-16-personality-types`,
             `/${locale}/tests/big-five-personality-test-ocean-model`,
           ],
-          related_jobs: [],
-          related_guides: [],
-          validation_policy: {
-            related_tests: "stable_routes_allowed",
-            related_jobs: "requires_later_live_validation",
-            related_guides: "requires_later_live_validation",
-            render_policy: "hide_or_plain_text_if_unvalidated",
-          },
+          validation_policy: "final 200 + canonical self + no noindex required before rendering as live link",
         },
         source_card: {
           source_refs: "sources_json.references",
@@ -640,14 +650,19 @@ export function buildSelectedCareerDisplaySurfaceFixture({
           last_reviewed: "2026-05-03",
           next_review_due: "2026-08-03",
         },
-        boundary_notice: {
-          release_gates: {
-            sitemap: false,
-            llms: false,
-            paid: false,
-            backlink: false,
-          },
-        },
+        boundary_notice: slug === "accountants-and-auditors"
+          ? [
+              isZh ? "这不是收入、录用或晋升保证。" : "This page is not an income, hiring, or promotion guarantee.",
+              isZh ? "AI 解读不是官方职业事实来源。" : "AI interpretation is not an official occupational fact source.",
+            ]
+          : {
+              release_gates: {
+                sitemap: false,
+                llms: false,
+                paid: false,
+                backlink: false,
+              },
+            },
         final_cta: {
           label: isZh ? "测量我的职业兴趣" : "Measure my career interests",
           href: primaryCtaHref,

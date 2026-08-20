@@ -4,6 +4,7 @@ import { EvidenceContainer } from "@/components/career/display/EvidenceContainer
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
 import type {
   CareerDisplayComponentId,
+  CareerDisplayRelatedPage,
   CareerDisplaySection,
   CareerDisplaySurfaceViewModel,
 } from "@/lib/career/displaySurface";
@@ -70,6 +71,10 @@ function orderedSection(
   return matches[0] ?? null;
 }
 
+function firstSection(sections: CareerDisplaySection[], component: string): CareerDisplaySection | null {
+  return sections.find((section) => section.component === component) ?? null;
+}
+
 function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
   return (
     <div id={`career-component-${id}`} data-career-component-id={id} className="scroll-mt-24">
@@ -93,16 +98,22 @@ function BoundaryCard({ surface, title }: { surface: CareerDisplaySurfaceViewMod
 }
 
 function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
+  const pages = surface.relatedNextPages.filter((page): page is CareerDisplayRelatedPage & { href: string } => Boolean(page.href));
+
+  if (pages.length === 0) {
+    return null;
+  }
+
   return (
     <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
       <h2 className="m-0 text-2xl font-bold text-[#1A2233]">
         {surface.locale === "zh" ? "继续探索" : "Continue exploring"}
       </h2>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {surface.relatedNextPages.map((page) => (
+        {pages.map((page) => (
           <Link
-            key={page.href ?? page.label}
-            href={page.href ?? surface.cta.href}
+            key={page.href}
+            href={page.href}
             className="rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C] transition-colors hover:bg-[#EEF1FB]"
           >
             {page.label}
@@ -110,6 +121,62 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
         ))}
       </div>
     </section>
+  );
+}
+
+function AccountantsHero({
+  surface,
+  visibleSections,
+  primaryCtaHref,
+}: Pick<Props, "surface" | "visibleSections" | "primaryCtaHref">) {
+  const riasec = firstSection(visibleSections, "RIASECFitBlock");
+  const snapshot = firstSection(visibleSections, "CareerSnapshotCard");
+  const aiImpact = firstSection(visibleSections, "AIImpactTable");
+  const badges = (riasec?.profile ?? []).slice(0, 3);
+  const metrics = (snapshot?.rows ?? []).slice(0, 5);
+
+  return (
+    <header
+      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-9 md:py-[34px]"
+      data-testid="career-display-hero"
+    >
+      <div className="max-w-[640px] pr-0 lg:pr-40">
+        {surface.hero.subtitle ? <p className="m-0 text-sm font-normal text-white/80">{surface.hero.subtitle}</p> : null}
+        <h1 className="m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]">{surface.hero.h1}</h1>
+        {badges.length > 0 ? (
+          <div className="my-3.5 flex flex-wrap gap-2" data-testid="accountants-hero-badges">
+            {badges.map((badge) => (
+              <span key={badge} className="rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium">
+                {badge}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95">{surface.hero.quickAnswer}</p>
+      </div>
+      {aiImpact?.score ? (
+        <div className="mt-4 inline-flex items-center gap-3 rounded-xl bg-white/[.14] px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center" data-testid="accountants-ai-gauge">
+          <strong className="block text-2xl leading-none lg:text-3xl">{aiImpact.score}</strong>
+          <span className="block pt-1 text-xs leading-4 text-white/85">{aiImpact.heading}</span>
+        </div>
+      ) : null}
+      {metrics.length > 0 ? (
+        <div className="mt-6 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-5" data-testid="accountants-hero-stats">
+          {metrics.map(([label, value]) => (
+            <div key={`${label}:${value}`} className="rounded-xl bg-white/[.12] px-2.5 py-3">
+              <strong className="block text-lg leading-tight">{value}</strong>
+              <span className="mt-1 block text-xs leading-4 text-white/85">{label}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      <Link
+        href={primaryCtaHref}
+        className="mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:no-underline"
+      >
+        {surface.cta.label}
+      </Link>
+    </header>
   );
 }
 
@@ -177,22 +244,7 @@ export function AccountantsCareerDisplaySurface({
       );
     }
     if (componentId === "hero") {
-      return (
-        <header
-          className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-8"
-          data-testid="career-display-hero"
-        >
-          {surface.hero.subtitle ? <p className="m-0 text-sm opacity-80">{surface.hero.subtitle}</p> : null}
-          <h1 className="m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]">{surface.hero.h1}</h1>
-          <p className="m-0 mt-4 max-w-3xl text-base leading-8 opacity-95">{surface.hero.quickAnswer}</p>
-          <Link
-            href={primaryCtaHref}
-            className="mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5"
-          >
-            {surface.cta.label}
-          </Link>
-        </header>
-      );
+      return <AccountantsHero surface={surface} visibleSections={visibleSections} primaryCtaHref={primaryCtaHref} />;
     }
     if (componentId === "primary_cta" || componentId === "final_cta") {
       return (
@@ -276,11 +328,20 @@ export function AccountantsCareerDisplaySurface({
             return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
           })}
         </main>
-        <aside className="rounded-2xl border border-[#E5E9F2] bg-white p-5 text-sm lg:sticky lg:top-20" aria-label={isZh ? "页面目录" : "Page contents"}>
+        <aside className="flex flex-col gap-4 lg:sticky lg:top-20" aria-label={isZh ? "页面目录" : "Page contents"}>
+          <div className="rounded-2xl border border-[#E5E9F2] bg-white p-5 text-sm">
           <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
           <nav className="mt-3 grid">
             {tocSections.map(({ componentId, section }) => <a key={componentId} href={`#career-component-${componentId}`} className="border-b border-[#F0F3FA] py-2 text-[#3a4255] last:border-0 hover:text-[#2C3E8C]">{section.heading}</a>)}
           </nav>
+          </div>
+          <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="accountants-assessment-rail">
+            <h2 className="m-0 text-base font-bold">{surface.cta.label}</h2>
+            <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
+            <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+              {surface.cta.label}
+            </Link>
+          </section>
         </aside>
       </div>
     </article>

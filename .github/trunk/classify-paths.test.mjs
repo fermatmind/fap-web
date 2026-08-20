@@ -13,6 +13,11 @@ test("classifies docs-only without deployment", () => {
 });
 test("classifies application/UI", () => assert.equal(has(["app/[locale]/page.tsx"], "application_ui"), true));
 test("classifies content adapter/contract", () => assert.equal(has(["lib/cms/content-adapter.ts"], "content_adapter_contract"), true));
+test("classifies career display adapter as both UI and content contract", () => {
+  const result = classifyPaths(["lib/career/displaySurface.ts"]);
+  assert.equal(result.flags.application_ui, true);
+  assert.equal(result.flags.content_adapter_contract, true);
+});
 test("classifies ingress/runtime config", () => assert.equal(has(["deploy/openresty/fap-web-public.conf"], "ingress_runtime_config"), true));
 test("classifies deployment infrastructure", () => assert.equal(has([".github/workflows/deploy.yml"], "deployment_infrastructure"), true));
 
