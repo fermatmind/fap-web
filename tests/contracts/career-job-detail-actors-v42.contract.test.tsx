@@ -6,12 +6,18 @@ import {
   buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
+import {
+  CAREER_DISPLAY_COMPONENT_ORDER,
+  CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
+} from "@/lib/career/displaySurface";
 
 afterEach(() => {
   vi.resetModules();
   vi.restoreAllMocks();
   vi.unmock("next/link");
   vi.unmock("next/navigation");
+  vi.doUnmock("@/lib/career/api/fetchCareerSalaryAssetPreview");
+  vi.doUnmock("@/lib/career/api/fetchCareerAiImpactAssetPreview");
 });
 
 function mockRouteRuntime(payload: unknown) {
@@ -266,6 +272,58 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("career-job-docx-document");
   });
 
+  it("renders the accountants production template in the exact published 26-component DOM order", async () => {
+    const slug = "accountants-and-auditors";
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" }),
+      })
+    );
+    const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(html).toContain('data-career-production-template="accountants-v1"');
+    expect(componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(html).not.toContain("career-job-docx-document");
+  });
+
+  it("does not request salary or AI preview sidecars for the accountants production template", async () => {
+    const salaryFetch = vi.fn(async () => {
+      throw new Error("unexpected salary preview request");
+    });
+    const aiFetch = vi.fn(async () => {
+      throw new Error("unexpected AI preview request");
+    });
+    vi.doMock("@/lib/career/api/fetchCareerSalaryAssetPreview", () => ({ fetchCareerSalaryAssetPreview: salaryFetch }));
+    vi.doMock("@/lib/career/api/fetchCareerAiImpactAssetPreview", () => ({ fetchCareerAiImpactAssetPreview: aiFetch }));
+    const slug = "accountants-and-auditors";
+
+    await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" }),
+      })
+    );
+
+    expect(salaryFetch).not.toHaveBeenCalled();
+    expect(aiFetch).not.toHaveBeenCalled();
+  });
+
+  it("fails closed for accountants when the projection is missing or uses the legacy 24-component order", async () => {
+    const slug = "accountants-and-auditors";
+    const legacyOrderSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" });
+    legacyOrderSurface.component_order = [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24];
+
+    await expect(renderCareerJobPage("en", slug, buildJobBundle({ slug }))).rejects.toThrow("not-found");
+    await expect(
+      renderCareerJobPage("en", slug, buildJobBundle({ slug, displaySurface: legacyOrderSurface }))
+    ).rejects.toThrow("not-found");
+  });
+
   it.each([
     ["actuaries", "Actuaries"],
     ["financial-analysts", "Financial Analysts"],
@@ -351,13 +409,11 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("career-display-surface");
   });
 
-  it("keeps non-Actors on the legacy renderer when no display surface exists", async () => {
-    const html = await renderCareerJobPage("en", "accountants-and-auditors", buildJobBundle({ slug: "accountants-and-auditors" }));
+  it("keeps unrelated jobs on the legacy renderer when no display surface exists", async () => {
+    const html = await renderCareerJobPage("en", "writers", buildJobBundle({ slug: "writers" }));
 
     expect(html).toContain("career-job-docx-document");
-    expect(html).toContain("Legacy Accountants and Auditors DOCX body");
     expect(html).not.toContain("career-display-surface");
-    expect(html).not.toContain("Fermat Quick Fit");
   });
 
   it("does not redirect a published English DOCX-baseline job detail page to zh when canonical authority is indexable", async () => {
@@ -527,11 +583,11 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Marketing Managers");
   });
 
-  it("keeps non-Actors on the legacy renderer when inbound attribution is present", async () => {
+  it("keeps unrelated legacy jobs on the legacy renderer when inbound attribution is present", async () => {
     const html = await renderCareerJobPage(
       "en",
-      "accountants-and-auditors",
-      buildJobBundle({ slug: "accountants-and-auditors" }),
+      "writers",
+      buildJobBundle({ slug: "writers" }),
       { utm_source: "zhihu", gclid: "test-gclid" }
     );
 

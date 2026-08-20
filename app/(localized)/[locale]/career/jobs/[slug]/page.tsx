@@ -33,6 +33,7 @@ import type {
 } from "@/lib/career/adapters/types";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import {
+  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_RIASEC_TEST_SLUG,
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
@@ -781,6 +782,10 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
+  if (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !job.displaySurfaceV1) {
+    return { title: "Not Found", robots: { index: false, follow: false } };
+  }
+
   const seoSurface = job.seoSurface;
   const canonicalPath =
     seoSurface?.canonicalPath ?? normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCanonicalPath(job.slug, locale));
@@ -923,10 +928,15 @@ export default async function CareerJobDetailPage({
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
 
+  if (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !displaySurface) {
+    return notFound();
+  }
+
   if (displaySurface) {
+    const isAccountantsProductionTemplate = job.slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG;
     const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all([
-      loadCareerSalaryAssetPreview(locale, job.slug),
-      loadCareerAiImpactAssetPreview(locale, job.slug),
+      isAccountantsProductionTemplate ? Promise.resolve(null) : loadCareerSalaryAssetPreview(locale, job.slug),
+      isAccountantsProductionTemplate ? Promise.resolve(null) : loadCareerAiImpactAssetPreview(locale, job.slug),
     ]);
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
     const breadcrumbItems = [
@@ -966,7 +976,7 @@ export default async function CareerJobDetailPage({
             }
             salarySlot={<CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />}
           />
-          {shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
+          {!isAccountantsProductionTemplate && shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
         </Container>
       </main>
     );

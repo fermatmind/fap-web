@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { CareerDecisionActionBlock } from "@/components/career/display/CareerDecisionActionBlock";
+import { AccountantsCareerDisplaySurface } from "@/components/career/display/AccountantsCareerDisplaySurface";
 import { CareerDisplayHero } from "@/components/career/display/CareerDisplayHero";
 import { CareerFAQBlock } from "@/components/career/display/CareerFAQBlock";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
@@ -13,7 +14,10 @@ import type {
   CareerDisplaySurfaceViewModel,
   CareerDisplayTableRow,
 } from "@/lib/career/displaySurface";
-import { buildCareerDisplayCtaHref as buildDisplayCtaHref } from "@/lib/career/displaySurface";
+import {
+  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
+  buildCareerDisplayCtaHref as buildDisplayCtaHref,
+} from "@/lib/career/displaySurface";
 import type { AttributionParams } from "@/lib/tracking/attribution";
 
 type CareerDisplaySurfaceProps = {
@@ -680,6 +684,19 @@ export function CareerDisplaySurface({
         attributionParams: ctaAttributionParams,
       })
     : surface.cta.href;
+
+  if (surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) {
+    return (
+      <AccountantsCareerDisplaySurface
+        surface={surface}
+        visibleSections={visibleSections}
+        breadcrumbItems={breadcrumbItems}
+        primaryCtaHref={primaryCtaHref}
+        aiImpactSlot={aiImpactSlot}
+        salarySlot={salarySlot}
+      />
+    );
+  }
 
   return (
     <article className="mx-auto max-w-6xl space-y-8 px-4 py-6 md:px-6 md:py-8" data-testid="career-display-surface">

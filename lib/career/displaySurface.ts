@@ -7,6 +7,7 @@ import { appendAttributionParamsToHref, type AttributionParams } from "@/lib/tra
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
+export const CAREER_DISPLAY_ACCOUNTANTS_SLUG = "accountants-and-auditors" as const;
 export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = ["software-developers"] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
@@ -844,6 +845,16 @@ function normalizeComponentKeyedSection(
   };
 
   if (componentId === "fermat_decision_card") {
+    const publishedQuickFit = isRecord(block.fermat_quick_fit) ? block.fermat_quick_fit : null;
+    if (publishedQuickFit) {
+      return normalizeSection({
+        ...publishedQuickFit,
+        id: normalizeString(publishedQuickFit.id) ?? componentId,
+        component: definition.component,
+        heading: normalizeString(publishedQuickFit.heading) ?? heading,
+      });
+    }
+
     const summary = normalizeString(block.summary);
     const caveat = normalizeString(block.caveat);
     return normalizeSection({
@@ -853,6 +864,18 @@ function normalizeComponentKeyedSection(
       caution_title: locale === "zh" ? "使用边界" : "Boundary",
       caution_items: caveat ? [caveat] : [],
     });
+  }
+
+  if (componentId === "fit_decision_checklist") {
+    const publishedFitDecision = isRecord(block.fit_decision) ? block.fit_decision : null;
+    if (publishedFitDecision) {
+      return normalizeSection({
+        ...publishedFitDecision,
+        id: normalizeString(publishedFitDecision.id) ?? componentId,
+        component: definition.component,
+        heading: normalizeString(publishedFitDecision.heading) ?? heading,
+      });
+    }
   }
 
   if (componentId === "career_snapshot_secondary_locale") {
@@ -1176,7 +1199,46 @@ function localizeDisplayCtaLabel(locale: Locale, label: string): string {
   return containsCjk(label) ? "Measure my career interests" : label;
 }
 
-function buildRelatedNextPages(locale: Locale, hero: CareerDisplayHeroViewModel): CareerDisplayRelatedPage[] {
+function isSafeRelatedPageHref(href: string, locale: Locale): boolean {
+  if (!href.startsWith(`/${locale}/`) || href.includes("\\") || href.startsWith("//")) {
+    return false;
+  }
+
+  return (
+    /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href) ||
+    /^\/(?:en|zh)\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href)
+  );
+}
+
+function relatedPageLabel(href: string): string {
+  return humanizeSlug(href.split("/").filter(Boolean).at(-1) ?? href);
+}
+
+function normalizeRelatedNextPages(
+  value: unknown,
+  locale: Locale,
+  hero: CareerDisplayHeroViewModel
+): CareerDisplayRelatedPage[] {
+  const raw = isRecord(value) ? value : null;
+  const hrefs = raw
+    ? [
+        normalizeString(raw.primary_test),
+        ...normalizeStringArray(raw.related_jobs),
+        ...normalizeStringArray(raw.secondary_tests),
+      ]
+    : [];
+  const publishedPages = [...new Set(hrefs)]
+    .filter((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)))
+    .map((href) => ({
+      label: relatedPageLabel(href),
+      href,
+      routeKind: href.includes("/career/jobs/") ? ("job" as const) : ("test" as const),
+    }));
+
+  if (publishedPages.length > 0) {
+    return publishedPages;
+  }
+
   const related = [
     {
       label: locale === "zh" ? "霍兰德职业兴趣测试（RIASEC）" : "Holland Career Interest Test (RIASEC)",
@@ -1292,13 +1354,17 @@ export function adaptCareerDisplaySurface(
     assetVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     templateVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     assetType !== DISPLAY_ASSET_TYPE ||
-    (assetRole !== null && assetRole !== DISPLAY_ASSET_ROLE) ||
+    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+      ? assetRole !== DISPLAY_ASSET_ROLE
+      : assetRole !== null && assetRole !== DISPLAY_ASSET_ROLE) ||
     status !== READY_STATUS ||
     !isValidCareerDisplaySlug(canonicalSlug) ||
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
     !isSupportedComponentOrder(componentOrder) ||
+    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
+      !matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER)) ||
     !page ||
     !hero ||
     sections.length === 0 ||
@@ -1349,7 +1415,7 @@ export function adaptCareerDisplaySurface(
     sections,
     faqItems,
     sources: normalizeSources(root.sources),
-    relatedNextPages: buildRelatedNextPages(locale, localizedHero),
+    relatedNextPages: normalizeRelatedNextPages(page.related_next_pages, locale, localizedHero),
     boundaryNotice: normalizeBoundaryNotice(root, locale, page),
     reviewValidity: normalizeReviewValidity(root, page),
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),

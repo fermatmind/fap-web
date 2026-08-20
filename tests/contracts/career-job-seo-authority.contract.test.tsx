@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
+import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
 const SEO_TITLE = "会计师和审计师｜FermatMind 职业库";
 const SEO_DESCRIPTION =
@@ -66,6 +67,12 @@ function buildCareerJobBundlePayload() {
         url: "/zh/career/jobs/accountants-and-auditors",
       },
     },
+    display_surface_v1: buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleEn: "Accountants and Auditors",
+      titleZh: "会计师和审计师",
+    }),
     seo_authority_v1: {
       seo_surface_v1: {
         metadata_contract_version: "seo.surface.v1",
