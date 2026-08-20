@@ -137,14 +137,14 @@ function AccountantsHero({
 
   return (
     <header
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-9 md:py-[34px]"
+      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-8 md:py-8"
       data-testid="career-display-hero"
     >
-      <div className="max-w-[640px] pr-0 lg:pr-40">
+      <div className="max-w-[640px] pr-0 lg:pr-10">
         {surface.hero.subtitle ? <p className="m-0 text-sm font-normal text-white/80">{surface.hero.subtitle}</p> : null}
         <h1 className="m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]">{surface.hero.h1}</h1>
         {badges.length > 0 ? (
-          <div className="my-3.5 flex flex-wrap gap-2" data-testid="accountants-hero-badges">
+          <div className="my-3 flex flex-wrap gap-2" data-testid="accountants-hero-badges">
             {badges.map((badge) => (
               <span key={badge} className="rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium">
                 {badge}
@@ -161,9 +161,9 @@ function AccountantsHero({
         </div>
       ) : null}
       {metrics.length > 0 ? (
-        <div className="mt-6 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-5" data-testid="accountants-hero-stats">
+        <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5" data-testid="accountants-hero-stats">
           {metrics.map(([label, value]) => (
-            <div key={`${label}:${value}`} className="rounded-xl bg-white/[.12] px-2.5 py-3">
+            <div key={`${label}:${value}`} className="rounded-xl bg-white/[.12] px-3 py-3">
               <strong className="block text-lg leading-tight">{value}</strong>
               <span className="mt-1 block text-xs leading-4 text-white/85">{label}</span>
             </div>
