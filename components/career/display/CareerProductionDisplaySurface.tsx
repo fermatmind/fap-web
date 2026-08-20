@@ -124,7 +124,7 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   );
 }
 
-function AccountantsHero({
+function CareerProductionHero({
   surface,
   visibleSections,
   primaryCtaHref,
@@ -144,7 +144,7 @@ function AccountantsHero({
         {surface.hero.subtitle ? <p className="m-0 text-sm font-normal text-white/80">{surface.hero.subtitle}</p> : null}
         <h1 className="m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]">{surface.hero.h1}</h1>
         {badges.length > 0 ? (
-          <div className="my-3 flex flex-wrap gap-2" data-testid="accountants-hero-badges">
+          <div className="my-3 flex flex-wrap gap-2" data-testid="career-production-hero-badges">
             {badges.map((badge) => (
               <span key={badge} className="rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium">
                 {badge}
@@ -155,13 +155,13 @@ function AccountantsHero({
         <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95">{surface.hero.quickAnswer}</p>
       </div>
       {aiImpact?.score ? (
-        <div className="mt-4 inline-flex items-center gap-3 rounded-xl bg-white/[.14] px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center" data-testid="accountants-ai-gauge">
+        <div className="mt-4 inline-flex items-center gap-3 rounded-xl bg-white/[.14] px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center" data-testid="career-production-ai-gauge">
           <strong className="block text-2xl leading-none lg:text-3xl">{aiImpact.score}</strong>
           <span className="block pt-1 text-xs leading-4 text-white/85">{aiImpact.heading}</span>
         </div>
       ) : null}
       {metrics.length > 0 ? (
-        <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5" data-testid="accountants-hero-stats">
+        <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5" data-testid="career-production-hero-stats">
           {metrics.map(([label, value]) => (
             <div key={`${label}:${value}`} className="rounded-xl bg-white/[.12] px-3 py-3">
               <strong className="block text-lg leading-tight">{value}</strong>
@@ -215,7 +215,7 @@ function ReviewCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   );
 }
 
-export function AccountantsCareerDisplaySurface({
+export function CareerProductionDisplaySurface({
   surface,
   visibleSections,
   breadcrumbItems,
@@ -244,7 +244,7 @@ export function AccountantsCareerDisplaySurface({
       );
     }
     if (componentId === "hero") {
-      return <AccountantsHero surface={surface} visibleSections={visibleSections} primaryCtaHref={primaryCtaHref} />;
+      return <CareerProductionHero surface={surface} visibleSections={visibleSections} primaryCtaHref={primaryCtaHref} />;
     }
     if (componentId === "primary_cta" || componentId === "final_cta") {
       return (
@@ -293,7 +293,7 @@ export function AccountantsCareerDisplaySurface({
       );
     }
     return (
-      <div className="[&>[data-evidence-container]]:rounded-2xl [&>[data-evidence-container]]:border-[#E5E9F2] [&>[data-evidence-container]]:p-5 [&>[data-evidence-container]]:shadow-[0_2px_12px_rgba(26,34,51,.05)] md:[&>[data-evidence-container]]:p-8">
+      <div className="[&_a]:min-h-11 [&>[data-evidence-container]]:rounded-2xl [&>[data-evidence-container]]:border-[#E5E9F2] [&>[data-evidence-container]]:p-5 [&>[data-evidence-container]]:shadow-[0_2px_12px_rgba(26,34,51,.05)] md:[&>[data-evidence-container]]:p-8">
         <EvidenceContainer
           section={visibleSection}
           testId={COMPONENT_TEST_IDS[componentId]}
@@ -312,7 +312,7 @@ export function AccountantsCareerDisplaySurface({
     <article
       className="mx-auto max-w-[1100px] px-4 py-5 text-[#1A2233] md:px-5"
       data-testid="career-display-surface"
-      data-career-production-template="accountants-v1"
+      data-career-production-template="career-production-v1"
     >
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
         <main className="min-w-0 space-y-6">
@@ -335,7 +335,7 @@ export function AccountantsCareerDisplaySurface({
             {tocSections.map(({ componentId, section }) => <a key={componentId} href={`#career-component-${componentId}`} className="border-b border-[#F0F3FA] py-2 text-[#3a4255] last:border-0 hover:text-[#2C3E8C]">{section.heading}</a>)}
           </nav>
           </div>
-          <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="accountants-assessment-rail">
+          <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
             <h2 className="m-0 text-base font-bold">{surface.cta.label}</h2>
             <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
             <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">

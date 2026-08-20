@@ -222,15 +222,20 @@ describe("career job detail Actors v4.2 route integration", () => {
   });
 
   it("renders the Chinese Actors v4.2 display surface when backend returns a valid surface", async () => {
-    const html = await renderCareerJobPage("zh", "actors", buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }));
+    const html = await renderCareerJobPage(
+      "zh",
+      "actors",
+      buildJobBundle({ displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" }) })
+    );
 
     expect(html).toContain("career-display-surface");
     expect(html).toContain("费马快速判断");
     expect(html).toContain("职业快照：中国大陆参考");
-    expect(html).toContain("招聘样本提示：短剧演员岗位常见要求");
-    expect(html).toContain("AI 会不会替代演员");
-    expect(html).toContain("常见问题");
+    expect(html).toContain("市场信号");
+    expect(html).toContain("AI 影响");
+    expect(html).toContain("FAQ");
     expect(html).toContain("测量我的职业兴趣");
+    expect(html).toContain('data-career-production-template="career-production-v1"');
     expect(html).not.toContain("career-job-docx-document");
     expect(html).not.toContain("Legacy Actors DOCX body");
   });
@@ -284,7 +289,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     );
     const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
 
-    expect(html).toContain('data-career-production-template="accountants-v1"');
+    expect(html).toContain('data-career-production-template="career-production-v1"');
     expect(componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
     expect(html).not.toContain("career-job-docx-document");
   });
@@ -311,6 +316,76 @@ describe("career job detail Actors v4.2 route integration", () => {
 
     expect(salaryFetch).not.toHaveBeenCalled();
     expect(aiFetch).not.toHaveBeenCalled();
+  });
+
+  it("uses the production renderer and skips sidecars and legacy links for any valid zh Current projection", async () => {
+    const salaryFetch = vi.fn(async () => {
+      throw new Error("unexpected salary preview request");
+    });
+    const aiFetch = vi.fn(async () => {
+      throw new Error("unexpected AI preview request");
+    });
+    vi.doMock("@/lib/career/api/fetchCareerSalaryAssetPreview", () => ({ fetchCareerSalaryAssetPreview: salaryFetch }));
+    vi.doMock("@/lib/career/api/fetchCareerAiImpactAssetPreview", () => ({ fetchCareerAiImpactAssetPreview: aiFetch }));
+    const slug = "precision-agriculture-technicians";
+    const html = await renderCareerJobPage(
+      "zh",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+          slug,
+          locale: "zh",
+          titleEn: "Precision Agriculture Technicians",
+          titleZh: "精准农业技术人员",
+        }),
+      })
+    );
+    const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
+
+    expect(html).toContain('data-career-production-template="career-production-v1"');
+    expect(componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(html).not.toContain('data-testid="career-job-related-links"');
+    expect(salaryFetch).not.toHaveBeenCalled();
+    expect(aiFetch).not.toHaveBeenCalled();
+  });
+
+  it("fails closed for declared zh Current projections that are invalid or missing", async () => {
+    const slug = "precision-agriculture-technicians";
+    const invalidSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, locale: "zh" });
+    invalidSurface.component_order = invalidSurface.component_order.slice(0, 24);
+    const publishedSeoContract = {
+      canonical_path: `/zh/career/jobs/${slug}`,
+      canonical_target: `/zh/career/jobs/${slug}`,
+      index_state: "indexable",
+      index_eligible: true,
+      reason_codes: ["validated_display_asset_backed_release", "runtime_publish_projection"],
+    };
+
+    await expect(
+      renderCareerJobPage("zh", slug, buildJobBundle({ slug, displaySurface: invalidSurface, seoContract: publishedSeoContract }))
+    ).rejects.toThrow("not-found");
+    await expect(
+      renderCareerJobPage("zh", slug, buildJobBundle({ slug, seoContract: publishedSeoContract }))
+    ).rejects.toThrow("not-found");
+  });
+
+  it("keeps a non-accountants English Current projection on the existing generic renderer", async () => {
+    const slug = "precision-agriculture-technicians";
+    const html = await renderCareerJobPage(
+      "en",
+      slug,
+      buildJobBundle({
+        slug,
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+          slug,
+          titleEn: "Precision Agriculture Technicians",
+        }),
+      })
+    );
+
+    expect(html).toContain("career-display-surface");
+    expect(html).not.toContain("data-career-production-template");
   });
 
   it("fails closed for accountants when the projection is missing or uses the legacy 24-component order", async () => {
@@ -526,23 +601,21 @@ describe("career job detail Actors v4.2 route integration", () => {
     ).rejects.toThrow("redirect:/zh/career/jobs/compliance-officers");
   });
 
-  it("keeps software developers on the legacy renderer even when a display surface is present", async () => {
-    const html = await renderCareerJobPage(
-      "en",
-      "software-developers",
-      buildJobBundle({
-        slug: "software-developers",
-        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+  it.each(["en", "zh"] as const)("keeps software developers on the %s 404 hold", async (locale) => {
+    await expect(
+      renderCareerJobPage(
+        locale,
+        "software-developers",
+        buildJobBundle({
           slug: "software-developers",
-          titleEn: "Software Developers",
-        }),
-      })
-    );
-
-    expect(html).toContain("career-job-docx-document");
-    expect(html).toContain("Legacy Accountants and Auditors DOCX body");
-    expect(html).not.toContain("career-display-surface");
-    expect(html).not.toContain("Software Developers");
+          displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+            slug: "software-developers",
+            locale,
+            titleEn: "Software Developers",
+          }),
+        })
+      )
+    ).rejects.toThrow("not-found");
   });
 
   it("keeps unrelated slugs on the legacy renderer when display_surface_v1 is invalid", async () => {
@@ -714,7 +787,9 @@ describe("career job detail Actors v4.2 route integration", () => {
     const html = await renderCareerJobPage(
       "zh",
       "actors",
-      buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }),
+      buildJobBundle({
+        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" }),
+      }),
       {
         utm_source: "zhihu",
         utm_medium: "community",

@@ -364,6 +364,7 @@ export type CareerJobBundleAdapter = {
   }>;
   contentBodyMd: string | null;
   displaySurfaceV1: CareerDisplaySurfaceViewModel | null;
+  displaySurfaceAuthorityState: "published_valid" | "published_invalid" | "absent_legacy";
   seoSurface: SeoSurfaceViewModel | null;
   scoreBundle: CareerScoreBundleAdapter;
   warnings: CareerWarningsAdapter;

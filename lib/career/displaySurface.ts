@@ -1239,7 +1239,7 @@ function normalizeRelatedNextPages(
   const publishedPages = [...new Set(hrefs)]
     .filter((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)))
     .map((href) => ({
-      label: relatedPageLabel(href),
+      label: requirePublishedProjection ? href : relatedPageLabel(href),
       href,
       routeKind: href.includes("/career/jobs/") ? ("job" as const) : ("test" as const),
     }));
@@ -1273,7 +1273,7 @@ function normalizeRelatedNextPages(
   return related.filter((page) => page.href && isKnownTestHref(page.href));
 }
 
-const ACCOUNTANTS_REQUIRED_SECTION_COMPONENTS = [
+const PRODUCTION_REQUIRED_SECTION_COMPONENTS = [
   "FermatDecisionCard",
   "CareerSnapshotCard",
   "FitDecisionChecklist",
@@ -1293,7 +1293,7 @@ const ACCOUNTANTS_REQUIRED_SECTION_COMPONENTS = [
   "CareerFAQBlock",
 ] as const;
 
-function hasCompleteAccountantsProjection(input: {
+function hasCompleteProductionProjection(input: {
   page: Record<string, unknown>;
   sections: CareerDisplaySection[];
   sources: CareerDisplaySource[];
@@ -1315,8 +1315,15 @@ function hasCompleteAccountantsProjection(input: {
     return counts;
   }, {});
 
-  return ACCOUNTANTS_REQUIRED_SECTION_COMPONENTS.every((component) => sectionCounts[component] !== undefined) &&
+  return PRODUCTION_REQUIRED_SECTION_COMPONENTS.every((component) => sectionCounts[component] !== undefined) &&
     sectionCounts.CareerSnapshotCard === 2;
+}
+
+export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
+  return (
+    (surface.locale === "zh" || surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
+    matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER)
+  );
 }
 
 export function buildCareerDisplayCtaHref({
@@ -1413,7 +1420,7 @@ export function adaptCareerDisplaySurface(
     assetVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     templateVersion !== CAREER_DISPLAY_TEMPLATE_VERSION ||
     assetType !== DISPLAY_ASSET_TYPE ||
-    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+    (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
       ? assetRole !== DISPLAY_ASSET_ROLE
       : assetRole !== null && assetRole !== DISPLAY_ASSET_ROLE) ||
     status !== READY_STATUS ||
@@ -1422,7 +1429,7 @@ export function adaptCareerDisplaySurface(
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
     !isSupportedComponentOrder(componentOrder) ||
-    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
+    ((locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
       !matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER)) ||
     !page ||
     !hero ||
@@ -1462,12 +1469,12 @@ export function adaptCareerDisplaySurface(
     page.related_next_pages,
     locale,
     localizedHero,
-    canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG,
+    locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   );
 
   if (
-    canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
-    !hasCompleteAccountantsProjection({
+    (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
+    !hasCompleteProductionProjection({
       page,
       sections,
       sources,

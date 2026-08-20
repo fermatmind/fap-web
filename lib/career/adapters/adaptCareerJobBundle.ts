@@ -102,6 +102,38 @@ function normalizeBoolean(value: unknown): boolean | null {
   return typeof value === "boolean" ? value : null;
 }
 
+function hasOwn(value: Record<string, unknown>, key: string): boolean {
+  return Object.prototype.hasOwnProperty.call(value, key);
+}
+
+function resolveDisplaySurfaceAuthorityState({
+  locale,
+  raw,
+  seoContract,
+  displaySurface,
+}: {
+  locale: "en" | "zh";
+  raw: Record<string, unknown>;
+  seoContract: CareerSeoContractAdapter;
+  displaySurface: CareerJobBundleAdapter["displaySurfaceV1"];
+}): CareerJobBundleAdapter["displaySurfaceAuthorityState"] {
+  if (displaySurface) {
+    return "published_valid";
+  }
+
+  if (locale !== "zh") {
+    return "absent_legacy";
+  }
+
+  const declaresPublishedProjection = seoContract.reasonCodes.some(
+    (reasonCode) => reasonCode === "runtime_publish_projection" || reasonCode === "validated_display_asset_backed_release"
+  );
+
+  return hasOwn(raw, "display_surface_v1") || declaresPublishedProjection
+    ? "published_invalid"
+    : "absent_legacy";
+}
+
 const STRAIN_RADAR_AXES: CareerWhiteBoxStrainRadarAxisKey[] = [
   "people_friction",
   "context_switch_load",
@@ -636,6 +668,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const structuredData = buildStructuredData(raw, input.locale, slug);
   const seoAuthorityOccupation = buildSeoAuthorityOccupationJsonLd(seoAuthority, seoSurface);
   const lifecycleCompanionRaw = isRecord(raw.lifecycle_companion) ? raw.lifecycle_companion : {};
+  const displaySurfaceV1 = adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug, title);
 
   const adapter: CareerJobBundleAdapter = {
     authoritySource: "career_backend_bundle.v0.5",
@@ -667,7 +700,13 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     },
     contentSections: buildContentSections(raw),
     contentBodyMd: normalizeString(raw.content_body_md),
-    displaySurfaceV1: adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug, title),
+    displaySurfaceV1,
+    displaySurfaceAuthorityState: resolveDisplaySurfaceAuthorityState({
+      locale: input.locale,
+      raw,
+      seoContract,
+      displaySurface: displaySurfaceV1,
+    }),
     seoSurface,
     scoreBundle,
     warnings,

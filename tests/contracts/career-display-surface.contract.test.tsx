@@ -184,9 +184,66 @@ describe("career display surface contract", () => {
 
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(screen.getByTestId("accountants-hero-stats").children).toHaveLength(3);
-    expect(screen.getByTestId("accountants-assessment-rail")).toBeInTheDocument();
+    expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
+    expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
+
+  it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
+    const slug = "precision-agriculture-technicians";
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug,
+        locale: "zh",
+        titleEn: "Precision Agriculture Technicians",
+        titleZh: "精准农业技术人员",
+      }),
+      "zh",
+      undefined,
+      slug
+    );
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-display-surface")).toHaveAttribute(
+      "data-career-production-template",
+      "career-production-v1"
+    );
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+  });
+
+  it("preserves published zh Current copy instead of applying local claim regex rewrites", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "financial-examiners",
+      locale: "zh",
+      titleEn: "Financial Examiners",
+      titleZh: "金融审查员",
+    });
+    const page = fixture.page.content as unknown as Record<string, unknown>;
+    page.career_ai_description_block = {
+      id: "career_ai_description",
+      component: "CareerAiDescriptionBlock",
+      heading: "后端原文",
+      body: "这段后端已发布正文原样包含薪资预测与收入预测边界词。",
+    };
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.getByText("这段后端已发布正文原样包含薪资预测与收入预测边界词。")).toBeInTheDocument();
+  });
+
+  it.each(["asset_role", "related_next_pages", "review_validity_card", "boundary_notice"])(
+    "fails closed for a non-accountants zh Current projection when %s is invalid or missing",
+    (field) => {
+      const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "financial-examiners", locale: "zh" });
+      if (field === "asset_role") {
+        fixture.asset_role = "draft";
+      } else {
+        delete (fixture.page.content as Record<string, unknown>)[field];
+      }
+
+      expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
+    }
+  );
 
   it.each([
     "related_next_pages",
@@ -588,15 +645,15 @@ describe("career display surface contract", () => {
   it("suppresses legacy salary and search-intent metadata when a salary asset is rendered", () => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({
-        slug: "accountants-and-auditors",
-        titleEn: "Accountants and Auditors",
+        slug: "data-scientists",
+        titleEn: "Data Scientists",
       }),
       "en"
     );
 
     render(<CareerDisplaySurface surface={surface} suppressLegacySalaryMetadata />);
 
-    expect(screen.getByTestId("career-display-surface")).toHaveTextContent("Accountants and Auditors");
+    expect(screen.getByTestId("career-display-surface")).toHaveTextContent("Data Scientists");
     expect(screen.queryByText("Search intent")).not.toBeInTheDocument();
     expect(screen.queryByText("career_exploration")).not.toBeInTheDocument();
     expect(screen.queryByText("career_fit")).not.toBeInTheDocument();
@@ -727,8 +784,9 @@ describe("career display surface contract", () => {
 
   it("normalizes English and Chinese locales", () => {
     expect(adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en")?.locale).toBe("en");
-    expect(adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh-CN")?.locale).toBe("zh");
-    expect(adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh")?.subject.path).toBe("/zh/career/jobs/actors");
+    const zhCurrent = buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" });
+    expect(adaptCareerDisplaySurface(zhCurrent, "zh-CN")?.locale).toBe("zh");
+    expect(adaptCareerDisplaySurface(zhCurrent, "zh")?.subject.path).toBe("/zh/career/jobs/actors");
   });
 
   it("renders a validator-eligible slug without a hardcoded selected allowlist entry", () => {

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { CareerDecisionActionBlock } from "@/components/career/display/CareerDecisionActionBlock";
-import { AccountantsCareerDisplaySurface } from "@/components/career/display/AccountantsCareerDisplaySurface";
+import { CareerProductionDisplaySurface } from "@/components/career/display/CareerProductionDisplaySurface";
 import { CareerDisplayHero } from "@/components/career/display/CareerDisplayHero";
 import { CareerFAQBlock } from "@/components/career/display/CareerFAQBlock";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
@@ -15,8 +15,8 @@ import type {
   CareerDisplayTableRow,
 } from "@/lib/career/displaySurface";
 import {
-  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   buildCareerDisplayCtaHref as buildDisplayCtaHref,
+  isCareerProductionDisplaySurface,
 } from "@/lib/career/displaySurface";
 import type { AttributionParams } from "@/lib/tracking/attribution";
 
@@ -625,13 +625,16 @@ export function CareerDisplaySurface({
   }
 
   const claimPermissions = surface.claimPermissions;
-  const baseSections = suppressLegacySalaryMetadata
+  const isProductionTemplate = isCareerProductionDisplaySurface(surface);
+  const baseSections = !isProductionTemplate && suppressLegacySalaryMetadata
     ? surface.sections.filter((section) => !isLegacyMetadataSection(section) && !sectionIncludesSalaryClaim(section))
     : surface.sections;
-  const claimAuditedSections = baseSections
-    .map(stripUnsafeCareerClaims)
-    .filter((section): section is CareerDisplaySection => section !== null);
-  const visibleSections = claimPermissions.allowSalaryComparison
+  const claimAuditedSections = isProductionTemplate
+    ? baseSections
+    : baseSections
+      .map(stripUnsafeCareerClaims)
+      .filter((section): section is CareerDisplaySection => section !== null);
+  const visibleSections = isProductionTemplate || claimPermissions.allowSalaryComparison
     ? claimAuditedSections
     : claimAuditedSections
       .map((section) => stripSalaryClaims(section, false))
@@ -685,9 +688,9 @@ export function CareerDisplaySurface({
       })
     : surface.cta.href;
 
-  if (surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) {
+  if (isProductionTemplate) {
     return (
-      <AccountantsCareerDisplaySurface
+      <CareerProductionDisplaySurface
         surface={surface}
         visibleSections={visibleSections}
         breadcrumbItems={breadcrumbItems}

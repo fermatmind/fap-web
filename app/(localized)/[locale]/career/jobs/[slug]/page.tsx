@@ -34,6 +34,7 @@ import type {
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import {
   CAREER_DISPLAY_ACCOUNTANTS_SLUG,
+  CAREER_DISPLAY_MANUAL_HOLD_SLUGS,
   CAREER_DISPLAY_RIASEC_TEST_SLUG,
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
@@ -782,7 +783,15 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
+  if (CAREER_DISPLAY_MANUAL_HOLD_SLUGS.some((heldSlug) => heldSlug === slug)) {
+    return { title: "Not Found", robots: { index: false, follow: false } };
+  }
+
   if (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !job.displaySurfaceV1) {
+    return { title: "Not Found", robots: { index: false, follow: false } };
+  }
+
+  if (locale === "zh" && job.displaySurfaceAuthorityState === "published_invalid") {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
@@ -915,6 +924,10 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
+  if (CAREER_DISPLAY_MANUAL_HOLD_SLUGS.some((heldSlug) => heldSlug === slug)) {
+    return notFound();
+  }
+
   const publishedIndexAuthority = hasPublishedIndexAuthority(job);
 
   if (!job.displaySurfaceV1 && !publishedIndexAuthority && shouldRedirectEnglishJobDetailToChinese(job, locale)) {
@@ -928,15 +941,19 @@ export default async function CareerJobDetailPage({
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
 
-  if (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !displaySurface) {
+  if (
+    (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !displaySurface) ||
+    (locale === "zh" && job.displaySurfaceAuthorityState === "published_invalid")
+  ) {
     return notFound();
   }
 
   if (displaySurface) {
-    const isAccountantsProductionTemplate = job.slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG;
+    const isZhProductionTemplate = locale === "zh" && job.displaySurfaceAuthorityState === "published_valid";
+    const isProductionTemplate = isZhProductionTemplate || job.slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG;
     const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all([
-      isAccountantsProductionTemplate ? Promise.resolve(null) : loadCareerSalaryAssetPreview(locale, job.slug),
-      isAccountantsProductionTemplate ? Promise.resolve(null) : loadCareerAiImpactAssetPreview(locale, job.slug),
+      isProductionTemplate ? Promise.resolve(null) : loadCareerSalaryAssetPreview(locale, job.slug),
+      isProductionTemplate ? Promise.resolve(null) : loadCareerAiImpactAssetPreview(locale, job.slug),
     ]);
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
     const breadcrumbItems = [
@@ -976,7 +993,7 @@ export default async function CareerJobDetailPage({
             }
             salarySlot={<CareerSalaryAssetPreviewSection asset={salaryAssetPreview} locale={locale} />}
           />
-          {!isAccountantsProductionTemplate && shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
+          {!isProductionTemplate && shouldRenderOccupationJsonLd(job) ? <CareerJobRelatedLinks job={job} locale={locale} /> : null}
         </Container>
       </main>
     );
