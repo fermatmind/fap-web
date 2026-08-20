@@ -95,6 +95,10 @@ const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
 const CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET = new Set<string>(CAREER_DISPLAY_MANUAL_HOLD_SLUGS);
 const TRUSTED_SOURCE_AUTHORITY_SET = new Set<string>(CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES);
 
+export function isCareerDisplayManualHoldSlug(slug: string): boolean {
+  return CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET.has(String(slug ?? "").trim().toLowerCase());
+}
+
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
 
@@ -566,7 +570,7 @@ function containsSchemaType(value: unknown, schemaType: string): boolean {
 }
 
 function isValidCareerDisplaySlug(value: string | null): value is string {
-  return Boolean(value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && !CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET.has(value));
+  return Boolean(value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && !isCareerDisplayManualHoldSlug(value));
 }
 
 export function normalizeCareerDisplayLocale(locale: unknown): Locale | null {

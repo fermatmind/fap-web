@@ -34,10 +34,10 @@ import type {
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
 import {
   CAREER_DISPLAY_ACCOUNTANTS_SLUG,
-  CAREER_DISPLAY_MANUAL_HOLD_SLUGS,
   CAREER_DISPLAY_RIASEC_TEST_SLUG,
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
+  isCareerDisplayManualHoldSlug,
 } from "@/lib/career/displaySurface";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
@@ -783,7 +783,7 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  if (CAREER_DISPLAY_MANUAL_HOLD_SLUGS.some((heldSlug) => heldSlug === slug)) {
+  if (isCareerDisplayManualHoldSlug(slug)) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
@@ -924,7 +924,7 @@ export default async function CareerJobDetailPage({
     return notFound();
   }
 
-  if (CAREER_DISPLAY_MANUAL_HOLD_SLUGS.some((heldSlug) => heldSlug === slug)) {
+  if (isCareerDisplayManualHoldSlug(slug)) {
     return notFound();
   }
 

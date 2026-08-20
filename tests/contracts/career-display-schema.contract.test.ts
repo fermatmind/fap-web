@@ -26,13 +26,16 @@ describe("career display schema contract", () => {
   });
 
   it("keeps visible FAQPage mainEntity count aligned with rendered FAQ", () => {
-    const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh");
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" }),
+      "zh"
+    );
     const faqJsonLd = buildCareerDisplayFAQPageJsonLd(surface);
 
     expect(faqJsonLd?.mainEntity).toHaveLength(2);
     expect(surface?.faqItems.map((item) => item.question)).toEqual([
-      "普通人想做演员，应该先去横店跑组吗？",
-      "没有表演院校背景，可以做演员吗？",
+      "演员 适合普通人探索吗？",
+      "演员 会被 AI 取代吗？",
     ]);
   });
 

@@ -55,9 +55,9 @@ function buildDisplaySurface() {
   ];
   fixture.page.content.review_validity_card.last_reviewed = "2026-07-02";
   fixture.page.content.review_validity_card.next_review_due = "2026-10-02";
-  (fixture.page.content as { boundary_notice?: unknown }).boundary_notice = {
-    notices: ["后端边界说明：测评不能保证录用、收入或职业结果。"],
-  };
+  (fixture.page.content as { boundary_notice?: unknown }).boundary_notice = [
+    "后端边界说明：测评不能保证录用、收入或职业结果。",
+  ];
   (fixture.sources as { references: Array<Record<string, unknown>> }).references = [
     {
       key: "backend_onet_projection_lock",

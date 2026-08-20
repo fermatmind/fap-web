@@ -110,7 +110,10 @@ describe("career display CTA contract", () => {
   });
 
   it("preserves inbound UTM and click IDs on the rendered display CTA", () => {
-    const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "zh");
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" }),
+      "zh"
+    );
 
     render(
       <CareerDisplaySurface
