@@ -425,70 +425,6 @@ const PR_CAREER_KG_17_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
-const PR_CAREER_KG_AGENT_01_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
-  ".agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json",
-  ".agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json",
-  "docs/career/career-kg-agent-optimization-runbook.md",
-  "tests/contracts/career-kg-agent-package-schema.contract.test.ts",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-  "generated/pr-train-sidecar-issues/sidecar_issues.md",
-  "generated/pr-train-sidecar-issues/sidecar_issues.json",
-]);
-
-const PR_CAREER_KG_AGENT_02_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py",
-  ".agents/skills/career-content-asset-factory/templates/career_kg_asset_package_template.json",
-  ".agents/skills/career-content-asset-factory/templates/career_kg_readme_template.md",
-  "tests/contracts/career-kg-package-generator.contract.test.ts",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-]);
-
-const PR_CAREER_KG_AGENT_03_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py",
-  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py",
-  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py",
-  "tests/contracts/career-kg-package-validator.contract.test.ts",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-]);
-
-const PR_CAREER_KG_AGENT_04_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py",
-  ".agents/skills/career-content-asset-factory/schemas/career_kg_search_projection_candidate.schema.json",
-  ".agents/skills/career-content-asset-factory/templates/career_kg_search_projection_candidate.json",
-  "tests/contracts/career-kg-search-projection-quarantine.contract.test.ts",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-]);
-
-const PR_CAREER_KG_AGENT_05_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py",
-  ".agents/skills/career-content-asset-factory/templates/career_kg_pr_train_entry.yaml",
-  ".agents/skills/career-content-asset-factory/templates/career_kg_pr_train_state_entry.json",
-  "tests/contracts/career-kg-pr-train-entry-generator.contract.test.ts",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-]);
-
-const PR_CAREER_KG_AGENT_06_ALLOWED_FILES = new Set([
-  ".agents/skills/career-content-asset-factory/SKILL.md",
-  ".agents/skills/career-content-asset-factory/references/operator_runbook.md",
-  ".agents/skills/career-content-asset-factory/references/search_projection_quarantine.md",
-  "docs/career/career-content-agent-technical-summary-2026-06-25.md",
-  "docs/codex/career-batch-review-checklist.md",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "docs/codex/pr-train.yaml",
-  "docs/codex/pr-train-state.json",
-]);
-
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -1207,28 +1143,6 @@ const CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES = new Set([
   "lib/career/aiImpactAssetPreviewConfig.ts",
   "lib/career/api/fetchCareerAiImpactAssetPreview.ts",
   "tests/contracts/career-ai-impact-preview-consumer.contract.test.tsx",
-  "tests/contracts/helpers/currentPrScope.ts",
-]);
-
-const CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES = new Set([
-  ".agents/skills/career-identity-asset-factory/scripts/generate_evidence.py",
-  "generated/fermatmind-content-agent-state/batch_registry.json",
-  "generated/fermatmind-content-agent-state/career_block_status.json",
-  "generated/fermatmind-content-agent-state/global_content_state.json",
-  "generated/fermatmind-content-agent-state/import_state.json",
-  "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
-  "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
-  "tests/contracts/helpers/currentPrScope.ts",
-]);
-
-const CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES = new Set([
-  ".agents/skills/career-skills-entry-asset-factory/scripts/collect_evidence.py",
-  "generated/fermatmind-content-agent-state/batch_registry.json",
-  "generated/fermatmind-content-agent-state/career_block_status.json",
-  "generated/fermatmind-content-agent-state/global_content_state.json",
-  "generated/fermatmind-content-agent-state/import_state.json",
-  "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
-  "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
@@ -4463,13 +4377,6 @@ const MBTI_COMP_GATE_47_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
-function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string): boolean {
-  return (
-    CURRENT_BRANCH === "codex/career-skills-entry-1046-completion-state" &&
-    CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES.has(file)
-  );
-}
-
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/fap-web-public-nonce-cache-boundary-01" &&
@@ -4490,10 +4397,6 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (isCurrentMbtiContractSidecarFixAllowedFile(file)) {
-    return true;
-  }
-
-  if (isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file)) {
     return true;
   }
 
@@ -6025,14 +5928,6 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/career-identity-1046-authority-state") {
-    return CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES.has(file);
-  }
-
-  if (CURRENT_BRANCH === "codex/career-skills-entry-1046-completion-state") {
-    return CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES.has(file);
-  }
-
   if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {
     return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
   }
@@ -6351,54 +6246,6 @@ export function isPrCareerKg17AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_17_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent01AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-01-contract-schema") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_01_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent02AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-02-package-generator") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_02_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent03AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-03-qa-gate") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_03_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent04AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-04-search-projection-quarantine") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_04_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent05AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-05-pr-train-generator") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_05_ALLOWED_FILES.has(file);
-}
-
-export function isPrCareerKgAgent06AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-06-runbook-skill-integration") {
-    return true;
-  }
-
-  return PR_CAREER_KG_AGENT_06_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

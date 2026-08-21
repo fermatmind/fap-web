@@ -1,1 +1,0 @@
-../../career-content-asset-factory/scripts/block_stage_wrapper.py

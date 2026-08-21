@@ -29,6 +29,11 @@ Current technical verdict:
 Future scans should start from the technical summary above before proposing new
 career content-agent tasks.
 
+The retired frontend production Skills are historical evidence only. Active
+Career frontend work routes through
+`.agents/skills/fap-web-career-public-projection-renderer/`; content creation,
+canonical compilation, and publication remain fap-api responsibilities.
+
 ## Current Production Shape
 
 - Public Career detail cohort: 1046 canonical career slugs.

@@ -26,6 +26,7 @@ export function classifyPaths(inputPaths) {
       /(^|\/)AGENTS\.md$/,
       /(^|\/)README(?:\.[^/]+)?$/,
       /^(?:docs|\.agents)\//,
+      /^\.github\/trunk\/classify-paths(?:\.test)?\.mjs$/,
       /(^|\/)(?:tests?|__tests__)\//,
       /\.test\.[cm]?[jt]sx?$/,
     ]);
@@ -34,6 +35,12 @@ export function classifyPaths(inputPaths) {
       /\.test\.[cm]?[jt]sx?$/,
     ]);
     testsChanged ||= testPath;
+    if (docsOnly) {
+      selected.push("docs_rules_tests_only");
+      flags.docs_rules_tests_only = true;
+      reasons.docs_rules_tests_only.push(path);
+      continue;
+    }
     if (matches(path, [
       /^(?:app|components|lib|hooks|styles|public)\//,
       /^(?:next\.config\.[cm]?[jt]s|middleware\.[cm]?[jt]s|package\.json|pnpm-lock\.yaml)$/,
@@ -53,11 +60,6 @@ export function classifyPaths(inputPaths) {
       /^scripts\/(?:deploy|ops|release)\//,
       /(?:Dockerfile|docker-compose|deployment)/i,
     ])) selected.push("deployment_infrastructure");
-    if (testPath) {
-      selected.length = 0;
-      selected.push("docs_rules_tests_only");
-    }
-    if (selected.length === 0 && docsOnly) selected.push("docs_rules_tests_only");
     if (selected.length === 0) selected.push("application_ui");
 
     for (const category of selected) {

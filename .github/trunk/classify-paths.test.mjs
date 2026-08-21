@@ -6,7 +6,15 @@ import { classifyPaths } from "./classify-paths.mjs";
 const has = (paths, flag) => classifyPaths(paths).flags[flag];
 
 test("classifies docs-only without deployment", () => {
-  const result = classifyPaths(["AGENTS.md", "docs/ops/trunk.md", "tests/contracts/payment.contract.test.ts"]);
+  const result = classifyPaths([
+    "AGENTS.md",
+    "docs/ops/trunk.md",
+    ".agents/skills/fap-web-career-public-projection-renderer/SKILL.md",
+    ".agents/skills/fap-web-career-public-projection-renderer/references/renderer-contract.md",
+    ".github/trunk/classify-paths.mjs",
+    ".github/trunk/classify-paths.test.mjs",
+    "tests/contracts/career-public-projection-renderer-skill.contract.test.ts",
+  ]);
   assert.deepEqual(result.categories, ["docs_rules_tests_only"]);
   assert.equal(result.deploy, false);
   assert.equal(result.tests_changed, true);
