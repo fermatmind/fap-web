@@ -62,6 +62,7 @@ import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } fro
 // their own bounded data cache, while an HTML artifact from an older renderer
 // must never be served once a new renderer revision is active.
 export const dynamic = "force-dynamic";
+export const CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound" as const;
 export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;
 
 type CareerJobSearchParams = Record<string, string | string[] | undefined>;

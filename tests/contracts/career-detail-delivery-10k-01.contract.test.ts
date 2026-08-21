@@ -29,6 +29,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
     expect(source).toContain('export const dynamic = "force-dynamic";');
+    expect(source).toContain('CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound"');
     expect(source).not.toContain("export const revalidate = 300;");
     expect(source).toContain("export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;");
     expect(source).toContain("const loadCareerJobBundle = cache(async");
