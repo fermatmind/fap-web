@@ -63,6 +63,7 @@ import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } fro
 // must never be served once a new renderer revision is active.
 export const dynamic = "force-dynamic";
 export const CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound" as const;
+export const CAREER_RENDERER_RELEASE = process.env.NEXT_PUBLIC_RELEASE;
 export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;
 
 type CareerJobSearchParams = Record<string, string | string[] | undefined>;
@@ -990,6 +991,7 @@ export default async function CareerJobDetailPage({
           {displayFAQJsonLd ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={displayFAQJsonLd} /> : null}
           <CareerDisplaySurface
             surface={displaySurface}
+            rendererRelease={CAREER_RENDERER_RELEASE}
             breadcrumbItems={breadcrumbItems}
             ctaAttributionParams={displayCtaAttributionParams}
             ctaLandingPath={displayCtaLandingPath}

@@ -13,6 +13,7 @@ type BreadcrumbItem = { label: string; href?: string };
 
 type Props = {
   surface: CareerDisplaySurfaceViewModel;
+  rendererRelease?: string;
   visibleSections: CareerDisplaySection[];
   breadcrumbItems: BreadcrumbItem[];
   primaryCtaHref: string;
@@ -235,6 +236,7 @@ function ReviewCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
 
 export function CareerProductionDisplaySurface({
   surface,
+  rendererRelease,
   visibleSections,
   breadcrumbItems,
   primaryCtaHref,
@@ -392,7 +394,7 @@ export function CareerProductionDisplaySurface({
       className="mx-auto max-w-[1100px] px-4 py-5 text-[#1A2233] md:px-5"
       data-testid="career-display-surface"
       data-career-production-template="career-production-v1"
-      data-career-renderer-release={process.env.NEXT_PUBLIC_RELEASE}
+      data-career-renderer-release={rendererRelease}
     >
       <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
         <main className="min-w-0 space-y-6">

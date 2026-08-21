@@ -22,6 +22,7 @@ import type { AttributionParams } from "@/lib/tracking/attribution";
 
 type CareerDisplaySurfaceProps = {
   surface: CareerDisplaySurfaceViewModel | null;
+  rendererRelease?: string;
   ctaAttributionParams?: AttributionParams;
   ctaLandingPath?: string;
   suppressLegacySalaryMetadata?: boolean;
@@ -613,6 +614,7 @@ function shouldShowIntegrityNotice(claimPermissions: CareerDisplayClaimPermissio
 
 export function CareerDisplaySurface({
   surface,
+  rendererRelease,
   ctaAttributionParams,
   ctaLandingPath,
   suppressLegacySalaryMetadata = false,
@@ -692,6 +694,7 @@ export function CareerDisplaySurface({
     return (
       <CareerProductionDisplaySurface
         surface={surface}
+        rendererRelease={rendererRelease}
         visibleSections={visibleSections}
         breadcrumbItems={breadcrumbItems}
         primaryCtaHref={primaryCtaHref}
