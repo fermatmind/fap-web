@@ -37,7 +37,7 @@ describe("public api cache contract", () => {
     expect(source).toContain("revalidate: PUBLIC_API_REVALIDATE_SECONDS");
   });
 
-  it("uses route-level revalidate instead of force dynamic on public SEO pages", () => {
+  it("uses route-level revalidate instead of force dynamic on cache-safe public SEO pages", () => {
     const publicSeoRoutes = [
       "app/(localized)/[locale]/personality/page.tsx",
       "app/(localized)/[locale]/personality/[type]/page.tsx",
@@ -45,7 +45,6 @@ describe("public api cache contract", () => {
       "app/(localized)/[locale]/topics/[slug]/page.tsx",
       "app/(localized)/[locale]/career/guides/page.tsx",
       "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
-      "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
     ];
 
     for (const file of publicSeoRoutes) {
@@ -87,12 +86,13 @@ describe("public api cache contract", () => {
     expect(source).not.toContain('export const dynamic = "force-dynamic"');
   });
 
-  it("keeps career job detail public-cacheable while allowing SSR query attribution", () => {
+  it("keeps career job data cacheable without reusing cross-deployment HTML", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
-    expect(source).toContain("export const revalidate = 300");
-    expect(source).not.toContain('export const dynamic = "force-dynamic"');
+    expect(source).toContain('export const dynamic = "force-dynamic"');
+    expect(source).not.toContain("export const revalidate = 300");
     expect(source).not.toContain('cache: "no-store"');
+    expect(read("lib/career/api/fetchCareerJobBundle.ts")).toContain("detailCacheOptions");
   });
 
   it("caches only the unfiltered first career directory page", () => {
