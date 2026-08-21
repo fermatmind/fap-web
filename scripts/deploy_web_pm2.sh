@@ -14,6 +14,7 @@ CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-asse
 SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
 SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 REVISION_PATH="${REVISION_PATH:-/revision}"
+CAREER_RENDERER_PATH="${CAREER_RENDERER_PATH:-/zh/career/jobs/accountants-and-auditors}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 HTTP_CONNECT_TIMEOUT_SEC="${HTTP_CONNECT_TIMEOUT_SEC:-5}"
 HTTP_REQUEST_TIMEOUT_SEC="${HTTP_REQUEST_TIMEOUT_SEC:-20}"
@@ -185,6 +186,26 @@ if (
   payload.revision !== expected
 ) {
   process.exit(1);
+}
+
+require_career_renderer_revision() {
+  local base_url="$1"
+  local phase="$2"
+  local body_file
+
+  body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-renderer.XXXXXX")"
+  if ! curl -fsSL \
+    --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
+    --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+    -o "$body_file" \
+    "${base_url%/}${CAREER_RENDERER_PATH}" \
+    || ! grep -Fq "data-career-renderer-release=\"${DEPLOY_SHA}\"" "$body_file"; then
+    rm -f "$body_file"
+    log "career renderer revision mismatch: phase=${phase} path=${CAREER_RENDERER_PATH}"
+    return 1
+  fi
+  rm -f "$body_file"
+  log "career renderer revision passed: phase=${phase} path=${CAREER_RENDERER_PATH}"
 }
 NODE
   then
@@ -415,6 +436,12 @@ else
   systemctl status "$SYSTEMD_SERVICE" --no-pager -l | sed -n '1,80p'
 fi
 wait_for_local_app_ready
+if [[ "$APP_MANAGER" == "pm2" ]] && ! require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "post-reload"; then
+  log "rolling reload retained a stale renderer; restarting app ${APP_NAME}"
+  pm2 restart "$APP_NAME" --update-env >/dev/null
+  wait_for_local_app_ready
+fi
+require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "local"
 ss -ltnp | grep ":${APP_PORT}"
 write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
 
@@ -429,6 +456,7 @@ probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
 require_deployed_revision_endpoint "${PUBLIC_BASE_URL%/}${REVISION_PATH}" "$DEPLOYED_REVISION"
+require_career_renderer_revision "$PUBLIC_BASE_URL" "public"
 require_analytics_bootstrap_contract "$PUBLIC_BASE_URL" "production"
 if [[ "$RUN_SITEMAP_HEALTH" == "1" ]]; then
   require_sitemap_health "$SITEMAP_URL"

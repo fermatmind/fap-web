@@ -27,9 +27,11 @@ const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativeP
 describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
   it("keeps HTML deployment-bound, shares the authority load, and caps render requests", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+    const rendererSource = read("components/career/display/CareerProductionDisplaySurface.tsx");
 
     expect(source).toContain('export const dynamic = "force-dynamic";');
     expect(source).toContain('CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound"');
+    expect(rendererSource).toContain("data-career-renderer-release={process.env.NEXT_PUBLIC_RELEASE}");
     expect(source).not.toContain("export const revalidate = 300;");
     expect(source).toContain("export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;");
     expect(source).toContain("const loadCareerJobBundle = cache(async");
@@ -37,6 +39,16 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source).toContain("const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all");
     expect(source).toContain("const [salaryAssetPreview, explainability, nextStepLinks, runtimeConfig] = await Promise.all");
     expect(source).not.toContain('cache: "no-store"');
+  });
+
+  it("fails deployment closed unless local and public Career HTML serve the exact build", () => {
+    const source = read("scripts/deploy_web_pm2.sh");
+
+    expect(source).toContain("require_career_renderer_revision");
+    expect(source).toContain('data-career-renderer-release=\\"${DEPLOY_SHA}\\"');
+    expect(source).toContain("rolling reload retained a stale renderer");
+    expect(source).toContain('pm2 restart "$APP_NAME" --update-env');
+    expect(source).toContain('require_career_renderer_revision "$PUBLIC_BASE_URL" "public"');
   });
 
   it("tags both detail and SEO authority fetches by normalized locale and slug", () => {
