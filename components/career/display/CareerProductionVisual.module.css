@@ -107,6 +107,10 @@
   line-height: 1.75;
 }
 
+.heroSubtitle {
+  margin-top: 6px;
+}
+
 .heroBadges {
   gap: 8px;
   margin: 14px 0;

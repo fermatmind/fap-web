@@ -697,8 +697,18 @@ export function buildSelectedCareerDisplaySurfaceFixture({
   };
 
   if (isZh) {
+    const presentation = buildCareerPresentationV1Fixture({ titleZh, titleEn, href: primaryCtaHref });
+    const defaultPresentationLead = presentation.hero.lead;
+    // Test-only compatibility: legacy KG fixtures mutate quick_answer after construction.
+    // Expose that deterministic test content through the formal projection so production
+    // code remains presentation_v1-only and never falls back to the legacy Hero field.
+    Object.defineProperty(presentation.hero, "lead", {
+      enumerable: true,
+      configurable: true,
+      get: () => fixture.page.content.hero?.quick_answer ?? defaultPresentationLead,
+    });
     Object.assign(fixture, {
-      presentation_v1: buildCareerPresentationV1Fixture({ titleZh, titleEn, href: primaryCtaHref }),
+      presentation_v1: presentation,
     });
     Object.assign(fixture.page.content, {
       breadcrumb: { label: title, slug },

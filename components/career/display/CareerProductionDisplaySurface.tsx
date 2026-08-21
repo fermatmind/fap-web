@@ -227,7 +227,7 @@ function CareerProductionHero({
         {heroTitle ? <h1 className={publishedHero
           ? "m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
           : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={published ? "presentation_v1.hero.title_zh" : "hero.h1"}>{heroTitle}</h1> : null}
-        {heroSubtitle ? <p className="m-0 mt-1.5 text-sm font-normal text-white/80" data-career-api-fields={published ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : surface.hero.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
+        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={published ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : surface.hero.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
         {badges.length > 0 ? (
           <div className={`flex flex-wrap ${visual.heroBadges}`} data-testid="career-production-hero-badges">
             {badges.map((badge, index) => (
