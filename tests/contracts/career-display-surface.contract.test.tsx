@@ -204,9 +204,14 @@ describe("career display surface contract", () => {
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
       expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
+      expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
     } else {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
       expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
+      expect(screen.getByTestId("career-display-hero")).toHaveClass("px-6");
+      expect(screen.getByTestId("career-display-surface")).toHaveClass("px-4");
+      expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).toBeInTheDocument();
+      expect(screen.queryByRole("heading", { name: "相关职业" })).not.toBeInTheDocument();
     }
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });

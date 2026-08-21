@@ -142,6 +142,27 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
     return null;
   }
 
+  if (surface.locale !== "zh") {
+    return (
+      <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
+        <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{related.intro}</h2>
+        <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
+          {related.links.map((page) => (
+            <li
+              key={page.slug}
+              data-related-career-slug={page.slug}
+              data-related-career-source={page.source}
+              data-related-career-nofollow={String(page.nofollow)}
+              className="list-none rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C]"
+            >
+              {page.titleEn}
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  }
+
   return (
     <section className={`rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`} data-career-api-component="related_next_pages">
       <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">相关职业</h2>
@@ -208,19 +229,26 @@ function CareerProductionHero({
     surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,
   ].filter((item): item is string => item !== null).join(" · ");
   const heroSubtitle = surface.hero.subtitle ?? (surface.locale === "zh" ? subjectCodes : "");
+  const publishedHero = Boolean(published);
 
   return (
     <header
-      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] ${visual.hero}`}
+      className={publishedHero
+        ? `relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] ${visual.hero}`
+        : "relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-8 md:py-8"}
       data-testid="career-display-hero"
     >
       <div className="max-w-[640px] pr-0 lg:pr-10">
         {heroSubtitle ? <p className="m-0 text-sm font-normal text-white/80">{heroSubtitle}</p> : null}
-        <h1 className="m-0 mt-2 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]">{surface.hero.h1}</h1>
+        <h1 className={publishedHero
+          ? "m-0 mt-2 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
+          : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"}>{surface.hero.h1}</h1>
         {badges.length > 0 ? (
           <div className="my-3 flex flex-wrap gap-2" data-testid="career-production-hero-badges">
             {badges.map((badge) => (
-              <span key={badge} className={`rounded-full border border-white/25 bg-white/[.16] text-[12.5px] font-medium ${visual.heroBadge}`}>
+              <span key={badge} className={publishedHero
+                ? `rounded-full border border-white/25 bg-white/[.16] text-[12.5px] font-medium ${visual.heroBadge}`
+                : "rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium"}>
                 {badge}
               </span>
             ))}
@@ -247,7 +275,9 @@ function CareerProductionHero({
       ) : null}
       <Link
         href={primaryCtaHref}
-        className={`mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] text-[15px] font-bold text-white hover:brightness-105 hover:no-underline ${visual.heroCta}`}
+        className={publishedHero
+          ? `mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] text-[15px] font-bold text-white hover:brightness-105 hover:no-underline ${visual.heroCta}`
+          : "mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:no-underline"}
       >
         {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
       </Link>
@@ -366,7 +396,9 @@ export function CareerProductionDisplaySurface({
           data-api-label={rawCtaLabel}
         >
           {typeof ctaData.prompt === "string" ? <p className="m-0 mb-3 text-sm leading-6 text-white/95">{ctaData.prompt}</p> : null}
-          <Link href={ctaHref} className="inline-flex min-h-11 max-w-full items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] hover:brightness-105">
+          <Link href={ctaHref} className={publishedComponents
+            ? "inline-flex min-h-11 max-w-full items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] hover:brightness-105"
+            : "inline-flex min-h-11 items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] transition-transform hover:-translate-y-0.5"}>
             {ctaLabel}
           </Link>
         </section>
@@ -448,6 +480,52 @@ export function CareerProductionDisplaySurface({
       </div>
     );
   };
+
+  const legacyTocSections = surface.componentOrder
+    .map((componentId) => ({ componentId, section: orderedSection(componentId, surface.sections) }))
+    .filter((item): item is { componentId: CareerDisplayComponentId; section: CareerDisplaySection } => Boolean(item.section));
+
+  if (!publishedComponents) {
+    return (
+      <article
+        className="mx-auto max-w-[1100px] px-4 py-5 text-[#1A2233] md:px-5"
+        data-testid="career-display-surface"
+        data-career-production-template="career-production-v1"
+        data-career-renderer-release={rendererRelease}
+      >
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
+          <main className="min-w-0 space-y-6">
+            {surface.componentOrder.map((componentId) => {
+              const component = renderComponent(componentId);
+              const content = componentId === "career_risk_cards"
+                ? <div data-testid="career-display-group-risks-and-change">{component}{aiImpactSlot}</div>
+                : componentId === "career_snapshot_secondary_locale"
+                  ? <>{component}{salarySlot}</>
+                  : componentId === "final_cta"
+                    ? <div data-testid="career-decision-action-block">{component}</div>
+                    : component;
+              return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
+            })}
+          </main>
+          <aside className="flex flex-col gap-4 lg:sticky lg:top-20" aria-label={isZh ? "页面目录" : "Page contents"}>
+            <div className="rounded-2xl border border-[#E5E9F2] bg-white p-5 text-sm">
+              <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
+              <nav className="mt-3 grid">
+                {legacyTocSections.map(({ componentId, section }) => <a key={componentId} href={`#career-component-${componentId}`} className="border-b border-[#F0F3FA] py-2 text-[#3a4255] last:border-0 hover:text-[#2C3E8C]">{section.heading}</a>)}
+              </nav>
+            </div>
+            <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
+              <h2 className="m-0 text-base font-bold">{surface.cta.label}</h2>
+              <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
+              <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+                {surface.cta.label}
+              </Link>
+            </section>
+          </aside>
+        </div>
+      </article>
+    );
+  }
 
   const tocSections = surface.componentOrder
     .filter((componentId) => !["breadcrumb", "hero", "primary_cta", "final_cta"].includes(componentId))
