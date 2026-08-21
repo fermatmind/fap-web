@@ -128,7 +128,7 @@ function scalarContent(value: CareerPublishedScalar, path: string) {
 function ObjectTable({ rows, path }: { rows: Array<Record<string, CareerPublishedValue>>; path: string }) {
   const columns = [...new Set(rows.flatMap((row) => Object.keys(row)))];
   return (
-    <div className="mt-4 max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]">
+    <div className="mt-4 w-full min-w-0 max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]">
       <table className="w-full min-w-[560px] border-collapse text-left text-sm" data-career-api-table={path}>
         <thead className="bg-[#F0F3FA] text-[#1A2233]">
           <tr>{columns.map((column) => <th key={column} scope="col" className="px-4 py-3 font-bold">{labelFor(column)}</th>)}</tr>
@@ -172,9 +172,9 @@ function PublishedValue({ value, path }: { value: CareerPublishedValue; path: st
   }
 
   return (
-    <div className="mt-4 grid gap-5">
+    <div className="mt-4 grid min-w-0 gap-5">
       {Object.entries(value).map(([key, item]) => (
-        <section key={key} data-career-api-object-field={`${path}.${key}`}>
+        <section key={key} className="min-w-0" data-career-api-object-field={`${path}.${key}`}>
           <h3 className="m-0 text-base font-bold text-[#1A2233]">{labelFor(key)}</h3>
           <div className="mt-2"><PublishedValue value={item} path={`${path}.${key}`} /></div>
         </section>
@@ -194,7 +194,7 @@ export function CareerPublishedComponentContent({
 }) {
   return (
     <section
-      className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"
+      className="min-w-0 rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"
       data-testid={testId ?? `career-published-${componentId}`}
       data-career-api-component={componentId}
     >
