@@ -20,13 +20,9 @@ export function careerDetailCacheTag(locale: Locale | string, slug: string): str
 }
 
 function detailCacheOptions(locale: Locale | string, slug: string): {
-  headers: { "X-FAP-Projection-Contract": string };
   next: { revalidate: number; tags: string[] };
 } {
   return {
-    headers: {
-      "X-FAP-Projection-Contract": CAREER_DETAIL_PROJECTION_CACHE_VERSION,
-    },
     next: {
       revalidate: CAREER_DETAIL_REVALIDATE_SECONDS,
       tags: [careerDetailCacheTag(locale, slug)],
@@ -41,6 +37,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function buildQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
   query.set("locale", toApiLocale(locale));
+  query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION);
   return `?${query.toString()}`;
 }
 
@@ -48,6 +45,7 @@ function buildSeoAuthorityQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
   query.set("locale", toApiLocale(locale));
   query.set("org_id", DEFAULT_ORG_ID);
+  query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION);
   return `?${query.toString()}`;
 }
 

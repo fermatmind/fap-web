@@ -56,7 +56,8 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
     expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-26-component-v1");
-    expect(source).toContain('"X-FAP-Projection-Contract": CAREER_DETAIL_PROJECTION_CACHE_VERSION');
+    expect(source.match(/query\.set\("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION\)/g)).toHaveLength(2);
+    expect(source).not.toContain("X-FAP-Projection-Contract");
   });
 
   it("derives the exact localized detail path and hard-expires its tag on signed release events", async () => {
