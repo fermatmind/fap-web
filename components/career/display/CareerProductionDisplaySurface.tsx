@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { EvidenceContainer } from "@/components/career/display/EvidenceContainer";
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
+import { CareerPublishedComponentContent } from "@/components/career/display/CareerPublishedComponentContent";
 import type {
   CareerDisplayComponentId,
   CareerDisplaySection,
@@ -72,6 +73,19 @@ function orderedSection(
 
 function firstSection(sections: CareerDisplaySection[], component: string): CareerDisplaySection | null {
   return sections.find((section) => section.component === component) ?? null;
+}
+
+function publishedCtaHref(value: unknown, locale: CareerDisplaySurfaceViewModel["locale"], fallback: string): string {
+  if (typeof value !== "string") return fallback;
+  const candidates = value.split("|").map((href) => href.trim()).filter(Boolean);
+  const localized = candidates.find((href) => href.startsWith(`/${locale}/tests/`));
+  const source = localized ?? candidates[0];
+  if (!source) return fallback;
+
+  const published = new URL(source.replace(/^\/(?:en|zh)\//, `/${locale}/`), "https://fermatmind.com");
+  const attributed = new URL(fallback, "https://fermatmind.com");
+  attributed.searchParams.forEach((item, key) => published.searchParams.set(key, item));
+  return `${published.pathname}${published.search}`;
 }
 
 function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
@@ -192,7 +206,12 @@ function SourceCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
             ) : (
               <span className="font-semibold">{source.label}</span>
             )}
-            {source.usage ? <span> — {source.usage}</span> : null}
+            {typeof source.usage === "string" ? <span> — {source.usage}</span> : null}
+            {Array.isArray(source.usage) ? (
+              <ul className="m-0 mt-1 list-disc pl-5">
+                {source.usage.map((usage) => <li key={usage}>{usage}</li>)}
+              </ul>
+            ) : null}
           </li>
         ))}
       </ul>
@@ -222,21 +241,39 @@ export function CareerProductionDisplaySurface({
   salarySlot,
 }: Props) {
   const isZh = surface.locale === "zh";
+  const publishedComponents = surface.publishedComponents;
   const restrictedIds = new Set<CareerDisplayComponentId>();
-  if (!surface.claimPermissions.allowStrongClaim) restrictedIds.add("fermat_decision_card");
-  if (!surface.claimPermissions.allowMarketSignal) restrictedIds.add("market_signal_card");
-  if (!surface.claimPermissions.allowAiStrategy) restrictedIds.add("ai_impact_table");
-  if (!surface.claimPermissions.allowSalaryComparison) {
+  if (!publishedComponents && !surface.claimPermissions.allowStrongClaim) restrictedIds.add("fermat_decision_card");
+  if (!publishedComponents && !surface.claimPermissions.allowMarketSignal) restrictedIds.add("market_signal_card");
+  if (!publishedComponents && !surface.claimPermissions.allowAiStrategy) restrictedIds.add("ai_impact_table");
+  if (!publishedComponents && !surface.claimPermissions.allowSalaryComparison) {
     restrictedIds.add("career_snapshot_primary_locale");
     restrictedIds.add("career_snapshot_secondary_locale");
   }
 
   const renderComponent = (componentId: CareerDisplayComponentId) => {
     if (componentId === "breadcrumb") {
+      const rawBreadcrumb = publishedComponents?.breadcrumb;
+      const breadcrumbData = rawBreadcrumb && typeof rawBreadcrumb === "object" && !Array.isArray(rawBreadcrumb) ? rawBreadcrumb : {};
       return (
-        <nav aria-label="Breadcrumb" className="px-1 text-[13px] text-[#5B6678]">
+        <nav
+          aria-label="Breadcrumb"
+          className="px-1 text-[13px] text-[#5B6678]"
+          data-career-api-component="breadcrumb"
+          data-career-breadcrumb-slug={typeof breadcrumbData.slug === "string" ? breadcrumbData.slug : undefined}
+        >
           <ol className="m-0 flex flex-wrap gap-2 p-0">
-            {breadcrumbItems.map((item, index) => <li key={`${item.label}-${index}`} className="flex list-none gap-2">{index ? <span>/</span> : null}{item.href ? <Link href={item.href}>{item.label}</Link> : <strong>{item.label}</strong>}</li>)}
+            {(breadcrumbItems.length > 0
+              ? breadcrumbItems
+              : typeof breadcrumbData.label === "string"
+                ? [{ label: breadcrumbData.label }]
+                : []
+            ).map((item, index, items) => {
+              const label = index === items.length - 1 && typeof breadcrumbData.label === "string"
+                ? breadcrumbData.label
+                : item.label;
+              return <li key={`${label}-${index}`} className="flex list-none gap-2">{index ? <span>/</span> : null}{item.href ? <Link href={item.href}>{label}</Link> : <strong>{label}</strong>}</li>;
+            })}
           </ol>
         </nav>
       );
@@ -245,17 +282,39 @@ export function CareerProductionDisplaySurface({
       return <CareerProductionHero surface={surface} visibleSections={visibleSections} primaryCtaHref={primaryCtaHref} />;
     }
     if (componentId === "primary_cta" || componentId === "final_cta") {
+      const rawCta = publishedComponents?.[componentId];
+      const ctaData = rawCta && typeof rawCta === "object" && !Array.isArray(rawCta) ? rawCta : {};
+      const ctaLabel = typeof ctaData.label === "string" ? ctaData.label : surface.cta.label;
+      const ctaHref = publishedCtaHref(ctaData.href, surface.locale, primaryCtaHref);
       return (
-        <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)] md:p-7">
-          <Link href={primaryCtaHref} className="inline-flex min-h-11 items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] transition-transform hover:-translate-y-0.5">
-            {surface.cta.label}
+        <section
+          className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)] md:p-7"
+          data-career-api-component={componentId}
+          data-entry-surface={typeof ctaData.entry_surface === "string" ? ctaData.entry_surface : undefined}
+          data-source-page-type={typeof ctaData.source_page_type === "string" ? ctaData.source_page_type : undefined}
+          data-subject-key={typeof ctaData.subject_key === "string" ? ctaData.subject_key : undefined}
+          data-subject-kind={typeof ctaData.subject_kind === "string" ? ctaData.subject_kind : undefined}
+          data-target-action={typeof ctaData.target_action === "string" ? ctaData.target_action : undefined}
+          data-test-slug={typeof ctaData.test_slug === "string" ? ctaData.test_slug : undefined}
+          data-api-href={typeof ctaData.href === "string" ? ctaData.href : undefined}
+        >
+          {typeof ctaData.prompt === "string" ? <p className="m-0 mb-3 text-sm leading-6 text-white/95">{ctaData.prompt}</p> : null}
+          <Link href={ctaHref} className="inline-flex min-h-11 items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] transition-transform hover:-translate-y-0.5">
+            {ctaLabel}
           </Link>
         </section>
       );
     }
     if (componentId === "related_next_pages") return <RelatedPages surface={surface} />;
-    if (componentId === "source_card") return <SourceCard surface={surface} />;
-    if (componentId === "review_validity_card") return <ReviewCard surface={surface} />;
+    if (componentId === "source_card") return publishedComponents ? (
+      <div className="space-y-4">
+        <CareerPublishedComponentContent componentId={componentId} value={publishedComponents[componentId]} />
+        <SourceCard surface={surface} />
+      </div>
+    ) : <SourceCard surface={surface} />;
+    if (componentId === "review_validity_card") return publishedComponents
+      ? <CareerPublishedComponentContent componentId={componentId} value={publishedComponents[componentId]} />
+      : <ReviewCard surface={surface} />;
     if (componentId === "boundary_notice") {
       return surface.boundaryNotice.length > 0 ? (
         <section className="rounded-2xl border border-amber-200 border-l-4 border-l-[#E8920C] bg-[#FFF6E9] p-5 md:p-6">
@@ -263,6 +322,27 @@ export function CareerProductionDisplaySurface({
           <ul className="m-0 mt-3 space-y-2 pl-5 text-sm leading-7">{surface.boundaryNotice.map((notice) => <li key={notice}>{notice}</li>)}</ul>
         </section>
       ) : <BoundaryCard surface={surface} title={isZh ? "使用边界" : "Usage boundaries"} />;
+    }
+    if (componentId === "faq_block" && publishedComponents) {
+      return (
+        <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-testid="career-display-faq" data-career-api-component="faq_block">
+          <h2 className="m-0 text-2xl font-bold text-[#1A2233]">常见问题</h2>
+          <div className="mt-4 space-y-3">
+            {surface.faqItems.map((item) => (
+              <details key={item.question} className="group rounded-xl border border-[#E5E9F2] bg-white px-4" open>
+                <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
+                  {item.question}
+                </summary>
+                <p className="m-0 pb-4 text-sm leading-7 text-[#2a3346]">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    if (publishedComponents) {
+      return <CareerPublishedComponentContent componentId={componentId} testId={COMPONENT_TEST_IDS[componentId]} value={publishedComponents[componentId]} />;
     }
 
     const originalSection = orderedSection(componentId, surface.sections);

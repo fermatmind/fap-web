@@ -258,7 +258,6 @@ describe("PR-CAREER-KG-09 automotive service technicians and mechanics career KG
       heading?: string;
       items: Array<{ question: string; answer: string }>;
     };
-    fixtureFaqBlock.heading = "常见问题";
     fixtureFaqBlock.items = (faqBlock?.items_zh ?? []) as Array<{ question: string; answer: string }>;
     fixture.page.content.definition_block = asset.content_blocks.find((block) => block.id === "definition")?.body_zh ?? "";
     fixture.page.content.responsibilities_block = asset.content_blocks

@@ -3,6 +3,10 @@ import type { AnalyticsProperties } from "@/lib/analytics";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { appendAttributionParamsToHref, type AttributionParams } from "@/lib/tracking/attribution";
+import {
+  normalizeCareerPublishedComponents,
+  type CareerPublishedComponents,
+} from "@/lib/career/publishedComponentContract";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
@@ -180,7 +184,7 @@ export type CareerDisplaySource = {
   key: string;
   label: string;
   url?: string;
-  usage?: string;
+  usage?: string | string[];
   capturedAt?: string;
   expiresAt?: string;
   authority: (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number];
@@ -248,6 +252,7 @@ export type CareerDisplaySurfaceViewModel = {
   boundaryNotice: string[];
   reviewValidity: CareerDisplayReviewValidity | null;
   claimPermissions: CareerDisplayClaimPermissions;
+  publishedComponents: CareerPublishedComponents | null;
   cta: {
     label: string;
     href: string;
@@ -1059,7 +1064,7 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
       if (!label) {
         return null;
       }
-      const sourceKey = normalizeString(item.key) ?? entryKey;
+      const sourceKey = normalizeString(item.source_key) ?? normalizeString(item.key) ?? entryKey;
       const url = normalizeSafeSourceUrl(item.url);
       const certification = certifyCareerDisplaySource({ key: sourceKey, label, url, raw: item });
       if (!certification) {
@@ -1076,7 +1081,11 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
         key: sourceKey,
         label,
         ...(displayUrl ? { url: displayUrl } : {}),
-        ...(normalizeString(item.usage) ? { usage: normalizeString(item.usage) ?? undefined } : {}),
+        ...(normalizeString(item.usage)
+          ? { usage: normalizeString(item.usage) ?? undefined }
+          : normalizeStringArray(item.usage).length > 0
+            ? { usage: normalizeStringArray(item.usage) }
+            : {}),
         ...(normalizeString(item.captured_at) ? { capturedAt: normalizeString(item.captured_at) ?? undefined } : {}),
         ...(normalizeString(item.expires_at) ? { expiresAt: normalizeString(item.expires_at) ?? undefined } : {}),
         ...certification,
@@ -1446,6 +1455,9 @@ export function adaptCareerDisplaySurface(
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
   const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
+  const publishedComponents = locale === "zh" && page && componentOrder
+    ? normalizeCareerPublishedComponents(page, componentOrder)
+    : null;
 
   if (
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
@@ -1458,6 +1470,10 @@ export function adaptCareerDisplaySurface(
       relatedNextPages,
     })
   ) {
+    return null;
+  }
+
+  if (locale === "zh" && !publishedComponents) {
     return null;
   }
 
@@ -1483,9 +1499,10 @@ export function adaptCareerDisplaySurface(
     boundaryNotice,
     reviewValidity,
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
+    publishedComponents,
     cta: {
       label: localizedHero.primaryCta.label,
-      href: ctaHref,
+      href: publishedComponents ? localizedHero.primaryCta.href : ctaHref,
       testSlug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
       targetAction: "start_riasec_test",
       eventPayload: buildCareerDisplayCtaAttribution({ locale, landingPath: path, subjectSlug: canonicalSlug }),

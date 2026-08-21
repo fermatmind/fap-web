@@ -475,7 +475,7 @@ export function buildSelectedCareerDisplaySurfaceFixture({
   const path = `/${locale}/career/jobs/${slug}`;
   const primaryCtaHref = `/${locale}/tests/holland-career-interest-test-riasec`;
 
-  return {
+  const fixture = {
     surface_version: "display.surface.v1",
     asset_version: "v4.2",
     template_version: "v4.2",
@@ -693,6 +693,100 @@ export function buildSelectedCareerDisplaySurfaceFixture({
       raw_ai_exposure_score: 7,
     },
   };
+
+  if (isZh) {
+    Object.assign(fixture.page.content, {
+      breadcrumb: { label: title, slug },
+      career_snapshot_primary_locale: {
+        callout: `${title} 的一句话职业画像。`,
+        scene: `${title} 的真实工作场景来自后端已发布正文。`,
+        salary: {
+          bls_table: [{ 指标: "中位年薪", 数值: "$100,000", 说明: "BLS 公开参考" }],
+          china_ai_row: "7/10，较高",
+          china_class_row: "中国职业分类参考",
+          china_edu_table: [{ 学历段: "入门", 岗位方向: "基础岗位", 说明: "以后端公开口径为准" }],
+          china_industry_table: [{ 行业: "主要行业", 需求: "公开市场参考" }],
+          china_intl: "跨市场数据只作来源有界的职业探索参考。",
+          china_name_row: `${title} / ${titleEn}`,
+          china_open: "在招信息以后端公开数据口径为准。",
+          china_ref: "中国公开数据与招聘市场样本。",
+          china_salary_note: "薪资信息不是个人收入承诺。",
+          china_salary_table: [{ "城市/区间": "全国参考", 月薪参考: "公开样本区间" }],
+          china_soc_row: "15-0000 / 15-0000.00",
+          us_growth: "5%",
+          us_median: "$100,000",
+        },
+      },
+      career_snapshot_secondary_locale: {
+        bls_table: [{ 指标: "中位年薪", 数值: "$100,000", 说明: "BLS 公开参考" }],
+        growth: "5%",
+        median: "$100,000",
+      },
+      fit_decision_checklist: {
+        boundary: "这不是录用、收入或长期发展保证。",
+        how: "先核对日常任务，再结合职业兴趣测评。",
+        suit: `${title} 适合愿意持续处理证据、反馈和复杂任务的人。`,
+      },
+      riasec_fit_block: {
+        fit_interest: "RIASEC 用于解释兴趣结构，不做决定论判断。",
+        interest: "兴趣满足感来自完成可验证的工作结果。",
+        riasec: "ICE",
+        riasec_short: "研究型 I + 常规型 C + 企业型 E",
+      },
+      personality_fit_block: {
+        callout: "人格信号只用于工作方式反思。",
+        disclaimer: "该匹配为概率性参考，不是诊断。",
+        traits: ["可靠性", "学习能力", "反馈恢复"],
+      },
+      career_ai_description_block: {
+        heading: "AI 职业解读",
+        body: ["AI 可以加速重复任务，但证据判断和责任仍由人承担。"],
+      },
+      work_context_block: `${title} 的工作场景与协作边界来自后端公开正文。`,
+      market_signal_card: {
+        callout: "市场信号仅作方向参考。",
+        facts: ["信号不是就业保证。"],
+        intro: "本板块呈现后端已发布的市场信号。",
+        signals: ["复合能力需求持续变化。"],
+      },
+      adjacent_career_comparison_table: [
+        { 职业: "相邻职业", 区别: "工作边界不同", "AI 影响": "按任务结构比较" },
+      ],
+      ai_impact_table: {
+        ai_head_sub: "AI 改变任务，不等于简单取代岗位。",
+        ai_s1_bls: "劳动力市场数据来自公开来源。",
+        ai_s1_p: "重复任务更容易被自动化。",
+        ai_s2_accel: ["资料整理与初步分析"],
+        ai_s2_auto: ["标准化录入"],
+        ai_s3_list: ["责任判断与沟通"],
+        ai_s4_p: "AI 曝光评分衡量任务可复制程度。",
+        ai_s4_p2: "高曝光不等于岗位消失。",
+        ai_s5_persona: [{ 人群: "在职从业者", 建议: "提升工具协同与判断能力。" }],
+        ai_s6_tools: [{ 工具: "分析工具", 定位: "任务协同", 代表能力: "信息整理" }],
+        ai_s7_trends: ["人机协作成为常态。"],
+      },
+      career_risk_cards: {
+        badge: "责任 · 压力 · 技术变化",
+        callout: "风险清单用于职业探索。",
+        fact: "职业风险来自责任边界和任务变化。",
+        risks: ["截止压力", "持续学习"],
+      },
+      career_path_block: [{ 路径: "入门", 说明: "建立基础能力", 风险: "中" }],
+      contract_project_risk_block: "确认合同、证照、交付物与责任边界。",
+      next_steps_block: {
+        hot_skills: ["数据分析", "沟通"],
+        responsibilities: ["分析任务要求", "维护工作记录"],
+        skills: ["批判性思维", "书面表达"],
+      },
+      source_card: {
+        eeat_signals: { author: "FermatMind 职业内容团队", source: "后端公开职业来源", updated_at: "2026-08" },
+        note: "事实与说明均来自后端已发布 projection。",
+      },
+      review_validity_card: { last_reviewed: "2026-08" },
+    });
+  }
+
+  return fixture;
 }
 
 export function buildProductionV42LegacyDisplaySurfaceFixture(

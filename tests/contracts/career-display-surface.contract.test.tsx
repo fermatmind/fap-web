@@ -42,6 +42,19 @@ const D8_ACTIVE_DISPLAY_SLUGS = [
   ["career-and-technical-education-teachers", "Career and Technical Education Teachers"],
 ] as const;
 
+function collectPublishedScalarValues(value: unknown): string[] {
+  if (value === null || typeof value === "string" || typeof value === "boolean") {
+    return value === null || String(value).trim().length === 0 ? [] : [String(value)];
+  }
+  if (Array.isArray(value)) {
+    return value.flatMap(collectPublishedScalarValues);
+  }
+  if (typeof value === "object" && value !== null) {
+    return Object.values(value).flatMap(collectPublishedScalarValues);
+  }
+  return [];
+}
+
 describe("career display surface contract", () => {
   it("does not render a display shell without a validated backend surface", () => {
     render(<CareerDisplaySurface surface={null} />);
@@ -184,7 +197,11 @@ describe("career display surface contract", () => {
 
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
+    if (locale === "zh") {
+      expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("薪资信息不是个人收入承诺");
+    } else {
+      expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
+    }
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
 
@@ -220,15 +237,83 @@ describe("career display surface contract", () => {
     });
     const page = fixture.page.content as unknown as Record<string, unknown>;
     page.career_ai_description_block = {
-      id: "career_ai_description",
-      component: "CareerAiDescriptionBlock",
       heading: "后端原文",
-      body: "这段后端已发布正文原样包含薪资预测与收入预测边界词。",
+      body: ["这段后端已发布正文原样包含薪资预测与收入预测边界词。"],
+    };
+    fixture.claim_permissions = {
+      ...buildDisplaySurfaceClaimPermissions(),
+      integrity_state: "restricted",
+      allow_strong_claim: false,
+      allow_ai_strategy: false,
+      allow_salary_comparison: false,
+      allow_market_signal: false,
     };
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.getByText("这段后端已发布正文原样包含薪资预测与收入预测边界词。")).toBeInTheDocument();
+    expect(screen.queryByText("此组件受已发布证据权限约束；当前不展示未经授权的声明。")).not.toBeInTheDocument();
+  });
+
+  it("renders every published scalar and preserves API array cardinality for a Current zh projection", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计与审计人员",
+    });
+    (fixture.sources.references[0] as { usage: string | string[] }).usage = [
+      "官方职业定义",
+      "工作场景参考",
+    ];
+    const page = fixture.page.content as Record<string, unknown>;
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    const attributeValues = [...document.querySelectorAll("*")]
+      .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
+    const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
+    const expectedValues = CAREER_DISPLAY_COMPONENT_ORDER
+      .flatMap((componentId) => collectPublishedScalarValues(page[componentId]));
+
+    for (const expected of expectedValues) {
+      expect(domProjection, `missing published scalar: ${expected}`).toContain(expected);
+    }
+    const expectedSourceValues = fixture.sources.references.flatMap(({ label, url, usage }) => [
+      label,
+      ...(url ? [url] : []),
+      ...(Array.isArray(usage) ? usage : [usage]),
+    ]);
+    for (const expected of expectedSourceValues) {
+      expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
+    }
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+    expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
+      (page.responsibilities_block as unknown[]).length
+    );
+    expect(document.querySelectorAll("#career-component-faq_block details")).toHaveLength(
+      ((page.faq_block as { items: unknown[] }).items).length
+    );
+    expect(document.querySelectorAll("#career-component-related_next_pages [data-related-career-slug]")).toHaveLength(
+      ((page.related_next_pages as { links: unknown[] }).links).length
+    );
+    expect(document.querySelectorAll('[data-testid="source-list"] > li')).toHaveLength(fixture.sources.references.length);
+    expect(document.body).not.toHaveTextContent("[object Object]");
+  });
+
+  it.each(CAREER_DISPLAY_COMPONENT_ORDER)("fails closed when Current component %s is missing", (componentId) => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "financial-examiners", locale: "zh" });
+    delete (fixture.page.content as Record<string, unknown>)[componentId];
+
+    expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
+  });
+
+  it("fails closed when a nested Current table row has an unknown object shape", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "financial-examiners", locale: "zh" });
+    const page = fixture.page.content as Record<string, unknown>;
+    (page.ai_impact_table as { ai_s6_tools: unknown }).ai_s6_tools = [{ unexpected: "must fail closed" }];
+
+    expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
   });
 
   it.each(["asset_role", "related_next_pages", "review_validity_card", "boundary_notice"])(
@@ -357,7 +442,7 @@ describe("career display surface contract", () => {
     const page = fixture.page.content as Record<string, unknown>;
     const isZh = locale === "zh";
 
-    page.work_context_block = {
+    page.work_context_block = isZh ? workBody : {
       id: "work_context",
       component: "WorkContextBlock",
       heading: isZh ? "工作场景" : "Work Context",
@@ -366,7 +451,10 @@ describe("career display surface contract", () => {
       entry_table: [[isZh ? "企业财务" : "Corporate finance", isZh ? "月结、报表与内控" : "Close, reporting, and controls"]],
       source_key: "onet_accountants",
     };
-    page.career_ai_description_block = {
+    page.career_ai_description_block = isZh ? {
+      heading: "AI 职业解读",
+      body: ["工具可以加速对账和底稿整理，关键判断仍需追溯证据并由专业人员负责。"],
+    } : {
       id: "career_ai_description",
       component: "CareerAiDescriptionBlock",
       heading: isZh ? "AI 职业解读" : "AI Career Analysis",
@@ -374,7 +462,11 @@ describe("career display surface contract", () => {
       body: [isZh ? "工具可以加速对账和底稿整理，关键判断仍需追溯证据并由专业人员负责。" : "Tools can accelerate reconciliations and workpaper summaries, while professionals remain accountable for evidence and judgment."],
       source_key: "onet_accountants",
     };
-    page.career_snapshot_secondary_locale = {
+    page.career_snapshot_secondary_locale = isZh ? {
+      bls_table: [{ 指标: "数据边界", 数值: snapshotBody, 说明: "不等于个人收入" }],
+      growth: "5%",
+      median: snapshotBody,
+    } : {
       id: "secondary_reference",
       component: "CareerSnapshotCard",
       heading: isZh ? "海外参考" : "Mainland China Reference",
@@ -382,7 +474,12 @@ describe("career display surface contract", () => {
       rows: [[isZh ? "数据边界" : "Data boundary", isZh ? "不等于个人收入" : "Not individual earnings"]],
       source_key: isZh ? "bls_accountants_ooh" : "nbs_2024_wage",
     };
-    page.career_risk_cards = {
+    page.career_risk_cards = isZh ? {
+      badge: "证据 · 截止压力",
+      callout: "这是风险识别，不是结果预测。",
+      fact: riskIntro,
+      risks: ["错报与合规责任"],
+    } : {
       id: "career_risks",
       component: "CareerRiskCards",
       heading: isZh ? "职业风险" : "Career Risks",
@@ -390,7 +487,7 @@ describe("career display surface contract", () => {
       career_risks: [isZh ? "错报与合规责任" : "Misstatement and compliance exposure"],
       caveat: isZh ? "这是风险识别，不是结果预测。" : "This identifies risks; it does not predict outcomes.",
     };
-    page.contract_project_risk_block = {
+    page.contract_project_risk_block = isZh ? contractCheck : {
       id: "contract_risks",
       component: "ContractRiskBlock",
       heading: isZh ? "合同与项目风险" : "Contract and Project Risks",
@@ -403,13 +500,14 @@ describe("career display surface contract", () => {
     expect(surface?.subject.title).toBe(title);
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(screen.getByTestId("work-context-block")).toHaveTextContent(workBody);
-    expect(screen.getByTestId("work-context-block")).not.toHaveTextContent("career_exploration");
-    expect(screen.getByTestId("career-ai-description-block")).toHaveTextContent(isZh ? "工具可以加速对账和底稿整理" : "Tools can accelerate reconciliations");
-    expect(screen.getByTestId("career-snapshot-secondary")).toHaveTextContent(snapshotBody);
-    expect(screen.getByTestId("career-risks-block")).toHaveTextContent(riskIntro);
-    expect(screen.getByTestId("career-risks-block")).toHaveTextContent(isZh ? "错报与合规责任" : "Misstatement and compliance exposure");
-    expect(screen.getByTestId("contract-risks-block")).toHaveTextContent(contractCheck);
+    const testId = (legacy: string, component: string) => isZh ? `career-published-${component}` : legacy;
+    expect(screen.getByTestId(testId("work-context-block", "work_context_block"))).toHaveTextContent(workBody);
+    expect(screen.getByTestId(testId("work-context-block", "work_context_block"))).not.toHaveTextContent("career_exploration");
+    expect(screen.getByTestId(testId("career-ai-description-block", "career_ai_description_block"))).toHaveTextContent(isZh ? "工具可以加速对账和底稿整理" : "Tools can accelerate reconciliations");
+    expect(screen.getByTestId(testId("career-snapshot-secondary", "career_snapshot_secondary_locale"))).toHaveTextContent(snapshotBody);
+    expect(screen.getByTestId(testId("career-risks-block", "career_risk_cards"))).toHaveTextContent(riskIntro);
+    expect(screen.getByTestId(testId("career-risks-block", "career_risk_cards"))).toHaveTextContent(isZh ? "错报与合规责任" : "Misstatement and compliance exposure");
+    expect(screen.getByTestId(testId("contract-risks-block", "contract_project_risk_block"))).toHaveTextContent(contractCheck);
   });
 
   it("renders a legacy career-risk caveat once without promoting it to a risk item", () => {
@@ -511,9 +609,7 @@ describe("career display surface contract", () => {
       titleZh: "数据科学家",
     });
     fixture.page.content.primary_cta.label = "测量我的职业兴趣";
-    fixture.page.content.primary_cta.href = "/en/tests/holland-career-interest-test-riasec";
     fixture.page.content.final_cta.label = "测量我的职业兴趣";
-    fixture.page.content.final_cta.href = "/en/tests/holland-career-interest-test-riasec";
 
     const surface = adaptCareerDisplaySurface(
       fixture,
