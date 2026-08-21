@@ -28,7 +28,9 @@ describe("CAREER-DETAIL-CACHE-BUDGET-REPAIR-01", () => {
     expect(bundleFetchIndex).toBeGreaterThan(-1);
     expect(seoPromiseIndex).toBeLessThan(bundleFetchIndex);
     expect(source.match(/timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS/g)?.length).toBe(2);
-    expect(source).not.toContain('cache: "no-store"');
+    expect(source).toContain('toApiLocale(locale) === "zh-CN"');
+    expect(source).toContain('{ cache: "no-store" as const }');
+    expect(source).toContain(": { ...PUBLIC_API_CACHE_OPTIONS, ...detailCacheOptions(locale, slug) }");
   });
 
   it("records safety boundaries and validation in the generated artifact", () => {

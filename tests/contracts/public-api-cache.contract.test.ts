@@ -14,7 +14,6 @@ describe("public api cache contract", () => {
       "lib/career/api/fetchCareerRecommendationIndex.ts",
       "lib/career/api/fetchCareerRecommendationBundle.ts",
       "lib/career/api/fetchCareerTransitionPreview.ts",
-      "lib/career/api/fetchCareerJobBundle.ts",
       "lib/cms/topics.ts",
       "lib/cms/personality.ts",
       "lib/cms/career-jobs.ts",
@@ -86,13 +85,16 @@ describe("public api cache contract", () => {
     expect(source).not.toContain('export const dynamic = "force-dynamic"');
   });
 
-  it("keeps career job data cacheable without reusing cross-deployment HTML", () => {
+  it("renders Chinese Current detail from an uncached bundle while retaining cached SEO authority", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+    const fetchSource = read("lib/career/api/fetchCareerJobBundle.ts");
 
     expect(source).toContain('export const dynamic = "force-dynamic"');
     expect(source).not.toContain("export const revalidate = 300");
     expect(source).not.toContain('cache: "no-store"');
-    expect(read("lib/career/api/fetchCareerJobBundle.ts")).toContain("detailCacheOptions");
+    expect(fetchSource).toContain('toApiLocale(locale) === "zh-CN"');
+    expect(fetchSource).toContain('{ cache: "no-store" as const }');
+    expect(fetchSource).toContain("detailCacheOptions");
   });
 
   it("caches only the unfiltered first career directory page", () => {

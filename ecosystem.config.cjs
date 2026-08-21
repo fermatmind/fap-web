@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const os = require("node:os");
-const fs = require("node:fs");
-const path = require("node:path");
 
 function resolveDefaultInstances() {
   if (typeof os.availableParallelism === "function") {
@@ -14,16 +12,13 @@ function resolveDefaultInstances() {
 
 const parsedInstances = Number.parseInt(process.env.PM2_INSTANCES ?? "", 10);
 const APP_INSTANCES = Number.isFinite(parsedInstances) ? Math.max(2, parsedInstances) : resolveDefaultInstances();
-const APP_DIR = process.env.APP_DIR || "/opt/apps/fap-web";
-const ACTIVE_SCRIPT = path.join(APP_DIR, ".next/standalone/server.js");
-const IMMUTABLE_SCRIPT = fs.existsSync(ACTIVE_SCRIPT) ? fs.realpathSync(ACTIVE_SCRIPT) : ACTIVE_SCRIPT;
 
 module.exports = {
   apps: [
     {
       name: "fap-web",
-      script: IMMUTABLE_SCRIPT,
-      cwd: APP_DIR,
+      script: ".next/standalone/server.js",
+      cwd: "/opt/apps/fap-web",
       // Expected to resolve to Node 24.x; deploy_web_pm2.sh enforces this preflight.
       interpreter: "/usr/bin/node",
       exec_mode: "cluster",

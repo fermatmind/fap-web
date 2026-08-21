@@ -19,10 +19,7 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
 }));
 
 import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
-import {
-  CAREER_DETAIL_PROJECTION_CACHE_VERSION,
-  careerDetailCacheTag,
-} from "@/lib/career/api/fetchCareerJobBundle";
+import { careerDetailCacheTag } from "@/lib/career/api/fetchCareerJobBundle";
 
 const ROOT = process.cwd();
 const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -49,15 +46,16 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(careerDetailCacheTag("en", "Software-Developer")).toBe("career-detail:en:software-developer");
     expect(source.match(/detailCacheOptions\(/g)?.length).toBe(3);
     expect(source).toContain("revalidate: CAREER_DETAIL_REVALIDATE_SECONDS");
-    expect(source).not.toContain('cache: "no-store"');
+    expect(source).toContain('toApiLocale(locale) === "zh-CN"');
+    expect(source).toContain('{ cache: "no-store" as const }');
   });
 
-  it("versions the authority projection cache independently from renderer revisions", () => {
+  it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
-    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-26-component-v1");
-    expect(source.match(/query\.set\("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION\)/g)).toHaveLength(2);
-    expect(source).not.toContain("X-FAP-Projection-Contract");
+    expect(source).toContain("function bundleCacheOptions");
+    expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
+    expect(source.match(/\.\.\.detailCacheOptions\(input\.locale, input\.normalizedSlug\)/g)).toHaveLength(1);
   });
 
   it("derives the exact localized detail path and hard-expires its tag on signed release events", async () => {
