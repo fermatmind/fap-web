@@ -43,8 +43,13 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
 
   it("fails deployment closed unless local and public Career HTML serve the exact build", () => {
     const source = read("scripts/deploy_web_pm2.sh");
+    const revisionHeredocEnd = source.indexOf("\nNODE\n");
+    const rendererFunctionIndex = source.indexOf("require_career_renderer_revision() {");
+    const rendererUseIndex = source.indexOf('require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}"');
 
     expect(source).toContain("require_career_renderer_revision");
+    expect(rendererFunctionIndex).toBeGreaterThan(revisionHeredocEnd);
+    expect(rendererUseIndex).toBeGreaterThan(rendererFunctionIndex);
     expect(source).toContain('data-career-renderer-release=\\"${DEPLOY_SHA}\\"');
     expect(source).toContain("rolling reload retained a stale renderer");
     expect(source).toContain('pm2 restart "$APP_NAME" --update-env');

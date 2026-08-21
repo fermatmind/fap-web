@@ -188,6 +188,15 @@ if (
   process.exit(1);
 }
 
+NODE
+  then
+    log "deployed revision endpoint mismatch: ${url}"
+    return 1
+  fi
+
+  log "deployed revision endpoint passed: ${url}"
+}
+
 require_career_renderer_revision() {
   local base_url="$1"
   local phase="$2"
@@ -206,14 +215,6 @@ require_career_renderer_revision() {
   fi
   rm -f "$body_file"
   log "career renderer revision passed: phase=${phase} path=${CAREER_RENDERER_PATH}"
-}
-NODE
-  then
-    log "deployed revision endpoint mismatch: ${url}"
-    return 1
-  fi
-
-  log "deployed revision endpoint passed: ${url}"
 }
 
 require_analytics_bootstrap_contract() {
