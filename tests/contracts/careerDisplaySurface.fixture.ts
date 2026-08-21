@@ -697,6 +697,9 @@ export function buildSelectedCareerDisplaySurfaceFixture({
   };
 
   if (isZh) {
+    Object.assign(fixture, {
+      presentation_v1: buildCareerPresentationV1Fixture({ titleZh, titleEn, href: primaryCtaHref }),
+    });
     Object.assign(fixture.page.content, {
       breadcrumb: { label: title, slug },
       career_snapshot_primary_locale: {
@@ -789,6 +792,63 @@ export function buildSelectedCareerDisplaySurfaceFixture({
   }
 
   return fixture;
+}
+
+export function buildCareerPresentationV1Fixture({
+  titleZh = "会计师和审计师",
+  titleEn = "Accountants and auditors",
+  href = "/zh/tests/holland-career-interest-test-riasec",
+}: {
+  titleZh?: string;
+  titleEn?: string;
+  href?: string;
+} = {}) {
+  return {
+    contract_version: "career.detail.presentation.v1",
+    design_authority: {
+      id: "accountants-career-page-v1.2",
+      sha256: "85c71abac0180a6807222b297e66b0dd611ca79a5cc4bd17db5da416459eafe7",
+    },
+    hero: {
+      title_zh: titleZh,
+      title_en: titleEn,
+      soc_code: "15-0000",
+      onet_code: "15-0000.00",
+      badges: [
+        { key: "interest", text: "常规型 C 主导 · 研究型 I 辅助", availability: "published" },
+        { key: "scene", text: "典型场景：企业财务 / 专业服务", availability: "published" },
+        { key: "risk", text: "主要风险：责任 · 压力 · 技术变化", availability: "published" },
+      ],
+      lead: `${titleZh} 的正式 presentation_v1 导语。`,
+      ai_exposure: {
+        value: 7,
+        scale: 10,
+        display_value: "7/10",
+        label: "AI 曝光评分",
+        note: "高曝光不等于岗位消失。",
+        metric_kind: "fermatmind_internal_rubric",
+        source_label: "FermatMind 内部 rubric",
+        availability: "published",
+      },
+      stats: [
+        { key: "us_median_pay", label: "美国年薪中位数", value: "$100,000", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.中位年薪"], availability: "published" },
+        { key: "us_growth", label: "就业增长", value: "+5%", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.就业增长"], availability: "published" },
+        { key: "employment", label: "美国在岗人数", value: "1,000 人", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.在岗人数"], availability: "published" },
+        { key: "annual_openings", label: "美国年均职位空缺", value: "100 个", source_label: null, source_keys: ["salary.bls_table.年均职位空缺"], availability: "published" },
+        { key: "ai_exposure", label: "AI 曝光评分", value: "7/10", source_label: "FermatMind 内部 rubric", source_keys: ["identity.ai_score"], availability: "published" },
+      ],
+      cta: {
+        label: `测我的职业兴趣是否适合${titleZh}`,
+        href,
+        availability: "published",
+      },
+    },
+    notices: {
+      snapshot_callout: `${titleZh} 的一句话职业画像。`,
+      salary_boundary: "薪资为来源有界参考，不构成收入预测。",
+      usage_boundary: ["本页用于职业探索，不构成录用或收入保证。"],
+    },
+  };
 }
 
 export function buildProductionV42LegacyDisplaySurfaceFixture(

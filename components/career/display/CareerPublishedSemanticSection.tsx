@@ -85,7 +85,22 @@ function Field({ path, children }: { path: string; children: ReactNode }) {
   return <span data-career-api-field={path}>{children}</span>;
 }
 
+function mergedFieldItems(entries: Array<{ text: string; path: string }>): Array<{ text: string; paths: string[] }> {
+  return entries.reduce<Array<{ text: string; paths: string[] }>>((items, entry) => {
+    if (!entry.text) return items;
+    const existing = items.find((item) => item.text === entry.text);
+    if (existing) existing.paths.push(entry.path);
+    else items.push({ text: entry.text, paths: [entry.path] });
+    return items;
+  }, []);
+}
+
+function MergedField({ item }: { item: { text: string; paths: string[] } }) {
+  return <span data-career-api-field={item.paths[0]} data-career-api-fields={item.paths.join(" ")}>{item.text}</span>;
+}
+
 function ApiList({ items, path, ordered = false }: { items: string[]; path: string; ordered?: boolean }) {
+  if (items.length === 0) return null;
   const List = ordered ? "ol" : "ul";
   return (
     <List className={`mb-0 mt-3 pl-5 ${BODY} ${visual.list}`} data-career-api-list={path}>
@@ -96,6 +111,7 @@ function ApiList({ items, path, ordered = false }: { items: string[]; path: stri
 
 function ApiTable({ rows, path }: { rows: PublishedRecord[]; path: string }) {
   const columns = [...new Set(rows.flatMap((row) => Object.keys(row)))];
+  if (rows.length === 0 || columns.length === 0) return null;
   return (
     <div className="my-4 w-full min-w-0 max-w-full overflow-x-auto" data-career-table-wrap={path}>
       <table className="m-0 w-full min-w-[560px] border-collapse text-left text-sm" data-career-api-table={path}>
@@ -136,6 +152,7 @@ function ScalarOrPair({ value, path }: { value: CareerPublishedValue | undefined
 }
 
 function Fact({ title, value, path }: { title: string; value: string; path: string }) {
+  if (!value) return null;
   return (
     <div className="rounded-xl bg-[#F0F3FA] p-4">
       <h3 className={`m-0 text-sm font-bold text-[#2C3E8C] ${visual.factTitle}`}>{title}</h3>
@@ -162,11 +179,23 @@ export function CareerPublishedSemanticSection({
   value,
   testId,
   sources = [],
+  snapshotVariant = "complete",
+  snapshotFacts = [],
+  snapshotCallout,
+  salaryBoundary,
+  usageBoundary,
+  aiExposureNote,
 }: {
   componentId: CareerDisplayComponentId;
   value: CareerPublishedValue;
   testId?: string;
   sources?: CareerDisplaySource[];
+  snapshotVariant?: "complete" | "overview" | "china";
+  snapshotFacts?: Array<{ key: "interest" | "scene" | "risk"; sourceIndex: number; text: string }>;
+  snapshotCallout?: string | null;
+  salaryBoundary?: string | null;
+  usageBoundary?: string[] | null;
+  aiExposureNote?: string | null;
 }) {
   const data = asRecord(value);
 
@@ -182,6 +211,88 @@ export function CareerPublishedSemanticSection({
 
     case "career_snapshot_primary_locale": {
       const salary = asRecord(data.salary ?? null);
+      if (snapshotVariant === "overview") {
+        const scene = asString(data.scene);
+        const factLabels = { interest: "兴趣结构", scene: "典型场景", risk: "主要风险" } as const;
+        const facts = snapshotFacts.map((fact) => ({
+          key: fact.key,
+          label: factLabels[fact.key],
+          items: mergedFieldItems([
+            ...(fact.key === "scene" && scene
+              ? [{ text: scene, path: `${componentId}.scene` }]
+              : [{ text: fact.text, path: `presentation_v1.hero.badges[${fact.sourceIndex}].text` }]),
+          ]),
+        }));
+        if (facts.every((fact) => fact.key !== "scene") && scene) {
+          facts.push({
+            key: "scene",
+            label: factLabels.scene,
+            items: mergedFieldItems([{ text: scene, path: `${componentId}.scene` }]),
+          });
+        }
+        const callouts = mergedFieldItems([
+          { text: asString(data.callout), path: `${componentId}.callout` },
+          { text: snapshotCallout ?? "", path: "presentation_v1.notices.snapshot_callout" },
+        ]);
+        if (facts.length === 0 && callouts.length === 0) return null;
+        return (
+          <PublishedRoot componentId={componentId} testId={testId}>
+            <SectionTitle>职业快照</SectionTitle>
+            {facts.length > 0 ? <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
+              {facts.map((fact) => (
+                <div key={fact.key} className="rounded-xl bg-[#F0F3FA] p-4">
+                  <h3 className={`m-0 text-sm font-bold text-[#2C3E8C] ${visual.factTitle}`}>{fact.label}</h3>
+                  {fact.items.map((item) => <p key={item.text} className={`m-0 ${BODY}`}><MergedField item={item} /></p>)}
+                </div>
+              ))}
+            </div> : null}
+            {callouts.map((item) => <p key={item.text} className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><MergedField item={item} /></p>)}
+          </PublishedRoot>
+        );
+      }
+
+      if (snapshotVariant === "china") {
+        const scalarKeys = (["china_name_row", "china_soc_row", "china_class_row", "china_ai_row"] as const)
+          .filter((key) => asString(salary[key]) || Object.keys(asRecord(salary[key] ?? null)).length > 0);
+        const chinaSalaryRows = asRows(salary.china_salary_table);
+        const chinaEducationRows = asRows(salary.china_edu_table);
+        const chinaIndustryRows = asRows(salary.china_industry_table);
+        const blsRows = asRows(salary.bls_table);
+        const detailKeys = (["us_median", "us_growth", "china_ref", "china_intl", "china_open", "china_open_note", "edu", "sources_note"] as const)
+          .filter((key) => asString(salary[key]));
+        const salaryBoundaries = mergedFieldItems([
+          { text: asString(salary.china_salary_note), path: `${componentId}.salary.china_salary_note` },
+          { text: salaryBoundary ?? "", path: "presentation_v1.notices.salary_boundary" },
+        ]);
+        if (
+          scalarKeys.length === 0 &&
+          chinaSalaryRows.length === 0 &&
+          chinaEducationRows.length === 0 &&
+          chinaIndustryRows.length === 0 &&
+          blsRows.length === 0 &&
+          detailKeys.length === 0 &&
+          salaryBoundaries.length === 0
+        ) return null;
+        return (
+          <section className={CARD} data-testid="career-published-primary-locale-china" data-career-api-component-fragment={componentId}>
+            <SectionTitle>中国大陆参考</SectionTitle>
+            {scalarKeys.length > 0 ? <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
+              {scalarKeys.map((key) => (
+                <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
+              ))}
+            </div> : null}
+            <ApiTable rows={chinaSalaryRows} path={`${componentId}.salary.china_salary_table`} />
+            {salaryBoundaries.map((item) => <p key={item.text} className={CALLOUT_WARN}><MergedField item={item} /></p>)}
+            <ApiTable rows={chinaEducationRows} path={`${componentId}.salary.china_edu_table`} />
+            <ApiTable rows={chinaIndustryRows} path={`${componentId}.salary.china_industry_table`} />
+            <ApiTable rows={blsRows} path={`${componentId}.salary.bls_table`} />
+            <div className="grid gap-2">
+              {detailKeys.map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.salary.${key}`}>{asString(salary[key])}</Field></p>)}
+            </div>
+          </section>
+        );
+      }
+
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
@@ -210,17 +321,22 @@ export function CareerPublishedSemanticSection({
       );
     }
 
-    case "career_snapshot_secondary_locale":
+    case "career_snapshot_secondary_locale": {
+      const median = asString(data.median);
+      const growth = asString(data.growth);
+      const blsRows = asRows(data.bls_table);
+      if (!median && !growth && blsRows.length === 0) return null;
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
-          <div className={`mt-4 grid sm:grid-cols-2 ${visual.factGrid}`}>
-            <Fact title="薪资中位数" value={asString(data.median)} path={`${componentId}.median`} />
-            <Fact title="就业增长" value={asString(data.growth)} path={`${componentId}.growth`} />
-          </div>
-          <ApiTable rows={asRows(data.bls_table)} path={`${componentId}.bls_table`} />
+          {median || growth ? <div className={`mt-4 grid sm:grid-cols-2 ${visual.factGrid}`}>
+            <Fact title="薪资中位数" value={median} path={`${componentId}.median`} />
+            <Fact title="就业增长" value={growth} path={`${componentId}.growth`} />
+          </div> : null}
+          <ApiTable rows={blsRows} path={`${componentId}.bls_table`} />
         </PublishedRoot>
       );
+    }
 
     case "fit_decision_checklist":
       return (
@@ -322,6 +438,7 @@ export function CareerPublishedSemanticSection({
             <p className="mb-0 mt-2 max-w-[680px] text-[14.5px] leading-7 text-white/95"><Field path={`${componentId}.ai_head_sub`}>{asString(data.ai_head_sub)}</Field></p>
           </div>
           <div className={`${CARD} ${visual.aiBody}`}>
+            {aiExposureNote ? <p className={`mb-0 ${CALLOUT_FORWARD}`}><Field path="presentation_v1.hero.ai_exposure.note">{aiExposureNote}</Field></p> : null}
             <h3 className="m-0 text-lg font-bold text-[#243049]">AI 会怎样改变这份工作</h3>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s1_bls`}>{asString(data.ai_s1_bls)}</Field></p>
             <p className={`mb-0 mt-3 ${CALLOUT_BLUE}`}><Field path={`${componentId}.ai_s1_p`}>{asString(data.ai_s1_p)}</Field></p>
@@ -397,13 +514,22 @@ export function CareerPublishedSemanticSection({
         </PublishedRoot>
       );
 
-    case "boundary_notice":
+    case "boundary_notice": {
+      const componentNotices = asStringArray(value);
+      const notices = mergedFieldItems([
+        ...componentNotices.map((text, index) => ({ text, path: `${componentId}[${index}]` })),
+        ...(usageBoundary ?? []).map((text, index) => ({ text, path: `presentation_v1.notices.usage_boundary[${index}]` })),
+      ]);
+      if (notices.length === 0) return null;
       return (
         <PublishedRoot componentId={componentId} testId={testId} className={CALLOUT_WARN}>
           <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
-          <ApiList items={asStringArray(value)} path={componentId} />
+          <ul className={`mb-0 mt-3 pl-5 ${BODY} ${visual.list}`} data-career-api-list={componentId}>
+            {notices.map((item) => <li key={item.text}><MergedField item={item} /></li>)}
+          </ul>
         </PublishedRoot>
       );
+    }
 
     default:
       return null;

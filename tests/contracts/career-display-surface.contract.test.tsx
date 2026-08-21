@@ -198,14 +198,15 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     if (locale === "zh") {
-      expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("薪资信息不是个人收入承诺");
-      expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
-      expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("7/10，较高");
+      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
+      expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
+      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
       expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
+      expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
     } else {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
       expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
@@ -227,12 +228,13 @@ describe("career display surface contract", () => {
     const snapshot = page.career_snapshot_primary_locale as { salary: { china_ai_row: string } };
     const narrative = "国内已上自动报表与 AI 定价，初级核算被吞，模型与合规终审仍人工。";
     snapshot.salary.china_ai_row = narrative;
+    delete (fixture as Record<string, unknown>).presentation_v1;
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
     expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent(narrative);
-    expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent(narrative);
+    expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent(narrative);
   });
 
   it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
@@ -348,7 +350,7 @@ describe("career display surface contract", () => {
     expect(visibleHeadings).not.toContain("正文");
     expect(visibleHeadings).not.toContain("说明");
     expect(visibleHeadings).not.toContain("结论");
-    expect(screen.getByRole("complementary", { name: "页面目录" })).toHaveTextContent("AI 影响与应对");
+    expect(screen.getByRole("complementary", { name: "页面目录" })).toHaveTextContent("AI 影响");
     expect(screen.getByRole("complementary", { name: "页面目录" })).not.toHaveTextContent(
       "这不是录用、收入或长期发展保证。"
     );

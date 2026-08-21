@@ -7,6 +7,10 @@ import {
   normalizeCareerPublishedComponents,
   type CareerPublishedComponents,
 } from "@/lib/career/publishedComponentContract";
+import {
+  normalizeCareerPresentationV1,
+  type CareerPresentationV1,
+} from "@/lib/career/presentationV1";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
@@ -256,6 +260,7 @@ export type CareerDisplaySurfaceViewModel = {
   reviewValidity: CareerDisplayReviewValidity | null;
   claimPermissions: CareerDisplayClaimPermissions;
   publishedComponents: CareerPublishedComponents | null;
+  presentationV1: CareerPresentationV1 | null;
   cta: {
     label: string;
     href: string;
@@ -1503,6 +1508,9 @@ export function adaptCareerDisplaySurface(
   const publishedComponents = locale === "zh" && page && componentOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
+  const presentationV1 = locale === "zh"
+    ? normalizeCareerPresentationV1(root.presentation_v1)
+    : null;
   const sources = publishedComponents ? normalizePublishedSources(root.sources) : normalizeSources(root.sources);
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
@@ -1555,6 +1563,7 @@ export function adaptCareerDisplaySurface(
     reviewValidity,
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     publishedComponents,
+    presentationV1,
     cta: {
       label: localizedHero.primaryCta.label,
       href: publishedComponents ? localizedHero.primaryCta.href : ctaHref,

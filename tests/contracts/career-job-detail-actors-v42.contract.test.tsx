@@ -10,6 +10,7 @@ import {
   CAREER_DISPLAY_COMPONENT_ORDER,
   CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
 } from "@/lib/career/displaySurface";
+import { CAREER_VISUAL_GROUPS } from "@/lib/career/careerVisualGroups";
 
 afterEach(() => {
   vi.resetModules();
@@ -230,7 +231,8 @@ describe("career job detail Actors v4.2 route integration", () => {
 
     expect(html).toContain("career-display-surface");
     expect(html).toContain("费马快速判断");
-    expect(html).toContain("职业快照：中国大陆参考");
+    expect(html).toContain("职业快照");
+    expect(html).toContain("中国大陆参考");
     expect(html).toContain("市场信号");
     expect(html).toContain("AI 影响");
     expect(html).toContain("FAQ");
@@ -344,7 +346,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
 
     expect(html).toContain('data-career-production-template="career-production-v1"');
-    expect(componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(componentOrder).toEqual(CAREER_VISUAL_GROUPS.flatMap((group) => group.componentIds));
     expect(html).not.toContain('data-testid="career-job-related-links"');
     expect(salaryFetch).not.toHaveBeenCalled();
     expect(aiFetch).not.toHaveBeenCalled();
