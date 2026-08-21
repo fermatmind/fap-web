@@ -206,7 +206,6 @@ function CareerProductionHero({
   const publishedBlsRows = Array.isArray(publishedSalary?.bls_table)
     ? publishedSalary.bls_table.map(publishedRecord).filter((row): row is Record<string, unknown> => row !== null)
     : [];
-  const publishedAiImpact = publishedRecord(published?.ai_impact_table);
   const badges = published
     ? [publishedRiasec?.riasec_short, publishedText(publishedSalary?.china_soc_row), publishedRisks?.badge].filter((item): item is string => typeof item === "string")
     : (riasec?.profile ?? []).slice(0, 3);
@@ -218,12 +217,11 @@ function CareerProductionHero({
         return label && value ? [[label, value, note] as const] : [];
       })
     : (snapshot?.rows ?? []).slice(0, 5).map(([label, value]) => [label, value, null] as const);
-  const aiScore = published
-    ? publishedText(publishedSalary?.china_ai_row)
-    : aiImpact?.score ?? null;
-  const aiHeading = published
-    ? (typeof publishedAiImpact?.ai_head_sub === "string" ? "AI 曝光评分" : "AI 影响")
-    : aiImpact?.heading;
+  // The Current zh projection does not expose a dedicated AI score. Its
+  // `china_ai_row` is narrative content on many careers, so it must stay in
+  // the snapshot component instead of being projected into the compact gauge.
+  const aiScore = published ? null : aiImpact?.score ?? null;
+  const aiHeading = aiImpact?.heading;
   const subjectCodes = [
     surface.subject.socCode ? `SOC ${surface.subject.socCode}` : null,
     surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,

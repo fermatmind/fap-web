@@ -199,7 +199,8 @@ describe("career display surface contract", () => {
 
     if (locale === "zh") {
       expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("薪资信息不是个人收入承诺");
-      expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10，较高");
+      expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+      expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
@@ -214,6 +215,24 @@ describe("career display surface contract", () => {
       expect(screen.queryByRole("heading", { name: "相关职业" })).not.toBeInTheDocument();
     }
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
+  });
+
+  it("keeps a narrative China AI row out of the compact hero gauge", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "actuaries",
+      locale: "zh",
+      titleZh: "精算师",
+    });
+    const page = fixture.page.content as Record<string, unknown>;
+    const snapshot = page.career_snapshot_primary_locale as { salary: { china_ai_row: string } };
+    const narrative = "国内已上自动报表与 AI 定价，初级核算被吞，模型与合规终审仍人工。";
+    snapshot.salary.china_ai_row = narrative;
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+    expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent(narrative);
+    expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent(narrative);
   });
 
   it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
