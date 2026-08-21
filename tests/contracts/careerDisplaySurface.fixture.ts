@@ -631,13 +631,15 @@ export function buildSelectedCareerDisplaySurfaceFixture({
           ],
         },
         related_next_pages: {
-          primary_test: primaryCtaHref,
-          related_jobs: [`/${locale}/career/jobs/financial-analysts`],
-          secondary_tests: [
-            `/${locale}/tests/mbti-personality-test-16-personality-types`,
-            `/${locale}/tests/big-five-personality-test-ocean-model`,
+          intro: isZh ? "继续比较后端发布的相邻职业。" : "Compare adjacent careers published by the backend.",
+          links: [
+            {
+              slug: "financial-analysts",
+              source: "self_pick",
+              nofollow: false,
+              title_en: "Financial Analysts",
+            },
           ],
-          validation_policy: "final 200 + canonical self + no noindex required before rendering as live link",
         },
         source_card: {
           source_refs: "sources_json.references",

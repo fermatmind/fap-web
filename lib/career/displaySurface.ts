@@ -188,9 +188,15 @@ export type CareerDisplaySource = {
 };
 
 export type CareerDisplayRelatedPage = {
-  label: string;
-  href?: string;
-  routeKind: "test" | "job" | "guide";
+  slug: string;
+  source: "lookup" | "self_pick";
+  nofollow: boolean;
+  titleEn: string;
+};
+
+export type CareerDisplayRelatedNextPages = {
+  intro: string;
+  links: CareerDisplayRelatedPage[];
 };
 
 export type CareerDisplayReviewValidity = {
@@ -238,7 +244,7 @@ export type CareerDisplaySurfaceViewModel = {
   sections: CareerDisplaySection[];
   faqItems: CareerDisplayFAQItem[];
   sources: CareerDisplaySource[];
-  relatedNextPages: CareerDisplayRelatedPage[];
+  relatedNextPages: CareerDisplayRelatedNextPages | null;
   boundaryNotice: string[];
   reviewValidity: CareerDisplayReviewValidity | null;
   claimPermissions: CareerDisplayClaimPermissions;
@@ -1209,72 +1215,42 @@ function localizeDisplayCtaLabel(locale: Locale, label: string): string {
   return containsCjk(label) ? "Measure my career interests" : label;
 }
 
-function isSafeRelatedPageHref(href: string, locale: Locale): boolean {
-  if (!href.startsWith(`/${locale}/`) || href.includes("\\") || href.startsWith("//")) {
-    return false;
+function normalizeRelatedNextPages(value: unknown): CareerDisplayRelatedNextPages | null {
+  if (!isRecord(value)) {
+    return null;
   }
 
-  return (
-    /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href) ||
-    /^\/(?:en|zh)\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(href)
-  );
-}
-
-function relatedPageLabel(href: string): string {
-  return humanizeSlug(href.split("/").filter(Boolean).at(-1) ?? href);
-}
-
-function normalizeRelatedNextPages(
-  value: unknown,
-  locale: Locale,
-  hero: CareerDisplayHeroViewModel,
-  requirePublishedProjection = false
-): CareerDisplayRelatedPage[] {
-  const raw = isRecord(value) ? value : null;
-  const primaryTest = normalizeString(raw?.primary_test);
-  const relatedJobs = normalizeStringArray(raw?.related_jobs);
-  const secondaryTests = normalizeStringArray(raw?.secondary_tests);
-  const hrefs = raw ? [primaryTest, ...relatedJobs, ...secondaryTests] : [];
-  const hasStrictPublishedProjection =
-    Boolean(primaryTest) &&
-    relatedJobs.length > 0 &&
-    secondaryTests.length > 0 &&
-    hrefs.every((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)));
-  const publishedPages = [...new Set(hrefs)]
-    .filter((href): href is string => Boolean(href && isSafeRelatedPageHref(href, locale)))
-    .map((href) => ({
-      label: requirePublishedProjection ? href : relatedPageLabel(href),
-      href,
-      routeKind: href.includes("/career/jobs/") ? ("job" as const) : ("test" as const),
-    }));
-
-  if (publishedPages.length > 0) {
-    return requirePublishedProjection && !hasStrictPublishedProjection ? [] : publishedPages;
+  const intro = normalizeString(value.intro);
+  if (!intro || !Array.isArray(value.links) || value.links.length === 0) {
+    return null;
   }
 
-  if (requirePublishedProjection) {
-    return [];
+  const links: CareerDisplayRelatedPage[] = [];
+  const slugs = new Set<string>();
+  for (const item of value.links) {
+    if (!isRecord(item)) {
+      return null;
+    }
+
+    const slug = normalizeString(item.slug);
+    const source = normalizeString(item.source);
+    const titleEn = normalizeString(item.title_en);
+    if (
+      !slug ||
+      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ||
+      slugs.has(slug) ||
+      (source !== "lookup" && source !== "self_pick") ||
+      typeof item.nofollow !== "boolean" ||
+      !titleEn
+    ) {
+      return null;
+    }
+
+    slugs.add(slug);
+    links.push({ slug, source, nofollow: item.nofollow, titleEn });
   }
 
-  const related = [
-    {
-      label: locale === "zh" ? "霍兰德职业兴趣测试（RIASEC）" : "Holland Career Interest Test (RIASEC)",
-      href: localizeKnownTestHref(locale, hero.primaryCta.href),
-      routeKind: "test" as const,
-    },
-    {
-      label: locale === "zh" ? "MBTI 性格测试" : "MBTI personality test",
-      href: localizedPath("/tests/mbti-personality-test-16-personality-types", locale),
-      routeKind: "test" as const,
-    },
-    {
-      label: locale === "zh" ? "Big Five 大五人格测试" : "Big Five personality test",
-      href: localizedPath("/tests/big-five-personality-test-ocean-model", locale),
-      routeKind: "test" as const,
-    },
-  ];
-
-  return related.filter((page) => page.href && isKnownTestHref(page.href));
+  return { intro, links };
 }
 
 const PRODUCTION_REQUIRED_SECTION_COMPONENTS = [
@@ -1303,14 +1279,14 @@ function hasCompleteProductionProjection(input: {
   sources: CareerDisplaySource[];
   reviewValidity: CareerDisplayReviewValidity | null;
   boundaryNotice: string[];
-  relatedNextPages: CareerDisplayRelatedPage[];
+  relatedNextPages: CareerDisplayRelatedNextPages | null;
 }): boolean {
   const boundary = input.page.boundary_notice;
   if (!Array.isArray(boundary) || boundary.length === 0 || boundary.some((notice) => normalizeString(notice) === null)) {
     return false;
   }
 
-  if (input.boundaryNotice.length === 0 || input.sources.length === 0 || !input.reviewValidity || input.relatedNextPages.length === 0) {
+  if (input.boundaryNotice.length === 0 || input.sources.length === 0 || !input.reviewValidity || !input.relatedNextPages) {
     return false;
   }
 
@@ -1469,12 +1445,7 @@ export function adaptCareerDisplaySurface(
   const sources = normalizeSources(root.sources);
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
-  const relatedNextPages = normalizeRelatedNextPages(
-    page.related_next_pages,
-    locale,
-    localizedHero,
-    locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG,
-  );
+  const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
 
   if (
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&

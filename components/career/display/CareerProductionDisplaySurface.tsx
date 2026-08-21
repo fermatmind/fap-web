@@ -4,7 +4,6 @@ import { EvidenceContainer } from "@/components/career/display/EvidenceContainer
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
 import type {
   CareerDisplayComponentId,
-  CareerDisplayRelatedPage,
   CareerDisplaySection,
   CareerDisplaySurfaceViewModel,
 } from "@/lib/career/displaySurface";
@@ -98,28 +97,27 @@ function BoundaryCard({ surface, title }: { surface: CareerDisplaySurfaceViewMod
 }
 
 function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
-  const pages = surface.relatedNextPages.filter((page): page is CareerDisplayRelatedPage & { href: string } => Boolean(page.href));
-
-  if (pages.length === 0) {
+  const related = surface.relatedNextPages;
+  if (!related) {
     return null;
   }
 
   return (
     <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
-      <h2 className="m-0 text-2xl font-bold text-[#1A2233]">
-        {surface.locale === "zh" ? "继续探索" : "Continue exploring"}
-      </h2>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {pages.map((page) => (
-          <Link
-            key={page.href}
-            href={page.href}
-            className="rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C] transition-colors hover:bg-[#EEF1FB]"
+      <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{related.intro}</h2>
+      <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {related.links.map((page) => (
+          <li
+            key={page.slug}
+            data-related-career-slug={page.slug}
+            data-related-career-source={page.source}
+            data-related-career-nofollow={String(page.nofollow)}
+            className="list-none rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C]"
           >
-            {page.label}
-          </Link>
+            {page.titleEn}
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

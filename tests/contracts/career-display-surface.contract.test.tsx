@@ -261,7 +261,7 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("fails closed for accountants instead of injecting local related-page fallbacks", () => {
+  it("fails closed for the retired related-page structure instead of injecting local fallbacks", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       titleEn: "Accountants and Auditors",
@@ -273,6 +273,65 @@ describe("career display surface contract", () => {
     };
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+  });
+
+  it("consumes the Current related-page contract without synthesizing hrefs or labels", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "financial-examiners",
+      locale: "zh",
+      titleZh: "金融审查员",
+    });
+    (fixture.page.content as Record<string, unknown>).related_next_pages = {
+      intro: "从后端发布的相邻职业继续探索。",
+      links: [
+        {
+          slug: "financial-analysts",
+          source: "lookup",
+          nofollow: false,
+          title_en: "Financial Analysts",
+        },
+      ],
+    };
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.getByText("从后端发布的相邻职业继续探索。")).toBeInTheDocument();
+    expect(screen.getByText("Financial Analysts")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Financial Analysts" })).not.toBeInTheDocument();
+  });
+
+  it.each(["intro", "links", "slug", "source", "nofollow", "title_en"])(
+    "fails closed when Current related-page field %s is missing",
+    (field) => {
+      const fixture = buildSelectedCareerDisplaySurfaceFixture({
+        slug: "financial-examiners",
+        locale: "zh",
+      });
+      const related = (fixture.page.content as Record<string, unknown>).related_next_pages as {
+        intro?: unknown;
+        links?: Array<Record<string, unknown>>;
+      };
+      if (field === "intro" || field === "links") {
+        delete related[field];
+      } else {
+        delete related.links?.[0]?.[field];
+      }
+
+      expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
+    }
+  );
+
+  it("fails closed when a Current related-page source is outside the API contract", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "financial-examiners",
+      locale: "zh",
+    });
+    const related = (fixture.page.content as Record<string, unknown>).related_next_pages as {
+      links: Array<Record<string, unknown>>;
+    };
+    related.links[0].source = "frontend_inference";
+
+    expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
   });
 
   it("fails closed for accountants when published sources are missing", () => {
