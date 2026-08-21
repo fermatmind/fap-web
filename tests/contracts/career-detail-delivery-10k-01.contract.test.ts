@@ -46,6 +46,24 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source).not.toContain('cache: "no-store"');
   });
 
+  it("keeps all 26 Current components on explicit semantic production paths", () => {
+    const rendererSource = read("components/career/display/CareerProductionDisplaySurface.tsx");
+    const semanticSource = read("components/career/display/CareerPublishedSemanticSection.tsx");
+    const visualSource = read("components/career/display/CareerProductionVisual.module.css");
+
+    expect(rendererSource).toContain("CareerPublishedSemanticSection");
+    expect(rendererSource).not.toContain("CareerPublishedComponentContent");
+    expect(semanticSource).not.toContain("function PublishedValue");
+    expect(semanticSource).toContain('case "ai_impact_table"');
+    expect(semanticSource).toContain('case "career_snapshot_primary_locale"');
+    expect(semanticSource).toContain('case "next_steps_block"');
+    expect(rendererSource).toContain("lg:grid-cols-[minmax(0,1fr)_320px]");
+    expect(rendererSource).toContain("lg:gap-10");
+    expect(visualSource).toContain("padding: 34px 36px;");
+    expect(visualSource).toContain("padding: 30px 34px;");
+    expect(visualSource).toContain("padding: 24px 22px;");
+  });
+
   it("fails deployment closed unless local and public Career HTML serve the exact build", () => {
     const source = read("scripts/deploy_web_pm2.sh");
     const revisionHeredocEnd = source.indexOf("\nNODE\n");

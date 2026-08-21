@@ -199,8 +199,14 @@ describe("career display surface contract", () => {
 
     if (locale === "zh") {
       expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent("薪资信息不是个人收入承诺");
+      expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10，较高");
+      expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
+      expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
+      expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
+      expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
     } else {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
+      expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
     }
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
@@ -299,6 +305,29 @@ describe("career display surface contract", () => {
     );
     expect(document.querySelectorAll('[data-testid="source-list"] > li')).toHaveLength(fixture.sources.references.length);
     expect(document.body).not.toHaveTextContent("[object Object]");
+  });
+
+  it("renders the Current FAQ collapsed and keeps API field keys out of the visual heading hierarchy", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计与审计人员",
+    });
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    const details = [...document.querySelectorAll("#career-component-faq_block details")];
+    expect(details.length).toBeGreaterThan(0);
+    expect(details.every((item) => !item.hasAttribute("open"))).toBe(true);
+    const visibleHeadings = [...document.querySelectorAll("h2,h3,h4")].map((item) => item.textContent?.trim());
+    expect(visibleHeadings).not.toContain("标题");
+    expect(visibleHeadings).not.toContain("正文");
+    expect(visibleHeadings).not.toContain("说明");
+    expect(visibleHeadings).not.toContain("结论");
+    expect(screen.getByRole("complementary", { name: "页面目录" })).toHaveTextContent("AI 影响与应对");
+    expect(screen.getByRole("complementary", { name: "页面目录" })).not.toHaveTextContent(
+      "这不是录用、收入或长期发展保证。"
+    );
   });
 
   it("renders every canonical Current source without applying legacy trust filtering", () => {

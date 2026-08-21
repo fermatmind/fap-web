@@ -1,0 +1,422 @@
+import type { ReactNode } from "react";
+import visual from "@/components/career/display/CareerProductionVisual.module.css";
+import type { CareerDisplayComponentId, CareerDisplaySource } from "@/lib/career/displaySurface";
+import type { CareerPublishedValue } from "@/lib/career/publishedComponentContract";
+
+type PublishedRecord = Record<string, CareerPublishedValue>;
+
+export const CAREER_COMPONENT_TITLES_ZH: Record<CareerDisplayComponentId, string> = {
+  breadcrumb: "面包屑导航",
+  hero: "职业概览",
+  fermat_decision_card: "费马快速判断",
+  primary_cta: "开始职业兴趣测评",
+  career_snapshot_primary_locale: "职业快照：中国大陆参考",
+  career_snapshot_secondary_locale: "海外职业数据参考",
+  fit_decision_checklist: "如何判断是否适合",
+  riasec_fit_block: "RIASEC 兴趣匹配",
+  personality_fit_block: "人格与工作方式",
+  definition_block: "职业定义",
+  career_ai_description_block: "AI 职业解读",
+  responsibilities_block: "核心职责",
+  work_context_block: "工作场景",
+  market_signal_card: "市场信号",
+  adjacent_career_comparison_table: "相邻职业比较",
+  ai_impact_table: "AI 影响与应对",
+  career_risk_cards: "职业风险",
+  career_path_block: "职业发展路径",
+  contract_project_risk_block: "合同与项目风险",
+  next_steps_block: "下一步准备",
+  faq_block: "常见问题",
+  related_next_pages: "相关职业",
+  source_card: "资料来源",
+  review_validity_card: "复核有效期",
+  boundary_notice: "使用边界",
+  final_cta: "下一步行动",
+};
+
+const CARD = `min-w-0 rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`;
+const BODY = "text-sm leading-7 text-[#2a3346]";
+const CALLOUT_BLUE = `rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] text-[14.5px] leading-7 text-[#2a3346] ${visual.callout}`;
+const CALLOUT_FORWARD = `rounded-xl border-l-4 border-l-[#0E9F94] bg-[#EAF7F4] text-[14.5px] leading-7 text-[#2a3346] ${visual.callout}`;
+const CALLOUT_WARN = `rounded-xl border-l-4 border-l-[#E8920C] bg-[#FFF6E9] text-[14.5px] leading-7 text-[#2a3346] ${visual.callout}`;
+
+function asRecord(value: CareerPublishedValue): PublishedRecord {
+  return typeof value === "object" && value !== null && !Array.isArray(value) ? value : {};
+}
+
+function asString(value: CareerPublishedValue | undefined): string {
+  return typeof value === "string" ? value : "";
+}
+
+function asStringArray(value: CareerPublishedValue | undefined): string[] {
+  return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
+}
+
+function asRows(value: CareerPublishedValue | undefined): PublishedRecord[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is PublishedRecord => typeof item === "object" && item !== null && !Array.isArray(item))
+    : [];
+}
+
+const API_COLUMN_LABELS_ZH: Record<string, string> = {
+  title: "项目",
+  body: "内容",
+  heading: "主题",
+  label: "项目",
+  source_key: "来源",
+  "说明": "数据说明",
+  "结论": "判断",
+};
+
+function displayColumnLabel(column: string): string {
+  return API_COLUMN_LABELS_ZH[column] ?? column;
+}
+
+function SectionTitle({ children, tag }: { children: ReactNode; tag?: string }) {
+  return (
+    <h2 className={`m-0 flex items-center text-[23px] font-bold leading-tight text-[#1A2233] ${visual.sectionTitle}`}>
+      {children}
+      {tag ? <span className={`rounded-md bg-[#EEF1FB] text-[11px] font-bold text-[#2C3E8C] ${visual.tag}`}>{tag}</span> : null}
+    </h2>
+  );
+}
+
+function Field({ path, children }: { path: string; children: ReactNode }) {
+  return <span data-career-api-field={path}>{children}</span>;
+}
+
+function ApiList({ items, path, ordered = false }: { items: string[]; path: string; ordered?: boolean }) {
+  const List = ordered ? "ol" : "ul";
+  return (
+    <List className={`mb-0 mt-3 pl-5 ${BODY} ${visual.list}`} data-career-api-list={path}>
+      {items.map((item, index) => <li key={`${path}:${index}`}><Field path={`${path}[${index}]`}>{item}</Field></li>)}
+    </List>
+  );
+}
+
+function ApiTable({ rows, path }: { rows: PublishedRecord[]; path: string }) {
+  const columns = [...new Set(rows.flatMap((row) => Object.keys(row)))];
+  return (
+    <div className="my-4 w-full min-w-0 max-w-full overflow-x-auto" data-career-table-wrap={path}>
+      <table className="m-0 w-full min-w-[560px] border-collapse text-left text-sm" data-career-api-table={path}>
+        <thead>
+          <tr>
+            {columns.map((column) => <th key={column} scope="col" className={`border border-[#E5E9F2] bg-[#EEF1FB] font-bold text-[#2C3E8C] ${visual.tableCell}`}>{displayColumnLabel(column)}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, rowIndex) => (
+            <tr key={`${path}:${rowIndex}`} className="even:bg-[#FBFCFE]">
+              {columns.map((column) => {
+                const item = row[column];
+                const text = item === null ? "" : typeof item === "boolean" ? String(item) : typeof item === "string" ? item : "";
+                return <td key={column} className={`min-w-36 border border-[#E5E9F2] align-top leading-6 text-[#2a3346] ${visual.tableCell}`}><Field path={`${path}[${rowIndex}].${column}`}>{text}</Field></td>;
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function ScalarOrPair({ value, path }: { value: CareerPublishedValue | undefined; path: string }) {
+  if (typeof value === "string") return <p className={`m-0 ${BODY}`}><Field path={path}>{value}</Field></p>;
+  const row = asRecord(value ?? null);
+  return (
+    <div className="grid gap-1">
+      {Object.entries(row).map(([key, item]) => (
+        <p key={key} className={`m-0 ${BODY}`}>
+          <strong className="text-[#2C3E8C]">{key}：</strong>
+          <Field path={`${path}.${key}`}>{typeof item === "string" ? item : ""}</Field>
+        </p>
+      ))}
+    </div>
+  );
+}
+
+function Fact({ title, value, path }: { title: string; value: string; path: string }) {
+  return (
+    <div className="rounded-xl bg-[#F0F3FA] p-4">
+      <h3 className={`m-0 text-sm font-bold text-[#2C3E8C] ${visual.factTitle}`}>{title}</h3>
+      <p className={`m-0 ${BODY}`}><Field path={path}>{value}</Field></p>
+    </div>
+  );
+}
+
+function PublishedRoot({ componentId, testId, children, className = CARD }: {
+  componentId: CareerDisplayComponentId;
+  testId?: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <section className={className} data-testid={testId ?? `career-published-${componentId}`} data-career-api-component={componentId}>
+      <div data-testid={testId ? `career-published-${componentId}` : undefined}>{children}</div>
+    </section>
+  );
+}
+
+export function CareerPublishedSemanticSection({
+  componentId,
+  value,
+  testId,
+  sources = [],
+}: {
+  componentId: CareerDisplayComponentId;
+  value: CareerPublishedValue;
+  testId?: string;
+  sources?: CareerDisplaySource[];
+}) {
+  const data = asRecord(value);
+
+  switch (componentId) {
+    case "fermat_decision_card":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{asString(data.title)}</SectionTitle>
+          <p className={`mb-0 mt-3 font-semibold ${BODY}`}><Field path={`${componentId}.summary`}>{asString(data.summary)}</Field></p>
+          <p className={`mb-0 mt-4 ${CALLOUT_BLUE}`}><Field path={`${componentId}.caveat`}>{asString(data.caveat)}</Field></p>
+        </PublishedRoot>
+      );
+
+    case "career_snapshot_primary_locale": {
+      const salary = asRecord(data.salary ?? null);
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
+            <Fact title="典型场景" value={asString(data.scene)} path={`${componentId}.scene`} />
+            <Fact title="美国薪资中位数" value={asString(salary.us_median)} path={`${componentId}.salary.us_median`} />
+            <Fact title="美国就业增长" value={asString(salary.us_growth)} path={`${componentId}.salary.us_growth`} />
+          </div>
+          <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
+          <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
+            {(["china_name_row", "china_soc_row", "china_class_row", "china_ai_row"] as const).map((key) => (
+              <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
+            ))}
+          </div>
+          <ApiTable rows={asRows(salary.china_salary_table)} path={`${componentId}.salary.china_salary_table`} />
+          <p className={CALLOUT_WARN}><Field path={`${componentId}.salary.china_salary_note`}>{asString(salary.china_salary_note)}</Field></p>
+          <ApiTable rows={asRows(salary.china_edu_table)} path={`${componentId}.salary.china_edu_table`} />
+          <ApiTable rows={asRows(salary.china_industry_table)} path={`${componentId}.salary.china_industry_table`} />
+          <ApiTable rows={asRows(salary.bls_table)} path={`${componentId}.salary.bls_table`} />
+          <div className="grid gap-2">
+            {(["china_ref", "china_intl", "china_open", "china_open_note", "edu", "sources_note"] as const).map((key) => asString(salary[key]) ? (
+              <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.salary.${key}`}>{asString(salary[key])}</Field></p>
+            ) : null)}
+          </div>
+        </PublishedRoot>
+      );
+    }
+
+    case "career_snapshot_secondary_locale":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <div className={`mt-4 grid sm:grid-cols-2 ${visual.factGrid}`}>
+            <Fact title="薪资中位数" value={asString(data.median)} path={`${componentId}.median`} />
+            <Fact title="就业增长" value={asString(data.growth)} path={`${componentId}.growth`} />
+          </div>
+          <ApiTable rows={asRows(data.bls_table)} path={`${componentId}.bls_table`} />
+        </PublishedRoot>
+      );
+
+    case "fit_decision_checklist":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
+            <Fact title="适合信号" value={asString(data.suit)} path={`${componentId}.suit`} />
+            <Fact title="如何验证" value={asString(data.how)} path={`${componentId}.how`} />
+            <Fact title="判断边界" value={asString(data.boundary)} path={`${componentId}.boundary`} />
+          </div>
+        </PublishedRoot>
+      );
+
+    case "riasec_fit_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-4 ${CALLOUT_BLUE}`}><Field path={`${componentId}.riasec_short`}>{asString(data.riasec_short)}</Field></p>
+          <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
+            <Fact title="RIASEC 代码" value={asString(data.riasec)} path={`${componentId}.riasec`} />
+            <Fact title="兴趣体验" value={asString(data.interest)} path={`${componentId}.interest`} />
+            <Fact title="兴趣匹配" value={asString(data.fit_interest)} path={`${componentId}.fit_interest`} />
+          </div>
+        </PublishedRoot>
+      );
+
+    case "personality_fit_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
+          <ApiList items={asStringArray(data.traits)} path={`${componentId}.traits`} />
+          <p className={`mb-0 mt-4 ${CALLOUT_WARN}`}><Field path={`${componentId}.disclaimer`}>{asString(data.disclaimer)}</Field></p>
+        </PublishedRoot>
+      );
+
+    case "definition_block":
+    case "work_context_block":
+    case "contract_project_risk_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 ${componentId === "contract_project_risk_block" ? CALLOUT_WARN : BODY}`}><Field path={componentId}>{asString(value)}</Field></p>
+        </PublishedRoot>
+      );
+
+    case "career_ai_description_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 font-semibold ${CALLOUT_BLUE}`}><Field path={`${componentId}.heading`}>{asString(data.heading)}</Field></p>
+          <div className={`mt-3 grid gap-3 ${BODY}`}>
+            {asStringArray(data.body).map((paragraph, index) => <p key={index} className="m-0"><Field path={`${componentId}.body[${index}]`}>{paragraph}</Field></p>)}
+          </div>
+        </PublishedRoot>
+      );
+
+    case "responsibilities_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <ApiList items={asStringArray(value)} path={componentId} />
+        </PublishedRoot>
+      );
+
+    case "market_signal_card": {
+      const signals = data.signals;
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.intro`}>{asString(data.intro)}</Field></p>
+          <ApiList items={asStringArray(data.facts)} path={`${componentId}.facts`} />
+          {asStringArray(signals).length > 0
+            ? <ApiList items={asStringArray(signals)} path={`${componentId}.signals`} />
+            : <ApiTable rows={asRows(signals)} path={`${componentId}.signals`} />}
+          <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
+        </PublishedRoot>
+      );
+    }
+
+    case "adjacent_career_comparison_table":
+    case "career_path_block":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <ApiTable rows={asRows(value)} path={componentId} />
+        </PublishedRoot>
+      );
+
+    case "ai_impact_table":
+      return (
+        <PublishedRoot
+          componentId={componentId}
+          testId={testId}
+          className="min-w-0"
+        >
+          <div className={`rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] text-white ${visual.aiHead}`}>
+            <SectionTitle><span className="text-white">{CAREER_COMPONENT_TITLES_ZH[componentId]}</span></SectionTitle>
+            <p className="mb-0 mt-2 max-w-[680px] text-[14.5px] leading-7 text-white/95"><Field path={`${componentId}.ai_head_sub`}>{asString(data.ai_head_sub)}</Field></p>
+          </div>
+          <div className={`${CARD} ${visual.aiBody}`}>
+            <h3 className="m-0 text-lg font-bold text-[#243049]">AI 会怎样改变这份工作</h3>
+            <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s1_bls`}>{asString(data.ai_s1_bls)}</Field></p>
+            <p className={`mb-0 mt-3 ${CALLOUT_BLUE}`}><Field path={`${componentId}.ai_s1_p`}>{asString(data.ai_s1_p)}</Field></p>
+            <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
+              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在自动化</h4><ApiList items={asStringArray(data.ai_s2_auto)} path={`${componentId}.ai_s2_auto`} /></div>
+              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在被 AI 加速</h4><ApiList items={asStringArray(data.ai_s2_accel)} path={`${componentId}.ai_s2_accel`} /></div>
+            </div>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">仍需人承担的能力</h3>
+            <ApiList items={asStringArray(data.ai_s3_list)} path={`${componentId}.ai_s3_list`} ordered />
+            <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.ai_s4_p`}>{asString(data.ai_s4_p)}</Field></p>
+            <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s4_p2`}>{asString(data.ai_s4_p2)}</Field></p>
+            <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
+              {asRows(data.ai_s5_persona).map((row, index) => (
+                <div key={index} className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4">
+                  {Object.entries(row).map(([key, item]) => <p key={key} className={`m-0 mt-1 first:mt-0 ${BODY}`}><strong className="text-[#2C3E8C]">{key}：</strong><Field path={`${componentId}.ai_s5_persona[${index}].${key}`}>{asString(item)}</Field></p>)}
+                </div>
+              ))}
+            </div>
+            <ApiTable rows={asRows(data.ai_s6_tools)} path={`${componentId}.ai_s6_tools`} />
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">未来趋势</h3>
+            <ApiList items={asStringArray(data.ai_s7_trends)} path={`${componentId}.ai_s7_trends`} />
+          </div>
+        </PublishedRoot>
+      );
+
+    case "career_risk_cards":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle tag={asString(data.badge)}>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 font-semibold ${BODY}`}><Field path={`${componentId}.fact`}>{asString(data.fact)}</Field></p>
+          <ApiList items={asStringArray(data.risks)} path={`${componentId}.risks`} />
+          <p className={`mb-0 mt-4 ${CALLOUT_WARN}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
+        </PublishedRoot>
+      );
+
+    case "next_steps_block": {
+      const skills = data.skills;
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
+            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">热门技能</h3><ApiList items={asStringArray(data.hot_skills)} path={`${componentId}.hot_skills`} /></div>
+            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">优先准备的职责</h3><ApiList items={asStringArray(data.responsibilities)} path={`${componentId}.responsibilities`} /></div>
+          </div>
+          {asStringArray(skills).length > 0
+            ? <ApiList items={asStringArray(skills)} path={`${componentId}.skills`} />
+            : <ApiTable rows={asRows(skills)} path={`${componentId}.skills`} />}
+        </PublishedRoot>
+      );
+    }
+
+    case "source_card": {
+      const eeat = asRecord(data.eeat_signals ?? null);
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.note`}>{asString(data.note)}</Field></p>
+          <div className="mt-4 grid gap-3 rounded-xl bg-[#F0F3FA] p-4 sm:grid-cols-3">
+            {(["author", "source", "updated_at"] as const).map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.eeat_signals.${key}`}>{asString(eeat[key])}</Field></p>)}
+          </div>
+          <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
+            {sources.map((source) => <SourceItem key={source.key} source={source} />)}
+          </ul>
+        </PublishedRoot>
+      );
+    }
+
+    case "review_validity_card":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.last_reviewed`}>{asString(data.last_reviewed)}</Field></p>
+        </PublishedRoot>
+      );
+
+    case "boundary_notice":
+      return (
+        <PublishedRoot componentId={componentId} testId={testId} className={CALLOUT_WARN}>
+          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <ApiList items={asStringArray(value)} path={componentId} />
+        </PublishedRoot>
+      );
+
+    default:
+      return null;
+  }
+}
+
+function SourceItem({ source }: { source: CareerDisplaySource }) {
+  return (
+    <li className={`list-none ${BODY}`}>
+      {source.url ? <a href={source.url} className="font-semibold text-[#2C3E8C] hover:underline">{source.label}</a> : <span className="font-semibold">{source.label}</span>}
+      {source.urlNote ? <span> — {source.urlNote}</span> : null}
+      {typeof source.usage === "string" ? <span> — {source.usage}</span> : null}
+      {Array.isArray(source.usage) ? <ul className="m-0 mt-1 list-disc pl-5">{source.usage.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+    </li>
+  );
+}

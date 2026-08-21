@@ -1,0 +1,86 @@
+.article {
+  padding: 16px 20px 60px;
+}
+
+.componentStack > [data-career-component-id] {
+  margin-bottom: 22px;
+}
+
+.card {
+  padding: 30px 34px;
+}
+
+.callout {
+  padding: 16px 18px;
+}
+
+.tag {
+  padding: 3px 9px;
+}
+
+.sectionTitle {
+  gap: 10px;
+}
+
+.tableCell {
+  padding: 11px 13px;
+}
+
+.list > li {
+  margin: 6px 0;
+}
+
+.factGrid,
+.personaGrid {
+  gap: 14px;
+}
+
+.factTitle {
+  margin-bottom: 6px;
+}
+
+.aiBody {
+  margin-top: 22px;
+}
+
+.aiHead {
+  padding: 28px 34px;
+}
+
+.relatedCard {
+  padding: 11px 13px;
+}
+
+.relatedGrid {
+  gap: 10px;
+}
+
+.hero {
+  padding: 34px 36px;
+}
+
+.heroBadge {
+  padding: 4px 11px;
+}
+
+.heroCta {
+  padding: 13px 26px;
+}
+
+.faqItem {
+  padding: 4px 18px;
+}
+
+.tocLink {
+  padding: 6px 0;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 22px 20px;
+  }
+
+  .hero {
+    padding: 24px 22px;
+  }
+}

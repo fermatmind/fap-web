@@ -1,8 +1,12 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import visual from "@/components/career/display/CareerProductionVisual.module.css";
 import { EvidenceContainer } from "@/components/career/display/EvidenceContainer";
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
-import { CareerPublishedComponentContent } from "@/components/career/display/CareerPublishedComponentContent";
+import {
+  CAREER_COMPONENT_TITLES_ZH,
+  CareerPublishedSemanticSection,
+} from "@/components/career/display/CareerPublishedSemanticSection";
 import type {
   CareerDisplayComponentId,
   CareerDisplaySection,
@@ -76,6 +80,20 @@ function firstSection(sections: CareerDisplaySection[], component: string): Care
   return sections.find((section) => section.component === component) ?? null;
 }
 
+function publishedRecord(value: unknown): Record<string, unknown> | null {
+  return typeof value === "object" && value !== null && !Array.isArray(value)
+    ? value as Record<string, unknown>
+    : null;
+}
+
+function publishedText(value: unknown): string | null {
+  if (typeof value === "string" && value.trim().length > 0) return value;
+  const record = publishedRecord(value);
+  if (!record) return null;
+  const text = [record.value, record.label].find((item) => typeof item === "string" && item.trim().length > 0);
+  return typeof text === "string" ? text : null;
+}
+
 function publishedCtaHref(value: unknown, locale: CareerDisplaySurfaceViewModel["locale"], fallback: string): string {
   if (typeof value !== "string") return fallback;
   const candidates = value.split("|").map((href) => href.trim()).filter(Boolean);
@@ -87,6 +105,13 @@ function publishedCtaHref(value: unknown, locale: CareerDisplaySurfaceViewModel[
   const attributed = new URL(fallback, "https://fermatmind.com");
   attributed.searchParams.forEach((item, key) => published.searchParams.set(key, item));
   return `${published.pathname}${published.search}`;
+}
+
+function publishedCtaLabel(value: unknown, locale: CareerDisplaySurfaceViewModel["locale"], fallback: string): string {
+  if (typeof value !== "string" || value.trim().length === 0) return fallback;
+  if (locale !== "zh") return value;
+  const bilingual = value.split("/").map((item) => item.trim()).filter(Boolean);
+  return bilingual.find((item) => /[\u3400-\u9fff]/u.test(item)) ?? value;
 }
 
 function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
@@ -118,18 +143,19 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   }
 
   return (
-    <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
-      <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{related.intro}</h2>
-      <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
+    <section className={`rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`} data-career-api-component="related_next_pages">
+      <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">相关职业</h2>
+      <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>
+      <ul className={`m-0 mt-3 grid p-0 sm:grid-cols-2 xl:grid-cols-3 ${visual.relatedGrid}`} data-career-api-list="related_next_pages.links">
         {related.links.map((page) => (
           <li
             key={page.slug}
             data-related-career-slug={page.slug}
             data-related-career-source={page.source}
             data-related-career-nofollow={String(page.nofollow)}
-            className="list-none rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C]"
+            className={`list-none rounded-[10px] border border-[#E5E9F2] bg-[#F0F3FA] text-[13.5px] font-semibold text-[#2C3E8C] ${visual.relatedCard}`}
           >
-            {page.titleEn}
+            <span data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span>
           </li>
         ))}
       </ul>
@@ -145,21 +171,56 @@ function CareerProductionHero({
   const riasec = firstSection(visibleSections, "RIASECFitBlock");
   const snapshot = firstSection(visibleSections, "CareerSnapshotCard");
   const aiImpact = firstSection(visibleSections, "AIImpactTable");
-  const badges = (riasec?.profile ?? []).slice(0, 3);
-  const metrics = (snapshot?.rows ?? []).slice(0, 5);
+  const published = surface.publishedComponents;
+  const publishedSnapshot = published && typeof published.career_snapshot_primary_locale === "object" && !Array.isArray(published.career_snapshot_primary_locale)
+    ? published.career_snapshot_primary_locale
+    : null;
+  const publishedRiasec = published && typeof published.riasec_fit_block === "object" && !Array.isArray(published.riasec_fit_block)
+    ? published.riasec_fit_block
+    : null;
+  const publishedRisks = published && typeof published.career_risk_cards === "object" && !Array.isArray(published.career_risk_cards)
+    ? published.career_risk_cards
+    : null;
+  const publishedSalary = publishedRecord(publishedSnapshot?.salary);
+  const publishedBlsRows = Array.isArray(publishedSalary?.bls_table)
+    ? publishedSalary.bls_table.map(publishedRecord).filter((row): row is Record<string, unknown> => row !== null)
+    : [];
+  const publishedAiImpact = publishedRecord(published?.ai_impact_table);
+  const badges = published
+    ? [publishedRiasec?.riasec_short, publishedText(publishedSalary?.china_soc_row), publishedRisks?.badge].filter((item): item is string => typeof item === "string")
+    : (riasec?.profile ?? []).slice(0, 3);
+  const metrics = published
+    ? publishedBlsRows.slice(0, 5).flatMap((row) => {
+        const label = publishedText(row["指标"] ?? row.label);
+        const value = publishedText(row["数值"] ?? row.value);
+        const note = publishedText(row["说明"]);
+        return label && value ? [[label, value, note] as const] : [];
+      })
+    : (snapshot?.rows ?? []).slice(0, 5).map(([label, value]) => [label, value, null] as const);
+  const aiScore = published
+    ? publishedText(publishedSalary?.china_ai_row)
+    : aiImpact?.score ?? null;
+  const aiHeading = published
+    ? (typeof publishedAiImpact?.ai_head_sub === "string" ? "AI 曝光评分" : "AI 影响")
+    : aiImpact?.heading;
+  const subjectCodes = [
+    surface.subject.socCode ? `SOC ${surface.subject.socCode}` : null,
+    surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,
+  ].filter((item): item is string => item !== null).join(" · ");
+  const heroSubtitle = surface.hero.subtitle ?? (surface.locale === "zh" ? subjectCodes : "");
 
   return (
     <header
-      className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] px-6 py-8 text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] md:px-8 md:py-8"
+      className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] ${visual.hero}`}
       data-testid="career-display-hero"
     >
       <div className="max-w-[640px] pr-0 lg:pr-10">
-        {surface.hero.subtitle ? <p className="m-0 text-sm font-normal text-white/80">{surface.hero.subtitle}</p> : null}
-        <h1 className="m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]">{surface.hero.h1}</h1>
+        {heroSubtitle ? <p className="m-0 text-sm font-normal text-white/80">{heroSubtitle}</p> : null}
+        <h1 className="m-0 mt-2 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]">{surface.hero.h1}</h1>
         {badges.length > 0 ? (
           <div className="my-3 flex flex-wrap gap-2" data-testid="career-production-hero-badges">
             {badges.map((badge) => (
-              <span key={badge} className="rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium">
+              <span key={badge} className={`rounded-full border border-white/25 bg-white/[.16] text-[12.5px] font-medium ${visual.heroBadge}`}>
                 {badge}
               </span>
             ))}
@@ -167,27 +228,28 @@ function CareerProductionHero({
         ) : null}
         <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95">{surface.hero.quickAnswer}</p>
       </div>
-      {aiImpact?.score ? (
+      {aiScore ? (
         <div className="mt-4 inline-flex items-center gap-3 rounded-xl bg-white/[.14] px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center" data-testid="career-production-ai-gauge">
-          <strong className="block text-2xl leading-none lg:text-3xl">{aiImpact.score}</strong>
-          <span className="block pt-1 text-xs leading-4 text-white/85">{aiImpact.heading}</span>
+          <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={published ? "career_snapshot_primary_locale.salary.china_ai_row" : undefined}>{aiScore}</strong>
+          <span className="block pt-1 text-xs leading-4 text-white/85">{aiHeading}</span>
         </div>
       ) : null}
       {metrics.length > 0 ? (
         <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-5" data-testid="career-production-hero-stats">
-          {metrics.map(([label, value]) => (
+          {metrics.map(([label, value, note]) => (
             <div key={`${label}:${value}`} className="rounded-xl bg-white/[.12] px-3 py-3">
               <strong className="block text-lg leading-tight">{value}</strong>
               <span className="mt-1 block text-xs leading-4 text-white/85">{label}</span>
+              {note ? <span className="mt-1 block text-[10px] leading-4 text-white/65">{note}</span> : null}
             </div>
           ))}
         </div>
       ) : null}
       <Link
         href={primaryCtaHref}
-        className="mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:no-underline"
+        className={`mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] text-[15px] font-bold text-white hover:brightness-105 hover:no-underline ${visual.heroCta}`}
       >
-        {surface.cta.label}
+        {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
       </Link>
     </header>
   );
@@ -287,7 +349,8 @@ export function CareerProductionDisplaySurface({
     if (componentId === "primary_cta" || componentId === "final_cta") {
       const rawCta = publishedComponents?.[componentId];
       const ctaData = rawCta && typeof rawCta === "object" && !Array.isArray(rawCta) ? rawCta : {};
-      const ctaLabel = typeof ctaData.label === "string" ? ctaData.label : surface.cta.label;
+      const rawCtaLabel = typeof ctaData.label === "string" ? ctaData.label : surface.cta.label;
+      const ctaLabel = publishedCtaLabel(rawCtaLabel, surface.locale, surface.cta.label);
       const ctaHref = publishedCtaHref(ctaData.href, surface.locale, primaryCtaHref);
       return (
         <section
@@ -300,25 +363,26 @@ export function CareerProductionDisplaySurface({
           data-target-action={typeof ctaData.target_action === "string" ? ctaData.target_action : undefined}
           data-test-slug={typeof ctaData.test_slug === "string" ? ctaData.test_slug : undefined}
           data-api-href={typeof ctaData.href === "string" ? ctaData.href : undefined}
+          data-api-label={rawCtaLabel}
         >
           {typeof ctaData.prompt === "string" ? <p className="m-0 mb-3 text-sm leading-6 text-white/95">{ctaData.prompt}</p> : null}
-          <Link href={ctaHref} className="inline-flex min-h-11 items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] transition-transform hover:-translate-y-0.5">
+          <Link href={ctaHref} className="inline-flex min-h-11 max-w-full items-center rounded-[10px] bg-white px-6 py-3 text-sm font-bold text-[#0E9F94] hover:brightness-105">
             {ctaLabel}
           </Link>
         </section>
       );
     }
     if (componentId === "related_next_pages") return <RelatedPages surface={surface} />;
-    if (componentId === "source_card") return publishedComponents ? (
-      <div className="space-y-4">
-        <CareerPublishedComponentContent componentId={componentId} value={publishedComponents[componentId]} />
-        <SourceCard surface={surface} />
-      </div>
-    ) : <SourceCard surface={surface} />;
+    if (componentId === "source_card") return publishedComponents
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} sources={surface.sources} />
+      : <SourceCard surface={surface} />;
     if (componentId === "review_validity_card") return publishedComponents
-      ? <CareerPublishedComponentContent componentId={componentId} value={publishedComponents[componentId]} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} />
       : <ReviewCard surface={surface} />;
     if (componentId === "boundary_notice") {
+      if (publishedComponents) {
+        return <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} />;
+      }
       return surface.boundaryNotice.length > 0 ? (
         <section className="rounded-2xl border border-amber-200 border-l-4 border-l-[#E8920C] bg-[#FFF6E9] p-5 md:p-6">
           <h2 className="m-0 text-xl font-bold">{isZh ? "使用边界" : "Usage boundaries"}</h2>
@@ -332,11 +396,11 @@ export function CareerProductionDisplaySurface({
           <h2 className="m-0 text-2xl font-bold text-[#1A2233]">常见问题</h2>
           <div className="mt-4 space-y-3">
             {surface.faqItems.map((item) => (
-              <details key={item.question} className="group rounded-xl border border-[#E5E9F2] bg-white px-4" open>
+              <details key={item.question} className={`group rounded-xl border border-[#E5E9F2] bg-white ${visual.faqItem}`}>
                 <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
-                  {item.question}
+                  <span data-career-api-field={`faq_block.items.${item.question}.question`}>{item.question}</span>
                 </summary>
-                <p className="m-0 pb-4 text-sm leading-7 text-[#2a3346]">{item.answer}</p>
+                <p className="m-0 pb-4 text-sm leading-7 text-[#2a3346]" data-career-api-field={`faq_block.items.${item.question}.answer`}>{item.answer}</p>
               </details>
             ))}
           </div>
@@ -345,7 +409,7 @@ export function CareerProductionDisplaySurface({
     }
 
     if (publishedComponents) {
-      return <CareerPublishedComponentContent componentId={componentId} testId={COMPONENT_TEST_IDS[componentId]} value={publishedComponents[componentId]} />;
+      return <CareerPublishedSemanticSection componentId={componentId} testId={COMPONENT_TEST_IDS[componentId]} value={publishedComponents[componentId]} />;
     }
 
     const originalSection = orderedSection(componentId, surface.sections);
@@ -386,19 +450,29 @@ export function CareerProductionDisplaySurface({
   };
 
   const tocSections = surface.componentOrder
-    .map((componentId) => ({ componentId, section: orderedSection(componentId, surface.sections) }))
-    .filter((item): item is { componentId: CareerDisplayComponentId; section: CareerDisplaySection } => Boolean(item.section));
+    .filter((componentId) => !["breadcrumb", "hero", "primary_cta", "final_cta"].includes(componentId))
+    .map((componentId) => ({
+      componentId,
+      label: publishedComponents
+        ? CAREER_COMPONENT_TITLES_ZH[componentId]
+        : orderedSection(componentId, surface.sections)?.heading ?? null,
+    }))
+    .filter((item): item is { componentId: CareerDisplayComponentId; label: string } => Boolean(item.label));
+
+  const breadcrumb = renderComponent("breadcrumb");
+  const mainComponentOrder = surface.componentOrder.filter((componentId) => componentId !== "breadcrumb");
 
   return (
     <article
-      className="mx-auto max-w-[1100px] px-4 py-5 text-[#1A2233] md:px-5"
+      className={`mx-auto max-w-[1100px] font-sans text-[#1A2233] ${visual.article}`}
       data-testid="career-display-surface"
       data-career-production-template="career-production-v1"
       data-career-renderer-release={rendererRelease}
     >
-      <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
-        <main className="min-w-0 space-y-6">
-          {surface.componentOrder.map((componentId) => {
+      <ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame>
+      <div className="mt-5 grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
+        <main className={`min-w-0 ${visual.componentStack}`}>
+          {mainComponentOrder.map((componentId) => {
             const component = renderComponent(componentId);
             const content = componentId === "career_risk_cards"
               ? <div data-testid="career-display-group-risks-and-change">{component}{aiImpactSlot}</div>
@@ -410,18 +484,18 @@ export function CareerProductionDisplaySurface({
             return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
           })}
         </main>
-        <aside className="flex flex-col gap-4 lg:sticky lg:top-20" aria-label={isZh ? "页面目录" : "Page contents"}>
+        <aside className="flex flex-col gap-4 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className="rounded-2xl border border-[#E5E9F2] bg-white p-5 text-sm">
           <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
           <nav className="mt-3 grid">
-            {tocSections.map(({ componentId, section }) => <a key={componentId} href={`#career-component-${componentId}`} className="border-b border-[#F0F3FA] py-2 text-[#3a4255] last:border-0 hover:text-[#2C3E8C]">{section.heading}</a>)}
+            {tocSections.map(({ componentId, label }) => <a key={componentId} href={`#career-component-${componentId}`} className={`border-b border-[#F0F3FA] text-[#3a4255] last:border-0 hover:text-[#2C3E8C] hover:no-underline ${visual.tocLink}`}>{label}</a>)}
           </nav>
           </div>
           <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
-            <h2 className="m-0 text-base font-bold">{surface.cta.label}</h2>
+            <h2 className="m-0 text-base font-bold">{publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}</h2>
             <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
             <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
-              {surface.cta.label}
+              {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
             </Link>
           </section>
         </aside>

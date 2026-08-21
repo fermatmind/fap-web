@@ -243,6 +243,8 @@ export type CareerDisplaySurfaceViewModel = {
     path: string;
     title: string;
     subtitle?: string;
+    socCode?: string;
+    onetCode?: string;
   };
   componentOrder: CareerDisplayComponentId[];
   hero: CareerDisplayHeroViewModel;
@@ -1540,6 +1542,8 @@ export function adaptCareerDisplaySurface(
       path,
       title: localizedHero.h1,
       ...(localizedHero.subtitle ? { subtitle: localizedHero.subtitle } : {}),
+      ...(normalizeString(subject.soc_code) ? { socCode: normalizeString(subject.soc_code)! } : {}),
+      ...(normalizeString(subject.onet_code) ? { onetCode: normalizeString(subject.onet_code)! } : {}),
     },
     componentOrder,
     hero: localizedHero,

@@ -484,6 +484,8 @@ export function buildSelectedCareerDisplaySurfaceFixture({
     status: "ready_for_pilot",
     subject: {
       canonical_slug: slug,
+      soc_code: "15-0000",
+      onet_code: "15-0000.00",
     },
     claim_permissions: buildDisplaySurfaceClaimPermissions(),
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
