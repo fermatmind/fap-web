@@ -58,7 +58,10 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } from "@/lib/tracking/attribution";
 
-export const revalidate = 300;
+// Keep the rendered document deployment-bound. The authority reads below retain
+// their own bounded data cache, while an HTML artifact from an older renderer
+// must never be served once a new renderer revision is active.
+export const dynamic = "force-dynamic";
 export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;
 
 type CareerJobSearchParams = Record<string, string | string[] | undefined>;

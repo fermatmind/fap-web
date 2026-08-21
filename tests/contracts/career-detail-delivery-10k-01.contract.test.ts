@@ -25,10 +25,11 @@ const ROOT = process.cwd();
 const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
 
 describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
-  it("keeps bounded HTML revalidation, shares the authority load, and caps render requests", () => {
+  it("keeps HTML deployment-bound, shares the authority load, and caps render requests", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
-    expect(source).toContain("export const revalidate = 300;");
+    expect(source).toContain('export const dynamic = "force-dynamic";');
+    expect(source).not.toContain("export const revalidate = 300;");
     expect(source).toContain("export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;");
     expect(source).toContain("const loadCareerJobBundle = cache(async");
     expect(source.match(/loadCareerJobBundle\(locale, slug\)/g)?.length).toBe(2);
