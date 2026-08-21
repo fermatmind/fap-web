@@ -93,7 +93,7 @@ describe("public api cache contract", () => {
     expect(source).not.toContain("export const revalidate = 300");
     expect(source).not.toContain('cache: "no-store"');
     expect(fetchSource).toContain('toApiLocale(locale) === "zh-CN"');
-    expect(fetchSource).toContain('{ cache: "no-store" as const }');
+    expect(fetchSource).toContain('cache: "no-store" as const');
     expect(fetchSource).toContain("detailCacheOptions");
   });
 

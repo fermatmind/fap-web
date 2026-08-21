@@ -13,6 +13,7 @@ type FetchCareerJobBundleInput = {
 const DEFAULT_ORG_ID = "0";
 const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;
 export const CAREER_DETAIL_REVALIDATE_SECONDS = 300;
+export const CAREER_DETAIL_PROJECTION_CACHE_VERSION = "current-26-component-v1";
 
 export function careerDetailCacheTag(locale: Locale | string, slug: string): string {
   return `career-detail:${toApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
@@ -31,7 +32,10 @@ function detailCacheOptions(locale: Locale | string, slug: string): {
 
 function bundleCacheOptions(locale: Locale | string, slug: string) {
   return toApiLocale(locale) === "zh-CN"
-    ? { cache: "no-store" as const }
+    ? {
+        cache: "no-store" as const,
+        headers: { "Cache-Control": "no-cache", Pragma: "no-cache" },
+      }
     : { ...PUBLIC_API_CACHE_OPTIONS, ...detailCacheOptions(locale, slug) };
 }
 
@@ -42,6 +46,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function buildQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
   query.set("locale", toApiLocale(locale));
+  query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION);
   return `?${query.toString()}`;
 }
 

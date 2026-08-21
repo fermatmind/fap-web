@@ -19,7 +19,10 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
 }));
 
 import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
-import { careerDetailCacheTag } from "@/lib/career/api/fetchCareerJobBundle";
+import {
+  CAREER_DETAIL_PROJECTION_CACHE_VERSION,
+  careerDetailCacheTag,
+} from "@/lib/career/api/fetchCareerJobBundle";
 
 const ROOT = process.cwd();
 const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -64,14 +67,17 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source.match(/detailCacheOptions\(/g)?.length).toBe(3);
     expect(source).toContain("revalidate: CAREER_DETAIL_REVALIDATE_SECONDS");
     expect(source).toContain('toApiLocale(locale) === "zh-CN"');
-    expect(source).toContain('{ cache: "no-store" as const }');
+    expect(source).toContain('cache: "no-store" as const');
   });
 
   it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
+    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-26-component-v1");
     expect(source).toContain("function bundleCacheOptions");
     expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
+    expect(source).toContain('query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION)');
+    expect(source).toContain('headers: { "Cache-Control": "no-cache", Pragma: "no-cache" }');
     expect(source.match(/\.\.\.detailCacheOptions\(input\.locale, input\.normalizedSlug\)/g)).toHaveLength(1);
   });
 
