@@ -206,6 +206,7 @@ function SourceCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
             ) : (
               <span className="font-semibold">{source.label}</span>
             )}
+            {source.urlNote ? <span> — {source.urlNote}</span> : null}
             {typeof source.usage === "string" ? <span> — {source.usage}</span> : null}
             {Array.isArray(source.usage) ? (
               <ul className="m-0 mt-1 list-disc pl-5">

@@ -301,6 +301,50 @@ describe("career display surface contract", () => {
     expect(document.body).not.toHaveTextContent("[object Object]");
   });
 
+  it("renders every canonical Current source without applying legacy trust filtering", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" });
+    fixture.sources = {
+      onet: {
+        label: "O*NET 演员职业资料",
+        url: "https://www.onetonline.org/link/details/27-2011.00",
+        usage: "职业定义与任务",
+      },
+      linkedin: {
+        label: "LinkedIn Skills on the Rise 2025",
+        url: "https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise",
+        usage: "通用技能趋势参考",
+      },
+      union: {
+        label: "SAG-AFTRA membership eligibility",
+        url: "https://www.sagaftra.org/membership-benefits/steps-join",
+        usage: ["工会资格背景", "非市场统计"],
+      },
+      military: {
+        label: "军用职业 O*NET URL",
+        url: "not_applicable_for_military_specific_onet_occupation",
+        usage: "该职业没有对应的民用 O*NET URL",
+      },
+    } as unknown as typeof fixture.sources;
+
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(document.querySelectorAll('[data-testid="source-list"] > li')).toHaveLength(4);
+    expect(screen.getByRole("link", { name: "LinkedIn Skills on the Rise 2025" })).toHaveAttribute(
+      "href",
+      "https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise"
+    );
+    expect(screen.getByText("非市场统计")).toBeInTheDocument();
+    expect(screen.getByText(/not_applicable_for_military_specific_onet_occupation/)).toBeInTheDocument();
+  });
+
+  it("fails closed when a canonical Current source URL is unsafe", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" });
+    fixture.sources.references[0].url = "javascript:alert(1)";
+
+    expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
+  });
+
   it.each(CAREER_DISPLAY_COMPONENT_ORDER)("fails closed when Current component %s is missing", (componentId) => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "financial-examiners", locale: "zh" });
     delete (fixture.page.content as Record<string, unknown>)[componentId];

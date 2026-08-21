@@ -184,11 +184,12 @@ export type CareerDisplaySource = {
   key: string;
   label: string;
   url?: string;
+  urlNote?: string;
   usage?: string | string[];
   capturedAt?: string;
   expiresAt?: string;
-  authority: (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number];
-  trustCertification: "trusted_public_source" | "bounded_market_sample" | "bounded_interpretation";
+  authority?: (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number];
+  trustCertification?: "trusted_public_source" | "bounded_market_sample" | "bounded_interpretation";
 };
 
 export type CareerDisplayRelatedPage = {
@@ -1094,6 +1095,52 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
     .filter((source): source is CareerDisplaySource => source !== null);
 }
 
+function normalizePublishedSources(value: unknown): CareerDisplaySource[] | null {
+  const raw = isRecord(value) ? value : null;
+  if (!raw) {
+    return null;
+  }
+
+  const entries = Array.isArray(raw.references)
+    ? raw.references.map((item, index) => [String(index), item] as const)
+    : Object.entries(raw);
+  const sources: CareerDisplaySource[] = [];
+
+  for (const [entryKey, item] of entries) {
+    if (!isRecord(item) || typeof item.label !== "string" || item.label.trim().length === 0) {
+      return null;
+    }
+    const sourceKey = normalizeString(item.source_key) ?? normalizeString(item.key) ?? entryKey;
+    const rawUrl = item.url;
+    const safeUrl = rawUrl === undefined || rawUrl === null ? null : normalizeSafeSourceUrl(rawUrl);
+    const urlNote = rawUrl === "not_applicable_for_military_specific_onet_occupation" ? rawUrl : null;
+    if (rawUrl !== undefined && rawUrl !== null && !safeUrl && !urlNote) {
+      return null;
+    }
+    const usage = item.usage;
+    if (
+      usage !== undefined &&
+      usage !== null &&
+      !(typeof usage === "string" && usage.trim().length > 0) &&
+      !(Array.isArray(usage) && usage.every((entry) => typeof entry === "string" && entry.trim().length > 0))
+    ) {
+      return null;
+    }
+
+    sources.push({
+      key: sourceKey,
+      label: item.label,
+      ...(safeUrl && typeof rawUrl === "string" ? { url: rawUrl } : {}),
+      ...(urlNote ? { urlNote } : {}),
+      ...(typeof usage === "string" ? { usage } : Array.isArray(usage) ? { usage: [...usage] } : {}),
+      ...(typeof item.captured_at === "string" ? { capturedAt: item.captured_at } : {}),
+      ...(typeof item.expires_at === "string" ? { expiresAt: item.expires_at } : {}),
+    });
+  }
+
+  return sources;
+}
+
 function normalizeBoundaryNotice(root: Record<string, unknown>, locale: Locale, page?: Record<string, unknown>): string[] {
   const support = isRecord(root.support_components) ? root.support_components : {};
   const boundary = isRecord(support.boundary_notice) ? support.boundary_notice : {};
@@ -1451,13 +1498,17 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
-  const sources = normalizeSources(root.sources);
-  const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
-  const reviewValidity = normalizeReviewValidity(root, page);
-  const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
   const publishedComponents = locale === "zh" && page && componentOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
+  const sources = publishedComponents ? normalizePublishedSources(root.sources) : normalizeSources(root.sources);
+  const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
+  const reviewValidity = normalizeReviewValidity(root, page);
+  const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
+
+  if (sources === null) {
+    return null;
+  }
 
   if (
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&

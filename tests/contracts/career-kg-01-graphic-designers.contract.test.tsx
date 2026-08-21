@@ -270,7 +270,7 @@ describe("PR-CAREER-KG-01 graphic designers career KG asset", () => {
     fixture.sources.references = asset.sources.map((source) => ({
       key: source.key,
       label: source.label,
-      url: source.url,
+      ...(source.url && (source.url.startsWith("https://") || source.url.startsWith("http://")) ? { url: source.url } : {}),
       usage: source.usage,
       source_type: source.authority,
     }));
