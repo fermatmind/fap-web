@@ -437,8 +437,8 @@ else
   systemctl status "$SYSTEMD_SERVICE" --no-pager -l | sed -n '1,80p'
 fi
 wait_for_local_app_ready
-if [[ "$APP_MANAGER" == "pm2" ]] && ! require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "post-reload"; then
-  log "rolling reload retained a stale renderer; restarting app ${APP_NAME}"
+if [[ "$APP_MANAGER" == "pm2" ]]; then
+  log "complete PM2 restart to retire prior release workers: ${APP_NAME}"
   pm2 restart "$APP_NAME" --update-env >/dev/null
   wait_for_local_app_ready
 fi
