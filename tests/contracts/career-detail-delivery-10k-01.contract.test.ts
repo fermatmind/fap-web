@@ -19,7 +19,10 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
 }));
 
 import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
-import { careerDetailCacheTag } from "@/lib/career/api/fetchCareerJobBundle";
+import {
+  CAREER_DETAIL_PROJECTION_CACHE_VERSION,
+  careerDetailCacheTag,
+} from "@/lib/career/api/fetchCareerJobBundle";
 
 const ROOT = process.cwd();
 const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -47,6 +50,13 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source.match(/detailCacheOptions\(/g)?.length).toBe(3);
     expect(source).toContain("revalidate: CAREER_DETAIL_REVALIDATE_SECONDS");
     expect(source).not.toContain('cache: "no-store"');
+  });
+
+  it("versions the authority projection cache independently from renderer revisions", () => {
+    const source = read("lib/career/api/fetchCareerJobBundle.ts");
+
+    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-26-component-v1");
+    expect(source).toContain('"X-FAP-Projection-Contract": CAREER_DETAIL_PROJECTION_CACHE_VERSION');
   });
 
   it("derives the exact localized detail path and hard-expires its tag on signed release events", async () => {

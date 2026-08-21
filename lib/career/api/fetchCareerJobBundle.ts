@@ -13,13 +13,20 @@ type FetchCareerJobBundleInput = {
 const DEFAULT_ORG_ID = "0";
 const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;
 export const CAREER_DETAIL_REVALIDATE_SECONDS = 300;
+export const CAREER_DETAIL_PROJECTION_CACHE_VERSION = "current-26-component-v1";
 
 export function careerDetailCacheTag(locale: Locale | string, slug: string): string {
   return `career-detail:${toApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
 }
 
-function detailCacheOptions(locale: Locale | string, slug: string): { next: { revalidate: number; tags: string[] } } {
+function detailCacheOptions(locale: Locale | string, slug: string): {
+  headers: { "X-FAP-Projection-Contract": string };
+  next: { revalidate: number; tags: string[] };
+} {
   return {
+    headers: {
+      "X-FAP-Projection-Contract": CAREER_DETAIL_PROJECTION_CACHE_VERSION,
+    },
     next: {
       revalidate: CAREER_DETAIL_REVALIDATE_SECONDS,
       tags: [careerDetailCacheTag(locale, slug)],
