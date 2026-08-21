@@ -6,7 +6,7 @@ APP_DIR="${APP_DIR:-/opt/apps/fap-web}"
 PM2_BIN="${PM2_BIN:-pm2}"
 PM2_CONFIG="${PM2_CONFIG:-${APP_DIR}/ecosystem.config.cjs}"
 ROLLING_TIMEOUT_SEC="${ROLLING_TIMEOUT_SEC:-60}"
-EXPECTED_EXEC_PATH="${APP_DIR%/}/.next/standalone/server.js"
+EXPECTED_EXEC_PATH="$(realpath "${APP_DIR%/}/.next/standalone/server.js")"
 EXPECTED_EXEC_MODE="cluster"
 
 timestamp() {
@@ -109,9 +109,6 @@ app_is_drifted() {
   if [[ "$CURRENT_MODE" != "$EXPECTED_EXEC_MODE" ]]; then
     return 0
   fi
-  if [[ "$CURRENT_PATH" != "$EXPECTED_EXEC_PATH" ]]; then
-    return 0
-  fi
   if (( CURRENT_INSTANCES < DESIRED_INSTANCES )); then
     return 0
   fi
@@ -125,10 +122,10 @@ recreate_from_config() {
 }
 
 reload_existing_app() {
-  log "app already aligned, performing rolling reload"
-  if ! "$PM2_BIN" reload "$APP_NAME" --update-env >/dev/null; then
-    log "reload failed, fallback to restart app=${APP_NAME}"
-    "$PM2_BIN" restart "$APP_NAME" --update-env >/dev/null
+  log "app shape aligned, rolling onto immutable release path"
+  if ! "$PM2_BIN" startOrReload "$PM2_CONFIG" --only "$APP_NAME" --update-env >/dev/null; then
+    log "rolling release migration failed, fallback to reload app=${APP_NAME}"
+    "$PM2_BIN" reload "$PM2_CONFIG" --only "$APP_NAME" --update-env >/dev/null
   fi
 }
 

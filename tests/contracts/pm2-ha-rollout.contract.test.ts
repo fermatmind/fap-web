@@ -7,6 +7,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 type Pm2AppConfig = {
   name?: string;
+  script?: string;
   exec_mode?: string;
   instances?: number | string;
 };
@@ -56,6 +57,16 @@ describe("pm2 high-availability rollout contract", () => {
     expect(Number(clampedApp?.instances)).toBeGreaterThanOrEqual(2);
   });
 
+  it("binds each PM2 generation to the active immutable release path", () => {
+    const config = loadEcosystem();
+    const app = config.apps?.find((item) => item.name === "fap-web");
+
+    expect(path.isAbsolute(app?.script ?? "")).toBe(true);
+    expect(read("ecosystem.config.cjs")).toContain("fs.realpathSync(ACTIVE_SCRIPT)");
+    expect(read("scripts/rolling_reload_pm2.sh")).toContain('startOrReload "$PM2_CONFIG"');
+    expect(read("scripts/rolling_reload_pm2.sh")).toContain('EXPECTED_EXEC_PATH="$(realpath');
+  });
+
   it("deploy script uses rolling reload helper without destructive pm2 delete", () => {
     const deployScript = read("scripts/deploy_web_pm2.sh");
     expect(deployScript).toContain("rolling_reload_pm2.sh");
@@ -100,7 +111,7 @@ cmd="\${1:-}"
 shift || true
 printf '%s %s\\n' "$cmd" "$*" >> "$FAKE_PM2_LOG"
 state="$(cat "$FAKE_PM2_STATE")"
-exec_path="\${APP_DIR%/}/.next/standalone/server.js"
+exec_path="$(realpath "\${APP_DIR%/}/.next/standalone/server.js")"
 
 case "$cmd" in
   jlist)
