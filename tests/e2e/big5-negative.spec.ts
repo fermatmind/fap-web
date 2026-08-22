@@ -1,16 +1,27 @@
 import { expect, test, type Page } from "@playwright/test";
-import { startBig5PublicApiFixture } from "./helpers/big5-public-api-fixture";
+import {
+  immutableBig5Authority,
+  startBig5PublicApiFixture,
+  type Big5PublicApiFixtureState,
+} from "./helpers/big5-public-api-fixture";
 import { clickLastOptionAndWaitForSubmit } from "./helpers/quiz-flow";
 
 let stopPublicApiFixture: (() => Promise<void>) | null = null;
+const publicApiFixtureState: Big5PublicApiFixtureState = { attempts: {}, requests: [] };
 
 test.beforeAll(async () => {
-  stopPublicApiFixture = await startBig5PublicApiFixture();
+  stopPublicApiFixture = await startBig5PublicApiFixture(publicApiFixtureState);
 });
 
 test.afterAll(async () => {
   await stopPublicApiFixture?.();
   stopPublicApiFixture = null;
+});
+
+test.beforeEach(() => {
+  publicApiFixtureState.attempts = {};
+  publicApiFixtureState.lookup = undefined;
+  publicApiFixtureState.requests.length = 0;
 });
 
 function buildQuestions(count: number) {
@@ -61,6 +72,27 @@ async function mockLookup(
 ) {
   const enabledInProd = payload.enabledInProd ?? true;
   const paywallMode = payload.paywallMode ?? "full";
+  publicApiFixtureState.lookup = {
+    ok: true,
+    primary_slug: "big-five-personality-test-ocean-model",
+    slug: "big-five-personality-test-ocean-model",
+    requested_slug: "big-five-personality-test-ocean-model",
+    resolved_from_alias: false,
+    scale_code: "BIG5_OCEAN",
+    locale: "en",
+    is_public: true,
+    is_indexable: true,
+    forms: [{ form_code: "big5_120", question_count: 120 }],
+    capabilities: { enabled_in_prod: enabledInProd, paywall_mode: paywallMode },
+    content_i18n_json: {
+      en: {
+        title: "Big Five Personality Test",
+        description: "Deterministic Big Five test fixture.",
+        catalog: { questions_count: 120, time_minutes: 12 },
+      },
+    },
+    landing_surface_v1: { version: "landing.surface.v1", entry_surface: "test_detail" },
+  };
 
   await page.route("**/api/v0.3/scales/lookup?*", async (route) => {
     await route.fulfill({
@@ -115,6 +147,27 @@ async function mockBig5ReportAccess(
   attemptId: string,
   accessState: "ready" | "locked" = "ready"
 ) {
+  publicApiFixtureState.attempts[attemptId] = {
+    ...publicApiFixtureState.attempts[attemptId],
+    reportAccess: {
+      ok: true,
+      attempt_id: attemptId,
+      access_state: accessState,
+      report_state: "ready",
+      pdf_state: "ready",
+      reason_code: accessState === "locked" ? "report_locked" : "report_ready",
+      projection_version: 1,
+      actions: {
+        page_href: `/en/result/${attemptId}`,
+        pdf_href: `/api/v0.3/attempts/${attemptId}/report.pdf`,
+      },
+      payload: { scale_code: "BIG5_OCEAN" },
+      meta: {
+        produced_at: "2026-08-16T00:00:00.000Z",
+        refreshed_at: "2026-08-16T00:00:00.000Z",
+      },
+    },
+  };
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     const requestUrl = new URL(route.request().url());
     expect(requestUrl.pathname).toBe(`/api/v0.3/attempts/${attemptId}/report-access`);
@@ -164,36 +217,41 @@ test("BIG5 free_only hides unlock CTA in locked result", async ({ page }) => {
   await mockLookup(page, { paywallMode: "free_only" });
   await mockBig5ReportAccess(page, attemptId);
 
+  const reportResponse = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    big5_private_result_authority: immutableBig5Authority(),
+    locked: true,
+    variant: "free",
+    norms: { status: "CALIBRATED", norms_version: "2026Q1" },
+    quality: { level: "B" },
+    offers: [],
+    report: {
+      sections: [
+        {
+          key: "summary",
+          title: "Summary",
+          access_level: "free",
+          blocks: [{ kind: "paragraph", title: "Summary", body: "Preview summary" }],
+        },
+      ],
+    },
+    meta: { scale_code: "BIG5_OCEAN" },
+  };
+  publicApiFixtureState.attempts[attemptId].report = reportResponse;
+
   await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
+    expectAttemptRequest(route.request().url(), attemptId, "report");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        locked: true,
-        variant: "free",
-        norms: { status: "CALIBRATED", norms_version: "2026Q1" },
-        quality: { level: "B" },
-        offers: [],
-        report: {
-          sections: [
-            {
-              key: "summary",
-              title: "Summary",
-              access_level: "free",
-              blocks: [{ kind: "paragraph", title: "Summary", body: "Preview summary" }],
-            },
-          ],
-        },
-        meta: { scale_code: "BIG5_OCEAN" },
-      }),
+      body: JSON.stringify(reportResponse),
     });
   });
 
   await page.goto(`/en/result/${attemptId}`);
 
-  await expect(page.getByRole("heading", { name: "Domains Overview" }).first()).toBeVisible();
+  await expect(page.getByTestId("big5-result-shell")).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 
@@ -369,44 +427,48 @@ test("BIG5 report handles norms missing and unknown block safely", async ({ page
   await mockLookup(page, { paywallMode: "full" });
   await mockBig5ReportAccess(page, attemptId);
 
+  const reportResponse = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    big5_private_result_authority: immutableBig5Authority(),
+    locked: false,
+    variant: "full",
+    norms: { status: "MISSING", norms_version: "2026Q1" },
+    quality: { level: "C" },
+    report: {
+      sections: [
+        {
+          key: "domains_overview",
+          title: "Domains",
+          access_level: "free",
+          blocks: [{ kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" }],
+        },
+        {
+          key: "future_block",
+          title: "Future",
+          access_level: "free",
+          blocks: [{ kind: "future_widget", title: "Future block", body: "new payload" }],
+        },
+      ],
+    },
+    meta: { scale_code: "BIG5_OCEAN" },
+  };
+  publicApiFixtureState.attempts[attemptId].report = reportResponse;
+
   await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
+    expectAttemptRequest(route.request().url(), attemptId, "report");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        locked: false,
-        variant: "full",
-        norms: { status: "MISSING", norms_version: "2026Q1" },
-        quality: { level: "C" },
-        report: {
-          sections: [
-            {
-              key: "domains_overview",
-              title: "Domains",
-              access_level: "free",
-              blocks: [{ kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" }],
-            },
-            {
-              key: "future_block",
-              title: "Future",
-              access_level: "free",
-              blocks: [{ kind: "future_widget", title: "Future block", body: "new payload" }],
-            },
-          ],
-        },
-        meta: { scale_code: "BIG5_OCEAN" },
-      }),
+      body: JSON.stringify(reportResponse),
     });
   });
 
   await page.goto(`/en/result/${attemptId}`);
 
-  await expect(
-    page.getByText("Percentile views are temporarily unavailable because current norms status is MISSING.").first()
-  ).toBeVisible();
-  await expect(page.getByText("Future block")).toHaveCount(0);
+  await expect(page.getByTestId("big5-result-shell")).toBeVisible();
+  await expect(page.getByText("Norms · MISSING")).toBeVisible();
+  await expect(page.getByText("new payload")).toHaveCount(0);
   await expect(page.locator("text=NaN")).toHaveCount(0);
 });
 
@@ -418,47 +480,68 @@ test("BIG5 compare shows N/A and not comparable when one side is missing", async
   await mockBig5ReportAccess(page, currentAttemptId);
   await mockBig5ReportAccess(page, previousAttemptId);
 
+  const currentReport = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    quality: { level: "A" },
+    big5_private_result_authority: immutableBig5Authority(),
+    big5_public_projection_v1: {
+      trait_vector: [{ key: "O", label: "Openness", percentile: 62, band: "mid" }],
+      facet_vector: [{ key: "O1", label: "O1", domain: "O", percentile: 60, bucket: "mid" }],
+    },
+    report: {
+      sections: [
+        {
+          key: "domains_overview",
+          blocks: [{ kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" }],
+        },
+        {
+          key: "facet_table",
+          blocks: [{ kind: "table_row", metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
+        },
+      ],
+    },
+  };
+  const previousReport = {
+    ok: true,
+    scale_code: "BIG5_OCEAN",
+    quality: { level: "A" },
+    big5_private_result_authority: immutableBig5Authority(),
+    big5_public_projection_v1: {
+      trait_vector: [{ key: "C", label: "Conscientiousness", percentile: 55, band: "mid" }],
+      facet_vector: [{ key: "C1", label: "C1", domain: "C", percentile: 52, bucket: "mid" }],
+    },
+    report: {
+      sections: [
+        {
+          key: "domains_overview",
+          blocks: [{ kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 55" }],
+        },
+        {
+          key: "facet_table",
+          blocks: [{ kind: "table_row", metric_code: "C1", title: "C1", body: "C1 percentile 52" }],
+        },
+      ],
+    },
+  };
+  publicApiFixtureState.attempts[currentAttemptId].report = currentReport;
+  publicApiFixtureState.attempts[previousAttemptId].report = previousReport;
+
   await page.route(new RegExp(`/api/v0\\.3/attempts/${currentAttemptId}/report(?:\\?.*)?$`), async (route) => {
+    expectAttemptRequest(route.request().url(), currentAttemptId, "report");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        report: {
-          sections: [
-            {
-              key: "domains_overview",
-              blocks: [{ kind: "chart", metric_code: "O", title: "Openness", body: "Openness percentile 62" }],
-            },
-            {
-              key: "facet_table",
-              blocks: [{ kind: "table_row", metric_code: "O1", title: "O1", body: "O1 percentile 60" }],
-            },
-          ],
-        },
-      }),
+      body: JSON.stringify(currentReport),
     });
   });
 
   await page.route(new RegExp(`/api/v0\\.3/attempts/${previousAttemptId}/report(?:\\?.*)?$`), async (route) => {
+    expectAttemptRequest(route.request().url(), previousAttemptId, "report");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        report: {
-          sections: [
-            {
-              key: "domains_overview",
-              blocks: [{ kind: "chart", metric_code: "C", title: "Conscientiousness", body: "Conscientiousness percentile 55" }],
-            },
-            {
-              key: "facet_table",
-              blocks: [{ kind: "table_row", metric_code: "C1", title: "C1", body: "C1 percentile 52" }],
-            },
-          ],
-        },
-      }),
+      body: JSON.stringify(previousReport),
     });
   });
 
@@ -468,3 +551,10 @@ test("BIG5 compare shows N/A and not comparable when one side is missing", async
   await expect(page.getByText("Now N/A").first()).toBeVisible();
   await expect(page.getByText("Prev 0")).toHaveCount(0);
 });
+
+function expectAttemptRequest(rawUrl: string, attemptId: string, resource: string) {
+  const requestUrl = new URL(rawUrl);
+  expect(requestUrl.pathname).toBe(`/api/v0.3/attempts/${attemptId}/${resource}`);
+  const locale = requestUrl.searchParams.get("locale");
+  if (locale !== null) expect(locale).toBe("en");
+}

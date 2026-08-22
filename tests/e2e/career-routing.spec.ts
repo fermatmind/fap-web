@@ -477,11 +477,13 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
   }
 
   if (pathname === "/v0.5/personality/intj-a") {
+    expect(searchParams.get("locale")).toBe("en");
     writeJson(res, 200, createMockMbtiPersonalityDetailResponse("intj-a"));
     return;
   }
 
   if (pathname === "/v0.5/personality/intp-a") {
+    expect(searchParams.get("locale")).toBe("en");
     writeJson(res, 200, createMockMbtiPersonalityDetailResponse("intp-a"));
     return;
   }
@@ -497,11 +499,13 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
   }
 
   if (pathname === "/v0.5/career-recommendations/mbti/intj-a" || pathname === "/v0.5/career-recommendations/mbti/intj") {
+    expect(searchParams.get("locale")).toBe("en");
     writeJson(res, 200, createMockMbtiCareerRecommendationDetailResponse("intj-a"));
     return;
   }
 
   if (pathname === "/v0.5/career-recommendations/mbti/intp-a") {
+    expect(searchParams.get("locale")).toBe("en");
     writeJson(res, 200, createMockMbtiCareerRecommendationDetailResponse("intp-a"));
     return;
   }
@@ -535,13 +539,71 @@ function handleMockApiRequest(req: IncomingMessage, res: ServerResponse) {
     return;
   }
 
-  if (pathname === "/v0.3/scales/lookup") {
+  if (pathname === "/v0.3/scales/catalog") {
+    expect(searchParams.get("locale")).toBe("en");
     writeJson(res, 200, {
       ok: true,
-      slug: searchParams.get("slug") ?? "mbti-personality-test-16-personality-types",
+      items: [
+        {
+          title: "Holland Career Interest Test",
+          title_i18n: {
+            en: "Holland Career Interest Test",
+            "zh-CN": "霍兰德职业兴趣测试",
+          },
+          slug: "holland-career-interest-test-riasec",
+          description: "Deterministic RIASEC career routing fixture.",
+          questions_count: 60,
+          time_minutes: 8,
+          scale_code: "RIASEC",
+          is_public: true,
+          is_active: true,
+          is_indexable: true,
+        },
+      ],
+    });
+    return;
+  }
+
+  if (pathname === "/v0.3/scales/lookup") {
+    const requestedSlug = searchParams.get("slug") ?? "mbti-personality-test-16-personality-types";
+    const locale = searchParams.get("locale") ?? "en";
+    const isRiasec = requestedSlug === "holland-career-interest-test-riasec";
+    expect(locale).toBe("en");
+    writeJson(res, 200, {
+      ok: true,
+      primary_slug: requestedSlug,
+      slug: requestedSlug,
+      requested_slug: requestedSlug,
+      resolved_from_alias: false,
+      scale_code: isRiasec ? "RIASEC" : "MBTI",
+      locale,
+      is_public: true,
+      is_indexable: true,
+      forms: isRiasec
+        ? [
+            { form_code: "riasec_60", question_count: 60, estimated_minutes: 8 },
+            { form_code: "riasec_140", question_count: 140, estimated_minutes: 18 },
+          ]
+        : [{ form_code: "mbti_144", question_count: 144, estimated_minutes: 15 }],
       capabilities: {
         enabled_in_prod: true,
         paywall_mode: "full",
+      },
+      content_i18n_json: {
+        en: {
+          title: isRiasec ? "Holland Career Interest Test" : "MBTI Personality Test",
+          description: "Deterministic career routing fixture.",
+          catalog: {
+            questions_count: isRiasec ? 60 : 144,
+            time_minutes: isRiasec ? 8 : 15,
+          },
+        },
+      },
+      landing_surface_v1: {
+        version: "landing.surface.v1",
+        entry_surface: "test_detail",
+        start_test_target: `/en/tests/${requestedSlug}/take`,
+        cta_bundle: [],
       },
     });
     return;
@@ -741,21 +803,17 @@ test("legacy professions stay gone while types routes funnel into personality", 
   expect(`${typesDetailLocation.pathname}${typesDetailLocation.search}`).toBe("/en/personality/intj-a");
 });
 
-test("mbti career recommendation route exposes answer-first, table, faq, and public backlinks", async ({ request }) => {
+test("mbti career recommendation route exposes the current decision path and evidence", async ({ request }) => {
   const response = await request.get("/en/career/recommendations/mbti/intj-a");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
-  expect(html).toContain('id="career-recommendation-type-interpretation"');
-  expect(html).toContain("Why these roles attract this type");
-  expect(html).toContain("Why some jobs drain this type");
-  expect(html).toContain('id="recommended-roles"');
-  expect(html).toContain('"@type":"ItemList"');
-  expect(html).toContain('"@type":"FAQPage"');
-  expect(html).toContain("/en/personality/intj-a");
-  expect(html).toContain("/en/topics/mbti");
-  expect(html).toContain("/en/career/guides/from-mbti-to-job-fit");
+  expect(html).toContain('data-testid="career-recommendation-v1-decision-summary"');
+  expect(html).toContain('data-testid="career-recommendation-v1-decision-cards"');
+  expect(html).toContain('data-testid="career-recommendation-protocol-status"');
+  expect(html).toContain('data-testid="career-recommendation-matched-jobs-status"');
+  expect(html).toContain('data-testid="career-recommendation-v1-evidence"');
 });
 
 test("INTJ personality pages render CMS projection sections and keep source entry anchors", async ({ request }) => {
@@ -764,22 +822,22 @@ test("INTJ personality pages render CMS projection sections and keep source entr
   const html = await response.text();
 
   expect(html).toContain('id="answer-first"');
-  expect(html).toContain('data-testid="personality-detail-section-map"');
-  expect(html).toContain('id="letters_intro"');
-  expect(html).toContain('id="trait_overview"');
-  expect(html).toContain('id="career.preferred_roles"');
+  expect(html).toContain('data-testid="personality-detail-sticky-local-nav"');
+  expect(html).toContain('id="overview"');
+  expect(html).toContain("Projection overview body");
   expect(html).not.toContain('data-testid="mbti-personality-content-pack"');
 });
 
-test("INTP recommendation pages render interpretation block instead of list-only view", async ({ request }) => {
+test("INTP recommendation pages render the current decision path instead of a list-only view", async ({ request }) => {
   const response = await request.get("/en/career/recommendations/mbti/intp-a");
   expect(response.status()).toBe(200);
   const html = await response.text();
 
-  expect(html).toContain('id="career-recommendation-intp-interpretation"');
-  expect(html).toContain("INTP-A career interpretation and continuation");
-  expect(html).toContain("Why these roles attract this type");
-  expect(html).toContain("Why some jobs drain this type");
+  expect(html).toContain('data-testid="career-recommendation-v1-decision-summary"');
+  expect(html).toContain('data-testid="career-recommendation-v1-decision-cards"');
+  expect(html).toContain('data-testid="career-recommendation-protocol-status"');
+  expect(html).toContain('data-testid="career-recommendation-matched-jobs-status"');
+  expect(html).toContain('data-testid="career-recommendation-v1-evidence"');
 });
 
 test("MBTI topic page exposes grouped continuation entry links", async ({ request }) => {
@@ -793,15 +851,11 @@ test("MBTI topic page exposes grouped continuation entry links", async ({ reques
   expect(html).toContain("/en/personality/enfp-a");
 });
 
-test("mbti career recommendation route treats 32-type as authority and 4-letter as a redirecting compatibility entry", async ({ request }) => {
-  const legacyResponse = await request.get("/en/career/recommendations/mbti/intj", { maxRedirects: 0 });
-  expect(legacyResponse.status()).toBe(308);
-  expect(legacyResponse.headers().location).toBe("/en/career/recommendations/mbti/intj-a");
-
-  const variantResponse = await request.get("/en/career/recommendations/mbti/intj-a");
-  expect(variantResponse.status()).toBe(200);
-  const variantHtml = await variantResponse.text();
-  expect(variantHtml).toContain("/en/personality/intj-a");
+test("mbti career recommendation route keeps the current 4-letter compatibility entry renderable", async ({ page }) => {
+  await page.goto("/en/career/recommendations/mbti/intj");
+  await expect(page).toHaveURL("/en/career/recommendations/mbti/intj");
+  await expect(page.getByTestId("career-recommendation-v1-decision-summary")).toBeVisible();
+  await expect(page.getByTestId("career-recommendation-protocol-status")).toBeAttached();
 });
 
 test("mbti result career CTA points to the 32-type recommendation authority route", async ({ page }) => {

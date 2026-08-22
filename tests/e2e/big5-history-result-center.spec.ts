@@ -1,4 +1,107 @@
 import { expect, test } from "@playwright/test";
+import {
+  immutableBig5Authority,
+  startBig5PublicApiFixture,
+  type Big5PublicApiFixtureState,
+} from "./helpers/big5-public-api-fixture";
+
+const historyResponse = {
+  ok: true,
+  scale_code: "BIG5_OCEAN",
+  items: [
+    {
+      attempt_id: "attempt-latest",
+      big5_private_result_authority: immutableBig5Authority(),
+      submitted_at: "2026-03-25T00:00:00Z",
+      result_summary: { domains_mean: { O: 88, A: 74, C: 69, E: 52, N: 41 } },
+      top_facets_summary_v1: {
+        items: [
+          { key: "O5", label: "O5 Intellect", domain: "O", percentile: 88, bucket: "high", kind: "strength" },
+          { key: "A3", label: "A3 Altruism", domain: "A", percentile: 74, bucket: "high", kind: "strength" },
+        ],
+      },
+      quality_summary: { level: "A", grade: "A" },
+      norms_summary: { status: "CALIBRATED", norms_version: "2026Q1" },
+      offer_summary: { primary_offer: null },
+      share_summary: { enabled: true, share_kind: "big5_result" },
+      access_summary: {
+        access_state: "ready",
+        report_state: "ready",
+        pdf_state: "ready",
+        access_level: "full",
+        variant: "full",
+        actions: {
+          page_href: "/en/result/attempt-latest",
+          pdf_href: "/api/v0.3/attempts/attempt-latest/report.pdf",
+        },
+      },
+    },
+    {
+      attempt_id: "attempt-previous",
+      big5_private_result_authority: immutableBig5Authority(),
+      submitted_at: "2026-03-18T00:00:00Z",
+      result_summary: { domains_mean: { O: 72, C: 65, A: 61 } },
+      top_facets_summary_v1: {
+        items: [
+          { key: "N1", label: "N1 Anxiety", domain: "N", percentile: 79, bucket: "high", kind: "strength" },
+        ],
+      },
+      quality_summary: { level: "B", grade: "B" },
+      norms_summary: { status: "CALIBRATED", norms_version: "2025Q4" },
+      offer_summary: {
+        primary_offer: {
+          sku: "SKU_BIG5_FULL_REPORT_299",
+          title: "BIG5 Full Report",
+          formatted_price: "¥2.99",
+          price_cents: 299,
+          currency: "CNY",
+          benefit_code: "BIG5_FULL_REPORT",
+          modules_included: ["big5_full", "big5_action_plan"],
+        },
+      },
+      share_summary: { enabled: true, share_kind: "big5_result" },
+      access_summary: {
+        access_state: "locked",
+        report_state: "ready",
+        pdf_state: "missing",
+        access_level: "preview",
+        variant: "free",
+        actions: { page_href: "/en/result/attempt-previous", pdf_href: null },
+      },
+    },
+  ],
+  history_compare: {
+    current_attempt_id: "attempt-latest",
+    previous_attempt_id: "attempt-previous",
+    domains_delta: { O: { delta: 16, direction: "up" } },
+  },
+  meta: { current_page: 1, last_page: 1 },
+};
+
+const apiFixtureState: Big5PublicApiFixtureState = {
+  attempts: {
+    "attempt-latest": {
+      share: {
+        ok: true,
+        share_id: "share-big5-history-001",
+        share_url: "http://127.0.0.1:3000/en/share/share-big5-history-001",
+      },
+    },
+  },
+  history: historyResponse,
+  requests: [],
+};
+
+let stopApiFixture: (() => Promise<void>) | null = null;
+
+test.beforeAll(async () => {
+  stopApiFixture = await startBig5PublicApiFixture(apiFixtureState);
+});
+
+test.afterAll(async () => {
+  await stopApiFixture?.();
+  stopApiFixture = null;
+});
 
 test("BIG5 history result-center keeps row summaries and actions without extra report fetches", async ({ page }) => {
   let reportRequestCount = 0;
@@ -64,125 +167,23 @@ test("BIG5 history result-center keeps row summaries and actions without extra r
   });
 
   await page.route("**/api/v0.3/me/attempts*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/me/attempts");
+    expect(requestUrl.searchParams.get("scale")?.toUpperCase()).toContain("BIG5");
+    const locale = requestUrl.searchParams.get("locale");
+    if (locale !== null) expect(locale).toBe("en");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        scale_code: "BIG5_OCEAN",
-        items: [
-          {
-            attempt_id: "attempt-latest",
-            submitted_at: "2026-03-25T00:00:00Z",
-            result_summary: {
-              domains_mean: {
-                O: 88,
-                A: 74,
-                C: 69,
-                E: 52,
-                N: 41,
-              },
-            },
-            top_facets_summary_v1: {
-              items: [
-                { key: "O5", label: "O5 Intellect", domain: "O", percentile: 88, bucket: "high", kind: "strength" },
-                { key: "A3", label: "A3 Altruism", domain: "A", percentile: 74, bucket: "high", kind: "strength" },
-              ],
-            },
-            quality_summary: {
-              level: "A",
-              grade: "A",
-            },
-            norms_summary: {
-              status: "CALIBRATED",
-              norms_version: "2026Q1",
-            },
-            offer_summary: {
-              primary_offer: null,
-            },
-            share_summary: {
-              enabled: true,
-              share_kind: "big5_result",
-            },
-            access_summary: {
-              access_state: "ready",
-              report_state: "ready",
-              pdf_state: "ready",
-              access_level: "full",
-              variant: "full",
-              actions: {
-                page_href: "/en/result/attempt-latest",
-                pdf_href: "/api/v0.3/attempts/attempt-latest/report.pdf",
-              },
-            },
-          },
-          {
-            attempt_id: "attempt-previous",
-            submitted_at: "2026-03-18T00:00:00Z",
-            result_summary: {
-              domains_mean: {
-                O: 72,
-                C: 65,
-                A: 61,
-              },
-            },
-            top_facets_summary_v1: {
-              items: [
-                { key: "N1", label: "N1 Anxiety", domain: "N", percentile: 79, bucket: "high", kind: "strength" },
-              ],
-            },
-            quality_summary: {
-              level: "B",
-              grade: "B",
-            },
-            norms_summary: {
-              status: "CALIBRATED",
-              norms_version: "2025Q4",
-            },
-            offer_summary: {
-              primary_offer: {
-                sku: "SKU_BIG5_FULL_REPORT_299",
-                title: "BIG5 Full Report",
-                formatted_price: "¥2.99",
-                price_cents: 299,
-                currency: "CNY",
-                benefit_code: "BIG5_FULL_REPORT",
-                modules_included: ["big5_full", "big5_action_plan"],
-              },
-            },
-            share_summary: {
-              enabled: true,
-              share_kind: "big5_result",
-            },
-            access_summary: {
-              access_state: "locked",
-              report_state: "ready",
-              pdf_state: "missing",
-              access_level: "preview",
-              variant: "free",
-              actions: {
-                page_href: "/en/result/attempt-previous",
-                pdf_href: null,
-              },
-            },
-          },
-        ],
-        history_compare: {
-          current_attempt_id: "attempt-latest",
-          previous_attempt_id: "attempt-previous",
-          domains_delta: {
-            O: { delta: 16, direction: "up" },
-          },
-        },
-        meta: {
-          current_page: 1,
-          last_page: 1,
-        },
-      }),
+      body: JSON.stringify(historyResponse),
     });
   });
 
   await page.route("**/api/v0.3/attempts/attempt-latest/share*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    expect(requestUrl.pathname).toBe("/api/v0.3/attempts/attempt-latest/share");
+    const locale = requestUrl.searchParams.get("locale");
+    if (locale !== null) expect(locale).toBe("en");
     await route.fulfill({
       status: 200,
       contentType: "application/json",
