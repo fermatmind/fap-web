@@ -279,7 +279,6 @@ export function CareerPublishedSemanticSection({
                 <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
               ))}
             </div> : null}
-            {asString(salary.china_ai_row) ? <span className="sr-only" data-career-api-field={`${componentId}.salary.china_ai_row`}>{asString(salary.china_ai_row)}</span> : null}
             <ApiTable rows={chinaSalaryRows} path={`${componentId}.salary.china_salary_table`} />
             {salaryBoundaries.map((item) => <p key={item.text} className={CALLOUT_WARN}><MergedField item={item} /></p>)}
             <ApiTable rows={chinaEducationRows} path={`${componentId}.salary.china_edu_table`} />
@@ -325,12 +324,10 @@ export function CareerPublishedSemanticSection({
         const indicator = asString(row["指标"]);
         return indicator !== "中位年薪" && indicator !== "就业增长";
       });
-      const movedRows = allBlsRows.filter((row) => !blsRows.includes(row));
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle>美国 BLS 数据</SectionTitle>
           <ApiTable rows={blsRows} path={`${componentId}.bls_table`} />
-          {movedRows.map((row, rowIndex) => <span key={rowIndex} className="sr-only">{Object.entries(row).map(([key, item]) => <Field key={key} path={`${componentId}.bls_table[${rowIndex}].${key}`}>{asString(item)}</Field>)}</span>)}
         </PublishedRoot>
       );
     }

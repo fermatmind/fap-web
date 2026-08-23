@@ -201,7 +201,7 @@ describe("career display surface contract", () => {
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
       expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("7/10");
-      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
+      expect(screen.getByTestId("career-published-primary-locale-china")).not.toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
@@ -219,7 +219,7 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
 
-  it("keeps a narrative China AI row out of the compact hero gauge", () => {
+  it("keeps a narrative China AI row out of the hero and China snapshot", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "actuaries",
       locale: "zh",
@@ -235,7 +235,7 @@ describe("career display surface contract", () => {
 
     expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
     expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent(narrative);
-    expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent(narrative);
+    expect(screen.getByTestId("career-published-primary-locale-china")).not.toHaveTextContent(narrative);
   });
 
   it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
@@ -307,7 +307,23 @@ describe("career display surface contract", () => {
       .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
     const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
     const expectedValues = CAREER_DISPLAY_COMPONENT_ORDER
-      .flatMap((componentId) => collectPublishedScalarValues(page[componentId]));
+      .flatMap((componentId) => {
+        if (componentId === "career_snapshot_primary_locale") {
+          const primary = page[componentId] as Record<string, unknown>;
+          const salary = primary.salary as Record<string, unknown>;
+          const visibleSalary = { ...salary };
+          delete visibleSalary.bls_table;
+          delete visibleSalary.china_ai_row;
+          return collectPublishedScalarValues({ ...primary, salary: visibleSalary });
+        }
+        if (componentId !== "career_snapshot_secondary_locale") {
+          return collectPublishedScalarValues(page[componentId]);
+        }
+        const secondary = page[componentId] as { bls_table?: Array<Record<string, unknown>> };
+        return collectPublishedScalarValues({
+          bls_table: secondary.bls_table?.filter((row) => row["指标"] !== "中位年薪" && row["指标"] !== "就业增长"),
+        });
+      });
 
     for (const expected of expectedValues) {
       expect(domProjection, `missing published scalar: ${expected}`).toContain(expected);

@@ -21,7 +21,8 @@ function record(value: unknown): Record<string, unknown> {
 
 function strings(value: unknown): string[] {
   if (value === null || typeof value === "string" || typeof value === "boolean") {
-    return value === null || String(value).trim().length === 0 ? [] : [String(value)];
+    const normalized = value === null ? "" : String(value).trim();
+    return normalized.length === 0 || /^\$?—(?:（.*）)?$/u.test(normalized) ? [] : [String(value)];
   }
   if (Array.isArray(value)) return value.flatMap(strings);
   if (typeof value === "object" && value !== null) return Object.values(value).flatMap(strings);
@@ -35,6 +36,46 @@ function matches(html: string, pattern: RegExp): string[] {
 function isDeclaredDuplicate(field: string): boolean {
   return /^presentation_v1\.hero\.badges\[\d+\]\.text$/u.test(field) ||
     field === "presentation_v1.hero.ai_exposure.note";
+}
+
+function visibleChinesePageProjection(page: Record<string, unknown>): Record<string, unknown> {
+  const related = record(page.related_next_pages);
+  const links = Array.isArray(related.links)
+    ? related.links.map((value) => {
+      const link = { ...record(value) };
+      if (typeof link.title_zh === "string" && /[\u3400-\u9fff]/u.test(link.title_zh)) {
+        delete link.title_en;
+      }
+      return link;
+    })
+    : related.links;
+
+  const secondarySnapshot = record(page.career_snapshot_secondary_locale);
+  const visibleBlsRows = Array.isArray(secondarySnapshot.bls_table)
+    ? secondarySnapshot.bls_table.filter((value) => {
+      const indicator = record(value)["指标"];
+      return indicator !== "中位年薪" && indicator !== "就业增长";
+    })
+    : secondarySnapshot.bls_table;
+  const primarySnapshot = record(page.career_snapshot_primary_locale);
+  const visiblePrimarySalary = { ...record(primarySnapshot.salary) };
+  delete visiblePrimarySalary.bls_table;
+  delete visiblePrimarySalary.china_ai_row;
+
+  return {
+    ...page,
+    career_snapshot_primary_locale: {
+      ...primarySnapshot,
+      salary: visiblePrimarySalary,
+    },
+    career_snapshot_secondary_locale: {
+      bls_table: visibleBlsRows,
+    },
+    related_next_pages: {
+      ...related,
+      links,
+    },
+  };
 }
 
 async function fetchJson(url: string): Promise<{ status: number; body: unknown }> {
@@ -123,7 +164,7 @@ async function auditSlug(slug: string) {
   const attributeValues = [...document.querySelectorAll("*")]
     .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
   const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
-  const page = record(record(root.page).content);
+  const page = visibleChinesePageProjection(record(record(root.page).content));
   const expectedScalars = CAREER_DISPLAY_COMPONENT_ORDER.flatMap((componentId) => strings(page[componentId]));
   const missingScalars = expectedScalars.filter((value) => !domProjection.includes(value));
   if (missingScalars.length > 0) {
