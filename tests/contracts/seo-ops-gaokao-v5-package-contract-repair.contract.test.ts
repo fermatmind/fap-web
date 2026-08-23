@@ -75,7 +75,7 @@ function currentFiles(): string[] {
     return files;
   }
 
-  return execFileSync("git", ["show", "--name-only", "--format=", "HEAD"], {
+  return execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", "-m", "HEAD"], {
     cwd: ROOT,
     encoding: "utf8",
   })
