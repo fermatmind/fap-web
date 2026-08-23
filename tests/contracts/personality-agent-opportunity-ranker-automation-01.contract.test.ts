@@ -92,7 +92,7 @@ function currentFiles(): string[] {
   const files = changedFiles();
   if (files.length > 0) return files;
 
-  return execFileSync("git", ["show", "--name-only", "--format=", "HEAD"], {
+  return execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", "-m", "HEAD"], {
     cwd: ROOT,
     encoding: "utf8",
   })
