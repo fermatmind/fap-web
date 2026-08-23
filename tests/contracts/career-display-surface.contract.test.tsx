@@ -199,9 +199,8 @@ describe("career display surface contract", () => {
 
     if (locale === "zh") {
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
-      expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
-      expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("7/10");
-      expect(screen.getByTestId("career-published-primary-locale-china")).not.toHaveTextContent("7/10，较高");
+      expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
+      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
@@ -219,7 +218,7 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
 
-  it("keeps a narrative China AI row out of the hero and China snapshot", () => {
+  it("keeps a narrative China AI row out of the compact hero gauge", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "actuaries",
       locale: "zh",
@@ -235,7 +234,7 @@ describe("career display surface contract", () => {
 
     expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
     expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent(narrative);
-    expect(screen.getByTestId("career-published-primary-locale-china")).not.toHaveTextContent(narrative);
+    expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent(narrative);
   });
 
   it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
@@ -307,23 +306,7 @@ describe("career display surface contract", () => {
       .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
     const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
     const expectedValues = CAREER_DISPLAY_COMPONENT_ORDER
-      .flatMap((componentId) => {
-        if (componentId === "career_snapshot_primary_locale") {
-          const primary = page[componentId] as Record<string, unknown>;
-          const salary = primary.salary as Record<string, unknown>;
-          const visibleSalary = { ...salary };
-          delete visibleSalary.bls_table;
-          delete visibleSalary.china_ai_row;
-          return collectPublishedScalarValues({ ...primary, salary: visibleSalary });
-        }
-        if (componentId !== "career_snapshot_secondary_locale") {
-          return collectPublishedScalarValues(page[componentId]);
-        }
-        const secondary = page[componentId] as { bls_table?: Array<Record<string, unknown>> };
-        return collectPublishedScalarValues({
-          bls_table: secondary.bls_table?.filter((row) => row["指标"] !== "中位年薪" && row["指标"] !== "就业增长"),
-        });
-      });
+      .flatMap((componentId) => collectPublishedScalarValues(page[componentId]));
 
     for (const expected of expectedValues) {
       expect(domProjection, `missing published scalar: ${expected}`).toContain(expected);
@@ -462,7 +445,7 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("keeps the English production template available for the legacy related-page structure without injecting local links", () => {
+  it("fails closed for the retired related-page structure instead of injecting local fallbacks", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       titleEn: "Accountants and Auditors",
@@ -473,9 +456,7 @@ describe("career display surface contract", () => {
       secondary_tests: [],
     };
 
-    const surface = adaptCareerDisplaySurface(fixture, "en");
-    expect(surface).not.toBeNull();
-    expect(surface?.relatedNextPages).toBeNull();
+    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
   it("consumes the Current related-page contract without synthesizing hrefs or labels", () => {
@@ -492,7 +473,6 @@ describe("career display surface contract", () => {
           source: "lookup",
           nofollow: false,
           title_en: "Financial Analysts",
-          title_zh: "金融与投资分析师",
         },
       ],
     };
@@ -500,23 +480,8 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.getByText("从后端发布的相邻职业继续探索。")).toBeInTheDocument();
-    expect(screen.getByText("金融与投资分析师").closest("a")).toHaveAttribute("href", "/zh/career/jobs/financial-analysts");
-  });
-
-  it("keeps a Current projection valid when optional China market fields are unavailable", () => {
-    const fixture = buildSelectedCareerDisplaySurfaceFixture({
-      slug: "accountants-and-auditors",
-      locale: "zh",
-      titleZh: "会计师和审计师",
-    });
-    const snapshot = (fixture.page.content as Record<string, unknown>).career_snapshot_primary_locale as {
-      salary: Record<string, unknown>;
-    };
-    for (const key of Object.keys(snapshot.salary)) {
-      if (key.startsWith("china_") || key === "edu" || key === "sources_note") delete snapshot.salary[key];
-    }
-
-    expect(adaptCareerDisplaySurface(fixture, "zh")).not.toBeNull();
+    expect(screen.getByText("Financial Analysts")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Financial Analysts" })).not.toBeInTheDocument();
   });
 
   it.each(["intro", "links", "slug", "source", "nofollow", "title_en"])(

@@ -7,13 +7,9 @@ export const CAREER_PRESENTATION_V1_BADGE_KEYS = ["interest", "scene", "risk"] a
 export const CAREER_PRESENTATION_V1_STAT_KEYS = [
   "us_median_pay",
   "us_growth",
-  // Accepted only for backward compatibility. The renderer does not place
-  // these BLS scalars in Hero; they belong to the dedicated BLS section.
   "employment",
   "annual_openings",
   "ai_exposure",
-  "china_reference_pay",
-  "china_openings",
 ] as const;
 
 export type CareerPresentationHeroBadgeKey = (typeof CAREER_PRESENTATION_V1_BADGE_KEYS)[number];

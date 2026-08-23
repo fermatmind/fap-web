@@ -170,15 +170,12 @@ function hasBackendStructuredDataKey(job: CareerJobBundleAdapter, key: string): 
 }
 
 function shouldRenderOccupationJsonLd(job: CareerJobBundleAdapter): boolean {
-  if (!job.structuredData.occupation) {
+  if (!job.structuredData.occupation || !job.renderState.canRenderStructuredData) {
     return false;
   }
 
   if (job.seoSurface) {
-    return (
-      hasBackendStructuredDataKey(job, "Occupation") &&
-      (job.renderState.canRenderStructuredData || hasRuntimeProjectionIndexAuthority(job))
-    );
+    return hasBackendStructuredDataKey(job, "Occupation");
   }
 
   return job.renderState.canRenderStructuredData;

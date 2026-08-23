@@ -232,45 +232,6 @@ describe("career job backend bundle contract", () => {
     expect(detail?.authoritySource).toBe("career_backend_bundle.v0.5");
   });
 
-  it("reads Occupation JSON-LD from the backend SEO fragment envelope", () => {
-    const detail = adaptCareerJobBundle({
-      locale: "zh",
-      requestedSlug: "accountants-and-auditors",
-      payload: {
-        identity: { canonical_slug: "accountants-and-auditors" },
-        titles: { canonical_en: "Accountants and Auditors", canonical_zh: "会计师和审计师" },
-        seo_authority_v1: {
-          seo_surface_v1: {
-            metadata_contract_version: "seo.surface.v1",
-            title: "会计师和审计师",
-            canonical_url: "/zh/career/jobs/accountants-and-auditors",
-            robots_policy: "index,follow",
-            structured_data_keys: ["BreadcrumbList", "Occupation"],
-          },
-          jsonld: {
-            fragments: {
-              occupation: {
-                "@context": "https://schema.org",
-                "@type": "Occupation",
-                name: "会计师和审计师",
-                url: "/zh/career/jobs/accountants-and-auditors",
-                mainEntityOfPage: "/zh/career/jobs/accountants-and-auditors",
-              },
-            },
-          },
-        },
-      },
-    });
-
-    expect(detail?.structuredData.occupation).toEqual({
-      "@context": "https://schema.org",
-      "@type": "Occupation",
-      name: "会计师和审计师",
-      url: "/zh/career/jobs/accountants-and-auditors",
-      mainEntityOfPage: "/zh/career/jobs/accountants-and-auditors",
-    });
-  });
-
   it("blocks job render gates when trust quality is partial, stale, or blocked", () => {
     const basePayload = {
       identity: {

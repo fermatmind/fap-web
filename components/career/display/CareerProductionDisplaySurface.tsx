@@ -6,8 +6,6 @@ import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCa
 import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
-import { CareerStickyToc } from "@/components/career/display/CareerStickyToc";
-import { CareerSupportingEvidence } from "@/components/career/display/CareerSupportingEvidence";
 import type {
   CareerDisplayComponentId,
   CareerDisplaySection,
@@ -179,7 +177,7 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
       <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">相关职业</h2>
       <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>
       <ul className={`m-0 mt-3 grid p-0 sm:grid-cols-2 xl:grid-cols-3 ${visual.relatedGrid}`} data-career-api-list="related_next_pages.links">
-        {related.links.slice(0, 12).map((page) => (
+        {related.links.map((page) => (
           <li
             key={page.slug}
             data-related-career-slug={page.slug}
@@ -187,10 +185,7 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
             data-related-career-nofollow={String(page.nofollow)}
             className={`list-none rounded-[10px] border border-[#E5E9F2] bg-[#F0F3FA] text-[13.5px] font-semibold text-[#2C3E8C] ${visual.relatedCard}`}
           >
-            <Link href={`/${surface.locale}/career/jobs/${page.slug}`} className="block hover:underline">
-              {page.titleZh ? <span data-career-api-field={`related_next_pages.links.${page.slug}.title_zh`}>{page.titleZh}</span> : <span data-career-related-title-unavailable="zh">中文标题暂不可用</span>}
-              {!page.titleZh ? <span className="sr-only" data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span> : null}
-            </Link>
+            <span data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span>
           </li>
         ))}
       </ul>
@@ -213,16 +208,13 @@ function CareerProductionHero({
     ? presentation?.hero.badges ?? []
     : (legacyRiasec?.profile ?? []).slice(0, 3).map((text, sourceIndex) => ({ text, sourceIndex }));
   const stats = published
-    ? (presentation?.hero.stats ?? []).filter((stat) => ["us_median_pay", "us_growth", "ai_exposure", "china_reference_pay", "china_openings"].includes(stat.key))
+    ? presentation?.hero.stats ?? []
     : (legacySnapshot?.rows ?? []).slice(0, 5).map(([label, value], sourceIndex) => ({
         label,
         value,
         sourceLabel: "",
         sourceIndex,
       }));
-  const suppressedPublishedStats = presentation
-    ? (presentation?.hero.stats ?? []).filter((stat) => stat.key === "employment" || stat.key === "annual_openings")
-    : [];
   const aiExposure = presentation?.hero.aiExposure ?? null;
   const publishedHero = Boolean(published);
   const presentationCodes = [
@@ -274,14 +266,16 @@ function CareerProductionHero({
         ) : null}
         {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={usesPresentation ? "presentation_v1.hero.lead" : "hero.quick_answer"}>{heroLead}</p> : null}
       </div>
-      {!published && legacyAiImpact?.score ? (
-        <div className={`mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
+      {aiExposure || legacyAiImpact?.score ? (
+        <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
-            <strong className="block text-2xl leading-none lg:text-3xl">{legacyAiImpact.score}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85">{legacyAiImpact.heading}</span>
+            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={aiExposure ? "presentation_v1.hero.ai_exposure.display_value" : undefined}>{aiExposure?.displayValue ?? legacyAiImpact?.score}</strong>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={aiExposure ? "presentation_v1.hero.ai_exposure.label" : undefined}>{aiExposure?.label ?? legacyAiImpact?.heading}</span>
+            {aiExposure ? <span className="sr-only" data-career-api-field="presentation_v1.hero.ai_exposure.source_label">{aiExposure.sourceLabel}</span> : null}
           </div>
         </div>
       ) : null}
+      {aiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field="presentation_v1.hero.ai_exposure.note">{aiExposure.note}</p> : null}
       {stats.length > 0 ? (
         <div className={`grid ${visual.heroStats}`} data-testid="career-production-hero-stats">
           {stats.map((stat, index) => (
@@ -293,8 +287,6 @@ function CareerProductionHero({
           ))}
         </div>
       ) : null}
-      {suppressedPublishedStats.map((stat) => <span key={stat.key} className="sr-only"><span data-career-api-field={`presentation_v1.hero.stats[${stat.sourceIndex}].value`}>{stat.value}</span><span data-career-api-field={`presentation_v1.hero.stats[${stat.sourceIndex}].label`}>{stat.label}</span>{stat.sourceLabel ? <span data-career-api-field={`presentation_v1.hero.stats[${stat.sourceIndex}].source_label`}>{stat.sourceLabel}</span> : null}</span>)}
-      {aiExposure ? <span className="sr-only"><span data-career-api-field="presentation_v1.hero.ai_exposure.value">{aiExposure.value}</span><span data-career-api-field="presentation_v1.hero.ai_exposure.display_value">{aiExposure.displayValue}</span><span data-career-api-field="presentation_v1.hero.ai_exposure.label">{aiExposure.label}</span><span data-career-api-field="presentation_v1.hero.ai_exposure.source_label">{aiExposure.sourceLabel}</span></span> : null}
       {published && !heroCta ? <span hidden data-career-component-id="primary_cta" data-career-api-component="primary_cta" /> : null}
       {!published || heroCta ? <Link
         id={published ? "career-component-primary_cta" : undefined}
@@ -575,7 +567,13 @@ export function CareerProductionDisplaySurface({
     "risk-change",
     "faq-sources-boundaries",
   ]);
-  const titledGroupIds = new Set(CAREER_VISUAL_GROUPS.filter((group) => group.id !== "hero").map((group) => group.id));
+  const titledGroupIds = new Set([
+    "quick-decision",
+    "profile",
+    "fit-map",
+    "risk-change",
+    "faq-sources-boundaries",
+  ]);
 
   const renderVisualGroup = (group: CareerVisualGroupDefinition) => {
     let componentNodes: ReactNode[];
@@ -592,7 +590,7 @@ export function CareerProductionDisplaySurface({
             value={publishedComponents.career_snapshot_primary_locale}
             testId={COMPONENT_TEST_IDS.career_snapshot_primary_locale}
             snapshotVariant="overview"
-            snapshotFacts={[]}
+            snapshotFacts={surface.presentationV1?.hero.badges ?? []}
             snapshotCallout={surface.presentationV1?.notices.snapshotCallout ?? null}
             locale={surface.locale}
           />
@@ -619,29 +617,6 @@ export function CareerProductionDisplaySurface({
       });
     }
 
-    const supportingPlacement = group.id === "profile" || group.id === "ai-impact" || group.id === "china-reference" || group.id === "fit-map" || group.id === "risk-change" || group.id === "market-signals"
-      ? group.id
-      : null;
-    if (supportingPlacement) {
-      componentNodes.push(<CareerSupportingEvidence key={`supporting-${group.id}`} evidence={surface.supportingEvidenceV1} placement={supportingPlacement} />);
-    }
-    if (group.id === "snapshot" && isZh) {
-      componentNodes.push(<a key="snapshot-salary-link" href="#china" className="mt-4 inline-flex font-semibold text-[#2C3E8C] hover:underline">查看薪资参考 →</a>);
-    }
-    if (group.id === "quick-decision" && isZh) {
-      componentNodes.push(<p key="quick-fit-links" className="mb-0 mt-4 rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] p-4 text-sm leading-7 text-[#2a3346]">继续查看 <a href="#fit" className="font-semibold text-[#2C3E8C] hover:underline">适配地图</a>，或 <Link href={primaryCtaHref} className="font-semibold text-[#2C3E8C] hover:underline">开始职业兴趣测评</Link>。</p>);
-    }
-    if (group.id === "profile" && isZh) {
-      componentNodes.push(<a key="profile-ai-link" href="#ai-impact" className="mt-5 block rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] p-4 text-sm font-semibold leading-7 text-[#2C3E8C] hover:underline">AI 如何改变该职业？查看完整任务、能力与工具拆解 →</a>);
-    }
-
-    const canonicalAnchor = ({
-      "ai-impact": "ai-impact",
-      "china-reference": "china",
-      "bls-reference": "bls",
-      "fit-map": "fit",
-    } as Partial<Record<CareerVisualGroupDefinition["id"], string>>)[group.id];
-
     return (
       <section
         key={group.id}
@@ -650,7 +625,6 @@ export function CareerProductionDisplaySurface({
         data-career-visual-group={group.id}
         aria-labelledby={titledGroupIds.has(group.id) ? `career-visual-group-title-${group.id}` : undefined}
       >
-        {canonicalAnchor ? <span id={canonicalAnchor} className="block scroll-mt-24" aria-hidden="true" /> : null}
         {titledGroupIds.has(group.id) ? (
           <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
@@ -672,7 +646,12 @@ export function CareerProductionDisplaySurface({
           {CAREER_VISUAL_GROUPS.map(renderVisualGroup)}
         </main>
         <aside className="flex flex-col gap-4 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
-          <CareerStickyToc items={CAREER_VISUAL_GROUPS.map((group) => ({ id: group.id, label: visualGroupLabel(group, isZh) }))} label={isZh ? "页面目录" : "Contents"} />
+          <div className={`rounded-2xl border border-[#E5E9F2] bg-white ${visual.toc}`}>
+          <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
+          <nav className="mt-3 grid">
+            {CAREER_VISUAL_GROUPS.map((group) => <a key={group.id} href={`#career-visual-group-${group.id}`} className={`border-b border-[#F0F3FA] text-[#3a4255] last:border-0 hover:text-[#2C3E8C] hover:no-underline ${visual.tocLink}`}>{visualGroupLabel(group, isZh)}</a>)}
+          </nav>
+          </div>
           <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
             <h2 className="m-0 text-base font-bold">{publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}</h2>
             <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>

@@ -19,7 +19,6 @@ import {
 } from "@/lib/career/presentationV1";
 import {
   buildCareerPresentationV1Fixture,
-  buildCareerSupportingEvidenceV1Fixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -141,7 +140,7 @@ describe("career v1.2 presentation contract", () => {
       note: null,
       availability: "missing",
     };
-    hero.stats = (hero.stats as Array<Record<string, unknown>>).filter((stat) => stat.key !== "china_reference_pay");
+    hero.stats = (hero.stats as Array<Record<string, unknown>>).filter((stat) => stat.key !== "employment");
     hero.cta = { label: null, href: null, availability: "missing" };
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
@@ -181,28 +180,6 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a")).toHaveLength(12);
   });
 
-  it("renders optional supporting evidence without changing the 26-component contract", () => {
-    const fixture = buildSelectedCareerDisplaySurfaceFixture({
-      slug: "accountants-and-auditors",
-      locale: "zh",
-      titleZh: "会计师和审计师",
-    }) as unknown as Record<string, unknown>;
-    fixture.supporting_evidence_v1 = buildCareerSupportingEvidenceV1Fixture();
-
-    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
-
-    expect(screen.getByRole("heading", { name: "职业速答" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "O*NET 权威结构数据" })).toBeInTheDocument();
-    expect(screen.getByRole("img", { name: "任务自动化程度与人类判断要求矩阵。" })).toBeInTheDocument();
-    expect(screen.getByRole("img", { name: "RIASEC 兴趣结构分布。" })).toBeInTheDocument();
-    const quickAnswerGrid = document.querySelector('[data-career-supporting-placement="profile"] section > div.grid');
-    expect(quickAnswerGrid).toHaveClass("min-w-0", "max-w-full");
-    for (const card of quickAnswerGrid?.children ?? []) {
-      expect(card).toHaveClass("min-w-0", "max-w-full");
-    }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
-  });
-
   it("maps every component once and declares every field-ledger entry without accidental duplicates", () => {
     const groupedComponents = CAREER_VISUAL_GROUPS.flatMap((group) => group.componentIds);
     expect(new Set(groupedComponents).size).toBe(CAREER_DISPLAY_COMPONENT_ORDER.length);
@@ -224,8 +201,8 @@ describe("career v1.2 presentation contract", () => {
 
     const fieldMarkers = [...document.querySelectorAll("[data-career-api-field]")]
       .map((element) => element.getAttribute("data-career-api-field") ?? "");
-    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.badges["))).toHaveLength(3);
-    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.stats["))).toHaveLength(15);
+    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.badges["))).toHaveLength(5);
+    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.stats["))).toHaveLength(14);
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.ai_exposure."))).toHaveLength(5);
   });
 
