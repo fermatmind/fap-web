@@ -1350,13 +1350,19 @@ function hasCompleteProductionProjection(input: {
   reviewValidity: CareerDisplayReviewValidity | null;
   boundaryNotice: string[];
   relatedNextPages: CareerDisplayRelatedNextPages | null;
+  requireRelatedNextPages?: boolean;
 }): boolean {
   const boundary = input.page.boundary_notice;
   if (!Array.isArray(boundary) || boundary.length === 0 || boundary.some((notice) => normalizeString(notice) === null)) {
     return false;
   }
 
-  if (input.boundaryNotice.length === 0 || input.sources.length === 0 || !input.reviewValidity || !input.relatedNextPages) {
+  if (
+    input.boundaryNotice.length === 0 ||
+    input.sources.length === 0 ||
+    !input.reviewValidity ||
+    (input.requireRelatedNextPages !== false && !input.relatedNextPages)
+  ) {
     return false;
   }
 
@@ -1537,6 +1543,7 @@ export function adaptCareerDisplaySurface(
       reviewValidity,
       boundaryNotice,
       relatedNextPages,
+      requireRelatedNextPages: locale === "zh" || !isRecord(page.related_next_pages),
     })
   ) {
     return null;

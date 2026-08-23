@@ -446,7 +446,7 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("fails closed for the retired related-page structure instead of injecting local fallbacks", () => {
+  it("keeps the English production template available for the legacy related-page structure without injecting local links", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       titleEn: "Accountants and Auditors",
@@ -457,7 +457,9 @@ describe("career display surface contract", () => {
       secondary_tests: [],
     };
 
-    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+    expect(surface).not.toBeNull();
+    expect(surface?.relatedNextPages).toBeNull();
   });
 
   it("consumes the Current related-page contract without synthesizing hrefs or labels", () => {
@@ -474,6 +476,7 @@ describe("career display surface contract", () => {
           source: "lookup",
           nofollow: false,
           title_en: "Financial Analysts",
+          title_zh: "金融与投资分析师",
         },
       ],
     };
@@ -481,8 +484,7 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.getByText("从后端发布的相邻职业继续探索。")).toBeInTheDocument();
-    expect(screen.getByText("Financial Analysts")).toHaveClass("sr-only");
-    expect(screen.getByText("中文标题暂不可用").closest("a")).toHaveAttribute("href", "/zh/career/jobs/financial-analysts");
+    expect(screen.getByText("金融与投资分析师").closest("a")).toHaveAttribute("href", "/zh/career/jobs/financial-analysts");
   });
 
   it.each(["intro", "links", "slug", "source", "nofollow", "title_en"])(

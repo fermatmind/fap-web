@@ -175,9 +175,10 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "related_next_pages":
       return hasExactKeys(value, ["intro", "links"]) && isNonEmptyString(value.intro) &&
         Array.isArray(value.links) && value.links.length > 0 && value.links.every((item) =>
-          hasExactKeys(item, ["nofollow", "slug", "source", "title_en"]) &&
+          hasExactKeys(item, ["nofollow", "slug", "source", "title_en"], ["title_zh"]) &&
           typeof item.nofollow === "boolean" && isNonEmptyString(item.slug) &&
-          (item.source === "lookup" || item.source === "self_pick") && isNonEmptyString(item.title_en)
+          (item.source === "lookup" || item.source === "self_pick") && isNonEmptyString(item.title_en) &&
+          (item.title_zh === undefined || isNonEmptyString(item.title_zh))
         );
     case "source_card":
       return hasExactKeys(value, ["eeat_signals", "note"]) && isNonEmptyString(value.note) &&
