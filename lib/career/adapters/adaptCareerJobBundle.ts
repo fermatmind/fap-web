@@ -472,6 +472,16 @@ function findJsonLdNodeByType(value: unknown, expectedType: string): Record<stri
     return value;
   }
 
+  const fragments = isRecord(value.fragments) ? value.fragments : null;
+  if (fragments) {
+    for (const fragment of Object.values(fragments)) {
+      const match = findJsonLdNodeByType(fragment, expectedType);
+      if (match) {
+        return match;
+      }
+    }
+  }
+
   return findJsonLdNodeByType(value["@graph"], expectedType);
 }
 
