@@ -14,7 +14,7 @@ const writeJson = (path, value) => writeFile(join(root, path), `${JSON.stringify
 const writeJsonl = (path, value) => writeFile(join(root, path), `${value.map(JSON.stringify).join('\n')}\n`);
 const readJsonl = async path => (await readFile(path, 'utf8')).trim().split('\n').map(JSON.parse);
 const sourcePath = name => join(apiRoot, 'backend/content_assets/riasec', name);
-const clean = value => value.replaceAll('｜', ' — ').replaceAll('“', '“').replaceAll('”', '”').trim();
+const clean = value => value.replaceAll('｜', ' — ').trim();
 
 async function translate(text) {
   const url = new URL('https://translate.googleapis.com/translate_a/single');
