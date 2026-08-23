@@ -20,17 +20,9 @@ describe("career content contract", () => {
     expect(contentSource).not.toContain("careerRecommendationProfiles");
   });
 
-  it("keeps backend-backed landing sections off local career helpers", () => {
-    const careerLandingSource = read("app/(localized)/[locale]/career/page.tsx");
+  it("keeps recommendation sections off local career helpers", () => {
     const recommendationsSource = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(careerLandingSource).not.toContain("listCareerJobs(");
-    expect(careerLandingSource).not.toContain("listCareerIndustries");
-    expect(careerLandingSource).not.toContain("listCareerGuidesFromCms");
-    expect(careerLandingSource).toContain("getCareerCenterContent");
-    expect(careerLandingSource).toContain('action={withLocale(content.pathways[0]?.href ?? "/career/jobs")}');
-    expect(careerLandingSource).toContain('href={withLocale(content.pathways[1]?.href ?? "/career/industries")}');
-    expect(careerLandingSource).toContain("content.support.links.map");
     expect(recommendationsSource).not.toContain("listBig5RecommendationTraits");
     expect(recommendationsSource).not.toContain("/career/recommendations/big5/");
   });

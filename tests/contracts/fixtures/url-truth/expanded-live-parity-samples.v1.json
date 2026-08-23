@@ -4,11 +4,6 @@
   "siteUrl": "https://fermatmind.com",
   "sourceContracts": [
     {
-      "source": "app/(localized)/[locale]/career/page.tsx",
-      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
-      "forbiddenTokens": []
-    },
-    {
       "source": "app/(localized)/[locale]/articles/page.tsx",
       "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildCollectionPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
       "forbiddenTokens": []
@@ -25,42 +20,6 @@
     }
   ],
   "samples": [
-    {
-      "id": "career_hub_en",
-      "routeFamily": "career_hub",
-      "pairKey": "career_hub",
-      "locale": "en",
-      "path": "/en/career",
-      "canonicalUrl": "https://fermatmind.com/en/career",
-      "expectedInSitemap": true,
-      "alternates": {
-        "en": "https://fermatmind.com/en/career",
-        "zh-CN": "https://fermatmind.com/zh/career",
-        "x-default": "https://fermatmind.com"
-      },
-      "jsonLdReferences": [
-        "https://fermatmind.com/en/career",
-        "https://fermatmind.com/en/career#webpage"
-      ]
-    },
-    {
-      "id": "career_hub_zh",
-      "routeFamily": "career_hub",
-      "pairKey": "career_hub",
-      "locale": "zh-CN",
-      "path": "/zh/career",
-      "canonicalUrl": "https://fermatmind.com/zh/career",
-      "expectedInSitemap": true,
-      "alternates": {
-        "en": "https://fermatmind.com/en/career",
-        "zh-CN": "https://fermatmind.com/zh/career",
-        "x-default": "https://fermatmind.com"
-      },
-      "jsonLdReferences": [
-        "https://fermatmind.com/zh/career",
-        "https://fermatmind.com/zh/career#webpage"
-      ]
-    },
     {
       "id": "articles_hub_en",
       "routeFamily": "articles_hub",

@@ -7,12 +7,8 @@
     {
       "key": "career_landing",
       "route": "/career",
-      "authorityOwner": [
-        "editorial_local_wrapper",
-        "backend_lightweight_jobs",
-        "backend_lightweight_recommendations"
-      ],
-      "rationale": "Hybrid landing is the stable public entry surface for the current Career launch."
+      "authorityOwner": "routing_config",
+      "rationale": "The retired Career landing permanently redirects to the backend-backed jobs directory."
     },
     {
       "key": "career_jobs_index",

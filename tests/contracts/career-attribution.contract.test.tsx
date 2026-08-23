@@ -373,7 +373,6 @@ describe("career attribution payload builder contract", () => {
 describe("career attribution page wiring contract", () => {
   it("keeps deferred career events out of the current frontend wiring path", () => {
     const trackedSources = [
-      "app/(localized)/[locale]/career/page.tsx",
       "app/(localized)/[locale]/career/jobs/page.tsx",
       "app/(localized)/[locale]/career/resolve/page.tsx",
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
@@ -393,7 +392,7 @@ describe("career attribution page wiring contract", () => {
     expect(trackedSources).not.toContain("career_family_hub_blocked_surface_exposed");
   });
 
-  it("wires landing view, ready exposure, and landing preview clicks through the shared career event set", async () => {
+  it("retires landing-specific attribution when /career redirects to the jobs directory", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -504,18 +503,10 @@ describe("career attribution page wiring contract", () => {
     }));
     mockCareerCenterContent();
 
-    const { default: CareerCenterPage } = await import("@/app/(localized)/[locale]/career/page");
-    const page = await CareerCenterPage({
-      params: Promise.resolve({ locale: "en" }),
-    });
-
-    renderToStaticMarkup(page as ReactNode);
-
-    expect(pageViewEvents).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({ eventName: "career_landing_view" }),
-      ])
-    );
+    expect(
+      fs.existsSync(path.join(process.cwd(), "app/(localized)/[locale]/career/page.tsx"))
+    ).toBe(false);
+    expect(pageViewEvents).toEqual([]);
     expect(trackedLinks).toEqual([]);
   });
 

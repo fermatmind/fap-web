@@ -55,7 +55,7 @@ describe("CMS-backed fallback SEO authority inventory", () => {
     expect(byId.get("llms_topic_fallback_set")?.classification).toBe("migration_required");
     expect(byId.get("topics_detail")?.classification).toBe("watchlist");
     expect(byId.get("career_guides_detail")?.classification).toBe("watchlist");
-    expect(byId.get("career_landing_surface")?.classification).toBe("safe_cms_backed_fallback");
+    expect(byId.has("career_landing_surface")).toBe(false);
     expect(byId.get("personality_product_code")?.classification).toBe("acceptable_product_code");
 
     expect(report.surfaces.filter((surface) => surface.classification === "migration_required")).toHaveLength(2);

@@ -276,6 +276,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/:locale(en|zh)/career",
+        destination: "/:locale/career/jobs",
+        permanent: true,
+      },
+      {
         source: "/test",
         destination: "/en/tests",
         permanent: true,

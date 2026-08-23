@@ -37,6 +37,8 @@ describe("sitemap authority adapters", () => {
     expect(staticPaths).toContain("/zh/privacy");
     expect(staticPaths).toContain("/en/terms");
     expect(staticPaths).toContain("/zh/terms");
+    expect(staticPaths).not.toContain("/en/career");
+    expect(staticPaths).not.toContain("/zh/career");
     expect(staticPaths).not.toContain("/en/help/about");
     expect(staticPaths).not.toContain("/en/career/industries");
     expect(staticPaths).not.toContain("/zh/career/industries");
@@ -52,6 +54,8 @@ describe("sitemap authority adapters", () => {
         "/tests",
         "/tests/*",
         "/api/*",
+        "/en/career",
+        "/zh/career",
         "/en/career/jobs/*",
         "/zh/career/jobs/*",
         "/ops/*",

@@ -10,8 +10,8 @@
   "summary": {
     "totalSurfaces": 85,
     "byClassification": {
-      "private_noindex": 23,
-      "product_code_only": 18,
+      "private_noindex": 24,
+      "product_code_only": 17,
       "safe_static": 12,
       "migration_required": 2,
       "cms_backed": 23,
@@ -19,13 +19,13 @@
       "watchlist": 2
     },
     "byOwnership": {
-      "private_noindex": 23,
-      "product_code_only": 20,
+      "private_noindex": 24,
+      "product_code_only": 19,
       "cms_backed": 37,
       "backend_owned": 5
     },
     "byRouteFamily": {
-      "private_flow": 22,
+      "private_flow": 23,
       "other": 19,
       "static_content_page": 10,
       "article_detail": 2,
@@ -34,7 +34,7 @@
       "career_guide_detail": 1,
       "career_guides_hub": 1,
       "career_industry_detail": 1,
-      "career_hub": 4,
+      "career_hub": 3,
       "career_job_detail": 1,
       "career_jobs_hub": 1,
       "career_recommendation_detail": 1,
@@ -54,8 +54,8 @@
     },
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
-    "privateNoindexSurfaces": 23,
-    "frontendJsonLdFallbackSurfaces": 25
+    "privateNoindexSurfaces": 24,
+    "frontendJsonLdFallbackSurfaces": 24
   },
   "rows": [
     {
@@ -91,6 +91,21 @@
     {
       "file": "app/(localized)/[locale]/(app)/history/enneagram/page.tsx",
       "routePattern": "/history/enneagram",
+      "routeFamily": "private_flow",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "private_noindex",
+      "classification": "private_noindex",
+      "risk": "P2",
+      "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/(app)/history/eq/page.tsx",
+      "routePattern": "/history/eq",
       "routeFamily": "private_flow",
       "exportKind": "direct_metadata",
       "usesBuildPageMetadata": false,
@@ -412,21 +427,6 @@
       "usesSeoSurface": false,
       "rendersJsonLd": false,
       "hasFrontendJsonLdBuilderFallback": false,
-      "noindexSignal": true,
-      "ownership": "product_code_only",
-      "classification": "product_code_only",
-      "risk": "P2",
-      "reason": "Deterministic product-code metadata; keep out of CMS-backed SEO authority unless intentionally migrated."
-    },
-    {
-      "file": "app/(localized)/[locale]/career/page.tsx",
-      "routePattern": "/career",
-      "routeFamily": "career_hub",
-      "exportKind": "generateMetadata",
-      "usesBuildPageMetadata": true,
-      "usesSeoSurface": false,
-      "rendersJsonLd": true,
-      "hasFrontendJsonLdBuilderFallback": true,
       "noindexSignal": true,
       "ownership": "product_code_only",
       "classification": "product_code_only",
@@ -1432,6 +1432,21 @@
     {
       "file": "app/(localized)/[locale]/(app)/history/enneagram/page.tsx",
       "routePattern": "/history/enneagram",
+      "routeFamily": "private_flow",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "private_noindex",
+      "classification": "private_noindex",
+      "risk": "P2",
+      "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/(app)/history/eq/page.tsx",
+      "routePattern": "/history/eq",
       "routeFamily": "private_flow",
       "exportKind": "direct_metadata",
       "usesBuildPageMetadata": false,
