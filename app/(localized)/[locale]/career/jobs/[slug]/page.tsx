@@ -38,6 +38,7 @@ import {
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
   isCareerDisplayManualHoldSlug,
+  isCareerProductionDisplaySurface,
 } from "@/lib/career/displaySurface";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { fetchCareerFirstWaveNextStepLinks } from "@/lib/career/api/fetchCareerFirstWaveNextStepLinks";
@@ -959,8 +960,7 @@ export default async function CareerJobDetailPage({
   }
 
   if (displaySurface) {
-    const isZhProductionTemplate = locale === "zh" && job.displaySurfaceAuthorityState === "published_valid";
-    const isProductionTemplate = isZhProductionTemplate || job.slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG;
+    const isProductionTemplate = isCareerProductionDisplaySurface(displaySurface);
     const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all([
       isProductionTemplate ? Promise.resolve(null) : loadCareerSalaryAssetPreview(locale, job.slug),
       isProductionTemplate ? Promise.resolve(null) : loadCareerAiImpactAssetPreview(locale, job.slug),

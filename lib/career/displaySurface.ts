@@ -1377,8 +1377,10 @@ function hasCompleteProductionProjection(input: {
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
   return (
-    (surface.locale === "zh" || surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
-    matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER)
+    matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) &&
+    (surface.locale === "zh" ||
+      surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
+      surface.publishedComponents !== null)
   );
 }
 
@@ -1518,7 +1520,8 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
-  const publishedComponents = locale === "zh" && page && componentOrder
+  const usesProductionOrder = matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER);
+  const publishedComponents = page && usesProductionOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
   const presentationV1 = locale === "zh"
@@ -1535,7 +1538,7 @@ export function adaptCareerDisplaySurface(
   }
 
   if (
-    (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) &&
+    (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG || publishedComponents !== null) &&
     !hasCompleteProductionProjection({
       page,
       sections,
@@ -1543,7 +1546,7 @@ export function adaptCareerDisplaySurface(
       reviewValidity,
       boundaryNotice,
       relatedNextPages,
-      requireRelatedNextPages: locale === "zh" || !isRecord(page.related_next_pages),
+      requireRelatedNextPages: !isRecord(page.related_next_pages),
     })
   ) {
     return null;

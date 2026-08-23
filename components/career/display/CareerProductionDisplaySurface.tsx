@@ -68,6 +68,25 @@ const COMPONENT_TEST_IDS: Partial<Record<CareerDisplayComponentId, string>> = {
   contract_project_risk_block: "contract-risks-block",
 };
 
+const EN_VISUAL_GROUP_LABELS: Record<CareerVisualGroupDefinition["id"], string> = {
+  hero: "Career overview",
+  snapshot: "Career snapshot",
+  "quick-decision": "Quick decision",
+  profile: "Career profile",
+  "ai-impact": "AI impact",
+  "china-reference": "China reference",
+  "bls-reference": "U.S. BLS reference",
+  "fit-map": "Fit map",
+  "risk-change": "Risks and change",
+  "adjacent-comparison": "Adjacent career comparison",
+  "market-signals": "Market signals",
+  "faq-sources-boundaries": "FAQ, sources, and boundaries",
+};
+
+function visualGroupLabel(group: CareerVisualGroupDefinition, isZh: boolean): string {
+  return isZh ? group.label : EN_VISUAL_GROUP_LABELS[group.id];
+}
+
 function orderedSection(
   componentId: CareerDisplayComponentId,
   sections: CareerDisplaySection[]
@@ -100,9 +119,10 @@ function publishedCtaHref(value: unknown, locale: CareerDisplaySurfaceViewModel[
 
 function publishedCtaLabel(value: unknown, locale: CareerDisplaySurfaceViewModel["locale"], fallback: string): string {
   if (typeof value !== "string" || value.trim().length === 0) return fallback;
-  if (locale !== "zh") return value;
   const bilingual = value.split("/").map((item) => item.trim()).filter(Boolean);
-  return bilingual.find((item) => /[\u3400-\u9fff]/u.test(item)) ?? value;
+  return locale === "zh"
+    ? bilingual.find((item) => /[\u3400-\u9fff]/u.test(item)) ?? value
+    : bilingual.find((item) => !/[\u3400-\u9fff]/u.test(item)) ?? value;
 }
 
 function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
@@ -135,9 +155,9 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
 
   if (surface.locale !== "zh") {
     return (
-      <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
-        <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{related.intro}</h2>
-        <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-career-api-component="related_next_pages">
+        <h2 className="m-0 text-2xl font-bold text-[#1A2233]" data-career-api-field="related_next_pages.intro">{related.intro}</h2>
+        <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3" data-career-api-list="related_next_pages.links">
           {related.links.slice(0, 12).map((page) => (
             <li
               key={page.slug}
@@ -146,7 +166,7 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
               data-related-career-nofollow={String(page.nofollow)}
               className="list-none rounded-xl border border-[#E5E9F2] bg-[#F0F3FA] px-4 py-3 text-sm font-semibold text-[#2C3E8C]"
             >
-              <Link href={`/${surface.locale}/career/jobs/${page.slug}`}>{page.titleEn}</Link>
+              <Link href={`/${surface.locale}/career/jobs/${page.slug}`} data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</Link>
             </li>
           ))}
         </ul>
@@ -185,6 +205,7 @@ function CareerProductionHero({
 }: Pick<Props, "surface" | "visibleSections" | "primaryCtaHref">) {
   const published = surface.publishedComponents;
   const presentation = surface.presentationV1;
+  const usesPresentation = presentation !== null;
   const legacyRiasec = !published ? firstSection(visibleSections, "RIASECFitBlock") : null;
   const legacySnapshot = !published ? firstSection(visibleSections, "CareerSnapshotCard") : null;
   const legacyAiImpact = !published ? firstSection(visibleSections, "AIImpactTable") : null;
@@ -199,7 +220,7 @@ function CareerProductionHero({
         sourceLabel: "",
         sourceIndex,
       }));
-  const suppressedPublishedStats = published
+  const suppressedPublishedStats = presentation
     ? (presentation?.hero.stats ?? []).filter((stat) => stat.key === "employment" || stat.key === "annual_openings")
     : [];
   const aiExposure = presentation?.hero.aiExposure ?? null;
@@ -215,12 +236,16 @@ function CareerProductionHero({
     surface.subject.socCode ? `SOC ${surface.subject.socCode}` : null,
     surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,
   ].filter((item): item is string => item !== null).join(" · ");
-  const heroTitle = published ? presentation?.hero.titleZh : surface.hero.h1;
-  const heroSubtitle = published
+  const heroTitle = presentation
+    ? (surface.locale === "zh" ? presentation.hero.titleZh : presentation.hero.titleEn)
+    : surface.hero.h1;
+  const heroSubtitle = presentation
     ? presentationSubtitle
     : surface.hero.subtitle ?? (surface.locale === "zh" ? legacySubjectCodes : "");
-  const heroLead = published ? presentation?.hero.lead : surface.hero.quickAnswer;
-  const heroCta = published ? presentation?.hero.cta ?? null : null;
+  const heroLead = presentation ? presentation.hero.lead : surface.hero.quickAnswer;
+  const heroCta = presentation
+    ? presentation.hero.cta
+    : published ? { label: surface.cta.label, href: surface.cta.href } : null;
 
   return (
     <header
@@ -234,12 +259,12 @@ function CareerProductionHero({
       <div className="max-w-[640px] pr-0 lg:pr-10">
         {heroTitle ? <h1 className={publishedHero
           ? "m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
-          : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={published ? "presentation_v1.hero.title_zh" : "hero.h1"}>{heroTitle}</h1> : null}
-        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={published ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : surface.hero.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
+          : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={usesPresentation ? `presentation_v1.hero.title_${surface.locale === "zh" ? "zh" : "en"}` : "hero.h1"}>{heroTitle}</h1> : null}
+        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={usesPresentation ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : surface.hero.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
         {badges.length > 0 ? (
           <div className={`flex flex-wrap ${visual.heroBadges}`} data-testid="career-production-hero-badges">
             {badges.map((badge, index) => (
-              <span key={`${badge.text}:${index}`} data-career-api-field={published ? `presentation_v1.hero.badges[${badge.sourceIndex}].text` : undefined} className={publishedHero
+              <span key={`${badge.text}:${index}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.badges[${badge.sourceIndex}].text` : undefined} className={publishedHero
                 ? `rounded-full border border-white/25 bg-white/[.16] text-[12.5px] font-normal ${visual.heroBadge}`
                 : "rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium"}>
                 {badge.text}
@@ -247,7 +272,7 @@ function CareerProductionHero({
             ))}
           </div>
         ) : null}
-        {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={published ? "presentation_v1.hero.lead" : "hero.quick_answer"}>{heroLead}</p> : null}
+        {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={usesPresentation ? "presentation_v1.hero.lead" : "hero.quick_answer"}>{heroLead}</p> : null}
       </div>
       {!published && legacyAiImpact?.score ? (
         <div className={`mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
@@ -261,9 +286,9 @@ function CareerProductionHero({
         <div className={`grid ${visual.heroStats}`} data-testid="career-production-hero-stats">
           {stats.map((stat, index) => (
             <div key={`${stat.label}:${stat.value}:${index}`} className={`rounded-xl bg-white/[.12] ${visual.heroStat}`}>
-              <strong className={`block ${visual.heroStatValue}`} data-career-api-field={published ? `presentation_v1.hero.stats[${stat.sourceIndex}].value` : undefined}>{stat.value}</strong>
-              <span className={`block text-white/85 ${visual.heroStatLabel}`} data-career-api-field={published ? `presentation_v1.hero.stats[${stat.sourceIndex}].label` : undefined}>{stat.label}</span>
-              {stat.sourceLabel ? <span className={`block text-white/65 ${visual.heroStatSource}`} data-career-api-field={published ? `presentation_v1.hero.stats[${stat.sourceIndex}].source_label` : undefined}>{stat.sourceLabel}</span> : null}
+              <strong className={`block ${visual.heroStatValue}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].value` : undefined}>{stat.value}</strong>
+              <span className={`block text-white/85 ${visual.heroStatLabel}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].label` : undefined}>{stat.label}</span>
+              {stat.sourceLabel ? <span className={`block text-white/65 ${visual.heroStatSource}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].source_label` : undefined}>{stat.sourceLabel}</span> : null}
             </div>
           ))}
         </div>
@@ -277,7 +302,7 @@ function CareerProductionHero({
         data-career-component-id={published ? "primary_cta" : undefined}
         data-career-visual-group-component={published ? "hero" : undefined}
         data-career-api-component={published ? "primary_cta" : undefined}
-        data-career-api-fields={published ? "presentation_v1.hero.cta.label presentation_v1.hero.cta.href" : undefined}
+        data-career-api-fields={published ? (usesPresentation ? "presentation_v1.hero.cta.label presentation_v1.hero.cta.href" : "primary_cta.label primary_cta.href") : undefined}
         className={publishedHero
           ? `mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] text-[15px] font-bold text-white hover:brightness-105 hover:no-underline ${visual.heroCta}`
           : "mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:no-underline"}
@@ -410,10 +435,10 @@ export function CareerProductionDisplaySurface({
     }
     if (componentId === "related_next_pages") return <RelatedPages surface={surface} />;
     if (componentId === "source_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} sources={surface.sources} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} sources={surface.sources} locale={surface.locale} />
       : <SourceCard surface={surface} />;
     if (componentId === "review_validity_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} locale={surface.locale} />
       : <ReviewCard surface={surface} />;
     if (componentId === "boundary_notice") {
       if (publishedComponents) {
@@ -421,6 +446,7 @@ export function CareerProductionDisplaySurface({
           componentId={componentId}
           value={publishedComponents[componentId]}
           usageBoundary={surface.presentationV1?.notices.usageBoundary ?? null}
+          locale={surface.locale}
         />;
       }
       return surface.boundaryNotice.length > 0 ? (
@@ -433,7 +459,7 @@ export function CareerProductionDisplaySurface({
     if (componentId === "faq_block" && publishedComponents) {
       return (
         <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-testid="career-display-faq" data-career-api-component="faq_block">
-          <h2 className="m-0 text-2xl font-bold text-[#1A2233]">常见问题</h2>
+          <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{isZh ? "常见问题" : "Frequently asked questions"}</h2>
           <div className="mt-4 space-y-3">
             {surface.faqItems.map((item) => (
               <details key={item.question} className={`group rounded-xl border border-[#E5E9F2] bg-white ${visual.faqItem}`}>
@@ -454,6 +480,7 @@ export function CareerProductionDisplaySurface({
         testId={COMPONENT_TEST_IDS[componentId]}
         value={publishedComponents[componentId]}
         aiExposureNote={componentId === "ai_impact_table" ? surface.presentationV1?.hero.aiExposure?.note ?? null : null}
+        locale={surface.locale}
       />;
     }
 
@@ -567,6 +594,7 @@ export function CareerProductionDisplaySurface({
             snapshotVariant="overview"
             snapshotFacts={[]}
             snapshotCallout={surface.presentationV1?.notices.snapshotCallout ?? null}
+            locale={surface.locale}
           />
         </ComponentFrame>,
       ];
@@ -578,6 +606,7 @@ export function CareerProductionDisplaySurface({
           value={publishedComponents.career_snapshot_primary_locale}
           snapshotVariant="china"
           salaryBoundary={surface.presentationV1?.notices.salaryBoundary ?? null}
+          locale={surface.locale}
         />,
       ];
     } else {
@@ -596,13 +625,13 @@ export function CareerProductionDisplaySurface({
     if (supportingPlacement) {
       componentNodes.push(<CareerSupportingEvidence key={`supporting-${group.id}`} evidence={surface.supportingEvidenceV1} placement={supportingPlacement} />);
     }
-    if (group.id === "snapshot") {
+    if (group.id === "snapshot" && isZh) {
       componentNodes.push(<a key="snapshot-salary-link" href="#china" className="mt-4 inline-flex font-semibold text-[#2C3E8C] hover:underline">查看薪资参考 →</a>);
     }
-    if (group.id === "quick-decision") {
+    if (group.id === "quick-decision" && isZh) {
       componentNodes.push(<p key="quick-fit-links" className="mb-0 mt-4 rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] p-4 text-sm leading-7 text-[#2a3346]">继续查看 <a href="#fit" className="font-semibold text-[#2C3E8C] hover:underline">适配地图</a>，或 <Link href={primaryCtaHref} className="font-semibold text-[#2C3E8C] hover:underline">开始职业兴趣测评</Link>。</p>);
     }
-    if (group.id === "profile") {
+    if (group.id === "profile" && isZh) {
       componentNodes.push(<a key="profile-ai-link" href="#ai-impact" className="mt-5 block rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] p-4 text-sm font-semibold leading-7 text-[#2C3E8C] hover:underline">AI 如何改变该职业？查看完整任务、能力与工具拆解 →</a>);
     }
 
@@ -623,7 +652,7 @@ export function CareerProductionDisplaySurface({
       >
         {canonicalAnchor ? <span id={canonicalAnchor} className="block scroll-mt-24" aria-hidden="true" /> : null}
         {titledGroupIds.has(group.id) ? (
-          <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{group.label}</h2>
+          <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
         <div className={visual.groupStack}>{componentNodes}</div>
       </section>
@@ -643,7 +672,7 @@ export function CareerProductionDisplaySurface({
           {CAREER_VISUAL_GROUPS.map(renderVisualGroup)}
         </main>
         <aside className="flex flex-col gap-4 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
-          <CareerStickyToc items={CAREER_VISUAL_GROUPS.map(({ id, label }) => ({ id, label }))} label={isZh ? "页面目录" : "Contents"} />
+          <CareerStickyToc items={CAREER_VISUAL_GROUPS.map((group) => ({ id: group.id, label: visualGroupLabel(group, isZh) }))} label={isZh ? "页面目录" : "Contents"} />
           <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
             <h2 className="m-0 text-base font-bold">{publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}</h2>
             <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>

@@ -34,6 +34,35 @@ export const CAREER_COMPONENT_TITLES_ZH: Record<CareerDisplayComponentId, string
   final_cta: "下一步行动",
 };
 
+export const CAREER_COMPONENT_TITLES_EN: Record<CareerDisplayComponentId, string> = {
+  breadcrumb: "Breadcrumb",
+  hero: "Career overview",
+  fermat_decision_card: "Fermat quick fit check",
+  primary_cta: "Start career-interest assessment",
+  career_snapshot_primary_locale: "Career snapshot",
+  career_snapshot_secondary_locale: "U.S. BLS reference",
+  fit_decision_checklist: "How to judge fit",
+  riasec_fit_block: "RIASEC interest fit",
+  personality_fit_block: "Personality and work style",
+  definition_block: "Career definition",
+  career_ai_description_block: "AI career analysis",
+  responsibilities_block: "Core responsibilities",
+  work_context_block: "Work context",
+  market_signal_card: "Market signals",
+  adjacent_career_comparison_table: "Adjacent career comparison",
+  ai_impact_table: "AI impact and response",
+  career_risk_cards: "Career risks",
+  career_path_block: "Career path",
+  contract_project_risk_block: "Contract and project risks",
+  next_steps_block: "Next steps",
+  faq_block: "Frequently asked questions",
+  related_next_pages: "Related careers",
+  source_card: "Sources",
+  review_validity_card: "Review validity",
+  boundary_notice: "Usage boundaries",
+  final_cta: "Next action",
+};
+
 const CARD = `min-w-0 rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`;
 const BODY = "text-sm leading-7 text-[#2a3346]";
 const CALLOUT_BLUE = `rounded-xl border-l-4 border-l-[#2C3E8C] bg-[#EEF1FB] text-[14.5px] leading-7 text-[#2a3346] ${visual.callout}`;
@@ -68,8 +97,45 @@ const API_COLUMN_LABELS_ZH: Record<string, string> = {
   "结论": "判断",
 };
 
-function displayColumnLabel(column: string): string {
-  return API_COLUMN_LABELS_ZH[column] ?? column;
+const API_COLUMN_LABELS_EN: Record<string, string> = {
+  title: "Item",
+  body: "Content",
+  heading: "Topic",
+  label: "Item",
+  source_key: "Source",
+  "指标": "Metric",
+  "数值": "Value",
+  "说明": "Notes",
+  "结论": "Conclusion",
+  "职业": "Career",
+  "区别": "Difference",
+  "AI影响": "AI impact",
+  "AI 影响": "AI impact",
+  "城市/区间": "City / range",
+  "月薪参考": "Monthly pay reference",
+  "学历段": "Experience / education stage",
+  "岗位方向": "Role direction",
+  "行业": "Industry",
+  "需求": "Demand",
+  "备注": "Notes",
+  "人群": "Audience",
+  "建议": "Advice",
+  "工具": "Tool",
+  "定位": "Focus",
+  "代表能力": "Key capability",
+  "路径": "Path",
+  "风险": "Risk",
+  "可控": "Controllable factor",
+  "技能": "Skill",
+  "信号": "Signal",
+  "解读": "Interpretation",
+  "岗位": "Role",
+  "重心": "Focus",
+  "产出": "Output",
+};
+
+function displayColumnLabel(column: string, locale: "en" | "zh"): string {
+  return (locale === "zh" ? API_COLUMN_LABELS_ZH : API_COLUMN_LABELS_EN)[column] ?? column.replaceAll("_", " ");
 }
 
 function SectionTitle({ children, tag }: { children: ReactNode; tag?: string }) {
@@ -109,7 +175,7 @@ function ApiList({ items, path, ordered = false }: { items: string[]; path: stri
   );
 }
 
-function ApiTable({ rows, path }: { rows: PublishedRecord[]; path: string }) {
+function ApiTable({ rows, path, locale }: { rows: PublishedRecord[]; path: string; locale: "en" | "zh" }) {
   const columns = [...new Set(rows.flatMap((row) => Object.keys(row)))];
   if (rows.length === 0 || columns.length === 0) return null;
   return (
@@ -117,7 +183,7 @@ function ApiTable({ rows, path }: { rows: PublishedRecord[]; path: string }) {
       <table className="m-0 w-full min-w-[560px] border-collapse text-left text-sm" data-career-api-table={path}>
         <thead>
           <tr>
-            {columns.map((column) => <th key={column} scope="col" className={`border border-[#E5E9F2] bg-[#EEF1FB] font-bold text-[#2C3E8C] ${visual.tableCell}`}>{displayColumnLabel(column)}</th>)}
+            {columns.map((column) => <th key={column} scope="col" className={`border border-[#E5E9F2] bg-[#EEF1FB] font-bold text-[#2C3E8C] ${visual.tableCell}`}>{displayColumnLabel(column, locale)}</th>)}
           </tr>
         </thead>
         <tbody>
@@ -136,14 +202,14 @@ function ApiTable({ rows, path }: { rows: PublishedRecord[]; path: string }) {
   );
 }
 
-function ScalarOrPair({ value, path }: { value: CareerPublishedValue | undefined; path: string }) {
+function ScalarOrPair({ value, path, locale }: { value: CareerPublishedValue | undefined; path: string; locale: "en" | "zh" }) {
   if (typeof value === "string") return <p className={`m-0 ${BODY}`}><Field path={path}>{value}</Field></p>;
   const row = asRecord(value ?? null);
   return (
     <div className="grid gap-1">
       {Object.entries(row).map(([key, item]) => (
         <p key={key} className={`m-0 ${BODY}`}>
-          <strong className="text-[#2C3E8C]">{key}：</strong>
+          <strong className="text-[#2C3E8C]">{displayColumnLabel(key, locale)}: </strong>
           <Field path={`${path}.${key}`}>{typeof item === "string" ? item : ""}</Field>
         </p>
       ))}
@@ -185,6 +251,7 @@ export function CareerPublishedSemanticSection({
   salaryBoundary,
   usageBoundary,
   aiExposureNote,
+  locale = "zh",
 }: {
   componentId: CareerDisplayComponentId;
   value: CareerPublishedValue;
@@ -196,8 +263,11 @@ export function CareerPublishedSemanticSection({
   salaryBoundary?: string | null;
   usageBoundary?: string[] | null;
   aiExposureNote?: string | null;
+  locale?: "en" | "zh";
 }) {
   const data = asRecord(value);
+  const isZh = locale === "zh";
+  const componentTitle = isZh ? CAREER_COMPONENT_TITLES_ZH[componentId] : CAREER_COMPONENT_TITLES_EN[componentId];
 
   switch (componentId) {
     case "fermat_decision_card":
@@ -213,7 +283,9 @@ export function CareerPublishedSemanticSection({
       const salary = asRecord(data.salary ?? null);
       if (snapshotVariant === "overview") {
         const scene = asString(data.scene);
-        const factLabels = { interest: "兴趣结构", scene: "典型场景", risk: "主要风险" } as const;
+        const factLabels = isZh
+          ? { interest: "兴趣结构", scene: "典型场景", risk: "主要风险" } as const
+          : { interest: "Interest structure", scene: "Typical context", risk: "Main risk" } as const;
         const facts = snapshotFacts.map((fact) => ({
           key: fact.key,
           label: factLabels[fact.key],
@@ -237,7 +309,7 @@ export function CareerPublishedSemanticSection({
         if (facts.length === 0 && callouts.length === 0) return null;
         return (
           <PublishedRoot componentId={componentId} testId={testId}>
-            <SectionTitle>职业快照</SectionTitle>
+            <SectionTitle>{componentTitle}</SectionTitle>
             {facts.length > 0 ? <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
               {facts.map((fact) => (
                 <div key={fact.key} className="rounded-xl bg-[#F0F3FA] p-4">
@@ -273,16 +345,16 @@ export function CareerPublishedSemanticSection({
         ) return null;
         return (
           <section className={CARD} data-testid="career-published-primary-locale-china" data-career-api-component-fragment={componentId}>
-            <SectionTitle>职业快照：中国大陆参考</SectionTitle>
+            <SectionTitle>{isZh ? "职业快照：中国大陆参考" : "Career snapshot: China reference"}</SectionTitle>
             {scalarKeys.length > 0 ? <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
               {scalarKeys.map((key) => (
-                <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
+                <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} locale={locale} /></div>
               ))}
             </div> : null}
-            <ApiTable rows={chinaSalaryRows} path={`${componentId}.salary.china_salary_table`} />
+            <ApiTable rows={chinaSalaryRows} path={`${componentId}.salary.china_salary_table`} locale={locale} />
             {salaryBoundaries.map((item) => <p key={item.text} className={CALLOUT_WARN}><MergedField item={item} /></p>)}
-            <ApiTable rows={chinaEducationRows} path={`${componentId}.salary.china_edu_table`} />
-            <ApiTable rows={chinaIndustryRows} path={`${componentId}.salary.china_industry_table`} />
+            <ApiTable rows={chinaEducationRows} path={`${componentId}.salary.china_edu_table`} locale={locale} />
+            <ApiTable rows={chinaIndustryRows} path={`${componentId}.salary.china_industry_table`} locale={locale} />
             <div className="grid gap-2">
               {detailKeys.map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.salary.${key}`}>{asString(salary[key])}</Field></p>)}
             </div>
@@ -292,23 +364,23 @@ export function CareerPublishedSemanticSection({
 
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
-            <Fact title="典型场景" value={asString(data.scene)} path={`${componentId}.scene`} />
-            <Fact title="美国薪资中位数" value={asString(salary.us_median)} path={`${componentId}.salary.us_median`} />
-            <Fact title="美国就业增长" value={asString(salary.us_growth)} path={`${componentId}.salary.us_growth`} />
+            <Fact title={isZh ? "典型场景" : "Typical context"} value={asString(data.scene)} path={`${componentId}.scene`} />
+            <Fact title={isZh ? "美国薪资中位数" : "U.S. median pay"} value={asString(salary.us_median)} path={`${componentId}.salary.us_median`} />
+            <Fact title={isZh ? "美国就业增长" : "U.S. employment growth"} value={asString(salary.us_growth)} path={`${componentId}.salary.us_growth`} />
           </div>
           <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
           <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
             {(["china_name_row", "china_soc_row", "china_class_row", "china_ai_row"] as const).map((key) => (
-              <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
+              <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} locale={locale} /></div>
             ))}
           </div>
-          <ApiTable rows={asRows(salary.china_salary_table)} path={`${componentId}.salary.china_salary_table`} />
+          <ApiTable rows={asRows(salary.china_salary_table)} path={`${componentId}.salary.china_salary_table`} locale={locale} />
           <p className={CALLOUT_WARN}><Field path={`${componentId}.salary.china_salary_note`}>{asString(salary.china_salary_note)}</Field></p>
-          <ApiTable rows={asRows(salary.china_edu_table)} path={`${componentId}.salary.china_edu_table`} />
-          <ApiTable rows={asRows(salary.china_industry_table)} path={`${componentId}.salary.china_industry_table`} />
-          <ApiTable rows={asRows(salary.bls_table)} path={`${componentId}.salary.bls_table`} />
+          <ApiTable rows={asRows(salary.china_edu_table)} path={`${componentId}.salary.china_edu_table`} locale={locale} />
+          <ApiTable rows={asRows(salary.china_industry_table)} path={`${componentId}.salary.china_industry_table`} locale={locale} />
+          <ApiTable rows={asRows(salary.bls_table)} path={`${componentId}.salary.bls_table`} locale={locale} />
           <div className="grid gap-2">
             {(["china_ref", "china_intl", "china_open", "china_open_note", "edu", "sources_note"] as const).map((key) => asString(salary[key]) ? (
               <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.salary.${key}`}>{asString(salary[key])}</Field></p>
@@ -326,8 +398,8 @@ export function CareerPublishedSemanticSection({
       });
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>美国 BLS 数据</SectionTitle>
-          <ApiTable rows={blsRows} path={`${componentId}.bls_table`} />
+          <SectionTitle>{isZh ? "美国 BLS 数据" : "U.S. BLS data"}</SectionTitle>
+          <ApiTable rows={blsRows} path={`${componentId}.bls_table`} locale={locale} />
         </PublishedRoot>
       );
     }
@@ -335,11 +407,11 @@ export function CareerPublishedSemanticSection({
     case "fit_decision_checklist":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
-            <Fact title="适合信号" value={asString(data.suit)} path={`${componentId}.suit`} />
-            <Fact title="如何验证" value={asString(data.how)} path={`${componentId}.how`} />
-            <Fact title="判断边界" value={asString(data.boundary)} path={`${componentId}.boundary`} />
+            <Fact title={isZh ? "适合信号" : "Fit signal"} value={asString(data.suit)} path={`${componentId}.suit`} />
+            <Fact title={isZh ? "如何验证" : "How to validate"} value={asString(data.how)} path={`${componentId}.how`} />
+            <Fact title={isZh ? "判断边界" : "Decision boundary"} value={asString(data.boundary)} path={`${componentId}.boundary`} />
           </div>
         </PublishedRoot>
       );
@@ -347,12 +419,12 @@ export function CareerPublishedSemanticSection({
     case "riasec_fit_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-4 ${CALLOUT_BLUE}`}><Field path={`${componentId}.riasec_short`}>{asString(data.riasec_short)}</Field></p>
           <div className={`mt-4 grid md:grid-cols-3 ${visual.factGrid}`}>
-            <Fact title="RIASEC 代码" value={asString(data.riasec)} path={`${componentId}.riasec`} />
-            <Fact title="兴趣体验" value={asString(data.interest)} path={`${componentId}.interest`} />
-            <Fact title="兴趣匹配" value={asString(data.fit_interest)} path={`${componentId}.fit_interest`} />
+            <Fact title={isZh ? "RIASEC 代码" : "RIASEC code"} value={asString(data.riasec)} path={`${componentId}.riasec`} />
+            <Fact title={isZh ? "兴趣体验" : "Interest experience"} value={asString(data.interest)} path={`${componentId}.interest`} />
+            <Fact title={isZh ? "兴趣匹配" : "Interest fit"} value={asString(data.fit_interest)} path={`${componentId}.fit_interest`} />
           </div>
         </PublishedRoot>
       );
@@ -360,7 +432,7 @@ export function CareerPublishedSemanticSection({
     case "personality_fit_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
           <ApiList items={asStringArray(data.traits)} path={`${componentId}.traits`} />
           <p className={`mb-0 mt-4 ${CALLOUT_WARN}`}><Field path={`${componentId}.disclaimer`}>{asString(data.disclaimer)}</Field></p>
@@ -372,7 +444,7 @@ export function CareerPublishedSemanticSection({
     case "contract_project_risk_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 ${componentId === "contract_project_risk_block" ? CALLOUT_WARN : BODY}`}><Field path={componentId}>{asString(value)}</Field></p>
         </PublishedRoot>
       );
@@ -380,7 +452,7 @@ export function CareerPublishedSemanticSection({
     case "career_ai_description_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 font-semibold ${CALLOUT_BLUE}`}><Field path={`${componentId}.heading`}>{asString(data.heading)}</Field></p>
           <div className={`mt-3 grid gap-3 ${BODY}`}>
             {asStringArray(data.body).map((paragraph, index) => <p key={index} className="m-0"><Field path={`${componentId}.body[${index}]`}>{paragraph}</Field></p>)}
@@ -391,7 +463,7 @@ export function CareerPublishedSemanticSection({
     case "responsibilities_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <ApiList items={asStringArray(value)} path={componentId} />
         </PublishedRoot>
       );
@@ -400,12 +472,12 @@ export function CareerPublishedSemanticSection({
       const signals = data.signals;
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.intro`}>{asString(data.intro)}</Field></p>
           <ApiList items={asStringArray(data.facts)} path={`${componentId}.facts`} />
           {asStringArray(signals).length > 0
             ? <ApiList items={asStringArray(signals)} path={`${componentId}.signals`} />
-            : <ApiTable rows={asRows(signals)} path={`${componentId}.signals`} />}
+            : <ApiTable rows={asRows(signals)} path={`${componentId}.signals`} locale={locale} />}
           <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
         </PublishedRoot>
       );
@@ -415,8 +487,8 @@ export function CareerPublishedSemanticSection({
     case "career_path_block":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
-          <ApiTable rows={asRows(value)} path={componentId} />
+          <SectionTitle>{componentTitle}</SectionTitle>
+          <ApiTable rows={asRows(value)} path={componentId} locale={locale} />
         </PublishedRoot>
       );
 
@@ -428,35 +500,35 @@ export function CareerPublishedSemanticSection({
           className="min-w-0"
         >
           <div className={`rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] text-white ${visual.aiHead}`}>
-            <SectionTitle><span className="text-white">{CAREER_COMPONENT_TITLES_ZH[componentId]}</span></SectionTitle>
+            <SectionTitle><span className="text-white">{componentTitle}</span></SectionTitle>
             <p className="mb-0 mt-2 max-w-[680px] text-[14.5px] leading-7 text-white/95"><Field path={`${componentId}.ai_head_sub`}>{asString(data.ai_head_sub)}</Field></p>
           </div>
           <div className={`${CARD} ${visual.aiBody}`}>
             {aiExposureNote ? <p className={`mb-0 ${CALLOUT_FORWARD}`}><Field path="presentation_v1.hero.ai_exposure.note">{aiExposureNote}</Field></p> : null}
-            <h3 className="m-0 text-lg font-bold text-[#243049]">一、AI 会取代这个职业吗？</h3>
+            <h3 className="m-0 text-lg font-bold text-[#243049]">{isZh ? "一、AI 会取代这个职业吗？" : "1. Will AI replace this career?"}</h3>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s1_bls`}>{asString(data.ai_s1_bls)}</Field></p>
             <p className={`mb-0 mt-3 ${CALLOUT_BLUE}`}><Field path={`${componentId}.ai_s1_p`}>{asString(data.ai_s1_p)}</Field></p>
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">二、AI 正在自动化与加速哪些任务？</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "二、AI 正在自动化与加速哪些任务？" : "2. Which tasks is AI automating or accelerating?"}</h3>
             <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
-              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在自动化</h4><ApiList items={asStringArray(data.ai_s2_auto)} path={`${componentId}.ai_s2_auto`} /></div>
-              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在被 AI 加速</h4><ApiList items={asStringArray(data.ai_s2_accel)} path={`${componentId}.ai_s2_accel`} /></div>
+              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">{isZh ? "正在自动化" : "Being automated"}</h4><ApiList items={asStringArray(data.ai_s2_auto)} path={`${componentId}.ai_s2_auto`} /></div>
+              <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">{isZh ? "正在被 AI 加速" : "Being accelerated by AI"}</h4><ApiList items={asStringArray(data.ai_s2_accel)} path={`${componentId}.ai_s2_accel`} /></div>
             </div>
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">三、仍需人承担的能力</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "三、仍需人承担的能力" : "3. Capabilities that still require people"}</h3>
             <ApiList items={asStringArray(data.ai_s3_list)} path={`${componentId}.ai_s3_list`} ordered />
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">四、AI 曝光度意味着什么？</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "四、AI 曝光度意味着什么？" : "4. What does AI exposure mean?"}</h3>
             <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.ai_s4_p`}>{asString(data.ai_s4_p)}</Field></p>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s4_p2`}>{asString(data.ai_s4_p2)}</Field></p>
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">五、分人群应对建议</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "五、分人群应对建议" : "5. Advice by audience"}</h3>
             <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
               {asRows(data.ai_s5_persona).map((row, index) => (
                 <div key={index} className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4">
-                  {Object.entries(row).map(([key, item]) => <p key={key} className={`m-0 mt-1 first:mt-0 ${BODY}`}><strong className="text-[#2C3E8C]">{key}：</strong><Field path={`${componentId}.ai_s5_persona[${index}].${key}`}>{asString(item)}</Field></p>)}
+                  {Object.entries(row).map(([key, item]) => <p key={key} className={`m-0 mt-1 first:mt-0 ${BODY}`}><strong className="text-[#2C3E8C]">{displayColumnLabel(key, locale)}: </strong><Field path={`${componentId}.ai_s5_persona[${index}].${key}`}>{asString(item)}</Field></p>)}
                 </div>
               ))}
             </div>
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">六、常用 AI 工具</h3>
-            <ApiTable rows={asRows(data.ai_s6_tools)} path={`${componentId}.ai_s6_tools`} />
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">七、未来趋势</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "六、常用 AI 工具" : "6. Common AI tools"}</h3>
+            <ApiTable rows={asRows(data.ai_s6_tools)} path={`${componentId}.ai_s6_tools`} locale={locale} />
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">{isZh ? "七、未来趋势" : "7. Future trends"}</h3>
             <ApiList items={asStringArray(data.ai_s7_trends)} path={`${componentId}.ai_s7_trends`} />
           </div>
         </PublishedRoot>
@@ -465,7 +537,7 @@ export function CareerPublishedSemanticSection({
     case "career_risk_cards":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle tag={asString(data.badge)}>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle tag={asString(data.badge)}>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 font-semibold ${BODY}`}><Field path={`${componentId}.fact`}>{asString(data.fact)}</Field></p>
           <ApiList items={asStringArray(data.risks)} path={`${componentId}.risks`} />
           <p className={`mb-0 mt-4 ${CALLOUT_WARN}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
@@ -476,14 +548,14 @@ export function CareerPublishedSemanticSection({
       const skills = data.skills;
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
-            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">热门技能</h3><ApiList items={asStringArray(data.hot_skills)} path={`${componentId}.hot_skills`} /></div>
-            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">优先准备的职责</h3><ApiList items={asStringArray(data.responsibilities)} path={`${componentId}.responsibilities`} /></div>
+            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">{isZh ? "热门技能" : "In-demand skills"}</h3><ApiList items={asStringArray(data.hot_skills)} path={`${componentId}.hot_skills`} /></div>
+            <div className="rounded-xl bg-[#F0F3FA] p-4"><h3 className="m-0 font-bold text-[#2C3E8C]">{isZh ? "优先准备的职责" : "Responsibilities to prepare for"}</h3><ApiList items={asStringArray(data.responsibilities)} path={`${componentId}.responsibilities`} /></div>
           </div>
           {asStringArray(skills).length > 0
             ? <ApiList items={asStringArray(skills)} path={`${componentId}.skills`} />
-            : <ApiTable rows={asRows(skills)} path={`${componentId}.skills`} />}
+            : <ApiTable rows={asRows(skills)} path={`${componentId}.skills`} locale={locale} />}
         </PublishedRoot>
       );
     }
@@ -492,14 +564,14 @@ export function CareerPublishedSemanticSection({
       const eeat = asRecord(data.eeat_signals ?? null);
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.note`}>{asString(data.note)}</Field></p>
           <div className="mt-4 grid gap-3 rounded-xl bg-[#F0F3FA] p-4 sm:grid-cols-3">
             {(["author", "source", "updated_at"] as const).map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.eeat_signals.${key}`}>{asString(eeat[key])}</Field></p>)}
           </div>
-          {sources.length > 0 ? <p className="m-0 mt-4 text-sm leading-7 text-[#2a3346]">关键来源：{sources.slice(0, 3).map((source) => source.label).join("、")}</p> : null}
+          {sources.length > 0 ? <p className="m-0 mt-4 text-sm leading-7 text-[#2a3346]">{isZh ? "关键来源：" : "Key sources: "}{sources.slice(0, 3).map((source) => source.label).join(isZh ? "、" : ", ")}</p> : null}
           <details className="mt-4 rounded-xl border border-[#E5E9F2] bg-[#F8FAFD] p-4">
-            <summary className="cursor-pointer text-sm font-bold text-[#2C3E8C]">查看详细来源</summary>
+            <summary className="cursor-pointer text-sm font-bold text-[#2C3E8C]">{isZh ? "查看详细来源" : "View source details"}</summary>
             <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
               {sources.map((source) => <SourceItem key={source.key} source={source} />)}
             </ul>
@@ -511,7 +583,7 @@ export function CareerPublishedSemanticSection({
     case "review_validity_card":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.last_reviewed`}>{asString(data.last_reviewed)}</Field></p>
         </PublishedRoot>
       );
@@ -525,7 +597,7 @@ export function CareerPublishedSemanticSection({
       if (notices.length === 0) return null;
       return (
         <PublishedRoot componentId={componentId} testId={testId} className={CALLOUT_WARN}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
+          <SectionTitle>{componentTitle}</SectionTitle>
           <ul className={`mb-0 mt-3 pl-5 ${BODY} ${visual.list}`} data-career-api-list={componentId}>
             {notices.map((item) => <li key={item.text}><MergedField item={item} /></li>)}
           </ul>
