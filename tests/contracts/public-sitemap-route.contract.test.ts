@@ -14,6 +14,8 @@ const ARTICLE_EN_URL = "https://fermatmind.com/en/articles/major-career-mismatch
 const PERSONALITY_COMPARISON_URL = "https://fermatmind.com/en/personality/intj-a-vs-intj-t";
 const TEST_URL = "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types";
 const CAREER_URL = "https://fermatmind.com/zh/career/jobs/software-developers";
+const RETIRED_CAREER_ROOT_EN_URL = "https://fermatmind.com/en/career";
+const RETIRED_CAREER_ROOT_ZH_URL = "https://fermatmind.com/zh/career";
 const OTHER_URL = "https://fermatmind.com/en/method-boundaries";
 
 function backendSitemapPayload() {
@@ -25,6 +27,8 @@ function backendSitemapPayload() {
       { loc: PERSONALITY_COMPARISON_URL, lastmod: "2026-07-02T01:00:00Z" },
       { loc: TEST_URL, lastmod: "2026-07-03" },
       { loc: CAREER_URL, lastmod: "2026-07-04" },
+      { loc: RETIRED_CAREER_ROOT_EN_URL, lastmod: "2026-07-04" },
+      { loc: RETIRED_CAREER_ROOT_ZH_URL, lastmod: "2026-07-04" },
       { loc: OTHER_URL, lastmod: "2026-07-05" },
       { loc: "https://www.fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan" },
       { loc: "https://fermatmind.com/zh/result/private-attempt" },
@@ -66,6 +70,8 @@ describe("public sitemap route", () => {
     expect(xml).not.toContain("/payment/");
     expect(xml).not.toContain("/share/");
     expect(xml).not.toContain("/take");
+    expect(xml).not.toContain(`<loc>${RETIRED_CAREER_ROOT_EN_URL}</loc>`);
+    expect(xml).not.toContain(`<loc>${RETIRED_CAREER_ROOT_ZH_URL}</loc>`);
     expect(xml).not.toContain("example.com");
     expect(xml).not.toContain("utm=1");
   });
