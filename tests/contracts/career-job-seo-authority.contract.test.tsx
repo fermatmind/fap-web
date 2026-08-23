@@ -115,6 +115,7 @@ function buildSeoAuthorityPublishedWithStaleBundlePayload() {
       canonical_path: "/zh/career/jobs/accountants-and-auditors",
       index_state: "locale_not_ready",
       index_eligible: false,
+      reason_codes: ["validated_display_asset_backed_release", "runtime_publish_projection"],
     },
     seo_authority_v1: {
       seo_surface_v1: {
@@ -441,13 +442,22 @@ describe("career job seo.surface.v1 authority contract", () => {
       fetchCareerRuntimeConfig: vi.fn(async () => null),
     }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const { default: CareerJobDetailPage, generateMetadata } = await import(
+      "@/app/(localized)/[locale]/career/jobs/[slug]/page"
+    );
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
     });
+    const page = await CareerJobDetailPage({
+      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
 
     expect(metadata.alternates?.canonical).toBe(CANONICAL);
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(html).toContain('"@type":"Occupation"');
+    expect(html).toContain('"name":"会计师和审计师"');
   });
 
   it("does not let robots-only SEO authority override stale bundle noindex state", async () => {
