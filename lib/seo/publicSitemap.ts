@@ -22,6 +22,7 @@ export type PublicSitemapFamily = (typeof PUBLIC_SITEMAP_FAMILIES)[number];
 
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+const RETIRED_SITEMAP_PATHS = new Set(["/en/career", "/zh/career"]);
 const SUCCESS_CACHE_CONTROL = "public, max-age=300, s-maxage=600, stale-while-revalidate=86400";
 const FAILURE_CACHE_CONTROL = "public, max-age=60, s-maxage=60";
 const FAMILY_PATH_PATTERNS: ReadonlyArray<{
@@ -101,7 +102,11 @@ export function buildPublicSitemapEntries(
 
   for (const item of items) {
     const path = toOwnedPublicPath(item?.loc);
-    if (!path || !shouldIncludeInSitemap(path, { indexEligible: true, indexState: "indexed" })) {
+    if (
+      !path ||
+      RETIRED_SITEMAP_PATHS.has(path) ||
+      !shouldIncludeInSitemap(path, { indexEligible: true, indexState: "indexed" })
+    ) {
       continue;
     }
 
