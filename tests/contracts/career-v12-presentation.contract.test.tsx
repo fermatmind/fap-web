@@ -195,6 +195,11 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.getByRole("heading", { name: "O*NET 权威结构数据" })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "任务自动化程度与人类判断要求矩阵。" })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: "RIASEC 兴趣结构分布。" })).toBeInTheDocument();
+    const quickAnswerGrid = document.querySelector('[data-career-supporting-placement="profile"] section > div.grid');
+    expect(quickAnswerGrid).toHaveClass("min-w-0", "max-w-full");
+    for (const card of quickAnswerGrid?.children ?? []) {
+      expect(card).toHaveClass("min-w-0", "max-w-full");
+    }
     expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
   });
 

@@ -65,7 +65,7 @@ function EvidenceChart({ chart, path }: { chart: CareerEvidenceChart; path: stri
 }
 
 function Card({ children }: { children: ReactNode }) {
-  return <div className="rounded-xl border border-[#E5E9F2] bg-[#F8FAFD] p-4">{children}</div>;
+  return <div className="min-w-0 max-w-full rounded-xl border border-[#E5E9F2] bg-[#F8FAFD] p-4">{children}</div>;
 }
 
 export function CareerSupportingEvidence({ evidence, placement }: { evidence: CareerSupportingEvidenceV1 | null; placement: Placement }) {
@@ -73,7 +73,7 @@ export function CareerSupportingEvidence({ evidence, placement }: { evidence: Ca
 
   if (placement === "profile" && (evidence.quickAnswers.length > 0 || evidence.onet.tables.length > 0)) {
     return <div className="mt-6 border-t border-[#E5E9F2] pt-6" data-career-supporting-placement={placement}>
-      {evidence.quickAnswers.length > 0 ? <section><h3 className="m-0 text-xl font-bold text-[#1A2233]">职业速答</h3><div className="mt-4 grid gap-4 xl:grid-cols-3">{evidence.quickAnswers.map((answer) => <Card key={answer.key}><h4 className="m-0 font-bold text-[#2C3E8C]">{answer.title}</h4><p className={`mb-0 mt-2 ${BODY}`}>{answer.answer}</p><EvidenceTable table={answer} path={`quick_answers.${answer.key}`} /></Card>)}</div></section> : null}
+      {evidence.quickAnswers.length > 0 ? <section className="min-w-0"><h3 className="m-0 text-xl font-bold text-[#1A2233]">职业速答</h3><div className="mt-4 grid min-w-0 max-w-full gap-4 xl:grid-cols-3">{evidence.quickAnswers.map((answer) => <Card key={answer.key}><h4 className="m-0 font-bold text-[#2C3E8C]">{answer.title}</h4><p className={`mb-0 mt-2 ${BODY}`}>{answer.answer}</p><EvidenceTable table={answer} path={`quick_answers.${answer.key}`} /></Card>)}</div></section> : null}
       {evidence.onet.tables.length > 0 ? <section className="mt-7"><h3 className="m-0 text-xl font-bold text-[#1A2233]">O*NET 权威结构数据</h3>{evidence.onet.reviewedAt ? <p className="m-0 mt-2 text-xs text-[#5B6678]">最近复核：{evidence.onet.reviewedAt}</p> : null}{evidence.onet.tables.map((item) => <EvidenceTable key={item.key} table={item} path={`onet.${item.key}`} />)}</section> : null}
     </div>;
   }
