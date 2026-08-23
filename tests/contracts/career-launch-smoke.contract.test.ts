@@ -31,8 +31,9 @@ describe("career launch smoke contract", () => {
 
     expect(byKey.get("career_landing")).toMatchObject({
       launchState: "stable",
-      canonicalMode: "self",
-      robotsMode: "index",
+      renderMode: "redirect",
+      canonicalMode: "legacy_redirect",
+      robotsMode: "noindex",
     });
     expect(byKey.get("career_job_detail")).toMatchObject({
       launchState: "stable",
@@ -69,7 +70,7 @@ describe("career launch smoke contract", () => {
   });
 
   it("matches the current authority design without rewriting page behavior", () => {
-    const landingPage = read("app/(localized)/[locale]/career/page.tsx");
+    const nextConfig = read("next.config.mjs");
     const jobsPage = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const recommendationsPage = read("app/(localized)/[locale]/career/recommendations/page.tsx");
     const familyHubPage = read("app/(localized)/[locale]/career/family/[slug]/page.tsx");
@@ -77,9 +78,9 @@ describe("career launch smoke contract", () => {
     const recommendationDetailPage = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     const legacySlugPage = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
-    expect(landingPage).toContain('data-authority-owner="editorial_local_wrapper"');
-    expect(landingPage).toContain('data-authority-owner="editorial_ia_shell"');
-    expect(landingPage).toContain('data-authority-owner="editorial_support_links"');
+    expect(nextConfig).toContain('source: "/:locale(en|zh)/career"');
+    expect(nextConfig).toContain('destination: "/:locale/career/jobs"');
+    expect(nextConfig).toContain("permanent: true");
     expect(jobsPage).toContain("fetchCareerDirectory");
     expect(jobsPage).toContain("adaptCareerDirectory");
     expect(jobsPage).not.toContain("fetchCareerJobIndex");

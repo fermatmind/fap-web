@@ -4,9 +4,9 @@
   "generatedAt": "2026-05-06T17:45:00Z",
   "runtimeBehaviorChanged": false,
   "summary": {
-    "totalSurfaces": 11,
+    "totalSurfaces": 10,
     "acceptableProductCodeSurfaces": 2,
-    "safeCmsBackedFallbacks": 4,
+    "safeCmsBackedFallbacks": 3,
     "watchlistSurfaces": 3,
     "migrationRequiredSurfaces": 2
   },
@@ -44,19 +44,6 @@
       "classification": "watchlist",
       "risk": "P2",
       "recommendedAction": "Before expanding test category SEO, verify category metadata is backend-authoritative and no frontend editorial fallback can become indexable."
-    },
-    {
-      "id": "career_landing_surface",
-      "routeFamily": "career_hub",
-      "files": [
-        "app/(localized)/[locale]/career/page.tsx",
-        "lib/marketing/careerCenterContent.ts"
-      ],
-      "cmsAuthority": "landing_surfaces:career_home",
-      "frontendFallback": "CMS fetch failure returns noindex metadata and CareerMinimalShell.",
-      "classification": "safe_cms_backed_fallback",
-      "risk": "P2",
-      "recommendedAction": "Keep fallback noindex-only; do not add local career hub copy as publishable SEO content."
     },
     {
       "id": "articles_detail",

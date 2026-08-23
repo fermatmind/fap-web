@@ -46,8 +46,8 @@ describe("expanded live canonical / hreflang / JSON-LD parity samples", () => {
     expect(summary).toMatchObject({
       version: "discoverability.canonical_hreflang_jsonld_parity.v1",
       scope: "PR-UG-06",
-      samples: 8,
-      hreflangPairs: 4,
+      samples: 6,
+      hreflangPairs: 3,
       privateFlowSamples: 5,
       live: false,
     });
@@ -59,7 +59,7 @@ describe("expanded live canonical / hreflang / JSON-LD parity samples", () => {
     const pairs = new Map<string, Partial<Record<"en" | "zh-CN", ExpandedParitySample>>>();
 
     expect(fixture.scope).toBe("PR-UG-06");
-    expect(families).toEqual(new Set(["career_hub", "articles_hub", "topics_hub", "help_detail"]));
+    expect(families).toEqual(new Set(["articles_hub", "topics_hub", "help_detail"]));
 
     for (const sample of fixture.samples) {
       expect(sample.canonicalUrl).toBe(`${fixture.siteUrl}${sample.path}`);

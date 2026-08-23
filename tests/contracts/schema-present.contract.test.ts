@@ -158,18 +158,12 @@ describe("schema injection contract", () => {
     expect(aliasSource).not.toContain("getCareerGuideBySlug");
   });
 
-  it("career landing page composes backend-backed jobs/recommendations with explorer shell boundaries", () => {
-    const source = read("app/(localized)/[locale]/career/page.tsx");
+  it("career root delegates to the backend-backed occupation directory", () => {
+    const source = read("next.config.mjs");
 
-    expect(source).not.toContain("listCareerJobs(");
-    expect(source).not.toContain("CareerRecommendationPanel");
-    expect(source).toContain("getCareerCenterContent");
-    expect(source).toContain('data-testid="career-landing-search-entry"');
-    expect(source).toContain('action={withLocale(content.pathways[0]?.href ?? "/career/jobs")}');
-    expect(source).toContain('data-testid="career-explorer-pathways"');
-    expect(source).toContain('data-authority-owner="editorial_ia_shell"');
-    expect(source).toContain('data-authority-owner="editorial_support_links"');
-    expect(source).not.toContain("growth_path[0]");
+    expect(source).toContain('source: "/:locale(en|zh)/career"');
+    expect(source).toContain('destination: "/:locale/career/jobs"');
+    expect(source).toContain("permanent: true");
   });
 
   it("personality detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {
