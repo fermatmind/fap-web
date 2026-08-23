@@ -199,7 +199,8 @@ describe("career display surface contract", () => {
 
     if (locale === "zh") {
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
-      expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
+      expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+      expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("7/10");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
@@ -480,8 +481,8 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.getByText("从后端发布的相邻职业继续探索。")).toBeInTheDocument();
-    expect(screen.getByText("Financial Analysts")).toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: "Financial Analysts" })).not.toBeInTheDocument();
+    expect(screen.getByText("Financial Analysts")).toHaveClass("sr-only");
+    expect(screen.getByText("中文标题暂不可用").closest("a")).toHaveAttribute("href", "/zh/career/jobs/financial-analysts");
   });
 
   it.each(["intro", "links", "slug", "source", "nofollow", "title_en"])(

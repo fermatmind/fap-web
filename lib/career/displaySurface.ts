@@ -11,6 +11,10 @@ import {
   normalizeCareerPresentationV1,
   type CareerPresentationV1,
 } from "@/lib/career/presentationV1";
+import {
+  normalizeCareerSupportingEvidenceV1,
+  type CareerSupportingEvidenceV1,
+} from "@/lib/career/supportingEvidenceV1";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.2" as const;
@@ -201,6 +205,7 @@ export type CareerDisplayRelatedPage = {
   source: "lookup" | "self_pick";
   nofollow: boolean;
   titleEn: string;
+  titleZh: string | null;
 };
 
 export type CareerDisplayRelatedNextPages = {
@@ -261,6 +266,7 @@ export type CareerDisplaySurfaceViewModel = {
   claimPermissions: CareerDisplayClaimPermissions;
   publishedComponents: CareerPublishedComponents | null;
   presentationV1: CareerPresentationV1 | null;
+  supportingEvidenceV1: CareerSupportingEvidenceV1 | null;
   cta: {
     label: string;
     href: string;
@@ -1298,6 +1304,7 @@ function normalizeRelatedNextPages(value: unknown): CareerDisplayRelatedNextPage
     const slug = normalizeString(item.slug);
     const source = normalizeString(item.source);
     const titleEn = normalizeString(item.title_en);
+    const titleZh = normalizeString(item.title_zh);
     if (
       !slug ||
       !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ||
@@ -1310,7 +1317,7 @@ function normalizeRelatedNextPages(value: unknown): CareerDisplayRelatedNextPage
     }
 
     slugs.add(slug);
-    links.push({ slug, source, nofollow: item.nofollow, titleEn });
+    links.push({ slug, source, nofollow: item.nofollow, titleEn, titleZh });
   }
 
   return { intro, links };
@@ -1511,6 +1518,7 @@ export function adaptCareerDisplaySurface(
   const presentationV1 = locale === "zh"
     ? normalizeCareerPresentationV1(root.presentation_v1)
     : null;
+  const supportingEvidenceV1 = normalizeCareerSupportingEvidenceV1(root.supporting_evidence_v1);
   const sources = publishedComponents ? normalizePublishedSources(root.sources) : normalizeSources(root.sources);
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
@@ -1564,6 +1572,7 @@ export function adaptCareerDisplaySurface(
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     publishedComponents,
     presentationV1,
+    supportingEvidenceV1,
     cta: {
       label: localizedHero.primaryCta.label,
       href: publishedComponents ? localizedHero.primaryCta.href : ctaHref,

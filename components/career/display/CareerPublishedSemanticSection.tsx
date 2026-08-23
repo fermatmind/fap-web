@@ -74,10 +74,10 @@ function displayColumnLabel(column: string): string {
 
 function SectionTitle({ children, tag }: { children: ReactNode; tag?: string }) {
   return (
-    <h2 className={`m-0 flex items-center text-[23px] font-bold leading-tight text-[#1A2233] ${visual.sectionTitle}`}>
+    <h3 className={`m-0 flex items-center text-[20px] font-bold leading-tight text-[#1A2233] ${visual.sectionTitle}`}>
       {children}
       {tag ? <span className={`rounded-md bg-[#EEF1FB] text-[11px] font-bold text-[#2C3E8C] ${visual.tag}`}>{tag}</span> : null}
-    </h2>
+    </h3>
   );
 }
 
@@ -252,13 +252,12 @@ export function CareerPublishedSemanticSection({
       }
 
       if (snapshotVariant === "china") {
-        const scalarKeys = (["china_name_row", "china_soc_row", "china_class_row", "china_ai_row"] as const)
+        const scalarKeys = (["china_name_row", "china_soc_row", "china_class_row"] as const)
           .filter((key) => asString(salary[key]) || Object.keys(asRecord(salary[key] ?? null)).length > 0);
         const chinaSalaryRows = asRows(salary.china_salary_table);
         const chinaEducationRows = asRows(salary.china_edu_table);
         const chinaIndustryRows = asRows(salary.china_industry_table);
-        const blsRows = asRows(salary.bls_table);
-        const detailKeys = (["us_median", "us_growth", "china_ref", "china_intl", "china_open", "china_open_note", "edu", "sources_note"] as const)
+        const detailKeys = (["china_ref", "china_intl", "china_open", "china_open_note", "edu", "sources_note"] as const)
           .filter((key) => asString(salary[key]));
         const salaryBoundaries = mergedFieldItems([
           { text: asString(salary.china_salary_note), path: `${componentId}.salary.china_salary_note` },
@@ -269,23 +268,22 @@ export function CareerPublishedSemanticSection({
           chinaSalaryRows.length === 0 &&
           chinaEducationRows.length === 0 &&
           chinaIndustryRows.length === 0 &&
-          blsRows.length === 0 &&
           detailKeys.length === 0 &&
           salaryBoundaries.length === 0
         ) return null;
         return (
           <section className={CARD} data-testid="career-published-primary-locale-china" data-career-api-component-fragment={componentId}>
-            <SectionTitle>中国大陆参考</SectionTitle>
+            <SectionTitle>职业快照：中国大陆参考</SectionTitle>
             {scalarKeys.length > 0 ? <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
               {scalarKeys.map((key) => (
                 <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} /></div>
               ))}
             </div> : null}
+            {asString(salary.china_ai_row) ? <span className="sr-only" data-career-api-field={`${componentId}.salary.china_ai_row`}>{asString(salary.china_ai_row)}</span> : null}
             <ApiTable rows={chinaSalaryRows} path={`${componentId}.salary.china_salary_table`} />
             {salaryBoundaries.map((item) => <p key={item.text} className={CALLOUT_WARN}><MergedField item={item} /></p>)}
             <ApiTable rows={chinaEducationRows} path={`${componentId}.salary.china_edu_table`} />
             <ApiTable rows={chinaIndustryRows} path={`${componentId}.salary.china_industry_table`} />
-            <ApiTable rows={blsRows} path={`${componentId}.salary.bls_table`} />
             <div className="grid gap-2">
               {detailKeys.map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.salary.${key}`}>{asString(salary[key])}</Field></p>)}
             </div>
@@ -322,18 +320,17 @@ export function CareerPublishedSemanticSection({
     }
 
     case "career_snapshot_secondary_locale": {
-      const median = asString(data.median);
-      const growth = asString(data.growth);
-      const blsRows = asRows(data.bls_table);
-      if (!median && !growth && blsRows.length === 0) return null;
+      const allBlsRows = asRows(data.bls_table);
+      const blsRows = allBlsRows.filter((row) => {
+        const indicator = asString(row["指标"]);
+        return indicator !== "中位年薪" && indicator !== "就业增长";
+      });
+      const movedRows = allBlsRows.filter((row) => !blsRows.includes(row));
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{CAREER_COMPONENT_TITLES_ZH[componentId]}</SectionTitle>
-          {median || growth ? <div className={`mt-4 grid sm:grid-cols-2 ${visual.factGrid}`}>
-            <Fact title="薪资中位数" value={median} path={`${componentId}.median`} />
-            <Fact title="就业增长" value={growth} path={`${componentId}.growth`} />
-          </div> : null}
+          <SectionTitle>美国 BLS 数据</SectionTitle>
           <ApiTable rows={blsRows} path={`${componentId}.bls_table`} />
+          {movedRows.map((row, rowIndex) => <span key={rowIndex} className="sr-only">{Object.entries(row).map(([key, item]) => <Field key={key} path={`${componentId}.bls_table[${rowIndex}].${key}`}>{asString(item)}</Field>)}</span>)}
         </PublishedRoot>
       );
     }
@@ -439,17 +436,20 @@ export function CareerPublishedSemanticSection({
           </div>
           <div className={`${CARD} ${visual.aiBody}`}>
             {aiExposureNote ? <p className={`mb-0 ${CALLOUT_FORWARD}`}><Field path="presentation_v1.hero.ai_exposure.note">{aiExposureNote}</Field></p> : null}
-            <h3 className="m-0 text-lg font-bold text-[#243049]">AI 会怎样改变这份工作</h3>
+            <h3 className="m-0 text-lg font-bold text-[#243049]">一、AI 会取代这个职业吗？</h3>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s1_bls`}>{asString(data.ai_s1_bls)}</Field></p>
             <p className={`mb-0 mt-3 ${CALLOUT_BLUE}`}><Field path={`${componentId}.ai_s1_p`}>{asString(data.ai_s1_p)}</Field></p>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">二、AI 正在自动化与加速哪些任务？</h3>
             <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
               <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在自动化</h4><ApiList items={asStringArray(data.ai_s2_auto)} path={`${componentId}.ai_s2_auto`} /></div>
               <div className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4"><h4 className="m-0 font-bold text-[#2C3E8C]">正在被 AI 加速</h4><ApiList items={asStringArray(data.ai_s2_accel)} path={`${componentId}.ai_s2_accel`} /></div>
             </div>
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">仍需人承担的能力</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">三、仍需人承担的能力</h3>
             <ApiList items={asStringArray(data.ai_s3_list)} path={`${componentId}.ai_s3_list`} ordered />
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">四、AI 曝光度意味着什么？</h3>
             <p className={`mb-0 mt-4 ${CALLOUT_FORWARD}`}><Field path={`${componentId}.ai_s4_p`}>{asString(data.ai_s4_p)}</Field></p>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s4_p2`}>{asString(data.ai_s4_p2)}</Field></p>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">五、分人群应对建议</h3>
             <div className={`mt-5 grid md:grid-cols-2 ${visual.personaGrid}`}>
               {asRows(data.ai_s5_persona).map((row, index) => (
                 <div key={index} className="rounded-xl border-t-[3px] border-t-[#0E9F94] bg-[#F0F3FA] p-4">
@@ -457,8 +457,9 @@ export function CareerPublishedSemanticSection({
                 </div>
               ))}
             </div>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">六、常用 AI 工具</h3>
             <ApiTable rows={asRows(data.ai_s6_tools)} path={`${componentId}.ai_s6_tools`} />
-            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">未来趋势</h3>
+            <h3 className="mb-0 mt-6 text-lg font-bold text-[#243049]">七、未来趋势</h3>
             <ApiList items={asStringArray(data.ai_s7_trends)} path={`${componentId}.ai_s7_trends`} />
           </div>
         </PublishedRoot>
@@ -499,9 +500,13 @@ export function CareerPublishedSemanticSection({
           <div className="mt-4 grid gap-3 rounded-xl bg-[#F0F3FA] p-4 sm:grid-cols-3">
             {(["author", "source", "updated_at"] as const).map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.eeat_signals.${key}`}>{asString(eeat[key])}</Field></p>)}
           </div>
-          <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
-            {sources.map((source) => <SourceItem key={source.key} source={source} />)}
-          </ul>
+          {sources.length > 0 ? <p className="m-0 mt-4 text-sm leading-7 text-[#2a3346]">关键来源：{sources.slice(0, 3).map((source) => source.label).join("、")}</p> : null}
+          <details className="mt-4 rounded-xl border border-[#E5E9F2] bg-[#F8FAFD] p-4">
+            <summary className="cursor-pointer text-sm font-bold text-[#2C3E8C]">查看详细来源</summary>
+            <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
+              {sources.map((source) => <SourceItem key={source.key} source={source} />)}
+            </ul>
+          </details>
         </PublishedRoot>
       );
     }

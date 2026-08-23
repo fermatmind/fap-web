@@ -843,9 +843,9 @@ export function buildCareerPresentationV1Fixture({
       stats: [
         { key: "us_median_pay", label: "美国年薪中位数", value: "$100,000", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.中位年薪"], availability: "published" },
         { key: "us_growth", label: "就业增长", value: "+5%", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.就业增长"], availability: "published" },
-        { key: "employment", label: "美国在岗人数", value: "1,000 人", source_label: "BLS 公开参考", source_keys: ["salary.bls_table.在岗人数"], availability: "published" },
-        { key: "annual_openings", label: "美国年均职位空缺", value: "100 个", source_label: null, source_keys: ["salary.bls_table.年均职位空缺"], availability: "published" },
         { key: "ai_exposure", label: "AI 曝光评分", value: "7/10", source_label: "FermatMind 内部 rubric", source_keys: ["identity.ai_score"], availability: "published" },
+        { key: "china_reference_pay", label: "中国参考年薪", value: "¥120,000", source_label: "公开招聘样本", source_keys: ["salary.china_ref"], availability: "published" },
+        { key: "china_openings", label: "中国在招", value: "1,200 个", source_label: "公开招聘样本", source_keys: ["salary.china_open"], availability: "published" },
       ],
       cta: {
         label: `测我的职业兴趣是否适合${titleZh}`,
@@ -857,6 +857,62 @@ export function buildCareerPresentationV1Fixture({
       snapshot_callout: `${titleZh} 的一句话职业画像。`,
       salary_boundary: "薪资为来源有界参考，不构成收入预测。",
       usage_boundary: ["本页用于职业探索，不构成录用或收入保证。"],
+    },
+  };
+}
+
+export function buildCareerSupportingEvidenceV1Fixture() {
+  const sourceKeys = ["onet.13-2011.00"];
+  return {
+    contract_version: "career.detail.supporting_evidence.v1",
+    quick_answers: [
+      { key: "does", title: "做什么", answer: "把交易转成可核验的财务信息。", rows: [{ 层级: "核算", 典型工作: "对账与结账" }], source_keys: sourceKeys },
+      { key: "difference", title: "会计与审计区别", answer: "会计建立信息，审计验证信息。", rows: [{ 维度: "核心动作", 会计: "记录", 审计: "验证" }], source_keys: sourceKeys },
+      { key: "salary", title: "工资参考", answer: "只展示来源有界的市场参考。", rows: [{ 市场: "中国大陆", 口径: "招聘样本" }], source_keys: ["china.sample"] },
+    ],
+    onet: {
+      reviewed_at: "2026-08-20",
+      tables: [
+        { key: "tasks", title: "Tasks", rows: [{ 任务: "分析财务记录" }], source_keys: sourceKeys },
+        { key: "skills", title: "Skills", rows: [{ 技能: "批判性思维" }], source_keys: sourceKeys },
+        { key: "abilities", title: "Abilities", rows: [{ 能力: "数学推理" }], source_keys: sourceKeys },
+        { key: "knowledge", title: "Knowledge", rows: [{ 知识: "财务与会计" }], source_keys: sourceKeys },
+        { key: "work_context", title: "Work Context", rows: [{ 场景: "高准确性要求" }], source_keys: sourceKeys },
+        { key: "job_zone", title: "Job Zone", rows: [{ 等级: "四", 说明: "需要较充分准备" }], source_keys: sourceKeys },
+      ],
+    },
+    ai_cases: [],
+    career_path: { title: "职业发展路径", rows: [{ 阶段: "入门", 方向: "基础核算" }], source_keys: ["career.path"] },
+    china_reference: {
+      market: "中国大陆",
+      sample: "20 条公开招聘样本",
+      captured_at: "2026-08",
+      boundary: "代理数据，非官方、非实时。",
+      source_keys: ["china.sample"],
+      tables: [{ title: "城市参考", rows: [{ 城市: "北京", 口径: "公开样本" }], source_keys: ["china.sample"] }],
+    },
+    market_facts: [
+      { key: "annual_openings", label: "年均空缺", value: "124,200", source_keys: ["bls.openings"] },
+      { key: "hot_skills", label: "热招技能", value: "数据分析", source_keys: ["china.sample"] },
+      { key: "china_openings", label: "国内在招", value: "1,200", source_keys: ["china.sample"] },
+    ],
+    charts: {
+      task_automation: {
+        title: "任务自动化矩阵",
+        aria_label: "任务自动化程度与人类判断要求矩阵。",
+        caption: "仅基于已发布任务证据绘制。",
+        source_keys: sourceKeys,
+        legend: [{ label: "自动化", color: "#2C3E8C" }],
+        points: [{ key: "reconciliation", label: "对账", x: 80, y: 30, category: "自动化" }],
+      },
+      riasec: {
+        title: "RIASEC 分布",
+        aria_label: "RIASEC 兴趣结构分布。",
+        caption: "基于已发布 O*NET 兴趣证据绘制。",
+        source_keys: sourceKeys,
+        legend: [{ label: "兴趣强度", color: "#0E9F94" }],
+        points: [{ key: "c", label: "常规型 C", x: 20, y: 90, category: "兴趣强度" }],
+      },
     },
   };
 }
