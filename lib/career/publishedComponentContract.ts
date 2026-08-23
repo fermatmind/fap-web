@@ -78,26 +78,37 @@ function validatePrimarySnapshot(value: unknown): boolean {
   }
 
   const salary = value.salary;
-  const required = [
-    "bls_table", "china_ai_row", "china_class_row", "china_edu_table", "china_industry_table", "china_intl",
-    "china_name_row", "china_open", "china_ref", "china_salary_note", "china_salary_table", "china_soc_row",
-    "us_growth", "us_median",
+  const required = ["bls_table", "us_growth", "us_median"];
+  const optional = [
+    "china_ai_row", "china_class_row", "china_edu_table", "china_industry_table", "china_intl",
+    "china_name_row", "china_open", "china_open_note", "china_ref", "china_salary_note", "china_salary_table",
+    "china_soc_row", "edu", "sources_note",
   ];
-  if (!hasExactKeys(salary, required, ["china_open_note", "edu", "sources_note"])) {
+  if (!hasExactKeys(salary, required, optional)) {
     return false;
   }
 
-  const requiredStrings = ["china_intl", "china_open", "china_ref", "china_salary_note", "us_growth", "us_median"];
-  const optionalStrings = ["china_open_note", "edu", "sources_note"];
-  return requiredStrings.every((key) => isNonEmptyString(salary[key])) &&
-    optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string") &&
-    ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"].every((key) => isStringOrScalarRecord(salary[key])) &&
-    isScalarRecordArray(salary.bls_table, [
-      ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
-    ]) &&
-    isScalarRecordArray(salary.china_edu_table, [["学历段", "岗位方向", "说明"], ["label", "value"]]) &&
-    isScalarRecordArray(salary.china_industry_table, [["行业", "需求"], ["行业", "需求", "备注"], ["label", "value"]]) &&
-    isScalarRecordArray(salary.china_salary_table, [["城市/区间", "月薪参考"], ["label", "value"]]);
+  const optionalStrings = [
+    "china_intl", "china_open", "china_open_note", "china_ref", "china_salary_note", "edu", "sources_note",
+  ];
+  if (!required.slice(1).every((key) => isNonEmptyString(salary[key])) ||
+    !optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string")) {
+    return false;
+  }
+
+  const optionalScalarRows = ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"];
+  if (!optionalScalarRows.every((key) => salary[key] === undefined || isStringOrScalarRecord(salary[key]))) {
+    return false;
+  }
+
+  const optionalTables: Array<[string, readonly (readonly string[])[]]> = [
+    ["china_edu_table", [["学历段", "岗位方向", "说明"], ["label", "value"]]],
+    ["china_industry_table", [["行业", "需求"], ["行业", "需求", "备注"], ["label", "value"]]],
+    ["china_salary_table", [["城市/区间", "月薪参考"], ["label", "value"]]],
+  ];
+  return isScalarRecordArray(salary.bls_table, [
+    ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
+  ]) && optionalTables.every(([key, keySets]) => salary[key] === undefined || isScalarRecordArray(salary[key], keySets));
 }
 
 function validateAiImpact(value: unknown): boolean {

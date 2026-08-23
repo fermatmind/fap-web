@@ -487,6 +487,22 @@ describe("career display surface contract", () => {
     expect(screen.getByText("金融与投资分析师").closest("a")).toHaveAttribute("href", "/zh/career/jobs/financial-analysts");
   });
 
+  it("keeps a Current projection valid when optional China market fields are unavailable", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计师和审计师",
+    });
+    const snapshot = (fixture.page.content as Record<string, unknown>).career_snapshot_primary_locale as {
+      salary: Record<string, unknown>;
+    };
+    for (const key of Object.keys(snapshot.salary)) {
+      if (key.startsWith("china_") || key === "edu" || key === "sources_note") delete snapshot.salary[key];
+    }
+
+    expect(adaptCareerDisplaySurface(fixture, "zh")).not.toBeNull();
+  });
+
   it.each(["intro", "links", "slug", "source", "nofollow", "title_en"])(
     "fails closed when Current related-page field %s is missing",
     (field) => {
