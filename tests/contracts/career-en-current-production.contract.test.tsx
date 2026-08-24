@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CAREER_VISUAL_GROUP_IDS } from "@/lib/career/careerVisualGroups";
-import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
 function buildEnglishCurrentProjection(slug: string, titleEn: string) {
@@ -29,12 +29,29 @@ function buildEnglishCurrentProjection(slug: string, titleEn: string) {
     label: "Measure my career interests",
   };
   content.career_quick_answers_block = {
-    availability: "unavailable",
-    reason_code: "source_locale_unavailable",
+    availability: "published",
+    schema_version: "career.quick_answers.v1",
+    heading: "Career quick answers",
+    items: ["qa3", "qa2", "qa1"].map((key) => ({
+      key,
+      question: `${titleEn} ${key} question`,
+      answer: `${titleEn} ${key} answer comes from the published backend projection.`,
+      table: {
+        rows: [
+          { label: "Dimension", value: `${key} primary value`, alternate_value: null, secondary_value: null },
+          { label: "Comparison", value: "Primary", alternate_value: "Alternate", secondary_value: "Secondary" },
+        ],
+      },
+    })),
   };
   content.onet_structured_fields_block = {
-    availability: "unavailable",
-    reason_code: "source_locale_unavailable",
+    availability: "published",
+    schema_version: "career.onet_structured_fields.v1",
+    heading: "O*NET structured fields",
+    rows: [
+      { label: "O*NET-SOC Code", value: "15-0000.00", alternate_value: null, secondary_value: null },
+      { label: "Job family", value: "Published occupational family", alternate_value: "Related classification", secondary_value: null },
+    ],
   };
   return fixture;
 }
@@ -61,11 +78,25 @@ describe("career English Current production renderer", () => {
     const surface = adaptCareerDisplaySurface(projection, "en", {}, "accountants-and-auditors", "Accountants and auditors");
     expect(surface?.publishedComponents).not.toBeNull();
     expect(surface?.presentationV1).toBeNull();
+    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
 
     render(<CareerDisplaySurface surface={surface} />);
     expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
+      item.getAttribute("data-career-quick-answer-key")
+    )).toEqual(["qa3", "qa2", "qa1"]);
+    expect(screen.getByRole("heading", { name: "Career quick answers" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "O*NET structured fields" })).toBeInTheDocument();
+    expect(document.querySelector('#career-component-career_quick_answers_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
+    expect(document.querySelector('#career-component-onet_structured_fields_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
+    const structuredComponentText = [
+      document.querySelector("#career-component-career_quick_answers_block")?.textContent ?? "",
+      document.querySelector("#career-component-onet_structured_fields_block")?.textContent ?? "",
+    ].join(" ");
+    expect(structuredComponentText).not.toMatch(/[\u3400-\u9fff]/u);
+    expect(structuredComponentText).not.toMatch(/source locale unavailable|等待后端|fallback/i);
     const chromeText = [...document.querySelectorAll("h1, h2, h3, h4, th, summary")]
       .map((element) => element.textContent ?? "")
       .join(" ");
@@ -81,6 +112,7 @@ describe("career English Current production renderer", () => {
 
     expect(surface?.publishedComponents).not.toBeNull();
     expect(surface?.presentationV1).toBeNull();
+    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
 
     render(
       <CareerDisplaySurface
@@ -93,8 +125,21 @@ describe("career English Current production renderer", () => {
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
     expect([...document.querySelectorAll("[data-career-visual-group]")].map((group) => group.getAttribute("data-career-visual-group")))
       .toEqual(CAREER_VISUAL_GROUP_IDS);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
+      item.getAttribute("data-career-quick-answer-key")
+    )).toEqual(["qa3", "qa2", "qa1"]);
+    expect(screen.getByRole("heading", { name: "Career quick answers" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "O*NET structured fields" })).toBeInTheDocument();
+    expect(document.querySelector('#career-component-career_quick_answers_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
+    expect(document.querySelector('#career-component-onet_structured_fields_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
+    const structuredComponentText = [
+      document.querySelector("#career-component-career_quick_answers_block")?.textContent ?? "",
+      document.querySelector("#career-component-onet_structured_fields_block")?.textContent ?? "",
+    ].join(" ");
+    expect(structuredComponentText).not.toMatch(/[\u3400-\u9fff]/u);
+    expect(structuredComponentText).not.toMatch(/source locale unavailable|等待后端|fallback/i);
     expect(document.querySelectorAll('[data-career-api-field^="presentation_v1."]')).toHaveLength(0);
     expect(screen.queryByTestId("forbidden-en-salary-sidecar")).not.toBeInTheDocument();
     expect(screen.queryByTestId("forbidden-en-ai-sidecar")).not.toBeInTheDocument();

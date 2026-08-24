@@ -759,36 +759,47 @@ export function buildSelectedCareerDisplaySurfaceFixture({
         body: ["AI 可以加速重复任务，但证据判断和责任仍由人承担。"],
       },
       work_context_block: `${title} 的工作场景与协作边界来自后端公开正文。`,
-      career_quick_answers_block: isZh ? {
+      career_quick_answers_block: {
         availability: "published",
         schema_version: "career.quick_answers.v1",
-        heading: "职业速答",
+        heading: isZh ? "职业速答" : "Career quick answers",
         items: ["qa3", "qa2", "qa1"].map((key) => ({
           key,
-          question: `${title} 的 ${key} 问题`,
-          answer: `${title} 的 ${key} 回答来自后端公开正文。`,
+          question: isZh ? `${title} 的 ${key} 问题` : `${title} ${key} question`,
+          answer: isZh
+            ? `${title} 的 ${key} 回答来自后端公开正文。`
+            : `${title} ${key} answer comes from the published backend projection.`,
           table: {
             rows: [
-              { label: "核心结论", value: `${key} 主要内容`, alternate_value: null, secondary_value: null },
-              { label: "补充维度", value: "主值", alternate_value: "备选值", secondary_value: "第二备选值" },
+              {
+                label: isZh ? "核心结论" : "Core finding",
+                value: isZh ? `${key} 主要内容` : `${key} primary value`,
+                alternate_value: null,
+                secondary_value: null,
+              },
+              {
+                label: isZh ? "补充维度" : "Additional dimension",
+                value: isZh ? "主值" : "Primary value",
+                alternate_value: isZh ? "备选值" : "Alternate value",
+                secondary_value: isZh ? "第二备选值" : "Secondary value",
+              },
             ],
           },
         })),
-      } : {
-        availability: "unavailable",
-        reason_code: "source_locale_unavailable",
       },
-      onet_structured_fields_block: isZh ? {
+      onet_structured_fields_block: {
         availability: "published",
         schema_version: "career.onet_structured_fields.v1",
-        heading: "O*NET 结构化字段",
+        heading: isZh ? "O*NET 结构化字段" : "O*NET structured fields",
         rows: [
           { label: "O*NET-SOC Code", value: "15-0000.00", alternate_value: null, secondary_value: null },
-          { label: "职业族", value: "测试职业族", alternate_value: "补充分类", secondary_value: null },
+          {
+            label: isZh ? "职业族" : "Job family",
+            value: isZh ? "测试职业族" : "Published occupational family",
+            alternate_value: isZh ? "补充分类" : "Related classification",
+            secondary_value: null,
+          },
         ],
-      } : {
-        availability: "unavailable",
-        reason_code: "source_locale_unavailable",
       },
       market_signal_card: {
         callout: "市场信号仅作方向参考。",

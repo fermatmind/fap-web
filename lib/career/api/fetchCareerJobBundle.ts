@@ -13,7 +13,7 @@ type FetchCareerJobBundleInput = {
 const DEFAULT_ORG_ID = "0";
 const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;
 export const CAREER_DETAIL_REVALIDATE_SECONDS = 300;
-export const CAREER_DETAIL_PROJECTION_CACHE_VERSION = "current-26-component-v1";
+export const CAREER_DETAIL_PROJECTION_CACHE_VERSION = "current-v4.3-28-component-v1";
 
 export function careerDetailCacheTag(locale: Locale | string, slug: string): string {
   return `career-detail:${toApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
