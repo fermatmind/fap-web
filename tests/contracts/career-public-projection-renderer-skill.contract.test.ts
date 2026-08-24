@@ -22,6 +22,8 @@ const EXPECTED_COMPONENTS = [
   "career_ai_description_block",
   "responsibilities_block",
   "work_context_block",
+  "career_quick_answers_block",
+  "onet_structured_fields_block",
   "market_signal_card",
   "adjacent_career_comparison_table",
   "ai_impact_table",
@@ -60,7 +62,7 @@ describe("Career public projection renderer Skill", () => {
     expect(skill).toContain("fermatmind-frontend-deploy-sre");
   });
 
-  it("locks the 26-component order and required rendering boundaries", () => {
+  it("locks the v4.3 28-component order and required rendering boundaries", () => {
     const contract = fs.readFileSync(CONTRACT_PATH, "utf8");
     const listed = [...contract.matchAll(/^\d+\. `([^`]+)`$/gm)].map((match) => match[1]);
 

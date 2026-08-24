@@ -7,7 +7,9 @@ projection. Reject missing, draft, malformed, wrong-locale, wrong-slug, or
 unsupported-version payloads. Never substitute Desktop files, local datasets,
 generated candidates, templates, sidecars, or synthesized related pages.
 
-The Current Chinese projection order is exact and contains 26 unique entries:
+The Current v4.3 Chinese projection order is exact and contains 28 unique entries.
+The reader also accepts the sealed v4.2 26-component order without inventing
+the two v4.3 components:
 
 1. `breadcrumb`
 2. `hero`
@@ -22,19 +24,21 @@ The Current Chinese projection order is exact and contains 26 unique entries:
 11. `career_ai_description_block`
 12. `responsibilities_block`
 13. `work_context_block`
-14. `market_signal_card`
-15. `adjacent_career_comparison_table`
-16. `ai_impact_table`
-17. `career_risk_cards`
-18. `career_path_block`
-19. `contract_project_risk_block`
-20. `next_steps_block`
-21. `faq_block`
-22. `related_next_pages`
-23. `source_card`
-24. `review_validity_card`
-25. `boundary_notice`
-26. `final_cta`
+14. `career_quick_answers_block`
+15. `onet_structured_fields_block`
+16. `market_signal_card`
+17. `adjacent_career_comparison_table`
+18. `ai_impact_table`
+19. `career_risk_cards`
+20. `career_path_block`
+21. `contract_project_risk_block`
+22. `next_steps_block`
+23. `faq_block`
+24. `related_next_pages`
+25. `source_card`
+26. `review_validity_card`
+27. `boundary_notice`
+28. `final_cta`
 
 Validate required fields recursively. Preserve scalar values, FAQ questions and
 answers, tables, source labels and URLs, link targets, array order, array

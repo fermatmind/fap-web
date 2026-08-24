@@ -3,6 +3,8 @@ import Link from "next/link";
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
 import { EvidenceContainer } from "@/components/career/display/EvidenceContainer";
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
+import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuickAnswersBlock";
+import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
 import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
@@ -15,6 +17,11 @@ import {
   CAREER_VISUAL_GROUPS,
   type CareerVisualGroupDefinition,
 } from "@/lib/career/careerVisualGroups";
+import type {
+  CareerPublishedOnetStructuredFieldsBlock,
+  CareerPublishedQuickAnswersBlock,
+  CareerPublishedUnavailableComponent,
+} from "@/lib/career/publishedComponentContract";
 
 type BreadcrumbItem = { label: string; href?: string };
 
@@ -121,6 +128,11 @@ function publishedCtaLabel(value: unknown, locale: CareerDisplaySurfaceViewModel
   return locale === "zh"
     ? bilingual.find((item) => /[\u3400-\u9fff]/u.test(item)) ?? value
     : bilingual.find((item) => !/[\u3400-\u9fff]/u.test(item)) ?? value;
+}
+
+function isPublishedComponentUnavailable(value: unknown): boolean {
+  return typeof value === "object" && value !== null && !Array.isArray(value) &&
+    "availability" in value && value.availability === "unavailable";
 }
 
 function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
@@ -426,6 +438,20 @@ export function CareerProductionDisplaySurface({
       );
     }
     if (componentId === "related_next_pages") return <RelatedPages surface={surface} />;
+    if (componentId === "career_quick_answers_block" && publishedComponents) {
+      if (isPublishedComponentUnavailable(publishedComponents[componentId])) return null;
+      return <CareerQuickAnswersBlock
+        value={publishedComponents[componentId] as CareerPublishedQuickAnswersBlock | CareerPublishedUnavailableComponent}
+        locale={surface.locale}
+      />;
+    }
+    if (componentId === "onet_structured_fields_block" && publishedComponents) {
+      if (isPublishedComponentUnavailable(publishedComponents[componentId])) return null;
+      return <OnetStructuredFieldsBlock
+        value={publishedComponents[componentId] as CareerPublishedOnetStructuredFieldsBlock | CareerPublishedUnavailableComponent}
+        locale={surface.locale}
+      />;
+    }
     if (componentId === "source_card") return publishedComponents
       ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} sources={surface.sources} locale={surface.locale} />
       : <SourceCard surface={surface} />;
@@ -610,6 +636,7 @@ export function CareerProductionDisplaySurface({
     } else {
       componentNodes = group.componentIds.map((componentId) => {
         const component = renderComponent(componentId);
+        if (component === null) return null;
         const content = componentId === "final_cta"
           ? <div data-testid="career-decision-action-block">{component}</div>
           : component;

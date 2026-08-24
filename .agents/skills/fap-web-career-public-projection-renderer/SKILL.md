@@ -21,8 +21,9 @@ editing.
 
 1. Identify the published API contract, adapter, renderer, cache behavior, and
    affected locale.
-2. Validate the exact 26-component order and every required field before
-   rendering. Preserve API array order and cardinality.
+2. Validate the exact v4.3 28-component order or sealed v4.2 26-component
+   compatibility order and every required field before rendering. Preserve API
+   array order and cardinality.
 3. Render all canonical published content, including FAQ question/answer pairs,
    tables, sources, links, localized CTA attribution, canonical, hreflang, and
    locale metadata.
@@ -52,8 +53,8 @@ editing.
 
 ## Acceptance
 
-- One public projection is selected from fap-api and all 26 components render
-  in the API-defined order with field and array fidelity.
+- One public projection is selected from fap-api and every available component
+  renders in the versioned API-defined order with field and array fidelity.
 - Invalid authority returns a real fail-closed response, never local content or
   a soft 404.
 - Canonical/hreflang/locale and CTA attribution remain correct.

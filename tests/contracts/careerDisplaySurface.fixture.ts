@@ -1,5 +1,6 @@
 import {
   CAREER_DISPLAY_COMPONENT_ORDER,
+  CAREER_DISPLAY_COMPONENT_ORDER_V4_2,
   CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
 } from "@/lib/career/displaySurface";
 
@@ -42,7 +43,7 @@ export function buildActorsDisplaySurfaceFixture() {
       canonical_slug: "actors",
     },
     claim_permissions: buildDisplaySurfaceClaimPermissions(),
-    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
+    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
       asset_version: "v4.2",
@@ -477,8 +478,8 @@ export function buildSelectedCareerDisplaySurfaceFixture({
 
   const fixture = {
     surface_version: "display.surface.v1",
-    asset_version: "v4.2",
-    template_version: "v4.2",
+    asset_version: "v4.3",
+    template_version: "v4.3",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
     status: "ready_for_pilot",
@@ -491,8 +492,8 @@ export function buildSelectedCareerDisplaySurfaceFixture({
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
-      asset_version: "v4.2",
-      template_version: "v4.2",
+      asset_version: "v4.3",
+      template_version: "v4.3",
       asset_role: "formal_pilot_master",
       asset_type: "career_job_public_display",
       slug,
@@ -758,6 +759,37 @@ export function buildSelectedCareerDisplaySurfaceFixture({
         body: ["AI 可以加速重复任务，但证据判断和责任仍由人承担。"],
       },
       work_context_block: `${title} 的工作场景与协作边界来自后端公开正文。`,
+      career_quick_answers_block: isZh ? {
+        availability: "published",
+        schema_version: "career.quick_answers.v1",
+        heading: "职业速答",
+        items: ["qa3", "qa2", "qa1"].map((key) => ({
+          key,
+          question: `${title} 的 ${key} 问题`,
+          answer: `${title} 的 ${key} 回答来自后端公开正文。`,
+          table: {
+            rows: [
+              { label: "核心结论", value: `${key} 主要内容`, alternate_value: null, secondary_value: null },
+              { label: "补充维度", value: "主值", alternate_value: "备选值", secondary_value: "第二备选值" },
+            ],
+          },
+        })),
+      } : {
+        availability: "unavailable",
+        reason_code: "source_locale_unavailable",
+      },
+      onet_structured_fields_block: isZh ? {
+        availability: "published",
+        schema_version: "career.onet_structured_fields.v1",
+        heading: "O*NET 结构化字段",
+        rows: [
+          { label: "O*NET-SOC Code", value: "15-0000.00", alternate_value: null, secondary_value: null },
+          { label: "职业族", value: "测试职业族", alternate_value: "补充分类", secondary_value: null },
+        ],
+      } : {
+        availability: "unavailable",
+        reason_code: "source_locale_unavailable",
+      },
       market_signal_card: {
         callout: "市场信号仅作方向参考。",
         facts: ["信号不是就业保证。"],
@@ -869,6 +901,10 @@ export function buildProductionV42LegacyDisplaySurfaceFixture(
   }
 ) {
   const fixture = buildSelectedCareerDisplaySurfaceFixture(input);
+  fixture.asset_version = "v4.2";
+  fixture.template_version = "v4.2";
+  fixture.asset.asset_version = "v4.2";
+  fixture.asset.template_version = "v4.2";
   fixture.component_order = [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24];
 
   delete (fixture.page.content as Record<string, unknown>).career_ai_description_block;

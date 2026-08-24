@@ -153,7 +153,7 @@ describe("career v1.2 presentation contract", () => {
     expect(document.querySelector('[data-career-api-field="presentation_v1.hero.onet_code"]')).not.toBeInTheDocument();
     expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(1);
     expect(document.querySelector('[data-career-api-component="primary_cta"]')).not.toBeVisible();
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
     expect(document.querySelectorAll("section:empty, article:empty, aside:empty")).toHaveLength(0);
   });
 
@@ -175,8 +175,8 @@ describe("career v1.2 presentation contract", () => {
 
     const groups = [...document.querySelectorAll("[data-career-visual-group]")];
     expect(groups.map((group) => group.getAttribute("data-career-visual-group"))).toEqual(CAREER_VISUAL_GROUP_IDS);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
     expect(screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a")).toHaveLength(12);
   });
 

@@ -28,6 +28,14 @@ function buildEnglishCurrentProjection(slug: string, titleEn: string) {
     href: "/en/tests/holland-career-interest-test-riasec",
     label: "Measure my career interests",
   };
+  content.career_quick_answers_block = {
+    availability: "unavailable",
+    reason_code: "source_locale_unavailable",
+  };
+  content.onet_structured_fields_block = {
+    availability: "unavailable",
+    reason_code: "source_locale_unavailable",
+  };
   return fixture;
 }
 

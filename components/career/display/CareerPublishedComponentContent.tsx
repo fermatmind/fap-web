@@ -15,6 +15,8 @@ const COMPONENT_LABELS: Record<CareerDisplayComponentId, string> = {
   career_ai_description_block: "AI 职业解读",
   responsibilities_block: "核心职责",
   work_context_block: "工作场景",
+  career_quick_answers_block: "职业速答",
+  onet_structured_fields_block: "O*NET 结构化字段",
   market_signal_card: "市场信号",
   adjacent_career_comparison_table: "相邻职业比较",
   ai_impact_table: "AI 影响与应对",

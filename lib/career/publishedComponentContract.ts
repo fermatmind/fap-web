@@ -8,6 +8,37 @@ export type CareerPublishedValue =
 
 export type CareerPublishedComponents = Record<CareerDisplayComponentId, CareerPublishedValue>;
 
+export type CareerPublishedStructuredRow = {
+  label: string;
+  value: string;
+  alternate_value: string | null;
+  secondary_value: string | null;
+};
+
+export type CareerPublishedUnavailableComponent = {
+  availability: "unavailable";
+  reason_code: "source_locale_unavailable";
+};
+
+export type CareerPublishedQuickAnswersBlock = {
+  availability: "published";
+  schema_version: "career.quick_answers.v1";
+  heading: string;
+  items: Array<{
+    key: "qa3" | "qa2" | "qa1";
+    question: string;
+    answer: string;
+    table: { rows: CareerPublishedStructuredRow[] };
+  }>;
+};
+
+export type CareerPublishedOnetStructuredFieldsBlock = {
+  availability: "published";
+  schema_version: "career.onet_structured_fields.v1";
+  heading: string;
+  rows: CareerPublishedStructuredRow[];
+};
+
 type PublishedRecord = Record<string, CareerPublishedValue>;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -113,6 +144,43 @@ function validateAiImpact(value: unknown): boolean {
     isScalarRecordArray(value.ai_s6_tools, [["工具", "定位", "代表能力"], ["name", "desc"]]);
 }
 
+function validateUnavailable(value: unknown): boolean {
+  return hasExactKeys(value, ["availability", "reason_code"]) &&
+    value.availability === "unavailable" && value.reason_code === "source_locale_unavailable";
+}
+
+function validateStructuredRows(value: unknown): boolean {
+  return Array.isArray(value) && value.length > 0 && value.every((row) =>
+    hasExactKeys(row, ["label", "value", "alternate_value", "secondary_value"]) &&
+    isNonEmptyString(row.label) && isNonEmptyString(row.value) &&
+    (row.alternate_value === null || isNonEmptyString(row.alternate_value)) &&
+    (row.secondary_value === null || isNonEmptyString(row.secondary_value))
+  );
+}
+
+function validateQuickAnswers(value: unknown): boolean {
+  if (validateUnavailable(value)) return true;
+  if (!hasExactKeys(value, ["availability", "schema_version", "heading", "items"]) ||
+    value.availability !== "published" || value.schema_version !== "career.quick_answers.v1" ||
+    !isNonEmptyString(value.heading) || !Array.isArray(value.items) || value.items.length !== 3) {
+    return false;
+  }
+
+  const expectedKeys = ["qa3", "qa2", "qa1"];
+  return value.items.every((item, index) =>
+    hasExactKeys(item, ["key", "question", "answer", "table"]) &&
+    item.key === expectedKeys[index] && isNonEmptyString(item.question) && isNonEmptyString(item.answer) &&
+    hasExactKeys(item.table, ["rows"]) && validateStructuredRows(item.table.rows)
+  );
+}
+
+function validateOnetStructuredFields(value: unknown): boolean {
+  if (validateUnavailable(value)) return true;
+  return hasExactKeys(value, ["availability", "schema_version", "heading", "rows"]) &&
+    value.availability === "published" && value.schema_version === "career.onet_structured_fields.v1" &&
+    isNonEmptyString(value.heading) && validateStructuredRows(value.rows);
+}
+
 function validateComponent(id: CareerDisplayComponentId, value: unknown): boolean {
   switch (id) {
     case "breadcrumb":
@@ -144,6 +212,10 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "work_context_block":
     case "contract_project_risk_block":
       return isNonEmptyString(value);
+    case "career_quick_answers_block":
+      return validateQuickAnswers(value);
+    case "onet_structured_fields_block":
+      return validateOnetStructuredFields(value);
     case "career_ai_description_block":
       return hasExactKeys(value, ["body", "heading"]) && isStringArray(value.body) && isNonEmptyString(value.heading);
     case "responsibilities_block":

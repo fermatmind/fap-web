@@ -167,7 +167,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe(slug);
     expect(surface?.subject.path).toBe(`/en/career/jobs/${slug}`);
     expect(surface?.subject.title).toBe(titleEn);
-    expect(surface?.componentOrder).toHaveLength(26);
+    expect(surface?.componentOrder).toHaveLength(28);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.sources).toHaveLength(2);
     expect(surface?.reviewValidity?.lastReviewed).toBe("2026-05-03");
@@ -218,6 +218,50 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
   });
 
+  it("renders v4.3 quick answers in qa3, qa2, qa1 order with accessible 2-to-4-column tables", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计与审计人员",
+    });
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
+      item.getAttribute("data-career-quick-answer-key")
+    )).toEqual(["qa3", "qa2", "qa1"]);
+    expect(screen.getByRole("heading", { name: "职业速答" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "O*NET 结构化字段" })).toBeInTheDocument();
+    expect(screen.getAllByRole("columnheader", { name: "第二补充内容" })).toHaveLength(3);
+    expect(document.querySelectorAll('#career-component-career_quick_answers_block th[scope="row"]')).toHaveLength(6);
+    expect(document.querySelector('#career-component-onet_structured_fields_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
+  });
+
+  it("hides authoritative unavailable v4.3 English components without fallback copy", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleEn: "Accountants and Auditors",
+    });
+    fixture.page.locale = "en";
+    const content = fixture.page.content as Record<string, unknown>;
+    content.path = "/en/career/jobs/accountants-and-auditors";
+    content.career_quick_answers_block = {
+      availability: "unavailable",
+      reason_code: "source_locale_unavailable",
+    };
+    content.onet_structured_fields_block = {
+      availability: "unavailable",
+      reason_code: "source_locale_unavailable",
+    };
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    expect(document.querySelector("#career-component-career_quick_answers_block")).not.toBeInTheDocument();
+    expect(document.querySelector("#career-component-onet_structured_fields_block")).not.toBeInTheDocument();
+    expect(screen.queryByText(/waiting for backend|等待后端|placeholder/i)).not.toBeInTheDocument();
+  });
+
   it("keeps a narrative China AI row out of the compact hero gauge", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "actuaries",
@@ -257,7 +301,7 @@ describe("career display surface contract", () => {
       "data-career-production-template",
       "career-production-v1"
     );
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
   });
 
   it("preserves published zh Current copy instead of applying local claim regex rewrites", () => {
@@ -319,7 +363,7 @@ describe("career display surface contract", () => {
     for (const expected of expectedSourceValues) {
       expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
     }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
     expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
       (page.responsibilities_block as unknown[]).length
     );
@@ -657,7 +701,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(26);
+    expect(surface?.componentOrder).toHaveLength(28);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.claimPermissions.evidenceBasis.crosswalk).toBe("direct");
 
@@ -922,7 +966,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(26);
+    expect(surface?.componentOrder).toHaveLength(28);
     expect(surface?.claimPermissions.integrityState).toBe("full");
 
     render(<CareerDisplaySurface surface={surface} />);
