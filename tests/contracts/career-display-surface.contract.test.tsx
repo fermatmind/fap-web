@@ -204,6 +204,8 @@ describe("career display surface contract", () => {
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
+      expect(screen.getByRole("heading", { name: "会计与审计人员会被 AI 取代吗？AI 影响与职业应对" })).toBeInTheDocument();
+      expect(document.querySelector('[data-career-api-field="ai_impact_table.ai_head_sub"]')?.parentElement).toHaveClass("sr-only");
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
       expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
@@ -223,7 +225,7 @@ describe("career display surface contract", () => {
     const assessmentRail = screen.getByTestId("career-production-assessment-rail");
     expect(assessmentRail).toBeInTheDocument();
     if (locale === "zh") {
-      expect(assessmentRail).toHaveTextContent("找到更适合你的方向");
+      expect(assessmentRail).not.toHaveTextContent("找到更适合你的方向");
       expect(assessmentRail.querySelector("a")).toHaveAttribute("href", expect.stringContaining("/zh/tests/"));
     } else {
       expect(assessmentRail).toHaveClass("min-h-[132px]", "justify-center");

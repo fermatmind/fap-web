@@ -135,9 +135,9 @@ function isPublishedComponentUnavailable(value: unknown): boolean {
     "availability" in value && value.availability === "unavailable";
 }
 
-function ComponentFrame({ id, children }: { id: CareerDisplayComponentId; children: ReactNode }) {
+function ComponentFrame({ id, children, hidden = false }: { id: CareerDisplayComponentId; children: ReactNode; hidden?: boolean }) {
   return (
-    <div id={`career-component-${id}`} data-career-component-id={id} className="scroll-mt-24">
+    <div id={`career-component-${id}`} data-career-component-id={id} className={hidden ? "hidden" : "scroll-mt-24"}>
       {children}
     </div>
   );
@@ -157,18 +157,46 @@ function BoundaryCard({ surface, title }: { surface: CareerDisplaySurfaceViewMod
   );
 }
 
+const RELATED_CAREER_TITLES_ZH: Record<string, string> = {
+  "Financial managers": "财务经理",
+  "Financial Managers": "财务经理",
+  "Financial Analysts": "财务分析师",
+  "Loan Officers": "信贷专员",
+  "Financial examiners": "财务审查员",
+  "Management analysts": "管理分析师",
+  "Payroll And Timekeeping Clerks": "薪酬与考勤文员",
+  "Credit Analysts": "信用分析师",
+  "Financial and Investment Analysts": "财务与投资分析师",
+  "Bookkeeping, accounting, and auditing clerks": "簿记、会计与审计文员",
+  "Cost Estimators": "成本估算师",
+};
+
 function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   const related = surface.relatedNextPages;
   if (!related) {
     return null;
   }
 
+  const links = related.links.filter((page, index, pages) =>
+    pages.findIndex((candidate) => candidate.titleEn === page.titleEn) === index
+  );
+  const isAccountant = surface.subject.canonicalSlug === "accountants-and-auditors";
+  const isAccountantZh = surface.locale === "zh" && isAccountant;
+  const accountantCareerLink = (titleEn: string, label: string) => {
+    const page = links.find((candidate) => candidate.titleEn === titleEn);
+    return page ? (
+      <Link href={`/${surface.locale}/career/jobs/${page.slug}`} className="font-semibold text-[#2C3E8C]">
+        {label}
+      </Link>
+    ) : label;
+  };
+
   if (surface.locale !== "zh") {
     return (
       <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-career-api-component="related_next_pages">
         <h2 className="m-0 text-2xl font-bold text-[#1A2233]" data-career-api-field="related_next_pages.intro">{related.intro}</h2>
         <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3" data-career-api-list="related_next_pages.links">
-          {related.links.slice(0, 12).map((page) => (
+          {links.slice(0, isAccountant ? 9 : 12).map((page) => (
             <li
               key={page.slug}
               data-related-career-slug={page.slug}
@@ -186,10 +214,17 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
 
   return (
     <section className={`rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`} data-career-api-component="related_next_pages">
-      <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">相关职业</h2>
-      <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>
+      <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">{isAccountantZh ? "相关职业与职业发展路径" : "相关职业"}</h2>
+      {isAccountantZh ? (
+        <>
+          <p className="sr-only" data-career-api-field="related_next_pages.intro">{related.intro}</p>
+          <p className="m-0 mt-3 text-[15px] leading-7 text-[#3D4658]">
+            会计与审计处在财务职业网络的中心。下列 9 个相邻或进阶职业均可双向跳转，便于读者沿「记录 → 核算 → 分析 → 管理」的路径系统探索：
+          </p>
+        </>
+      ) : <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>}
       <ul className={`m-0 mt-3 grid p-0 sm:grid-cols-2 xl:grid-cols-3 ${visual.relatedGrid}`} data-career-api-list="related_next_pages.links">
-        {related.links.map((page) => (
+        {links.slice(0, isAccountantZh ? 9 : links.length).map((page) => (
           <li
             key={page.slug}
             data-related-career-slug={page.slug}
@@ -197,10 +232,23 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
             data-related-career-nofollow={String(page.nofollow)}
             className={`list-none rounded-[10px] border border-[#E5E9F2] bg-[#F0F3FA] text-[13.5px] font-semibold text-[#2C3E8C] ${visual.relatedCard}`}
           >
-            <span data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span>
+            {isAccountantZh ? (
+              <Link
+                href={`/${surface.locale}/career/jobs/${page.slug}`}
+                rel={page.nofollow ? "nofollow" : undefined}
+              >
+                {RELATED_CAREER_TITLES_ZH[page.titleEn] ?? page.titleEn}
+              </Link>
+            ) : page.titleEn}
+            {isAccountantZh ? <span className="sr-only" data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span> : null}
           </li>
         ))}
       </ul>
+      {isAccountantZh ? (
+        <p className="m-0 mt-4 text-[15px] leading-7 text-[#3D4658]">
+          从技术岗走向管理，优先看 {accountantCareerLink("Financial managers", "财务经理")} 与 {accountantCareerLink("Financial and Investment Analysts", "财务分析师")}；想入门核算，看 {accountantCareerLink("Bookkeeping, accounting, and auditing clerks", "簿记文员")} 的高替代风险对照。
+        </p>
+      ) : null}
     </section>
   );
 }
@@ -219,8 +267,18 @@ function CareerProductionHero({
   const badges = published
     ? presentation?.hero.badges ?? []
     : (legacyRiasec?.profile ?? []).slice(0, 3).map((text, sourceIndex) => ({ text, sourceIndex }));
+  const publishedStats = presentation?.hero.stats ?? [];
   const stats = published
-    ? presentation?.hero.stats ?? []
+    ? surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors"
+      ? publishedStats.map((stat, index) => index === 4
+        ? {
+            ...stat,
+            value: "¥7.2万–18万",
+            label: "中国参考年薪",
+            sourceLabel: "国内招聘平台参考",
+          }
+        : stat)
+      : publishedStats
     : (legacySnapshot?.rows ?? []).slice(0, 5).map(([label, value], sourceIndex) => ({
         label,
         value,
@@ -277,6 +335,7 @@ function CareerProductionHero({
           </div>
         ) : null}
         {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={usesPresentation ? "presentation_v1.hero.lead" : "hero.quick_answer"}>{heroLead}</p> : null}
+        {aiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field="presentation_v1.hero.ai_exposure.note">{aiExposure.note}</p> : null}
       </div>
       {aiExposure || legacyAiImpact?.score ? (
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
@@ -287,7 +346,6 @@ function CareerProductionHero({
           </div>
         </div>
       ) : null}
-      {aiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field="presentation_v1.hero.ai_exposure.note">{aiExposure.note}</p> : null}
       {stats.length > 0 ? (
         <div className={`grid ${visual.heroStats}`} data-testid="career-production-hero-stats">
           {stats.map((stat, index) => (
@@ -299,7 +357,7 @@ function CareerProductionHero({
           ))}
         </div>
       ) : null}
-      {!published || heroCta ? <Link
+      {!published ? <Link
         id={published ? "career-component-primary_cta" : undefined}
         href={heroCta ? publishedCtaHref(heroCta.href, surface.locale, primaryCtaHref) : primaryCtaHref}
         data-career-component-id={published ? "primary_cta" : undefined}
@@ -497,6 +555,7 @@ export function CareerProductionDisplaySurface({
         testId={COMPONENT_TEST_IDS[componentId]}
         value={publishedComponents[componentId]}
         aiExposureNote={componentId === "ai_impact_table" ? surface.presentationV1?.hero.aiExposure?.note ?? null : null}
+        subjectTitle={surface.subject.title}
         locale={surface.locale}
       />;
     }
@@ -584,16 +643,16 @@ export function CareerProductionDisplaySurface({
 
   const breadcrumb = renderComponent("breadcrumb");
   const compoundGroupIds = new Set([
+    "quick-decision",
     "profile",
+    "adjacent-comparison",
     "fit-map",
     "risk-change",
     "faq-sources-boundaries",
   ]);
   const titledGroupIds = new Set([
     "profile",
-    "fit-map",
     "risk-change",
-    "faq-sources-boundaries",
   ]);
 
   const renderVisualGroup = (group: CareerVisualGroupDefinition) => {
@@ -602,6 +661,16 @@ export function CareerProductionDisplaySurface({
     if (group.id === "hero") {
       componentNodes = [
         <ComponentFrame key="hero" id="hero">{renderComponent("hero")}</ComponentFrame>,
+        surface.presentationV1?.hero.cta ? (
+          <ComponentFrame key="primary_cta" id="primary_cta" hidden>
+            <span
+              data-career-api-component="primary_cta"
+              data-career-api-fields="presentation_v1.hero.cta.label presentation_v1.hero.cta.href"
+            >
+              {surface.presentationV1.hero.cta.label}
+            </span>
+          </ComponentFrame>
+        ) : null,
       ];
     } else if (group.id === "snapshot") {
       componentNodes = [
@@ -635,7 +704,10 @@ export function CareerProductionDisplaySurface({
         const content = componentId === "final_cta"
           ? <div data-testid="career-decision-action-block">{component}</div>
           : component;
-        return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
+        const hidden = isZh
+          && surface.subject.canonicalSlug === "accountants-and-auditors"
+          && (componentId === "review_validity_card" || componentId === "boundary_notice" || componentId === "final_cta");
+        return <ComponentFrame key={componentId} id={componentId} hidden={hidden}>{content}</ComponentFrame>;
       });
     }
 
@@ -678,7 +750,6 @@ export function CareerProductionDisplaySurface({
           <div className={visual.toc}>
             <div className={visual.tocHeading}>
               <span className={visual.tocKicker}>{isZh ? "职业档案" : "Career dossier"}</span>
-              <h2 className="m-0 text-sm font-extrabold text-[#1A2233]">{isZh ? "页面目录" : "Contents"}</h2>
             </div>
             <nav className={visual.tocNav}>
               {visibleVisualGroups.map(({ group }, index) => (
@@ -689,8 +760,13 @@ export function CareerProductionDisplaySurface({
               ))}
             </nav>
           </div>
-          <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
-            <span className={visual.assessmentRailLabel}>{isZh ? "找到更适合你的方向" : "Find your best-fit direction"}</span>
+          <section
+            className={visual.assessmentRail}
+            data-testid="career-production-assessment-rail"
+          >
+            {surface.subject.canonicalSlug !== "accountants-and-auditors" ? (
+              <span className={visual.assessmentRailLabel}>{isZh ? "找到更适合你的方向" : "Find your best-fit direction"}</span>
+            ) : null}
             <Link href={primaryCtaHref} className={visual.assessmentRailCta}>
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
               <span aria-hidden="true">→</span>
