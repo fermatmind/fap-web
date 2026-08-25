@@ -626,9 +626,6 @@ export function CareerProductionDisplaySurface({
           componentId="career_snapshot_primary_locale"
           value={publishedComponents.career_snapshot_primary_locale}
           snapshotVariant="china"
-          snapshotTitle={surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors"
-            ? "中国大陆薪资参考"
-            : undefined}
           salaryBoundary={surface.presentationV1?.notices.salaryBoundary ?? null}
           locale={surface.locale}
         />,

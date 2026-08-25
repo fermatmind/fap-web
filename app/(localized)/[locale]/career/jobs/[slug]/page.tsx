@@ -798,7 +798,7 @@ export async function generateMetadata({
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
-  if (locale === "zh" && job.displaySurfaceAuthorityState === "published_invalid") {
+  if (job.displaySurfaceAuthorityState === "published_invalid") {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
@@ -974,7 +974,7 @@ export default async function CareerJobDetailPage({
 
   if (
     (slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !displaySurface) ||
-    (locale === "zh" && job.displaySurfaceAuthorityState === "published_invalid")
+    job.displaySurfaceAuthorityState === "published_invalid"
   ) {
     return notFound();
   }

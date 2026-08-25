@@ -3,7 +3,11 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CAREER_VISUAL_GROUP_IDS } from "@/lib/career/careerVisualGroups";
-import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import {
+  CAREER_DISPLAY_COMPONENT_ORDER,
+  adaptCareerDisplaySurface,
+  isCareerProductionDisplaySurface,
+} from "@/lib/career/displaySurface";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
 function buildEnglishCurrentProjection(slug: string, titleEn: string) {
@@ -57,6 +61,37 @@ function buildEnglishCurrentProjection(slug: string, titleEn: string) {
 }
 
 describe("career English Current production renderer", () => {
+  it("routes the complete 1046-slug bilingual inventory through the shared production renderer", () => {
+    const sitemap = readFileSync("tests/contracts/fixtures/seo/public-sitemap-snapshot.xml", "utf8");
+    const inventory = new Map<"en" | "zh", Set<string>>([
+      ["en", new Set<string>()],
+      ["zh", new Set<string>()],
+    ]);
+
+    for (const match of sitemap.matchAll(/<loc>https:\/\/fermatmind\.com\/(en|zh)\/career\/jobs\/([^<]+)<\/loc>/g)) {
+      inventory.get(match[1] as "en" | "zh")?.add(match[2]);
+    }
+
+    expect(inventory.get("en")?.size).toBe(1046);
+    expect(inventory.get("zh")?.size).toBe(1046);
+    expect(inventory.get("en")).toEqual(inventory.get("zh"));
+
+    for (const slug of inventory.get("en") ?? []) {
+      const title = slug.split("-").map((part) => `${part[0]?.toUpperCase() ?? ""}${part.slice(1)}`).join(" ");
+      const enSurface = adaptCareerDisplaySurface(buildEnglishCurrentProjection(slug, title), "en", {}, slug, title);
+      const zhSurface = adaptCareerDisplaySurface(
+        buildSelectedCareerDisplaySurfaceFixture({ slug, locale: "zh", titleEn: title, titleZh: title }),
+        "zh",
+        {},
+        slug,
+        title,
+      );
+
+      expect(enSurface && isCareerProductionDisplaySurface(enSurface), `en:${slug}`).toBe(true);
+      expect(zhSurface && isCareerProductionDisplaySurface(zhSurface), `zh:${slug}`).toBe(true);
+    }
+  });
+
   it("adapts the sealed EN-F2B projection when local authority evidence is available", () => {
     const projectionPath = "/private/tmp/fap-api-en-f2b.oRs65H/plan-a/projections/en/accountants-and-auditors.json";
     if (!existsSync(projectionPath)) return;

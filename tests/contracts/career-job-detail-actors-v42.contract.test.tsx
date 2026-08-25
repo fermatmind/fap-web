@@ -232,7 +232,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("career-display-surface");
     expect(html).toContain("费马快速判断");
     expect(html).toContain("职业快照");
-    expect(html).toContain("中国大陆参考");
+    expect(html).toContain("中国大陆薪资参考");
     expect(html).toContain("市场信号");
     expect(html).toContain("AI 影响");
     expect(html).toContain("FAQ");
@@ -476,14 +476,12 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Fermat Quick Fit");
   });
 
-  it("falls back to the existing legacy renderer when display_surface_v1 is invalid", async () => {
+  it("fails closed when an English display_surface_v1 is invalid", async () => {
     const invalidSurface = buildActorsDisplaySurfaceFixture();
     invalidSurface.surface_version = "invalid";
-    const html = await renderCareerJobPage("en", "actors", buildJobBundle({ displaySurface: invalidSurface }));
-
-    expect(html).toContain("career-job-docx-document");
-    expect(html).toContain("Legacy Actors DOCX body");
-    expect(html).not.toContain("career-display-surface");
+    await expect(
+      renderCareerJobPage("en", "actors", buildJobBundle({ displaySurface: invalidSurface }))
+    ).rejects.toThrow("not-found");
   });
 
   it("keeps unrelated jobs on the legacy renderer when no display surface exists", async () => {
@@ -620,42 +618,38 @@ describe("career job detail Actors v4.2 route integration", () => {
     ).rejects.toThrow("not-found");
   });
 
-  it("keeps unrelated slugs on the legacy renderer when display_surface_v1 is invalid", async () => {
+  it("fails closed for any English slug when display_surface_v1 is invalid", async () => {
     const invalidSurface = buildSelectedCareerDisplaySurfaceFixture({
       slug: "writers",
       titleEn: "Writers",
     });
     invalidSurface.asset_version = "v4.1";
-    const html = await renderCareerJobPage(
-      "en",
-      "writers",
-      buildJobBundle({
-        slug: "writers",
-        displaySurface: invalidSurface,
-      })
-    );
-
-    expect(html).toContain("career-job-docx-document");
-    expect(html).not.toContain("career-display-surface");
-    expect(html).not.toContain("Writers is a real backend component-keyed display_surface_v1 test page.");
+    await expect(
+      renderCareerJobPage(
+        "en",
+        "writers",
+        buildJobBundle({
+          slug: "writers",
+          displaySurface: invalidSurface,
+        })
+      )
+    ).rejects.toThrow("not-found");
   });
 
-  it("keeps route slug mismatches on the legacy renderer", async () => {
-    const html = await renderCareerJobPage(
-      "en",
-      "web-developers",
-      buildJobBundle({
-        slug: "web-developers",
-        displaySurface: buildSelectedCareerDisplaySurfaceFixture({
-          slug: "marketing-managers",
-          titleEn: "Marketing Managers",
-        }),
-      })
-    );
-
-    expect(html).toContain("career-job-docx-document");
-    expect(html).not.toContain("career-display-surface");
-    expect(html).not.toContain("Marketing Managers");
+  it("fails closed when an English display surface slug mismatches the route", async () => {
+    await expect(
+      renderCareerJobPage(
+        "en",
+        "web-developers",
+        buildJobBundle({
+          slug: "web-developers",
+          displaySurface: buildSelectedCareerDisplaySurfaceFixture({
+            slug: "marketing-managers",
+            titleEn: "Marketing Managers",
+          }),
+        })
+      )
+    ).rejects.toThrow("not-found");
   });
 
   it("keeps unrelated legacy jobs on the legacy renderer when inbound attribution is present", async () => {
