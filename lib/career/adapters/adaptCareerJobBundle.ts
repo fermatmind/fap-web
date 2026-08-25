@@ -107,10 +107,12 @@ function hasOwn(value: Record<string, unknown>, key: string): boolean {
 }
 
 function resolveDisplaySurfaceAuthorityState({
+  locale,
   raw,
   seoContract,
   displaySurface,
 }: {
+  locale: "en" | "zh";
   raw: Record<string, unknown>;
   seoContract: CareerSeoContractAdapter;
   displaySurface: CareerJobBundleAdapter["displaySurfaceV1"];
@@ -123,7 +125,7 @@ function resolveDisplaySurfaceAuthorityState({
     (reasonCode) => reasonCode === "runtime_publish_projection" || reasonCode === "validated_display_asset_backed_release"
   );
 
-  return hasOwn(raw, "display_surface_v1") || declaresPublishedProjection
+  return hasOwn(raw, "display_surface_v1") || (locale === "zh" && declaresPublishedProjection)
     ? "published_invalid"
     : "absent_legacy";
 }
@@ -696,6 +698,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     contentBodyMd: normalizeString(raw.content_body_md),
     displaySurfaceV1,
     displaySurfaceAuthorityState: resolveDisplaySurfaceAuthorityState({
+      locale: input.locale,
       raw,
       seoContract,
       displaySurface: displaySurfaceV1,
