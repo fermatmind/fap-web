@@ -31,12 +31,13 @@ describe("security headers baseline contract", () => {
     expect(nginxConf).toContain("Per-request nonce CSP");
   });
 
-  it("csp is enforced, keeps report-only telemetry, and does not include report-uri/report-to", () => {
+  it("csp stays report-only so browser annotation tooling is never blocked", () => {
     const csp = read("lib/security/contentSecurityPolicy.ts");
     const nginxConf = read("deploy/nginx/fap-web.conf");
 
     expect(csp).toContain("Content-Security-Policy-Report-Only");
-    expect(csp).toContain("Content-Security-Policy");
+    expect(csp).toContain('headers.delete("Content-Security-Policy")');
+    expect(csp).not.toContain('headers.set("Content-Security-Policy",');
     expect(csp).toContain("'nonce-${nonce}'");
     expect(csp).toContain("'strict-dynamic'");
     expect(csp).not.toContain("'unsafe-inline'");
@@ -62,21 +63,19 @@ describe("security headers baseline contract", () => {
     }
   });
 
-  it("runs report-only before enforce outside production and fails production to enforce", async () => {
-    const { applyNonceCspHeaders, buildNonceCsp, resolveCspMode } = await import("@/lib/security/contentSecurityPolicy");
+  it("keeps every environment report-only even when stale deployment config requests enforce", async () => {
+    const { applyNonceCspHeaders, buildNonceCsp } = await import("@/lib/security/contentSecurityPolicy");
     const policy = buildNonceCsp("noncevalue1234567890");
     const reportOnlyHeaders = new Headers({ "Content-Security-Policy": "stale" });
-    const enforceHeaders = new Headers();
-    applyNonceCspHeaders(reportOnlyHeaders, "noncevalue1234567890", "report-only");
-    applyNonceCspHeaders(enforceHeaders, "noncevalue1234567890", "enforce");
+    const staleEnforceHeaders = new Headers({ "Content-Security-Policy": "stale" });
+    applyNonceCspHeaders(reportOnlyHeaders, "noncevalue1234567890");
+    applyNonceCspHeaders(staleEnforceHeaders, "noncevalue1234567890");
 
-    expect(resolveCspMode({ NODE_ENV: "test" })).toBe("report-only");
-    expect(resolveCspMode({ NODE_ENV: "production" })).toBe("enforce");
-    expect(resolveCspMode({ NODE_ENV: "production", CSP_NONCE_MODE: "report-only" })).toBe("report-only");
     expect(policy).toContain("nonce-noncevalue1234567890");
     expect(policy).not.toContain("unsafe-inline");
     expect(reportOnlyHeaders.has("Content-Security-Policy")).toBe(false);
     expect(reportOnlyHeaders.get("Content-Security-Policy-Report-Only")).toBe(policy);
-    expect(enforceHeaders.get("Content-Security-Policy")).toBe(policy);
+    expect(staleEnforceHeaders.has("Content-Security-Policy")).toBe(false);
+    expect(staleEnforceHeaders.get("Content-Security-Policy-Report-Only")).toBe(policy);
   });
 });

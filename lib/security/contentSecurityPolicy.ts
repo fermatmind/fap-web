@@ -1,19 +1,8 @@
-export type CspMode = "report-only" | "enforce";
-
 export function createCspNonce(): string {
   const bytes = new Uint8Array(16);
   crypto.getRandomValues(bytes);
 
   return Array.from(bytes, (value) => value.toString(16).padStart(2, "0")).join("");
-}
-
-export function resolveCspMode(env: NodeJS.ProcessEnv = process.env): CspMode {
-  const configured = env.CSP_NONCE_MODE?.trim().toLowerCase();
-  if (configured === "report-only" || configured === "enforce") {
-    return configured;
-  }
-
-  return env.NODE_ENV === "production" ? "enforce" : "report-only";
 }
 
 export function buildNonceCsp(nonce: string): string {
@@ -37,12 +26,8 @@ export function buildNonceCsp(nonce: string): string {
   ].join("; ");
 }
 
-export function applyNonceCspHeaders(headers: Headers, nonce: string, mode: CspMode): void {
+export function applyNonceCspHeaders(headers: Headers, nonce: string): void {
   const policy = buildNonceCsp(nonce);
   headers.set("Content-Security-Policy-Report-Only", policy);
-  if (mode === "enforce") {
-    headers.set("Content-Security-Policy", policy);
-  } else {
-    headers.delete("Content-Security-Policy");
-  }
+  headers.delete("Content-Security-Policy");
 }

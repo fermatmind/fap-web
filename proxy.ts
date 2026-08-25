@@ -28,7 +28,6 @@ import {
   applyNonceCspHeaders,
   buildNonceCsp,
   createCspNonce,
-  resolveCspMode,
 } from "@/lib/security/contentSecurityPolicy";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
@@ -345,7 +344,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   const requestHeaders = new Headers(request.headers);
   const cspNonce = createCspNonce();
   requestHeaders.set("x-nonce", cspNonce);
-  applyNonceCspHeaders(requestHeaders, cspNonce, resolveCspMode());
+  applyNonceCspHeaders(requestHeaders, cspNonce);
   // Next.js reads the nonce from the incoming CSP request header even during
   // the report-only rollout phase; only the outgoing response controls enforcement.
   requestHeaders.set("Content-Security-Policy", buildNonceCsp(cspNonce));
@@ -379,7 +378,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
       headers: requestHeaders,
     },
   });
-  applyNonceCspHeaders(response.headers, cspNonce, resolveCspMode());
+  applyNonceCspHeaders(response.headers, cspNonce);
 
   if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {
     response.cookies.set({
