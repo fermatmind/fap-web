@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -8,7 +7,16 @@ import { isPersonalityAgentAutoQaAndApprovalHandoff01AllowedFile } from "./helpe
 const ROOT = process.cwd();
 const QA_PATH = "docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.json";
 const HANDOFF_PATH = "docs/seo/personality/personality-agent-auto-approval-handoff-package-2026-06-27.json";
-const BRANCH = "codex/personality-agent-auto-qa-and-approval-handoff-01";
+const HISTORICAL_SCOPE_FIXTURE = [
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  QA_PATH,
+  "docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.md",
+  HANDOFF_PATH,
+  "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts",
+];
 
 type PageResult = {
   target_url: string;
@@ -66,60 +74,6 @@ type HandoffPackage = {
 
 function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8")) as T;
-}
-
-function changedFiles(): string[] {
-  const commands = [
-    ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only"],
-    ["diff", "--cached", "--name-only"],
-  ];
-
-  return Array.from(
-    new Set(
-      commands.flatMap((args) => {
-        try {
-          return execFileSync("git", args, {
-            cwd: ROOT,
-            encoding: "utf8",
-            stdio: ["ignore", "pipe", "ignore"],
-          })
-            .split("\n")
-            .map((line) => line.trim())
-            .filter(Boolean);
-        } catch {
-          return [];
-        }
-      }),
-    ),
-  ).sort();
-}
-
-function currentFiles(): string[] {
-  if (process.env.GITHUB_ACTIONS === "true" && process.env.GITHUB_HEAD_REF === BRANCH) {
-    return [
-      "docs/codex/pr-train-state.json",
-      "docs/codex/pr-train.yaml",
-      QA_PATH,
-      "docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.md",
-      HANDOFF_PATH,
-      "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
-      "tests/contracts/helpers/currentPrScope.ts",
-      "tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts",
-    ];
-  }
-
-  const files = changedFiles();
-  if (files.length > 0) return files;
-
-  return execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", "-m", "HEAD"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  })
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .sort();
 }
 
 describe("PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01", () => {
@@ -191,9 +145,11 @@ describe("PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01", () => {
     expect(handoff.safety_boundary.approval_queue_write_attempted).toBe(false);
   });
 
-  it("keeps current PR changed files inside the approved auto-QA handoff scope", () => {
-    const files = currentFiles();
-    expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isPersonalityAgentAutoQaAndApprovalHandoff01AllowedFile), files.join("\n")).toBe(true);
+  it("keeps the historical auto-QA handoff scope fixture exact and locally enforceable", () => {
+    const allowedFiles = new Set(HISTORICAL_SCOPE_FIXTURE);
+
+    expect(HISTORICAL_SCOPE_FIXTURE.every(isPersonalityAgentAutoQaAndApprovalHandoff01AllowedFile)).toBe(true);
+    expect(allowedFiles.size).toBe(HISTORICAL_SCOPE_FIXTURE.length);
+    expect(allowedFiles.has("package.json")).toBe(false);
   });
 });

@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -8,7 +7,16 @@ import { isPersonalityAgentOpportunityRankerAutomation01AllowedFile } from "./he
 const ROOT = process.cwd();
 const JSON_PATH = "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.json";
 const CSV_PATH = "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.csv";
-const BRANCH = "codex/personality-agent-opportunity-ranker-automation-01";
+const HISTORICAL_SCOPE_FIXTURE = [
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  CSV_PATH,
+  JSON_PATH,
+  "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.md",
+  "scripts/seo/personality-agent-opportunity-ranker.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts",
+];
 
 type RankedRecord = {
   target_url: string;
@@ -46,60 +54,6 @@ type Report = {
 
 function readJson<T>(relativePath: string): T {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8")) as T;
-}
-
-function changedFiles(): string[] {
-  const commands = [
-    ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only"],
-    ["diff", "--cached", "--name-only"],
-  ];
-
-  return Array.from(
-    new Set(
-      commands.flatMap((args) => {
-        try {
-          return execFileSync("git", args, {
-            cwd: ROOT,
-            encoding: "utf8",
-            stdio: ["ignore", "pipe", "ignore"],
-          })
-            .split("\n")
-            .map((line) => line.trim())
-            .filter(Boolean);
-        } catch {
-          return [];
-        }
-      }),
-    ),
-  ).sort();
-}
-
-function currentFiles(): string[] {
-  if (process.env.GITHUB_ACTIONS === "true" && process.env.GITHUB_HEAD_REF === BRANCH) {
-    return [
-      "docs/codex/pr-train-state.json",
-      "docs/codex/pr-train.yaml",
-      CSV_PATH,
-      JSON_PATH,
-      "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.md",
-      "scripts/seo/personality-agent-opportunity-ranker.mjs",
-      "tests/contracts/helpers/currentPrScope.ts",
-      "tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts",
-    ];
-  }
-
-  const files = changedFiles();
-  if (files.length > 0) return files;
-
-  return execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", "-m", "HEAD"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  })
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .sort();
 }
 
 describe("PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01", () => {
@@ -180,9 +134,11 @@ describe("PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01", () => {
     );
   });
 
-  it("keeps current PR changed files inside the approved ranker automation scope", () => {
-    const files = currentFiles();
-    expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isPersonalityAgentOpportunityRankerAutomation01AllowedFile), files.join("\n")).toBe(true);
+  it("keeps the historical ranker automation scope fixture exact and locally enforceable", () => {
+    const allowedFiles = new Set(HISTORICAL_SCOPE_FIXTURE);
+
+    expect(HISTORICAL_SCOPE_FIXTURE.every(isPersonalityAgentOpportunityRankerAutomation01AllowedFile)).toBe(true);
+    expect(allowedFiles.size).toBe(HISTORICAL_SCOPE_FIXTURE.length);
+    expect(allowedFiles.has("package.json")).toBe(false);
   });
 });

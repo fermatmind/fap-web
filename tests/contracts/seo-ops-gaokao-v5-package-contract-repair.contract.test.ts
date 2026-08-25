@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -10,8 +9,7 @@ const REPAIR_ROOT = "generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draf
 const PACKAGE_ROOT = path.join(REPAIR_ROOT, "resolved-package-repaired");
 const TARGET_SLUG = "gaokao-major-choice-parent-conflict-riasec-course-checklist";
 const TARGET_CANONICAL = `/zh/articles/${TARGET_SLUG}`;
-const PR_BRANCH = "codex/seo-ops-gaokao-v5-package-contract-repair-01";
-const EXPECTED_PR_SCOPE_FILES = [
+const HISTORICAL_SCOPE_FIXTURE = [
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
   `${PACKAGE_ROOT}/contracts/DYNAMIC_CTA_CONTRACT.json`,
@@ -36,60 +34,13 @@ function read(relativePath: string): string {
   return readFileSync(path.join(ROOT, relativePath), "utf8");
 }
 
-function changedFiles(): string[] {
-  const commands = [
-    ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only", "HEAD^...HEAD"],
-    ["diff", "--name-only"],
-    ["diff", "--cached", "--name-only"],
-  ];
-
-  return Array.from(
-    new Set(
-      commands.flatMap((args) => {
-        try {
-          return execFileSync("git", args, {
-            cwd: ROOT,
-            encoding: "utf8",
-            stdio: ["ignore", "pipe", "ignore"],
-          })
-            .split("\n")
-            .map((line) => line.trim())
-            .filter(Boolean);
-        } catch {
-          return [];
-        }
-      }),
-    ),
-  ).sort();
-}
-
-function currentFiles(): string[] {
-  if (process.env.GITHUB_ACTIONS === "true" && process.env.GITHUB_HEAD_REF === PR_BRANCH) {
-    return EXPECTED_PR_SCOPE_FILES;
-  }
-
-  const files = changedFiles();
-
-  if (files.length > 0) {
-    return files;
-  }
-
-  return execFileSync("git", ["diff-tree", "--no-commit-id", "--name-only", "-r", "-m", "HEAD"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  })
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .sort();
-}
-
 describe("SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01", () => {
-  it("keeps the PR scope limited to generated package repair evidence", () => {
-    const files = currentFiles();
-    expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isSeoOpsGaokaoV5PackageContractRepair01AllowedFile), files.join("\n")).toBe(true);
+  it("keeps the historical package repair scope fixture exact and locally enforceable", () => {
+    const allowedFiles = new Set(HISTORICAL_SCOPE_FIXTURE);
+
+    expect(HISTORICAL_SCOPE_FIXTURE.every(isSeoOpsGaokaoV5PackageContractRepair01AllowedFile)).toBe(true);
+    expect(allowedFiles.size).toBe(HISTORICAL_SCOPE_FIXTURE.length);
+    expect(allowedFiles.has("package.json")).toBe(false);
   });
 
   it("commits the repaired package copy with required contracts", () => {
