@@ -669,6 +669,7 @@ export function CareerProductionDisplaySurface({
       className={`mx-auto w-full max-w-[1440px] px-5 font-sans leading-7 text-[#1A2233] sm:px-6 md:px-8 xl:px-10 ${visual.article}`}
       data-testid="career-display-surface"
       data-career-production-template="career-production-v1"
+      data-career-dossier-layout="responsive-v2"
       data-career-renderer-release={rendererRelease}
     >
       <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div>

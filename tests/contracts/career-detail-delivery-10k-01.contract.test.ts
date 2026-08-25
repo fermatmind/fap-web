@@ -57,11 +57,12 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(semanticSource).toContain('case "ai_impact_table"');
     expect(semanticSource).toContain('case "career_snapshot_primary_locale"');
     expect(semanticSource).toContain('case "next_steps_block"');
-    expect(rendererSource).toContain("lg:grid-cols-[minmax(0,1fr)_320px]");
-    expect(rendererSource).toContain("lg:gap-10");
-    expect(visualSource).toContain("padding: 34px 36px;");
-    expect(visualSource).toContain("padding: 30px 34px;");
-    expect(visualSource).toContain("padding: 24px 22px;");
+    expect(rendererSource).toContain('data-career-dossier-layout="responsive-v2"');
+    expect(rendererSource).toContain("lg:grid-cols-[280px_minmax(0,1fr)]");
+    expect(rendererSource).toContain("lg:gap-8");
+    expect(visualSource).toContain("padding: 42px 44px;");
+    expect(visualSource).toContain("padding: 34px 38px;");
+    expect(visualSource).toContain("padding: 28px 22px;");
   });
 
   it("fails deployment closed unless local and public Career HTML serve the exact build", () => {
