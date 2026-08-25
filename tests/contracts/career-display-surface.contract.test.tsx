@@ -5,7 +5,6 @@ import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
-  buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -62,35 +61,6 @@ describe("career display surface contract", () => {
     expect(screen.queryByTestId("career-display-surface")).not.toBeInTheDocument();
   });
 
-  it("adapts and renders the production v4.2 24-component display surface", () => {
-    const surface = adaptCareerDisplaySurface(
-      buildProductionV42LegacyDisplaySurfaceFixture({
-        slug: "adapted-physical-education-specialists",
-        titleEn: "Adapted Physical Education Specialists",
-      }),
-      "en"
-    );
-
-    expect(surface).not.toBeNull();
-    expect(surface?.componentOrder).toHaveLength(24);
-    expect(surface?.componentOrder).not.toContain("career_ai_description_block");
-    expect(surface?.componentOrder).not.toContain("career_path_block");
-
-    render(<CareerDisplaySurface surface={surface} />);
-
-    expect(screen.getByTestId("career-display-hero")).toHaveTextContent(
-      "Adapted Physical Education Specialists is a real backend component-keyed display_surface_v1 test page."
-    );
-    expect(screen.getByTestId("definition-block")).toHaveTextContent(
-      "Adapted Physical Education Specialists turns occupational tasks into accountable work outcomes."
-    );
-    expect(screen.getByTestId("responsibilities-block")).toHaveTextContent("Analyze task requirements");
-    expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
-    expect(screen.getByTestId("career-display-faq")).toHaveTextContent(
-      "Is Adapted Physical Education Specialists a good career fit?"
-    );
-  });
-
   it("adapts and renders the valid Actors display surface", () => {
     const surface = adaptCareerDisplaySurface(buildActorsDisplaySurfaceFixture(), "en");
 
@@ -102,6 +72,9 @@ describe("career display surface contract", () => {
     expect(surface?.faqItems).toHaveLength(2);
     expect(surface?.claimPermissions.integrityState).toBe("full");
     expect(surface?.claimPermissions.allowAiStrategy).toBe(true);
+    expect(surface).not.toHaveProperty("templateVersion");
+    expect(JSON.stringify(surface)).not.toContain("asset_version");
+    expect(JSON.stringify(surface)).not.toContain("template_version");
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -233,7 +206,7 @@ describe("career display surface contract", () => {
     expect(assessmentRail.querySelector("p")).not.toBeInTheDocument();
   });
 
-  it("renders v4.3 quick answers in qa3, qa2, qa1 order with accessible 2-to-4-column tables", () => {
+  it("renders current quick answers in qa3, qa2, qa1 order with accessible 2-to-4-column tables", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -252,7 +225,7 @@ describe("career display surface contract", () => {
     expect(document.querySelector('#career-component-onet_structured_fields_block [data-career-table-wrap]')).toHaveClass("overflow-x-auto");
   });
 
-  it("hides authoritative unavailable v4.3 English components without fallback copy", () => {
+  it("hides authoritative unavailable current English components without fallback copy", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -1036,18 +1009,18 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("rejects a 25-component mixed v4.2 order", () => {
-    const fixture = buildProductionV42LegacyDisplaySurfaceFixture();
-    fixture.component_order.splice(10, 0, "career_ai_description_block");
+  it("rejects an incomplete component order", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    fixture.component_order.splice(10, 1);
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
   it("rejects duplicate and incorrectly ordered component ids", () => {
-    const duplicate = buildProductionV42LegacyDisplaySurfaceFixture();
-    duplicate.component_order[23] = duplicate.component_order[22];
+    const duplicate = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    duplicate.component_order[27] = duplicate.component_order[26];
 
-    const outOfOrder = buildProductionV42LegacyDisplaySurfaceFixture();
+    const outOfOrder = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
     [outOfOrder.component_order[10], outOfOrder.component_order[11]] = [
       outOfOrder.component_order[11],
       outOfOrder.component_order[10],
@@ -1057,18 +1030,21 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(outOfOrder, "en")).toBeNull();
   });
 
-  it("rejects 24-component surfaces with mismatched locale, version, status, or slug", () => {
-    const localeMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
-    const versionMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
-    const statusMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
-    const slugMismatch = buildProductionV42LegacyDisplaySurfaceFixture();
+  it("rejects surfaces with mismatched locale, status, slug, or a version discriminator", () => {
+    const localeMismatch = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const versionedRoot = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const versionedAsset = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const statusMismatch = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const slugMismatch = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
 
-    versionMismatch.asset_version = "v4.1";
+    (versionedRoot as Record<string, unknown>).asset_version = "legacy";
+    (versionedAsset.asset as Record<string, unknown>).template_version = "legacy";
     statusMismatch.status = "draft";
     slugMismatch.asset.slug = "another-career";
 
     expect(adaptCareerDisplaySurface(localeMismatch, "zh")).toBeNull();
-    expect(adaptCareerDisplaySurface(versionMismatch, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(versionedRoot, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(versionedAsset, "en")).toBeNull();
     expect(adaptCareerDisplaySurface(statusMismatch, "en")).toBeNull();
     expect(adaptCareerDisplaySurface(slugMismatch, "en")).toBeNull();
   });

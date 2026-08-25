@@ -13,8 +13,6 @@ import {
 } from "@/lib/career/presentationV1";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
-export const CAREER_DISPLAY_TEMPLATE_VERSION = "v4.3" as const;
-export const CAREER_DISPLAY_TEMPLATE_VERSION_V4_2 = "v4.2" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
 export const CAREER_DISPLAY_ACCOUNTANTS_SLUG = "accountants-and-auditors" as const;
 export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = ["software-developers"] as const;
@@ -71,62 +69,6 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "final_cta",
 ] as const;
 
-export const CAREER_DISPLAY_COMPONENT_ORDER_V4_2 = [
-  "breadcrumb",
-  "hero",
-  "fermat_decision_card",
-  "primary_cta",
-  "career_snapshot_primary_locale",
-  "career_snapshot_secondary_locale",
-  "fit_decision_checklist",
-  "riasec_fit_block",
-  "personality_fit_block",
-  "definition_block",
-  "career_ai_description_block",
-  "responsibilities_block",
-  "work_context_block",
-  "market_signal_card",
-  "adjacent_career_comparison_table",
-  "ai_impact_table",
-  "career_risk_cards",
-  "career_path_block",
-  "contract_project_risk_block",
-  "next_steps_block",
-  "faq_block",
-  "related_next_pages",
-  "source_card",
-  "review_validity_card",
-  "boundary_notice",
-  "final_cta",
-] as const;
-
-export const CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24 = [
-  "breadcrumb",
-  "hero",
-  "fermat_decision_card",
-  "primary_cta",
-  "career_snapshot_primary_locale",
-  "career_snapshot_secondary_locale",
-  "fit_decision_checklist",
-  "riasec_fit_block",
-  "personality_fit_block",
-  "definition_block",
-  "responsibilities_block",
-  "work_context_block",
-  "market_signal_card",
-  "adjacent_career_comparison_table",
-  "ai_impact_table",
-  "career_risk_cards",
-  "contract_project_risk_block",
-  "next_steps_block",
-  "faq_block",
-  "related_next_pages",
-  "source_card",
-  "review_validity_card",
-  "boundary_notice",
-  "final_cta",
-] as const;
-
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
@@ -140,9 +82,6 @@ export function isCareerDisplayManualHoldSlug(slug: string): boolean {
 }
 
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
-export type CareerDisplayTemplateVersion =
-  | typeof CAREER_DISPLAY_TEMPLATE_VERSION
-  | typeof CAREER_DISPLAY_TEMPLATE_VERSION_V4_2;
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
 
 export type CareerDisplayCta = {
@@ -272,7 +211,6 @@ export type CareerDisplayClaimPermissions = {
 
 export type CareerDisplaySurfaceViewModel = {
   surfaceVersion: typeof CAREER_DISPLAY_SURFACE_VERSION;
-  templateVersion: CareerDisplayTemplateVersion;
   assetType: typeof DISPLAY_ASSET_TYPE;
   assetRole: typeof DISPLAY_ASSET_ROLE;
   status: typeof READY_STATUS;
@@ -697,16 +635,20 @@ function matchesComponentOrder(
   return actual.length === expected.length && actual.every((component, index) => component === expected[index]);
 }
 
-function isSupportedComponentOrder(
-  order: readonly CareerDisplayComponentId[],
-  templateVersion: CareerDisplayTemplateVersion
-): boolean {
-  if (templateVersion === CAREER_DISPLAY_TEMPLATE_VERSION) {
-    return matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER);
+function hasVersionDiscriminator(root: Record<string, unknown>): boolean {
+  if (
+    Object.prototype.hasOwnProperty.call(root, "asset_version") ||
+    Object.prototype.hasOwnProperty.call(root, "template_version")
+  ) {
+    return true;
   }
 
-  return matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER_V4_2) ||
-    matchesComponentOrder(order, CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24);
+  const asset = isRecord(root.asset) ? root.asset : null;
+  return (
+    asset !== null &&
+    (Object.prototype.hasOwnProperty.call(asset, "asset_version") ||
+      Object.prototype.hasOwnProperty.call(asset, "template_version"))
+  );
 }
 
 function resolveLocalizedPage(root: Record<string, unknown>, locale: Locale): Record<string, unknown> | null {
@@ -1404,8 +1346,7 @@ function hasCompleteProductionProjection(input: {
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
   return (
-    (matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) ||
-      matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER_V4_2)) &&
+    matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) &&
     (surface.locale === "zh" ||
       surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
       surface.publishedComponents !== null)
@@ -1485,8 +1426,6 @@ export function adaptCareerDisplaySurface(
   const asset = isRecord(root.asset) ? root.asset : {};
   const subject = isRecord(root.subject) ? root.subject : {};
   const surfaceVersion = normalizeString(root.surface_version);
-  const assetVersion = normalizeString(root.asset_version) ?? normalizeString(asset.asset_version);
-  const templateVersion = normalizeString(root.template_version) ?? normalizeString(asset.template_version);
   const assetType = normalizeString(root.asset_type) ?? normalizeString(asset.asset_type);
   const assetRole = normalizeString(root.asset_role) ?? normalizeString(asset.asset_role);
   const status = normalizeString(root.status);
@@ -1503,10 +1442,7 @@ export function adaptCareerDisplaySurface(
 
   if (
     surfaceVersion !== CAREER_DISPLAY_SURFACE_VERSION ||
-    !(
-      (assetVersion === CAREER_DISPLAY_TEMPLATE_VERSION && templateVersion === CAREER_DISPLAY_TEMPLATE_VERSION) ||
-      (assetVersion === CAREER_DISPLAY_TEMPLATE_VERSION_V4_2 && templateVersion === CAREER_DISPLAY_TEMPLATE_VERSION_V4_2)
-    ) ||
+    hasVersionDiscriminator(root) ||
     assetType !== DISPLAY_ASSET_TYPE ||
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
       ? assetRole !== DISPLAY_ASSET_ROLE
@@ -1516,13 +1452,7 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    !isSupportedComponentOrder(componentOrder, templateVersion as CareerDisplayTemplateVersion) ||
-    ((locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) && !(
-      (templateVersion === CAREER_DISPLAY_TEMPLATE_VERSION &&
-        matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER)) ||
-      (templateVersion === CAREER_DISPLAY_TEMPLATE_VERSION_V4_2 &&
-        matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER_V4_2))
-    )) ||
+    !matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) ||
     !page ||
     !hero ||
     sections.length === 0 ||
@@ -1554,8 +1484,7 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
-  const usesProductionOrder = matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) ||
-    matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER_V4_2);
+  const usesProductionOrder = matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER);
   const publishedComponents = page && usesProductionOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
@@ -1591,7 +1520,6 @@ export function adaptCareerDisplaySurface(
 
   return {
     surfaceVersion: CAREER_DISPLAY_SURFACE_VERSION,
-    templateVersion: templateVersion as CareerDisplayTemplateVersion,
     assetType: DISPLAY_ASSET_TYPE,
     assetRole: DISPLAY_ASSET_ROLE,
     status: READY_STATUS,

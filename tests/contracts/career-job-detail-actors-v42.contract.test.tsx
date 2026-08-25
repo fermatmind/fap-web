@@ -3,13 +3,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   buildActorsDisplaySurfaceFixture,
-  buildProductionV42LegacyDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
-import {
-  CAREER_DISPLAY_COMPONENT_ORDER,
-  CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
-} from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 import { CAREER_VISUAL_GROUPS } from "@/lib/career/careerVisualGroups";
 
 afterEach(() => {
@@ -196,33 +192,8 @@ function jsonLdPayloads(html: string): string[] {
   return [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/g)].map((match) => match[1] ?? "");
 }
 
-describe("career job detail Actors v4.2 route integration", () => {
-  it("renders a valid production v4.2 24-component surface instead of the legacy shell", async () => {
-    const slug = "adapted-physical-education-specialists";
-    const html = await renderCareerJobPage(
-      "en",
-      slug,
-      buildJobBundle({
-        slug,
-        displaySurface: buildProductionV42LegacyDisplaySurfaceFixture({
-          slug,
-          titleEn: "Adapted Physical Education Specialists",
-        }),
-      })
-    );
-
-    expect(html).toContain("career-display-surface");
-    expect(html).toContain("Adapted Physical Education Specialists is a real backend component-keyed display_surface_v1 test page.");
-    expect(html).toContain("turns occupational tasks into accountable work outcomes");
-    expect(html).toContain("Analyze task requirements");
-    expect(html).toContain("Career Snapshot: U.S. Reference");
-    expect(html).toContain("Is Adapted Physical Education Specialists a good career fit?");
-    expect(html).not.toContain("暂不提供完整页面");
-    expect(html).not.toContain("display_asset_backed_directory_draft_shell");
-    expect(html).not.toContain("career-job-docx-document");
-  });
-
-  it("renders the Chinese Actors v4.2 display surface when backend returns a valid surface", async () => {
+describe("career job detail versionless current route integration", () => {
+  it("renders the Chinese Actors display surface when backend returns a valid surface", async () => {
     const html = await renderCareerJobPage(
       "zh",
       "actors",
@@ -242,7 +213,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).not.toContain("Legacy Actors DOCX body");
   });
 
-  it("renders the English Actors v4.2 display surface without redirecting to the legacy Chinese body", async () => {
+  it("renders the English Actors display surface without redirecting to the legacy Chinese body", async () => {
     const html = await renderCareerJobPage("en", "actors", buildJobBundle({ displaySurface: buildActorsDisplaySurfaceFixture() }));
 
     expect(html).toContain("career-display-surface");
@@ -259,7 +230,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     ["data-scientists", "Data Scientists"],
     ["registered-nurses", "Registered Nurses"],
     ["accountants-and-auditors", "Accountants and Auditors"],
-  ] as const)("renders the selected %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+  ] as const)("renders the selected %s display surface when backend returns a valid surface", async (slug, titleEn) => {
     const html = await renderCareerJobPage(
       "en",
       slug,
@@ -393,7 +364,7 @@ describe("career job detail Actors v4.2 route integration", () => {
   it("fails closed for accountants when the projection is missing or uses the legacy 24-component order", async () => {
     const slug = "accountants-and-auditors";
     const legacyOrderSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" });
-    legacyOrderSurface.component_order = [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24];
+    legacyOrderSurface.component_order = CAREER_DISPLAY_COMPONENT_ORDER.slice(0, -1);
 
     await expect(renderCareerJobPage("en", slug, buildJobBundle({ slug }))).rejects.toThrow("not-found");
     await expect(
@@ -410,7 +381,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     ["civil-engineers", "Civil Engineers"],
     ["biomedical-engineers", "Biomedical Engineers"],
     ["dentists", "Dentists"],
-  ] as const)("renders the D5 selected %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+  ] as const)("renders the D5 selected %s display surface when backend returns a valid surface", async (slug, titleEn) => {
     const html = await renderCareerJobPage(
       "en",
       slug,
@@ -449,7 +420,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     ["community-health-workers", "Community Health Workers"],
     ["compensation-and-benefits-managers", "Compensation and Benefits Managers"],
     ["career-and-technical-education-teachers", "Career and Technical Education Teachers"],
-  ] as const)("renders the D8 validator-eligible %s v4.2 display surface when backend returns a valid surface", async (slug, titleEn) => {
+  ] as const)("renders the D8 validator-eligible %s display surface when backend returns a valid surface", async (slug, titleEn) => {
     const html = await renderCareerJobPage(
       "en",
       slug,
@@ -623,7 +594,7 @@ describe("career job detail Actors v4.2 route integration", () => {
       slug: "writers",
       titleEn: "Writers",
     });
-    invalidSurface.asset_version = "v4.1";
+    (invalidSurface as Record<string, unknown>).asset_version = "legacy";
     await expect(
       renderCareerJobPage(
         "en",

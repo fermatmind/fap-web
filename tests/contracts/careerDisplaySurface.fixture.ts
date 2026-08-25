@@ -1,8 +1,4 @@
-import {
-  CAREER_DISPLAY_COMPONENT_ORDER,
-  CAREER_DISPLAY_COMPONENT_ORDER_V4_2,
-  CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24,
-} from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 
 type SelectedCareerDisplaySurfaceFixtureInput = {
   slug: "actors" | "data-scientists" | "registered-nurses" | "accountants-and-auditors" | string;
@@ -34,8 +30,6 @@ export function buildDisplaySurfaceClaimPermissions(overrides: Record<string, un
 export function buildActorsDisplaySurfaceFixture() {
   return {
     surface_version: "display.surface.v1",
-    asset_version: "v4.2",
-    template_version: "v4.2",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
     status: "ready_for_pilot",
@@ -43,11 +37,9 @@ export function buildActorsDisplaySurfaceFixture() {
       canonical_slug: "actors",
     },
     claim_permissions: buildDisplaySurfaceClaimPermissions(),
-    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2] as string[],
+    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
-      asset_version: "v4.2",
-      template_version: "v4.2",
       asset_role: "formal_pilot_master",
       asset_type: "career_job_public_display",
       slug: "actors",
@@ -478,8 +470,6 @@ export function buildSelectedCareerDisplaySurfaceFixture({
 
   const fixture = {
     surface_version: "display.surface.v1",
-    asset_version: "v4.3",
-    template_version: "v4.3",
     asset_type: "career_job_public_display",
     asset_role: "formal_pilot_master",
     status: "ready_for_pilot",
@@ -492,8 +482,6 @@ export function buildSelectedCareerDisplaySurfaceFixture({
     component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
-      asset_version: "v4.3",
-      template_version: "v4.3",
       asset_role: "formal_pilot_master",
       asset_type: "career_job_public_display",
       slug,
@@ -902,24 +890,4 @@ export function buildCareerPresentationV1Fixture({
       usage_boundary: ["本页用于职业探索，不构成录用或收入保证。"],
     },
   };
-}
-
-export function buildProductionV42LegacyDisplaySurfaceFixture(
-  input: SelectedCareerDisplaySurfaceFixtureInput = {
-    slug: "adapted-physical-education-specialists",
-    titleEn: "Adapted Physical Education Specialists",
-    titleZh: "专家教育",
-  }
-) {
-  const fixture = buildSelectedCareerDisplaySurfaceFixture(input);
-  fixture.asset_version = "v4.2";
-  fixture.template_version = "v4.2";
-  fixture.asset.asset_version = "v4.2";
-  fixture.asset.template_version = "v4.2";
-  fixture.component_order = [...CAREER_DISPLAY_COMPONENT_ORDER_V4_2_24];
-
-  delete (fixture.page.content as Record<string, unknown>).career_ai_description_block;
-  delete (fixture.page.content as Record<string, unknown>).career_path_block;
-
-  return fixture;
 }

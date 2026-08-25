@@ -46,7 +46,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source).not.toContain('cache: "no-store"');
   });
 
-  it("keeps all 28 Current v4.3 components on explicit semantic production paths", () => {
+  it("keeps all 28 Current components on explicit semantic production paths", () => {
     const rendererSource = read("components/career/display/CareerProductionDisplaySurface.tsx");
     const semanticSource = read("components/career/display/CareerPublishedSemanticSection.tsx");
     const visualSource = read("components/career/display/CareerProductionVisual.module.css");
@@ -94,7 +94,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
   it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
-    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-v4.3-28-component-v1");
+    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-versionless-28-component-v1");
     expect(source).toContain("function bundleCacheOptions");
     expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
     expect(source).toContain('query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION)');
