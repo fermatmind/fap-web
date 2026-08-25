@@ -222,7 +222,12 @@ describe("career display surface contract", () => {
     }
     const assessmentRail = screen.getByTestId("career-production-assessment-rail");
     expect(assessmentRail).toBeInTheDocument();
-    expect(assessmentRail).toHaveClass("min-h-[132px]", "justify-center");
+    if (locale === "zh") {
+      expect(assessmentRail).toHaveTextContent("找到更适合你的方向");
+      expect(assessmentRail.querySelector("a")).toHaveAttribute("href", expect.stringContaining("/zh/tests/"));
+    } else {
+      expect(assessmentRail).toHaveClass("min-h-[132px]", "justify-center");
+    }
     expect(assessmentRail.querySelector("p")).not.toBeInTheDocument();
   });
 

@@ -584,14 +584,12 @@ export function CareerProductionDisplaySurface({
 
   const breadcrumb = renderComponent("breadcrumb");
   const compoundGroupIds = new Set([
-    "quick-decision",
     "profile",
     "fit-map",
     "risk-change",
     "faq-sources-boundaries",
   ]);
   const titledGroupIds = new Set([
-    "quick-decision",
     "profile",
     "fit-map",
     "risk-change",
@@ -648,7 +646,7 @@ export function CareerProductionDisplaySurface({
       <section
         key={group.id}
         id={`career-visual-group-${group.id}`}
-        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""}`}
+        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""}`}
         data-career-visual-group={group.id}
         aria-labelledby={titledGroupIds.has(group.id) ? `career-visual-group-title-${group.id}` : undefined}
         aria-label={titledGroupIds.has(group.id) ? undefined : visualGroupLabel(group, isZh)}
@@ -668,29 +666,39 @@ export function CareerProductionDisplaySurface({
 
   return (
     <article
-      className={`mx-auto w-full max-w-[1320px] px-6 font-sans leading-7 text-[#1A2233] md:px-10 xl:px-12 ${visual.article}`}
+      className={`mx-auto w-full max-w-[1440px] px-5 font-sans leading-7 text-[#1A2233] sm:px-6 md:px-8 xl:px-10 ${visual.article}`}
       data-testid="career-display-surface"
       data-career-production-template="career-production-v1"
       data-career-renderer-release={rendererRelease}
     >
       <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div>
-      <div className="mt-5 grid items-start gap-4 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-10" data-testid="career-source-disclosure">
-        <main className={`min-w-0 lg:order-2 ${visual.componentStack}`}>
-          {visibleVisualGroups.map(({ content }) => content)}
-        </main>
-        <aside className="flex flex-col gap-4 lg:order-1 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
-          <div className={`rounded-2xl border border-[#E5E9F2] bg-white ${visual.toc}`}>
-          <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
-          <nav className="mt-3 grid">
-            {visibleVisualGroups.map(({ group }) => <a key={group.id} href={`#career-visual-group-${group.id}`} className={`border-b border-[#F0F3FA] text-[#3a4255] last:border-0 hover:text-[#2C3E8C] hover:no-underline ${visual.tocLink}`}>{visualGroupLabel(group, isZh)}</a>)}
-          </nav>
+      <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 ${visual.layout}`} data-testid="career-source-disclosure">
+        <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail}`} aria-label={isZh ? "页面目录" : "Page contents"}>
+          <div className={visual.toc}>
+            <div className={visual.tocHeading}>
+              <span className={visual.tocKicker}>{isZh ? "职业档案" : "Career dossier"}</span>
+              <h2 className="m-0 text-sm font-extrabold text-[#1A2233]">{isZh ? "页面目录" : "Contents"}</h2>
+            </div>
+            <nav className={visual.tocNav}>
+              {visibleVisualGroups.map(({ group }, index) => (
+                <a key={group.id} href={`#career-visual-group-${group.id}`} className={visual.tocLink}>
+                  <span aria-hidden="true" className={visual.tocIndex}>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{visualGroupLabel(group, isZh)}</span>
+                </a>
+              ))}
+            </nav>
           </div>
-          <section className="flex min-h-[132px] flex-col justify-center rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-6 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
-            <Link href={primaryCtaHref} className="inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+          <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
+            <span className={visual.assessmentRailLabel}>{isZh ? "找到更适合你的方向" : "Find your best-fit direction"}</span>
+            <Link href={primaryCtaHref} className={visual.assessmentRailCta}>
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
+              <span aria-hidden="true">→</span>
             </Link>
           </section>
         </aside>
+        <main className={`min-w-0 ${visual.componentStack}`}>
+          {visibleVisualGroups.map(({ content }) => content)}
+        </main>
       </div>
     </article>
   );

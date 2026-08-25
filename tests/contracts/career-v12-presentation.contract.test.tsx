@@ -205,31 +205,30 @@ describe("career v1.2 presentation contract", () => {
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.ai_exposure."))).toHaveLength(5);
   });
 
-  it("locks v1.2 layout, color, spacing, radius, table, TOC, and responsive tokens", () => {
+  it("locks the production dossier layout, visual hierarchy, TOC, and responsive tokens", () => {
     const css = readFileSync("components/career/display/CareerProductionVisual.module.css", "utf8");
     const renderer = readFileSync("components/career/display/CareerProductionDisplaySurface.tsx", "utf8");
     for (const token of [
-      "padding: 34px 36px",
-      "padding: 30px 34px",
-      "gap: 10px",
-      "margin-top: 26px",
-      "padding: 11px 13px",
-      "padding: 4px 18px",
+      "padding: 42px 44px",
+      "padding: 34px 38px",
+      "border-top: 4px solid var(--group-accent)",
+      "border-radius: 24px",
+      "padding: 13px 15px",
       "padding: 13px 26px",
+      "grid-auto-flow: column",
+      "scroll-snap-type: inline proximity",
+      "@media (prefers-reduced-motion: reduce)",
       "@media (max-width: 1023px)",
       "@media (max-width: 640px)",
     ]) {
       expect(css).toContain(token);
     }
     for (const token of [
-      "max-w-[1320px]",
-      "md:px-10",
-      "xl:px-12",
-      "lg:grid-cols-[320px_minmax(0,1fr)]",
-      "lg:gap-10",
-      "from-[#2C3E8C] to-[#3a4fa6]",
-      "bg-[#0E9F94]",
-      "border-[#E5E9F2]",
+      "max-w-[1440px]",
+      "lg:grid-cols-[280px_minmax(0,1fr)]",
+      "lg:gap-8",
+      "visual.tocIndex",
+      "visual.assessmentRail",
       "lg:top-[84px]",
     ]) {
       expect(renderer).toContain(token);
