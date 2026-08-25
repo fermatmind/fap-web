@@ -10,11 +10,16 @@ import {
 import {
   isSeoConversionFunnelEvent,
   normalizeTrackingEventName,
+  SEO_FUNNEL_EVENT_ALIAS_MAP,
   TRACKING_EVENTS,
   type TrackingEventName,
 } from "@/lib/tracking/events";
 import { shouldAllowBrowserAnalyticsRuntime } from "@/lib/tracking/internalTraffic";
 import { shouldHardStopPublicAnalyticsForUrl } from "@/lib/tracking/privacy";
+import {
+  claimPublicReturnSurface,
+  markResultViewedForPublicReturn,
+} from "@/lib/tracking/publicReturn";
 
 const ANALYTICS_ENABLED = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 const LANDING_PV_STORAGE_PREFIX = "fm_landing_pv_sent_v1:";
@@ -51,6 +56,12 @@ export type PublicWebVitalPayload = Readonly<{
 }>;
 
 const isBrowser = () => typeof window !== "undefined";
+
+function isResultViewTrackingEvent(eventName: string): boolean {
+  const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
+  const seoFunnelEventName = SEO_FUNNEL_EVENT_ALIAS_MAP[eventName as keyof typeof SEO_FUNNEL_EVENT_ALIAS_MAP];
+  return normalizedEventName === TRACKING_EVENTS.VIEW_RESULT || seoFunnelEventName === TRACKING_EVENTS.VIEW_RESULT;
+}
 
 export function getAnonymousId(): string {
   if (!isBrowser()) return "";
@@ -211,25 +222,60 @@ export function trackEvent(eventName: string, properties: AnalyticsProperties = 
   if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
 
+  const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
+  if (isResultViewTrackingEvent(eventName)) {
+    markResultViewedForPublicReturn();
+  }
+
   const locale = getLocaleFromPathname(window.location.pathname);
   const currentPath = `${window.location.pathname}${window.location.search}`;
   const attributionPayload = readStoredTrackingAttributionPayload(currentPath);
-  const anonymousId = getAnonymousId();
+  const isPublicReturn = normalizedEventName === TRACKING_EVENTS.RETURN_PUBLIC_CONTENT;
+  const anonymousId = isPublicReturn ? "" : getAnonymousId();
   const seoConversionPayload = buildRuntimeSeoConversionPayload(eventName, properties, currentPath, locale);
+  if (isPublicReturn) {
+    delete attributionPayload.landing_path;
+    delete attributionPayload.current_path;
+    delete attributionPayload.page_location;
+    delete attributionPayload.canonical_url;
+    delete attributionPayload.referrer;
+  }
   const payload = {
     ...attributionPayload,
     ...seoConversionPayload,
     ...properties,
     locale: properties.locale ?? locale,
     current_path: properties.current_path ?? currentPath,
-    session_id: properties.session_id ?? seoConversionPayload.session_id ?? anonymousId,
+    ...(isPublicReturn
+      ? {}
+      : { session_id: properties.session_id ?? seoConversionPayload.session_id ?? anonymousId }),
   };
+  if (isPublicReturn) delete payload.session_id;
 
   void trackClientEvent({
     eventName,
     payload,
     anonymousId,
-    path: currentPath,
+    path: isPublicReturn ? String(properties.current_path ?? currentPath).split("?")[0] : currentPath,
+  });
+}
+
+export function trackReturnToPublicContentIfEligible(pathname = window.location.pathname): void {
+  if (!ANALYTICS_ENABLED || !isBrowser()) return;
+  if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
+  if (!hasAnalyticsConsent()) return;
+
+  const surface = claimPublicReturnSurface(pathname);
+  if (!surface) return;
+
+  trackEvent(TRACKING_EVENTS.RETURN_PUBLIC_CONTENT, {
+    url: surface.canonicalPath,
+    canonical_url: surface.canonicalPath,
+    current_path: surface.canonicalPath,
+    source_url: surface.canonicalPath,
+    locale: surface.locale,
+    route_family: surface.family,
+    page_type: surface.family,
   });
 }
 
@@ -237,6 +283,10 @@ export function trackObservableFunnelEvent(eventName: string, properties: Analyt
   if (!ANALYTICS_ENABLED || !isBrowser() || !eventName) return;
   if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
+
+  if (isResultViewTrackingEvent(eventName)) {
+    markResultViewedForPublicReturn();
+  }
 
   const locale = getLocaleFromPathname(window.location.pathname);
   const currentPath = `${window.location.pathname}${window.location.search}`;

@@ -2,7 +2,8 @@
 
 import { useEffect, type ReactNode } from "react";
 import { useReportWebVitals } from "next/web-vitals";
-import { initAnalytics } from "@/lib/analytics";
+import { usePathname } from "next/navigation";
+import { initAnalytics, trackReturnToPublicContentIfEligible } from "@/lib/analytics";
 import { initSentry } from "@/lib/observability/sentry";
 import {
   PUBLIC_CWV_RUM_ENABLED,
@@ -15,6 +16,8 @@ function PublicWebVitalsReporter() {
 }
 
 export function Providers({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     initSentry();
     initAnalytics();
@@ -31,6 +34,10 @@ export function Providers({ children }: { children: ReactNode }) {
       window.removeEventListener("fm:analytics-consent-updated", handleAnalyticsConsentUpdated);
     };
   }, []);
+
+  useEffect(() => {
+    trackReturnToPublicContentIfEligible(pathname);
+  }, [pathname]);
 
   return (
     <>

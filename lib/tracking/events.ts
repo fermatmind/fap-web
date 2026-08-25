@@ -18,6 +18,7 @@ export const TRACKING_EVENTS = {
   START_TEST: "start_test",
   COMPLETE_TEST: "complete_test",
   VIEW_RESULT: "view_result",
+  RETURN_PUBLIC_CONTENT: "return_public_content",
   CLICK_DEEP_REPORT: "click_deep_report",
   BEGIN_CHECKOUT: "begin_checkout",
   PURCHASE_SUCCESS: "purchase_success",
@@ -158,6 +159,7 @@ export const STANDARD_COMMERCIAL_EVENTS = [
   TRACKING_EVENTS.START_TEST,
   TRACKING_EVENTS.COMPLETE_TEST,
   TRACKING_EVENTS.VIEW_RESULT,
+  TRACKING_EVENTS.RETURN_PUBLIC_CONTENT,
   TRACKING_EVENTS.CLICK_DEEP_REPORT,
   TRACKING_EVENTS.BEGIN_CHECKOUT,
   TRACKING_EVENTS.PURCHASE_SUCCESS,
@@ -185,6 +187,7 @@ export const SEO_CONVERSION_FUNNEL_EVENTS = [
   TRACKING_EVENTS.START_TEST,
   TRACKING_EVENTS.COMPLETE_TEST,
   TRACKING_EVENTS.VIEW_RESULT,
+  TRACKING_EVENTS.RETURN_PUBLIC_CONTENT,
 ] as const satisfies readonly StandardCommercialEventName[];
 
 export type SeoConversionFunnelEventName = (typeof SEO_CONVERSION_FUNNEL_EVENTS)[number];
@@ -427,6 +430,7 @@ const EVENT_FIELD_WHITELIST: Record<TrackingEventName, readonly string[]> = {
   complete_test: [...COMMON_COMMERCIAL_EVENT_FIELDS],
   submit_attempt: ["slug", "test_slug", "scale_code", "attemptIdMasked", "attempt_id", "answered_count", "durationMs", "duration_ms", "duration_bucket", "form_code", "locale", ...COMMON_BIG5_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
   view_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale", "result_type", "top_code", ...COMMON_BIG5_FIELDS, ...COMMON_CLINICAL_REPORT_FIELDS, ...COMMON_RIASEC_TRUSTED_RESULT_FIELDS, ...COMMON_SEO_CTA_ATTRIBUTION_FIELDS, ...COMMON_CONVERSION_FIELDS],
+  return_public_content: ["locale", "route_family", "page_type", "canonical_url", "current_path", "url", "source_url"],
   revisit_result: ["attemptIdMasked", "attempt_id", "locked", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "form_code", "locale"],
   share_result: ["attemptIdMasked", "attempt_id", "typeCode", "identity", "variantKey", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "shareMethod", "ctaKey", "ctaRank", "continueTarget", "form_code", "locale"],
   accuracy_feedback: ["attempt_id", "feedback", "sectionKey", "actionKey", "contrastKey", "synthesisKey", "supportingScale", "crossAssessmentVersion", "neighborTypeKeys", "closeCallAxes", "typeCode", "identity", "variantKeys", "sceneFingerprint", "boundaryFlags", "axisBands", "packId", "engineVersion", "userState", "feedbackSentiment", "feedbackCoverage", "actionCompletionTendency", "lastDeepReadSection", "currentIntentCluster", "primaryFocusKey", "secondaryFocusKeys", "orderedSectionKeys", "orderedRecommendationKeys", "orderedActionKeys", "recommendationPriorityKeys", "actionPriorityKeys", "readingFocusKey", "actionFocusKey", "ctaPriorityKeys", "carryoverFocusKey", "carryoverReason", "recommendedResumeKeys", "carryoverSceneKeys", "carryoverActionKeys", "memoryContractVersion", "memoryFingerprint", "memoryScope", "memoryState", "memoryProgressionState", "sectionHistoryKeys", "behaviorDeltaKeys", "dominantInterestKeys", "resumeBiasKeys", "memoryRewriteKeys", "memoryRewriteReason", ...COMMON_MBTI_ADAPTIVE_FIELDS, "journeyContractVersion", "journeyFingerprint", "journeyScope", "journeyState", "progressState", "completedActionKeys", "recommendedNextPulseKeys", "revisitReorderReason", "pulseState", "pulsePromptKeys", "displayOrder", "isPrimaryFocus", "locale"],
@@ -657,6 +661,7 @@ export function filterTrackingPayload(
     const isSafeSeoSessionId =
       normalizedKey === "session_id" &&
       isSeoConversionFunnelEvent(eventName) &&
+      eventName !== TRACKING_EVENTS.RETURN_PUBLIC_CONTENT &&
       sanitizeSeoConversionSessionId(payload[key]) !== null;
     const forbidden =
       FORBIDDEN_FIELD_PATTERNS.some((pattern) => pattern.test(normalizedKey)) ||

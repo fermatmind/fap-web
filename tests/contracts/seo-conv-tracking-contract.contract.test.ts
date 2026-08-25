@@ -25,13 +25,14 @@ afterEach(() => {
 });
 
 describe("SEO-CONV-TRACKING-01 tracking contract", () => {
-  it("freezes the five-event SEO conversion taxonomy separately from commerce events", () => {
+  it("freezes the public SEO conversion taxonomy separately from commerce events", () => {
     expect(SEO_CONVERSION_FUNNEL_EVENTS).toEqual([
       "landing_pv",
       "article_to_test_click",
       "start_test",
       "complete_test",
       "view_result",
+      "return_public_content",
     ]);
     expect(SEO_CONVERSION_FUNNEL_EVENTS).not.toContain("begin_checkout");
     expect(SEO_CONVERSION_FUNNEL_EVENTS).not.toContain("purchase_success");

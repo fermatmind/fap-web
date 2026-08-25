@@ -10,6 +10,7 @@ const hoisted = vi.hoisted(() => ({
   initAnalytics: vi.fn(),
   trackLandingPageView: vi.fn(),
   trackEvent: vi.fn(),
+  trackReturnToPublicContentIfEligible: vi.fn(),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -20,6 +21,7 @@ vi.mock("@/lib/analytics", () => ({
   initAnalytics: hoisted.initAnalytics,
   trackLandingPageView: hoisted.trackLandingPageView,
   trackEvent: hoisted.trackEvent,
+  trackReturnToPublicContentIfEligible: hoisted.trackReturnToPublicContentIfEligible,
 }));
 
 vi.mock("@/lib/observability/sentry", () => ({
@@ -31,6 +33,7 @@ afterEach(() => {
   hoisted.initAnalytics.mockReset();
   hoisted.trackLandingPageView.mockReset();
   hoisted.trackEvent.mockReset();
+  hoisted.trackReturnToPublicContentIfEligible.mockReset();
 });
 
 describe("analytics consent page view replay contract", () => {

@@ -7,10 +7,16 @@ import { setFmToken } from "@/lib/auth/fmToken";
 const hoisted = vi.hoisted(() => ({
   initAnalytics: vi.fn(),
   initSentry: vi.fn(),
+  trackReturnToPublicContentIfEligible: vi.fn(),
+}));
+
+vi.mock("next/navigation", () => ({
+  usePathname: () => "/zh/results/private-result",
 }));
 
 vi.mock("@/lib/analytics", () => ({
   initAnalytics: hoisted.initAnalytics,
+  trackReturnToPublicContentIfEligible: hoisted.trackReturnToPublicContentIfEligible,
 }));
 
 vi.mock("@/lib/observability/sentry", () => ({
@@ -25,6 +31,7 @@ describe("providers no longer auto-link anon attempts", () => {
     window.sessionStorage.clear();
     hoisted.initAnalytics.mockReset();
     hoisted.initSentry.mockReset();
+    hoisted.trackReturnToPublicContentIfEligible.mockReset();
   });
 
   it("does not request link-anon while rendering the result page shell", async () => {
