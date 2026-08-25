@@ -25,8 +25,18 @@ describe("solo developer trunk flow rules", () => {
     expect(agents).toContain("clean isolated worktree created from the latest `origin/main`");
     expect(agents).toContain("`git push origin HEAD:main`");
     expect(agents).toContain("Do not create an ordinary branch, pull request, approval phrase");
+    expect(agents).toContain("named `codex/` task branch");
+    expect(agents).toContain("pull-request fast path only when the user explicitly asks for a pull request");
     expect(agents).toContain("ignored for ordinary work");
     expect(skill).toContain("Use when the user names a PR-train item");
+  });
+
+  it("reuses an unchanged validated tree without adding a persistent delivery ledger", () => {
+    expect(agents).toContain("record `git write-tree`");
+    expect(agents).toContain("Reuse successful checks when the staged tree SHA is unchanged");
+    expect(agents).toContain("verify `HEAD^{tree}` equals the validated tree SHA");
+    expect(agents).toContain("Do not create a repository receipt, ledger, manifest");
+    expect(agents).toContain("Always repeat status, scope, and `git diff --check` gates");
   });
 
   it("treats standing authorization as an always-on solo-development rule", () => {

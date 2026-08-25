@@ -23,6 +23,14 @@
 - Preserve security, production data, secrets, permissions, destructive-operation, content-authority, discoverability, ingress, and recovery boundaries. These boundaries constrain only the risky action.
 - Begin by reading applicable rules, real callers, existing implementation, and the minimum acceptance condition, then execute. Prefer focused tests, lint, typecheck, build or contract checks, classifier checks, and `git diff --check`; complete heavy suites belong to `nightly.yml` unless a genuinely affected high-risk boundary requires them.
 
+### Validated-tree fast delivery
+
+- Create the isolated worktree on a named `codex/` task branch from the latest `origin/main`; do not perform implementation work on a detached HEAD. Ordinary publication still uses `git push origin HEAD:main`.
+- After focused validation and path-limited staging, record `git write-tree` and the successful commands in the active task context. Do not create a repository receipt, ledger, manifest, or other persistent validation artifact.
+- Reuse successful checks when the staged tree SHA is unchanged. Before commit, verify the scoped worktree has no unstaged delta; after commit, verify `HEAD^{tree}` equals the validated tree SHA.
+- Fetch and rebase before final validation and commit. If `origin/main` advances afterward, compare its changed paths with the declared task paths and rerun only affected checks; dependency locks, TypeScript or Next.js configuration, and other repository-wide build inputs count as intersecting changes. Always repeat status, scope, and `git diff --check` gates.
+- Use the pull-request fast path only when the user explicitly asks for a pull request; otherwise keep the direct-push trunk flow. Targets are 1–2 minutes from an unchanged validated tree to PR creation and 30–60 seconds from confirmed merge to local cleanup; these are operating targets, not safety-gate timeouts.
+
 ## Delivery risk lanes
 
 - **Fast lane:** documentation, rules, tests-only, dependency updates, and small low-risk fixes. Run focused CI. Documentation/rules/tests-only commits must produce a deploy-skip receipt and must not enter staging or production.
