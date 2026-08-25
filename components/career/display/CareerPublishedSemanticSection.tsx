@@ -252,6 +252,7 @@ export function CareerPublishedSemanticSection({
   snapshotVariant = "complete",
   snapshotFacts = [],
   snapshotCallout,
+  snapshotTitle,
   salaryBoundary,
   usageBoundary,
   aiExposureNote,
@@ -264,6 +265,7 @@ export function CareerPublishedSemanticSection({
   snapshotVariant?: "complete" | "overview" | "china";
   snapshotFacts?: Array<{ key: "interest" | "scene" | "risk"; sourceIndex: number; text: string }>;
   snapshotCallout?: string | null;
+  snapshotTitle?: string;
   salaryBoundary?: string | null;
   usageBoundary?: string[] | null;
   aiExposureNote?: string | null;
@@ -351,7 +353,7 @@ export function CareerPublishedSemanticSection({
         ) return null;
         return (
           <section className={CARD} data-testid="career-published-primary-locale-china" data-career-api-component-fragment={componentId}>
-            <SectionTitle>{isZh ? "中国大陆薪资参考" : "China reference"}</SectionTitle>
+            <SectionTitle>{snapshotTitle ?? (isZh ? "中国大陆参考" : "China reference")}</SectionTitle>
             {scalarKeys.length > 0 ? <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
               {scalarKeys.map((key) => (
                 <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} locale={locale} /></div>

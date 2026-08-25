@@ -198,6 +198,7 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     if (locale === "zh") {
+      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("中国大陆薪资参考");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
