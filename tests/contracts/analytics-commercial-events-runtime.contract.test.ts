@@ -20,6 +20,7 @@ describe("analytics commercial events runtime contract", () => {
       "start_test",
       "complete_test",
       "view_result",
+      "return_public_content",
       "click_deep_report",
       "begin_checkout",
       "purchase_success",
