@@ -162,6 +162,16 @@ describe("career English Current production renderer", () => {
       .toEqual(CAREER_VISUAL_GROUP_IDS);
     expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
     expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    const hiddenPrimaryCta = document.querySelector('#career-component-primary_cta[data-career-component-id="primary_cta"]');
+    expect(hiddenPrimaryCta).toHaveClass("hidden");
+    expect(hiddenPrimaryCta?.querySelector('[data-career-api-component="primary_cta"]')).toHaveAttribute(
+      "data-api-label",
+      "Measure my career interests",
+    );
+    expect(hiddenPrimaryCta?.querySelector('[data-career-api-component="primary_cta"]')).toHaveAttribute(
+      "data-api-href",
+      "/en/tests/holland-career-interest-test-riasec",
+    );
     expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
       item.getAttribute("data-career-quick-answer-key")
     )).toEqual(["qa3", "qa2", "qa1"]);

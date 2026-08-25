@@ -174,7 +174,7 @@ function ApiList({ items, path, ordered = false, large = false }: { items: strin
   if (items.length === 0) return null;
   const List = ordered ? "ol" : "ul";
   return (
-    <List className={`mb-0 pl-5 ${ordered ? "list-decimal" : "list-disc"} ${large ? "mt-[10px] text-base leading-7 text-[#2a3346]" : `mt-3 ${BODY}`} ${visual.list}`} data-career-api-list={path}>
+    <List className={`mb-0 pl-5 ${ordered ? "list-decimal" : "list-disc"} ${large ? "mt-3 text-base leading-7 text-[#2a3346]" : `mt-3 ${BODY}`} ${visual.list}`} data-career-api-list={path}>
       {items.map((item, index) => <li key={`${path}:${index}`}><Field path={`${path}[${index}]`}>{item}</Field></li>)}
     </List>
   );
@@ -462,7 +462,7 @@ export function CareerPublishedSemanticSection({
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle level={3}>{componentTitle}</SectionTitle>
-          <p className={`mb-0 ${componentId === "contract_project_risk_block" ? `mt-3 ${CALLOUT_WARN}` : "mt-[10px] text-base leading-7 text-[#2a3346]"}`}><Field path={componentId}>{asString(value)}</Field></p>
+          <p className={`mb-0 ${componentId === "contract_project_risk_block" ? `mt-3 ${CALLOUT_WARN}` : "mt-3 text-base leading-7 text-[#2a3346]"}`}><Field path={componentId}>{asString(value)}</Field></p>
         </PublishedRoot>
       );
 
@@ -535,7 +535,7 @@ export function CareerPublishedSemanticSection({
             <SectionTitle><span className="text-white">{aiImpactTitle}</span></SectionTitle>
             <span className="sr-only"><Field path={`${componentId}.ai_head_sub`}>{asString(data.ai_head_sub)}</Field></span>
           </div>
-          <div className="divide-y divide-[#E5E9F2] px-7 sm:px-9">
+          <div className="divide-y divide-[#E5E9F2] px-7 sm:px-10">
             <section className="py-7">
             <h3 className="m-0 text-lg font-bold text-[#243049]">{isZh ? "一、AI 会怎样改变这份工作？" : "1. How will AI change this work?"}</h3>
             <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.ai_s1_bls`}>{asString(data.ai_s1_bls)}</Field></p>

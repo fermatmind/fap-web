@@ -670,6 +670,10 @@ export function CareerProductionDisplaySurface({
               {surface.presentationV1.hero.cta.label}
             </span>
           </ComponentFrame>
+        ) : !surface.presentationV1 ? (
+          <ComponentFrame key="primary_cta" id="primary_cta" hidden>
+            {renderComponent("primary_cta")}
+          </ComponentFrame>
         ) : null,
       ];
     } else if (group.id === "snapshot") {
