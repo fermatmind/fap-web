@@ -817,7 +817,7 @@ export async function generateMetadata({
   const effectiveIndexEligible = (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true;
   const effectiveIndexState = seoSurface?.indexState || job.seoContract.indexState;
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname: canonicalPath,
     title: job.title,
@@ -834,6 +834,29 @@ export async function generateMetadata({
       xDefault: "/",
     },
   });
+
+  if (!seoSurface && locale === "zh" && slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG) {
+    const title = "会计师和审计师职业介绍：工资、前景、AI影响与发展路径 | 费马测试";
+    const description = "全面了解会计师和审计师的工作内容、薪资水平、就业前景、AI影响、职业要求、适合人群及发展路径，并参考中国大陆与美国BLS职业数据。";
+
+    return {
+      ...metadata,
+      title: { absolute: title },
+      description,
+      openGraph: {
+        ...metadata.openGraph,
+        title,
+        description,
+      },
+      twitter: {
+        ...metadata.twitter,
+        title,
+        description,
+      },
+    };
+  }
+
+  return metadata;
 }
 
 /** Build 3-5 FAQ items from legacy job data for JSON-LD rich results. */
@@ -972,7 +995,7 @@ export default async function CareerJobDetailPage({
 
     return (
       <main className="min-h-screen bg-slate-50">
-        <Container as="div" className="py-4 md:py-8">
+        <Container as="div" className="max-w-[1320px] px-0 py-4 md:py-8">
           <AnalyticsPageViewTracker
             eventName={CAREER_TRACKING_EVENTS.jobDetailView}
             properties={buildCareerAttributionPayload({

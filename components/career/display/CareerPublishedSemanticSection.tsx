@@ -10,8 +10,8 @@ export const CAREER_COMPONENT_TITLES_ZH: Record<CareerDisplayComponentId, string
   hero: "职业概览",
   fermat_decision_card: "费马快速判断",
   primary_cta: "开始职业兴趣测评",
-  career_snapshot_primary_locale: "职业快照：中国大陆参考",
-  career_snapshot_secondary_locale: "海外职业数据参考",
+  career_snapshot_primary_locale: "职业快照",
+  career_snapshot_secondary_locale: "海外薪资参考：美国 BLS 数据",
   fit_decision_checklist: "如何判断是否适合",
   riasec_fit_block: "RIASEC 兴趣匹配",
   personality_fit_block: "人格与工作方式",
@@ -30,7 +30,7 @@ export const CAREER_COMPONENT_TITLES_ZH: Record<CareerDisplayComponentId, string
   next_steps_block: "下一步准备",
   faq_block: "常见问题",
   related_next_pages: "相关职业",
-  source_card: "资料来源",
+  source_card: "资料来源与更新说明",
   review_validity_card: "复核有效期",
   boundary_notice: "使用边界",
   final_cta: "下一步行动",
@@ -351,7 +351,7 @@ export function CareerPublishedSemanticSection({
         ) return null;
         return (
           <section className={CARD} data-testid="career-published-primary-locale-china" data-career-api-component-fragment={componentId}>
-            <SectionTitle>{isZh ? "中国大陆参考" : "China reference"}</SectionTitle>
+            <SectionTitle>{isZh ? "中国大陆薪资参考" : "China reference"}</SectionTitle>
             {scalarKeys.length > 0 ? <div className={`mt-4 grid md:grid-cols-2 ${visual.factGrid}`}>
               {scalarKeys.map((key) => (
                 <div key={key} className="rounded-xl bg-[#F0F3FA] p-4"><ScalarOrPair value={salary[key]} path={`${componentId}.salary.${key}`} locale={locale} /></div>
@@ -540,15 +540,39 @@ export function CareerPublishedSemanticSection({
         </PublishedRoot>
       );
 
-    case "career_risk_cards":
+    case "career_risk_cards": {
+      const risks = asStringArray(data.risks);
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle tag={asString(data.badge)}>{componentTitle}</SectionTitle>
-          <p className={`mb-0 mt-3 font-semibold ${BODY}`}><Field path={`${componentId}.fact`}>{asString(data.fact)}</Field></p>
-          <ApiList items={asStringArray(data.risks)} path={`${componentId}.risks`} />
+          <p className="m-0 mt-4 rounded-xl border-l-4 border-blue-700 bg-blue-50 px-5 py-4 text-sm font-semibold leading-7 text-slate-800">
+            <Field path={`${componentId}.fact`}>{asString(data.fact)}</Field>
+          </p>
+          {risks.length > 0 ? (
+            <div className="mt-4 grid gap-3 md:grid-cols-2" data-career-api-list={`${componentId}.risks`}>
+              {risks.map((risk, index) => {
+                const separatorIndex = risk.indexOf("：");
+                const title = separatorIndex >= 0 ? risk.slice(0, separatorIndex) : risk;
+                const detail = separatorIndex >= 0 ? risk.slice(separatorIndex + 1) : "";
+
+                return (
+                  <article
+                    className={`rounded-xl border border-slate-200 bg-slate-50 p-4 ${risks.length % 2 === 1 && index === risks.length - 1 ? "md:col-span-2" : ""}`}
+                    key={`${componentId}.risks[${index}]`}
+                  >
+                    <Field path={`${componentId}.risks[${index}]`}>
+                      <strong className="block text-sm font-bold text-slate-900">{title}</strong>
+                      {detail ? <span className="mt-2 block text-sm leading-6 text-slate-600">{detail}</span> : null}
+                    </Field>
+                  </article>
+                );
+              })}
+            </div>
+          ) : null}
           <p className={`mb-0 mt-4 ${CALLOUT_WARN}`}><Field path={`${componentId}.callout`}>{asString(data.callout)}</Field></p>
         </PublishedRoot>
       );
+    }
 
     case "next_steps_block": {
       const skills = data.skills;
