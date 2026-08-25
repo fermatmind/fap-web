@@ -211,11 +211,18 @@ describe("career display surface contract", () => {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
       expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
       expect(screen.getByTestId("career-display-hero")).toHaveClass("px-6");
-      expect(screen.getByTestId("career-display-surface")).toHaveClass("px-4");
+      expect(screen.getByTestId("career-display-surface")).toHaveClass(
+        "px-6",
+        "md:px-10",
+        "xl:px-12",
+      );
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).toBeInTheDocument();
       expect(screen.queryByRole("heading", { name: "相关职业" })).not.toBeInTheDocument();
     }
-    expect(screen.getByTestId("career-production-assessment-rail")).toBeInTheDocument();
+    const assessmentRail = screen.getByTestId("career-production-assessment-rail");
+    expect(assessmentRail).toBeInTheDocument();
+    expect(assessmentRail).toHaveClass("min-h-[132px]", "justify-center");
+    expect(assessmentRail.querySelector("p")).not.toBeInTheDocument();
   });
 
   it("renders v4.3 quick answers in qa3, qa2, qa1 order with accessible 2-to-4-column tables", () => {

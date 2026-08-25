@@ -26,16 +26,16 @@ export type CareerVisualGroupDefinition = {
 export const CAREER_VISUAL_GROUPS: readonly CareerVisualGroupDefinition[] = [
   { id: "hero", label: "职业概览", componentIds: ["breadcrumb", "hero", "primary_cta"] },
   { id: "snapshot", label: "职业快照", componentIds: ["career_snapshot_primary_locale"] },
-  { id: "quick-decision", label: "快速判断", componentIds: ["fermat_decision_card", "fit_decision_checklist"] },
+  { id: "quick-decision", label: "费马快速判断", componentIds: ["fermat_decision_card", "fit_decision_checklist"] },
   { id: "profile", label: "职业画像", componentIds: ["definition_block", "career_ai_description_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block"] },
-  { id: "ai-impact", label: "AI 影响", componentIds: ["ai_impact_table"] },
-  { id: "china-reference", label: "中国大陆参考", componentIds: [] },
-  { id: "bls-reference", label: "海外 / BLS 参考", componentIds: ["career_snapshot_secondary_locale"] },
+  { id: "ai-impact", label: "AI 影响与应对", componentIds: ["ai_impact_table"] },
+  { id: "china-reference", label: "中国大陆薪资参考", componentIds: [] },
+  { id: "bls-reference", label: "海外薪资参考：美国 BLS 数据", componentIds: ["career_snapshot_secondary_locale"] },
   { id: "fit-map", label: "适配地图", componentIds: ["riasec_fit_block", "personality_fit_block"] },
   { id: "risk-change", label: "风险与变化", componentIds: ["career_risk_cards", "career_path_block", "contract_project_risk_block", "next_steps_block"] },
   { id: "adjacent-comparison", label: "相邻职业比较", componentIds: ["adjacent_career_comparison_table"] },
   { id: "market-signals", label: "市场信号", componentIds: ["market_signal_card"] },
-  { id: "faq-sources-boundaries", label: "FAQ、相关职业、来源与边界", componentIds: ["faq_block", "related_next_pages", "source_card", "review_validity_card", "boundary_notice", "final_cta"] },
+  { id: "faq-sources-boundaries", label: "常见问题、相关职业与资料来源", componentIds: ["faq_block", "related_next_pages", "source_card", "review_validity_card", "boundary_notice", "final_cta"] },
 ] as const;
 
 export type CareerFieldConsumption = {

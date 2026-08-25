@@ -151,9 +151,8 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(4);
     expect(heroElement).not.toHaveTextContent(/O\*NET|0\/10|undefined|暂无数据|数据缺失/u);
     expect(document.querySelector('[data-career-api-field="presentation_v1.hero.onet_code"]')).not.toBeInTheDocument();
-    expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(1);
-    expect(document.querySelector('[data-career-api-component="primary_cta"]')).not.toBeVisible();
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(0);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(27);
     expect(document.querySelectorAll("section:empty, article:empty, aside:empty")).toHaveLength(0);
   });
 
@@ -223,8 +222,10 @@ describe("career v1.2 presentation contract", () => {
       expect(css).toContain(token);
     }
     for (const token of [
-      "max-w-[1100px]",
-      "lg:grid-cols-[minmax(0,1fr)_320px]",
+      "max-w-[1320px]",
+      "md:px-10",
+      "xl:px-12",
+      "lg:grid-cols-[320px_minmax(0,1fr)]",
       "lg:gap-10",
       "from-[#2C3E8C] to-[#3a4fa6]",
       "bg-[#0E9F94]",

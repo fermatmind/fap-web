@@ -1,5 +1,6 @@
 .article {
-  padding: 16px 20px 60px;
+  padding-top: 16px;
+  padding-bottom: 60px;
 }
 
 .visualGroup {
@@ -123,7 +124,12 @@
 }
 
 .heroStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 12px 10px;
+  text-align: center;
   background: rgba(255, 255, 255, .12);
 }
 
@@ -173,7 +179,7 @@
 }
 
 .heroGaugeNote {
-  max-width: 150px;
+  max-width: 640px;
   margin: 10px 0 0;
   font-size: 12px;
   line-height: 1.75;
@@ -235,10 +241,6 @@
 }
 
 @media (max-width: 1023px) {
-  .heroGaugeNote {
-    display: none;
-  }
-
   .heroStats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

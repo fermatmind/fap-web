@@ -299,7 +299,6 @@ function CareerProductionHero({
           ))}
         </div>
       ) : null}
-      {published && !heroCta ? <span hidden data-career-component-id="primary_cta" data-career-api-component="primary_cta" /> : null}
       {!published || heroCta ? <Link
         id={published ? "career-component-primary_cta" : undefined}
         href={heroCta ? publishedCtaHref(heroCta.href, surface.locale, primaryCtaHref) : primaryCtaHref}
@@ -546,7 +545,7 @@ export function CareerProductionDisplaySurface({
   if (!publishedComponents) {
     return (
       <article
-        className="mx-auto max-w-[1100px] px-4 py-5 text-[#1A2233] md:px-5"
+        className="mx-auto w-full max-w-[1320px] px-6 py-5 text-[#1A2233] md:px-10 xl:px-12"
         data-testid="career-display-surface"
         data-career-production-template="career-production-v1"
         data-career-renderer-release={rendererRelease}
@@ -572,10 +571,8 @@ export function CareerProductionDisplaySurface({
                 {legacyTocSections.map(({ componentId, section }) => <a key={componentId} href={`#career-component-${componentId}`} className="border-b border-[#F0F3FA] py-2 text-[#3a4255] last:border-0 hover:text-[#2C3E8C]">{section.heading}</a>)}
               </nav>
             </div>
-            <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
-              <h2 className="m-0 text-base font-bold">{surface.cta.label}</h2>
-              <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
-              <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+            <section className="flex min-h-[132px] flex-col justify-center rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-6 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
+              <Link href={primaryCtaHref} className="inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
                 {surface.cta.label}
               </Link>
             </section>
@@ -636,13 +633,16 @@ export function CareerProductionDisplaySurface({
     } else {
       componentNodes = group.componentIds.map((componentId) => {
         const component = renderComponent(componentId);
-        if (component === null) return null;
+        if (component == null) return null;
         const content = componentId === "final_cta"
           ? <div data-testid="career-decision-action-block">{component}</div>
           : component;
         return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
       });
     }
+
+    const visibleComponentNodes = componentNodes.filter((node) => node != null);
+    if (visibleComponentNodes.length === 0) return null;
 
     return (
       <section
@@ -651,38 +651,42 @@ export function CareerProductionDisplaySurface({
         className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""}`}
         data-career-visual-group={group.id}
         aria-labelledby={titledGroupIds.has(group.id) ? `career-visual-group-title-${group.id}` : undefined}
+        aria-label={titledGroupIds.has(group.id) ? undefined : visualGroupLabel(group, isZh)}
       >
         {titledGroupIds.has(group.id) ? (
           <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
-        <div className={visual.groupStack}>{componentNodes}</div>
+        <div className={visual.groupStack}>{visibleComponentNodes}</div>
       </section>
     );
   };
 
+  const visibleVisualGroups = CAREER_VISUAL_GROUPS.flatMap((group) => {
+    const content = renderVisualGroup(group);
+    return content ? [{ group, content }] : [];
+  });
+
   return (
     <article
-      className={`mx-auto max-w-[1100px] font-sans leading-7 text-[#1A2233] ${visual.article}`}
+      className={`mx-auto w-full max-w-[1320px] px-6 font-sans leading-7 text-[#1A2233] md:px-10 xl:px-12 ${visual.article}`}
       data-testid="career-display-surface"
       data-career-production-template="career-production-v1"
       data-career-renderer-release={rendererRelease}
     >
       <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div>
-      <div className="mt-5 grid items-start gap-4 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
-        <main className={`min-w-0 ${visual.componentStack}`}>
-          {CAREER_VISUAL_GROUPS.map(renderVisualGroup)}
+      <div className="mt-5 grid items-start gap-4 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-10" data-testid="career-source-disclosure">
+        <main className={`min-w-0 lg:order-2 ${visual.componentStack}`}>
+          {visibleVisualGroups.map(({ content }) => content)}
         </main>
-        <aside className="flex flex-col gap-4 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
+        <aside className="flex flex-col gap-4 lg:order-1 lg:sticky lg:top-[84px]" aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className={`rounded-2xl border border-[#E5E9F2] bg-white ${visual.toc}`}>
           <h2 className="m-0 text-xs font-bold uppercase tracking-wide text-[#5B6678]">{isZh ? "页面目录" : "Contents"}</h2>
           <nav className="mt-3 grid">
-            {CAREER_VISUAL_GROUPS.map((group) => <a key={group.id} href={`#career-visual-group-${group.id}`} className={`border-b border-[#F0F3FA] text-[#3a4255] last:border-0 hover:text-[#2C3E8C] hover:no-underline ${visual.tocLink}`}>{visualGroupLabel(group, isZh)}</a>)}
+            {visibleVisualGroups.map(({ group }) => <a key={group.id} href={`#career-visual-group-${group.id}`} className={`border-b border-[#F0F3FA] text-[#3a4255] last:border-0 hover:text-[#2C3E8C] hover:no-underline ${visual.tocLink}`}>{visualGroupLabel(group, isZh)}</a>)}
           </nav>
           </div>
-          <section className="rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-5 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
-            <h2 className="m-0 text-base font-bold">{publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}</h2>
-            <p className="m-0 mt-2 text-sm leading-6 text-white/95">{surface.hero.quickAnswer}</p>
-            <Link href={primaryCtaHref} className="mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
+          <section className="flex min-h-[132px] flex-col justify-center rounded-2xl bg-gradient-to-br from-[#0E9F94] to-[#13b3a6] p-6 text-white shadow-[0_6px_20px_rgba(14,159,148,.25)]" data-testid="career-production-assessment-rail">
+            <Link href={primaryCtaHref} className="inline-flex min-h-11 w-full items-center justify-center rounded-[10px] bg-white px-4 py-3 text-sm font-bold text-[#0E9F94] hover:no-underline">
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
             </Link>
           </section>
