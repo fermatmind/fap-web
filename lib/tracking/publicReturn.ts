@@ -78,7 +78,7 @@ function decodeSegments(pathname: string): string[] | null {
 }
 
 export function classifyPublicReturnSurface(path: string): PublicReturnSurface | null {
-  if (!path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return null;
+  if (path.length > 2048 || !path.startsWith("/") || path.startsWith("//") || path.includes("\\")) return null;
 
   let pathname: string;
   try {

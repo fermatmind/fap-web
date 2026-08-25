@@ -92,6 +92,7 @@ describe("SEO-PLATFORM-06 public return event", () => {
       "/en/account",
       "/zh/recovery",
       "/zh/articles/%252Fresults%252Fresult-private",
+      `/zh/articles/${"x".repeat(2048)}`,
       "/en/unknown-public-looking-page",
     ]) {
       expect(classifyPublicReturnSurface(path), path).toBeNull();
