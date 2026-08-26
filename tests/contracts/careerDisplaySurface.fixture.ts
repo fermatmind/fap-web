@@ -1,4 +1,4 @@
-import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_SUPPORTED_COMPONENTS } from "@/lib/career/displaySurface";
 
 type SelectedCareerDisplaySurfaceFixtureInput = {
   slug: "actors" | "data-scientists" | "registered-nurses" | "accountants-and-auditors" | string;
@@ -37,7 +37,7 @@ export function buildActorsDisplaySurfaceFixture() {
       canonical_slug: "actors",
     },
     claim_permissions: buildDisplaySurfaceClaimPermissions(),
-    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
+    component_order: [...CAREER_DISPLAY_SUPPORTED_COMPONENTS] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
       asset_role: "formal_pilot_master",
@@ -479,7 +479,7 @@ export function buildSelectedCareerDisplaySurfaceFixture({
       onet_code: "15-0000.00",
     },
     claim_permissions: buildDisplaySurfaceClaimPermissions(),
-    component_order: [...CAREER_DISPLAY_COMPONENT_ORDER] as string[],
+    component_order: [...CAREER_DISPLAY_SUPPORTED_COMPONENTS] as string[],
     asset: {
       template_name: "Fermat Career Job Display Template",
       asset_role: "formal_pilot_master",

@@ -38,7 +38,7 @@ export const CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES = [
   "fermatmind_interpretation",
 ] as const;
 
-export const CAREER_DISPLAY_COMPONENT_ORDER = [
+export const CAREER_DISPLAY_SUPPORTED_COMPONENTS = [
   "breadcrumb",
   "hero",
   "fermat_decision_card",
@@ -72,7 +72,7 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
-const ALLOWED_COMPONENT_ORDER = new Set<string>(CAREER_DISPLAY_COMPONENT_ORDER);
+const SUPPORTED_COMPONENT_SET = new Set<string>(CAREER_DISPLAY_SUPPORTED_COMPONENTS);
 const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
 const CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET = new Set<string>(CAREER_DISPLAY_MANUAL_HOLD_SLUGS);
 const TRUSTED_SOURCE_AUTHORITY_SET = new Set<string>(CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES);
@@ -81,7 +81,7 @@ export function isCareerDisplayManualHoldSlug(slug: string): boolean {
   return CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET.has(String(slug ?? "").trim().toLowerCase());
 }
 
-export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
+export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_SUPPORTED_COMPONENTS)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
 
 export type CareerDisplayCta = {
@@ -224,7 +224,7 @@ export type CareerDisplaySurfaceViewModel = {
     onetCode?: string;
   };
   componentOrder: CareerDisplayComponentId[];
-  hero: CareerDisplayHeroViewModel;
+  hero: CareerDisplayHeroViewModel | null;
   sections: CareerDisplaySection[];
   faqItems: CareerDisplayFAQItem[];
   sources: CareerDisplaySource[];
@@ -620,23 +620,12 @@ function normalizeComponentOrder(value: unknown): CareerDisplayComponentId[] | n
   }
 
   const order = value.map((item) => normalizeString(item));
-  if (order.some((item) => !item || !ALLOWED_COMPONENT_ORDER.has(item))) {
+  if (order.some((item) => !item || !SUPPORTED_COMPONENT_SET.has(item))) {
     return null;
   }
 
   const deduped = [...new Set(order)] as CareerDisplayComponentId[];
   return deduped.length === order.length ? deduped : null;
-}
-
-function matchesProductionComponentOrder(actual: readonly CareerDisplayComponentId[]): boolean {
-  let previousIndex = -1;
-  for (const componentId of actual) {
-    const canonicalIndex = CAREER_DISPLAY_COMPONENT_ORDER.indexOf(componentId);
-    if (canonicalIndex <= previousIndex) return false;
-    previousIndex = canonicalIndex;
-  }
-
-  return actual.length > 0;
 }
 
 function hasVersionDiscriminator(root: Record<string, unknown>): boolean {
@@ -1329,15 +1318,14 @@ function hasCompleteProductionProjection(input: {
     return false;
   }
 
-  return input.sections.length > 0;
+  return true;
 }
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
-  return (
-    matchesProductionComponentOrder(surface.componentOrder) &&
-    (surface.locale === "zh" ||
-      surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
-      surface.publishedComponents !== null)
+  return surface.componentOrder.length > 0 && (
+    surface.locale === "zh" ||
+    surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
+    surface.publishedComponents !== null
   );
 }
 
@@ -1422,7 +1410,9 @@ export function adaptCareerDisplaySurface(
   const normalizedExpectedSlug = normalizeString(expectedSlug);
   const componentOrder = normalizeComponentOrder(root.component_order);
   const page = resolveLocalizedPage(root, locale);
-  const hero = normalizeHero(page?.hero, page?.primary_cta ?? page?.final_cta, page?.secondary_cta);
+  const hero = componentOrder?.includes("hero")
+    ? normalizeHero(page?.hero, page?.primary_cta ?? page?.final_cta, page?.secondary_cta)
+    : null;
   const sections = page && componentOrder ? normalizeDisplaySections(page, componentOrder, locale) : [];
   const path =
     normalizeString(page?.path) ??
@@ -1440,10 +1430,8 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    !matchesProductionComponentOrder(componentOrder) ||
     !page ||
-    !hero ||
-    sections.length === 0 ||
+    (componentOrder.includes("hero") && !hero) ||
     !isRecord(root.claim_permissions)
   ) {
     return null;
@@ -1457,25 +1445,26 @@ export function adaptCareerDisplaySurface(
     subjectSlug: canonicalSlug,
     attributionParams,
   });
-  const heroH1 = locale === "en" && containsCjk(hero.h1)
-    ? normalizeString(titleFallback) ?? humanizeSlug(canonicalSlug)
-    : hero.h1;
-  const heroSubtitle = hero.subtitle && !(locale === "en" && containsCjk(hero.subtitle)) ? hero.subtitle : undefined;
-  const localizedHero: CareerDisplayHeroViewModel = {
-    ...hero,
-    h1: heroH1,
-    ...(heroSubtitle ? { subtitle: heroSubtitle } : {}),
-    ...(!heroSubtitle ? { subtitle: undefined } : {}),
-    primaryCta: {
-      ...hero.primaryCta,
-      label: localizeDisplayCtaLabel(locale, hero.primaryCta.label),
-      href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
-    },
-  };
-  const usesProductionOrder = matchesProductionComponentOrder(componentOrder);
-  const publishedComponents = page && usesProductionOrder
-    ? normalizeCareerPublishedComponents(page, componentOrder)
+  const localizedHero: CareerDisplayHeroViewModel | null = hero
+    ? (() => {
+        const heroH1 = locale === "en" && containsCjk(hero.h1)
+          ? normalizeString(titleFallback) ?? humanizeSlug(canonicalSlug)
+          : hero.h1;
+        const heroSubtitle = hero.subtitle && !(locale === "en" && containsCjk(hero.subtitle)) ? hero.subtitle : undefined;
+        return {
+          ...hero,
+          h1: heroH1,
+          ...(heroSubtitle ? { subtitle: heroSubtitle } : {}),
+          ...(!heroSubtitle ? { subtitle: undefined } : {}),
+          primaryCta: {
+            ...hero.primaryCta,
+            label: localizeDisplayCtaLabel(locale, hero.primaryCta.label),
+            href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
+          },
+        };
+      })()
     : null;
+  const publishedComponents = normalizeCareerPublishedComponents(page, componentOrder);
   const presentationV1 = locale === "zh"
     ? normalizeCareerPresentationV1(root.presentation_v1)
     : null;
@@ -1503,10 +1492,16 @@ export function adaptCareerDisplaySurface(
     return null;
   }
 
-  if (locale === "zh" && !publishedComponents) {
+  if (locale === "zh" && publishedComponents === null) {
     return null;
   }
 
+  const fallbackTitle = normalizeString(titleFallback) ?? humanizeSlug(canonicalSlug);
+  const defaultCtaHref = buildCareerDisplayCtaHref({ locale, landingPath: path, subjectSlug: canonicalSlug });
+  const displayCta = localizedHero?.primaryCta ?? {
+    label: locale === "zh" ? "开始职业兴趣测试" : "Start career interest test",
+    href: defaultCtaHref,
+  };
   return {
     surfaceVersion: CAREER_DISPLAY_SURFACE_VERSION,
     assetType: DISPLAY_ASSET_TYPE,
@@ -1516,8 +1511,8 @@ export function adaptCareerDisplaySurface(
     subject: {
       canonicalSlug,
       path,
-      title: localizedHero.h1,
-      ...(localizedHero.subtitle ? { subtitle: localizedHero.subtitle } : {}),
+      title: localizedHero?.h1 ?? fallbackTitle,
+      ...(localizedHero?.subtitle ? { subtitle: localizedHero.subtitle } : {}),
       ...(normalizeString(subject.soc_code) ? { socCode: normalizeString(subject.soc_code)! } : {}),
       ...(normalizeString(subject.onet_code) ? { onetCode: normalizeString(subject.onet_code)! } : {}),
     },
@@ -1533,8 +1528,8 @@ export function adaptCareerDisplaySurface(
     publishedComponents,
     presentationV1,
     cta: {
-      label: localizedHero.primaryCta.label,
-      href: publishedComponents ? localizedHero.primaryCta.href : ctaHref,
+      label: displayCta.label,
+      href: localizedHero ? displayCta.href : ctaHref,
       testSlug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
       targetAction: "start_riasec_test",
       eventPayload: buildCareerDisplayCtaAttribution({ locale, landingPath: path, subjectSlug: canonicalSlug }),

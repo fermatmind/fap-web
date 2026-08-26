@@ -9,10 +9,11 @@ import { AccountantsCareerProfile } from "@/components/career/display/Accountant
 import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
-import type {
-  CareerDisplayComponentId,
-  CareerDisplaySection,
-  CareerDisplaySurfaceViewModel,
+import {
+  CAREER_DISPLAY_SUPPORTED_COMPONENTS,
+  type CareerDisplayComponentId,
+  type CareerDisplaySection,
+  type CareerDisplaySurfaceViewModel,
 } from "@/lib/career/displaySurface";
 import {
   CAREER_VISUAL_GROUPS,
@@ -261,6 +262,8 @@ function CareerProductionHero({
 }: Pick<Props, "surface" | "visibleSections" | "primaryCtaHref">) {
   const published = surface.publishedComponents;
   const presentation = surface.presentationV1;
+  const legacyHero = surface.hero;
+  if (!presentation && !legacyHero) return null;
   const usesPresentation = presentation !== null;
   const legacyRiasec = !published ? firstSection(visibleSections, "RIASECFitBlock") : null;
   const legacySnapshot = !published ? firstSection(visibleSections, "CareerSnapshotCard") : null;
@@ -301,11 +304,11 @@ function CareerProductionHero({
   ].filter((item): item is string => item !== null).join(" · ");
   const heroTitle = presentation
     ? (surface.locale === "zh" ? presentation.hero.titleZh : presentation.hero.titleEn)
-    : surface.hero.h1;
+    : legacyHero?.h1;
   const heroSubtitle = presentation
     ? presentationSubtitle
-    : surface.hero.subtitle ?? (surface.locale === "zh" ? legacySubjectCodes : "");
-  const heroLead = presentation ? presentation.hero.lead : surface.hero.quickAnswer;
+    : legacyHero?.subtitle ?? (surface.locale === "zh" ? legacySubjectCodes : "");
+  const heroLead = presentation ? presentation.hero.lead : legacyHero?.quickAnswer;
   const heroCta = presentation
     ? presentation.hero.cta
     : published ? { label: surface.cta.label, href: surface.cta.href } : null;
@@ -323,7 +326,7 @@ function CareerProductionHero({
         {heroTitle ? <h1 className={publishedHero
           ? "m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
           : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={usesPresentation ? `presentation_v1.hero.title_${surface.locale === "zh" ? "zh" : "en"}` : "hero.h1"}>{heroTitle}</h1> : null}
-        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={usesPresentation ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : surface.hero.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
+        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={usesPresentation ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : legacyHero?.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
         {badges.length > 0 ? (
           <div className={`flex flex-wrap ${visual.heroBadges}`} data-testid="career-production-hero-badges">
             {badges.map((badge, index) => (
@@ -513,16 +516,16 @@ export function CareerProductionDisplaySurface({
       />;
     }
     if (componentId === "source_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} sources={surface.sources} locale={surface.locale} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} locale={surface.locale} />
       : <SourceCard surface={surface} />;
     if (componentId === "review_validity_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]} locale={surface.locale} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} locale={surface.locale} />
       : <ReviewCard surface={surface} />;
     if (componentId === "boundary_notice") {
       if (publishedComponents) {
         return <CareerPublishedSemanticSection
           componentId={componentId}
-          value={publishedComponents[componentId]}
+          value={publishedComponents[componentId]!}
           usageBoundary={surface.presentationV1?.notices.usageBoundary ?? null}
           locale={surface.locale}
         />;
@@ -556,7 +559,7 @@ export function CareerProductionDisplaySurface({
       return <CareerPublishedSemanticSection
         componentId={componentId}
         testId={COMPONENT_TEST_IDS[componentId]}
-        value={publishedComponents[componentId]}
+        value={publishedComponents[componentId]!}
         aiExposureNote={componentId === "ai_impact_table" ? surface.presentationV1?.hero.aiExposure?.note ?? null : null}
         subjectTitle={surface.subject.title}
         subjectSlug={surface.subject.canonicalSlug}
@@ -604,6 +607,8 @@ export function CareerProductionDisplaySurface({
   const isZhAccountants = surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors";
   const accountantsQuickAnswers = publishedComponents?.career_quick_answers_block;
   const usesStructuredAccountantsProfile = isZhAccountants
+    && ["definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block"]
+      .every((componentId) => surface.componentOrder.includes(componentId as CareerDisplayComponentId))
     && typeof accountantsQuickAnswers === "object"
     && accountantsQuickAnswers !== null
     && !Array.isArray(accountantsQuickAnswers)
@@ -674,29 +679,28 @@ export function CareerProductionDisplaySurface({
     let componentNodes: ReactNode[];
 
     if (group.id === "hero") {
-      componentNodes = [
-        <ComponentFrame key="hero" id="hero">{renderComponent("hero")}</ComponentFrame>,
-        surface.presentationV1?.hero.cta ? (
-          <ComponentFrame key="primary_cta" id="primary_cta" hidden>
-            <span
-              data-career-api-component="primary_cta"
-              data-career-api-fields="presentation_v1.hero.cta.label presentation_v1.hero.cta.href"
-            >
-              {surface.presentationV1.hero.cta.label}
-            </span>
-          </ComponentFrame>
-        ) : !surface.presentationV1 ? (
-          <ComponentFrame key="primary_cta" id="primary_cta" hidden>
-            {renderComponent("primary_cta")}
-          </ComponentFrame>
-        ) : null,
-      ];
+      componentNodes = surface.componentOrder
+        .filter((componentId) => componentId !== "breadcrumb" && group.componentIds.includes(componentId))
+        .map((componentId) => componentId === "hero"
+          ? <ComponentFrame key="hero" id="hero">{renderComponent("hero")}</ComponentFrame>
+          : componentId === "primary_cta" && surface.presentationV1?.hero.cta ? (
+            <ComponentFrame key="primary_cta" id="primary_cta" hidden>
+              <span
+                data-career-api-component="primary_cta"
+                data-career-api-fields="presentation_v1.hero.cta.label presentation_v1.hero.cta.href"
+              >
+                {surface.presentationV1.hero.cta.label}
+              </span>
+            </ComponentFrame>
+          ) : componentId === "primary_cta" && surface.presentationV1
+            ? null
+            : <ComponentFrame key={componentId} id={componentId}>{renderComponent(componentId)}</ComponentFrame>);
     } else if (group.id === "snapshot") {
-      componentNodes = [
+      componentNodes = surface.componentOrder.includes("career_snapshot_primary_locale") ? [
         <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
           <CareerPublishedSemanticSection
             componentId="career_snapshot_primary_locale"
-            value={publishedComponents.career_snapshot_primary_locale}
+            value={publishedComponents.career_snapshot_primary_locale!}
             testId={COMPONENT_TEST_IDS.career_snapshot_primary_locale}
             snapshotVariant="overview"
             snapshotFacts={surface.presentationV1?.hero.badges.filter((badge) => badge.key === "scene") ?? []}
@@ -704,18 +708,18 @@ export function CareerProductionDisplaySurface({
             locale={surface.locale}
           />
         </ComponentFrame>,
-      ];
+      ] : [];
     } else if (group.id === "china-reference") {
-      componentNodes = [
+      componentNodes = surface.componentOrder.includes("career_snapshot_primary_locale") ? [
         <CareerPublishedSemanticSection
           key="career_snapshot_primary_locale-china"
           componentId="career_snapshot_primary_locale"
-          value={publishedComponents.career_snapshot_primary_locale}
+          value={publishedComponents.career_snapshot_primary_locale!}
           snapshotVariant="china"
           salaryBoundary={surface.presentationV1?.notices.salaryBoundary ?? null}
           locale={surface.locale}
         />,
-      ];
+      ] : [];
     } else if (group.id === "profile" && usesStructuredAccountantsProfile) {
       componentNodes = [
         <AccountantsCareerProfile
@@ -728,7 +732,7 @@ export function CareerProductionDisplaySurface({
         />,
       ];
     } else {
-      componentNodes = group.componentIds.map((componentId) => {
+      componentNodes = surface.componentOrder.filter((componentId) => group.componentIds.includes(componentId)).map((componentId) => {
         const component = renderComponent(componentId);
         if (component == null) return null;
         const content = componentId === "final_cta"
@@ -761,9 +765,19 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  const visualGroups = isZhAccountants
+  const declaredVisualGroups = isZhAccountants
     ? CAREER_VISUAL_GROUPS.filter((group) => group.id !== "snapshot")
     : CAREER_VISUAL_GROUPS;
+  const usesLegacyFullCatalog = surface.componentOrder.length === CAREER_DISPLAY_SUPPORTED_COMPONENTS.length
+    && surface.componentOrder.every((componentId, index) => componentId === CAREER_DISPLAY_SUPPORTED_COMPONENTS[index]);
+  const visualGroups = usesLegacyFullCatalog ? declaredVisualGroups : declaredVisualGroups.toSorted((left, right) => {
+      const firstDeclaredIndex = (group: CareerVisualGroupDefinition) => {
+        if (group.id === "china-reference") return surface.componentOrder.indexOf("career_snapshot_primary_locale");
+        const indexes = group.componentIds.map((id) => surface.componentOrder.indexOf(id)).filter((index) => index >= 0);
+        return indexes.length > 0 ? Math.min(...indexes) : Number.MAX_SAFE_INTEGER;
+      };
+      return firstDeclaredIndex(left) - firstDeclaredIndex(right);
+    });
   const visibleVisualGroups = visualGroups.flatMap((group) => {
     const content = renderVisualGroup(group);
     return content ? [{ group, content }] : [];
@@ -777,7 +791,7 @@ export function CareerProductionDisplaySurface({
       data-career-dossier-layout="responsive-v2"
       data-career-renderer-release={rendererRelease}
     >
-      <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div>
+      {breadcrumb ? <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div> : null}
       <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 ${visual.layout}`} data-testid="career-source-disclosure">
         <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${isZhAccountants ? visual.accountantsRail : ""}`} aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className={visual.toc}>
@@ -798,7 +812,7 @@ export function CareerProductionDisplaySurface({
               ))}
             </nav>
           </div>
-          <section
+          {surface.componentOrder.some((componentId) => componentId === "primary_cta" || componentId === "final_cta") ? <section
             className={visual.assessmentRail}
             data-testid="career-production-assessment-rail"
           >
@@ -809,7 +823,7 @@ export function CareerProductionDisplaySurface({
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
               <span aria-hidden="true">→</span>
             </Link>
-          </section>
+          </section> : null}
         </aside>
         <main className={`min-w-0 ${visual.componentStack}`}>
           {visibleVisualGroups.map(({ content }) => content)}

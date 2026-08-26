@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { JSDOM } from "jsdom";
 import { expect, test } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
-import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_SUPPORTED_COMPONENTS, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { CAREER_VISUAL_GROUP_IDS } from "@/lib/career/careerVisualGroups";
 
 const API_ORIGIN = process.env.CAREER_V12_API_ORIGIN ?? "https://api.fermatmind.com/api";
@@ -106,7 +106,7 @@ async function auditSlug(slug: string) {
     new Set(componentMarkers).size !== 26 ||
     apiComponents.length !== 26 ||
     new Set(apiComponents).size !== 26 ||
-    componentMarkers.some((component) => !CAREER_DISPLAY_COMPONENT_ORDER.includes(component as never))
+    componentMarkers.some((component) => !CAREER_DISPLAY_SUPPORTED_COMPONENTS.includes(component as never))
   ) {
     failures.push({ slug, reason: "component_markers", detail: `${componentMarkers.length}/${apiComponents.length}` });
     return;
@@ -124,7 +124,7 @@ async function auditSlug(slug: string) {
     .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
   const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
   const page = record(record(root.page).content);
-  const expectedScalars = CAREER_DISPLAY_COMPONENT_ORDER.flatMap((componentId) => strings(page[componentId]));
+  const expectedScalars = CAREER_DISPLAY_SUPPORTED_COMPONENTS.flatMap((componentId) => strings(page[componentId]));
   const missingScalars = expectedScalars.filter((value) => !domProjection.includes(value));
   if (missingScalars.length > 0) {
     scalarMismatch += missingScalars.length;

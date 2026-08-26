@@ -9,7 +9,7 @@ import {
   CAREER_VISUAL_GROUP_IDS,
 } from "@/lib/career/careerVisualGroups";
 import {
-  CAREER_DISPLAY_COMPONENT_ORDER,
+  CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   adaptCareerDisplaySurface,
 } from "@/lib/career/displaySurface";
 import {
@@ -340,11 +340,11 @@ describe("career v1.2 presentation contract", () => {
 
   it("maps every component once and declares every field-ledger entry without accidental duplicates", () => {
     const groupedComponents = CAREER_VISUAL_GROUPS.flatMap((group) => group.componentIds);
-    expect(new Set(groupedComponents).size).toBe(CAREER_DISPLAY_COMPONENT_ORDER.length);
-    expect([...groupedComponents].sort()).toEqual([...CAREER_DISPLAY_COMPONENT_ORDER].sort());
+    expect(new Set(groupedComponents).size).toBe(CAREER_DISPLAY_SUPPORTED_COMPONENTS.length);
+    expect([...groupedComponents].sort()).toEqual([...CAREER_DISPLAY_SUPPORTED_COMPONENTS].sort());
 
     const coveredComponents = new Set(CAREER_FIELD_CONSUMPTION_LEDGER.map((entry) => entry.componentId));
-    for (const componentId of CAREER_DISPLAY_COMPONENT_ORDER) {
+    for (const componentId of CAREER_DISPLAY_SUPPORTED_COMPONENTS) {
       expect(coveredComponents.has(componentId), `missing ledger component ${componentId}`).toBe(true);
     }
 

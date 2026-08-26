@@ -8,8 +8,8 @@ unsupported-version payloads. Never substitute Desktop files, local datasets,
 generated candidates, templates, sidecars, or synthesized related pages.
 
 The following list is the supported component catalog, not a required slot
-count. The reader accepts any non-empty, unique subset declared by the backend
-in this canonical relative order and never invents omitted components:
+count or page order. The reader accepts any non-empty, unique subset declared
+by the backend, preserves that declared order, and never invents omitted components:
 
 1. `breadcrumb`
 2. `hero`
@@ -47,7 +47,8 @@ dropping valid published fields is not.
 
 ## Fail-closed behavior
 
-- Reject an unknown, duplicated, reordered, or empty component list.
+- Reject an unknown, duplicated, or empty component list. Supported components
+  may be declared in any order.
 - Reject a component whose declared page value is missing or malformed.
 - Reject an invalid required component instead of assembling local replacement
   content.

@@ -6,7 +6,7 @@ export type CareerPublishedValue =
   | CareerPublishedValue[]
   | { [key: string]: CareerPublishedValue };
 
-export type CareerPublishedComponents = Record<CareerDisplayComponentId, CareerPublishedValue>;
+export type CareerPublishedComponents = Partial<Record<CareerDisplayComponentId, CareerPublishedValue>>;
 
 export type CareerPublishedStructuredRow = {
   label: string;

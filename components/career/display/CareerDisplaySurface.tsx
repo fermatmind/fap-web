@@ -706,12 +706,14 @@ export function CareerDisplaySurface({
 
   return (
     <article className="mx-auto max-w-6xl space-y-8 px-4 py-6 md:px-6 md:py-8" data-testid="career-display-surface">
-      <CareerDisplayHero
-        hero={surface.hero}
-        locale={surface.locale}
-        breadcrumbItems={breadcrumbItems}
-        snapshotItems={heroSnapshotItems}
-      />
+      {surface.hero ? (
+        <CareerDisplayHero
+          hero={surface.hero}
+          locale={surface.locale}
+          breadcrumbItems={breadcrumbItems}
+          snapshotItems={heroSnapshotItems}
+        />
+      ) : null}
       {shouldShowIntegrityNotice(claimPermissions) ? (
         <ClaimPermissionNotice locale={surface.locale} kind="integrity" />
       ) : null}
@@ -765,13 +767,13 @@ export function CareerDisplaySurface({
           </ClaimGuard>
         )}
       </SectionGroup>
-      <CareerDecisionActionBlock
+      {surface.componentOrder.some((componentId) => componentId === "primary_cta" || componentId === "final_cta") ? <CareerDecisionActionBlock
         surface={surface}
         nextSteps={nextSteps}
         riasecFit={riasecFit}
         personalityFit={personalityFit}
         primaryCtaHref={primaryCtaHref}
-      />
+      /> : null}
       <ClaimGuard
         allowed={claimPermissions.allowMarketSignal}
         fallback={marketSignal ? <ClaimPermissionNotice locale={surface.locale} kind="market" /> : null}
@@ -780,12 +782,12 @@ export function CareerDisplaySurface({
       </ClaimGuard>
       {comparison ? <EvidenceContainer section={comparison} testId="comparison-block" /> : null}
       {faq ? <CareerFAQBlock heading={faq.heading} items={visibleFaqItems} /> : null}
-      <SourceDisclosureBlock
+      {surface.componentOrder.some((componentId) => ["source_card", "review_validity_card", "boundary_notice"].includes(componentId)) ? <SourceDisclosureBlock
         locale={surface.locale}
         sources={surface.sources}
         notices={surface.boundaryNotice}
         reviewValidity={surface.reviewValidity}
-      />
+      /> : null}
     </article>
   );
 }

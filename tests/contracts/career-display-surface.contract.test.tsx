@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
-import { CAREER_DISPLAY_COMPONENT_ORDER, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import { CAREER_DISPLAY_SUPPORTED_COMPONENTS, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
@@ -441,7 +441,7 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
   });
 
-  it.each(CAREER_DISPLAY_COMPONENT_ORDER)("fails closed when Current component %s is missing", (componentId) => {
+  it.each(CAREER_DISPLAY_SUPPORTED_COMPONENTS)("fails closed when declared component %s is missing", (componentId) => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "financial-examiners", locale: "zh" });
     delete (fixture.page.content as Record<string, unknown>)[componentId];
 
@@ -748,9 +748,9 @@ describe("career display surface contract", () => {
       "Accountants and Auditors"
     );
 
-    expect(surface?.hero.subtitle).toBeUndefined();
-    expect(surface?.hero.primaryCta.label).toBe("Measure my career interests");
-    expect(surface?.hero.primaryCta.href).toBe("/en/tests/holland-career-interest-test-riasec");
+    expect(surface?.hero?.subtitle).toBeUndefined();
+    expect(surface?.hero?.primaryCta.label).toBe("Measure my career interests");
+    expect(surface?.hero?.primaryCta.href).toBe("/en/tests/holland-career-interest-test-riasec");
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -779,7 +779,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe("data-scientists");
     expect(surface?.locale).toBe("zh");
     expect(surface?.subject.path).toBe("/zh/career/jobs/data-scientists");
-    expect(surface?.hero.primaryCta.href).toBe("/zh/tests/holland-career-interest-test-riasec");
+    expect(surface?.hero?.primaryCta.href).toBe("/zh/tests/holland-career-interest-test-riasec");
     expect(surface?.faqItems[0]?.question).toBe("数据科学家 适合普通人探索吗？");
 
     if (!surface) {
@@ -1038,7 +1038,7 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("accepts an ordered subset of declared components without inventing removed slots", () => {
+  it("accepts a subset of declared components without inventing removed slots", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
     const removed = fixture.component_order[10];
     fixture.component_order.splice(10, 1);
@@ -1051,18 +1051,41 @@ describe("career display surface contract", () => {
     expect(document.querySelector(`[data-career-component-id="${removed}"]`)).not.toBeInTheDocument();
   });
 
-  it("rejects duplicate and incorrectly ordered component ids", () => {
-    const duplicate = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+  it("rejects duplicate ids and preserves an arbitrary supported order", () => {
+    const duplicate = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists", locale: "zh" });
     duplicate.component_order[27] = duplicate.component_order[26];
 
-    const outOfOrder = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const outOfOrder = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists", locale: "zh" });
     [outOfOrder.component_order[10], outOfOrder.component_order[11]] = [
       outOfOrder.component_order[11],
       outOfOrder.component_order[10],
     ];
 
-    expect(adaptCareerDisplaySurface(duplicate, "en")).toBeNull();
-    expect(adaptCareerDisplaySurface(outOfOrder, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(duplicate, "zh")).toBeNull();
+
+    const surface = adaptCareerDisplaySurface(outOfOrder, "zh");
+    expect(surface?.componentOrder).toEqual(outOfOrder.component_order);
+    render(<CareerDisplaySurface surface={surface} />);
+    const first = document.querySelector('[data-career-component-id="responsibilities_block"]');
+    const second = document.querySelector('[data-career-component-id="career_ai_description_block"]');
+    expect(first).not.toBeNull();
+    expect(second).not.toBeNull();
+    expect(first!.compareDocumentPosition(second!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
+  it("renders a declared component without hero or CTA and ignores undeclared supported content", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists", titleEn: "Data Scientists" });
+    fixture.component_order = ["definition_block"];
+
+    const surface = adaptCareerDisplaySurface(fixture, "en", undefined, "data-scientists", "Data Scientists");
+
+    expect(surface?.hero).toBeNull();
+    expect(surface?.componentOrder).toEqual(["definition_block"]);
+    render(<CareerDisplaySurface surface={surface} />);
+    expect(screen.queryByTestId("career-display-hero")).not.toBeInTheDocument();
+    expect(screen.getByTestId("career-published-definition_block")).toBeInTheDocument();
+    expect(document.querySelector('[data-career-component-id="responsibilities_block"]')).not.toBeInTheDocument();
+    expect(screen.queryByTestId("career-production-assessment-rail")).not.toBeInTheDocument();
   });
 
   it("rejects surfaces with mismatched locale, status, slug, or a version discriminator", () => {

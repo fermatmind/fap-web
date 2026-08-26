@@ -21,8 +21,8 @@ editing.
 
 1. Identify the published API contract, adapter, renderer, cache behavior, and
    affected locale.
-2. Validate the backend-declared component order as a non-empty, unique,
-   canonical-order subset of the supported component catalog, and validate
+2. Validate the backend-declared component order as a non-empty, unique list
+   from the supported component catalog, preserve its declared order, and validate
    every declared field before rendering. Preserve API array order and
    cardinality; do not invent omitted components.
 3. Render all canonical published content, including FAQ question/answer pairs,
