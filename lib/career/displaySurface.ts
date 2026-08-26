@@ -69,6 +69,10 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "final_cta",
 ] as const;
 
+const CAREER_DISPLAY_ACCOUNTANTS_COMPONENT_ORDER = CAREER_DISPLAY_COMPONENT_ORDER.filter(
+  (componentId) => componentId !== "career_ai_description_block"
+) as CareerDisplayComponentId[];
+
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
@@ -633,6 +637,15 @@ function matchesComponentOrder(
   expected: readonly CareerDisplayComponentId[]
 ): boolean {
   return actual.length === expected.length && actual.every((component, index) => component === expected[index]);
+}
+
+function matchesProductionComponentOrder(
+  actual: readonly CareerDisplayComponentId[],
+  canonicalSlug: string
+): boolean {
+  return matchesComponentOrder(actual, CAREER_DISPLAY_COMPONENT_ORDER) ||
+    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
+      matchesComponentOrder(actual, CAREER_DISPLAY_ACCOUNTANTS_COMPONENT_ORDER));
 }
 
 function hasVersionDiscriminator(root: Record<string, unknown>): boolean {
@@ -1319,6 +1332,7 @@ const PRODUCTION_REQUIRED_SECTION_COMPONENTS = [
 ] as const;
 
 function hasCompleteProductionProjection(input: {
+  canonicalSlug: string;
   page: Record<string, unknown>;
   sections: CareerDisplaySection[];
   sources: CareerDisplaySource[];
@@ -1340,13 +1354,17 @@ function hasCompleteProductionProjection(input: {
     return counts;
   }, {});
 
-  return PRODUCTION_REQUIRED_SECTION_COMPONENTS.every((component) => sectionCounts[component] !== undefined) &&
+  const requiredSections = input.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+    ? PRODUCTION_REQUIRED_SECTION_COMPONENTS.filter((component) => component !== "CareerAiDescriptionBlock")
+    : PRODUCTION_REQUIRED_SECTION_COMPONENTS;
+
+  return requiredSections.every((component) => sectionCounts[component] !== undefined) &&
     sectionCounts.CareerSnapshotCard === 2;
 }
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
   return (
-    matchesComponentOrder(surface.componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) &&
+    matchesProductionComponentOrder(surface.componentOrder, surface.subject.canonicalSlug) &&
     (surface.locale === "zh" ||
       surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
       surface.publishedComponents !== null)
@@ -1452,7 +1470,7 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    !matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER) ||
+    !matchesProductionComponentOrder(componentOrder, canonicalSlug) ||
     !page ||
     !hero ||
     sections.length === 0 ||
@@ -1484,7 +1502,7 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
-  const usesProductionOrder = matchesComponentOrder(componentOrder, CAREER_DISPLAY_COMPONENT_ORDER);
+  const usesProductionOrder = matchesProductionComponentOrder(componentOrder, canonicalSlug);
   const publishedComponents = page && usesProductionOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
@@ -1503,6 +1521,7 @@ export function adaptCareerDisplaySurface(
   if (
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG || publishedComponents !== null) &&
     !hasCompleteProductionProjection({
+      canonicalSlug,
       page,
       sections,
       sources,

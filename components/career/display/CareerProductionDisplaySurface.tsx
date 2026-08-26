@@ -437,6 +437,8 @@ export function CareerProductionDisplaySurface({
   }
 
   const renderComponent = (componentId: CareerDisplayComponentId) => {
+    if (!surface.componentOrder.includes(componentId)) return null;
+
     if (componentId === "breadcrumb") {
       const rawBreadcrumb = publishedComponents?.breadcrumb;
       const breadcrumbData = rawBreadcrumb && typeof rawBreadcrumb === "object" && !Array.isArray(rawBreadcrumb) ? rawBreadcrumb : {};
@@ -684,7 +686,7 @@ export function CareerProductionDisplaySurface({
             value={publishedComponents.career_snapshot_primary_locale}
             testId={COMPONENT_TEST_IDS.career_snapshot_primary_locale}
             snapshotVariant="overview"
-            snapshotFacts={surface.presentationV1?.hero.badges ?? []}
+            snapshotFacts={surface.presentationV1?.hero.badges.filter((badge) => badge.key === "scene") ?? []}
             snapshotCallout={surface.presentationV1?.notices.snapshotCallout ?? null}
             locale={surface.locale}
           />

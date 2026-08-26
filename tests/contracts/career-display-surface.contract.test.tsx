@@ -171,6 +171,13 @@ describe("career display surface contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     if (locale === "zh") {
+      const hero = screen.getByTestId("career-display-hero");
+      const snapshot = screen.getByTestId("career-published-career_snapshot_primary_locale");
+      expect(hero).toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
+      expect(hero).toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
+      expect(snapshot).toHaveTextContent("会计与审计人员 的真实工作场景来自后端已发布正文。");
+      expect(snapshot).not.toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
+      expect(snapshot).not.toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("中国大陆薪资参考");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
@@ -465,7 +472,6 @@ describe("career display surface contract", () => {
     "related_next_pages",
     "review_validity_card",
     "boundary_notice",
-    "career_ai_description_block",
   ])("fails closed for accountants when required API projection field %s is missing", (field) => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
@@ -476,6 +482,27 @@ describe("career display surface contract", () => {
 
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
+
+  it.each(["zh", "en"] as const)(
+    "accepts the accountants projection without the removed career AI description component in %s",
+    (locale) => {
+      const fixture = buildSelectedCareerDisplaySurfaceFixture({
+        slug: "accountants-and-auditors",
+        locale,
+        titleEn: "Accountants and Auditors",
+      });
+      delete (fixture.page.content as Record<string, unknown>).career_ai_description_block;
+      fixture.component_order = fixture.component_order.filter(
+        (componentId) => componentId !== "career_ai_description_block"
+      );
+
+      const surface = adaptCareerDisplaySurface(fixture, locale);
+      expect(surface).not.toBeNull();
+
+      render(<CareerDisplaySurface surface={surface} />);
+      expect(screen.queryByTestId("career-published-career_ai_description_block")).not.toBeInTheDocument();
+    }
+  );
 
   it("fails closed for the retired related-page structure instead of injecting local fallbacks", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
