@@ -7,9 +7,9 @@ projection. Reject missing, draft, malformed, wrong-locale, wrong-slug, or
 unsupported-version payloads. Never substitute Desktop files, local datasets,
 generated candidates, templates, sidecars, or synthesized related pages.
 
-The Current v4.3 Chinese projection order is exact and contains 28 unique entries.
-The reader also accepts the sealed v4.2 26-component order without inventing
-the two v4.3 components:
+The following list is the supported component catalog, not a required slot
+count. The reader accepts any non-empty, unique subset declared by the backend
+in this canonical relative order and never invents omitted components:
 
 1. `breadcrumb`
 2. `hero`
@@ -47,8 +47,8 @@ dropping valid published fields is not.
 
 ## Fail-closed behavior
 
-- Reject an unknown, missing, duplicated, reordered, or incomplete component
-  list.
+- Reject an unknown, duplicated, reordered, or empty component list.
+- Reject a component whose declared page value is missing or malformed.
 - Reject an invalid required component instead of assembling local replacement
   content.
 - Return a real not-found or bounded error state when public authority is

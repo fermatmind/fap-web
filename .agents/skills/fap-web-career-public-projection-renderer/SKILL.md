@@ -21,9 +21,10 @@ editing.
 
 1. Identify the published API contract, adapter, renderer, cache behavior, and
    affected locale.
-2. Validate the exact v4.3 28-component order or sealed v4.2 26-component
-   compatibility order and every required field before rendering. Preserve API
-   array order and cardinality.
+2. Validate the backend-declared component order as a non-empty, unique,
+   canonical-order subset of the supported component catalog, and validate
+   every declared field before rendering. Preserve API array order and
+   cardinality; do not invent omitted components.
 3. Render all canonical published content, including FAQ question/answer pairs,
    tables, sources, links, localized CTA attribution, canonical, hreflang, and
    locale metadata.

@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CAREER_VISUAL_GROUP_IDS } from "@/lib/career/careerVisualGroups";
 import {
-  CAREER_DISPLAY_COMPONENT_ORDER,
   adaptCareerDisplaySurface,
   isCareerProductionDisplaySurface,
 } from "@/lib/career/displaySurface";
@@ -113,12 +112,12 @@ describe("career English Current production renderer", () => {
     const surface = adaptCareerDisplaySurface(projection, "en", {}, "accountants-and-auditors", "Accountants and auditors");
     expect(surface?.publishedComponents).not.toBeNull();
     expect(surface?.presentationV1).toBeNull();
-    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(surface?.componentOrder).toEqual(projection.component_order);
 
     render(<CareerDisplaySurface surface={surface} />);
     expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(surface?.componentOrder.length ?? 0);
     expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
       item.getAttribute("data-career-quick-answer-key")
     )).toEqual(["qa3", "qa2", "qa1"]);
@@ -143,11 +142,12 @@ describe("career English Current production renderer", () => {
     ["registered-nurses", "Registered Nurses"],
     ["accountants-and-auditors", "Accountants and Auditors"],
   ] as const)("renders %s through the shared 12-group renderer from API components only", (slug, titleEn) => {
-    const surface = adaptCareerDisplaySurface(buildEnglishCurrentProjection(slug, titleEn), "en", {}, slug, titleEn);
+    const projection = buildEnglishCurrentProjection(slug, titleEn);
+    const surface = adaptCareerDisplaySurface(projection, "en", {}, slug, titleEn);
 
     expect(surface?.publishedComponents).not.toBeNull();
     expect(surface?.presentationV1).toBeNull();
-    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(surface?.componentOrder).toEqual(projection.component_order);
 
     render(
       <CareerDisplaySurface
@@ -160,8 +160,8 @@ describe("career English Current production renderer", () => {
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
     expect([...document.querySelectorAll("[data-career-visual-group]")].map((group) => group.getAttribute("data-career-visual-group")))
       .toEqual(CAREER_VISUAL_GROUP_IDS);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(surface?.componentOrder.length ?? 0);
     const hiddenPrimaryCta = document.querySelector('#career-component-primary_cta[data-career-component-id="primary_cta"]');
     expect(hiddenPrimaryCta).toHaveClass("hidden");
     expect(hiddenPrimaryCta?.querySelector('[data-career-api-component="primary_cta"]')).toHaveAttribute(

@@ -140,7 +140,7 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe(slug);
     expect(surface?.subject.path).toBe(`/en/career/jobs/${slug}`);
     expect(surface?.subject.title).toBe(titleEn);
-    expect(surface?.componentOrder).toHaveLength(28);
+    expect(surface?.componentOrder).toEqual(buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }).component_order);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.sources).toHaveLength(2);
     expect(surface?.reviewValidity?.lastReviewed).toBe("2026-05-03");
@@ -166,7 +166,7 @@ describe("career display surface contract", () => {
     const surface = adaptCareerDisplaySurface(fixture, locale);
 
     expect(surface?.boundaryNotice).toHaveLength(2);
-    expect(surface?.componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(surface?.componentOrder).toEqual(fixture.component_order);
 
     render(<CareerDisplaySurface surface={surface} />);
 
@@ -296,7 +296,7 @@ describe("career display surface contract", () => {
       "data-career-production-template",
       "career-production-v1"
     );
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
   });
 
   it("preserves published zh Current copy instead of applying local claim regex rewrites", () => {
@@ -344,7 +344,7 @@ describe("career display surface contract", () => {
     const attributeValues = [...document.querySelectorAll("*")]
       .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
     const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
-    const expectedValues = CAREER_DISPLAY_COMPONENT_ORDER
+    const expectedValues = (surface?.componentOrder ?? [])
       .flatMap((componentId) => collectPublishedScalarValues(page[componentId]));
 
     for (const expected of expectedValues) {
@@ -358,7 +358,7 @@ describe("career display surface contract", () => {
     for (const expected of expectedSourceValues) {
       expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
     }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
     expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
       (page.responsibilities_block as unknown[]).length
     );
@@ -716,7 +716,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(28);
+    expect(surface?.componentOrder).toEqual(buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }).component_order);
     expect(surface?.sections.find((section) => section.component === "CareerFAQBlock")?.faqItems).toHaveLength(2);
     expect(surface?.claimPermissions.evidenceBasis.crosswalk).toBe("direct");
 
@@ -981,7 +981,7 @@ describe("career display surface contract", () => {
     );
 
     expect(surface?.subject.canonicalSlug).toBe(slug);
-    expect(surface?.componentOrder).toHaveLength(28);
+    expect(surface?.componentOrder).toEqual(buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }).component_order);
     expect(surface?.claimPermissions.integrityState).toBe("full");
 
     render(<CareerDisplaySurface surface={surface} />);
@@ -1036,11 +1036,17 @@ describe("career display surface contract", () => {
     expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
   });
 
-  it("rejects an incomplete component order", () => {
+  it("accepts an ordered subset of declared components without inventing removed slots", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists" });
+    const removed = fixture.component_order[10];
     fixture.component_order.splice(10, 1);
+    delete (fixture.page.content as Record<string, unknown>)[removed];
 
-    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+    const surface = adaptCareerDisplaySurface(fixture, "en");
+    expect(surface?.componentOrder).toEqual(fixture.component_order);
+
+    render(<CareerDisplaySurface surface={surface} />);
+    expect(document.querySelector(`[data-career-component-id="${removed}"]`)).not.toBeInTheDocument();
   });
 
   it("rejects duplicate and incorrectly ordered component ids", () => {

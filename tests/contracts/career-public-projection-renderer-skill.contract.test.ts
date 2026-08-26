@@ -62,11 +62,14 @@ describe("Career public projection renderer Skill", () => {
     expect(skill).toContain("fermatmind-frontend-deploy-sre");
   });
 
-  it("locks the v4.3 28-component order and required rendering boundaries", () => {
+  it("locks the supported component catalog and backend-declared subset boundaries", () => {
     const contract = fs.readFileSync(CONTRACT_PATH, "utf8");
     const listed = [...contract.matchAll(/^\d+\. `([^`]+)`$/gm)].map((match) => match[1]);
 
     expect(listed).toEqual(EXPECTED_COMPONENTS);
+    expect(contract).toContain("not a required slot");
+    expect(contract).toContain("non-empty, unique subset");
+    expect(contract).toContain("never invents omitted components");
     expect(contract).toMatch(/FAQ questions and\s+answers/);
     expect(contract).toMatch(/array\s+cardinality/);
     expect(contract).toMatch(/canonical, hreflang, and locale metadata/);

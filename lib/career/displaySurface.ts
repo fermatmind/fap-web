@@ -69,10 +69,6 @@ export const CAREER_DISPLAY_COMPONENT_ORDER = [
   "final_cta",
 ] as const;
 
-const CAREER_DISPLAY_ACCOUNTANTS_COMPONENT_ORDER = CAREER_DISPLAY_COMPONENT_ORDER.filter(
-  (componentId) => componentId !== "career_ai_description_block"
-) as CareerDisplayComponentId[];
-
 const READY_STATUS = "ready_for_pilot";
 const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
@@ -632,20 +628,15 @@ function normalizeComponentOrder(value: unknown): CareerDisplayComponentId[] | n
   return deduped.length === order.length ? deduped : null;
 }
 
-function matchesComponentOrder(
-  actual: readonly CareerDisplayComponentId[],
-  expected: readonly CareerDisplayComponentId[]
-): boolean {
-  return actual.length === expected.length && actual.every((component, index) => component === expected[index]);
-}
+function matchesProductionComponentOrder(actual: readonly CareerDisplayComponentId[]): boolean {
+  let previousIndex = -1;
+  for (const componentId of actual) {
+    const canonicalIndex = CAREER_DISPLAY_COMPONENT_ORDER.indexOf(componentId);
+    if (canonicalIndex <= previousIndex) return false;
+    previousIndex = canonicalIndex;
+  }
 
-function matchesProductionComponentOrder(
-  actual: readonly CareerDisplayComponentId[],
-  canonicalSlug: string
-): boolean {
-  return matchesComponentOrder(actual, CAREER_DISPLAY_COMPONENT_ORDER) ||
-    (canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG &&
-      matchesComponentOrder(actual, CAREER_DISPLAY_ACCOUNTANTS_COMPONENT_ORDER));
+  return actual.length > 0;
 }
 
 function hasVersionDiscriminator(root: Record<string, unknown>): boolean {
@@ -1311,28 +1302,8 @@ function normalizeRelatedNextPages(value: unknown): CareerDisplayRelatedNextPage
   return { intro, links };
 }
 
-const PRODUCTION_REQUIRED_SECTION_COMPONENTS = [
-  "FermatDecisionCard",
-  "CareerSnapshotCard",
-  "FitDecisionChecklist",
-  "RIASECFitBlock",
-  "PersonalityFitBlock",
-  "DefinitionBlock",
-  "CareerAiDescriptionBlock",
-  "ResponsibilitiesBlock",
-  "WorkContextBlock",
-  "MarketSignalCard",
-  "AdjacentCareerComparisonTable",
-  "AIImpactTable",
-  "CareerRiskCards",
-  "CareerPathBlock",
-  "ContractRiskBlock",
-  "NextStepsBlock",
-  "CareerFAQBlock",
-] as const;
-
 function hasCompleteProductionProjection(input: {
-  canonicalSlug: string;
+  componentOrder: readonly CareerDisplayComponentId[];
   page: Record<string, unknown>;
   sections: CareerDisplaySection[];
   sources: CareerDisplaySource[];
@@ -1340,31 +1311,30 @@ function hasCompleteProductionProjection(input: {
   boundaryNotice: string[];
   relatedNextPages: CareerDisplayRelatedNextPages | null;
 }): boolean {
+  const declaresBoundary = input.componentOrder.includes("boundary_notice");
   const boundary = input.page.boundary_notice;
-  if (!Array.isArray(boundary) || boundary.length === 0 || boundary.some((notice) => normalizeString(notice) === null)) {
+  if (
+    declaresBoundary &&
+    (!Array.isArray(boundary) || boundary.length === 0 || boundary.some((notice) => normalizeString(notice) === null))
+  ) {
     return false;
   }
 
-  if (input.boundaryNotice.length === 0 || input.sources.length === 0 || !input.reviewValidity || !input.relatedNextPages) {
+  if (
+    (declaresBoundary && input.boundaryNotice.length === 0) ||
+    (input.componentOrder.includes("source_card") && input.sources.length === 0) ||
+    (input.componentOrder.includes("review_validity_card") && !input.reviewValidity) ||
+    (input.componentOrder.includes("related_next_pages") && !input.relatedNextPages)
+  ) {
     return false;
   }
 
-  const sectionCounts = input.sections.reduce<Record<string, number>>((counts, section) => {
-    counts[section.component] = (counts[section.component] ?? 0) + 1;
-    return counts;
-  }, {});
-
-  const requiredSections = input.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
-    ? PRODUCTION_REQUIRED_SECTION_COMPONENTS.filter((component) => component !== "CareerAiDescriptionBlock")
-    : PRODUCTION_REQUIRED_SECTION_COMPONENTS;
-
-  return requiredSections.every((component) => sectionCounts[component] !== undefined) &&
-    sectionCounts.CareerSnapshotCard === 2;
+  return input.sections.length > 0;
 }
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
   return (
-    matchesProductionComponentOrder(surface.componentOrder, surface.subject.canonicalSlug) &&
+    matchesProductionComponentOrder(surface.componentOrder) &&
     (surface.locale === "zh" ||
       surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
       surface.publishedComponents !== null)
@@ -1470,7 +1440,7 @@ export function adaptCareerDisplaySurface(
     (assetSlug !== null && assetSlug !== canonicalSlug) ||
     (normalizedExpectedSlug !== null && canonicalSlug !== normalizedExpectedSlug) ||
     !componentOrder ||
-    !matchesProductionComponentOrder(componentOrder, canonicalSlug) ||
+    !matchesProductionComponentOrder(componentOrder) ||
     !page ||
     !hero ||
     sections.length === 0 ||
@@ -1502,7 +1472,7 @@ export function adaptCareerDisplaySurface(
       href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
-  const usesProductionOrder = matchesProductionComponentOrder(componentOrder, canonicalSlug);
+  const usesProductionOrder = matchesProductionComponentOrder(componentOrder);
   const publishedComponents = page && usesProductionOrder
     ? normalizeCareerPublishedComponents(page, componentOrder)
     : null;
@@ -1521,7 +1491,7 @@ export function adaptCareerDisplaySurface(
   if (
     (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG || publishedComponents !== null) &&
     !hasCompleteProductionProjection({
-      canonicalSlug,
+      componentOrder,
       page,
       sections,
       sources,

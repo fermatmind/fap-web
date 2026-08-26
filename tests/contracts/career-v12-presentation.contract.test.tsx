@@ -169,13 +169,19 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.queryByTestId("forbidden-ai-sidecar")).not.toBeInTheDocument();
   });
 
-  it("renders 12 ordered visual groups while preserving exactly 26 API component markers", () => {
-    render(<CareerDisplaySurface surface={buildZhSurface()} />);
+  it("renders ordered visual groups while preserving the declared API component set", () => {
+    const surface = buildZhSurface();
+    render(<CareerDisplaySurface surface={surface} />);
 
     const groups = [...document.querySelectorAll("[data-career-visual-group]")];
     expect(groups.map((group) => group.getAttribute("data-career-visual-group"))).toEqual(CAREER_VISUAL_GROUP_IDS);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(28);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(28);
+    const expectedRenderedOrder = CAREER_VISUAL_GROUPS
+      .flatMap((group) => group.componentIds)
+      .filter((componentId) => surface?.componentOrder.includes(componentId));
+    expect([...document.querySelectorAll("[data-career-component-id]")].map((element) =>
+      element.getAttribute("data-career-component-id")
+    )).toEqual(expectedRenderedOrder);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(surface?.componentOrder.length ?? 0);
     expect(screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a")).toHaveLength(12);
   });
 
@@ -200,9 +206,16 @@ describe("career v1.2 presentation contract", () => {
 
     const fieldMarkers = [...document.querySelectorAll("[data-career-api-field]")]
       .map((element) => element.getAttribute("data-career-api-field") ?? "");
-    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.badges["))).toHaveLength(5);
+    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.badges["))).toHaveLength(3);
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.stats["))).toHaveLength(14);
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.ai_exposure."))).toHaveLength(5);
+
+    const hero = screen.getByTestId("career-display-hero");
+    const snapshot = screen.getByTestId("career-published-career_snapshot_primary_locale");
+    expect(hero).toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
+    expect(hero).toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
+    expect(snapshot).not.toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
+    expect(snapshot).not.toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
   });
 
   it("locks the production dossier layout, visual hierarchy, TOC, and responsive tokens", () => {

@@ -5,7 +5,6 @@ import {
   buildActorsDisplaySurfaceFixture,
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
-import { CAREER_DISPLAY_COMPONENT_ORDER } from "@/lib/career/displaySurface";
 import { CAREER_VISUAL_GROUPS } from "@/lib/career/careerVisualGroups";
 
 afterEach(() => {
@@ -250,20 +249,21 @@ describe("career job detail versionless current route integration", () => {
     expect(html).not.toContain("career-job-docx-document");
   });
 
-  it("renders the accountants production template in the exact published 26-component DOM order", async () => {
+  it("renders the accountants production template in the backend-declared DOM order", async () => {
     const slug = "accountants-and-auditors";
+    const displaySurface = buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" });
     const html = await renderCareerJobPage(
       "en",
       slug,
       buildJobBundle({
         slug,
-        displaySurface: buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" }),
+        displaySurface,
       })
     );
     const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
 
     expect(html).toContain('data-career-production-template="career-production-v1"');
-    expect(componentOrder).toEqual(CAREER_DISPLAY_COMPONENT_ORDER);
+    expect(componentOrder).toEqual(displaySurface.component_order);
     expect(html).not.toContain("career-job-docx-document");
   });
 
@@ -323,10 +323,10 @@ describe("career job detail versionless current route integration", () => {
     expect(aiFetch).not.toHaveBeenCalled();
   });
 
-  it("fails closed for declared zh Current projections that are invalid or missing", async () => {
+  it("fails closed for declared zh Current projections that are malformed or missing", async () => {
     const slug = "precision-agriculture-technicians";
     const invalidSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, locale: "zh" });
-    invalidSurface.component_order = invalidSurface.component_order.slice(0, 24);
+    invalidSurface.component_order[10] = invalidSurface.component_order[9];
     const publishedSeoContract = {
       canonical_path: `/zh/career/jobs/${slug}`,
       canonical_target: `/zh/career/jobs/${slug}`,
@@ -361,15 +361,22 @@ describe("career job detail versionless current route integration", () => {
     expect(html).not.toContain("data-career-production-template");
   });
 
-  it("fails closed for accountants when the projection is missing or uses the legacy 24-component order", async () => {
+  it("accepts an ordered accountants component subset", async () => {
     const slug = "accountants-and-auditors";
-    const legacyOrderSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" });
-    legacyOrderSurface.component_order = CAREER_DISPLAY_COMPONENT_ORDER.slice(0, -1);
+    const subsetSurface = buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn: "Accountants and Auditors" });
+    const removed = "career_ai_description_block";
+    subsetSurface.component_order = subsetSurface.component_order.filter((componentId) => componentId !== removed);
+    delete (subsetSurface.page.content as Record<string, unknown>)[removed];
 
+    const html = await renderCareerJobPage("en", slug, buildJobBundle({ slug, displaySurface: subsetSurface }));
+    const renderedComponents = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
+    expect(renderedComponents).not.toContain(removed);
+    expect(new Set(renderedComponents)).toEqual(new Set(subsetSurface.component_order));
+  });
+
+  it("still fails closed when the accountants projection is missing", async () => {
+    const slug = "accountants-and-auditors";
     await expect(renderCareerJobPage("en", slug, buildJobBundle({ slug }))).rejects.toThrow("not-found");
-    await expect(
-      renderCareerJobPage("en", slug, buildJobBundle({ slug, displaySurface: legacyOrderSurface }))
-    ).rejects.toThrow("not-found");
   });
 
   it.each([

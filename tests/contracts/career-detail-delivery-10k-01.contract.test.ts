@@ -94,7 +94,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
   it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
-    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-versionless-28-component-v1");
+    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-versionless-component-order");
     expect(source).toContain("function bundleCacheOptions");
     expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
     expect(source).toContain('query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION)');
