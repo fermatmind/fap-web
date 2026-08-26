@@ -257,6 +257,7 @@ export function CareerPublishedSemanticSection({
   usageBoundary,
   aiExposureNote,
   subjectTitle,
+  subjectSlug,
   locale = "zh",
 }: {
   componentId: CareerDisplayComponentId;
@@ -270,10 +271,12 @@ export function CareerPublishedSemanticSection({
   usageBoundary?: string[] | null;
   aiExposureNote?: string | null;
   subjectTitle?: string;
+  subjectSlug?: string;
   locale?: "en" | "zh";
 }) {
   const data = asRecord(value);
   const isZh = locale === "zh";
+  const isAccountantsFitCheck = isZh && subjectSlug === "accountants-and-auditors";
   const componentTitle = isZh ? CAREER_COMPONENT_TITLES_ZH[componentId] : CAREER_COMPONENT_TITLES_EN[componentId];
   const aiImpactTitle = subjectTitle
     ? isZh
@@ -285,10 +288,12 @@ export function CareerPublishedSemanticSection({
     case "fermat_decision_card":
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
-          <SectionTitle>{asString(data.title)}</SectionTitle>
+          <div>
+            <SectionTitle>{asString(data.title)}</SectionTitle>
+          </div>
           <div className={`mt-3 ${CALLOUT_BLUE}`}>
             <p className="m-0 font-semibold"><Field path={`${componentId}.summary`}>{asString(data.summary)}</Field></p>
-            <p className="mb-0 mt-2"><Field path={`${componentId}.caveat`}>{asString(data.caveat)}</Field></p>
+            {!isAccountantsFitCheck ? <p className="mb-0 mt-2"><Field path={`${componentId}.caveat`}>{asString(data.caveat)}</Field></p> : null}
           </div>
         </PublishedRoot>
       );
@@ -423,6 +428,40 @@ export function CareerPublishedSemanticSection({
     }
 
     case "fit_decision_checklist":
+      if (isAccountantsFitCheck) {
+        const cards = [
+          {
+            key: "suit",
+            title: "更可能适合",
+            value: asString(data.suit),
+            className: "border-l-[#0E9F94] bg-[#EAF7F4]",
+          },
+          {
+            key: "boundary",
+            title: "需要慎重",
+            value: asString(data.boundary),
+            className: "border-l-[#E8920C] bg-[#FFF6E9]",
+          },
+          {
+            key: "how",
+            title: "先做一次小实验",
+            value: asString(data.how),
+            className: "border-l-[#2C3E8C] bg-[#EEF1FB]",
+          },
+        ] as const;
+        return (
+          <PublishedRoot componentId={componentId} testId={testId}>
+            <div className={`grid ${visual.factGrid}`}>
+              {cards.map((card) => (
+                <div key={card.key} className={`rounded-xl border-l-4 p-4 ${card.className}`}>
+                  <h3 className={`m-0 text-sm font-bold text-[#2C3E8C] ${visual.factTitle}`}>{card.title}</h3>
+                  <p className={`m-0 ${BODY}`}><Field path={`${componentId}.${card.key}`}>{card.value}</Field></p>
+                </div>
+              ))}
+            </div>
+          </PublishedRoot>
+        );
+      }
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <div className={`mt-4 grid ${visual.factGrid}`}>

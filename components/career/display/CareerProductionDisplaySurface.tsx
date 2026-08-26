@@ -5,6 +5,7 @@ import { EvidenceContainer } from "@/components/career/display/EvidenceContainer
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
 import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuickAnswersBlock";
 import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
+import { AccountantsCareerProfile } from "@/components/career/display/AccountantsCareerProfile";
 import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
@@ -558,6 +559,7 @@ export function CareerProductionDisplaySurface({
         value={publishedComponents[componentId]}
         aiExposureNote={componentId === "ai_impact_table" ? surface.presentationV1?.hero.aiExposure?.note ?? null : null}
         subjectTitle={surface.subject.title}
+        subjectSlug={surface.subject.canonicalSlug}
         locale={surface.locale}
       />;
     }
@@ -599,7 +601,18 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  const legacyTocSections = surface.componentOrder
+  const isZhAccountants = surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors";
+  const accountantsQuickAnswers = publishedComponents?.career_quick_answers_block;
+  const usesStructuredAccountantsProfile = isZhAccountants
+    && typeof accountantsQuickAnswers === "object"
+    && accountantsQuickAnswers !== null
+    && !Array.isArray(accountantsQuickAnswers)
+    && "heading" in accountantsQuickAnswers
+    && accountantsQuickAnswers.heading === "职业画像结构化说明";
+  const renderedComponentOrder = isZhAccountants
+    ? surface.componentOrder.filter((componentId) => componentId !== "career_snapshot_primary_locale")
+    : surface.componentOrder;
+  const legacyTocSections = renderedComponentOrder
     .map((componentId) => ({ componentId, section: orderedSection(componentId, surface.sections) }))
     .filter((item): item is { componentId: CareerDisplayComponentId; section: CareerDisplaySection } => Boolean(item.section));
 
@@ -613,7 +626,7 @@ export function CareerProductionDisplaySurface({
       >
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-10" data-testid="career-source-disclosure">
           <main className="min-w-0 space-y-6">
-            {surface.componentOrder.map((componentId) => {
+            {renderedComponentOrder.map((componentId) => {
               const component = renderComponent(componentId);
               const content = componentId === "career_risk_cards"
                 ? <div data-testid="career-display-group-risks-and-change">{component}{aiImpactSlot}</div>
@@ -703,6 +716,17 @@ export function CareerProductionDisplaySurface({
           locale={surface.locale}
         />,
       ];
+    } else if (group.id === "profile" && usesStructuredAccountantsProfile) {
+      componentNodes = [
+        <AccountantsCareerProfile
+          key="accountants-career-profile"
+          definition={publishedComponents.definition_block as string}
+          responsibilities={publishedComponents.responsibilities_block as string[]}
+          workContext={publishedComponents.work_context_block as string}
+          quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+          professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
+        />,
+      ];
     } else {
       componentNodes = group.componentIds.map((componentId) => {
         const component = renderComponent(componentId);
@@ -724,12 +748,12 @@ export function CareerProductionDisplaySurface({
       <section
         key={group.id}
         id={`career-visual-group-${group.id}`}
-        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""}`}
+        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""} ${group.id === "profile" && usesStructuredAccountantsProfile ? visual.accountantsProfileGroup : ""}`}
         data-career-visual-group={group.id}
         aria-labelledby={titledGroupIds.has(group.id) ? `career-visual-group-title-${group.id}` : undefined}
         aria-label={titledGroupIds.has(group.id) ? undefined : visualGroupLabel(group, isZh)}
       >
-        {titledGroupIds.has(group.id) ? (
+        {titledGroupIds.has(group.id) && !(group.id === "profile" && usesStructuredAccountantsProfile) ? (
           <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
         <div className={visual.groupStack}>{visibleComponentNodes}</div>
@@ -737,7 +761,10 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  const visibleVisualGroups = CAREER_VISUAL_GROUPS.flatMap((group) => {
+  const visualGroups = isZhAccountants
+    ? CAREER_VISUAL_GROUPS.filter((group) => group.id !== "snapshot")
+    : CAREER_VISUAL_GROUPS;
+  const visibleVisualGroups = visualGroups.flatMap((group) => {
     const content = renderVisualGroup(group);
     return content ? [{ group, content }] : [];
   });
@@ -752,14 +779,19 @@ export function CareerProductionDisplaySurface({
     >
       <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div>
       <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 ${visual.layout}`} data-testid="career-source-disclosure">
-        <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail}`} aria-label={isZh ? "页面目录" : "Page contents"}>
+        <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${isZhAccountants ? visual.accountantsRail : ""}`} aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className={visual.toc}>
             <div className={visual.tocHeading}>
               <span className={visual.tocKicker}>{isZh ? "职业档案" : "Career dossier"}</span>
             </div>
             <nav className={visual.tocNav}>
               {visibleVisualGroups.map(({ group }, index) => (
-                <a key={group.id} href={`#career-visual-group-${group.id}`} className={visual.tocLink}>
+                <a
+                  key={group.id}
+                  href={`#career-visual-group-${group.id}`}
+                  className={`${visual.tocLink} ${isZhAccountants && group.id === "profile" ? visual.tocLinkActive : ""}`}
+                  aria-current={isZhAccountants && group.id === "profile" ? "location" : undefined}
+                >
                   <span aria-hidden="true" className={visual.tocIndex}>{String(index + 1).padStart(2, "0")}</span>
                   <span>{visualGroupLabel(group, isZh)}</span>
                 </a>
