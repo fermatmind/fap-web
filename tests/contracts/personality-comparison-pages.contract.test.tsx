@@ -461,7 +461,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     const adapterSource = read("lib/cms/personality.ts");
     const sitemapSource = read("next-sitemap.config.js");
     const llmsSource = read("app/llms.txt/route.ts");
-    const llmsFullSource = read("app/llms-full.txt/route.ts");
+    const llmsFullSource = read("lib/seo/llmsFullRoute.ts");
     const dynamicSitemapEntries = buildPublicSitemapEntries({
       items: [
         { loc: "https://fermatmind.com/en/personality/intj-a-vs-intj-t" },

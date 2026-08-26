@@ -104,7 +104,7 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
 
     const syntheticPaths = syntheticTenKCareerPaths();
     const { listBackendSitemapCareerJobPaths } = mockLlmsFullDependencies(() => syntheticPaths);
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
 
     const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
@@ -135,7 +135,7 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
 
     mockLlmsFullDependencies(() => []);
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET } = await import("@/lib/seo/llmsFullRoute");
 
     const response = await GET();
     const text = await response.text();
@@ -147,7 +147,7 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
   });
 
   it("keeps llms-full source free of full jobs index and per-detail SEO fanout", () => {
-    const route = read("app/llms-full.txt/route.ts");
+    const route = read("lib/seo/llmsFullRoute.ts");
     const sitemapSource = read("lib/seo/backendSitemapSource.ts");
 
     expect(route).toContain("getCachedLlmsFullText");

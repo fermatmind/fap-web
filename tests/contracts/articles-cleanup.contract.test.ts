@@ -132,7 +132,7 @@ describe("articles cleanup contract", () => {
 
   it("llms routes use cms article enumeration instead of local blog helpers", () => {
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     expect(llms).toContain("listCmsArticlesForLlms");
     expect(llmsFull).toContain("listCmsArticlesForLlms");

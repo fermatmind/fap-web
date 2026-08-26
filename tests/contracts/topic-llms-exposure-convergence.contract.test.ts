@@ -153,7 +153,7 @@ describe("topic / llms exposure convergence", () => {
 
   it("keeps route-level discoverability on backend authority while CTA compatibility stays separate", () => {
     const llmsSource = readSource("app/llms.txt/route.ts");
-    const llmsFullSource = readSource("app/llms-full.txt/route.ts");
+    const llmsFullSource = readSource("lib/seo/llmsFullRoute.ts");
     const topicPageSource = readSource("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
     expect(llmsSource).toContain("listDiscoverableTopicsWithLastKnownGood");

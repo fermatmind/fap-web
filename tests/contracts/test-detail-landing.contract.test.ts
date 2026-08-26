@@ -33,7 +33,7 @@ function changedFilesAgainstMain(): string[] {
 describe("test detail landing contract", () => {
   it("collapses branded test metadata to one absolute FermatMind suffix", async () => {
     const { applyTestDetailMetadataTitleTemplateGuard } = await import(
-      "@/app/(localized)/[locale]/tests/[slug]/page"
+      "@/lib/tests/metadataTitleTemplateGuard"
     );
     const metadata = {
       title: "Free Holland Career Interest Test (RIASEC) | FermatMind | FermatMind",

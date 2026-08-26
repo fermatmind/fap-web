@@ -38,7 +38,7 @@ describe("Wave 1 English content page discoverability exposure implementation", 
   it("removes the hard sitemap and llms deny patterns for the five CMS-authoritative pages", () => {
     const sitemapSource = readSource("lib/seo/sitemapAuthorityAdapters.cjs");
     const llmsSource = readSource("app/llms.txt/route.ts");
-    const llmsFullSource = readSource("app/llms-full.txt/route.ts");
+    const llmsFullSource = readSource("lib/seo/llmsFullRoute.ts");
 
     expect(sitemapSource).not.toContain("^\\/en\\/(?:brand|careers|charter|foundation|policies)$");
     expect(llmsSource).not.toContain("^\\/en\\/(?:brand|careers|charter|foundation|policies)$");
@@ -75,7 +75,7 @@ describe("Wave 1 English content page discoverability exposure implementation", 
 
   it("limits this PR to the approved fap-web scope", () => {
     const changedFiles = [
-      "app/llms-full.txt/route.ts",
+      "lib/seo/llmsFullRoute.ts",
       "app/llms.txt/route.ts",
       "components/layout/SiteFooter.tsx",
       "docs/codex/pr-train.yaml",

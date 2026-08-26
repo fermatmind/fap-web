@@ -349,7 +349,7 @@ describe("llms parity governance", () => {
 
     const [llmsRoute, llmsFullRoute] = await Promise.all([
       import("@/app/llms.txt/route"),
-      import("@/app/llms-full.txt/route"),
+      import("@/lib/seo/llmsFullRoute"),
     ]);
     const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
@@ -383,7 +383,7 @@ describe("llms parity governance", () => {
 
     const [{ GET: getLlms }, { buildLlmsFullText }] = await Promise.all([
       import("@/app/llms.txt/route"),
-      import("@/app/llms-full.txt/route"),
+      import("@/lib/seo/llmsFullRoute"),
     ]);
     const [llmsText, llmsFullText] = await Promise.all([
       getLlms().then((response) => response.text()),
@@ -403,7 +403,7 @@ describe("llms parity governance", () => {
 
     const [llmsRoute, llmsFullRoute] = await Promise.all([
       import("@/app/llms.txt/route"),
-      import("@/app/llms-full.txt/route"),
+      import("@/lib/seo/llmsFullRoute"),
     ]);
     const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });

@@ -78,7 +78,7 @@ describe("ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01", () => {
     ]);
 
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
     expect(llms).toContain("listEnneagramLlmsPaths");
     expect(llms).not.toContain("listBackendSitemapEnneagram");
     expect(llmsFull).not.toContain("listBackendSitemapEnneagram");

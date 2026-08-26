@@ -237,7 +237,7 @@ describe("depression entry visibility contract", () => {
 
   it("excludes hidden clinical tests from sitemap and LLM discovery surfaces", () => {
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
     const backendTestSource = read("lib/seo/backendTestDiscoverabilitySource.ts");
     const sitemap = `${read("next-sitemap.config.js")}\n${read("lib/seo/sitemapAuthorityAdapters.cjs")}`;
 

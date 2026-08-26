@@ -129,7 +129,7 @@
       "requiredTokens": ["summaryBlocks", "faqBlocks", "nextStepBlocks", "evidenceRefs", "normalizeAnswerSurface"]
     },
     {
-      "source": "app/llms-full.txt/route.ts",
+      "source": "lib/seo/llmsFullRoute.ts",
       "requiredTokens": ["buildFaq", "buildNextSteps", "safeCanonicalUrlFromHref", "MAX_NEXT_STEPS", "isForbiddenFinalLlmsPath"]
     },
     {

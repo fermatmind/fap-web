@@ -10,7 +10,7 @@ const MD_PATH = path.join(OUT_DIR, "mbti-seo-07-discoverability-audit-2026-07-04
 
 const REQUIRED_FILES = [
   "app/llms.txt/route.ts",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "lib/seo/llmsRouteBudget.ts",
   "lib/seo/sitemapAuthorityAdapters.cjs",
   "tests/contracts/sitemap-indexability.contract.test.ts",
@@ -49,7 +49,7 @@ for (const file of REQUIRED_FILES) {
 }
 
 const llmsRoute = read("app/llms.txt/route.ts");
-const llmsFullRoute = read("app/llms-full.txt/route.ts");
+const llmsFullRoute = read("lib/seo/llmsFullRoute.ts");
 const budget = read("lib/seo/llmsRouteBudget.ts");
 const sitemapAdapters = read("lib/seo/sitemapAuthorityAdapters.cjs");
 const sitemapIndexabilityTest = read("tests/contracts/sitemap-indexability.contract.test.ts");

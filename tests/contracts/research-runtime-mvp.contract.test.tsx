@@ -271,7 +271,7 @@ describe("Research runtime MVP contract", () => {
     const adapterSource = readSource("lib/research/reports.ts");
     const nextSitemap = readSource("next-sitemap.config.js");
     const llms = readSource("app/llms.txt/route.ts");
-    const llmsFull = readSource("app/llms-full.txt/route.ts");
+    const llmsFull = readSource("lib/seo/llmsFullRoute.ts");
 
     expect(routeSource).toContain("getResearchReport");
     expect(adapterSource).toContain("/v0.5/research/");

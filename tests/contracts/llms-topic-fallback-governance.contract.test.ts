@@ -11,7 +11,7 @@ function readSource(relPath: string): string {
 describe("llms topic backend authority", () => {
   it("uses backend topic exposure with LKG and no local discoverability fixture", () => {
     const llmsSource = readSource("app/llms.txt/route.ts");
-    const llmsFullSource = readSource("app/llms-full.txt/route.ts");
+    const llmsFullSource = readSource("lib/seo/llmsFullRoute.ts");
 
     for (const source of [llmsSource, llmsFullSource]) {
       expect(source).toContain("listDiscoverableTopicsWithLastKnownGood");

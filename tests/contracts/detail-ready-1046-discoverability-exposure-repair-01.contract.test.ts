@@ -101,7 +101,7 @@ describe("DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01", () => {
   it("raises llms Career job budget to cover the 1046 bilingual public detail cohort", () => {
     expect(LLMS_ROUTE_LIMITS.careerJobs).toBeGreaterThanOrEqual(1046 * 2);
     expect(read("app/llms.txt/route.ts")).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
-    expect(read("app/llms-full.txt/route.ts")).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
+    expect(read("lib/seo/llmsFullRoute.ts")).toContain("LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS");
   });
 
   it("keeps sitemap SEO locale parameters while llms career enumeration avoids per-detail SEO fanout", () => {
@@ -134,7 +134,7 @@ describe("DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR-01", () => {
 
   it("keeps software, conflict, and already-indexable replacement slugs out of final llms-full.txt output", async () => {
     const { listBackendSitemapCareerJobPaths } = mockSharedLlmsDependencies();
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET } = await import("@/lib/seo/llmsFullRoute");
     const response = await GET();
     const text = await response.text();
 

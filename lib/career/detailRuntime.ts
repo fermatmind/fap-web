@@ -1,0 +1,1 @@
+export const CAREER_RENDERER_RELEASE = process.env.NEXT_PUBLIC_RELEASE;

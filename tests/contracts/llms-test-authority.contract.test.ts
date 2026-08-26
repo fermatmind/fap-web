@@ -28,7 +28,7 @@ describe("llms test authority contract", () => {
 
   it("routes llms test enumeration through the backend discoverability source", () => {
     const llmsRoute = readSource("app/llms.txt/route.ts");
-    const llmsFullRoute = readSource("app/llms-full.txt/route.ts");
+    const llmsFullRoute = readSource("lib/seo/llmsFullRoute.ts");
 
     for (const source of [llmsRoute, llmsFullRoute]) {
       expect(source).toContain("listBackendDiscoverabilityTestEntries");

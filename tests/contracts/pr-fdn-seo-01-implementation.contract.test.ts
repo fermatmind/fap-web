@@ -102,7 +102,7 @@ describe("PR-FDN-SEO-01-IMPLEMENTATION", () => {
       "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
       "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
       "app/llms.txt/route.ts",
-      "app/llms-full.txt/route.ts",
+      "lib/seo/llmsFullRoute.ts",
       "lib/foundation/dailyGivingSeo.ts",
       "docs/seo/pr-fdn-seo-01-implementation.md",
       "docs/seo/generated/pr-fdn-seo-01-implementation.v1.json",

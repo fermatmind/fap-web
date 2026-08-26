@@ -3,7 +3,7 @@ import path from "node:path";
 import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { GET as llmsFullRoute } from "@/app/llms-full.txt/route";
+import { GET as llmsFullRoute } from "@/lib/seo/llmsFullRoute";
 import { GET as llmsRoute } from "@/app/llms.txt/route";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 import { proxy as proxyHandler } from "@/proxy";
@@ -168,7 +168,7 @@ describe("staging discoverability containment", () => {
   it("staging host is denied in headers while production sitemap and llms routes remain configured", () => {
     const nextConfigSource = read("next.config.mjs");
     const llmsSource = read("app/llms.txt/route.ts");
-    const llmsFullSource = read("app/llms-full.txt/route.ts");
+    const llmsFullSource = read("lib/seo/llmsFullRoute.ts");
 
     expect(nextConfigSource).toContain('value: "staging.fermatmind.com"');
     expect(nextConfigSource).toContain('key: "X-Robots-Tag"');

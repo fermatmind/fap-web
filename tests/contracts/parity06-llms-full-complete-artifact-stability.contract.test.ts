@@ -33,9 +33,9 @@ afterEach(() => {
 
 describe("PARITY-06 llms-full complete artifact stability", () => {
   it("keeps the public runtime budget bounded while giving operator artifacts a fixed complete-authority budget", async () => {
-    const routeSource = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
+    const routeSource = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullRoute.ts"), "utf8");
     const generatorSource = fs.readFileSync(path.join(ROOT, "scripts/seo/generate-llms-full.mjs"), "utf8");
-    const { llmsFullContentPageTimeoutMs } = await import("@/app/llms-full.txt/route");
+    const { llmsFullContentPageTimeoutMs } = await import("@/lib/seo/llmsFullRoute");
 
     expect(llmsFullContentPageTimeoutMs()).toBe(5_000);
     expect(llmsFullContentPageTimeoutMs("runtime")).toBe(5_000);
@@ -49,7 +49,7 @@ describe("PARITY-06 llms-full complete artifact stability", () => {
 
   it("requires every approved Trust ContentPage before an artifact is cacheable", async () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TRUST_CONTENT_PAGE_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const complete = minimalLlmsFullText(REQUIRED_TRUST_PATHS);
 
     expect(isCompleteLlmsFullText(complete, SITE_URL)).toBe(true);
@@ -71,7 +71,7 @@ describe("PARITY-06 llms-full complete artifact stability", () => {
     process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TRUST_CONTENT_PAGE_COHORT = "true";
 
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const {
       getLlmsFullSharedCachePath,
       writeLlmsFullResponseCache,
@@ -94,7 +94,7 @@ describe("PARITY-06 llms-full complete artifact stability", () => {
 
   it("keeps forbidden, query, and private routes outside complete artifacts", async () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TRUST_CONTENT_PAGE_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const forbiddenPaths = [
       "/en/result/private",
       "/en/orders/private",

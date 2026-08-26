@@ -27,7 +27,7 @@ describe("non-article multilingual public rollout contract", () => {
   });
 
   it("defines a replay-protected HMAC content release revalidation endpoint", () => {
-    const routeSource = read("app/api/content-release/revalidate/route.ts");
+    const routeSource = read("lib/contentRelease/revalidateRoute.ts");
 
     expect(routeSource).toContain("authenticateContentReleaseRevalidation");
     const authSource = read("lib/security/contentReleaseRevalidationAuth.ts");

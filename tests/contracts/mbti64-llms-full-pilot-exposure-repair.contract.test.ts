@@ -290,7 +290,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
   it("keeps the 8 pilot URLs in the llms-full MBTI64 personality cohort", async () => {
     mockLlmsFullMbti64Dependencies();
 
-    const { buildLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { buildLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const text = await buildLlmsFullText(SITE_URL);
     const personalityUrls = new Set(extractPersonalityUrls(text));
 
@@ -307,7 +307,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
     mockLlmsFullMbti64Dependencies({ personalityDelayMs: 1_650 });
 
     const startedAt = Date.now();
-    const { buildLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { buildLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const text = await buildLlmsFullText(SITE_URL);
     const personalityUrls = new Set(extractPersonalityUrls(text));
 
@@ -321,7 +321,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
   it("keeps fresh query-backed MBTI64 URLs in the degraded llms-full response when the complete artifact is not ready", async () => {
     mockLlmsFullMbti64Dependencies();
 
-    const { buildDegradedLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { buildDegradedLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const text = await buildDegradedLlmsFullText(SITE_URL);
     const personalityUrls = new Set(extractPersonalityUrls(text));
 
@@ -347,7 +347,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
       listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => authorityPaths),
     }));
 
-    const { buildLlmsFullText, isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { buildLlmsFullText, isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const text = await buildLlmsFullText(SITE_URL);
     const lines = text.split("\n");
 
@@ -360,7 +360,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
 
   it("does not treat an incomplete MBTI64 personality cohort as a complete llms-full cache artifact", async () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const incomplete = minimalLlmsFullText([
       `${SITE_URL}/en/personality`,
       `${SITE_URL}/zh/personality`,
@@ -373,7 +373,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
 
   it("allows a complete MBTI64 personality cohort to pass llms-full cacheability without the career cohort in tests", async () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const complete = minimalLlmsFullText(completeMbti64Urls());
 
     expect(isCompleteLlmsFullText(complete, SITE_URL)).toBe(true);
@@ -382,7 +382,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
   it("does not let an IQ llms-full hold block complete MBTI64 personality cacheability", async () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const completeWithoutIq = minimalLlmsFullText([
       ...completeMbti64Urls(),
       ...CORE_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
@@ -395,7 +395,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT = "true";
-    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { isCompleteLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const completeWithoutIq = minimalLlmsFullText([
       ...completeMbti64Urls(),
       ...CORE_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
@@ -413,7 +413,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
   it("keeps private route families out of the generated llms-full cohort", async () => {
     mockLlmsFullMbti64Dependencies();
 
-    const { buildLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const { buildLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
     const text = await buildLlmsFullText(SITE_URL);
 
     for (const forbidden of [

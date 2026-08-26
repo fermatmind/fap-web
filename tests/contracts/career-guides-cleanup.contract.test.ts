@@ -55,7 +55,7 @@ describe("career guides cleanup contract", () => {
   });
 
   it("llms-full.txt guide coverage is cms-driven and no longer uses local guide helpers", () => {
-    const source = read("app/llms-full.txt/route.ts");
+    const source = read("lib/seo/llmsFullRoute.ts");
     const guideBlock = sliceBetween(source, "const guideEntries = [", "const careers = [");
 
     expect(source).toContain("listCareerGuidesFromCms");

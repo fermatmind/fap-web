@@ -20,7 +20,7 @@ describe("SEO-OPS-LLMS-FULL-COMPLETE-ARTIFACT-REPAIR-PR-00", () => {
   });
 
   it("keeps llms-full route response mode coarse while preserving source detail", () => {
-    const route = read("app/llms-full.txt/route.ts");
+    const route = read("lib/seo/llmsFullRoute.ts");
 
     expect(route).toContain('type LlmsFullResponseMode = "complete" | "degraded"');
     expect(route).toContain("X-FermatMind-LLMS-Full-Source");
@@ -32,7 +32,7 @@ describe("SEO-OPS-LLMS-FULL-COMPLETE-ARTIFACT-REPAIR-PR-00", () => {
   });
 
   it("adds llms surfaces to article content release revalidation", () => {
-    const route = read("app/api/content-release/revalidate/route.ts");
+    const route = read("lib/contentRelease/revalidateRoute.ts");
 
     expect(route).toContain('if (type === "article")');
     expect(route).toContain('localized.push("/llms.txt", "/llms-full.txt")');
