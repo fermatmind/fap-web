@@ -437,6 +437,8 @@ export function CareerProductionDisplaySurface({
   }
 
   const renderComponent = (componentId: CareerDisplayComponentId) => {
+    if (!surface.componentOrder.includes(componentId)) return null;
+
     if (componentId === "breadcrumb") {
       const rawBreadcrumb = publishedComponents?.breadcrumb;
       const breadcrumbData = rawBreadcrumb && typeof rawBreadcrumb === "object" && !Array.isArray(rawBreadcrumb) ? rawBreadcrumb : {};
