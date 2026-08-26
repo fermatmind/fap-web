@@ -22,7 +22,7 @@ import {
   resetEnneagramLlmsSourceCacheForTests,
   selectExactEnneagramLlmsFullEntries,
 } from "@/lib/seo/enneagramLlmsSource";
-import { isCompleteLlmsFullText } from "@/app/llms-full.txt/route";
+import { isCompleteLlmsFullText } from "@/lib/seo/llmsFullRoute";
 
 const ROOT = process.cwd();
 const SITE_URL = "https://fermatmind.com";
@@ -176,7 +176,7 @@ describe("ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01", () => {
     const adapter = read("lib/cms/personality-public-content-assets.ts");
     const source = read("lib/seo/enneagramLlmsSource.ts");
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     expect(adapter).toContain("listEnneagramLlmsFullCandidates");
     expect(adapter).toContain("/v0.5/personality-content-assets?locale=");

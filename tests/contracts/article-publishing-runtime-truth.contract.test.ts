@@ -367,7 +367,7 @@ describe("Article Publishing Runtime Truth acceptance gate", () => {
 
     const sitemap = readSource("next-sitemap.config.js");
     const llms = readSource("app/llms.txt/route.ts");
-    const llmsFull = readSource("app/llms-full.txt/route.ts");
+    const llmsFull = readSource("lib/seo/llmsFullRoute.ts");
 
     expect(sitemap).toContain('buildValidatedCmsPaths("/v0.5/articles", buildArticlePaths)');
     expect(sitemap).toContain("isPublicSitemapEligibleArticle");

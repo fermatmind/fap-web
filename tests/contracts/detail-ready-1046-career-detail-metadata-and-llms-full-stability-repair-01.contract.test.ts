@@ -163,7 +163,7 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
 
   it("serves llms-full only from an offline artifact on repeat reads while preserving approved career URLs and excluded slug safety", async () => {
     const { listBackendSitemapCareerJobPaths, validPaths, excludedPaths } = mockLlmsFullDependencies();
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
 

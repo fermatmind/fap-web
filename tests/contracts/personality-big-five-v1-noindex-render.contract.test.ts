@@ -713,7 +713,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
   it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released canonical paths into llms", () => {
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     for (const entry of BIG_FIVE_PUBLIC_ROUTE_ENTRIES) {
       for (const locale of ["en", "zh"] as const) {

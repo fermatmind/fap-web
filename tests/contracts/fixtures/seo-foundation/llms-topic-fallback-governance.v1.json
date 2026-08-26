@@ -53,7 +53,7 @@
       ]
     },
     {
-      "source": "app/llms-full.txt/route.ts",
+      "source": "lib/seo/llmsFullRoute.ts",
       "fallbackIdentifier": "TOPIC_FALLBACKS",
       "requiredTokens": [
         "TOPIC_FALLBACKS",

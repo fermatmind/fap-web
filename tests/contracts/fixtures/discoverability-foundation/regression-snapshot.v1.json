@@ -19,7 +19,7 @@
   "sourceFiles": {
     "sitemap": "next-sitemap.config.js",
     "llms": "app/llms.txt/route.ts",
-    "llmsFull": "app/llms-full.txt/route.ts",
+    "llmsFull": "lib/seo/llmsFullRoute.ts",
     "sharedExposurePolicy": "lib/seo/discoverabilityExposurePolicy.ts",
     "indexingPolicy": "lib/seo/indexingPolicy.ts",
     "robots": "app/robots.ts",

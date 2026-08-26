@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyPersonalityMetadataTitleTemplateGuard } from "@/lib/personality/metadataTitleTemplateGuard";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
@@ -516,20 +517,6 @@ function robotsAllowsFollow(robotsValue: string | null | undefined): boolean {
     .split(",")
     .map((part) => part.trim())
     .includes("nofollow");
-}
-
-export function applyPersonalityMetadataTitleTemplateGuard(metadata: Metadata, sourceTitle: string): Metadata {
-  const title = sourceTitle.replace(/\s+/g, " ").trim();
-  if (!/\|\s*FermatMind\s*$/i.test(title)) {
-    return metadata;
-  }
-
-  return {
-    ...metadata,
-    title: {
-      absolute: title,
-    },
-  };
 }
 
 function buildCanonicalPath(slug: string, locale: Locale): string {

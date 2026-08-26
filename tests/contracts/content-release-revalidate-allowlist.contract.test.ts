@@ -23,7 +23,7 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
   authenticateContentReleaseRevalidation: mocks.authenticate,
 }));
 
-import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
+import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute";
 
 describe("content release revalidate allowlist", () => {
   afterEach(() => {

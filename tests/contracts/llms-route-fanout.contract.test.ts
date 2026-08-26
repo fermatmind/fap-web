@@ -69,7 +69,7 @@ describe("llms route fanout budget contract", () => {
   });
 
   it("keeps both llms routes wired through the shared fanout budget", () => {
-    for (const sourcePath of ["app/llms.txt/route.ts", "app/llms-full.txt/route.ts"]) {
+    for (const sourcePath of ["app/llms.txt/route.ts", "lib/seo/llmsFullRoute.ts"]) {
       const source = readSource(sourcePath);
 
       expect(source).toContain("withLlmsRouteBudget");
@@ -87,7 +87,7 @@ describe("llms route fanout budget contract", () => {
   });
 
   it("keeps llms-full detail enrichment bounded separately from list enumeration", () => {
-    const source = readSource("app/llms-full.txt/route.ts");
+    const source = readSource("lib/seo/llmsFullRoute.ts");
     const budgets = readSource("lib/seo/llmsRouteBudget.ts");
 
     expect(budgets).toContain("LLMS_FULL_RUNTIME_SOURCE_CONCURRENCY = 2");

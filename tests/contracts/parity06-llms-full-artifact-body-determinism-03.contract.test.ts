@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 import {
   resolveLlmsFullEntryGroups,
   type LlmsFullBuildProfile,
-} from "@/app/llms-full.txt/route";
+} from "@/lib/seo/llmsFullRoute";
 
 const ROOT = process.cwd();
 
@@ -124,7 +124,7 @@ describe("PARITY-06 llms-full artifact body determinism", () => {
   });
 
   it("keeps artifact selection ahead of all four runtime-only enrichment maps", () => {
-    const route = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
+    const route = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullRoute.ts"), "utf8");
     const selection = route.indexOf("resolveLlmsFullEntryGroups(");
     const personality = route.indexOf("enrichPersonalityEntry(entry, siteUrl)", selection);
     const topic = route.indexOf("enrichTopicEntry(entry, siteUrl)", selection);

@@ -26,7 +26,7 @@ afterEach(async () => {
 
 describe("llms-full rebuild amplification guard", () => {
   it("keeps the public GET path artifact-only while retaining the explicit offline builder", () => {
-    const route = readFileSync(path.join(process.cwd(), "app/llms-full.txt/route.ts"), "utf8");
+    const route = readFileSync(path.join(process.cwd(), "lib/seo/llmsFullRoute.ts"), "utf8");
     const publicGet = route.slice(route.indexOf("export async function GET()"));
 
     expect(publicGet).toContain("getCachedLlmsFullText");

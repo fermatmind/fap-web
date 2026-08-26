@@ -774,8 +774,8 @@ const MBTI64_GLOBAL_HEADER_PRIVATE_ROUTE_HYGIENE_01_ALLOWED_FILES = new Set([
 ]);
 
 const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/api/content-release/revalidate/route.ts",
-  "app/llms-full.txt/route.ts",
+  "lib/contentRelease/revalidateRoute.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
   "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-2026-06-19.json",
@@ -787,7 +787,7 @@ const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
 ]);
 
 const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/seo/personality/mbti64-llms-full-pilot-exposure-repair-02-2026-06-19.md",
   "lib/seo/llmsRouteBudget.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -800,7 +800,7 @@ const FIX_CONTRACT_MBTI64_LLMS_AUTHORITY_ALLOWED_FILES = new Set([
 ]);
 
 const MBTI64_LLMS_FULL_FRESH_3_MEMBERSHIP_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/seo/personality/mbti64-llms-full-fresh-3-membership-repair-2026-06-23.md",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
@@ -1283,7 +1283,7 @@ const SECURITY_123_WEB_01_ALLOWED_FILES = new Set([
 ]);
 
 const SECURITY_123_WEB_02_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -1379,7 +1379,7 @@ const SECURITY_123_WEB_09_ALLOWED_FILES = new Set([
 ]);
 
 const BIG5_114_SEO_RUNTIME_RELEASE_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -1390,7 +1390,7 @@ const BIG5_114_SEO_RUNTIME_RELEASE_01_ALLOWED_FILES = new Set([
 ]);
 
 const BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
   "lib/seo/backendSitemapSource.ts",
@@ -1400,7 +1400,7 @@ const BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
 
 const BIG5_EN52_104_DISCOVERABILITY_CONVERGENCE_13_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -1977,7 +1977,7 @@ const IQ_PAID_REPORT_02_ALLOWED_FILES = new Set([
 
 const IQ_SEO_RAMP_02_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/page.tsx",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
   "lib/seo/backendTestDiscoverabilitySource.ts",
@@ -2533,7 +2533,7 @@ const PR_AUDIT_FE_03_ALLOWED_FILES = new Set([
 
 const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx",
-  "app/api/content-release/revalidate/route.ts",
+  "lib/contentRelease/revalidateRoute.ts",
   "components/personality/ScenarioIntelligenceMatrix.tsx",
   "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
   "lib/big5/resultAssembler.ts",
@@ -2603,7 +2603,7 @@ const EN_PARITY_08_ALLOWED_FILES = new Set([
 ]);
 
 const GLOBAL_EN_ZH_PARITY_P0_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2617,7 +2617,7 @@ const GLOBAL_EN_ZH_PARITY_P0_01_ALLOWED_FILES = new Set([
 ]);
 
 const PR_03_DISCOVERABILITY_SITEMAP_LLMS_AUTHORITY_ALIGNMENT_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2633,7 +2633,7 @@ const PR_03_DISCOVERABILITY_SITEMAP_LLMS_AUTHORITY_ALIGNMENT_01_ALLOWED_FILES = 
 ]);
 
 const PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2651,7 +2651,7 @@ const PR_03_FOLLOWUP_LLMS_CONTENT_PAGE_DETAIL_AUTHORITY_01_ALLOWED_FILES = new S
 ]);
 
 const LLMS_FULL_ARTICLE_ENUMERATION_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "lib/seo/llmsRouteBudget.ts",
   "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -2801,7 +2801,7 @@ const PR_FDN_SEO_01_IMPLEMENTATION_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/foundation/daily-giving/page.tsx",
   "app/(localized)/[locale]/foundation/daily-giving/[yearMonth]/page.tsx",
   "app/llms.txt/route.ts",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "lib/foundation/dailyGivingSeo.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2882,7 +2882,7 @@ const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_READINESS_01_ALLOWED_F
 ]);
 
 const GLOBAL_EN_ZH_CONTENT_PAGES_DISCOVERABILITY_EXPOSURE_IMPLEMENTATION_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "components/layout/SiteFooter.tsx",
   "docs/codex/pr-train.yaml",
@@ -2907,7 +2907,7 @@ export function isGlobalEnZhContentPagesDiscoverabilityExposureImplementation01A
 }
 
 const GLOBAL_EN_ZH_CONTENT_PAGES_LLMS_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2931,8 +2931,8 @@ const SCIENCE_CONTENTPAGE_DISCOVERABILITY_RUNTIME_ALLOWED_FILES = new Set([
 ]);
 
 const PR_FDN_01_LLMS_FULL_RECHECK_OR_REPAIR_ALLOWED_FILES = new Set([
-  "app/api/content-release/revalidate/route.ts",
-  "app/llms-full.txt/route.ts",
+  "lib/contentRelease/revalidateRoute.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
   "docs/seo/generated/pr-fdn-01-llms-full-recheck-or-repair.v1.json",
@@ -2954,7 +2954,7 @@ const DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION_01_ALLOWED_FILES = new Se
 ]);
 
 const DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -2972,7 +2972,7 @@ const DETAIL_READY_1046_DISCOVERABILITY_EXPOSURE_REPAIR_01_ALLOWED_FILES = new S
 
 const DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
   "docs/seo/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.md",
@@ -2984,7 +2984,7 @@ const DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR_01
 ]);
 
 const DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
   "docs/seo/detail-ready-1046-llms-full-artifact-consistency-repair-01.md",
@@ -2997,7 +2997,7 @@ const DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES =
 ]);
 
 const ASSESSMENT_HUB_DISCOVERABILITY_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
@@ -3523,7 +3523,7 @@ const PERSONALITY_SEO_TITLE_METADATA_01_ALLOWED_FILES = new Set([
 
 const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "app/llms.txt/route.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -3578,7 +3578,7 @@ const MBTI64_SERP_SNIPPET_METADATA_ADAPTER_REPAIR_01_ALLOWED_FILES = new Set([
 ]);
 
 const PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES = new Set([
-  "app/llms-full.txt/route.ts",
+  "lib/seo/llmsFullRoute.ts",
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -6433,7 +6433,7 @@ export function isPersonalityComparisonSeoGate01AllowedFile(file: string): boole
   return new Set([
     "app/(localized)/[locale]/personality/[type]/page.tsx",
     "app/llms.txt/route.ts",
-    "app/llms-full.txt/route.ts",
+    "lib/seo/llmsFullRoute.ts",
     "tests/contracts/helpers/currentPrScope.ts",
     "tests/contracts/llms-full-enrichment.contract.test.ts",
     "tests/contracts/llms-parity-contract.contract.test.ts",

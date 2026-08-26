@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import {
   buildDeployedRevisionResponse,
   readDeployedRevision,
-} from "@/app/revision/route";
+} from "@/lib/runtime/deployedRevisionRoute";
 
 const REVISION = "0123456789abcdef0123456789abcdef01234567";
 const tempDirectories: string[] = [];

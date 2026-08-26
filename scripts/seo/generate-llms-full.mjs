@@ -17,7 +17,7 @@ const jiti = createJiti(import.meta.url, {
 });
 
 try {
-  const route = await jiti.import("../../app/llms-full.txt/route.ts");
+  const route = await jiti.import("../../lib/seo/llmsFullRoute.ts");
   const text = await route.buildLlmsFullText(siteUrl, { buildProfile: "artifact" });
   const missingExpectedUrls = expectedUrls.filter((url) => !text.includes(url));
   if (missingExpectedUrls.length > 0) {

@@ -1142,7 +1142,7 @@ describe("personality cms adapter contract", () => {
 
   it("prevents localized title template duplication when backend personality metadata already includes the brand", async () => {
     const { applyPersonalityMetadataTitleTemplateGuard } = await import(
-      "@/app/(localized)/[locale]/personality/[type]/page"
+      "@/lib/personality/metadataTitleTemplateGuard"
     );
 
     const branded = applyPersonalityMetadataTitleTemplateGuard(

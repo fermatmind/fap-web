@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { collectPathDecisions } from "@/app/api/content-release/revalidate/route";
+import { collectPathDecisions } from "@/lib/contentRelease/revalidateRoute";
 import { normalizeAnswerSurface } from "@/lib/answer/answerSurface";
 import { getCmsArticle, normalizeArticleSeoPayload } from "@/lib/cms/articles";
 import { sanitizeCmsHtml, sanitizeCmsUrl } from "@/lib/cms/sanitizeCmsRichText";

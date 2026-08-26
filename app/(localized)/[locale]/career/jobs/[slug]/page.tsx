@@ -25,6 +25,7 @@ import { adaptCareerFirstWaveNextStepLinks } from "@/lib/career/adapters/adaptCa
 import { adaptCareerJobExplainability } from "@/lib/career/adapters/adaptCareerExplainability";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
 import { adaptCareerRuntimeConfig } from "@/lib/career/adapters/adaptCareerRuntimeConfig";
+import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 import type {
   CareerExplainabilityAdapter,
   CareerFirstWaveNextStepLinksSummaryAdapter,
@@ -63,9 +64,6 @@ import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } fro
 // their own bounded data cache, while an HTML artifact from an older renderer
 // must never be served once a new renderer revision is active.
 export const dynamic = "force-dynamic";
-export const CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound" as const;
-export const CAREER_RENDERER_RELEASE = process.env.NEXT_PUBLIC_RELEASE;
-export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;
 
 type CareerJobSearchParams = Record<string, string | string[] | undefined>;
 
@@ -217,7 +215,7 @@ const loadCareerAiImpactAssetPreview = cache(async (locale: Locale, slug: string
 });
 
 async function resolveCareerJobSearchParams(
-  searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>
+  searchParams?: Promise<CareerJobSearchParams>
 ): Promise<CareerJobSearchParams> {
   return searchParams ? await searchParams : {};
 }
@@ -943,7 +941,7 @@ export default async function CareerJobDetailPage({
   searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-  searchParams?: CareerJobSearchParams | Promise<CareerJobSearchParams>;
+  searchParams?: Promise<CareerJobSearchParams>;
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);

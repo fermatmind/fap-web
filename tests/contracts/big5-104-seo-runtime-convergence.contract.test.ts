@@ -39,7 +39,7 @@ describe("BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13", () => {
 
   it("enumerates the complete authority cohort in llms and llms-full without frontend editorial fallback", () => {
     const llms = readFileSync("app/llms.txt/route.ts", "utf8");
-    const llmsFull = readFileSync("app/llms-full.txt/route.ts", "utf8");
+    const llmsFull = readFileSync("lib/seo/llmsFullRoute.ts", "utf8");
     const sitemap = readFileSync("app/sitemap.xml/route.ts", "utf8");
 
     expect(llms).toContain("listBackendSitemapBigFiveZhPaths({ signal })");

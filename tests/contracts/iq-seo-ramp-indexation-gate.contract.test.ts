@@ -12,7 +12,7 @@ describe("IQ SEO ramp indexation gate", () => {
   it("wires sitemap and llms test exposure through backend CMS IQ ramp authority", () => {
     const sitemapConfig = read("next-sitemap.config.js");
     const backendTestSource = read("lib/seo/backendTestDiscoverabilitySource.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     expect(sitemapConfig).toContain("/v0.5/landing-surfaces/tests");
     expect(sitemapConfig).toContain("isIqSeoRampSitemapEligible");

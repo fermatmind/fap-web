@@ -159,7 +159,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     let currentPaths: string[] = [];
     mockLlmsFullDependencies(() => currentPaths);
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
 
     const incompleteResponse = await route.GET();
     const incompleteText = await incompleteResponse.text();
@@ -204,7 +204,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     mockLlmsFullDependencies(() => fullCohortPaths(), {}, () => []);
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET } = await import("@/lib/seo/llmsFullRoute");
 
     const response = await GET();
     const text = await response.text();
@@ -221,7 +221,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT = "true";
     mockLlmsFullDependencies(() => fullCohortPaths(), {}, () => NON_IQ_TEST_PATHS);
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET } = await import("@/lib/seo/llmsFullRoute");
 
     const response = await GET();
     const text = await response.text();
@@ -243,7 +243,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     let currentPaths = fullCohortPaths();
     mockLlmsFullDependencies(() => currentPaths);
-    const firstModule = await import("@/app/llms-full.txt/route");
+    const firstModule = await import("@/lib/seo/llmsFullRoute");
     const generatedText = await firstModule.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(firstModule.buildAndCacheLlmsFullText(SITE_URL, generatedText)).resolves.toMatchObject({ ok: true });
     expect(careerUrlCount(generatedText)).toBe(1046 * 2);
@@ -251,7 +251,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     vi.resetModules();
     currentPaths = [];
     mockLlmsFullDependencies(() => currentPaths);
-    const secondModule = await import("@/app/llms-full.txt/route");
+    const secondModule = await import("@/lib/seo/llmsFullRoute");
     const sharedResponse = await secondModule.GET();
     const sharedText = await sharedResponse.text();
 
@@ -268,7 +268,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     mockLlmsFullDependencies(() => fullCohortPaths());
-    const writer = await import("@/app/llms-full.txt/route");
+    const writer = await import("@/lib/seo/llmsFullRoute");
     const text = await writer.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     const artifact = await writer.buildAndCacheLlmsFullText(SITE_URL, text);
     expect(artifact.ok).toBe(true);
@@ -281,7 +281,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
 
     vi.resetModules();
     mockLlmsFullDependencies(() => []);
-    const reader = await import("@/app/llms-full.txt/route");
+    const reader = await import("@/lib/seo/llmsFullRoute");
     const response = await reader.GET();
 
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
@@ -350,7 +350,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
         },
       ],
     });
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
     const response = await route.GET();
@@ -397,7 +397,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
       en: enArticles,
       zh: [targetArticle],
     });
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });
     const response = await route.GET();

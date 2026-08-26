@@ -123,7 +123,7 @@ describe("ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01", () => {
     const adapter = read("lib/cms/personality-public-content-assets.ts");
     const source = read("lib/seo/enneagramLlmsSource.ts");
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     expect(adapter).toContain("/v0.5/personality-content-assets?locale=");
     expect(adapter).toContain("framework=enneagram&per_page=100&org_id=0");

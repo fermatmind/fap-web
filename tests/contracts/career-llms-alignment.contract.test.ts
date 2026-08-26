@@ -424,7 +424,7 @@ describe("career llms alignment contract", () => {
       isConfiguredStagingSiteUrl: vi.fn(() => false),
     }));
 
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET } = await import("@/lib/seo/llmsFullRoute");
     const response = await GET();
     const text = await response.text();
 

@@ -18,11 +18,12 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
   authenticateContentReleaseRevalidation: mocks.authenticate,
 }));
 
-import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
+import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute";
 import {
   CAREER_DETAIL_PROJECTION_CACHE_VERSION,
   careerDetailCacheTag,
 } from "@/lib/career/api/fetchCareerJobBundle";
+import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 
 const ROOT = process.cwd();
 const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -33,12 +34,11 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     const rendererSource = read("components/career/display/CareerProductionDisplaySurface.tsx");
 
     expect(source).toContain('export const dynamic = "force-dynamic";');
-    expect(source).toContain('CAREER_DETAIL_HTML_CACHE_POLICY = "deployment-bound"');
-    expect(source).toContain("CAREER_RENDERER_RELEASE = process.env.NEXT_PUBLIC_RELEASE");
+    expect(CAREER_RENDERER_RELEASE).toBe(process.env.NEXT_PUBLIC_RELEASE);
     expect(source).toContain("rendererRelease={CAREER_RENDERER_RELEASE}");
     expect(rendererSource).toContain("data-career-renderer-release={rendererRelease}");
     expect(source).not.toContain("export const revalidate = 300;");
-    expect(source).toContain("export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;");
+    expect(source).not.toMatch(/export const CAREER_(?:DETAIL|RENDERER)/);
     expect(source).toContain("const loadCareerJobBundle = cache(async");
     expect(source.match(/loadCareerJobBundle\(locale, slug\)/g)?.length).toBe(2);
     expect(source).toContain("const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all");

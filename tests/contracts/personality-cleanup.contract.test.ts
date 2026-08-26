@@ -65,7 +65,7 @@ describe("personality cleanup contract", () => {
   });
 
   it("llms-full.txt personality coverage follows backend sitemap authority without local inference", () => {
-    const source = read("app/llms-full.txt/route.ts");
+    const source = read("lib/seo/llmsFullRoute.ts");
     const personalityBlock = sliceBetween(source, "async function listPersonalityEntries()", "async function listTopicEntries()");
 
     expect(personalityBlock).toContain("listBackendSitemapMbtiPersonalityPaths");

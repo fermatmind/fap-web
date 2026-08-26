@@ -6,7 +6,7 @@ import {
 import {
   hasExactBigFiveCanonicalCohort,
   isCompleteLlmsFullText,
-} from "@/app/llms-full.txt/route";
+} from "@/lib/seo/llmsFullRoute";
 
 const canonicalPaths = BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
   `/en/personality/big-five${entry.pathSuffix}`,

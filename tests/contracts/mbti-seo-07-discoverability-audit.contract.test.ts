@@ -120,7 +120,7 @@ describe("MBTI-SEO-07 discoverability audit", () => {
 
   it("keeps personality llms routes CMS-authoritative and fail-closed", () => {
     const llmsRoute = read("app/llms.txt/route.ts");
-    const llmsFullRoute = read("app/llms-full.txt/route.ts");
+    const llmsFullRoute = read("lib/seo/llmsFullRoute.ts");
 
     expect(llmsRoute).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(llmsRoute).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");

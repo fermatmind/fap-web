@@ -37,7 +37,7 @@ function changedFiles(): string[] {
 
 describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
   it("keeps llms-full profile and comparison entries aligned to backend sitemap authority", () => {
-    const route = read("app/llms-full.txt/route.ts");
+    const route = read("lib/seo/llmsFullRoute.ts");
     const scopeHelper = read("tests/contracts/helpers/currentPrScope.ts");
     expect(route).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(route).toContain("function buildMbtiPersonalityAuthorityEntry(");

@@ -143,7 +143,7 @@ describe("evaluateDeployGuard — risky labels", () => {
 describe("evaluateDeployGuard — risky files", () => {
   it.each([
     "app/llms.txt/route.ts",
-    "app/llms-full.txt/route.ts",
+    "lib/seo/llmsFullRoute.ts",
     "lib/seo/backendSitemapSource.ts",
     "app/sitemap.xml/route.ts",
     "app/api/content-release/route.ts",
@@ -162,7 +162,7 @@ describe("evaluateDeployGuard — risky files", () => {
 describe("evaluateDeployGuard — manual risk approval", () => {
   const riskyFiles = [
     "app/llms.txt/route.ts",
-    "app/llms-full.txt/route.ts",
+    "lib/seo/llmsFullRoute.ts",
     "lib/seo/backendSitemapSource.ts",
   ];
 
@@ -218,7 +218,7 @@ describe("evaluateDeployGuard — manual risk approval", () => {
 describe("evaluateDeployGuard — #1639 Enneagram scenario", () => {
   const enneagramFiles = [
     "app/llms.txt/route.ts",
-    "app/llms-full.txt/route.ts",
+    "lib/seo/llmsFullRoute.ts",
     "lib/seo/backendSitemapSource.ts",
   ];
 
@@ -329,7 +329,7 @@ describe("classifyRequiredChecks", () => {
 
 describe("RISKY_PATH_PATTERNS", () => {
   it("matches Enneagram #1639 changed files", () => {
-    const files = ["app/llms.txt/route.ts", "app/llms-full.txt/route.ts", "lib/seo/backendSitemapSource.ts"];
+    const files = ["app/llms.txt/route.ts", "lib/seo/llmsFullRoute.ts", "lib/seo/backendSitemapSource.ts"];
     for (const f of files) {
       expect(RISKY_PATH_PATTERNS.some((p) => p.test(f))).toBe(true);
     }

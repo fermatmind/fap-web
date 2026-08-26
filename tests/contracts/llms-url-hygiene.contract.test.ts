@@ -49,6 +49,6 @@ describe("llms final URL hygiene contract", () => {
   });
 
   it("llms-full.txt excludes forbidden final URL classes while keeping enrichment URL-safe", () => {
-    expectLlmsRouteHygiene(read("app/llms-full.txt/route.ts"));
+    expectLlmsRouteHygiene(read("lib/seo/llmsFullRoute.ts"));
   });
 });

@@ -17,7 +17,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
       llmsFullEnrichmentConcurrency,
       llmsFullSourceConcurrency,
       llmsFullSourceTimeoutMs,
-    } = await import("@/app/llms-full.txt/route");
+    } = await import("@/lib/seo/llmsFullRoute");
 
     expect(llmsFullContentPageTimeoutMs("runtime")).toBe(5_000);
     expect(llmsFullSourceTimeoutMs("runtime", "hard", 8_000)).toBe(8_000);
@@ -33,7 +33,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
   });
 
   it("uses a five-minute fail-closed operator deadline without changing the public response deadline", () => {
-    const route = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
+    const route = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullRoute.ts"), "utf8");
     const budgets = fs.readFileSync(path.join(ROOT, "lib/seo/llmsRouteBudget.ts"), "utf8");
     const sitemapSource = fs.readFileSync(path.join(ROOT, "lib/seo/backendSitemapSource.ts"), "utf8");
     const enneagramSource = fs.readFileSync(path.join(ROOT, "lib/seo/enneagramLlmsSource.ts"), "utf8");
@@ -88,7 +88,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
   it("retries the hard test source when an enabled IQ cohort is incomplete", async () => {
     vi.stubEnv("FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT", "true");
     vi.stubEnv("FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT", "true");
-    const { hasRequiredTestSource } = await import("@/app/llms-full.txt/route");
+    const { hasRequiredTestSource } = await import("@/lib/seo/llmsFullRoute");
     const corePaths = [
       "/en/tests/mbti-personality-test-16-personality-types",
       "/zh/tests/mbti-personality-test-16-personality-types",
@@ -132,7 +132,7 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
   });
 
   it("does not turn artifact stability into local content or a cache-write shortcut", () => {
-    const route = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
+    const route = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullRoute.ts"), "utf8");
     const generator = fs.readFileSync(path.join(ROOT, "scripts/seo/generate-llms-full.mjs"), "utf8");
 
     expect(generator).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');

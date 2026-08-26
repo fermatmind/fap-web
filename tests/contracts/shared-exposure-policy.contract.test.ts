@@ -60,7 +60,7 @@ describe("shared discoverability exposure policy", () => {
     const sitemapConfig = read("next-sitemap.config.js");
     const sitemapAdapters = read("lib/seo/sitemapAuthorityAdapters.cjs");
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
     const indexingPolicy = read("lib/seo/indexingPolicy.ts");
     const cjsIndexingPolicy = read("lib/seo/indexingPolicy.cjs");
 

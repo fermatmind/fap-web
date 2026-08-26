@@ -287,7 +287,7 @@ describe("llms-full enrichment contract", () => {
   it("serves the deterministic offline enumeration artifact without volatile detail enrichment", async () => {
     mockLlmsFullDependencies({ includeSurfaces: true });
 
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText("https://fermatmind.com", { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText("https://fermatmind.com", artifactText)).resolves.toMatchObject({
       ok: true,
@@ -341,7 +341,7 @@ describe("llms-full enrichment contract", () => {
   it("does not invent summaries when no source surface or list summary exists", async () => {
     mockLlmsFullDependencies({ includeSurfaces: false });
 
-    const route = await import("@/app/llms-full.txt/route");
+    const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText("https://fermatmind.com", { buildProfile: "artifact" });
     await expect(route.buildAndCacheLlmsFullText("https://fermatmind.com", artifactText)).resolves.toMatchObject({
       ok: true,

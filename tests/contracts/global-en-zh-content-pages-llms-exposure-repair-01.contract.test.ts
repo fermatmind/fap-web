@@ -183,7 +183,7 @@ async function renderLlmsRoutes(): Promise<{ llmsText: string; llmsFullText: str
 
   const [llmsRoute, llmsFullRoute] = await Promise.all([
     import("@/app/llms.txt/route"),
-    import("@/app/llms-full.txt/route"),
+    import("@/lib/seo/llmsFullRoute"),
   ]);
   const artifactText = await llmsFullRoute.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
   await expect(llmsFullRoute.buildAndCacheLlmsFullText(SITE_URL, artifactText)).resolves.toMatchObject({ ok: true });

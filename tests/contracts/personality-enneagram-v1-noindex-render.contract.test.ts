@@ -427,7 +427,7 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
 
   it("keeps Enneagram V1 noindex routes out of sitemap and llms surfaces", () => {
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     for (const entry of ENNEAGRAM_PUBLIC_ROUTE_ENTRIES) {
       for (const locale of ["en", "zh"] as const) {

@@ -41,7 +41,7 @@ describe("career routing cleanup contract", () => {
     expect(await config.transform({}, "/zh/career/jobs")).toBeNull();
 
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
     expect(llms).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
     expect(llms).not.toContain('toCanonical(siteUrl, "/zh/career/jobs")');
     expect(llmsFull).not.toContain('toCanonical(siteUrl, "/en/career/jobs")');
@@ -100,7 +100,7 @@ describe("career routing cleanup contract", () => {
 
   it("machine-readable routes use backend sitemap authority for Career job details after the live URL gate passes", () => {
     const llms = read("app/llms.txt/route.ts");
-    const llmsFull = read("app/llms-full.txt/route.ts");
+    const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
     expect(llms).toContain('import { fetchCareerRecommendationIndex } from "@/lib/career/api/fetchCareerRecommendationIndex"');
     expect(llms).toContain('import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex"');

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { applyTestDetailMetadataTitleTemplateGuard } from "@/lib/tests/metadataTitleTemplateGuard";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
@@ -524,25 +525,6 @@ type FlagshipFreeTestCopy = {
   secondaryCtaLabelByFormCode: Record<string, string>;
   freeBoundary: string;
 };
-
-export function applyTestDetailMetadataTitleTemplateGuard(
-  metadata: Metadata,
-  sourceTitle: string
-): Metadata {
-  const normalized = sourceTitle.replace(/\s+/g, " ").trim();
-  const suffixPattern = /(?:\s*\|\s*FermatMind)+$/i;
-  if (!suffixPattern.test(normalized)) {
-    return metadata;
-  }
-
-  const baseTitle = normalized.replace(suffixPattern, "").trim();
-  return {
-    ...metadata,
-    title: {
-      absolute: baseTitle ? `${baseTitle} | FermatMind` : "FermatMind",
-    },
-  };
-}
 
 function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "en" | "zh"): FlagshipFreeTestCopy | null {
   if (locale !== "zh") return null;

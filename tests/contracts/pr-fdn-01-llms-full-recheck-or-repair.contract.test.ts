@@ -18,7 +18,7 @@ vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
   authenticateContentReleaseRevalidation: vi.fn(async () => ({ ok: true, nonceHash: "test-nonce-hash" })),
 }));
 
-import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
+import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute";
 
 describe("PR-FDN-01 llms-full recheck or repair", () => {
   afterEach(() => {
