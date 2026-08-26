@@ -1529,7 +1529,7 @@ export function adaptCareerDisplaySurface(
     presentationV1,
     cta: {
       label: displayCta.label,
-      href: localizedHero ? displayCta.href : ctaHref,
+      href: publishedComponents && localizedHero ? displayCta.href : ctaHref,
       testSlug: CAREER_DISPLAY_RIASEC_TEST_SLUG,
       targetAction: "start_riasec_test",
       eventPayload: buildCareerDisplayCtaAttribution({ locale, landingPath: path, subjectSlug: canonicalSlug }),

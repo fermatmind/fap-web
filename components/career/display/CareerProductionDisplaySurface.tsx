@@ -694,7 +694,7 @@ export function CareerProductionDisplaySurface({
             </ComponentFrame>
           ) : componentId === "primary_cta" && surface.presentationV1
             ? null
-            : <ComponentFrame key={componentId} id={componentId}>{renderComponent(componentId)}</ComponentFrame>);
+            : <ComponentFrame key={componentId} id={componentId} hidden={surface.componentOrder.includes("hero")}>{renderComponent(componentId)}</ComponentFrame>);
     } else if (group.id === "snapshot") {
       componentNodes = surface.componentOrder.includes("career_snapshot_primary_locale") ? [
         <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
