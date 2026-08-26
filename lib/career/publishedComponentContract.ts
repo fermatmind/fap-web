@@ -104,7 +104,11 @@ function validateCta(value: unknown, allowPrompt = false): boolean {
 }
 
 function validatePrimarySnapshot(value: unknown): boolean {
-  if (!hasExactKeys(value, ["callout", "salary", "scene"]) || !isNonEmptyString(value.callout) || !isNonEmptyString(value.scene)) {
+  if (
+    !hasExactKeys(value, ["salary"], ["callout", "scene"])
+    || (value.callout !== undefined && !isNonEmptyString(value.callout))
+    || (value.scene !== undefined && !isNonEmptyString(value.scene))
+  ) {
     return false;
   }
 

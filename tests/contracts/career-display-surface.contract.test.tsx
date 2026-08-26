@@ -172,12 +172,12 @@ describe("career display surface contract", () => {
 
     if (locale === "zh") {
       const hero = screen.getByTestId("career-display-hero");
-      const snapshot = screen.getByTestId("career-published-career_snapshot_primary_locale");
       expect(hero).toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
       expect(hero).toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
-      expect(snapshot).toHaveTextContent("会计与审计人员 的真实工作场景来自后端已发布正文。");
-      expect(snapshot).not.toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
-      expect(snapshot).not.toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
+      expect(screen.queryByTestId("career-published-career_snapshot_primary_locale")).not.toBeInTheDocument();
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("更可能适合");
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("需要慎重");
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("先做一次小实验");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("中国大陆薪资参考");
       expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
@@ -189,7 +189,7 @@ describe("career display surface contract", () => {
       expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
       expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
-      expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
+      expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(11);
     } else {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
       expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
@@ -345,7 +345,9 @@ describe("career display surface contract", () => {
       .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
     const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
     const expectedValues = (surface?.componentOrder ?? [])
-      .flatMap((componentId) => collectPublishedScalarValues(page[componentId]));
+      .flatMap((componentId) => componentId === "career_snapshot_primary_locale"
+        ? collectPublishedScalarValues((page[componentId] as { salary: unknown }).salary)
+        : collectPublishedScalarValues(page[componentId]));
 
     for (const expected of expectedValues) {
       expect(domProjection, `missing published scalar: ${expected}`).toContain(expected);
@@ -358,7 +360,7 @@ describe("career display surface contract", () => {
     for (const expected of expectedSourceValues) {
       expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
     }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength((surface?.componentOrder.length ?? 1) - 1);
     expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
       (page.responsibilities_block as unknown[]).length
     );
