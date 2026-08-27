@@ -5,8 +5,28 @@ import { EvidenceContainer } from "@/components/career/display/EvidenceContainer
 import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCard";
 import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuickAnswersBlock";
 import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
-import { AccountantsCareerProfile } from "@/components/career/display/AccountantsCareerProfile";
+import { CareerDossierProfile } from "@/components/career/display/CareerDossierProfile";
 import {
+  CareerDossierDirectionComparison,
+  supportsCareerDossierDirectionComparison,
+} from "@/components/career/display/CareerDossierDirectionComparison";
+import {
+  CareerDossierAiImpact,
+  supportsCareerDossierAiImpact,
+} from "@/components/career/display/CareerDossierAiImpact";
+import {
+  CareerDossierChinaSalary,
+  CareerDossierUsSalary,
+  supportsCareerDossierChinaSalary,
+  supportsCareerDossierUsSalary,
+} from "@/components/career/display/CareerDossierSalaryReference";
+import {
+  CareerDossierFitDecision,
+  CareerDossierQuickDecisionAnswer,
+} from "@/components/career/display/CareerDossierQuickDecision";
+import {
+  CAREER_COMPONENT_TITLES_EN,
+  CAREER_COMPONENT_TITLES_ZH,
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
@@ -17,7 +37,9 @@ import {
 } from "@/lib/career/displaySurface";
 import {
   CAREER_VISUAL_GROUPS,
+  CAREER_VISUAL_GROUP_IDS,
   type CareerVisualGroupDefinition,
+  type CareerVisualGroupId,
 } from "@/lib/career/careerVisualGroups";
 import type {
   CareerPublishedOnetStructuredFieldsBlock,
@@ -76,18 +98,18 @@ const COMPONENT_TEST_IDS: Partial<Record<CareerDisplayComponentId, string>> = {
 };
 
 const EN_VISUAL_GROUP_LABELS: Record<CareerVisualGroupDefinition["id"], string> = {
-  hero: "Career overview",
-  snapshot: "Career snapshot",
+  overview: "Career overview",
   "quick-decision": "Quick decision",
   profile: "Career profile",
+  "direction-comparison": "Career direction comparison",
   "ai-impact": "AI impact",
-  "china-reference": "China reference",
-  "bls-reference": "U.S. BLS reference",
-  "fit-map": "Fit map",
-  "risk-change": "Risks and change",
-  "adjacent-comparison": "Adjacent career comparison",
+  "china-salary": "Chinese mainland salary reference",
+  "us-salary": "United States salary reference",
+  fit: "Fit map",
+  risk: "Risks and change",
+  path: "Development path",
   "market-signals": "Market signals",
-  "faq-sources-boundaries": "FAQ, sources, and boundaries",
+  sources: "Questions and sources",
 };
 
 function visualGroupLabel(group: CareerVisualGroupDefinition, isZh: boolean): string {
@@ -137,6 +159,29 @@ function isPublishedComponentUnavailable(value: unknown): boolean {
     "availability" in value && value.availability === "unavailable";
 }
 
+function isRecordValue(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function supportsStructuredCareerDossierProfile(value: CareerDisplaySurfaceViewModel["publishedComponents"]): boolean {
+  if (!value) return false;
+  const quickAnswers = value.career_quick_answers_block;
+  if (!isRecordValue(quickAnswers)) {
+    return false;
+  }
+  const quickAnswerItems = quickAnswers.items;
+  if (!Array.isArray(quickAnswerItems)) return false;
+
+  const minimumRows = new Map([["qa3", 3], ["qa2", 7], ["qa1", 6]]);
+  const hasCompleteQuickAnswers = [...minimumRows].every(([key, minimum]) => {
+    const item = quickAnswerItems.find((candidate) => isRecordValue(candidate) && candidate.key === key);
+    if (!isRecordValue(item) || !isRecordValue(item.table)) return false;
+    return Array.isArray(item.table.rows) && item.table.rows.length >= minimum;
+  });
+
+  return hasCompleteQuickAnswers;
+}
+
 function ComponentFrame({ id, children, hidden = false }: { id: CareerDisplayComponentId; children: ReactNode; hidden?: boolean }) {
   return (
     <div id={`career-component-${id}`} data-career-component-id={id} className={hidden ? "hidden" : "scroll-mt-24"}>
@@ -159,20 +204,6 @@ function BoundaryCard({ surface, title }: { surface: CareerDisplaySurfaceViewMod
   );
 }
 
-const RELATED_CAREER_TITLES_ZH: Record<string, string> = {
-  "Financial managers": "财务经理",
-  "Financial Managers": "财务经理",
-  "Financial Analysts": "财务分析师",
-  "Loan Officers": "信贷专员",
-  "Financial examiners": "财务审查员",
-  "Management analysts": "管理分析师",
-  "Payroll And Timekeeping Clerks": "薪酬与考勤文员",
-  "Credit Analysts": "信用分析师",
-  "Financial and Investment Analysts": "财务与投资分析师",
-  "Bookkeeping, accounting, and auditing clerks": "簿记、会计与审计文员",
-  "Cost Estimators": "成本估算师",
-};
-
 function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   const related = surface.relatedNextPages;
   if (!related) {
@@ -180,25 +211,15 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
   }
 
   const links = related.links.filter((page, index, pages) =>
-    pages.findIndex((candidate) => candidate.titleEn === page.titleEn) === index
+    pages.findIndex((candidate) => candidate.slug === page.slug) === index
   );
-  const isAccountant = surface.subject.canonicalSlug === "accountants-and-auditors";
-  const isAccountantZh = surface.locale === "zh" && isAccountant;
-  const accountantCareerLink = (titleEn: string, label: string) => {
-    const page = links.find((candidate) => candidate.titleEn === titleEn);
-    return page ? (
-      <Link href={`/${surface.locale}/career/jobs/${page.slug}`} className="font-semibold text-[#2C3E8C]">
-        {label}
-      </Link>
-    ) : label;
-  };
 
   if (surface.locale !== "zh") {
     return (
       <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-career-api-component="related_next_pages">
         <h2 className="m-0 text-2xl font-bold text-[#1A2233]" data-career-api-field="related_next_pages.intro">{related.intro}</h2>
         <ul className="m-0 mt-4 grid gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3" data-career-api-list="related_next_pages.links">
-          {links.slice(0, isAccountant ? 9 : 12).map((page) => (
+          {links.slice(0, 12).map((page) => (
             <li
               key={page.slug}
               data-related-career-slug={page.slug}
@@ -216,17 +237,10 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
 
   return (
     <section className={`rounded-2xl border border-[#E5E9F2] bg-white shadow-[0_2px_12px_rgba(26,34,51,.05)] ${visual.card}`} data-career-api-component="related_next_pages">
-      <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">{isAccountantZh ? "相关职业与职业发展路径" : "相关职业"}</h2>
-      {isAccountantZh ? (
-        <>
-          <p className="sr-only" data-career-api-field="related_next_pages.intro">{related.intro}</p>
-          <p className="m-0 mt-3 text-[15px] leading-7 text-[#3D4658]">
-            会计与审计处在财务职业网络的中心。下列 9 个相邻或进阶职业均可双向跳转，便于读者沿「记录 → 核算 → 分析 → 管理」的路径系统探索：
-          </p>
-        </>
-      ) : <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>}
+      <h2 className="m-0 text-[23px] font-bold text-[#1A2233]">相关职业</h2>
+      <p className="mb-0 mt-2 text-sm leading-7 text-[#5B6678]" data-career-api-field="related_next_pages.intro">{related.intro}</p>
       <ul className={`m-0 mt-3 grid p-0 sm:grid-cols-2 xl:grid-cols-3 ${visual.relatedGrid}`} data-career-api-list="related_next_pages.links">
-        {links.slice(0, isAccountantZh ? 9 : links.length).map((page) => (
+        {links.map((page) => (
           <li
             key={page.slug}
             data-related-career-slug={page.slug}
@@ -234,23 +248,14 @@ function RelatedPages({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
             data-related-career-nofollow={String(page.nofollow)}
             className={`list-none rounded-[10px] border border-[#E5E9F2] bg-[#F0F3FA] text-[13.5px] font-semibold text-[#2C3E8C] ${visual.relatedCard}`}
           >
-            {isAccountantZh ? (
-              <Link
-                href={`/${surface.locale}/career/jobs/${page.slug}`}
-                rel={page.nofollow ? "nofollow" : undefined}
-              >
-                {RELATED_CAREER_TITLES_ZH[page.titleEn] ?? page.titleEn}
+            {page.titleZh ? (
+              <Link href={`/${surface.locale}/career/jobs/${page.slug}`} rel={page.nofollow ? "nofollow" : undefined}>
+                <span data-career-api-field={`related_next_pages.links.${page.slug}.title_zh`}>{page.titleZh}</span>
               </Link>
-            ) : page.titleEn}
-            {isAccountantZh ? <span className="sr-only" data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span> : null}
+            ) : <span data-career-api-field={`related_next_pages.links.${page.slug}.title_en`}>{page.titleEn}</span>}
           </li>
         ))}
       </ul>
-      {isAccountantZh ? (
-        <p className="m-0 mt-4 text-[15px] leading-7 text-[#3D4658]">
-          从技术岗走向管理，优先看 {accountantCareerLink("Financial managers", "财务经理")} 与 {accountantCareerLink("Financial and Investment Analysts", "财务分析师")}；想入门核算，看 {accountantCareerLink("Bookkeeping, accounting, and auditing clerks", "簿记文员")} 的高替代风险对照。
-        </p>
-      ) : null}
     </section>
   );
 }
@@ -261,57 +266,53 @@ function CareerProductionHero({
   primaryCtaHref,
 }: Pick<Props, "surface" | "visibleSections" | "primaryCtaHref">) {
   const published = surface.publishedComponents;
-  const presentation = surface.presentationV1;
+  const presentationV2 = surface.presentationV2;
+  const presentationV1 = surface.presentationV1;
   const legacyHero = surface.hero;
-  if (!presentation && !legacyHero) return null;
-  const usesPresentation = presentation !== null;
+  if (!presentationV2 && !presentationV1 && !legacyHero) return null;
+  const presentationField = presentationV2 ? "presentation_v2" : presentationV1 ? "presentation_v1" : null;
   const legacyRiasec = !published ? firstSection(visibleSections, "RIASECFitBlock") : null;
   const legacySnapshot = !published ? firstSection(visibleSections, "CareerSnapshotCard") : null;
   const legacyAiImpact = !published ? firstSection(visibleSections, "AIImpactTable") : null;
   const badges = published
-    ? presentation?.hero.badges ?? []
-    : (legacyRiasec?.profile ?? []).slice(0, 3).map((text, sourceIndex) => ({ text, sourceIndex }));
-  const publishedStats = presentation?.hero.stats ?? [];
+    ? presentationV2?.hero.badges ?? presentationV1?.hero.badges ?? []
+    : (legacyRiasec?.profile ?? []).slice(0, 3).map((text) => ({ text }));
   const stats = published
-    ? surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors"
-      ? publishedStats.map((stat, index) => index === 4
-        ? {
-            ...stat,
-            value: "¥7.2万–18万",
-            label: "中国参考年薪",
-            sourceLabel: "国内招聘平台参考",
-          }
-        : stat)
-      : publishedStats
-    : (legacySnapshot?.rows ?? []).slice(0, 5).map(([label, value], sourceIndex) => ({
+    ? presentationV2?.hero.stats ?? presentationV1?.hero.stats ?? []
+    : (legacySnapshot?.rows ?? []).slice(0, 5).map(([label, value]) => ({
         label,
         value,
         sourceLabel: "",
-        sourceIndex,
       }));
-  const aiExposure = presentation?.hero.aiExposure ?? null;
+  const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
+  const visibleAiExposure = aiExposure;
   const publishedHero = Boolean(published);
-  const presentationCodes = [
-    presentation?.hero.socCode ? `SOC ${presentation.hero.socCode}` : null,
-    presentation?.hero.onetCode ? `O*NET ${presentation.hero.onetCode}` : null,
-  ].filter((item): item is string => item !== null);
-  const presentationSubtitle = [presentation?.hero.titleEn, ...presentationCodes]
+  const presentationCodes = (presentationV1 ? [
+    presentationV1.hero.socCode ? `SOC ${presentationV1.hero.socCode}` : null,
+    presentationV1.hero.onetCode ? `O*NET ${presentationV1.hero.onetCode}` : null,
+  ] : [
+    surface.subject.socCode ? `SOC ${surface.subject.socCode}` : null,
+    surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,
+  ]).filter((item): item is string => item !== null);
+  const presentationSubtitle = [presentationV1?.hero.titleEn, ...presentationCodes]
     .filter((item): item is string => Boolean(item))
     .join(" · ");
   const legacySubjectCodes = [
     surface.subject.socCode ? `SOC ${surface.subject.socCode}` : null,
     surface.subject.onetCode ? `O*NET ${surface.subject.onetCode}` : null,
   ].filter((item): item is string => item !== null).join(" · ");
-  const heroTitle = presentation
-    ? (surface.locale === "zh" ? presentation.hero.titleZh : presentation.hero.titleEn)
-    : legacyHero?.h1;
-  const heroSubtitle = presentation
+  const heroTitle = presentationV2?.hero.title ?? (presentationV1
+    ? (surface.locale === "zh" ? presentationV1.hero.titleZh : presentationV1.hero.titleEn)
+    : legacyHero?.h1);
+  const heroSubtitle = presentationV2
+    ? presentationCodes.join(" · ")
+    : presentationV1
     ? presentationSubtitle
     : legacyHero?.subtitle ?? (surface.locale === "zh" ? legacySubjectCodes : "");
-  const heroLead = presentation ? presentation.hero.lead : legacyHero?.quickAnswer;
-  const heroCta = presentation
-    ? presentation.hero.cta
-    : published ? { label: surface.cta.label, href: surface.cta.href } : null;
+  const heroLead = presentationV2?.hero.lead ?? presentationV1?.hero.lead ?? legacyHero?.quickAnswer;
+  const heroCta = presentationV2?.hero.cta ?? presentationV1?.hero.cta ?? (
+    published ? { label: surface.cta.label, href: surface.cta.href } : null
+  );
 
   return (
     <header
@@ -325,12 +326,12 @@ function CareerProductionHero({
       <div className="max-w-[640px] pr-0 lg:pr-10">
         {heroTitle ? <h1 className={publishedHero
           ? "m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
-          : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={usesPresentation ? `presentation_v1.hero.title_${surface.locale === "zh" ? "zh" : "en"}` : "hero.h1"}>{heroTitle}</h1> : null}
-        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`} data-career-api-fields={usesPresentation ? "presentation_v1.hero.title_en presentation_v1.hero.soc_code presentation_v1.hero.onet_code" : legacyHero?.subtitle ? "hero.title" : legacySubjectCodes ? "subject.soc_code subject.onet_code" : undefined}>{heroSubtitle}</p> : null}
+          : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={presentationField ? `${presentationField}.hero.title` : "hero.h1"}>{heroTitle}</h1> : null}
+        {heroSubtitle ? <p className={`m-0 text-sm font-normal text-white/80 ${publishedHero ? visual.heroSubtitle : "mt-1"}`}>{heroSubtitle}</p> : null}
         {badges.length > 0 ? (
           <div className={`flex flex-wrap ${visual.heroBadges}`} data-testid="career-production-hero-badges">
             {badges.map((badge, index) => (
-              <span key={`${badge.text}:${index}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.badges[${badge.sourceIndex}].text` : undefined} className={publishedHero
+              <span key={`${badge.text}:${index}`} data-career-api-field={presentationField ? `${presentationField}.hero.badges[${index}].text` : undefined} className={publishedHero
                 ? `rounded-full border border-white/25 bg-white/[.16] text-[12.5px] font-normal ${visual.heroBadge}`
                 : "rounded-full border border-white/25 bg-white/[.16] px-3 py-1 text-xs font-medium"}>
                 {badge.text}
@@ -338,15 +339,15 @@ function CareerProductionHero({
             ))}
           </div>
         ) : null}
-        {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={usesPresentation ? "presentation_v1.hero.lead" : "hero.quick_answer"}>{heroLead}</p> : null}
-        {aiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field="presentation_v1.hero.ai_exposure.note">{aiExposure.note}</p> : null}
+        {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={presentationField ? `${presentationField}.hero.lead` : "hero.quick_answer"}>{heroLead}</p> : null}
+        {visibleAiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field={`${presentationField}.hero.ai_exposure.note`}>{visibleAiExposure.note}</p> : null}
       </div>
-      {aiExposure || legacyAiImpact?.score ? (
+      {visibleAiExposure || legacyAiImpact?.score ? (
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
-            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={aiExposure ? "presentation_v1.hero.ai_exposure.display_value" : undefined}>{aiExposure?.displayValue ?? legacyAiImpact?.score}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={aiExposure ? "presentation_v1.hero.ai_exposure.label" : undefined}>{aiExposure?.label ?? legacyAiImpact?.heading}</span>
-            {aiExposure ? <span className="sr-only" data-career-api-field="presentation_v1.hero.ai_exposure.source_label">{aiExposure.sourceLabel}</span> : null}
+            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score}</strong>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? legacyAiImpact?.heading}</span>
+            {visibleAiExposure ? <span className="sr-only" data-career-api-field={`${presentationField}.hero.ai_exposure.source_label`}>{visibleAiExposure.sourceLabel}</span> : null}
           </div>
         </div>
       ) : null}
@@ -354,9 +355,9 @@ function CareerProductionHero({
         <div className={`grid ${visual.heroStats}`} data-testid="career-production-hero-stats">
           {stats.map((stat, index) => (
             <div key={`${stat.label}:${stat.value}:${index}`} className={`rounded-xl bg-white/[.12] ${visual.heroStat}`}>
-              <strong className={`block ${visual.heroStatValue}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].value` : undefined}>{stat.value}</strong>
-              <span className={`block text-white/85 ${visual.heroStatLabel}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].label` : undefined}>{stat.label}</span>
-              {stat.sourceLabel ? <span className={`block text-white/65 ${visual.heroStatSource}`} data-career-api-field={usesPresentation ? `presentation_v1.hero.stats[${stat.sourceIndex}].source_label` : undefined}>{stat.sourceLabel}</span> : null}
+              <strong className={`block ${visual.heroStatValue}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].value` : undefined}>{stat.value}</strong>
+              <span className={`block text-white/85 ${visual.heroStatLabel}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].label` : undefined}>{stat.label}</span>
+              {stat.sourceLabel ? <span className={`block text-white/65 ${visual.heroStatSource}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].source_label` : undefined}>{stat.sourceLabel}</span> : null}
             </div>
           ))}
         </div>
@@ -367,7 +368,7 @@ function CareerProductionHero({
         data-career-component-id={published ? "primary_cta" : undefined}
         data-career-visual-group-component={published ? "hero" : undefined}
         data-career-api-component={published ? "primary_cta" : undefined}
-        data-career-api-fields={published ? (usesPresentation ? "presentation_v1.hero.cta.label presentation_v1.hero.cta.href" : "primary_cta.label primary_cta.href") : undefined}
+        data-career-api-fields={published ? (presentationField ? `${presentationField}.hero.cta.label ${presentationField}.hero.cta.href` : "primary_cta.label primary_cta.href") : undefined}
         className={publishedHero
           ? `mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] text-[15px] font-bold text-white hover:brightness-105 hover:no-underline ${visual.heroCta}`
           : "mt-6 inline-flex min-h-11 items-center rounded-[10px] bg-[#0E9F94] px-6 py-3 text-sm font-bold text-white transition-transform hover:-translate-y-0.5 hover:no-underline"}
@@ -570,7 +571,11 @@ export function CareerProductionDisplaySurface({
     const originalSection = orderedSection(componentId, surface.sections);
     const visibleSection = orderedSection(componentId, visibleSections);
     if (restrictedIds.has(componentId) || !visibleSection) {
-      return <BoundaryCard surface={surface} title={originalSection?.heading ?? componentId} />;
+      const localizedTitle = (isZh ? CAREER_COMPONENT_TITLES_ZH : CAREER_COMPONENT_TITLES_EN)[componentId];
+      const boundaryTitle = originalSection?.heading && originalSection.heading !== componentId
+        ? originalSection.heading
+        : localizedTitle;
+      return <BoundaryCard surface={surface} title={boundaryTitle} />;
     }
     if (componentId === "fermat_decision_card") {
       return <FermatDecisionCard section={visibleSection} />;
@@ -604,19 +609,7 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  const isZhAccountants = surface.locale === "zh" && surface.subject.canonicalSlug === "accountants-and-auditors";
-  const accountantsQuickAnswers = publishedComponents?.career_quick_answers_block;
-  const usesStructuredAccountantsProfile = isZhAccountants
-    && ["definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block"]
-      .every((componentId) => surface.componentOrder.includes(componentId as CareerDisplayComponentId))
-    && typeof accountantsQuickAnswers === "object"
-    && accountantsQuickAnswers !== null
-    && !Array.isArray(accountantsQuickAnswers)
-    && "heading" in accountantsQuickAnswers
-    && accountantsQuickAnswers.heading === "职业画像结构化说明";
-  const renderedComponentOrder = isZhAccountants
-    ? surface.componentOrder.filter((componentId) => componentId !== "career_snapshot_primary_locale")
-    : surface.componentOrder;
+  const renderedComponentOrder = surface.componentOrder;
   const legacyTocSections = renderedComponentOrder
     .map((componentId) => ({ componentId, section: orderedSection(componentId, surface.sections) }))
     .filter((item): item is { componentId: CareerDisplayComponentId; section: CareerDisplaySection } => Boolean(item.section));
@@ -662,74 +655,122 @@ export function CareerProductionDisplaySurface({
   }
 
   const breadcrumb = renderComponent("breadcrumb");
-  const compoundGroupIds = new Set([
-    "quick-decision",
-    "profile",
-    "adjacent-comparison",
-    "fit-map",
-    "risk-change",
-    "faq-sources-boundaries",
-  ]);
-  const titledGroupIds = new Set([
-    "profile",
-    "risk-change",
-  ]);
+  const compoundGroupIds = new Set<CareerVisualGroupId>(["quick-decision", "profile", "fit", "risk", "path", "sources"]);
+  const titledGroupIds = new Set<CareerVisualGroupId>(["profile", "risk"]);
+  const legacyEnhanced = surface.presentationV2 === null && surface.presentationV1 !== null;
+  const usesStructuredProfile = supportsStructuredCareerDossierProfile(publishedComponents);
+  const usesCanonicalDossierOrder = surface.componentOrder.every((componentId, index, order) =>
+    index === 0 || CAREER_DISPLAY_SUPPORTED_COMPONENTS.indexOf(order[index - 1]) < CAREER_DISPLAY_SUPPORTED_COMPONENTS.indexOf(componentId)
+  );
+
+  const PendingEnrichment = ({ label }: { label: string }) => (
+    <aside
+      data-nosnippet
+      data-career-pending-enrichment="true"
+      className="rounded-xl border border-dashed border-[#C7CFDF] bg-[#F7F9FC] px-5 py-4 text-sm leading-6 text-[#5B6678]"
+      aria-label={isZh ? `${label}内容待升级` : `${label} enhanced content pending`}
+    >
+      <strong className="block text-[#3A4255]">{isZh ? "内容待升级" : "Enhanced content pending"}</strong>
+      <span>{isZh
+        ? "本区块保留当前权威正文；新版增强卡片生成后将在此补充。"
+        : "The current authoritative text remains available; enhanced cards will be added here when published."}</span>
+    </aside>
+  );
 
   const renderVisualGroup = (group: CareerVisualGroupDefinition) => {
     let componentNodes: ReactNode[];
 
-    if (group.id === "hero") {
+    const isEnhanced = group.contentState === "enhanced" || (legacyEnhanced && usesCanonicalDossierOrder);
+
+    if (group.id === "overview") {
       componentNodes = surface.componentOrder
         .filter((componentId) => componentId !== "breadcrumb" && group.componentIds.includes(componentId))
         .map((componentId) => componentId === "hero"
           ? <ComponentFrame key="hero" id="hero">{renderComponent("hero")}</ComponentFrame>
-          : componentId === "primary_cta" && surface.presentationV1?.hero.cta ? (
+          : componentId === "primary_cta" && (surface.presentationV2?.hero.cta || surface.presentationV1?.hero.cta) ? (
             <ComponentFrame key="primary_cta" id="primary_cta" hidden>
               <span
                 data-career-api-component="primary_cta"
-                data-career-api-fields="presentation_v1.hero.cta.label presentation_v1.hero.cta.href"
+                data-career-api-fields={surface.presentationV2
+                  ? "presentation_v2.hero.cta.label presentation_v2.hero.cta.href"
+                  : "presentation_v1.hero.cta.label presentation_v1.hero.cta.href"}
               >
-                {surface.presentationV1.hero.cta.label}
+                {surface.presentationV2?.hero.cta?.label ?? surface.presentationV1?.hero.cta?.label}
               </span>
             </ComponentFrame>
-          ) : componentId === "primary_cta" && surface.presentationV1
+          ) : componentId === "primary_cta" && (surface.presentationV2 || surface.presentationV1)
             ? null
             : <ComponentFrame key={componentId} id={componentId} hidden={surface.componentOrder.includes("hero")}>{renderComponent(componentId)}</ComponentFrame>);
-    } else if (group.id === "snapshot") {
-      componentNodes = surface.componentOrder.includes("career_snapshot_primary_locale") ? [
-        <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
-          <CareerPublishedSemanticSection
-            componentId="career_snapshot_primary_locale"
-            value={publishedComponents.career_snapshot_primary_locale!}
-            testId={COMPONENT_TEST_IDS.career_snapshot_primary_locale}
-            snapshotVariant="overview"
-            snapshotFacts={surface.presentationV1?.hero.badges.filter((badge) => badge.key === "scene") ?? []}
-            snapshotCallout={surface.presentationV1?.notices.snapshotCallout ?? null}
-            locale={surface.locale}
-          />
-        </ComponentFrame>,
-      ] : [];
-    } else if (group.id === "china-reference") {
-      componentNodes = surface.componentOrder.includes("career_snapshot_primary_locale") ? [
-        <CareerPublishedSemanticSection
-          key="career_snapshot_primary_locale-china"
-          componentId="career_snapshot_primary_locale"
-          value={publishedComponents.career_snapshot_primary_locale!}
-          snapshotVariant="china"
-          salaryBoundary={surface.presentationV1?.notices.salaryBoundary ?? null}
-          locale={surface.locale}
-        />,
-      ] : [];
-    } else if (group.id === "profile" && usesStructuredAccountantsProfile) {
+    } else if (group.id === "china-salary" && isEnhanced) {
+      const chinaSalary = publishedComponents.career_snapshot_primary_locale;
+      if (chinaSalary === undefined) return null;
       componentNodes = [
-        <AccountantsCareerProfile
-          key="accountants-career-profile"
+        <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
+          {supportsCareerDossierChinaSalary(chinaSalary)
+          ? <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />
+          : <CareerPublishedSemanticSection
+              key="career_snapshot_primary_locale-china"
+              componentId="career_snapshot_primary_locale"
+              value={chinaSalary}
+              snapshotVariant="china"
+              salaryBoundary={surface.presentationV1?.notices.salaryBoundary ?? null}
+              locale={surface.locale}
+             />}
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "us-salary" && isEnhanced) {
+      const usSalary = publishedComponents.career_snapshot_secondary_locale;
+      if (usSalary === undefined) return null;
+      componentNodes = [
+        <ComponentFrame key="career_snapshot_secondary_locale" id="career_snapshot_secondary_locale">
+          {supportsCareerDossierUsSalary(usSalary)
+            ? <CareerDossierUsSalary value={usSalary} locale={surface.locale} />
+            : renderComponent("career_snapshot_secondary_locale")}
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "profile" && isEnhanced && usesStructuredProfile) {
+      componentNodes = [
+        <CareerDossierProfile
+          key="career-dossier-profile"
           definition={publishedComponents.definition_block as string}
           responsibilities={publishedComponents.responsibilities_block as string[]}
           workContext={publishedComponents.work_context_block as string}
           quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
+          locale={surface.locale}
         />,
+      ];
+    } else if (group.id === "direction-comparison" && isEnhanced) {
+      const directionComparison = publishedComponents.adjacent_career_comparison_table;
+      const hasDirectionComparison = directionComparison !== undefined && supportsCareerDossierDirectionComparison(directionComparison);
+      componentNodes = [
+        <ComponentFrame key="adjacent_career_comparison_table" id="adjacent_career_comparison_table">
+          {hasDirectionComparison
+            ? <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />
+            : renderComponent("adjacent_career_comparison_table")}
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "ai-impact" && isEnhanced) {
+      const aiImpact = publishedComponents.ai_impact_table;
+      if (aiImpact === undefined) return null;
+      componentNodes = [
+        <ComponentFrame key="ai_impact_table" id="ai_impact_table">
+          {supportsCareerDossierAiImpact(aiImpact)
+            ? <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />
+            : renderComponent("ai_impact_table")}
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "quick-decision" && isEnhanced) {
+      const decision = publishedComponents.fermat_decision_card;
+      const checklist = publishedComponents.fit_decision_checklist;
+      if (decision === undefined || checklist === undefined) return null;
+      componentNodes = [
+        <ComponentFrame key="fermat_decision_card" id="fermat_decision_card">
+          <CareerDossierQuickDecisionAnswer value={decision} />
+        </ComponentFrame>,
+        <ComponentFrame key="fit_decision_checklist" id="fit_decision_checklist">
+          <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
+        </ComponentFrame>,
       ];
     } else {
       componentNodes = surface.componentOrder.filter((componentId) => group.componentIds.includes(componentId)).map((componentId) => {
@@ -738,50 +779,63 @@ export function CareerProductionDisplaySurface({
         const content = componentId === "final_cta"
           ? <div data-testid="career-decision-action-block">{component}</div>
           : component;
-        const hidden = isZh
-          && surface.subject.canonicalSlug === "accountants-and-auditors"
-          && (componentId === "review_validity_card" || componentId === "boundary_notice" || componentId === "final_cta");
-        return <ComponentFrame key={componentId} id={componentId} hidden={hidden}>{content}</ComponentFrame>;
+        return <ComponentFrame key={componentId} id={componentId}>{content}</ComponentFrame>;
       });
     }
 
     const visibleComponentNodes = componentNodes.filter((node) => node != null);
     if (visibleComponentNodes.length === 0) return null;
+    const usesEnhancedQuickDecision = group.id === "quick-decision" && isEnhanced;
+    const hasVisibleGroupTitle = titledGroupIds.has(group.id) || usesEnhancedQuickDecision;
 
     return (
       <section
         key={group.id}
         id={`career-visual-group-${group.id}`}
-        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""} ${group.id === "profile" && usesStructuredAccountantsProfile ? visual.accountantsProfileGroup : ""}`}
+        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""} ${group.id === "profile" && usesStructuredProfile ? visual.accountantsProfileGroup : ""} ${usesEnhancedQuickDecision ? visual.accountantsQuickDecisionGroup : ""}`}
         data-career-visual-group={group.id}
-        aria-labelledby={titledGroupIds.has(group.id) ? `career-visual-group-title-${group.id}` : undefined}
-        aria-label={titledGroupIds.has(group.id) ? undefined : visualGroupLabel(group, isZh)}
+        aria-labelledby={hasVisibleGroupTitle ? `career-visual-group-title-${group.id}` : undefined}
+        aria-label={hasVisibleGroupTitle ? undefined : visualGroupLabel(group, isZh)}
       >
-        {titledGroupIds.has(group.id) && !(group.id === "profile" && usesStructuredAccountantsProfile) ? (
+        {usesEnhancedQuickDecision ? (
+          <header className={visual.quickDecisionHeader}>
+            <h2 id={`career-visual-group-title-${group.id}`} className={visual.quickDecisionTitle}>
+              {visualGroupLabel(group, isZh)}
+            </h2>
+          </header>
+        ) : titledGroupIds.has(group.id) && !(group.id === "profile" && usesStructuredProfile) ? (
           <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
-        <div className={visual.groupStack}>{visibleComponentNodes}</div>
+        <div className={visual.groupStack}>
+          {visibleComponentNodes}
+          {group.contentState === "legacy" && group.pendingEnrichment === "display_placeholder"
+            ? <PendingEnrichment label={visualGroupLabel(group, isZh)} />
+            : null}
+        </div>
       </section>
     );
   };
 
-  const declaredVisualGroups = isZhAccountants
-    ? CAREER_VISUAL_GROUPS.filter((group) => group.id !== "snapshot")
-    : CAREER_VISUAL_GROUPS;
-  const usesLegacyFullCatalog = surface.componentOrder.length === CAREER_DISPLAY_SUPPORTED_COMPONENTS.length
-    && surface.componentOrder.every((componentId, index) => componentId === CAREER_DISPLAY_SUPPORTED_COMPONENTS[index]);
-  const visualGroups = usesLegacyFullCatalog ? declaredVisualGroups : declaredVisualGroups.toSorted((left, right) => {
-      const firstDeclaredIndex = (group: CareerVisualGroupDefinition) => {
-        if (group.id === "china-reference") return surface.componentOrder.indexOf("career_snapshot_primary_locale");
-        const indexes = group.componentIds.map((id) => surface.componentOrder.indexOf(id)).filter((index) => index >= 0);
-        return indexes.length > 0 ? Math.min(...indexes) : Number.MAX_SAFE_INTEGER;
-      };
-      return firstDeclaredIndex(left) - firstDeclaredIndex(right);
-    });
+  const visualGroups: CareerVisualGroupDefinition[] = surface.presentationV2
+    ? surface.presentationV2.groups.flatMap((group) => {
+        if (!CAREER_VISUAL_GROUP_IDS.includes(group.id as CareerVisualGroupId)) return [];
+        return [{
+          id: group.id as CareerVisualGroupId,
+          label: group.label,
+          componentIds: group.componentIds,
+          contentState: group.contentState,
+          pendingEnrichment: group.pendingEnrichment,
+        }];
+      })
+    : CAREER_VISUAL_GROUPS.flatMap((group) => {
+        const componentIds = group.componentIds.filter((componentId) => surface.componentOrder.includes(componentId));
+        return componentIds.length > 0 ? [{ ...group, componentIds }] : [];
+      });
   const visibleVisualGroups = visualGroups.flatMap((group) => {
     const content = renderVisualGroup(group);
     return content ? [{ group, content }] : [];
   });
+  const tocVisualGroups = visibleVisualGroups.filter(({ group }) => group.id !== "overview");
 
   return (
     <article
@@ -792,19 +846,18 @@ export function CareerProductionDisplaySurface({
       data-career-renderer-release={rendererRelease}
     >
       {breadcrumb ? <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div> : null}
-      <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8 ${visual.layout}`} data-testid="career-source-disclosure">
-        <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${isZhAccountants ? visual.accountantsRail : ""}`} aria-label={isZh ? "页面目录" : "Page contents"}>
+      <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[224px_minmax(0,1fr)] lg:gap-6 ${visual.layout}`} data-testid="career-source-disclosure">
+        <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${visual.accountantsRail}`} aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className={visual.toc}>
             <div className={visual.tocHeading}>
               <span className={visual.tocKicker}>{isZh ? "职业档案" : "Career dossier"}</span>
             </div>
             <nav className={visual.tocNav}>
-              {visibleVisualGroups.map(({ group }, index) => (
+              {tocVisualGroups.map(({ group }, index) => (
                 <a
                   key={group.id}
                   href={`#career-visual-group-${group.id}`}
-                  className={`${visual.tocLink} ${isZhAccountants && group.id === "profile" ? visual.tocLinkActive : ""}`}
-                  aria-current={isZhAccountants && group.id === "profile" ? "location" : undefined}
+                  className={visual.tocLink}
                 >
                   <span aria-hidden="true" className={visual.tocIndex}>{String(index + 1).padStart(2, "0")}</span>
                   <span>{visualGroupLabel(group, isZh)}</span>
@@ -816,7 +869,7 @@ export function CareerProductionDisplaySurface({
             className={visual.assessmentRail}
             data-testid="career-production-assessment-rail"
           >
-            {surface.subject.canonicalSlug !== "accountants-and-auditors" ? (
+            {!surface.presentationV1Available ? (
               <span className={visual.assessmentRailLabel}>{isZh ? "找到更适合你的方向" : "Find your best-fit direction"}</span>
             ) : null}
             <Link href={primaryCtaHref} className={visual.assessmentRailCta}>

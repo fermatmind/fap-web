@@ -3,6 +3,7 @@
   max-width: 1440px;
   padding-top: 20px;
   padding-bottom: 80px;
+  overflow-x: clip;
 }
 
 .visualGroup {
@@ -91,6 +92,119 @@
   border: 0;
   border-radius: 0;
   box-shadow: none;
+}
+
+.accountantsQuickDecisionGroup {
+  padding: 22px 32px 28px;
+  border: 0;
+  border-radius: 0;
+  background: #FFFFFF;
+  box-shadow: none;
+}
+
+.quickDecisionHeader {
+  margin-bottom: 24px;
+}
+
+.quickDecisionTitle {
+  display: grid;
+  grid-template-columns: auto minmax(32px, 1fr);
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #1A2233;
+}
+
+.quickDecisionTitle::after {
+  height: 2px;
+  background: #2C3E8C;
+  content: "";
+}
+
+.quickDecisionAnswer,
+.quickDecisionEditorial {
+  min-width: 0;
+}
+
+.quickDecisionQuestion {
+  margin: 0;
+  font-size: clamp(23px, 2.2vw, 29px);
+  font-weight: 800;
+  line-height: 1.35;
+  color: #162454;
+}
+
+.quickDecisionLead {
+  margin-top: 15px;
+  padding: 17px 20px;
+  border-left: 4px solid #2C3E8C;
+  border-radius: 0 12px 12px 0;
+  background: #EEF1FB;
+}
+
+.quickDecisionLeadAnswer {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.9;
+  color: #25314A;
+}
+
+.quickDecisionEditorial > div {
+  display: grid;
+}
+
+.quickDecisionItem {
+  --decision-accent: #2C3E8C;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-top: 1px solid #E3E8F1;
+}
+
+.quickDecisionItemFit {
+  --decision-accent: #0B8E85;
+}
+
+.quickDecisionItemCaution {
+  --decision-accent: #D87508;
+}
+
+.quickDecisionItemExperiment {
+  --decision-accent: #2853C7;
+}
+
+.quickDecisionNumber {
+  padding-top: 1px;
+  border-left: 3px solid var(--decision-accent);
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: right;
+  color: var(--decision-accent);
+}
+
+.quickDecisionItemBody {
+  min-width: 0;
+}
+
+.quickDecisionItemTitle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--decision-accent);
+}
+
+.quickDecisionItemBody p {
+  margin: 7px 0 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #2A3346;
 }
 
 .card {
@@ -372,6 +486,20 @@
   box-shadow: 0 8px 24px rgba(26, 34, 51, .045);
 }
 
+.accountantsRail .tocHeading {
+  padding-inline: 18px;
+}
+
+.accountantsRail .tocNav {
+  padding-inline: 7px;
+}
+
+.accountantsRail .tocLink {
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 6px;
+  padding-inline: 8px;
+}
+
 .accountantsRail .assessmentRail {
   border-radius: 14px;
   box-shadow: 0 12px 28px rgba(14, 159, 148, .18);
@@ -430,6 +558,693 @@
   opacity: .86;
 }
 
+.directionComparison {
+  min-width: 0;
+  padding: 38px;
+  border: 1px solid #DCE3F2;
+  border-top: 4px solid #2C3E8C;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(26, 34, 51, .06);
+}
+
+.directionHeader {
+  max-width: none;
+}
+
+.directionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.directionEyebrow {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #17264B;
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.25;
+  letter-spacing: normal;
+}
+
+.directionTitleRule {
+  height: 2px;
+  flex: 1 1 auto;
+  background: #283F8D;
+}
+
+.directionTitle {
+  margin: 18px 0 0;
+  color: #17264B;
+  font-size: clamp(25px, 2.5vw, 34px);
+  font-weight: 850;
+  line-height: 1.28;
+}
+
+.directionIntro {
+  margin: 18px 0 0;
+  color: #3D4658;
+  font-size: 15.5px;
+  line-height: 1.9;
+}
+
+.directionTableWrap {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 26px;
+  overflow: hidden;
+  border: 1px solid #DCE3F2;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.directionTable {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  color: #2A3346;
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.directionTable th,
+.directionTable td {
+  padding: 16px 14px;
+  border-right: 1px solid #E5E9F2;
+  border-bottom: 1px solid #E5E9F2;
+  vertical-align: top;
+}
+
+.directionTable tr > :last-child {
+  border-right: 0;
+}
+
+.directionTable tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.directionTable thead th {
+  background: #EEF1FB;
+  color: #2C3E8C;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.directionTable thead th:first-child,
+.directionTable tbody th {
+  width: 13%;
+}
+
+.directionTable thead th:nth-child(2) {
+  width: 29%;
+}
+
+.directionTable thead th:nth-child(3) {
+  width: 33%;
+}
+
+.directionTable thead th:nth-child(4) {
+  width: 25%;
+}
+
+.directionTable tbody th {
+  background: #F7F9FD;
+  color: #17264B;
+  font-weight: 800;
+  text-align: center;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+
+.directionTable tbody tr:hover td,
+.directionTable tbody tr:hover th {
+  background: #F7FAFF;
+}
+
+.directionEvidence {
+  margin: 14px 0 0;
+  color: #667085;
+  font-size: 12.5px;
+  line-height: 1.75;
+}
+
+.directionEvidence p {
+  margin: 0;
+}
+
+.directionEvidence p + p {
+  margin-top: 4px;
+}
+
+.directionEvidence a {
+  color: #2C3E8C;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgb(44 62 140 / 28%);
+  text-underline-offset: 3px;
+}
+
+.directionEvidence a:hover {
+  text-decoration-color: currentColor;
+}
+
+.directionConclusion {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+  padding: 22px 24px;
+  border-left: 4px solid #0E9F94;
+  border-radius: 0 14px 14px 0;
+  background: #EAF7F4;
+}
+
+.directionConclusion h3,
+.directionConclusion p {
+  margin: 0;
+}
+
+.directionConclusion h3 {
+  color: #087E76;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.directionConclusion p {
+  color: #314056;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.directionTransition {
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid #E5E9F2;
+  color: #2C3E8C;
+  font-size: 14.5px;
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+.accountantsAiImpact {
+  min-width: 0;
+  padding: 38px;
+  border: 1px solid #DCE3F2;
+  border-top: 4px solid #2C3E8C;
+  border-radius: 24px;
+  background: #FFFFFF;
+  color: #253047;
+  box-shadow: 0 12px 32px rgba(26, 34, 51, .06);
+}
+
+.aiImpactHeader h2 {
+  margin: 18px 0 0;
+  color: #17264B;
+  font-size: clamp(26px, 2.7vw, 36px);
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.aiImpactEyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aiImpactEyebrow {
+  flex: 0 0 auto;
+  margin: 0;
+  color: #17264B;
+  font-size: 24px;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+.aiImpactEyebrowRow > span {
+  height: 2px;
+  flex: 1 1 auto;
+  background: #283F8D;
+}
+
+.aiImpactAnswer {
+  margin: 22px 0 0;
+  padding: 20px 22px;
+  border-left: 4px solid #2C3E8C;
+  border-radius: 0 14px 14px 0;
+  background: #EEF1FB;
+  color: #24324E;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.9;
+}
+
+.aiImpactSection {
+  margin-top: 34px;
+  padding-top: 32px;
+  border-top: 1px solid #E5E9F2;
+}
+
+.aiImpactSection h3,
+.aiImpactSources h3 {
+  margin: 0;
+  color: #17264B;
+  font-size: 22px;
+  font-weight: 850;
+  line-height: 1.35;
+}
+
+.aiImpactSectionTitle > p {
+  max-width: 920px;
+  margin: 10px 0 0;
+  color: #566176;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.aiImpactMethodGrid,
+.aiImpactDirectionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.aiImpactMethodGrid article,
+.aiImpactDirectionGrid article {
+  padding: 20px;
+  border: 1px solid #DCE3F2;
+  border-radius: 14px;
+  background: #F7F9FD;
+}
+
+.aiImpactMethodGrid article {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.aiImpactMethodGrid h3,
+.aiImpactDirectionGrid h4 {
+  margin: 0;
+  color: #2C3E8C;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.aiImpactMethodGrid p {
+  margin: 0;
+  color: #455169;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.aiImpactTableWrap {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 22px;
+  overflow: hidden;
+  border: 1px solid #DCE3F2;
+  border-radius: 16px;
+}
+
+.aiImpactTable {
+  width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  color: #2A3346;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.aiImpactTable th,
+.aiImpactTable td {
+  padding: 15px 13px;
+  border-right: 1px solid #E5E9F2;
+  border-bottom: 1px solid #E5E9F2;
+  vertical-align: top;
+  text-align: left;
+}
+
+.aiImpactTable tr > :last-child {
+  border-right: 0;
+}
+
+.aiImpactTable tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.aiImpactTable thead th {
+  background: #EEF1FB;
+  color: #2C3E8C;
+  font-weight: 850;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.aiImpactTable thead th:first-child,
+.aiImpactTable tbody th {
+  width: 12%;
+}
+
+.aiImpactTable thead th:nth-child(2) {
+  width: 29%;
+}
+
+.aiImpactTable thead th:nth-child(3) {
+  width: 20%;
+}
+
+.aiImpactTable thead th:nth-child(4) {
+  width: 39%;
+}
+
+.aiImpactTable tbody th {
+  background: #F7F9FD;
+  color: #17264B;
+  font-weight: 850;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.aiImpactEvidenceGrid {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.aiImpactEvidenceGrid article {
+  padding: 20px 22px;
+  border: 1px solid #DCE3F2;
+  border-radius: 14px;
+  background: #FFFFFF;
+}
+
+.aiImpactEvidenceHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.aiImpactEvidenceHeading h4 {
+  margin: 0;
+  color: #17264B;
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.aiImpactEvidenceHeading a,
+.aiImpactSources a,
+.aiImpactQuestionSource a {
+  color: #2C3E8C;
+  font-size: 12.5px;
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: rgb(44 62 140 / 28%);
+  text-underline-offset: 3px;
+}
+
+.aiImpactEvidenceGrid dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 16px 0 0;
+}
+
+.aiImpactEvidenceGrid dl div {
+  min-width: 0;
+}
+
+.aiImpactEvidenceGrid dt {
+  color: #7A8496;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.aiImpactEvidenceGrid dd {
+  margin: 6px 0 0;
+  color: #3C485F;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.aiImpactDirectionGrid article {
+  display: grid;
+  grid-template-columns: 180px repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  align-items: center;
+  background: #F9FAFD;
+}
+
+.aiImpactDirectionGrid p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  color: #445068;
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.aiImpactDirectionGrid p strong {
+  color: #737E91;
+  font-size: 11.5px;
+}
+
+.aiImpactDirectionGrid h4 {
+  text-align: center;
+}
+
+.aiImpactResponsibility {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin: 22px 0 0;
+  padding: 0;
+  counter-reset: none;
+}
+
+.aiImpactResponsibility li {
+  position: relative;
+  min-width: 0;
+  padding: 18px 18px 18px 20px;
+  border-top: 2px solid #2C3E8C;
+  border-right: 1px solid #DCE3F2;
+  border-bottom: 1px solid #DCE3F2;
+  background: #F7F9FD;
+  list-style: none;
+}
+
+.aiImpactResponsibility li:first-child {
+  border-left: 1px solid #DCE3F2;
+  border-radius: 14px 0 0 14px;
+}
+
+.aiImpactResponsibility li:last-child {
+  border-radius: 0 14px 14px 0;
+}
+
+.aiImpactResponsibility li:not(:last-child)::after {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  right: -7px;
+  width: 14px;
+  height: 14px;
+  border-top: 1px solid #B7C2DA;
+  border-right: 1px solid #B7C2DA;
+  background: #F7F9FD;
+  transform: rotate(45deg);
+  content: "";
+}
+
+.aiImpactResponsibility li > span {
+  display: block;
+  color: #8C97AC;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.aiImpactResponsibility strong {
+  display: block;
+  margin-top: 6px;
+  color: #17264B;
+  font-size: 14px;
+}
+
+.aiImpactResponsibility p {
+  margin: 8px 0 0;
+  color: #556177;
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+.aiImpactRiskGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.aiImpactRiskGrid article {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 24px;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #E6DED1;
+  border-left: 3px solid #D88A18;
+  border-radius: 12px;
+  background: #FFFBF5;
+}
+
+.aiImpactRiskGrid h4,
+.aiImpactActionList h4,
+.aiImpactQuestions h4 {
+  margin: 0;
+  color: #17264B;
+  font-size: 15.5px;
+  font-weight: 850;
+}
+
+.aiImpactRiskGrid p,
+.aiImpactActionList p,
+.aiImpactQuestions p {
+  margin: 9px 0 0;
+  color: #465269;
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+.aiImpactRiskGrid p {
+  margin: 0;
+}
+
+.aiImpactRiskGrid h4 {
+  text-align: center;
+}
+
+.aiImpactRiskGrid p:last-child {
+  color: #675235;
+}
+
+.aiImpactActionList {
+  display: grid;
+  gap: 0;
+  margin-top: 20px;
+  border-top: 1px solid #DCE3F2;
+}
+
+.aiImpactActionList article {
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding: 19px 4px;
+  border-bottom: 1px solid #DCE3F2;
+}
+
+.aiImpactActionList p {
+  margin: 0;
+}
+
+.aiImpactQuestions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.aiImpactQuestions article {
+  padding: 20px;
+  border: 1px solid #DCE3F2;
+  border-radius: 14px;
+  background: #FFFFFF;
+}
+
+.aiImpactQuestionSource {
+  padding-top: 9px;
+  border-top: 1px solid #EDF0F5;
+  color: #778196 !important;
+  font-size: 11.5px !important;
+}
+
+.aiImpactSources {
+  margin-top: 34px;
+  padding: 24px;
+  border-radius: 14px;
+  background: #F0F3FA;
+}
+
+.aiImpactSources ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 20px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.aiImpactSources li {
+  display: grid;
+  grid-template-columns: minmax(130px, .8fr) minmax(110px, .7fr) minmax(0, 1fr);
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #DCE3F2;
+  color: #647086;
+  font-size: 11.5px;
+  line-height: 1.55;
+  list-style: none;
+}
+
+.aiImpactSources > p {
+  margin: 16px 0 0;
+  color: #59667B;
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.aiImpactSources > p + p {
+  margin-top: 6px;
+}
+
+.aiImpactTransition {
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid #E5E9F2;
+  color: #2C3E8C;
+  font-size: 14.5px;
+  font-weight: 750;
+  line-height: 1.8;
+}
+
+.relatedGroupGrid {
+  display: grid;
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.relatedGroup {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.relatedGroupTitle {
+  margin: 2px 0 0;
+  color: #2C3E8C;
+  font-size: 14px;
+  font-weight: 850;
+}
+
 @media (min-width: 1024px) {
   .heroGaugePublished {
     position: absolute;
@@ -463,6 +1278,239 @@
     min-height: 0;
     padding: 28px 22px;
     border-radius: 20px !important;
+  }
+
+  .accountantsQuickDecisionGroup {
+    padding: 20px;
+  }
+
+  .quickDecisionTitle {
+    font-size: 22px;
+  }
+
+  .quickDecisionQuestion {
+    font-size: 22px;
+  }
+
+  .quickDecisionLead {
+    padding: 15px 16px;
+  }
+
+  .quickDecisionItem {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 12px;
+    padding: 19px 0;
+  }
+
+  .quickDecisionNumber {
+    font-size: 17px;
+  }
+
+  .quickDecisionItemTitle {
+    font-size: 17px;
+  }
+
+  .directionComparison {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  .directionIntro {
+    font-size: 14.5px;
+  }
+
+  .directionTableWrap {
+    margin-top: 22px;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .directionTable,
+  .directionTable tbody,
+  .directionTable tr {
+    display: block;
+    width: 100%;
+  }
+
+  .directionTable {
+    font-size: 13.5px;
+  }
+
+  .directionTable thead {
+    display: none;
+  }
+
+  .directionTable tbody {
+    display: grid;
+    gap: 14px;
+  }
+
+  .directionTable tbody tr {
+    overflow: hidden;
+    border: 1px solid #DCE3F2;
+    border-radius: 14px;
+    background: #fff;
+  }
+
+  .directionTable tbody th,
+  .directionTable tbody td {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 108px minmax(0, 1fr);
+    gap: 12px;
+    padding: 13px 14px;
+    border-right: 0;
+    border-bottom: 1px solid #E5E9F2;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .directionTable tbody tr > :last-child {
+    border-bottom: 0;
+  }
+
+  .directionTable tbody th::before,
+  .directionTable tbody td::before {
+    color: #2C3E8C;
+    font-size: 12px;
+    font-weight: 800;
+    content: attr(data-label);
+  }
+
+  .directionConclusion,
+  .relatedGroup {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .accountantsAiImpact {
+    padding: 26px 20px;
+    border-radius: 18px;
+  }
+
+  .aiImpactEyebrow {
+    font-size: 20px;
+  }
+
+  .aiImpactAnswer {
+    padding: 17px 16px;
+    font-size: 14.5px;
+  }
+
+  .aiImpactMethodGrid,
+  .aiImpactDirectionGrid,
+  .aiImpactEvidenceGrid dl,
+  .aiImpactRiskGrid,
+  .aiImpactQuestions,
+  .aiImpactSources ul {
+    grid-template-columns: 1fr;
+  }
+
+  .aiImpactMethodGrid article,
+  .aiImpactDirectionGrid article,
+  .aiImpactRiskGrid article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .aiImpactTableWrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .aiImpactTable,
+  .aiImpactTable tbody,
+  .aiImpactTable tr {
+    display: block;
+    width: 100%;
+  }
+
+  .aiImpactTable thead {
+    display: none;
+  }
+
+  .aiImpactTable tbody {
+    display: grid;
+    gap: 14px;
+  }
+
+  .aiImpactTable tbody tr {
+    overflow: hidden;
+    border: 1px solid #DCE3F2;
+    border-radius: 14px;
+    background: #FFFFFF;
+  }
+
+  .aiImpactTable tbody th,
+  .aiImpactTable tbody td {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+    padding: 13px 14px;
+    border-right: 0;
+    border-bottom: 1px solid #E5E9F2;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .aiImpactTable tbody tr > :last-child {
+    border-bottom: 0;
+  }
+
+  .aiImpactTable tbody th::before,
+  .aiImpactTable tbody td::before {
+    color: #2C3E8C;
+    font-size: 11.5px;
+    font-weight: 800;
+    content: attr(data-label);
+  }
+
+  .aiImpactEvidenceHeading {
+    display: grid;
+    gap: 8px;
+  }
+
+  .aiImpactEvidenceGrid dl {
+    gap: 12px;
+  }
+
+  .aiImpactResponsibility {
+    grid-template-columns: 1fr;
+  }
+
+  .aiImpactResponsibility li,
+  .aiImpactResponsibility li:first-child,
+  .aiImpactResponsibility li:last-child {
+    border: 1px solid #DCE3F2;
+    border-top: 0;
+    border-radius: 0;
+  }
+
+  .aiImpactResponsibility li:first-child {
+    border-top: 2px solid #2C3E8C;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .aiImpactResponsibility li:last-child {
+    border-radius: 0 0 14px 14px;
+  }
+
+  .aiImpactResponsibility li::after {
+    display: none;
+  }
+
+  .aiImpactActionList article {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .aiImpactSources li {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 }
 
@@ -499,5 +1547,354 @@
   .assessmentRailCta,
   .card tbody tr {
     transition: none;
+  }
+}
+
+.salaryReference {
+  overflow: hidden;
+  border: 1px solid #DCE3F2;
+  border-radius: 20px;
+  background: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(27, 48, 92, 0.06);
+  color: #1A2233;
+}
+
+.salaryReferenceChina {
+  border-top: 3px solid #0E9F94;
+}
+
+.salaryReferenceUs {
+  border-top: 3px solid #2C3E8C;
+}
+
+.salaryHeader {
+  padding: 28px 32px 26px;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F4F8FC 100%);
+}
+
+.salaryTitleRow {
+  display: grid;
+  grid-template-columns: auto minmax(40px, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.salaryTitleRow p {
+  margin: 0;
+  color: #2C3E8C;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.salaryTitleRow span {
+  height: 2px;
+  background: #2C3E8C;
+}
+
+.salaryReferenceChina .salaryTitleRow p {
+  color: #087C74;
+}
+
+.salaryReferenceChina .salaryTitleRow span {
+  background: #0E9F94;
+}
+
+.salaryHeader h2 {
+  margin: 14px 0 0;
+  color: #152858;
+  font-family: Georgia, "Noto Serif SC", serif;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.35;
+}
+
+.salaryDirectAnswer {
+  margin: 16px 0 0;
+  max-width: 1040px;
+  padding: 15px 18px;
+  border-left: 3px solid #2C3E8C;
+  border-radius: 0 12px 12px 0;
+  background: #EEF2FB;
+  color: #33415C;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.salaryQuestionMark {
+  font-family: "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.salaryLead {
+  margin: 14px 0 0;
+  max-width: 1020px;
+  color: #33415C;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.salarySection {
+  padding: 28px 32px;
+  border-top: 1px solid #E5EAF3;
+}
+
+.salarySectionTitle {
+  display: block;
+  margin-bottom: 18px;
+}
+
+.salarySectionTitle h3 {
+  margin: 0;
+  color: #1E367B;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.salarySectionTitle p {
+  margin: 0;
+  color: #4E5A70;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.salaryOfficialGrid,
+.salaryDriverGrid,
+.salaryOutlookGrid,
+.salaryFactorGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid #DCE3F2;
+  border-radius: 14px;
+  background: #F7F9FD;
+}
+
+.salaryOfficialGrid article,
+.salaryDriverGrid article,
+.salaryOutlookGrid article,
+.salaryFactorGrid article {
+  min-width: 0;
+  padding: 20px;
+  border-left: 1px solid #DCE3F2;
+}
+
+.salaryOfficialGrid article:first-child,
+.salaryDriverGrid article:first-child,
+.salaryOutlookGrid article:first-child,
+.salaryFactorGrid article:first-child {
+  border-left: 0;
+}
+
+.salaryOfficialGrid h4,
+.salaryDriverGrid h4,
+.salaryOutlookGrid h4,
+.salaryFactorGrid h4 {
+  margin: 0;
+  color: #24428F;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.salaryOfficialGrid p,
+.salaryDriverGrid p,
+.salaryOutlookGrid p,
+.salaryFactorGrid p {
+  margin: 10px 0 0;
+  color: #3D4960;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.salaryQuestionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.salaryQuestionGrid article {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid #DCE3F2;
+  border-radius: 12px;
+  background: #F7F9FD;
+}
+
+.salaryQuestionGrid h4 {
+  margin: 0;
+  color: #24428F;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.salaryQuestionGrid p {
+  margin: 9px 0 0;
+  color: #3D4960;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.salaryOutlookGrid strong {
+  display: block;
+  margin-top: 10px;
+  color: #152858;
+  font-size: 24px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.salaryTableWrap {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  border: 1px solid #DCE3F2;
+  border-radius: 14px;
+}
+
+.salaryTable {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #FFFFFF;
+}
+
+.salaryTable th,
+.salaryTable td {
+  padding: 15px 17px;
+  border-right: 1px solid #DCE3F2;
+  border-bottom: 1px solid #DCE3F2;
+  color: #33415C;
+  font-size: 13px;
+  line-height: 1.7;
+  vertical-align: middle;
+}
+
+.salaryTable tr:last-child th,
+.salaryTable tr:last-child td {
+  border-bottom: 0;
+}
+
+.salaryTable th:last-child,
+.salaryTable td:last-child {
+  border-right: 0;
+}
+
+.salaryTable thead th {
+  background: #E9EEF9;
+  color: #24428F;
+  font-weight: 800;
+  text-align: center;
+}
+
+.salaryTable tbody th {
+  width: 22%;
+  background: #F5F7FC;
+  color: #152858;
+  font-weight: 800;
+  text-align: center;
+}
+
+.salaryAnswerStrip {
+  margin: 16px 0 0;
+  padding: 14px 17px;
+  border-left: 3px solid #2C3E8C;
+  border-radius: 0 10px 10px 0;
+  background: #EEF2FB;
+  color: #33415C;
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.salaryAiAnswer {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  margin: 0 32px 28px;
+  padding: 20px 22px;
+  border-left: 4px solid #0E9F94;
+  border-radius: 0 14px 14px 0;
+  background: #EAF7F4;
+}
+
+.salaryAiAnswer h3 {
+  margin: 0;
+  color: #087C74;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.salaryAiAnswer p {
+  margin: 0;
+  color: #33415C;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.salarySources {
+  padding: 20px 32px 24px;
+  border-top: 1px solid #DCE3F2;
+  background: #F5F7FC;
+  color: #566178;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.salarySources > p {
+  margin: 0;
+}
+
+.salarySourceLinks {
+  margin-top: 8px !important;
+}
+
+.salarySourceLinks a {
+  color: #24428F;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 780px) {
+  .salaryHeader,
+  .salarySection,
+  .salarySources {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .salarySectionTitle,
+  .salaryAiAnswer {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .salaryOfficialGrid,
+  .salaryDriverGrid,
+  .salaryOutlookGrid,
+  .salaryFactorGrid,
+  .salaryQuestionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .salaryOfficialGrid article,
+  .salaryDriverGrid article,
+  .salaryOutlookGrid article,
+  .salaryFactorGrid article {
+    border-top: 1px solid #DCE3F2;
+    border-left: 0;
+  }
+
+  .salaryOfficialGrid article:first-child,
+  .salaryDriverGrid article:first-child,
+  .salaryOutlookGrid article:first-child,
+  .salaryFactorGrid article:first-child {
+    border-top: 0;
+  }
+
+  .salaryAiAnswer {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 }

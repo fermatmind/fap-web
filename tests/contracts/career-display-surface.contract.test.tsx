@@ -175,21 +175,41 @@ describe("career display surface contract", () => {
       expect(hero).toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
       expect(hero).toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
       expect(screen.queryByTestId("career-published-career_snapshot_primary_locale")).not.toBeInTheDocument();
-      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("更可能适合");
-      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("需要慎重");
-      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("先做一次小实验");
-      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("中国大陆薪资参考");
-      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("薪资信息不是个人收入承诺");
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("什么样的人更可能适合会计与审计人员？");
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("什么情况下需要慎重选择会计与审计人员？");
+      expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("如何用一次小实验判断自己是否适合会计与审计人员？");
+      const chinaSalary = screen.getByTestId("career-dossier-china-salary");
+      expect(chinaSalary).toHaveTextContent("会计师和审计师一个月工资多少？");
+      expect(chinaSalary.querySelector("h2 [class*='salaryQuestionMark']")).toHaveTextContent("？");
+      expect(chinaSalary).toHaveTextContent("北上广深 · 一线城市招聘市场");
+      expect(chinaSalary).toHaveTextContent("会计或审计月薪 1 万是什么水平？");
+      expect(chinaSalary).toHaveTextContent("月均等值不是到手工资");
+      expect(chinaSalary.querySelectorAll("tbody tr")).toHaveLength(4);
+      const usSalary = screen.getByTestId("career-dossier-us-salary");
+      expect(usSalary).toHaveTextContent("美国会计师和审计师工资多少？");
+      expect(usSalary.querySelector("h2 [class*='salaryQuestionMark']")).toHaveTextContent("？");
+      expect(usSalary).toHaveTextContent("入门或较低工资岗位");
+      expect(usSalary).toHaveTextContent("资深或高薪岗位");
+      expect(usSalary.querySelectorAll('[data-career-api-table$=".wages"] tbody tr')).toHaveLength(3);
+      expect(usSalary.querySelectorAll('[data-career-api-table$=".industry_rows"] tbody tr')).toHaveLength(4);
+      expect(usSalary).toHaveTextContent("$83,680");
+      expect(usSalary).toHaveTextContent("年薪 $83,680 是入门工资吗？");
+      expect(usSalary).toHaveTextContent("美国审计师一定比会计师工资高吗？");
+      expect(usSalary).toHaveTextContent("金融与保险");
+      expect(usSalary).toHaveTextContent("地区与生活成本");
+      expect(usSalary).toHaveTextContent("124,200 个");
+      expect(usSalary.querySelectorAll("[class*='salaryOutlookGrid'] article p")).toHaveLength(0);
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
-      expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("7/10，较高");
+      expect(chinaSalary).toHaveTextContent("AI 更可能造成岗位价值分化");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
       expect(screen.getByTestId("career-display-hero")).toHaveTextContent("SOC 15-0000 · O*NET 15-0000.00");
-      expect(screen.getByRole("heading", { name: "会计与审计人员会被 AI 取代吗？AI 影响与职业应对" })).toBeInTheDocument();
-      expect(document.querySelector('[data-career-api-field="ai_impact_table.ai_head_sub"]')?.parentElement).toHaveClass("sr-only");
-      expect(screen.queryByRole("columnheader", { name: "说明" })).not.toBeInTheDocument();
-      expect(screen.getAllByRole("columnheader", { name: "数据说明" }).length).toBeGreaterThan(0);
+      expect(screen.getByRole("heading", { name: "AI 会取代会计师和审计师吗？" })).toBeInTheDocument();
+      expect(screen.getByTestId("career-dossier-ai-impact")).toHaveTextContent("AI 能处理哪些会计与审计任务？");
+      expect(screen.getByTestId("career-dossier-ai-impact")).toHaveTextContent("为什么就业证据会得出不同结论？");
+      expect(screen.getByRole("columnheader", { name: "岗位场景" })).toBeInTheDocument();
+      expect(screen.getByRole("columnheader", { name: "税前月均等值" })).toBeInTheDocument();
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
-      expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(11);
+      expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
     } else {
       expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(3);
       expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("SOC 15-0000");
@@ -273,7 +293,7 @@ describe("career display surface contract", () => {
 
     expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
     expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent(narrative);
-    expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent(narrative);
+    expect(screen.getByTestId("career-published-career_snapshot_primary_locale")).toHaveTextContent(narrative);
   });
 
   it("uses the production renderer for any complete zh Current projection without a slug allowlist", () => {
@@ -360,7 +380,7 @@ describe("career display surface contract", () => {
     for (const expected of expectedSourceValues) {
       expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
     }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength((surface?.componentOrder.length ?? 1) - 1);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
     expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
       (page.responsibilities_block as unknown[]).length
     );
@@ -993,10 +1013,10 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
   });
 
-  it("returns null for manual-hold subjects even when the payload is otherwise valid", () => {
+  it("renders formerly held subjects when the universal payload is valid", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "software-developers" });
 
-    expect(adaptCareerDisplaySurface(fixture, "en")).toBeNull();
+    expect(adaptCareerDisplaySurface(fixture, "en")?.subject.canonicalSlug).toBe("software-developers");
   });
 
   it("returns null when the display surface slug does not match the route slug", () => {
@@ -1056,9 +1076,11 @@ describe("career display surface contract", () => {
     duplicate.component_order[27] = duplicate.component_order[26];
 
     const outOfOrder = buildSelectedCareerDisplaySurfaceFixture({ slug: "data-scientists", locale: "zh" });
-    [outOfOrder.component_order[10], outOfOrder.component_order[11]] = [
-      outOfOrder.component_order[11],
-      outOfOrder.component_order[10],
+    const aiDescriptionIndex = outOfOrder.component_order.indexOf("career_ai_description_block");
+    const responsibilitiesIndex = outOfOrder.component_order.indexOf("responsibilities_block");
+    [outOfOrder.component_order[aiDescriptionIndex], outOfOrder.component_order[responsibilitiesIndex]] = [
+      outOfOrder.component_order[responsibilitiesIndex],
+      outOfOrder.component_order[aiDescriptionIndex],
     ];
 
     expect(adaptCareerDisplaySurface(duplicate, "zh")).toBeNull();

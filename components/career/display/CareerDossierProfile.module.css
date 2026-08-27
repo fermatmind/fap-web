@@ -249,6 +249,8 @@
   font-weight: 800;
   letter-spacing: .04em;
   color: #fff;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .tableWrap th:first-child {
@@ -259,6 +261,8 @@
   background: #f6f8fc;
   font-weight: 800;
   color: #34405b;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .tableWrap tbody tr:last-child th,
@@ -384,13 +388,13 @@
   display: grid;
   grid-template-columns: 22px 132px minmax(0, 1fr);
   gap: 12px;
-  align-items: start;
+  align-items: center;
   padding: 12px 0;
   border-bottom: 1px solid #e8ecf4;
 }
 
 .workReality svg {
-  margin: 2px 0 0;
+  margin: 0;
   color: #2c3e8c;
 }
 

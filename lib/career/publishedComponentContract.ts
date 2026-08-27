@@ -135,7 +135,54 @@ function validatePrimarySnapshot(value: unknown): boolean {
     isScalarRecordArray(salary.china_salary_table, [["城市/区间", "月薪参考"], ["label", "value"]]);
 }
 
+function validateSecondarySnapshot(value: unknown): boolean {
+  const enrichedKeys = [
+    "heading", "direct_answer", "wage_heading", "interpretation_heading", "interpretation_rows",
+    "industry_heading", "industry_rows", "factors_heading", "factor_rows", "outlook_heading",
+    "boundary", "authority_sources",
+  ] as const;
+  if (!hasExactKeys(value, ["bls_table", "growth", "median"], enrichedKeys) ||
+    !isNonEmptyString(value.growth) || !isNonEmptyString(value.median) ||
+    !isScalarRecordArray(value.bls_table, [
+      ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
+    ])) {
+    return false;
+  }
+
+  const hasEnrichedContent = enrichedKeys.some((key) => key in value);
+  return !hasEnrichedContent || (
+    enrichedKeys.every((key) => key in value) &&
+    ["heading", "direct_answer", "wage_heading", "interpretation_heading", "industry_heading",
+      "factors_heading", "outlook_heading", "boundary", "authority_sources"]
+      .every((key) => isNonEmptyString(value[key])) &&
+    isScalarRecordArray(value.interpretation_rows, [["question", "answer"]], 4) &&
+    isScalarRecordArray(value.industry_rows, [["industry", "median", "note"]], 4) &&
+    isScalarRecordArray(value.factor_rows, [["factor", "answer"]], 3)
+  );
+}
+
 function validateAiImpact(value: unknown): boolean {
+  if (hasExactKeys(value, [
+    "heading", "answer", "method_cards", "task_rows", "evidence_intro", "evidence_rows",
+    "difference_intro", "difference_rows", "responsibility_intro", "responsibility_steps",
+    "risk_rows", "action_rows", "questions", "authority_links",
+    "transition",
+  ])) {
+    return [
+      "heading", "answer", "evidence_intro", "difference_intro", "responsibility_intro",
+      "transition",
+    ].every((key) => isNonEmptyString(value[key])) &&
+      isScalarRecordArray(value.method_cards, [["概念", "含义"]], 3) &&
+      isScalarRecordArray(value.task_rows, [["工作方向", "任务", "当前变化", "人的控制点"]], 4) &&
+      isScalarRecordArray(value.evidence_rows, [["来源", "研究对象", "结论", "使用限制", "链接"]], 3) &&
+      isScalarRecordArray(value.difference_rows, [["方向", "AI主要改变", "仍由人负责"]], 2) &&
+      isScalarRecordArray(value.responsibility_steps, [["步骤", "说明"]], 4) &&
+      isScalarRecordArray(value.risk_rows, [["风险", "为什么重要", "控制方式"]], 3) &&
+      isScalarRecordArray(value.action_rows, [["人群", "应对重点"]], 3) &&
+      isScalarRecordArray(value.questions, [["问题", "回答", "来源", "链接"]], 3) &&
+      isScalarRecordArray(value.authority_links, [["来源", "类型", "适用范围", "链接"]], 3);
+  }
+
   const strings = ["ai_head_sub", "ai_s1_bls", "ai_s1_p", "ai_s4_p", "ai_s4_p2"];
   const arrays = ["ai_s2_accel", "ai_s2_auto", "ai_s3_list", "ai_s7_trends"];
   if (!hasExactKeys(value, [...strings, ...arrays, "ai_s5_persona", "ai_s6_tools"])) {
@@ -146,6 +193,52 @@ function validateAiImpact(value: unknown): boolean {
     arrays.every((key) => isStringArray(value[key])) &&
     isScalarRecordArray(value.ai_s5_persona, [["人群", "建议"], ["persona", "advice"]]) &&
     isScalarRecordArray(value.ai_s6_tools, [["工具", "定位", "代表能力"], ["name", "desc"]]);
+}
+
+function validateAdjacentCareerComparison(value: unknown): boolean {
+  if (isScalarRecordArray(value, [
+    ["职业", "区别", "AI 影响"], ["职业", "区别", "AI影响"], ["occupation", "diff"], ["岗位", "重心", "产出"],
+  ])) {
+    return true;
+  }
+
+  return hasExactKeys(value, ["heading", "intro", "rows", "evidence_note", "evidence_links", "conclusion", "transition"]) &&
+    isNonEmptyString(value.heading) &&
+    isNonEmptyString(value.intro) &&
+    isNonEmptyString(value.evidence_note) &&
+    isNonEmptyString(value.conclusion) &&
+    isNonEmptyString(value.transition) &&
+    Array.isArray(value.evidence_links) && value.evidence_links.length > 0 &&
+    value.evidence_links.every((link) => hasExactKeys(link, ["label", "href"]) &&
+      isNonEmptyString(link.label) && isNonEmptyString(link.href)) &&
+    isScalarRecordArray(value.rows, [[
+      "职业方向", "核心工作与产出", "与会计师／审计师的关键区别", "更适合什么选择",
+    ]], 4);
+}
+
+function validateRelatedNextPages(value: unknown): boolean {
+  if (!hasExactKeys(value, ["intro", "links"]) || !isNonEmptyString(value.intro) ||
+    !Array.isArray(value.links) || value.links.length === 0) {
+    return false;
+  }
+
+  return value.links.every((item) => {
+    if (!isRecord(item)) return false;
+    const legacy = hasExactKeys(item, ["nofollow", "slug", "source", "title_en"]);
+    const grouped = hasExactKeys(item, [
+      "nofollow", "slug", "source", "title_en", "title_zh", "group", "group_label",
+    ]);
+    return (legacy || grouped) &&
+      typeof item.nofollow === "boolean" &&
+      isNonEmptyString(item.slug) &&
+      (item.source === "lookup" || item.source === "self_pick") &&
+      isNonEmptyString(item.title_en) &&
+      (!grouped || (
+        isNonEmptyString(item.title_zh) &&
+        isNonEmptyString(item.group_label) &&
+        (item.group === "entry" || item.group === "specialist" || item.group === "management")
+      ));
+  });
 }
 
 function validateUnavailable(value: unknown): boolean {
@@ -200,11 +293,7 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "career_snapshot_primary_locale":
       return validatePrimarySnapshot(value);
     case "career_snapshot_secondary_locale":
-      return hasExactKeys(value, ["bls_table", "growth", "median"]) &&
-        isNonEmptyString(value.growth) && isNonEmptyString(value.median) &&
-        isScalarRecordArray(value.bls_table, [
-          ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
-        ]);
+      return validateSecondarySnapshot(value);
     case "fit_decision_checklist":
       return hasStringFields(value, ["boundary", "how", "suit"]);
     case "riasec_fit_block":
@@ -230,16 +319,16 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
         Array.isArray(value.signals) && value.signals.length > 0 &&
         (value.signals.every(isNonEmptyString) || value.signals.every((item) => isScalarRecord(item, [["信号", "解读"]])));
     case "adjacent_career_comparison_table":
-      return isScalarRecordArray(value, [
-        ["职业", "区别", "AI 影响"], ["职业", "区别", "AI影响"], ["occupation", "diff"], ["岗位", "重心", "产出"],
-      ]);
+      return validateAdjacentCareerComparison(value);
     case "ai_impact_table":
       return validateAiImpact(value);
     case "career_risk_cards":
       return hasExactKeys(value, ["badge", "callout", "fact", "risks"]) &&
         isNonEmptyString(value.badge) && isNonEmptyString(value.callout) && isNonEmptyString(value.fact) && isStringArray(value.risks);
     case "career_path_block":
-      return isScalarRecordArray(value, [["路径", "说明", "风险"], ["label", "path"], ["可控", "说明", "风险"]]);
+      return isScalarRecordArray(value, [
+        ["路径", "说明", "风险"], ["职业路径", "典型进阶", "能力升级重点"], ["label", "path"], ["可控", "说明", "风险"],
+      ]);
     case "next_steps_block":
       return hasExactKeys(value, ["hot_skills", "responsibilities", "skills"]) &&
         isStringArray(value.hot_skills) && isStringArray(value.responsibilities) &&
@@ -249,12 +338,7 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
       return hasExactKeys(value, ["items"]) && Array.isArray(value.items) && value.items.length > 0 &&
         value.items.every((item) => hasStringFields(item, ["answer", "question"]));
     case "related_next_pages":
-      return hasExactKeys(value, ["intro", "links"]) && isNonEmptyString(value.intro) &&
-        Array.isArray(value.links) && value.links.length > 0 && value.links.every((item) =>
-          hasExactKeys(item, ["nofollow", "slug", "source", "title_en"]) &&
-          typeof item.nofollow === "boolean" && isNonEmptyString(item.slug) &&
-          (item.source === "lookup" || item.source === "self_pick") && isNonEmptyString(item.title_en)
-        );
+      return validateRelatedNextPages(value);
     case "source_card":
       return hasExactKeys(value, ["eeat_signals", "note"]) && isNonEmptyString(value.note) &&
         hasStringFields(value.eeat_signals, ["author", "source", "updated_at"]);

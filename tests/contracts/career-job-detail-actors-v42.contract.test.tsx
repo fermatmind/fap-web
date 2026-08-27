@@ -200,8 +200,7 @@ describe("career job detail versionless current route integration", () => {
     );
 
     expect(html).toContain("career-display-surface");
-    expect(html).toContain("费马快速判断");
-    expect(html).toContain("职业快照");
+    expect(html).toContain("快速判断");
     expect(html).toContain("中国大陆薪资参考");
     expect(html).toContain("市场信号");
     expect(html).toContain("AI 影响");
@@ -579,9 +578,8 @@ describe("career job detail versionless current route integration", () => {
     ).rejects.toThrow("redirect:/zh/career/jobs/compliance-officers");
   });
 
-  it.each(["en", "zh"] as const)("keeps software developers on the %s 404 hold", async (locale) => {
-    await expect(
-      renderCareerJobPage(
+  it.each(["en", "zh"] as const)("renders software developers on the universal %s surface", async (locale) => {
+    const html = await renderCareerJobPage(
         locale,
         "software-developers",
         buildJobBundle({
@@ -590,10 +588,12 @@ describe("career job detail versionless current route integration", () => {
             slug: "software-developers",
             locale,
             titleEn: "Software Developers",
+            titleZh: "软件开发者",
           }),
         })
-      )
-    ).rejects.toThrow("not-found");
+      );
+    expect(html).toContain(locale === "zh" ? "软件开发者" : "Software Developers");
+    expect(html).toContain("career-display-surface");
   });
 
   it("fails closed for any English slug when display_surface_v1 is invalid", async () => {
