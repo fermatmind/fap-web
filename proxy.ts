@@ -1,7 +1,6 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
-import { isCareerDisplayManualHoldSlug } from "@/lib/career/displaySurface";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import {
   LOCALE_COOKIE_NAME,
@@ -42,7 +41,6 @@ const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
 const ARTICLE_DETAIL_PATH_RE = /^\/(en|zh)\/articles\/([^/]+)\/?$/i;
-const CAREER_JOB_DETAIL_PATH_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)\/?$/i;
 const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
 const PUBLIC_ABSENCE_PROBE_TIMEOUT_MS = 3000;
 const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
@@ -99,19 +97,6 @@ function resolveArticleAuthorityProbe(pathname: string): { locale: "en" | "zh"; 
     return slug ? { locale: match[1]?.toLowerCase() === "zh" ? "zh" : "en", slug } : null;
   } catch {
     return null;
-  }
-}
-
-function isManualHoldCareerJobRoute(pathname: string): boolean {
-  const match = pathname.match(CAREER_JOB_DETAIL_PATH_RE);
-  if (!match) {
-    return false;
-  }
-
-  try {
-    return isCareerDisplayManualHoldSlug(decodeURIComponent(match[2] ?? ""));
-  } catch {
-    return false;
   }
 }
 
@@ -325,10 +310,6 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   }
 
   if (checkPrestreamAuthority && isPublicReadMethod(request.method)) {
-    if (isManualHoldCareerJobRoute(pathname)) {
-      return createPublicAbsenceResponse(404);
-    }
-
     if (isUnknownBigFivePublicRoute(pathname)) {
       return createPublicAbsenceResponse(404);
     }

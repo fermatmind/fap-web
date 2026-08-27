@@ -38,7 +38,6 @@ import {
   CAREER_DISPLAY_RIASEC_TEST_SLUG,
   buildCareerDisplayCtaHref,
   buildCareerDisplayFAQPageJsonLd,
-  isCareerDisplayManualHoldSlug,
   isCareerProductionDisplaySurface,
 } from "@/lib/career/displaySurface";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
@@ -782,10 +781,6 @@ export async function generateMetadata({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
 
-  if (isCareerDisplayManualHoldSlug(slug)) {
-    return { title: "Not Found", robots: { index: false, follow: false } };
-  }
-
   const job = await loadCareerJobBundle(locale, slug);
 
   if (!job) {
@@ -945,10 +940,6 @@ export default async function CareerJobDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-
-  if (isCareerDisplayManualHoldSlug(slug)) {
-    return notFound();
-  }
 
   const query = await resolveCareerJobSearchParams(searchParams);
   const job = await loadCareerJobBundle(locale, slug);

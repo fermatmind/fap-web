@@ -25,14 +25,14 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
-  it.each(["en", "zh"])("returns a pre-stream HTTP 404 for the %s software developers hold route", (locale) => {
+  it.each(["en", "zh"])("allows the %s software developers universal dossier route", (locale) => {
     const response = proxy(
       new NextRequest(`https://example.com/${locale}/career/jobs/software-developers`),
     );
 
-    expect(response.status).toBe(404);
-    expect(response.headers.get("x-robots-tag")).toBe("noindex, nofollow, noarchive");
-    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(response.status).toBe(200);
+    expect(response.headers.get("x-robots-tag")).toBeNull();
+    expect(response.headers.get("cache-control")).toBeNull();
   });
 
   it("matches content roots and machine discoverability endpoints", () => {

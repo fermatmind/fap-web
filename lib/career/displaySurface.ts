@@ -19,7 +19,6 @@ import {
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
 export const CAREER_DISPLAY_ACCOUNTANTS_SLUG = "accountants-and-auditors" as const;
-export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = [] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
 export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
@@ -78,12 +77,7 @@ const DISPLAY_ASSET_TYPE = "career_job_public_display";
 const DISPLAY_ASSET_ROLE = "formal_pilot_master";
 const SUPPORTED_COMPONENT_SET = new Set<string>(CAREER_DISPLAY_SUPPORTED_COMPONENTS);
 const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
-const CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET = new Set<string>(CAREER_DISPLAY_MANUAL_HOLD_SLUGS);
 const TRUSTED_SOURCE_AUTHORITY_SET = new Set<string>(CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES);
-
-export function isCareerDisplayManualHoldSlug(slug: string): boolean {
-  return CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET.has(String(slug ?? "").trim().toLowerCase());
-}
 
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_SUPPORTED_COMPONENTS)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
@@ -571,7 +565,7 @@ function containsSchemaType(value: unknown, schemaType: string): boolean {
 }
 
 function isValidCareerDisplaySlug(value: string | null): value is string {
-  return Boolean(value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value) && !isCareerDisplayManualHoldSlug(value));
+  return Boolean(value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value));
 }
 
 export function normalizeCareerDisplayLocale(locale: unknown): Locale | null {
