@@ -11,11 +11,15 @@ import {
   normalizeCareerPresentationV1,
   type CareerPresentationV1,
 } from "@/lib/career/presentationV1";
+import {
+  normalizeCareerPresentationV2,
+  type CareerPresentationV2,
+} from "@/lib/career/presentationV2";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
 export const CAREER_DISPLAY_ACCOUNTANTS_SLUG = "accountants-and-auditors" as const;
-export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = ["software-developers"] as const;
+export const CAREER_DISPLAY_MANUAL_HOLD_SLUGS = [] as const;
 export const CAREER_DISPLAY_RIASEC_TEST_SLUG = "holland-career-interest-test-riasec" as const;
 
 export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
@@ -41,26 +45,26 @@ export const CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES = [
 export const CAREER_DISPLAY_SUPPORTED_COMPONENTS = [
   "breadcrumb",
   "hero",
-  "fermat_decision_card",
   "primary_cta",
-  "career_snapshot_primary_locale",
-  "career_snapshot_secondary_locale",
+  "fermat_decision_card",
   "fit_decision_checklist",
-  "riasec_fit_block",
-  "personality_fit_block",
   "definition_block",
   "career_ai_description_block",
   "responsibilities_block",
   "work_context_block",
   "career_quick_answers_block",
   "onet_structured_fields_block",
-  "market_signal_card",
   "adjacent_career_comparison_table",
   "ai_impact_table",
+  "career_snapshot_primary_locale",
+  "career_snapshot_secondary_locale",
+  "riasec_fit_block",
+  "personality_fit_block",
   "career_risk_cards",
   "career_path_block",
   "contract_project_risk_block",
   "next_steps_block",
+  "market_signal_card",
   "faq_block",
   "related_next_pages",
   "source_card",
@@ -175,6 +179,9 @@ export type CareerDisplayRelatedPage = {
   source: "lookup" | "self_pick";
   nofollow: boolean;
   titleEn: string;
+  titleZh?: string;
+  group?: "entry" | "specialist" | "management";
+  groupLabel?: string;
 };
 
 export type CareerDisplayRelatedNextPages = {
@@ -234,6 +241,8 @@ export type CareerDisplaySurfaceViewModel = {
   claimPermissions: CareerDisplayClaimPermissions;
   publishedComponents: CareerPublishedComponents | null;
   presentationV1: CareerPresentationV1 | null;
+  presentationV1Available: boolean;
+  presentationV2: CareerPresentationV2 | null;
   cta: {
     label: string;
     href: string;
@@ -1273,19 +1282,36 @@ function normalizeRelatedNextPages(value: unknown): CareerDisplayRelatedNextPage
     const slug = normalizeString(item.slug);
     const source = normalizeString(item.source);
     const titleEn = normalizeString(item.title_en);
+    const titleZh = normalizeString(item.title_zh);
+    const group = normalizeString(item.group);
+    const groupLabel = normalizeString(item.group_label);
+    const hasGrouping = titleZh !== null || group !== null || groupLabel !== null;
     if (
       !slug ||
       !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ||
       slugs.has(slug) ||
       (source !== "lookup" && source !== "self_pick") ||
       typeof item.nofollow !== "boolean" ||
-      !titleEn
+      !titleEn ||
+      (hasGrouping && (
+        !titleZh ||
+        !groupLabel ||
+        (group !== "entry" && group !== "specialist" && group !== "management")
+      ))
     ) {
       return null;
     }
 
     slugs.add(slug);
-    links.push({ slug, source, nofollow: item.nofollow, titleEn });
+    links.push({
+      slug,
+      source,
+      nofollow: item.nofollow,
+      titleEn,
+      ...(titleZh ? { titleZh } : {}),
+      ...(group === "entry" || group === "specialist" || group === "management" ? { group } : {}),
+      ...(groupLabel ? { groupLabel } : {}),
+    });
   }
 
   return { intro, links };
@@ -1465,15 +1491,15 @@ export function adaptCareerDisplaySurface(
       })()
     : null;
   const publishedComponents = normalizeCareerPublishedComponents(page, componentOrder);
-  const presentationV1 = locale === "zh"
-    ? normalizeCareerPresentationV1(root.presentation_v1)
-    : null;
+  const normalizedPresentationV1 = normalizeCareerPresentationV1(root.presentation_v1);
+  const presentationV1 = locale === "zh" ? normalizedPresentationV1 : null;
+  const presentationV2 = normalizeCareerPresentationV2(root.presentation_v2, locale, componentOrder);
   const sources = publishedComponents ? normalizePublishedSources(root.sources) : normalizeSources(root.sources);
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
   const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
 
-  if (sources === null) {
+  if (sources === null || (Object.prototype.hasOwnProperty.call(root, "presentation_v2") && presentationV2 === null)) {
     return null;
   }
 
@@ -1527,6 +1553,8 @@ export function adaptCareerDisplaySurface(
     claimPermissions: normalizeClaimPermissions(root.claim_permissions),
     publishedComponents,
     presentationV1,
+    presentationV1Available: normalizedPresentationV1 !== null,
+    presentationV2,
     cta: {
       label: displayCta.label,
       href: publishedComponents && localizedHero ? displayCta.href : ctaHref,

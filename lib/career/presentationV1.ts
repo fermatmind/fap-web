@@ -1,5 +1,5 @@
 export const CAREER_PRESENTATION_V1_VERSION = "career.detail.presentation.v1" as const;
-export const CAREER_PRESENTATION_V1_DESIGN_AUTHORITY_ID = "accountants-career-page-v1.2" as const;
+export const CAREER_PRESENTATION_V1_DESIGN_AUTHORITY_ID = "career-dossier-page-v1.2" as const;
 export const CAREER_V12_DESIGN_AUTHORITY_SHA256 =
   "85c71abac0180a6807222b297e66b0dd611ca79a5cc4bd17db5da416459eafe7" as const;
 
@@ -35,10 +35,10 @@ export type CareerPresentationAiExposure = {
   value: number;
   scale: 10;
   displayValue: string;
-  label: "AI 曝光评分";
+  label: "AI 曝光评分" | "AI任务暴露";
   note: string | null;
   metricKind: "fermatmind_internal_rubric";
-  sourceLabel: "FermatMind 内部 rubric";
+  sourceLabel: "FermatMind 内部 rubric" | "FermatMind 任务级 rubric";
 };
 
 export type CareerPresentationCta = {
@@ -155,11 +155,15 @@ function normalizeAiExposure(value: unknown): Normalized<CareerPresentationAiExp
   ])) {
     return { valid: false };
   }
+  const labelAndSourceAreValid =
+    (value.label === "AI 曝光评分" && value.source_label === "FermatMind 内部 rubric") ||
+    (value.label === "AI任务暴露" && value.source_label === "FermatMind 任务级 rubric");
   if (
     value.scale !== 10 ||
-    value.label !== "AI 曝光评分" ||
+    !labelAndSourceAreValid ||
     value.metric_kind !== "fermatmind_internal_rubric" ||
-    value.source_label !== "FermatMind 内部 rubric"
+    typeof value.label !== "string" ||
+    typeof value.source_label !== "string"
   ) {
     return { valid: false };
   }
@@ -184,10 +188,10 @@ function normalizeAiExposure(value: unknown): Normalized<CareerPresentationAiExp
       value: value.value as number,
       scale: 10,
       displayValue: value.display_value as string,
-      label: "AI 曝光评分",
+      label: value.label as CareerPresentationAiExposure["label"],
       note: note.value,
       metricKind: "fermatmind_internal_rubric",
-      sourceLabel: "FermatMind 内部 rubric",
+      sourceLabel: value.source_label as CareerPresentationAiExposure["sourceLabel"],
     },
   };
 }

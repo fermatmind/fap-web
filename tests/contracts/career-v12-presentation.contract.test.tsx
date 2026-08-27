@@ -4,9 +4,9 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import {
-  CAREER_FIELD_CONSUMPTION_LEDGER,
   CAREER_VISUAL_GROUPS,
   CAREER_VISUAL_GROUP_IDS,
+  CAREER_FIELD_CONSUMPTION_LEDGER,
 } from "@/lib/career/careerVisualGroups";
 import {
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
@@ -22,7 +22,7 @@ import {
   buildSelectedCareerDisplaySurfaceFixture,
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
-const AUTHORITY_HTML = "/Users/rainie/Desktop/1046个职业/accountants-5个html模板/accountants-career-page-v1.2.html";
+const AUTHORITY_HTML = "/Users/rainie/Desktop/1046个职业/accountants-5个html模板/career-dossier-page-v1.2.html";
 
 function buildZhSurface() {
   return adaptCareerDisplaySurface(
@@ -56,10 +56,24 @@ describe("career v1.2 presentation contract", () => {
     expect(normalizeCareerPresentationV1({
       ...buildCareerPresentationV1Fixture(),
       design_authority: {
-        id: "accountants-career-page-v1.2",
+        id: "career-dossier-page-v1.2",
         sha256: "0".repeat(64),
       },
     })).toBeNull();
+  });
+
+  it("keeps the legacy AI exposure wording valid for careers that have not adopted the task-level label", () => {
+    const fixture = buildCareerPresentationV1Fixture();
+    fixture.hero.ai_exposure = {
+      ...fixture.hero.ai_exposure,
+      label: "AI 曝光评分",
+      source_label: "FermatMind 内部 rubric",
+    };
+
+    const normalized = normalizeCareerPresentationV1(fixture);
+
+    expect(normalized?.hero.aiExposure?.label).toBe("AI 曝光评分");
+    expect(normalized?.hero.aiExposure?.sourceLabel).toBe("FermatMind 内部 rubric");
   });
 
   it.each([
@@ -119,8 +133,8 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.queryByTestId("career-production-hero-badges")).not.toBeInTheDocument();
     expect(screen.queryByTestId("career-production-hero-stats")).not.toBeInTheDocument();
     expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
-    expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(11);
-    expect(document.querySelector('[data-career-visual-group="snapshot"]')).not.toBeInTheDocument();
+    expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
+    expect(document.querySelector('[data-career-visual-group="overview"]')).toBeInTheDocument();
   });
 
   it("compacts every formally optional projection slot without placeholders or empty cards", () => {
@@ -153,7 +167,7 @@ describe("career v1.2 presentation contract", () => {
     expect(heroElement).not.toHaveTextContent(/O\*NET|0\/10|undefined|暂无数据|数据缺失/u);
     expect(document.querySelector('[data-career-api-field="presentation_v1.hero.onet_code"]')).not.toBeInTheDocument();
     expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(0);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(26);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(27);
     expect(document.querySelectorAll("section:empty, article:empty, aside:empty")).toHaveLength(0);
   });
 
@@ -175,17 +189,20 @@ describe("career v1.2 presentation contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     const groups = [...document.querySelectorAll("[data-career-visual-group]")];
-    const expectedVisualGroupIds = CAREER_VISUAL_GROUP_IDS.filter((groupId) => groupId !== "snapshot");
+    const expectedVisualGroupIds = CAREER_VISUAL_GROUP_IDS;
     expect(groups.map((group) => group.getAttribute("data-career-visual-group"))).toEqual(expectedVisualGroupIds);
     const expectedRenderedOrder = CAREER_VISUAL_GROUPS
-      .filter((group) => group.id !== "snapshot")
       .flatMap((group) => group.componentIds)
       .filter((componentId) => surface?.componentOrder.includes(componentId));
     expect([...document.querySelectorAll("[data-career-component-id]")].map((element) =>
       element.getAttribute("data-career-component-id")
     )).toEqual(expectedRenderedOrder);
     expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength((surface?.componentOrder.length ?? 1) - 1);
-    expect(screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a")).toHaveLength(11);
+    const tocLinks = screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a");
+    expect(tocLinks).toHaveLength(11);
+    expect(tocLinks[0]).toHaveTextContent("01快速判断");
+    expect(tocLinks[2]).toHaveTextContent("03职业方向比较");
+    expect(screen.queryByRole("link", { name: "职业概览" })).not.toBeInTheDocument();
   });
 
   it("replaces the accountants snapshot with a work-style fit triage while retaining salary data", () => {
@@ -216,10 +233,71 @@ describe("career v1.2 presentation contract", () => {
     expect(decisionCard).toHaveTextContent("持续核对、证据留痕、集中截止日期");
     expect(decisionCard).not.toHaveTextContent("费马快速判断");
     expect(decisionCard).not.toHaveTextContent("这是适配初筛，不是职业结论");
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("更可能适合");
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("需要慎重");
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("先做一次小实验");
+    expect(screen.getByRole("heading", { name: "快速判断" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "什么样的人更可能适合会计与审计人员？" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "什么情况下需要慎重选择会计与审计人员？" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "如何用一次小实验判断自己是否适合会计与审计人员？" })).toBeInTheDocument();
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("愿意追查差异并留下证据");
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("强烈厌恶细节复核和书面留痕");
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("核对 20 笔模拟交易");
     expect(screen.getByTestId("career-published-primary-locale-china")).toHaveTextContent("中国大陆薪资参考");
+  });
+
+  it("renders the backend-authored direction comparison and moves supporting components to their decision stages", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计与审计人员",
+    });
+    const page = fixture.page.content as unknown as Record<string, unknown>;
+    page.adjacent_career_comparison_table = {
+      heading: "会计、审计、税务和财务分析怎么选？",
+      intro: "四类方向处理同一类财务信息，但任务、产出和责任边界不同。",
+      rows: [
+        { "职业方向": "会计专员", "核心工作与产出": "录入交易并核对基础账目。", "与会计师／审计师的关键区别": "更偏记录和基础核对。", "更适合什么选择": "从财务基础流程入门。" },
+        { "职业方向": "企业会计", "核心工作与产出": "处理结账和财务报表。", "与会计师／审计师的关键区别": "建立并解释财务记录。", "更适合什么选择": "持续维护账务体系。" },
+        { "职业方向": "外部审计", "核心工作与产出": "获取审计证据并形成意见。", "与会计师／审计师的关键区别": "独立验证记录。", "更适合什么选择": "调查异常并评价证据。" },
+        { "职业方向": "内部审计", "核心工作与产出": "评估内部控制和业务流程。", "与会计师／审计师的关键区别": "服务组织内部治理。", "更适合什么选择": "关注流程、风险和合规。" },
+        { "职业方向": "税务专员", "核心工作与产出": "税务申报与合规筹划。", "与会计师／审计师的关键区别": "更依赖税法与申报规则。", "更适合什么选择": "研究法规和申报时点。" },
+        { "职业方向": "财务分析", "核心工作与产出": "预算、预测和经营分析。", "与会计师／审计师的关键区别": "更多面向未来结果。", "更适合什么选择": "建模、预测和经营决策。" },
+      ],
+      evidence_note: "比较维度依据 BLS 与 O*NET 的职业任务和责任边界。",
+      evidence_links: [
+        { label: "BLS：Accountants and Auditors", href: "https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm" },
+        { label: "O*NET 13-2011.00：Accountants and Auditors", href: "https://www.onetonline.org/link/details/13-2011.00" },
+        { label: "人社部：国家职业分类大典（2022年版）", href: "https://www.mohrss.gov.cn/SYrlzyhshbzb/dongtaixinwen/buneiyaowen/rsxw/202207/t20220714_457800.html" },
+        { label: "财政部：会计人员职业道德规范", href: "https://www.mof.gov.cn/jrttts/202302/t20230201_3864880.htm" },
+        { label: "中注协：中国注册会计师审计准则第1101号", href: "https://www.cicpa.org.cn/ztzl1/Professional_standards/Professional_guidelines/201904/W020210421541410318522.pdf" },
+      ],
+      conclusion: "建立记录选会计，验证证据选审计，解释规则选税务，预测未来选财务分析。",
+      transition: "明确方向后，再判断哪些任务会被自动化、哪些责任必须由人承担。",
+    };
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    const comparison = screen.getByTestId("career-dossier-direction-comparison");
+    expect(comparison).toHaveTextContent("会计、审计、税务和财务分析怎么选？");
+    expect(comparison).toHaveTextContent("比较维度依据 BLS 与 O*NET");
+    expect(comparison.querySelectorAll("tbody tr")).toHaveLength(6);
+    expect(comparison).toHaveTextContent("会计专员");
+    expect(comparison).toHaveTextContent("财务分析");
+    expect(comparison).not.toHaveTextContent("簿记与会计文员");
+    expect(comparison).not.toHaveTextContent("FP&A");
+    expect(comparison.querySelector("tbody tr th")).not.toHaveTextContent("01");
+    expect(comparison).toHaveTextContent("人社部：国家职业分类大典（2022年版）");
+    expect(comparison).toHaveTextContent("财政部：会计人员职业道德规范");
+    expect(comparison).toHaveTextContent("中注协：中国注册会计师审计准则第1101号");
+    expect(screen.queryByRole("columnheader", { name: "AI影响" })).not.toBeInTheDocument();
+    const directionTocLink = screen.getByRole("link", { name: "职业方向比较" });
+    expect(directionTocLink).toHaveTextContent("03职业方向比较");
+
+    const riskGroup = document.querySelector('[data-career-visual-group="risk"]');
+    const pathGroup = document.querySelector('[data-career-visual-group="path"]');
+    const faqGroup = document.querySelector('[data-career-visual-group="sources"]');
+    expect(riskGroup).not.toBeNull();
+    expect(pathGroup).not.toBeNull();
+    expect(riskGroup!.compareDocumentPosition(pathGroup!) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(faqGroup?.querySelector('[data-career-component-id="related_next_pages"]')).toBeInTheDocument();
   });
 
   it("renders the structured Chinese accountants profile as one evidence-led desktop narrative", () => {
@@ -294,7 +372,7 @@ describe("career v1.2 presentation contract", () => {
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
-    const profile = screen.getByTestId("accountants-career-profile");
+    const profile = screen.getByTestId("career-dossier-profile");
     expect(profile).toHaveTextContent("会计信息生产线");
     expect(profile).toHaveTextContent("审计鉴证线");
     expect(profile).toHaveTextContent("会计师和审计师围绕交易、账簿、财务报表和审计证据开展工作");
@@ -338,6 +416,27 @@ describe("career v1.2 presentation contract", () => {
     ]);
   });
 
+  it("selects the accountants profile by slug and presentation_v1 instead of a localized heading", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计与审计人员",
+    });
+    const page = fixture.page.content as unknown as Record<string, Record<string, unknown>>;
+    const quickAnswers = page.career_quick_answers_block;
+    quickAnswers.heading = "会计与审计工作全景";
+    const items = quickAnswers.items as Array<{ table: { rows: Array<Record<string, unknown>> } }>;
+    [3, 7, 6].forEach((minimum, itemIndex) => {
+      const rows = items[itemIndex].table.rows;
+      while (rows.length < minimum) rows.push({ ...rows[rows.length - 1], label: `补充维度 ${rows.length + 1}` });
+    });
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.getByTestId("career-dossier-profile")).toBeInTheDocument();
+    expect(screen.queryByTestId("career-published-career_quick_answers_block")).not.toBeInTheDocument();
+  });
+
   it("maps every component once and declares every field-ledger entry without accidental duplicates", () => {
     const groupedComponents = CAREER_VISUAL_GROUPS.flatMap((group) => group.componentIds);
     expect(new Set(groupedComponents).size).toBe(CAREER_DISPLAY_SUPPORTED_COMPONENTS.length);
@@ -361,15 +460,16 @@ describe("career v1.2 presentation contract", () => {
       .map((element) => element.getAttribute("data-career-api-field") ?? "");
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.badges["))).toHaveLength(3);
     expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.stats["))).toHaveLength(14);
-    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.ai_exposure."))).toHaveLength(5);
+    expect(fieldMarkers.filter((field) => field.startsWith("presentation_v1.hero.ai_exposure."))).toHaveLength(4);
 
     const hero = screen.getByTestId("career-display-hero");
+    expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
     expect(hero).toHaveTextContent("常规型 C 主导 · 研究型 I 辅助");
     expect(hero).toHaveTextContent("主要风险：责任 · 压力 · 技术变化");
     expect(screen.queryByTestId("career-published-career_snapshot_primary_locale")).not.toBeInTheDocument();
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("更可能适合");
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("需要慎重");
-    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("先做一次小实验");
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("什么样的人更可能适合会计与审计人员？");
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("什么情况下需要慎重选择会计与审计人员？");
+    expect(screen.getByTestId("fit-decision-checklist")).toHaveTextContent("如何用一次小实验判断自己是否适合会计与审计人员？");
   });
 
   it("locks the production dossier layout, visual hierarchy, TOC, and responsive tokens", () => {
@@ -392,8 +492,8 @@ describe("career v1.2 presentation contract", () => {
     }
     for (const token of [
       "max-w-[1440px]",
-      "lg:grid-cols-[280px_minmax(0,1fr)]",
-      "lg:gap-8",
+      "lg:grid-cols-[224px_minmax(0,1fr)]",
+      "lg:gap-6",
       "visual.tocIndex",
       "visual.assessmentRail",
       "lg:top-[84px]",

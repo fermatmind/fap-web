@@ -17,7 +17,7 @@ import {
   TriangleAlert,
   UsersRound,
 } from "lucide-react";
-import styles from "@/components/career/display/AccountantsCareerProfile.module.css";
+import styles from "@/components/career/display/CareerDossierProfile.module.css";
 import type {
   CareerPublishedOnetStructuredFieldsBlock,
   CareerPublishedQuickAnswersBlock,
@@ -29,6 +29,7 @@ type Props = {
   workContext: string;
   quickAnswers: CareerPublishedQuickAnswersBlock;
   professionalBasis: CareerPublishedOnetStructuredFieldsBlock;
+  locale: "zh" | "en";
 };
 
 const responsibilityIcons = [Calculator, ClipboardCheck, FileText, BarChart3, FileSearch, MessageSquareText] as const;
@@ -47,12 +48,13 @@ function splitWorkFact(value: string): [string, string] {
   return [value.slice(0, delimiterIndex).trim(), value.slice(delimiterIndex + 1).trim()];
 }
 
-export function AccountantsCareerProfile({
+export function CareerDossierProfile({
   definition,
   responsibilities,
   workContext,
   quickAnswers,
   professionalBasis,
+  locale,
 }: Props) {
   const systemItem = quickAnswers.items[0];
   const boundaryItem = quickAnswers.items[1];
@@ -62,13 +64,13 @@ export function AccountantsCareerProfile({
   const auditingTrack = systemRows[1];
   const sharedFoundation = systemRows[2];
   const workFacts = workContext.split("\n").map(splitWorkFact);
-  const workTitle = workFacts.find(([label]) => label === "板块标题")?.[1] ?? "工作现实";
-  const workSummary = workFacts.find(([label]) => label === "直接答案")?.[1] ?? "";
-  const workDetailFacts = workFacts.filter(([label]) => label !== "板块标题" && label !== "直接答案");
+  const workTitle = workFacts.find(([label]) => label === "板块标题" || label === "Section title")?.[1] ?? (locale === "zh" ? "工作现实" : "Work reality");
+  const workSummary = workFacts.find(([label]) => label === "直接答案" || label === "Direct answer")?.[1] ?? "";
+  const workDetailFacts = workFacts.filter(([label]) => !["板块标题", "直接答案", "Section title", "Direct answer"].includes(label));
   const workFactIcons = [BriefcaseBusiness, FileText, ClipboardCheck, Clock3, UsersRound, SearchCheck, BadgeCheck] as const;
 
   return (
-    <div className={styles.profile} data-testid="accountants-career-profile">
+    <div className={styles.profile} data-testid="career-dossier-profile">
       <div
         id="career-component-definition_block"
         className={styles.definition}
@@ -78,7 +80,7 @@ export function AccountantsCareerProfile({
         data-testid="definition-block"
       >
         <div className={styles.titleRow}>
-          <h2 id="career-visual-group-title-profile" className={styles.title}>职业画像</h2>
+          <h2 id="career-visual-group-title-profile" className={styles.title}>{locale === "zh" ? "职业画像" : "Career profile"}</h2>
           <span aria-hidden="true" className={styles.titleRule} />
         </div>
         <p className={styles.thesis} data-career-api-field="definition_block">{definition}</p>
@@ -164,7 +166,7 @@ export function AccountantsCareerProfile({
           <div className={styles.tableWrap}>
             <table aria-label={boundaryItem.question}>
               <thead>
-                <tr><th>维度</th><th>会计</th><th>财务报表审计</th></tr>
+                <tr><th>{locale === "zh" ? "维度" : "Dimension"}</th><th>{locale === "zh" ? "主要方向" : "Primary track"}</th><th>{locale === "zh" ? "比较方向" : "Comparison track"}</th></tr>
               </thead>
               <tbody>
                 {boundaryItem.table.rows.map((row, index) => {
@@ -192,7 +194,7 @@ export function AccountantsCareerProfile({
           data-testid="responsibilities-block"
         >
           <div className={styles.sectionHeadingCompact}>
-            <div><h3>六类核心工作</h3></div>
+            <div><h3>{locale === "zh" ? "核心工作" : "Core responsibilities"}</h3></div>
           </div>
           <ol className={styles.responsibilityList} data-career-api-list="responsibilities_block">
             {responsibilities.map((item, index) => {

@@ -548,7 +548,8 @@ export function CareerPublishedSemanticSection({
         </PublishedRoot>
       );
 
-    case "career_path_block":
+    case "career_path_block": {
+      const isAccountantsPath = isZh && subjectSlug === "accountants-and-auditors";
       return (
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle>{componentTitle}</SectionTitle>
@@ -557,11 +558,14 @@ export function CareerPublishedSemanticSection({
             path={componentId}
             locale={locale}
             columnLabels={isZh
-              ? { "路径": "发展阶段", "说明": "典型职责", "风险": "进阶重点" }
+              ? isAccountantsPath
+                ? { "路径": "职业路径", "说明": "典型进阶", "风险": "能力升级重点" }
+                : { "路径": "发展阶段", "说明": "典型职责", "风险": "进阶重点" }
               : { "路径": "Career stage", "说明": "Typical responsibilities", "风险": "Advancement focus" }}
           />
         </PublishedRoot>
       );
+    }
 
     case "ai_impact_table":
       return (
