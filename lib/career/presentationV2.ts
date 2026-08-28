@@ -23,7 +23,7 @@ export type CareerPresentationV2 = {
     title: string;
     lead: string | null;
     badges: Array<{ key: string; text: string }>;
-    stats: Array<{ key: string; label: string; value: string; sourceLabel: string | null }>;
+    stats: Array<{ key: string; label: string; value: string; sourceLabel: string | null; factRef?: string }>;
     aiExposure: {
       value: number;
       scale: 10;
@@ -85,13 +85,15 @@ export function normalizeCareerPresentationV2(
     return key && badgeText ? { key, text: badgeText } : null;
   });
   const stats = value.hero.stats.map((item) => {
-    if (!isRecord(item) || !exactKeys(item, ["key", "label", "value", "source_label"])) return null;
+    if (!isRecord(item) || !["key|label|source_label|value", "fact_ref|key|label|source_label|value"].includes(Object.keys(item).sort().join("|"))) return null;
     const key = text(item.key);
     const label = text(item.label);
     const statValue = text(item.value);
     const sourceLabel = item.source_label === null ? null : text(item.source_label);
+    const factRef = item.fact_ref === undefined ? null : text(item.fact_ref);
     return key && label && statValue && (item.source_label === null || sourceLabel)
-      ? { key, label, value: statValue, sourceLabel }
+      && (item.fact_ref === undefined || factRef)
+      ? { key, label, value: statValue, sourceLabel, ...(factRef ? { factRef } : {}) }
       : null;
   });
   if (badges.some((item) => item === null) || stats.some((item) => item === null)) return null;
@@ -173,7 +175,7 @@ export function normalizeCareerPresentationV2(
       title,
       lead,
       badges: badges as Array<{ key: string; text: string }>,
-      stats: stats as Array<{ key: string; label: string; value: string; sourceLabel: string | null }>,
+      stats: stats as Array<{ key: string; label: string; value: string; sourceLabel: string | null; factRef?: string }>,
       aiExposure,
       cta,
     },

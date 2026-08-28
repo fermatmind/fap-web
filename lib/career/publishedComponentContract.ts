@@ -135,6 +135,7 @@ export type CareerPublishedOutlookTransitions = {
   direct_answer: string;
   outlook_evidence: Array<{
     source_id?: string;
+    fact_ref?: string;
     geography: string;
     occupation_scope: string;
     horizon: string;
@@ -234,7 +235,7 @@ function validatePrimarySnapshot(value: unknown): boolean {
     "china_name_row", "china_open", "china_ref", "china_salary_note", "china_salary_table", "china_soc_row",
     "us_growth", "us_median",
   ];
-  if (!hasExactKeys(salary, required, ["china_open_note", "edu", "sources_note"])) {
+  if (!hasExactKeys(salary, required, ["china_open_note", "edu", "sources_note", "fact_refs"])) {
     return false;
   }
 
@@ -242,6 +243,7 @@ function validatePrimarySnapshot(value: unknown): boolean {
   const optionalStrings = ["china_open_note", "edu", "sources_note"];
   return requiredStrings.every((key) => isNonEmptyString(salary[key])) &&
     optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string") &&
+    (salary.fact_refs === undefined || isStringArray(salary.fact_refs)) &&
     ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"].every((key) => isStringOrScalarRecord(salary[key])) &&
     isScalarRecordArray(salary.bls_table, [
       ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
@@ -257,10 +259,12 @@ function validateSecondarySnapshot(value: unknown): boolean {
     "industry_heading", "industry_rows", "factors_heading", "factor_rows", "outlook_heading",
     "boundary", "authority_sources",
   ] as const;
-  if (!hasExactKeys(value, ["bls_table", "growth", "median"], enrichedKeys) ||
+  const periodKeys = ["industry_period", "outlook_period"] as const;
+  if (!hasExactKeys(value, ["bls_table", "growth", "median"], [...enrichedKeys, ...periodKeys]) ||
     !isNonEmptyString(value.growth) || !isNonEmptyString(value.median) ||
     !isScalarRecordArray(value.bls_table, [
       ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
+      ["指标", "数值", "说明", "fact_ref"],
     ])) {
     return false;
   }
@@ -271,8 +275,9 @@ function validateSecondarySnapshot(value: unknown): boolean {
     ["heading", "direct_answer", "wage_heading", "interpretation_heading", "industry_heading",
       "factors_heading", "outlook_heading", "boundary", "authority_sources"]
       .every((key) => isNonEmptyString(value[key])) &&
+    periodKeys.every((key) => value[key] === undefined || isNonEmptyString(value[key])) &&
     isScalarRecordArray(value.interpretation_rows, [["question", "answer"]], 4) &&
-    isScalarRecordArray(value.industry_rows, [["industry", "median", "note"]], 4) &&
+    isScalarRecordArray(value.industry_rows, [["industry", "median", "note"], ["industry", "median", "note", "fact_ref"]], 4) &&
     isScalarRecordArray(value.factor_rows, [["factor", "answer"]], 3)
   );
 }
@@ -290,12 +295,12 @@ function validateAiImpact(value: unknown): boolean {
     ].every((key) => isNonEmptyString(value[key])) &&
       isScalarRecordArray(value.method_cards, [["概念", "含义"]], 3) &&
       isScalarRecordArray(value.task_rows, [["工作方向", "任务", "当前变化", "人的控制点"]], 4) &&
-      isScalarRecordArray(value.evidence_rows, [["来源", "研究对象", "结论", "使用限制", "链接"]], 3) &&
+      isScalarRecordArray(value.evidence_rows, [["来源", "研究对象", "结论", "使用限制", "链接"], ["来源", "研究对象", "结论", "使用限制", "链接", "fact_ref"]], 3) &&
       isScalarRecordArray(value.difference_rows, [["方向", "AI主要改变", "仍由人负责"]], 2) &&
       isScalarRecordArray(value.responsibility_steps, [["步骤", "说明"]], 4) &&
       isScalarRecordArray(value.risk_rows, [["风险", "为什么重要", "控制方式"]], 3) &&
       isScalarRecordArray(value.action_rows, [["人群", "应对重点"]], 3) &&
-      isScalarRecordArray(value.questions, [["问题", "回答", "来源", "链接"]], 3) &&
+      isScalarRecordArray(value.questions, [["问题", "回答", "来源", "链接"], ["问题", "回答", "来源", "链接", "fact_ref"]], 3) &&
       isScalarRecordArray(value.authority_links, [["来源", "类型", "适用范围", "链接"]], 3);
   }
 
@@ -483,7 +488,7 @@ function validateOutlookTransitions(value: unknown): boolean {
     value.outlook_evidence.every((item) => hasStringFields(
       item,
       ["geography", "horizon", "interpretation", "limitation", "metric", "occupation_scope", "value"],
-      ["source_id"],
+      ["source_id", "fact_ref"],
     )) &&
     validateContextLinks(value.context_links) &&
     Array.isArray(value.transitions) && value.transitions.length >= 6 && value.transitions.length <= 8 && value.transitions.every((item) =>

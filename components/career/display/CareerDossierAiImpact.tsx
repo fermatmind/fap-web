@@ -1,4 +1,6 @@
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
+import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
+import type { CareerContentV3 } from "@/lib/career/contentV3";
 import type { CareerPublishedValue } from "@/lib/career/publishedComponentContract";
 
 type ScalarRow = Record<string, string>;
@@ -39,12 +41,17 @@ function text(value: unknown): string | null {
   return typeof value === "string" && value.trim().length > 0 ? value : null;
 }
 
-function rows(value: unknown, keys: string[], minimum: number): ScalarRow[] | null {
+function rows(value: unknown, keys: string[], minimum: number, optionalKeys: string[] = []): ScalarRow[] | null {
   if (!Array.isArray(value) || value.length < minimum) return null;
   const parsed = value.map((item) => {
-    if (!isRecord(item) || Object.keys(item).length !== keys.length || keys.some((key) => !(key in item))) return null;
+    if (!isRecord(item) || Object.keys(item).some((key) => !keys.includes(key) && !optionalKeys.includes(key)) || keys.some((key) => !(key in item))) return null;
     const row = Object.fromEntries(keys.map((key) => [key, text(item[key])])) as Record<string, string | null>;
-    return Object.values(row).every(Boolean) ? row as ScalarRow : null;
+    if (!Object.values(row).every(Boolean)) return null;
+    for (const key of optionalKeys) {
+      const optionalValue = text(item[key]);
+      if (optionalValue) row[key] = optionalValue;
+    }
+    return row as ScalarRow;
   });
   return parsed.some((row) => row === null) ? null : parsed as ScalarRow[];
 }
@@ -69,12 +76,12 @@ function parseAiImpact(value: CareerPublishedValue): AiImpactContent | null {
   const transition = text(value.transition);
   const methodCards = rows(value.method_cards, ["概念", "含义"], 3);
   const taskRows = rows(value.task_rows, ["工作方向", "任务", "当前变化", "人的控制点"], 4);
-  const evidenceRows = rows(value.evidence_rows, ["来源", "研究对象", "结论", "使用限制", "链接"], 3);
+  const evidenceRows = rows(value.evidence_rows, ["来源", "研究对象", "结论", "使用限制", "链接"], 3, ["fact_ref"]);
   const differenceRows = rows(value.difference_rows, ["方向", "AI主要改变", "仍由人负责"], 2);
   const responsibilitySteps = rows(value.responsibility_steps, ["步骤", "说明"], 4);
   const riskRows = rows(value.risk_rows, ["风险", "为什么重要", "控制方式"], 3);
   const actionRows = rows(value.action_rows, ["人群", "应对重点"], 3);
-  const questions = rows(value.questions, ["问题", "回答", "来源", "链接"], 3);
+  const questions = rows(value.questions, ["问题", "回答", "来源", "链接"], 3, ["fact_ref"]);
   const authorityLinks = rows(value.authority_links, ["来源", "类型", "适用范围", "链接"], 3);
 
   if (!heading || !answer || !evidenceIntro || !differenceIntro || !responsibilityIntro ||
@@ -115,7 +122,7 @@ function SourceLink({ href, children, field }: { href: string; children: string;
   );
 }
 
-export function CareerDossierAiImpact({ value, locale }: { value: CareerPublishedValue; locale: "zh" | "en" }) {
+export function CareerDossierAiImpact({ value, locale, contentV3 = null }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null }) {
   const content = parseAiImpact(value);
   if (!content) return null;
 
@@ -184,6 +191,7 @@ export function CareerDossierAiImpact({ value, locale }: { value: CareerPublishe
                 <div><dt>{locale === "zh" ? "主要结论" : "Finding"}</dt><dd data-career-api-field={`ai_impact_table.evidence_rows[${index}].结论`}>{row["结论"]}</dd></div>
                 <div><dt>{locale === "zh" ? "使用限制" : "Limitation"}</dt><dd data-career-api-field={`ai_impact_table.evidence_rows[${index}].使用限制`}>{row["使用限制"]}</dd></div>
               </dl>
+              <CareerEvidenceLine content={contentV3} factRefs={row.fact_ref ? [row.fact_ref] : []} />
             </article>
           ))}
         </div>
@@ -258,6 +266,7 @@ export function CareerDossierAiImpact({ value, locale }: { value: CareerPublishe
                 <span aria-hidden="true"> · </span>
                 <SourceLink href={item["链接"]} field={`ai_impact_table.questions[${index}].链接`}>{locale === "zh" ? "原始资料 ↗" : "Original source ↗"}</SourceLink>
               </p>
+              <CareerEvidenceLine content={contentV3} factRefs={item.fact_ref ? [item.fact_ref] : []} />
             </article>
           ))}
         </div>

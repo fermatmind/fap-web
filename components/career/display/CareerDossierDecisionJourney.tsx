@@ -1,5 +1,8 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
+import type { CareerContentV3 } from "@/lib/career/contentV3";
 import type {
   CareerPublishedOutlookTransitions,
   CareerPublishedProgression,
@@ -102,7 +105,13 @@ export function CareerDossierWorkRisk({ value, locale, sectionLabel, sectionLabe
   );
 }
 
-export function CareerDossierProgression({ value, locale, sectionLabel, sectionLabelId }: DecisionJourneyProps<CareerPublishedProgression>) {
+export function CareerDossierProgression({
+  value,
+  locale,
+  sectionLabel,
+  sectionLabelId,
+  entryDecisions,
+}: DecisionJourneyProps<CareerPublishedProgression> & { entryDecisions?: ReactNode }) {
   const isZh = locale === "zh";
   return (
     <div className="min-w-0 bg-white" data-testid="career-dossier-progression" data-career-api-component="career_path_block">
@@ -112,6 +121,7 @@ export function CareerDossierProgression({ value, locale, sectionLabel, sectionL
           <strong className="text-[#2C3E8C]" {...apiField("career_path_block.locale_requirements.jurisdiction")}>{value.locale_requirements.jurisdiction}</strong>
           <div><p className="m-0 text-sm leading-6 text-[#465066]" {...apiField("career_path_block.locale_requirements.summary")}>{value.locale_requirements.summary}</p><p className="m-0 mt-2 text-sm leading-6 text-[#465066]" {...apiField("career_path_block.locale_requirements.credential_boundary")}>{value.locale_requirements.credential_boundary}</p></div>
         </aside>
+        {entryDecisions}
         <div className="mt-7 space-y-7" data-career-api-list="career_path_block.tracks">
           {value.tracks.map((track, trackIndex) => (
             <section key={track.id} aria-labelledby={`career-track-${track.id}`}>
@@ -142,7 +152,13 @@ export function CareerDossierProgression({ value, locale, sectionLabel, sectionL
   );
 }
 
-export function CareerDossierOutlookTransitions({ value, locale, sectionLabel, sectionLabelId }: DecisionJourneyProps<CareerPublishedOutlookTransitions>) {
+export function CareerDossierOutlookTransitions({
+  value,
+  locale,
+  sectionLabel,
+  sectionLabelId,
+  contentV3 = null,
+}: DecisionJourneyProps<CareerPublishedOutlookTransitions> & { contentV3?: CareerContentV3 | null }) {
   const isZh = locale === "zh";
   const sources = new Map(value.source_links.map((source) => [source.id, source]));
   return (
@@ -152,7 +168,7 @@ export function CareerDossierOutlookTransitions({ value, locale, sectionLabel, s
         <section aria-labelledby="career-outlook-evidence-title"><h3 id="career-outlook-evidence-title" className="m-0 text-xl font-bold text-[#172A60]">{isZh ? "三类数据，三种不同口径" : "Three sources, three different measures"}</h3>
           <div className="mt-4 grid gap-4 lg:grid-cols-3" data-career-api-list="market_signal_card.outlook_evidence">{value.outlook_evidence.map((item, index) => {
             const title = item.source_id ? sources.get(item.source_id)?.label ?? item.source_id : item.geography;
-            return <article key={`${item.source_id ?? item.geography}:${item.occupation_scope}:${index}`} className="rounded-xl border border-[#DCE3F0] bg-[#F8FAFD] p-5"><div className="flex items-start justify-between gap-3"><h4 className="m-0 text-base font-bold text-[#243B7A]">{title}</h4><span className="rounded-full bg-[#E9EEFB] px-3 py-1 text-xs font-bold text-[#2C3E8C]">{item.horizon}</span></div><p className="m-0 mt-3 text-sm text-[#5B6678]">{item.geography} · {item.occupation_scope}</p><p className="m-0 mt-4 text-2xl font-bold text-[#172A60]" {...apiField(`market_signal_card.outlook_evidence[${index}].value`)}>{item.value}</p><p className="m-0 mt-1 text-xs font-bold uppercase tracking-wide text-[#0E9F94]">{item.metric}</p><p className="m-0 mt-4 text-sm leading-6 text-[#465066]">{item.interpretation}</p><p className="m-0 mt-3 rounded-lg bg-[#FFF6E9] p-3 text-xs leading-5 text-[#6A5738]"><strong>{isZh ? "不能说明" : "Does not establish"}：</strong>{item.limitation}</p></article>;
+            return <article key={`${item.source_id ?? item.geography}:${item.occupation_scope}:${index}`} className="rounded-xl border border-[#DCE3F0] bg-[#F8FAFD] p-5"><div className="flex items-start justify-between gap-3"><h4 className="m-0 text-base font-bold text-[#243B7A]">{title}</h4><span className="rounded-full bg-[#E9EEFB] px-3 py-1 text-xs font-bold text-[#2C3E8C]">{item.horizon}</span></div><p className="m-0 mt-3 text-sm text-[#5B6678]">{item.geography} · {item.occupation_scope}</p><p className="m-0 mt-4 text-2xl font-bold text-[#172A60]" {...apiField(`market_signal_card.outlook_evidence[${index}].value`)}>{item.value}</p><p className="m-0 mt-1 text-xs font-bold uppercase tracking-wide text-[#0E9F94]">{item.metric}</p><p className="m-0 mt-4 text-sm leading-6 text-[#465066]">{item.interpretation}</p><p className="m-0 mt-3 rounded-lg bg-[#FFF6E9] p-3 text-xs leading-5 text-[#6A5738]"><strong>{isZh ? "不能说明" : "Does not establish"}：</strong>{item.limitation}</p><CareerEvidenceLine content={contentV3} factRefs={item.fact_ref ? [item.fact_ref] : []} /></article>;
           })}</div>
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">{value.context_links.map((link) => <a key={link.href} href={link.href} className="font-semibold text-[#2C3E8C]">{link.label} →</a>)}</div>
         </section>

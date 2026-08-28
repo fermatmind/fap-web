@@ -15,6 +15,33 @@ export type CareerContentV3Item = {
   type: CareerContentV3Primitive;
   availability: CareerContentV3Availability;
   data: Record<string, unknown>;
+  factRefs: string[];
+  sourceRefs: string[];
+};
+
+export type CareerContentV3Source = {
+  id: string;
+  name: string;
+  url: string | null;
+  details: string[];
+  publisher: string | null;
+  market: string | null;
+  period: string | null;
+  evidenceType: string | null;
+  scope: string | null;
+  limitation: string | null;
+  accessedAt: string | null;
+};
+
+export type CareerContentV3Fact = {
+  factId: string;
+  displayValue: string;
+  market: string;
+  period: string;
+  measure: string;
+  occupationScope: string;
+  sourceRefs: string[];
+  derivation: string | null;
 };
 
 export type CareerContentV3Block = {
@@ -32,6 +59,8 @@ export type CareerContentV3 = {
   subject: { canonicalSlug: string; name: string; summary: string | null };
   contentState: "enhanced" | "legacy";
   sourceContentSha256: string;
+  facts: CareerContentV3Fact[];
+  sources: CareerContentV3Source[];
   blocks: CareerContentV3Block[];
 };
 
@@ -142,6 +171,15 @@ for (const [id, [zh, en]] of Object.entries(COMPONENT_BLOCK_TITLES)) {
 
 const COMMON_ITEM_COPY: Record<string, { zh: string; en: string }> = {
   "career.item.published-sources": { zh: "来源清单", en: "Source register" },
+  "career.item.entry-role-comparison": { zh: "常见入门岗位", en: "Common entry roles" },
+  "career.item.employer-evidence": { zh: "雇主真正会看什么", en: "What employers look for" },
+  "career.item.entry-portfolio": { zh: "没经验可以做什么作品", en: "A portfolio sample without prior experience" },
+  "career.item.interview-probation": { zh: "面试和试用期可能考什么", en: "Interview and probation evidence" },
+  "career.item.seven-day-trial": { zh: "七天低成本体验", en: "Seven-day low-cost trial" },
+  "career.item.seven-day-decision": { zh: "第七天如何判断", en: "How to decide on day seven" },
+  "career.item.recruitment-sample": { zh: "招聘样本与使用边界", en: "Recruitment sample and limits" },
+  "career.item.credential-decision": { zh: "证书决策表", en: "Credential decision table" },
+  "career.item.credential-boundary": { zh: "证书、会员与执业边界", en: "Credential, membership, and practice boundaries" },
 };
 
 for (const [id, [zh, en]] of Object.entries(COMPONENT_BLOCK_TITLES)) {
@@ -178,6 +216,25 @@ const COLUMN_COPY: Record<string, { zh: string; en: string }> = {
   direction: { zh: "职业方向", en: "Career direction" },
   work: { zh: "核心工作", en: "Core work" },
   fit: { zh: "更适合的选择", en: "Better fit" },
+  role: { zh: "入门岗位", en: "Entry role" },
+  initial_tasks: { zh: "入职初期主要做什么", en: "Initial tasks" },
+  employer_evidence: { zh: "雇主通常看什么", en: "Employer evidence" },
+  no_experience_proof: { zh: "没经验如何证明", en: "Proof without experience" },
+  distinction: { zh: "与其他方向的区别", en: "Key distinction" },
+  capability: { zh: "能力", en: "Capability" },
+  work_evidence: { zh: "工作中的证据", en: "Evidence at work" },
+  proof_method: { zh: "如何证明", en: "How to demonstrate it" },
+  stage: { zh: "阶段", en: "Stage" },
+  possible_check: { zh: "可能考察", en: "Possible check" },
+  observed_evidence: { zh: "观察证据", en: "Observed evidence" },
+  boundary: { zh: "使用边界", en: "Boundary" },
+  credential: { zh: "资格／身份", en: "Credential or status" },
+  audience: { zh: "主要适合谁", en: "Best suited to" },
+  job_value: { zh: "求职现实作用", en: "Hiring value" },
+  universal_entry_requirement: { zh: "是否普遍入职门槛", en: "Universal entry requirement" },
+  conditions: { zh: "报考／注册条件", en: "Exam or registration conditions" },
+  investment: { zh: "投入等级", en: "Investment level" },
+  limitation: { zh: "重要限制", en: "Important limitation" },
 };
 
 export function careerContentV3ColumnCopy(columnKey: string, locale: Locale): string | null {
@@ -219,6 +276,12 @@ function exactKeys(value: Record<string, unknown>, keys: string[]): boolean {
   return Object.keys(value).sort().join("|") === [...keys].sort().join("|");
 }
 
+function exactKeysWithOptional(value: Record<string, unknown>, required: string[], optional: string[]): boolean {
+  const keys = Object.keys(value);
+  const allowed = new Set([...required, ...optional]);
+  return required.every((entry) => keys.includes(entry)) && keys.every((entry) => allowed.has(entry));
+}
+
 function string(value: unknown): string | null {
   return typeof value === "string" && value.trim().length > 0 ? value.trim() : null;
 }
@@ -229,7 +292,11 @@ function key(value: unknown): string | null {
 }
 
 function normalizeItem(value: unknown): CareerContentV3Item | null {
-  if (!isRecord(value) || !exactKeys(value, ["id", "copy_key", "type", "availability", "data"])) return null;
+  if (!isRecord(value) || !exactKeysWithOptional(
+    value,
+    ["id", "copy_key", "type", "availability", "data"],
+    ["fact_refs", "source_refs"],
+  )) return null;
   const id = key(value.id);
   const copyKey = key(value.copy_key);
   const type = string(value.type);
@@ -237,7 +304,12 @@ function normalizeItem(value: unknown): CareerContentV3Item | null {
   if (!id || !copyKey || !type || !CAREER_CONTENT_V3_PRIMITIVES.includes(type as CareerContentV3Primitive) ||
       (availability !== "available" && availability !== "missing") || !isRecord(value.data)) return null;
   if (availability === "missing" && Object.keys(value.data).length > 0) return null;
-  return { id, copyKey, type: type as CareerContentV3Primitive, availability, data: value.data };
+  const factRefs = value.fact_refs === undefined ? [] : strings(value.fact_refs);
+  const sourceRefs = value.source_refs === undefined ? [] : strings(value.source_refs);
+  if (factRefs === null || sourceRefs === null || factRefs.some((entry) => key(entry) === null) || sourceRefs.some((entry) => key(entry) === null)) {
+    return null;
+  }
+  return { id, copyKey, type: type as CareerContentV3Primitive, availability, data: value.data, factRefs, sourceRefs };
 }
 
 function records(value: unknown): Record<string, unknown>[] | null {
@@ -279,8 +351,11 @@ export function canRenderCareerContentV3Item(
     return values !== null && values.every((entry) => {
       const id = key(entry.id);
       const questionKey = key(entry.question_key);
-      if (!exactKeys(entry, ["id", "question_key", "answer"]) || !id || seen.has(id) || !questionKey ||
+      if (!exactKeysWithOptional(entry, ["id", "question_key", "answer"], ["fact_refs", "source_refs"]) || !id || seen.has(id) || !questionKey ||
           string(entry.answer) === null || careerContentV3QuestionCopy(questionKey, locale, careerName) === null) return false;
+      const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs);
+      const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs);
+      if (factRefs === null || sourceRefs === null || factRefs.some((ref) => key(ref) === null) || sourceRefs.some((ref) => key(ref) === null)) return false;
       seen.add(id);
       return true;
     });
@@ -292,8 +367,13 @@ export function canRenderCareerContentV3Item(
   }
   if (item.type === "sources") {
     const values = exactKeys(item.data, ["entries"]) ? records(item.data.entries) : null;
-    return values !== null && values.every((entry) => exactKeys(entry, ["id", "name", "url"]) &&
-      key(entry.id) !== null && string(entry.name) !== null && (entry.url === null || safeUrl(entry.url)));
+    const optional = ["details", "publisher", "market", "period", "evidence_type", "scope", "limitation", "accessed_at"];
+    return values !== null && values.every((entry) => {
+      if (!exactKeysWithOptional(entry, ["id", "name", "url"], optional) ||
+        key(entry.id) === null || string(entry.name) === null || (entry.url !== null && !safeUrl(entry.url))) return false;
+      if (entry.details !== undefined && (!Array.isArray(entry.details) || !entry.details.every((detail) => string(detail) !== null))) return false;
+      return optional.filter((field) => field !== "details").every((field) => entry[field] === undefined || entry[field] === null || string(entry[field]) !== null);
+    });
   }
   if (item.type === "metrics") {
     const values = exactKeys(item.data, ["entries"]) ? records(item.data.entries) : null;
@@ -315,6 +395,64 @@ function invalidBlock(value: unknown, index: number): CareerContentV3Block {
     items: [],
     renderable: false,
   };
+}
+
+function normalizeSourceEntries(blocks: readonly CareerContentV3Block[]): CareerContentV3Source[] | null {
+  const sources: CareerContentV3Source[] = [];
+  const seen = new Set<string>();
+  for (const block of blocks) {
+    for (const item of block.items) {
+      if (item.type !== "sources" || !Array.isArray(item.data.entries)) continue;
+      for (const raw of item.data.entries) {
+        if (!isRecord(raw)) return null;
+        const id = key(raw.id);
+        const name = string(raw.name);
+        const url = raw.url === null ? null : string(raw.url);
+        if (!id || !name || seen.has(id) || (url !== null && !safeUrl(url))) return null;
+        seen.add(id);
+        sources.push({
+          id,
+          name,
+          url,
+          details: Array.isArray(raw.details) ? raw.details.filter((entry): entry is string => string(entry) !== null) : [],
+          publisher: raw.publisher === null || raw.publisher === undefined ? null : string(raw.publisher),
+          market: raw.market === null || raw.market === undefined ? null : string(raw.market),
+          period: raw.period === null || raw.period === undefined ? null : string(raw.period),
+          evidenceType: raw.evidence_type === null || raw.evidence_type === undefined ? null : string(raw.evidence_type),
+          scope: raw.scope === null || raw.scope === undefined ? null : string(raw.scope),
+          limitation: raw.limitation === null || raw.limitation === undefined ? null : string(raw.limitation),
+          accessedAt: raw.accessed_at === null || raw.accessed_at === undefined ? null : string(raw.accessed_at),
+        });
+      }
+    }
+  }
+  return sources;
+}
+
+function normalizeFactRegister(value: unknown, sourceIds: ReadonlySet<string>): CareerContentV3Fact[] | null {
+  if (value === undefined) return [];
+  if (!isRecord(value) || !exactKeys(value, ["facts"]) || !Array.isArray(value.facts) || value.facts.length === 0) return null;
+  const seen = new Set<string>();
+  const facts: CareerContentV3Fact[] = [];
+  for (const raw of value.facts) {
+    if (!isRecord(raw) || !exactKeys(raw, [
+      "fact_id", "display_value", "market", "period", "measure", "occupation_scope", "source_refs", "derivation",
+    ])) return null;
+    const factId = key(raw.fact_id);
+    const sourceRefs = strings(raw.source_refs);
+    const derivation = raw.derivation === null ? null : string(raw.derivation);
+    if (!factId || seen.has(factId) || !sourceRefs || sourceRefs.some((ref) => !sourceIds.has(ref)) ||
+      (raw.derivation !== null && !derivation)) return null;
+    const displayValue = string(raw.display_value);
+    const market = string(raw.market);
+    const period = string(raw.period);
+    const measure = string(raw.measure);
+    const occupationScope = string(raw.occupation_scope);
+    if (!displayValue || !market || !period || !measure || !occupationScope) return null;
+    seen.add(factId);
+    facts.push({ factId, displayValue, market, period, measure, occupationScope, sourceRefs, derivation });
+  }
+  return facts;
 }
 
 function normalizeBlock(value: unknown, index: number): CareerContentV3Block {
@@ -343,7 +481,11 @@ function normalizeBlock(value: unknown, index: number): CareerContentV3Block {
 }
 
 export function normalizeCareerContentV3(value: unknown, locale: Locale): CareerContentV3 | null {
-  if (!isRecord(value) || !exactKeys(value, ["contract_version", "locale", "subject", "content_state", "source_content_sha256", "blocks"]) ||
+  if (!isRecord(value) || !exactKeysWithOptional(
+    value,
+    ["contract_version", "locale", "subject", "content_state", "source_content_sha256", "blocks"],
+    ["fact_register"],
+  ) ||
       value.contract_version !== CAREER_CONTENT_V3_VERSION ||
       value.locale !== (locale === "zh" ? "zh-CN" : "en") ||
       (value.content_state !== "enhanced" && value.content_state !== "legacy") ||
@@ -356,6 +498,7 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
   const name = string(value.subject.name);
   const summary = value.subject.summary === null ? null : string(value.subject.summary);
   if (!canonicalSlug || !name || (value.subject.summary !== null && !summary)) return null;
+  if (JSON.stringify(value).includes("{{fact:")) return null;
   const blocks = value.blocks.map(normalizeBlock);
   const seen = new Set<string>();
   const seenItems = new Set<string>();
@@ -375,12 +518,33 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
     }
     seen.add(blocks[index].id);
   }
+  const sources = normalizeSourceEntries(blocks);
+  if (sources === null) return null;
+  const sourceIds = new Set(sources.map((source) => source.id));
+  const facts = normalizeFactRegister(value.fact_register, sourceIds);
+  if (facts === null) return null;
+  const factIds = new Set(facts.map((fact) => fact.factId));
+  for (const block of blocks) {
+    for (const item of block.items) {
+      if (item.factRefs.some((ref) => !factIds.has(ref)) || item.sourceRefs.some((ref) => !sourceIds.has(ref))) return null;
+      if (item.type === "faq" && Array.isArray(item.data.entries)) {
+        for (const entry of item.data.entries) {
+          if (!isRecord(entry)) return null;
+          const entryFactRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs);
+          const entrySourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs);
+          if (!entryFactRefs || !entrySourceRefs || entryFactRefs.some((ref) => !factIds.has(ref)) || entrySourceRefs.some((ref) => !sourceIds.has(ref))) return null;
+        }
+      }
+    }
+  }
   return {
     contractVersion: CAREER_CONTENT_V3_VERSION,
     locale,
     subject: { canonicalSlug, name, summary },
     contentState: value.content_state,
     sourceContentSha256: value.source_content_sha256,
+    facts,
+    sources,
     blocks,
   };
 }
@@ -388,8 +552,8 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
 export function careerContentV3FaqItems(
   content: CareerContentV3,
   includeBlock: (block: CareerContentV3Block) => boolean = () => true,
-): Array<{ question: string; answer: string }> {
-  const result: Array<{ question: string; answer: string }> = [];
+): Array<{ question: string; answer: string; factRefs: string[]; sourceRefs: string[] }> {
+  const result: Array<{ question: string; answer: string; factRefs: string[]; sourceRefs: string[] }> = [];
   for (const block of content.blocks) {
     if (!block.renderable || block.availability !== "available" || !includeBlock(block)) continue;
     for (const item of block.items) {
@@ -399,7 +563,9 @@ export function careerContentV3FaqItems(
         const questionKey = key(entry.question_key);
         const answer = string(entry.answer);
         const question = questionKey ? careerContentV3QuestionCopy(questionKey, content.locale, content.subject.name) : null;
-        if (question && answer) result.push({ question, answer });
+        const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs) ?? [];
+        const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs) ?? [];
+        if (question && answer) result.push({ question, answer, factRefs, sourceRefs });
       }
     }
   }

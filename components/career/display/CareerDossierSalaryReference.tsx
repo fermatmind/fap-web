@@ -1,4 +1,6 @@
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
+import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
+import type { CareerContentV3 } from "@/lib/career/contentV3";
 import type { CareerPublishedValue } from "@/lib/career/publishedComponentContract";
 
 type ScalarRow = Record<string, string>;
@@ -16,6 +18,7 @@ type ChinaSalaryContent = {
   experienceAnswer: string | null;
   sourceItems: Array<{ label: string; href: string }>;
   sourceFields: Array<{ field: string; value: string }>;
+  factRefs: string[];
 };
 
 type UsSalaryContent = {
@@ -31,6 +34,8 @@ type UsSalaryContent = {
   factorRows: ScalarRow[];
   outlookHeading: string;
   outlookRows: ScalarRow[];
+  industryPeriod: string;
+  outlookPeriod: string;
   boundary: string;
   authoritySourcesRaw: string;
   sourceItems: Array<{ label: string; href: string }>;
@@ -63,12 +68,17 @@ function text(value: unknown): string | null {
   return typeof value === "string" && value.trim().length > 0 ? value.trim() : null;
 }
 
-function rows(value: unknown, keys: string[], minimum: number): ScalarRow[] | null {
+function rows(value: unknown, keys: string[], minimum: number, optionalKeys: string[] = []): ScalarRow[] | null {
   if (!Array.isArray(value) || value.length < minimum) return null;
   const parsed = value.map((item) => {
     if (!isRecord(item) || keys.some((key) => !(key in item))) return null;
     const row = Object.fromEntries(keys.map((key) => [key, text(item[key])])) as Record<string, string | null>;
-    return Object.values(row).every(Boolean) ? row as ScalarRow : null;
+    if (!Object.values(row).every(Boolean)) return null;
+    for (const key of optionalKeys) {
+      const optionalValue = text(item[key]);
+      if (optionalValue) row[key] = optionalValue;
+    }
+    return row as ScalarRow;
   });
   return parsed.some((row) => row === null) ? null : parsed as ScalarRow[];
 }
@@ -139,6 +149,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
     experienceAnswer: text(salary.china_open_note),
     sourceItems: sources,
     sourceFields,
+    factRefs: Array.isArray(salary.fact_refs) ? salary.fact_refs.filter((entry): entry is string => typeof entry === "string" && entry.length > 0) : [],
   };
 }
 
@@ -150,20 +161,22 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const interpretationHeading = text(value.interpretation_heading);
   const interpretationRows = rows(value.interpretation_rows, ["question", "answer"], 4);
   const industryHeading = text(value.industry_heading);
-  const industryRows = rows(value.industry_rows, ["industry", "median", "note"], 4);
+  const industryRows = rows(value.industry_rows, ["industry", "median", "note"], 4, ["fact_ref"]);
   const factorsHeading = text(value.factors_heading);
   const factorRows = rows(value.factor_rows, ["factor", "answer"], 3);
   const outlookHeading = text(value.outlook_heading);
   const boundary = text(value.boundary);
   const authoritySourcesRaw = text(value.authority_sources);
-  const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 8);
+  const blsRows = rows(value.bls_table, ["指标", "数值", "说明"], 8, ["fact_ref"]);
   if (!blsRows) return null;
-  const wageRows = blsRows.filter((row) => row["指标"].startsWith("2025 薪资") || row["指标"].startsWith("2025 wages"));
-  const outlookRows = blsRows.filter((row) => row["指标"].startsWith("2024–2034 就业") || row["指标"].startsWith("2024–2034 outlook"));
+  const wageRows = blsRows.filter((row) => /(?:薪资|wages)/iu.test(row["指标"]));
+  const outlookRows = blsRows.filter((row) => /(?:就业|outlook)/iu.test(row["指标"]));
+  const industryPeriod = text(value.industry_period) ?? `${industryHeading ?? ""} ${industryRows?.map((row) => row.note).join(" ") ?? ""}`.match(/20\d{2}/u)?.[0] ?? null;
+  const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–-]20\d{2}/u)?.[0] ?? null;
   const sources = sourceItems([...blsRows.map((row) => row["说明"]), authoritySourcesRaw]);
   if (!heading || !directAnswer || !wageHeading || !interpretationHeading || !interpretationRows ||
     !industryHeading || !industryRows || !factorsHeading || !factorRows || !outlookHeading || !boundary ||
-    !authoritySourcesRaw || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 3) return null;
+    !authoritySourcesRaw || !industryPeriod || !outlookPeriod || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 3) return null;
   return {
     heading,
     directAnswer,
@@ -177,6 +190,8 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
     factorRows,
     outlookHeading,
     outlookRows,
+    industryPeriod,
+    outlookPeriod,
     boundary,
     authoritySourcesRaw,
     sourceItems: sources,
@@ -254,7 +269,7 @@ function SalaryQuestion({ value }: { value: string }) {
   );
 }
 
-export function CareerDossierChinaSalary({ value, locale }: { value: CareerPublishedValue; locale: "zh" | "en" }) {
+export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null }) {
   const content = parseChinaSalary(value);
   if (!content) return null;
 
@@ -287,6 +302,7 @@ export function CareerDossierChinaSalary({ value, locale }: { value: CareerPubli
             </article>
           ))}
         </div>
+        <CareerEvidenceLine content={contentV3} factRefs={content.factRefs} />
       </section>
 
       <section className={visual.salarySection} aria-labelledby="china-salary-10k-title">
@@ -347,7 +363,7 @@ export function CareerDossierChinaSalary({ value, locale }: { value: CareerPubli
   );
 }
 
-export function CareerDossierUsSalary({ value, locale }: { value: CareerPublishedValue; locale: "zh" | "en" }) {
+export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null }) {
   const content = parseUsSalary(value);
   if (!content) return null;
   const wageTiers = buildUsWageTiers(content.wageRows, locale);
@@ -404,6 +420,7 @@ export function CareerDossierUsSalary({ value, locale }: { value: CareerPublishe
             </tbody>
           </table>
         </div>
+        <CareerEvidenceLine content={contentV3} factRefs={content.wageRows.flatMap((row) => row.fact_ref ? [row.fact_ref] : [])} />
       </section>
 
       <section className={visual.salarySection} aria-labelledby="us-salary-interpretation-title">
@@ -431,20 +448,21 @@ export function CareerDossierUsSalary({ value, locale }: { value: CareerPublishe
             <caption className="sr-only">{content.industryHeading}</caption>
             <thead><tr>
               <th scope="col">{locale === "zh" ? "行业" : "Industry"}</th>
-              <th scope="col">{locale === "zh" ? "2024 年薪中位数" : "2024 median annual wage"}</th>
+              <th scope="col">{locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`}</th>
               <th scope="col">{locale === "zh" ? "怎么理解" : "How to interpret"}</th>
             </tr></thead>
             <tbody>
               {content.industryRows.map((row, index) => (
                 <tr key={row.industry}>
                   <th scope="row" data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].industry`}>{row.industry}</th>
-                  <td data-label={locale === "zh" ? "2024 年薪中位数" : "2024 median annual wage"} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].median`}>{row.median}</td>
+                  <td data-label={locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].median`}>{row.median}</td>
                   <td data-label={locale === "zh" ? "怎么理解" : "How to interpret"} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].note`}>{row.note}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
+        <CareerEvidenceLine content={contentV3} factRefs={content.industryRows.flatMap((row) => row.fact_ref ? [row.fact_ref] : [])} />
       </section>
 
       <section className={visual.salarySection} aria-labelledby="us-salary-factors-title">
@@ -469,11 +487,12 @@ export function CareerDossierUsSalary({ value, locale }: { value: CareerPublishe
           {content.outlookRows.map((row, index) => (
             <article key={row["指标"]}>
               <h4>
-                <span>{row["指标"].replace(/^2024–2034 (?:就业|outlook) · /, "")}</span>
+                <span>{row["指标"].replace(/^20\d{2}[–-]20\d{2} (?:就业|outlook) · /iu, "")}</span>
                 <span aria-hidden="true" className="sr-only" data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].指标`}>{row["指标"]}</span>
               </h4>
               <strong data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].数值`}>{row["数值"]}</strong>
               <span aria-hidden="true" className="sr-only" data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].说明`}>{row["说明"]}</span>
+              <CareerEvidenceLine content={contentV3} factRefs={row.fact_ref ? [row.fact_ref] : []} />
             </article>
           ))}
         </div>

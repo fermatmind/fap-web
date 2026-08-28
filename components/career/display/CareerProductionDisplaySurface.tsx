@@ -6,6 +6,8 @@ import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCa
 import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuickAnswersBlock";
 import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
 import { CareerDossierProfile } from "@/components/career/display/CareerDossierProfile";
+import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
+import { CareerDossierEntryDecisions } from "@/components/career/display/CareerDossierEntryDecisions";
 import {
   CareerDossierDirectionComparison,
   supportsCareerDossierDirectionComparison,
@@ -527,6 +529,7 @@ function CareerProductionHero({
               <strong className={`block ${visual.heroStatValue}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].value` : undefined}>{stat.value}</strong>
               <span className={`block text-white/85 ${visual.heroStatLabel}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].label` : undefined}>{stat.label}</span>
               {stat.sourceLabel ? <span className={`block text-white/65 ${visual.heroStatSource}`} data-career-api-field={presentationField ? `${presentationField}.hero.stats[${index}].source_label` : undefined}>{stat.sourceLabel}</span> : null}
+              {"factRef" in stat && stat.factRef ? <CareerEvidenceLine content={surface.contentV3} factRefs={[stat.factRef]} inverse className="mt-1 text-[10px] leading-4 text-white/65" /> : null}
             </div>
           ))}
         </div>
@@ -552,11 +555,18 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
+  const v3Sources = surface.contentV3?.facts.length ? surface.contentV3.sources : [];
   return (
     <Container className={embedded ? visual.sourceRegisterInline : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"}>
       <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</Heading>
       <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
-        {surface.sources.map((source) => (
+        {(v3Sources.length > 0 ? v3Sources.map((source) => ({
+          key: source.id,
+          label: source.name,
+          url: source.url ?? undefined,
+          urlNote: [source.publisher, source.market, source.period, source.evidenceType, source.scope].filter(Boolean).join("｜"),
+          usage: [...source.details, ...(source.limitation ? [source.limitation] : [])],
+        })) : surface.sources).map((source) => (
           <li key={source.key} className="list-none text-sm leading-7 text-[#2a3346]">
             {source.url ? (
               <a href={source.url} className="font-semibold text-[#2C3E8C] hover:underline">
@@ -691,9 +701,11 @@ export function CareerProductionDisplaySurface({
         locale={surface.locale}
       />;
     }
-    if (componentId === "source_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} reviewValidity={surface.reviewValidity} locale={surface.locale} />
-      : <SourceCard surface={surface} />;
+    if (componentId === "source_card") return surface.contentV3?.facts.length
+      ? <SourceCard surface={surface} embedded={Boolean(groupHeader)} />
+      : publishedComponents
+        ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} reviewValidity={surface.reviewValidity} locale={surface.locale} />
+        : <SourceCard surface={surface} />;
     if (componentId === "review_validity_card") return publishedComponents
       ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} locale={surface.locale} />
       : <ReviewCard surface={surface} />;
@@ -731,6 +743,7 @@ export function CareerProductionDisplaySurface({
                   <span data-career-api-field={`faq_block.items.${item.question}.question`}>{item.question}</span>
                 </summary>
                 <p className="m-0 pb-4 text-sm leading-7 text-[#2a3346]" data-career-api-field={`faq_block.items.${item.question}.answer`}>{item.answer}</p>
+                <CareerEvidenceLine content={surface.contentV3} factRefs={item.factRefs} sourceRefs={item.sourceRefs} />
               </details>
             ))}
           </div>
@@ -842,21 +855,21 @@ export function CareerProductionDisplaySurface({
     const aiImpact = publishedComponents.ai_impact_table;
     if (block.copyKey === "career.block.ai-impact" && declares("ai_impact_table") && aiImpact !== undefined && supportsCareerDossierAiImpact(aiImpact)) {
       return <ComponentFrame id="ai_impact_table" instanceKey={block.instanceKey}>
-        <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />
+        <CareerDossierAiImpact value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
     const chinaSalary = publishedComponents.career_snapshot_primary_locale;
     if (block.copyKey === "career.block.china-salary" && declares("career_snapshot_primary_locale") && chinaSalary !== undefined && supportsCareerDossierChinaSalary(chinaSalary)) {
       return <ComponentFrame id="career_snapshot_primary_locale" instanceKey={block.instanceKey}>
-        <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />
+        <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
     const usSalary = publishedComponents.career_snapshot_secondary_locale;
     if (block.copyKey === "career.block.us-salary" && declares("career_snapshot_secondary_locale") && usSalary !== undefined && supportsCareerDossierUsSalary(usSalary)) {
       return <ComponentFrame id="career_snapshot_secondary_locale" instanceKey={block.instanceKey}>
-        <CareerDossierUsSalary value={usSalary} locale={surface.locale} />
+        <CareerDossierUsSalary value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
@@ -881,14 +894,20 @@ export function CareerProductionDisplaySurface({
     const progression = publishedComponents.career_path_block;
     if (block.copyKey === "career.block.path" && declares("career_path_block") && supportsCareerProgression(progression)) {
       return <ComponentFrame id="career_path_block" instanceKey={block.instanceKey}>
-        <CareerDossierProgression value={progression as CareerPublishedProgression} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+        <CareerDossierProgression
+          value={progression as CareerPublishedProgression}
+          locale={surface.locale}
+          sectionLabel={block.title}
+          sectionLabelId={`${block.anchorId}-title`}
+          entryDecisions={surface.contentV3 ? <CareerDossierEntryDecisions items={block.items} content={surface.contentV3} /> : undefined}
+        />
       </ComponentFrame>;
     }
 
     const outlook = publishedComponents.market_signal_card;
     if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
       return <ComponentFrame id="market_signal_card" instanceKey={block.instanceKey}>
-        <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+        <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
@@ -1141,7 +1160,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
           {supportsCareerDossierChinaSalary(chinaSalary)
-          ? <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />
+          ? <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
           : <CareerPublishedSemanticSection
               key="career_snapshot_primary_locale-china"
               componentId="career_snapshot_primary_locale"
@@ -1158,7 +1177,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="career_snapshot_secondary_locale" id="career_snapshot_secondary_locale">
           {supportsCareerDossierUsSalary(usSalary)
-            ? <CareerDossierUsSalary value={usSalary} locale={surface.locale} />
+            ? <CareerDossierUsSalary value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
             : renderComponent("career_snapshot_secondary_locale")}
         </ComponentFrame>,
       ];
@@ -1190,7 +1209,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="ai_impact_table" id="ai_impact_table">
           {supportsCareerDossierAiImpact(aiImpact)
-            ? <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />
+            ? <CareerDossierAiImpact value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
             : renderComponent("ai_impact_table")}
         </ComponentFrame>,
       ];
@@ -1242,7 +1261,7 @@ export function CareerProductionDisplaySurface({
     } else if (group.id === "market-signals" && isEnhanced && supportsCareerOutlookTransitions(publishedComponents.market_signal_card)) {
       componentNodes = [
         <ComponentFrame key="market_signal_card" id="market_signal_card">
-          <CareerDossierOutlookTransitions value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+          <CareerDossierOutlookTransitions value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} contentV3={surface.contentV3} />
         </ComponentFrame>,
       ];
     } else {

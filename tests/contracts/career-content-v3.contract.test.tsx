@@ -158,6 +158,106 @@ describe("career content v3 contract", () => {
     expect(screen.queryByRole("heading", { name: "复核有效期" })).not.toBeInTheDocument();
   });
 
+  it("renders fact-backed entry decisions without adding a top-level directory item", () => {
+    const fixture = surfaceFixture("zh");
+    const content = productionIsomorphicV3Fixture("zh") as ReturnType<typeof productionIsomorphicV3Fixture> & {
+      fact_register?: unknown;
+    };
+    content.fact_register = {
+      facts: [{
+        fact_id: "us-median-wage",
+        display_value: "$83,680",
+        market: "美国",
+        period: "2025 年 5 月",
+        measure: "年薪中位数",
+        occupation_scope: "Accountants and Auditors",
+        source_refs: ["bls-oews-2025"],
+        derivation: null,
+      }],
+    };
+    const sourceRegister = content.blocks.find((block) => block.id === "source-register")!;
+    (sourceRegister.items[0].data as Record<string, unknown>).entries = [{
+      id: "bls-oews-2025",
+      name: "BLS 2025 OEWS",
+      url: "https://www.bls.gov/news.release/ocwage.t01.htm",
+      details: ["美国全国职业工资统计"],
+      publisher: "BLS OEWS",
+      market: "美国",
+      period: "2025 年 5 月",
+      evidence_type: "官方工资统计",
+      scope: "Accountants and Auditors",
+      limitation: "不是个人起薪或到手工资",
+      accessed_at: "2026-08-29",
+    }];
+    const path = content.blocks.find((block) => block.id === "path")!;
+    (path.items as unknown[]).push(
+      {
+        id: "entry-role-comparison",
+        copy_key: "career.item.entry-role-comparison",
+        type: "table",
+        availability: "available",
+        source_refs: ["bls-oews-2025"],
+        data: {
+          column_keys: ["role", "initial_tasks", "employer_evidence", "no_experience_proof", "distinction"],
+          rows: [["审计助理", "执行程序并整理证据", "底稿可复核", "简化审计底稿", "以独立验证为核心"]],
+        },
+      },
+      {
+        id: "entry-portfolio",
+        copy_key: "career.item.entry-portfolio",
+        type: "cards",
+        availability: "available",
+        fact_refs: ["us-median-wage"],
+        data: { entries: [{ id: "reconciliation", values: ["对账表", "定位差异并保留证据索引"] }] },
+      },
+      {
+        id: "seven-day-trial",
+        copy_key: "career.item.seven-day-trial",
+        type: "timeline",
+        availability: "available",
+        data: { entries: [{ id: "day-1", values: ["第 1 天", "选择会计、外审或内审方向"] }] },
+      },
+      {
+        id: "credential-boundary",
+        copy_key: "career.item.credential-boundary",
+        type: "list",
+        availability: "available",
+        data: { entries: ["考试合格不等于执业注册。"] },
+      },
+    );
+    const faqEntries = (content.blocks.find((block) => block.id === "sources")!.items[0].data as { entries: Array<Record<string, unknown>> }).entries;
+    const faq = faqEntries[0];
+    faq.fact_refs = ["us-median-wage"];
+    fixture.content_v3 = content;
+
+    const presentation = fixture.presentation_v2 as { hero: { stats: Array<Record<string, unknown>> } };
+    presentation.hero.stats[0].fact_ref = "us-median-wage";
+    (fixture.page.content as Record<string, unknown>).career_path_block = {
+      schema_version: "career.career_progression.v1",
+      heading: "怎样成为会计师或审计师？",
+      direct_answer: "先用真实任务证明能力，再决定证书投入。",
+      boundary: "不存在通用的工作满几年必然晋升路线。",
+      locale_requirements: { jurisdiction: "中国大陆", summary: "岗位与单位决定普通企业会计入行条件。", credential_boundary: "执业和签字责任另受法规约束。" },
+      tracks: Array.from({ length: 3 }, (_, track) => ({
+        id: `track-${track}`,
+        title: `发展方向 ${track + 1}`,
+        stages: Array.from({ length: 4 }, (_, stage) => ({ role: `岗位 ${track + 1}-${stage + 1}`, responsibility: "完成专业任务", readiness_evidence: "形成可复核成果", credentials: "按岗位需要判断", next_moves: "承担更完整责任" })),
+      })),
+      competence_ladder: Array.from({ length: 4 }, (_, index) => ({ stage: `能力层级 ${index + 1}`, description: "用工作证据证明胜任。" })),
+      source_links: Array.from({ length: 4 }, (_, index) => ({ id: `path-source-${index}`, label: `Path source ${index}`, href: `https://example.com/path-${index}`, scope: "职业发展依据" })),
+    };
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
+    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("常见入门岗位");
+    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("考试合格不等于执业注册");
+    expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);
+    expect(screen.getByTestId("source-list")).toHaveTextContent("不是个人起薪或到手工资");
+    expect(JSON.stringify(buildCareerDisplayFAQPageJsonLd(surface))).toContain("Visible v3 FAQ answer.");
+    expect(surface?.faqItems[0]?.answer).toBe("Visible v3 FAQ answer.");
+  });
+
   it("renders arbitrary block order and repeated semantics through the universal registry", () => {
     const fixture = surfaceFixture("en");
     const content = fixture.content_v3 as ReturnType<typeof v3Fixture>;

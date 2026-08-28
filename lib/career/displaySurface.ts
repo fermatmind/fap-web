@@ -128,6 +128,8 @@ export type CareerDisplayStep = {
 export type CareerDisplayFAQItem = {
   question: string;
   answer: string;
+  factRefs?: string[];
+  sourceRefs?: string[];
 };
 
 export type CareerDisplaySection = {
