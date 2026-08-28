@@ -90,6 +90,12 @@ type Props = {
   salarySlot?: ReactNode;
 };
 
+const INTERNAL_COMPONENT_IDS = new Set<CareerDisplayComponentId>([
+  "boundary_notice",
+  "review_validity_card",
+  "final_cta",
+]);
+
 const COMPONENT_TO_SECTION: Partial<Record<CareerDisplayComponentId, string>> = {
   fermat_decision_card: "FermatDecisionCard",
   career_snapshot_primary_locale: "CareerSnapshotCard",
@@ -611,7 +617,7 @@ export function CareerProductionDisplaySurface({
     groupHeader?: { label: string; labelId: string }
   ) => {
     if (!surface.componentOrder.includes(componentId)) return null;
-    if (["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)) return null;
+    if (INTERNAL_COMPONENT_IDS.has(componentId)) return null;
 
     if (componentId === "breadcrumb") {
       const rawBreadcrumb = publishedComponents?.breadcrumb;
@@ -889,7 +895,7 @@ export function CareerProductionDisplaySurface({
     if (block.copyKey === "career.block.sources") {
       const nodes = block.declaredComponentIds.flatMap((componentId) => {
         if (!availableComponents.has(componentId)) return [];
-        if (["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)) return [];
+        if (INTERNAL_COMPONENT_IDS.has(componentId)) return [];
         if (publishedComponents[componentId] === undefined) return [
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
             <CareerV3Placeholder compact locale={surface.locale} />
@@ -910,9 +916,7 @@ export function CareerProductionDisplaySurface({
       return nodes.length > 0 ? <>{nodes}</> : null;
     }
 
-    const components = block.declaredComponentIds.filter((componentId) =>
-      !["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)
-    );
+    const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));
     if (components.length === 0 || components.some((componentId) => publishedComponents[componentId] === undefined)) return null;
     const nodes = components.map((componentId) => renderComponent(componentId));
     if (nodes.some((node) => node === null)) return null;
