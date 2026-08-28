@@ -250,6 +250,7 @@ describe("career content v3 contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
+    expect(screen.getByRole("heading", { name: "应届生／转行者如何验证并入门", level: 3 })).toBeInTheDocument();
     expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("常见入门岗位");
     expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("考试合格不等于执业注册");
     expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);

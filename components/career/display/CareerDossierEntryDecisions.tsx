@@ -41,7 +41,7 @@ function entries(item: CareerContentV3Item): Array<{ id: string; values: string[
 
 function ItemTitle({ item, locale }: { item: CareerContentV3Item; locale: "zh" | "en" }) {
   const title = careerContentV3ItemCopy(item.copyKey, locale);
-  return title ? <h3 className="m-0 text-xl font-bold text-[#172A60]">{title}</h3> : null;
+  return title ? <h4 className="m-0 text-lg font-bold text-[#172A60]">{title}</h4> : null;
 }
 
 function DecisionTable({ item, content }: { item: CareerContentV3Item; content: CareerContentV3 }) {
@@ -113,16 +113,22 @@ export function careerEntryDecisionItems(items: readonly CareerContentV3Item[]):
 export function CareerDossierEntryDecisions({ items, content }: { items: readonly CareerContentV3Item[]; content: CareerContentV3 }) {
   const visibleItems = careerEntryDecisionItems(items);
   if (visibleItems.length === 0) return null;
+  const heading = content.locale === "zh"
+    ? "应届生／转行者如何验证并入门"
+    : "How graduates and career changers can validate and enter";
   return (
-    <div className="mt-8 space-y-8 border-t border-[#E5E9F2] pt-7" data-testid="career-entry-decisions">
-      {visibleItems.map((item) => (
-        <section key={item.id} aria-labelledby={`${item.id}-title`} className="min-w-0">
-          <div id={`${item.id}-title`}><ItemTitle item={item} locale={content.locale} /></div>
-          {item.type === "table" || item.type === "matrix" ? <DecisionTable item={item} content={content} />
-            : item.type === "cards" || item.type === "timeline" ? <DecisionCards item={item} content={content} />
-              : <DecisionText item={item} content={content} />}
-        </section>
-      ))}
+    <div className="mt-8 border-t border-[#E5E9F2] pt-7" data-testid="career-entry-decisions">
+      <h3 className="m-0 text-xl font-bold text-[#172A60]">{heading}</h3>
+      <div className="mt-5 space-y-8">
+        {visibleItems.map((item) => (
+          <section key={item.id} aria-labelledby={`${item.id}-title`} className="min-w-0">
+            <div id={`${item.id}-title`}><ItemTitle item={item} locale={content.locale} /></div>
+            {item.type === "table" || item.type === "matrix" ? <DecisionTable item={item} content={content} />
+              : item.type === "cards" || item.type === "timeline" ? <DecisionCards item={item} content={content} />
+                : <DecisionText item={item} content={content} />}
+          </section>
+        ))}
+      </div>
     </div>
   );
 }
