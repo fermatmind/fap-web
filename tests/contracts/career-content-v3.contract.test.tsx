@@ -180,7 +180,10 @@ describe("career content v3 contract", () => {
       id: "bls-oews-2025",
       name: "BLS 2025 OEWS",
       url: "https://www.bls.gov/news.release/ocwage.t01.htm",
-      details: ["美国全国职业工资统计"],
+      details: [
+        "美国全国职业工资统计",
+        "FA01｜北京｜示例雇主｜财务实习生｜在校生／应届生｜本科｜https://example.com/jobs/fa01",
+      ],
       publisher: "BLS OEWS",
       market: "美国",
       period: "2025 年 5 月",
@@ -232,7 +235,16 @@ describe("career content v3 contract", () => {
 
     const presentation = fixture.presentation_v2 as { hero: { stats: Array<Record<string, unknown>> } };
     presentation.hero.stats[0].fact_ref = "us-median-wage";
-    (fixture.page.content as Record<string, unknown>).career_path_block = {
+    const publishedContent = fixture.page.content as Record<string, unknown>;
+    const outlook = publishedContent.market_signal_card as { outlook_evidence: Array<Record<string, unknown>> };
+    outlook.outlook_evidence[0].source_ref = "bls-oews-2025";
+    const aiImpact = publishedContent.ai_impact_table as {
+      evidence_rows: Array<Record<string, unknown>>;
+      questions: Array<Record<string, unknown>>;
+    };
+    aiImpact.evidence_rows[0].source_ref = "bls-oews-2025";
+    aiImpact.questions[0].source_ref = "bls-oews-2025";
+    publishedContent.career_path_block = {
       schema_version: "career.career_progression.v1",
       heading: "怎样成为会计师或审计师？",
       direct_answer: "先用真实任务证明能力，再决定证书投入。",
@@ -255,6 +267,10 @@ describe("career content v3 contract", () => {
     expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("考试合格不等于执业注册");
     expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);
     expect(screen.getByTestId("source-list")).toHaveTextContent("不是个人起薪或到手工资");
+    expect(screen.getByTestId("source-list").querySelectorAll("details")).toHaveLength(1);
+    expect(screen.getByRole("link", { name: "查看 FA01 原始职位" })).toHaveAttribute("href", "https://example.com/jobs/fa01");
+    expect(within(screen.getByTestId("career-dossier-ai-impact")).getAllByTestId("career-near-source")).toHaveLength(2);
+    expect(within(screen.getByTestId("career-dossier-outlook-transitions")).getByTestId("career-near-source")).toHaveTextContent("BLS OEWS｜美国｜2025 年 5 月｜官方工资统计");
     expect(JSON.stringify(buildCareerDisplayFAQPageJsonLd(surface))).toContain("Visible v3 FAQ answer.");
     expect(surface?.faqItems[0]?.answer).toBe("Visible v3 FAQ answer.");
   });

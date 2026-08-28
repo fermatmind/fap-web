@@ -76,12 +76,12 @@ function parseAiImpact(value: CareerPublishedValue): AiImpactContent | null {
   const transition = text(value.transition);
   const methodCards = rows(value.method_cards, ["概念", "含义"], 3);
   const taskRows = rows(value.task_rows, ["工作方向", "任务", "当前变化", "人的控制点"], 4);
-  const evidenceRows = rows(value.evidence_rows, ["来源", "研究对象", "结论", "使用限制", "链接"], 3, ["fact_ref"]);
+  const evidenceRows = rows(value.evidence_rows, ["来源", "研究对象", "结论", "使用限制", "链接"], 3, ["fact_ref", "source_ref"]);
   const differenceRows = rows(value.difference_rows, ["方向", "AI主要改变", "仍由人负责"], 2);
   const responsibilitySteps = rows(value.responsibility_steps, ["步骤", "说明"], 4);
   const riskRows = rows(value.risk_rows, ["风险", "为什么重要", "控制方式"], 3);
   const actionRows = rows(value.action_rows, ["人群", "应对重点"], 3);
-  const questions = rows(value.questions, ["问题", "回答", "来源", "链接"], 3, ["fact_ref"]);
+  const questions = rows(value.questions, ["问题", "回答", "来源", "链接"], 3, ["fact_ref", "source_ref"]);
   const authorityLinks = rows(value.authority_links, ["来源", "类型", "适用范围", "链接"], 3);
 
   if (!heading || !answer || !evidenceIntro || !differenceIntro || !responsibilityIntro ||
@@ -191,7 +191,7 @@ export function CareerDossierAiImpact({ value, locale, contentV3 = null }: { val
                 <div><dt>{locale === "zh" ? "主要结论" : "Finding"}</dt><dd data-career-api-field={`ai_impact_table.evidence_rows[${index}].结论`}>{row["结论"]}</dd></div>
                 <div><dt>{locale === "zh" ? "使用限制" : "Limitation"}</dt><dd data-career-api-field={`ai_impact_table.evidence_rows[${index}].使用限制`}>{row["使用限制"]}</dd></div>
               </dl>
-              <CareerEvidenceLine content={contentV3} factRefs={row.fact_ref ? [row.fact_ref] : []} />
+              <CareerEvidenceLine content={contentV3} factRefs={row.fact_ref ? [row.fact_ref] : []} sourceRefs={row.source_ref ? [row.source_ref] : []} />
             </article>
           ))}
         </div>
@@ -266,7 +266,7 @@ export function CareerDossierAiImpact({ value, locale, contentV3 = null }: { val
                 <span aria-hidden="true"> · </span>
                 <SourceLink href={item["链接"]} field={`ai_impact_table.questions[${index}].链接`}>{locale === "zh" ? "原始资料 ↗" : "Original source ↗"}</SourceLink>
               </p>
-              <CareerEvidenceLine content={contentV3} factRefs={item.fact_ref ? [item.fact_ref] : []} />
+              <CareerEvidenceLine content={contentV3} factRefs={item.fact_ref ? [item.fact_ref] : []} sourceRefs={item.source_ref ? [item.source_ref] : []} />
             </article>
           ))}
         </div>

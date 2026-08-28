@@ -44,6 +44,7 @@ import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
+  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   type CareerDisplayComponentId,
   type CareerDisplaySection,
@@ -555,18 +556,55 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
-  const v3Sources = surface.contentV3?.facts.length ? surface.contentV3.sources : [];
+  const v3Sources = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+    ? surface.contentV3?.sources ?? []
+    : [];
+  const sourceDetail = (value: string): { text: string; href: string | null; linkLabel: string } => {
+    const match = value.match(/^(.*?)(https:\/\/\S+)$/u);
+    if (!match) return { text: value, href: null, linkLabel: "" };
+    const text = match[1].replace(/｜\s*$/u, "").trim();
+    const recordId = text.split("｜", 1)[0]?.trim();
+    return {
+      text,
+      href: match[2],
+      linkLabel: recordId && /^[A-Z]{2}\d+$/u.test(recordId) ? `查看 ${recordId} 原始职位` : "查看原始资料",
+    };
+  };
   return (
     <Container className={embedded ? visual.sourceRegisterInline : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"}>
       <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</Heading>
       <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
-        {(v3Sources.length > 0 ? v3Sources.map((source) => ({
-          key: source.id,
-          label: source.name,
-          url: source.url ?? undefined,
-          urlNote: [source.publisher, source.market, source.period, source.evidenceType, source.scope].filter(Boolean).join("｜"),
-          usage: [...source.details, ...(source.limitation ? [source.limitation] : [])],
-        })) : surface.sources).map((source) => (
+        {v3Sources.length > 0 ? v3Sources.map((source) => (
+          <li key={source.id} className="list-none">
+            <details className="group rounded-xl border border-[#DCE3F0] bg-[#F8FAFD] px-4 py-3">
+              <summary className="cursor-pointer list-none pr-7 text-sm text-[#2a3346] marker:content-none">
+                <span className="block font-bold text-[#243B7A]">{source.scope ?? source.name}</span>
+                <span className="mt-1 block text-xs leading-5 text-[#657087]">
+                  {[source.publisher ?? source.name, source.market, source.period, source.evidenceType].filter(Boolean).join("｜")}
+                </span>
+              </summary>
+              <div className="mt-3 border-t border-[#DCE3F0] pt-3 text-sm leading-7 text-[#2a3346]">
+                {source.url ? (
+                  <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">
+                    查看原始资料：{source.publisher ?? source.name}
+                  </a>
+                ) : null}
+                {source.details.length > 0 ? (
+                  <ul className="m-0 mt-2 list-disc pl-5">
+                    {source.details.map((usage) => {
+                      const detail = sourceDetail(usage);
+                      return <li key={usage}>
+                        {detail.text}
+                        {detail.href ? <>{detail.text ? " — " : null}<a href={detail.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">{detail.linkLabel}</a></> : null}
+                      </li>;
+                    })}
+                  </ul>
+                ) : null}
+                {source.limitation ? <p className="m-0 mt-2 rounded-lg bg-[#FFF6E9] px-3 py-2 text-xs leading-5 text-[#6A5738]"><strong>使用限制：</strong>{source.limitation}</p> : null}
+              </div>
+            </details>
+          </li>
+        )) : surface.sources.map((source) => (
           <li key={source.key} className="list-none text-sm leading-7 text-[#2a3346]">
             {source.url ? (
               <a href={source.url} className="font-semibold text-[#2C3E8C] hover:underline">
