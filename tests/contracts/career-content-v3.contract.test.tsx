@@ -169,7 +169,14 @@ describe("career content v3 contract", () => {
         raw.subject.name = locale === "zh" ? `职业 ${index}` : `Career role ${index}`;
         const content = normalizeCareerContentV3(raw, locale);
         expect(content).not.toBeNull();
-        const html = renderToStaticMarkup(<CareerContentV3Surface content={content!} ctaHref={`/${locale}/tests/holland-career-interest-test-riasec`} />);
+        const html = renderToStaticMarkup(
+          <CareerContentV3Surface
+            content={content!}
+            ctaHref={`/${locale}/tests/holland-career-interest-test-riasec`}
+            rendererRelease="content-v3-test-release"
+          />,
+        );
+        expect(html).toContain('data-career-renderer-release="content-v3-test-release"');
         expect(html).toContain(`data-content-contract="career.detail.content.v3"`);
         expect(html).toContain(`id="career-content-risk-primary"`);
         expect(html).not.toContain("overflow-x:hidden");

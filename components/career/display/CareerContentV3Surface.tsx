@@ -15,6 +15,7 @@ import {
 type Props = {
   content: CareerContentV3;
   ctaHref: string;
+  rendererRelease?: string;
 };
 
 function itemLabel(index: number, locale: CareerContentV3["locale"]): string {
@@ -86,11 +87,16 @@ function ItemGroups({ block, content }: { block: CareerContentV3Block; content: 
   ))}</div>;
 }
 
-export function CareerContentV3Surface({ content, ctaHref }: Props) {
+export function CareerContentV3Surface({ content, ctaHref, rendererRelease }: Props) {
   const successful = content.blocks.filter((block) => renderableBlock(block, content));
   const isZh = content.locale === "zh";
   return (
-    <article className={styles.surface} data-testid="career-content-v3-surface" data-content-contract={content.contractVersion}>
+    <article
+      className={styles.surface}
+      data-testid="career-content-v3-surface"
+      data-content-contract={content.contractVersion}
+      data-career-renderer-release={rendererRelease}
+    >
       <header className={styles.hero}>
         <p className={styles.eyebrow}>{isZh ? "费马职业档案" : "FermatMind career dossier"}</p>
         <h1>{content.subject.name}</h1>

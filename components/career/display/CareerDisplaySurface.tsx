@@ -636,7 +636,13 @@ export function CareerDisplaySurface({
           attributionParams: ctaAttributionParams,
         })
       : surface.cta.href;
-    return <CareerContentV3Surface content={surface.contentV3} ctaHref={contentV3CtaHref} />;
+    return (
+      <CareerContentV3Surface
+        content={surface.contentV3}
+        ctaHref={contentV3CtaHref}
+        rendererRelease={rendererRelease}
+      />
+    );
   }
 
   const claimPermissions = surface.claimPermissions;
