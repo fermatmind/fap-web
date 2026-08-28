@@ -169,6 +169,21 @@ describe("career display surface contract", () => {
       titleEn: "Accountants and Auditors",
       titleZh: "会计与审计人员",
     });
+    if (locale === "zh") {
+      const usSalary = fixture.page.content.career_snapshot_secondary_locale as Record<string, unknown>;
+      usSalary.outlook_heading = "2025—2035 年美国就业前景";
+      usSalary.authority_sources = "BLS OEWS 2025 年 5 月全国工资数据｜https://www.bls.gov/news.release/ocwage.t01.htm；BLS OOH 2025—2035 年就业预测与行业工资｜https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm";
+      usSalary.bls_table = [
+        { 指标: "2025 薪资 · 10 分位", 数值: "$56,020", 说明: "BLS OEWS｜美国｜2025 年 5 月｜会计师和审计师工资分位", fact_ref: "bls-us-accountants-wage-p10-2025" },
+        { 指标: "2025 薪资 · 25 分位", 数值: "$67,020", 说明: "BLS OEWS｜美国｜2025 年 5 月｜会计师和审计师工资分位", fact_ref: "bls-us-accountants-wage-p25-2025" },
+        { 指标: "2025 薪资 · 中位数", 数值: "$83,680", 说明: "BLS OEWS｜美国｜2025 年 5 月｜会计师和审计师工资分位", fact_ref: "bls-us-accountants-wage-median-2025" },
+        { 指标: "2025 薪资 · 75 分位", 数值: "$109,810", 说明: "BLS OEWS｜美国｜2025 年 5 月｜会计师和审计师工资分位", fact_ref: "bls-us-accountants-wage-p75-2025" },
+        { 指标: "2025 薪资 · 90 分位", 数值: "$144,090", 说明: "BLS OEWS｜美国｜2025 年 5 月｜会计师和审计师工资分位", fact_ref: "bls-us-accountants-wage-p90-2025" },
+        { 指标: "2025—2035 就业 · 就业规模", 数值: "1,595,200 → 1,674,600 人", 说明: "净增加 79,400 人；BLS Employment Projections", fact_ref: "bls-us-accountants-employment-2025" },
+        { 指标: "2025—2035 就业 · 增长率", 数值: "5%", 说明: "美国国家级职业预测，不代表其他市场或每个地区。", fact_ref: "bls-us-accountants-employment-growth-2025-2035" },
+        { 指标: "2025—2035 就业 · 年均职位空缺", 数值: "115,300 个", 说明: "包含退休、离职和职业转换产生的替代需求，不等于净新增。", fact_ref: "bls-us-accountants-openings-2025-2035" },
+      ];
+    }
     const surface = adaptCareerDisplaySurface(fixture, locale);
 
     expect(surface?.boundaryNotice).toHaveLength(2);
@@ -203,7 +218,10 @@ describe("career display surface contract", () => {
       expect(usSalary).toHaveTextContent("美国审计师一定比会计师工资高吗？");
       expect(usSalary).toHaveTextContent("金融与保险");
       expect(usSalary).toHaveTextContent("地区与生活成本");
-      expect(usSalary).toHaveTextContent("124,200 个");
+      expect(usSalary).toHaveTextContent("115,300 个");
+      expect(usSalary).toHaveTextContent("1,595,200 → 1,674,600 人");
+      expect(usSalary).toHaveTextContent("$6,973");
+      expect(usSalary).not.toHaveTextContent("fact_ref");
       expect(usSalary.querySelectorAll("[class*='salaryOutlookGrid'] article p")).toHaveLength(0);
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
       expect(chinaSalary).toHaveTextContent("AI 更可能造成岗位价值分化");
@@ -213,7 +231,7 @@ describe("career display surface contract", () => {
       expect(screen.getByTestId("career-dossier-ai-impact")).toHaveTextContent("AI 能处理哪些会计与审计任务？");
       expect(screen.getByTestId("career-dossier-ai-impact")).toHaveTextContent("为什么就业证据会得出不同结论？");
       expect(screen.getByRole("columnheader", { name: "岗位场景" })).toBeInTheDocument();
-      expect(screen.getByRole("columnheader", { name: "税前月均等值" })).toBeInTheDocument();
+      expect(screen.getByRole("columnheader", { name: "税前月均等值（编辑换算）" })).toBeInTheDocument();
       expect(document.querySelector('main [data-career-component-id="breadcrumb"]')).not.toBeInTheDocument();
       expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
     } else {

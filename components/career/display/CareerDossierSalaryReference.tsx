@@ -172,11 +172,11 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const wageRows = blsRows.filter((row) => /(?:薪资|wages)/iu.test(row["指标"]));
   const outlookRows = blsRows.filter((row) => /(?:就业|outlook)/iu.test(row["指标"]));
   const industryPeriod = text(value.industry_period) ?? `${industryHeading ?? ""} ${industryRows?.map((row) => row.note).join(" ") ?? ""}`.match(/20\d{2}/u)?.[0] ?? null;
-  const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–-]20\d{2}/u)?.[0] ?? null;
+  const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–—-]20\d{2}/u)?.[0] ?? null;
   const sources = sourceItems([...blsRows.map((row) => row["说明"]), authoritySourcesRaw]);
   if (!heading || !directAnswer || !wageHeading || !interpretationHeading || !interpretationRows ||
     !industryHeading || !industryRows || !factorsHeading || !factorRows || !outlookHeading || !boundary ||
-    !authoritySourcesRaw || !industryPeriod || !outlookPeriod || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 3) return null;
+    !authoritySourcesRaw || !industryPeriod || !outlookPeriod || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 2) return null;
   return {
     heading,
     directAnswer,
@@ -199,10 +199,16 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
 }
 
 function monthlyEquivalent(row: ScalarRow): string {
-  return row["说明"].split(/[；;]/)[0]
+  const described = row["说明"].split(/[；;]/)[0]
     .replace("税前月均等值约 ", "")
     .replace("About ", "")
     .replace(" gross monthly equivalent", "");
+  if (/^\$[\d,]+(?:\.\d+)?$/u.test(described)) return described;
+
+  const annual = Number(row["数值"].replace(/[^\d.]/gu, ""));
+  return Number.isFinite(annual) && annual > 0
+    ? `$${Math.round(annual / 12).toLocaleString("en-US")}`
+    : described;
 }
 
 function buildUsWageTiers(wageRows: ScalarRow[], locale: "zh" | "en"): UsWageTier[] {
@@ -393,7 +399,7 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { val
             <thead><tr>
               <th scope="col">{locale === "zh" ? "工资位置" : "Wage position"}</th>
               <th scope="col">{locale === "zh" ? "年工资参考" : "Annual wage"}</th>
-              <th scope="col">{locale === "zh" ? "税前月均等值" : "Gross monthly equivalent"}</th>
+              <th scope="col">{locale === "zh" ? "税前月均等值（编辑换算）" : "Gross monthly equivalent"}</th>
               <th scope="col">{locale === "zh" ? "通常怎么理解" : "How to interpret"}</th>
             </tr></thead>
             <tbody>
