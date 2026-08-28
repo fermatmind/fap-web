@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { CareerDecisionActionBlock } from "@/components/career/display/CareerDecisionActionBlock";
 import { CareerProductionDisplaySurface } from "@/components/career/display/CareerProductionDisplaySurface";
+import { CareerContentV3Surface } from "@/components/career/display/CareerContentV3Surface";
 import { CareerDisplayHero } from "@/components/career/display/CareerDisplayHero";
 import { CareerFAQBlock } from "@/components/career/display/CareerFAQBlock";
 import { ClaimGuard } from "@/components/career/ClaimGuard";
@@ -624,6 +625,18 @@ export function CareerDisplaySurface({
 }: CareerDisplaySurfaceProps) {
   if (!surface) {
     return null;
+  }
+
+  if (surface.contentV3) {
+    const contentV3CtaHref = ctaLandingPath
+      ? buildDisplayCtaHref({
+          locale: surface.locale,
+          landingPath: ctaLandingPath,
+          subjectSlug: surface.subject.canonicalSlug,
+          attributionParams: ctaAttributionParams,
+        })
+      : surface.cta.href;
+    return <CareerContentV3Surface content={surface.contentV3} ctaHref={contentV3CtaHref} />;
   }
 
   const claimPermissions = surface.claimPermissions;

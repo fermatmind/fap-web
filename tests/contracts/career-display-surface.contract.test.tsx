@@ -1165,4 +1165,116 @@ describe("career display surface contract", () => {
     expect(surface?.subject.canonicalSlug).toBe("writers");
   });
 
+  it("renders the accountant fit decision center from the enhanced backend contract", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleZh: "会计师和审计师",
+      presentationV2: "enhanced",
+    });
+    const page = fixture.page.content as Record<string, unknown>;
+    const presentationV2 = (fixture as typeof fixture & {
+      presentation_v2: { groups: Array<{ id: string; label: string; component_ids: string[] }> };
+    }).presentation_v2;
+    const omittedComponents = ["review_validity_card", "boundary_notice", "final_cta"];
+    fixture.component_order = fixture.component_order.filter((componentId) => !omittedComponents.includes(componentId));
+    for (const componentId of omittedComponents) delete page[componentId];
+    const sourcePresentationGroup = presentationV2.groups.find((group) => group.id === "sources");
+    if (sourcePresentationGroup) {
+      sourcePresentationGroup.component_ids = sourcePresentationGroup.component_ids.filter(
+        (componentId) => !omittedComponents.includes(componentId),
+      );
+    }
+    const fitPresentationGroup = presentationV2.groups.find((group) => group.id === "fit");
+    if (fitPresentationGroup) fitPresentationGroup.label = "职业适配指南";
+    const assessmentIds = ["riasec", "big-five", "mbti", "enneagram", "iq", "eq"];
+    page.personality_fit_block = {
+      schema_version: "career.fit_decision_center.v1",
+      heading: "做会计或审计，哪些兴趣、性格特质与能力更重要？",
+      direct_answer: "真正需要验证的是能否适应准确性、截止日期、证据复核和跨部门沟通。",
+      signals: [
+        { id: "fit", label: "你可能更适合", body: "愿意持续核对并为结论留痕。", tone: "positive" },
+        { id: "caution", label: "你可能需要慎重", body: "无法接受规则、复核和截止压力。", tone: "caution" },
+        { id: "experiment", label: "30 分钟真实工作实验", body: "完成一次对账并解释差异。", tone: "action" },
+      ],
+      assessments: assessmentIds.map((id) => ({
+        id,
+        label: id.toUpperCase(),
+        question: `${id} 能回答什么？`,
+        answer: `${id} 需要放回真实工作场景解释。`,
+        evidence_level: "探索性框架",
+        signals: ["核对真实工作偏好"],
+        watchout: "不能作为录用或淘汰依据。",
+        cta_label: `查看 ${id} 测试`,
+        cta_href: `/zh/tests/${id}-career-fit-test`,
+      })),
+      directions: [
+        ["企业会计", "bookkeeping-accounting-and-auditing-clerks", "簿记、会计与审计文员"],
+        ["外部审计", "financial-examiners", "金融审查员"],
+        ["税务", "tax-preparers", "税务申报员"],
+        ["管理会计", "financial-analysts", "金融与投资分析师"],
+        ["法务会计", "fraud-examiners-investigators-and-analysts", "欺诈审查员、调查员和分析师"],
+        ["财务负责人", "financial-managers", "财务经理"],
+      ].map(([direction, slug, title]) => ({
+        direction,
+        fit_signals: "把兴趣和能力映射到具体任务。",
+        target: { slug, title, href: `/zh/career/jobs/${slug}` },
+        watchouts: "岗位名称不能代替职责核对。",
+      })),
+      questions: Array.from({ length: 10 }, (_, index) => ({
+        question: `会计适配问题 ${index + 1}？`,
+        answer: `这是页面可见的直接答案 ${index + 1}。`,
+      })),
+      boundary: "测评只用于职业探索，不诊断人格，也不预测录用。",
+      source_links: ["onet", "bls", "myers-briggs", "acca"].map((source) => ({
+        label: source,
+        href: `https://example.com/${source}`,
+        usage: "职业适配证据边界",
+      })),
+    };
+
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+    render(<CareerDisplaySurface surface={surface} />);
+
+    expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("做会计或审计，哪些兴趣、性格特质与能力更重要？");
+    expect(document.getElementById("career-visual-group-title-fit")).toHaveTextContent("职业适配指南");
+    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("你可能更适合");
+    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("你可能需要慎重");
+    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("30 分钟真实工作实验");
+    expect(document.querySelector('[data-career-api-list="personality_fit_block.signals"]')).not.toBeInTheDocument();
+    expect(document.querySelectorAll("[data-fit-assessment]")).toHaveLength(6);
+    const assessmentIcons = Array.from(document.querySelectorAll("[data-fit-assessment-icon]"));
+    expect(assessmentIcons.map((icon) => icon.getAttribute("data-fit-assessment-icon"))).toEqual(assessmentIds);
+    assessmentIcons.forEach((icon) => {
+      expect(icon).toHaveAttribute("aria-hidden", "true");
+      expect(icon.querySelector("svg")).toBeInTheDocument();
+    });
+    const riasecBaseline = document.querySelector('[data-career-riasec-role="official-baseline"]');
+    const assessmentGrid = document.querySelector('[data-career-api-list="personality_fit_block.assessments"]');
+    expect(riasecBaseline).toHaveTextContent("O*NET 职业兴趣基线");
+    expect(riasecBaseline).toHaveTextContent("CEI");
+    expect(riasecBaseline?.compareDocumentPosition(assessmentGrid as Node) ?? 0)
+      .toBe(Node.DOCUMENT_POSITION_FOLLOWING);
+    const directionLinks = document.querySelectorAll('[data-career-api-list="personality_fit_block.directions"] > a[data-career-direction-target]');
+    expect(directionLinks).toHaveLength(6);
+    expect(directionLinks[0]).toHaveAttribute("href", "/zh/career/jobs/bookkeeping-accounting-and-auditing-clerks");
+    expect(directionLinks[0]).toHaveTextContent("查看相关职业：簿记、会计与审计文员");
+    expect(document.querySelectorAll('[data-career-api-list="personality_fit_block.questions"] > details')).toHaveLength(10);
+    expect(document.querySelectorAll('[data-career-api-list="personality_fit_block.questions"] > details[open]')).toHaveLength(0);
+    expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("职业适配常见问题");
+    expect(document.querySelector('[data-career-component-id="riasec_fit_block"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-career-component-id="personality_fit_block"]')).toBeInTheDocument();
+    for (const componentId of omittedComponents) {
+      expect(document.querySelector(`[data-career-component-id="${componentId}"]`)).not.toBeInTheDocument();
+    }
+    const assessmentRail = screen.getByTestId("career-production-assessment-rail");
+    expect(assessmentRail).not.toHaveTextContent("找到更适合你的方向");
+    expect(assessmentRail.querySelector("a")).toHaveAttribute(
+      "href",
+      expect.stringContaining("/zh/tests/holland-career-interest-test-riasec"),
+    );
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.body).not.toHaveTextContent("[object Object]");
+  });
+
 });

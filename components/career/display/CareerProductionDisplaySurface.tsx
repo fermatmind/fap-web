@@ -25,6 +25,18 @@ import {
   CareerDossierQuickDecisionAnswer,
 } from "@/components/career/display/CareerDossierQuickDecision";
 import {
+  CareerDossierFitCenter,
+  supportsCareerDossierFitCenter,
+} from "@/components/career/display/CareerDossierFitCenter";
+import {
+  CareerDossierOutlookTransitions,
+  CareerDossierProgression,
+  CareerDossierWorkRisk,
+  supportsCareerOutlookTransitions,
+  supportsCareerProgression,
+  supportsCareerWorkRisk,
+} from "@/components/career/display/CareerDossierDecisionJourney";
+import {
   CAREER_COMPONENT_TITLES_EN,
   CAREER_COMPONENT_TITLES_ZH,
   CareerPublishedSemanticSection,
@@ -42,9 +54,13 @@ import {
   type CareerVisualGroupId,
 } from "@/lib/career/careerVisualGroups";
 import type {
+  CareerPublishedFitDecisionCenter,
+  CareerPublishedOutlookTransitions,
   CareerPublishedOnetStructuredFieldsBlock,
+  CareerPublishedProgression,
   CareerPublishedQuickAnswersBlock,
   CareerPublishedUnavailableComponent,
+  CareerPublishedWorkRisk,
 } from "@/lib/career/publishedComponentContract";
 
 type BreadcrumbItem = { label: string; href?: string };
@@ -180,6 +196,17 @@ function supportsStructuredCareerDossierProfile(value: CareerDisplaySurfaceViewM
   });
 
   return hasCompleteQuickAnswers;
+}
+
+function supportsRiasecFit(value: unknown): value is {
+  fit_interest: string;
+  interest: string;
+  riasec: string;
+  riasec_short: string;
+} {
+  if (!isRecordValue(value)) return false;
+  return ["fit_interest", "interest", "riasec", "riasec_short"]
+    .every((key) => typeof value[key] === "string" && value[key].trim().length > 0);
 }
 
 function ComponentFrame({ id, children, hidden = false }: { id: CareerDisplayComponentId; children: ReactNode; hidden?: boolean }) {
@@ -441,7 +468,10 @@ export function CareerProductionDisplaySurface({
     restrictedIds.add("career_snapshot_secondary_locale");
   }
 
-  const renderComponent = (componentId: CareerDisplayComponentId) => {
+  const renderComponent = (
+    componentId: CareerDisplayComponentId,
+    groupHeader?: { label: string; labelId: string }
+  ) => {
     if (!surface.componentOrder.includes(componentId)) return null;
 
     if (componentId === "breadcrumb") {
@@ -540,9 +570,16 @@ export function CareerProductionDisplaySurface({
     }
     if (componentId === "faq_block" && publishedComponents) {
       return (
-        <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8" data-testid="career-display-faq" data-career-api-component="faq_block">
-          <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{isZh ? "常见问题" : "Frequently asked questions"}</h2>
-          <div className="mt-4 space-y-3">
+        <section className={groupHeader ? visual.dossierFaq : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"} data-testid="career-display-faq" data-career-api-component="faq_block">
+          {groupHeader ? (
+            <header className={visual.fitCenterHero}>
+              <div className={visual.fitCenterTitleRow}>
+                <h2 id={groupHeader.labelId}>{groupHeader.label}</h2>
+                <span aria-hidden="true" />
+              </div>
+            </header>
+          ) : <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{isZh ? "常见问题" : "Frequently asked questions"}</h2>}
+          <div className={groupHeader ? visual.dossierFaqBody : "mt-4 space-y-3"}>
             {surface.faqItems.map((item) => (
               <details key={item.question} className={`group rounded-xl border border-[#E5E9F2] bg-white ${visual.faqItem}`}>
                 <summary className="flex cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
@@ -772,9 +809,51 @@ export function CareerProductionDisplaySurface({
           <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
         </ComponentFrame>,
       ];
+    } else if (
+      group.id === "fit" && isEnhanced &&
+      supportsRiasecFit(publishedComponents.riasec_fit_block) &&
+      supportsCareerDossierFitCenter(publishedComponents.personality_fit_block)
+    ) {
+      const riasec = publishedComponents.riasec_fit_block;
+      const fitCenter = publishedComponents.personality_fit_block;
+      componentNodes = [
+        <ComponentFrame key="riasec_fit_block" id="riasec_fit_block" hidden>
+          <span data-career-api-component="riasec_fit_block" />
+        </ComponentFrame>,
+        <ComponentFrame key="personality_fit_block" id="personality_fit_block">
+          <CareerDossierFitCenter
+            value={fitCenter as CareerPublishedFitDecisionCenter}
+            riasec={riasec}
+            locale={surface.locale}
+            sectionLabel={visualGroupLabel(group, isZh)}
+            sectionLabelId={`career-visual-group-title-${group.id}`}
+          />
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "risk" && isEnhanced && supportsCareerWorkRisk(publishedComponents.career_risk_cards)) {
+      componentNodes = [
+        <ComponentFrame key="career_risk_cards" id="career_risk_cards">
+          <CareerDossierWorkRisk value={publishedComponents.career_risk_cards as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "path" && isEnhanced && supportsCareerProgression(publishedComponents.career_path_block)) {
+      componentNodes = [
+        <ComponentFrame key="career_path_block" id="career_path_block">
+          <CareerDossierProgression value={publishedComponents.career_path_block as CareerPublishedProgression} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+        </ComponentFrame>,
+      ];
+    } else if (group.id === "market-signals" && isEnhanced && supportsCareerOutlookTransitions(publishedComponents.market_signal_card)) {
+      componentNodes = [
+        <ComponentFrame key="market_signal_card" id="market_signal_card">
+          <CareerDossierOutlookTransitions value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+        </ComponentFrame>,
+      ];
     } else {
       componentNodes = surface.componentOrder.filter((componentId) => group.componentIds.includes(componentId)).map((componentId) => {
-        const component = renderComponent(componentId);
+        const component = renderComponent(componentId, group.id === "sources" && isEnhanced ? {
+          label: visualGroupLabel(group, isZh),
+          labelId: `career-visual-group-title-${group.id}`,
+        } : undefined);
         if (component == null) return null;
         const content = componentId === "final_cta"
           ? <div data-testid="career-decision-action-block">{component}</div>
@@ -786,13 +865,22 @@ export function CareerProductionDisplaySurface({
     const visibleComponentNodes = componentNodes.filter((node) => node != null);
     if (visibleComponentNodes.length === 0) return null;
     const usesEnhancedQuickDecision = group.id === "quick-decision" && isEnhanced;
-    const hasVisibleGroupTitle = titledGroupIds.has(group.id) || usesEnhancedQuickDecision;
+    const usesEnhancedFitCenter = group.id === "fit" && isEnhanced &&
+      supportsRiasecFit(publishedComponents.riasec_fit_block) &&
+      supportsCareerDossierFitCenter(publishedComponents.personality_fit_block);
+    const usesDecisionJourney = isEnhanced && (
+      (group.id === "risk" && supportsCareerWorkRisk(publishedComponents.career_risk_cards)) ||
+      (group.id === "path" && supportsCareerProgression(publishedComponents.career_path_block)) ||
+      (group.id === "market-signals" && supportsCareerOutlookTransitions(publishedComponents.market_signal_card))
+    );
+    const usesEnhancedSourcesHero = group.id === "sources" && isEnhanced && publishedComponents.faq_block !== undefined;
+    const hasVisibleGroupTitle = (!usesDecisionJourney && titledGroupIds.has(group.id)) || usesEnhancedQuickDecision || usesEnhancedFitCenter || usesEnhancedSourcesHero;
 
     return (
       <section
         key={group.id}
         id={`career-visual-group-${group.id}`}
-        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""} ${group.id === "profile" && usesStructuredProfile ? visual.accountantsProfileGroup : ""} ${usesEnhancedQuickDecision ? visual.accountantsQuickDecisionGroup : ""}`}
+        className={`${visual.visualGroup} ${compoundGroupIds.has(group.id) ? visual.compoundGroup : ""} ${group.id === "profile" ? visual.profileGroup : ""} ${group.id === "profile" && usesStructuredProfile ? visual.accountantsProfileGroup : ""} ${usesEnhancedQuickDecision ? visual.accountantsQuickDecisionGroup : ""} ${usesEnhancedFitCenter ? visual.accountantsFitCenterGroup : ""} ${usesDecisionJourney ? visual.accountantsDecisionJourneyGroup : ""} ${usesEnhancedSourcesHero ? visual.accountantsSourcesGroup : ""}`}
         data-career-visual-group={group.id}
         aria-labelledby={hasVisibleGroupTitle ? `career-visual-group-title-${group.id}` : undefined}
         aria-label={hasVisibleGroupTitle ? undefined : visualGroupLabel(group, isZh)}
@@ -803,7 +891,7 @@ export function CareerProductionDisplaySurface({
               {visualGroupLabel(group, isZh)}
             </h2>
           </header>
-        ) : titledGroupIds.has(group.id) && !(group.id === "profile" && usesStructuredProfile) ? (
+        ) : usesEnhancedFitCenter || usesDecisionJourney || usesEnhancedSourcesHero ? null : titledGroupIds.has(group.id) && !(group.id === "profile" && usesStructuredProfile) ? (
           <h2 id={`career-visual-group-title-${group.id}`} className={visual.groupTitle}>{visualGroupLabel(group, isZh)}</h2>
         ) : null}
         <div className={visual.groupStack}>
@@ -869,9 +957,6 @@ export function CareerProductionDisplaySurface({
             className={visual.assessmentRail}
             data-testid="career-production-assessment-rail"
           >
-            {!surface.presentationV1Available ? (
-              <span className={visual.assessmentRailLabel}>{isZh ? "找到更适合你的方向" : "Find your best-fit direction"}</span>
-            ) : null}
             <Link href={primaryCtaHref} className={visual.assessmentRailCta}>
               {publishedCtaLabel(surface.cta.label, surface.locale, surface.cta.label)}
               <span aria-hidden="true">→</span>

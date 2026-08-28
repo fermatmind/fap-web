@@ -39,6 +39,122 @@ export type CareerPublishedOnetStructuredFieldsBlock = {
   rows: CareerPublishedStructuredRow[];
 };
 
+export type CareerPublishedFitDecisionCenter = {
+  schema_version: "career.fit_decision_center.v1";
+  heading: string;
+  direct_answer: string;
+  signals: Array<{
+    id: "fit" | "caution" | "experiment";
+    label: string;
+    body: string;
+    tone: "positive" | "caution" | "action";
+  }>;
+  assessments: Array<{
+    id: "riasec" | "big-five" | "mbti" | "enneagram" | "iq" | "eq";
+    label: string;
+    question: string;
+    answer: string;
+    evidence_level: string;
+    signals: string[];
+    watchout: string;
+    cta_label: string;
+    cta_href: string;
+  }>;
+  directions: Array<{
+    direction: string;
+    fit_signals: string;
+    target?: {
+      slug: string;
+      title: string;
+      href: string;
+    };
+    watchouts: string;
+  }>;
+  questions: Array<{
+    question: string;
+    answer: string;
+  }>;
+  boundary: string;
+  source_links: Array<{
+    label: string;
+    href: string;
+    usage: string;
+  }>;
+};
+
+export type CareerPublishedSourceLink = {
+  id: string;
+  label: string;
+  href: string;
+  scope: string;
+};
+
+export type CareerPublishedWorkRisk = {
+  schema_version: "career.work_risk.v1";
+  heading: string;
+  direct_answer: string;
+  evidence_scope: string;
+  risks: Array<{
+    id: string;
+    title: string;
+    scenario: string;
+    affected_roles: string;
+    consequence: string;
+    mitigation: string;
+    evidence_refs: string[];
+  }>;
+  boundary: string;
+  context_links: Array<{ label: string; href: string }>;
+  source_links: CareerPublishedSourceLink[];
+};
+
+export type CareerPublishedProgression = {
+  schema_version: "career.career_progression.v1";
+  heading: string;
+  direct_answer: string;
+  locale_requirements: { jurisdiction: string; summary: string; credential_boundary: string };
+  tracks: Array<{
+    id: string;
+    title: string;
+    stages: Array<{
+      role: string;
+      responsibility: string;
+      readiness_evidence: string;
+      credentials: string;
+      next_moves: string;
+    }>;
+  }>;
+  competence_ladder: Array<{ stage: string; description: string }>;
+  boundary: string;
+  source_links: CareerPublishedSourceLink[];
+};
+
+export type CareerPublishedOutlookTransitions = {
+  schema_version: "career.outlook_transitions.v1";
+  heading: string;
+  direct_answer: string;
+  outlook_evidence: Array<{
+    source_id: string;
+    geography: string;
+    occupation_scope: string;
+    horizon: string;
+    metric: string;
+    value: string;
+    interpretation: string;
+    limitation: string;
+  }>;
+  context_links: Array<{ label: string; href: string }>;
+  transitions: Array<{
+    target_slug: string;
+    target_title: string;
+    target_href: string;
+    shared_capabilities: string;
+    capability_gaps: string;
+    transition_distance: string;
+  }>;
+  source_links: CareerPublishedSourceLink[];
+};
+
 type PublishedRecord = Record<string, CareerPublishedValue>;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -278,6 +394,100 @@ function validateOnetStructuredFields(value: unknown): boolean {
     isNonEmptyString(value.heading) && validateStructuredRows(value.rows);
 }
 
+function validateFitDecisionCenter(value: unknown): boolean {
+  if (!hasExactKeys(value, [
+    "assessments", "boundary", "direct_answer", "directions", "heading", "questions",
+    "schema_version", "signals", "source_links",
+  ]) || value.schema_version !== "career.fit_decision_center.v1" ||
+    !isNonEmptyString(value.heading) || !isNonEmptyString(value.direct_answer) ||
+    !isNonEmptyString(value.boundary)) {
+    return false;
+  }
+
+  const signalIds = ["fit", "caution", "experiment"];
+  const assessmentIds = ["riasec", "big-five", "mbti", "enneagram", "iq", "eq"];
+  return Array.isArray(value.signals) && value.signals.length === signalIds.length &&
+    value.signals.every((item, index) => hasExactKeys(item, ["body", "id", "label", "tone"]) &&
+      item.id === signalIds[index] && isNonEmptyString(item.label) && isNonEmptyString(item.body) &&
+      ["positive", "caution", "action"].includes(String(item.tone))) &&
+    Array.isArray(value.assessments) && value.assessments.length === assessmentIds.length &&
+    value.assessments.every((item, index) => hasExactKeys(item, [
+      "answer", "cta_href", "cta_label", "evidence_level", "id", "label", "question", "signals", "watchout",
+    ]) && item.id === assessmentIds[index] &&
+      ["answer", "cta_label", "evidence_level", "label", "question", "watchout"].every((key) => isNonEmptyString(item[key])) &&
+      /^\/(?:en|zh)\/tests\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(String(item.cta_href)) &&
+      isStringArray(item.signals)) &&
+    Array.isArray(value.directions) && value.directions.length === 6 &&
+    value.directions.every((item) => {
+      if (!hasExactKeys(item, ["direction", "fit_signals", "watchouts"], ["target"]) ||
+        !["direction", "fit_signals", "watchouts"].every((key) => isNonEmptyString(item[key]))) {
+        return false;
+      }
+      if (item.target === undefined) return true;
+      return hasExactKeys(item.target, ["href", "slug", "title"]) &&
+        isNonEmptyString(item.target.slug) && isNonEmptyString(item.target.title) &&
+        /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.target.slug) &&
+        new RegExp(`^/(?:en|zh)/career/jobs/${item.target.slug}$`).test(String(item.target.href));
+    }) &&
+    Array.isArray(value.questions) && value.questions.length >= 8 && value.questions.length <= 10 &&
+    value.questions.every((item) => hasStringFields(item, ["answer", "question"])) &&
+    Array.isArray(value.source_links) && value.source_links.length >= 4 &&
+    value.source_links.every((item) => hasStringFields(item, ["href", "label", "usage"]) &&
+      /^https:\/\//.test(String(item.href)));
+}
+
+function validateSourceLinks(value: unknown, minimum = 3): boolean {
+  return Array.isArray(value) && value.length >= minimum && value.every((item) =>
+    hasStringFields(item, ["href", "id", "label", "scope"]) && /^https:\/\//.test(String(item.href))
+  );
+}
+
+function validateContextLinks(value: unknown): boolean {
+  return Array.isArray(value) && value.length > 0 && value.every((item) =>
+    hasStringFields(item, ["href", "label"]) && /^#career-visual-group-[a-z-]+$/.test(String(item.href))
+  );
+}
+
+function validateWorkRisk(value: unknown): boolean {
+  return hasExactKeys(value, ["boundary", "context_links", "direct_answer", "evidence_scope", "heading", "risks", "schema_version", "source_links"]) &&
+    value.schema_version === "career.work_risk.v1" &&
+    ["boundary", "direct_answer", "evidence_scope", "heading"].every((key) => isNonEmptyString(value[key])) &&
+    Array.isArray(value.risks) && value.risks.length === 6 && value.risks.every((item) =>
+      hasExactKeys(item, ["affected_roles", "consequence", "evidence_refs", "id", "mitigation", "scenario", "title"]) &&
+      ["affected_roles", "consequence", "id", "mitigation", "scenario", "title"].every((key) => isNonEmptyString(item[key])) &&
+      isStringArray(item.evidence_refs)
+    ) && validateContextLinks(value.context_links) && validateSourceLinks(value.source_links, 4);
+}
+
+function validateProgression(value: unknown): boolean {
+  return hasExactKeys(value, ["boundary", "competence_ladder", "direct_answer", "heading", "locale_requirements", "schema_version", "source_links", "tracks"]) &&
+    value.schema_version === "career.career_progression.v1" &&
+    ["boundary", "direct_answer", "heading"].every((key) => isNonEmptyString(value[key])) &&
+    hasStringFields(value.locale_requirements, ["credential_boundary", "jurisdiction", "summary"]) &&
+    Array.isArray(value.tracks) && value.tracks.length === 3 && value.tracks.every((track) =>
+      hasExactKeys(track, ["id", "stages", "title"]) && isNonEmptyString(track.id) && isNonEmptyString(track.title) &&
+      Array.isArray(track.stages) && track.stages.length === 4 && track.stages.every((stage) =>
+        hasStringFields(stage, ["credentials", "next_moves", "readiness_evidence", "responsibility", "role"])
+      )
+    ) &&
+    Array.isArray(value.competence_ladder) && value.competence_ladder.length === 4 &&
+    value.competence_ladder.every((item) => hasStringFields(item, ["description", "stage"])) &&
+    validateSourceLinks(value.source_links, 4);
+}
+
+function validateOutlookTransitions(value: unknown): boolean {
+  return hasExactKeys(value, ["context_links", "direct_answer", "heading", "outlook_evidence", "schema_version", "source_links", "transitions"]) &&
+    value.schema_version === "career.outlook_transitions.v1" &&
+    isNonEmptyString(value.heading) && isNonEmptyString(value.direct_answer) &&
+    Array.isArray(value.outlook_evidence) && value.outlook_evidence.length === 3 &&
+    value.outlook_evidence.every((item) => hasStringFields(item, ["geography", "horizon", "interpretation", "limitation", "metric", "occupation_scope", "source_id", "value"])) &&
+    validateContextLinks(value.context_links) &&
+    Array.isArray(value.transitions) && value.transitions.length >= 6 && value.transitions.length <= 8 && value.transitions.every((item) =>
+      hasStringFields(item, ["capability_gaps", "shared_capabilities", "target_href", "target_slug", "target_title", "transition_distance"]) &&
+      new RegExp(`^/(?:en|zh)/career/jobs/${String(item.target_slug)}$`).test(String(item.target_href))
+    ) && validateSourceLinks(value.source_links, 4);
+}
+
 function validateComponent(id: CareerDisplayComponentId, value: unknown): boolean {
   switch (id) {
     case "breadcrumb":
@@ -299,8 +509,10 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "riasec_fit_block":
       return hasStringFields(value, ["fit_interest", "interest", "riasec", "riasec_short"]);
     case "personality_fit_block":
-      return hasExactKeys(value, ["callout", "disclaimer", "traits"]) &&
-        isNonEmptyString(value.callout) && isNonEmptyString(value.disclaimer) && isStringArray(value.traits);
+      return validateFitDecisionCenter(value) || (
+        hasExactKeys(value, ["callout", "disclaimer", "traits"]) &&
+        isNonEmptyString(value.callout) && isNonEmptyString(value.disclaimer) && isStringArray(value.traits)
+      );
     case "definition_block":
     case "work_context_block":
     case "contract_project_risk_block":
@@ -314,19 +526,19 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "responsibilities_block":
       return isStringArray(value);
     case "market_signal_card":
-      return hasExactKeys(value, ["callout", "facts", "intro", "signals"]) &&
+      return validateOutlookTransitions(value) || (hasExactKeys(value, ["callout", "facts", "intro", "signals"]) &&
         isNonEmptyString(value.callout) && isStringArray(value.facts) && isNonEmptyString(value.intro) &&
         Array.isArray(value.signals) && value.signals.length > 0 &&
-        (value.signals.every(isNonEmptyString) || value.signals.every((item) => isScalarRecord(item, [["信号", "解读"]])));
+        (value.signals.every(isNonEmptyString) || value.signals.every((item) => isScalarRecord(item, [["信号", "解读"]]))));
     case "adjacent_career_comparison_table":
       return validateAdjacentCareerComparison(value);
     case "ai_impact_table":
       return validateAiImpact(value);
     case "career_risk_cards":
-      return hasExactKeys(value, ["badge", "callout", "fact", "risks"]) &&
-        isNonEmptyString(value.badge) && isNonEmptyString(value.callout) && isNonEmptyString(value.fact) && isStringArray(value.risks);
+      return validateWorkRisk(value) || (hasExactKeys(value, ["badge", "callout", "fact", "risks"]) &&
+        isNonEmptyString(value.badge) && isNonEmptyString(value.callout) && isNonEmptyString(value.fact) && isStringArray(value.risks));
     case "career_path_block":
-      return isScalarRecordArray(value, [
+      return validateProgression(value) || isScalarRecordArray(value, [
         ["路径", "说明", "风险"], ["职业路径", "典型进阶", "能力升级重点"], ["label", "path"], ["可控", "说明", "风险"],
       ]);
     case "next_steps_block":

@@ -15,6 +15,11 @@ import {
   normalizeCareerPresentationV2,
   type CareerPresentationV2,
 } from "@/lib/career/presentationV2";
+import {
+  careerContentV3FaqItems,
+  normalizeCareerContentV3,
+  type CareerContentV3,
+} from "@/lib/career/contentV3";
 
 export const CAREER_DISPLAY_SURFACE_VERSION = "display.surface.v1" as const;
 export const CAREER_DISPLAY_ACTORS_SLUG = "actors" as const;
@@ -237,6 +242,7 @@ export type CareerDisplaySurfaceViewModel = {
   presentationV1: CareerPresentationV1 | null;
   presentationV1Available: boolean;
   presentationV2: CareerPresentationV2 | null;
+  contentV3: CareerContentV3 | null;
   cta: {
     label: string;
     href: string;
@@ -1457,8 +1463,12 @@ export function adaptCareerDisplaySurface(
     return null;
   }
 
+  const contentV3 = normalizeCareerContentV3(root.content_v3, locale);
+  if (contentV3 && contentV3.subject.canonicalSlug !== canonicalSlug) {
+    return null;
+  }
   const faqSection = sections.find((section) => section.component === "CareerFAQBlock");
-  const faqItems = faqSection?.faqItems ?? [];
+  const faqItems = contentV3 ? careerContentV3FaqItems(contentV3) : faqSection?.faqItems ?? [];
   const ctaHref = buildCareerDisplayCtaHref({
     locale,
     landingPath: path,
@@ -1493,12 +1503,12 @@ export function adaptCareerDisplaySurface(
   const reviewValidity = normalizeReviewValidity(root, page);
   const relatedNextPages = normalizeRelatedNextPages(page.related_next_pages);
 
-  if (sources === null || (Object.prototype.hasOwnProperty.call(root, "presentation_v2") && presentationV2 === null)) {
+  if (sources === null || (!contentV3 && Object.prototype.hasOwnProperty.call(root, "presentation_v2") && presentationV2 === null)) {
     return null;
   }
 
   if (
-    (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG || publishedComponents !== null) &&
+    !contentV3 && (locale === "zh" || canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG || publishedComponents !== null) &&
     !hasCompleteProductionProjection({
       componentOrder,
       page,
@@ -1512,7 +1522,7 @@ export function adaptCareerDisplaySurface(
     return null;
   }
 
-  if (locale === "zh" && publishedComponents === null) {
+  if (!contentV3 && locale === "zh" && publishedComponents === null) {
     return null;
   }
 
@@ -1549,6 +1559,7 @@ export function adaptCareerDisplaySurface(
     presentationV1,
     presentationV1Available: normalizedPresentationV1 !== null,
     presentationV2,
+    contentV3,
     cta: {
       label: displayCta.label,
       href: publishedComponents && localizedHero ? displayCta.href : ctaHref,
