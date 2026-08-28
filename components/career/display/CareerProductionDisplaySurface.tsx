@@ -222,9 +222,20 @@ function supportsRiasecFit(value: unknown): value is {
     .every((key) => typeof value[key] === "string" && value[key].trim().length > 0);
 }
 
-function ComponentFrame({ id, children, hidden = false }: { id: CareerDisplayComponentId; children: ReactNode; hidden?: boolean }) {
+function ComponentFrame({
+  id,
+  children,
+  hidden = false,
+  instanceKey,
+}: {
+  id: CareerDisplayComponentId;
+  children: ReactNode;
+  hidden?: boolean;
+  instanceKey?: string;
+}) {
+  const instanceSuffix = instanceKey ? `-${instanceKey.replace(/[^a-z0-9_-]/gi, "-")}` : "";
   return (
-    <div id={`career-component-${id}`} data-career-component-id={id} className={hidden ? "hidden" : "scroll-mt-24"}>
+    <div id={`career-component-${id}${instanceSuffix}`} data-career-component-id={id} className={hidden ? "hidden" : "scroll-mt-24"}>
       {children}
     </div>
   );
@@ -313,7 +324,7 @@ function CareerV3PrimitiveItem({ item, content }: { item: CareerContentV3Item; c
   return (
     <div className="max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]" tabIndex={0} role="region" aria-label={careerContentV3ItemCopy(item.copyKey, locale) ?? undefined}>
       <table className="w-full min-w-[560px] border-collapse text-left text-sm">
-        <thead className="bg-[#F0F3FA]"><tr>{columns.map((column) => <th className="px-4 py-3 font-bold text-[#1A2233]" key={column} scope="col">{careerContentV3ColumnCopy(column, locale)}</th>)}</tr></thead>
+        <thead className="bg-[#F0F3FA]"><tr>{columns.map((column, index) => <th className="px-4 py-3 font-bold text-[#1A2233]" key={column} scope="col">{careerContentV3ColumnCopy(column, locale) ?? copy.fieldLabel(index)}</th>)}</tr></thead>
         <tbody>{rows.map((row, rowIndex) => <tr className="border-t border-[#E5E9F2]" key={rowIndex}>{row.map((cell, cellIndex) => <td className="px-4 py-3 align-top leading-6 text-[#2A3346]" key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
       </table>
     </div>
@@ -321,6 +332,7 @@ function CareerV3PrimitiveItem({ item, content }: { item: CareerContentV3Item; c
 }
 
 function CareerV3PrimitiveBlock({ block, content }: { block: CareerDossierRenderPlanBlock; content: CareerContentV3 }) {
+  const copy = careerContentV3UiCopy(content.locale);
   const groups: Array<{ copyKey: string; items: CareerContentV3Item[] }> = [];
   for (const item of block.items) {
     const previous = groups.at(-1);
@@ -331,7 +343,7 @@ function CareerV3PrimitiveBlock({ block, content }: { block: CareerDossierRender
     <div className="space-y-5">
       {groups.map((group, groupIndex) => (
         <section className="space-y-3" key={`${group.copyKey}:${groupIndex}`}>
-          <h3 className="m-0 text-lg font-bold text-[#1A2233]">{careerContentV3ItemCopy(group.copyKey, content.locale)}</h3>
+          <h3 className="m-0 text-lg font-bold text-[#1A2233]">{careerContentV3ItemCopy(group.copyKey, content.locale) ?? copy.additionalContent}</h3>
           <div className="space-y-4">{group.items.map((item) => <CareerV3PrimitiveItem item={item} content={content} key={item.id} />)}</div>
         </section>
       ))}
@@ -529,10 +541,12 @@ function CareerProductionHero({
   );
 }
 
-function SourceCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
+function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
+  const Container = embedded ? "div" : "section";
+  const Heading = embedded ? "h3" : "h2";
   return (
-    <section className="rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8">
-      <h2 className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</h2>
+    <Container className={embedded ? visual.sourceRegisterInline : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"}>
+      <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</Heading>
       <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
         {surface.sources.map((source) => (
           <li key={source.key} className="list-none text-sm leading-7 text-[#2a3346]">
@@ -553,7 +567,7 @@ function SourceCard({ surface }: { surface: CareerDisplaySurfaceViewModel }) {
           </li>
         ))}
       </ul>
-    </section>
+    </Container>
   );
 }
 
@@ -768,8 +782,11 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  const renderV3RichBlock = (block: CareerDossierRenderPlanBlock): ReactNode | null => {
-    if (!publishedComponents || block.contentState !== "enhanced") return null;
+  const renderV3RichBlock = (
+    block: CareerDossierRenderPlanBlock,
+    options: { allowRich?: boolean; embeddedSourceRegister?: boolean } = {},
+  ): ReactNode | null => {
+    if (!publishedComponents || block.contentState !== "enhanced" || options.allowRich === false) return null;
     const availableComponents = new Set(
       block.items
         .filter((item) => item.availability === "available")
@@ -782,7 +799,14 @@ export function CareerProductionDisplaySurface({
       const decision = publishedComponents.fermat_decision_card;
       const checklist = publishedComponents.fit_decision_checklist;
       if (decision !== undefined && checklist !== undefined && !isPublishedComponentUnavailable(decision) && !isPublishedComponentUnavailable(checklist)) {
-        return <div className="space-y-4"><CareerDossierQuickDecisionAnswer value={decision} /><CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} /></div>;
+        return <>
+          <ComponentFrame id="fermat_decision_card" instanceKey={block.instanceKey}>
+            <CareerDossierQuickDecisionAnswer value={decision} />
+          </ComponentFrame>
+          <ComponentFrame id="fit_decision_checklist" instanceKey={block.instanceKey}>
+            <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
+          </ComponentFrame>
+        </>;
       }
     }
 
@@ -790,69 +814,97 @@ export function CareerProductionDisplaySurface({
       "definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block",
     ) && supportsStructuredCareerDossierProfile(publishedComponents)) {
       return <CareerDossierProfile
-        definition={publishedComponents.definition_block as string}
-        responsibilities={publishedComponents.responsibilities_block as string[]}
-        workContext={publishedComponents.work_context_block as string}
-        quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
-        professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
-        locale={surface.locale}
-      />;
+          definition={publishedComponents.definition_block as string}
+          responsibilities={publishedComponents.responsibilities_block as string[]}
+          workContext={publishedComponents.work_context_block as string}
+          quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+          professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
+          locale={surface.locale}
+        />;
     }
 
     const directionComparison = publishedComponents.adjacent_career_comparison_table;
     if (block.copyKey === "career.block.direction-comparison" && declares("adjacent_career_comparison_table") &&
       directionComparison !== undefined && supportsCareerDossierDirectionComparison(directionComparison)) {
-      return <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />;
+      return <ComponentFrame id="adjacent_career_comparison_table" instanceKey={block.instanceKey}>
+        <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />
+      </ComponentFrame>;
     }
 
     const aiImpact = publishedComponents.ai_impact_table;
     if (block.copyKey === "career.block.ai-impact" && declares("ai_impact_table") && aiImpact !== undefined && supportsCareerDossierAiImpact(aiImpact)) {
-      return <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />;
+      return <ComponentFrame id="ai_impact_table" instanceKey={block.instanceKey}>
+        <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />
+      </ComponentFrame>;
     }
 
     const chinaSalary = publishedComponents.career_snapshot_primary_locale;
     if (block.copyKey === "career.block.china-salary" && declares("career_snapshot_primary_locale") && chinaSalary !== undefined && supportsCareerDossierChinaSalary(chinaSalary)) {
-      return <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />;
+      return <ComponentFrame id="career_snapshot_primary_locale" instanceKey={block.instanceKey}>
+        <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />
+      </ComponentFrame>;
     }
 
     const usSalary = publishedComponents.career_snapshot_secondary_locale;
     if (block.copyKey === "career.block.us-salary" && declares("career_snapshot_secondary_locale") && usSalary !== undefined && supportsCareerDossierUsSalary(usSalary)) {
-      return <CareerDossierUsSalary value={usSalary} locale={surface.locale} />;
+      return <ComponentFrame id="career_snapshot_secondary_locale" instanceKey={block.instanceKey}>
+        <CareerDossierUsSalary value={usSalary} locale={surface.locale} />
+      </ComponentFrame>;
     }
 
     const riasec = publishedComponents.riasec_fit_block;
     const fitCenter = publishedComponents.personality_fit_block;
     if (block.copyKey === "career.block.fit" && declares("riasec_fit_block", "personality_fit_block") && supportsRiasecFit(riasec) && supportsCareerDossierFitCenter(fitCenter)) {
-      return <CareerDossierFitCenter value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+      return <>
+        <ComponentFrame id="riasec_fit_block" instanceKey={block.instanceKey} hidden><span data-career-api-component="riasec_fit_block" /></ComponentFrame>
+        <ComponentFrame id="personality_fit_block" instanceKey={block.instanceKey}>
+          <CareerDossierFitCenter value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+        </ComponentFrame>
+      </>;
     }
 
     const workRisk = publishedComponents.career_risk_cards;
     if (block.copyKey === "career.block.risk" && declares("career_risk_cards") && supportsCareerWorkRisk(workRisk)) {
-      return <CareerDossierWorkRisk value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+      return <ComponentFrame id="career_risk_cards" instanceKey={block.instanceKey}>
+        <CareerDossierWorkRisk value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+      </ComponentFrame>;
     }
 
     const progression = publishedComponents.career_path_block;
     if (block.copyKey === "career.block.path" && declares("career_path_block") && supportsCareerProgression(progression)) {
-      return <CareerDossierProgression value={progression as CareerPublishedProgression} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+      return <ComponentFrame id="career_path_block" instanceKey={block.instanceKey}>
+        <CareerDossierProgression value={progression as CareerPublishedProgression} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+      </ComponentFrame>;
     }
 
     const outlook = publishedComponents.market_signal_card;
     if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
-      return <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+      return <ComponentFrame id="market_signal_card" instanceKey={block.instanceKey}>
+        <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+      </ComponentFrame>;
     }
 
     if (block.copyKey === "career.block.sources") {
       const nodes = block.declaredComponentIds.flatMap((componentId) => {
         if (!availableComponents.has(componentId)) return [];
         if (publishedComponents[componentId] === undefined) return [];
-        const component = renderComponent(componentId);
-        return component == null ? [] : [<div key={componentId}>{component}</div>];
+        const component = renderComponent(componentId, {
+          label: block.title,
+          labelId: `${block.anchorId}-title`,
+        });
+        return component == null ? [] : [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
+        ];
       });
-      return nodes.length > 0 ? <div className="space-y-4">{nodes}</div> : null;
+      return nodes.length > 0 ? <>{nodes}</> : null;
     }
 
     if (block.copyKey === "career.block.source-register" && block.items.some((item) => item.copyKey === "career.item.published-sources" && item.availability === "available")) {
-      return surface.sources.length > 0 ? <SourceCard surface={surface} /> : null;
+      return surface.sources.length > 0 ? (
+        options.embeddedSourceRegister
+          ? <SourceCard surface={surface} embedded />
+          : <ComponentFrame id="source_card" instanceKey={block.instanceKey}><SourceCard surface={surface} /></ComponentFrame>
+      ) : null;
     }
 
     return null;
@@ -863,7 +915,109 @@ export function CareerProductionDisplaySurface({
     const copy = careerContentV3UiCopy(surface.locale);
     const breadcrumb = renderComponent("breadcrumb");
     const hero = renderComponent("hero");
-    const successfulBlocks = plan.blocks.filter((block) => block.renderable);
+    const successfulBlocks = plan.blocks.filter((block) => block.visibleInToc);
+    const semanticInstanceCounts = plan.blocks.reduce((counts, block) => {
+      if (block.renderable) counts.set(block.copyKey, (counts.get(block.copyKey) ?? 0) + 1);
+      return counts;
+    }, new Map<string, number>());
+
+    const shellClassName = (block: CareerDossierRenderPlanBlock, usesRegisteredRenderer: boolean): string => {
+      if (!usesRegisteredRenderer) return `${visual.visualGroup} ${visual.compoundGroup}`;
+      if (block.presentation === "quick-decision") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.accountantsQuickDecisionGroup}`;
+      if (block.presentation === "profile") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.profileGroup} ${visual.accountantsProfileGroup}`;
+      if (block.presentation === "fit") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.accountantsFitCenterGroup}`;
+      if (block.presentation === "decision-journey") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.accountantsDecisionJourneyGroup}`;
+      if (block.presentation === "sources") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.accountantsSourcesGroup}`;
+      return visual.visualGroup;
+    };
+
+    const missingItemPlaceholders = (block: CareerDossierRenderPlanBlock) => {
+      const missingItems = block.items.filter((item) => item.availability === "missing");
+      return missingItems.length > 0 ? (
+        <div className="mt-4 space-y-3">
+          {missingItems.map((item) => <CareerV3Placeholder compact key={item.id} locale={surface.locale} />)}
+        </div>
+      ) : null;
+    };
+
+    const renderMergedSourceRegister = (block: CareerDossierRenderPlanBlock): ReactNode => {
+      const richContent = block.renderable
+        ? renderV3RichBlock(block, {
+            allowRich: (semanticInstanceCounts.get(block.copyKey) ?? 0) === 1,
+            embeddedSourceRegister: true,
+          })
+        : null;
+      return (
+        <section
+          id={block.anchorId}
+          key={block.instanceKey}
+          data-career-v3-block-copy-key={block.copyKey}
+          data-career-v3-presentation={block.presentation}
+          data-content-block-id={block.id}
+          aria-label={block.title}
+        >
+          {block.renderable ? richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} /> : <CareerV3Placeholder locale={surface.locale} />}
+          {block.renderable && richContent !== null ? missingItemPlaceholders(block) : null}
+        </section>
+      );
+    };
+
+    const renderPlannedBlock = (block: CareerDossierRenderPlanBlock, index: number): ReactNode => {
+      if (block.mergeIntoPrevious) return null;
+      const mergedSourceRegister = plan.blocks[index + 1]?.mergeIntoPrevious ? plan.blocks[index + 1] : null;
+      if (!block.renderable) {
+        return (
+          <section
+            className={visual.visualGroup}
+            id={block.anchorId}
+            data-career-v3-block-copy-key={block.copyKey}
+            data-career-v3-presentation={block.presentation}
+            data-content-block-id={block.id}
+            key={block.instanceKey}
+          >
+            <CareerV3Placeholder locale={surface.locale} />
+            {mergedSourceRegister ? renderMergedSourceRegister(mergedSourceRegister) : null}
+          </section>
+        );
+      }
+
+      const allowRich = (semanticInstanceCounts.get(block.copyKey) ?? 0) === 1;
+      const richContent = renderV3RichBlock(block, { allowRich });
+      const usesRegisteredRenderer = richContent !== null;
+      const usesQuickDecisionHeader = usesRegisteredRenderer && block.presentation === "quick-decision";
+      const ownsAccessibleTitle = usesRegisteredRenderer && ["profile", "direction-comparison", "ai-impact", "salary"].includes(block.presentation);
+      const labelledByComponent = usesRegisteredRenderer && ["fit", "decision-journey", "sources"].includes(block.presentation);
+
+      return (
+        <section
+          className={shellClassName(block, usesRegisteredRenderer)}
+          id={block.anchorId}
+          key={block.instanceKey}
+          data-career-visual-group={block.id}
+          data-career-v3-block-copy-key={block.copyKey}
+          data-career-v3-presentation={block.presentation}
+          data-content-block-id={block.id}
+          aria-labelledby={usesQuickDecisionHeader || labelledByComponent || !usesRegisteredRenderer ? `${block.anchorId}-title` : undefined}
+          aria-label={ownsAccessibleTitle ? block.title : undefined}
+        >
+          {block.anchorId === `career-content-${block.id}` ? (
+            <span id={`career-visual-group-${block.id}`} aria-hidden="true" className="sr-only" />
+          ) : null}
+          {usesQuickDecisionHeader ? (
+            <header className={visual.quickDecisionHeader}>
+              <h2 className={visual.quickDecisionTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
+            </header>
+          ) : !usesRegisteredRenderer ? (
+            <h2 className={visual.groupTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
+          ) : null}
+          <div className={visual.groupStack}>
+            {richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} />}
+            {usesRegisteredRenderer ? missingItemPlaceholders(block) : null}
+            {mergedSourceRegister ? renderMergedSourceRegister(mergedSourceRegister) : null}
+          </div>
+        </section>
+      );
+    };
 
     return (
       <article
@@ -895,34 +1049,7 @@ export function CareerProductionDisplaySurface({
           </aside>
           <main className={`min-w-0 ${visual.componentStack}`}>
             {hero ? <section data-career-visual-group="overview">{hero}</section> : null}
-            {plan.blocks.map((block) => {
-              if (!block.renderable) {
-                return <section data-career-v3-block-copy-key={block.copyKey} data-content-block-id={block.id} key={block.instanceKey}><CareerV3Placeholder locale={surface.locale} /></section>;
-              }
-              const richContent = renderV3RichBlock(block);
-              const missingItems = block.items.filter((item) => item.availability === "missing");
-              return (
-                <section
-                  className={`${visual.visualGroup} scroll-mt-24`}
-                  id={block.anchorId}
-                  key={block.instanceKey}
-                  data-career-visual-group={block.id}
-                  data-career-v3-block-copy-key={block.copyKey}
-                  data-content-block-id={block.id}
-                  aria-labelledby={`${block.anchorId}-title`}
-                >
-                  {block.anchorId === `career-content-${block.id}` ? (
-                    <span id={`career-visual-group-${block.id}`} aria-hidden="true" className="sr-only" />
-                  ) : null}
-                  <header className="mb-4 flex flex-wrap items-center justify-between gap-2">
-                    <h2 className="m-0 text-[23px] font-bold text-[#1A2233]" id={`${block.anchorId}-title`}>{block.title}</h2>
-                    <span className="rounded-full bg-[#F0F3FA] px-3 py-1 text-xs font-semibold text-[#5B6678]">{block.contentState === "enhanced" ? copy.enhanced : copy.legacy}</span>
-                  </header>
-                  {richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} />}
-                  {richContent && missingItems.length > 0 ? <div className="mt-4 space-y-3">{missingItems.map((item) => <CareerV3Placeholder compact key={item.id} locale={surface.locale} />)}</div> : null}
-                </section>
-              );
-            })}
+            {plan.blocks.map(renderPlannedBlock)}
           </main>
         </div>
       </article>

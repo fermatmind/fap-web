@@ -45,6 +45,9 @@ export type CareerContentV3UiCopy = {
   unavailableTitle: string;
   unavailableBody: string;
   missingItem: string;
+  additionalSection: string;
+  additionalContent: string;
+  fieldLabel: (index: number) => string;
   externalLink: string;
 };
 
@@ -59,6 +62,9 @@ const UI_COPY: Record<Locale, CareerContentV3UiCopy> = {
     unavailableTitle: "本板块暂不可用",
     unavailableBody: "该内容暂时无法安全显示，页面其余部分仍可使用。",
     missingItem: "该子内容尚未发布或暂时无法安全显示。",
+    additionalSection: "职业补充信息",
+    additionalContent: "补充内容",
+    fieldLabel: (index) => `字段 ${index + 1}`,
     externalLink: "在新窗口打开",
   },
   en: {
@@ -71,6 +77,9 @@ const UI_COPY: Record<Locale, CareerContentV3UiCopy> = {
     unavailableTitle: "This section is unavailable",
     unavailableBody: "This content cannot be displayed safely right now. The rest of the page remains available.",
     missingItem: "This sub-section has not been published or cannot be displayed safely right now.",
+    additionalSection: "Additional career information",
+    additionalContent: "Additional content",
+    fieldLabel: (index) => `Field ${index + 1}`,
     externalLink: "Open in a new window",
   },
 };
@@ -95,6 +104,7 @@ const COMMON_BLOCK_COPY: Record<string, { zh: CatalogEntry; en: CatalogEntry }> 
   "career.block.market-signals": { zh: { title: "职业前景与相关职业转向" }, en: { title: "Career outlook and related transitions" } },
   "career.block.sources": { zh: { title: "常见问题与资料来源" }, en: { title: "Questions and sources" } },
   "career.block.source-register": { zh: { title: "资料来源" }, en: { title: "Sources" } },
+  "career.block.additional": { zh: { title: "职业补充信息" }, en: { title: "Additional career information" } },
   "career.block.unavailable": { zh: { title: "本板块暂不可用" }, en: { title: "This section is unavailable" } },
 };
 
@@ -290,7 +300,7 @@ export function canRenderCareerContentV3Item(
     return values !== null && values.every((entry) => exactKeys(entry, ["key", "value"]) && key(entry.key) !== null && string(entry.value) !== null);
   }
   const columns = exactKeys(item.data, ["column_keys", "rows"]) ? strings(item.data.column_keys) : null;
-  return columns !== null && columns.every((column) => careerContentV3ColumnCopy(column, locale) !== null) &&
+  return columns !== null && columns.every((column) => key(column) !== null) &&
     Array.isArray(item.data.rows) && item.data.rows.length > 0 &&
     item.data.rows.every((row) => strings(row) !== null && (row as string[]).length === columns.length);
 }
@@ -320,7 +330,7 @@ function normalizeBlock(value: unknown, index: number): CareerContentV3Block {
     return invalidBlock(value, index);
   }
   const items = value.items.map(normalizeItem);
-  const renderable = careerContentV3BlockCopy(copyKey, "en") !== null && items.every((item) => item !== null) &&
+  const renderable = items.every((item) => item !== null) &&
     ((availability === "missing" && value.items.length === 0) || (availability === "available" && value.items.length > 0));
   return {
     id,
@@ -357,8 +367,7 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
       localItems.add(item.id);
       return duplicate;
     });
-    const invalidItem = block.items.some((item) => careerContentV3ItemCopy(item.copyKey, locale) === null ||
-      !canRenderCareerContentV3Item(item, locale, name));
+    const invalidItem = block.items.some((item) => !canRenderCareerContentV3Item(item, locale, name));
     if (seen.has(block.id) || duplicateItem || invalidItem) {
       blocks[index] = invalidBlock(value.blocks[index], index);
     } else {

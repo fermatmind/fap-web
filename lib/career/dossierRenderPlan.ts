@@ -35,6 +35,36 @@ const ITEM_COMPONENT_REGISTRY: Readonly<Record<string, CareerDisplayComponentId>
   "career.item.final-cta": "final_cta",
 };
 
+export const CAREER_DOSSIER_PRESENTATION_KINDS = [
+  "quick-decision",
+  "profile",
+  "direction-comparison",
+  "ai-impact",
+  "salary",
+  "fit",
+  "decision-journey",
+  "sources",
+  "source-register",
+  "generic",
+] as const;
+
+export type CareerDossierPresentationKind = (typeof CAREER_DOSSIER_PRESENTATION_KINDS)[number];
+
+const BLOCK_PRESENTATION_REGISTRY: Readonly<Record<string, CareerDossierPresentationKind>> = {
+  "career.block.quick-decision": "quick-decision",
+  "career.block.profile": "profile",
+  "career.block.direction-comparison": "direction-comparison",
+  "career.block.ai-impact": "ai-impact",
+  "career.block.china-salary": "salary",
+  "career.block.us-salary": "salary",
+  "career.block.fit": "fit",
+  "career.block.risk": "decision-journey",
+  "career.block.path": "decision-journey",
+  "career.block.market-signals": "decision-journey",
+  "career.block.sources": "sources",
+  "career.block.source-register": "source-register",
+};
+
 export type CareerDossierRenderPlanBlock = {
   instanceKey: string;
   id: string;
@@ -45,6 +75,9 @@ export type CareerDossierRenderPlanBlock = {
   availability: CareerContentV3Block["availability"];
   items: CareerContentV3Item[];
   declaredComponentIds: CareerDisplayComponentId[];
+  presentation: CareerDossierPresentationKind;
+  mergeIntoPrevious: boolean;
+  visibleInToc: boolean;
   renderable: boolean;
 };
 
@@ -61,6 +94,10 @@ export type CareerDossierRenderPlan =
 
 export function careerComponentForV3CopyKey(copyKey: string): CareerDisplayComponentId | null {
   return ITEM_COMPONENT_REGISTRY[copyKey] ?? null;
+}
+
+export function careerPresentationForV3CopyKey(copyKey: string): CareerDossierPresentationKind {
+  return BLOCK_PRESENTATION_REGISTRY[copyKey] ?? "generic";
 }
 
 function declaredComponents(items: readonly CareerContentV3Item[]): CareerDisplayComponentId[] {
@@ -86,8 +123,11 @@ export function buildCareerDossierRenderPlan(
       content: contentV3,
       blocks: contentV3.blocks.map((block, index) => {
         const title = careerContentV3BlockCopy(block.copyKey, contentV3.locale)?.title ??
-          careerContentV3BlockCopy("career.block.unavailable", contentV3.locale)!.title;
+          careerContentV3BlockCopy("career.block.additional", contentV3.locale)!.title;
         const availableItems = block.items.filter((item) => item.availability === "available");
+        const renderable = block.renderable && block.availability === "available" && availableItems.length > 0;
+        const mergeIntoPrevious = block.copyKey === "career.block.source-register" &&
+          contentV3.blocks[index - 1]?.copyKey === "career.block.sources";
         return {
           instanceKey: `${block.id}:${index}`,
           id: block.id,
@@ -98,7 +138,10 @@ export function buildCareerDossierRenderPlan(
           availability: block.availability,
           items: block.items,
           declaredComponentIds: declaredComponents(block.items),
-          renderable: block.renderable && block.availability === "available" && availableItems.length > 0,
+          presentation: careerPresentationForV3CopyKey(block.copyKey),
+          mergeIntoPrevious,
+          visibleInToc: renderable && !mergeIntoPrevious,
+          renderable,
         };
       }),
     };

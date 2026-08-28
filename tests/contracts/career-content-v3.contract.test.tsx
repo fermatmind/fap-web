@@ -90,11 +90,18 @@ describe("career content v3 contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     expect(screen.getByTestId("career-display-surface")).toHaveAttribute("data-career-dossier-plan", "content_v3");
-    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(12);
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
     expect(screen.getByTestId("career-published-fermat_decision_card")).toBeInTheDocument();
     expect(screen.getByTestId("career-published-fit_decision_checklist")).toBeInTheDocument();
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent("Visible v3 FAQ answer.");
     expect(document.querySelectorAll("[data-content-block-id]")).toHaveLength(12);
+    const sources = document.querySelector('[data-content-block-id="sources"]');
+    const sourceRegister = document.querySelector('[data-content-block-id="source-register"]');
+    expect(sources).toContainElement(sourceRegister as HTMLElement);
+    expect(sourceRegister).toHaveTextContent("O*NET");
+    expect(screen.getByTestId("career-dossier-toc").querySelector('a[href="#career-content-source-register"]')).toBeNull();
+    expect(screen.queryByText("增强内容")).not.toBeInTheDocument();
+    expect(screen.queryByText("Core content")).not.toBeInTheDocument();
   });
 
   it("renders arbitrary block order and repeated semantics through the universal registry", () => {
@@ -116,11 +123,11 @@ describe("career content v3 contract", () => {
     ]);
   });
 
-  it("closes unknown copy keys and unknown primitives without crashing the page or TOC", () => {
+  it("renders unknown semantics through generic primitives and isolates a damaged primitive", () => {
     const fixture = surfaceFixture("en");
     const content = fixture.content_v3 as ReturnType<typeof v3Fixture>;
     content.blocks.splice(1, 0,
-      { ...content.blocks[0], id: "unknown-copy", copy_key: "career.block.not-in-catalog" },
+      { ...content.blocks[0], id: "unknown-copy", copy_key: "career.block.not-in-catalog", items: [{ ...content.blocks[0].items[0], id: "unknown-copy-1", data: { paragraphs: ["Future block body"] } }] },
       { ...content.blocks[0], id: "unknown-item-copy", items: [{ ...content.blocks[0].items[0], id: "unknown-item-copy-1", copy_key: "career.item.not-in-catalog" }] } as never,
       { ...content.blocks[0], id: "unknown-primitive", items: [{ id: "raw-1", copy_key: "career.item.career-risk-cards", type: "raw-html", availability: "available", data: { html: "<h2>unsafe</h2>" } }] } as never,
     );
@@ -128,9 +135,74 @@ describe("career content v3 contract", () => {
     const surface = adaptCareerDisplaySurface(fixture, "en");
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(document.querySelectorAll("[data-nosnippet='true']")).toHaveLength(3);
-    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(4);
+    expect(screen.getByText("Future block body")).toBeInTheDocument();
+    expect(screen.getAllByText("Additional career information")).toHaveLength(2);
+    expect(screen.getByText("Additional content")).toBeInTheDocument();
+    expect(document.querySelectorAll("[data-nosnippet='true']")).toHaveLength(1);
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(6);
     expect(screen.queryByText("unsafe")).not.toBeInTheDocument();
+  });
+
+  it("keeps an unknown table renderable with localized generic column labels", () => {
+    const fixture = surfaceFixture("zh");
+    const content = fixture.content_v3 as ReturnType<typeof v3Fixture>;
+    content.blocks = [{
+      id: "future-table",
+      copy_key: "career.block.future-evidence",
+      content_state: "enhanced",
+      availability: "available",
+      items: [{
+        id: "future-table-1",
+        copy_key: "career.item.future-table",
+        type: "table",
+        availability: "available",
+        data: { column_keys: ["future_label", "future_value"], rows: [["甲", "乙"]] },
+      }],
+    }] as never;
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.getByRole("columnheader", { name: "字段 1" })).toBeInTheDocument();
+    expect(screen.getByRole("columnheader", { name: "字段 2" })).toBeInTheDocument();
+    expect(screen.getByRole("cell", { name: "乙" })).toBeInTheDocument();
+  });
+
+  it("keeps a non-adjacent source register as its own ordered section", () => {
+    const fixture = surfaceFixture("en");
+    const content = productionIsomorphicV3Fixture("en");
+    const sourceRegister = content.blocks.pop();
+    content.blocks.splice(4, 0, sourceRegister!);
+    fixture.content_v3 = content;
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    const blockIds = Array.from(document.querySelectorAll("[data-content-block-id]"), (node) => node.getAttribute("data-content-block-id"));
+    expect(blockIds[4]).toBe("source-register");
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(12);
+    expect(screen.getByTestId("career-dossier-toc").querySelector('a[href="#career-content-source-register"]')).not.toBeNull();
+    expect(document.querySelector('[data-content-block-id="sources"]')).not.toContainElement(document.querySelector('[data-content-block-id="source-register"]') as HTMLElement);
+  });
+
+  it("preserves dynamic additions and deletions without a fixed block-count whitelist", () => {
+    const fixture = surfaceFixture("en");
+    const content = fixture.content_v3 as ReturnType<typeof v3Fixture>;
+    content.blocks.splice(1, 2);
+    content.blocks.push({
+      id: "future-note",
+      copy_key: "career.block.future-note",
+      content_state: "enhanced",
+      availability: "available",
+      items: [{ id: "future-note-1", copy_key: "career.item.future-note", type: "notice", availability: "available", data: { paragraphs: ["Future declared note"] } }],
+    } as never);
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    expect(Array.from(document.querySelectorAll("[data-content-block-id]"), (node) => node.getAttribute("data-content-block-id"))).toEqual([
+      "risk-primary", "faq", "future-note",
+    ]);
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(3);
+    expect(screen.getByText("Future declared note")).toBeInTheDocument();
+    expect(screen.queryByText("Review transactions")).not.toBeInTheDocument();
   });
 
   it("keeps a damaged block out of visible content, TOC, and FAQ structured data", () => {

@@ -134,6 +134,12 @@
   padding-left: 38px;
 }
 
+.sourceRegisterInline {
+  margin: 0 38px;
+  padding: 30px 0 34px;
+  border-top: 1px solid #E2E8F2;
+}
+
 .accountantsFitCenterGroup .groupStack > [data-career-component-id] + [data-career-component-id="personality_fit_block"] {
   margin-top: 0;
   padding-top: 0;
@@ -2375,6 +2381,11 @@
   .accountantsSourcesGroup .groupStack > [data-career-component-id="source_card"] {
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  .sourceRegisterInline {
+    margin-right: 20px;
+    margin-left: 20px;
   }
 
   .fitAssessmentGrid,
