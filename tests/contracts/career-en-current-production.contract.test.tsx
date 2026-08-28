@@ -116,8 +116,11 @@ describe("career English Current production renderer", () => {
 
     render(<CareerDisplaySurface surface={surface} />);
     expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    const visibleComponentCount = surface?.componentOrder.filter((componentId) =>
+      !["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)
+    ).length ?? 0;
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(visibleComponentCount);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(visibleComponentCount);
     expect([...document.querySelectorAll("[data-career-quick-answer-key]")].map((item) =>
       item.getAttribute("data-career-quick-answer-key")
     )).toEqual(["qa3", "qa2", "qa1"]);
@@ -160,8 +163,11 @@ describe("career English Current production renderer", () => {
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent(titleEn);
     expect([...document.querySelectorAll("[data-career-visual-group]")].map((group) => group.getAttribute("data-career-visual-group")))
       .toEqual(CAREER_VISUAL_GROUP_IDS);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    const visibleComponentCount = surface?.componentOrder.filter((componentId) =>
+      !["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)
+    ).length ?? 0;
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(visibleComponentCount);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength(visibleComponentCount);
     const hiddenPrimaryCta = document.querySelector('#career-component-primary_cta[data-career-component-id="primary_cta"]');
     expect(hiddenPrimaryCta).toHaveClass("hidden");
     expect(hiddenPrimaryCta?.querySelector('[data-career-api-component="primary_cta"]')).toHaveAttribute(

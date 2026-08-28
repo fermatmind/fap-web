@@ -244,9 +244,9 @@ describe("PR-CAREER-KG-00 career job SEO/display asset projection contract", () 
     expect(html).toContain(`/zh/tests/holland-career-interest-test-riasec`);
 
     expect(html).toContain(BACKEND_SOURCE_LABEL);
-    expect(html).toContain(BACKEND_SOURCE_USAGE);
+    expect(html).not.toContain(BACKEND_SOURCE_USAGE);
     expect(html).toContain("2026-07-02");
-    expect(html).toContain("后端边界说明");
+    expect(html).not.toContain("后端边界说明");
     expect(html).not.toContain("O*NET：职业定义、任务、兴趣、技能和工作场景。");
     expect(html).not.toContain("Career definitions, tasks, and interest signals reference public occupational sources");
   });

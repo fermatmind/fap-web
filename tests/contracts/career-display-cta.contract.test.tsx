@@ -13,7 +13,9 @@ import {
 } from "@/tests/contracts/careerDisplaySurface.fixture";
 
 function getPrimaryDecisionCta(): HTMLAnchorElement {
-  const links = Array.from(screen.getByTestId("career-decision-action-block").querySelectorAll("a"));
+  const actionContainer = screen.queryByTestId("career-production-assessment-rail") ??
+    screen.getByTestId("career-decision-action-block");
+  const links = Array.from(actionContainer.querySelectorAll("a"));
   const cta = links.find((link) =>
     link.getAttribute("href")?.includes(`/tests/${CAREER_DISPLAY_RIASEC_TEST_SLUG}`)
   );

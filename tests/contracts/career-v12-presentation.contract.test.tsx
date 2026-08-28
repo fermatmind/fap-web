@@ -17,6 +17,8 @@ import {
   CAREER_V12_DESIGN_AUTHORITY_SHA256,
   normalizeCareerPresentationV1,
 } from "@/lib/career/presentationV1";
+
+const INTERNAL_COMPONENT_IDS = new Set(["boundary_notice", "review_validity_card", "final_cta"]);
 import {
   buildCareerPresentationV1Fixture,
   buildSelectedCareerDisplaySurfaceFixture,
@@ -167,7 +169,7 @@ describe("career v1.2 presentation contract", () => {
     expect(heroElement).not.toHaveTextContent(/O\*NET|0\/10|undefined|暂无数据|数据缺失/u);
     expect(document.querySelector('[data-career-api-field="presentation_v1.hero.onet_code"]')).not.toBeInTheDocument();
     expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(0);
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(27);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(24);
     expect(document.querySelectorAll("section:empty, article:empty, aside:empty")).toHaveLength(0);
   });
 
@@ -193,11 +195,11 @@ describe("career v1.2 presentation contract", () => {
     expect(groups.map((group) => group.getAttribute("data-career-visual-group"))).toEqual(expectedVisualGroupIds);
     const expectedRenderedOrder = CAREER_VISUAL_GROUPS
       .flatMap((group) => group.componentIds)
-      .filter((componentId) => surface?.componentOrder.includes(componentId));
+      .filter((componentId) => surface?.componentOrder.includes(componentId) && !INTERNAL_COMPONENT_IDS.has(componentId));
     expect([...document.querySelectorAll("[data-career-component-id]")].map((element) =>
       element.getAttribute("data-career-component-id")
     )).toEqual(expectedRenderedOrder);
-    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength((surface?.componentOrder.length ?? 1) - 1);
+    expect(document.querySelectorAll("[data-career-api-component]")).toHaveLength((surface?.componentOrder.length ?? 4) - 4);
     const tocLinks = screen.getByRole("complementary", { name: "页面目录" }).querySelectorAll("nav a");
     expect(tocLinks).toHaveLength(11);
     expect(tocLinks[0]).toHaveTextContent("01快速判断");

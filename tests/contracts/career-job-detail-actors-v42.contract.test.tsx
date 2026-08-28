@@ -316,7 +316,9 @@ describe("career job detail versionless current route integration", () => {
     const componentOrder = [...html.matchAll(/data-career-component-id="([^"]+)"/g)].map((match) => match[1]);
 
     expect(html).toContain('data-career-production-template="career-production-v1"');
-    expect(componentOrder).toEqual(CAREER_VISUAL_GROUPS.flatMap((group) => group.componentIds));
+    expect(componentOrder).toEqual(CAREER_VISUAL_GROUPS
+      .flatMap((group) => group.componentIds)
+      .filter((componentId) => !["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)));
     expect(html).not.toContain('data-testid="career-job-related-links"');
     expect(salaryFetch).not.toHaveBeenCalled();
     expect(aiFetch).not.toHaveBeenCalled();
