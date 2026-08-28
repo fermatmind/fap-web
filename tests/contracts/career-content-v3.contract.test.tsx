@@ -268,6 +268,7 @@ describe("career content v3 contract", () => {
     expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);
     expect(screen.getByTestId("source-list")).toHaveTextContent("不是个人起薪或到手工资");
     expect(screen.getByTestId("source-list").querySelectorAll("details")).toHaveLength(1);
+    expect(screen.getByRole("link", { name: "查看原始资料：Accountants and Auditors" })).toHaveAttribute("href", "https://www.bls.gov/news.release/ocwage.t01.htm");
     expect(screen.getByRole("link", { name: "查看 FA01 原始职位" })).toHaveAttribute("href", "https://example.com/jobs/fa01");
     expect(within(screen.getByTestId("career-dossier-ai-impact")).getAllByTestId("career-near-source")).toHaveLength(2);
     expect(within(screen.getByTestId("career-dossier-outlook-transitions")).getByTestId("career-near-source")).toHaveTextContent("BLS OEWS｜美国｜2025 年 5 月｜官方工资统计");

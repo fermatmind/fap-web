@@ -586,7 +586,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
               <div className="mt-3 border-t border-[#DCE3F0] pt-3 text-sm leading-7 text-[#2a3346]">
                 {source.url ? (
                   <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">
-                    查看原始资料：{source.publisher ?? source.name}
+                    查看原始资料：{source.scope ?? source.publisher ?? source.name}
                   </a>
                 ) : null}
                 {source.details.length > 0 ? (
