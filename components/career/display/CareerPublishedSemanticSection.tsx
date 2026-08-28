@@ -1,6 +1,10 @@
 import type { ReactNode } from "react";
 import visual from "@/components/career/display/CareerProductionVisual.module.css";
-import type { CareerDisplayComponentId, CareerDisplaySource } from "@/lib/career/displaySurface";
+import type {
+  CareerDisplayComponentId,
+  CareerDisplayReviewValidity,
+  CareerDisplaySource,
+} from "@/lib/career/displaySurface";
 import type { CareerPublishedValue } from "@/lib/career/publishedComponentContract";
 
 type PublishedRecord = Record<string, CareerPublishedValue>;
@@ -61,7 +65,7 @@ export const CAREER_COMPONENT_TITLES_EN: Record<CareerDisplayComponentId, string
   next_steps_block: "Next steps",
   faq_block: "Frequently asked questions",
   related_next_pages: "Related careers",
-  source_card: "Sources",
+  source_card: "Sources and update notes",
   review_validity_card: "Review validity",
   boundary_notice: "Usage boundaries",
   final_cta: "Next action",
@@ -250,6 +254,7 @@ export function CareerPublishedSemanticSection({
   value,
   testId,
   sources = [],
+  reviewValidity,
   snapshotVariant = "complete",
   snapshotFacts = [],
   snapshotCallout,
@@ -264,6 +269,7 @@ export function CareerPublishedSemanticSection({
   value: CareerPublishedValue;
   testId?: string;
   sources?: CareerDisplaySource[];
+  reviewValidity?: CareerDisplayReviewValidity | null;
   snapshotVariant?: "complete" | "overview" | "china";
   snapshotFacts?: Array<{ key: "interest" | "scene" | "risk"; sourceIndex: number; text: string }>;
   snapshotCallout?: string | null;
@@ -695,6 +701,12 @@ export function CareerPublishedSemanticSection({
           ["澎湃新闻", "https://www.thepaper.cn/"],
           ["新华财经", "https://www.cnfin.com/"],
         ] as const;
+        const acceptedReviewDates = new Set(["2026-08-03", "2026-12-30"]);
+        const supplementalReviewDate = reviewValidity?.lastReviewed &&
+          reviewValidity.lastReviewed !== asString(eeat.updated_at) &&
+          !acceptedReviewDates.has(reviewValidity.lastReviewed)
+          ? reviewValidity.lastReviewed
+          : null;
         return (
           <PublishedRoot componentId={componentId} testId={testId} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
             <SectionTitle>资料来源与更新说明</SectionTitle>
@@ -707,7 +719,7 @@ export function CareerPublishedSemanticSection({
                   <a className="font-medium text-[#2C3E8C] hover:underline" href={url} rel="noopener noreferrer" target="_blank">{label}</a>
                 </span>
               ))}
-              等。
+              等。{supplementalReviewDate ? <span>补充复核：<strong className="font-semibold text-slate-900">{supplementalReviewDate}</strong>。</span> : null}
             </p>
           </PublishedRoot>
         );
@@ -716,6 +728,9 @@ export function CareerPublishedSemanticSection({
         <PublishedRoot componentId={componentId} testId={testId}>
           <SectionTitle>{componentTitle}</SectionTitle>
           <p className={`mb-0 mt-3 ${BODY}`}><Field path={`${componentId}.note`}>{asString(data.note)}</Field></p>
+          {reviewValidity?.lastReviewed && reviewValidity.lastReviewed !== asString(eeat.updated_at) ? (
+            <p className={`mb-0 mt-3 ${BODY}`}>{isZh ? "最近复核：" : "Last reviewed: "}<strong>{reviewValidity.lastReviewed}</strong></p>
+          ) : null}
           <div className="mt-4 grid gap-3 rounded-xl bg-[#F0F3FA] p-4 sm:grid-cols-3">
             {(["author", "source", "updated_at"] as const).map((key) => <p key={key} className={`m-0 ${BODY}`}><Field path={`${componentId}.eeat_signals.${key}`}>{asString(eeat[key])}</Field></p>)}
           </div>
@@ -761,8 +776,6 @@ function SourceItem({ source }: { source: CareerDisplaySource }) {
     <li className={`list-none ${BODY}`}>
       {source.url ? <a href={source.url} className="font-semibold text-[#2C3E8C] hover:underline">{source.label}</a> : <span className="font-semibold">{source.label}</span>}
       {source.urlNote ? <span> — {source.urlNote}</span> : null}
-      {typeof source.usage === "string" ? <span> — {source.usage}</span> : null}
-      {Array.isArray(source.usage) ? <ul className="m-0 mt-1 list-disc pl-5">{source.usage.map((item) => <li key={item}>{item}</li>)}</ul> : null}
     </li>
   );
 }

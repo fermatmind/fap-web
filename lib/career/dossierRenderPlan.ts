@@ -65,6 +65,18 @@ const BLOCK_PRESENTATION_REGISTRY: Readonly<Record<string, CareerDossierPresenta
   "career.block.source-register": "source-register",
 };
 
+const REGISTERED_BLOCK_COPY_KEYS = new Set([
+  ...Object.keys(BLOCK_PRESENTATION_REGISTRY),
+  ...Object.keys(ITEM_COMPONENT_REGISTRY).map((copyKey) => copyKey.replace("career.item.", "career.block.")),
+]);
+
+const INTERNAL_BLOCK_COPY_KEYS = new Set([
+  "career.block.boundary-notice",
+  "career.block.review-validity-card",
+  "career.block.final-cta",
+  "career.block.source-register",
+]);
+
 export type CareerDossierRenderPlanBlock = {
   instanceKey: string;
   id: string;
@@ -100,6 +112,14 @@ export function careerPresentationForV3CopyKey(copyKey: string): CareerDossierPr
   return BLOCK_PRESENTATION_REGISTRY[copyKey] ?? "generic";
 }
 
+export function isCareerRegisteredV3BlockCopyKey(copyKey: string): boolean {
+  return REGISTERED_BLOCK_COPY_KEYS.has(copyKey);
+}
+
+export function isCareerInternalV3BlockCopyKey(copyKey: string): boolean {
+  return INTERNAL_BLOCK_COPY_KEYS.has(copyKey);
+}
+
 function declaredComponents(items: readonly CareerContentV3Item[]): CareerDisplayComponentId[] {
   const seen = new Set<CareerDisplayComponentId>();
   const result: CareerDisplayComponentId[] = [];
@@ -126,8 +146,7 @@ export function buildCareerDossierRenderPlan(
           careerContentV3BlockCopy("career.block.additional", contentV3.locale)!.title;
         const availableItems = block.items.filter((item) => item.availability === "available");
         const renderable = block.renderable && block.availability === "available" && availableItems.length > 0;
-        const mergeIntoPrevious = block.copyKey === "career.block.source-register" &&
-          contentV3.blocks[index - 1]?.copyKey === "career.block.sources";
+        const isInternalBlock = isCareerInternalV3BlockCopyKey(block.copyKey);
         return {
           instanceKey: `${block.id}:${index}`,
           id: block.id,
@@ -139,8 +158,8 @@ export function buildCareerDossierRenderPlan(
           items: block.items,
           declaredComponentIds: declaredComponents(block.items),
           presentation: careerPresentationForV3CopyKey(block.copyKey),
-          mergeIntoPrevious,
-          visibleInToc: renderable && !mergeIntoPrevious,
+          mergeIntoPrevious: false,
+          visibleInToc: renderable && !isInternalBlock,
           renderable,
         };
       }),

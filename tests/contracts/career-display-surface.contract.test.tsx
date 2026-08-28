@@ -41,6 +41,12 @@ const D8_ACTIVE_DISPLAY_SLUGS = [
   ["career-and-technical-education-teachers", "Career and Technical Education Teachers"],
 ] as const;
 
+const INTERNAL_DISPLAY_COMPONENTS = new Set([
+  "boundary_notice",
+  "review_validity_card",
+  "final_cta",
+]);
+
 function collectPublishedScalarValues(value: unknown): string[] {
   if (value === null || typeof value === "string" || typeof value === "boolean") {
     return value === null || String(value).trim().length === 0 ? [] : [String(value)];
@@ -153,7 +159,7 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-snapshot-primary")).toHaveTextContent("Career Snapshot: U.S. Reference");
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
     expect(screen.getByTestId("source-list")).toHaveTextContent("O*NET Online");
-    expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Last reviewed: 2026-05-03");
+    expect(screen.getByTestId("career-source-disclosure")).not.toHaveTextContent("Review validity");
   });
 
   it.each(["en", "zh"] as const)("maps the published accountants boundary array and renders the official hero chrome for %s", (locale) => {
@@ -316,7 +322,9 @@ describe("career display surface contract", () => {
       "data-career-production-template",
       "career-production-v1"
     );
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(
+      surface?.componentOrder.filter((componentId) => !INTERNAL_DISPLAY_COMPONENTS.has(componentId)).length ?? 0
+    );
   });
 
   it("preserves published zh Current copy instead of applying local claim regex rewrites", () => {
@@ -346,7 +354,7 @@ describe("career display surface contract", () => {
     expect(screen.queryByText("此组件受已发布证据权限约束；当前不展示未经授权的声明。")).not.toBeInTheDocument();
   });
 
-  it("renders every published scalar and preserves API array cardinality for a Current zh projection", () => {
+  it("renders visible published scalars and preserves API array cardinality for a Current zh projection", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -365,22 +373,31 @@ describe("career display surface contract", () => {
       .flatMap((element) => [...element.attributes].map((attribute) => attribute.value));
     const domProjection = [document.body.textContent ?? "", ...attributeValues].join("\n");
     const expectedValues = (surface?.componentOrder ?? [])
-      .flatMap((componentId) => componentId === "career_snapshot_primary_locale"
-        ? collectPublishedScalarValues((page[componentId] as { salary: unknown }).salary)
-        : collectPublishedScalarValues(page[componentId]));
+      .filter((componentId) => !INTERNAL_DISPLAY_COMPONENTS.has(componentId))
+      .flatMap((componentId) => {
+        if (componentId === "career_snapshot_primary_locale") {
+          return collectPublishedScalarValues((page[componentId] as { salary: unknown }).salary);
+        }
+        if (componentId === "primary_cta") {
+          const cta = page[componentId] as { label: string; href: string };
+          return [cta.label, cta.href];
+        }
+        return collectPublishedScalarValues(page[componentId]);
+      });
 
     for (const expected of expectedValues) {
       expect(domProjection, `missing published scalar: ${expected}`).toContain(expected);
     }
-    const expectedSourceValues = fixture.sources.references.flatMap(({ label, url, usage }) => [
+    const expectedSourceValues = fixture.sources.references.flatMap(({ label, url }) => [
       label,
       ...(url ? [url] : []),
-      ...(Array.isArray(usage) ? usage : [usage]),
     ]);
     for (const expected of expectedSourceValues) {
       expect(domProjection, `missing published source scalar: ${expected}`).toContain(expected);
     }
-    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(surface?.componentOrder.length ?? 0);
+    expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(
+      surface?.componentOrder.filter((componentId) => !INTERNAL_DISPLAY_COMPONENTS.has(componentId)).length ?? 0
+    );
     expect(document.querySelectorAll('[data-career-api-list="responsibilities_block"] > li')).toHaveLength(
       (page.responsibilities_block as unknown[]).length
     );
@@ -417,7 +434,7 @@ describe("career display surface contract", () => {
     );
   });
 
-  it("renders every canonical Current source without applying legacy trust filtering", () => {
+  it("renders every canonical Current source without exposing internal usage notes", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({ slug: "actors", locale: "zh", titleZh: "演员" });
     fixture.sources = {
       onet: {
@@ -450,7 +467,7 @@ describe("career display surface contract", () => {
       "href",
       "https://www.linkedin.com/business/talent/blog/learning-and-development/skills-on-the-rise"
     );
-    expect(screen.getByText("非市场统计")).toBeInTheDocument();
+    expect(screen.queryByText("非市场统计")).not.toBeInTheDocument();
     expect(screen.getByText(/not_applicable_for_military_specific_onet_occupation/)).toBeInTheDocument();
   });
 
@@ -811,7 +828,7 @@ describe("career display surface contract", () => {
     expect(screen.queryByText("下一步页面")).not.toBeInTheDocument();
 
     const localizedCtas = screen.getAllByRole("link", { name: "测量我的职业兴趣" });
-    expect(localizedCtas.length).toBeGreaterThanOrEqual(2);
+    expect(localizedCtas).toHaveLength(1);
     localizedCtas.forEach((cta) => {
       const href = cta.getAttribute("href") ?? "";
       expect(href).toMatch(/^\/zh\/tests\/holland-career-interest-test-riasec(?:\?|$)/);

@@ -134,7 +134,7 @@ export type CareerPublishedOutlookTransitions = {
   heading: string;
   direct_answer: string;
   outlook_evidence: Array<{
-    source_id: string;
+    source_id?: string;
     geography: string;
     occupation_scope: string;
     horizon: string;
@@ -480,7 +480,11 @@ function validateOutlookTransitions(value: unknown): boolean {
     value.schema_version === "career.outlook_transitions.v1" &&
     isNonEmptyString(value.heading) && isNonEmptyString(value.direct_answer) &&
     Array.isArray(value.outlook_evidence) && value.outlook_evidence.length === 3 &&
-    value.outlook_evidence.every((item) => hasStringFields(item, ["geography", "horizon", "interpretation", "limitation", "metric", "occupation_scope", "source_id", "value"])) &&
+    value.outlook_evidence.every((item) => hasStringFields(
+      item,
+      ["geography", "horizon", "interpretation", "limitation", "metric", "occupation_scope", "value"],
+      ["source_id"],
+    )) &&
     validateContextLinks(value.context_links) &&
     Array.isArray(value.transitions) && value.transitions.length >= 6 && value.transitions.length <= 8 && value.transitions.every((item) =>
       hasStringFields(item, ["capability_gaps", "shared_capabilities", "target_href", "target_slug", "target_title", "transition_distance"]) &&

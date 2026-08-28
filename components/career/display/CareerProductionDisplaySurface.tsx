@@ -49,6 +49,8 @@ import {
 } from "@/lib/career/displaySurface";
 import {
   careerComponentForV3CopyKey,
+  isCareerInternalV3BlockCopyKey,
+  isCareerRegisteredV3BlockCopyKey,
   type CareerDossierRenderPlanBlock,
 } from "@/lib/career/dossierRenderPlan";
 import {
@@ -609,6 +611,7 @@ export function CareerProductionDisplaySurface({
     groupHeader?: { label: string; labelId: string }
   ) => {
     if (!surface.componentOrder.includes(componentId)) return null;
+    if (["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)) return null;
 
     if (componentId === "breadcrumb") {
       const rawBreadcrumb = publishedComponents?.breadcrumb;
@@ -683,7 +686,7 @@ export function CareerProductionDisplaySurface({
       />;
     }
     if (componentId === "source_card") return publishedComponents
-      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} locale={surface.locale} />
+      ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} reviewValidity={surface.reviewValidity} locale={surface.locale} />
       : <SourceCard surface={surface} />;
     if (componentId === "review_validity_card") return publishedComponents
       ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} locale={surface.locale} />
@@ -784,9 +787,8 @@ export function CareerProductionDisplaySurface({
 
   const renderV3RichBlock = (
     block: CareerDossierRenderPlanBlock,
-    options: { allowRich?: boolean; embeddedSourceRegister?: boolean } = {},
   ): ReactNode | null => {
-    if (!publishedComponents || block.contentState !== "enhanced" || options.allowRich === false) return null;
+    if (!publishedComponents || !isCareerRegisteredV3BlockCopyKey(block.copyKey)) return null;
     const availableComponents = new Set(
       block.items
         .filter((item) => item.availability === "available")
@@ -887,27 +889,36 @@ export function CareerProductionDisplaySurface({
     if (block.copyKey === "career.block.sources") {
       const nodes = block.declaredComponentIds.flatMap((componentId) => {
         if (!availableComponents.has(componentId)) return [];
-        if (publishedComponents[componentId] === undefined) return [];
+        if (["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)) return [];
+        if (publishedComponents[componentId] === undefined) return [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
+            <CareerV3Placeholder compact locale={surface.locale} />
+          </ComponentFrame>,
+        ];
         const component = renderComponent(componentId, {
           label: block.title,
           labelId: `${block.anchorId}-title`,
         });
-        return component == null ? [] : [
+        return component == null ? [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
+            <CareerV3Placeholder compact locale={surface.locale} />
+          </ComponentFrame>,
+        ] : [
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
         ];
       });
       return nodes.length > 0 ? <>{nodes}</> : null;
     }
 
-    if (block.copyKey === "career.block.source-register" && block.items.some((item) => item.copyKey === "career.item.published-sources" && item.availability === "available")) {
-      return surface.sources.length > 0 ? (
-        options.embeddedSourceRegister
-          ? <SourceCard surface={surface} embedded />
-          : <ComponentFrame id="source_card" instanceKey={block.instanceKey}><SourceCard surface={surface} /></ComponentFrame>
-      ) : null;
-    }
-
-    return null;
+    const components = block.declaredComponentIds.filter((componentId) =>
+      !["boundary_notice", "review_validity_card", "final_cta"].includes(componentId)
+    );
+    if (components.length === 0 || components.some((componentId) => publishedComponents[componentId] === undefined)) return null;
+    const nodes = components.map((componentId) => renderComponent(componentId));
+    if (nodes.some((node) => node === null)) return null;
+    return <>{nodes.map((node, index) => (
+      <ComponentFrame id={components[index]} instanceKey={block.instanceKey} key={`${components[index]}:${index}`}>{node}</ComponentFrame>
+    ))}</>;
   };
 
   if (surface.dossierRenderPlan?.source === "content_v3") {
@@ -916,11 +927,6 @@ export function CareerProductionDisplaySurface({
     const breadcrumb = renderComponent("breadcrumb");
     const hero = renderComponent("hero");
     const successfulBlocks = plan.blocks.filter((block) => block.visibleInToc);
-    const semanticInstanceCounts = plan.blocks.reduce((counts, block) => {
-      if (block.renderable) counts.set(block.copyKey, (counts.get(block.copyKey) ?? 0) + 1);
-      return counts;
-    }, new Map<string, number>());
-
     const shellClassName = (block: CareerDossierRenderPlanBlock, usesRegisteredRenderer: boolean): string => {
       if (!usesRegisteredRenderer) return `${visual.visualGroup} ${visual.compoundGroup}`;
       if (block.presentation === "quick-decision") return `${visual.visualGroup} ${visual.compoundGroup} ${visual.accountantsQuickDecisionGroup}`;
@@ -940,31 +946,8 @@ export function CareerProductionDisplaySurface({
       ) : null;
     };
 
-    const renderMergedSourceRegister = (block: CareerDossierRenderPlanBlock): ReactNode => {
-      const richContent = block.renderable
-        ? renderV3RichBlock(block, {
-            allowRich: (semanticInstanceCounts.get(block.copyKey) ?? 0) === 1,
-            embeddedSourceRegister: true,
-          })
-        : null;
-      return (
-        <section
-          id={block.anchorId}
-          key={block.instanceKey}
-          data-career-v3-block-copy-key={block.copyKey}
-          data-career-v3-presentation={block.presentation}
-          data-content-block-id={block.id}
-          aria-label={block.title}
-        >
-          {block.renderable ? richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} /> : <CareerV3Placeholder locale={surface.locale} />}
-          {block.renderable && richContent !== null ? missingItemPlaceholders(block) : null}
-        </section>
-      );
-    };
-
-    const renderPlannedBlock = (block: CareerDossierRenderPlanBlock, index: number): ReactNode => {
-      if (block.mergeIntoPrevious) return null;
-      const mergedSourceRegister = plan.blocks[index + 1]?.mergeIntoPrevious ? plan.blocks[index + 1] : null;
+    const renderPlannedBlock = (block: CareerDossierRenderPlanBlock): ReactNode => {
+      if (isCareerInternalV3BlockCopyKey(block.copyKey)) return null;
       if (!block.renderable) {
         return (
           <section
@@ -976,13 +959,12 @@ export function CareerProductionDisplaySurface({
             key={block.instanceKey}
           >
             <CareerV3Placeholder locale={surface.locale} />
-            {mergedSourceRegister ? renderMergedSourceRegister(mergedSourceRegister) : null}
           </section>
         );
       }
 
-      const allowRich = (semanticInstanceCounts.get(block.copyKey) ?? 0) === 1;
-      const richContent = renderV3RichBlock(block, { allowRich });
+      const registeredSemantic = isCareerRegisteredV3BlockCopyKey(block.copyKey);
+      const richContent = registeredSemantic ? renderV3RichBlock(block) : null;
       const usesRegisteredRenderer = richContent !== null;
       const usesQuickDecisionHeader = usesRegisteredRenderer && block.presentation === "quick-decision";
       const ownsAccessibleTitle = usesRegisteredRenderer && ["profile", "direction-comparison", "ai-impact", "salary"].includes(block.presentation);
@@ -1011,9 +993,10 @@ export function CareerProductionDisplaySurface({
             <h2 className={visual.groupTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
           ) : null}
           <div className={visual.groupStack}>
-            {richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} />}
+            {richContent ?? (registeredSemantic
+              ? <CareerV3Placeholder locale={surface.locale} />
+              : <CareerV3PrimitiveBlock block={block} content={plan.content} />)}
             {usesRegisteredRenderer ? missingItemPlaceholders(block) : null}
-            {mergedSourceRegister ? renderMergedSourceRegister(mergedSourceRegister) : null}
           </div>
         </section>
       );

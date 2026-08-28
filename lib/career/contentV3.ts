@@ -385,10 +385,13 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
   };
 }
 
-export function careerContentV3FaqItems(content: CareerContentV3): Array<{ question: string; answer: string }> {
+export function careerContentV3FaqItems(
+  content: CareerContentV3,
+  includeBlock: (block: CareerContentV3Block) => boolean = () => true,
+): Array<{ question: string; answer: string }> {
   const result: Array<{ question: string; answer: string }> = [];
   for (const block of content.blocks) {
-    if (!block.renderable || block.availability !== "available") continue;
+    if (!block.renderable || block.availability !== "available" || !includeBlock(block)) continue;
     for (const item of block.items) {
       if (item.type !== "faq" || item.availability !== "available" || !Array.isArray(item.data.entries)) continue;
       for (const entry of item.data.entries) {
