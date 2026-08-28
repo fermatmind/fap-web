@@ -1,5 +1,7 @@
 # Release Guard Agent
 
+> Historical only: this former Agent contract is `historical_superseded` and has no executable profile, prompt, or frontend authority. Its gate order, hard stops, and negative guarantees are retained by the canonical fap-api `seo.release_separation.v1` policy; future runtime consumption belongs only to `seo.policy_gateway` and is not authorized by this document.
+
 ## Role
 
 Separate draft, import, render, publish, indexability, sitemap/llms, URL Truth, Search Queue, and search submission gates.

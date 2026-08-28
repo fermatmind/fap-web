@@ -1,5 +1,15 @@
 {
   "schema_version": "fermatmind.agent_registry.v1",
+  "authority_status": "historical_superseded",
+  "execution_authorized": false,
+  "fap_web_agent_authority": false,
+  "canonical_registry": {
+    "repository": "fap-api",
+    "registry_id": "fermatmind.seo.role_capability_registry",
+    "registry_version": "1.0.0",
+    "registry_status": "frozen",
+    "registry_hash": "b02b6edd816b75b42582468e5bc3aa2c9cd0060149825d1fdc6131cf71d73791"
+  },
   "created_at": "2026-06-22",
   "scope": "full_assessment_platform_after_free_full_report_mode",
   "mode": "docs_contracts_only",
@@ -14,7 +24,71 @@
   "recommended_counts": {
     "core_operating_agents": 12,
     "mandatory_scale_result_agents": 6,
-    "active_agent_units": 18
+    "historical_declared_agent_units": 18,
+    "active_agent_units": 0
+  },
+  "authority_supersession": {
+    "agent_os_release_coordination": {
+      "classification": "historical_superseded",
+      "disposition": "retire",
+      "replacement": "fap-api frozen registry and deterministic release workflows"
+    },
+    "seo_geo_control": {
+      "classification": "historical_superseded",
+      "disposition": "merge",
+      "replacement": "seo.orchestrator"
+    },
+    "runtime_qa": {
+      "classification": "review_mode",
+      "disposition": "retain_contract",
+      "replacement": "deterministic read-only QA"
+    },
+    "cms_draft_package": {
+      "classification": "deterministic_tool",
+      "disposition": "retain_contract",
+      "replacement": "backend-authorized deterministic draft packaging"
+    },
+    "cms_publish_readback": {
+      "classification": "review_mode",
+      "secondary_classification": "deterministic_tool",
+      "disposition": "retain_contract",
+      "replacement": "backend publication readback capability"
+    },
+    "analytics_gsc_opportunity": {
+      "classification": "historical_superseded",
+      "disposition": "merge",
+      "replacement": "seo.expert.search_analytics_measurement"
+    },
+    "assessment_hub": {
+      "classification": "product_domain_out_of_seo_scope",
+      "disposition": "exclude",
+      "replacement": "product assessment ownership"
+    },
+    "result_page_agent_platform": {
+      "classification": "product_domain_out_of_seo_scope",
+      "disposition": "exclude",
+      "replacement": "product result-page ownership"
+    },
+    "career_content_graph": {
+      "classification": "historical_superseded",
+      "disposition": "merge",
+      "replacement": "career.content_agent"
+    },
+    "public_personality_content": {
+      "classification": "bounded_capability",
+      "disposition": "retain_contract_default_disabled",
+      "replacement": "backend-authorized public personality content capability"
+    },
+    "competitor_alternative_research": {
+      "classification": "historical_superseded",
+      "disposition": "merge",
+      "replacement": "seo.expert.competitor_research"
+    },
+    "claim_privacy_safety_gate": {
+      "classification": "contract_only",
+      "disposition": "retain_contract",
+      "replacement": "SEO-PLATFORM-11B/11K policy work"
+    }
   },
   "approval_states": [
     "not_requested",

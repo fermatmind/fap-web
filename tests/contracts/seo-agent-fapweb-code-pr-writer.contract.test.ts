@@ -75,16 +75,25 @@ function changedFiles(): string[] {
 }
 
 const allowedFiles = new Set([
+  ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/release-guard-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/authority-supersession.v1.json",
   ".agents/skills/fap-web-seo-geo-authority/SKILL.md",
   ".agents/skills/fermatmind-seo-ops/SKILL.md",
   "package.json",
+  "docs/agent-os/agent-registry.v1.json",
+  "docs/result-page-agents/seo-authority-supersession.v1.json",
+  "docs/seo/SEO_CODE_CHANGE_ARTIFACT.md",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+  "docs/seo/seo-platform-11a-authority-supersession.v1.json",
   "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
   "docs/seo/generated/seo-agent-fapweb-code-pr-writer.v1.json",
   "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "scripts/seo/generate-seo-code-change-artifact.mjs",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/quiz-pack-performance-hotfix.contract.test.ts",
   "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
+  "tests/contracts/seo-platform-11a-authority-convergence.contract.test.ts",
 ]);
 
 describe("SEO Agent fap-web code PR writer", () => {
@@ -176,7 +185,8 @@ describe("SEO Agent fap-web code PR writer", () => {
       search_channel_submit_allowed: false,
       indexing_request_allowed: false,
     });
-    expect(pkg).toContain("\"seo-agent:fapweb-code-pr-writer\"");
+    expect(pkg).not.toContain("\"seo-agent:fapweb-code-pr-writer\"");
+    expect(pkg).toContain("\"seo:code-change-artifact\"");
   });
 
   it("keeps fap-web SEO skills aligned to the Codex PR-only lane", () => {
@@ -189,10 +199,10 @@ describe("SEO Agent fap-web code PR writer", () => {
       "utf8",
     );
 
-    expect(seoGeoSkill).toContain("pnpm seo-agent:fapweb-code-pr-writer");
-    expect(seoGeoSkill).toContain("must not direct-push `main`, auto-merge, auto-deploy");
-    expect(seoOpsSkill).toContain("seo-agent-fapweb-code-pr-writer.v1");
-    expect(seoOpsSkill).toContain("must not direct-push `main`, auto-merge, auto-deploy");
+    expect(seoGeoSkill).toContain("pnpm seo:code-change-artifact");
+    expect(seoGeoSkill).toContain("grants no Agent, git, PR, deployment, CMS, or search authority");
+    expect(seoOpsSkill).toContain("seo-code-change-artifact.v1");
+    expect(seoOpsSkill).toContain("grants no Agent, git, PR, deployment, CMS, Search Channel, indexing");
   });
 
   it("keeps current PR changed files inside the approved fap-web code writer scope", () => {

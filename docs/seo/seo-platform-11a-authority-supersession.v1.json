@@ -1,0 +1,45 @@
+{
+  "schema_version": "seo-platform-11a-authority-supersession.v1",
+  "authority_status": "historical_superseded",
+  "owner_repository": "fap-api",
+  "fap_web_agent_authority": false,
+  "execution_authorized": false,
+  "canonical_registry": {
+    "registry_id": "fermatmind.seo.role_capability_registry",
+    "registry_version": "1.0.0",
+    "registry_status": "frozen",
+    "registry_hash": "b02b6edd816b75b42582468e5bc3aa2c9cd0060149825d1fdc6131cf71d73791",
+    "generated_projection": "backend/docs/seo/generated/seo-agent-role-capability-registry.v1.json"
+  },
+  "frontend_scope": [
+    "renderer",
+    "read_only_qa",
+    "public_projection_consumer"
+  ],
+  "global_guards": {
+    "read_only_gsc": true,
+    "search_submission_allowed": false,
+    "post12_agent_write_enabled": false,
+    "l4_state": "dormant_not_authorized",
+    "runtime_model_invocation_enabled": false,
+    "runtime_created": false
+  },
+  "write_outcomes": {
+    "model_calls_performed": 0,
+    "cms_writes": 0,
+    "seo_data_writes": 0,
+    "search_submissions": 0,
+    "production_data_writes": 0
+  },
+  "release_guard": {
+    "classification": "historical_superseded",
+    "disposition": "retire_agent_identity_retain_policy_contract",
+    "canonical_policy": "seo.release_separation.v1",
+    "future_consumer": "seo.policy_gateway",
+    "execution_authorized": false
+  },
+  "entrypoint_holds": {
+    "seo_agent_fapweb_code_pr_writer": "retired_as_active_agent_entrypoint",
+    "seo_push_baidu": "removed_until_search_authority_activation"
+  }
+}

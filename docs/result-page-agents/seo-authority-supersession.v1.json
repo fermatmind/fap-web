@@ -1,0 +1,21 @@
+{
+  "schema_version": "seo-platform-11a-result-page-supersession.v1",
+  "authority_status": "historical_superseded",
+  "owner_repository": "fap-api",
+  "fap_web_agent_authority": false,
+  "seo_role_registry_inclusion": false,
+  "seo_tool_allowlist_inclusion": false,
+  "retained_contract_scope": [
+    "product_qa",
+    "analytics",
+    "runtime_read_only_review"
+  ],
+  "result_page_assets": [
+    {"agent_id": "mbti_result_page", "classification": "product_domain_out_of_seo_scope"},
+    {"agent_id": "big_five_result_page", "classification": "product_domain_out_of_seo_scope"},
+    {"agent_id": "riasec_result_page", "classification": "product_domain_out_of_seo_scope"},
+    {"agent_id": "iq_raven_result_page", "classification": "product_domain_out_of_seo_scope"},
+    {"agent_id": "eq60_result_page", "classification": "product_domain_out_of_seo_scope"},
+    {"agent_id": "enneagram_result_page", "classification": "product_domain_out_of_seo_scope"}
+  ]
+}

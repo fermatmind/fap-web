@@ -9,7 +9,7 @@ Keep fap-web SEO and GEO surfaces aligned with backend or CMS authority without 
 ## When to use
 - Use for sitemap, `llms.txt`, `llms-full.txt`, metadata, structured data, canonical URL, and public content enumeration changes.
 - Use when SEO/GEO behavior must consume CMS or public API data.
-- Use `docs/seo/agent/FAPWEB_CODE_PR_WRITER.md` and `pnpm seo-agent:fapweb-code-pr-writer` when an SEO Agent runtime QA finding needs a scoped fap-web code PR for structured data, canonical/hreflang, sitemap/llms, or rendering bugs.
+- The former SEO Agent Code PR Writer is retired. When a read-only SEO QA finding needs a sanitized deterministic change-plan artifact, use `docs/seo/SEO_CODE_CHANGE_ARTIFACT.md` and `pnpm seo:code-change-artifact`; it grants no Agent, git, PR, deployment, CMS, or search authority.
 
 ## When not to use
 - Do not use to add local article, help, landing, topic, personality, or career editorial content.

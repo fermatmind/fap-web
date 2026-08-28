@@ -5,9 +5,11 @@ description: Automated FermatMind public personality profile SEO asset factory f
 
 # Public Profile SEO Asset Factory
 
+> Authority status: `historical_superseded`. This package is retained only as a non-authoritative research, schema, and deterministic QA reference. It does not define active agents or prompts, and it cannot invoke models or write CMS, search, sitemap, URL, cache, or production data. See `authority-supersession.v1.json`; canonical SEO role and policy authority is in fap-api.
+
 ## Purpose
 
-Run an automated public profile SEO content production factory for FermatMind personality assets. The default automation mode is `codex_native_content_generation`: Codex builds the source ledger, drafts content, performs skeptical self-review, repairs when needed, validates QA gates, and prepares handoff previews without requiring external browser model calls.
+Preserve the historical public-profile research, package schemas, and deterministic QA contracts for FermatMind personality assets. Any future executable content-production workflow must be newly authorized by the canonical fap-api Registry and Policy Gateway; this skill itself is non-executable.
 
 This skill is not a page generator, not a direct publisher, and not a result-page tool.
 
@@ -51,7 +53,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 
 ## Public Profile Agent Matrix
 
-The public profile factory is split into framework-specific agents plus shared QA and release guards:
+The historical public profile design was split into framework-specific agent documents plus shared QA and release-guard documents. All entries below are reference contracts, not active roles:
 
 - Content Orchestrator Agent: routes work to framework agents, records inputs/outputs, and prevents scope mixing.
 - MBTI64 Public Personality Agent: audits and improves the existing 64 A/T variant pages and A-vs-T comparison pages.
@@ -62,7 +64,7 @@ The public profile factory is split into framework-specific agents plus shared Q
 - Editorial Claim QA Agent: checks trademark, method-boundary, duplicate-risk, private-result-boundary, and deterministic-claim rules.
 - Release Guard Agent: separates draft/package, backend import, frontend render, publish/indexability, sitemap/llms, and search-release gates.
 
-These agents are coordination contracts, not autonomous publishers. They must not write production CMS, mutate sitemap or llms output, enqueue Search Queue items, submit search providers, or change result pages without a separate explicit gate.
+These documents have no Agent authority. They must not invoke models, write production CMS, mutate sitemap or llms output, enqueue Search Queue items, submit search providers, or change result pages. Release separation is governed by the fap-api `seo.release_separation.v1` contract and remains execution-disabled until `seo.policy_gateway` is implemented in a later task.
 
 ## Agent Runner Contract
 

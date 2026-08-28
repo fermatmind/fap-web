@@ -10,7 +10,7 @@ SEO Agent run-control and opportunity-review handoffs are Codex-reviewed by defa
 
 External-model and Mode C references in this skill describe content-package source material only, not the canonical review layer.
 
-SEO Agent technical fap-web fixes must route through the fap-web Code PR Writer lane. The canonical contract is `seo-agent-fapweb-code-pr-writer.v1`; it may produce a PR plan for Codex to review and then use for a scoped fap-web PR, but it must not direct-push `main`, auto-merge, auto-deploy, write CMS data, submit Search Channel requests, request indexing, or create frontend editorial fallback content.
+The former SEO Agent Code PR Writer lane is historical and has no active entrypoint. A read-only finding may be normalized only through the deterministic `seo-code-change-artifact.v1` contract (`pnpm seo:code-change-artifact`); that artifact grants no Agent, git, PR, deployment, CMS, Search Channel, indexing, or frontend editorial authority.
 
 ## When to use this skill
 

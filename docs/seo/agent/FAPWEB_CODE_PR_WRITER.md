@@ -1,5 +1,7 @@
 # SEO Agent fap-web Code PR Writer
 
+> Historical only: this Agent identity and package entrypoint are retired. The retained implementation is evidence, not authority. Use the non-Agent deterministic artifact contract in `docs/seo/SEO_CODE_CHANGE_ARTIFACT.md` when a sanitized change plan is needed.
+
 `SEO-AGENT-FAPWEB-CODE-PR-WRITER-01` defines the safe fap-web code lane for the FermatMind SEO Agent.
 
 The lane is intentionally PR-only. It can package a sanitized SEO code-fix request into a reviewable PR plan, but the runner itself does not push branches, open GitHub PRs, merge, deploy, write CMS data, submit search URLs, or request indexing.

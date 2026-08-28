@@ -1,0 +1,44 @@
+{
+  "schema_version": "seo-platform-11a-public-profile-authority-supersession.v1",
+  "authority_status": "historical_superseded",
+  "execution_authorized": false,
+  "fap_web_agent_authority": false,
+  "canonical_policy": {
+    "repository": "fap-api",
+    "policy_id": "seo.release_separation",
+    "version": "1.0.0",
+    "future_consumer": "seo.policy_gateway"
+  },
+  "retained_value": [
+    "research_method",
+    "editorial_claim_boundaries",
+    "deterministic_qa_checklists",
+    "package_schema_examples"
+  ],
+  "agent_documents": [
+    "agents/big-five-public-personality-agent.md",
+    "agents/editorial-claim-qa-agent.md",
+    "agents/enneagram-public-personality-agent.md",
+    "agents/mbti64-public-personality-agent.md",
+    "agents/personality-content-orchestrator.md",
+    "agents/release-guard-agent.md",
+    "agents/seo-projection-qa-agent.md"
+  ],
+  "prompt_documents": [
+    "prompts/codex-editorial-adjudication.md",
+    "prompts/codex-native-content-draft.md",
+    "prompts/codex-skeptical-self-review.md",
+    "prompts/codex-validation-handoff.md",
+    "prompts/evidence-method-boundary.md",
+    "prompts/gemini-competitor-gap-review.md",
+    "prompts/gemini-serp-intent-review.md",
+    "prompts/gpt-bilingual-independent-draft.md",
+    "prompts/gpt-content-package.md",
+    "prompts/public-profile-agent-recommendation.md"
+  ],
+  "classification": "historical_superseded",
+  "disposition": "retain_as_non_authoritative_reference",
+  "model_invocation_enabled": false,
+  "write_permissions": [],
+  "external_egress": []
+}
