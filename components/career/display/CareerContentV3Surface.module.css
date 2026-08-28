@@ -39,21 +39,21 @@
 .toc a { color: #465066; font-size: 14px; line-height: 1.35; text-decoration: none; }
 .toc a:hover, .toc a:focus-visible { color: #2c3e8c; text-decoration: underline; text-underline-offset: 3px; }
 .blocks { display: grid; min-width: 0; gap: 24px; }
-.block { scroll-margin-top: 96px; border-radius: 18px; border: 1px solid #e1e6f0; background: white; padding: clamp(22px, 4vw, 36px); box-shadow: 0 5px 22px rgb(30 45 84 / 6%); }
+.block { min-width: 0; scroll-margin-top: 96px; border-radius: 18px; border: 1px solid #e1e6f0; background: white; padding: clamp(22px, 4vw, 36px); box-shadow: 0 5px 22px rgb(30 45 84 / 6%); }
 .blockHeader { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 20px; border-bottom: 1px solid #e8ebf2; padding-bottom: 14px; }
 .blockHeader h2 { margin: 0; color: #172a60; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; }
 .state { flex: none; color: #68758c; font-size: 12px; }
 .items { display: grid; gap: 22px; }
-.itemGroup { display: grid; gap: 14px; }
+.itemGroup { display: grid; min-width: 0; gap: 14px; }
 .itemGroup h3 { margin: 0; color: #243b7a; font-size: clamp(17px, 2vw, 21px); line-height: 1.35; }
-.itemBodies { display: grid; gap: 16px; }
-.prose { display: grid; gap: 12px; }
-.prose p { margin: 0; color: #465066; line-height: 1.78; }
+.itemBodies { display: grid; min-width: 0; gap: 16px; }
+.prose { display: grid; min-width: 0; gap: 12px; }
+.prose p { margin: 0; color: #465066; line-height: 1.78; overflow-wrap: anywhere; }
 .list { display: grid; gap: 9px; margin: 0; padding-left: 22px; color: #465066; line-height: 1.7; }
 .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.card { border-left: 3px solid #2f958c; border-radius: 10px; background: #f6f8fc; padding: 17px 18px; }
+.card { min-width: 0; border-left: 3px solid #2f958c; border-radius: 10px; background: #f6f8fc; padding: 17px 18px; }
 .card h4 { margin: 0 0 10px; color: #243b7a; font-size: 14px; }
-.card p { margin: 0 0 9px; color: #465066; line-height: 1.65; }
+.card p { margin: 0 0 9px; color: #465066; line-height: 1.65; overflow-wrap: anywhere; }
 .card p:last-child { margin-bottom: 0; }
 .tableWrap { max-width: 100%; overflow-x: auto; border: 1px solid #dfe4ef; border-radius: 12px; }
 .table { width: 100%; min-width: 620px; border-collapse: collapse; }
@@ -63,7 +63,7 @@
 .faq { display: grid; gap: 10px; }
 .faq details { border: 1px solid #dfe4ef; border-radius: 10px; padding: 0 16px; background: #fbfcfe; }
 .faq summary { cursor: pointer; padding: 15px 0; color: #243b7a; font-weight: 750; }
-.faq p { margin: 0; padding: 0 0 16px; color: #465066; line-height: 1.7; }
+.faq p { margin: 0; padding: 0 0 16px; color: #465066; line-height: 1.7; overflow-wrap: anywhere; }
 .links { display: flex; flex-wrap: wrap; gap: 10px 18px; }
 .links a { color: #2c3e8c; font-weight: 700; text-underline-offset: 3px; overflow-wrap: anywhere; }
 .placeholder { border: 1px dashed #cbd3e2; border-radius: 14px; background: #f8f9fc; padding: 20px; color: #68758c; }
