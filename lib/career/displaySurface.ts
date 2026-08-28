@@ -16,6 +16,10 @@ import {
   type CareerPresentationV2,
 } from "@/lib/career/presentationV2";
 import {
+  buildCareerDossierRenderPlan,
+  type CareerDossierRenderPlan,
+} from "@/lib/career/dossierRenderPlan";
+import {
   careerContentV3FaqItems,
   normalizeCareerContentV3,
   type CareerContentV3,
@@ -243,6 +247,7 @@ export type CareerDisplaySurfaceViewModel = {
   presentationV1Available: boolean;
   presentationV2: CareerPresentationV2 | null;
   contentV3: CareerContentV3 | null;
+  dossierRenderPlan: CareerDossierRenderPlan | null;
   cta: {
     label: string;
     href: string;
@@ -1349,6 +1354,8 @@ function hasCompleteProductionProjection(input: {
 
 export function isCareerProductionDisplaySurface(surface: CareerDisplaySurfaceViewModel): boolean {
   return surface.componentOrder.length > 0 && (
+    surface.dossierRenderPlan?.source === "content_v3" ||
+    surface.dossierRenderPlan?.source === "presentation_v2" ||
     surface.locale === "zh" ||
     surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG ||
     surface.publishedComponents !== null
@@ -1494,10 +1501,11 @@ export function adaptCareerDisplaySurface(
         };
       })()
     : null;
-  const publishedComponents = normalizeCareerPublishedComponents(page, componentOrder);
+  const publishedComponents = normalizeCareerPublishedComponents(page, componentOrder, contentV3 !== null);
   const normalizedPresentationV1 = normalizeCareerPresentationV1(root.presentation_v1);
   const presentationV1 = locale === "zh" ? normalizedPresentationV1 : null;
   const presentationV2 = normalizeCareerPresentationV2(root.presentation_v2, locale, componentOrder);
+  const dossierRenderPlan = buildCareerDossierRenderPlan(contentV3, presentationV2);
   const sources = publishedComponents ? normalizePublishedSources(root.sources) : normalizeSources(root.sources);
   const boundaryNotice = normalizeBoundaryNotice(root, locale, page);
   const reviewValidity = normalizeReviewValidity(root, page);
@@ -1560,6 +1568,7 @@ export function adaptCareerDisplaySurface(
     presentationV1Available: normalizedPresentationV1 !== null,
     presentationV2,
     contentV3,
+    dossierRenderPlan,
     cta: {
       label: displayCta.label,
       href: publishedComponents && localizedHero ? displayCta.href : ctaHref,

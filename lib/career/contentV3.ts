@@ -35,6 +35,50 @@ export type CareerContentV3 = {
   blocks: CareerContentV3Block[];
 };
 
+export type CareerContentV3UiCopy = {
+  dossier: string;
+  contents: string;
+  pageContents: string;
+  startTest: string;
+  enhanced: string;
+  legacy: string;
+  unavailableTitle: string;
+  unavailableBody: string;
+  missingItem: string;
+  externalLink: string;
+};
+
+const UI_COPY: Record<Locale, CareerContentV3UiCopy> = {
+  zh: {
+    dossier: "职业档案",
+    contents: "目录",
+    pageContents: "页面目录",
+    startTest: "开始职业兴趣测试",
+    enhanced: "增强内容",
+    legacy: "基础内容",
+    unavailableTitle: "本板块暂不可用",
+    unavailableBody: "该内容暂时无法安全显示，页面其余部分仍可使用。",
+    missingItem: "该子内容尚未发布或暂时无法安全显示。",
+    externalLink: "在新窗口打开",
+  },
+  en: {
+    dossier: "Career dossier",
+    contents: "Contents",
+    pageContents: "Page contents",
+    startTest: "Start the career interest test",
+    enhanced: "Enhanced",
+    legacy: "Core content",
+    unavailableTitle: "This section is unavailable",
+    unavailableBody: "This content cannot be displayed safely right now. The rest of the page remains available.",
+    missingItem: "This sub-section has not been published or cannot be displayed safely right now.",
+    externalLink: "Open in a new window",
+  },
+};
+
+export function careerContentV3UiCopy(locale: Locale): CareerContentV3UiCopy {
+  return UI_COPY[locale];
+}
+
 type CatalogEntry = { title: string; description?: string };
 
 const COMMON_BLOCK_COPY: Record<string, { zh: CatalogEntry; en: CatalogEntry }> = {
@@ -254,7 +298,7 @@ export function canRenderCareerContentV3Item(
 function invalidBlock(value: unknown, index: number): CareerContentV3Block {
   const candidate = isRecord(value) ? value : {};
   return {
-    id: key(candidate.id) ?? `invalid-block-${index + 1}`,
+    id: `${key(candidate.id) ?? "invalid-block"}-${index + 1}`,
     copyKey: key(candidate.copy_key) ?? "career.block.unavailable",
     contentState: candidate.content_state === "enhanced" ? "enhanced" : "legacy",
     availability: "missing",
@@ -294,7 +338,8 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale): Career
       value.locale !== (locale === "zh" ? "zh-CN" : "en") ||
       (value.content_state !== "enhanced" && value.content_state !== "legacy") ||
       typeof value.source_content_sha256 !== "string" || !/^[a-f0-9]{64}$/.test(value.source_content_sha256) ||
-      !isRecord(value.subject) || !exactKeys(value.subject, ["canonical_slug", "name", "summary"]) || !Array.isArray(value.blocks)) {
+      !isRecord(value.subject) || !exactKeys(value.subject, ["canonical_slug", "name", "summary"]) ||
+      !Array.isArray(value.blocks) || value.blocks.length === 0) {
     return null;
   }
   const canonicalSlug = key(value.subject.canonical_slug);

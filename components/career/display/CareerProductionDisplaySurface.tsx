@@ -48,6 +48,19 @@ import {
   type CareerDisplaySurfaceViewModel,
 } from "@/lib/career/displaySurface";
 import {
+  careerComponentForV3CopyKey,
+  type CareerDossierRenderPlanBlock,
+} from "@/lib/career/dossierRenderPlan";
+import {
+  careerContentV3CardCopy,
+  careerContentV3ColumnCopy,
+  careerContentV3ItemCopy,
+  careerContentV3QuestionCopy,
+  careerContentV3UiCopy,
+  type CareerContentV3,
+  type CareerContentV3Item,
+} from "@/lib/career/contentV3";
+import {
   CAREER_VISUAL_GROUPS,
   CAREER_VISUAL_GROUP_IDS,
   type CareerVisualGroupDefinition,
@@ -213,6 +226,115 @@ function ComponentFrame({ id, children, hidden = false }: { id: CareerDisplayCom
   return (
     <div id={`career-component-${id}`} data-career-component-id={id} className={hidden ? "hidden" : "scroll-mt-24"}>
       {children}
+    </div>
+  );
+}
+
+function CareerV3Placeholder({
+  locale,
+  compact = false,
+}: {
+  locale: CareerContentV3["locale"];
+  compact?: boolean;
+}) {
+  const copy = careerContentV3UiCopy(locale);
+  return (
+    <aside
+      className="rounded-xl border border-dashed border-[#C7CFDF] bg-[#F7F9FC] px-5 py-4 text-sm leading-6 text-[#5B6678]"
+      data-nosnippet="true"
+      aria-live="polite"
+    >
+      <strong className="block text-[#3A4255]">{copy.unavailableTitle}</strong>
+      <span>{compact ? copy.missingItem : copy.unavailableBody}</span>
+    </aside>
+  );
+}
+
+function CareerV3PrimitiveItem({ item, content }: { item: CareerContentV3Item; content: CareerContentV3 }) {
+  const locale = content.locale;
+  const copy = careerContentV3UiCopy(locale);
+  if (item.availability === "missing") return <CareerV3Placeholder locale={locale} compact />;
+
+  if (item.type === "prose" || item.type === "notice") {
+    return (
+      <div className="space-y-3 text-[15px] leading-7 text-[#2A3346]">
+        {(item.data.paragraphs as string[]).map((paragraph, index) => <p className="m-0" key={`${item.id}-${index}`}>{paragraph}</p>)}
+      </div>
+    );
+  }
+  if (item.type === "list") {
+    return <ul className="m-0 space-y-2 pl-5 text-[15px] leading-7 text-[#2A3346]">{(item.data.entries as string[]).map((entry, index) => <li key={`${item.id}-${index}`}>{entry}</li>)}</ul>;
+  }
+  if (item.type === "cards" || item.type === "timeline") {
+    return <div className="grid gap-3 md:grid-cols-2">{(item.data.entries as Array<{ id: string; values: string[] }>).map((entry, entryIndex) => (
+      <article className="rounded-xl border border-[#E5E9F2] bg-[#F7F9FC] p-4" key={entry.id}>
+        <h4 className="m-0 text-base font-bold text-[#1A2233]">{careerContentV3CardCopy(item.copyKey, entry.id, entryIndex, locale)}</h4>
+        {entry.values.map((value, index) => <p className="m-0 mt-2 text-sm leading-6 text-[#3A4255]" key={`${entry.id}-${index}`}>{value}</p>)}
+      </article>
+    ))}</div>;
+  }
+  if (item.type === "faq") {
+    return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; answer: string }>).map((entry) => (
+      <details key={entry.id} className="group rounded-xl border border-[#E5E9F2] bg-white px-4">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
+          {careerContentV3QuestionCopy(entry.question_key, locale, content.subject.name)}
+        </summary>
+        <p className="m-0 pb-4 text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
+      </details>
+    ))}</div>;
+  }
+  if (item.type === "links") {
+    return <ul className="m-0 grid gap-2 p-0 sm:grid-cols-2">{(item.data.entries as Array<{ id: string; entity: string; url: string }>).map((entry) => (
+      <li className="list-none" key={entry.id}>{entry.url.startsWith("#") ? (
+        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{entry.entity}<span className="ml-1" aria-hidden="true">→</span></a>
+      ) : entry.url.startsWith("/") ? (
+        <Link className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{entry.entity}<span className="ml-1" aria-hidden="true">→</span></Link>
+      ) : (
+        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${entry.entity} (${copy.externalLink})`}>{entry.entity}<span className="ml-1" aria-hidden="true">↗</span></a>
+      )}</li>
+    ))}</ul>;
+  }
+  if (item.type === "sources") {
+    return <ul className="m-0 space-y-2 p-0">{(item.data.entries as Array<{ id: string; name: string; url: string | null }>).map((entry) => (
+      <li className="list-none text-sm leading-6" key={entry.id}>{entry.url ? <a className="font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${entry.name} (${copy.externalLink})`}>{entry.name}<span className="ml-1" aria-hidden="true">↗</span></a> : <span>{entry.name}</span>}</li>
+    ))}</ul>;
+  }
+  if (item.type === "metrics") {
+    return <dl className="grid gap-3 sm:grid-cols-2">{(item.data.entries as Array<{ key: string; value: string }>).map((entry, index) => (
+      <div className="rounded-xl border border-[#E5E9F2] bg-[#F7F9FC] p-4" key={`${entry.key}-${index}`}>
+        <dt className="font-bold text-[#1A2233]">{careerContentV3CardCopy(item.copyKey, entry.key, index, locale)}</dt>
+        <dd className="m-0 mt-1 text-sm leading-6 text-[#3A4255]">{entry.value}</dd>
+      </div>
+    ))}</dl>;
+  }
+
+  const columns = item.data.column_keys as string[];
+  const rows = item.data.rows as string[][];
+  return (
+    <div className="max-w-full overflow-x-auto rounded-xl border border-[#E5E9F2]" tabIndex={0} role="region" aria-label={careerContentV3ItemCopy(item.copyKey, locale) ?? undefined}>
+      <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+        <thead className="bg-[#F0F3FA]"><tr>{columns.map((column) => <th className="px-4 py-3 font-bold text-[#1A2233]" key={column} scope="col">{careerContentV3ColumnCopy(column, locale)}</th>)}</tr></thead>
+        <tbody>{rows.map((row, rowIndex) => <tr className="border-t border-[#E5E9F2]" key={rowIndex}>{row.map((cell, cellIndex) => <td className="px-4 py-3 align-top leading-6 text-[#2A3346]" key={cellIndex}>{cell}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  );
+}
+
+function CareerV3PrimitiveBlock({ block, content }: { block: CareerDossierRenderPlanBlock; content: CareerContentV3 }) {
+  const groups: Array<{ copyKey: string; items: CareerContentV3Item[] }> = [];
+  for (const item of block.items) {
+    const previous = groups.at(-1);
+    if (previous?.copyKey === item.copyKey) previous.items.push(item);
+    else groups.push({ copyKey: item.copyKey, items: [item] });
+  }
+  return (
+    <div className="space-y-5">
+      {groups.map((group, groupIndex) => (
+        <section className="space-y-3" key={`${group.copyKey}:${groupIndex}`}>
+          <h3 className="m-0 text-lg font-bold text-[#1A2233]">{careerContentV3ItemCopy(group.copyKey, content.locale)}</h3>
+          <div className="space-y-4">{group.items.map((item) => <CareerV3PrimitiveItem item={item} content={content} key={item.id} />)}</div>
+        </section>
+      ))}
     </div>
   );
 }
@@ -645,6 +767,167 @@ export function CareerProductionDisplaySurface({
       </div>
     );
   };
+
+  const renderV3RichBlock = (block: CareerDossierRenderPlanBlock): ReactNode | null => {
+    if (!publishedComponents || block.contentState !== "enhanced") return null;
+    const availableComponents = new Set(
+      block.items
+        .filter((item) => item.availability === "available")
+        .map((item) => careerComponentForV3CopyKey(item.copyKey))
+        .filter((componentId): componentId is CareerDisplayComponentId => componentId !== null),
+    );
+    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId));
+
+    if (block.copyKey === "career.block.quick-decision" && declares("fermat_decision_card", "fit_decision_checklist")) {
+      const decision = publishedComponents.fermat_decision_card;
+      const checklist = publishedComponents.fit_decision_checklist;
+      if (decision !== undefined && checklist !== undefined && !isPublishedComponentUnavailable(decision) && !isPublishedComponentUnavailable(checklist)) {
+        return <div className="space-y-4"><CareerDossierQuickDecisionAnswer value={decision} /><CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} /></div>;
+      }
+    }
+
+    if (block.copyKey === "career.block.profile" && declares(
+      "definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block",
+    ) && supportsStructuredCareerDossierProfile(publishedComponents)) {
+      return <CareerDossierProfile
+        definition={publishedComponents.definition_block as string}
+        responsibilities={publishedComponents.responsibilities_block as string[]}
+        workContext={publishedComponents.work_context_block as string}
+        quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+        professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
+        locale={surface.locale}
+      />;
+    }
+
+    const directionComparison = publishedComponents.adjacent_career_comparison_table;
+    if (block.copyKey === "career.block.direction-comparison" && declares("adjacent_career_comparison_table") &&
+      directionComparison !== undefined && supportsCareerDossierDirectionComparison(directionComparison)) {
+      return <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />;
+    }
+
+    const aiImpact = publishedComponents.ai_impact_table;
+    if (block.copyKey === "career.block.ai-impact" && declares("ai_impact_table") && aiImpact !== undefined && supportsCareerDossierAiImpact(aiImpact)) {
+      return <CareerDossierAiImpact value={aiImpact} locale={surface.locale} />;
+    }
+
+    const chinaSalary = publishedComponents.career_snapshot_primary_locale;
+    if (block.copyKey === "career.block.china-salary" && declares("career_snapshot_primary_locale") && chinaSalary !== undefined && supportsCareerDossierChinaSalary(chinaSalary)) {
+      return <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} />;
+    }
+
+    const usSalary = publishedComponents.career_snapshot_secondary_locale;
+    if (block.copyKey === "career.block.us-salary" && declares("career_snapshot_secondary_locale") && usSalary !== undefined && supportsCareerDossierUsSalary(usSalary)) {
+      return <CareerDossierUsSalary value={usSalary} locale={surface.locale} />;
+    }
+
+    const riasec = publishedComponents.riasec_fit_block;
+    const fitCenter = publishedComponents.personality_fit_block;
+    if (block.copyKey === "career.block.fit" && declares("riasec_fit_block", "personality_fit_block") && supportsRiasecFit(riasec) && supportsCareerDossierFitCenter(fitCenter)) {
+      return <CareerDossierFitCenter value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+    }
+
+    const workRisk = publishedComponents.career_risk_cards;
+    if (block.copyKey === "career.block.risk" && declares("career_risk_cards") && supportsCareerWorkRisk(workRisk)) {
+      return <CareerDossierWorkRisk value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+    }
+
+    const progression = publishedComponents.career_path_block;
+    if (block.copyKey === "career.block.path" && declares("career_path_block") && supportsCareerProgression(progression)) {
+      return <CareerDossierProgression value={progression as CareerPublishedProgression} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+    }
+
+    const outlook = publishedComponents.market_signal_card;
+    if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
+      return <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-rich-label`} />;
+    }
+
+    if (block.copyKey === "career.block.sources") {
+      const nodes = block.declaredComponentIds.flatMap((componentId) => {
+        if (!availableComponents.has(componentId)) return [];
+        if (publishedComponents[componentId] === undefined) return [];
+        const component = renderComponent(componentId);
+        return component == null ? [] : [<div key={componentId}>{component}</div>];
+      });
+      return nodes.length > 0 ? <div className="space-y-4">{nodes}</div> : null;
+    }
+
+    if (block.copyKey === "career.block.source-register" && block.items.some((item) => item.copyKey === "career.item.published-sources" && item.availability === "available")) {
+      return surface.sources.length > 0 ? <SourceCard surface={surface} /> : null;
+    }
+
+    return null;
+  };
+
+  if (surface.dossierRenderPlan?.source === "content_v3") {
+    const plan = surface.dossierRenderPlan;
+    const copy = careerContentV3UiCopy(surface.locale);
+    const breadcrumb = renderComponent("breadcrumb");
+    const hero = renderComponent("hero");
+    const successfulBlocks = plan.blocks.filter((block) => block.renderable);
+
+    return (
+      <article
+        className={`mx-auto w-full max-w-[1440px] px-5 font-sans leading-7 text-[#1A2233] sm:px-6 md:px-8 xl:px-10 ${visual.article}`}
+        data-testid="career-display-surface"
+        data-career-production-template="career-production-v1"
+        data-career-dossier-layout="responsive-v2"
+        data-career-dossier-plan="content_v3"
+        data-content-contract={plan.content.contractVersion}
+        data-career-renderer-release={rendererRelease}
+      >
+        {breadcrumb ? <div data-career-visual-group-component="hero"><ComponentFrame id="breadcrumb">{breadcrumb}</ComponentFrame></div> : null}
+        <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[224px_minmax(0,1fr)] lg:gap-6 ${visual.layout}`} data-testid="career-source-disclosure">
+          <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${visual.accountantsRail}`} aria-label={copy.pageContents}>
+            <div className={visual.toc} data-testid="career-dossier-toc">
+              <div className={visual.tocHeading}><span className={visual.tocKicker}>{copy.dossier}</span></div>
+              <nav className={visual.tocNav} aria-label={copy.contents}>
+                {successfulBlocks.map((block, index) => (
+                  <a className={visual.tocLink} href={`#${block.anchorId}`} key={block.instanceKey}>
+                    <span aria-hidden="true" className={visual.tocIndex}>{String(index + 1).padStart(2, "0")}</span>
+                    <span>{block.title}</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+            <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
+              <Link href={primaryCtaHref} className={visual.assessmentRailCta}>{copy.startTest}<span aria-hidden="true">→</span></Link>
+            </section>
+          </aside>
+          <main className={`min-w-0 ${visual.componentStack}`}>
+            {hero ? <section data-career-visual-group="overview">{hero}</section> : null}
+            {plan.blocks.map((block) => {
+              if (!block.renderable) {
+                return <section data-career-v3-block-copy-key={block.copyKey} data-content-block-id={block.id} key={block.instanceKey}><CareerV3Placeholder locale={surface.locale} /></section>;
+              }
+              const richContent = renderV3RichBlock(block);
+              const missingItems = block.items.filter((item) => item.availability === "missing");
+              return (
+                <section
+                  className={`${visual.visualGroup} scroll-mt-24`}
+                  id={block.anchorId}
+                  key={block.instanceKey}
+                  data-career-visual-group={block.id}
+                  data-career-v3-block-copy-key={block.copyKey}
+                  data-content-block-id={block.id}
+                  aria-labelledby={`${block.anchorId}-title`}
+                >
+                  {block.anchorId === `career-content-${block.id}` ? (
+                    <span id={`career-visual-group-${block.id}`} aria-hidden="true" className="sr-only" />
+                  ) : null}
+                  <header className="mb-4 flex flex-wrap items-center justify-between gap-2">
+                    <h2 className="m-0 text-[23px] font-bold text-[#1A2233]" id={`${block.anchorId}-title`}>{block.title}</h2>
+                    <span className="rounded-full bg-[#F0F3FA] px-3 py-1 text-xs font-semibold text-[#5B6678]">{block.contentState === "enhanced" ? copy.enhanced : copy.legacy}</span>
+                  </header>
+                  {richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} />}
+                  {richContent && missingItems.length > 0 ? <div className="mt-4 space-y-3">{missingItems.map((item) => <CareerV3Placeholder compact key={item.id} locale={surface.locale} />)}</div> : null}
+                </section>
+              );
+            })}
+          </main>
+        </div>
+      </article>
+    );
+  }
 
   const renderedComponentOrder = surface.componentOrder;
   const legacyTocSections = renderedComponentOrder

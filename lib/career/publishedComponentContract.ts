@@ -573,16 +573,18 @@ function clonePublishedValue(value: unknown): CareerPublishedValue {
 
 export function normalizeCareerPublishedComponents(
   page: Record<string, unknown>,
-  componentOrder: readonly CareerDisplayComponentId[]
+  componentOrder: readonly CareerDisplayComponentId[],
+  isolateInvalidComponents = false,
 ): CareerPublishedComponents | null {
   const components = {} as CareerPublishedComponents;
   for (const id of componentOrder) {
     const value = page[id];
     if (!validateComponent(id, value)) {
+      if (isolateInvalidComponents) continue;
       return null;
     }
     components[id] = clonePublishedValue(value);
   }
 
-  return components;
+  return Object.keys(components).length > 0 ? components : null;
 }
