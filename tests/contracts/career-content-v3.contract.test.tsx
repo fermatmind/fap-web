@@ -144,6 +144,56 @@ describe("career content v3 contract", () => {
     expect(screen.queryByText("Core content")).not.toBeInTheDocument();
   });
 
+  it("keeps the Chinese navigation transport out of the 11-item dossier directory", () => {
+    const fixture = surfaceFixture("zh");
+    const content = productionIsomorphicV3Fixture("zh");
+    content.blocks.splice(-1, 0, {
+      id: "navigation",
+      copy_key: "career.block.navigation",
+      content_state: "enhanced",
+      availability: "available",
+      items: [{
+        id: "navigation-1",
+        copy_key: "career.item.navigation",
+        type: "notice",
+        availability: "available",
+        data: { paragraphs: ["primary_cta → secondary_cta → path"] },
+      }],
+    } as never);
+    fixture.content_v3 = content;
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
+
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
+    expect(document.querySelector('[data-content-block-id="navigation"]')).toBeNull();
+    expect(screen.queryByText("primary_cta → secondary_cta → path")).not.toBeInTheDocument();
+  });
+
+  it("preserves the existing English navigation transport behavior", () => {
+    const fixture = surfaceFixture("en");
+    const content = productionIsomorphicV3Fixture("en");
+    content.blocks.splice(-1, 0, {
+      id: "navigation",
+      copy_key: "career.block.navigation",
+      content_state: "enhanced",
+      availability: "available",
+      items: [{
+        id: "navigation-1",
+        copy_key: "career.item.navigation",
+        type: "notice",
+        availability: "available",
+        data: { paragraphs: ["Existing English navigation transport"] },
+      }],
+    } as never);
+    fixture.content_v3 = content;
+
+    render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
+
+    expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(12);
+    expect(document.querySelector('[data-content-block-id="navigation"]')).not.toBeNull();
+    expect(screen.getByText("Existing English navigation transport")).toBeInTheDocument();
+  });
+
   it("folds a distinct review date into the compact source disclosure once", () => {
     const fixture = surfaceFixture("zh");
     fixture.content_v3 = productionIsomorphicV3Fixture("zh");

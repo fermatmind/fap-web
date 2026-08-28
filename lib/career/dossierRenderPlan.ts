@@ -116,8 +116,12 @@ export function isCareerRegisteredV3BlockCopyKey(copyKey: string): boolean {
   return REGISTERED_BLOCK_COPY_KEYS.has(copyKey);
 }
 
-export function isCareerInternalV3BlockCopyKey(copyKey: string): boolean {
-  return INTERNAL_BLOCK_COPY_KEYS.has(copyKey);
+export function isCareerInternalV3BlockCopyKey(
+  copyKey: string,
+  locale?: CareerContentV3["locale"],
+): boolean {
+  return INTERNAL_BLOCK_COPY_KEYS.has(copyKey) ||
+    (locale === "zh" && copyKey === "career.block.navigation");
 }
 
 function declaredComponents(items: readonly CareerContentV3Item[]): CareerDisplayComponentId[] {
@@ -146,7 +150,7 @@ export function buildCareerDossierRenderPlan(
           careerContentV3BlockCopy("career.block.additional", contentV3.locale)!.title;
         const availableItems = block.items.filter((item) => item.availability === "available");
         const renderable = block.renderable && block.availability === "available" && availableItems.length > 0;
-        const isInternalBlock = isCareerInternalV3BlockCopyKey(block.copyKey);
+        const isInternalBlock = isCareerInternalV3BlockCopyKey(block.copyKey, contentV3.locale);
         return {
           instanceKey: `${block.id}:${index}`,
           id: block.id,

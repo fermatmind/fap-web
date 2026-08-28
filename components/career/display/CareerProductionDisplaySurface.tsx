@@ -1008,7 +1008,7 @@ export function CareerProductionDisplaySurface({
     };
 
     const renderPlannedBlock = (block: CareerDossierRenderPlanBlock): ReactNode => {
-      if (isCareerInternalV3BlockCopyKey(block.copyKey)) return null;
+      if (isCareerInternalV3BlockCopyKey(block.copyKey, surface.contentV3?.locale)) return null;
       if (!block.renderable) {
         return (
           <section
