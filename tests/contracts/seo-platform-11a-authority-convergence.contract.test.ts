@@ -90,10 +90,12 @@ describe("SEO-PLATFORM-11A fap-web authority convergence", () => {
   it("exposes neither an Agent entrypoint nor direct Baidu submission", () => {
     const pkg = readJson("package.json");
     const scriptNames = Object.keys(pkg.scripts);
+    const baiduWriter = fs.readFileSync(path.join(ROOT, "scripts/seo/push-baidu.mjs"), "utf8");
     expect(scriptNames.filter((name) => name.startsWith("seo-agent:"))).toEqual([]);
     expect(pkg.scripts).not.toHaveProperty("seo:push-baidu");
     expect(pkg.scripts["seo:code-change-artifact"]).toBe("node scripts/seo/generate-seo-code-change-artifact.mjs");
-    expect(fs.existsSync(path.join(ROOT, "scripts/seo/push-baidu.mjs"))).toBe(true);
+    expect(baiduWriter).toContain("const SEARCH_SUBMISSION_AUTHORITY_ACTIVE = false;");
+    expect(baiduWriter.indexOf("process.exit(1)")).toBeLessThan(baiduWriter.indexOf("await fetch("));
   });
 
   it("keeps frontend ownership to rendering, read-only QA, and projection consumption", () => {

@@ -5,6 +5,15 @@ import policy from "../../lib/seo/indexingPolicy.cjs";
 
 const { shouldIncludeInSitemap } = policy;
 
+// SEO-PLATFORM-11A: search submission remains fail-closed until a versioned
+// Policy Gateway/Search authority replaces this historical direct writer.
+const SEARCH_SUBMISSION_AUTHORITY_ACTIVE = false;
+
+if (!SEARCH_SUBMISSION_AUTHORITY_ACTIVE) {
+  console.error("[baidu] disabled: canonical search submission authority is not active");
+  process.exit(1);
+}
+
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sitemapPath = path.resolve(ROOT_DIR, process.env.SITEMAP_PATH || "public/sitemap.xml");
 const site = String(process.env.BAIDU_PUSH_SITE || "").trim();
