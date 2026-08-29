@@ -14,9 +14,20 @@ const SUPPORTED_COPY_KEYS = new Set([
   "career.item.seven-day-trial",
   "career.item.seven-day-decision",
   "career.item.recruitment-sample",
+  "career.item.recruitment-signals",
+  "career.item.entry-work-sample-data",
   "career.item.credential-decision",
   "career.item.credential-boundary",
 ]);
+
+const SILENT_WHEN_MISSING_COPY_KEYS = new Set([
+  "career.item.recruitment-signals",
+  "career.item.entry-work-sample-data",
+]);
+
+export function suppressMissingCareerEntryDecisionItem(copyKey: string): boolean {
+  return SILENT_WHEN_MISSING_COPY_KEYS.has(copyKey);
+}
 
 function stringArray(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string") : [];

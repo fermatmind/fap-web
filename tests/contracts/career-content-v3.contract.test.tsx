@@ -277,6 +277,42 @@ describe("career content v3 contract", () => {
         availability: "available",
         data: { entries: ["考试合格不等于执业注册。"] },
       },
+      {
+        id: "recruitment-signals",
+        copy_key: "career.item.recruitment-signals",
+        type: "table",
+        availability: "available",
+        fact_refs: ["us-median-wage"],
+        source_refs: ["bls-oews-2025"],
+        data: {
+          column_keys: ["signal", "count", "employer_type_count", "prevalence", "sample_ids", "limitation"],
+          rows: [["Excel", "18/40", "5", "常见", "FA01–FA18", "仅反映可访问样本"]],
+        },
+      },
+      {
+        id: "entry-work-sample-data",
+        copy_key: "career.item.entry-work-sample-data",
+        type: "table",
+        availability: "available",
+        data: {
+          column_keys: ["transaction_id", "date", "amount", "description", "evidence_id", "bank_status"],
+          rows: Array.from({ length: 20 }, (_, index) => [
+            `T${String(index + 1).padStart(2, "0")}`,
+            `2026-06-${String(index + 1).padStart(2, "0")}`,
+            `¥${index + 1},000`,
+            "虚构服务企业交易",
+            `E${String(index + 1).padStart(2, "0")}`,
+            index % 2 === 0 ? "已匹配" : "待核对",
+          ]),
+        },
+      },
+      {
+        id: "unpublished-recruitment-signals",
+        copy_key: "career.item.recruitment-signals",
+        type: "table",
+        availability: "missing",
+        data: {},
+      },
     );
     const faqEntries = (content.blocks.find((block) => block.id === "sources")!.items[0].data as { entries: Array<Record<string, unknown>> }).entries;
     const faq = faqEntries[0];
@@ -315,6 +351,11 @@ describe("career content v3 contract", () => {
     expect(screen.getByRole("heading", { name: "应届生／转行者如何验证并入门", level: 3 })).toBeInTheDocument();
     expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("常见入门岗位");
     expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("考试合格不等于执业注册");
+    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("招聘信号计数");
+    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("入门案例材料");
+    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("T20");
+    expect(screen.getAllByRole("columnheader", { name: "银行记录状态" })).toHaveLength(1);
+    expect(screen.queryByText("该子内容尚未发布或暂时无法安全显示。")).not.toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);
     expect(screen.getByTestId("source-list")).toHaveTextContent("不是个人起薪或到手工资");
     expect(screen.getByTestId("source-list").querySelectorAll("details")).toHaveLength(1);

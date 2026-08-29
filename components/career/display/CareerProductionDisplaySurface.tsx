@@ -7,7 +7,10 @@ import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuick
 import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
 import { CareerDossierProfile } from "@/components/career/display/CareerDossierProfile";
 import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
-import { CareerDossierEntryDecisions } from "@/components/career/display/CareerDossierEntryDecisions";
+import {
+  CareerDossierEntryDecisions,
+  suppressMissingCareerEntryDecisionItem,
+} from "@/components/career/display/CareerDossierEntryDecisions";
 import {
   CareerDossierDirectionComparison,
   supportsCareerDossierDirectionComparison,
@@ -999,7 +1002,8 @@ export function CareerProductionDisplaySurface({
     };
 
     const missingItemPlaceholders = (block: CareerDossierRenderPlanBlock) => {
-      const missingItems = block.items.filter((item) => item.availability === "missing");
+      const missingItems = block.items.filter((item) =>
+        item.availability === "missing" && !suppressMissingCareerEntryDecisionItem(item.copyKey));
       return missingItems.length > 0 ? (
         <div className="mt-4 space-y-3">
           {missingItems.map((item) => <CareerV3Placeholder compact key={item.id} locale={surface.locale} />)}

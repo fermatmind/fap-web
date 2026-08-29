@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
 import { CAREER_DISPLAY_SUPPORTED_COMPONENTS, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
+import { normalizeCareerPublishedComponents } from "@/lib/career/publishedComponentContract";
 import {
   buildActorsDisplaySurfaceFixture,
   buildDisplaySurfaceClaimPermissions,
@@ -61,6 +62,30 @@ function collectPublishedScalarValues(value: unknown): string[] {
 }
 
 describe("career display surface contract", () => {
+  it("accepts fact_ref only on primary-snapshot BLS rows and rejects other unknown row fields", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      locale: "zh",
+      titleEn: "Accountants and Auditors",
+      titleZh: "会计师和审计师",
+    });
+    const primary = fixture.page.content.career_snapshot_primary_locale as unknown as {
+      salary: { bls_table: Array<Record<string, unknown>> };
+    };
+    primary.salary.bls_table[0].fact_ref = "bls-us-accountants-wage-p10-2025";
+
+    expect(normalizeCareerPublishedComponents(
+      { career_snapshot_primary_locale: primary },
+      ["career_snapshot_primary_locale"],
+    )).not.toBeNull();
+
+    primary.salary.bls_table[0].unexpected = "must fail closed";
+    expect(normalizeCareerPublishedComponents(
+      { career_snapshot_primary_locale: primary },
+      ["career_snapshot_primary_locale"],
+    )).toBeNull();
+  });
+
   it("does not render a display shell without a validated backend surface", () => {
     render(<CareerDisplaySurface surface={null} />);
 

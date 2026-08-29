@@ -178,6 +178,8 @@ const COMMON_ITEM_COPY: Record<string, { zh: string; en: string }> = {
   "career.item.seven-day-trial": { zh: "七天低成本体验", en: "Seven-day low-cost trial" },
   "career.item.seven-day-decision": { zh: "第七天如何判断", en: "How to decide on day seven" },
   "career.item.recruitment-sample": { zh: "招聘样本与使用边界", en: "Recruitment sample and limits" },
+  "career.item.recruitment-signals": { zh: "招聘信号计数", en: "Recruitment signal counts" },
+  "career.item.entry-work-sample-data": { zh: "入门案例材料", en: "Entry work-sample data" },
   "career.item.credential-decision": { zh: "证书决策表", en: "Credential decision table" },
   "career.item.credential-boundary": { zh: "证书、会员与执业边界", en: "Credential, membership, and practice boundaries" },
 };
@@ -235,6 +237,17 @@ const COLUMN_COPY: Record<string, { zh: string; en: string }> = {
   conditions: { zh: "报考／注册条件", en: "Exam or registration conditions" },
   investment: { zh: "投入等级", en: "Investment level" },
   limitation: { zh: "重要限制", en: "Important limitation" },
+  signal: { zh: "招聘信号", en: "Recruitment signal" },
+  count: { zh: "分子／分母", en: "Count / denominator" },
+  employer_type_count: { zh: "覆盖雇主类型数", en: "Employer types covered" },
+  prevalence: { zh: "判定", en: "Classification" },
+  sample_ids: { zh: "样本 ID", en: "Sample IDs" },
+  transaction_id: { zh: "交易编号", en: "Transaction ID" },
+  date: { zh: "日期", en: "Date" },
+  amount: { zh: "金额", en: "Amount" },
+  description: { zh: "业务说明", en: "Description" },
+  evidence_id: { zh: "证据编号", en: "Evidence ID" },
+  bank_status: { zh: "银行记录状态", en: "Bank record status" },
 };
 
 export function careerContentV3ColumnCopy(columnKey: string, locale: Locale): string | null {
