@@ -203,6 +203,14 @@ function isScalarRecordArray(value: unknown, allowedKeySets: readonly (readonly 
   return Array.isArray(value) && value.length >= minimum && value.every((item) => isScalarRecord(item, allowedKeySets));
 }
 
+const BLS_TABLE_ROW_KEY_SETS = [
+  ["指标", "数值", "说明"],
+  ["指标", "数值", "说明", "fact_ref"],
+  ["label", "value"],
+  ["label", "value", "数值"],
+  ["label", "value", "数值", "说明"],
+] as const;
+
 function isStringOrScalarRecord(value: unknown): boolean {
   return isNonEmptyString(value) || isScalarRecord(value, [["label", "value"]]);
 }
@@ -246,10 +254,7 @@ function validatePrimarySnapshot(value: unknown): boolean {
     optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string") &&
     (salary.fact_refs === undefined || isStringArray(salary.fact_refs)) &&
     ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"].every((key) => isStringOrScalarRecord(salary[key])) &&
-    isScalarRecordArray(salary.bls_table, [
-      ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
-      ["指标", "数值", "说明", "fact_ref"],
-    ]) &&
+    isScalarRecordArray(salary.bls_table, BLS_TABLE_ROW_KEY_SETS) &&
     isScalarRecordArray(salary.china_edu_table, [["学历段", "岗位方向", "说明"], ["label", "value"]]) &&
     isScalarRecordArray(salary.china_industry_table, [["行业", "需求"], ["行业", "需求", "备注"], ["label", "value"]]) &&
     isScalarRecordArray(salary.china_salary_table, [["城市/区间", "月薪参考"], ["label", "value"]]);
@@ -264,10 +269,7 @@ function validateSecondarySnapshot(value: unknown): boolean {
   const periodKeys = ["industry_period", "outlook_period"] as const;
   if (!hasExactKeys(value, ["bls_table", "growth", "median"], [...enrichedKeys, ...periodKeys]) ||
     !isNonEmptyString(value.growth) || !isNonEmptyString(value.median) ||
-    !isScalarRecordArray(value.bls_table, [
-      ["指标", "数值", "说明"], ["label", "value"], ["label", "value", "数值"], ["label", "value", "数值", "说明"],
-      ["指标", "数值", "说明", "fact_ref"],
-    ])) {
+    !isScalarRecordArray(value.bls_table, BLS_TABLE_ROW_KEY_SETS)) {
     return false;
   }
 

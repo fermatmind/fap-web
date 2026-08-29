@@ -79,6 +79,13 @@ describe("career display surface contract", () => {
       ["career_snapshot_primary_locale"],
     )).not.toBeNull();
 
+    primary.salary.bls_table[0].fact_ref = "";
+    expect(normalizeCareerPublishedComponents(
+      { career_snapshot_primary_locale: primary },
+      ["career_snapshot_primary_locale"],
+    )).toBeNull();
+
+    primary.salary.bls_table[0].fact_ref = "bls-us-accountants-wage-p10-2025";
     primary.salary.bls_table[0].unexpected = "must fail closed";
     expect(normalizeCareerPublishedComponents(
       { career_snapshot_primary_locale: primary },
