@@ -61,6 +61,8 @@ jobs:
             echo "classification=$compact"
           } >> "$GITHUB_OUTPUT"
       - run: node --test .github/trunk/*.test.mjs
+      - name: Verify SEO Platform 11A frozen web projection
+        run: node .github/trunk/verify-seo-platform-11a-final-tree-projection.mjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: trunk-classification-${{ github.sha }}

@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
 const API_REGISTRY_HASH = "b02b6edd816b75b42582468e5bc3aa2c9cd0060149825d1fdc6131cf71d73791";
+const PROJECTION_PATH = "docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json";
 
 function readJson(relativePath: string) {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
@@ -19,6 +20,36 @@ function listFiles(relativeDir: string, suffix = ""): string[] {
 }
 
 describe("SEO-PLATFORM-11A fap-web authority convergence", () => {
+  it("keeps the final tree projection non-authoritative and byte-frozen", () => {
+    const projection = readJson(PROJECTION_PATH);
+    const verification = JSON.parse(execFileSync("node", [
+      ".github/trunk/verify-seo-platform-11a-final-tree-projection.mjs",
+    ], { cwd: ROOT, encoding: "utf8" }));
+
+    expect(projection).toMatchObject({
+      schema_version: "seo-platform-11a-final-tree-projection.v1",
+      artifact_kind: "non_authoritative_inventory_projection",
+      status: "frozen",
+      repository: "fap-web",
+      fap_web_agent_authority: false,
+      execution_authorized: false,
+      canonical_registry: { repository: "fap-api", registry_hash: API_REGISTRY_HASH },
+    });
+    expect(verification).toMatchObject({
+      ok: true,
+      missing_paths: 0,
+      hash_drift: 0,
+      unclassified: 0,
+      duplicate_paths: 0,
+      web_seo_scripts: 139,
+    });
+    expect(projection.path_set_hash).toBe(verification.path_set_hash);
+    expect(projection.projection_self_hash).toBe(verification.projection_self_hash);
+    expect(projection.paths_manifest.map((row: { path: string }) => row.path)).toEqual(
+      [...projection.paths_manifest.map((row: { path: string }) => row.path)].sort(),
+    );
+  });
+
   it("supersedes the 18-unit Agent OS and binds only to the fap-api frozen registry", () => {
     const registry = readJson("docs/agent-os/agent-registry.v1.json");
     const pointer = readJson("docs/seo/seo-platform-11a-authority-supersession.v1.json");

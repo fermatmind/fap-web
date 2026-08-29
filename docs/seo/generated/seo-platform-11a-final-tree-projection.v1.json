@@ -1,0 +1,2957 @@
+{
+  "schema_version": "seo-platform-11a-final-tree-projection.v1",
+  "artifact_kind": "non_authoritative_inventory_projection",
+  "status": "frozen",
+  "repository": "fap-web",
+  "fap_web_agent_authority": false,
+  "execution_authorized": false,
+  "canonical_registry": {
+    "repository": "fap-api",
+    "registry_hash": "b02b6edd816b75b42582468e5bc3aa2c9cd0060149825d1fdc6131cf71d73791"
+  },
+  "historical_baseline": {
+    "schema_version": "seo-platform-11a-inventory.v2",
+    "inventory_version": "2.0.0",
+    "inventory_hash": "925bb5dcd128f00bba6a251b55e87d2e37bb75de1fb14cc8ce3a107f7177da01",
+    "source_fap_web_sha": "16b5e655b4ae3e2c74bb265b90568676bbcd55dc",
+    "path_manifest_count": 478
+  },
+  "source_repository_snapshot": {
+    "repository": "fap-web",
+    "sha": "e9cac3763556fb1d02837d4ce778e343beddca1b",
+    "evidence_state": "verified_worktree"
+  },
+  "fixed_boundaries": {
+    "runtime_created": false,
+    "runtime_model_invocation_enabled": false,
+    "model_calls_performed": 0,
+    "cms_writes": 0,
+    "seo_data_writes": 0,
+    "search_submissions": 0,
+    "production_data_writes": 0,
+    "delegated_executions": 0,
+    "l4_state": "dormant_not_authorized"
+  },
+  "summary": {
+    "path_manifest_count": 485,
+    "missing_paths": 0,
+    "hash_drift": 0,
+    "unclassified": 0,
+    "duplicate_paths": 0,
+    "web_seo_scripts": 139
+  },
+  "path_set_hash": "923816b2b625784d47a8f41e6152c0abf555282b70bbb7c99167a9892fa28fb6",
+  "paths_manifest": [
+    {
+      "path": ".agents/skills/fap-web-career-public-projection-renderer/SKILL.md",
+      "sha256": "2361f20010d8968d1b3b9f2244d8dd5a7a1f93c621d41e8661f071721243b9bd",
+      "byte_size": 3359,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fap-web-career-public-projection-renderer/references/renderer-contract.md",
+      "sha256": "6330cc0c7b7dcf230df89297ac6c7f23a4b0ec426afa19aaa86a940ba4775265",
+      "byte_size": 3352,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fap-web-cms-rich-content/SKILL.md",
+      "sha256": "49757f1c7a6557282ccb8bb962137bdc433848f5d0a704689e5af1612789d2f3",
+      "byte_size": 3322,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fap-web-contract-tests/SKILL.md",
+      "sha256": "93ef2f3e752a759814772a45d19bbc338fda3a3b503b3ef0f738dde4e677fe89",
+      "byte_size": 3316,
+      "classification": "contract_only"
+    },
+    {
+      "path": ".agents/skills/fap-web-nextjs-security/SKILL.md",
+      "sha256": "fbaf0a7237932b2f4c5c93fb0e7932c039f72094bb259cd2d59765d990bfe5e0",
+      "byte_size": 3184,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fap-web-seo-geo-authority/SKILL.md",
+      "sha256": "357379ae340302756d6b669439229d10d0202a5de10e8e543cc887f5353d6923",
+      "byte_size": 3795,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-codex-security-revalidate/SKILL.md",
+      "sha256": "648326c16e0ac5c9ec2bb61f379131b3fab1f67ded198102373651e59f496d05",
+      "byte_size": 3496,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-daily-seo-ops/SKILL.md",
+      "sha256": "79b6020e7d6022cee5f559d828298ec69cc8a4356d76f7f12f8600cf1a5b6b48",
+      "byte_size": 14743,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-frontend-deploy-sre/SKILL.md",
+      "sha256": "9ebf5e99fca50c9c63cb9360cc36e3174116b85e5055f223ce3498f7c9e5e3bb",
+      "byte_size": 6372,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-frontend-deploy-sre/agents/openai.yaml",
+      "sha256": "1d34eb82a3b22e7d1f1dbc61800b5cf2479994e877c25595c7eca9181d7fbfe2",
+      "byte_size": 307,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": ".agents/skills/fermatmind-frontend-deploy-sre/references/incident-and-rollback.md",
+      "sha256": "bc61440890055a67c9cb066fd03d4d537ecb427ac7836f6b3b45c0f219c0ea94",
+      "byte_size": 1730,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-frontend-deploy-sre/references/topology-and-control-plane.md",
+      "sha256": "f6b23b5711afa1eafc62b5205a9de11cc8aa299443c3ed5379522e14970fe943",
+      "byte_size": 3378,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-pr-train/SKILL.md",
+      "sha256": "5d13056d2e04cee15573851ef13c06b8a8ee8eedc83066143b19c155df6dced5",
+      "byte_size": 3933,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-scope-guard/SKILL.md",
+      "sha256": "abae94c0ba3ecfaa5996d71c6585e5ddc984d397b0067e199d574825888cafb0",
+      "byte_size": 3279,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/SKILL.md",
+      "sha256": "91cc30d50ab50bb3febb7c4fd123cf409fb616a67e170fb3e3521c058a95f786",
+      "byte_size": 46565,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/authorization_boundary_matrix.md",
+      "sha256": "97f38cad3a93e998b63fcac051fcc3c86dd88901ca37bdf3de36a56fc7c21552",
+      "byte_size": 2178,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/baidu_retry_guard_template.md",
+      "sha256": "41c8ca11d6ddad2a24aeeb1c5aa1c2af9e683998b6db8ff2d9c6e364024a372a",
+      "byte_size": 871,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/bilingual_article_pair_readiness_template.md",
+      "sha256": "9a6e57fa7d2405aa440fd15ed3934de8d7fdd5ee6088beb720485587d4a52baa",
+      "byte_size": 932,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/canary_observation_template.md",
+      "sha256": "bb9e409a0d0174c48d19d5088c0ff17260c19424f798bff40c5ccfdb279d5414",
+      "byte_size": 1060,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/chinese_actual_diff_preview_template.md",
+      "sha256": "4766c698cf6eb4951811c9cd119ebb14ec2e7f991b4c73b42039be76f94ea555",
+      "byte_size": 562,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/claim_gate_report_template.md",
+      "sha256": "28b74e5e1459512ccbcc0ad82f253ee1c4c9a389e3578b5fde7c698fabdaa139",
+      "byte_size": 586,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/cms_field_mapping_report_template.md",
+      "sha256": "1129fbe2ad01c6a7adc1eed6b10e845fc27f4c748730d74b7a15307072eafe65",
+      "byte_size": 895,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/cms_import_ready_report_template.md",
+      "sha256": "86d307891fe8df149ef48d997e1b89b4e8d34b3d8c588be3f667c59e63957b98",
+      "byte_size": 583,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/cms_publish_gate_checklist.md",
+      "sha256": "01ed9bbe1ccfbe955fcb0e19c4d5d9d6aace8199bdc200c43ca36d478c722964",
+      "byte_size": 898,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/content_feedback_queue_template.md",
+      "sha256": "3a6928046f7fc533861685dd68f41a73fcfb7a9326591eeedaea77d2d03dfed1",
+      "byte_size": 239,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/content_package_integrity_report_template.md",
+      "sha256": "b7769efff1c97b9ad6af2fa42fa21c039286c6ed57d13d1356e22ea8fa927e2d",
+      "byte_size": 771,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/d1_d7_d14_observation_tasks_template.md",
+      "sha256": "4dd75c223ef77d3554086deb633dfd1caa93e12138074d9aa5e8ced5b6bc6abb",
+      "byte_size": 1156,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/daily_seo_memo_template.md",
+      "sha256": "af7b6af27485fefd7ba258e6487c653e85435ea385bbba51238233014d500b1a",
+      "byte_size": 5872,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/daily_seo_signal_report_template.md",
+      "sha256": "6150645437fca1b9625af918e9e030803540b829c50f99aad8c7adfb78aa4b96",
+      "byte_size": 1037,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/final_article_release_report_template.md",
+      "sha256": "387dea1018beab60cf2c6e410abf9f45fda6e042d9b67e627d2df9b867d09fe4",
+      "byte_size": 5629,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/full_release_goal_template.md",
+      "sha256": "c92404c870d034e171adeacb125a50de538a11cb11344e2c54a47afe96c1a5ac",
+      "byte_size": 11187,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/gsc_manual_inspection_readiness_template.md",
+      "sha256": "f4ba21b8d422eb49a4a80029bfabc0c22f12cc1ae15c2ce0211cb4d24915141a",
+      "byte_size": 837,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/image_asset_bundle_reports_template.md",
+      "sha256": "84d6584b6b0ee3bb0228ba36b75a06671715733184be5e0413f14f0685e4ece3",
+      "byte_size": 3726,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/indexability_readiness_gate_template.md",
+      "sha256": "aa91f92bb1022afb43871eb3a04d3a07343ada0dc40a11983df8435c1050bfb9",
+      "byte_size": 893,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/indexability_release_template.md",
+      "sha256": "491dbbd496a7d0280df458fda897c5dcc911b72731de717b8847cb099273a1b2",
+      "byte_size": 1012,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/next_daily_image_bundle_template.md",
+      "sha256": "35e7a439dd53a18847fd00a75b67de3cdcb20c92830438222f7f2d8e9cefac20",
+      "byte_size": 3566,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/operator_publish_review_template.md",
+      "sha256": "2bd8acd679fff84707716593a08db6dedce756e500d3c7dc90794f351601efeb",
+      "byte_size": 816,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/post_publish_smoke_template.md",
+      "sha256": "41b1df8132838eeffdf0343f4d6f7fa71ecebcc49405de315f8fd96232be8bf0",
+      "byte_size": 855,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/preview_checklist_template.md",
+      "sha256": "bde97ed468c8d25ddd44e9535b1226d101be1a232dc76d00de9f4214fbf85051",
+      "byte_size": 1355,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/ready_to_publish_queue_template.md",
+      "sha256": "781d1ee7dc4296a3415426da639c9b245a87056425749511c69f9e0d96ca5c62",
+      "byte_size": 375,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/revalidation_smoke_template.md",
+      "sha256": "9477c6e2a10d819140ebff12eb7092c0db039d9f4c7e48c36313838e3b6456ca",
+      "byte_size": 486,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/search_batch_status_matrix_template.md",
+      "sha256": "0d7ec2fd68f22ede9bba28f999b67926f52bf5b56d6fbaf6c375d67f586ca351",
+      "byte_size": 908,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/search_channel_live_submission_hold_template.md",
+      "sha256": "570460381967560a88bf77f3fa41b029a3238c6d8d3c988f88db96afc70451e1",
+      "byte_size": 945,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/search_channel_queue_report_template.md",
+      "sha256": "79b8f9c70e64e7636464572be59acc0f8690d439cab67bdac525166774b1d5fe",
+      "byte_size": 657,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/seo_issue_queue_template.md",
+      "sha256": "54cc428c7011b96e6b0afa272b6caed6c8bd041794345eca07e7542538976a5e",
+      "byte_size": 384,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/sitemap_llms_parity_check_template.md",
+      "sha256": "a66fcc1fbe39dae875dd9a876d1ec830ac74f0e62f21591375088b394f19a4ed",
+      "byte_size": 1817,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/six_pillar_retro_report_template.md",
+      "sha256": "91fe8fcbfbda6b87091be1a647124855dc79e427d41f5e0a7cd999778720cd15",
+      "byte_size": 956,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/social_image_metadata_gate_template.md",
+      "sha256": "fa0b3415f6ee3221b820ebd07cc09b98b27574aacf0ea27c6212c715ceb7d12b",
+      "byte_size": 1490,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/url_truth_drift_report_template.md",
+      "sha256": "374886132ed48dc01c865bd288c3ba4166744e9d69615963c33e884dbfd27c83",
+      "byte_size": 600,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/assets/weekly_article_review_template.md",
+      "sha256": "7c98d1e4c649449c5ab78f464296fcf171cba457ef585822428c82c7fde39974",
+      "byte_size": 819,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/article_identity_lock.md",
+      "sha256": "2e3d9c8d52963fe02fc9c84e5560cf0895a841a3264f9668fbdad77b37bc4db4",
+      "byte_size": 1699,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/authorized_goal_contract.md",
+      "sha256": "102c1f679f81ef3db1faa7f64970c52fe82c26a22f48d7369cde28a983227707",
+      "byte_size": 4521,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/baidu_analytics_playbook.md",
+      "sha256": "e1675aafc44e6cd594c1905a366ed6cf3e54cf9189eb5ecfee8a093f301fad6d",
+      "byte_size": 734,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/baidu_readiness_guard.md",
+      "sha256": "e7545fc322efbd939ca8a501435b3e81cbec4586b31c8af7f78f2ccce0b28eac",
+      "byte_size": 2005,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/baidu_retry_guard.md",
+      "sha256": "de1f33fe45aecaed5786c0b93d79a0eca8cc4e12f75034b1e0f3a4931cd86c1c",
+      "byte_size": 2619,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/canary_observation_rules.md",
+      "sha256": "bcea023dde9c7d4634bf10e7dd207f12e2dfe3bd985fbcd924aa55b2fff16a0f",
+      "byte_size": 2078,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/chinese_overwrite_diff_runner.md",
+      "sha256": "1d7b4490cc2a811711491f2535458ab2ecc28315f9b3d643ce8cfaf92b231133",
+      "byte_size": 996,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/claim_gate_playbook.md",
+      "sha256": "d3d5323b4b97181bace9676afa46c88ce92cda1b0fd33de6f04546781f711a77",
+      "byte_size": 1903,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/cms_content_package_qa.md",
+      "sha256": "e0f49f208d6c8b21eb3c3f001c6d56dd709ff7a948c136bdad19234de3e569cb",
+      "byte_size": 3008,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/cms_field_mapping_qa.md",
+      "sha256": "b7b0c0f14fba58df028266911067ecbe96cb9e705d61551dc8815758b5cf5da2",
+      "byte_size": 752,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/cms_seo_article_publish_runner.md",
+      "sha256": "3d3e25a8ddd85659b020f3d64cff7c31aeeb542775246a2eeb3790ee4e57a8d2",
+      "byte_size": 1248,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/content_feedback_queue.md",
+      "sha256": "1dd4b9503791e910ccf045722d36b94df91125e48fa3278844b67fa43a2cc99d",
+      "byte_size": 1053,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/controlled_publish_playbook.md",
+      "sha256": "aa85d3cac33911c0d952a7764a236d195503d5f74b4870b0790a826444227bac",
+      "byte_size": 2018,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/daily_pipeline_search_batch_separation.md",
+      "sha256": "6e391eeebe55684274ddb51ed2920c80af16aac0578557fe2683f2beb415aa2a",
+      "byte_size": 3537,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/deploy_preapproval_policy.md",
+      "sha256": "d62f7f38dc29b2db06c355c3ba652bcb0a6d9b4c537f54b032a906721cc2453a",
+      "byte_size": 868,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/discoverability_release_playbook.md",
+      "sha256": "62e40aeb5970a410d975a43661f1df82c3a7c845bc18f74b77b2e4d3ff778ac4",
+      "byte_size": 1415,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/field_length_preflight.md",
+      "sha256": "f9122d400b48ef5d47fc9ba18e2228fd5b4e86806d1b6a9ad5cbe7abf70980d2",
+      "byte_size": 963,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/final_reconciliation.md",
+      "sha256": "9c61f8342e4b4e919504c302c80a5613f07b8b4726560e66887d263327765556",
+      "byte_size": 1961,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/full_article_release_state_machine.md",
+      "sha256": "7b00c142adb5b864c40177939c89ae1235fd2b5ebd25d55432649189941cf115",
+      "byte_size": 16868,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/gsc_manual_inspection_readiness.md",
+      "sha256": "14877f0e0e7c5e50a220b02c86f452eae61396b5be3715019c606117b5579b48",
+      "byte_size": 2187,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/gsc_manual_readiness.md",
+      "sha256": "9c9b81ebe7e1f301ff648259a8d8e387122164fd56ed4ded541178a5e8c34766",
+      "byte_size": 1258,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/gsc_review_playbook.md",
+      "sha256": "8d5bfc2fcef996ef6ef8285bd12af08781a7b9bb433f476536fa3ca490918f35",
+      "byte_size": 783,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/image_asset_bundle_workflow.md",
+      "sha256": "79a9223d408e4ab451bb36564e2e510a6f313c51587c86b9e6df38f3c24b301b",
+      "byte_size": 9021,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/indexability_readiness_gate.md",
+      "sha256": "8fcbc9d6cc49a82256f7244fd6b80d2a6b031e30e3f5692d2660e68422cfc7f1",
+      "byte_size": 2042,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/indexability_release_playbook.md",
+      "sha256": "069f38ac1e70eed06210d4a69dfe11c9ab06d51eac61fb9fcd95d3d341aafa3b",
+      "byte_size": 1572,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/indexnow_bounded_submission.md",
+      "sha256": "b8c16b378880e4392bfc129927c52ad26319e64bfb072a80d1b670bda8159f88",
+      "byte_size": 1083,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/metabase_dashboard_playbook.md",
+      "sha256": "a04231005307a3e5edf6791b20b6220c9f6438f41134abab16c4849022ecd796",
+      "byte_size": 755,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/mode_c_content_package_rules.md",
+      "sha256": "03d0003a1e7434420e004bc2c10ff3de1fa420a5a5e36973387279db96687d95",
+      "byte_size": 11878,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/multi_article_release_retro.md",
+      "sha256": "f6142099d1bcad6a15ed5f4f80a51347d37172518864388f5720ef00cc44f1e0",
+      "byte_size": 3872,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/new_bilingual_article_pair_runner.md",
+      "sha256": "84c0998abb81cc3795539f7ec76c18528ae6adce7d72e919c0166e17356ec2e0",
+      "byte_size": 4057,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/operator_publish_gate.md",
+      "sha256": "ac93347e197e0214ef439bd33d0359f208b32f25424980c6eedfd8b3112cc2fb",
+      "byte_size": 1261,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/ops_portal_seo_playbook.md",
+      "sha256": "6f76d522dcbffd7ad5370f5e6955b37e118ada85b0a3431c031d3995f4fbb97a",
+      "byte_size": 598,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/package_autofix_playbook.md",
+      "sha256": "bd8531e953a8f5c8312d7b03a6ee82f14a25731f066e6dcfb759d7bc945d1ad8",
+      "byte_size": 3201,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/post_publish_smoke_test.md",
+      "sha256": "dd80c154e0ac5f3833c4fbc91baf2c34010984d76ad4ae3ad870a9dd494e6e6a",
+      "byte_size": 1409,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/preview_qa.md",
+      "sha256": "9128f438b4955a56a3a4788e0988c2dcac1a80126c598dcbb27d4aefccdc855b",
+      "byte_size": 2303,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/private_url_guard_playbook.md",
+      "sha256": "6e4398ea34976c1e20418885463d4a7d2765819815fb7f83dc9c257d03cd6e8d",
+      "byte_size": 721,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/production_draft_writer_playbook.md",
+      "sha256": "7a9909b0a90c318287c5ef7fe4a3f1ef4c6fd03bd11eea030e46a7c55ca60654",
+      "byte_size": 1832,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/publish_metadata_gate.md",
+      "sha256": "9c1fd3c15b0b6d54988730521b84e50959b8e6559faf291d6c91582400c99162",
+      "byte_size": 985,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/ready_to_publish_queue.md",
+      "sha256": "8a67df0db9bbf9b66a5d8220eed6a14b6e6f515fd1b08103fdaabe56db75eabd",
+      "byte_size": 1286,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/revalidation_cache_playbook.md",
+      "sha256": "5165afe4085cf35c7fcee0c07e9b68c595d65220559ea8ae080ddb2045161df9",
+      "byte_size": 634,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/schema_hreflang_rollout_rules.md",
+      "sha256": "a0c8ce56e7919d04d80c7aa56581c3385c2e809073bebcbe6e0fa3d79c5ca879",
+      "byte_size": 2847,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/scoped_pr_train_automerge_deploy.md",
+      "sha256": "17fdc2bfc51746ec46cb391506e9f4bdcf349f126f88a75dbfce2c61b8e5bc01",
+      "byte_size": 1037,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/search_channel_live_submission_playbook.md",
+      "sha256": "afa5d754bce8accbc1d5ff6ebd51d8503ec471125a45fe242da82661fcba5633",
+      "byte_size": 2736,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/search_channel_queue_playbook.md",
+      "sha256": "e0952ba8a82817ff1349ca9d41882d5c99b75d4e2ded3c80c1d037f46e181b13",
+      "byte_size": 657,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/search_discovery_pipeline.md",
+      "sha256": "3c69b3c5be4e921dd4dc5d32a34356858a7f5367ce980eb8b0ae951addcbe2af",
+      "byte_size": 3451,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/seo_middle_office_audit.md",
+      "sha256": "a6e27b5d4781d33fc9b26ebfcabb485d8ce39e662c794daeeaa726bf9f3cac38",
+      "byte_size": 799,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/sitemap_llms_parity_check.md",
+      "sha256": "99956ac76949995ec08bfe31a8f53398d963dbcd89411a1ed1b105cbf5a9f84f",
+      "byte_size": 1601,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/social_image_metadata_gate.md",
+      "sha256": "dbab02617be3511a02baf457d853d7664d7965dad3c0725037b038e0f0b675e0",
+      "byte_size": 2351,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-seo-ops/references/url_truth_and_drift_playbook.md",
+      "sha256": "46e2026bca9ff43e11da4bf0967dc724e04d97be09ef6ace93fe2522e0f66cfc",
+      "byte_size": 618,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/SKILL.md",
+      "sha256": "7604c0310fdf782ce32dfaa741b2e9a636ba6cb25246cdefc8f5cc302f92db86",
+      "byte_size": 16099,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/assets/CODEX_STAGE4_TO_SEO_AGENT_GOAL_TEMPLATE.md",
+      "sha256": "d7a47b30a30fcfdd08310d7e91d96d149b716be4b642653182f4ab3a1a9a4463",
+      "byte_size": 15744,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md",
+      "sha256": "d0d489db02721799db1bbdf40f31d55f9fe2cc5df017b2b28f83c4ac4a2f4f0b",
+      "byte_size": 15361,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/assets/GPT_DAILY_SEO_IMAGE_GENERATION_PROMPT_TEMPLATE.md",
+      "sha256": "6c19b0c76701eaedd58f95c3621e966b2b77fa7da46578bbfa5497d47ddca879",
+      "byte_size": 5110,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/assets/WECHAT_SEO_QUALITY_SCORECARD.md",
+      "sha256": "3f3e9fa717b7bdca117eea341388538b615a548abfe8548c7b731dcb1c63480a",
+      "byte_size": 1475,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/fermatmind-wechat-seo-article-editor/assets/WECHAT_SEO_REWRITE_PROMPT_TEMPLATE.md",
+      "sha256": "e460a0e989998b1b68e51d20d284d1d9715fca15d6c05225ac9a775556090768",
+      "byte_size": 2466,
+      "classification": "bounded_capability"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
+      "sha256": "e1668372096a13622e9ac1a7ade57fc31fcbbd6fce00d0fa08c24a84a5839740",
+      "byte_size": 14579,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/big-five-public-personality-agent.md",
+      "sha256": "168f369d5d1e7fa06add3dd6827d8e18996edf97201360ebb8a29616c79ec2d2",
+      "byte_size": 1346,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/editorial-claim-qa-agent.md",
+      "sha256": "6fc46eaef312df6932df37c0e71f4eda5e0c5ad55a82d91525f28558a50c07d7",
+      "byte_size": 1033,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/enneagram-public-personality-agent.md",
+      "sha256": "088c77483dfc70f85e0d8e1257bf457ccf858a644966c3614e30057bfd5e522b",
+      "byte_size": 2157,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/mbti64-public-personality-agent.md",
+      "sha256": "fedf78582d112669b992b3d05feb1e5f81155a7a8bbdea27bfc47452d5f30f9c",
+      "byte_size": 2305,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/personality-content-orchestrator.md",
+      "sha256": "c5a123260c20cf38c9df6269b592a8308d670a23f6bc6281a460dd6269553bc9",
+      "byte_size": 1803,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/release-guard-agent.md",
+      "sha256": "59b81ef5b6d923e1def28f43267f9b288c0034a8cf69ee5c39762983ad1f81f5",
+      "byte_size": 1692,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/agents/seo-projection-qa-agent.md",
+      "sha256": "c109a8cd71a6728aa129b2d7b8aa349db4c6327e55a72e5f49dcbece754aefb7",
+      "byte_size": 1073,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/authority-supersession.v1.json",
+      "sha256": "27f7a30596e9e4468547a2a65fdd7931575eeba77d21f8a7fca4c2ea930b9512",
+      "byte_size": 1544,
+      "classification": "contract_only"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/content-qa.md",
+      "sha256": "3d69a375cd8af790f28ae31c592d387014e489e44fedfa155d18c33cb127f14d",
+      "byte_size": 226,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/import-qa.md",
+      "sha256": "75892ee77f8abbcd9a18e0f62bca540c5cca1adfc9e8d4d6a9bd28981c1df233",
+      "byte_size": 200,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/model-production.md",
+      "sha256": "cec80a2101073753f24b5d64aa0a9d42d1001c4dd611d062eab651538642d4fd",
+      "byte_size": 239,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/preflight.md",
+      "sha256": "3d54250f86c3658a921ee8c2e4aef13203f7b91eda314596e25446d4714edb57",
+      "byte_size": 255,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/publish-gate.md",
+      "sha256": "5da669f81f29a90995690566a33bca6efc2acf525fe84804ee059985142c7f03",
+      "byte_size": 364,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/render-smoke.md",
+      "sha256": "1aa6f502f5e0424138f17ccda3647d7811ae6b78d5f767e0c61a71bca1898bb9",
+      "byte_size": 228,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/checklists/research.md",
+      "sha256": "382066db633a8f25d2464457060971e5714de1a3d3bafe03f438d2daf765e32f",
+      "byte_size": 198,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/codex-model-session.md",
+      "sha256": "08526688cb0f8bcd123af0aef6532c997e85c49bdd53fa840040b601525e23ae",
+      "byte_size": 337,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/gemini-session.md",
+      "sha256": "6f78d8b7fda71ac825f3dc069412d1cc5ba32c61c2f98d6c570a7b9edcc65505",
+      "byte_size": 731,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/gpt-session.md",
+      "sha256": "2ee0d50d9f1becd40dcf6409e4e07292e2f3b99290455d6d067589a20afb8343",
+      "byte_size": 1400,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/privacy-and-secret-boundary.md",
+      "sha256": "5f2abd4b34d97ba563cc954ebb091ca5920dfd8c000ecf58b3cf39dbe75a6628",
+      "byte_size": 577,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/protocol.md",
+      "sha256": "9e169450bbfef7d89deceea8e5051d9f829aafcc1dfecc904a0aeadf1c988e00",
+      "byte_size": 1296,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/computer-use/transcript-capture.md",
+      "sha256": "30473619f0b8888d1e2257def39ddddd487363db1249c4fbf8dfb2834cb843b7",
+      "byte_size": 374,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/examples/big-five-domain-package.example.json",
+      "sha256": "0baab25cd50aac742c8c18435db705a3deb3b911eab2be8a0318101b79e6de77",
+      "byte_size": 1362,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/examples/big-five-polarity-package.example.json",
+      "sha256": "b7c8f529342ad6ccb6e8838ff22cb89c3bae07c7036b0d4ad185a707f684ff0a",
+      "byte_size": 1419,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/examples/enneagram-core-type-package.example.json",
+      "sha256": "ea049ea55ecdf7a9047713aa6f125c04edc5cc06349f346491988d998ac0726f",
+      "byte_size": 1377,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/examples/mbti-enhancement-package.example.json",
+      "sha256": "42a2dde9d1c7c15080422b6be1646fd15c5ed3269c4ad1fe526f8e080e0526b7",
+      "byte_size": 517,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/examples/run-manifest.big-five-v1.example.json",
+      "sha256": "f496092fa9ec3393629faef7f643ca8275c8e31ac93d6ea5528103fc7e69f137",
+      "byte_size": 620,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/framework-rules/big-five.md",
+      "sha256": "9c460eef061e92922659cecc5293454a4a996560de3b0f8edce87c7d8c0dec0b",
+      "byte_size": 591,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/framework-rules/enneagram.md",
+      "sha256": "74e81dd9e2a329689e4fa12c0533fc91105de2e9e4aec827c2007873af9a7368",
+      "byte_size": 1638,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/framework-rules/future-frameworks.md",
+      "sha256": "01029b1f74e94aacd8b4864db8ccfa947c7638a0e5b1883c298e229ad75f6d40",
+      "byte_size": 344,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/framework-rules/mbti.md",
+      "sha256": "16d632993d053dc2a9bcf73d7460ba1a994981967700de67d6f1abbd65b93641",
+      "byte_size": 461,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/orchestration/asset-selection.md",
+      "sha256": "1058fe8acecb760f09f166ede78ee077750a0545995601b9c501cbc23aefb17b",
+      "byte_size": 872,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/orchestration/failure-recovery.md",
+      "sha256": "5f7a6e23b5c2c0c8c2d4ce07cef26017ab1973f225b205db5fccfa8e8c9cbb24",
+      "byte_size": 1097,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md",
+      "sha256": "79f2fdc07d59451b6f486bce25dbc8c88e03d190c863729e41eaa088ef631938",
+      "byte_size": 2491,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/orchestration/run-manifest.schema.json",
+      "sha256": "5818cab719e04cdec3b0a848ba3311f530e3f981a78223a61c09cc1ca184a2f1",
+      "byte_size": 1610,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/orchestration/state-machine.md",
+      "sha256": "aebe716e178096283179ad8d0440b9692ebcb673578c0eb3fe9a784249c3a946",
+      "byte_size": 2571,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/audit-report.md",
+      "sha256": "38fa0ca8102e5a298ed10daa150e1ca6a3bd50a4e0b9deb16ce889e2aa809a81",
+      "byte_size": 188,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/backend-import.md",
+      "sha256": "f273c1dffad83d912f6def8899917aea4262f3cb79828f05b698b995326b1333",
+      "byte_size": 257,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/content-package-generation.md",
+      "sha256": "efd3a2a12355fbf6d1d3052319bcbc11e1230adf8d2b8eb0958b1ac52f597e35",
+      "byte_size": 296,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/frontend-noindex-render.md",
+      "sha256": "c2713003097970d55f21a6a0b04ca4117b88112498d9d4be5382bc348ab15811",
+      "byte_size": 242,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/publish-indexability.md",
+      "sha256": "feca5ceafee83d81b0ff3106dd2ff298882e9018b315d01577f39dc98460b77e",
+      "byte_size": 279,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/pr-train-templates/runtime-smoke.md",
+      "sha256": "d8a1fdb6484a2ef629fe347d39c442e61c1c9eb5b6d63b3fe2660d9351de5abb",
+      "byte_size": 212,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/codex-editorial-adjudication.md",
+      "sha256": "50b6c84c54063ed1488923bbaff2ad4b94f4f6d041906309df94135a90713780",
+      "byte_size": 449,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/codex-native-content-draft.md",
+      "sha256": "e3901c4ee9a8f9d53acc7d089d1fec22b22874ee42d809f2f442ebcabc231db5",
+      "byte_size": 1137,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/codex-skeptical-self-review.md",
+      "sha256": "a4a804fd05058c856cb5e7b256c0a928b293561d7526b4a3cc8f1000491dfea0",
+      "byte_size": 801,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/codex-validation-handoff.md",
+      "sha256": "c22dc4d65866afab120031bb66d46490522d1cf092a845bab94fb02eb417ae1c",
+      "byte_size": 1135,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/evidence-method-boundary.md",
+      "sha256": "03a47bccffdc56c382a1e5f4885f975e0d3ebda56891fa5f5c397b441bf23ab5",
+      "byte_size": 680,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/gemini-competitor-gap-review.md",
+      "sha256": "a0793decc736674f407667bccc1ae2045d68611ca10d98617dbb93a9578429c2",
+      "byte_size": 508,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/gemini-serp-intent-review.md",
+      "sha256": "cc4cc024779105affd6128a358def01f40beb46649e1a24c3a01d7dc2780ebe4",
+      "byte_size": 430,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/gpt-bilingual-independent-draft.md",
+      "sha256": "7b79ab939bdcaad3ea9120099dd104b9721e5faf6bb4ebb7c6a993d83a7edf1e",
+      "byte_size": 534,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/gpt-content-package.md",
+      "sha256": "a0d4d259923d10c9ed021a121e8ae31a410d269eceda05e28478f329102668f1",
+      "byte_size": 741,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/prompts/public-profile-agent-recommendation.md",
+      "sha256": "24e010a025b0b595791e4d1c6dd94b7a2b34a74f36b323f42d9fff0938206cbc",
+      "byte_size": 1302,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/bilingual-independence.md",
+      "sha256": "f826b841ae0f736951667ab27f9855f73219dc23c55261532434b545ac0e72dd",
+      "byte_size": 705,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/duplicate-risk.md",
+      "sha256": "f29dd3e0fef418a3b5439e9c982c5259d1644c543901fd14942555f325e66741",
+      "byte_size": 435,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/framework-specific-no-go.md",
+      "sha256": "80638d2e3cdec596e8a3da80339fedb351bf1075007a11a6d26917730b595690",
+      "byte_size": 904,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/global-content-qa.md",
+      "sha256": "f4f4f1445c51da9c7dcca0008584bd8f9960f7e55046df8a1467059c6bc08661",
+      "byte_size": 900,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/private-result-boundary.md",
+      "sha256": "5c0b3218538426715707913e531a7a203d8509da137c14f8d143c9b47a8c561f",
+      "byte_size": 405,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/publish-indexability.md",
+      "sha256": "22b706d3dcb63272903db11d2f9d3a3ebba637c547ca47a3e786b619693b4523",
+      "byte_size": 714,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/quality-gates/source-evidence-qa.md",
+      "sha256": "c895881913247239249006b7120ccfe816c0493b9bb355de12207a662fc12558",
+      "byte_size": 702,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/big-five-facet-depth-upgrade.md",
+      "sha256": "a1a0b2691ab73ab83e4a84d4e646ec1001f34cca02ed4192e0cfedd3cde9146c",
+      "byte_size": 452,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/big-five-v1-34-auto-package.md",
+      "sha256": "aac61c4fb391f615bb278fe09e3dc0ec6146c6937754e1a3d5c1843ad7c98e29",
+      "byte_size": 539,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/big-five-v1-openness-codex-only-dry-run.md",
+      "sha256": "3e9cb03594d9ea69a0575f000173efbb51207050f5bc891e4de9dd977f7cf4d6",
+      "byte_size": 1232,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/enneagram-v1-placeholder-upgrade.md",
+      "sha256": "e895666d5bbd28a181a22b1d0cdb844e619bfdb13c6e899e9d8969a6a14502a5",
+      "byte_size": 1305,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/mbti-existing-asset-enhancement.md",
+      "sha256": "0e2cc84fdb0dcfc02cf18e1f37a9492aa09b1e4a4514ce5321c06acf4e4689c2",
+      "byte_size": 5143,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/personality-public-profile-agent-runner.md",
+      "sha256": "7a7dfc20f8287ca01c78df720ab57188a321d516ec0a21d0b9827511006941c6",
+      "byte_size": 1497,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/runbooks/publish-readiness-packet.md",
+      "sha256": "1b08b0acc251f3301c155eb9bdaf549dfe4a58c12429d36de9e987fb7419bcea",
+      "byte_size": 378,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/content-qa-report.schema.json",
+      "sha256": "e03a7d20e70719c83deec20e50fbba2833bf01172e3b302d164a0e64e91b9d25",
+      "byte_size": 1255,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/evidence-source-card.schema.json",
+      "sha256": "b7d441cfd27d480f01a5a4afcef89f38e1c26088036084fab8da48ad4f6222e0",
+      "byte_size": 987,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/framework-asset-map.schema.json",
+      "sha256": "5cd13d55c15c417fd844d100f1453d3065b7576837acf913ebb8d09c5b1bce44",
+      "byte_size": 1002,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/indexability-gate.schema.json",
+      "sha256": "ba03cf0345f08565a6f12be3c695503b0d4123c3323a6a846c7632eaef50d74a",
+      "byte_size": 1006,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/model-output-ledger.schema.json",
+      "sha256": "d819d3fb98b88ddf6e3728652d3110d385f83b427d9062a4b4d572aa5f595cf0",
+      "byte_size": 1237,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/public-profile-agent-recommendation.schema.json",
+      "sha256": "96a6a44306638dccb1043839ff83956c5b8e7321f9ffa6306640d332747471c2",
+      "byte_size": 5122,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/public-profile-content-package.schema.json",
+      "sha256": "b969a811f8faf76a45ebd7fe65f3df55fd7578211cd6d49b0199a4acc94a3e9e",
+      "byte_size": 4580,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".agents/skills/public-profile-seo-asset-factory/schemas/source-ledger.schema.json",
+      "sha256": "8e3e435673d24a14ea128fb4b5e6e0359a3bf9ad3d35275c793c5600125936e1",
+      "byte_size": 582,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": ".github/trunk/verify-seo-platform-11a-final-tree-projection.mjs",
+      "sha256": "4093be4dee7db257aa3851931299187d12af85f69cf2b89702d792fcbe8fb685",
+      "byte_size": 10050,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ab9bffac2232b85e8c6342b12098a9eff6684061b45060c3eaa469ad74cb5dd6",
+      "byte_size": 11969,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "sha256": "bf6b687ad79303371663c4f22dd33ff1758029d6b39179371e868c9621e7c76a",
+      "byte_size": 15926,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": ".github/workflows/nightly.yml",
+      "sha256": "f09af622e06428c8a8dc71ac96b09808f811401f3452efd9afc95ab3f5b54972",
+      "byte_size": 1468,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": ".github/workflows/recovery.yml",
+      "sha256": "5b35cbca9b2bc74d3e42f73b547c3095d470f530e59d15a1392e4c85a1f5a83e",
+      "byte_size": 5746,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "docs/agent-os/AGENT_HANDOFF_PROTOCOL.md",
+      "sha256": "feb71beabdcf0479c5d26330cfc36990c35405b3ac7a89757bd440118ce3adc0",
+      "byte_size": 6810,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/agent-os/AGENT_OPERATING_MODEL.md",
+      "sha256": "afd3bf4dc799f8ace2b484ffff9c188855a3696cb82e72feeb17a23e187b930c",
+      "byte_size": 11934,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/agent-os/agent-registry.v1.json",
+      "sha256": "47e238b9e3cfd032e5f82a78f1e48523830895806892bed3f71229f97c8cbe23",
+      "byte_size": 44983,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/agent-os/go-hold-matrix.v1.json",
+      "sha256": "3b564fdcdff76687ebfb4f833e53e56131208ce7c4ef60545cb3e3a3541a710f",
+      "byte_size": 13955,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+      "sha256": "603b8b49fd31fe884d40966bd15a64a8d8b57fa60cbf46a70bc476d9141f11e3",
+      "byte_size": 8341,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-analytics-common-contract-2026-06-23.md",
+      "sha256": "178ea51e75dd12ccd9b7e0e225f67e1ab4e89fde333bf8fef00ec3c893ea7ecf",
+      "byte_size": 4717,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json",
+      "sha256": "819198e812891f6dfd34b1526ee1233442f713b306a92bdb213974f2aed451e1",
+      "byte_size": 5381,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-analytics-matrix-2026-06-23.md",
+      "sha256": "4e7107bceea8796249b4b1b60b2632414dab2b04a47fe9d8ea737881e5bfdb7a",
+      "byte_size": 3801,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json",
+      "sha256": "c33dd84016143cfe592234734203adbb51fa5d7b2fdcc292748e0dc3315b56b4",
+      "byte_size": 8547,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract-2026-06-23.md",
+      "sha256": "95c060992f6fd712ad34d2f2df0945dceebf18e552acfb7e768b88c22d3ddb72",
+      "byte_size": 5663,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json",
+      "sha256": "7ae902745d866ea4cbf8018e2178e9cb52b067a61bd442bc5fe907dd7c0c870d",
+      "byte_size": 6758,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-runtime-qa-matrix-2026-06-23.md",
+      "sha256": "b2efb4d1bb6801fd48cbc8314b5e5fc66dca7f7dfcd5835739e8c6310a0c0c10",
+      "byte_size": 4036,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json",
+      "sha256": "d68120ab195a04370fc45b42fd3884c92d09d851ee3d221801b463d895ca755e",
+      "byte_size": 6320,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-safety-gate-common-contract-2026-06-23.md",
+      "sha256": "a86ad2319be2f201d6482364ac2b0a3cfcdb6975477c45fef49ae51cc5935fd6",
+      "byte_size": 5175,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-safety-gate-common-contract.v1.json",
+      "sha256": "70829c87ffebe84e08757b620b076b5407302eded32c5df02e77b728834a0a66",
+      "byte_size": 7454,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-safety-gate-matrix-2026-06-23.md",
+      "sha256": "0c1bc7dc08f0cc584634993e2c00dfdcd90a1df1fa9875918098db2635f845a2",
+      "byte_size": 3816,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/active-result-page-agents-safety-gate-matrix.v1.json",
+      "sha256": "8ab05fcddfe9f07086d6de8d43f25f2b6d7495077e74bfd74b715585e1cf6d23",
+      "byte_size": 9037,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+      "sha256": "22e5def4bdc8b7b75f4a43715254ad85a4fc4870547159c2093541a575bef6ed",
+      "byte_size": 13308,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff-2026-06-23.md",
+      "sha256": "1f9997d675f9b3a279d73d4efe4536ba01fca1cf513fca2ab2a9c278f33a4bde",
+      "byte_size": 2201,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+      "sha256": "0a3fef6796162731806e3dab33794f2d56b56bc157d75ddab02456cc881008fe",
+      "byte_size": 3818,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+      "sha256": "96871fe4b2defe7ed0b2ee938a393ebedd727c9801f32a7297caa8e69a1e4ba4",
+      "byte_size": 13216,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-analytics-consumption-packet-2026-06-23.md",
+      "sha256": "e00d319471ceeda3309066d732af40d10b21d3bfe655c0a75be8584a5f48e95b",
+      "byte_size": 3840,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-analytics-consumption-packet.v1.json",
+      "sha256": "466461fbd5336c88745baf40f84e920c01eb86fd91fc85a19357058a79679502",
+      "byte_size": 7114,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md",
+      "sha256": "9c42c0d4db0ea512412f31c9e889179debd22046a558f9af0de5f8e8c001182e",
+      "byte_size": 3672,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json",
+      "sha256": "549db4b3fa9339589d85cba9f154d68c3e8a860e54b2d1eed59bac1611a5f79e",
+      "byte_size": 5955,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-safety-gate-consumption-packet-2026-06-23.md",
+      "sha256": "8c6126df4245387eada66f0f68e87f70083905da9d651c3d93a4e31fd8af33a7",
+      "byte_size": 4645,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/big5-safety-gate-consumption-packet.v1.json",
+      "sha256": "ab091aef114085b83fd2672d70a9760d2f5fafbe75707e74b20a4a3710bad710",
+      "byte_size": 7738,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-analytics-consumption-packet-2026-06-23.md",
+      "sha256": "1d96fde0d7efc3920d79238af489e29d314ef10a89ca04f1964df617f703cee9",
+      "byte_size": 3964,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json",
+      "sha256": "9114e467492d634d358725b466727333f3bb08bad79227805fcfbf3d01880ba4",
+      "byte_size": 7040,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+      "sha256": "7db38d627fcd94abd37e5dbe5bbfdd295d8eb04e600087cddee54c2f9d78cf98",
+      "byte_size": 14710,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
+      "sha256": "e6a5ca1775d72a2b13887a6ae336751867f35f75d20b11f0c1ffc6dfa3bcd8e5",
+      "byte_size": 14638,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-runtime-qa-consumption-packet-2026-06-23.md",
+      "sha256": "53da7a18efefa9e2f333340602c26d83477b63d47770f8aeec258b138e542949",
+      "byte_size": 4125,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json",
+      "sha256": "f6b45970a05a05d3d0d6046756eb53f05b8dc627630b5a42e4da78c2614213e5",
+      "byte_size": 6023,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-safety-gate-consumption-packet-2026-06-23.md",
+      "sha256": "b76cfab43dacf0c8a34a310541ea2e31278b530510d4bc4a63fafd4d494cf0c5",
+      "byte_size": 5083,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/enneagram-safety-gate-consumption-packet.v1.json",
+      "sha256": "46d3921808eb85fa892aa18e653008415f322c307cd5c41c81f69dd4a6ba0456",
+      "byte_size": 8583,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json",
+      "sha256": "b850558c35c0148efe3ec944ef7ebd005074af443dcc422c5c4a3473a9db779b",
+      "byte_size": 11078,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/iq-raven-result-page-agent-scaffold-scan-2026-06-22.md",
+      "sha256": "3060f74a7294d77d783377f12a2226b3024f687db1e426b16d45eda4c6c87a80",
+      "byte_size": 11602,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json",
+      "sha256": "7a54e26a795cbe3ec3477999d0751770a17aff75b454ba81855a827786c213a3",
+      "byte_size": 9203,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md",
+      "sha256": "9c1aa568e274dd8ed190154caf128aa43293a98494fb49d9a5502b904d244dcd",
+      "byte_size": 9218,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti/README.md",
+      "sha256": "f38a14c4bfc5c96156c72e086137504a2cf6a9f1933ca12e5df0933e93711d5d",
+      "byte_size": 1712,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti/mbti-result-content-agent.runbook.md",
+      "sha256": "7ad2fde5ca1168f822b6a8f36ffef8547a031413acf146bb1d968e9481232619",
+      "byte_size": 6004,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti/mbti-result-content-gates.v1.json",
+      "sha256": "34944d71f4182c2c55d5e8ca0ce8d4f03a9484a61a93b173e300e9c4279594b9",
+      "byte_size": 3338,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/mbti/mbti-result-content-inventory.schema.json",
+      "sha256": "da53521a861e4ffef78e75b9b766398f9d9f0aa515a59e247dde198d53854a68",
+      "byte_size": 2949,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-analytics-handoff-2026-06-23.md",
+      "sha256": "79fbbadb095c3dac256413e5e69e90807f156d417322af03a0d9d4a2d6561695",
+      "byte_size": 5398,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+      "sha256": "8a29eeab0fdfae71236f2fedf96c51bd6f0b4e364a15fbc796bacd4d1122f048",
+      "byte_size": 6750,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-runtime-qa-handoff-2026-06-23.md",
+      "sha256": "8bedb77e35bfa67931d077fabceb350c052b82833f629a09141e3273635f3708",
+      "byte_size": 4107,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+      "sha256": "fcc18fcc5d9318415c00d8c93fa41efad87514a9aa087b4db35ea6f4cb56355a",
+      "byte_size": 4721,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-seo-control-handoff-2026-06-23.md",
+      "sha256": "39b4bbe2c1a6eb19049f7644c0cd33199a99caa4ce03970fb49ee9d2f9aca99e",
+      "byte_size": 4072,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/result-page-agent-seo-control-handoff.v1.json",
+      "sha256": "ebea9915ab6792e6ddf45bab3b193b22a37eba2c479687b8d63b26fd3ac3c8d9",
+      "byte_size": 4661,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-analytics-consumption-packet-2026-06-23.md",
+      "sha256": "c0f3a371d6d8773d1d86782f008e154fe0b51c73f61d75f9a538463d691a6501",
+      "byte_size": 5152,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-analytics-consumption-packet.v1.json",
+      "sha256": "12f084ff90004f1809d1e619f041f9a6c290bc1d8cd46e21cdd70f5b5ee8b7f7",
+      "byte_size": 8454,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
+      "sha256": "3b22d4ecb28b886bffdc9854a987cc2a9e3bdf22e1c695ef12369275ea12ef94",
+      "byte_size": 16150,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23.md",
+      "sha256": "989c3c2479b500a5955592107784921e2c7e3ba44e44172d9c6bd719b2c09622",
+      "byte_size": 4572,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review.v1.json",
+      "sha256": "8af1b064d56e26dfb62509449d3afe25675febdfe4b43a489fffec6c3566f573",
+      "byte_size": 4972,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-result-page-agent-standard-alignment-2026-06-23.md",
+      "sha256": "d28d1580a94888e8f7fbbf59799e2bdd8964adfe905a6a1a5da3fddb1140dc93",
+      "byte_size": 17370,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-runtime-qa-consumption-packet-2026-06-23.md",
+      "sha256": "308a232d9ed1b8473fbc1b8a7e5aad6226903ccfb09d5a6ee4767f72703cc569",
+      "byte_size": 5054,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-runtime-qa-consumption-packet.v1.json",
+      "sha256": "fa5470c9d3227dc892ca85c5e6cae697c57aef619f84dafe5d46f439cbda0488",
+      "byte_size": 8462,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-safety-gate-consumption-packet-2026-06-23.md",
+      "sha256": "c6b2ee2055cefcd8f3a1cf471428ff711c4569de8d349ed659397a6fb9f1283e",
+      "byte_size": 6447,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/riasec-safety-gate-consumption-packet.v1.json",
+      "sha256": "f4d119039c56d91f96365e0435b3bdfd1cca0281faa1cebc68a43a87af210776",
+      "byte_size": 11003,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/seo-authority-supersession.v1.json",
+      "sha256": "d001150c6e4f117c7319391dccf608706e6497d193e74f3811436a0f58b41d31",
+      "byte_size": 961,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-hub-free-full-report-runtime-qa-2026-06-23.md",
+      "sha256": "efb0463abdc43988c3fabecf87566dab647d0c41ba900bd7605bea7127b27f8c",
+      "byte_size": 5050,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+      "sha256": "502339ceaaef8640010a595f8b336a22b098d995146e193d872b8783f0cbee17",
+      "byte_size": 10695,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+      "sha256": "d6a4fa3dae2f78ff00ac6d25f4dbfd4b678b833a769c4b473c46e50339054d76",
+      "byte_size": 11325,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+      "sha256": "e3c1a865fbc4d8b4ff522a038d6e6b82fc4efe5c42a206f710d5ef2c8e3dd1ed",
+      "byte_size": 29304,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23.md",
+      "sha256": "ba78ae9038e2db839d59794b5fef9256b0fa0ce6a1718d8b9ce0eb942bffa233",
+      "byte_size": 7342,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review.proposal.json",
+      "sha256": "c00fec9a9bef1ba13b849aa3bc6c54948ad6e6fa88e9ca17bc818187616971df",
+      "byte_size": 21479,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+      "sha256": "8d796c871ec64946ba86edcfed01ad8da5e9e5a2b4c3212f9dfc19741dbf0099",
+      "byte_size": 22394,
+      "classification": "product_domain_out_of_seo_scope"
+    },
+    {
+      "path": "docs/seo/SEO_CODE_CHANGE_ARTIFACT.md",
+      "sha256": "746724b4505f3959a41ee360c14b82c833aa41129319d4f438b2e4dc790e5b55",
+      "byte_size": 711,
+      "classification": "contract_only"
+    },
+    {
+      "path": "docs/seo/agent/AGENT_ACTION_LANES_AND_GUARDRAILS.md",
+      "sha256": "344bed54292bb995b019be631d0325abb9386e40b370409e5ae25920e4569725",
+      "byte_size": 4886,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/CMS_DRAFT_PACKAGE_CONTRACT.md",
+      "sha256": "13406b670ca40128fc86d7bf265937202e35ebefbe52e7526ffe3330a32a244f",
+      "byte_size": 1422,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/EVIDENCE_SOURCE_CLASSIFICATION.md",
+      "sha256": "ce7451413c37904c5d7189a70b4eb7edeebb5ca59df13e811b6bf7cb67ea7ecf",
+      "byte_size": 4290,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+      "sha256": "3aed835417a20341cf44692912f9a973d7a40bb5754e82c8f1a60b8aaa3ded86",
+      "byte_size": 3059,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/GPT55_REVIEW_PACKET.md",
+      "sha256": "b69427e29471f5de4d6b6741fbb86eb2411df7f0f4428c896a385576fe2fdbc6",
+      "byte_size": 4802,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/OBSERVATION_WINDOWS.md",
+      "sha256": "89ddd7af831c4385f027982fb9dab0e4a8bd80f91b589e71db497f36828413e2",
+      "byte_size": 3082,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/OPPORTUNITY_QUEUE_CONTRACT.md",
+      "sha256": "9bae318fd7885684f4a1baf57040d3f5385e83113b59ef513b606f28e3cce4be",
+      "byte_size": 1713,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/README.md",
+      "sha256": "46ed5fcfb05d16abe39deac3e302161e9565b791223c04f04d85f44922d44a1a",
+      "byte_size": 3000,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/SEO_AGENT_CONTROL_PACKET_SPEC.md",
+      "sha256": "ccbec136769d3cf32afa1b550e33d6ccc72d77be24dead59ca8fbd59d5476432",
+      "byte_size": 5657,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/SEO_AGENT_PR_DECOMPOSITION_2026-06-20.md",
+      "sha256": "1e3f9406e6dcc3d4203a6141567f273c763adb0d486a9add1243fdca727ad5a0",
+      "byte_size": 14543,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/WEEKLY_AUTOMATION_CONTROL_PACKET.md",
+      "sha256": "1e3524969ccad79813613e0b0711798523d5cd59e6b50f87c54c639face56140",
+      "byte_size": 1421,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/evidence/pr_decomposition.json",
+      "sha256": "f7a5bbc741c0c55b08a8b96705f0ef9982b9f0dc669c34b637ef2f6df864c14b",
+      "byte_size": 36735,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/examples/gpt55-review-response.example.json",
+      "sha256": "e9c44bfe45d06895fa65df021d3ba1ae1a498b7300f2101ed63c47bbe44a928e",
+      "byte_size": 3750,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json",
+      "sha256": "e4ba62b450f3c6010307465884b724e16c2c06699ce3d980d262063fa9b05f8b",
+      "byte_size": 15363,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/examples/seo-agent-fapweb-code-pr-request.example.json",
+      "sha256": "80ad8ee441ceb2416fed084cc54fc847f85aa2da52d57b7c3cad0681e59c0347",
+      "byte_size": 664,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/examples/seo-cms-draft-package-contract.example.json",
+      "sha256": "28afbe6587312fb1352971eeb1716fb204b098c82973c2b497a38aed920d167a",
+      "byte_size": 2154,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/examples/seo-opportunity-queue-contract.example.json",
+      "sha256": "6c867d592b227c5c227f65ab880b3208386e630b955ba4bb9c128fe49ad72b5a",
+      "byte_size": 2523,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/HOLD_SEO-CMS-DRAFT-PILOT-01.goal.md",
+      "sha256": "2f049f2131c1348aeb3c980ed3d3251e9153b19316b6302df96ce5a6c5f8c33c",
+      "byte_size": 1353,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/HOLD_SEO-OPPORTUNITY-QUEUE-READONLY-01.goal.md",
+      "sha256": "1e7b9e0635ef0dceb7ae8e6c9dfc65a2a5274765517db149868240e8266140e0",
+      "byte_size": 1242,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/HOLD_SEO-SEARCH-CHANNEL-READINESS-01.goal.md",
+      "sha256": "2986471e611a7ad0188e8e355c336b2fe37e88fb357b2436f476f2c70e48f653",
+      "byte_size": 1386,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-CMS-DRAFT-PACKAGE-CONTRACT-01.goal.md",
+      "sha256": "ac6cd98f4c0b6c58f984e861d052bc840f9faabdbc1c41cdbbef56e02d728a77",
+      "byte_size": 1383,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-GPT55-HANDOFF-01.goal.md",
+      "sha256": "3f707686767c11111dc38fa6233f97ea8a0ff2f0276b00bffc631bb718bce48d",
+      "byte_size": 1570,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-GSC-DATA-QUALITY-01.goal.md",
+      "sha256": "25ea512c38accb96304f77112d080316a909f2141231d857bd118616a4e81285",
+      "byte_size": 1568,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-OPPORTUNITY-QUEUE-CONTRACT-01.goal.md",
+      "sha256": "875617348e256fc16affb1db792a5021798b8a832c4046d166cc0202d5568b4d",
+      "byte_size": 1360,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-OPS-READMODEL-BRIDGE-01.goal.md",
+      "sha256": "0fd9d3b438948e3fac15ec2793a65adb30afc0c165e547b29b24af34175613ed",
+      "byte_size": 2190,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-RUNTIME-QA-AGENT-01.goal.md",
+      "sha256": "3a611741fcae50ef1a543bd6289d6f220299cb2b00aab3cf5d5d17a7b8a54b7a",
+      "byte_size": 1722,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO-WEEKLY-AUTOMATION-CONTROL-PACKET-02.goal.md",
+      "sha256": "f634832f9e6779f8403180ee9b4364c34e2dcbe4ac19b3d53737ffa9372f3a58",
+      "byte_size": 1607,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/goals/SEO_AGENT_PR_TRAIN_RUNNER.goal.md",
+      "sha256": "591beba83291dd3d045c3a0fcdef2ce88853a3b558023ce876d41714718a171f",
+      "byte_size": 1904,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/runtime-qa/default-samples.v1.json",
+      "sha256": "18af0dc53dd101fec2015a50f6795b786758315877c0c7da68b4ebf1546bc7d9",
+      "byte_size": 2140,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/schemas/GPT55_REVIEW_RESPONSE.schema.json",
+      "sha256": "040e322a41529826605fd62845af1445563bc9cf80937af211e65c8ba750e9ae",
+      "byte_size": 3981,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json",
+      "sha256": "5041ff33236aa706187c2d254980ae428556f012ef2b8a1309e4883822da55dc",
+      "byte_size": 12591,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/schemas/SEO_CMS_DRAFT_PACKAGE_CONTRACT.schema.json",
+      "sha256": "6ae17b44fd028813a7abd656f1747558e60e78e4c46d75c619ebde56333978d1",
+      "byte_size": 1495,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/schemas/SEO_OPPORTUNITY_QUEUE_CONTRACT.schema.json",
+      "sha256": "2b067c788b1ab54e03c9a4d321194f720c056aa8ad7882422103abf714db78fe",
+      "byte_size": 2181,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
+      "sha256": "4f267ee3ca5928497ebafde6f8cafc963d10a2297ef19b0b97f0057fccbb3d71",
+      "byte_size": 3831,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json",
+      "sha256": "0333a1c89332b7f4853874e72f4a0c57308597c16640c4274e75ba7b935c3e73",
+      "byte_size": 3861,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet-2026-06-25.md",
+      "sha256": "2e397e5bb537ae071701df6fc1478a343d54f662241880a258127ea116224728",
+      "byte_size": 5784,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json",
+      "sha256": "0ab5b76bfb840f5e7cf37f89aef16fb856692ad0465f5f1b213d22eacd741524",
+      "byte_size": 21837,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix-2026-06-25.md",
+      "sha256": "57ea96af4384ab9c3cc15f237e244faae239b0be7937a7b294e0e622d90d6044",
+      "byte_size": 5995,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix.v1.json",
+      "sha256": "99fb921b712b46cad71c830379d9cea0a53ea8209c7c32f2b72c8ec695a70691",
+      "byte_size": 18036,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md",
+      "sha256": "a5a9633bab85d1f0c78a63bde4e070055ca31822b10a19be88362bf3fddd621f",
+      "byte_size": 7066,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json",
+      "sha256": "ccb625df3068cff93f55f99535e2e83b3b0f244512aca6d81d4172a794174ad0",
+      "byte_size": 25880,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-common-contract-2026-06-25.md",
+      "sha256": "136b020334da0daa824e9d8bc332f7f0f15d7374b0e1840d9fb4d93af228d69b",
+      "byte_size": 5928,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json",
+      "sha256": "eafc10492ddc7f63d42955745d1fc7cdd234ace6880b30dbaaa16fe03eba0d62",
+      "byte_size": 7808,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-planning-matrix-2026-06-25.md",
+      "sha256": "644e135e1a7b4a2f6afec3a44ed3256e18cff9decd5024024c1875b5d72cf61e",
+      "byte_size": 2946,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-planning-matrix.v1.json",
+      "sha256": "7376537988b792e7df4288ecb1697fd1950712a90ac0281f6a5e6cf4ca3bd694",
+      "byte_size": 8180,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-readiness-packet-2026-06-25.md",
+      "sha256": "a5d1d2aa33ef808525c273c1bb436bd85206b96926c9c3f409d8ab83ce2ee19f",
+      "byte_size": 6714,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json",
+      "sha256": "df441117c85c701640911422b0a1a8e578b13928aa08f6110941385edc84d5c2",
+      "byte_size": 38654,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "docs/seo/seo-platform-11a-authority-supersession.v1.json",
+      "sha256": "d68abd1fe122d515e5ec32ba500f6e400ca98851f74d99b89b4fef7033b49133",
+      "byte_size": 1525,
+      "classification": "contract_only"
+    },
+    {
+      "path": "package.json",
+      "sha256": "db1bdbfae852e001c88020406b2358d6d94d2832dfed08130408f1464b055d1e",
+      "byte_size": 6325,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/artifactSafety.mjs",
+      "sha256": "5bb5ae7213c5f459fd3415c0d4dd5fa9d34c6814394ef1bc2beb8bdda045199f",
+      "byte_size": 3033,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/assert-live-llms-clean.mjs",
+      "sha256": "9c971e9095041d498551f6ec68ce5f1c471a9c3e799ff6d3e0628ec9ceed9053",
+      "byte_size": 2187,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/assert-live-sitemap-clean.mjs",
+      "sha256": "7c8eb85765eed7684f43a08fb60bf61264bcc0e30789f8ebd449d19d580531f1",
+      "byte_size": 2114,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/assert-live-sitemap-stability.mjs",
+      "sha256": "544eacf7497d2257244d9ceda706b5330792b7313033b6d2a05782831e90856c",
+      "byte_size": 8424,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/audit-article-h1.mjs",
+      "sha256": "202ecc712dd9666bfe4711042651ac67a140a16782582c132401a98f7d2b8080",
+      "byte_size": 16043,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/audit-career-salary-post-import-seo-safety.mjs",
+      "sha256": "0c189c94ba3e5e4b15aaa705171bae966504402f0f6eccaa3095656c300c7116",
+      "byte_size": 24242,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/audit-personality-indexation.mjs",
+      "sha256": "f8a989fa212e64678815b6cda3c0e8ce198cd47c19635cc67259557857f4353b",
+      "byte_size": 22749,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-big5-authority-v2-benchmark-01-scorecard.mjs",
+      "sha256": "3cfac14b798e3c295e6f6a07cfe74b9858a52d322f8f173fd2376c0cd0e34632",
+      "byte_size": 40056,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-big5-authority-v2-runtime-closeout-38-report.mjs",
+      "sha256": "d02b1bb4704f6f7b77e00d7791c2ab7dcc9c5ff5896d9c54a46fbc0ef7fc779c",
+      "byte_size": 17782,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-en-content-parity-control-v2.mjs",
+      "sha256": "8aaf561efe311e71142558fb85c5ec2a03a3b147eda226ca85c3456bb7ade1e0",
+      "byte_size": 44823,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-asset-ops-09-personality-asset-sop.mjs",
+      "sha256": "05d893f61e6d4e9feae3fc0109bbcf904660653957866c7265aaa86f789217b9",
+      "byte_size": 12013,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-04-top-profile-content-assets.mjs",
+      "sha256": "3f2c57c4267f1dbc5050c9466d68424e4109c51ab89b0b33c6ca0cb3b5b47333",
+      "byte_size": 20639,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-06-comparison-content-assets.mjs",
+      "sha256": "3e642795422a97445082ab941ede1bc55b269d1edd05b71415fe396fc7631f91",
+      "byte_size": 15662,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-16-profile-dry-run-approval-package.mjs",
+      "sha256": "0c7398ee25946a62fbd38acbe62f89e723d06de329fe2ffdb224aeebff5ee71f",
+      "byte_size": 11702,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+      "sha256": "d45c07f163ecd00af67e8f599f533a46ea1ab3815a4f6deb2e5c6e8da82bd718",
+      "byte_size": 13720,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-20-profile-approval-review.mjs",
+      "sha256": "8e601a6e86d5d935839ccfd6d5d7855ee9bed3fb0d28ac34138985b9938effc2",
+      "byte_size": 13835,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
+      "sha256": "0d3776493a0778ff81df7c407deee524f25f63b79483336cba4d5ee042524588",
+      "byte_size": 12712,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-22-import-dry-run-final.mjs",
+      "sha256": "4a0734de9539c5474fe45bfc63a5f0fbcc53b9efb7778547e6bfccea40f4ba1e",
+      "byte_size": 14953,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs",
+      "sha256": "e6b9ac6350ecf624b62e5e41e995be56dac3e133a48df31b9b061eebad726d29",
+      "byte_size": 11353,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cms-approval-39-exact-package.mjs",
+      "sha256": "addf0429e361016b5801af24b32fae990d18a6869870f5f5cb0b4751d0edb760",
+      "byte_size": 21116,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-comp-at-35-content-assets.mjs",
+      "sha256": "dda66e32b5b2af21e3684b43a43cbf482069c609777585282466ad46f8bf20b1",
+      "byte_size": 16976,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-comp-gate-47-runtime-completeness.mjs",
+      "sha256": "28641b0a514c30f68ec28dab695194645e19762e5ef4858e2335c97c0cd5f598",
+      "byte_size": 3863,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-comp-runtime-46-intp-revision.mjs",
+      "sha256": "96d83561bd9f5430e7feb6372b3e9c12e198b2d6ef644a2fcc25122e6cdcae5c",
+      "byte_size": 15386,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
+      "sha256": "c553cc4ad695752a7b0fd22550b893e4f1c7e458c618f7a24631bd3089b7e0c2",
+      "byte_size": 40076,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-cross-approval-48-package.mjs",
+      "sha256": "49c8eff3a7c6d94eb16ac92b7d97f9ef8b4ef7bb323b9f9ae5ed58964ea6ab58",
+      "byte_size": 27819,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-full-audit-30-inventory-runtime-baseline.mjs",
+      "sha256": "1e176eca1df2ee015c6faf77442b013b0e5ef97511e98e3420a6de71ac41b158",
+      "byte_size": 18113,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-full-qa-36-semantic-release-gate.mjs",
+      "sha256": "74f02b17b222048e26137456c5962b2ffd598a7dc78e1a50622828d49af18a59",
+      "byte_size": 25441,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs",
+      "sha256": "333d4571e67ecea594eadbb46bb6070ca9183adbdeb3b7b52b9892ca19ec0cd1",
+      "byte_size": 11864,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
+      "sha256": "7f239cf5a38c447efabffd45ec3152fbfc1312ab7eda78edc6021341a3b82ced",
+      "byte_size": 10830,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-gsc-25-submit-monitoring-execution.mjs",
+      "sha256": "d7fb45df2e9cdc6767ea0b79b4f183fe951ad6a94c98c58c808d49d2fa42ec59",
+      "byte_size": 8664,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-gsc-44-full-cohort-monitoring.mjs",
+      "sha256": "e7f1dacc0a62dae50d8361d4140c94e3a157b5c6a312e26492870fd6fe98f7f5",
+      "byte_size": 9719,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-gsc-53-full-cohort-monitoring.mjs",
+      "sha256": "1670f2fe49ffdead2fc10ec2002d7cbf46460721b34bcc581f0ffa576625e835",
+      "byte_size": 13022,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
+      "sha256": "46ef3fe4fcb458c43459eb3660da0da119e9a9ab1550cd2a948e5435b276fb14",
+      "byte_size": 10936,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-index-24-release-indexability-gate.mjs",
+      "sha256": "dda4a2c3fc687ffff2db7cc167418c603f18eea4b19ba24efb15e75fa796b7a7",
+      "byte_size": 3956,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-index-24r-release-gate-revalidation.mjs",
+      "sha256": "725315ea2080d3b052d221e62cb4550542b81840564d0543ddb0ea3456987247",
+      "byte_size": 10883,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-index-43-full-52-release-gate.mjs",
+      "sha256": "7e775222097adc9d357473a6082cb80a9fed025fcbb6dfa2e96e72965835213d",
+      "byte_size": 17462,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-index-52-full-55-release-gate.mjs",
+      "sha256": "d28a9f4239352f376ad15a80f96d081644e46ee3b979213b409d853696baef2d",
+      "byte_size": 119925,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-ops-08-gsc-priority-monitoring.mjs",
+      "sha256": "48b210b4600823e94a99b176d14155d29bd2d19e6511633836b58eb54c6fea6d",
+      "byte_size": 14853,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-profile-nf-32-content-package.mjs",
+      "sha256": "0242c38baa53b44e6a7fb086121ed9b7bee884aae5cdfdb31c72cb58100829fc",
+      "byte_size": 18132,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-profile-nt-31-content-package.mjs",
+      "sha256": "1a5e9d1b0513b8633d5c92c23ff403d2957aff22df8f8b7ebb7c38f1e8b1b179",
+      "byte_size": 18441,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-profile-sj-33-content-package.mjs",
+      "sha256": "080fcccc500c4909185535cbb88803d6fae59acd805f1d76b69dabe0c65c86e6",
+      "byte_size": 20220,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-profile-sp-34-content-package.mjs",
+      "sha256": "7251c8e715a5616c94c42c9e9146166c97e4437b645e1eebc6ac7e60a55d9ae7",
+      "byte_size": 20205,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs",
+      "sha256": "3de689a1a7c037a723d5a6116ddc59bbb7151fa97d0c031912168ee99f9706a5",
+      "byte_size": 17105,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-seo-07-discoverability-audit.mjs",
+      "sha256": "fd021be424a288d71e652a148c14793daaec533778df6acc21e291b8f460b88c",
+      "byte_size": 9352,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti-verify-41-full-readback.mjs",
+      "sha256": "2d7688d04abb4198407c714db8cb28d4b1a66fda97156d6691cd3f09fbfe6b2a",
+      "byte_size": 18566,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti64-optimized-pilot-reference-pack.mjs",
+      "sha256": "2d90247e98fc0db3c1287fe9f092c45f87d550529cfdcedad5958c2c606845e9",
+      "byte_size": 22061,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti64-seo-measurement-cohort.mjs",
+      "sha256": "35c6c8ffa4d861295436c6c9ae12067cf54466b28490391fd95955f6b50cf7be",
+      "byte_size": 19102,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-mbti64-zh32-en32-v85-v5-bilingual-package.mjs",
+      "sha256": "4933d4b44d1da418dd8b59efd21700db3ad959ae08028b3dbf8762e15365089a",
+      "byte_size": 29283,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-personality-agent-next-batch-6-handoff.mjs",
+      "sha256": "e9baa42275d9aebc0ffae7e38da78a8cab6cf061333c06848647a6f5af6f3cc9",
+      "byte_size": 16376,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-personality-agent-next-batch-recommendations.mjs",
+      "sha256": "c73f6eb964261dd2721f98867d73ac9d727286085cdc70b2e1c685d4c34ab74a",
+      "byte_size": 12176,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-articles-refrozen-10-w9-qa.mjs",
+      "sha256": "450507ab7c110ad316f27fe8fd4c377bdd0a0b7a30b6d383334f1cabb06347a1",
+      "byte_size": 9989,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-articles-w9-qa.mjs",
+      "sha256": "2f71d86de889b7997f975dbb84adef346a514b7288e87bc37386a0723a4a7ced",
+      "byte_size": 11951,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-career-guides-batch-a.mjs",
+      "sha256": "d3f7e8c771d49fbbf4e946dc2a9e7a05cd75563bcc14dc4cd584c3f03ea1b5bd",
+      "byte_size": 40412,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-career-guides-batch-b.mjs",
+      "sha256": "2f3cdc62748f53c6b95230a3e7e0f40f574931dee00bf9e61af6a3467272c9f1",
+      "byte_size": 28825,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-career-guides-package-freeze.mjs",
+      "sha256": "0fd4b8559c982433138219f33806a47f8ed002da71b1f23256a2c893806ef18a",
+      "byte_size": 9781,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w3-career-guides-w9-qa.mjs",
+      "sha256": "20419bfa6cae326b4a239f9015b54e6c1bb9712c551fcd24cdd86a6a44b70c9e",
+      "byte_size": 12564,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w4-riasec-v2-lane-materialization.mjs",
+      "sha256": "243f0fc89eb3f26ad4a04ed6f4846d1e189dd99fdd6a3e4bcd3e3f931cd9c7cd",
+      "byte_size": 10271,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/build-w4-riasec-w9-qa.mjs",
+      "sha256": "f43866322f53567b2168b7da729cb1d481f06628762ac4f57b481509408e76d9",
+      "byte_size": 14456,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-canonical-hreflang-jsonld-parity.mjs",
+      "sha256": "73e4f42697a6936b96b7e97a28b58e7d09417df8e52960762412edd8bbd5bac3",
+      "byte_size": 9246,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-cms-seo-completeness-matrix.mjs",
+      "sha256": "2b9387b50f408453585002d364889b006be2fc8402cf1164179947b5d7eee152",
+      "byte_size": 6249,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-discoverability-regression-snapshot.mjs",
+      "sha256": "4a3b1b0da0875da7f0c05bc5ed244563451da28b0278d30f0f19305cf38950bb",
+      "byte_size": 6069,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-mbti-core-topic-graph.mjs",
+      "sha256": "d1fd231238367f27047122e7e3748fd4048941e9be7b8159fb393fd38dcbf815",
+      "byte_size": 8104,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-mobile-seo-gate.mjs",
+      "sha256": "4db336f435c9f134967cf5dfbcb6e1df2be98a81f2283a963ca1f01078929b79",
+      "byte_size": 11928,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-public-runtime-seo-qa.mjs",
+      "sha256": "3d9bf6e667311dd0d1eaa946af75f9307e4b71c599edb650bf5cf92e175b0f3e",
+      "byte_size": 14026,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-science-contentpage-live-exposure.mjs",
+      "sha256": "249e99524633cb7acba26f5747ce3af8b581cb63289b4f2a52cb4d613145f2f9",
+      "byte_size": 8548,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-science-contentpage-zh-footer-links.mjs",
+      "sha256": "9201e5d90fed7526d3c48e8b3a0b6e1572937b2f64c002c4598ab0f99d5f349f",
+      "byte_size": 5690,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-seo-agent-gpt55-handoff.mjs",
+      "sha256": "c13b7a599006b4a734699732e3823481aa1b1907564f853614ec2d080226ba3e",
+      "byte_size": 8954,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-seo-agent-weekly-control-packet.mjs",
+      "sha256": "b036c1972c4f31c6401865c268b2d878d20d23eae6d4ec155b928c508eb5cc60",
+      "byte_size": 7748,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-seo-cms-draft-package-contract.mjs",
+      "sha256": "87e94a74612cee91a7eb5166376cd3056f4170f66d8dd3e40f1e36611ea9aee2",
+      "byte_size": 5896,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-seo-opportunity-queue-contract.mjs",
+      "sha256": "5be1b2a23d858e67c4f28f7c95a1c13e1b886cc3e6841333104a438d722e9405",
+      "byte_size": 6749,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-sitemap-indexability.mjs",
+      "sha256": "25cd2609dad5ebc71e53fe3378e748a33121d4bb1d829c255586d99697380b57",
+      "byte_size": 3194,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/check-six-assessment-hub-parity.mjs",
+      "sha256": "d1a8cd872c0f97487e0faea4f2eeedbaff113df7694332c45a371fc97cdddeab",
+      "byte_size": 16926,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/decide-mbti64-visible-expansion-query-evidence.mjs",
+      "sha256": "50702bacd0fbe4a0271ca67f92a5908a160c0d273e03b77c063e02988a5b87bc",
+      "byte_size": 12269,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/detect-duplicate-seo-entities.mjs",
+      "sha256": "21b69c6d98c55acc34b9041cac4302ea7c98d2691650d6b5320b64d4b0acb21b",
+      "byte_size": 7710,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/detect-internal-link-orphans.mjs",
+      "sha256": "168ee12778216216714ee89353574f933bc0bd0d7327e7e7ce15301741202278",
+      "byte_size": 7065,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/diff-sitemap-source-vs-live.mjs",
+      "sha256": "0894fb2ec9f991ee98fff0f0e8187546cb6442295ac74cf8dcf05c1010580ba7",
+      "byte_size": 20542,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/discover-related-test-routes.mjs",
+      "sha256": "77dd15472b521441d48d172e0c3cb088e2dc0f4f4b3d5f179966cdbe99fab6c9",
+      "byte_size": 14677,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/dry-run-mbti64-backend-import.mjs",
+      "sha256": "cb409206a5300a902ff2e14ebc77eb793661ffb2fb319111fb672d08cdff8e1b",
+      "byte_size": 28801,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/enrich-big-five-seed-content.py",
+      "sha256": "e4c6583f855153222fcdb227c5d3f51626c2570319759af391e3790784fe7399",
+      "byte_size": 59530,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/export-mbti64-gsc-query-evidence.mjs",
+      "sha256": "e28039c49e74885674632e29175221da5250716d9e6fbbef4e892fe25d795023",
+      "byte_size": 10911,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
+      "sha256": "7ddf8bc4f42dd2b31b976f0e39895b549325eafb72e9c9dd6a2ec67d852972df",
+      "byte_size": 17587,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-career-quality-tiering.mjs",
+      "sha256": "b7284bbe66242822791ad781b8b988200eb846b60bbc179639168f3a526c9233",
+      "byte_size": 47117,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-career-search-entry-pilot-readiness.mjs",
+      "sha256": "2b696e3a821819e584b54531770be4d16b29e308f7c31e7ddb11fa7f5d5e9d24",
+      "byte_size": 41888,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-competitor-url-inventory.mjs",
+      "sha256": "1e481e3467233be71270f9b9b02a5af3be1f26484a0d827b0718569ee600a5ea",
+      "byte_size": 17497,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-core-topic-graph-inventory.mjs",
+      "sha256": "7e406d3b76a5379ca278d29468c1d72476b57a924354731eed0a267a5813ff81",
+      "byte_size": 13990,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-duplicate-title-governance-report.mjs",
+      "sha256": "5b09c39a877bb74ee4f7b281593046098cab1a61b867c4a5f75efbeeb261c2a2",
+      "byte_size": 7245,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-facet-en-and-seed.py",
+      "sha256": "769c6a935082afefe636f7ac25088e75255ac0a5e63da529d5ebfa280c4ae231",
+      "byte_size": 63964,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-llms-full.mjs",
+      "sha256": "4312aed00bee3f2e56bb7adefce8dceffcf3583677c7ac4f81396535e8fbe33c",
+      "byte_size": 1941,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-mbti64-agent-expansion-88.mjs",
+      "sha256": "cbc904001fe9c2b36c33327c116f3585074ff9a0a145730ac365682ac1c4cbcb",
+      "byte_size": 26397,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-mbti64-internal-link-graph.mjs",
+      "sha256": "d6cf87c63930aa48a93d52cd72d3b08405fff5514072ba4d3189d5be169d01bd",
+      "byte_size": 21302,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-mbti64-next-batch-6-competitor-gap-content-expansion-v2.mjs",
+      "sha256": "b5d20378ec977d7bc4670d9c8a8598fde9b69ef5433152ab0b33bf75bc446d8c",
+      "byte_size": 47158,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-mbti64-next-batch-6-competitor-gap-content-expansion.mjs",
+      "sha256": "304b05d90e2a889050d8124eb0c8b0f4fc29b475af0ad6cb34b87f06aabaad43",
+      "byte_size": 35707,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-mbti64-remaining-58-competitor-gap-content-expansion-v2.mjs",
+      "sha256": "6f5d495e5c79fa09915c32b1177978b8a7800c1088a59a44bc3185b283b7e9a8",
+      "byte_size": 50077,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-metadata-surface-inventory.mjs",
+      "sha256": "ff18a835781b75977d96b64667a84d726f874455edf1e7e54335c5c17c9c5a76",
+      "byte_size": 11414,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+      "sha256": "c1a8ed5b489d8bd6d611be226a22056893188bad159ba7f068639e1e33995a32",
+      "byte_size": 11896,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "scripts/seo/generate-seo-code-change-artifact.mjs",
+      "sha256": "ec7b27e7368880e058cf92eeb186ac9a67cd54e5c940112545332e83facebc57",
+      "byte_size": 5664,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-seo-content-briefs.mjs",
+      "sha256": "cd264d602856b275712ba5065570522d952c82a7c77b53146dcffa280d7e93d7",
+      "byte_size": 17858,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-seo-issue-queue.mjs",
+      "sha256": "1ac2016af797b63ea4d8cd1a2850929d79f3e29641227e54ea717be7631cbbad",
+      "byte_size": 15002,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-sitemap.mjs",
+      "sha256": "5b16f69ecfa0b31a9225af7add4cb0b7f0c086169bfa92a0f28d49cd1adbee5d",
+      "byte_size": 3168,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/generate-url-inventory.mjs",
+      "sha256": "c073127cc12857c2f35a19de6248ded427032afbedf40e43ccd29781d75419e2",
+      "byte_size": 12014,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/import-mbti64-gsc-measurement-cohort.mjs",
+      "sha256": "45a0c6aa40e19e5df542892f2de38b380f6c9a3e4537ae41765f91fff6df5b85",
+      "byte_size": 15141,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/lib/jsonld-types.mjs",
+      "sha256": "9541bd1de77dacc23a6e58de68d878dc38c17b08e2429d5ac9578e77c1d26ce4",
+      "byte_size": 1079,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/lib/live-url-check.mjs",
+      "sha256": "0a58d655137c8cfa9abe5db158ba9e2229a0f5e045566d7995cd899253c14d85",
+      "byte_size": 9391,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs",
+      "sha256": "049df3285d58703b7472daee060e17d2c2d6256aa68d7d5a2a9bb302048ebd65",
+      "byte_size": 11743,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
+      "sha256": "06c61a835a0406ef104ad701e72338d56f351d076f0c463396ae368b85e82d35",
+      "byte_size": 24154,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/personality-agent-opportunity-ranker.mjs",
+      "sha256": "af4b16fd17d0a6fc174d4f3a57abf9ceb025af88d38fa3aa65a98a94ee12fbf8",
+      "byte_size": 16708,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+      "sha256": "48197092d369f3db82b7b57fdefbb98d70aeaec22f8d4cc0a6f38e02d0cebbab",
+      "byte_size": 18563,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/plan-mbti64-agent-recommendation-rerun-loop.mjs",
+      "sha256": "3df6e333c7ed049639483dde4a1eeccc02c3cc5323b62e03c21c614b08219558",
+      "byte_size": 14464,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/prepare-mbti64-gsc-query-evidence-export-10.mjs",
+      "sha256": "7d91eafc79e4221a711f2c7a9481af8bc47f6d47c2cf4987ffe451c8957a8202",
+      "byte_size": 9241,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/push-baidu.mjs",
+      "sha256": "e3c7af5b4bf972e053eb8c98b6fbcadc4d87b5726422ee61b4b76c2d3879f1e4",
+      "byte_size": 3111,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "scripts/seo/rank-mbti64-agent-priorities.mjs",
+      "sha256": "088f93925bbcf9c512d91e771baeac93ad77a706f5659db6a66485a86d34dcda",
+      "byte_size": 16353,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/rebuild-w3-article-package-rework-10.mjs",
+      "sha256": "2b6b3e9cbaafc1d6e91e7fe2ea83a464967df81b0836b9825b16402014d53adf",
+      "byte_size": 9413,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/repair-mbti64-zh32-v85-duplicate-paragraphs.mjs",
+      "sha256": "ddab1a28869027d7b0494497310b279e2dc4410100c9b2e4e8375087a684c600",
+      "byte_size": 13661,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/review-mbti64-visible-expansion-agent-priorities.mjs",
+      "sha256": "f2daf02761f81971e1b4db0123c62a5e9a9d8d61206e62bee40788ddc5103f97",
+      "byte_size": 12494,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/run-personality-agent-auto-runner.mjs",
+      "sha256": "9c2d4a956e040bf0123fc59d08c0ce2519b200e7f5a1f7fffd25543337950d8c",
+      "byte_size": 26837,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/select-mbti64-agent-optimization-priorities.mjs",
+      "sha256": "6055bea9a460e35578bb9f8a1528d956b716423d51c74738662f9fd2eb60ffd8",
+      "byte_size": 11580,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/select-personality-agent-next-batch.mjs",
+      "sha256": "edb043210391933080558cd5148d22b3ee4709758ecd7c965cb88800fb5f7552",
+      "byte_size": 11281,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/stabilize-mbti64-gsc-import-priority.mjs",
+      "sha256": "08d83fe8d1c6f6b19dd664249376f2d78c7d72d05f4de24313c8a0265cf0a675",
+      "byte_size": 9378,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-big-five-public-profile-agent-qa.mjs",
+      "sha256": "39f5cd146e5c0aa52efef5c5c8894fbf4201e93eb6b43077b06fe9edb1aa575e",
+      "byte_size": 14598,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-en-content-parity-control-v2.mjs",
+      "sha256": "6838fc884a52d8e46b5e09a50cf1ccbfafd220fcb822a2569aed9ee93439982c",
+      "byte_size": 39958,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-en-content-parity-control.mjs",
+      "sha256": "074d507af67ef0e9d3bd4cc14ecc47edfa218b5e8ef72872cc47b606e3ea62b0",
+      "byte_size": 125987,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-enneagram-public-profile-agent-qa.mjs",
+      "sha256": "b31f7025d7dcd87e0bbc67db9a24c7c7a9613bedf66ed36eafac6d0a1b9c0249",
+      "byte_size": 13234,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-agent-expansion-88-qa.mjs",
+      "sha256": "4f63d6ba0d1795710a8739519a4c7cb1276b055a9abddbe43f178ec43f2d95a7",
+      "byte_size": 20302,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-backend-import-contract.mjs",
+      "sha256": "5b487800dcf1d7b95af15c6f59680d22940867dbac136a65c9f161132625e184",
+      "byte_size": 29690,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-content-package-gates.mjs",
+      "sha256": "b208583b75f1b84aa95d73bfc290cf22c3437e334a717e24ba834e1ab7236452",
+      "byte_size": 18901,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-content-package-v2.mjs",
+      "sha256": "873da19616be69423e2e5e61ad1ba2e586406f2297449e881d61d3200007d010",
+      "byte_size": 28917,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-content-package-v21.mjs",
+      "sha256": "ed1f565a8aa7752c0cc5f94651c64e3429dfab7550128b61f2e0ce9d4210a9f5",
+      "byte_size": 10862,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-query-intent-map.mjs",
+      "sha256": "2f5173262ebff3967006373664a11912f29788868ec54951a51cd5ca52b7c47d",
+      "byte_size": 3426,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-remaining-58-competitor-gap-qa-v2.mjs",
+      "sha256": "2a9468ed4e7cff328acdc4f8faa1ee42ce998d0a2bb799d576778504673859c4",
+      "byte_size": 24153,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-mbti64-zh32-original-v8-3-package.mjs",
+      "sha256": "13185f48aa69fce016d12962e9242c99eb6f82d1c7e512ed114115da947d7096",
+      "byte_size": 23809,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-personality-agent-next-batch-qa.mjs",
+      "sha256": "6b7e85d0c6b0c36d5888a72d5f083823c2c5f45c2f5524f223e7bf7babae3dc3",
+      "byte_size": 15136,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-articles-refrozen-10-w9-qa.mjs",
+      "sha256": "dcd5a3336afc48902af076e7919f1fc4e1136d25e0216386c5e7bb4dcfe5e707",
+      "byte_size": 1906,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-articles-w9-qa.mjs",
+      "sha256": "184300b92896c0040aae83050dcafd7231db4ecf1023c28c19cec65a0ec4bbab",
+      "byte_size": 4828,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-career-guides-batch-a.mjs",
+      "sha256": "a38c593c9e02cc958ced514dd881119e2ae68b31f079bf3e769e8c85b74451ea",
+      "byte_size": 9777,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-career-guides-batch-b.mjs",
+      "sha256": "2c3907b07b6858d1e1696b9c32525930e8b528a19e077c72f30eb684efbdd830",
+      "byte_size": 9237,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-career-guides-package-freeze.mjs",
+      "sha256": "30df46c7a078f695456fb48adcb311df5fa85baeeafc74bbcd168ee77de3da26",
+      "byte_size": 6046,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w3-career-guides-w9-qa.mjs",
+      "sha256": "9a0144d3b3c9c4ccaad099c03f44286ca8241199a97aa66310b1c4b25df3a0f4",
+      "byte_size": 2225,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/validate-w4-riasec-w9-qa.mjs",
+      "sha256": "822b51c68db01a22d7fb6b0ec09f02c467a73949958d00fc2c1d45addb297e3a",
+      "byte_size": 11069,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "scripts/seo/verify-public-article-release.mjs",
+      "sha256": "add32cff18ab9f9b8fca42edad55e3ce036cc794aac44309ab8610836d3d8400",
+      "byte_size": 22956,
+      "classification": "deterministic_tool"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-analytics-common-contract.contract.test.ts",
+      "sha256": "5892e0022ea4b630713cc445328af95d0a200886ee42622a1625751b942a9fc4",
+      "byte_size": 10154,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-analytics-matrix.contract.test.ts",
+      "sha256": "b60f68ea2614c36d3e7d48d3e6dc966eb0b66421509ed6b2cfab021bf6f1c3c6",
+      "byte_size": 8795,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-runtime-qa-common-contract.contract.test.ts",
+      "sha256": "11181512832d49fdf158cb2fbaaac343307452f58b7948884d1c6738c68d3db6",
+      "byte_size": 8587,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-runtime-qa-matrix.contract.test.ts",
+      "sha256": "6fce0f8111e95cfb9e45290891271ff741822a655376553155902471cea4256c",
+      "byte_size": 8700,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-safety-gate-common-contract.contract.test.ts",
+      "sha256": "32d5118c5aaa3cad09e1a7f1d8e968baac51bd2698131cb69b9bedc034e10f3d",
+      "byte_size": 11618,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/active-result-page-agents-safety-gate-matrix.contract.test.ts",
+      "sha256": "6808dc3e287bfccf172afef18c03cbd5e9c3d2bc19a653593a11448c5fbb0321",
+      "byte_size": 9547,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts",
+      "sha256": "2aa125055f4e88f1a565fd23b58023a42a5c3d990e34f7ca4a298cba1cc82a18",
+      "byte_size": 8965,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/big-five-public-profile-agent-qa-01.contract.test.ts",
+      "sha256": "b577e89623ba5241924b621fdc6c250a7061d15800e93ab695a3fcdf1f0ddbe3",
+      "byte_size": 5173,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/big-five-result-page-agent-readonly-cleared-handoff.contract.test.ts",
+      "sha256": "3d2720922d23fe54db13439ccd91efe3ca64e08e15f42bc1acf2dda139defeb6",
+      "byte_size": 6463,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/big-five-result-page-agent-standard-alignment.contract.test.ts",
+      "sha256": "055ec3665909564b4a2650c6b94975b6544db1687b524d51ad15b820d4de6613",
+      "byte_size": 9520,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/enneagram-public-profile-agent-authority-v2-alignment.contract.test.ts",
+      "sha256": "47794b0beba0e49a94c2baa6348c70499040189023f94f095417ba30a7c454f2",
+      "byte_size": 7441,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/enneagram-public-profile-agent-pilot-01.contract.test.ts",
+      "sha256": "be8626c26664c148667d165e24a78b97441361440cd83066b1573140daff0e0a",
+      "byte_size": 7042,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/enneagram-public-profile-agent-qa-01.contract.test.ts",
+      "sha256": "49277c9e4f9afc2768c66cfead567564f0d8b16f860c10f15b52bfd81e08e961",
+      "byte_size": 4997,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/enneagram-result-page-agent-standard-alignment.contract.test.ts",
+      "sha256": "517bcbd477f6e7d31bc7a3aa5cc7b05eaef8bc3546b1cb1eb4ec732d83590a2c",
+      "byte_size": 10404,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/iq-raven-result-page-agent-readiness-proposal.contract.test.ts",
+      "sha256": "b75a44576f5f851e87f185b331bdc2067e564948df5e905df37cda29b9218447",
+      "byte_size": 6941,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti-result-content-agent.contract.test.ts",
+      "sha256": "c88ae83ff6aa88f862ae3778a3a47567b96f8dffeaa060ce25eaf629a76d03c6",
+      "byte_size": 6890,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti-result-page-agent-readiness-proposal.contract.test.ts",
+      "sha256": "3e09fc9102303c4169ee027e79f3b84e9d45ad6f7d09d424f6284186d95d688e",
+      "byte_size": 4212,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
+      "sha256": "321c5569275c37495dd685cbb9e0e62ae5e316a2eba8a57d39903323c9469566",
+      "byte_size": 2136,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti64-agent-priority-ranker.contract.test.ts",
+      "sha256": "6c2cb85b719fd432b55713cb879f6f1c10afa5191311d7a3ee81aa8fc41b366e",
+      "byte_size": 4964,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti64-agent-recommendation-rerun-loop.contract.test.ts",
+      "sha256": "7625267c243c4ebe01539282437e31adf2828249f2dcdbaeb728c931534622a0",
+      "byte_size": 5069,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/mbti64-public-profile-agent-expansion-88-01.contract.test.ts",
+      "sha256": "602eff3c67f59efc2a483ae226ebdaaad8ddfb770ac1563041a41c6dad1f838f",
+      "byte_size": 3775,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts",
+      "sha256": "3f371327acbe47fd0ba1aa13b225e4371d434c4ced60b21511ef3056aa18e04b",
+      "byte_size": 6384,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-auto-runner-scheduler-01.contract.test.ts",
+      "sha256": "2c832d5a1614f5830a99245e2644b30df8ac8ecc8a8b0911952ad584385a1e86",
+      "byte_size": 5061,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-operations-next-batch-6-handoff-01.contract.test.ts",
+      "sha256": "f5ce4dd1ed36b6edec344bcc20434c17eaedf01ecbc099daa8f324bb053eaa5a",
+      "byte_size": 7558,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-operations-next-batch-qa-01.contract.test.ts",
+      "sha256": "907da55966293a335edd8909320422f14c335390863cc2c1696af4a7067e82a8",
+      "byte_size": 4015,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-operations-next-batch-recommendations-01.contract.test.ts",
+      "sha256": "7fe48a510595cb458344b0538c32d18166e503bf84dc99634833bae2c34fb51a",
+      "byte_size": 5301,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-operations-next-batch-selection-01.contract.test.ts",
+      "sha256": "fdecdd278174a5a5ec1d1c7a47bbf1a3c0bb587bff7cc216e20c20faa2624ed6",
+      "byte_size": 4562,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts",
+      "sha256": "0bb39b3be5873b5535ae2433234a089028b362e2e89c126d71eec39e6155f44d",
+      "byte_size": 5813,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-qa-gates-01.contract.test.ts",
+      "sha256": "c04f99c95caa61494839f43b6119a8df9df51405723eba2bed783df4703f747d",
+      "byte_size": 3019,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts",
+      "sha256": "46b30fc80cb8c65a52b2bb17dff77a2cb129c7c877c49a85659144a27c14238f",
+      "byte_size": 7048,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-public-profile-agent-runner-01.contract.test.ts",
+      "sha256": "bf48f5aa1175d963c3220eb766db61c5dd10fb4b5450d590557ab8287917907d",
+      "byte_size": 3289,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
+      "sha256": "3e9e9c2bb2964135f7c8daa6a29ead82c4da7609e4df5b5624874287dbc51d53",
+      "byte_size": 6168,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/result-page-agent-analytics-handoff.contract.test.ts",
+      "sha256": "d3d52b032f72312c65a6b279d2ce664b125bd4560e42574f8910e535a913d637",
+      "byte_size": 8623,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/result-page-agent-runtime-qa-handoff.contract.test.ts",
+      "sha256": "bd4145067961b14043e327682c6daa46a043730bcb90ef8c32d963a26b18ad8e",
+      "byte_size": 8521,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/result-page-agent-seo-control-handoff.contract.test.ts",
+      "sha256": "4c2a0ad542a540775a43a4b7eaf6004327795676af5fe60ad3f11cba90a95db8",
+      "byte_size": 7760,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/riasec-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
+      "sha256": "2fa6472067fd4c8ee25af596a150ec9b5001c627df0a8f5cd6011c9cb9a76556",
+      "byte_size": 8646,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/riasec-result-page-agent-standard-alignment.contract.test.ts",
+      "sha256": "f9d6bcdb7217213aef08293b444eb883464495c282a6d3a00dbc3cb617304cd2",
+      "byte_size": 11619,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/security-122-web-03-seo-agent-approval-redaction.contract.test.ts",
+      "sha256": "8fbdf91560c41faaedd71285234a744d4a43584e596c20f2bbdcb29d5e6f7f75",
+      "byte_size": 6131,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
+      "sha256": "a2c8546400a121908ea7dbe49a3d71d6858ecc9813599b906a828687c3425674",
+      "byte_size": 8453,
+      "classification": "historical_superseded"
+    },
+    {
+      "path": "tests/contracts/seo-agent-gpt55-handoff.contract.test.ts",
+      "sha256": "b86e6836dce6fcb6d26edd49a24dd51363901c5a55d3546b0d7546d02f54a41b",
+      "byte_size": 6268,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+      "sha256": "74f4f07e9033d5b1f04af74ec3d7451bac557d385a8dc2e73aafa267a9fa805b",
+      "byte_size": 6156,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/seo-platform-11a-authority-convergence.contract.test.ts",
+      "sha256": "bd7f42dac3fc4ad9089ebbc5d6d96b3b72e9a9a616cab0abb4955d7607ea7cd0",
+      "byte_size": 9281,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/seo-runtime-qa-agent.contract.test.ts",
+      "sha256": "35b039a04124eb99d16bd8291ee0185cf19d0c3bdc5de084a3ae0348f910256f",
+      "byte_size": 4280,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/six-result-page-agent-readiness-matrix.contract.test.ts",
+      "sha256": "208cf2496ddbc80cbb964215d75bc5820a11e65953ede161474302e9a2aa714f",
+      "byte_size": 12253,
+      "classification": "contract_only"
+    },
+    {
+      "path": "tests/contracts/six-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
+      "sha256": "83ab1d2a2e6bc5729dbe5cea7f72d28f042251a24868938cdff2a090ce4e47b3",
+      "byte_size": 10654,
+      "classification": "contract_only"
+    }
+  ],
+  "projection_self_hash": "371a4bd14ebb97cd7085b7b80168b3d0c03e1ce41a673cc694f0ec4593711536"
+}
