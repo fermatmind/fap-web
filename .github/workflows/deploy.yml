@@ -175,7 +175,9 @@ jobs:
           RELEASE_ARCHIVE_SHA256: ${{ steps.artifact.outputs.archive_sha256 }}
           RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
           ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}
+          CORE_PUBLIC_PATH: /zh/personality
           REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP: "0"
+          REQUIRE_CAREER_RENDERER_REVISION: "0"
         run: .github/trunk/deploy-web-release.sh
       - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

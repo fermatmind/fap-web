@@ -39,6 +39,7 @@ ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2
 ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"
 ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
 REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}"
+REQUIRE_CAREER_RENDERER_REVISION="${REQUIRE_CAREER_RENDERER_REVISION:-1}"
 THIRD_PARTY_ANALYTICS_PATTERN='fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu'
 PRIVATE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)'
 PRIVATE_TEST_TAKE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)'
@@ -386,6 +387,8 @@ require_bin ss
   || { log "APP_READY_POLL_INTERVAL_SEC must be a positive integer"; exit 1; }
 [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" =~ ^[01]$ ]] \
   || { log "REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP must be 0 or 1"; exit 1; }
+[[ "$REQUIRE_CAREER_RENDERER_REVISION" =~ ^[01]$ ]] \
+  || { log "REQUIRE_CAREER_RENDERER_REVISION must be 0 or 1"; exit 1; }
 
 PATH_NODE_BIN="$(command -v node)"
 PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"
@@ -458,7 +461,11 @@ if [[ "$APP_MANAGER" == "pm2" ]]; then
   pm2 restart "$APP_NAME" --update-env >/dev/null
   wait_for_local_app_ready
 fi
-require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "local"
+if [[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]; then
+  require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "local"
+else
+  log "skip Career renderer revision (not part of this environment's content cohort)"
+fi
 ss -ltnp | grep ":${APP_PORT}"
 write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
 
@@ -473,7 +480,9 @@ probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
 require_deployed_revision_endpoint "${PUBLIC_BASE_URL%/}${REVISION_PATH}" "$DEPLOYED_REVISION"
-require_career_renderer_revision "$PUBLIC_BASE_URL" "public"
+if [[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]; then
+  require_career_renderer_revision "$PUBLIC_BASE_URL" "public"
+fi
 require_analytics_bootstrap_contract "$PUBLIC_BASE_URL" "production"
 if [[ "$RUN_SITEMAP_HEALTH" == "1" ]]; then
   require_sitemap_health "$SITEMAP_URL"

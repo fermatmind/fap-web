@@ -63,6 +63,18 @@ describe("production analytics deploy contract", () => {
       "REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP='${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}'",
     );
     expect(deployWorkflow).toContain('REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP: "0"');
+    expect(deployWorkflow).toContain('REQUIRE_CAREER_RENDERER_REVISION: "0"');
+    expect(deployWorkflow).toContain("CORE_PUBLIC_PATH: /zh/personality");
+    expect(deployScript).toContain(
+      'REQUIRE_CAREER_RENDERER_REVISION="${REQUIRE_CAREER_RENDERER_REVISION:-1}"',
+    );
+    expect(deployReleaseScript).toContain(
+      "REQUIRE_CAREER_RENDERER_REVISION='${REQUIRE_CAREER_RENDERER_REVISION:-1}'",
+    );
+    expect(installScript).toContain(
+      'REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION"',
+    );
+    expect(installScript).toContain("restored legacy staging LKG with its original analytics contract");
   });
 
   it("keeps the verified artifact immutable instead of writing runtime analytics env files", () => {
