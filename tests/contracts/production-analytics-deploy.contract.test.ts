@@ -6,7 +6,7 @@ const releaseScript = readFileSync("scripts/release/standalone-release.mjs", "ut
 
 describe("production analytics deploy contract", () => {
   it("fails closed before activation when the artifact build configuration is missing or invalid", () => {
-    expect(releaseScript).toContain("validateProductionConfig(process.env, revision)");
+    expect(releaseScript).toContain("validateRequiredConfig(options, process.env, revision)");
     expect(releaseScript).toContain("buildConfigSnapshot(process.env)");
     expect(releaseScript).toContain("release build configuration is incompatible");
     expect(releaseScript).toContain('NEXT_PUBLIC_ANALYTICS_ENABLED", "true"');

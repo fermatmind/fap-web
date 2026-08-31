@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "2c2042551cc8f538b7a4c6f80936a70b1766291c",
+    "sha": "9e7c44ebe824472421dce74535b96a223ca4cc41",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -1124,8 +1124,8 @@
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "e15ed130309b36de8a05a1627f6aac23918b2e4e542a0c67f8a45e2b197fc713",
-      "byte_size": 15398,
+      "sha256": "842e8ee0160d82151fdde55a1761ac4ad0e76e129d78231320100054267a2a5a",
+      "byte_size": 14687,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "e110fd5ad2c46d4121fcb3da2f62791ec55fda8d6085cab92c47a0e066122930"
+  "projection_self_hash": "a51e426c7d2d697948b655dea9e6cc3e8da72c3b5ff33d91c1a04613c4d6b005"
 }

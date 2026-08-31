@@ -96,6 +96,19 @@ export function shouldAllowAnalyticsRuntime(input: AnalyticsRuntimeInput): Analy
   });
 }
 
+export function shouldAllowFirstPartyAnalyticsRuntime(
+  input: AnalyticsRuntimeInput
+): AnalyticsRuntimeDecision {
+  const deploymentEnvironment = normalizeDeploymentEnvironment(input.deploymentEnvironment);
+
+  return shouldAllowAnalyticsRuntime({
+    ...input,
+    // Staging dogfood must reach the first-party aggregate sink. Third-party
+    // script loading keeps its separate production-only gate.
+    deploymentEnvironment: deploymentEnvironment === "staging" ? "production" : deploymentEnvironment,
+  });
+}
+
 export function shouldAllowBrowserAnalyticsRuntime({
   analyticsEnabled = true,
   deploymentEnvironment = getAnalyticsDeploymentEnvironment(),
@@ -109,7 +122,7 @@ export function shouldAllowBrowserAnalyticsRuntime({
     return { allowed: false, reason: "non_production_environment" };
   }
 
-  return shouldAllowAnalyticsRuntime({
+  return shouldAllowFirstPartyAnalyticsRuntime({
     analyticsEnabled,
     deploymentEnvironment,
     allowedHosts,

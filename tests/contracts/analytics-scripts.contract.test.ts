@@ -19,6 +19,7 @@ import {
   isBlockedAnalyticsRoute,
   isPollutingAnalyticsReferrer,
   shouldAllowAnalyticsRuntime,
+  shouldAllowFirstPartyAnalyticsRuntime,
 } from "@/lib/tracking/internalTraffic";
 
 describe("analytics scripts contract", () => {
@@ -306,6 +307,22 @@ describe("analytics scripts contract", () => {
         search: "?orderNo=SYNTHETIC_DO_NOT_USE",
       })
     ).toMatchObject({ allowed: false, reason: "private_route" });
+  });
+
+  it("allows staging first-party events without enabling staging third-party scripts", () => {
+    const input = {
+      analyticsEnabled: true,
+      deploymentEnvironment: "staging",
+      hostname: "staging.fermatmind.com",
+      pathname: "/zh/articles/mbti-career-path",
+      allowedHosts: "staging.fermatmind.com",
+    };
+
+    expect(shouldAllowFirstPartyAnalyticsRuntime(input)).toEqual({ allowed: true, reason: "allowed" });
+    expect(shouldAllowAnalyticsRuntime(input)).toEqual({
+      allowed: false,
+      reason: "non_production_environment",
+    });
   });
 
   it("uses build-inlineable public environment reads while preserving explicit test injection", () => {

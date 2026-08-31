@@ -117,18 +117,6 @@ jobs:
           NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
           NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
         run: pnpm build
-      - name: Verify staging standalone analytics bootstrap
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
-        env:
-          NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: staging.fermatmind.com
-          NEXT_PUBLIC_ANALYTICS_ENV: staging
-          NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com
-          NEXT_PUBLIC_BAIDU_TONGJI_ID: ""
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ""
-          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
-          NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
-          NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
-        run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
       - name: Package and verify immutable staging release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         env:
