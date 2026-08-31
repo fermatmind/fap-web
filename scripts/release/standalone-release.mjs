@@ -211,6 +211,39 @@ function validateProductionConfig(env, gitSha) {
   }
 }
 
+function validateStagingConfig(env, gitSha) {
+  const violations = [];
+  const requireExact = (name, expected) => {
+    if ((env[name] ?? "") !== expected) {
+      violations.push(`${name} must equal ${expected || "an empty value"}`);
+    }
+  };
+
+  requireExact("NEXT_PUBLIC_API_URL", "https://staging-api.fermatmind.com");
+  requireExact("NEXT_PUBLIC_SITE_URL", "https://staging.fermatmind.com");
+  requireExact("NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY", "false");
+  requireExact("NEXT_PUBLIC_ANALYTICS_ENABLED", "true");
+  requireExact("NEXT_PUBLIC_ANALYTICS_ENV", "staging");
+  requireExact("NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS", "staging.fermatmind.com");
+  requireExact("NEXT_PUBLIC_GA_MEASUREMENT_ID", "");
+  requireExact("NEXT_PUBLIC_BAIDU_TONGJI_ID", "");
+  requireExact("NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID", "");
+  requireExact("NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL", "");
+  requireExact("NEXT_PUBLIC_RELEASE", gitSha);
+
+  if (violations.length > 0) {
+    fail(`staging build configuration is unsafe:\n- ${violations.join("\n- ")}`);
+  }
+}
+
+function validateRequiredConfig(options, env, gitSha) {
+  if (options["require-production-config"] && options["require-staging-config"]) {
+    fail("production and staging build configuration requirements are mutually exclusive");
+  }
+  if (options["require-production-config"]) validateProductionConfig(env, gitSha);
+  if (options["require-staging-config"]) validateStagingConfig(env, gitSha);
+}
+
 function assertReleaseShape(entries) {
   const paths = new Set(entries.map((entry) => entry.path));
   for (const required of ["server.js", ".next/static", "public"]) {
@@ -278,9 +311,7 @@ function packageRelease(options) {
   if (output === source || output.startsWith(`${source}${path.sep}`)) {
     fail("release output must not be inside the standalone source");
   }
-  if (options["require-production-config"]) {
-    validateProductionConfig(process.env, gitSha);
-  }
+  validateRequiredConfig(options, process.env, gitSha);
 
   const sourceEntries = walk(source);
   assertNoSensitiveFiles(sourceEntries);
@@ -379,11 +410,11 @@ function verifyRelease(options) {
   if (metadata.build_config_sha256 !== manifest.build_config?.sha256) {
     fail("revision metadata build configuration digest does not match the release manifest");
   }
-  if (options["require-production-config"]) {
-    validateProductionConfig(process.env, revision);
+  if (options["require-production-config"] || options["require-staging-config"]) {
+    validateRequiredConfig(options, process.env, revision);
     const expectedBuildConfig = buildConfigSnapshot(process.env);
     if (manifest.build_config?.sha256 !== expectedBuildConfig.sha256) {
-      fail("release build configuration is incompatible with the required production configuration");
+      fail("release build configuration is incompatible with the required environment configuration");
     }
   }
   if (metadata.release_manifest_sha256 !== sha256(readFileSync(path.join(artifact, MANIFEST_FILE)))) {

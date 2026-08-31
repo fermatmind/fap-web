@@ -44,6 +44,8 @@ jobs:
       validation_digest: ${{ steps.artifacts.outputs.validation_digest }}
       release_id: ${{ steps.artifacts.outputs.release_id }}
       release_digest: ${{ steps.artifacts.outputs.release_digest }}
+      staging_release_id: ${{ steps.artifacts.outputs.staging_release_id }}
+      staging_release_digest: ${{ steps.artifacts.outputs.staging_release_digest }}
     steps:
       - name: Require successful exact-main push CI
         env:
@@ -77,11 +79,18 @@ jobs:
               core.setOutput(`${prefix}_digest`, artifact.digest);
             }
             const releases = exact(`fap-web-standalone-${process.env.DEPLOY_SHA}`);
+            const stagingReleases = exact(`fap-web-standalone-staging-${process.env.DEPLOY_SHA}`);
             if (releases.length > 1) return core.setFailed(`Ambiguous release artifact count: ${releases.length}`);
+            if (stagingReleases.length > 1) return core.setFailed(`Ambiguous staging release artifact count: ${stagingReleases.length}`);
             if (releases.length === 1) {
               if (!/^sha256:[0-9a-f]{64}$/.test(String(releases[0].digest || ""))) return core.setFailed("Release digest missing");
               core.setOutput("release_id", String(releases[0].id));
               core.setOutput("release_digest", releases[0].digest);
+            }
+            if (stagingReleases.length === 1) {
+              if (!/^sha256:[0-9a-f]{64}$/.test(String(stagingReleases[0].digest || ""))) return core.setFailed("Staging release digest missing");
+              core.setOutput("staging_release_id", String(stagingReleases[0].id));
+              core.setOutput("staging_release_digest", stagingReleases[0].digest);
             }
       - id: receipt
         env:
@@ -101,7 +110,7 @@ jobs:
           jq -e --arg sha "$DEPLOY_SHA" --arg run "$CI_RUN_ID" \
             '.schema_version == "fermatmind.trunk-validation.v1" and .sha == $sha and .ci_run_id == $run and .result == "success"' "$receipt" >/dev/null
           deploy="$(jq -r .classification.deploy "$receipt")"
-          if [ "$deploy" = true ]; then test -n "$RELEASE_ID"; fi
+          if [ "$deploy" = true ]; then test -n "$RELEASE_ID"; test -n '${{ steps.artifacts.outputs.staging_release_id }}'; fi
           {
             echo "deploy=$deploy"
             echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
@@ -138,8 +147,17 @@ jobs:
       - id: artifact
         env:
           GH_TOKEN: ${{ github.token }}
-          ARTIFACT_ID: ${{ needs.policy.outputs.release_id }}
-          EXPECTED_ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+          ARTIFACT_ID: ${{ needs.policy.outputs.staging_release_id }}
+          ARTIFACT_VARIANT: staging
+          EXPECTED_ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}
+          NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: staging.fermatmind.com
+          NEXT_PUBLIC_ANALYTICS_ENV: staging
+          NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com
+          NEXT_PUBLIC_BAIDU_TONGJI_ID: ""
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
+          NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
         run: .github/trunk/prepare-web-artifact.sh
       - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
         with:
@@ -155,7 +173,7 @@ jobs:
           RELEASE_ARCHIVE: ${{ steps.artifact.outputs.archive }}
           RELEASE_ARCHIVE_SHA256: ${{ steps.artifact.outputs.archive_sha256 }}
           RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
-          ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+          ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}
         run: .github/trunk/deploy-web-release.sh
       - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

@@ -105,20 +105,70 @@ jobs:
       - name: Typecheck changed application boundary
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: pnpm typecheck
+      - name: Build staging standalone application
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        env:
+          NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: staging.fermatmind.com
+          NEXT_PUBLIC_ANALYTICS_ENV: staging
+          NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com
+          NEXT_PUBLIC_BAIDU_TONGJI_ID: ""
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
+          NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
+        run: pnpm build
+      - name: Verify staging standalone analytics bootstrap
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        env:
+          NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: staging.fermatmind.com
+          NEXT_PUBLIC_ANALYTICS_ENV: staging
+          NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com
+          NEXT_PUBLIC_BAIDU_TONGJI_ID: ""
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
+          NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
+        run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
+      - name: Package and verify immutable staging release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        env:
+          NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: staging.fermatmind.com
+          NEXT_PUBLIC_ANALYTICS_ENV: staging
+          NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com
+          NEXT_PUBLIC_BAIDU_TONGJI_ID: ""
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
+          NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
+          NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
+          RELEASE_DIRECTORY: .next/release/fap-web-staging-${{ github.sha }}
+          RELEASE_ARCHIVE: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
+        run: |
+          set -euo pipefail
+          pnpm release:package -- --source=.next/standalone --output="$RELEASE_DIRECTORY" --git-sha="$GITHUB_SHA" \
+            --build-timestamp="$(date -u +%Y-%m-%dT%H:%M:%SZ)" --workflow-run-id="$GITHUB_RUN_ID" \
+            --workflow-run-attempt="$GITHUB_RUN_ATTEMPT" --require-staging-config
+          pnpm release:verify -- --artifact="$RELEASE_DIRECTORY" --expected-git-sha="$GITHUB_SHA" --require-staging-config
+          tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -C .next/release \
+            -czf "$RELEASE_ARCHIVE" "fap-web-staging-${GITHUB_SHA}"
+      - id: upload-staging-release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: fap-web-standalone-staging-${{ github.sha }}
+          path: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 14
       - name: Build production standalone application
-        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         run: pnpm build
       - name: Verify standalone analytics bootstrap without runtime public env
-        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
       - if: needs.classify.outputs.infrastructure == 'true'
         run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
       - if: needs.classify.outputs.ingress == 'true'
         run: node scripts/ops/validate-web-public-ingress-config.mjs --config deploy/openresty/fap-web-public.conf && bash scripts/ops/test-web-public-ingress-openresty.sh
-      - name: Ensure immutable standalone build exists
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
-        run: |
-          if [ ! -d .next/standalone ]; then pnpm build; fi
       - name: Verify deployable standalone analytics bootstrap
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
@@ -149,6 +199,11 @@ jobs:
         with:
           subject-name: fap-web-standalone-${{ github.sha }}.zip
           subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4
+        with:
+          subject-name: fap-web-standalone-staging-${{ github.sha }}.zip
+          subject-digest: sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}
       - if: needs.classify.outputs.deploy != 'true'
         run: echo "Docs/rules/tests-only scope; build and deployment artifact intentionally skipped."
 

@@ -18,6 +18,17 @@ const BUILD_ENV = {
   NEXT_PUBLIC_SITE_URL: "https://fermatmind.com",
   NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY: "false",
 };
+const STAGING_BUILD_ENV = {
+  ...BUILD_ENV,
+  NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: "staging.fermatmind.com",
+  NEXT_PUBLIC_ANALYTICS_ENV: "staging",
+  NEXT_PUBLIC_API_URL: "https://staging-api.fermatmind.com",
+  NEXT_PUBLIC_BAIDU_TONGJI_ID: "",
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: "",
+  NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "",
+  NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: "",
+  NEXT_PUBLIC_SITE_URL: "https://staging.fermatmind.com",
+};
 const tempDirectories: string[] = [];
 
 function tempDirectory(): string {
@@ -146,6 +157,26 @@ describe("immutable standalone release artifact", () => {
     );
     expect(incompatible.status).not.toBe(0);
     expect(incompatible.stderr).toContain("production build configuration is unsafe");
+
+    const stagingArtifact = path.join(root, "staging-artifact");
+    const stagingPackage = spawnSync(
+      process.execPath,
+      [
+        SCRIPT,
+        "package",
+        `--source=${source}`,
+        `--output=${stagingArtifact}`,
+        `--git-sha=${SHA}`,
+        "--build-timestamp=2026-07-29T01:02:03Z",
+        "--workflow-run-id=12345",
+        "--workflow-run-attempt=1",
+        "--require-staging-config",
+      ],
+      { env: STAGING_BUILD_ENV, encoding: "utf8" },
+    );
+    expect(stagingPackage.status).toBe(0);
+    expect(verifyArtifact(stagingArtifact, ["--require-staging-config"], STAGING_BUILD_ENV).status).toBe(0);
+    expect(verifyArtifact(stagingArtifact, ["--require-production-config"], BUILD_ENV).status).not.toBe(0);
   });
 
   it("rejects environment and private-key files before packaging", () => {
@@ -200,10 +231,12 @@ describe("immutable standalone release artifact", () => {
     }
   });
 
-  it("keeps the CI release candidate on one build and outside deploy workflows", () => {
+  it("keeps environment-bound CI release candidates outside deploy workflows", () => {
     const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
+    const deploy = fs.readFileSync(".github/workflows/deploy.yml", "utf8");
+    const prepareArtifact = fs.readFileSync(".github/trunk/prepare-web-artifact.sh", "utf8");
 
-    expect(ci.match(/(?:^|\s)pnpm build(?:\s|$)/gm)).toHaveLength(1);
+    expect(ci.match(/(?:^|\s)pnpm build(?:\s|$)/gm)).toHaveLength(2);
     expect(ci).toContain('NEXT_PUBLIC_ANALYTICS_ENABLED: "true"');
     expect(ci).toMatch(/NEXT_PUBLIC_GA_MEASUREMENT_ID: G-[A-Z0-9]{4,32}/);
     expect(ci).toMatch(/NEXT_PUBLIC_BAIDU_TONGJI_ID: [a-f0-9]{16,64}/);
@@ -213,7 +246,16 @@ describe("immutable standalone release artifact", () => {
     expect(ci).toContain("id: upload-release");
     expect(ci).toContain("subject-name: fap-web-standalone-${{ github.sha }}.zip");
     expect(ci).toContain("subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}");
+    expect(ci).toContain("name: fap-web-standalone-staging-${{ github.sha }}");
+    expect(ci).toContain("NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com");
+    expect(ci).toContain("--require-staging-config");
+    expect(ci).toContain("subject-digest: sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}");
     expect(ci).not.toContain("deploy_web_pm2.sh");
     expect(ci).not.toContain("ssh ");
+    expect(deploy).toContain("ARTIFACT_ID: ${{ needs.policy.outputs.staging_release_id }}");
+    expect(deploy).toContain("ARTIFACT_VARIANT: staging");
+    expect(deploy).toContain("ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}");
+    expect(prepareArtifact).toContain('verification_flag="--require-staging-config"');
+    expect(prepareArtifact).toContain('verification_flag="--require-production-config"');
   });
 });
