@@ -11,6 +11,7 @@ RELEASE_ARCHIVE="${RELEASE_ARCHIVE:-}"
 DEPLOY_SCRIPT="${DEPLOY_SCRIPT:-}"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-}"
 RELEASES_TO_KEEP="${RELEASES_TO_KEEP:-3}"
+REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}"
 
 log() {
   printf '[install_standalone_release] %s\n' "$*"
@@ -54,6 +55,8 @@ require_bin realpath
 require_bin stat
 
 [[ "$RELEASES_TO_KEEP" =~ ^[1-9][0-9]*$ ]] || fail "RELEASES_TO_KEEP must be a positive integer"
+[[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" =~ ^[01]$ ]] \
+  || fail "REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP must be 0 or 1"
 (( RELEASES_TO_KEEP >= 2 && RELEASES_TO_KEEP <= 10 )) \
   || fail "RELEASES_TO_KEEP must be between 2 and 10"
 
@@ -203,6 +206,7 @@ rollback_active_release() {
   if [[ "$rollback_revision" =~ ^[0-9a-f]{40}$ ]]; then
     APP_DIR="$APP_DIR" DEPLOY_SHA="$rollback_revision" \
       ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
+      REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
       "$DEPLOY_SCRIPT" >/dev/null 2>&1 \
       || log "automatic rollback reload failed; operator rollback is required"
   fi
@@ -256,6 +260,7 @@ active_switched=1
 
 APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
   ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
+  REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
   "$DEPLOY_SCRIPT"
 
 if [[ -n "$previous_target" ]]; then

@@ -38,6 +38,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"
 ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
+REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}"
+THIRD_PARTY_ANALYTICS_PATTERN='fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu'
 PRIVATE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)'
 PRIVATE_TEST_TAKE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)'
 
@@ -232,9 +234,21 @@ require_analytics_bootstrap_contract() {
       -o "$body_file" \
       -w '%{http_code}' \
       "${base_url%/}${path}")"
-    if [[ "$status" != "200" ]] || ! grep -q 'fm-analytics-bootstrap' "$body_file"; then
+    if [[ "$status" != "200" ]]; then
       rm -f "$body_file"
       log "analytics public smoke failed: phase=${phase} path=${path} status=${status}"
+      exit 1
+    fi
+    if [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" == "1" ]] \
+      && ! grep -q 'fm-analytics-bootstrap' "$body_file"; then
+      rm -f "$body_file"
+      log "analytics public bootstrap missing: phase=${phase} path=${path}"
+      exit 1
+    fi
+    if [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" == "0" ]] \
+      && grep -Eiq "$THIRD_PARTY_ANALYTICS_PATTERN" "$body_file"; then
+      rm -f "$body_file"
+      log "analytics public bootstrap must be absent: phase=${phase} path=${path}"
       exit 1
     fi
     rm -f "$body_file"
@@ -249,7 +263,7 @@ require_analytics_bootstrap_contract() {
       -o "$body_file" \
       -w '%{http_code}' \
       "${base_url%/}${path}")"
-    if [[ "$status" =~ ^5 ]] || grep -Eiq 'fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu' "$body_file"; then
+    if [[ "$status" =~ ^5 ]] || grep -Eiq "$THIRD_PARTY_ANALYTICS_PATTERN" "$body_file"; then
       rm -f "$body_file"
       log "analytics private smoke failed: phase=${phase} path=${path} status=${status}"
       exit 1
@@ -370,6 +384,8 @@ require_bin ss
   || { log "APP_READY_TIMEOUT_SEC must be a positive integer"; exit 1; }
 [[ "$APP_READY_POLL_INTERVAL_SEC" =~ ^[1-9][0-9]*$ ]] \
   || { log "APP_READY_POLL_INTERVAL_SEC must be a positive integer"; exit 1; }
+[[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" =~ ^[01]$ ]] \
+  || { log "REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP must be 0 or 1"; exit 1; }
 
 PATH_NODE_BIN="$(command -v node)"
 PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"

@@ -2,6 +2,9 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 const deployScript = readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+const installScript = readFileSync("scripts/install_standalone_release.sh", "utf8");
+const deployReleaseScript = readFileSync(".github/trunk/deploy-web-release.sh", "utf8");
+const deployWorkflow = readFileSync(".github/workflows/deploy.yml", "utf8");
 const releaseScript = readFileSync("scripts/release/standalone-release.mjs", "utf8");
 
 describe("production analytics deploy contract", () => {
@@ -40,6 +43,26 @@ describe("production analytics deploy contract", () => {
     expect(candidateIndex).toBeGreaterThan(-1);
     expect(reloadIndex).toBeGreaterThan(candidateIndex);
     expect(productionSmokeIndex).toBeGreaterThan(reloadIndex);
+  });
+
+  it("requires production bootstrap while staging proves third-party analytics are absent", () => {
+    expect(deployScript).toContain(
+      'REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}"',
+    );
+    expect(deployScript).toContain(
+      '[[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" =~ ^[01]$ ]]',
+    );
+    expect(deployScript).toContain('analytics public bootstrap missing: phase=${phase} path=${path}');
+    expect(deployScript).toContain(
+      'analytics public bootstrap must be absent: phase=${phase} path=${path}',
+    );
+    expect(installScript).toContain(
+      'REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP"',
+    );
+    expect(deployReleaseScript).toContain(
+      "REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP='${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}'",
+    );
+    expect(deployWorkflow).toContain('REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP: "0"');
   });
 
   it("keeps the verified artifact immutable instead of writing runtime analytics env files", () => {
