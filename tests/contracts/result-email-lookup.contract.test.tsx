@@ -36,7 +36,7 @@ describe("ResultEmailLookupForm contract", () => {
     render(<ResultEmailLookupForm locale="zh" />);
 
     expect(screen.queryByText("通过邮箱找回结果")).toBeNull();
-    expect(screen.getByText("输入邮箱即可找回该邮箱下保存的结果，请使用你自己的邮箱。")).toBeInTheDocument();
+    expect(screen.getByText("输入保存结果时使用的邮箱。若当前会话无法直接显示结果，我们会向该邮箱发送安全访问链接。")).toBeInTheDocument();
   });
 
   it("looks up normalized email and renders clean result links without exposing bearer tokens", async () => {
@@ -117,10 +117,12 @@ describe("ResultEmailLookupForm contract", () => {
     expect(screen.queryByText("result_lookup_token_split")).not.toBeInTheDocument();
   });
 
-  it("returns a blind empty state for unmatched emails", async () => {
+  it("returns a blind recovery state without revealing whether an email matched", async () => {
     hoisted.lookupResultsByEmail.mockResolvedValueOnce({
       ok: true,
       items: [],
+      email_verification_required: true,
+      recovery_email_requested: true,
     });
 
     render(<ResultEmailLookupForm locale="en" />);
@@ -132,7 +134,7 @@ describe("ResultEmailLookupForm contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("result-email-lookup-results")).toHaveTextContent(
-        "No saved results were found for that email."
+        "If matching saved results exist, secure access links will be sent to that email."
       );
     });
   });

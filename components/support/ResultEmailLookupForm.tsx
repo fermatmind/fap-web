@@ -79,12 +79,14 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
     const isZh = locale === "zh";
     return {
       cardDescription: isZh
-        ? "输入邮箱即可找回该邮箱下保存的结果，请使用你自己的邮箱。"
-        : "Enter your email to find saved results for that email. Use your own email address.",
+        ? "输入保存结果时使用的邮箱。若当前会话无法直接显示结果，我们会向该邮箱发送安全访问链接。"
+        : "Enter the email used to save your results. If this session cannot display them directly, we will send secure access links to that address.",
       email: isZh ? "邮箱" : "Email",
       submit: isZh ? "查找结果" : "Find results",
       submitting: isZh ? "正在查找..." : "Finding...",
-      noMatches: isZh ? "该邮箱下暂未找到已保存的结果。" : "No saved results were found for that email.",
+      noMatches: isZh
+        ? "如果存在匹配的已保存结果，安全访问链接将发送到该邮箱。请检查收件箱和垃圾邮件。"
+        : "If matching saved results exist, secure access links will be sent to that email. Check your inbox and spam folder.",
       matchesPrefix: isZh ? "找到以下已保存结果：" : "Saved results found:",
       openResult: isZh ? "打开结果" : "Open result",
       unavailable: isZh ? "结果链接暂不可用" : "Result link unavailable",
