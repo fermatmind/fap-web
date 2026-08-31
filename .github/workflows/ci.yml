@@ -128,7 +128,7 @@ jobs:
           NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: ""
           NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
           NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
-          RELEASE_DIRECTORY: .next/release/fap-web-staging-${{ github.sha }}
+          RELEASE_DIRECTORY: .next/release/fap-web-${{ github.sha }}
           RELEASE_ARCHIVE: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
         run: |
           set -euo pipefail
@@ -137,7 +137,7 @@ jobs:
             --workflow-run-attempt="$GITHUB_RUN_ATTEMPT" --require-staging-config
           pnpm release:verify -- --artifact="$RELEASE_DIRECTORY" --expected-git-sha="$GITHUB_SHA" --require-staging-config
           tar --sort=name --mtime='UTC 1970-01-01' --owner=0 --group=0 --numeric-owner -C .next/release \
-            -czf "$RELEASE_ARCHIVE" "fap-web-staging-${GITHUB_SHA}"
+            -czf "$RELEASE_ARCHIVE" "fap-web-${GITHUB_SHA}"
       - id: upload-staging-release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

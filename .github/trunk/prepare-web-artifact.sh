@@ -15,7 +15,7 @@ case "$artifact_variant" in
     ;;
   staging)
     archive_basename="fap-web-staging-${DEPLOY_SHA}.tar.gz"
-    release_basename="fap-web-staging-${DEPLOY_SHA}"
+    release_basename="fap-web-${DEPLOY_SHA}"
     verification_flag="--require-staging-config"
     ;;
   *)
@@ -29,7 +29,8 @@ esac
 
 root="$RUNNER_TEMP/web-artifact-${DEPLOY_SHA}"
 zip="$root/artifact.zip"
-archive="$root/$archive_basename"
+downloaded_archive="$root/$archive_basename"
+archive="$root/fap-web-${DEPLOY_SHA}.tar.gz"
 extract="$root/extracted"
 mkdir -p "$root" "$extract"
 
@@ -49,10 +50,14 @@ while IFS= read -r entry; do
   test -n "$entry"
   [[ "$entry" != /* && "$entry" != *"/../"* && "$entry" != ../* && "$entry" != *"/.." ]]
   case "$entry" in "$release_basename"|"$release_basename/"*) ;; *) exit 1 ;; esac
-done < <(tar -tzf "$archive")
-tar -xzf "$archive" -C "$extract"
+done < <(tar -tzf "$downloaded_archive")
+tar -xzf "$downloaded_archive" -C "$extract"
 node scripts/release/standalone-release.mjs verify \
   --artifact="$extract/$release_basename" --expected-git-sha="$DEPLOY_SHA" "$verification_flag"
+
+if [[ "$downloaded_archive" != "$archive" ]]; then
+  cp "$downloaded_archive" "$archive"
+fi
 
 {
   echo "archive=$archive"
