@@ -255,6 +255,7 @@ describe("immutable standalone release artifact", () => {
     expect(deploy).toContain("ARTIFACT_ID: ${{ needs.policy.outputs.staging_release_id }}");
     expect(deploy).toContain("ARTIFACT_VARIANT: staging");
     expect(deploy).toContain("ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}");
+    expect(deploy).toContain("STAGING_RELEASE_ID: ${{ steps.artifacts.outputs.staging_release_id }}");
     expect(prepareArtifact).toContain('verification_flag="--require-staging-config"');
     expect(prepareArtifact).toContain('verification_flag="--require-production-config"');
   });

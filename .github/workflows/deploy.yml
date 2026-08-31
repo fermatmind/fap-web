@@ -99,6 +99,7 @@ jobs:
           EXPECTED_DIGEST: ${{ steps.artifacts.outputs.validation_digest }}
           CI_RUN_ID: ${{ github.event.workflow_run.id }}
           RELEASE_ID: ${{ steps.artifacts.outputs.release_id }}
+          STAGING_RELEASE_ID: ${{ steps.artifacts.outputs.staging_release_id }}
         run: |
           set -euo pipefail
           zip="$RUNNER_TEMP/validation.zip"
@@ -110,7 +111,7 @@ jobs:
           jq -e --arg sha "$DEPLOY_SHA" --arg run "$CI_RUN_ID" \
             '.schema_version == "fermatmind.trunk-validation.v1" and .sha == $sha and .ci_run_id == $run and .result == "success"' "$receipt" >/dev/null
           deploy="$(jq -r .classification.deploy "$receipt")"
-          if [ "$deploy" = true ]; then test -n "$RELEASE_ID"; test -n '${{ steps.artifacts.outputs.staging_release_id }}'; fi
+          if [ "$deploy" = true ]; then test -n "$RELEASE_ID"; test -n "$STAGING_RELEASE_ID"; fi
           {
             echo "deploy=$deploy"
             echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
