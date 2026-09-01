@@ -27,11 +27,13 @@ export function classifyPaths(inputPaths) {
       /(^|\/)README(?:\.[^/]+)?$/,
       /^(?:docs|\.agents)\//,
       /^\.github\/trunk\/classify-paths(?:\.test)?\.mjs$/,
-      /(^|\/)(?:tests?|__tests__)\//,
+      /^(?:tests?|__tests__)\//,
+      /(^|\/)__tests__\//,
       /\.test\.[cm]?[jt]sx?$/,
     ]);
     const testPath = matches(path, [
-      /(^|\/)(?:tests?|__tests__)\//,
+      /^(?:tests?|__tests__)\//,
+      /(^|\/)__tests__\//,
       /\.test\.[cm]?[jt]sx?$/,
     ]);
     testsChanged ||= testPath;

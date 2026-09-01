@@ -629,6 +629,7 @@ export default function Big5TakeClient({
         setStarting(true);
         setStartError(null);
 
+        // The backend owns disclaimer audit metadata; the public take flow starts on the first answer.
         const requestMeta: Record<string, unknown> = { slug };
 
         for (let retry = 0; retry < 2; retry += 1) {

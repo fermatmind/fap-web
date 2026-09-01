@@ -20,6 +20,12 @@ test("classifies docs-only without deployment", () => {
   assert.equal(result.tests_changed, true);
 });
 test("classifies application/UI", () => assert.equal(has(["app/[locale]/page.tsx"], "application_ui"), true));
+test("does not mistake an application tests route for tests-only scope", () => {
+  const result = classifyPaths(["app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx"]);
+  assert.deepEqual(result.categories, ["application_ui"]);
+  assert.equal(result.deploy, true);
+  assert.equal(result.tests_changed, false);
+});
 test("classifies content adapter/contract", () => assert.equal(has(["lib/cms/content-adapter.ts"], "content_adapter_contract"), true));
 test("classifies career display adapter as both UI and content contract", () => {
   const result = classifyPaths(["lib/career/displaySurface.ts"]);
