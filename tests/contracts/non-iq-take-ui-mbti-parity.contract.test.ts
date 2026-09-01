@@ -15,6 +15,10 @@ describe("non-IQ take UI MBTI parity", () => {
     expect(source).toContain("@/components/quiz/immersive/V2LikertScale");
     expect(source).toContain("@/components/quiz/immersive/SubmitPhaseOverlay");
     expect(source).not.toContain("@/components/clinical/quiz/ConsentGate");
+    expect(source).not.toContain("BigFiveDisclaimerGate");
+    expect(source).not.toContain("big5-disclaimer-consent");
+    expect(source).not.toContain("Agree and start");
+    expect(source).not.toContain("同意并开始");
     expect(source).not.toContain("handleAcceptDisclaimerAndStart");
     expect(source).not.toContain("@/components/quiz/matrix/MatrixProgressHeader");
     expect(source).not.toContain("@/components/big5/quiz/QuestionNavigator");

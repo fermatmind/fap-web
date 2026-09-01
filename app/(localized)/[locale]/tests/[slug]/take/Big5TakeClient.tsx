@@ -42,7 +42,7 @@ import {
 import { normalizeBig5FormCode, resolveBig5FormMeta } from "@/lib/big5/forms";
 import { useBig5AttemptStore } from "@/lib/big5/attemptStore";
 import { getDictSync } from "@/lib/i18n/getDict";
-import { getLocaleFromPathname, localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
@@ -72,63 +72,6 @@ function resolveGuestTokenTelemetry(error: unknown): {
   };
 }
 
-function isValidDisclaimerTimestamp(value: string | null): value is string {
-  if (!value) return false;
-  try {
-    return new Date(value).toISOString() === value;
-  } catch {
-    return false;
-  }
-}
-
-function BigFiveDisclaimerGate({
-  locale,
-  text,
-  version,
-  checkboxLabel,
-  checked,
-  starting,
-  error,
-  onCheckedChange,
-  onStart,
-}: {
-  locale: "en" | "zh";
-  text: string;
-  version?: string;
-  checkboxLabel: string;
-  checked: boolean;
-  starting?: boolean;
-  error?: string | null;
-  onCheckedChange: (next: boolean) => void;
-  onStart: () => void;
-}) {
-  const isZh = locale === "zh";
-
-  return (
-    <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-      <h2 className="m-0 text-lg font-semibold text-slate-900">{isZh ? "开始前请确认" : "Before you start"}</h2>
-      <div className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
-        <p className="m-0 whitespace-pre-wrap">
-          {text || (isZh ? "请先阅读并同意知情同意说明。" : "Please review and accept informed consent.")}
-        </p>
-      </div>
-      {version ? (
-        <p className="m-0 text-xs text-slate-500">
-          {isZh ? "版本" : "Version"}: {version}
-        </p>
-      ) : null}
-      <label className="flex items-center gap-2 text-sm text-slate-700">
-        <input type="checkbox" checked={checked} onChange={(event) => onCheckedChange(event.target.checked)} />
-        {checkboxLabel}
-      </label>
-      {error ? <Alert>{error}</Alert> : null}
-      <Button type="button" disabled={!checked || starting} onClick={onStart}>
-        {starting ? (isZh ? "正在开始..." : "Starting...") : isZh ? "同意并开始" : "Agree and start"}
-      </Button>
-    </div>
-  );
-}
-
 export default function Big5TakeClient({
   slug,
   formCode,
@@ -153,10 +96,6 @@ export default function Big5TakeClient({
   const startedAt = useBig5AttemptStore((store) => store.startedAt);
 
   const setAttemptMeta = useBig5AttemptStore((store) => store.setAttemptMeta);
-  const acceptDisclaimer = useBig5AttemptStore((store) => store.acceptDisclaimer);
-  const disclaimerAcceptedAt = useBig5AttemptStore((store) => store.disclaimerAcceptedAt);
-  const acceptedDisclaimerVersion = useBig5AttemptStore((store) => store.disclaimerVersion);
-  const acceptedDisclaimerHash = useBig5AttemptStore((store) => store.disclaimerHash);
   const setAnswer = useBig5AttemptStore((store) => store.setAnswer);
   const setCurrentIndex = useBig5AttemptStore((store) => store.setCurrentIndex);
   const hydrateAnonId = useBig5AttemptStore((store) => store.hydrateAnonId);
@@ -177,9 +116,6 @@ export default function Big5TakeClient({
 
   const [serverDisclaimerVersion, setServerDisclaimerVersion] = useState<string | null>(null);
   const [serverDisclaimerHash, setServerDisclaimerHash] = useState<string | null>(null);
-  const [serverDisclaimerText, setServerDisclaimerText] = useState<string | null>(null);
-  const [consentChecked, setConsentChecked] = useState(false);
-  const [consentGateDismissed, setConsentGateDismissed] = useState(false);
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
 
@@ -586,9 +522,6 @@ export default function Big5TakeClient({
           typeof response.meta?.disclaimer_hash === "string" && response.meta.disclaimer_hash.trim().length > 0
             ? response.meta.disclaimer_hash.trim()
             : null;
-        const text = typeof response.meta?.disclaimer_text === "string" && response.meta.disclaimer_text.trim().length > 0
-          ? response.meta.disclaimer_text.trim()
-          : null;
         const contentVersion =
           (typeof response.content_package_version === "string" && response.content_package_version) ||
           (typeof response.dir_version === "string" && response.dir_version) ||
@@ -625,7 +558,6 @@ export default function Big5TakeClient({
         setQuestions(options);
         setServerDisclaimerVersion(version);
         setServerDisclaimerHash(hash);
-        setServerDisclaimerText(text);
         setPackVersion(contentVersion);
         setTrackingBase(context);
       } catch (error) {
@@ -692,40 +624,12 @@ export default function Big5TakeClient({
       return null;
     }
 
-    const hasCurrentDisclaimer = Boolean(
-      serverDisclaimerText && serverDisclaimerVersion && serverDisclaimerHash
-    );
-    const hasAcceptedCurrentDisclaimer = Boolean(
-      hasCurrentDisclaimer
-      && isValidDisclaimerTimestamp(disclaimerAcceptedAt)
-      && acceptedDisclaimerVersion === serverDisclaimerVersion
-      && acceptedDisclaimerHash === serverDisclaimerHash
-    );
-    if (!hasAcceptedCurrentDisclaimer || !isValidDisclaimerTimestamp(disclaimerAcceptedAt)) {
-      setStartError(
-        locale === "zh"
-          ? "请先阅读并明确接受当前版本的服务免责声明。"
-          : "Please read and explicitly accept the current service disclaimer before starting."
-      );
-      return null;
-    }
-
     const pending = (async () => {
       try {
         setStarting(true);
         setStartError(null);
 
-        const acceptedAt = disclaimerAcceptedAt;
-        const requestMeta: Record<string, unknown> = {
-          accepted_version: serverDisclaimerVersion,
-          accepted_hash: serverDisclaimerHash,
-          accepted_at: acceptedAt,
-          // Temporary compatibility for backend rollouts still reading the old key.
-          disclaimer_version_accepted: serverDisclaimerVersion,
-          disclaimer_hash: serverDisclaimerHash,
-          disclaimer_locale: toApiLocale(locale),
-          slug,
-        };
+        const requestMeta: Record<string, unknown> = { slug };
 
         for (let retry = 0; retry < 2; retry += 1) {
           try {
@@ -844,11 +748,7 @@ export default function Big5TakeClient({
     inCooldown,
     locale,
     cooldownSeconds,
-    acceptedDisclaimerHash,
-    acceptedDisclaimerVersion,
-    disclaimerAcceptedAt,
     serverDisclaimerHash,
-    serverDisclaimerText,
     serverDisclaimerVersion,
     slug,
     resolvedFormCode,
@@ -869,24 +769,6 @@ export default function Big5TakeClient({
       return null;
     }
 
-    const hasCurrentDisclaimer = Boolean(
-      serverDisclaimerText && serverDisclaimerVersion && serverDisclaimerHash
-    );
-    const hasAcceptedCurrentDisclaimer = Boolean(
-      hasCurrentDisclaimer
-      && isValidDisclaimerTimestamp(disclaimerAcceptedAt)
-      && acceptedDisclaimerVersion === serverDisclaimerVersion
-      && acceptedDisclaimerHash === serverDisclaimerHash
-    );
-    if (!hasAcceptedCurrentDisclaimer) {
-      setStartError(
-        locale === "zh"
-          ? "请先阅读并明确接受当前版本的服务免责声明。"
-          : "Please read and explicitly accept the current service disclaimer before starting."
-      );
-      return null;
-    }
-
     if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
       forceNewAttemptAppliedRef.current = true;
       clearAttemptMeta();
@@ -898,27 +780,9 @@ export default function Big5TakeClient({
     }
 
     return startFreshAttempt(runId);
-  }, [acceptedDisclaimerHash, acceptedDisclaimerVersion, attemptId, authBlockError, clearAttemptMeta, disclaimerAcceptedAt, forceNewAttemptRequested, locale, matchesSavedAttempt, serverDisclaimerHash, serverDisclaimerText, serverDisclaimerVersion, staleDraftError, startFreshAttempt]);
+  }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
 
   const handleSelectAnswer = (questionId: string, code: string) => {
-    const hasCurrentDisclaimer = Boolean(
-      serverDisclaimerText && serverDisclaimerVersion && serverDisclaimerHash
-    );
-    const hasAcceptedCurrentDisclaimer = Boolean(
-      hasCurrentDisclaimer
-      && isValidDisclaimerTimestamp(disclaimerAcceptedAt)
-      && acceptedDisclaimerVersion === serverDisclaimerVersion
-      && acceptedDisclaimerHash === serverDisclaimerHash
-    );
-    if (!hasAcceptedCurrentDisclaimer) {
-      setStartError(
-        locale === "zh"
-          ? "请先阅读并明确接受当前版本的服务免责声明。"
-          : "Please read and explicitly accept the current service disclaimer before answering."
-      );
-      return;
-    }
-
     const shouldPrimeAttempt =
       !attemptId &&
       !matchesSavedAttempt &&
@@ -1238,46 +1102,6 @@ export default function Big5TakeClient({
     enterDurationMs: 280,
   });
 
-  const hasCurrentDisclaimer = Boolean(
-    serverDisclaimerText && serverDisclaimerVersion && serverDisclaimerHash
-  );
-  const hasAcceptedCurrentDisclaimer = Boolean(
-    hasCurrentDisclaimer
-    && isValidDisclaimerTimestamp(disclaimerAcceptedAt)
-    && acceptedDisclaimerVersion === serverDisclaimerVersion
-    && acceptedDisclaimerHash === serverDisclaimerHash
-  );
-  const disclaimerPanel = (
-    <div data-testid="big5-disclaimer-consent">
-      <BigFiveDisclaimerGate
-        locale={locale}
-        text={serverDisclaimerText ?? ""}
-        version={serverDisclaimerVersion ?? undefined}
-        checkboxLabel={locale === "zh" ? "我已阅读并同意上述内容" : "I have read and agree to the disclaimer."}
-        checked={consentChecked || hasAcceptedCurrentDisclaimer}
-        starting={starting || submitting}
-        error={!hasCurrentDisclaimer ? (locale === "zh" ? "当前免责声明不可用，暂时无法开始测试。" : "The current disclaimer is unavailable, so the assessment cannot start yet.") : startError}
-        onCheckedChange={(next) => setConsentChecked(next)}
-        onStart={() => {
-          if (!hasCurrentDisclaimer || (!consentChecked && !hasAcceptedCurrentDisclaimer) || !serverDisclaimerVersion || !serverDisclaimerHash) return;
-          acceptDisclaimer({ version: serverDisclaimerVersion, hash: serverDisclaimerHash });
-          setConsentGateDismissed(true);
-          setStartError(null);
-        }}
-      />
-    </div>
-  );
-
-  useEffect(() => {
-    if (loadingQuestions) {
-      return;
-    }
-    if (!hasAcceptedCurrentDisclaimer && attemptId) {
-      clearAttemptMeta();
-      cancelPendingSubmitSideEffects();
-    }
-  }, [attemptId, cancelPendingSubmitSideEffects, clearAttemptMeta, hasAcceptedCurrentDisclaimer, loadingQuestions, serverDisclaimerText]);
-
   useEffect(() => {
     cancelAutoAdvanceRef.current = cancelPending;
   }, [cancelPending]);
@@ -1381,7 +1205,7 @@ export default function Big5TakeClient({
                 <Button
                   type="button"
                   variant="outline"
-                  disabled={!hasAcceptedCurrentDisclaimer || submitting || inCooldown || submitOverlayVisible}
+                  disabled={submitting || inCooldown || submitOverlayVisible}
                   onClick={() => {
                     void handleSubmitWithOverlay();
                   }}
@@ -1409,21 +1233,19 @@ export default function Big5TakeClient({
               </div>
             ) : null}
 
-            {hasAcceptedCurrentDisclaimer && consentGateDismissed ? (
-              <V2LikertScale
-                questionId={currentQuestion.question_id}
-                options={currentQuestion.options}
-                value={answers[currentQuestion.question_id]}
-                onChange={(code) =>
-                  selectAndAdvance(() => {
-                    handleSelectAnswer(currentQuestion.question_id, code);
-                  }, {
-                    questionId: currentQuestion.question_id,
-                    code,
-                  })
-                }
-              />
-            ) : disclaimerPanel}
+            <V2LikertScale
+              questionId={currentQuestion.question_id}
+              options={currentQuestion.options}
+              value={answers[currentQuestion.question_id]}
+              onChange={(code) =>
+                selectAndAdvance(() => {
+                  handleSelectAnswer(currentQuestion.question_id, code);
+                }, {
+                  questionId: currentQuestion.question_id,
+                  code,
+                })
+              }
+            />
 
             {startError ? <Alert>{startError}</Alert> : null}
             {submitError ? <Alert>{submitError}</Alert> : null}
@@ -1467,21 +1289,19 @@ export default function Big5TakeClient({
         </p>
         <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
 
-        {hasAcceptedCurrentDisclaimer && consentGateDismissed ? (
-          <V2LikertScale
-            questionId={currentQuestion.question_id}
-            options={currentQuestion.options}
-            value={answers[currentQuestion.question_id]}
-            onChange={(code) =>
-              selectAndAdvance(() => {
-                handleSelectAnswer(currentQuestion.question_id, code);
-              }, {
-                questionId: currentQuestion.question_id,
-                code,
-              })
-            }
-          />
-        ) : disclaimerPanel}
+        <V2LikertScale
+          questionId={currentQuestion.question_id}
+          options={currentQuestion.options}
+          value={answers[currentQuestion.question_id]}
+          onChange={(code) =>
+            selectAndAdvance(() => {
+              handleSelectAnswer(currentQuestion.question_id, code);
+            }, {
+              questionId: currentQuestion.question_id,
+              code,
+            })
+          }
+        />
 
         {startError ? <Alert>{startError}</Alert> : null}
         {submitError ? <Alert>{submitError}</Alert> : null}
@@ -1503,7 +1323,7 @@ export default function Big5TakeClient({
             <Button
               type="button"
               variant="outline"
-              disabled={!hasAcceptedCurrentDisclaimer || starting || submitting || inCooldown || submitOverlayVisible}
+              disabled={starting || submitting || inCooldown || submitOverlayVisible}
               onClick={() => {
                 void handleSubmitWithOverlay();
               }}
@@ -1520,7 +1340,7 @@ export default function Big5TakeClient({
 
           <Button
             type="button"
-            disabled={!hasAcceptedCurrentDisclaimer || starting || submitting || inCooldown || submitOverlayVisible}
+            disabled={starting || submitting || inCooldown || submitOverlayVisible}
             onClick={() => {
               if (currentIndex >= total - 1) {
                 void handleSubmitWithOverlay();

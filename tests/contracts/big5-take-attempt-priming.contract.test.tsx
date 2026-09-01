@@ -309,6 +309,11 @@ async function waitForFirstQuestion() {
   }, {
     timeout: CONTRACT_RENDER_TIMEOUT_MS,
   });
+  await waitFor(() => {
+    expect(screen.getByRole("button", { name: "Answer current" })).toBeInTheDocument();
+  }, {
+    timeout: CONTRACT_RENDER_TIMEOUT_MS,
+  });
 }
 
 describe("Big Five take attempt priming", () => {
@@ -349,15 +354,9 @@ describe("Big Five take attempt priming", () => {
     renderClient("big5_90");
 
     await waitForFirstQuestion();
-    expect(screen.getByTestId("big5-disclaimer-consent")).toBeInTheDocument();
-    expect(screen.queryByRole("button", { name: "Answer current" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "Agree and start" })).toBeNull();
     expect(hoisted.startBig5Attempt).not.toHaveBeenCalled();
 
-    fireEvent.click(screen.getByRole("checkbox", { name: "I have read and agree to the disclaimer." }));
-    fireEvent.click(screen.getByRole("button", { name: "Agree and start" }));
-    await waitFor(() => {
-      expect(screen.getByRole("button", { name: "Answer current" })).toBeInTheDocument();
-    });
     fireEvent.click(await screen.findByRole("button", { name: "Answer current" }));
 
     await waitFor(() => {
@@ -368,13 +367,9 @@ describe("Big Five take attempt priming", () => {
       formCode: "big5_90",
       region: "GLOBAL",
       clientVersion: "fe-big5-2",
-      meta: expect.objectContaining({
-        accepted_version: "BIG5_OCEAN_v1",
-        accepted_hash: "hash_v1",
-        accepted_at: useBig5AttemptStore.getState().disclaimerAcceptedAt,
-      }),
+      meta: { slug: "big-five-personality-test-ocean-model" },
     }));
-    expect(useBig5AttemptStore.getState().disclaimerAcceptedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
+    expect(useBig5AttemptStore.getState().disclaimerAcceptedAt).toBeNull();
     expect(useBig5AttemptStore.getState().attemptId).toBe("attempt-big5-start-001");
     expect(useBig5AttemptStore.getState().resumeToken).toBe("resume-big5-start-001");
     expect(useBig5AttemptStore.getState().formCode).toBe("big5_90");

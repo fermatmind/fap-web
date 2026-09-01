@@ -288,8 +288,6 @@ test("BIG5 auto-advance does not submit before last question", async ({ page }) 
   });
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await page.getByLabel("I have read and agree to the disclaimer.").check();
-  await page.getByRole("button", { name: "Agree and start" }).click();
 
   await expect(page.getByText("Question 1 / 5")).toBeVisible();
   await page.getByRole("radio").first().click();
@@ -333,8 +331,6 @@ test("@release BIG5 429 start error returns bounded retry guidance", async ({ pa
   });
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await page.getByLabel("I have read and agree to the disclaimer.").check();
-  await page.getByRole("button", { name: "Agree and start" }).click();
   await expect(page.getByText("Question 1 / 5")).toBeVisible();
   const startResponsePromise = page.waitForResponse(
     (response) => response.url().includes("/api/v0.3/attempts/start")
@@ -394,8 +390,6 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
   });
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await page.getByLabel("I have read and agree to the disclaimer.").check();
-  await page.getByRole("button", { name: "Agree and start" }).click();
 
   await expect(page.getByText("Question 1 / 3")).toBeVisible();
 
@@ -416,7 +410,6 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
   await page.reload();
 
   await expect(page.getByText("Question 3 / 3")).toBeVisible();
-  await page.getByRole("button", { name: "Agree and start" }).click();
   await expect(page.locator('[role="radio"][aria-checked="true"]:visible')).toHaveCount(1);
 });
 

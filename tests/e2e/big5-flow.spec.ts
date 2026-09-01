@@ -288,24 +288,8 @@ test("@release BIG5 flow: answer -> submit -> foundation result", async ({ page 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
   const firstQuestion = page.getByText("Question 1 / 120");
-  const startButton = page.getByRole("button", { name: "Agree and start" });
-  await expect
-    .poll(
-      async () => {
-        if (await firstQuestion.isVisible().catch(() => false)) return "question";
-        if (await startButton.isVisible().catch(() => false)) return "consent";
-        return "pending";
-      },
-      { timeout: 20000 }
-    )
-    .not.toBe("pending");
-
-  if (await startButton.isVisible().catch(() => false)) {
-    await page.getByLabel("I have read and agree to the disclaimer.").check();
-    await startButton.click();
-  }
-
   await expect(firstQuestion).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole("button", { name: "Agree and start" })).toHaveCount(0);
 
   const firstRadio = page.getByRole("radio").first();
   for (let i = 0; i < 119; i += 1) {
