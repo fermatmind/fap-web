@@ -45,7 +45,6 @@ import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
   resolveStaleDraftResetMessage,
-  shouldBlockInvalidDraftOnTakePage,
 } from "@/lib/attempt/staleAttempt";
 
 const SDS_OPTION_CODES = ["A", "B", "C", "D"];
@@ -353,11 +352,6 @@ export default function ClinicalTakeClient({
     () => questions.reduce((count, item) => count + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
-  const shouldBlockStaleDraft = shouldBlockInvalidDraftOnTakePage({
-    answeredCount,
-    totalQuestions: totalQuestions,
-    attemptId,
-  });
 
   const moduleMeta = useMemo(() => normalizeModuleMeta(questionsMeta?.modules), [questionsMeta?.modules]);
 
@@ -404,26 +398,8 @@ export default function ClinicalTakeClient({
   }, [answers]);
 
   useEffect(() => {
-    if (loadingQuestions) {
-      return;
-    }
-
-    if (shouldBlockStaleDraft) {
-      clearAttemptMeta();
-      cancelPendingSubmitSideEffects();
-      setSubmitOverlayVisible(false);
-      setSubmitOverlayPhase(0);
-      setSubmitting(false);
-      setSubmitError(null);
-      setStartError(null);
-      setStaleDraftError(resolveStaleDraftResetMessage(locale));
-      return;
-    }
-
-    setStaleDraftError(null);
-  }, [cancelPendingSubmitSideEffects, clearAttemptMeta, loadingQuestions, locale, shouldBlockStaleDraft]);
-
-  useEffect(() => {
+    mountedRef.current = true;
+    takeFlowRef.current = createTakeFlowController();
     const takeFlow = takeFlowRef.current;
     return () => {
       mountedRef.current = false;

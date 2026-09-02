@@ -164,44 +164,22 @@ vi.mock("@/lib/attempt/staleAttempt", async () => {
   };
 });
 
-function buildClinicalQuestionsResponse() {
+function buildClinicalQuestionsResponse(questionCount = 3) {
   return {
     ok: true,
     scale_code: "SDS_20",
     questions: {
       schema: "fap.questions.v1",
-      items: [
-        {
-          question_id: "cq1",
-          order: 1,
-          text: "Clinical question 1",
-          module_code: "SDS",
-          options: [
-            { code: "A", text: "Rarely" },
-            { code: "B", text: "Sometimes" },
-          ],
-        },
-        {
-          question_id: "cq2",
-          order: 2,
-          text: "Clinical question 2",
-          module_code: "SDS",
-          options: [
-            { code: "A", text: "Rarely" },
-            { code: "B", text: "Sometimes" },
-          ],
-        },
-        {
-          question_id: "cq3",
-          order: 3,
-          text: "Clinical question 3",
-          module_code: "SDS",
-          options: [
-            { code: "A", text: "Rarely" },
-            { code: "B", text: "Sometimes" },
-          ],
-        },
-      ],
+      items: Array.from({ length: questionCount }, (_, index) => ({
+        question_id: `cq${index + 1}`,
+        order: index + 1,
+        text: `Clinical question ${index + 1}`,
+        module_code: "SDS",
+        options: [
+          { code: "A", text: "Rarely" },
+          { code: "B", text: "Sometimes" },
+        ],
+      })),
     },
     options: {
       format: ["Rarely", "Sometimes", "Often", "Always"],
@@ -311,6 +289,34 @@ describe("clinical take consent gate", () => {
         locale: "en",
       },
     }));
+  });
+
+  it("keeps a near-complete SDS draft active before its lazy attempt is created", async () => {
+    const questionIds = Array.from({ length: 20 }, (_, index) => `cq${index + 1}`);
+    hoisted.fetchClinicalQuestions.mockResolvedValue(buildClinicalQuestionsResponse(20));
+
+    const store = useClinicalAttemptStore.getState();
+    store.initSession({
+      slug: "clinical-depression-anxiety-assessment-professional-edition",
+      scaleCode: "SDS_20",
+      questionIds,
+    });
+    store.acceptConsent({ version: "clinical-v1", locale: "en" });
+    questionIds.slice(0, 18).forEach((questionId) => store.setAnswer(questionId, "A"));
+    store.setCurrentIndex(18);
+
+    render(
+      <ClinicalTakeClient
+        slug="clinical-depression-anxiety-assessment-professional-edition"
+        scaleCode="SDS_20"
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("Clinical question 19")).toBeInTheDocument();
+    });
+    expect(screen.queryByTestId("stale-reset")).not.toBeInTheDocument();
+    expect(useClinicalAttemptStore.getState().attemptId).toBeNull();
   });
 
   it("clears URL auth parameters without bypassing the clinical consent gate", async () => {
