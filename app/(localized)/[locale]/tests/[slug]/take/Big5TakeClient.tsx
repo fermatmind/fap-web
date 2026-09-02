@@ -359,6 +359,8 @@ export default function Big5TakeClient({
   }, [cooldownSeconds]);
 
   useEffect(() => {
+    mountedRef.current = true;
+    takeFlowRef.current = createTakeFlowController();
     const takeFlow = takeFlowRef.current;
     return () => {
       mountedRef.current = false;
@@ -641,7 +643,7 @@ export default function Big5TakeClient({
                 region: "GLOBAL",
                 formCode: testKpiMetadata.formCode,
                 meta: requestMeta,
-                clientVersion: "fe-big5-2",
+                clientVersion: "fe-big5-3",
               })
             );
             if (!isFlowActive(runId)) {

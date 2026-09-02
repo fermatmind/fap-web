@@ -60,6 +60,17 @@ async function mockBig5BaseFlow({
   await mockTrack(page);
   await mockBig5Lookup(page, "full");
 
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        fm_token: "fm_e2e_big5_uat_guest_token",
+      }),
+    });
+  });
+
   const payload = {
     ok: true,
     scale_code: "BIG5_OCEAN",
@@ -90,6 +101,9 @@ async function mockBig5BaseFlow({
         ok: true,
         attempt_id: attemptId,
         scale_code: "BIG5_OCEAN",
+        form_code: "big5_120",
+        question_count: questionCount,
+        resume_token: `resume-${attemptId}`,
       }),
     });
   });
@@ -106,6 +120,7 @@ async function mockBig5BaseFlow({
       }),
     });
   });
+
 }
 
 async function completeBig5Take({
@@ -120,10 +135,30 @@ async function completeBig5Take({
   targetUrl: RegExp;
 }) {
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await page.getByLabel("I have read and agree to the disclaimer.").check();
-  await page.getByRole("button", { name: "Agree and start" }).click();
+  await expect(page.getByText(`Question 1 / ${questionCount}`)).toBeVisible();
+  await expect(page.getByRole("button", { name: "Agree and start" })).toHaveCount(0);
 
-  for (let i = 0; i < questionCount - 1; i += 1) {
+  const startResponsePromise = page.waitForResponse(
+    (response) =>
+      response.request().method() === "POST" &&
+      response.url().includes("/api/v0.3/attempts/start")
+  );
+  await page.getByRole("radio").nth(optionIndex).click();
+  const startResponse = await startResponsePromise;
+  expect(startResponse.status()).toBe(200);
+  const startPayload = (await startResponse.json()) as { attempt_id?: unknown };
+  const startedAttemptId = String(startPayload.attempt_id ?? "");
+  expect(startedAttemptId).not.toBe("");
+  await expect.poll(() => page.evaluate(
+    (attemptId) => Array.from({ length: window.localStorage.length }, (_, index) => {
+      const key = window.localStorage.key(index);
+      return key ? window.localStorage.getItem(key) ?? "" : "";
+    }).some((value) => value.includes(attemptId)),
+    startedAttemptId
+  )).toBe(true);
+  await expect(page.getByText(`Question 2 / ${questionCount}`)).toBeVisible();
+
+  for (let i = 1; i < questionCount - 1; i += 1) {
     await expect(page.getByText(`Question ${i + 1} / ${questionCount}`)).toBeVisible();
     await page.getByRole("radio").nth(optionIndex).click();
     await expect(page.getByText(`Question ${i + 2} / ${questionCount}`)).toBeVisible();

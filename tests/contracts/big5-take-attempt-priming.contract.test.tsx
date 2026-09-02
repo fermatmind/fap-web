@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { ReactNode } from "react";
+import { StrictMode, type ReactNode } from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import Big5TakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient";
@@ -288,11 +288,13 @@ function renderClient(formCode = "big5_90", search = `form=${formCode}`) {
   hoisted.search = search;
 
   return render(
-    <Big5TakeClient
-      slug="big-five-personality-test-ocean-model"
-      formCode={formCode}
-      estimatedMinutes={15}
-    />
+    <StrictMode>
+      <Big5TakeClient
+        slug="big-five-personality-test-ocean-model"
+        formCode={formCode}
+        estimatedMinutes={15}
+      />
+    </StrictMode>
   );
 }
 
@@ -366,7 +368,7 @@ describe("Big Five take attempt priming", () => {
       anonId: "anon_big5_take",
       formCode: "big5_90",
       region: "GLOBAL",
-      clientVersion: "fe-big5-2",
+      clientVersion: "fe-big5-3",
       meta: { slug: "big-five-personality-test-ocean-model" },
     }));
     expect(useBig5AttemptStore.getState().disclaimerAcceptedAt).toBeNull();
