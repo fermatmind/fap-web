@@ -22,8 +22,9 @@ describe("topics cleanup contract", () => {
     const listPage = read("app/(localized)/[locale]/topics/page.tsx");
     const detailPage = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
-    expect(listPage).toContain('from "@/lib/cms/topics"');
+    expect(listPage).toContain('from "@/lib/cms/articles"');
     expect(detailPage).toContain('from "@/lib/cms/topics"');
+    expect(listPage).not.toContain('from "@/lib/cms/topics"');
     expect(listPage).not.toContain('from "@/lib/topics"');
     expect(detailPage).not.toContain('from "@/lib/topics"');
     expect(listPage).not.toContain("listTopicClusters");

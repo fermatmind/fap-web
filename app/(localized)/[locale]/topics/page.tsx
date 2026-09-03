@@ -160,7 +160,7 @@ function formatArticleReadTime(minutes: number | null, locale: Locale): string |
   return locale === "zh" ? `${minutes} 分钟` : `${minutes} min read`;
 }
 
-function articleCategoryLabel(article: CmsArticle, locale: Locale): string | null {
+function getArticleCategoryLabel(article: CmsArticle, locale: Locale): string | null {
   const label = article.category?.name.trim() || null;
   if (!label) return null;
   if (locale === "en" && /[\u3400-\u9fff]/u.test(label)) return null;
@@ -410,7 +410,7 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
 
             <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {curatedArticles.map((article) => {
-                const categoryLabel = articleCategoryLabel(article, locale);
+                const categoryLabel = getArticleCategoryLabel(article, locale);
                 const modelLabel = articleModelLabel(article, locale);
                 const publishedAt = formatArticleDate(article.publishedAt ?? article.updatedAt, locale);
                 const readTime = formatArticleReadTime(article.readingMinutes, locale);
