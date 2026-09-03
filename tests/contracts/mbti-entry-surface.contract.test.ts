@@ -134,7 +134,7 @@ describe("mbti entry surface contract", () => {
     expect(count(source, 'data-testid="mbti-topic-detail-primary-cta"')).toBe(1);
   });
 
-  it("keeps the topic index as navigation-only without the removed primary mbti CTA", () => {
+  it("keeps the topic index free of a single primary mbti CTA while tracking its distinct journeys", () => {
     const source = read("app/(localized)/[locale]/topics/page.tsx");
 
     expect(source).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
@@ -143,7 +143,11 @@ describe("mbti entry surface contract", () => {
     expect(source).not.toContain('data-testid="mbti-topics-index-entry-cta-group"');
     expect(source).not.toContain('data-testid="mbti-topics-index-primary-cta"');
     expect(source).not.toContain('targetAction: "start_mbti_test_primary"');
-    expect(source).not.toContain("TrackedEntryCtaLink");
+    expect(source).toContain("TrackedEntryCtaLink");
+    expect(source).toContain('action_category: "choose_question_path"');
+    expect(source).toContain('entry_surface: `topics_question_${item.key}`');
+    expect(source).not.toContain('action_category: "choose_model_topic"');
+    expect(source).not.toContain('id="topics-models-title"');
     expect(source).not.toContain("buildMbtiEntryHref({");
     expect(count(source, 'data-testid="mbti-topics-index-primary-cta"')).toBe(0);
   });
