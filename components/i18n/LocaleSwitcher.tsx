@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Globe2 } from "lucide-react";
 import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -15,7 +15,7 @@ export function LocaleSwitcher() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const locale = useLocale();
-  const currentCode = locale === "zh" ? "ZH" : "EN";
+  const currentLabel = locale === "zh" ? "简体中文" : "English";
 
   useEffect(() => {
     if (!open) return;
@@ -57,15 +57,19 @@ export function LocaleSwitcher() {
     >
       <button
         type="button"
-        className="fm-site-header-locale inline-flex h-9 min-h-[36px] min-w-[58px] shrink-0 items-center justify-center gap-1 rounded-full border border-[var(--fm-border-subtle)] bg-white px-3 text-[13px] font-medium text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)] whitespace-nowrap xl:min-w-[60px]"
+        className="fm-site-header-locale inline-flex h-10 min-h-[40px] min-w-[104px] shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-full border border-[var(--fm-border-subtle)] bg-white px-3 text-[13px] font-medium text-[var(--fm-text-main)] transition duration-200 hover:bg-[var(--fm-lime-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/25"
         aria-label={locale === "zh" ? "语言菜单" : "Language menu"}
         aria-haspopup="menu"
         aria-expanded={open}
         aria-controls="site-language-menu"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <span>{currentCode}</span>
-        <ChevronDown className={open ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
+        <Globe2 aria-hidden="true" className="h-3.5 w-3.5 shrink-0 text-[var(--fm-text-muted)]" />
+        <span>{currentLabel}</span>
+        <ChevronDown
+          aria-hidden="true"
+          className={open ? "h-3.5 w-3.5 rotate-180 transition-transform duration-200" : "h-3.5 w-3.5 transition-transform duration-200"}
+        />
       </button>
 
       {open ? (
