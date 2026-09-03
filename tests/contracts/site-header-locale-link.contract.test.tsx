@@ -131,4 +131,21 @@ describe("SiteHeader locale link contract", () => {
     expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
     expect(link.getAttribute("href")).not.toContain("form=");
   });
+
+  it("renders a full language label and paired locale codes in the desktop menu", async () => {
+    render(
+      <LocaleProvider locale="zh">
+        <LocaleSwitcher />
+      </LocaleProvider>
+    );
+
+    expect(screen.getByRole("button", { name: "语言菜单" })).toHaveTextContent("简体中文");
+
+    fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
+
+    expect(await screen.findByRole("menuitem", { name: "简体中文" })).toHaveAttribute("aria-current", "true");
+    expect(screen.getByRole("menuitem", { name: "English" })).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
+    expect(screen.getByText("ZH")).toBeInTheDocument();
+    expect(screen.getByText("EN")).toBeInTheDocument();
+  });
 });

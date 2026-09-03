@@ -49,7 +49,21 @@ afterEach(() => {
   vi.resetModules();
 });
 
-async function renderArticlesIndex(locale: "en" | "zh", items: CmsArticle[] = [articleFixture]) {
+function articleFixtures(count: number, locale: "en" | "zh" = "en"): CmsArticle[] {
+  return Array.from({ length: count }, (_, index) => ({
+    ...articleFixture,
+    id: index + 1,
+    slug: `article-${index + 1}`,
+    locale,
+    title: locale === "zh" ? `文章标题 ${index + 1}` : `Article title ${index + 1}`,
+  }));
+}
+
+async function renderArticlesIndex(
+  locale: "en" | "zh",
+  items: CmsArticle[] = [articleFixture],
+  currentPage = 1
+) {
   process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) =>
@@ -64,10 +78,10 @@ async function renderArticlesIndex(locale: "en" | "zh", items: CmsArticle[] = [a
         value: {
           items,
           pagination: {
-            currentPage: 1,
+            currentPage,
             perPage: 20,
             total: items.length,
-            lastPage: 1,
+            lastPage: Math.max(currentPage, 1),
           },
           landingSurface: null,
         },
@@ -78,7 +92,7 @@ async function renderArticlesIndex(locale: "en" | "zh", items: CmsArticle[] = [a
   const { default: ArticlesPage } = await import("@/app/(localized)/[locale]/articles/page");
   const page = await ArticlesPage({
     params: Promise.resolve({ locale }),
-    searchParams: Promise.resolve({}),
+    searchParams: Promise.resolve(currentPage > 1 ? { page: String(currentPage) } : {}),
   });
 
   return renderToStaticMarkup(page as ReactNode);
@@ -114,5 +128,33 @@ describe("articles index semantic baseline", () => {
     expect(html).toContain(">Articles<");
     expect(html).toContain("<h2");
     expect(html).toContain("No published articles yet");
+  });
+
+  it("uses four editorial features and a complete four-by-four archive grid on the first full page", async () => {
+    const html = await renderArticlesIndex("en", articleFixtures(20));
+
+    expect(html).toContain('data-testid="articles-featured-grid"');
+    expect(html.match(/data-article-layout="featured-lead"/g)).toHaveLength(1);
+    expect(html.match(/data-article-layout="featured-secondary"/g)).toHaveLength(3);
+    expect(html.match(/data-article-layout="archive"/g)).toHaveLength(16);
+    expect(html).toContain('data-layout-mode="first-page"');
+  });
+
+  it("renders later pages as a full twenty-card archive without repeating the feature layout", async () => {
+    const html = await renderArticlesIndex("en", articleFixtures(20), 2);
+
+    expect(html).not.toContain('data-testid="articles-featured-grid"');
+    expect(html.match(/data-article-layout="archive"/g)).toHaveLength(20);
+    expect(html).toContain('data-layout-mode="archive-page"');
+    expect(html).toContain(">Articles · Page 2<");
+  });
+
+  it("keeps a single final archive card left-aligned in normal reading order", async () => {
+    const html = await renderArticlesIndex("en", articleFixtures(9), 5);
+
+    expect(html).toContain(
+      'class="group flex min-h-full flex-col sm:col-span-2 lg:col-span-2"'
+    );
+    expect(html).not.toContain("col-start-");
   });
 });
