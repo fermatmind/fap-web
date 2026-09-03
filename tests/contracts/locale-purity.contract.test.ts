@@ -17,13 +17,15 @@ describe("locale purity contract", () => {
     expect(source).not.toContain('data-testid="mbti-personality-content-pack"');
   });
 
-  it("keeps topic operational labels localized for Chinese pages", () => {
+  it("keeps topic journey labels localized for Chinese pages", () => {
     const indexSource = read("app/(localized)/[locale]/topics/page.tsx");
     const detailSource = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
-    expect(indexSource).toContain('isZh ? "测试文章分类" : "Test article categories"');
-    expect(indexSource).toContain('isZh ? "人格文章" : "Personality articles"');
-    expect(indexSource).toContain('isZh ? "职业文章" : "Career articles"');
+    expect(indexSource).toContain('isZh ? "从一个真实问题开始" : "Start with a real question"');
+    expect(indexSource).toContain('isZh ? "选择你正在面对的问题" : "Choose the question you are facing"');
+    expect(indexSource).toContain('isZh ? "精选阅读" : "Featured reading"');
+    expect(indexSource).not.toContain('isZh ? "测评主题" : "Explore by model"');
+    expect(indexSource).toContain('isZh ? "测评能回答什么，不能回答什么" : "What assessments can and cannot answer"');
     expect(detailSource).toContain('locale === "zh" ? "主题摘要" : "Topic summary"');
     expect(detailSource).toContain('locale === "zh" ? "主题" : "Topic"');
     expect(detailSource).toContain("formatTopicDisplayCode(topic.topicCode || topic.slug)");
