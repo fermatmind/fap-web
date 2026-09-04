@@ -8,13 +8,13 @@ import { RelatedContent } from "@/components/content/RelatedContent";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   buildCareerGuideFrontendUrl,
   getCareerGuideFromCmsBySlug,
   getCareerGuideSeoFromCmsBySlug,
   normalizeCareerGuideSeoPayload,
   type CareerGuideDetailViewModel,
+  withoutUnreviewedCareerJobSteps,
 } from "@/lib/cms/career-guides";
 import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -216,43 +216,11 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
       ) : null}
 
       <AnswerSurfaceSection
-        surface={guide.answerSurface}
+        surface={withoutUnreviewedCareerJobSteps(guide.answerSurface)}
         locale={locale}
         testId="career-guide-answer-surface"
         pageFamily="career_guide"
       />
-
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "相关职业" : "Related jobs"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-1 text-sm text-[var(--fm-text-muted)]">
-            {guide.relatedJobs.map((job) => (
-              <p key={job.slug} className="m-0">
-                <Link href={job.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {job.title}
-                </Link>
-              </p>
-            ))}
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>{locale === "zh" ? "相关行业" : "Related industries"}</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-1 text-sm text-[var(--fm-text-muted)]">
-            {guide.relatedIndustries.map((industry) => (
-              <p key={industry.slug} className="m-0">
-                <Link href={industry.href} className="font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-                  {industry.title}
-                </Link>
-              </p>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
 
       <div className="space-y-6">
         <RelatedContent

@@ -467,6 +467,22 @@ export function adaptCareerGuideDetail(
   };
 }
 
+export function withoutUnreviewedCareerJobSteps(
+  surface: AnswerSurfaceViewModel | null
+): AnswerSurfaceViewModel | null {
+  if (!surface) {
+    return null;
+  }
+
+  const nextStepBlocks = surface.nextStepBlocks.filter(
+    (block) => !block.href?.match(/^\/(?:en|zh)\/career\/jobs\/[^/]+$/)
+  );
+
+  return nextStepBlocks.length === surface.nextStepBlocks.length
+    ? surface
+    : { ...surface, nextStepBlocks };
+}
+
 function buildFallbackCareerGuideJsonLd(
   guide: CareerGuideDetailViewModel,
   locale: Locale

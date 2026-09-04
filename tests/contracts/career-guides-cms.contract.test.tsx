@@ -9,6 +9,7 @@ import {
   listCareerGuidesFromCms,
   mapFrontendLocaleToCareerGuideApiLocale,
   normalizeCareerGuideSeoPayload,
+  withoutUnreviewedCareerJobSteps,
 } from "@/lib/cms/career-guides";
 
 const ROOT = process.cwd();
@@ -169,6 +170,12 @@ describe("career guides cms adapter contract", () => {
               title: "开始测试",
               href: "/zh/tests/mbti-personality-test-16-personality-types",
             },
+            {
+              key: "related_job",
+              title: "查看相关职业",
+              href: "/zh/career/jobs/product-manager",
+              kind: "content_continue",
+            },
           ],
         },
       },
@@ -214,6 +221,13 @@ describe("career guides cms adapter contract", () => {
     expect(detail?.landingSurface?.ctaBundle[0]?.href).toBe("/zh/tests/mbti-personality-test-16-personality-types");
     expect(detail?.answerSurface?.surfaceType).toBe("career_guide_public_detail");
     expect(detail?.answerSurface?.summaryBlocks[0]?.body).toBe("把人格线索转成职业判断。");
+    expect(detail?.answerSurface?.nextStepBlocks).toHaveLength(2);
+    expect(withoutUnreviewedCareerJobSteps(detail!.answerSurface)?.nextStepBlocks).toEqual([
+      expect.objectContaining({
+        key: "start_test",
+        href: "/zh/tests/mbti-personality-test-16-personality-types",
+      }),
+    ]);
   });
 
   it("returns null for 404 detail and seo lookups", async () => {
@@ -371,6 +385,16 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).toContain("text-center");
     expect(detailSource).not.toContain("career-guide-landing-summary");
     expect(detailSource).not.toContain("landingSurface.summaryBlocks");
+  });
+
+  it("does not render unreviewed career and industry relations on guide pages", () => {
+    const detailSource = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
+
+    expect(detailSource).toContain("withoutUnreviewedCareerJobSteps(guide.answerSurface)");
+    expect(detailSource).not.toContain("guide.relatedJobs.map");
+    expect(detailSource).not.toContain("guide.relatedIndustries.map");
+    expect(detailSource).not.toContain('"相关职业"');
+    expect(detailSource).not.toContain('"相关行业"');
   });
 
   it("calls notFound without an SEO read when the cms detail lookup misses", async () => {
