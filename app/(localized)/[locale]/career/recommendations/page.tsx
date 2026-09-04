@@ -139,7 +139,7 @@ export default async function CareerRecommendationsPage({
           <div className={styles.heroGrid}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>{isZh ? "职业适配 · CAREER FIT" : "CAREER FIT · A PRACTICAL PATH"}</p>
-              <h1 className="m-0 max-w-3xl font-serif text-[clamp(2.45rem,6vw,5.4rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-white">
+              <h1 className="m-0 max-w-3xl font-serif text-[clamp(2.45rem,5vw,5rem)] font-semibold leading-[0.98] tracking-[-0.035em] text-white">
                 {isZh ? (
                   <>
                     职业推荐不是一个答案，

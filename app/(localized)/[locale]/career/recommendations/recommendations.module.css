@@ -324,6 +324,27 @@
   }
 }
 
+@media (min-width: 901px) and (max-height: 800px) {
+  .heroInner {
+    padding-bottom: 1.5rem;
+    padding-top: 1.25rem;
+  }
+
+  .heroGrid {
+    align-items: start;
+    padding-bottom: 1rem;
+    padding-top: 1.75rem;
+  }
+
+  .heroCopy {
+    gap: 1rem;
+  }
+
+  .pathVisual {
+    min-height: 27rem;
+  }
+}
+
 @media (max-width: 639px) {
   .heroGrid {
     gap: 1.25rem;
