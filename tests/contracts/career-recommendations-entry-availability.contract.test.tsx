@@ -9,21 +9,29 @@ function read(relPath: string): string {
 }
 
 describe("career recommendations entry availability contract", () => {
-  it("restores decision-first copy and keeps missing backend types non-interactive", () => {
+  it("separates career discovery paths from the recommendation list", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(source).toContain("从测评结果选择职业方向");
-    expect(source).toContain("Choose a career direction from your result");
-    expect(source).toContain("推荐页先给方向和取舍，再把候选职业作为下一步。");
-    expect(source).toContain("Recommendation pages lead with direction and tradeoffs; candidate roles come after the decision.");
+    expect(source).toContain("找到适合你的职业方向");
+    expect(source).toContain("Find a career direction that fits you");
+    expect(source).toContain("已有测评结果");
+    expect(source).toContain("还没有明确方向");
+    expect(source).toContain("已有目标职业");
+    expect(source).toContain("按测评结果查看职业建议");
     expect(source).toContain("recommendationItems.length === 0");
     expect(source).toContain("career-recommendations-unavailable");
-    expect(source).toContain('aria-disabled="true"');
-    expect(source).toContain("career-recommendation-type-unavailable");
     expect(source).not.toContain("/personality/${typeCode.toLowerCase()}-a");
-    expect(source).toContain("recommendationItems.length > 0");
     expect(source).toContain("career-recommendations-source-entry");
     expect(source).toContain("career-recommendation-source-mbti");
+    expect(source).not.toContain("MBTI_TYPE_GROUPS");
+    expect(source).not.toContain("已开放推荐");
+    expect(source).not.toContain("适合已经拿到对应人格结果");
+    expect(source).not.toContain("选择你的 MBTI 类型");
+    expect(source).not.toContain("推荐页先给方向和取舍");
+    expect(source).not.toContain("职业推荐用于缩小方向");
+    expect(source).not.toContain("选择 MBTI 类型");
+    expect(source).not.toContain("先做大五人格");
+    expect(source).not.toContain("选择测评");
   });
 
   it("renders the visible career breadcrumb trail on the recommendations index", () => {
