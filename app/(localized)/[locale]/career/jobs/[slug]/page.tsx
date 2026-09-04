@@ -353,9 +353,9 @@ function buildNextStepRailItems(
   }
 
   items.push({
-    title: locale === "zh" ? "回到职业库" : "Back to job library",
-    description: locale === "zh" ? "继续比较其他职业。" : "Compare this with other roles.",
-    href: localizedPath("/career/jobs", locale),
+    title: locale === "zh" ? "回到职业中心" : "Back to career center",
+    description: locale === "zh" ? "选择职业库、职业推荐或职业发展指南。" : "Choose the job library, recommendations, or career guides.",
+    href: localizedPath("/career", locale),
   });
 
   return items.slice(0, 3);
@@ -978,7 +978,6 @@ export default async function CareerJobDetailPage({
     const breadcrumbItems = [
       { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
       { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-      { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
       { label: job.title },
     ];
 
@@ -1075,7 +1074,6 @@ export default async function CareerJobDetailPage({
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
             { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-            { label: locale === "zh" ? "职业库" : "Jobs", href: localizedPath("/career/jobs", locale) },
             { label: job.title },
           ]}
         />
@@ -1122,8 +1120,8 @@ export default async function CareerJobDetailPage({
                     landingPath={jobDetailLandingPath}
                     testId="career-job-shortlist-action"
                   />
-                  <Link href={localizedPath("/career/jobs", locale)} className={buttonVariants({ variant: "outline" })}>
-                    {locale === "zh" ? "回到职业库" : "Back to job library"}
+                  <Link href={localizedPath("/career", locale)} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "回到职业中心" : "Back to career center"}
                   </Link>
                 </div>
               </div>

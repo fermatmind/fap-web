@@ -112,8 +112,13 @@ export default async function CareerRecommendationsPage({
 
         <section className="mx-auto max-w-4xl space-y-4 text-center">
           <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
-            {locale === "zh" ? "青年人的认知成长与决策平台" : "A decision platform for young adults"}
+            {locale === "zh" ? "从测评结果选择职业方向" : "Choose a career direction from your result"}
           </h1>
+          <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
+            {locale === "zh"
+              ? "推荐页先给方向和取舍，再把候选职业作为下一步。"
+              : "Recommendation pages lead with direction and tradeoffs; candidate roles come after the decision."}
+          </p>
         </section>
 
         <section className="grid gap-4 md:grid-cols-3" data-testid="career-recommendations-source-entry">
@@ -164,57 +169,73 @@ export default async function CareerRecommendationsPage({
             </h2>
           </div>
 
-          <div className="grid gap-5 lg:grid-cols-4">
-            {(Object.entries(MBTI_TYPE_GROUPS) as Array<[keyof typeof MBTI_TYPE_GROUPS, readonly string[]]>).map(
-              ([groupKey, typeCodes]) => (
-                <div key={groupKey} className="border-t border-slate-200 pt-4">
-                  <div className="mb-3 flex items-center justify-between gap-3">
-                    <h3 className="m-0 text-lg font-semibold text-slate-950">{GROUP_LABELS[groupKey][locale]}</h3>
-                    <span className="text-xs font-semibold text-slate-400">{groupKey}</span>
+          {recommendationItems.length === 0 ? (
+            <div
+              className="rounded-3xl border border-slate-200 bg-white px-6 py-10 text-center shadow-sm"
+              data-testid="career-recommendations-unavailable"
+              role="status"
+            >
+              <p className="m-0 text-lg font-semibold text-slate-950">
+                {locale === "zh" ? "职业推荐暂不可用" : "Career recommendations are temporarily unavailable"}
+              </p>
+              <p className="mx-auto m-0 mt-2 max-w-xl text-sm leading-6 text-slate-500">
+                {locale === "zh" ? "请稍后再试，或先浏览职业库。" : "Please try again later, or browse the job library for now."}
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-5 lg:grid-cols-4">
+              {(Object.entries(MBTI_TYPE_GROUPS) as Array<[keyof typeof MBTI_TYPE_GROUPS, readonly string[]]>).map(
+                ([groupKey, typeCodes]) => (
+                  <div key={groupKey} className="border-t border-slate-200 pt-4">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <h3 className="m-0 text-lg font-semibold text-slate-950">{GROUP_LABELS[groupKey][locale]}</h3>
+                      <span className="text-xs font-semibold text-slate-400">{groupKey}</span>
+                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                      {typeCodes.map((typeCode) => {
+                        const item = recommendationByType.get(typeCode);
+                        return item ? (
+                          <TrackedCareerLink
+                            key={typeCode}
+                            href={item.href}
+                            eventName={CAREER_TRACKING_EVENTS.recommendationResultClick}
+                            eventPayload={{
+                              locale,
+                              entrySurface: "career_recommendation_index",
+                              sourcePageType: "career_recommendation_index",
+                              targetAction: "open_recommendation_detail",
+                              landingPath: canonicalPath,
+                              routeFamily: "recommendations",
+                              subjectKind: "recommendation_type",
+                              subjectKey: item.recommendationSubjectMeta.publicRouteSlug,
+                            }}
+                            className="rounded-2xl border border-emerald-100 bg-emerald-50 px-3 py-3 text-sm font-semibold text-emerald-800 hover:border-emerald-200"
+                          >
+                            {typeCode}
+                            <span className="mt-1 block text-xs font-medium text-emerald-700">
+                              {locale === "zh" ? "可看推荐" : "Available"}
+                            </span>
+                          </TrackedCareerLink>
+                        ) : (
+                          <div
+                            key={typeCode}
+                            aria-disabled="true"
+                            data-testid="career-recommendation-type-unavailable"
+                            className="cursor-not-allowed rounded-2xl border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-semibold text-slate-400"
+                          >
+                            {typeCode}
+                            <span className="mt-1 block text-xs font-medium text-slate-400">
+                              {locale === "zh" ? "暂不可用" : "Unavailable"}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    {typeCodes.map((typeCode) => {
-                      const item = recommendationByType.get(typeCode);
-                      return item ? (
-                        <TrackedCareerLink
-                          key={typeCode}
-                          href={item.href}
-                          eventName={CAREER_TRACKING_EVENTS.recommendationResultClick}
-                          eventPayload={{
-                            locale,
-                            entrySurface: "career_recommendation_index",
-                            sourcePageType: "career_recommendation_index",
-                            targetAction: "open_recommendation_detail",
-                            landingPath: canonicalPath,
-                            routeFamily: "recommendations",
-                            subjectKind: "recommendation_type",
-                            subjectKey: item.recommendationSubjectMeta.publicRouteSlug,
-                          }}
-                          className="rounded-2xl border border-emerald-100 bg-emerald-50 px-3 py-3 text-sm font-semibold text-emerald-800 hover:border-emerald-200"
-                        >
-                          {typeCode}
-                          <span className="mt-1 block text-xs font-medium text-emerald-700">
-                            {locale === "zh" ? "可看推荐" : "Available"}
-                          </span>
-                        </TrackedCareerLink>
-                      ) : (
-                        <Link
-                          key={typeCode}
-                          href={withLocale(`/personality/${typeCode.toLowerCase()}-a`)}
-                          className="rounded-2xl border border-slate-200 bg-white px-3 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
-                        >
-                          {typeCode}
-                          <span className="mt-1 block text-xs font-medium text-slate-400">
-                            {locale === "zh" ? "先看画像" : "Profile first"}
-                          </span>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              )
-            )}
-          </div>
+                )
+              )}
+            </div>
+          )}
 
           {recommendationItems.length > 0 ? (
             <div className="grid gap-4 md:grid-cols-2">

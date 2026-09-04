@@ -276,12 +276,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        // The Career directory is the only public landing for the retired root route.
-        source: "/:locale(en|zh)/career",
-        destination: "/:locale/career/jobs",
-        permanent: true,
-      },
-      {
         source: "/test",
         destination: "/en/tests",
         permanent: true,

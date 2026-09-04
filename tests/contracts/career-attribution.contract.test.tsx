@@ -392,7 +392,7 @@ describe("career attribution page wiring contract", () => {
     expect(trackedSources).not.toContain("career_family_hub_blocked_surface_exposed");
   });
 
-  it("retires landing-specific attribution when /career redirects to the jobs directory", async () => {
+  it("tracks the restored career center without fabricating subject attribution", async () => {
     vi.doMock("next/link", () => ({
       default: ({
         href,
@@ -503,10 +503,27 @@ describe("career attribution page wiring contract", () => {
     }));
     mockCareerCenterContent();
 
-    expect(
-      fs.existsSync(path.join(process.cwd(), "app/(localized)/[locale]/career/page.tsx"))
-    ).toBe(false);
-    expect(pageViewEvents).toEqual([]);
+    const { default: CareerCenterPage } = await import("@/app/(localized)/[locale]/career/page");
+    const markup = renderToStaticMarkup(
+      await CareerCenterPage({ params: Promise.resolve({ locale: "en" }) })
+    );
+
+    expect(fs.existsSync(path.join(process.cwd(), "app/(localized)/[locale]/career/page.tsx"))).toBe(true);
+    expect(markup).toContain("Find the career direction worth exploring next");
+    expect(markup).toContain('action="/en/career/jobs"');
+    expect(pageViewEvents).toEqual([
+      {
+        eventName: "career_landing_view",
+        properties: expect.objectContaining({
+          locale: "en",
+          entry_surface: "career_landing",
+          source_page_type: "career_landing",
+          target_action: "view_surface",
+          landing_path: "/en/career",
+          route_family: "landing",
+        }),
+      },
+    ]);
     expect(trackedLinks).toEqual([]);
   });
 
