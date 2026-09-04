@@ -178,7 +178,7 @@ export default async function CareerRecommendationsPage({
                   </span>
                   <span
                     aria-hidden="true"
-                    className="text-xl text-slate-400 transition group-hover:translate-x-1 group-hover:text-orange-600"
+                    className="text-xl text-slate-400 transition-transform group-hover:translate-x-1 group-hover:text-orange-600"
                   >
                     →
                   </span>
