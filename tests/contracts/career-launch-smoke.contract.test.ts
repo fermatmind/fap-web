@@ -31,9 +31,10 @@ describe("career launch smoke contract", () => {
 
     expect(byKey.get("career_landing")).toMatchObject({
       launchState: "stable",
-      renderMode: "redirect",
-      canonicalMode: "legacy_redirect",
-      robotsMode: "noindex",
+      renderMode: "render",
+      canonicalMode: "self",
+      robotsMode: "index",
+      requiresNextStepOrPrimaryCta: true,
     });
     expect(byKey.get("career_job_detail")).toMatchObject({
       launchState: "stable",
@@ -69,8 +70,9 @@ describe("career launch smoke contract", () => {
     });
   });
 
-  it("matches the current authority design without rewriting page behavior", () => {
+  it("matches the current authority design including the focused career center", () => {
     const nextConfig = read("next.config.mjs");
+    const careerPage = read("app/(localized)/[locale]/career/page.tsx");
     const jobsPage = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const recommendationsPage = read("app/(localized)/[locale]/career/recommendations/page.tsx");
     const familyHubPage = read("app/(localized)/[locale]/career/family/[slug]/page.tsx");
@@ -78,9 +80,11 @@ describe("career launch smoke contract", () => {
     const recommendationDetailPage = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
     const legacySlugPage = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
-    expect(nextConfig).toContain('source: "/:locale(en|zh)/career"');
-    expect(nextConfig).toContain('destination: "/:locale/career/jobs"');
-    expect(nextConfig).toContain("permanent: true");
+    expect(nextConfig).not.toContain('source: "/:locale(en|zh)/career"');
+    expect(careerPage).toContain('action={withLocale("/career/jobs")}');
+    expect(careerPage).toContain('href={withLocale("/career/recommendations")}');
+    expect(careerPage).toContain('href={withLocale("/career/guides")}');
+    expect(careerPage).not.toContain("fetchCareerJobIndex");
     expect(jobsPage).toContain("fetchCareerDirectory");
     expect(jobsPage).toContain("adaptCareerDirectory");
     expect(jobsPage).not.toContain("fetchCareerJobIndex");

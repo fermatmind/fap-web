@@ -491,7 +491,8 @@ describe("career job backend bundle contract", () => {
     );
 
     expect(source).toContain("<Breadcrumb");
-    expect(source).toContain('localizedPath("/career/jobs", locale)');
+    expect(source).toContain('localizedPath("/career", locale)');
+    expect(source).not.toContain('label: locale === "zh" ? "职业库" : "Jobs"');
     expect(source.indexOf("<Breadcrumb")).toBeLessThan(source.indexOf("{visibleContentBodyMd ?"));
   });
 
