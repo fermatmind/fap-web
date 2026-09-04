@@ -74,7 +74,7 @@ afterEach(() => {
 
 describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
   it("disables automatic prefetch on every Career directory Link declaration", () => {
-    const pageSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const pageSource = read("app/(localized)/[locale]/career/page.tsx");
     const directorySource = read("components/career/CareerOccupationDirectory.tsx");
     const pageLinks = linkOpeningTags(pageSource);
     const directoryLinks = linkOpeningTags(directorySource);
@@ -108,7 +108,7 @@ describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
       fetchCareerDirectory: vi.fn(async () => directoryPayload()),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "zh" }),
       searchParams: Promise.resolve({}),
@@ -118,8 +118,8 @@ describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
     expect(html).toContain("后端架构师");
     expect(html).toMatch(/href="\/zh\/career\/jobs\/backend-architect" data-prefetch="false"/);
     expect(html).toMatch(/href="\/zh\/career\/industries\/business-and-financial" data-prefetch="false"/);
-    expect(html).toMatch(/href="\/zh\/career\/jobs\?family=healthcare" data-prefetch="false"/);
-    expect(html).toMatch(/href="\/zh\/career\/jobs\?page=2" data-prefetch="false"/);
+    expect(html).toMatch(/href="\/zh\/career\?family=healthcare" data-prefetch="false"/);
+    expect(html).toMatch(/href="\/zh\/career\?page=2" data-prefetch="false"/);
     expect(html).not.toContain("frontend-local");
     expect(html).not.toContain("CMS did not return any public career jobs");
   });

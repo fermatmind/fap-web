@@ -72,7 +72,7 @@ export default async function CareerResolvePage({
   const submittedQuery = normalizeSearchQuery(resolvedSearchParams.q);
   const hasQuery = submittedQuery.length > 0;
   const resolvePath = localizedPath("/career/resolve", locale);
-  const jobsPath = localizedPath("/career/jobs", locale);
+  const jobsPath = localizedPath("/career", locale);
 
   const aliasResolutionPayload = hasQuery ? await fetchCareerAliasResolution({ q: submittedQuery, locale }) : null;
   const aliasResolution = hasQuery ? adaptCareerAliasResolution({ locale, payload: aliasResolutionPayload }) : null;

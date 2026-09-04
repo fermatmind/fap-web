@@ -1,31 +1,184 @@
 import type { Metadata } from "next";
-import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import Link from "next/link";
+import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { DecisionPathCard } from "@/components/career/v1/DecisionPathCard";
+import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
-import { JsonLd } from "@/components/seo/JsonLd";
+import { buttonVariants } from "@/components/ui/button";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
+import { apiClient } from "@/lib/api-client";
+import {
+  adaptCareerDirectory,
+  type CareerDirectoryFamilyFacetAdapter,
+} from "@/lib/career/adapters/adaptCareerDirectory";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
+import type { CareerFirstWaveDiscoverabilityManifestResponseRaw } from "@/lib/career/api/types";
+import {
+  formatCareerFamilyTitle,
+  normalizeFamilySlug,
+} from "@/lib/career/datasetDirectory";
+import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from "@/lib/career/attribution";
+import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
+import {
+  buildCareerFamilyFrontendUrl,
+  normalizeCareerBundleCanonicalPath,
+} from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
-import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+
+export const revalidate = 300;
+const CAREER_DIRECTORY_PAGE_SIZE = 50;
+const CAREER_FAMILY_HUB_NAV_TIMEOUT_MS = 1_500;
+
+function firstQueryValue(value: string | string[] | undefined): string {
+  return Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
+}
+
+function normalizeSearchParam(value: string | string[] | undefined): string {
+  return firstQueryValue(value).trim();
+}
+
+function normalizePageParam(value: string | string[] | undefined): number {
+  const parsed = Number(firstQueryValue(value));
+  if (!Number.isFinite(parsed)) {
+    return 1;
+  }
+
+  return Math.max(1, Math.floor(parsed));
+}
+
+function buildJobsQueryPath(
+  basePath: string,
+  input: { query?: string | null; family?: string | null; page?: number | null }
+): string {
+  const query = new URLSearchParams();
+  const submittedQuery = String(input.query ?? "").trim();
+  const family = String(input.family ?? "").trim();
+  const page = input.page && input.page > 1 ? input.page : null;
+
+  if (submittedQuery) {
+    query.set("q", submittedQuery);
+  }
+  if (family) {
+    query.set("family", family);
+  }
+  if (page) {
+    query.set("page", String(page));
+  }
+
+  const queryString = query.toString();
+  return queryString ? `${basePath}?${queryString}` : basePath;
+}
+
+async function fetchDiscoverabilityManifestForOptionalNav(locale: "en" | "zh") {
+  try {
+    const query = new URLSearchParams({ locale: toApiLocale(locale) });
+
+    return await apiClient.get<CareerFirstWaveDiscoverabilityManifestResponseRaw>(
+      `/v0.5/career/first-wave/discoverability-manifest?${query.toString()}`,
+      {
+        locale,
+        skipAuth: true,
+        timeoutMs: CAREER_FAMILY_HUB_NAV_TIMEOUT_MS,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+  } catch {
+    return null;
+  }
+}
+
+async function CareerFamilyHubLinks({
+  locale,
+  families,
+}: {
+  locale: "en" | "zh";
+  families: CareerDirectoryFamilyFacetAdapter[];
+}) {
+  if (families.length === 0) {
+    return null;
+  }
+
+  const discoverabilityPayload = await fetchDiscoverabilityManifestForOptionalNav(locale);
+  const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
+    payload: discoverabilityPayload,
+  });
+  const discoverableFamilyHubs = families.flatMap((family) => {
+    if (!isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)) {
+      return [];
+    }
+
+    const fallbackPath = buildCareerFamilyFrontendUrl(locale, family.slug);
+    const manifestRoute = discoverabilityManifest?.familyHubBySlug[normalizeFamilySlug(family.slug)];
+
+    return [
+      {
+        family,
+        href: normalizeCareerBundleCanonicalPath(
+          locale,
+          manifestRoute?.canonicalPath,
+          fallbackPath
+        ),
+      },
+    ];
+  });
+
+  if (discoverableFamilyHubs.length === 0) {
+    return null;
+  }
+
+  return (
+    <nav
+      className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
+      data-testid="career-directory-family-hubs"
+    >
+      {discoverableFamilyHubs.map(({ family, href }) => (
+        <Link
+          key={family.slug}
+          href={href}
+          prefetch={false}
+          className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
+          data-testid="career-directory-family-hub-link"
+        >
+          <span>{family.title}</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      ))}
+    </nav>
+  );
+}
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
+  const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
+  const submittedQuery = normalizeSearchParam(resolvedSearchParams.q);
+  const family = normalizeSearchParam(resolvedSearchParams.family);
+  const page = normalizePageParam(resolvedSearchParams.page);
+  const pathname = locale === "zh" ? "/zh/career" : "/en/career";
+  const hasDirectoryState = submittedQuery.length > 0 || family.length > 0 || page > 1;
 
   return buildPageMetadata({
     locale,
-    pathname: locale === "zh" ? "/zh/career" : "/en/career",
-    title: locale === "zh" ? "找到适合你的职业方向" : "Find the career direction worth exploring next",
+    pathname: buildJobsQueryPath(pathname, { query: submittedQuery, family, page }),
+    canonicalPathname: pathname,
+    title: locale === "zh" ? "全部职业库" : "All Occupations Library",
     description:
       locale === "zh"
-        ? "搜索职业，或从测评结果和职业发展指南出发，找到下一步方向。"
-        : "Search roles, start from your assessment result, or use practical career guides to choose your next direction.",
+        ? "浏览 FermatMind 职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
+        : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
+    noindex: hasDirectoryState,
+    noindexFollow: hasDirectoryState,
     alternatesByLocale: {
       en: "/en/career",
       zh: "/zh/career",
@@ -34,31 +187,76 @@ export async function generateMetadata({
   });
 }
 
-export default async function CareerCenterPage({
+export default async function CareerPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const { locale: localeParam } = await params;
+  const resolvedSearchParams = await searchParams;
   const locale = resolveLocale(localeParam);
-  const withLocale = (pathname: string) => localizedPath(pathname, locale);
-  const canonicalPath = locale === "zh" ? "/zh/career" : "/en/career";
-  const pageTitle = locale === "zh" ? "找到适合你的职业方向" : "Find the career direction worth exploring next";
-  const pageDescription =
-    locale === "zh"
-      ? "搜索职业，或从测评结果和职业发展指南出发，找到下一步方向。"
-      : "Search roles, start from your assessment result, or use practical career guides to choose your next direction.";
-
-  const webPageJsonLd = buildWebPageJsonLd({
-    path: canonicalPath,
-    title: pageTitle,
-    description: pageDescription,
+  const submittedQuery = normalizeSearchParam(resolvedSearchParams.q);
+  const selectedFamily = normalizeSearchParam(resolvedSearchParams.family);
+  const page = normalizePageParam(resolvedSearchParams.page);
+  const jobsPath = localizedPath("/career", locale);
+  const industriesPath = localizedPath("/career/industries", locale);
+  const directoryPayload = await fetchCareerDirectory({
     locale,
+    page,
+    perPage: CAREER_DIRECTORY_PAGE_SIZE,
+    family: selectedFamily || null,
+    query: submittedQuery || null,
   });
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
-    { name: locale === "zh" ? "职业" : "Career", path: canonicalPath },
-  ]);
+  const directory = adaptCareerDirectory({
+    locale,
+    payload: directoryPayload,
+  });
+  const visibleMembers = directory.members;
+  const families = directory.facets.families;
+  const selectedFamilyTitle =
+    selectedFamily
+      ? families.find((family) => normalizeFamilySlug(family.slug) === normalizeFamilySlug(selectedFamily))?.title ??
+        formatCareerFamilyTitle(normalizeFamilySlug(selectedFamily), locale)
+      : null;
+  const publicDetailCount = directory.publicTruth.publicDetailIndexableCount || directory.pagination.total || visibleMembers.length;
+  const occupationCount = directory.publicTruth.directoryMemberCount || publicDetailCount;
+  const previousPageHref = buildJobsQueryPath(jobsPath, {
+    query: submittedQuery,
+    family: selectedFamily,
+    page: Math.max(1, directory.pagination.page - 1),
+  });
+  const nextPageHref = buildJobsQueryPath(jobsPath, {
+    query: submittedQuery,
+    family: selectedFamily,
+    page: directory.pagination.page + 1,
+  });
+  const hasActiveFilters = Boolean(submittedQuery || selectedFamily);
+
+  if (directory.state === "unavailable") {
+    return (
+      <main className="min-h-screen bg-slate-50">
+        <Container as="div" className="py-16">
+          <section className="mx-auto max-w-2xl rounded-3xl border border-amber-200 bg-white p-8 text-center shadow-sm" data-testid="career-directory-unavailable">
+            <h1 className="m-0 text-2xl font-semibold text-slate-950">
+              {locale === "zh" ? "职业库暂时无法加载" : "The occupation library is temporarily unavailable"}
+            </h1>
+            <p className="mt-3 text-sm text-slate-600">
+              {locale === "zh" ? "这不是空职业库，请稍后重试。" : "This is not an empty directory. Please try again shortly."}
+            </p>
+            <Link
+              href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: selectedFamily, page })}
+              prefetch={false}
+              className={buttonVariants({ className: "mt-6" })}
+            >
+              {locale === "zh" ? "重试" : "Retry"}
+            </Link>
+          </section>
+        </Container>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen bg-slate-50">
@@ -69,88 +267,204 @@ export default async function CareerCenterPage({
           entrySurface: "career_landing",
           sourcePageType: "career_landing",
           targetAction: "view_surface",
-          landingPath: withLocale("/career"),
+          landingPath: jobsPath,
           routeFamily: "landing",
         })}
       />
-      <JsonLd id="career-center-webpage" data={webPageJsonLd} />
-      <JsonLd id="career-center-breadcrumb" data={breadcrumbJsonLd} />
-
-      <Container as="div" className="space-y-12 pb-16 pt-8 md:space-y-16 md:pb-20 md:pt-12">
+      <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
         <Breadcrumb
           items={[
-            { label: locale === "zh" ? "首页" : "Home", href: locale === "zh" ? "/zh" : "/en" },
+            { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
             { label: locale === "zh" ? "职业" : "Career" },
           ]}
         />
 
-        <section className="mx-auto max-w-4xl space-y-8 pt-4 text-center md:pt-8" data-testid="career-landing-hero">
-          <div className="space-y-5">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-orange-600">Career Center</p>
-            <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">{pageTitle}</h1>
-            <p className="mx-auto m-0 max-w-2xl text-base leading-7 text-slate-500">
-              {locale === "zh"
-                ? "搜索一个具体职业，或先从推荐方向与职业发展方法开始。"
-                : "Search for a role, or begin with recommendation paths and practical career guidance."}
-            </p>
+        <section className="space-y-7 text-center" data-testid="career-all-occupations-hero">
+          <div className="mx-auto w-full space-y-4">
+            <h1 className="m-0 mx-auto max-w-4xl text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl md:text-5xl">
+              {locale === "zh" ? "测量自己，看见职业，训练未来" : `${occupationCount} occupations, organized by industry`}
+            </h1>
           </div>
 
-          <form
-            action={withLocale("/career/jobs")}
-            method="get"
-            className="mx-auto flex max-w-3xl flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-3 shadow-sm sm:flex-row sm:items-center"
-            data-testid="career-landing-search-entry"
-          >
-            <label htmlFor="career-search" className="sr-only">
-              {locale === "zh" ? "搜索职业" : "Search jobs"}
-            </label>
-            <input
-              id="career-search"
-              type="search"
-              name="q"
-              placeholder={locale === "zh" ? "输入职业名称" : "Enter a job title"}
-              className="h-12 min-w-0 flex-1 rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
-            />
-            <button
-              type="submit"
-              className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-slate-950 px-6 text-sm font-medium text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
-            >
-              {locale === "zh" ? "搜索职业" : "Search jobs"}
-            </button>
-          </form>
+          <div className="grid gap-3 md:grid-cols-4" data-testid="career-library-summary">
+            <Metric label={locale === "zh" ? "全部职业" : "All occupations"} value={String(occupationCount)} />
+            <Metric label={locale === "zh" ? "行业分类" : "Industries"} value={String(families.length)} />
+            <Metric label={locale === "zh" ? "公开条目" : "Public entries"} value={String(publicDetailCount)} />
+            <Metric label={locale === "zh" ? "每页显示" : "Page size"} value={String(directory.pagination.perPage)} />
+          </div>
         </section>
 
-        <section className="space-y-5" aria-labelledby="career-pathways-title" data-testid="career-explorer-pathways">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 id="career-pathways-title" className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "选择你的下一步" : "Choose your next step"}
-            </h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            <DecisionPathCard
-              eyebrow={locale === "zh" ? "职业库" : "Job library"}
-              title={locale === "zh" ? "了解具体职业" : "Explore specific roles"}
-              summary={locale === "zh" ? "搜索工作内容、发展前景与现实要求。" : "Compare role content, outlook, and practical requirements."}
-              ctaLabel={locale === "zh" ? "进入职业库" : "Open job library"}
-              href={withLocale("/career/jobs")}
+        <section className="space-y-5" data-testid="career-library-workspace">
+          {directory.state === "stale" ? (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900" data-testid="career-directory-stale">
+              {locale === "zh" ? "当前显示上一版可用职业数据。" : "Showing the last known good occupation data."}
+            </div>
+          ) : null}
+          <div className="space-y-5">
+            <form action={jobsPath} method="get" className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm md:flex md:items-center md:gap-3" data-testid="career-occupation-search-form">
+              <input
+                type="search"
+                name="q"
+                defaultValue={submittedQuery}
+                placeholder={locale === "zh" ? "搜索职业、英文名" : "Search occupation or title"}
+                className="h-12 w-full rounded-full border border-transparent bg-slate-50 px-4 text-sm text-slate-950 outline-none placeholder:text-slate-400 focus:border-orange-200"
+              />
+              {selectedFamily ? <input type="hidden" name="family" value={selectedFamily} /> : null}
+              <div className="mt-3 flex gap-3 md:mt-0 md:shrink-0">
+                <button type="submit" className={buttonVariants({})}>
+                  {locale === "zh" ? "搜索" : "Search"}
+                </button>
+                {submittedQuery || selectedFamily ? (
+                  <Link href={jobsPath} prefetch={false} className={buttonVariants({ variant: "outline" })}>
+                    {locale === "zh" ? "清除" : "Clear"}
+                  </Link>
+                ) : null}
+              </div>
+            </form>
+
+            {hasActiveFilters ? (
+              <div
+                className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-emerald-100 bg-emerald-50 px-4 py-3 text-sm text-emerald-900"
+                data-testid="career-directory-active-filters"
+              >
+                <p className="m-0">
+                  {locale === "zh" ? "当前筛选：" : "Active filters:"}{" "}
+                  {submittedQuery ? (
+                    <span className="font-semibold">
+                      {locale === "zh" ? "关键词" : "Search"} “{submittedQuery}”
+                    </span>
+                  ) : null}
+                  {submittedQuery && selectedFamilyTitle ? <span> · </span> : null}
+                  {selectedFamilyTitle ? <span className="font-semibold">{selectedFamilyTitle}</span> : null}
+                </p>
+                <Link href={jobsPath} prefetch={false} className="text-sm font-semibold underline-offset-4 hover:underline">
+                  {locale === "zh" ? "清除筛选" : "Clear filters"}
+                </Link>
+              </div>
+            ) : null}
+
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+                  {selectedFamilyTitle ?? (locale === "zh" ? "全部职业" : "All occupations")}
+                </h2>
+              </div>
+              <Link
+                href={industriesPath}
+                prefetch={false}
+                className="text-sm font-semibold text-orange-600 underline-offset-4 hover:underline"
+              >
+                {locale === "zh" ? "按行业浏览" : "Browse by industry"}
+              </Link>
+            </div>
+
+            {families.length > 0 ? (
+              <div className="space-y-3">
+                <nav
+                  className="flex flex-wrap gap-2"
+                  aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
+                  data-testid="career-directory-family-facets"
+                >
+                  <Link
+                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
+                    prefetch={false}
+                    className={[
+                      "rounded-full border px-3 py-2 text-xs font-semibold",
+                      selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
+                    ].join(" ")}
+                  >
+                    {locale === "zh" ? "全部" : "All"}
+                  </Link>
+                  {families.map((family) => (
+                    <Link
+                      key={family.slug}
+                      href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                      prefetch={false}
+                      className={[
+                        "rounded-full border px-3 py-2 text-xs font-semibold",
+                        normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
+                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                          : "border-slate-200 bg-white text-slate-500",
+                      ].join(" ")}
+                    >
+                      {family.title} ({family.count})
+                    </Link>
+                  ))}
+                </nav>
+
+                <Suspense fallback={null}>
+                  <CareerFamilyHubLinks locale={locale} families={families} />
+                </Suspense>
+              </div>
+            ) : null}
+
+            <CareerOccupationDirectory
+              locale={locale}
+              members={visibleMembers}
+              emptyLabel={locale === "zh" ? "没有找到匹配的职业。" : "No matching occupations found."}
+              emptyActionHref={jobsPath}
+              emptyActionLabel={locale === "zh" ? "查看全部职业" : "View all occupations"}
             />
-            <DecisionPathCard
-              eyebrow={locale === "zh" ? "职业推荐" : "Recommendations"}
-              title={locale === "zh" ? "从测评结果选方向" : "Start from your result"}
-              summary={locale === "zh" ? "先看方向和取舍，再进入候选职业。" : "Review direction and tradeoffs before candidate roles."}
-              ctaLabel={locale === "zh" ? "查看职业推荐" : "View recommendations"}
-              href={withLocale("/career/recommendations")}
-            />
-            <DecisionPathCard
-              eyebrow={locale === "zh" ? "职业发展" : "Career development"}
-              title={locale === "zh" ? "把方向变成行动" : "Turn direction into action"}
-              summary={locale === "zh" ? "用实用指南推进选择、成长与转型。" : "Use practical guides for decisions, growth, and transitions."}
-              ctaLabel={locale === "zh" ? "阅读职业指南" : "Read career guides"}
-              href={withLocale("/career/guides")}
-            />
+
+            {directory.pagination.totalPages > 1 ? (
+              <nav
+                className="grid grid-cols-[1fr_auto_1fr] items-center gap-3"
+                aria-label={locale === "zh" ? "职业分页" : "Occupation pagination"}
+                data-testid="career-directory-pagination"
+              >
+                {directory.pagination.hasPreviousPage ? (
+                  <Link
+                    href={previousPageHref}
+                    prefetch={false}
+                    className={buttonVariants({ variant: "outline" })}
+                    data-testid="career-directory-prev-page"
+                  >
+                    {locale === "zh" ? "上一页" : "Previous"}
+                  </Link>
+                ) : (
+                  <span
+                    className="inline-flex h-10 items-center rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
+                    aria-disabled="true"
+                  >
+                    {locale === "zh" ? "上一页" : "Previous"}
+                  </span>
+                )}
+                <span className="text-center text-sm font-medium text-slate-500" data-testid="career-directory-page-status">
+                  {locale === "zh"
+                    ? `第 ${directory.pagination.page} / ${directory.pagination.totalPages} 页`
+                    : `Page ${directory.pagination.page} of ${directory.pagination.totalPages}`}
+                </span>
+                {directory.pagination.hasNextPage ? (
+                  <Link
+                    href={nextPageHref}
+                    prefetch={false}
+                    className={`${buttonVariants({ variant: "outline" })} justify-self-end`}
+                    data-testid="career-directory-next-page"
+                  >
+                    {locale === "zh" ? "下一页" : "Next"}
+                  </Link>
+                ) : (
+                  <span
+                    className="inline-flex h-10 items-center justify-self-end rounded-full border border-slate-100 px-4 text-sm font-semibold text-slate-300"
+                    aria-disabled="true"
+                  >
+                    {locale === "zh" ? "下一页" : "Next"}
+                  </span>
+                )}
+              </nav>
+            ) : null}
           </div>
         </section>
       </Container>
     </main>
+  );
+}
+
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="border-l border-slate-200 py-2 pl-4">
+      <p className="m-0 text-xs font-medium uppercase tracking-[0.14em] text-slate-400">{label}</p>
+      <p className="m-0 mt-2 text-3xl font-semibold tracking-tight text-slate-950">{value}</p>
+    </div>
   );
 }

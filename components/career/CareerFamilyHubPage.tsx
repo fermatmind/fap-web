@@ -124,11 +124,6 @@ export function CareerFamilyHubPage({ locale, hub }: CareerFamilyHubPageProps) {
           {
             title: locale === "zh" ? "返回职业库" : "Back to job library",
             description: locale === "zh" ? "搜索具体职业。" : "Search for a specific role.",
-            href: localizedPath("/career/jobs", locale),
-          },
-          {
-            title: locale === "zh" ? "回到职业入口" : "Back to career home",
-            description: locale === "zh" ? "重新选择探索方式。" : "Choose another exploration mode.",
             href: localizedPath("/career", locale),
           },
         ]}

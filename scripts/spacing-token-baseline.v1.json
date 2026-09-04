@@ -147,12 +147,6 @@
       "count": 1
     },
     {
-      "file": "app/(localized)/[locale]/career/jobs/page.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "py-1.5",
-      "count": 2
-    },
-    {
       "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "gap-2.5",

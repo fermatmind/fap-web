@@ -505,7 +505,7 @@ describe("career alias route contract", () => {
 
 describe("career jobs page authority contract", () => {
   it("moves jobs list to the paginated backend directory while keeping job detail on the backend bundle path", () => {
-    const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const listSource = read("app/(localized)/[locale]/career/page.tsx");
     const detailSource = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
     expect(listSource).toContain("fetchCareerDirectory");

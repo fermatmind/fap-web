@@ -373,7 +373,7 @@ describe("career attribution payload builder contract", () => {
 describe("career attribution page wiring contract", () => {
   it("keeps deferred career events out of the current frontend wiring path", () => {
     const trackedSources = [
-      "app/(localized)/[locale]/career/jobs/page.tsx",
+      "app/(localized)/[locale]/career/page.tsx",
       "app/(localized)/[locale]/career/resolve/page.tsx",
       "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
       "app/(localized)/[locale]/career/family/[slug]/page.tsx",
@@ -501,16 +501,41 @@ describe("career attribution page wiring contract", () => {
     vi.doMock("@/lib/cms/career-guides", () => ({
       listCareerGuidesFromCms: vi.fn(async () => []),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () => ({
+        state: "success",
+        error: null,
+        payload: {
+          public_truth: {
+            public_detail_indexable_count: 1,
+            directory_member_count: 1,
+          },
+          pagination: {
+            page: 1,
+            per_page: 50,
+            total: 1,
+            total_pages: 1,
+            has_next_page: false,
+            has_previous_page: false,
+          },
+          facets: { families: [] },
+          items: [],
+        },
+      })),
+    }));
     mockCareerCenterContent();
 
     const { default: CareerCenterPage } = await import("@/app/(localized)/[locale]/career/page");
     const markup = renderToStaticMarkup(
-      await CareerCenterPage({ params: Promise.resolve({ locale: "en" }) })
+      await CareerCenterPage({
+        params: Promise.resolve({ locale: "en" }),
+        searchParams: Promise.resolve({}),
+      })
     );
 
     expect(fs.existsSync(path.join(process.cwd(), "app/(localized)/[locale]/career/page.tsx"))).toBe(true);
-    expect(markup).toContain("Find the career direction worth exploring next");
-    expect(markup).toContain('action="/en/career/jobs"');
+    expect(markup).toContain("1 occupations, organized by industry");
+    expect(markup).toContain('action="/en/career"');
     expect(pageViewEvents).toEqual([
       {
         eventName: "career_landing_view",
@@ -653,7 +678,7 @@ describe("career attribution page wiring contract", () => {
     }));
     mockCareerDatasetDirectory();
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "backend architect" }),
@@ -661,7 +686,15 @@ describe("career attribution page wiring contract", () => {
 
     renderToStaticMarkup(page as ReactNode);
 
-    expect(pageViewEvents).toEqual([]);
+    expect(pageViewEvents).toEqual([
+      {
+        eventName: "career_landing_view",
+        properties: expect.objectContaining({
+          landing_path: "/en/career",
+          query_mode: "non_query",
+        }),
+      },
+    ]);
     expect(pageViewEvents).not.toEqual(
       expect.arrayContaining([expect.objectContaining({ eventName: "career_job_index_view" })])
     );

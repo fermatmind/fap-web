@@ -50,7 +50,7 @@ export default async function CareerRecommendationsPage({
   const recommendationItems = adaptCareerRecommendationIndex({ locale, payload });
   const canonicalPath = locale === "zh" ? "/zh/career/recommendations" : "/en/career/recommendations";
   const riasecTestPath = withLocale("/tests/holland-career-interest-test-riasec");
-  const jobsPath = withLocale("/career/jobs");
+  const jobsPath = withLocale("/career");
   const industriesPath = withLocale("/career/industries");
   const guidesPath = withLocale("/career/guides");
   const webPageJsonLd = buildWebPageJsonLd({

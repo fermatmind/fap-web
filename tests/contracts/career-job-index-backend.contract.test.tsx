@@ -307,7 +307,7 @@ describe("career job index backend contract", () => {
       ),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({}),
@@ -361,7 +361,7 @@ describe("career job index backend contract", () => {
       ),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ page: "2" }),
@@ -408,7 +408,7 @@ describe("career job index backend contract", () => {
       }),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "   " }),
@@ -453,7 +453,7 @@ describe("career job index backend contract", () => {
       ),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "zzzz" }),
@@ -477,7 +477,7 @@ describe("career job index backend contract", () => {
       })),
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({ params: Promise.resolve({ locale: "zh" }), searchParams: Promise.resolve({}) });
     const html = renderToStaticMarkup(page as ReactNode);
 
@@ -490,7 +490,7 @@ describe("career job index backend contract", () => {
 
   it("career jobs page renders the same breadcrumb trail used by other public hubs", () => {
     const source = readFileSync(
-      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/page.tsx"),
+      path.join(process.cwd(), "app/(localized)/[locale]/career/page.tsx"),
       "utf8"
     );
 

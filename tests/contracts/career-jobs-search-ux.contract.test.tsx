@@ -90,7 +90,7 @@ describe("career all occupations library contract", () => {
   it("renders the paginated occupation directory from backend directory authority", async () => {
     installCareerLibraryMocks();
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({}),
@@ -111,7 +111,7 @@ describe("career all occupations library contract", () => {
   it("keeps industry filtering inside the all occupations library", async () => {
     installCareerLibraryMocks();
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ family: "business-and-financial" }),

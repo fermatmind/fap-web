@@ -245,7 +245,7 @@ describe("career search backend contract", () => {
     }));
     mockCareerDirectory();
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "backend" }),
@@ -328,7 +328,7 @@ describe("career search backend contract", () => {
     }));
     mockCareerDirectory([]);
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "zzzz" }),

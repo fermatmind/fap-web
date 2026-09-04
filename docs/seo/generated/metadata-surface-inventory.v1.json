@@ -34,9 +34,8 @@
       "career_guide_detail": 1,
       "career_guides_hub": 1,
       "career_industry_detail": 1,
-      "career_hub": 3,
+      "career_hub": 4,
       "career_job_detail": 1,
-      "career_jobs_hub": 1,
       "career_recommendation_detail": 1,
       "tests_hub": 2,
       "dataset": 2,
@@ -419,9 +418,9 @@
       "reason": "Career job SEO metadata and Occupation JSON-LD are gated by backend seo.surface.v1 and structured data keys."
     },
     {
-      "file": "app/(localized)/[locale]/career/jobs/page.tsx",
-      "routePattern": "/career/jobs",
-      "routeFamily": "career_jobs_hub",
+      "file": "app/(localized)/[locale]/career/page.tsx",
+      "routePattern": "/career",
+      "routeFamily": "career_hub",
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
       "usesSeoSurface": false,

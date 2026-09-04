@@ -470,7 +470,7 @@ export default async function CareerMbtiRecommendationPage({
                     testId="career-recommendation-shortlist-action"
                   />
                 ) : null}
-                <Link href={localizedPath("/career/jobs", locale)} data-testid="mbti-career-secondary-cta" className={buttonVariants({ variant: "outline" })}>
+                <Link href={localizedPath("/career", locale)} data-testid="mbti-career-secondary-cta" className={buttonVariants({ variant: "outline" })}>
                   {locale === "zh" ? "查看职业列表" : "View job list"}
                 </Link>
               </div>
@@ -497,7 +497,7 @@ export default async function CareerMbtiRecommendationPage({
             upside={safeFitUpside}
             tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "仍需要结合职业详情确认边界。" : "Still validate boundaries in the role detail page.")}
             ctaLabel={locale === "zh" ? "查看路径" : "View path"}
-            href={transitionPreview?.targetJob.href ?? localizedPath("/career/jobs", locale)}
+            href={transitionPreview?.targetJob.href ?? localizedPath("/career", locale)}
           />
           <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
             <p className="m-0 text-xs font-medium uppercase tracking-[0.16em] text-slate-400">
@@ -514,8 +514,8 @@ export default async function CareerMbtiRecommendationPage({
             {locale === "zh" ? "三种决策路径" : "Three decision paths"}
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
-            <DecisionPathCard eyebrow={locale === "zh" ? "最稳妥路径" : "Steady path"} title={locale === "zh" ? "先验证低断裂成本" : "Validate low breakage first"} summary={locale === "zh" ? "从最容易落地的候选职业开始，减少试错成本。" : "Start with the easiest candidate path to reduce switching cost."} tradeoff={locale === "zh" ? "上行空间可能需要后续二次选择。" : "Upside may require a second move later."} ctaLabel={locale === "zh" ? "查看职业库" : "Open jobs"} href={localizedPath("/career/jobs", locale)} />
-            <DecisionPathCard eyebrow={locale === "zh" ? "上行空间路径" : "Upside path"} title={transitionPreview?.targetJob.title ?? (locale === "zh" ? "看更高迁移收益" : "Look for higher mobility")} summary={transitionPreview?.whyThisPath ?? (locale === "zh" ? "优先看能扩大长期选择面的路径。" : "Prioritize paths that widen long-term options.")} tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "需要更仔细确认代价。" : "Requires a closer tradeoff check.")} ctaLabel={locale === "zh" ? "查看路径" : "View path"} href={transitionPreview?.targetJob.href ?? localizedPath("/career/jobs", locale)} />
+            <DecisionPathCard eyebrow={locale === "zh" ? "最稳妥路径" : "Steady path"} title={locale === "zh" ? "先验证低断裂成本" : "Validate low breakage first"} summary={locale === "zh" ? "从最容易落地的候选职业开始，减少试错成本。" : "Start with the easiest candidate path to reduce switching cost."} tradeoff={locale === "zh" ? "上行空间可能需要后续二次选择。" : "Upside may require a second move later."} ctaLabel={locale === "zh" ? "查看职业库" : "Open jobs"} href={localizedPath("/career", locale)} />
+            <DecisionPathCard eyebrow={locale === "zh" ? "上行空间路径" : "Upside path"} title={transitionPreview?.targetJob.title ?? (locale === "zh" ? "看更高迁移收益" : "Look for higher mobility")} summary={transitionPreview?.whyThisPath ?? (locale === "zh" ? "优先看能扩大长期选择面的路径。" : "Prioritize paths that widen long-term options.")} tradeoff={transitionPreview?.whatIsLost ?? (locale === "zh" ? "需要更仔细确认代价。" : "Requires a closer tradeoff check.")} ctaLabel={locale === "zh" ? "查看路径" : "View path"} href={transitionPreview?.targetJob.href ?? localizedPath("/career", locale)} />
             <DecisionPathCard eyebrow={locale === "zh" ? "风险对冲路径" : "Risk hedge"} title={locale === "zh" ? "保留备选职业" : "Keep adjacent options"} summary={locale === "zh" ? "把相关职业放在候选清单里，避免一次性押注。" : "Keep adjacent roles available so this is not a single bet."} tradeoff={locale === "zh" ? "比较过程会更长。" : "The comparison process takes longer."} ctaLabel={locale === "zh" ? "继续探索" : "Keep exploring"} href={localizedPath("/career", locale)} />
           </div>
         </section>

@@ -9,7 +9,7 @@ async function metadataFor(
   locale: Locale,
   searchParams: Record<string, string | string[] | undefined>
 ) {
-  const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/page");
+  const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
 
   return generateMetadata({
     params: Promise.resolve({ locale }),
@@ -33,7 +33,7 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
 
     for (const locale of ["en", "zh"] as const) {
       const metadata = await metadataFor(locale, searchParams);
-      const root = `${SITE_URL}/${locale}/career/jobs`;
+      const root = `${SITE_URL}/${locale}/career`;
 
       expect(metadata.alternates?.canonical).toBe(root);
       expect(String(metadata.alternates?.canonical)).not.toContain("?");
@@ -54,7 +54,7 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
     for (const locale of ["en", "zh"] as const) {
       const metadata = await metadataFor(locale, {});
 
-      expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career/jobs`);
+      expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career`);
       expect(metadata.robots).toMatchObject({
         index: true,
         follow: true,

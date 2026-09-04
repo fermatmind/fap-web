@@ -44,7 +44,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/recommendations", label: "Career recommendations" },
     ],
     career: [
-      { href: "/career/jobs", label: "All occupations" },
+      { href: "/career", label: "All occupations" },
       { href: "/career/industries", label: "Browse by industry" },
       { href: "/career/recommendations", label: "Career recommendations" },
       { href: "/career/guides", label: "Career guides" },
@@ -79,7 +79,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/personality/enneagram", label: "九型人格" },
     ],
     career: [
-      { href: "/career/jobs", label: "全部职业库" },
+      { href: "/career", label: "全部职业库" },
       { href: "/career/industries", label: "按行业浏览" },
       { href: "/career/recommendations", label: "职业推荐" },
       { href: "/career/guides", label: "职业发展" },

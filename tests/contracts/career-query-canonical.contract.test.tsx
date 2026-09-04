@@ -13,13 +13,13 @@ describe("career jobs query canonical contract", () => {
       resolveLocale: vi.fn(() => "en"),
     }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "backend" }),
     });
 
-    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/jobs");
+    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,
@@ -32,13 +32,13 @@ describe("career jobs query canonical contract", () => {
       resolveLocale: vi.fn(() => "en"),
     }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "   " }),
     });
 
-    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/jobs");
+    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career");
     expect(metadata.robots).toMatchObject({
       index: true,
       follow: true,
@@ -51,13 +51,13 @@ describe("career jobs query canonical contract", () => {
       resolveLocale: vi.fn(() => "en"),
     }));
 
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "zzzz" }),
     });
 
-    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/jobs");
+    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,

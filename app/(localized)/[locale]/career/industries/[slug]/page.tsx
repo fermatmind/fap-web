@@ -87,7 +87,7 @@ export default async function CareerIndustryDetailPage({
   }
 
   const industryPath = localizedPath(`/career/industries/${familySlug}`, locale);
-  const jobsPath = localizedPath("/career/jobs", locale);
+  const jobsPath = localizedPath("/career", locale);
   const visibleMembers = filterCareerDatasetMembers({
     members,
     familySlug,

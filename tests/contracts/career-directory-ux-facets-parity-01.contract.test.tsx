@@ -108,7 +108,7 @@ function installPageMocks(options: DirectoryMockOptions = {}) {
 }
 
 async function renderCareerJobsPage(locale: "en" | "zh", searchParams: Record<string, string | string[] | undefined> = {}) {
-  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
   const page = await CareerJobsPage({
     params: Promise.resolve({ locale }),
     searchParams: Promise.resolve(searchParams),
@@ -157,7 +157,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
       family: "healthcare",
       page: "2",
     });
-    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/page");
     const metadata = await generateMetadata({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({ q: "nurse", family: "healthcare", page: "2" }),
@@ -167,8 +167,8 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain("Active filters:");
     expect(html).toContain("Search");
     expect(html).toContain("Healthcare");
-    expect(html).toContain('href="/en/career/jobs"');
-    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/jobs");
+    expect(html).toContain('href="/en/career"');
+    expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career");
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,
@@ -187,7 +187,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(html).toContain('data-testid="career-occupation-empty-state"');
     expect(html).toContain("没有找到匹配的职业。");
     expect(html).toContain("查看全部职业");
-    expect(html).toContain('href="/zh/career/jobs"');
+    expect(html).toContain('href="/zh/career"');
     expect(html).not.toContain("CMS did not return any public career jobs");
     expect(html).not.toContain("frontend fallback");
   });

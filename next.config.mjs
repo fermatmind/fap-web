@@ -286,6 +286,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/:locale(en|zh)/career/jobs",
+        destination: "/:locale/career",
+        permanent: true,
+      },
+      {
         source: "/zh/tests/enneagram-personality-test",
         destination: "/zh/tests/enneagram-personality-test-nine-types",
         permanent: true,

@@ -132,7 +132,7 @@ describe("schema injection contract", () => {
   });
 
   it("career jobs list and alias pages no longer resolve jobs from local content", () => {
-    const listSource = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const listSource = read("app/(localized)/[locale]/career/page.tsx");
     const aliasSource = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
     expect(listSource).toContain("fetchCareerDirectory");
@@ -158,15 +158,16 @@ describe("schema injection contract", () => {
     expect(aliasSource).not.toContain("getCareerGuideBySlug");
   });
 
-  it("career root renders the focused center while jobs remain backend-backed", () => {
-    const config = read("next.config.mjs");
+  it("career root renders the backend-backed occupation directory", () => {
     const source = read("app/(localized)/[locale]/career/page.tsx");
+    const config = read("next.config.mjs");
 
-    expect(config).not.toContain('source: "/:locale(en|zh)/career"');
-    expect(source).toContain('action={withLocale("/career/jobs")}');
-    expect(source).toContain('href={withLocale("/career/recommendations")}');
-    expect(source).toContain('href={withLocale("/career/guides")}');
+    expect(source).toContain("fetchCareerDirectory");
+    expect(source).toContain("adaptCareerDirectory");
+    expect(source).toContain('const jobsPath = localizedPath("/career", locale)');
     expect(source).not.toContain("fetchCareerJobIndex");
+    expect(config).toContain('source: "/:locale(en|zh)/career/jobs"');
+    expect(config).toContain('destination: "/:locale/career"');
   });
 
   it("personality detail page injects cms seo jsonld, webpage, breadcrumb, and faq jsonld", () => {

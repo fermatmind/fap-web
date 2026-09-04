@@ -102,7 +102,7 @@ function installCareerAuthorityMocks(input: {
 }
 
 async function renderCareerJobsPage(searchParams: Record<string, string | string[] | undefined> = {}) {
-  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
   const page = await CareerJobsPage({
     params: Promise.resolve({ locale: "en" }),
     searchParams: Promise.resolve(searchParams),

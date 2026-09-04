@@ -73,7 +73,6 @@ describe("career launch smoke contract", () => {
   it("matches the current authority design including the focused career center", () => {
     const nextConfig = read("next.config.mjs");
     const careerPage = read("app/(localized)/[locale]/career/page.tsx");
-    const jobsPage = read("app/(localized)/[locale]/career/jobs/page.tsx");
     const recommendationsPage = read("app/(localized)/[locale]/career/recommendations/page.tsx");
     const familyHubPage = read("app/(localized)/[locale]/career/family/[slug]/page.tsx");
     const jobDetailPage = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
@@ -81,14 +80,12 @@ describe("career launch smoke contract", () => {
     const legacySlugPage = read("app/(localized)/[locale]/career/[slug]/page.tsx");
 
     expect(nextConfig).not.toContain('source: "/:locale(en|zh)/career"');
-    expect(careerPage).toContain('action={withLocale("/career/jobs")}');
-    expect(careerPage).toContain('href={withLocale("/career/recommendations")}');
-    expect(careerPage).toContain('href={withLocale("/career/guides")}');
+    expect(careerPage).toContain("fetchCareerDirectory");
+    expect(careerPage).toContain("adaptCareerDirectory");
+    expect(careerPage).toContain('const jobsPath = localizedPath("/career", locale)');
     expect(careerPage).not.toContain("fetchCareerJobIndex");
-    expect(jobsPage).toContain("fetchCareerDirectory");
-    expect(jobsPage).toContain("adaptCareerDirectory");
-    expect(jobsPage).not.toContain("fetchCareerJobIndex");
-    expect(jobsPage).not.toContain("fetchCareerDatasetHub");
+    expect(nextConfig).toContain('source: "/:locale(en|zh)/career/jobs"');
+    expect(nextConfig).toContain('destination: "/:locale/career"');
     expect(recommendationsPage).toContain("fetchCareerRecommendationIndex");
     expect(recommendationsPage).not.toContain("listBig5RecommendationTraits");
     expect(recommendationsPage).not.toContain("/career/recommendations/big5/");

@@ -98,7 +98,7 @@ describe("public api cache contract", () => {
   });
 
   it("caches only the unfiltered first career directory page", () => {
-    const source = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const source = read("app/(localized)/[locale]/career/page.tsx");
     const fetchSource = read("lib/career/api/fetchCareerDirectory.ts");
 
     expect(source).toContain("export const revalidate = 300");

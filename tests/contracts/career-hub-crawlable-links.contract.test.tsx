@@ -90,7 +90,7 @@ function installDirectoryAuthority(
 }
 
 async function renderJobsPage(locale: "en" | "zh") {
-  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+  const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
   const page = await CareerJobsPage({
     params: Promise.resolve({ locale }),
     searchParams: Promise.resolve({}),
@@ -141,9 +141,9 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
     );
     expect(html).toContain(`data-testid="career-directory-family-hub-link"><span>${title}</span>`);
     expect(html).toContain(
-      `href="/${locale}/career/jobs?family=computer-and-information-technology"`
+      `href="/${locale}/career?family=computer-and-information-technology"`
     );
-    expect(html).toContain(`href="/${locale}/career/jobs?page=2"`);
+    expect(html).toContain(`href="/${locale}/career?page=2"`);
   });
 
   it("does not invent family-hub anchors when backend authority returns no family facets", async () => {
@@ -181,7 +181,7 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
 
     expect(html).toContain('href="/en/career/family/computer-and-information-technology"');
     expect(html).not.toContain('href="/en/career/family/ambiguous-family"');
-    expect(html).toContain('href="/en/career/jobs?family=ambiguous-family"');
+    expect(html).toContain('href="/en/career?family=ambiguous-family"');
   });
 
   it("uses the backend manifest canonical path instead of rebuilding it from the directory facet slug", async () => {
@@ -209,7 +209,7 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
       'href="/en/career/family/computer-and-information-technology"'
     );
     expect(html).toContain(
-      'href="/en/career/jobs?family=computer-and-information-technology"'
+      'href="/en/career?family=computer-and-information-technology"'
     );
   });
 
@@ -235,7 +235,7 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
       },
     }));
 
-    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/page");
     const page = await CareerJobsPage({
       params: Promise.resolve({ locale: "en" }),
       searchParams: Promise.resolve({}),
