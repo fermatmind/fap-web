@@ -25,7 +25,10 @@ describe("locale purity contract", () => {
     expect(indexSource).toContain('isZh ? "选择你正在面对的问题" : "Choose the question you are facing"');
     expect(indexSource).toContain('isZh ? "精选阅读" : "Featured reading"');
     expect(indexSource).not.toContain('isZh ? "测评主题" : "Explore by model"');
-    expect(indexSource).toContain('isZh ? "测评能回答什么，不能回答什么" : "What assessments can and cannot answer"');
+    expect(indexSource).not.toContain('isZh ? "测评能回答什么，不能回答什么" : "What assessments can and cannot answer"');
+    expect(indexSource.indexOf('aria-label={isZh ? "测评科学与使用边界"')).toBeLessThan(
+      indexSource.indexOf('aria-labelledby="topics-recommended-title"'),
+    );
     expect(detailSource).toContain('locale === "zh" ? "主题摘要" : "Topic summary"');
     expect(detailSource).toContain('locale === "zh" ? "主题" : "Topic"');
     expect(detailSource).toContain("formatTopicDisplayCode(topic.topicCode || topic.slug)");

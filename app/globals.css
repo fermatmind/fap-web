@@ -1,5 +1,23 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "FM Punctuation Sans";
+  src: url("/fonts/manrope/Manrope-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  unicode-range: U+003F;
+}
+
+@font-face {
+  font-family: "FM Punctuation Sans";
+  src: local("PingFang SC"), local("Hiragino Sans GB"), local("Microsoft YaHei"), local("Noto Sans CJK SC"), local("Noto Sans SC"), local("Arial Unicode MS");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  unicode-range: U+FF1F;
+}
+
 :root {
   /* Base spacing scale (8pt-led with 4pt exceptions) */
   --fm-space-0: 0px;
@@ -143,7 +161,7 @@
   --color-background: var(--fm-bg);
   --color-foreground: var(--fm-text);
   --font-sans: var(--font-fm-sans);
-  --font-serif: var(--font-fm-serif);
+  --font-serif: "FM Punctuation Sans", var(--font-fm-serif);
   --font-mono: var(--font-fm-mono);
 }
 

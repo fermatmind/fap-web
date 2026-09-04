@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   BrainCircuit,
   BriefcaseBusiness,
   ChartNoAxesCombined,
@@ -51,6 +50,8 @@ type TrustLink = {
   description: string;
   href: string;
   icon: typeof FlaskConical;
+  surfaceClassName: string;
+  iconClassName: string;
 };
 
 function buildQuestionPaths(locale: Locale, withLocale: (pathname: string) => string): QuestionPath[] {
@@ -118,6 +119,8 @@ function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => strin
       description: isZh ? "了解测评背后的理论、证据和适用范围。" : "Understand the theory, evidence, and intended use behind assessments.",
       href: withLocale("/science"),
       icon: FlaskConical,
+      surfaceClassName: "border-[#ded7f4] bg-[#f5f2ff] hover:bg-[#efebff]",
+      iconClassName: "bg-[#e7dffc] text-[#6750b7]",
     },
     {
       key: "reliability",
@@ -125,6 +128,8 @@ function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => strin
       description: isZh ? "判断一份测评是否稳定，以及是否真的测到了它声称的内容。" : "Judge whether a test is stable and measures what it claims to measure.",
       href: withLocale("/reliability-validity"),
       icon: ChartNoAxesCombined,
+      surfaceClassName: "border-[#d7e8e8] bg-[#eff8f7] hover:bg-[#e8f4f2]",
+      iconClassName: "bg-[#dcefed] text-[#226c69]",
     },
     {
       key: "boundaries",
@@ -132,6 +137,8 @@ function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => strin
       description: isZh ? "看清结果可以支持哪些判断，又不能替代哪些决定。" : "See which judgments results can support and which decisions they cannot replace.",
       href: withLocale("/method-boundaries"),
       icon: Scale,
+      surfaceClassName: "border-[#eedfd1] bg-[#fff7ee] hover:bg-[#fff1e2]",
+      iconClassName: "bg-[#f9e6d2] text-[#9a5b22]",
     },
     {
       key: "misconceptions",
@@ -139,6 +146,8 @@ function buildTrustLinks(locale: Locale, withLocale: (pathname: string) => strin
       description: isZh ? "避免把人格、能力或职业兴趣误解成固定命运。" : "Avoid treating personality, ability, or career interest as fixed destiny.",
       href: withLocale("/common-misconceptions"),
       icon: CircleHelp,
+      surfaceClassName: "border-[#d8e3f3] bg-[#f0f6fd] hover:bg-[#e9f2fb]",
+      iconClassName: "bg-[#dfeafa] text-[#315d96]",
     },
   ];
 }
@@ -396,6 +405,37 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
         </div>
       </section>
 
+      <section
+        className="pt-12 md:pt-16"
+        aria-label={isZh ? "测评科学与使用边界" : "Assessment science and use boundaries"}
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          {trustLinks.map((item) => {
+            const Icon = item.icon;
+            return (
+              <TrackedEntryCtaLink
+                key={item.key}
+                href={item.href}
+                eventName="continue_exploration"
+                eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }}
+                className={`group flex min-h-[176px] flex-col rounded-[28px] border p-7 transition-[background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 motion-reduce:transform-none ${item.surfaceClassName}`}
+              >
+                <div className="flex items-start justify-between gap-6">
+                  <span className="inline-flex items-center gap-2 font-serif text-[1.45rem] font-semibold leading-tight tracking-[-0.015em] text-[#171c2d]">
+                    {item.title}
+                    <ArrowUpRight aria-hidden="true" className="h-4 w-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" />
+                  </span>
+                  <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:rotate-2 motion-reduce:transform-none ${item.iconClassName}`}>
+                    <Icon aria-hidden="true" className="h-5 w-5" />
+                  </span>
+                </div>
+                <span className="mt-auto block max-w-xl pt-6 text-sm leading-6 text-[#667277]">{item.description}</span>
+              </TrackedEntryCtaLink>
+            );
+          })}
+        </div>
+      </section>
+
       {curatedArticles.length ? (
           <section className="pb-12 pt-12 md:pb-16 md:pt-16" aria-labelledby="topics-recommended-title">
             <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -452,39 +492,6 @@ export default async function TopicsPage({ params }: { params: Promise<{ locale:
             </div>
           </section>
       ) : null}
-
-      <section className="rounded-[32px] bg-[#edf5f6] px-6 py-10 md:px-10 md:py-12" aria-labelledby="topics-trust-title">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-14">
-            <div>
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#23696b] shadow-[0_10px_28px_rgba(28,91,91,0.08)]"><BookOpen aria-hidden="true" className="h-5 w-5" /></span>
-              <h2 id="topics-trust-title" className="m-0 mt-6 max-w-md font-serif text-3xl font-semibold leading-tight tracking-tight text-[var(--fm-text)] md:text-[2.5rem]">{isZh ? "测评能回答什么，不能回答什么" : "What assessments can and cannot answer"}</h2>
-            </div>
-
-            <div className="grid gap-x-8 sm:grid-cols-2">
-              {trustLinks.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <TrackedEntryCtaLink
-                    key={item.key}
-                    href={item.href}
-                    eventName="continue_exploration"
-                    eventProperties={{ action_category: "read_method_content", entry_surface: `topics_trust_${item.key}`, source_page_type: "topics_index", locale }}
-                    className="group flex min-h-[154px] gap-4 border-t border-[#cbdede] py-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4 focus-visible:ring-offset-[#edf5f6]"
-                  >
-                    <Icon aria-hidden="true" className="mt-1 h-5 w-5 shrink-0 text-[#397678]" />
-                    <span>
-                      <span className="flex items-center gap-2 text-base font-semibold text-[var(--fm-text)]">
-                        {item.title}
-                        <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none" />
-                      </span>
-                      <span className="mt-2 block text-sm leading-6 text-[#667277]">{item.description}</span>
-                    </span>
-                  </TrackedEntryCtaLink>
-                );
-              })}
-            </div>
-          </div>
-      </section>
     </Container>
   );
 }
