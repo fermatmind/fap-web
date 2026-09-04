@@ -12,12 +12,14 @@ describe("career recommendations entry availability contract", () => {
   it("separates career discovery paths from the recommendation list", () => {
     const source = read("app/(localized)/[locale]/career/recommendations/page.tsx");
 
-    expect(source).toContain("找到适合你的职业方向");
-    expect(source).toContain("Find a career direction that fits you");
-    expect(source).toContain("已有测评结果");
+    expect(source).toContain("职业推荐不是一个答案");
+    expect(source).toContain("Find your fit");
     expect(source).toContain("还没有明确方向");
-    expect(source).toContain("已有目标职业");
-    expect(source).toContain("按测评结果查看职业建议");
+    expect(source).toContain("已经知道 MBTI 类型");
+    expect(source).toContain("已经有目标职业");
+    expect(source).toContain("推荐要经过三次判断");
+    expect(source).toContain("已有结果？从你的类型继续");
+    expect(source).toContain("career-recommendations-hero");
     expect(source).toContain("recommendationItems.length === 0");
     expect(source).toContain("career-recommendations-unavailable");
     expect(source).not.toContain("/personality/${typeCode.toLowerCase()}-a");
@@ -32,6 +34,7 @@ describe("career recommendations entry availability contract", () => {
     expect(source).not.toContain("选择 MBTI 类型");
     expect(source).not.toContain("先做大五人格");
     expect(source).not.toContain("选择测评");
+    expect(source).not.toContain("热点职业");
   });
 
   it("renders the visible career breadcrumb trail on the recommendations index", () => {

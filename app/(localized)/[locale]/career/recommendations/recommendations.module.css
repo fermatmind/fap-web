@@ -1,0 +1,432 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 86% 22%, rgba(234, 88, 12, 0.17), transparent 24rem),
+    linear-gradient(132deg, #07111c 0%, #0b2033 56%, #102a3f 100%);
+}
+
+.hero::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  content: "";
+}
+
+.heroInner {
+  display: flex;
+  min-height: min(700px, calc(100svh - 76px));
+  flex-direction: column;
+  padding-bottom: 3rem;
+  padding-top: 1.5rem;
+}
+
+.heroBreadcrumb {
+  --fm-accent: #ffffff;
+  --fm-text: rgba(255, 255, 255, 0.92);
+  --fm-text-muted: rgba(255, 255, 255, 0.56);
+}
+
+.heroGrid {
+  display: grid;
+  flex: 1;
+  align-items: center;
+  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1.08fr) minmax(21rem, 0.92fr);
+  padding: 3rem 0 2rem;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.65rem;
+  animation: hero-copy-in 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.heroCopy h1 {
+  white-space: pre-line;
+}
+
+.heroAccent {
+  display: block;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.eyebrow {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.heroSecondaryAction {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  padding: 0.75rem 2rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.heroSecondaryAction:hover {
+  border-color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.heroTextLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-underline-offset: 0.3rem;
+}
+
+.heroTextLink:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.pathVisual {
+  position: relative;
+  min-height: 31rem;
+  overflow: hidden;
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  animation: hero-map-in 820ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pathGrid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(120deg, transparent 4%, #000 35%, #000 78%, transparent 100%);
+}
+
+.pathLine {
+  position: absolute;
+  inset: 1.2rem -1rem 0 0;
+  width: calc(100% + 1rem);
+  height: calc(100% - 1.2rem);
+}
+
+.pathLine path {
+  stroke: rgba(255, 255, 255, 0.48);
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-width: 2;
+  animation: draw-path 1.25s 420ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.pathLine circle {
+  fill: #ea580c;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 3;
+}
+
+.pathNode {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: #ffffff;
+}
+
+.pathNode span {
+  color: rgba(255, 255, 255, 0.44);
+  font-family: var(--font-fm-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.pathNode strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.pathNodeOne {
+  bottom: 16%;
+  left: 9%;
+}
+
+.pathNodeTwo {
+  left: 57%;
+  top: 44%;
+}
+
+.pathNodeThree {
+  right: 1%;
+  top: 8%;
+}
+
+.pathCaption {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.34);
+  font-family: var(--font-fm-mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.sourceRow {
+  display: flex;
+  min-height: 8.5rem;
+  align-items: center;
+  gap: 1.25rem;
+  border-bottom: 1px solid var(--fm-border-strong);
+  padding: 1.5rem 0;
+  transition: padding 220ms ease;
+}
+
+.sourceRow:hover {
+  padding-left: 0.75rem;
+}
+
+.sourceIcon {
+  display: inline-flex;
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--fm-border-strong);
+  border-radius: 999px;
+  color: var(--fm-text);
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.sourceRow:hover .sourceIcon {
+  border-color: var(--fm-cta-orange);
+  background: var(--fm-cta-orange);
+  color: #ffffff;
+}
+
+.methodSection {
+  position: relative;
+  border-radius: 2.5rem;
+  background: var(--fm-bg-career-warm);
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.methodStep {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 2.75rem 1fr;
+  border-bottom: 1px solid var(--fm-border-strong);
+  padding: 2rem 0;
+  transition: transform 220ms ease;
+}
+
+.methodStep:hover {
+  transform: translateX(0.5rem);
+}
+
+.recommendationLink {
+  display: flex;
+  min-height: 8.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--fm-border-strong);
+  color: var(--fm-text);
+  padding: 1.5rem;
+  transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+}
+
+.recommendationLink:hover {
+  background: var(--fm-hub-navy-strong);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.finalSection {
+  overflow: hidden;
+  border-radius: 2.5rem;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(234, 88, 12, 0.23), transparent 26rem),
+    var(--fm-hub-navy-strong);
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.footerLink {
+  display: flex;
+  min-height: 5.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 1.25rem 0;
+  transition: background-color 180ms ease, padding 180ms ease;
+}
+
+.footerLink:hover {
+  background: rgba(255, 255, 255, 0.06);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .heroInner {
+    padding-bottom: 4rem;
+    padding-top: 2rem;
+  }
+
+  .footerLink {
+    border-bottom: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+  }
+
+  .footerLink:first-child {
+    padding-left: 0;
+  }
+
+  .footerLink:last-child {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    min-height: auto;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .pathVisual {
+    min-height: 22rem;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (max-width: 639px) {
+  .heroGrid {
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+    padding-top: 1.75rem;
+  }
+
+  .heroCopy {
+    gap: 1.35rem;
+  }
+
+  .pathVisual {
+    display: grid;
+    min-height: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+  }
+
+  .pathGrid,
+  .pathLine,
+  .pathCaption {
+    display: none;
+  }
+
+  .pathNode,
+  .pathNodeOne,
+  .pathNodeTwo,
+  .pathNodeThree {
+    position: static;
+  }
+
+  .pathNode strong {
+    font-size: 0.78rem;
+  }
+
+  .sourceRow {
+    min-height: auto;
+  }
+
+  .sourceRow:hover {
+    padding-left: 0;
+  }
+
+  .sourceIcon {
+    display: none;
+  }
+
+  .methodSection,
+  .finalSection {
+    border-radius: 1.75rem;
+  }
+
+  .methodStep {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .recommendationLink {
+    min-height: 7rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+@keyframes hero-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-map-in {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes draw-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroCopy,
+  .pathVisual,
+  .pathLine path {
+    animation: none;
+  }
+
+  .sourceRow,
+  .methodStep,
+  .recommendationLink,
+  .footerLink {
+    transition: none;
+  }
+}
