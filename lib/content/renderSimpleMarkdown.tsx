@@ -264,7 +264,15 @@ function tokenizeMarkdown(markdown: string): MarkdownBlock[] {
         index += 1;
       }
 
-      blocks.push({ type: "unordered-list", items });
+      const bracketReferences = items.map((item) => parseBracketReferenceItems(item));
+      const isBracketReferenceList = bracketReferences.length > 0
+        && bracketReferences.every((references) => references.length === 1);
+
+      blocks.push(
+        isBracketReferenceList
+          ? { type: "footnotes", items: bracketReferences.flat() }
+          : { type: "unordered-list", items }
+      );
       continue;
     }
 

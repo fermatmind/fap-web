@@ -164,9 +164,6 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
   const guides = await listCareerGuidesFromCms(locale);
   const groupedGuides = groupGuides(guides);
   const featuredGuides = orderBySlugs(guides, FEATURED_GUIDE_SLUGS);
-  const allOccupationsPath = localizedPath("/career/jobs", locale);
-  const industriesPath = localizedPath("/career/industries", locale);
-  const careerTestsPath = localizedPath("/career/tests", locale);
 
   return (
     <Container as="main" className="space-y-12 py-10 md:py-16">
@@ -182,17 +179,6 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
         <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
           {locale === "zh" ? "把职业选择变成可验证的判断" : "Turn career choice into a testable decision"}
         </h1>
-        <div className="flex flex-wrap gap-3">
-          <Link href={allOccupationsPath} className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
-            {locale === "zh" ? "打开全部职业库" : "Open occupation library"}
-          </Link>
-          <Link href={industriesPath} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-orange-300 hover:text-orange-600">
-            {locale === "zh" ? "按行业浏览" : "Browse by industry"}
-          </Link>
-          <Link href={careerTestsPath} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:border-orange-300 hover:text-orange-600">
-            {locale === "zh" ? "职业测试" : "Career tests"}
-          </Link>
-        </div>
       </section>
 
       <section className="grid gap-4 md:grid-cols-5">
@@ -222,15 +208,20 @@ export default async function CareerGuidesPage({ params }: { params: Promise<{ l
       <section className="space-y-10">
         {groupedGuides
           .filter((group) => group.guides.length > 0)
-          .map((group) => (
+          .map((group, groupIndex) => (
             <div key={group.key} id={group.key} className="scroll-mt-24 space-y-4">
-              <div className="border-t border-slate-200 pt-6">
-                <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                  {pickLocale(locale, group.title)}
-                </h2>
-                <p className="m-0 mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-                  {pickLocale(locale, group.summary)}
-                </p>
+              <div className="grid gap-3 border-t border-slate-300 pt-6 md:grid-cols-[4rem_minmax(0,1fr)] md:gap-5">
+                <span className="font-mono text-xs font-semibold tracking-[0.16em] text-orange-600" aria-hidden="true">
+                  {String(groupIndex + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+                    {pickLocale(locale, group.title)}
+                  </h2>
+                  <p className="m-0 mt-2 max-w-2xl text-sm leading-6 text-slate-500 md:text-base">
+                    {pickLocale(locale, group.summary)}
+                  </p>
+                </div>
               </div>
               <div className="grid gap-x-8 gap-y-3 md:grid-cols-2">
                 {group.guides.map((guide) => (

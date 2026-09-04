@@ -379,6 +379,16 @@ describe("career guides frontend boundary contract", () => {
     expect(listSource).toContain("Guides");
   });
 
+  it("removes the redundant hero links and gives each guide group an editorial section marker", () => {
+    const listSource = read("app/(localized)/[locale]/career/guides/page.tsx");
+
+    expect(listSource).not.toContain("打开全部职业库");
+    expect(listSource).not.toContain("按行业浏览");
+    expect(listSource).not.toContain("职业测试");
+    expect(listSource).toContain('String(groupIndex + 1).padStart(2, "0")');
+    expect(listSource).toContain("font-serif text-3xl");
+  });
+
   it("keeps the career guide detail hero centered without the landing summary panel", () => {
     const detailSource = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
 
@@ -395,6 +405,17 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).not.toContain("guide.relatedIndustries.map");
     expect(detailSource).not.toContain('"相关职业"');
     expect(detailSource).not.toContain('"相关行业"');
+  });
+
+  it("uses concise publisher metadata and journey cards without a quick-answer or back label", () => {
+    const detailSource = read("app/(localized)/[locale]/career/guides/[slug]/page.tsx");
+
+    expect(detailSource).toContain("ARTICLE_AUTHOR_NAME");
+    expect(detailSource).toContain('value.match(/^(\\d{4}-\\d{2}-\\d{2})/u)');
+    expect(detailSource).toContain('appearance="career-guide"');
+    expect(detailSource).toContain("hideHeading");
+    expect(detailSource).not.toContain("返回职业发展");
+    expect(detailSource).not.toContain("Back to career guides");
   });
 
   it("calls notFound without an SEO read when the cms detail lookup misses", async () => {

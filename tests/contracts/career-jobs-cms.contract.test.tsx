@@ -327,6 +327,18 @@ describe("career markdown renderer contract", () => {
     expect(html).toContain("O*NET Content Model");
     expect(html).not.toContain("<em>");
   });
+
+  it("renders bracket-numbered source lists without duplicate bullets", () => {
+    const node = renderSimpleMarkdown("- [1] First source.\n- [2] Second source.");
+    const html = renderToStaticMarkup(
+      <div>{node as Parameters<typeof renderToStaticMarkup>[0]}</div>
+    );
+
+    expect(html).toContain("【1】");
+    expect(html).toContain("【2】");
+    expect(html).toContain("list-none");
+    expect(html).not.toContain("list-disc");
+  });
 });
 
 describe("career alias route contract", () => {

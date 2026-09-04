@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import { SeoTrackedCtaLink } from "@/components/cta/SeoTrackedCtaLink";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
@@ -123,6 +124,7 @@ export function AnswerSurfaceSection({
   hideCompareLabel = false,
   hideSceneLabel = false,
   expandSingleSummaryBlock = false,
+  appearance = "default",
   pageFamily,
   evidenceSourceType = "answer_surface_v1",
   seoCtaAttribution,
@@ -136,6 +138,7 @@ export function AnswerSurfaceSection({
   hideSceneLabel?: boolean;
   expandSingleSummaryBlock?: boolean;
   hideSummaryLabel?: boolean;
+  appearance?: "default" | "career-guide";
   pageFamily?: EvidencePageFamily;
   evidenceSourceType?: "answer_surface_v1" | "visible_page_content";
   seoCtaAttribution?: AnswerSurfaceSeoCtaAttribution;
@@ -154,6 +157,64 @@ export function AnswerSurfaceSection({
 
   if (!hasContent) {
     return null;
+  }
+
+  const canRenderCareerGuideCard =
+    appearance === "career-guide" &&
+    summaryBlocks.length === 1 &&
+    surface.faqBlocks.length === 0 &&
+    surface.compareBlocks.length === 0 &&
+    surface.sceneSummaryBlocks.length === 0;
+
+  if (canRenderCareerGuideCard) {
+    const summary = summaryBlocks[0];
+
+    return (
+      <section
+        className="group flex min-h-[232px] flex-col rounded-[28px] border border-[#d8e3f3] bg-[#f0f6fd] p-7 transition-[background-color,border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:bg-[#e9f2fb] hover:shadow-[0_18px_42px_rgba(38,42,68,0.08)] motion-reduce:transform-none"
+        data-testid={testId}
+        data-evidence-container={pageFamily ? "true" : undefined}
+        data-evidence-page-family={pageFamily}
+        data-evidence-source-type={pageFamily ? evidenceSourceType : undefined}
+      >
+        <div className="flex items-start justify-between gap-6" data-evidence-block={pageFamily ? "quick_answer" : undefined}>
+          <div className="max-w-2xl">
+            {summary?.title ? (
+              <h2 className="m-0 font-serif text-[1.65rem] font-semibold leading-tight tracking-[-0.015em] text-[#171c2d]">
+                {summary.title}
+              </h2>
+            ) : null}
+            {summary?.body ? <p className="m-0 mt-4 text-sm leading-7 text-[#667277]">{summary.body}</p> : null}
+          </div>
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[#dfeafa] text-[#315d96] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:rotate-2 motion-reduce:transform-none">
+            <BriefcaseBusiness aria-hidden="true" className="h-5 w-5" />
+          </span>
+        </div>
+
+        {surface.nextStepBlocks.length ? (
+          <div className="mt-auto flex flex-wrap gap-x-6 gap-y-3 pt-7" data-evidence-block={pageFamily ? "next_step" : undefined}>
+            {surface.nextStepBlocks.map((block, index) => (
+              <span key={block.key}>
+                {block.href ? (
+                  renderAnswerSurfaceLink({
+                    href: block.href,
+                    label: block.title || block.href,
+                    locale,
+                    className: "inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#263a60] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4",
+                    ctaId: block.key || "answer_surface_next_step",
+                    ctaPriority: deriveSeoCtaPriorityFromKey(block.key, index),
+                    seoCtaAttribution,
+                  })
+                ) : (
+                  <span className="text-sm font-semibold text-[#263a60]">{block.title}</span>
+                )}
+                {block.href ? <ArrowRight aria-hidden="true" className="ml-2 inline h-4 w-4 transition-transform group-hover:translate-x-1 motion-reduce:transform-none" /> : null}
+              </span>
+            ))}
+          </div>
+        ) : null}
+      </section>
+    );
   }
 
   return (

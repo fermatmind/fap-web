@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -20,6 +19,7 @@ import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { ARTICLE_AUTHOR_NAME } from "@/lib/seo/articleJsonLdAuthority";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -36,6 +36,16 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
 
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerGuideFrontendUrl(locale, slug);
+}
+
+function formatGuideDate(value: string | null): string | null {
+  if (!value) return null;
+
+  const isoDate = value.match(/^(\d{4}-\d{2}-\d{2})/u)?.[1];
+  if (isoDate) return isoDate;
+
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date.toISOString().slice(0, 10);
 }
 
 const loadCareerGuidePublicDetailBundle = cache(
@@ -183,12 +193,13 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
     { name: locale === "zh" ? "职业发展" : "Guides", path: locale === "zh" ? "/zh/career/guides" : "/en/career/guides" },
     { name: guide.title, path: canonicalPath },
   ]);
+  const updatedAt = formatGuideDate(guide.updatedAt);
   const metadataParts = [
     `${locale === "zh" ? "分类" : "Category"}: ${guide.category}`,
-    guide.updatedAt
-      ? `${locale === "zh" ? "更新于" : "Updated"}: ${guide.updatedAt}`
-      : null,
+    `${locale === "zh" ? "发布者" : "Publisher"}: ${ARTICLE_AUTHOR_NAME}`,
+    updatedAt ? `${locale === "zh" ? "更新于" : "Updated"}: ${updatedAt}` : null,
   ].filter(Boolean);
+  const answerSurface = withoutUnreviewedCareerJobSteps(guide.answerSurface);
 
   return (
     <Container as="main" className="space-y-6 py-10">
@@ -215,27 +226,28 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         </article>
       ) : null}
 
-      <AnswerSurfaceSection
-        surface={withoutUnreviewedCareerJobSteps(guide.answerSurface)}
-        locale={locale}
-        testId="career-guide-answer-surface"
-        pageFamily="career_guide"
-      />
-
-      <div className="space-y-6">
+      <div className={guide.relatedArticles.length > 0 ? "grid gap-5 lg:grid-cols-2" : "grid gap-5"}>
+        <AnswerSurfaceSection
+          surface={answerSurface}
+          locale={locale}
+          testId="career-guide-answer-surface"
+          pageFamily="career_guide"
+          appearance="career-guide"
+          hideHeading
+        />
         <RelatedContent
           title={locale === "zh" ? "相关文章" : "Related articles"}
           items={guide.relatedArticles}
+          appearance="career-guide"
         />
+      </div>
+
+      <div className="space-y-6">
         <RelatedContent
           title={locale === "zh" ? "相关人格画像" : "Related personality profiles"}
           items={guide.relatedPersonalityProfiles}
         />
       </div>
-
-      <Link href={localizedPath("/career/guides", locale)} className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]">
-        {locale === "zh" ? "返回职业发展" : "Back to career guides"}
-      </Link>
     </Container>
   );
 }
