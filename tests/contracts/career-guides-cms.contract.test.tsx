@@ -375,8 +375,8 @@ describe("career guides frontend boundary contract", () => {
 
     expect(listSource).toContain("Breadcrumb");
     expect(listSource).toContain('localizedPath("/career", locale)');
-    expect(listSource).toContain("职业发展");
-    expect(listSource).toContain("Guides");
+    expect(listSource).toContain("职业路径");
+    expect(listSource).toContain("Career paths");
   });
 
   it("removes the redundant hero links and gives each guide group an editorial section marker", () => {
@@ -386,7 +386,7 @@ describe("career guides frontend boundary contract", () => {
     expect(listSource).not.toContain("按行业浏览");
     expect(listSource).not.toContain("职业测试");
     expect(listSource).toContain('String(groupIndex + 1).padStart(2, "0")');
-    expect(listSource).toContain("font-serif text-3xl");
+    expect(listSource).toContain("styles.groupHeading");
   });
 
   it("keeps the career guide detail hero centered without the landing summary panel", () => {

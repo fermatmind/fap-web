@@ -312,7 +312,7 @@ describe("llms-full enrichment contract", () => {
     expect(text).not.toContain("Forbidden take flow");
     expect(text).not.toContain("Personality answer summary from CMS.");
     expect(text).not.toContain("Topic answer summary from CMS.");
-    expect(text).toContain("Career guides");
+    expect(text).toContain("Career paths");
     expect(text).not.toContain("https://fermatmind.com/en/career/guides/career-planning");
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations");
     expect(text).not.toContain("https://fermatmind.com/zh/career/recommendations");

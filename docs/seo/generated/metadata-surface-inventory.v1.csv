@@ -19,7 +19,7 @@ file,routePattern,routeFamily,exportKind,ownership,classification,risk,usesBuild
 "app/(localized)/[locale]/business/page.tsx","/business","static_content_page","generateMetadata","cms_backed","safe_static","P2","true","false","false","false","false"
 "app/(localized)/[locale]/career/family/[slug]/page.tsx","/career/family/:slug","career_family","generateMetadata","backend_owned","backend_owned","P2","true","false","true","false","true"
 "app/(localized)/[locale]/career/guides/[slug]/page.tsx","/career/guides/:slug","career_guide_detail","generateMetadata","cms_backed","watchlist","P1","true","true","true","true","true"
-"app/(localized)/[locale]/career/guides/page.tsx","/career/guides","career_guides_hub","generateMetadata","cms_backed","cms_backed","P2","true","false","false","false","false"
+"app/(localized)/[locale]/career/guides/page.tsx","/career/guides","career_guides_hub","generateMetadata","cms_backed","cms_backed","P2","true","false","true","true","false"
 "app/(localized)/[locale]/career/industries/[slug]/page.tsx","/career/industries/:slug","career_industry_detail","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","false"
 "app/(localized)/[locale]/career/industries/page.tsx","/career/industries","career_hub","generateMetadata","product_code_only","product_code_only","P2","true","false","false","false","false"
 "app/(localized)/[locale]/career/jobs/[slug]/page.tsx","/career/jobs/:slug","career_job_detail","generateMetadata","backend_owned","backend_owned","P2","true","true","true","true","true"

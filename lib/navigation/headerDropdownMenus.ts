@@ -44,11 +44,9 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/career/recommendations", label: "Career recommendations" },
     ],
     career: [
-      { href: "/career", label: "All occupations" },
-      { href: "/career/industries", label: "Browse by industry" },
-      { href: "/career/recommendations", label: "Career recommendations" },
-      { href: "/career/guides", label: "Career guides" },
-      { href: "/career/tests", label: "Career tests" },
+      { href: "/career/recommendations", label: "Career fit" },
+      { href: "/career", label: "Occupation library" },
+      { href: "/career/guides", label: "Career paths" },
     ],
     help: [
       { href: "/email/preferences", label: "Email & data management" },
@@ -79,11 +77,9 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/personality/enneagram", label: "九型人格" },
     ],
     career: [
-      { href: "/career", label: "全部职业库" },
-      { href: "/career/industries", label: "按行业浏览" },
-      { href: "/career/recommendations", label: "职业推荐" },
-      { href: "/career/guides", label: "职业发展" },
-      { href: "/career/tests", label: "职业测试" },
+      { href: "/career/recommendations", label: "职业匹配" },
+      { href: "/career", label: "职业库" },
+      { href: "/career/guides", label: "职业路径" },
     ],
     help: [
       { href: "/email/preferences", label: "邮箱与数据管理" },

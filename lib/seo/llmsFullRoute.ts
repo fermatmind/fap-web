@@ -1518,10 +1518,10 @@ async function buildLlmsFullTextInternal(
 
   const guideEntries = [
     ...(enCareerGuides.filter((item) => item.isIndexable).length > 0
-      ? [{ locale: "en" as const, path: "/en/career/guides", title: "Career guides", type: "career_guides_index", updatedAt: "" }]
+      ? [{ locale: "en" as const, path: "/en/career/guides", title: "Career paths", type: "career_guides_index", updatedAt: "" }]
       : []),
     ...(zhCareerGuides.filter((item) => item.isIndexable).length > 0
-      ? [{ locale: "zh" as const, path: "/zh/career/guides", title: "职业指南", type: "career_guides_index", updatedAt: "" }]
+      ? [{ locale: "zh" as const, path: "/zh/career/guides", title: "职业路径", type: "career_guides_index", updatedAt: "" }]
       : []),
     ...enCareerGuides
       .filter((item) => item.isIndexable)
@@ -1548,8 +1548,8 @@ async function buildLlmsFullTextInternal(
   const careers = [
     { locale: "en" as const, path: "/en/career", title: "Career center", type: "career_index", updatedAt: "" },
     { locale: "zh" as const, path: "/zh/career", title: "职业发展中心", type: "career_index", updatedAt: "" },
-    { locale: "en" as const, path: "/en/career/recommendations", title: "Career recommendations", type: "career_recommendations_index", updatedAt: "" },
-    { locale: "zh" as const, path: "/zh/career/recommendations", title: "职业推荐", type: "career_recommendations_index", updatedAt: "" },
+    { locale: "en" as const, path: "/en/career/recommendations", title: "Career fit", type: "career_recommendations_index", updatedAt: "" },
+    { locale: "zh" as const, path: "/zh/career/recommendations", title: "职业匹配", type: "career_recommendations_index", updatedAt: "" },
     ...guideEntries,
     ...enCareerRecommendations.filter(shouldKeepCareerAuthorityEntry).map((item) => ({
       locale: "en" as const,

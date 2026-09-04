@@ -54,7 +54,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 24,
-    "frontendJsonLdFallbackSurfaces": 24
+    "frontendJsonLdFallbackSurfaces": 25
   },
   "rows": [
     {
@@ -364,8 +364,8 @@
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
       "usesSeoSurface": false,
-      "rendersJsonLd": false,
-      "hasFrontendJsonLdBuilderFallback": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
       "noindexSignal": false,
       "ownership": "cms_backed",
       "classification": "cms_backed",

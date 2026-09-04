@@ -190,7 +190,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: locale === "zh" ? "/zh" : "/en" },
     { name: locale === "zh" ? "职业" : "Career", path: locale === "zh" ? "/zh/career" : "/en/career" },
-    { name: locale === "zh" ? "职业发展" : "Guides", path: locale === "zh" ? "/zh/career/guides" : "/en/career/guides" },
+    { name: locale === "zh" ? "职业路径" : "Career paths", path: locale === "zh" ? "/zh/career/guides" : "/en/career/guides" },
     { name: guide.title, path: canonicalPath },
   ]);
   const updatedAt = formatGuideDate(guide.updatedAt);
@@ -209,7 +209,7 @@ export default async function CareerGuideDetailPage({ params }: { params: Promis
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
           { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-          { label: locale === "zh" ? "职业发展" : "Guides", href: localizedPath("/career/guides", locale) },
+          { label: locale === "zh" ? "职业路径" : "Career paths", href: localizedPath("/career/guides", locale) },
           { label: guide.title },
         ]}
       />

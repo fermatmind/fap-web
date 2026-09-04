@@ -1,13 +1,34 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  ArrowRight,
+  BookOpenCheck,
+  CheckCircle2,
+  ClipboardList,
+  Compass,
+  Route,
+  SearchCheck,
+  Target,
+} from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { listCareerGuidesFromCms, type CareerGuideListItem } from "@/lib/cms/career-guides";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import {
+  buildBreadcrumbJsonLd,
+  buildFAQPageJsonLd,
+  buildItemListJsonLd,
+  buildWebPageJsonLd,
+} from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
+import styles from "./career-paths.module.css";
 
 export const revalidate = 300;
+
+const PAGE_UPDATED_AT = "2026-09-04";
 
 type GuideGroup = {
   key: string;
@@ -20,10 +41,10 @@ type GuideGroup = {
 const GUIDE_GROUPS: GuideGroup[] = [
   {
     key: "career-choice",
-    title: { en: "Career choice", zh: "职业选择" },
+    title: { en: "Choose a direction", zh: "确定目标方向" },
     summary: {
       en: "Build a shortlist, compare paths, and avoid one-dimensional salary decisions.",
-      zh: "建立候选职业、比较路径，避免只用薪资做决定。",
+      zh: "建立候选方向、比较路径，避免只用薪资做决定。",
     },
     slugs: [
       "how-to-find-right-career-direction",
@@ -36,9 +57,9 @@ const GUIDE_GROUPS: GuideGroup[] = [
   },
   {
     key: "career-transition",
-    title: { en: "Career transition", zh: "职业转型" },
+    title: { en: "Validate a transition", zh: "验证职业转型" },
     summary: {
-      en: "Validate a move, reduce switching cost, and turn adjacent experience into evidence.",
+      en: "Test a move, reduce switching cost, and turn adjacent experience into evidence.",
       zh: "验证转型方向、降低切换成本，把相邻经验转成证据。",
     },
     slugs: [
@@ -51,10 +72,10 @@ const GUIDE_GROUPS: GuideGroup[] = [
   },
   {
     key: "capability-building",
-    title: { en: "Capability building", zh: "能力建设" },
+    title: { en: "Close skill gaps", zh: "补齐技能差距" },
     summary: {
-      en: "Turn vague growth goals into role-specific skills, projects, and negotiation leverage.",
-      zh: "把模糊成长目标拆成岗位能力、项目证据和谈判筹码。",
+      en: "Turn vague growth goals into role-specific skills, projects, and job-search evidence.",
+      zh: "把模糊成长目标拆成岗位技能、实战项目和求职证据。",
     },
     slugs: [
       "improve-workplace-competitiveness",
@@ -68,7 +89,7 @@ const GUIDE_GROUPS: GuideGroup[] = [
   },
   {
     key: "personality-fit",
-    title: { en: "Personality and fit", zh: "人格与职业" },
+    title: { en: "Use assessment signals", zh: "使用测评线索" },
     summary: {
       en: "Use MBTI, Big Five, IQ, and EQ as decision inputs without turning them into labels.",
       zh: "把 MBTI、大五、IQ 与 EQ 当作决策输入，而不是职业标签。",
@@ -83,7 +104,7 @@ const GUIDE_GROUPS: GuideGroup[] = [
   },
   {
     key: "market-risk",
-    title: { en: "AI and market risk", zh: "AI 与行业趋势" },
+    title: { en: "Read market change", zh: "判断市场变化" },
     summary: {
       en: "Read AI exposure, industry shifts, and career resilience without overreacting.",
       zh: "理解 AI 暴露度、行业变化和职业韧性，避免过度反应。",
@@ -94,11 +115,11 @@ const GUIDE_GROUPS: GuideGroup[] = [
 ];
 
 const FEATURED_GUIDE_SLUGS = [
-  "how-to-find-right-career-direction",
-  "career-risk-management",
-  "from-mbti-to-job-fit",
   "career-transition-playbook",
   "improve-workplace-competitiveness",
+  "build-portfolio-for-career-switch",
+  "interview-strategy-by-role",
+  "how-to-find-right-career-direction",
 ];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -108,11 +129,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/career/guides" : "/en/career/guides",
-    title: locale === "zh" ? "职业发展" : "Career Guides",
+    title: locale === "zh" ? "职业路径：转行、技能差距与行动计划" : "Career Paths: Skills, Transitions, and Action Plans",
     description:
       locale === "zh"
-        ? "围绕职业规划、转型与成长的 20 篇结构化实战指南。"
-        : "20 structured guides for career planning, transition, and professional growth.",
+        ? "从当前状态走向目标职业：盘点可迁移能力、识别技能差距，并用项目、学习与求职行动验证路径。"
+        : "Move from your current position toward a target career by mapping transferable strengths, skill gaps, projects, learning, and job-search actions.",
     alternatesByLocale: {
       en: "/en/career/guides",
       zh: "/zh/career/guides",
@@ -160,108 +181,281 @@ function groupGuides(guides: CareerGuideListItem[]) {
 export default async function CareerGuidesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-
+  const isZh = locale === "zh";
+  const canonicalPath = isZh ? "/zh/career/guides" : "/en/career/guides";
+  const pageTitle = isZh ? "从现在，走向你的目标职业" : "Move from where you are to your target career";
+  const pageDescription = isZh
+    ? "看清可迁移能力、技能差距与阶段任务，把职业方向变成一条可执行、可验证的路径。"
+    : "Map transferable strengths, skill gaps, and staged actions to turn a career direction into a testable path.";
+  const jobsPath = localizedPath("/career", locale);
+  const recommendationsPath = localizedPath("/career/recommendations", locale);
   const guides = await listCareerGuidesFromCms(locale);
   const groupedGuides = groupGuides(guides);
   const featuredGuides = orderBySlugs(guides, FEATURED_GUIDE_SLUGS);
+  const faqItems = isZh
+    ? [
+        {
+          question: "如何判断一个转行方向是否值得尝试？",
+          answer: "先核对目标岗位的真实任务和门槛，再盘点可迁移能力，通过小项目、访谈或短期协作验证，而不是先做不可逆的决定。",
+        },
+        {
+          question: "技能差距应该一次全部补齐吗？",
+          answer: "不需要。优先补齐影响入门和作品证明的核心技能，再根据目标岗位反馈迭代学习计划。",
+        },
+        {
+          question: "职业路径会替我保证转型成功吗？",
+          answer: "不会。职业路径用于组织信息和行动，结果仍受个人能力、市场机会、教育经验和执行质量影响。",
+        },
+      ]
+    : [
+        {
+          question: "How do I decide whether a career transition is worth testing?",
+          answer: "Check the target role's real tasks and entry requirements, map transferable strengths, and validate the direction through a small project, conversation, or short collaboration before making an irreversible move.",
+        },
+        {
+          question: "Should I close every skill gap at once?",
+          answer: "No. Prioritize the skills needed for entry and credible work samples, then update the learning plan using feedback from target roles.",
+        },
+        {
+          question: "Does a career path guarantee a successful transition?",
+          answer: "No. A path organizes evidence and action, while outcomes still depend on capability, opportunity, education, experience, and execution.",
+        },
+      ];
+  const webPageJsonLd = buildWebPageJsonLd({
+    path: canonicalPath,
+    title: pageTitle,
+    description: pageDescription,
+    locale,
+  });
+  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+    { name: isZh ? "首页" : "Home", path: isZh ? "/zh" : "/en" },
+    { name: isZh ? "职业" : "Career", path: isZh ? "/zh/career" : "/en/career" },
+    { name: isZh ? "职业路径" : "Career paths", path: canonicalPath },
+  ]);
+  const faqJsonLd = buildFAQPageJsonLd(faqItems);
+  const itemListJsonLd = buildItemListJsonLd({
+    path: canonicalPath,
+    title: isZh ? "职业路径指南" : "Career path guides",
+    description: isZh ? "来自 CMS 的公开职业路径指南。" : "Public career path guides supplied by the CMS.",
+    locale,
+    items: guides.map((guide) => ({
+      name: guide.title,
+      path: guide.href,
+      description: guide.summary,
+    })),
+  });
+
+  const pathSteps = [
+    {
+      number: "01",
+      icon: Target,
+      title: isZh ? "确定目标方向" : "Choose a target",
+      description: isZh ? "先核对真实工作内容，再建立少量候选方向。" : "Check real work first, then build a small shortlist.",
+      href: recommendationsPath,
+    },
+    {
+      number: "02",
+      icon: ClipboardList,
+      title: isZh ? "盘点技能差距" : "Map skill gaps",
+      description: isZh ? "区分可迁移能力、入门技能与长期能力。" : "Separate transferable strengths, entry skills, and long-term capabilities.",
+      href: "#capability-building",
+    },
+    {
+      number: "03",
+      icon: SearchCheck,
+      title: isZh ? "完成低成本验证" : "Run a low-cost test",
+      description: isZh ? "用项目、访谈或短期协作验证日常工作。" : "Use a project, conversation, or short collaboration to test the work.",
+      href: "#career-transition",
+    },
+    {
+      number: "04",
+      icon: BookOpenCheck,
+      title: isZh ? "准备求职证据" : "Prepare job-search evidence",
+      description: isZh ? "整理作品、案例和目标岗位清单，再开始投递。" : "Prepare work samples, cases, and a target-role list before applying.",
+      href: "#guides",
+    },
+  ];
 
   return (
-    <Container as="main" className="space-y-12 py-10 md:py-16">
-      <Breadcrumb
-        items={[
-          { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-          { label: locale === "zh" ? "职业发展" : "Guides" },
-        ]}
-      />
+    <main className={styles.page}>
+      <JsonLd id="career-path-webpage" data={webPageJsonLd} />
+      <JsonLd id="career-path-breadcrumb" data={breadcrumbJsonLd} />
+      <JsonLd id="career-path-faq" data={faqJsonLd} />
+      {guides.length > 0 ? <JsonLd id="career-path-item-list" data={itemListJsonLd} /> : null}
 
-      <section className="max-w-4xl space-y-5">
-        <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-6xl">
-          {locale === "zh" ? "把职业选择变成可验证的判断" : "Turn career choice into a testable decision"}
-        </h1>
-      </section>
-
-      <section className="grid gap-4 md:grid-cols-5">
-        {GUIDE_GROUPS.map((group) => (
-          <a key={group.key} href={`#${group.key}`} className="border-t border-slate-200 pt-4 text-sm hover:border-orange-400">
-            <span className="block font-semibold text-slate-950">{pickLocale(locale, group.title)}</span>
-            <span className="mt-2 block leading-6 text-slate-500">{pickLocale(locale, group.summary)}</span>
-          </a>
-        ))}
-      </section>
-
-      {featuredGuides.length > 0 ? (
-        <section className="space-y-5">
-          <div>
-            <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-              {locale === "zh" ? "精选指南" : "Featured guides"}
-            </h2>
+      <section className={styles.hero}>
+        <div className={styles.heroArtwork} aria-hidden="true">
+          <Image
+            src="/images/career/career-compass.webp"
+            alt=""
+            fill
+            priority
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className={styles.heroArtworkImage}
+          />
+        </div>
+        <Container as="div" className={styles.heroInner}>
+          <Breadcrumb
+            items={[
+              { label: isZh ? "首页" : "Home", href: localizedPath("/", locale) },
+              { label: isZh ? "职业" : "Career", href: jobsPath },
+              { label: isZh ? "职业路径" : "Career paths" },
+            ]}
+          />
+          <div className={styles.heroCopy}>
+            <p className={styles.eyebrow}>{isZh ? "职业路径 · CAREER PATH" : "CAREER PATH"}</p>
+            <h1>{pageTitle}</h1>
+            <p>{pageDescription}</p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
-            {featuredGuides.map((guide) => (
-              <GuideLinkCard key={guide.slug} guide={guide} locale={locale} prominent />
+        </Container>
+      </section>
+
+      <Container as="div" className={styles.content}>
+        <section className={styles.startCard} aria-labelledby="career-path-start-title">
+          <div className={styles.startIntro}>
+            <span className={styles.iconBadge}><Route aria-hidden="true" /></span>
+            <div>
+              <p className={styles.sectionKicker}>{isZh ? "选择你的起点" : "Choose your starting point"}</p>
+              <h2 id="career-path-start-title">{isZh ? "先确认方向，再拆解路径" : "Confirm the direction, then map the path"}</h2>
+            </div>
+          </div>
+          <div className={styles.startActions}>
+            <Link href={recommendationsPath} className={styles.startOption}>
+              <span><small>{isZh ? "还没有明确方向" : "No clear direction yet"}</small><strong>{isZh ? "先做职业匹配" : "Start with career fit"}</strong></span>
+              <ArrowRight aria-hidden="true" />
+            </Link>
+            <Link href={jobsPath} className={styles.startOption}>
+              <span><small>{isZh ? "已经有目标职业" : "Already have a target role"}</small><strong>{isZh ? "核对职业要求" : "Check role requirements"}</strong></span>
+              <ArrowRight aria-hidden="true" />
+            </Link>
+          </div>
+          <p className={styles.sourceNote}>{isZh ? "职业要求来自现有公开职业库；路径指南来自 CMS，页面不生成未经来源支持的个性化结论。" : "Role requirements come from the public occupation library; path guides come from the CMS. This page does not generate unsupported personalized conclusions."}</p>
+        </section>
+
+        <section className={styles.pathWorkspace} aria-labelledby="career-path-map-title">
+          <article className={styles.timelineCard}>
+            <div className={styles.cardHeading}>
+              <p className={styles.sectionKicker}>{isZh ? "通用行动框架" : "General action framework"}</p>
+              <h2 id="career-path-map-title">{isZh ? "四步职业路径" : "A four-step career path"}</h2>
+              <p>{isZh ? "每一步都连接到现有工具或 CMS 指南，先验证，再投入。" : "Each step links to an existing tool or CMS guide so you can validate before investing."}</p>
+            </div>
+            <ol className={styles.timeline}>
+              {pathSteps.map((step) => {
+                const Icon = step.icon;
+                return (
+                  <li key={step.number}>
+                    <Link href={step.href} className={styles.timelineLink}>
+                      <span className={styles.stepNumber}>{step.number}</span>
+                      <span className={styles.stepIcon}><Icon aria-hidden="true" /></span>
+                      <strong>{step.title}</strong>
+                      <small>{step.description}</small>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ol>
+          </article>
+
+          <aside className={styles.gapCard} aria-labelledby="career-gap-title">
+            <p className={styles.sectionKicker}>{isZh ? "技能差距工作单" : "Skill-gap worksheet"}</p>
+            <h2 id="career-gap-title">{isZh ? "先分三类，不急着报课" : "Sort the gap before choosing a course"}</h2>
+            <ul>
+              <li><CheckCircle2 aria-hidden="true" /><span><strong>{isZh ? "可以迁移" : "Transferable"}</strong><small>{isZh ? "已有经验、方法和协作能力" : "Existing experience, methods, and collaboration"}</small></span></li>
+              <li><Compass aria-hidden="true" /><span><strong>{isZh ? "优先补齐" : "Priority gaps"}</strong><small>{isZh ? "进入岗位必须掌握的核心技能" : "Core skills required to enter the role"}</small></span></li>
+              <li><BookOpenCheck aria-hidden="true" /><span><strong>{isZh ? "用项目证明" : "Prove through a project"}</strong><small>{isZh ? "可以被作品或案例验证的能力" : "Capabilities visible in work samples or cases"}</small></span></li>
+            </ul>
+            <Link href="#capability-building" className={styles.outlineAction}>{isZh ? "查看技能差距指南" : "View skill-gap guides"}<ArrowRight aria-hidden="true" /></Link>
+          </aside>
+        </section>
+
+        {featuredGuides.length > 0 ? (
+          <section className={styles.featuredSection} aria-labelledby="featured-career-paths-title">
+            <div className={styles.listHeading}>
+              <div>
+                <p className={styles.sectionKicker}>{isZh ? "优先阅读" : "Start here"}</p>
+                <h2 id="featured-career-paths-title">{isZh ? "把方向变成下一步" : "Turn direction into a next step"}</h2>
+              </div>
+              <p>{isZh ? "精选内容完全来自已发布 CMS 指南。" : "Featured content comes entirely from published CMS guides."}</p>
+            </div>
+            <div className={styles.featuredGrid}>
+              {featuredGuides.slice(0, 3).map((guide, index) => (
+                <GuideLinkCard key={guide.slug} guide={guide} locale={locale} index={index + 1} prominent />
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <section id="guides" className={styles.guideDirectory} aria-labelledby="career-path-guides-title">
+          <div className={styles.listHeading}>
+            <div>
+              <p className={styles.sectionKicker}>{isZh ? "按任务查找" : "Browse by task"}</p>
+              <h2 id="career-path-guides-title">{isZh ? "职业路径指南" : "Career path guides"}</h2>
+            </div>
+            <p>{isZh ? "职业库负责解释“这个职业是什么”；这里专注“怎样走到那里”。" : "The occupation library explains the role; this page focuses on how to move toward it."}</p>
+          </div>
+          <div className={styles.groupList}>
+            {groupedGuides
+              .filter((group) => group.guides.length > 0)
+              .map((group, groupIndex) => (
+                <section key={group.key} id={group.key} className={styles.guideGroup}>
+                  <div className={styles.groupHeading}>
+                    <span>{String(groupIndex + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3>{pickLocale(locale, group.title)}</h3>
+                      <p>{pickLocale(locale, group.summary)}</p>
+                    </div>
+                  </div>
+                  <div className={styles.guideGrid}>
+                    {group.guides.map((guide, index) => (
+                      <GuideLinkCard key={guide.slug} guide={guide} locale={locale} index={index + 1} />
+                    ))}
+                  </div>
+                </section>
+              ))}
+          </div>
+        </section>
+
+        <section className={styles.faqSection} id="faq" aria-labelledby="career-path-faq-title">
+          <div className={styles.faqIntro}>
+            <p className={styles.sectionKicker}>{isZh ? "答案与边界" : "Answers and boundaries"}</p>
+            <h2 id="career-path-faq-title">{isZh ? "职业路径常见问题" : "Career path questions"}</h2>
+            <p>
+              {isZh ? "页面更新于" : "Updated"} <time dateTime={PAGE_UPDATED_AT}>{PAGE_UPDATED_AT}</time>{isZh ? "。" : "."}
+              {isZh ? "内容索引来自公开 CMS，目标职业事实以职业库为准。" : " Guide indexing comes from the public CMS; role facts remain authoritative in the occupation library."}
+            </p>
+          </div>
+          <div className={styles.faqList}>
+            {faqItems.map((item) => (
+              <details key={item.question} className={styles.faqItem}>
+                <summary>{item.question}</summary>
+                <p>{item.answer}</p>
+              </details>
             ))}
           </div>
         </section>
-      ) : null}
-
-      <section className="space-y-10">
-        {groupedGuides
-          .filter((group) => group.guides.length > 0)
-          .map((group, groupIndex) => (
-            <div key={group.key} id={group.key} className="scroll-mt-24 space-y-4">
-              <div className="grid gap-3 border-t border-slate-300 pt-6 md:grid-cols-[4rem_minmax(0,1fr)] md:gap-5">
-                <span className="font-mono text-xs font-semibold tracking-[0.16em] text-orange-600" aria-hidden="true">
-                  {String(groupIndex + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h2 className="m-0 font-serif text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
-                    {pickLocale(locale, group.title)}
-                  </h2>
-                  <p className="m-0 mt-2 max-w-2xl text-sm leading-6 text-slate-500 md:text-base">
-                    {pickLocale(locale, group.summary)}
-                  </p>
-                </div>
-              </div>
-              <div className="grid gap-x-8 gap-y-3 md:grid-cols-2">
-                {group.guides.map((guide) => (
-                  <GuideLinkCard key={guide.slug} guide={guide} locale={locale} />
-                ))}
-              </div>
-            </div>
-          ))}
-      </section>
-    </Container>
+      </Container>
+    </main>
   );
 }
 
 function GuideLinkCard({
   guide,
   locale,
+  index,
   prominent = false,
 }: {
   guide: CareerGuideListItem;
   locale: Locale;
+  index: number;
   prominent?: boolean;
 }) {
   return (
-    <Link
-      href={guide.href}
-      className={[
-        "group block border-t border-slate-200 py-5 transition hover:border-orange-300",
-        prominent ? "rounded-xl border border-slate-200 bg-white px-5 shadow-sm" : "",
-      ].join(" ")}
-    >
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">
-        {formatGuideCategory(guide.categorySlug || guide.category, locale)}
-      </p>
-      <h3 className="m-0 mt-3 text-xl font-semibold tracking-tight text-slate-950 group-hover:text-orange-600">
-        {guide.title}
-      </h3>
-      <p className="m-0 mt-3 text-sm leading-6 text-slate-500">{guide.summary}</p>
-      <p className="m-0 mt-4 text-sm font-semibold text-orange-600">
-        {locale === "zh" ? "阅读指南" : "Read guide"}
-      </p>
+    <Link href={guide.href} className={prominent ? styles.featuredCard : styles.guideCard}>
+      <span className={styles.guideIndex}>{String(index).padStart(2, "0")}</span>
+      <p>{formatGuideCategory(guide.categorySlug || guide.category, locale)}</p>
+      <h3>{guide.title}</h3>
+      <small>{guide.summary}</small>
+      <strong>{locale === "zh" ? "阅读指南" : "Read guide"}<ArrowRight aria-hidden="true" /></strong>
     </Link>
   );
 }

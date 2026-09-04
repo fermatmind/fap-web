@@ -357,7 +357,7 @@ export default async function CareerMbtiRecommendationPage({
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "职业" : "Career", path: localizedPath("/career", locale) },
-    { name: locale === "zh" ? "职业推荐" : "Career recommendations", path: localizedPath("/career/recommendations", locale) },
+    { name: locale === "zh" ? "职业匹配" : "Career fit", path: localizedPath("/career/recommendations", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
   const itemListJsonLd = buildItemListJsonLd({
@@ -425,7 +425,7 @@ export default async function CareerMbtiRecommendationPage({
           items={[
             { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
             { label: locale === "zh" ? "职业" : "Career", href: localizedPath("/career", locale) },
-            { label: locale === "zh" ? "职业推荐" : "Career recommendations", href: localizedPath("/career/recommendations", locale) },
+            { label: locale === "zh" ? "职业匹配" : "Career fit", href: localizedPath("/career/recommendations", locale) },
             { label: detail.displayType },
           ]}
         />
