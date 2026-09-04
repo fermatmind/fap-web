@@ -56,9 +56,9 @@ export type CareerLaunchSmokeEntry = {
 };
 
 export const CAREER_LAUNCH_POLICY_METADATA = {
-  manifestVersion: "1.0.0",
+  manifestVersion: "1.1.0",
   generatedFrom: "lib/career/launchPolicy.ts",
-  generatedAt: "2026-04-09T00:00:00Z",
+  generatedAt: "2026-09-04T06:09:08Z",
   waveName: "career-first-wave-launch",
 } as const;
 

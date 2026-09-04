@@ -1,14 +1,14 @@
 {
-  "manifest_version": "1.0.0",
+  "manifest_version": "1.1.0",
   "generated_from": "lib/career/launchPolicy.ts",
-  "generated_at": "2026-04-09T00:00:00Z",
+  "generated_at": "2026-09-04T06:09:08Z",
   "wave_name": "career-first-wave-launch",
   "stable_routes": [
     {
       "key": "career_landing",
       "route": "/career",
-      "authorityOwner": "routing_config",
-      "rationale": "The retired Career landing permanently redirects to the backend-backed jobs directory."
+      "authorityOwner": "frontend_career_center",
+      "rationale": "The focused Career center routes users to jobs, recommendations, and guides without owning backend career truth."
     },
     {
       "key": "career_jobs_index",
