@@ -1,3 +1,7 @@
+import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
+import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
+import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
+import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
 import { applyTestDetailMetadataTitleTemplateGuard } from "@/lib/tests/metadataTitleTemplateGuard";
 import Link from "next/link";
@@ -166,21 +170,6 @@ function appendQuery(path: string, query: Record<string, string | string[] | und
   }
   const queryString = params.toString();
   return queryString ? `${path}?${queryString}` : path;
-}
-
-function parseFaq(value: unknown): FAQItem[] {
-  if (!Array.isArray(value)) return [];
-
-  const out: FAQItem[] = [];
-  for (const item of value) {
-    const node = toRecord(item);
-    const q = toStringValue(node.q ?? node.question);
-    const a = toStringValue(node.a ?? node.answer);
-    if (q && a) {
-      out.push({ q, a });
-    }
-  }
-  return out;
 }
 
 function parseStringList(value: unknown): string[] {
@@ -1028,6 +1017,8 @@ export default async function TestLandingPage({
           )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
+  const mbtiEditorial = showsMbtiActions && locale === "zh" ? parseMbtiEditorial(langNode) : null;
+  const visibleFaq = mergedFaq;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -1376,18 +1367,51 @@ export default async function TestLandingPage({
     { name: localizedTestTitle, path: canonicalPath },
   ]);
   const faqJsonLd =
-    mergedFaq.length > 0
+    visibleFaq.length > 0
       ? buildFAQPageJsonLd(
-          mergedFaq.map((item) => ({
+          visibleFaq.map((item) => ({
             question: item.q,
             answer: item.a,
           }))
         )
       : null;
 
+  const assessmentHowItWorks = (<Card id="how-it-works">
+            <CardHeader>
+              <CardTitle>{showsMbtiActions ? (locale === "zh" ? "如何完成测试" : "How it works") : (locale === "zh" ? "你将获得什么" : "What to expect")}</CardTitle>
+              {showsMbtiActions ? <p className={previewStyles.versionNote}>{locale === "zh" ? "以下介绍以默认版本为例，题量与用时以所选版本为准。" : "The overview describes the default version. Question count and time depend on your selection."}</p> : null}
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-slate-600">
+              {(howItWorksItems.length > 0
+                ? howItWorksItems
+                : defaultHowItWorksItems).map((item, index) => (
+                <p key={`${index}-${item}`}>{index + 1}. {item}</p>
+              ))}
+            </CardContent>
+          </Card>);
+  const assessmentAudience = (<CiteableSection
+            id="when-to-use"
+            title={locale === "zh" ? "何时使用这份测评" : "When to use this assessment"}
+            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+          >
+            <p className="m-0 text-sm text-slate-600">
+              {whenToUse || detailLensCopy.whenToUseBody}
+            </p>
+            {audienceItems.length > 0 ? (
+              <ul className="mt-4 space-y-2 text-sm text-slate-600">
+                {audienceItems.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span aria-hidden>•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </CiteableSection>);
+
   return (
     <main
-      className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"
+      className={showsMbtiActions ? previewStyles.page : "mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"}
       data-test-landing-read-source={landingData.source}
       data-test-landing-cms-source={landingData.cmsSource}
       {...(isSelfUnderstanding ? {
@@ -1404,8 +1428,15 @@ export default async function TestLandingPage({
       {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="space-y-6">
+      {showsMbtiActions ? <nav className={previewStyles.breadcrumb} aria-label={locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{locale === "zh" ? "首页" : "Home"}</Link><span>/</span><Link href={withLocale("/tests")}>{locale === "zh" ? "测试" : "Tests"}</Link><span>/</span><span>MBTI</span></nav> : null}
+      <div className={showsMbtiActions ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
+        <div className={showsMbtiActions ? previewStyles.content : "space-y-6"}>
+          {showsMbtiActions ? <MbtiLandingIntro
+            locale={locale}
+            title={heroTitleDisplay.plain}
+            choices={mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices}
+            disabled={testDisabled || !canRenderStartCta}
+          /> : (
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
@@ -1464,14 +1495,6 @@ export default async function TestLandingPage({
                 <span className={buttonVariants({ size: "lg", variant: "secondary" })}>
                   {locale === "zh" ? "维护中" : "Temporarily unavailable"}
                 </span>
-              </div>
-            ) : showsMbtiActions ? (
-              <div className="space-y-4 pt-2" data-testid="mbti-landing-entry-cta-group">
-                <div data-testid="mbti-ads-primary-whitelist">
-                  <FlagshipVariantChooser
-                    choices={mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices}
-                  />
-                </div>
               </div>
             ) : showsBig5Actions ? (
               <div className="space-y-4 pt-2">
@@ -1542,16 +1565,21 @@ export default async function TestLandingPage({
               </div>
             ) : null}
           </section>
+          )}
+
+          {showsMbtiActions ? <>{assessmentHowItWorks}{assessmentAudience}</> : null}
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
           {showsMbtiActions ? (
-            <MbtiSceneEntrySection
+            <div id="use-in-life"><h2 className={previewStyles.sectionHeading}>{locale === "zh" ? "把了解，带回生活" : "Put understanding into practice"}</h2><MbtiSceneEntrySection
               locale={locale}
               sourcePageType="test_landing"
               testId="mbti-test-landing-scene-entry"
-            />
+            /></div>
           ) : null}
+          {showsMbtiActions ? <details className={previewStyles.exploreMore}>
+            <summary>{locale === "zh" ? "继续探索人格类型与应用" : "Explore personality types and applications"}<span aria-hidden>＋</span></summary>
           {showsMbtiActions && mbtiLandingContinuityItems.length > 0 ? (
             <section
               className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
@@ -1575,6 +1603,7 @@ export default async function TestLandingPage({
             </section>
           ) : null}
           {showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}
+          </details> : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
           {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (
@@ -1603,40 +1632,9 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          <CiteableSection
-            id="when-to-use"
-            title={locale === "zh" ? "何时使用这份测评" : "When to use this assessment"}
-            className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          >
-            <p className="m-0 text-sm text-slate-600">
-              {whenToUse || detailLensCopy.whenToUseBody}
-            </p>
-            {audienceItems.length > 0 ? (
-              <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                {audienceItems.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span aria-hidden>•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </CiteableSection>
+          {!showsMbtiActions ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}
 
-          <Card id="how-it-works">
-            <CardHeader>
-              <CardTitle>{locale === "zh" ? "你将获得什么" : "What to expect"}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-3 text-sm text-slate-600">
-              {(howItWorksItems.length > 0
-                ? howItWorksItems
-                : defaultHowItWorksItems).map((item, index) => (
-                <p key={`${index}-${item}`}>{index + 1}. {item}</p>
-              ))}
-            </CardContent>
-          </Card>
-
-          <Card data-testid="tests-related-articles-section">
+          <Card id="related-reading" data-testid="tests-related-articles-section">
             <CardHeader>
               <CardTitle>{dict.tests.relatedArticles.title}</CardTitle>
             </CardHeader>
@@ -1688,18 +1686,20 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          {mergedFaq.length > 0 ? (
+          {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
+
+          {visibleFaq.length > 0 ? (
             <section
               id="faq"
-              className="space-y-4"
+              className={showsMbtiActions ? previewStyles.faq : "space-y-4"}
               data-evidence-container="true"
               data-evidence-page-family="test_detail"
               data-evidence-source-type="visible_page_content"
               data-evidence-readiness="partial"
             >
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900">FAQ</h2>
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : "FAQ"}</h2>
               <div data-evidence-block="faq">
-                <FAQAccordion items={mergedFaq} />
+                {showsMbtiActions ? <MbtiFaqAnswers items={visibleFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
               </div>
             </section>
           ) : null}
@@ -1732,7 +1732,7 @@ export default async function TestLandingPage({
           ) : null}
         </div>
 
-        {testDetailAuthority.cta.allowed ? (
+        {testDetailAuthority.cta.allowed && !showsMbtiActions ? (
           <aside>
             <CTASticky
               slug={test.slug}
