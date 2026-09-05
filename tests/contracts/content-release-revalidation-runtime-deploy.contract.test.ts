@@ -23,6 +23,8 @@ describe("content-release revalidation runtime deploy control", () => {
       "needs.production.result == 'success' && needs.policy.outputs.infrastructure == 'true'",
     );
     expect(deploy).toContain("environment: production");
+    expect(deploy).toContain("Confirm runtime control remains latest main");
+    expect(deploy).toContain('test "$(git rev-parse origin/main)" = "$DEPLOY_SHA"');
     expect(deploy).not.toMatch(/workflow_dispatch\s*:/);
   });
 
