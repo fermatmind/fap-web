@@ -146,7 +146,7 @@ describe("test detail authority convergence", () => {
     expect(page).toContain("faqJsonLd ?");
     expect(page).toContain("mergedFaq.length > 0 ? (");
     expect(page).toContain("canRenderStartCta ? (");
-    expect(page).toContain("testDetailAuthority.cta.allowed ? (");
+    expect(page).toContain("testDetailAuthority.cta.allowed && !showsMbtiActions ? (");
     expect(helper).toContain("TEST_DETAIL_COMPATIBILITY_FALLBACK_SLUGS");
     expect(helper).toContain("new test detail metadata requires backend SEO authority");
     expect(helper).toContain("new test detail FAQ requires visible backend/CMS FAQ authority");

@@ -130,9 +130,11 @@ describe("mbti ads whitelist contract", () => {
     const landing = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
     const sticky = read("components/business/CTASticky.tsx");
 
-    expect(landing).toContain('data-testid="mbti-ads-primary-whitelist"');
-    expect(landing).toContain('data-testid="mbti-landing-primary-cta"');
-    expect(landing).toContain('data-testid="mbti-landing-secondary-cta"');
+    const intro = read("components/tests/MbtiLandingIntro.tsx");
+    expect(landing).toContain("<MbtiLandingIntro");
+    expect(intro).toContain('data-testid="mbti-ads-primary-whitelist"');
+    expect(landing).toContain('testId: "mbti-landing-primary-cta"');
+    expect(landing).toContain('testId: "mbti-landing-secondary-cta"');
     expect(landing).toContain('sourcePath: mbtiLandingPath');
     expect(sticky).toContain('data-testid="mbti-sticky-primary-cta"');
     expect(sticky).toContain('data-testid="mbti-sticky-secondary-cta"');

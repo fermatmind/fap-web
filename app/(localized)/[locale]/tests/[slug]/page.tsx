@@ -1018,7 +1018,6 @@ export default async function TestLandingPage({
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
   const mbtiEditorial = showsMbtiActions && locale === "zh" ? parseMbtiEditorial(langNode) : null;
-  const visibleFaq = mergedFaq;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -1367,9 +1366,9 @@ export default async function TestLandingPage({
     { name: localizedTestTitle, path: canonicalPath },
   ]);
   const faqJsonLd =
-    visibleFaq.length > 0
+    mergedFaq.length > 0
       ? buildFAQPageJsonLd(
-          visibleFaq.map((item) => ({
+          mergedFaq.map((item) => ({
             question: item.q,
             answer: item.a,
           }))
@@ -1688,7 +1687,7 @@ export default async function TestLandingPage({
 
           {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
 
-          {visibleFaq.length > 0 ? (
+          {mergedFaq.length > 0 ? (
             <section
               id="faq"
               className={showsMbtiActions ? previewStyles.faq : "space-y-4"}
@@ -1699,7 +1698,7 @@ export default async function TestLandingPage({
             >
               <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : "FAQ"}</h2>
               <div data-evidence-block="faq">
-                {showsMbtiActions ? <MbtiFaqAnswers items={visibleFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
+                {showsMbtiActions ? <MbtiFaqAnswers items={mergedFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
               </div>
             </section>
           ) : null}

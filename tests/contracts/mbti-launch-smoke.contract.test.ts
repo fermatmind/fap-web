@@ -171,7 +171,8 @@ describe("mbti launch smoke contract", () => {
     const topicPage = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
     expect(whitelistContract).toContain("routes public mbti discovery entry points to the landing page while keeping account CTAs out of take flow");
-    expect(landingPage).toContain('data-testid="mbti-ads-primary-whitelist"');
+    expect(landingPage).toContain("<MbtiLandingIntro");
+    expect(read("components/tests/MbtiLandingIntro.tsx")).toContain('data-testid="mbti-ads-primary-whitelist"');
     expect(landingPage).toContain('<AnalyticsPageViewTracker eventName="landing_view"');
     expect(personalityPage).toContain('data-testid="mbti-personality-primary-cta"');
     expect(personalityPage).toContain('<AnalyticsPageViewTracker eventName="landing_view"');

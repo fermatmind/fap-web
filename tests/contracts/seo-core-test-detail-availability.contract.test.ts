@@ -1,4 +1,6 @@
 import fs from "node:fs";
+import { renderToStaticMarkup } from "react-dom/server";
+import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import path from "node:path";
 import { isValidElement, type ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -333,7 +335,8 @@ describe("SEO core test detail availability", () => {
       const strings = values.filter((value): value is string => typeof value === "string");
 
       expect(
-        elements.some((element) => element.type === "h1"),
+        elements.some((element) => element.type === "h1" ||
+          (element.type === MbtiLandingIntro && renderToStaticMarkup(element).includes("<h1>"))),
         `${slug} must retain a visible H1`
       ).toBe(true);
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");

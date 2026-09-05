@@ -91,7 +91,7 @@ describe("test detail landing contract", () => {
     expect(source).toContain("{disclaimer}");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
     expect(source).toContain(') : canRenderStartCta ? (');
-    expect(source).toContain("{testDetailAuthority.cta.allowed ? (");
+    expect(source).toContain("{testDetailAuthority.cta.allowed && !showsMbtiActions ? (");
   });
 
   it("passes CMS primary CTA labels through to sticky default-form CTAs", () => {
@@ -177,12 +177,14 @@ describe("test detail landing contract", () => {
     expect(changedFiles.every(isMbtiMainFaqSchemaEvidence01AllowedFile), changedFiles.join("\n")).toBe(true);
   });
 
-  it("keeps one primary mbti CTA plus a secondary CTA on the landing hero", () => {
+  it("keeps both tracked mbti versions behind the selected landing CTA", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
-    expect(source).toContain('data-testid="mbti-landing-entry-cta-group"');
-    expect(source).toContain('data-testid="mbti-landing-primary-cta"');
-    expect(source).toContain('data-testid="mbti-landing-secondary-cta"');
+    const intro = fs.readFileSync(path.join(process.cwd(), "components/tests/MbtiLandingIntro.tsx"), "utf8");
+    expect(source).toContain("<MbtiLandingIntro");
+    expect(intro).toContain('data-testid="mbti-landing-entry-cta-group"');
+    expect(source).toContain('testId: "mbti-landing-primary-cta"');
+    expect(source).toContain('testId: "mbti-landing-secondary-cta"');
     expect(source).toContain('buildMbtiEntryHref({');
     expect(source).toContain('buildMbtiEntryTrackingPayload({');
     expect(source).toContain('attributionParams: landingAttributionParams');
