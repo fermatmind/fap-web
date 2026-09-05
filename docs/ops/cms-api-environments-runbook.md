@@ -237,11 +237,12 @@ Minimum production release wiring:
 
 ### Controlled frontend revalidation runtime configuration
 
-The three frontend settings above must be converged through the protected
-`Content Release Revalidation Runtime Config` workflow. Do not edit the
-production environment file over an interactive SSH session.
+The three frontend settings above are converged by the protected
+`content-release-runtime` phase in the existing `deploy.yml` control plane
+when the exact-SHA classifier selects deployment infrastructure. Do not edit
+the production environment file over an interactive SSH session.
 
-The workflow has two modes:
+The phase runs two bound modes:
 
 - `preflight` is read-only. It binds the currently active frontend revision,
   current runtime environment SHA-256, PM2 state, a read-only Redis REST probe,
@@ -254,13 +255,13 @@ The workflow has two modes:
   `CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN`, then performs a rolling reload of
   only the `fap-web` PM2 application and persists the PM2 state.
 
-The protected `production` environment must provide all three values as
-GitHub Actions secrets, along with the existing Node1 SSH secrets. The workflow
-does not support Actions variables or plaintext fallbacks. It does not deploy
+The protected `production` environment must provide all three values as GitHub
+Actions secrets, along with the existing Node1 SSH secrets. The phase does not
+support Actions variables or plaintext fallbacks. It does not deploy
 application code, invoke the revalidation endpoint, mutate CMS/backend data, or
 automatically roll back. A failed apply receipt distinguishes zero-write
 failures from a configuration write that occurred before PM2 convergence
-failed.
+failed. An already-converged runtime produces a no-write receipt.
 
 Sitemap note: `sitemap.xml` is a generated static artifact, not a path that this revalidation consumer can rewrite. Daily publishing still needs a sitemap regeneration/deploy step, or a future dynamic sitemap rollout, before sitemap freshness can be treated as automatic.
 

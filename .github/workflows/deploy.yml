@@ -40,6 +40,7 @@ jobs:
     outputs:
       deploy: ${{ steps.receipt.outputs.deploy }}
       ingress: ${{ steps.receipt.outputs.ingress }}
+      infrastructure: ${{ steps.receipt.outputs.infrastructure }}
       validation_id: ${{ steps.artifacts.outputs.validation_id }}
       validation_digest: ${{ steps.artifacts.outputs.validation_digest }}
       release_id: ${{ steps.artifacts.outputs.release_id }}
@@ -115,6 +116,7 @@ jobs:
           {
             echo "deploy=$deploy"
             echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
+            echo "infrastructure=$(jq -r .classification.flags.deployment_infrastructure "$receipt")"
           } >> "$GITHUB_OUTPUT"
 
   staging:
@@ -261,6 +263,50 @@ jobs:
           name: trunk-production-${{ github.event.workflow_run.head_sha }}
           path: trunk-delivery-timing.json
           retention-days: 90
+
+  content-release-runtime:
+    name: Converge content-release revalidation runtime
+    needs: [policy, production]
+    if: needs.production.result == 'success' && needs.policy.outputs.infrastructure == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    env:
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_NODE1_APP_NAME || vars.WEB_NODE1_APP_NAME }}
+      CONTENT_RELEASE_REVALIDATE_SECRET: ${{ secrets.CONTENT_RELEASE_REVALIDATE_SECRET }}
+      CONTENT_RELEASE_REVALIDATE_REDIS_URL: ${{ secrets.CONTENT_RELEASE_REVALIDATE_REDIS_URL }}
+      CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN: ${{ secrets.CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN }}
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555 # v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Install pinned SSH known hosts
+        env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KNOWN_HOSTS"
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+      - name: Preflight and converge bounded runtime settings
+        run: .github/trunk/converge-content-release-runtime.sh
+      - name: Upload runtime configuration receipts
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: content-release-runtime-${{ github.event.workflow_run.head_sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: content-release-runtime-receipts/*.json
+          retention-days: 90
+          if-no-files-found: error
 
   ingress:
     name: Apply changed ingress config after exact production smoke
