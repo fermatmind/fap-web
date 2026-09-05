@@ -60,7 +60,6 @@ export function classifyPaths(inputPaths) {
       /^\.github\//,
       /^(?:deploy|infrastructure|infra)\//,
       /^scripts\/(?:deploy|ops|release)\//,
-      /^scripts\/content_release_revalidation_runtime_config\.sh$/,
       /(?:Dockerfile|docker-compose|deployment)/i,
     ])) selected.push("deployment_infrastructure");
     if (selected.length === 0) selected.push("application_ui");

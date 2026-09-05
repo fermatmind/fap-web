@@ -33,11 +33,6 @@ test("classifies career display adapter as both UI and content contract", () => 
   assert.equal(result.flags.content_adapter_contract, true);
 });
 test("classifies ingress/runtime config", () => assert.equal(has(["deploy/openresty/fap-web-public.conf"], "ingress_runtime_config"), true));
-test("classifies content-release runtime control as deployment infrastructure", () => {
-  const result = classifyPaths(["scripts/content_release_revalidation_runtime_config.sh"]);
-  assert.equal(result.flags.ingress_runtime_config, false);
-  assert.equal(result.flags.deployment_infrastructure, true);
-});
 test("classifies deployment infrastructure", () => assert.equal(has([".github/workflows/deploy.yml"], "deployment_infrastructure"), true));
 
 test("mixed scope returns the validation union", () => {
