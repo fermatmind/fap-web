@@ -189,12 +189,6 @@
       "count": 1
     },
     {
-      "file": "app/(localized)/[locale]/tests/[slug]/page.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "px-2.5",
-      "count": 1
-    },
-    {
       "file": "components/big5/report/BlockRenderer.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "py-0.5",

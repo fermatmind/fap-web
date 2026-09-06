@@ -29,7 +29,7 @@ export function AssessmentLandingIntro({ locale, title, choices, disabled }: {
             <div className={styles.versionActions}>
               {availableChoices.map((choice, index) => (
                 <div className={styles.versionAction} key={choice.key}>
-                  <TrackedEntryCtaLink href={choice.href!} data-testid={choice.testId} eventProperties={choice.eventProperties ?? {}} className={`${styles.startButton} ${index > 0 ? styles.secondaryButton : ""}`}>
+                  <TrackedEntryCtaLink href={choice.href!} prefetch={false} data-testid={choice.testId} eventProperties={choice.eventProperties ?? {}} className={`${styles.startButton} ${index > 0 ? styles.secondaryButton : ""}`}>
                     {locale === "zh" ? choice.label.replace(/^(?:Big Five|Enneagram|RIASEC|EQ)\s*/i, "").replace(/(\d+)Q/gi, "$1 题") : choice.label}
                     <ArrowRight size={19} aria-hidden />
                   </TrackedEntryCtaLink>

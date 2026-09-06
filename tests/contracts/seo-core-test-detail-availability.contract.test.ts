@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
+import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import path from "node:path";
 import { isValidElement, type ReactNode } from "react";
@@ -336,7 +337,7 @@ describe("SEO core test detail availability", () => {
 
       expect(
         elements.some((element) => element.type === "h1" ||
-          (element.type === MbtiLandingIntro && renderToStaticMarkup(element).includes("<h1>"))),
+          ((element.type === MbtiLandingIntro || element.type === AssessmentLandingIntro) && renderToStaticMarkup(element).includes("<h1>"))),
         `${slug} must retain a visible H1`
       ).toBe(true);
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
