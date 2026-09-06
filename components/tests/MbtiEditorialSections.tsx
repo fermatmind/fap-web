@@ -24,7 +24,7 @@ export function MbtiWhyChoose({ content }: { content: MbtiEditorial }) {
         </div>
         <p>{content.comparison.note}</p>
       </div> : null}
-      {item.link ? <a href={item.link.href}>{item.link.label}<span aria-hidden> →</span></a> : null}
+      {item.link && !item.link.href.endsWith("#use-in-life") ? <a href={item.link.href}>{item.link.label}<span aria-hidden> →</span></a> : null}
     </article>)}</div>
   </section>;
 }

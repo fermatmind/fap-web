@@ -26,6 +26,12 @@ describe("CMS MBTI editorial", () => {
     expect(parseMbtiEditorial({})).toBeNull();
     expect(parseLandingFaq(null)).toEqual([]);
   });
+  it("omits links to the removed life section while preserving editorial text", () => {
+    const content = { title: "Why", intro: "Intro", items: [{ id: "life", title: "Applications", body: "CMS body", link: { label: "Explore life", href: "#use-in-life" } }] };
+    render(<MbtiWhyChoose content={content} />);
+    expect(screen.getByText("CMS body")).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Explore life" })).not.toBeInTheDocument();
+  });
   it("renders a semantic comparison and separates evidence from product links", () => {
     const content = parseMbtiEditorial({ why_choose: { title: "Why", intro: "Intro", items: [{ id: "versions", title: "Versions", body: "Choose", link: { label: "Start", href: "#choose-version" } }] }, version_comparison: { caption: "Comparison", columns: ["Item", "93", "144"], rows: [["Time", "10", "15"]], note: "Estimate" } });
     render(<MbtiWhyChoose content={content!} />);

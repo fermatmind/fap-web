@@ -14,7 +14,6 @@ import {
   MentalHealthDisclaimer,
 } from "@/components/compliance/MentalHealthDisclaimer";
 import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
-import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RiasecLandingSurfaceSections } from "@/components/tests/RiasecLandingSurfaceSections";
@@ -1567,13 +1566,6 @@ export default async function TestLandingPage({
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
-          {showsMbtiActions ? (
-            <div id="use-in-life"><h2 className={previewStyles.sectionHeading}>{locale === "zh" ? "把了解，带回生活" : "Put understanding into practice"}</h2><MbtiSceneEntrySection
-              locale={locale}
-              sourcePageType="test_landing"
-              testId="mbti-test-landing-scene-entry"
-            /></div>
-          ) : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
           {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (

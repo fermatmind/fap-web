@@ -197,7 +197,7 @@ describe("test detail landing contract", () => {
     const componentSource = fs.readFileSync(MBTI_LANDING_SURFACE_PATH, "utf8");
 
     expect(pageSource).not.toContain("<MbtiLandingSurfaceSections");
-    expect(pageSource).toContain('testId="mbti-test-landing-scene-entry"');
+    expect(pageSource).not.toContain('testId="mbti-test-landing-scene-entry"');
     expect(componentSource).toContain("findPersonalityHubLinks");
     expect(componentSource).toContain("findTypeLinks");
     expect(componentSource).toContain("findComparisonLinks");

@@ -90,14 +90,14 @@
 .faqSources a { color:#285579; text-decoration:underline; text-underline-offset:3px; }
 
 .content > .whyChoose h2 { font-size:32px; line-height:1.2; margin:0 0 36px; }
-.whyChoose > div { max-width:856px; }
+.whyChoose > div { width:100%; }
 .whyChoose article + article { margin-top:32px; }
 .content > .whyChoose h3 { font-size:22px; line-height:1.4; font-weight:600; margin:0 0 12px; }
 .content > .whyChoose p { font-size:16px; line-height:1.7; color:#465263; margin:0 0 12px; }
 .whyChoose article a { font-size:14px; color:#007e7b; text-decoration:underline; text-underline-offset:4px; }
 @media(max-width:680px) { .content > .whyChoose h2 { font-size:28px; } .content > .whyChoose h3 { font-size:21px; } }
 
-.content > .whyChoose .whyIntro { max-width:856px; margin:0 0 36px; }
+.content > .whyChoose .whyIntro { width:100%; margin:0 0 36px; }
 .whyBody p + p { margin-top:16px; }
 
 .faqItem, .comparison { scroll-margin-top:96px; }

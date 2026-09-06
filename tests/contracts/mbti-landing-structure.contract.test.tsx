@@ -98,7 +98,7 @@ describe("ANALYTICS-SEO-P1-06 MBTI landing structure contract", () => {
 
     expect(source).not.toContain("previewStyles.exploreMore");
     expect(source).toContain("{mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}");
-    expect(source.indexOf("<MbtiWhyChoose content=")).toBeLessThan(source.indexOf('<div id="use-in-life"'));
+    expect(source.indexOf("<MbtiWhyChoose content=")).toBeLessThan(source.indexOf('id="faq"'));
     expect(source).toContain("{!showsMbtiActions ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}");
     expect(source).toContain('{!showsMbtiActions ? <Card id="related-reading"');
     expect(source).toContain("const faqItems = parseFaq(langNode.faq)");
