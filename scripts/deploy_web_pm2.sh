@@ -40,6 +40,10 @@ ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articl
 ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
 REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}"
 REQUIRE_CAREER_RENDERER_REVISION="${REQUIRE_CAREER_RENDERER_REVISION:-1}"
+REQUIRE_LLMS_FULL_ARTIFACT="${REQUIRE_LLMS_FULL_ARTIFACT:-0}"
+LLMS_FULL_VERIFY_SCRIPT="${LLMS_FULL_VERIFY_SCRIPT:-}"
+LLMS_FULL_RECEIPT_PATH="${LLMS_FULL_RECEIPT_PATH:-}"
+LLMS_FULL_VERIFY_TIMEOUT_MS="${LLMS_FULL_VERIFY_TIMEOUT_MS:-330000}"
 THIRD_PARTY_ANALYTICS_PATTERN='fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu'
 PRIVATE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)'
 PRIVATE_TEST_TAKE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)'
@@ -325,6 +329,34 @@ require_candidate_analytics_smoke() {
   trap - RETURN EXIT
 }
 
+require_llms_full_artifact() {
+  local artifact_url="${PUBLIC_BASE_URL%/}/llms-full.txt"
+
+  if [[ ! -f "$LLMS_FULL_VERIFY_SCRIPT" ]]; then
+    log "llms-full verifier is missing"
+    return 1
+  fi
+  if [[ "$LLMS_FULL_RECEIPT_PATH" != /* ]]; then
+    log "llms-full receipt path must be absolute"
+    return 1
+  fi
+  if [[ ! "$LLMS_FULL_VERIFY_TIMEOUT_MS" =~ ^[0-9]+$ ]] \
+    || (( LLMS_FULL_VERIFY_TIMEOUT_MS < 1000 || LLMS_FULL_VERIFY_TIMEOUT_MS > 330000 )); then
+    log "llms-full verification timeout is invalid"
+    return 1
+  fi
+
+  log "wait for exact llms-full complete artifact"
+  "$EXPECTED_NODE_BIN" "$LLMS_FULL_VERIFY_SCRIPT" \
+    "--url=${artifact_url}" \
+    "--site-url=${PUBLIC_BASE_URL%/}" \
+    "--expected-revision=${DEPLOYED_REVISION}" \
+    "--receipt=${LLMS_FULL_RECEIPT_PATH}" \
+    "--timeout-ms=${LLMS_FULL_VERIFY_TIMEOUT_MS}" \
+    "--poll-interval-ms=3000"
+  log "llms-full complete artifact passed"
+}
+
 require_sitemap_health() {
   local url="$1"
   local body_file
@@ -372,6 +404,10 @@ elif [[ "$APP_MANAGER" == "systemd" ]]; then
   require_bin systemctl
 else
   log "unsupported APP_MANAGER: ${APP_MANAGER}"
+  exit 1
+fi
+if [[ ! "$REQUIRE_LLMS_FULL_ARTIFACT" =~ ^[01]$ ]]; then
+  log "REQUIRE_LLMS_FULL_ARTIFACT must be 0 or 1"
   exit 1
 fi
 require_bin curl
@@ -480,6 +516,11 @@ probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
 require_deployed_revision_endpoint "${PUBLIC_BASE_URL%/}${REVISION_PATH}" "$DEPLOYED_REVISION"
+if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
+  require_llms_full_artifact
+else
+  log "skip llms-full complete artifact smoke (not required for this environment)"
+fi
 if [[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]; then
   require_career_renderer_revision "$PUBLIC_BASE_URL" "public"
 fi

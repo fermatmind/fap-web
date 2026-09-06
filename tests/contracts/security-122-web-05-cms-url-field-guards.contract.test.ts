@@ -10,7 +10,8 @@ import { isSecurity122Web05AllowedFile } from "./helpers/currentPrScope";
 
 const mocks = vi.hoisted(() => ({
   revalidatePath: vi.fn(),
-  clearLlmsFullResponseCache: vi.fn(),
+  invalidateLlmsFullResponseCache: vi.fn(async () => undefined),
+  scheduleLlmsFullResponseCacheRebuild: vi.fn(),
 }));
 
 vi.mock("next/cache", () => ({
@@ -18,7 +19,11 @@ vi.mock("next/cache", () => ({
 }));
 
 vi.mock("@/lib/seo/llmsFullResponseCache", () => ({
-  clearLlmsFullResponseCache: mocks.clearLlmsFullResponseCache,
+  invalidateLlmsFullResponseCache: mocks.invalidateLlmsFullResponseCache,
+}));
+
+vi.mock("@/lib/seo/llmsFullRoute", () => ({
+  scheduleLlmsFullResponseCacheRebuild: mocks.scheduleLlmsFullResponseCacheRebuild,
 }));
 
 const ROOT = process.cwd();

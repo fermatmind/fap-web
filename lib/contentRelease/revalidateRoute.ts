@@ -5,8 +5,10 @@ import {
   buildEnneagramPublicContentPath,
   ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
 } from "@/lib/personality/enneagramPublicRoutes";
-import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
+import { scheduleLlmsFullResponseCacheRebuild } from "@/lib/seo/llmsFullRoute";
+import { invalidateLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
+import { getSiteUrlOrThrow } from "@/lib/site";
 
 type ContentReleasePayload = {
   content?: {
@@ -324,7 +326,9 @@ export async function POST(request: NextRequest) {
   }
 
   if (accepted.includes("/llms-full.txt")) {
-    clearLlmsFullResponseCache();
+    const llmsFullSiteUrl = getSiteUrlOrThrow();
+    await invalidateLlmsFullResponseCache(llmsFullSiteUrl);
+    scheduleLlmsFullResponseCacheRebuild(llmsFullSiteUrl);
   }
 
   console.info("content_release_revalidation_completed", {

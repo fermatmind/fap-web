@@ -1,11 +1,12 @@
 import { mkdir, mkdtemp, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
 type LlmsFullResponseCache = {
   siteUrl: string;
+  revision: string;
   text: string;
   cachedAtMs: number;
 };
@@ -13,6 +14,11 @@ type LlmsFullResponseCache = {
 type LlmsFullBuildCooldown = {
   siteUrl: string;
   retryAfterMs: number;
+};
+
+type LlmsFullInvalidationMarker = {
+  siteUrl: string;
+  generation: string;
 };
 
 export const LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS = 15 * 60 * 1000;
@@ -43,6 +49,11 @@ function cachePolicyKey(options: LlmsFullCacheOptions): string {
   return options.isCacheable ? options.isCacheable.toString() : "cacheable:any";
 }
 
+function runtimeRevision(): string {
+  const revision = String(process.env.NEXT_PUBLIC_RELEASE ?? "").trim();
+  return /^[0-9a-f]{40}$/.test(revision) ? revision : "unversioned";
+}
+
 export function getLlmsFullSharedCachePath(siteUrl = "default"): string {
   return path.join(
     getLlmsFullSharedCacheDirectory(),
@@ -54,6 +65,13 @@ export function getLlmsFullBuildCooldownPath(siteUrl = "default"): string {
   return path.join(
     getLlmsFullSharedCacheDirectory(),
     `fermatmind-llms-full-build-cooldown.${siteCacheId(siteUrl)}.v1.json`
+  );
+}
+
+export function getLlmsFullInvalidationMarkerPath(siteUrl = "default"): string {
+  return path.join(
+    getLlmsFullSharedCacheDirectory(),
+    `fermatmind-llms-full-invalidation.${siteCacheId(siteUrl)}.v1.json`
   );
 }
 
@@ -79,7 +97,12 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
     const text = typeof payload.text === "string" ? payload.text : "";
     const cachedAtMs = Number(payload.cachedAtMs);
 
-    if (payload.siteUrl !== siteUrl || !text || !Number.isFinite(cachedAtMs)) {
+    if (
+      payload.siteUrl !== siteUrl ||
+      payload.revision !== runtimeRevision() ||
+      !text ||
+      !Number.isFinite(cachedAtMs)
+    ) {
       return null;
     }
 
@@ -93,6 +116,7 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
 
     llmsFullResponseCache = {
       siteUrl,
+      revision: runtimeRevision(),
       text,
       cachedAtMs,
     };
@@ -103,9 +127,9 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
   }
 }
 
-async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
+async function writeSharedCache(cache: LlmsFullResponseCache): Promise<boolean> {
   if (!isSharedLlmsFullCacheEnabled()) {
-    return;
+    return true;
   }
 
   let temporaryDirectory: string | null = null;
@@ -121,13 +145,67 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
       mode: 0o600,
     });
     await rename(temporary, target);
+    return true;
   } catch {
-    // The in-process cache remains valid if the shared artifact cannot be written.
+    return false;
   } finally {
     if (temporaryDirectory) {
       void rm(temporaryDirectory, { force: true, recursive: true }).catch(() => undefined);
     }
   }
+}
+
+async function readInvalidationGeneration(siteUrl: string): Promise<string> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return "process-local";
+  }
+
+  try {
+    const raw = await readFile(getLlmsFullInvalidationMarkerPath(siteUrl), "utf8");
+    const payload = JSON.parse(raw) as Partial<LlmsFullInvalidationMarker>;
+    return payload.siteUrl === siteUrl && typeof payload.generation === "string"
+      ? payload.generation
+      : "invalid-marker";
+  } catch {
+    return "initial";
+  }
+}
+
+async function advanceInvalidationGeneration(siteUrl: string): Promise<void> {
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return;
+  }
+
+  const target = getLlmsFullInvalidationMarkerPath(siteUrl);
+  await mkdir(path.dirname(target), { recursive: true });
+  const temporaryDirectory = await mkdtemp(path.join(path.dirname(target), ".fermatmind-llms-full-invalidation-"));
+  const temporary = path.join(temporaryDirectory, "invalidation.json");
+
+  try {
+    const payload: LlmsFullInvalidationMarker = { siteUrl, generation: randomUUID() };
+    await writeFile(temporary, `${JSON.stringify(payload)}\n`, {
+      encoding: "utf8",
+      flag: "wx",
+      mode: 0o600,
+    });
+    await rename(temporary, target);
+  } finally {
+    await rm(temporaryDirectory, { force: true, recursive: true }).catch(() => undefined);
+  }
+}
+
+export async function invalidateLlmsFullResponseCache(siteUrl: string): Promise<void> {
+  llmsFullResponseCache = null;
+
+  if (!isSharedLlmsFullCacheEnabled()) {
+    return;
+  }
+
+  await advanceInvalidationGeneration(siteUrl);
+  await Promise.all([
+    unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined),
+    unlink(getLlmsFullBuildCooldownPath(siteUrl)).catch(() => undefined),
+  ]);
 }
 
 async function hasActiveBuildCooldown(siteUrl: string): Promise<boolean> {
@@ -241,6 +319,7 @@ export function clearLlmsFullResponseCache(siteUrl?: string): void {
         unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined),
         unlink(getLlmsFullBuildCooldownPath(siteUrl)).catch(() => undefined),
         rm(getLlmsFullBuildLeasePath(siteUrl), { force: true, recursive: true }).catch(() => undefined),
+        unlink(getLlmsFullInvalidationMarkerPath(siteUrl)).catch(() => undefined),
       ]);
       return;
     }
@@ -251,7 +330,7 @@ export function clearLlmsFullResponseCache(siteUrl?: string): void {
 
       await Promise.all(
         entries
-          .filter((entry) => /^fermatmind-llms-full-(?:response-cache|build-cooldown|build-lease)(?:\.[a-f0-9]{16})?\.v1\.(?:json|lock)$/.test(entry))
+          .filter((entry) => /^fermatmind-llms-full-(?:response-cache|build-cooldown|build-lease|invalidation)(?:\.[a-f0-9]{16})?\.v1\.(?:json|lock)$/.test(entry))
           .map((entry) => rm(path.join(cacheDirectory, entry), { force: true, recursive: true }).catch(() => undefined))
       );
     })();
@@ -270,11 +349,17 @@ export async function writeLlmsFullResponseCache(
 
   const cache = {
     siteUrl,
+    revision: runtimeRevision(),
     text,
     cachedAtMs: Date.now(),
   };
+  const sharedCached = await writeSharedCache(cache);
+  if (!sharedCached) {
+    llmsFullResponseCache = null;
+    return { cached: false, cachePath };
+  }
+
   llmsFullResponseCache = cache;
-  await writeSharedCache(cache);
 
   return { cached: true, cachePath };
 }
@@ -284,6 +369,10 @@ export async function getCachedLlmsFullText(
   maxAgeMs: number,
   options: LlmsFullCacheOptions = {}
 ): Promise<string | null> {
+  if (isSharedLlmsFullCacheEnabled()) {
+    return readSharedCache(siteUrl, maxAgeMs, options);
+  }
+
   if (llmsFullResponseCache?.siteUrl === siteUrl) {
     const text = llmsFullResponseCache.text;
     const isFresh = Date.now() - llmsFullResponseCache.cachedAtMs <= maxAgeMs;
@@ -294,7 +383,7 @@ export async function getCachedLlmsFullText(
     }
   }
 
-  return readSharedCache(siteUrl, maxAgeMs, options);
+  return null;
 }
 
 export function getOrStartLlmsFullBuild(
@@ -319,12 +408,22 @@ export function getOrStartLlmsFullBuild(
           return null;
         }
 
+        const invalidationGeneration = await readInvalidationGeneration(siteUrl);
         const text = await buildText(siteUrl).catch(() => null);
+        if (await readInvalidationGeneration(siteUrl) !== invalidationGeneration) {
+          return null;
+        }
         if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
-          await writeLlmsFullResponseCache(siteUrl, text, options);
-          await clearBuildCooldown(siteUrl);
-
-          return text;
+          const result = await writeLlmsFullResponseCache(siteUrl, text, options);
+          if (result.cached) {
+            if (await readInvalidationGeneration(siteUrl) !== invalidationGeneration) {
+              await unlink(result.cachePath).catch(() => undefined);
+              llmsFullResponseCache = null;
+              return null;
+            }
+            await clearBuildCooldown(siteUrl);
+            return text;
+          }
         }
 
         await writeBuildCooldown(siteUrl);

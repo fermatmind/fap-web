@@ -14,15 +14,20 @@ done
 [[ "$RELEASE_ARCHIVE_SHA256" =~ ^[0-9a-f]{64}$ ]]
 [[ "$RELEASE_MANIFEST_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
 [[ "$ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
+REQUIRE_LLMS_FULL_ARTIFACT="${REQUIRE_LLMS_FULL_ARTIFACT:-0}"
+[[ "$REQUIRE_LLMS_FULL_ARTIFACT" =~ ^[01]$ ]]
 
 control="${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${DEPLOY_SHA:0:12}"
 remote_archive="$control/fap-web-${DEPLOY_SHA}.tar.gz"
+remote_llms_full_receipt="$control/llms-full-artifact-receipt.json"
+local_llms_full_receipt="${LLMS_FULL_RECEIPT_LOCAL_PATH:-${RUNNER_TEMP:?}/llms-full-artifact-receipt.json}"
 ssh_args=(-o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -p "$DEPLOY_PORT")
 
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "$RELEASE_ARCHIVE" scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
-  scripts/rolling_reload_pm2.sh ecosystem.config.cjs "$DEPLOY_USER@$DEPLOY_HOST:$control/"
+  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs ecosystem.config.cjs \
+  "$DEPLOY_USER@$DEPLOY_HOST:$control/"
 
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
   "chmod 700 '$control/'*.sh && install -m 0644 '$control/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && \
@@ -32,6 +37,26 @@ ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
    ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' \
    RELEASE_ARCHIVE='$remote_archive' DEPLOY_SCRIPT='$control/deploy_web_pm2.sh' \
    ROLLING_RELOAD_SCRIPT='$control/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='${RUN_SITEMAP_HEALTH:-1}' \
+   REQUIRE_LLMS_FULL_ARTIFACT='$REQUIRE_LLMS_FULL_ARTIFACT' \
+   LLMS_FULL_VERIFY_SCRIPT='$control/verify-llms-full-artifact.mjs' \
+   LLMS_FULL_RECEIPT_PATH='$remote_llms_full_receipt' LLMS_FULL_VERIFY_TIMEOUT_MS='330000' \
    REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP='${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}' \
    REQUIRE_CAREER_RENDERER_REVISION='${REQUIRE_CAREER_RENDERER_REVISION:-1}' \
    CORE_PUBLIC_PATH='${CORE_PUBLIC_PATH:-/zh/personality/intj-a}' bash '$control/install_standalone_release.sh'"
+
+if [ "$REQUIRE_LLMS_FULL_ARTIFACT" = 1 ]; then
+  scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
+    "$DEPLOY_USER@$DEPLOY_HOST:$remote_llms_full_receipt" "$local_llms_full_receipt"
+  jq -e --arg sha "$DEPLOY_SHA" '
+    .schema_version == "fermatmind.llms-full-artifact-receipt.v1" and
+    .revision == $sha and .mode == "complete" and .source == "cache" and
+    (.body_sha256 | test("^[0-9a-f]{64}$")) and (.bytes | numbers and . > 0) and
+    .counts.career == 2092 and .counts.big_five == 104 and .counts.enneagram == 116 and
+    (.counts | keys | sort) == ["big_five","career","enneagram"] and
+    (.duration_ms | numbers and . >= 0) and
+    (keys | sort) == ["body_sha256","bytes","counts","duration_ms","mode","revision","schema_version","source","verified_at"]
+  ' "$local_llms_full_receipt" >/dev/null
+  if [ -n "${GITHUB_OUTPUT:-}" ]; then
+    echo "llms_full_receipt=$local_llms_full_receipt" >> "$GITHUB_OUTPUT"
+  fi
+fi

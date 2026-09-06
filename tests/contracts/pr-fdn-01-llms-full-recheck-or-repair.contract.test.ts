@@ -2,7 +2,8 @@ import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
-  clearLlmsFullResponseCache: vi.fn(),
+  invalidateLlmsFullResponseCache: vi.fn(async () => undefined),
+  scheduleLlmsFullResponseCacheRebuild: vi.fn(),
   revalidatePath: vi.fn(),
 }));
 
@@ -11,7 +12,11 @@ vi.mock("next/cache", () => ({
 }));
 
 vi.mock("@/lib/seo/llmsFullResponseCache", () => ({
-  clearLlmsFullResponseCache: mocks.clearLlmsFullResponseCache,
+  invalidateLlmsFullResponseCache: mocks.invalidateLlmsFullResponseCache,
+}));
+
+vi.mock("@/lib/seo/llmsFullRoute", () => ({
+  scheduleLlmsFullResponseCacheRebuild: mocks.scheduleLlmsFullResponseCacheRebuild,
 }));
 
 vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
@@ -22,7 +27,8 @@ import { collectPathDecisions, POST } from "@/lib/contentRelease/revalidateRoute
 
 describe("PR-FDN-01 llms-full recheck or repair", () => {
   afterEach(() => {
-    mocks.clearLlmsFullResponseCache.mockClear();
+    mocks.invalidateLlmsFullResponseCache.mockClear();
+    mocks.scheduleLlmsFullResponseCacheRebuild.mockClear();
     mocks.revalidatePath.mockClear();
     delete process.env.CONTENT_RELEASE_REVALIDATE_TOKEN;
   });
@@ -43,7 +49,7 @@ describe("PR-FDN-01 llms-full recheck or repair", () => {
     expect(decisions.accepted).toEqual(["/en/foundation", "/llms.txt", "/llms-full.txt"]);
   });
 
-  it("revalidates accepted content page and llms paths while clearing llms-full process cache", async () => {
+  it("waits for llms-full invalidation before scheduling one background rebuild", async () => {
     process.env.CONTENT_RELEASE_REVALIDATE_TOKEN = "release-token";
 
     const request = new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
@@ -71,7 +77,11 @@ describe("PR-FDN-01 llms-full recheck or repair", () => {
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(1, "/en/foundation");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(2, "/llms.txt");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(3, "/llms-full.txt");
-    expect(mocks.clearLlmsFullResponseCache).toHaveBeenCalledTimes(1);
+    expect(mocks.invalidateLlmsFullResponseCache).toHaveBeenCalledTimes(1);
+    expect(mocks.scheduleLlmsFullResponseCacheRebuild).toHaveBeenCalledTimes(1);
+    expect(mocks.invalidateLlmsFullResponseCache.mock.invocationCallOrder[0]).toBeLessThan(
+      mocks.scheduleLlmsFullResponseCacheRebuild.mock.invocationCallOrder[0]
+    );
   });
 
   it("derives personality profile paths plus llms surfaces for MBTI64 public content releases", async () => {
@@ -108,6 +118,7 @@ describe("PR-FDN-01 llms-full recheck or repair", () => {
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/en/personality/intj-a");
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms.txt");
     expect(mocks.revalidatePath).toHaveBeenCalledWith("/llms-full.txt");
-    expect(mocks.clearLlmsFullResponseCache).toHaveBeenCalledTimes(1);
+    expect(mocks.invalidateLlmsFullResponseCache).toHaveBeenCalledTimes(1);
+    expect(mocks.scheduleLlmsFullResponseCacheRebuild).toHaveBeenCalledTimes(1);
   });
 });

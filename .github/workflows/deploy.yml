@@ -237,13 +237,15 @@ jobs:
           [[ "$active" =~ ^[0-9a-f]{40}$ ]]
           git fetch --no-tags origin "$active"
           if ! git merge-base --is-ancestor "$active" "$DEPLOY_SHA" || [ "$active" = "$DEPLOY_SHA" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
-      - name: Activate production candidate; installer restores previous release on failed smoke
+      - id: activation
+        name: Activate production candidate; installer restores previous release on failed smoke
         if: steps.order.outputs.skip != 'true'
         env:
           RELEASE_ARCHIVE: ${{ steps.artifact.outputs.archive }}
           RELEASE_ARCHIVE_SHA256: ${{ steps.artifact.outputs.archive_sha256 }}
           RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
           ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
+          REQUIRE_LLMS_FULL_ARTIFACT: "1"
         run: .github/trunk/deploy-web-release.sh
       - name: Record end-to-end timing
         if: always()
@@ -254,7 +256,14 @@ jobs:
           jq -n --arg sha "$DEPLOY_SHA" --arg pushed "$PUSHED_AT" --arg ci "$CI_COMPLETED_AT" \
             --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_smoke_completed_at:$completed}' \
-            > trunk-delivery-timing.json
+            > "$RUNNER_TEMP/trunk-delivery-timing.base.json"
+          receipt='${{ steps.activation.outputs.llms_full_receipt }}'
+          if [ -n "$receipt" ]; then
+            jq -s '.[0] + {llms_full_artifact: .[1]}' \
+              "$RUNNER_TEMP/trunk-delivery-timing.base.json" "$receipt" > trunk-delivery-timing.json
+          else
+            cp "$RUNNER_TEMP/trunk-delivery-timing.base.json" trunk-delivery-timing.json
+          fi
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:

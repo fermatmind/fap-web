@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { after, NextResponse } from "next/server";
 import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
 import { adaptCareerRecommendationIndex } from "@/lib/career/adapters/adaptCareerRecommendationIndex";
@@ -55,6 +55,7 @@ import {
 } from "@/lib/seo/llmsRouteBudget";
 import {
   getCachedLlmsFullText,
+  getOrStartLlmsFullBuild,
   writeLlmsFullResponseCache,
 } from "@/lib/seo/llmsFullResponseCache";
 import { getSiteUrlOrThrow } from "@/lib/site";
@@ -1750,6 +1751,52 @@ export async function buildAndCacheLlmsFullText(siteUrl: string, text = ""): Pro
   };
 }
 
+export async function rebuildLlmsFullResponseCache(siteUrl: string): Promise<{
+  status: "complete" | "deferred";
+  bytes: number;
+  careerJobUrlCount: number;
+}> {
+  const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
+  const cacheOptions = {
+    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths),
+  };
+  const text = await getOrStartLlmsFullBuild(
+    siteUrl,
+    (targetSiteUrl) => buildLlmsFullText(targetSiteUrl, { buildProfile: "artifact" }),
+    cacheOptions
+  );
+
+  return {
+    status: text ? "complete" : "deferred",
+    bytes: text ? Buffer.byteLength(text, "utf8") : 0,
+    careerJobUrlCount: text ? canonicalCareerJobUrlSet(text, siteUrl).size : 0,
+  };
+}
+
+export function scheduleLlmsFullResponseCacheRebuild(siteUrl = getSiteUrlOrThrow()): void {
+  if (process.env.NODE_ENV === "test") {
+    return;
+  }
+
+  after(async () => {
+    const startedAtMs = Date.now();
+    try {
+      const result = await rebuildLlmsFullResponseCache(siteUrl);
+      console.info("llms_full_artifact_rebuild_completed", {
+        status: result.status,
+        bytes: result.bytes,
+        career_job_url_count: result.careerJobUrlCount,
+        duration_ms: Date.now() - startedAtMs,
+      });
+    } catch {
+      console.warn("llms_full_artifact_rebuild_failed", {
+        error_code: "REBUILD_FAILED",
+        duration_ms: Date.now() - startedAtMs,
+      });
+    }
+  });
+}
+
 export async function GET() {
   if (isConfiguredStagingDiscoverability()) {
     return createConfiguredStagingLlmsResponse();
@@ -1773,5 +1820,6 @@ export async function GET() {
     return createLlmsFullResponse(staleCachedText, "complete", "stale-cache");
   }
 
+  scheduleLlmsFullResponseCacheRebuild(siteUrl);
   return createLlmsFullResponse(await buildDegradedLlmsFullText(siteUrl), "degraded", "degraded");
 }

@@ -151,7 +151,8 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
     const sitemapSource = read("lib/seo/backendSitemapSource.ts");
 
     expect(route).toContain("getCachedLlmsFullText");
-    expect(route).not.toContain("getOrStartLlmsFullBuild");
+    expect(route).toContain("getOrStartLlmsFullBuild");
+    expect(route).toContain('buildLlmsFullText(targetSiteUrl, { buildProfile: "artifact" })');
     expect(route).toContain("buildDegradedLlmsFullText");
     expect(route).toContain("listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal })");
     expect(route).not.toContain("fetchCareerJobIndex");

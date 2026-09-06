@@ -1,4 +1,4 @@
-import { access, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdtemp, readFile, readdir, rm, unlink, writeFile } from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -21,18 +21,21 @@ afterEach(async () => {
   vi.restoreAllMocks();
   delete process.env.FERMATMIND_LLMS_FULL_CACHE_DIR;
   delete process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE;
+  delete process.env.NEXT_PUBLIC_RELEASE;
   await Promise.all(temporaryDirectories.splice(0).map((directory) => rm(directory, { force: true, recursive: true })));
 });
 
 describe("llms-full rebuild amplification guard", () => {
-  it("keeps the public GET path artifact-only while retaining the explicit offline builder", () => {
+  it("returns degraded immediately and schedules the artifact-profile rebuild after the response", () => {
     const route = readFileSync(path.join(process.cwd(), "lib/seo/llmsFullRoute.ts"), "utf8");
     const publicGet = route.slice(route.indexOf("export async function GET()"));
 
     expect(publicGet).toContain("getCachedLlmsFullText");
+    expect(publicGet).toContain("scheduleLlmsFullResponseCacheRebuild(siteUrl)");
     expect(publicGet).toContain("buildDegradedLlmsFullText");
-    expect(publicGet).not.toContain("getOrStartLlmsFullBuild");
     expect(publicGet).not.toContain("buildLlmsFullText(");
+    expect(route).toContain("after(async () =>");
+    expect(route).toContain("getOrStartLlmsFullBuild(");
     expect(route).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
   });
 
@@ -81,6 +84,85 @@ describe("llms-full rebuild amplification guard", () => {
     };
     expect(cooldown.siteUrl).toBe(SITE_URL);
     expect(cooldown.retryAfterMs).toBeGreaterThan(Date.now());
+  });
+
+  it("retries exactly once after the shared failure cooldown expires", async () => {
+    await createSharedCacheDirectory();
+    const firstModule = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(
+      firstModule.getOrStartLlmsFullBuild(SITE_URL, async () => null, {
+        isCacheable: (text) => text === "complete",
+      })
+    ).resolves.toBeNull();
+
+    await writeFile(
+      firstModule.getLlmsFullBuildCooldownPath(SITE_URL),
+      `${JSON.stringify({ siteUrl: SITE_URL, retryAfterMs: Date.now() - 1 })}\n`,
+      "utf8"
+    );
+    vi.resetModules();
+
+    const retryModule = await import("@/lib/seo/llmsFullResponseCache");
+    const retryBuild = vi.fn(async () => "complete");
+    await expect(
+      retryModule.getOrStartLlmsFullBuild(SITE_URL, retryBuild, {
+        isCacheable: (text) => text === "complete",
+      })
+    ).resolves.toBe("complete");
+    expect(retryBuild).toHaveBeenCalledTimes(1);
+  });
+
+  it("treats the shared file as authoritative instead of serving a stale process copy", async () => {
+    await createSharedCacheDirectory();
+    const cacheModule = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(cacheModule.writeLlmsFullResponseCache(SITE_URL, "complete")).resolves.toMatchObject({ cached: true });
+    await expect(cacheModule.getCachedLlmsFullText(SITE_URL, 60_000)).resolves.toBe("complete");
+
+    await unlink(cacheModule.getLlmsFullSharedCachePath(SITE_URL));
+    await expect(cacheModule.getCachedLlmsFullText(SITE_URL, 60_000)).resolves.toBeNull();
+  });
+
+  it("refuses a shared artifact produced by a different exact application revision", async () => {
+    await createSharedCacheDirectory();
+    process.env.NEXT_PUBLIC_RELEASE = "0123456789abcdef0123456789abcdef01234567";
+    const cacheModule = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(cacheModule.writeLlmsFullResponseCache(SITE_URL, "complete")).resolves.toMatchObject({ cached: true });
+
+    process.env.NEXT_PUBLIC_RELEASE = "89abcdef0123456789abcdef0123456789abcdef";
+    await expect(cacheModule.getCachedLlmsFullText(SITE_URL, 60_000)).resolves.toBeNull();
+  });
+
+  it("awaits invalidation of cache and cooldown without deleting another worker's active lease", async () => {
+    const directory = await createSharedCacheDirectory();
+    const cacheModule = await import("@/lib/seo/llmsFullResponseCache");
+    await cacheModule.writeLlmsFullResponseCache(SITE_URL, "complete");
+    await writeFile(
+      cacheModule.getLlmsFullBuildCooldownPath(SITE_URL),
+      `${JSON.stringify({ siteUrl: SITE_URL, retryAfterMs: Date.now() - 1 })}\n`,
+      "utf8"
+    );
+
+    let finishBuild: ((value: string | null) => void) | undefined;
+    const activeBuild = cacheModule.getOrStartLlmsFullBuild(
+      SITE_URL,
+      () => new Promise<string | null>((resolve) => {
+        finishBuild = resolve;
+      }),
+      { isCacheable: (text) => text === "complete" }
+    );
+    await vi.waitFor(async () => {
+      expect((await readdir(directory)).some((entry) => entry.includes("build-lease"))).toBe(true);
+    });
+
+    await cacheModule.invalidateLlmsFullResponseCache(SITE_URL);
+    await expect(access(cacheModule.getLlmsFullSharedCachePath(SITE_URL))).rejects.toMatchObject({ code: "ENOENT" });
+    await expect(access(cacheModule.getLlmsFullBuildCooldownPath(SITE_URL))).rejects.toMatchObject({ code: "ENOENT" });
+    expect((await readdir(directory)).some((entry) => entry.includes("build-lease"))).toBe(true);
+
+    finishBuild?.("complete");
+    await expect(activeBuild).resolves.toBeNull();
+    await expect(access(cacheModule.getLlmsFullSharedCachePath(SITE_URL))).rejects.toMatchObject({ code: "ENOENT" });
+    await expect(access(cacheModule.getLlmsFullBuildCooldownPath(SITE_URL))).rejects.toMatchObject({ code: "ENOENT" });
   });
 
   it("lets an explicit cache clear bypass the failure cooldown without weakening cacheability", async () => {
