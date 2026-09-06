@@ -2,8 +2,6 @@ import { ImageResponse } from "next/og";
 import { getTestBySlug } from "@/lib/content";
 import { getSiteHost } from "@/lib/site";
 
-export const runtime = "edge";
-
 const CANVAS_WIDTH = 1200;
 const CANVAS_HEIGHT = 630;
 const SITE_HOST = getSiteHost();

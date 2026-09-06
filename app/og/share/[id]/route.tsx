@@ -3,8 +3,6 @@ import { getShareSummary } from "@/lib/api/v0_3";
 import { buildSharePageViewModel } from "@/lib/mbti/publicProjection";
 import { renderShareOgImage } from "@/lib/og/mbtiShare";
 
-export const runtime = "edge";
-
 const CANVAS_WIDTH = 1200;
 const CANVAS_HEIGHT = 630;
 
