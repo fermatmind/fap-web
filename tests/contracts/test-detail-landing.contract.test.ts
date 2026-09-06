@@ -91,7 +91,7 @@ describe("test detail landing contract", () => {
     expect(source).toContain("{disclaimer}");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
     expect(source).toContain(') : canRenderStartCta ? (');
-    expect(source).toContain("{testDetailAuthority.cta.allowed && !showsMbtiActions ? (");
+    expect(source).toContain("{testDetailAuthority.cta.allowed && !usesIllustratedLanding ? (");
   });
 
   it("passes CMS primary CTA labels through to sticky default-form CTAs", () => {
@@ -241,21 +241,14 @@ describe("test detail landing contract", () => {
     expect(source).toContain("withAttribution(buildRiasecTakeHref(test.slug, locale, form.formCode))");
     expect(source).toContain("getRiasecStartLabel(form.formCode, locale)");
     expect(source).toContain('testId: `test-detail-landing-cta-${form.formCode}`');
-    expect(source).toContain("选择霍兰德职业兴趣版本");
+    expect(source).toContain("<AssessmentLandingIntro");
   });
 
-  it("keeps the big5 variant chooser focused on version cards without extra heading copy", () => {
+  it("uses the illustrated entry for all six assessments and preserves each choice source", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
-    const big5Branch = source.slice(
-      source.indexOf(") : showsBig5Actions ? ("),
-      source.indexOf(") : showsEnneagramActions ? (")
-    );
-
-    expect(big5Branch).toContain("<FlagshipVariantChooser");
-    expect(big5Branch).not.toContain("选择更适合你的版本");
-    expect(big5Branch).not.toContain("短版用于快速起步");
-    expect(big5Branch).not.toContain("Choose the version that fits best");
-    expect(big5Branch).not.toContain("Use the shorter version");
+    expect(source).toContain("showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions || showsIqActions || showsEqActions");
+    expect(source).toContain("choices={showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices}");
+    expect(source).toContain("disabled={testDisabled || !canRenderStartCta}");
   });
 
   it("wires the take page form query into QuizTakeClient props", () => {

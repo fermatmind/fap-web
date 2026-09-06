@@ -1,5 +1,6 @@
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
+import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import previewStyles from "@/components/tests/mbti-preview.module.css";
 import type { Metadata } from "next";
@@ -676,75 +677,6 @@ function FlagshipVariantChooser({
   );
 }
 
-function IqBankLandingChooser({
-  locale,
-  choices,
-}: {
-  locale: "en" | "zh";
-  choices: IqBankLandingChoiceWithTracking[];
-}) {
-  return (
-    <section
-      className="rounded-[1.7rem] border border-[var(--fm-border)] bg-[rgba(248,250,252,0.92)] p-4 shadow-[var(--fm-shadow-sm)] md:p-5"
-      data-testid="iq-bank-landing-chooser"
-    >
-      <div className="space-y-2">
-        <h2 className="m-0 text-[1.15rem] font-semibold tracking-[-0.03em] text-slate-950">
-          {locale === "zh" ? "选择 IQ 测试" : "Choose an IQ test"}
-        </h2>
-        <p className="m-0 max-w-[42rem] text-sm leading-7 text-slate-600">
-          {locale === "zh"
-            ? "当前只开放 FermatMind 原创 30 题 IQ 测评，题库交由后端私有评分。"
-            : "The FermatMind owner-original 30-item IQ assessment is available now with private backend scoring."}
-        </p>
-      </div>
-
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
-        {choices.map((choice) => (
-          <article
-            key={choice.key}
-            className="flex h-full flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]"
-            data-testid={`iq-bank-card-${choice.key}`}
-          >
-            <div className="space-y-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <h3 className="m-0 text-[1rem] font-semibold tracking-[-0.02em] text-slate-950">{choice.label}</h3>
-                <span
-                  className="rounded-full border border-[var(--fm-border)] px-2.5 py-1 text-xs font-semibold text-slate-600"
-                  data-testid={`iq-bank-status-${choice.key}`}
-                >
-                  {choice.statusLabel}
-                </span>
-              </div>
-              <p className="m-0 text-sm leading-7 text-slate-600">{choice.description}</p>
-            </div>
-
-            {choice.href && choice.eventProperties ? (
-              <TrackedEntryCtaLink
-                href={choice.href}
-                prefetch={false}
-                data-testid={choice.testId}
-                eventProperties={choice.eventProperties}
-                className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
-              >
-                {choice.ctaLabel}
-              </TrackedEntryCtaLink>
-            ) : (
-              <span
-                aria-disabled="true"
-                data-testid={choice.testId}
-                className={buttonVariants({ size: "sm", variant: "secondary", className: "mt-auto w-full justify-center cursor-not-allowed opacity-70" })}
-              >
-                {choice.ctaLabel}
-              </span>
-            )}
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export async function generateStaticParams() {
   try {
     const tests = await getAllTests("en");
@@ -947,6 +879,8 @@ export default async function TestLandingPage({
   const showsEqActions = String(test.scale_code ?? "").trim().toUpperCase() === "EQ_60" || test.slug === SCALE_CANONICAL_SLUG_MAP.EQ_60;
   const showsIqActions = isIqScaleCode(test.scale_code) || test.slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN;
   const big5Forms = listBig5FormMetas(lookup?.forms);
+  const usesIllustratedLanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions || showsIqActions || showsEqActions;
+  const illustratedLandingLabel = showsMbtiActions ? "MBTI" : showsBig5Actions ? (locale === "zh" ? "大五人格" : "Big Five") : showsEnneagramActions ? (locale === "zh" ? "九型人格" : "Enneagram") : showsRiasecActions ? (locale === "zh" ? "霍兰德职业兴趣" : "Holland career interests") : showsIqActions ? (locale === "zh" ? "智商测试" : "IQ test") : (locale === "zh" ? "情商测试" : "EQ test");
   const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
   const questionSummary = showsMbtiActions
@@ -1301,7 +1235,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const relatedArticles = showsMbtiActions ? [] : await fetchRelatedArticles(test.slug, locale);
+  const relatedArticles = usesIllustratedLanding ? [] : await fetchRelatedArticles(test.slug, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const softwareApplicationName = heroTitle;
@@ -1406,7 +1340,7 @@ export default async function TestLandingPage({
 
   return (
     <main
-      className={showsMbtiActions ? previewStyles.page : "mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"}
+      className={usesIllustratedLanding ? previewStyles.page : "mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"}
       data-test-landing-read-source={landingData.source}
       data-test-landing-cms-source={landingData.cmsSource}
       {...(isSelfUnderstanding ? {
@@ -1423,13 +1357,18 @@ export default async function TestLandingPage({
       {faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}
       <AnalyticsPageViewTracker eventName="landing_view" properties={landingTrackingProps} />
 
-      {showsMbtiActions ? <nav className={previewStyles.breadcrumb} aria-label={locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{locale === "zh" ? "首页" : "Home"}</Link><span>/</span><Link href={withLocale("/tests")}>{locale === "zh" ? "测试" : "Tests"}</Link><span>/</span><span>MBTI</span></nav> : null}
-      <div className={showsMbtiActions ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
-        <div className={showsMbtiActions ? previewStyles.content : "space-y-6"}>
+      {usesIllustratedLanding ? <nav className={previewStyles.breadcrumb} aria-label={locale === "zh" ? "面包屑" : "Breadcrumb"}><Link href={withLocale("/")}>{locale === "zh" ? "首页" : "Home"}</Link><span>/</span><Link href={withLocale("/tests")}>{locale === "zh" ? "测试" : "Tests"}</Link><span>/</span><span>{illustratedLandingLabel}</span></nav> : null}
+      <div className={usesIllustratedLanding ? previewStyles.layout : "grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px]"}>
+        <div className={usesIllustratedLanding ? previewStyles.content : "space-y-6"}>
           {showsMbtiActions ? <MbtiLandingIntro
             locale={locale}
             title={heroTitleDisplay.plain}
             choices={mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices}
+            disabled={testDisabled || !canRenderStartCta}
+          /> : usesIllustratedLanding ? <AssessmentLandingIntro
+            locale={locale}
+            title={heroTitleDisplay.plain}
+            choices={showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices}
             disabled={testDisabled || !canRenderStartCta}
           /> : (
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
@@ -1491,40 +1430,6 @@ export default async function TestLandingPage({
                   {locale === "zh" ? "维护中" : "Temporarily unavailable"}
                 </span>
               </div>
-            ) : showsBig5Actions ? (
-              <div className="space-y-4 pt-2">
-                <FlagshipVariantChooser
-                  choices={flagshipVariantChoices}
-                />
-              </div>
-            ) : showsEnneagramActions ? (
-              <div className="space-y-4 pt-2">
-                <FlagshipVariantChooser
-                  title={locale === "zh" ? "选择九型人格版本" : "Choose your Enneagram form"}
-                  subtitle={
-                    locale === "zh"
-                      ? "105 题是五点量表自评版；144 题是二选一迫选版。两个版本属于同一个九型人格测评，结果与重新测试都会保留所选版本。"
-                      : "105Q is the five-point Likert form; 144Q is the forced-choice pair form. Both belong to the same Enneagram assessment and preserve the selected form through result and retake."
-                  }
-                  choices={flagshipVariantChoices}
-                />
-              </div>
-            ) : showsRiasecActions ? (
-              <div className="space-y-4 pt-2">
-                <FlagshipVariantChooser
-                  title={locale === "zh" ? "选择霍兰德职业兴趣版本" : "Choose your Holland interest form"}
-                  subtitle={
-                    locale === "zh"
-                      ? "60 题是默认公开标准版；140 题是增强版。两个版本属于同一个 RIASEC 测评，结果与重新测试都会保留所选版本。"
-                      : "60Q is the default public standard form; 140Q is the enhanced form. Both belong to the same RIASEC assessment and preserve the selected form through result and retake."
-                  }
-                  choices={flagshipVariantChoices}
-                />
-              </div>
-            ) : showsIqActions ? (
-              <div className="space-y-4 pt-2">
-                <IqBankLandingChooser locale={locale} choices={iqBankChoices} />
-              </div>
             ) : showsDepressionVersionActions ? (
               <div className="space-y-4 pt-2">
                 <FlagshipVariantChooser
@@ -1536,10 +1441,6 @@ export default async function TestLandingPage({
                   }
                   choices={depressionVersionChoices}
                 />
-              </div>
-            ) : showsEqActions && eqVariantChoices.length > 0 ? (
-              <div className="space-y-4 pt-2">
-                <FlagshipVariantChooser choices={eqVariantChoices} />
               </div>
             ) : canRenderStartCta ? (
               <div className="flex flex-wrap items-center gap-3 pt-1">
@@ -1561,6 +1462,15 @@ export default async function TestLandingPage({
             ) : null}
           </section>
           )}
+
+          {usesIllustratedLanding && !showsMbtiActions ? (
+            <section id="about-assessment" className={previewStyles.whyChoose}>
+              <h2>{locale === "zh" ? "了解这份测评" : "About this assessment"}</h2>
+              <p>{heroCopy}</p>
+              <p>{questionSummary} · {durationSummary}</p>
+              {whenToUse ? <p>{whenToUse}</p> : null}
+            </section>
+          ) : null}
 
           {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
 
@@ -1594,9 +1504,9 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          {!showsMbtiActions ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}
+          {!usesIllustratedLanding ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}
 
-          {!showsMbtiActions ? <Card id="related-reading" data-testid="tests-related-articles-section">
+          {!usesIllustratedLanding ? <Card id="related-reading" data-testid="tests-related-articles-section">
             <CardHeader>
               <CardTitle>{dict.tests.relatedArticles.title}</CardTitle>
             </CardHeader>
@@ -1651,15 +1561,15 @@ export default async function TestLandingPage({
           {mergedFaq.length > 0 ? (
             <section
               id="faq"
-              className={showsMbtiActions ? previewStyles.faq : "space-y-4"}
+              className={usesIllustratedLanding ? previewStyles.faq : "space-y-4"}
               data-evidence-container="true"
               data-evidence-page-family="test_detail"
               data-evidence-source-type="visible_page_content"
               data-evidence-readiness="partial"
             >
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : "FAQ"}</h2>
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : usesIllustratedLanding ? (locale === "zh" ? "常见问题" : "Frequently asked questions") : "FAQ"}</h2>
               <div data-evidence-block="faq">
-                {showsMbtiActions ? <MbtiFaqAnswers items={mergedFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
+                {usesIllustratedLanding ? <MbtiFaqAnswers items={mergedFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
               </div>
             </section>
           ) : null}
@@ -1692,7 +1602,7 @@ export default async function TestLandingPage({
           ) : null}
         </div>
 
-        {testDetailAuthority.cta.allowed && !showsMbtiActions ? (
+        {testDetailAuthority.cta.allowed && !usesIllustratedLanding ? (
           <aside>
             <CTASticky
               slug={test.slug}

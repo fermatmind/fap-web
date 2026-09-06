@@ -6,7 +6,8 @@
 .heroCopy h1 { font-family:var(--font-fm-sans),sans-serif; font-size:clamp(34px,3.8vw,54px); line-height:1.25; font-weight:650; letter-spacing:-1.5px; color:var(--ink); margin:0; text-wrap:balance; }
 .heroActions { margin-top:30px; }
 .versionActions { display:flex; justify-content:center; gap:24px; }
-.versionAction { flex:0 1 295px; min-width:0; }
+.versionAction { display:flex; flex:0 1 295px; min-width:0; }
+.versionAction > .startButton { width:100%; }
 .startButton { display:flex; justify-content:center; align-items:center; gap:18px; min-height:58px; padding:16px 24px; background:#008783; border:1px solid #008783; color:white; border-radius:999px; font-size:16px; font-weight:600; transition:background .18s,transform .18s; }
 .startButton:hover { background:#006a68; transform:translateY(-2px); }
 .secondaryButton { background:transparent; color:#007b77; border-color:#75aba7; }
