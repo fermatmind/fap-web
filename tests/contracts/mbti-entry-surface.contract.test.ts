@@ -226,7 +226,7 @@ describe("mbti entry surface contract", () => {
     expect(count(source, 'data-testid="mbti-career-primary-cta"')).toBe(1);
   });
 
-  it("keeps scene entry skeleton on mbti detail and landing surfaces", () => {
+  it("keeps scene entries on content pages and omits them from the streamlined test landing", () => {
     const topicDetail = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
     const personalityDetail = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     const recommendationDetail = read("app/(localized)/[locale]/career/recommendations/mbti/[type]/page.tsx");
@@ -235,7 +235,7 @@ describe("mbti entry surface contract", () => {
     expect(topicDetail).toContain("topic-detail-scene-entry");
     expect(personalityDetail).toContain("personality-detail-scene-entry");
     expect(recommendationDetail).toContain("career-recommendation-scene-entry");
-    expect(testLanding).toContain("mbti-test-landing-scene-entry");
+    expect(testLanding).not.toContain("mbti-test-landing-scene-entry");
     expect(testLanding).toContain("showsMbtiActions ? (");
   });
 
