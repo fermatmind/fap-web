@@ -67,53 +67,31 @@ describe("SiteHeader locale link contract", () => {
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
 
-  it("keeps same-origin private result lookup out of public personality SEO header chrome", () => {
-    navigationState.pathname = "/zh/personality/intj-a";
-    const { container } = render(
-      <LocaleProvider locale="zh">
-        <SiteHeader />
-      </LocaleProvider>
-    );
-
-    expect(container.innerHTML).not.toContain("/results/lookup");
-    expect(container.innerHTML).not.toContain("/zh/results/lookup");
-
-    fireEvent.click(screen.getByRole("button", { name: "菜单" }));
-
-    expect(container.innerHTML).not.toContain("/results/lookup");
-    expect(container.innerHTML).not.toContain("/zh/results/lookup");
-  });
-
-  it("keeps same-origin private result lookup out of public comparison SEO header chrome", () => {
-    navigationState.pathname = "/en/personality/intj-a-vs-intj-t";
-    const { container } = render(
-      <LocaleProvider locale="en">
-        <SiteHeader />
-      </LocaleProvider>
-    );
-
-    expect(container.innerHTML).not.toContain("/results/lookup");
-    expect(container.innerHTML).not.toContain("/en/results/lookup");
-
-    fireEvent.click(screen.getByRole("button", { name: "Menu" }));
-
-    expect(container.innerHTML).not.toContain("/results/lookup");
-    expect(container.innerHTML).not.toContain("/en/results/lookup");
-  });
-
-  it("keeps result lookup available in non-SEO product flows", () => {
-    navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
-    const { container } = render(
-      <LocaleProvider locale="zh">
-        <SiteHeader />
-      </LocaleProvider>
-    );
-
-    expect(container.innerHTML).toContain("/zh/results/lookup");
-
-    fireEvent.click(screen.getByRole("button", { name: "菜单" }));
-
-    expect(container.innerHTML).toContain("/zh/results/lookup");
+  it.each([
+    ["zh", "/"],
+    ["zh", "/zh/tests/mbti-personality-test-16-personality-types"],
+    ["zh", "/zh/tests"],
+    ["zh", "/zh/articles/mbti-basics"],
+    ["zh", "/zh/topics/mbti"],
+    ["zh", "/zh/career"],
+    ["zh", "/zh/personality/intj-a"],
+    ["zh", "/zh/tests/enneagram-personality-test-nine-types/take"],
+    ["en", "/en"],
+    ["en", "/en/personality/intj-a-vs-intj-t"],
+    ["en", "/en/tests/mbti-personality-test-16-personality-types"],
+    ["en", "/en/articles"],
+  ] as const)("keeps the homepage account entry in desktop and mobile headers: %s %s", (locale, pathname) => {
+    navigationState.pathname = pathname;
+    render(<LocaleProvider locale={locale}><SiteHeader /></LocaleProvider>);
+    const label = locale === "zh" ? "我的账户" : "My Account";
+    const desktopEntry = screen.getByRole("link", { name: label });
+    expect(desktopEntry).toHaveAttribute("href", `/${locale}/results/lookup`);
+    fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "菜单" : "Menu" }));
+    const entries = screen.getAllByRole("link", { name: label });
+    expect(entries).toHaveLength(2);
+    for (const entry of entries) expect(entry).toHaveAttribute("href", `/${locale}/results/lookup`);
+    fireEvent.click(entries[1]);
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
   it("keeps the standalone desktop locale switcher SSR-safe when the current URL has query params", async () => {
