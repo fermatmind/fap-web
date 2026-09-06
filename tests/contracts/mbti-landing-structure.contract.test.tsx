@@ -93,11 +93,14 @@ describe("ANALYTICS-SEO-P1-06 MBTI landing structure contract", () => {
     expect(componentSource).not.toContain("MBTI 与");
   });
 
-  it("wires the MBTI test detail page to render backend-authoritative landing surface sections", () => {
+  it("keeps the streamlined MBTI landing backed by editorial content and matching FAQ schema", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
-    expect(source).toContain('import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";');
-    expect(source).toContain("{showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}");
+    expect(source).not.toContain("previewStyles.exploreMore");
+    expect(source).toContain("{mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}");
+    expect(source.indexOf("<MbtiWhyChoose content=")).toBeLessThan(source.indexOf('<div id="use-in-life"'));
+    expect(source).toContain("{!showsMbtiActions ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}");
+    expect(source).toContain('{!showsMbtiActions ? <Card id="related-reading"');
     expect(source).toContain("const faqItems = parseFaq(langNode.faq)");
     expect(source).toContain("const mergedFaq = faqItems.length > 0");
     expect(source).toContain('{faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');

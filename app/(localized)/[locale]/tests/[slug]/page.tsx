@@ -17,7 +17,6 @@ import { FAQAccordion, type FAQItem } from "@/components/business/FAQAccordion";
 import { MbtiSceneEntrySection } from "@/components/content/MbtiSceneEntrySection";
 import { CiteableSection } from "@/components/seo/CiteableSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";
 import { RiasecLandingSurfaceSections } from "@/components/tests/RiasecLandingSurfaceSections";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,7 +75,6 @@ import {
 import { getIqBankLandingChoices, type IqBankLandingChoice } from "@/lib/iq/bankDisplay";
 import { isIqScaleCode } from "@/lib/iq/constants";
 import { buildMbtiEntryHref, buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
-import { buildMbtiTestLandingContinuityItems } from "@/lib/mbti/sceneDeepContent";
 import {
   appendAttributionParamsToHref,
   buildTrackingAttributionPayload,
@@ -1304,10 +1302,9 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const relatedArticles = await fetchRelatedArticles(test.slug, locale);
+  const relatedArticles = showsMbtiActions ? [] : await fetchRelatedArticles(test.slug, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
-  const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const softwareApplicationName = heroTitle;
   const softwareApplicationDescription = heroCopy;
   const softwareApplicationFeatureList = uniqueVisibleFeatureList([
@@ -1566,7 +1563,7 @@ export default async function TestLandingPage({
           </section>
           )}
 
-          {showsMbtiActions ? <>{assessmentHowItWorks}{assessmentAudience}</> : null}
+          {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 
@@ -1577,32 +1574,6 @@ export default async function TestLandingPage({
               testId="mbti-test-landing-scene-entry"
             /></div>
           ) : null}
-          {showsMbtiActions ? <details className={previewStyles.exploreMore}>
-            <summary>{locale === "zh" ? "继续探索人格类型与应用" : "Explore personality types and applications"}<span aria-hidden>＋</span></summary>
-          {showsMbtiActions && mbtiLandingContinuityItems.length > 0 ? (
-            <section
-              className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-              data-testid="mbti-landing-continuity-strip"
-            >
-              <div className="grid items-stretch gap-3 md:grid-cols-4">
-                {mbtiLandingContinuityItems.map((item) => (
-                  <article
-                    key={item.key}
-                    className="flex h-full flex-col rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
-                    data-testid={`mbti-landing-continuity-${item.key}`}
-                  >
-                    <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{item.title}</p>
-                    <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.body}</p>
-                    <Link href={item.href} className="fm-help-chip-link mt-auto self-start">
-                      {locale === "zh" ? "继续查看" : "Continue"}
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ) : null}
-          {showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}
-          </details> : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
           {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (
@@ -1633,7 +1604,7 @@ export default async function TestLandingPage({
 
           {!showsMbtiActions ? <>{assessmentAudience}{assessmentHowItWorks}</> : null}
 
-          <Card id="related-reading" data-testid="tests-related-articles-section">
+          {!showsMbtiActions ? <Card id="related-reading" data-testid="tests-related-articles-section">
             <CardHeader>
               <CardTitle>{dict.tests.relatedArticles.title}</CardTitle>
             </CardHeader>
@@ -1659,7 +1630,7 @@ export default async function TestLandingPage({
                 </ul>
               )}
             </CardContent>
-          </Card>
+          </Card> : null}
 
           {!isFlagshipDualVariant && landingSurface?.ctaBundle.length ? (
             <Card data-testid="test-detail-landing-cta">
@@ -1684,8 +1655,6 @@ export default async function TestLandingPage({
               <CardContent className="text-sm text-slate-700">{reportSummary}</CardContent>
             </Card>
           ) : null}
-
-          {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
 
           {mergedFaq.length > 0 ? (
             <section

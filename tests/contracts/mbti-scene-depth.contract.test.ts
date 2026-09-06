@@ -141,6 +141,7 @@ describe("mbti scene depth contract", () => {
     expect(recommendationDetail).toContain('testId="career-recommendation-scene-entry"');
     expect(recommendationDetail).toContain('data-testid="career-recommendation-protocol-status"');
     expect(recommendationDetail).not.toContain('testId="career-recommendation-scene-deep-dive"');
-    expect(testLanding).toContain('data-testid="mbti-landing-continuity-strip"');
+    expect(testLanding).not.toContain('data-testid="mbti-landing-continuity-strip"');
+    expect(testLanding).toContain('testId="mbti-test-landing-scene-entry"');
   });
 });

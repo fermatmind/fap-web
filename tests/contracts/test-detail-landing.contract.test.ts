@@ -192,12 +192,12 @@ describe("test detail landing contract", () => {
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
   });
 
-  it("renders CMS-driven MBTI personality hub, profile, and comparison link groups", () => {
+  it("keeps optional CMS link-group rendering separate from the streamlined MBTI page", () => {
     const pageSource = fs.readFileSync(PAGE_PATH, "utf8");
     const componentSource = fs.readFileSync(MBTI_LANDING_SURFACE_PATH, "utf8");
 
-    expect(pageSource).toContain('import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";');
-    expect(pageSource).toContain("{showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}");
+    expect(pageSource).not.toContain("<MbtiLandingSurfaceSections");
+    expect(pageSource).toContain('testId="mbti-test-landing-scene-entry"');
     expect(componentSource).toContain("findPersonalityHubLinks");
     expect(componentSource).toContain("findTypeLinks");
     expect(componentSource).toContain("findComparisonLinks");
