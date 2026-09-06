@@ -63,7 +63,7 @@ jobs:
       - run: node --test .github/trunk/*.test.mjs
       - name: Verify SEO Platform 11A frozen web projection
         run: node .github/trunk/verify-seo-platform-11a-final-tree-projection.mjs
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: trunk-classification-${{ github.sha }}
           path: trunk-path-classification.json
@@ -140,7 +140,7 @@ jobs:
             -czf "$RELEASE_ARCHIVE" "fap-web-${GITHUB_SHA}"
       - id: upload-staging-release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: fap-web-standalone-staging-${{ github.sha }}
           path: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
@@ -175,7 +175,7 @@ jobs:
             -czf "$RELEASE_ARCHIVE" "fap-web-${GITHUB_SHA}"
       - id: upload-release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: fap-web-standalone-${{ github.sha }}
           path: .next/release/fap-web-${{ github.sha }}.tar.gz
@@ -277,7 +277,7 @@ jobs:
           jq -n --arg sha "$GITHUB_SHA" --arg run "$GITHUB_RUN_ID" --argjson classification "$CLASSIFICATION" \
             '{schema_version:"fermatmind.trunk-validation.v1",sha:$sha,ci_run_id:$run,result:"success",classification:$classification}' \
             > trunk-validation.json
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: trunk-validation-${{ github.sha }}
           path: trunk-validation.json

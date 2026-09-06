@@ -180,7 +180,7 @@ jobs:
           REQUIRE_CAREER_RENDERER_REVISION: "0"
         run: .github/trunk/deploy-web-release.sh
       - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: trunk-staging-${{ github.event.workflow_run.head_sha }}
           path: staging-timing.json
@@ -255,7 +255,7 @@ jobs:
             --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_smoke_completed_at:$completed}' \
             > trunk-delivery-timing.json
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         if: always()
         with:
           name: trunk-production-${{ github.event.workflow_run.head_sha }}
