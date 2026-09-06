@@ -16,7 +16,8 @@ describe("MBTI preview version selection", () => {
     for (const choice of choices) {
       const link = screen.getByRole("link", { name: choice.label });
       expect(link).toHaveAttribute("href", choice.href);
-      expect(link).toHaveAccessibleDescription(choice.summary);
+      expect(link).not.toHaveAttribute("aria-describedby");
+      expect(screen.queryByText(choice.summary)).not.toBeInTheDocument();
       link.addEventListener("click", (event) => event.preventDefault());
       fireEvent.click(link);
       expect(trackEvent).toHaveBeenLastCalledWith("start_click", choice.eventProperties);
@@ -28,16 +29,6 @@ describe("MBTI preview version selection", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("MBTI");
     expect(screen.getByRole("link", { name: "144 题" })).toHaveAttribute("href", choices[0].href);
     expect(screen.getByRole("link", { name: "93 题" })).toHaveAttribute("href", choices[1].href);
-  });
-  it("lets visitors pause and resume the decorative animation", () => {
-    render(<MbtiLandingIntro {...props} />);
-    const toggle = screen.getByRole("button", { name: "Pause illustration animation" });
-    expect(toggle).toHaveAttribute("aria-pressed", "false");
-    fireEvent.click(toggle);
-    expect(toggle).toHaveAttribute("aria-pressed", "true");
-    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("data-paused", "true");
-    fireEvent.click(toggle);
-    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("data-paused", "false");
   });
   it("does not expose a start link when the test is unavailable", () => {
     render(<MbtiLandingIntro {...props} disabled />);

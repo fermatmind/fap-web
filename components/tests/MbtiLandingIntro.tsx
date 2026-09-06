@@ -29,9 +29,6 @@ export function MbtiLandingIntro({ locale, title, choices, disabled }: Props) {
       <div className={styles.heroInner}>
         <div className={styles.heroCopy}>
           <h1>{title}</h1>
-          <p className={styles.heroDescription}>
-            {zh ? "从日常的选择出发，探索属于你的性格偏好。" : "Explore your personality preferences through the choices you make every day."}
-          </p>
         </div>
         <div id="choose-version" className={styles.heroActions} data-testid="mbti-landing-entry-cta-group">
           {disabled || choices.length === 0 ? (
@@ -45,19 +42,17 @@ export function MbtiLandingIntro({ locale, title, choices, disabled }: Props) {
                     href={choice.href}
                     eventProperties={choice.eventProperties ?? {}}
                     data-testid={choice.testId}
-                    aria-describedby={`mbti-version-summary-${choice.key}`}
                   >
                     {zh ? choice.label.replace(/MBTI\s*/i, "").replace(/(\d+)Q/i, "$1 题") : choice.label}
                     <ArrowRight size={19} aria-hidden />
                   </TrackedEntryCtaLink>
-                  <p id={`mbti-version-summary-${choice.key}`} className={styles.versionSummary}>{choice.summary}</p>
                 </div>
               ))}
             </div>
           )}
         </div>
       </div>
-      <MbtiHeroScene locale={locale} />
+      <MbtiHeroScene />
     </section>
   );
 }

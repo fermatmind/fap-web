@@ -1,14 +1,10 @@
-"use client";
-
-import { useState } from "react";
-import { Pause, Play } from "lucide-react";
 import styles from "./mbti-hero-scene.module.css";
 
 function Tree({ x, y, scale = 1, light = false }: { x: number; y: number; scale?: number; light?: boolean }) {
   return (
     <g transform={`translate(${x} ${y}) scale(${scale})`}>
       <path d="M0 0 2-108" stroke="#628c7e" strokeWidth="6" strokeLinecap="round" />
-      <g className={styles.leaves}>
+      <g>
         <path d="M0-165C-68-132-65-61 0-40 65-61 68-132 0-165Z" fill={light ? "#afd3b1" : "#4a9d88"} />
         <path d="M0-165V-40C65-61 68-132 0-165Z" fill={light ? "#88bda4" : "#328573"} />
         <path d="M0-65 0-135M0-87-24-108M0-105 24-125" stroke="#d5e7c7" strokeWidth="2" opacity=".6" fill="none" />
@@ -18,14 +14,12 @@ function Tree({ x, y, scale = 1, light = false }: { x: number; y: number; scale?
 }
 
 /** Original decorative vector scene: a shared garden with different ways to explore. */
-export function MbtiHeroScene({ locale }: { locale: "zh" | "en" }) {
-  const [paused, setPaused] = useState(false);
-  const zh = locale === "zh";
+export function MbtiHeroScene() {
   return (
-    <div className={styles.scene} data-paused={paused} data-testid="mbti-hero-scene">
+    <div className={styles.scene} data-testid="mbti-hero-scene">
       <svg className={styles.artwork} viewBox="0 0 1440 360" fill="none" aria-hidden="true" focusable="false">
         <circle cx="1058" cy="75" r="49" fill="#efddab" opacity=".65" />
-        <g className={styles.clouds} fill="#fff" opacity=".75">
+        <g fill="#fff" opacity=".75">
           <path d="M199 66c0-15 12-26 26-26 10-21 44-20 51 3 20-3 32 8 32 23Z" />
           <path d="M785 46c0-11 10-20 22-20 12-25 44-22 52 3 17-2 26 5 27 17Z" />
           <path d="M1159 107c2-10 10-16 20-16 9-18 35-17 41 1 14-1 22 5 23 15Z" />
@@ -62,7 +56,7 @@ export function MbtiHeroScene({ locale }: { locale: "zh" | "en" }) {
         <path d="M626 130v14" stroke="#b98468" strokeWidth="10" />
         <ellipse cx="626" cy="120" rx="15" ry="19" fill="#c99170" />
         <path d="M610 120c-7-27 29-31 33-7l-14-7-17 18Z" fill="#465349" />
-        <g className={styles.wave}>
+        <g>
           <path d="m643 154 18 17 20-19" stroke="#c99170" strokeWidth="9" strokeLinecap="round" />
           <path d="m681 152 1-9m-1 8 7-5" stroke="#c99170" strokeWidth="5" strokeLinecap="round" />
         </g>
@@ -95,14 +89,10 @@ export function MbtiHeroScene({ locale }: { locale: "zh" | "en" }) {
         </g>
         <g fill="#d3b879"><circle cx="469" cy="275" r="5" /><circle cx="910" cy="270" r="5" /><circle cx="1256" cy="299" r="4" /></g>
         <g fill="#b4c7b2"><ellipse cx="508" cy="327" rx="14" ry="5" /><ellipse cx="943" cy="330" rx="17" ry="6" /><ellipse cx="86" cy="290" rx="20" ry="6" /><ellipse cx="1365" cy="311" rx="18" ry="6" /></g>
-        <g className={styles.birds} stroke="#7d9c9b" strokeWidth="2.5" strokeLinecap="round">
+        <g stroke="#7d9c9b" strokeWidth="2.5" strokeLinecap="round">
           <path d="m521 69 7 4 7-4m24 19 5 3 5-3" />
         </g>
       </svg>
-      <button type="button" className={styles.motionToggle} onClick={() => setPaused(!paused)} aria-pressed={paused} aria-label={zh ? "暂停插画动画" : "Pause illustration animation"}>
-        {paused ? <Play size={14} aria-hidden /> : <Pause size={14} aria-hidden />}
-        <span>{zh ? (paused ? "播放动画" : "暂停动画") : (paused ? "Play animation" : "Pause animation")}</span>
-      </button>
     </div>
   );
 }
