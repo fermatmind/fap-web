@@ -1,0 +1,21 @@
+.scene { position:relative; width:100%; overflow:hidden; }
+.artwork { display:block; width:100%; height:auto; margin:auto; }
+.motionToggle { position:absolute; right:max(24px,calc((100% - 1224px) / 2)); bottom:10px; display:flex; align-items:center; gap:6px; min-height:36px; padding:6px 10px; border:1px solid #cad9d0; border-radius:20px; background:#f9faf5e6; color:#4e6860; font-size:11px; cursor:pointer; }
+.motionToggle:hover { background:#fff; }
+.motionToggle:focus-visible { outline:3px solid #008783; outline-offset:3px; }
+@media(prefers-reduced-motion:no-preference) {
+  .clouds { animation:drift 18s ease-in-out infinite alternate; }
+  .leaves { transform-box:fill-box; transform-origin:center bottom; animation:sway 7s ease-in-out infinite alternate; }
+  .wave { transform-box:fill-box; transform-origin:left center; animation:wave 6s ease-in-out infinite; }
+  .birds { animation:flight 12s ease-in-out infinite alternate; }
+  .scene[data-paused="true"] * { animation-play-state:paused; }
+  @keyframes drift { to { transform:translateX(30px); } }
+  @keyframes sway { from { transform:rotate(-2deg); } to { transform:rotate(2deg); } }
+  @keyframes wave { 0%,45%,100% { transform:rotate(0); } 60%,80% { transform:rotate(-9deg); } 70%,90% { transform:rotate(-3deg); } }
+  @keyframes flight { to { transform:translate(35px,-9px); } }
+}
+@media(prefers-reduced-motion:reduce) { .motionToggle { display:none; } }
+@media(max-width:680px) {
+  .artwork { width:190%; max-width:none; margin-left:-45%; height:220px; }
+  .motionToggle { right:16px; bottom:5px; }
+}

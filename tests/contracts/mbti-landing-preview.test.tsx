@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
+import { trackEvent } from "@/lib/analytics";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
@@ -10,19 +11,39 @@ const choices = [
 const props = { locale: "en" as const, title: "MBTI", description: "Description", disclaimer: "Not a diagnosis", questions: "93 / 144", duration: "10 / 15", choices, disabled: false };
 
 describe("MBTI preview version selection", () => {
-  it("switches the single start entry while retaining the supplied form and attribution", () => {
+  it("exposes both direct entries with their supplied forms and attribution", () => {
     render(<MbtiLandingIntro {...props} />);
-    expect(screen.getByRole("link", { name: "Start full" })).toHaveAttribute("href", choices[0].href);
-    fireEvent.click(screen.getByRole("radio", { name: "93Q 10 minutes" }));
-    expect(screen.getByRole("link", { name: "Start short" })).toHaveAttribute("href", choices[1].href);
-    expect(screen.queryByRole("link", { name: "Start full" })).not.toBeInTheDocument();
-    expect(screen.getByRole("radio", { name: "93Q 10 minutes" })).toBeChecked();
+    for (const choice of choices) {
+      const link = screen.getByRole("link", { name: choice.label });
+      expect(link).toHaveAttribute("href", choice.href);
+      expect(link).toHaveAccessibleDescription(choice.summary);
+      link.addEventListener("click", (event) => event.preventDefault());
+      fireEvent.click(link);
+      expect(trackEvent).toHaveBeenLastCalledWith("start_click", choice.eventProperties);
+    }
+    expect(screen.queryByRole("radio")).not.toBeInTheDocument();
+  });
+  it("keeps the supplied title and makes the Chinese question counts readable", () => {
+    render(<MbtiLandingIntro {...props} locale="zh" choices={choices.map((choice) => ({ ...choice, label: `MBTI ${choice.label}` }))} />);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("MBTI");
+    expect(screen.getByRole("link", { name: "144 题" })).toHaveAttribute("href", choices[0].href);
+    expect(screen.getByRole("link", { name: "93 题" })).toHaveAttribute("href", choices[1].href);
+  });
+  it("lets visitors pause and resume the decorative animation", () => {
+    render(<MbtiLandingIntro {...props} />);
+    const toggle = screen.getByRole("button", { name: "Pause illustration animation" });
+    expect(toggle).toHaveAttribute("aria-pressed", "false");
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute("aria-pressed", "true");
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("data-paused", "true");
+    fireEvent.click(toggle);
+    expect(screen.getByTestId("mbti-hero-scene")).toHaveAttribute("data-paused", "false");
   });
   it("does not expose a start link when the test is unavailable", () => {
     render(<MbtiLandingIntro {...props} disabled />);
     expect(screen.getByRole("status")).toHaveTextContent("temporarily unavailable");
     expect(screen.queryByRole("radio")).not.toBeInTheDocument();
-    expect(screen.queryByRole("link", { name: /Start/ })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
   it("shows an unavailable state rather than inventing a version when no choices exist", () => {
     render(<MbtiLandingIntro {...props} choices={[]} />);
