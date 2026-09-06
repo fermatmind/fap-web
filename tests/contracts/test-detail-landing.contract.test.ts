@@ -73,7 +73,7 @@ describe("test detail landing contract", () => {
     expect(source).toContain('landingSurface?.startTestTarget || (testDetailAuthority.cta.allowed ? withLocale(`/tests/${test.slug}/take`) : landingBasePath)');
     expect(source).toContain("const canRenderStartCta = testDetailAuthority.cta.allowed || Boolean(landingSurface?.startTestTarget);");
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
-    expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
+    expect(source).toContain("const heroTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(source).toContain("methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),");
     expect(source).toContain("const disclaimer =");
@@ -247,7 +247,7 @@ describe("test detail landing contract", () => {
   it("uses the illustrated entry for all six assessments and preserves each choice source", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
     expect(source).toContain("showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions || showsIqActions || showsEqActions");
-    expect(source).toContain("choices={showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices}");
+    expect(source).toContain("choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}");
     expect(source).toContain("disabled={testDisabled || !canRenderStartCta}");
   });
 

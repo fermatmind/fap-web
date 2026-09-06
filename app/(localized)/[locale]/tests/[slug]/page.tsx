@@ -1227,7 +1227,13 @@ export default async function TestLandingPage({
     cmsLandingSurfaceContent.seoDescription
     || toStringValue(lookup?.seo_description)
     || (testDetailAuthority.metadata.allowed ? test.description : "");
-  const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;
+  // Optional, locale-specific entry copy published by the scale registry.
+  const landingEntry = toRecord(langNode.landing_entry);
+  const entryTitle = toStringValue(landingEntry.title);
+  const entryLabels = toRecord(landingEntry.labels);
+  const withEntryLabels = <T extends { key: string; label: string }>(choices: T[]): T[] =>
+    choices.map((choice) => ({ ...choice, label: toStringValue(entryLabels[choice.key]) || choice.label }));
+  const heroTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;
   const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;
   const heroTitleDisplay = formatCardTitleForUi({
     title: heroTitle,
@@ -1243,7 +1249,7 @@ export default async function TestLandingPage({
   const softwareApplicationFeatureList = uniqueVisibleFeatureList([
     questionSummary,
     durationSummary,
-    ...flagshipVariantChoices.map((choice) => choice.label),
+    ...withEntryLabels(flagshipVariantChoices).map((choice) => choice.label),
   ]);
   const softwareApplicationClaimText = [
     softwareApplicationName,
@@ -1362,19 +1368,19 @@ export default async function TestLandingPage({
         <div className={usesIllustratedLanding ? previewStyles.content : "space-y-6"}>
           {showsMbtiActions ? <MbtiLandingIntro
             locale={locale}
-            title={heroTitleDisplay.plain}
-            choices={mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices}
+            title={entryTitle || heroTitleDisplay.plain}
+            choices={withEntryLabels(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
           /> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={locale}
-            title={heroTitleDisplay.plain}
-            choices={showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices}
+            title={entryTitle || heroTitleDisplay.plain}
+            choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
           /> : (
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
               <div className="space-y-3">
-                <h1 title={heroTitleDisplay.plain} className="m-0 max-w-full text-balance break-words font-serif text-3xl font-semibold leading-tight tracking-tight text-[var(--fm-text)] md:text-[2.15rem] lg:text-[2.35rem]">
+                <h1 title={entryTitle || heroTitleDisplay.plain} className="m-0 max-w-full text-balance break-words font-serif text-3xl font-semibold leading-tight tracking-tight text-[var(--fm-text)] md:text-[2.15rem] lg:text-[2.35rem]">
                   {heroTitleDisplay.multilineFallback ? (
                     <span className="inline-flex max-w-full flex-col break-words">
                       <span>{heroTitleDisplay.line1}</span>

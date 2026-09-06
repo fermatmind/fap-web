@@ -25,7 +25,7 @@ describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
     expect(source).toContain("const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);");
     expect(source).toContain("const title =");
     expect(source).toContain("cmsLandingSurfaceContent.seoTitle");
-    expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
+    expect(source).toContain("const heroTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(source).toContain("methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),");
     expect(source).toContain("const disclaimer =");
