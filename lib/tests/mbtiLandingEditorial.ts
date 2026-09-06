@@ -9,7 +9,7 @@ export type MbtiEditorial = {
 };
 const record = (value: unknown): Record<string, unknown> => value && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
 const text = (value: unknown) => typeof value === "string" ? value.trim() : "";
-const externalHosts = new Set(["www.themyersbriggs.com", "www.myersbriggs.org", "pubmed.ncbi.nlm.nih.gov", "www.nimh.nih.gov"]);
+const externalHosts = new Set(["www.themyersbriggs.com", "www.myersbriggs.org", "pubmed.ncbi.nlm.nih.gov", "www.nimh.nih.gov", "ipip.ori.org", "www.onetcenter.org", "scholars.unh.edu", "www.testingstandards.net"]);
 function parseLink(value: unknown): EditorialLink | undefined {
   const node = record(value);
   const label = text(node.label);

@@ -22,6 +22,15 @@ describe("CMS MBTI editorial", () => {
     expect(items[0].related_links).toHaveLength(1);
     expect(items[1].id).toBeUndefined();
   });
+  it("renders reviewed assessment sources while rejecting lookalike hosts and credentials", () => {
+    const urls = ["https://ipip.ori.org/newMultipleconstructs.htm", "https://www.onetcenter.org/reports/IP_Manual.html", "https://scholars.unh.edu/psych_facpub/385/", "https://www.testingstandards.net/"];
+    const references = urls.map((href, index) => ({ label: `Source ${index}`, href }));
+    const items = parseLandingFaq([{ q: "Evidence?", a: "Scope.\n\nLimitations.", references: [...references, { label: "Lookalike", href: "https://ipip.ori.org.example.com/" }, { label: "Credentials", href: "https://user@www.onetcenter.org/" }] }]);
+    render(<MbtiFaqAnswers items={items} locale="zh" />);
+    references.forEach(({ label, href }) => expect(screen.getByRole("link", { name: label })).toHaveAttribute("href", href));
+    expect(screen.queryByRole("link", { name: "Lookalike" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "Credentials" })).not.toBeInTheDocument();
+  });
   it("does not invent editorial content for missing fields or another locale", () => {
     expect(parseMbtiEditorial({})).toBeNull();
     expect(parseLandingFaq(null)).toEqual([]);
