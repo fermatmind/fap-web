@@ -948,7 +948,7 @@ export default async function TestLandingPage({
           )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
-  const mbtiEditorial = showsMbtiActions && locale === "zh" ? parseMbtiEditorial(langNode) : null;
+  const mbtiEditorial = usesIllustratedLanding && locale === "zh" ? parseMbtiEditorial(langNode) : null;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -1463,7 +1463,7 @@ export default async function TestLandingPage({
           </section>
           )}
 
-          {usesIllustratedLanding && !showsMbtiActions ? (
+          {usesIllustratedLanding && !showsMbtiActions && !mbtiEditorial ? (
             <section id="about-assessment" className={previewStyles.whyChoose}>
               <h2>{locale === "zh" ? "了解这份测评" : "About this assessment"}</h2>
               <p>{heroCopy}</p>
@@ -1534,7 +1534,7 @@ export default async function TestLandingPage({
             </CardContent>
           </Card> : null}
 
-          {!isFlagshipDualVariant && landingSurface?.ctaBundle.length ? (
+          {!usesIllustratedLanding && landingSurface?.ctaBundle.length ? (
             <Card data-testid="test-detail-landing-cta">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "继续探索" : "Continue exploring"}</CardTitle>
@@ -1583,7 +1583,7 @@ export default async function TestLandingPage({
             </Card>
           ) : null}
 
-          {!isFlagshipDualVariant ? (
+          {!usesIllustratedLanding ? (
             <Card id="references" data-evidence-block="evidence_facts">
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "参考与说明" : "References and Notes"}</CardTitle>
@@ -1595,7 +1595,7 @@ export default async function TestLandingPage({
               </CardContent>
             </Card>
           ) : null}
-          {!isFlagshipDualVariant && continuePublicContentCta ? (
+          {!usesIllustratedLanding && continuePublicContentCta ? (
             <Link href={continuePublicContentCta.href} className="fm-help-chip-link">
               {continuePublicContentCta.label}
             </Link>

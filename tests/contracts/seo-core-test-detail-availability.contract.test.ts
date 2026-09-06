@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
+import { MbtiWhyChoose } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
 import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import path from "node:path";
@@ -342,6 +343,27 @@ describe("SEO core test detail availability", () => {
       ).toBe(true);
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
       expect(strings.some((value) => value.includes(`/${locale}/tests/${slug}/take`))).toBe(true);
+    }
+  );
+
+  it.each(CORE_SCALES.filter(({ code }) => ["BIG5_OCEAN", "ENNEAGRAM", "IQ_RAVEN", "EQ_60"].includes(code)))(
+    "renders authoritative intro for $code without redundant illustrated-page cards",
+    async ({ slug }) => {
+      const lookup = lookupFor(slug, "zh");
+      if (!lookup) throw new Error("Missing core scale fixture");
+      routeMocks.getTestLookup.mockResolvedValue({ ...lookup, content_i18n_json: { zh: {
+        ...lookup.content_i18n_json.zh,
+        why_choose: { title: "Reviewed introduction", intro: "Source introduction", items: [{ id: "scope", title: "Scope", body: "Direct explanation.\n\nPractical example." }] },
+      } } });
+      const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
+      const values: unknown[] = [];
+      collectValues(tree, values);
+      const elements = values.filter(isValidElement);
+      const editorial = elements.find((element) => element.type === MbtiWhyChoose);
+      expect(editorial).toBeDefined();
+      expect(renderToStaticMarkup(editorial!)).toContain("Reviewed introduction");
+      expect(elements.some((element) => ["about-assessment", "references"].includes((element.props as { id?: string }).id ?? ""))).toBe(false);
+      expect(values).not.toContain("继续探索");
     }
   );
 
