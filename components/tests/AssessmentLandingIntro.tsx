@@ -11,9 +11,10 @@ export type AssessmentLandingChoice = {
   eventProperties?: Record<string, string>;
 };
 
-export function AssessmentLandingIntro({ locale, title, choices, disabled }: {
+export function AssessmentLandingIntro({ locale, title, description, choices, disabled }: {
   locale: "zh" | "en";
   title: string;
+  description?: string;
   choices: AssessmentLandingChoice[];
   disabled: boolean;
 }) {
@@ -21,7 +22,10 @@ export function AssessmentLandingIntro({ locale, title, choices, disabled }: {
   return (
     <section id="what-it-is" className={styles.hero}>
       <div className={styles.heroInner}>
-        <div className={styles.heroCopy}><h1>{title}</h1></div>
+        <div className={styles.heroCopy}>
+          <h1>{title}</h1>
+          {description ? <p>{description}</p> : null}
+        </div>
         <div id="choose-version" className={styles.heroActions}>
           {disabled || availableChoices.length === 0 ? (
             <p role="status" className={styles.unavailable}>{locale === "zh" ? "测试暂不可用，请稍后再试。" : "This test is temporarily unavailable. Please try again later."}</p>

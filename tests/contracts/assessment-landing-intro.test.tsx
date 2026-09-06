@@ -9,7 +9,7 @@ const choices = [
 ];
 describe("illustrated assessment landing entry", () => {
   it("keeps each form destination and click attribution", () => {
-    render(<AssessmentLandingIntro locale="zh" title="大五人格" choices={choices} disabled={false} />);
+    render(<AssessmentLandingIntro locale="zh" title="大五人格" description="CMS hero copy" choices={choices} disabled={false} />);
     for (const choice of choices) {
       const link = screen.getByTestId(choice.testId);
       expect(link).toHaveAttribute("href", choice.href);
@@ -18,6 +18,7 @@ describe("illustrated assessment landing entry", () => {
       expect(trackEvent).toHaveBeenLastCalledWith("start_click", choice.eventProperties);
     }
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("大五人格");
+    expect(screen.getByText("CMS hero copy")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "90 题" })).toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
   });
