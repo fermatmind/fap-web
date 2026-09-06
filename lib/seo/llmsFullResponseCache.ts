@@ -247,7 +247,7 @@ export function clearLlmsFullResponseCache(siteUrl?: string): void {
 
     void (async () => {
       const cacheDirectory = getLlmsFullSharedCacheDirectory();
-      const entries = await readdir(cacheDirectory).catch(() => []);
+      const entries = await readdir(/* turbopackIgnore: true */ cacheDirectory).catch(() => []);
 
       await Promise.all(
         entries

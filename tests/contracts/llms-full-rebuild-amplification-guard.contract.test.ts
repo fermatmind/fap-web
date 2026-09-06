@@ -1,4 +1,4 @@
-import { access, mkdtemp, readFile, rm } from "node:fs/promises";
+import { access, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -113,5 +113,26 @@ describe("llms-full rebuild amplification guard", () => {
         isCacheable: (text) => text === "complete",
       })
     ).resolves.toBe("complete");
+  });
+
+  it("clears only managed llms-full cache files when no site is specified", async () => {
+    const directory = await createSharedCacheDirectory();
+    const managedCachePath = path.join(directory, "fermatmind-llms-full-response-cache.0123456789abcdef.v1.json");
+    const managedLeasePath = path.join(directory, "fermatmind-llms-full-build-lease.0123456789abcdef.v1.lock");
+    const unrelatedPath = path.join(directory, "unrelated-runtime-cache.json");
+    await Promise.all([
+      writeFile(managedCachePath, "managed", "utf8"),
+      writeFile(managedLeasePath, "managed", "utf8"),
+      writeFile(unrelatedPath, "keep", "utf8"),
+    ]);
+
+    const cacheModule = await import("@/lib/seo/llmsFullResponseCache");
+    cacheModule.clearLlmsFullResponseCache();
+
+    await vi.waitFor(async () => {
+      await expect(access(managedCachePath)).rejects.toMatchObject({ code: "ENOENT" });
+      await expect(access(managedLeasePath)).rejects.toMatchObject({ code: "ENOENT" });
+    });
+    await expect(readFile(unrelatedPath, "utf8")).resolves.toBe("keep");
   });
 });
