@@ -25,14 +25,19 @@ afterEach(() => {
 });
 
 describe("proxy boundary contract", () => {
-  it.each(["en", "zh"])("allows the %s software developers universal dossier route", (locale) => {
-    const response = proxy(
+  it.each(["en", "zh"])("returns the authoritative held status for the %s software developers route", async (locale) => {
+    const fetchMock = vi.fn(async () => new Response(null, { status: 404 }));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const response = await proxyHandler(
       new NextRequest(`https://example.com/${locale}/career/jobs/software-developers`),
     );
 
-    expect(response.status).toBe(200);
-    expect(response.headers.get("x-robots-tag")).toBeNull();
-    expect(response.headers.get("cache-control")).toBeNull();
+    expect(response.status).toBe(404);
+    expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
+    expect(response.headers.get("cache-control")).toBe("no-store");
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(fetchMock.mock.calls[0]?.[1]?.method).toBe("HEAD");
   });
 
   it("matches content roots and machine discoverability endpoints", () => {
