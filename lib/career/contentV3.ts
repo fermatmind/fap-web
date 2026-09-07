@@ -299,6 +299,38 @@ function string(value: unknown): string | null {
   return typeof value === "string" && value.trim().length > 0 ? value.trim() : null;
 }
 
+export function isCareerContentV3LegacyPlaceholder(
+  value: unknown,
+  locale: Locale,
+  expectedSlug: string,
+): boolean {
+  if (
+    !isRecord(value) ||
+    !exactKeys(value, ["contract_version", "locale", "subject", "content_state", "source_content_sha256", "blocks"]) ||
+    value.contract_version !== CAREER_CONTENT_V3_VERSION ||
+    value.locale !== (locale === "zh" ? "zh-CN" : "en") ||
+    value.content_state !== "legacy" ||
+    typeof value.source_content_sha256 !== "string" ||
+    !/^[a-f0-9]{64}$/.test(value.source_content_sha256) ||
+    !Array.isArray(value.blocks) ||
+    value.blocks.length !== 0 ||
+    !isRecord(value.subject) ||
+    !exactKeys(value.subject, ["canonical_slug", "name", "summary"])
+  ) {
+    return false;
+  }
+
+  const canonicalSlug = key(value.subject.canonical_slug);
+  const normalizedExpectedSlug = key(expectedSlug);
+
+  return (
+    canonicalSlug !== null &&
+    canonicalSlug === normalizedExpectedSlug &&
+    string(value.subject.name) !== null &&
+    value.subject.summary === null
+  );
+}
+
 function key(value: unknown): string | null {
   const normalized = string(value);
   return normalized && /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/.test(normalized) ? normalized : null;

@@ -47,6 +47,20 @@ describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
           summary: "Gated actor body should not become frontend-visible content.",
         },
         content_body_md: "# Actors\n\nGated DOCX content should remain hidden.",
+        display_surface_v1: {
+          content_v3: {
+            contract_version: "career.detail.content.v3",
+            locale: "en",
+            subject: {
+              canonical_slug: "actors",
+              name: "Actors",
+              summary: null,
+            },
+            content_state: "legacy",
+            source_content_sha256: "a".repeat(64),
+            blocks: [],
+          },
+        },
         claim_permissions: {
           allow_strong_claim: false,
           allow_salary_comparison: false,

@@ -5,6 +5,7 @@ import {
   type CareerTrustManifest,
 } from "@/lib/career/contracts";
 import { getCareerJobRenderState } from "@/lib/career/protocolReadiness";
+import { isCareerContentV3LegacyPlaceholder } from "@/lib/career/contentV3";
 import { adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
 import type { CareerJobBundleResponseRaw } from "@/lib/career/api/types";
@@ -108,17 +109,27 @@ function hasOwn(value: Record<string, unknown>, key: string): boolean {
 
 function resolveDisplaySurfaceAuthorityState({
   locale,
+  requestedSlug,
   raw,
   seoContract,
   displaySurface,
 }: {
   locale: "en" | "zh";
+  requestedSlug: string;
   raw: Record<string, unknown>;
   seoContract: CareerSeoContractAdapter;
   displaySurface: CareerJobBundleAdapter["displaySurfaceV1"];
 }): CareerJobBundleAdapter["displaySurfaceAuthorityState"] {
   if (displaySurface) {
     return "published_valid";
+  }
+
+  const rawDisplaySurface = isRecord(raw.display_surface_v1) ? raw.display_surface_v1 : null;
+  if (
+    rawDisplaySurface &&
+    isCareerContentV3LegacyPlaceholder(rawDisplaySurface.content_v3, locale, requestedSlug)
+  ) {
+    return "absent_legacy";
   }
 
   const declaresPublishedProjection = seoContract.reasonCodes.some(
@@ -699,6 +710,7 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
     displaySurfaceV1,
     displaySurfaceAuthorityState: resolveDisplaySurfaceAuthorityState({
       locale: input.locale,
+      requestedSlug: input.requestedSlug,
       raw,
       seoContract,
       displaySurface: displaySurfaceV1,

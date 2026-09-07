@@ -41,6 +41,7 @@ const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
 const ARTICLE_DETAIL_PATH_RE = /^\/(en|zh)\/articles\/([^/]+)\/?$/i;
+const CAREER_DETAIL_PATH_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)\/?$/i;
 const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
 const PUBLIC_ABSENCE_PROBE_TIMEOUT_MS = 3000;
 const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
@@ -100,6 +101,20 @@ function resolveArticleAuthorityProbe(pathname: string): { locale: "en" | "zh"; 
   }
 }
 
+function resolveCareerAuthorityProbe(pathname: string): { locale: "en" | "zh"; slug: string } | null {
+  const match = pathname.match(CAREER_DETAIL_PATH_RE);
+  if (!match) {
+    return null;
+  }
+
+  try {
+    const slug = decodeURIComponent(match[2] ?? "").trim();
+    return slug ? { locale: match[1]?.toLowerCase() === "zh" ? "zh" : "en", slug } : null;
+  } catch {
+    return null;
+  }
+}
+
 function isUnknownBigFivePublicRoute(pathname: string): boolean {
   const match = pathname.match(BIG_FIVE_DETAIL_PATH_RE);
   if (!match) {
@@ -145,6 +160,37 @@ async function probeArticlePublicAbsence(
   } catch {
     // A transient probe failure is not authoritative absence. Let the route's
     // classified public read reach its existing error boundary instead.
+    return null;
+  }
+}
+
+async function probeCareerPublicAbsence(
+  probe: { locale: "en" | "zh"; slug: string },
+): Promise<NextResponse | null> {
+  const query = new URLSearchParams({
+    locale: toApiLocale(probe.locale),
+    org_id: "0",
+  });
+
+  try {
+    const response = await fetch(
+      buildApiUrl(`/v0.5/career/jobs/${encodeURIComponent(probe.slug)}?${query.toString()}`),
+      {
+        method: "HEAD",
+        headers: {
+          Accept: "application/json",
+          "X-FAP-Locale": toApiLocale(probe.locale),
+        },
+        cache: "no-store",
+        redirect: "manual",
+        signal: AbortSignal.timeout(PUBLIC_ABSENCE_PROBE_TIMEOUT_MS),
+      },
+    );
+
+    return response.status === 404 || response.status === 410
+      ? createPublicAbsenceResponse(response.status)
+      : null;
+  } catch {
     return null;
   }
 }
@@ -317,6 +363,13 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     const articleProbe = resolveArticleAuthorityProbe(pathname);
     if (articleProbe) {
       return probeArticlePublicAbsence(articleProbe).then(
+        (absenceResponse) => absenceResponse ?? runProxy(request, false),
+      );
+    }
+
+    const careerProbe = resolveCareerAuthorityProbe(pathname);
+    if (careerProbe) {
+      return probeCareerPublicAbsence(careerProbe).then(
         (absenceResponse) => absenceResponse ?? runProxy(request, false),
       );
     }

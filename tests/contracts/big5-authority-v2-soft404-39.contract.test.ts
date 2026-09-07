@@ -127,6 +127,44 @@ describe("BIG5-AUTHORITY-V2-SOFT404-39", () => {
     expect(publishedBigFive.headers.get("x-middleware-next")).toBe("1");
   });
 
+  it("returns real held Career statuses before streaming while published and transient reads continue", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(null, { status: 404 }))
+      .mockResolvedValueOnce(new Response(null, { status: 404 }))
+      .mockResolvedValueOnce(new Response(null, { status: 410 }))
+      .mockResolvedValueOnce(new Response(null, { status: 200 }))
+      .mockResolvedValueOnce(new Response(null, { status: 503 }))
+      .mockRejectedValueOnce(new Error("temporary authority probe failure"));
+    vi.stubGlobal("fetch", fetchMock);
+
+    const heldEn = await runProxy("/en/career/jobs/software-developers");
+    const heldZh = await runProxy("/zh/career/jobs/digital-forensics-analysts");
+    const gone = await runProxy("/en/career/jobs/computer-occupations-all-other");
+    const legacy = await runProxy("/en/career/jobs/health-educators");
+    const transient = await runProxy("/zh/career/jobs/transient-career");
+    const networkFailure = await runProxy("/en/career/jobs/network-failure");
+
+    for (const response of [heldEn, heldZh]) {
+      expect(response.status).toBe(404);
+      expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
+      expect(response.headers.get("cache-control")).toBe("no-store");
+    }
+    expect(gone.status).toBe(410);
+    expect(gone.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
+    for (const response of [legacy, transient, networkFailure]) {
+      expect(response.status).toBe(200);
+      expect(response.headers.get("x-middleware-next")).toBe("1");
+    }
+
+    for (const [input, init] of fetchMock.mock.calls) {
+      expect(String(input)).toMatch(/^https:\/\/api\.fermatmind\.com\/api\/v0\.5\/career\/jobs\//);
+      expect(String(input)).toContain("org_id=0");
+      expect(init?.method).toBe("HEAD");
+      expect(init?.cache).toBe("no-store");
+    }
+  });
+
   it("keeps route metadata on the not-found boundary and does not hard-code withheld Article slugs", () => {
     const articlePage = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
     const technicalTrustPage = read("app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx");

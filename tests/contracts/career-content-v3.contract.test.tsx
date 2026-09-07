@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
+import { isCareerContentV3LegacyPlaceholder } from "@/lib/career/contentV3";
 import { adaptCareerDisplaySurface, buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -49,6 +50,37 @@ function v3Fixture(locale: "en" | "zh" = "en", slug = "accountants-and-auditors"
     ],
   };
 }
+
+function legacyPlaceholderFixture(locale: "en" | "zh" = "en", slug = "health-educators") {
+  return {
+    contract_version: "career.detail.content.v3",
+    locale: locale === "zh" ? "zh-CN" : "en",
+    subject: {
+      canonical_slug: slug,
+      name: locale === "zh" ? "健康教育专家" : "Health Education Specialists",
+      summary: null,
+    },
+    content_state: "legacy",
+    source_content_sha256: "a".repeat(64),
+    blocks: [],
+  };
+}
+
+describe("career content v3 legacy placeholder", () => {
+  it.each(["en", "zh"] as const)("accepts an exact %s Current legacy placeholder", (locale) => {
+    expect(isCareerContentV3LegacyPlaceholder(legacyPlaceholderFixture(locale), locale, "health-educators")).toBe(true);
+  });
+
+  it("rejects identity, locale, digest, shape, and non-empty-body drift", () => {
+    const valid = legacyPlaceholderFixture();
+    expect(isCareerContentV3LegacyPlaceholder(valid, "en", "other-slug")).toBe(false);
+    expect(isCareerContentV3LegacyPlaceholder({ ...valid, locale: "zh-CN" }, "en", "health-educators")).toBe(false);
+    expect(isCareerContentV3LegacyPlaceholder({ ...valid, source_content_sha256: "bad" }, "en", "health-educators")).toBe(false);
+    expect(isCareerContentV3LegacyPlaceholder({ ...valid, unexpected: true }, "en", "health-educators")).toBe(false);
+    expect(isCareerContentV3LegacyPlaceholder({ ...valid, blocks: [{}] }, "en", "health-educators")).toBe(false);
+    expect(isCareerContentV3LegacyPlaceholder({ ...valid, content_state: "enhanced" }, "en", "health-educators")).toBe(false);
+  });
+});
 
 function productionOutlookFixture(locale: "en" | "zh") {
   const isZh = locale === "zh";
