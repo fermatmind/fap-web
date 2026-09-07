@@ -97,6 +97,8 @@ function resolveArticleAuthorityProbe(pathname: string): { locale: "en" | "zh"; 
     const slug = decodeURIComponent(match[2] ?? "").trim();
     return slug ? { locale: match[1]?.toLowerCase() === "zh" ? "zh" : "en", slug } : null;
   } catch {
+    // Only an authoritative absence may override the page response. Preserve
+    // the existing runtime error boundary when the backend probe is transient.
     return null;
   }
 }
