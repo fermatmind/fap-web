@@ -1241,7 +1241,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || heroTitleDisplay.plain;
+  const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || (locale === "zh" ? entryTitle : "") || heroTitleDisplay.plain;
   const relatedArticles = usesIllustratedLanding ? [] : await fetchRelatedArticles(test.slug, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);

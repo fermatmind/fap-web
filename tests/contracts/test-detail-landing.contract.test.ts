@@ -74,7 +74,7 @@ describe("test detail landing contract", () => {
     expect(source).toContain("const canRenderStartCta = testDetailAuthority.cta.allowed || Boolean(landingSurface?.startTestTarget);");
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
     expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
-    expect(source).toContain("const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || heroTitleDisplay.plain;");
+    expect(source).toContain('const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || (locale === "zh" ? entryTitle : "") || heroTitleDisplay.plain;');
     expect(source).not.toContain("title={entryTitle || heroTitleDisplay.plain}");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(source).toContain('description={locale === "en" ? heroCopy : undefined}');
