@@ -2256,3 +2256,23 @@
     display: none;
   }
 }
+
+.traitLabelRow {
+  position: relative;
+  height: 17px;
+}
+
+.traitLabel {
+  position: absolute;
+  left: clamp(22%, var(--trait-position), 78%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: left 500ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traitLabel { transition: none; }
+}

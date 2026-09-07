@@ -199,7 +199,8 @@ export function DimensionBars({
           const isActive = activeDimensionCode !== null && code === activeDimensionCode;
           const content = (
             <>
-              <div className="flex items-center justify-center gap-1.5 text-center">
+              <div className={styles.traitLabelRow} style={barStyle}>
+                <div className={styles.traitLabel}>
                 <span
                   className="text-[14px] leading-[1.2] font-bold"
                   style={{ color }}
@@ -209,6 +210,7 @@ export function DimensionBars({
                 <span className="text-[14px] leading-[1.2] font-bold text-[var(--clone-text,#2E3442)]">
                   {winnerLabel}
                 </span>
+                </div>
               </div>
               <div
                 className={styles.traitTrack}
