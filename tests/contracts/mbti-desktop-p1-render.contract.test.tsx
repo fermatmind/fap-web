@@ -1182,6 +1182,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const mindAxis = screen.getByTestId("mbti-traits-axis-SN");
     const natureAxis = screen.getByTestId("mbti-traits-axis-TF");
 
+    expect(screen.getByTestId("mbti-traits-track-EI").style.getPropertyValue("--trait-position")).toBe("54%");
+    expect(screen.getByTestId("mbti-traits-track-TF").style.getPropertyValue("--trait-position")).toBe("25%");
     expect(energyAxis).toHaveAttribute("data-state", "active");
     expect(summaryPane).toHaveTextContent("Energy");
     expect(summaryPane).toHaveTextContent("54%");

@@ -1,5 +1,7 @@
 "use client";
 
+import type { CSSProperties } from "react";
+import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import { usePathname } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getDictSync } from "@/lib/i18n/getDict";
@@ -157,7 +159,7 @@ export function DimensionBars({
 
   if (variant === "clone16p") {
     return (
-      <div className={`space-y-[16px] ${className}`}>
+      <div className={`${styles.traitBarList} ${className}`}>
         {dimensions.slice(0, 5).map((item, index) => {
           const code = normalizeCloneCode(item, index);
           const label = item.axisTitle ?? (typeof item.axis_title === "string" ? item.axis_title : null) ?? item.label ?? code;
@@ -190,6 +192,10 @@ export function DimensionBars({
             (typeof item.side_label === "string" && item.side_label.trim()) ||
             label;
           const color = ["#4D9FC1", "#D6A43A", "#3CAA8C", "#8E63B1", "#E56B73"][index % 5];
+          const dominantPole = String(item.dominantPole ?? item.dominant_pole ?? "").toUpperCase();
+          const isLeft = dominantPole === leftCode.toUpperCase() || winnerLabel === leftLabel;
+          const position = isLeft ? 100 - clampedPercent : clampedPercent;
+          const barStyle = { "--trait-color": color, "--trait-position": `${position}%` } as CSSProperties;
           const isActive = activeDimensionCode !== null && code === activeDimensionCode;
           const content = (
             <>
@@ -205,12 +211,13 @@ export function DimensionBars({
                 </span>
               </div>
               <div
-                className="relative h-[8px] rounded-full"
-                style={{ backgroundColor: color }}
+                className={styles.traitTrack}
+                data-testid={`mbti-traits-track-${code}`}
+                style={barStyle}
               >
                 <span
-                  className="absolute top-1/2 h-3 w-3 -translate-y-1/2 rounded-full border-[3px] border-white bg-[var(--clone-surface,#ffffff)] shadow-[0_1px_4px_rgba(46,52,66,0.22)]"
-                  style={{ left: `${clampedPercent}%`, transform: "translate(-50%, -50%)" }}
+                  className={styles.traitDot}
+                  data-testid={`mbti-traits-dot-${code}`}
                 />
               </div>
               <div className="flex items-center justify-between gap-3 text-[11px] leading-[1.4] text-[var(--clone-muted,#737B86)]">
@@ -229,11 +236,7 @@ export function DimensionBars({
                 data-state={isActive ? "active" : "idle"}
                 aria-pressed={isActive}
                 onClick={() => onDimensionSelect(code)}
-                className={`flex w-full flex-col gap-[8px] rounded-[10px] border px-[10px] py-[8px] text-left transition-colors ${
-                  isActive
-                    ? "border-[var(--clone-green,#36ad73)] bg-white shadow-[0_10px_24px_rgba(54,173,115,0.12)]"
-                    : "border-transparent bg-transparent hover:border-[rgba(54,173,115,0.18)] hover:bg-white/80"
-                }`}
+                className={styles.traitButton}
               >
                 {content}
               </button>

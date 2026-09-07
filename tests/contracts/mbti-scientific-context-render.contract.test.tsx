@@ -1,4 +1,4 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { MbtiResultScientificContext } from "@/components/result/mbti/clone/MbtiResultScientificContext";
 import type { ReportResponse } from "@/lib/api/v0_3";
@@ -57,6 +57,13 @@ describe("Chinese MBTI scientific context render contract", () => {
     );
 
     const context = screen.getByTestId("mbti-scientific-context");
+    const details = context.querySelector("details")!;
+    expect(details).not.toHaveAttribute("open");
+    expect(screen.getByText("本次结果存在平分轴")).toBeVisible();
+    expect(screen.getByTestId("mbti-at-boundary")).not.toBeVisible();
+    fireEvent.click(screen.getByText("查看计分说明与结果边界"));
+    expect(details).toHaveAttribute("open");
+    expect(screen.getByTestId("mbti-at-boundary")).toBeVisible();
     expect(context).toHaveTextContent("不是回答一致性、测量信度、能力水平或人群百分位");
     expect(context).toHaveTextContent("未形成清晰偏好");
     expect(within(screen.getByTestId("mbti-adjacent-types")).getByText("ENFJ-A")).toBeInTheDocument();

@@ -758,7 +758,7 @@
 .traitsCard {
   border: 1px solid var(--clone-border);
   border-radius: 12px;
-  background: linear-gradient(180deg, #fbfbfc 0%, #f5f6f8 100%);
+  background: #fff;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -768,26 +768,96 @@
 .traitsOverviewRow {
   display: grid;
   grid-template-columns: minmax(0, 1.72fr) minmax(0, 0.88fr);
-  gap: 16px;
+  gap: 0;
   align-items: stretch;
 }
 
 .traitsMetrics {
-  border-radius: 12px;
-  border: 1px solid rgba(231, 234, 238, 0.82);
-  background: rgba(255, 255, 255, 0.78);
-  padding: 14px 16px 12px;
+  min-width: 0;
+  padding: 0;
 }
 
 .summaryPane {
-  border-radius: 12px;
-  border: 1px solid rgba(231, 234, 238, 0.9);
-  background: linear-gradient(180deg, rgba(243, 245, 247, 0.96) 0%, rgba(237, 240, 243, 0.98) 100%);
-  padding: 16px 16px 14px;
+  border-radius: 0 10px 10px 0;
+  background: #f6f6f7;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 12px;
   min-height: 100%;
+}
+
+.summaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: traitSummaryEnter 200ms ease;
+}
+
+.traitBarList.cloneBars {
+  gap: 0;
+}
+
+.traitButton {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  padding: 16px 20px;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 200ms ease;
+}
+
+.traitButton:hover,
+.traitButton[data-state="active"] {
+  background: #f6f6f7;
+}
+
+.traitButton:focus-visible {
+  outline: 2px solid var(--clone-green);
+  outline-offset: -2px;
+}
+
+.traitTrack {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--trait-color);
+}
+
+.traitDot {
+  position: absolute;
+  top: 50%;
+  left: var(--trait-position);
+  width: 12px;
+  height: 12px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background: var(--trait-color);
+  box-shadow: 0 1px 4px rgb(46 52 66 / 22%);
+  transform: translate(-50%, -50%);
+  transition: left 500ms ease;
+  animation: traitDotEnter 500ms ease;
+}
+
+@keyframes traitDotEnter {
+  from { left: 50%; }
+}
+
+@keyframes traitSummaryEnter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .traitDot, .traitButton, .summaryContent {
+    animation: none;
+    transition: none;
+  }
 }
 
 .summaryValue {
@@ -847,6 +917,7 @@
 }
 
 .sectionParagraphs {
+  padding-inline: clamp(16px, 2.5vw, 32px);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -2170,4 +2241,18 @@
 /* Unavailable chapter illustrations must not reserve empty reading space. */
 .section > .illustrationSlot:not(.assetSlotReady) {
   display: none;
+}
+
+@media print {
+  .scientificDetails::details-content {
+    content-visibility: visible;
+  }
+
+  .scientificDetails > div {
+    display: block;
+  }
+
+  .scientificDetails > summary {
+    display: none;
+  }
 }

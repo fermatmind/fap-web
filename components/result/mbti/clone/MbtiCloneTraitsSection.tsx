@@ -221,26 +221,28 @@ export function MbtiCloneTraitsSection({
             />
           </div>
           <aside className={styles.summaryPane} data-testid="mbti-traits-summary-pane">
-            <div>
-              <p className={styles.microLabel}>{summaryTitle}</p>
-              <p className={styles.summaryValue}>{summaryValue}</p>
-              <p className={styles.summaryLead}>{summaryLabel}</p>
+            <div key={activeAxis?.axisCode} className={styles.summaryContent}>
+              <div>
+                <p className={styles.microLabel}>{summaryTitle}</p>
+                <p className={styles.summaryValue}>{summaryValue}</p>
+                <p className={styles.summaryLead}>{summaryLabel}</p>
+              </div>
+              <MbtiCloneAssetSlot
+                slotId={summarySlotId}
+                assetSlots={assetSlots}
+                fallbackLabel={summarySlotLabel}
+                className={styles.summaryIllustration}
+                labelClassName={styles.slotLabel}
+                testId="mbti-asset-slot-traits-summary"
+              />
+              {summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
+              <p className={styles.summaryText}>{summaryDescription}</p>
+              {bandNuance ? (
+                <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
+                  {bandNuance}
+                </p>
+              ) : null}
             </div>
-            <MbtiCloneAssetSlot
-              slotId={summarySlotId}
-              assetSlots={assetSlots}
-              fallbackLabel={summarySlotLabel}
-              className={styles.summaryIllustration}
-              labelClassName={styles.slotLabel}
-              testId="mbti-asset-slot-traits-summary"
-            />
-            {summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
-            <p className={styles.summaryText}>{summaryDescription}</p>
-            {bandNuance ? (
-              <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
-                {bandNuance}
-              </p>
-            ) : null}
           </aside>
         </div>
         {tools.length > 0 ? (

@@ -1108,12 +1108,33 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
       await expect(page.getByTestId(`mbti-asset-slot-${chapter}`)).toBeHidden();
     }
     await expect(page.getByTestId("mbti-hero-form-summary")).toHaveCount(0);
+    for (const axis of ["EI", "SN", "TF", "JP", "AT"]) {
+      const button = page.getByTestId(`mbti-traits-axis-${axis}`);
+      await button.click();
+      await expect(button).toHaveAttribute("aria-pressed", "true");
+      const centers = await page.evaluate((code) => {
+        const track = document.querySelector(`[data-testid="mbti-traits-track-${code}"]`)!.getBoundingClientRect();
+        const dot = document.querySelector(`[data-testid="mbti-traits-dot-${code}"]`)!.getBoundingClientRect();
+        return { track: track.y + track.height / 2, dot: dot.y + dot.height / 2 };
+      }, axis);
+      expect(Math.abs(centers.track - centers.dot)).toBeLessThanOrEqual(0.5);
+    }
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await expect(page.getByTestId("mbti-traits-dot-EI")).toHaveCSS("animation-name", "none");
+    expect(parseFloat(await page.getByTestId("mbti-traits-dot-EI").evaluate((el) => getComputedStyle(el).transitionDuration))).toBeLessThanOrEqual(0.001);
+    await page.emulateMedia({ reducedMotion: "no-preference" });
     const careerCta = page.getByTestId("mbti-career-next-step-cta");
     await expect(careerCta).toHaveText("继续查看 ENFP-T 的职业推荐");
     await expect(careerCta).toHaveCSS("display", "flex");
     await expect(careerCta).toHaveCSS("align-items", "center");
     await expect(careerCta).toHaveCSS("justify-content", "center");
     await expect(page.getByTestId("mbti-career-next-step").getByRole("link")).toHaveCount(1);
+    await expect(page.getByTestId("mbti-traits-summary-pane").locator(":scope > div")).toHaveCSS("opacity", "1");
+    await expect.poll(async () => page.getByTestId("mbti-traits-track-EI").evaluate((track) => {
+      const dot = track.firstElementChild!;
+      const expected = parseFloat(getComputedStyle(track).getPropertyValue("--trait-position"));
+      return Math.abs(parseFloat(getComputedStyle(dot).left) / track.clientWidth * 100 - expected);
+    })).toBeLessThan(0.1);
     await page.screenshot({ path: testInfo.outputPath(`layout-${viewport.width}.png`) });
 
     await expect(page.getByTestId("mbti-mobile-chrome")).toHaveCount(0);
