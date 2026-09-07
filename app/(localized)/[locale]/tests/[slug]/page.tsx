@@ -1241,7 +1241,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || heroTitleDisplay.plain;
+  const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || heroTitleDisplay.plain;
   const relatedArticles = usesIllustratedLanding ? [] : await fetchRelatedArticles(test.slug, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
@@ -1375,7 +1375,7 @@ export default async function TestLandingPage({
           /> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={locale}
             title={heroHeadingTitle}
-            description={heroCopy}
+            description={locale === "en" ? heroCopy : undefined}
             choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
           /> : (

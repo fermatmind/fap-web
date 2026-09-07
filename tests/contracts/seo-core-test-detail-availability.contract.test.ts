@@ -341,6 +341,12 @@ describe("SEO core test detail availability", () => {
           ((element.type === MbtiLandingIntro || element.type === AssessmentLandingIntro) && renderToStaticMarkup(element).includes("<h1>"))),
         `${slug} must retain a visible H1`
       ).toBe(true);
+      const intro = elements.find((element) => element.type === AssessmentLandingIntro);
+      if (intro) {
+        const props = intro.props as { description?: string };
+        if (locale === "zh") expect(props.description).toBeUndefined();
+        else expect(props.description).toBeTruthy();
+      }
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
       expect(strings.some((value) => value.includes(`/${locale}/tests/${slug}/take`))).toBe(true);
     }
