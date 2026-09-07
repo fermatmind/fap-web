@@ -1,15 +1,12 @@
 [data-testid="mbti-career-next-step-cta"] {
   display: inline-flex;
-  width: 100%;
-  min-height: 6rem;
-  justify-content: center;
-  text-align: center;
+  width: fit-content;
   align-items: center;
-  border-radius: 16px;
+  border-radius: 999px;
   background: #047857;
   padding: 0.5rem 1rem;
   color: #ffffff !important;
-  font-size: 1.5rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
   box-shadow: 0 8px 18px rgba(4, 120, 87, 0.18);

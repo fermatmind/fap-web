@@ -1094,6 +1094,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
 
     await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
     await expect(cloneShell).toBeVisible();
+    await expect(page.getByRole("link", { name: "费马测试", exact: true })).toBeVisible();
     const layout = await page.evaluate(() => {
       const hero = document.querySelector('[data-testid="mbti-hero"]')!.getBoundingClientRect();
       const logo = document.querySelector('header a[href="/"]')!.getBoundingClientRect();
@@ -1109,6 +1110,9 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-hero-form-summary")).toHaveCount(0);
     const careerCta = page.getByTestId("mbti-career-next-step-cta");
     await expect(careerCta).toHaveText("继续查看 ENFP-T 的职业推荐");
+    await expect(careerCta).toHaveCSS("display", "flex");
+    await expect(careerCta).toHaveCSS("align-items", "center");
+    await expect(careerCta).toHaveCSS("justify-content", "center");
     await expect(page.getByTestId("mbti-career-next-step").getByRole("link")).toHaveCount(1);
     await page.screenshot({ path: testInfo.outputPath(`layout-${viewport.width}.png`) });
 
