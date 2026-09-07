@@ -91,3 +91,9 @@
 .tableScroll th:first-child { width:20%; }
 .tableScroll td { width:40%; color:#465263; }
 .content > .whyChoose .comparison > p { font-size:14px; margin:12px 0; }
+
+/* Keep full free-test/version labels readable on narrow phones. */
+@media (max-width: 480px) {
+  .versionActions { flex-direction: column; align-items: center; }
+  .versionAction { flex: none; width: 100%; max-width: 330px; }
+}

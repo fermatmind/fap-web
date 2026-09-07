@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
-import { MbtiHeroScene } from "./MbtiHeroScene";
+import { AssessmentHeroArtwork } from "./AssessmentHeroArtwork";
 import styles from "./mbti-preview.module.css";
 
 export type AssessmentLandingChoice = {
@@ -11,9 +11,10 @@ export type AssessmentLandingChoice = {
   eventProperties?: Record<string, string>;
 };
 
-export function AssessmentLandingIntro({ locale, title, description, choices, disabled }: {
+export function AssessmentLandingIntro({ locale, title, heroImage, description, choices, disabled }: {
   locale: "zh" | "en";
   title: string;
+  heroImage?: string;
   description?: string;
   choices: AssessmentLandingChoice[];
   disabled: boolean;
@@ -43,7 +44,7 @@ export function AssessmentLandingIntro({ locale, title, description, choices, di
           )}
         </div>
       </div>
-      <MbtiHeroScene />
+      {heroImage ? <AssessmentHeroArtwork src={heroImage} /> : null}
     </section>
   );
 }

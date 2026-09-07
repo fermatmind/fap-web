@@ -1373,11 +1373,13 @@ export default async function TestLandingPage({
           {showsMbtiActions ? <MbtiLandingIntro
             locale={locale}
             title={heroHeadingTitle}
+            heroImage={assessmentLandingUi?.heroImage}
             choices={withEntryLabels(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
           /> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={locale}
             title={heroHeadingTitle}
+            heroImage={assessmentLandingUi?.heroImage}
             choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
           /> : (

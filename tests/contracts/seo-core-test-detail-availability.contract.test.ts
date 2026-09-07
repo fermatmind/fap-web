@@ -341,6 +341,17 @@ describe("SEO core test detail availability", () => {
           ((element.type === MbtiLandingIntro || element.type === AssessmentLandingIntro) && renderToStaticMarkup(element).includes("<h1>"))),
         `${slug} must retain a visible H1`
       ).toBe(true);
+      const illustratedIntro = elements.find((element) =>
+        element.type === AssessmentLandingIntro || element.type === MbtiLandingIntro);
+      expect(illustratedIntro).toBeDefined();
+      const heroProps = illustratedIntro!.props as {
+        title: string; heroImage: string; choices: { label: string }[];
+      };
+      expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
+      expect(heroProps.heroImage).toMatch(/^\/images\/assessments\/heroes\/[a-z-]+\.webp$/);
+      for (const choice of heroProps.choices) {
+        expect(choice.label).toContain(locale === "zh" ? "免费测试" : "free");
+      }
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
@@ -384,15 +395,15 @@ describe("SEO core test detail availability", () => {
       source: "fresh", stale: false, updatedAt: "2026-09-07T00:00:00Z", error: null,
     });
     const metadata = await generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) });
-    expect(JSON.stringify(metadata.title)).toContain("MBTI 性格测试");
+    expect(JSON.stringify(metadata.title)).toContain("MBTI 性格免费测试");
     expect(JSON.stringify(metadata.title)).not.toContain("Stale");
     const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
     const values: unknown[] = [];
     collectValues(tree, values);
     const hero = values.filter(isValidElement).find((element) => element.type === MbtiLandingIntro);
     const html = renderToStaticMarkup(hero!);
-    expect(html).toContain("<h1>MBTI 性格测试</h1>");
-    expect(html).toContain("开始 144 题完整版");
+    expect(html).toContain("<h1>MBTI 性格免费测试</h1>");
+    expect(html).toContain("开始 144 题完整版 · 免费测试");
     expect(html).not.toContain("Stale");
   });
 

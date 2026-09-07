@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
-import { MbtiHeroScene } from "./MbtiHeroScene";
+import { AssessmentHeroArtwork } from "./AssessmentHeroArtwork";
 import styles from "./mbti-preview.module.css";
 
 type Choice = {
@@ -18,11 +18,12 @@ type Choice = {
 type Props = {
   locale: "zh" | "en";
   title: string;
+  heroImage?: string;
   choices: Choice[];
   disabled: boolean;
 };
 
-export function MbtiLandingIntro({ locale, title, choices, disabled }: Props) {
+export function MbtiLandingIntro({ locale, title, heroImage, choices, disabled }: Props) {
   const zh = locale === "zh";
   return (
     <section id="what-it-is" className={styles.hero}>
@@ -52,7 +53,7 @@ export function MbtiLandingIntro({ locale, title, choices, disabled }: Props) {
           )}
         </div>
       </div>
-      <MbtiHeroScene />
+      {heroImage ? <AssessmentHeroArtwork src={heroImage} /> : null}
     </section>
   );
 }

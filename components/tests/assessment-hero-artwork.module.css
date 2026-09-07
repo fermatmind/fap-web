@@ -1,0 +1,21 @@
+.scene {
+  width: 100%;
+  overflow: hidden;
+  background: #f0f5f6;
+  mask-image: linear-gradient(to bottom, transparent, #000 16%);
+}
+
+.artwork {
+  display: block;
+  width: 100%;
+  height: clamp(240px, 27vw, 390px);
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+@media (max-width: 680px) {
+  .artwork {
+    height: 230px;
+    object-position: center;
+  }
+}
