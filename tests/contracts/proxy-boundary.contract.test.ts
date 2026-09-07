@@ -26,7 +26,9 @@ afterEach(() => {
 
 describe("proxy boundary contract", () => {
   it.each(["en", "zh"])("returns the authoritative held status for the %s software developers route", async (locale) => {
-    const fetchMock = vi.fn(async () => new Response(null, { status: 404 }));
+    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) => (
+      new Response(null, { status: 404 })
+    ));
     vi.stubGlobal("fetch", fetchMock);
 
     const response = await proxyHandler(
