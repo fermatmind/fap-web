@@ -112,6 +112,8 @@
 
 ### Product-model surfaces
 
+- The six MBTI, Big Five, Enneagram, RIASEC, IQ, and EQ test landing heroes are frontend-owned product UI: maintain bilingual H1/metadata titles in `lib/tests/assessmentLandingUi.ts` and version-button labels in that module or existing frontend form helpers. CMS/registry copy must not override these fields. Question packs, form availability, scoring, reports, and other CMS content keep their existing backend authority.
+
 - MBTI, Big Five, Enneagram, RIASEC, V4, Career, and related result/report surfaces must preserve their documented scale identity, scoring topology, route behavior, locale support, and analytics contracts.
 - Description-only edits must not change assignment, score, relation, identity, or URL topology. Structural changes require their affected contract and public-page coverage.
 - Public report and share surfaces must avoid exposing private answers, tenant data, raw entitlement state, or unstable internal identifiers.

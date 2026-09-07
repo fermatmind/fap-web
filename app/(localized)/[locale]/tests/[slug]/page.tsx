@@ -1,3 +1,4 @@
+import { getAssessmentLandingUi } from "@/lib/tests/assessmentLandingUi";
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
@@ -712,6 +713,7 @@ export async function generateMetadata({
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
+  const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
@@ -730,7 +732,8 @@ export async function generateMetadata({
   });
 
   const title =
-    cmsLandingSurfaceContent.seoTitle
+    assessmentLandingUi?.title
+    || cmsLandingSurfaceContent.seoTitle
     || seoTitle
     || flagshipFreeTestCopy?.seoTitle
     || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
@@ -798,6 +801,7 @@ export default async function TestLandingPage({
   if (!landingData) return notFound();
   const { test, lookup, cmsLandingSurface } = landingData;
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
+  const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
@@ -1219,7 +1223,8 @@ export default async function TestLandingPage({
     typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : null;
   const detailLensCopy = getDetailPageLensCopy(test.scale_code, locale);
   const resolvedSeoTitle =
-    cmsLandingSurfaceContent.seoTitle
+    assessmentLandingUi?.title
+    || cmsLandingSurfaceContent.seoTitle
     || toStringValue(lookup?.seo_title)
     || flagshipFreeTestCopy?.seoTitle
     || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug);
@@ -1227,13 +1232,11 @@ export default async function TestLandingPage({
     cmsLandingSurfaceContent.seoDescription
     || toStringValue(lookup?.seo_description)
     || (testDetailAuthority.metadata.allowed ? test.description : "");
-  // Optional, locale-specific entry copy published by the scale registry.
-  const landingEntry = toRecord(langNode.landing_entry);
-  const entryTitle = toStringValue(landingEntry.title);
-  const entryLabels = toRecord(landingEntry.labels);
+  const entryTitle = assessmentLandingUi?.title || "";
+  const entryLabels = assessmentLandingUi?.entryLabels ?? {};
   const withEntryLabels = <T extends { key: string; label: string }>(choices: T[]): T[] =>
     choices.map((choice) => ({ ...choice, label: toStringValue(entryLabels[choice.key]) || choice.label }));
-  const heroTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;
+  const heroTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;
   const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;
   const heroTitleDisplay = formatCardTitleForUi({
     title: heroTitle,
@@ -1241,7 +1244,7 @@ export default async function TestLandingPage({
     locale,
     surface: "tests_detail_hero",
   });
-  const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || (locale === "zh" ? entryTitle : "") || heroTitleDisplay.plain;
+  const heroHeadingTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || heroTitleDisplay.plain;
   const relatedArticles = usesIllustratedLanding ? [] : await fetchRelatedArticles(test.slug, locale);
   const iqSeoRampAuthority = await getIqSeoRampAuthorityForLocale(locale);
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
@@ -1375,7 +1378,6 @@ export default async function TestLandingPage({
           /> : usesIllustratedLanding ? <AssessmentLandingIntro
             locale={locale}
             title={heroHeadingTitle}
-            description={locale === "en" ? heroCopy : undefined}
             choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
           /> : (

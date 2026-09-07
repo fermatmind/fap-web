@@ -344,8 +344,7 @@ describe("SEO core test detail availability", () => {
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
-        if (locale === "zh") expect(props.description).toBeUndefined();
-        else expect(props.description).toBeTruthy();
+        expect(props.description).toBeUndefined();
       }
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
       expect(strings.some((value) => value.includes(`/${locale}/tests/${slug}/take`))).toBe(true);
@@ -372,6 +371,30 @@ describe("SEO core test detail availability", () => {
       expect(values).not.toContain("继续探索");
     }
   );
+
+  it("keeps frontend titles and entry labels authoritative over stale CMS and registry copy", async () => {
+    const slug = SCALE_CANONICAL_SLUG_MAP.MBTI;
+    const lookup = lookupFor(slug, "zh")!;
+    routeMocks.getTestLookup.mockResolvedValue({ ...lookup, content_i18n_json: { zh: {
+      ...lookup.content_i18n_json.zh,
+      landing_entry: { title: "Stale registry heading", labels: { mbti_144: "Stale registry button" } },
+    } } });
+    routeMocks.getCmsLandingSurfaceWithLastKnownGood.mockResolvedValue({
+      value: { surfaceKey: "test_detail_mbti_personality_test_16_personality_types", locale: "zh", title: "Stale CMS title", payloadJson: { seo_title: "Stale CMS SEO title", h1_or_hero_title: "Stale CMS heading" }, pageBlocks: [] },
+      source: "fresh", stale: false, updatedAt: "2026-09-07T00:00:00Z", error: null,
+    });
+    const metadata = await generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) });
+    expect(JSON.stringify(metadata.title)).toContain("MBTI 性格测试");
+    expect(JSON.stringify(metadata.title)).not.toContain("Stale");
+    const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
+    const values: unknown[] = [];
+    collectValues(tree, values);
+    const hero = values.filter(isValidElement).find((element) => element.type === MbtiLandingIntro);
+    const html = renderToStaticMarkup(hero!);
+    expect(html).toContain("<h1>MBTI 性格测试</h1>");
+    expect(html).toContain("开始 144 题完整版");
+    expect(html).not.toContain("Stale");
+  });
 
   it("keeps test lookup and CMS landing reads separated from authoritative absence", () => {
     const pageSource = fs.readFileSync(

@@ -9,7 +9,7 @@ const CMS_ENRICHMENT_PATH = path.join(
 );
 
 describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
-  it("prioritizes published CMS landing-surface seo and hero fields before zh flagship fallback copy", () => {
+  it("uses frontend assessment titles while preserving CMS descriptions and non-core fallbacks", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
     const cmsEnrichmentSource = fs.readFileSync(CMS_ENRICHMENT_PATH, "utf8");
 
@@ -25,8 +25,8 @@ describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
     expect(source).toContain("const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);");
     expect(source).toContain("const title =");
     expect(source).toContain("cmsLandingSurfaceContent.seoTitle");
-    expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || entryTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
-    expect(source).toContain('const heroHeadingTitle = cmsLandingSurfaceContent.heroTitle || (locale === "zh" ? entryTitle : "") || heroTitleDisplay.plain;');
+    expect(source).toContain("const heroTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
+    expect(source).toContain('const heroHeadingTitle = entryTitle || cmsLandingSurfaceContent.heroTitle || heroTitleDisplay.plain;');
     expect(source).not.toContain("title={entryTitle || heroTitleDisplay.plain}");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(source).toContain("methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),");
