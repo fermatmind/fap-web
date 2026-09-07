@@ -37,7 +37,9 @@ const EN_ENTRY_LABELS: Record<string, string> = {
   eq_60: "Start free 60-question test",
 };
 
-const HERO_ARTWORK: Partial<Record<string, string>> = {
+export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";
+
+const HERO_ARTWORK: Partial<Record<string, AssessmentArtwork>> = {
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: "mbti",
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: "big-five",
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: "enneagram",
@@ -51,6 +53,6 @@ export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
   return names ? {
     title: names[locale],
     entryLabels: locale === "zh" ? ZH_ENTRY_LABELS : EN_ENTRY_LABELS,
-    heroImage: `/images/assessments/heroes/${HERO_ARTWORK[slug]}.webp`,
+    heroArtwork: HERO_ARTWORK[slug],
   } : null;
 }

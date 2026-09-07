@@ -345,10 +345,10 @@ describe("SEO core test detail availability", () => {
         element.type === AssessmentLandingIntro || element.type === MbtiLandingIntro);
       expect(illustratedIntro).toBeDefined();
       const heroProps = illustratedIntro!.props as {
-        title: string; heroImage: string; choices: { label: string }[];
+        title: string; heroArtwork: string; choices: { label: string }[];
       };
       expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
-      expect(heroProps.heroImage).toMatch(/^\/images\/assessments\/heroes\/[a-z-]+\.webp$/);
+      expect(["mbti", "big-five", "enneagram", "iq", "eq", "riasec"]).toContain(heroProps.heroArtwork);
       for (const choice of heroProps.choices) {
         expect(choice.label).toContain(locale === "zh" ? "免费测试" : "free");
       }

@@ -1,3 +1,4 @@
+import type { AssessmentArtwork } from "@/lib/tests/assessmentLandingUi";
 import { ArrowRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AssessmentHeroArtwork } from "./AssessmentHeroArtwork";
@@ -11,10 +12,10 @@ export type AssessmentLandingChoice = {
   eventProperties?: Record<string, string>;
 };
 
-export function AssessmentLandingIntro({ locale, title, heroImage, description, choices, disabled }: {
+export function AssessmentLandingIntro({ locale, title, heroArtwork, description, choices, disabled }: {
   locale: "zh" | "en";
   title: string;
-  heroImage?: string;
+  heroArtwork?: AssessmentArtwork;
   description?: string;
   choices: AssessmentLandingChoice[];
   disabled: boolean;
@@ -44,7 +45,7 @@ export function AssessmentLandingIntro({ locale, title, heroImage, description, 
           )}
         </div>
       </div>
-      {heroImage ? <AssessmentHeroArtwork src={heroImage} /> : null}
+      {heroArtwork ? <AssessmentHeroArtwork theme={heroArtwork} /> : null}
     </section>
   );
 }

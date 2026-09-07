@@ -1,5 +1,6 @@
 "use client";
 
+import type { AssessmentArtwork } from "@/lib/tests/assessmentLandingUi";
 import { ArrowRight } from "lucide-react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AssessmentHeroArtwork } from "./AssessmentHeroArtwork";
@@ -18,12 +19,12 @@ type Choice = {
 type Props = {
   locale: "zh" | "en";
   title: string;
-  heroImage?: string;
+  heroArtwork?: AssessmentArtwork;
   choices: Choice[];
   disabled: boolean;
 };
 
-export function MbtiLandingIntro({ locale, title, heroImage, choices, disabled }: Props) {
+export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled }: Props) {
   const zh = locale === "zh";
   return (
     <section id="what-it-is" className={styles.hero}>
@@ -53,7 +54,7 @@ export function MbtiLandingIntro({ locale, title, heroImage, choices, disabled }
           )}
         </div>
       </div>
-      {heroImage ? <AssessmentHeroArtwork src={heroImage} /> : null}
+      {heroArtwork ? <AssessmentHeroArtwork theme={heroArtwork} /> : null}
     </section>
   );
 }
