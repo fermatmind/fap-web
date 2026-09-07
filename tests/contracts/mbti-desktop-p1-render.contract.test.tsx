@@ -1192,7 +1192,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(summaryPane).toHaveTextContent("两侧方式都可能在不同情境中被使用");
     expect(summaryPane).not.toHaveTextContent("You prefer fewer, deeper interactions");
 
-    fireEvent.click(mindAxis);
+    fireEvent.mouseEnter(mindAxis);
 
     expect(mindAxis).toHaveAttribute("data-state", "active");
     expect(energyAxis).toHaveAttribute("data-state", "idle");
@@ -1205,7 +1205,9 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     );
     expect(summaryPane).not.toHaveTextContent("25%");
 
-    fireEvent.click(natureAxis);
+    fireEvent.mouseLeave(mindAxis);
+    expect(mindAxis).toHaveAttribute("data-state", "active");
+    fireEvent.focus(natureAxis);
 
     expect(natureAxis).toHaveAttribute("data-state", "active");
     expect(summaryPane).toHaveTextContent("Nature");
@@ -1215,5 +1217,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(summaryPane).toHaveTextContent(
       "你的思考倾向非常清楚。你往往会本能地把问题拆开、排序、判断利弊，再决定行动方向；当环境过度情绪化时，你会更想把它拉回理性轨道。",
     );
+    fireEvent.click(energyAxis);
+    expect(energyAxis).toHaveAttribute("data-state", "active");
+    expect(summaryPane).toHaveTextContent("Energy");
   });
 });

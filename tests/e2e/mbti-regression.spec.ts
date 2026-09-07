@@ -1110,7 +1110,8 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-hero-form-summary")).toHaveCount(0);
     for (const axis of ["EI", "SN", "TF", "JP", "AT"]) {
       const button = page.getByTestId(`mbti-traits-axis-${axis}`);
-      await button.click();
+      if (viewport.width > 860) await button.hover();
+      else await button.click();
       await expect(button).toHaveAttribute("aria-pressed", "true");
       const centers = await page.evaluate((code) => {
         const track = document.querySelector(`[data-testid="mbti-traits-track-${code}"]`)!.getBoundingClientRect();

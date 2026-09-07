@@ -237,6 +237,8 @@ export function DimensionBars({
                 data-testid={`mbti-traits-axis-${code}`}
                 data-state={isActive ? "active" : "idle"}
                 aria-pressed={isActive}
+                onMouseEnter={() => onDimensionSelect(code)}
+                onFocus={() => onDimensionSelect(code)}
                 onClick={() => onDimensionSelect(code)}
                 className={styles.traitButton}
               >
