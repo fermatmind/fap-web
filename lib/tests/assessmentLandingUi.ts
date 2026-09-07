@@ -11,6 +11,16 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣免费测试（RIASEC）", en: "Free Holland Career Interest Test (RIASEC)" },
 };
 
+// English search copy is distinct from the concise on-page heading.
+const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Take a free 93- or 144-question personality test. Explore 16 MBTI types, four preference pairs, scoring methods and practical ways to read your results." },
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits", description: "Explore five OCEAN personality traits and 30 facets with a free 90- or 120-question Big Five test. Compare versions and understand scores and percentiles." },
+  [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Compare all nine Enneagram types with a free 105- or 144-question test. Learn how scores, motivations and wings are interpreted, with evidence and limits." },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions", description: "Try 30 original visual reasoning questions for free. Review pattern-recognition performance and learn how raw scores differ from normed IQ results." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: Emotional Intelligence Self-Assessment", description: "Explore emotional awareness, regulation, empathy and relationship management with a free 60-question EQ self-assessment. Learn how to interpret your scores." },
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Find your RIASEC interest profile with a free 60- or 140-question Holland Code test. Understand your three-letter code and explore work activities and careers." },
+};
+
 const ZH_ENTRY_LABELS: Record<string, string> = {
   mbti_144: "开始 144 题完整版 · 免费测试",
   mbti_93: "开始 93 题精简版 · 免费测试",
@@ -52,6 +62,8 @@ export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
   const names = Object.hasOwn(ASSESSMENT_LANDING_UI, slug) ? ASSESSMENT_LANDING_UI[slug] : undefined;
   return names ? {
     title: names[locale],
+    seoTitle: locale === "en" ? EN_SEARCH_COPY[slug]?.title : undefined,
+    seoDescription: locale === "en" ? EN_SEARCH_COPY[slug]?.description : undefined,
     entryLabels: locale === "zh" ? ZH_ENTRY_LABELS : EN_ENTRY_LABELS,
     heroArtwork: HERO_ARTWORK[slug],
   } : null;

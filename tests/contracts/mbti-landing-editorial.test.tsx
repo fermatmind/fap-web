@@ -52,3 +52,13 @@ describe("CMS MBTI editorial", () => {
     expect(screen.getByText(/产品说明／延伸阅读/)).toBeInTheDocument();
   });
 });
+
+it("renders English editorial, comparison, sources and FAQ without Chinese punctuation", () => {
+  const editorial = parseMbtiEditorial({ why_choose: { title: "Why take the test?", intro: "Explore your preferences.", items: [{ id: "versions", title: "Compare versions", body: "A first paragraph.\n\nA second paragraph." }] }, version_comparison: { caption: "Questionnaire versions", columns: ["Feature", "Short", "Extended"], rows: [["Questions", "93", "144"]], note: "Times are estimates." } });
+  const { container } = render(<><MbtiWhyChoose content={editorial!} /><MbtiFaqAnswers locale="en" items={parseLandingFaq([{ id: "faq-evidence", q: "Is the test validated?", a: "Check the evidence.\n\nConsider the limitations.", references: [{ label: "Research", href: "https://pubmed.ncbi.nlm.nih.gov/2709300/" }], related_links: [{ label: "Methods", href: "/en/method-boundaries" }] }])} /></>);
+  expect(screen.getByRole("table", { name: "Questionnaire versions" })).toBeInTheDocument();
+  expect(container.querySelectorAll("#faq-evidence p")).toHaveLength(2);
+  expect(container.textContent).toContain("References: Research");
+  expect(container.textContent).not.toMatch(/[：；]/u);
+  expect(screen.getByRole("link", { name: "Methods" })).toHaveAttribute("href", "/en/method-boundaries");
+});

@@ -732,13 +732,15 @@ export async function generateMetadata({
   });
 
   const title =
-    assessmentLandingUi?.title
+    assessmentLandingUi?.seoTitle
+    || assessmentLandingUi?.title
     || cmsLandingSurfaceContent.seoTitle
     || seoTitle
     || flagshipFreeTestCopy?.seoTitle
     || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const description =
-    cmsLandingSurfaceContent.seoDescription
+    assessmentLandingUi?.seoDescription
+    || cmsLandingSurfaceContent.seoDescription
     || seoDescription
     || (metadataAuthority.metadata.allowed ? test.description : "");
   const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
@@ -952,7 +954,7 @@ export default async function TestLandingPage({
           )
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
-  const mbtiEditorial = usesIllustratedLanding && locale === "zh" ? parseMbtiEditorial(langNode) : null;
+  const mbtiEditorial = usesIllustratedLanding ? parseMbtiEditorial(langNode) : null;
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
   const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
@@ -1223,13 +1225,15 @@ export default async function TestLandingPage({
     typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : null;
   const detailLensCopy = getDetailPageLensCopy(test.scale_code, locale);
   const resolvedSeoTitle =
-    assessmentLandingUi?.title
+    assessmentLandingUi?.seoTitle
+    || assessmentLandingUi?.title
     || cmsLandingSurfaceContent.seoTitle
     || toStringValue(lookup?.seo_title)
     || flagshipFreeTestCopy?.seoTitle
     || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug);
   const resolvedSeoDescription =
-    cmsLandingSurfaceContent.seoDescription
+    assessmentLandingUi?.seoDescription
+    || cmsLandingSurfaceContent.seoDescription
     || toStringValue(lookup?.seo_description)
     || (testDetailAuthority.metadata.allowed ? test.description : "");
   const entryTitle = assessmentLandingUi?.title || "";

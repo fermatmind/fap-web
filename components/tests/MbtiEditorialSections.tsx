@@ -1,9 +1,9 @@
 import type { EditorialLink, LandingFaq, MbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import styles from "./mbti-preview.module.css";
 
-function LinkGroup({ label, links }: { label: string; links?: EditorialLink[] }) {
-  return links?.length ? <div className={styles.faqSources}>{label}：{links.map((link, index) => <span key={link.href}>
-    {index > 0 ? "；" : ""}<a href={link.href}>{link.label}</a>
+function LinkGroup({ label, links, locale }: { label: string; links?: EditorialLink[]; locale: "zh" | "en" }) {
+  return links?.length ? <div className={styles.faqSources}>{label}{locale === "zh" ? "：" : ": "}{links.map((link, index) => <span key={link.href}>
+    {index > 0 ? (locale === "zh" ? "；" : "; ") : ""}<a href={link.href}>{link.label}</a>
   </span>)}</div> : null;
 }
 
@@ -33,7 +33,7 @@ export function MbtiFaqAnswers({ items, locale }: { items: LandingFaq[]; locale:
   return <>{items.map((item, index) => <article id={item.id} key={item.id ?? index} className={styles.faqItem}>
     <h3>{item.q}</h3>
     {item.a.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
-    <LinkGroup label={locale === "zh" ? "参考资料" : "References"} links={item.references} />
-    <LinkGroup label={locale === "zh" ? "产品说明／延伸阅读" : "Product information / further reading"} links={item.related_links} />
+    <LinkGroup locale={locale} label={locale === "zh" ? "参考资料" : "References"} links={item.references} />
+    <LinkGroup locale={locale} label={locale === "zh" ? "产品说明／延伸阅读" : "Product information / further reading"} links={item.related_links} />
   </article>)}</>;
 }
