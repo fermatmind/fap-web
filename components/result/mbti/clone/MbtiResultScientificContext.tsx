@@ -19,9 +19,6 @@ export function MbtiResultScientificContext({
       className="space-y-5 rounded-[28px] border border-sky-200 bg-sky-50/70 p-5 text-slate-800 shadow-[0_18px_40px_rgba(15,23,42,0.06)] md:p-6"
     >
       <div className="space-y-2">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-sky-800">
-          科学边界与结果读法
-        </p>
         <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
           {interpretation.overallTitle}
         </h2>
@@ -81,12 +78,6 @@ export function MbtiResultScientificContext({
         </dl>
       </div>
 
-      <div className="space-y-2 border-t border-sky-200 pt-4">
-        <h3 className="m-0 text-base font-semibold text-slate-950">使用限制</h3>
-        <ul className="m-0 space-y-1 pl-5 text-sm leading-7">
-          {context.useLimits.map((limit) => <li key={limit}>{limit}</li>)}
-        </ul>
-      </div>
     </section>
   );
 }

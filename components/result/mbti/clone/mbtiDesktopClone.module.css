@@ -10,8 +10,8 @@
   --clone-green-soft: #e8f4ee;
   --clone-purple-cta: #8b68a8;
 
-  --clone-shell-max: 904px;
-  --clone-main-col: 636px;
+  --clone-shell-max: 100%;
+  --clone-main-col: minmax(0, 1fr);
   --clone-rail-col: 220px;
   --clone-col-gap: 32px;
   --clone-sticky-top: 92px;
@@ -178,6 +178,7 @@
 }
 
 .main {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: var(--clone-section-gap);
@@ -2083,6 +2084,7 @@
   .pageGrid {
     margin-top: 24px;
     display: flex;
+    align-items: stretch;
     flex-direction: column;
     gap: 24px;
   }
@@ -2163,4 +2165,9 @@
   .finalOfferActions {
     justify-content: flex-start;
   }
+}
+
+/* Unavailable chapter illustrations must not reserve empty reading space. */
+.section > .illustrationSlot:not(.assetSlotReady) {
+  display: none;
 }

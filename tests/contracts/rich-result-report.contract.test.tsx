@@ -379,8 +379,8 @@ describe("RichResultReport", () => {
 
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent("本次类型仅呈轻微偏向");
-    expect(hero).toHaveTextContent("两侧方式都可能出现");
+    expect(hero).not.not.toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(hero).not.toHaveTextContent("两侧方式都可能出现");
     expect(hero).not.toHaveTextContent("Projection-first summary that should replace the legacy hero copy on result pages.");
     expect(screen.queryByText("Legacy Hero Title Should Lose")).not.toBeInTheDocument();
     expect(screen.queryByText("Legacy hero subtitle should lose")).not.toBeInTheDocument();
@@ -479,7 +479,7 @@ describe("RichResultReport", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("ENFJ-T", "zh");
     });
 
-    expect(getDesktopHero()).toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(getDesktopHero()).not.toHaveTextContent("本次类型仅呈轻微偏向");
     expect(getDesktopHero()).not.toHaveTextContent("desktop clone hero summary");
     expect(getDesktopHero()).toHaveTextContent("主人公型");
     expect(screen.getByText("career intro 1")).toBeInTheDocument();
@@ -554,7 +554,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(getPrimaryByTestId("mbti-hero")).not.toHaveTextContent("本次类型仅呈轻微偏向");
     expect(screen.queryByTestId("mbti-projection-section-growth-stability-confidence")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-projection-section-growth-next-actions")).not.toBeInTheDocument();
     expect(screen.queryByText("Big Five 显示你的情绪性更高")).not.toBeInTheDocument();
@@ -595,7 +595,7 @@ describe("RichResultReport", () => {
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
-    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(getPrimaryByTestId("mbti-hero")).not.toHaveTextContent("本次类型仅呈轻微偏向");
   });
 
   it("renders controlled narrative when the backend enables it without replacing canonical MBTI truth", () => {
@@ -606,7 +606,7 @@ describe("RichResultReport", () => {
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
-    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(getPrimaryByTestId("mbti-hero")).not.toHaveTextContent("本次类型仅呈轻微偏向");
     expect(screen.queryByTestId("mbti-cultural-calibration-growth-next-actions")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
   });
@@ -619,7 +619,7 @@ describe("RichResultReport", () => {
 
     render(<RichResultReport locale="en" reportData={reportData} />);
 
-    expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent(
+    expect(getPrimaryByTestId("mbti-hero")).not.toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );
     expect(screen.queryByTestId("mbti-cultural-calibration-growth-next-actions")).not.toBeInTheDocument();

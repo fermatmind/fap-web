@@ -133,7 +133,7 @@ export function MbtiCloneInfluentialTraitsCard({
           <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
             <div className={styles.traitsUnlockHeader}>
               <h3 className={styles.traitsUnlockTitle}>{detailItem.label}</h3>
-              <p className={styles.traitsUnlockIntro}>{traitsUnlock?.intro}</p>
+              {sectionId === "career" ? <p className={styles.traitsUnlockIntro}>{traitsUnlock?.intro}</p> : null}
             </div>
             <div className={styles.traitsUnlockGrid}>
               <article className={styles.traitsUnlockItem}>

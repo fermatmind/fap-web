@@ -457,7 +457,7 @@ describe("MBTI desktop asset slot consumption contract", () => {
     renderShell("INFJ-A");
 
     await waitFor(() => {
-      expect(screen.getByText("hero INFJ-A")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-content-source", "storage");
     });
 
     const heroSlot = screen.getByTestId("mbti-asset-slot-hero");

@@ -29,7 +29,7 @@ export default async function ResultPage({
   return (
     <Container
       as="main"
-      className="w-full py-[var(--fm-space-10)] [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
+      className="w-full py-[var(--fm-space-10)] has-[[data-testid=mbti-result-shell]]:max-w-[1320px] has-[[data-testid=mbti-result-shell]]:px-6 md:has-[[data-testid=mbti-result-shell]]:px-10 xl:has-[[data-testid=mbti-result-shell]]:px-12 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
     >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
       <ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} />

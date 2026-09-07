@@ -41,7 +41,7 @@ function createReport(): ReportResponse {
 }
 
 describe("Chinese MBTI scientific context render contract", () => {
-  it("renders the authority definition, A/T boundary, adjacent type and use limits once", () => {
+  it("renders the authority definition, A/T boundary, adjacent type without duplicate labels or use-limit copy", () => {
     const viewModel = buildMbtiResultProjectionViewModel(createReport());
     const interpretation = buildMbtiResultScientificInterpretation({
       displayType: viewModel.displayType,
@@ -63,9 +63,9 @@ describe("Chinese MBTI scientific context render contract", () => {
     expect(context).toHaveTextContent("A/T 不是官方 MBTI 的第五个偏好轴");
     expect(context).toHaveTextContent("产品化扩展");
     expect(context).toHaveTextContent("按权重归一化计算");
-    expect(context).toHaveTextContent("不用于临床或心理诊断");
-    expect(context).toHaveTextContent("不应作为招聘");
-    expect(context).toHaveTextContent("不构成能力或职业结果保证");
-    expect(screen.getAllByText("科学边界与结果读法")).toHaveLength(1);
+    expect(context).not.toHaveTextContent("不用于临床或心理诊断");
+    expect(context).not.toHaveTextContent("不应作为招聘");
+    expect(context).not.toHaveTextContent("不构成能力或职业结果保证");
+    expect(screen.queryByText("科学边界与结果读法")).not.toBeInTheDocument();
   });
 });

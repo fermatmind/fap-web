@@ -218,42 +218,6 @@ function normalizeStringArray(values: unknown): string[] {
   return Array.from(new Set(values.map((value) => normalizeText(value)).filter(Boolean)));
 }
 
-function extractProjectionSectionLead(
-  section?: MbtiResultProjectionSectionViewModel | null,
-  preferredKinds: string[] = []
-): string {
-  if (!section) {
-    return "";
-  }
-
-  const payload = asRecord(section.payload);
-  const blocks = Array.isArray(payload?.blocks) ? payload.blocks : [];
-  for (const preferredKind of preferredKinds) {
-    for (const block of blocks) {
-      const record = asRecord(block);
-      const kind = normalizeText(record?.kind);
-      if (kind !== preferredKind) {
-        continue;
-      }
-
-      const text = normalizeText(record?.text, record?.body, record?.description);
-      if (text) {
-        return text;
-      }
-    }
-  }
-
-  for (const block of blocks) {
-    const record = asRecord(block);
-    const text = normalizeText(record?.text, record?.body, record?.description);
-    if (text) {
-      return text;
-    }
-  }
-
-  return normalizeText(section.bodyMd);
-}
-
 function buildCareerBridgeTelemetryPayload(
   section: MbtiResultProjectionSectionViewModel,
   locale: Locale,
@@ -704,25 +668,12 @@ export function MbtiResultShell({
       : projectionViewModel?.keywords && projectionViewModel.keywords.length > 0
         ? projectionViewModel.keywords
         : tags;
-  const careerSummarySection =
-    projectionViewModel?.sections.find((section) => section.key === "career.summary") ?? null;
   const careerNextStepSection =
     projectionViewModel?.sections.find((section) => section.key === "career.next_step") ?? null;
   const careerRecommendationHref = buildMbtiCareerRecommendationHref(
     locale,
     projectionViewModel?.displayType
   );
-  const careerSummaryLead = extractProjectionSectionLead(careerSummarySection, ["work_style", "scene"]);
-  const careerNextStepLead = extractProjectionSectionLead(careerNextStepSection, ["career_next_step"]);
-  const careerNextStepBody = careerNextStepLead
-    ? careerNextStepLead
-    : careerSummaryLead
-    ? locale === "zh"
-      ? `先从公开职业页开始：${careerSummaryLead}`
-      : `Start with the public career page: ${careerSummaryLead}`
-    : locale === "zh"
-      ? "下一步可以直接进入现有职业推荐页，继续查看这个人格类型在公开职业路径里的高匹配方向。"
-      : "Continue into the public career recommendation page to see which directions this personality type tends to match best.";
   const publicHeadline: RichResultHeadline = {
     ...headline,
     typeCode: publicTypeCode || headline.typeCode,
@@ -1563,21 +1514,11 @@ export function MbtiResultShell({
             careerBridgeCtaRank === 1 ? "border-emerald-300 ring-1 ring-emerald-100" : "border-sky-200"
           }`}
         >
-          <div className="space-y-3">
-            <div className="space-y-2">
-              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
-                {locale === "zh"
-                  ? `继续查看 ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} 的职业推荐`
-                  : `Continue with ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} career recommendations`}
-              </h2>
-              <p className="m-0 max-w-3xl whitespace-pre-wrap text-sm leading-7 text-slate-700">
-                {careerNextStepBody}
-              </p>
-            </div>
+          <h2 className="m-0">
             <Link
               data-testid="mbti-career-next-step-cta"
               href={continuityCareerHref || careerRecommendationHref}
-              className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
+              className="text-center text-2xl font-semibold tracking-tight"
               onClick={() => {
                 if (!careerNextStepSection) {
                   return;
@@ -1593,9 +1534,11 @@ export function MbtiResultShell({
                 });
               }}
             >
-              {locale === "zh" ? "查看职业推荐" : "View career recommendations"}
+              {locale === "zh"
+                ? `继续查看 ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} 的职业推荐`
+                : `Continue with ${projectionViewModel?.displayType || projectionViewModel?.canonicalTypeCode} career recommendations`}
             </Link>
-          </div>
+          </h2>
         </section>
       ),
     });

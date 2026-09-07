@@ -245,8 +245,8 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(within(hero).getByRole("heading", { level: 1, name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
-    expect(hero).toHaveTextContent("本次类型仅呈轻微偏向");
-    expect(hero).toHaveTextContent("两侧方式都可能出现");
+    expect(hero).not.toHaveTextContent("本次类型仅呈轻微偏向");
+    expect(hero).not.toHaveTextContent("两侧方式都可能出现");
     expect(hero).not.toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
     );

@@ -288,7 +288,7 @@ describe("MBTI shell UI contract", () => {
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 93题标准版");
+    expect(screen.queryByTestId("mbti-hero-form-summary")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
@@ -360,7 +360,7 @@ describe("MBTI shell UI contract", () => {
       "/zh/history/mbti"
     );
     expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
-    expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 144题完整版");
+    expect(screen.queryByTestId("mbti-hero-form-summary")).not.toBeInTheDocument();
   });
 
   it("keeps the clone shell as the only MBTI renderer across viewport buckets", () => {

@@ -244,7 +244,7 @@ function createInsightListBlock(moduleKey: string, title: string, tag: string) {
 }
 
 function createStoragePayload(
-  fullCode: "INFJ-A" | "ENTJ-T" | "ISTP-A",
+  fullCode: string,
   {
     assetSlots = createAssetSlots(),
   }: {
@@ -565,7 +565,7 @@ function createStoragePayload(
 
 const INVITE_TAKE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001";
 
-function renderShell(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh", isUnlocked = false) {
+function renderShell(typeCode: string, locale: "zh" | "en" = "zh", isUnlocked = false) {
   return render(
     <MbtiDesktopCloneShell
       locale={locale}
@@ -640,7 +640,7 @@ function createStoragePayloadForFullCode(fullCode: string): PersonalityDesktopCl
   return null;
 }
 
-async function waitForDesktopCloneStorage(typeCode: "INFJ-A" | "ENTJ-T" | "ISTP-A", locale: "zh" | "en" = "zh") {
+async function waitForDesktopCloneStorage(typeCode: string, locale: "zh" | "en" = "zh") {
   await waitFor(() => {
     expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith(typeCode, locale);
   });
@@ -657,6 +657,33 @@ beforeEach(() => {
 });
 
 describe("MBTI desktop chapter premium teaser reset contract", () => {
+  it.each(
+    ["INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"]
+      .flatMap((base) => ["A", "T"].map((variant) => `${base}-${variant}`)),
+  )("keeps full insight content while removing layout clutter for %s", async (fullCode) => {
+    vi.mocked(fetchPersonalityDesktopCloneContent).mockResolvedValue(createStoragePayload(fullCode));
+    renderShell(fullCode, "zh", true);
+    await waitForDesktopCloneStorage(fullCode);
+    const tag = fullCode.toLowerCase();
+    const hero = screen.getByTestId("mbti-hero");
+    expect(hero).toHaveTextContent(fullCode);
+    expect(hero).not.toHaveTextContent(`hero ${tag}`);
+    expect(screen.queryByTestId("mbti-hero-form-summary")).not.toBeInTheDocument();
+    for (const [chapter, modules] of [["growth", ["what_energizes", "what_drains"]], ["relationships", ["superpowers", "pitfalls"]]] as const) {
+      const section = screen.getByTestId(`mbti-chapter-${chapter}`);
+      expect(section.querySelector('[class*="traitsUnlockIntro"]')).toBeNull();
+      for (const moduleKey of modules) {
+        const block = screen.getByTestId(`mbti-p1-${chapter}-${moduleKey.replaceAll("_", "-")}`);
+        expect(block.querySelector('[class*="jobExamplesRow"]')).toBeNull();
+        expect(block.querySelector('[class*="p0RowBody"]')).toBeNull();
+        expect(block.querySelectorAll('article')).toHaveLength(4);
+        expect(block).toHaveTextContent("为什么重要");
+        expect(block).toHaveTextContent("可观察信号");
+        expect(block).toHaveTextContent("建议动作");
+      }
+    }
+  });
+
   const unifiedUnlockBody = "解锁完整报告后即可查看这些结果，并纳入你的人格分析。";
 
   it("does not fetch or hydrate authored paid clone content while locked by default", async () => {
@@ -1054,7 +1081,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     await waitForDesktopCloneStorage("INFJ-A");
 
-    expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("hero infj-a");
+    expect(await screen.findByTestId("mbti-hero")).not.toHaveTextContent("hero infj-a");
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-offer-comparison")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-asset-slot-hero")).toHaveAttribute("data-slot-id", "hero-illustration");

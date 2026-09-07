@@ -1184,15 +1184,8 @@ export function MbtiDesktopCloneShell({
     >
       <div className={styles.shell}>
         <MbtiCloneHero
-          badge={headline.badge}
-          eyebrow={cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
-            ? scientificInterpretation.overallTitle
-            : slots.hero.eyebrow}
           profileIdentity={slots.hero.profileIdentity}
           illustrationSlotId={slots.hero.asset.slotId}
-          summary={cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
-            ? scientificInterpretation.heroSummary
-            : slots.hero.summary}
           illustrationLabel={slots.hero.asset.label}
           assetSlots={storageAssetSlots}
         />

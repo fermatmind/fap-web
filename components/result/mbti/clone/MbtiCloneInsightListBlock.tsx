@@ -44,7 +44,6 @@ export function MbtiCloneInsightListBlock({
         {data.items.map((item) => (
           <article key={item.id} className={`${styles.p0Row} ${styles.insightRow}`}>
             <p className={styles.p0RowTitle}>{item.title}</p>
-            <p className={styles.p0RowBody}>{item.description}</p>
             <p className={styles.p0Meta}>{item.body}</p>
 
             <div className={styles.insightMetaSection}>
@@ -77,13 +76,6 @@ export function MbtiCloneInsightListBlock({
               </div>
             </div>
 
-            <div className={styles.jobExamplesRow}>
-              {item.tags.map((tag) => (
-                <span key={`${item.id}-${tag}`} className={styles.jobExampleChip}>
-                  {tag}
-                </span>
-              ))}
-            </div>
           </article>
         ))}
       </div>

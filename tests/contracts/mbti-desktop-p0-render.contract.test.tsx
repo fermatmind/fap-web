@@ -526,7 +526,7 @@ describe("MBTI desktop clone p0 render contract", () => {
       expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-A", "zh");
     });
 
-    expect(await screen.findByTestId("mbti-hero")).toHaveTextContent("hero infj-a");
+    expect(await screen.findByTestId("mbti-hero")).not.toHaveTextContent("hero infj-a");
     expect(screen.getAllByText("title infj-a").length).toBeGreaterThan(0);
     expect(screen.getByTestId("mbti-asset-slot-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toBeInTheDocument();
@@ -549,7 +549,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("name infj-a · nickname infj-a");
     expect(screen.queryByTestId("mbti-hero-rarity")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-keywords")).toHaveTextContent("keyword 1 infj-a");
-    expect(hero).toHaveTextContent("hero infj-a");
+    expect(hero).not.toHaveTextContent("hero infj-a");
   });
 
   it("keeps shell stable when one p0 module is missing", async () => {

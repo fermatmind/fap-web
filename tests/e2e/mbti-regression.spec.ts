@@ -918,7 +918,7 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
   }
 });
 
-test("MBTI result uses the same clone shell across mobile and desktop viewports", async ({ page }) => {
+test("MBTI result uses the same clone shell across mobile and desktop viewports", async ({ page }, testInfo) => {
   const attemptId = "mbti-result-shell-mobile-0001";
   await page.addInitScript(() => {
     window.localStorage.setItem(
@@ -1082,7 +1082,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
 
   const viewports = [
     { width: 375, height: 812 },
-    { width: 1366, height: 900 },
+    { width: 1724, height: 1288 },
   ];
 
   for (const viewport of viewports) {
@@ -1094,13 +1094,31 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
 
     await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
     await expect(cloneShell).toBeVisible();
+    const layout = await page.evaluate(() => {
+      const hero = document.querySelector('[data-testid="mbti-hero"]')!.getBoundingClientRect();
+      const logo = document.querySelector('header a[href="/"]')!.getBoundingClientRect();
+      const account = document.querySelector('header a[href="/zh/results/lookup"]')!.getBoundingClientRect();
+      return { left: hero.left, right: hero.right, logoLeft: logo.left, accountRight: account.right, overflow: document.documentElement.scrollWidth - window.innerWidth };
+    });
+    expect(layout.overflow).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.left - layout.logoLeft)).toBeLessThanOrEqual(1);
+    if (viewport.width > 860) expect(Math.abs(layout.right - layout.accountRight)).toBeLessThanOrEqual(1);
+    for (const chapter of ["career", "growth", "relationships"]) {
+      await expect(page.getByTestId(`mbti-asset-slot-${chapter}`)).toBeHidden();
+    }
+    await expect(page.getByTestId("mbti-hero-form-summary")).toHaveCount(0);
+    const careerCta = page.getByTestId("mbti-career-next-step-cta");
+    await expect(careerCta).toHaveText("继续查看 ENFP-T 的职业推荐");
+    await expect(page.getByTestId("mbti-career-next-step").getByRole("link")).toHaveCount(1);
+    await page.screenshot({ path: testInfo.outputPath(`layout-${viewport.width}.png`) });
+
     await expect(page.getByTestId("mbti-mobile-chrome")).toHaveCount(0);
     await expect(stickyRail).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-traits")).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-growth")).toBeVisible();
     await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
-    await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("解锁完整报告");
+    await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("1.99元直接解锁");
     await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
     await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
     await expect(stickyRail.getByRole("button", { name: "分享结果" })).toBeVisible();
