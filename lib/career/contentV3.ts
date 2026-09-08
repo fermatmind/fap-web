@@ -278,7 +278,23 @@ export function careerContentV3QuestionCopy(questionKey: string, locale: Locale,
     "career.faq.accounting.career-change": { zh: "零基础转行会计，应该先学什么？", en: "What should a career changer learn first for accounting?" },
     "career.faq.accounting.career-worth": { zh: "学会计还值得吗？未来哪些能力更重要？", en: "Is accounting still a good career, and which skills will matter most?" },
   };
-  return (standard[questionKey] ?? accounting[questionKey])?.[locale] ?? null;
+  const scoped: Record<string, { zh: string; en: string }> = {
+    "daily-work": standard["career.faq.daily-work"],
+    "role-comparison": standard["career.faq.comparison"],
+    "fit": { zh: `什么样的人适合从事${careerName}？`, en: `Who is suited to work as ${careerName}?` },
+    "ai-impact": { zh: `AI 会怎样影响${careerName}的工作？`, en: `How does AI affect work in ${careerName}?` },
+    "china-pay": { zh: `${careerName}在中国的收入情况怎样？`, en: `What is the pay for ${careerName} in China?` },
+    "us-pay": { zh: `${careerName}在美国的工资统计怎样？`, en: `What do US wage statistics show for ${careerName}?` },
+    "education-path": { zh: `进入${careerName}需要哪些学习和准备？`, en: `What education and preparation help you enter ${careerName}?` },
+    "credentials": { zh: `从事${careerName}需要哪些资格或证书？`, en: `What qualifications or credentials are needed for ${careerName}?` },
+    "risk-boundary": { zh: `${careerName}有哪些工作风险和责任边界？`, en: `What risks and responsibility boundaries apply to ${careerName}?` },
+    "human-control": { zh: `${careerName}的哪些工作仍需要人判断和负责？`, en: `Which tasks in ${careerName} still require human judgment and responsibility?` },
+    "outlook-transition": { zh: `${careerName}的职业前景与转向机会怎样？`, en: `What are the outlook and transition opportunities for ${careerName}?` },
+    "automatable-tasks": { zh: `${careerName}的哪些任务可以由 AI 辅助或自动化？`, en: `Which tasks in ${careerName} can AI assist or automate?` },
+    "career-worth": standard["career.faq.career-worth"],
+  };
+  const scopedKey = /^career\.faq\.[a-z0-9]+(?:-[a-z0-9]+)*\.([a-z]+(?:-[a-z]+)*)$/.exec(questionKey)?.[1];
+  return (standard[questionKey] ?? accounting[questionKey] ?? (scopedKey ? scoped[scopedKey] : undefined))?.[locale] ?? null;
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {

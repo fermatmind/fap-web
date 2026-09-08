@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
-import { isCareerContentV3LegacyPlaceholder } from "@/lib/career/contentV3";
+import { careerContentV3QuestionCopy, isCareerContentV3LegacyPlaceholder } from "@/lib/career/contentV3";
 import { adaptCareerDisplaySurface, buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -641,5 +641,46 @@ describe("career content v3 contract", () => {
         expect(html).not.toContain("overflow-x:hidden");
       }
     }
+  });
+});
+
+
+describe("career-scoped Current FAQ and source register", () => {
+  const topics = ["daily-work", "role-comparison", "fit", "ai-impact", "china-pay", "us-pay", "education-path", "credentials", "risk-boundary", "human-control", "outlook-transition", "automatable-tasks", "career-worth"];
+
+  it.each(["zh", "en"] as const)("localizes supported scoped questions in %s and rejects unknown keys", (locale) => {
+    for (const topic of topics) {
+      expect(careerContentV3QuestionCopy(`career.faq.actors.${topic}`, locale, "Actors")).toContain("Actors");
+    }
+    expect(careerContentV3QuestionCopy("career.faq.actors.unknown-topic", locale, "Actors")).toBeNull();
+    expect(careerContentV3QuestionCopy("untrusted.actors.daily-work", locale, "Actors")).toBeNull();
+    expect(careerContentV3QuestionCopy("career.faq.actors.nested.daily-work", locale, "Actors")).toBeNull();
+  });
+
+  it("renders a non-accountant FAQ and its source register without a source-card marker or fact register", () => {
+    const fixture = surfaceFixture("zh", "actors");
+    const content = v3Fixture("zh", "actors");
+    content.subject.name = "演员";
+    const faq = content.blocks.find((block) => block.id === "faq")!;
+    faq.items = [{
+      id: "actors-faq", copy_key: "career.item.faq-block", type: "faq", availability: "available",
+      data: { entries: topics.map((topic) => ({ id: topic, question_key: `career.faq.actors.${topic}`, answer: `Reviewed answer for ${topic}` })) },
+    }];
+    fixture.content_v3 = { ...content, blocks: [...content.blocks, {
+      id: "source-register", copy_key: "career.block.source-register", content_state: "enhanced", availability: "available",
+      items: [{ id: "published-sources", copy_key: "career.item.published-sources", type: "sources", availability: "available", data: { entries: [{
+        id: "source-one", name: "演员公开资料", url: "https://example.com/actors", publisher: "Primary source", details: ["Reviewed source detail"], limitation: "仅限来源覆盖范围",
+      }] } }],
+    }] };
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+    render(<CareerDisplaySurface surface={surface} />);
+    expect(surface?.faqItems).toHaveLength(topics.length);
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent("演员具体做什么？");
+    expect(screen.getByTestId("career-display-faq")).toHaveTextContent("Reviewed answer for outlook-transition");
+    expect(screen.getByTestId("source-list")).toHaveTextContent("Reviewed source detail");
+    expect(screen.getByTestId("source-list")).toHaveTextContent("仅限来源覆盖范围");
+    expect(screen.getByTestId("source-list").querySelector("a")).toHaveAttribute("href", "https://example.com/actors");
+    expect(document.querySelector('[data-content-block-id="source-register"]')).toBeNull();
+    expect(JSON.stringify(buildCareerDisplayFAQPageJsonLd(surface))).toContain("Reviewed answer for outlook-transition");
   });
 });

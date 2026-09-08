@@ -47,7 +47,6 @@ import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
-  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   type CareerDisplayComponentId,
   type CareerDisplaySection,
@@ -559,7 +558,7 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
-  const v3Sources = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+  const v3Sources = surface.locale === "zh"
     ? surface.contentV3?.sources ?? []
     : [];
   const sourceDetail = (value: string): { text: string; href: string | null; linkLabel: string } => {
@@ -973,7 +972,11 @@ export function CareerProductionDisplaySurface({
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
         ];
       });
-      return nodes.length > 0 ? <>{nodes}</> : null;
+      const sourceRegister = surface.locale === "zh" && surface.contentV3?.sources.length &&
+        !block.declaredComponentIds.includes("source_card")
+        ? <SourceCard surface={surface} embedded />
+        : null;
+      return nodes.length > 0 ? <>{nodes}{sourceRegister}</> : null;
     }
 
     const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));
