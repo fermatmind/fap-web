@@ -202,7 +202,11 @@ function shouldRedirectEnglishJobDetailToChinese(job: CareerJobBundleAdapter, lo
 
 const loadCareerJobBundle = cache(async (locale: Locale, slug: string): Promise<CareerJobBundleAdapter | null> => {
   const payload = await fetchCareerJobBundle({ locale, slug, includeSeoAuthority: true });
-  return adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
+  const job = adaptCareerJobBundle({ locale, requestedSlug: slug, payload });
+  if (job && job.slug !== slug) {
+    permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug));
+  }
+  return job;
 });
 
 const loadCareerSalaryAssetPreview = cache(async (locale: Locale, slug: string) => {
