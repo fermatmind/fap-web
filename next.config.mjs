@@ -1,3 +1,5 @@
+import { llmsGeneratorFingerprint } from "./scripts/seo/llms-generator-fingerprint.mjs";
+
 /** @type {import('next').NextConfig} */
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");
 const enableSameOriginV03ApiProxy = process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY === "true";
@@ -117,6 +119,7 @@ const bigFiveLegacyExact301Redirects = [
 );
 
 const nextConfig = {
+  env: { FERMATMIND_LLMS_FULL_GENERATOR_VERSION: llmsGeneratorFingerprint() },
   agentRules: false,
   output: "standalone",
   outputFileTracingIncludes: {

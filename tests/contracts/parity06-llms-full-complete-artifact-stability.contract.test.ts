@@ -40,7 +40,9 @@ describe("PARITY-06 llms-full complete artifact stability", () => {
     expect(llmsFullContentPageTimeoutMs()).toBe(5_000);
     expect(llmsFullContentPageTimeoutMs("runtime")).toBe(5_000);
     expect(llmsFullContentPageTimeoutMs("artifact")).toBe(60_000);
-    expect(generatorSource).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
+    expect(generatorSource).toContain('buildAndCacheLlmsFullText(siteUrl, "", expectedUrls)');
+    expect(routeSource).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
+    expect(routeSource).toContain('getOrStartLlmsFullBuild(siteUrl,');
     expect(routeSource).toContain('const contentPageBudget = options.buildProfile === "artifact"');
     expect(routeSource).toContain("{ timeoutMs: LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS }");
     expect(routeSource).toContain("{ timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }");

@@ -22,6 +22,7 @@ afterEach(async () => {
   delete process.env.FERMATMIND_LLMS_FULL_CACHE_DIR;
   delete process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE;
   delete process.env.NEXT_PUBLIC_RELEASE;
+  delete process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION;
   await Promise.all(temporaryDirectories.splice(0).map((directory) => rm(directory, { force: true, recursive: true })));
 });
 
@@ -130,6 +131,37 @@ describe("llms-full rebuild amplification guard", () => {
 
     process.env.NEXT_PUBLIC_RELEASE = "89abcdef0123456789abcdef0123456789abcdef";
     await expect(cacheModule.getCachedLlmsFullText(SITE_URL, 60_000)).resolves.toBeNull();
+  });
+
+  it("reuses a compatible artifact across UI releases but rejects generator changes and corruption", async () => {
+    await createSharedCacheDirectory();
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "a".repeat(64);
+    process.env.NEXT_PUBLIC_RELEASE = "a".repeat(40);
+    const cache = await import("@/lib/seo/llmsFullResponseCache");
+    await cache.writeLlmsFullResponseCache(SITE_URL, "complete");
+    process.env.NEXT_PUBLIC_RELEASE = "b".repeat(40);
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBe("complete");
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "b".repeat(64);
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBeNull();
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "a".repeat(64);
+    const filename = cache.getLlmsFullSharedCachePath(SITE_URL);
+    const payload = JSON.parse(await readFile(filename, "utf8"));
+    await writeFile(filename, JSON.stringify({ ...payload, text: "corrupt" }));
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBeNull();
+  });
+
+  it("detects missed source changes while preserving unchanged authority on failed refresh", async () => {
+    await createSharedCacheDirectory();
+    const cache = await import("@/lib/seo/llmsFullResponseCache");
+    await cache.synchronizeLlmsFullAuthority(SITE_URL, "a".repeat(64));
+    await cache.writeLlmsFullResponseCache(SITE_URL, "complete");
+    await cache.synchronizeLlmsFullAuthority(SITE_URL, "a".repeat(64));
+    await cache.getOrStartLlmsFullBuild(SITE_URL, async () => null);
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBe("complete");
+    await cache.synchronizeLlmsFullAuthority(SITE_URL, "b".repeat(64));
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBeNull();
+    await cache.getOrStartLlmsFullBuild(SITE_URL, async () => "replacement");
+    expect(await cache.getCachedLlmsFullText(SITE_URL, 60_000)).toBe("replacement");
   });
 
   it("awaits invalidation of cache and cooldown without deleting another worker's active lease", async () => {

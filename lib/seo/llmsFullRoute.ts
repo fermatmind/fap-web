@@ -56,7 +56,7 @@ import {
 import {
   getCachedLlmsFullText,
   getOrStartLlmsFullBuild,
-  writeLlmsFullResponseCache,
+  getLlmsFullSharedCachePath,
 } from "@/lib/seo/llmsFullResponseCache";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import { BIG_FIVE_PUBLIC_ROUTE_ENTRIES } from "@/lib/personality/bigFivePublicRoutes";
@@ -1730,24 +1730,25 @@ export async function buildLlmsFullText(
   }
 }
 
-export async function buildAndCacheLlmsFullText(siteUrl: string, text = ""): Promise<{
+export async function buildAndCacheLlmsFullText(siteUrl: string, text = "", expectedUrls: readonly string[] = []): Promise<{
   ok: boolean;
   cachePath: string;
   bytes: number;
   careerJobUrlCount: number;
 }> {
-  const resolvedText = text || (await buildLlmsFullText(siteUrl, { buildProfile: "artifact" }));
   const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
   const cacheOptions = {
-    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths),
+    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths)
+      && expectedUrls.every((url) => value.includes(url)),
   };
-  const result = await writeLlmsFullResponseCache(siteUrl, resolvedText, cacheOptions);
+  const resolvedText = await getOrStartLlmsFullBuild(siteUrl,
+    async () => text || (await buildLlmsFullText(siteUrl, { buildProfile: "artifact" })), cacheOptions);
 
   return {
-    ok: result.cached,
-    cachePath: result.cachePath,
-    bytes: Buffer.byteLength(resolvedText, "utf8"),
-    careerJobUrlCount: canonicalCareerJobUrlSet(resolvedText, siteUrl).size,
+    ok: resolvedText !== null,
+    cachePath: getLlmsFullSharedCachePath(siteUrl),
+    bytes: resolvedText ? Buffer.byteLength(resolvedText, "utf8") : 0,
+    careerJobUrlCount: resolvedText ? canonicalCareerJobUrlSet(resolvedText, siteUrl).size : 0,
   };
 }
 
@@ -1817,6 +1818,7 @@ export async function GET() {
 
   const staleCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_STALE_MS, cacheOptions);
   if (staleCachedText) {
+    scheduleLlmsFullResponseCacheRebuild(siteUrl);
     return createLlmsFullResponse(staleCachedText, "complete", "stale-cache");
   }
 

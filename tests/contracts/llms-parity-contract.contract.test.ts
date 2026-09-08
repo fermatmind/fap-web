@@ -90,7 +90,6 @@ function classifyRouteFamily(pathname: string): string {
 function mockLlmsDependencies() {
   vi.resetModules();
 
-  let cachedLlmsFullText: string | null = null;
 
   const pageTwoZhArticle = {
     slug: "big-five-tool-guide",
@@ -180,13 +179,6 @@ function mockLlmsDependencies() {
   }));
   vi.doMock("@/lib/foundation/dailyGivingSeo", () => ({
     listDailyGivingDiscoverabilityEntries: vi.fn(async () => []),
-  }));
-  vi.doMock("@/lib/seo/llmsFullResponseCache", () => ({
-    getCachedLlmsFullText: vi.fn(async () => cachedLlmsFullText),
-    writeLlmsFullResponseCache: vi.fn(async (_siteUrl: string, text: string) => {
-      cachedLlmsFullText = text;
-      return { cached: true, cachePath: "/bounded/test-cache.json" };
-    }),
   }));
   vi.doMock("@/lib/cms/articles", () => ({
     listCmsArticlesForLlmsWithLastKnownGood: vi.fn(

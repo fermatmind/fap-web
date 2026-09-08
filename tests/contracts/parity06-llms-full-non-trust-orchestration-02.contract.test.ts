@@ -135,11 +135,13 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     const route = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullRoute.ts"), "utf8");
     const generator = fs.readFileSync(path.join(ROOT, "scripts/seo/generate-llms-full.mjs"), "utf8");
 
-    expect(generator).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
+    expect(route).toContain('buildLlmsFullText(siteUrl, { buildProfile: "artifact" })');
     expect(generator).toContain("buildAndCacheLlmsFullText");
     expect(generator).toContain("process.exit(1)");
     expect(route).toContain("isCompleteLlmsFullText");
-    expect(route).toContain("writeLlmsFullResponseCache");
+    expect(route).toContain("getOrStartLlmsFullBuild");
+    const cache = fs.readFileSync(path.join(ROOT, "lib/seo/llmsFullResponseCache.ts"), "utf8");
+    expect(cache).toContain("expectedGeneration: invalidationGeneration");
     expect(route).not.toContain("artifactFallbackContent");
     expect(route).not.toContain("acceptPartialArtifact");
   });

@@ -1,14 +1,17 @@
 import { mkdir, mkdtemp, readFile, rename, rm, stat, unlink, writeFile } from "node:fs/promises";
 import { readdir } from "node:fs/promises";
 import { createHash, randomUUID } from "node:crypto";
-import { tmpdir } from "node:os";
+import { homedir } from "node:os";
 import path from "node:path";
 
 type LlmsFullResponseCache = {
   siteUrl: string;
   revision: string;
+  generatorVersion: string;
   text: string;
   cachedAtMs: number;
+  generation: string;
+  contentSha256: string;
 };
 
 type LlmsFullBuildCooldown = {
@@ -19,6 +22,7 @@ type LlmsFullBuildCooldown = {
 type LlmsFullInvalidationMarker = {
   siteUrl: string;
   generation: string;
+  sourceFingerprint?: string;
 };
 
 export const LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS = 15 * 60 * 1000;
@@ -35,10 +39,11 @@ let llmsFullBuildPromise:
 
 type LlmsFullCacheOptions = {
   isCacheable?: (text: string) => boolean;
+  expectedGeneration?: string;
 };
 
 function getLlmsFullSharedCacheDirectory(): string {
-  return process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || path.join(tmpdir(), "fermatmind-llms-full-cache");
+  return process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || path.join(homedir(), ".cache", "fermatmind", "llms-full");
 }
 
 function siteCacheId(siteUrl: string): string {
@@ -52,6 +57,16 @@ function cachePolicyKey(options: LlmsFullCacheOptions): string {
 function runtimeRevision(): string {
   const revision = String(process.env.NEXT_PUBLIC_RELEASE ?? "").trim();
   return /^[0-9a-f]{40}$/.test(revision) ? revision : "unversioned";
+}
+
+function generatorVersion(): string {
+  const version = String(process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION ?? "");
+  // Unbundled callers without the generated identity keep the exact-revision guard.
+  const code = /^[a-f0-9]{64}$/.test(version) ? version : runtimeRevision();
+  const policy = [process.env.NODE_ENV, process.env.NEXT_PUBLIC_API_URL, process.env.NEXT_PUBLIC_SITE_URL,
+    Object.entries(process.env).filter(([name]) => name.startsWith("FERMATMIND_LLMS_FULL_REQUIRE_"))
+      .sort(([a], [b]) => a.localeCompare(b))];
+  return createHash("sha256").update(JSON.stringify([code, policy])).digest("hex");
 }
 
 export function getLlmsFullSharedCachePath(siteUrl = "default"): string {
@@ -99,7 +114,9 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
 
     if (
       payload.siteUrl !== siteUrl ||
-      payload.revision !== runtimeRevision() ||
+      payload.generatorVersion !== generatorVersion() ||
+      payload.generation !== await readInvalidationGeneration(siteUrl) ||
+      payload.contentSha256 !== createHash("sha256").update(text).digest("hex") ||
       !text ||
       !Number.isFinite(cachedAtMs)
     ) {
@@ -117,8 +134,11 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
     llmsFullResponseCache = {
       siteUrl,
       revision: runtimeRevision(),
+      generatorVersion: generatorVersion(),
       text,
       cachedAtMs,
+      generation: payload.generation,
+      contentSha256: payload.contentSha256,
     };
 
     return text;
@@ -171,7 +191,7 @@ async function readInvalidationGeneration(siteUrl: string): Promise<string> {
   }
 }
 
-async function advanceInvalidationGeneration(siteUrl: string): Promise<void> {
+async function advanceInvalidationGeneration(siteUrl: string, sourceFingerprint?: string): Promise<void> {
   if (!isSharedLlmsFullCacheEnabled()) {
     return;
   }
@@ -182,7 +202,7 @@ async function advanceInvalidationGeneration(siteUrl: string): Promise<void> {
   const temporary = path.join(temporaryDirectory, "invalidation.json");
 
   try {
-    const payload: LlmsFullInvalidationMarker = { siteUrl, generation: randomUUID() };
+    const payload: LlmsFullInvalidationMarker = { siteUrl, generation: randomUUID(), sourceFingerprint };
     await writeFile(temporary, `${JSON.stringify(payload)}\n`, {
       encoding: "utf8",
       flag: "wx",
@@ -194,18 +214,28 @@ async function advanceInvalidationGeneration(siteUrl: string): Promise<void> {
   }
 }
 
-export async function invalidateLlmsFullResponseCache(siteUrl: string): Promise<void> {
+export async function invalidateLlmsFullResponseCache(siteUrl: string, sourceFingerprint?: string): Promise<void> {
   llmsFullResponseCache = null;
 
   if (!isSharedLlmsFullCacheEnabled()) {
     return;
   }
 
-  await advanceInvalidationGeneration(siteUrl);
+  await advanceInvalidationGeneration(siteUrl, sourceFingerprint);
   await Promise.all([
     unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined),
     unlink(getLlmsFullBuildCooldownPath(siteUrl)).catch(() => undefined),
   ]);
+}
+
+export async function synchronizeLlmsFullAuthority(siteUrl: string, sourceFingerprint: string): Promise<void> {
+  if (!/^[a-f0-9]{64}$/.test(sourceFingerprint)) throw new Error("Invalid authority fingerprint");
+  const marker = await readFile(getLlmsFullInvalidationMarkerPath(siteUrl), "utf8")
+    .then((raw) => JSON.parse(raw) as LlmsFullInvalidationMarker).catch(() => null);
+  if (marker?.siteUrl === siteUrl && marker.sourceFingerprint === sourceFingerprint) return;
+  // Includes missed withdrawals: an obsolete source generation cannot be served
+  // while rebuilding, even if the replacement fails.
+  await invalidateLlmsFullResponseCache(siteUrl, sourceFingerprint);
 }
 
 async function hasActiveBuildCooldown(siteUrl: string): Promise<boolean> {
@@ -350,8 +380,11 @@ export async function writeLlmsFullResponseCache(
   const cache = {
     siteUrl,
     revision: runtimeRevision(),
+    generatorVersion: generatorVersion(),
     text,
     cachedAtMs: Date.now(),
+    generation: options.expectedGeneration ?? await readInvalidationGeneration(siteUrl),
+    contentSha256: createHash("sha256").update(text).digest("hex"),
   };
   const sharedCached = await writeSharedCache(cache);
   if (!sharedCached) {
@@ -414,7 +447,7 @@ export function getOrStartLlmsFullBuild(
           return null;
         }
         if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
-          const result = await writeLlmsFullResponseCache(siteUrl, text, options);
+          const result = await writeLlmsFullResponseCache(siteUrl, text, { ...options, expectedGeneration: invalidationGeneration });
           if (result.cached) {
             if (await readInvalidationGeneration(siteUrl) !== invalidationGeneration) {
               await unlink(result.cachePath).catch(() => undefined);

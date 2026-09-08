@@ -5,12 +5,14 @@ import {
   buildEnneagramPublicContentPath,
   ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
 } from "@/lib/personality/enneagramPublicRoutes";
-import { scheduleLlmsFullResponseCacheRebuild } from "@/lib/seo/llmsFullRoute";
-import { invalidateLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
+import { rebuildLlmsFullResponseCache, scheduleLlmsFullResponseCacheRebuild } from "@/lib/seo/llmsFullRoute";
+import { invalidateLlmsFullResponseCache, synchronizeLlmsFullAuthority } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
 type ContentReleasePayload = {
+  operation?: "refresh_llms_full";
+  source_fingerprint?: string;
   content?: {
     type?: string;
     slug?: string;
@@ -299,6 +301,26 @@ export async function POST(request: NextRequest) {
   const payload = (() => {
     try { return JSON.parse(rawBody) as ContentReleasePayload; } catch { return null; }
   })();
+  if (payload?.operation === "refresh_llms_full") {
+    // A scheduled refresh validates a replacement before writing it. Unlike a
+    // publication/withdrawal notification, it must not invalidate the valid copy.
+    if (!/^[a-f0-9]{64}$/.test(payload.source_fingerprint ?? "")) {
+      return NextResponse.json({ ok: false, error_code: "INVALID_SOURCE_FINGERPRINT" }, { status: 400 });
+    }
+    try {
+      await synchronizeLlmsFullAuthority(getSiteUrlOrThrow(), payload.source_fingerprint!);
+      const result = await rebuildLlmsFullResponseCache(getSiteUrlOrThrow());
+      return NextResponse.json(
+        { ok: result.status === "complete", operation: "refresh_llms_full", ...result },
+        { status: result.status === "complete" ? 200 : 503, headers: { "Cache-Control": "no-store" } },
+      );
+    } catch {
+      return NextResponse.json(
+        { ok: false, operation: "refresh_llms_full", error_code: "REBUILD_FAILED" },
+        { status: 503, headers: { "Cache-Control": "no-store" } },
+      );
+    }
+  }
   const { accepted, rejected } = collectPathDecisions(payload ?? {}, request.nextUrl.origin);
 
   for (const path of accepted) {

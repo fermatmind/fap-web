@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { createJiti } from "jiti";
 import process from "node:process";
+import { llmsGeneratorFingerprint } from "./llms-generator-fingerprint.mjs";
+process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = llmsGeneratorFingerprint();
 
 const root = process.cwd();
 const siteUrl = String(process.env.NEXT_PUBLIC_SITE_URL || process.env.PUBLIC_BASE_URL || "https://fermatmind.com")
@@ -18,25 +20,7 @@ const jiti = createJiti(import.meta.url, {
 
 try {
   const route = await jiti.import("../../lib/seo/llmsFullRoute.ts");
-  const text = await route.buildLlmsFullText(siteUrl, { buildProfile: "artifact" });
-  const missingExpectedUrls = expectedUrls.filter((url) => !text.includes(url));
-  if (missingExpectedUrls.length > 0) {
-    process.stdout.write(
-      `${JSON.stringify(
-        {
-          ok: false,
-          mode: "failed",
-          site_url: siteUrl,
-          missing_expected_urls: missingExpectedUrls,
-        },
-        null,
-        2
-      )}\n`
-    );
-    process.exit(1);
-  }
-
-  const result = await route.buildAndCacheLlmsFullText(siteUrl, text);
+  const result = await route.buildAndCacheLlmsFullText(siteUrl, "", expectedUrls);
 
   const payload = {
     ok: result.ok === true,
