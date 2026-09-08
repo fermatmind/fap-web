@@ -1,3 +1,5 @@
+// @vitest-environment node
+import { createServer } from "node:http";
 import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -137,6 +139,43 @@ describe("llms-full automatic recovery", () => {
     expect(JSON.parse(await readFile(receiptPath, "utf8"))).toEqual(receipt);
     expect(await readdir(directory)).toEqual(["receipt.json"]);
   });
+
+  it("finishes a streamed artifact taking over 20 seconds without restarting its download", async () => {
+    const directory = await mkdtemp(path.join(tmpdir(), "llms-full-stream-"));
+    temporaryDirectories.push(directory);
+    const complete = completeArtifactText();
+    let downloads = 0;
+    const server = createServer((request, response) => {
+      if (request.url === "/revision") {
+        response.setHeader("content-type", "application/json");
+        response.end(JSON.stringify({ revision: REVISION }));
+        return;
+      }
+      downloads += 1;
+      response.setHeader("x-fermatmind-llms-full-mode", "complete");
+      response.setHeader("x-fermatmind-llms-full-source", "cache");
+      response.write(complete.slice(0, 10));
+      const timer = setTimeout(() => response.end(complete.slice(10)), 21_000);
+      response.on("close", () => clearTimeout(timer));
+    });
+    await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
+    try {
+      const address = server.address();
+      if (!address || typeof address === "string") throw new Error("missing test address");
+      const origin = `http://127.0.0.1:${address.port}`;
+      const receipt = await verifyLlmsFullArtifact({
+        url: `${origin}/llms-full.txt`, revisionUrl: `${origin}/revision`, siteUrl: SITE_URL,
+        expectedRevision: REVISION, receiptPath: path.join(directory, "receipt.json"),
+        timeoutMs: 30_000, pollIntervalMs: 250,
+      });
+      expect(downloads).toBe(1);
+      expect(receipt.mode).toBe("complete");
+      expect(receipt.revision).toBe(REVISION);
+    } finally {
+      server.closeAllConnections();
+      await new Promise<void>((resolve) => server.close(() => resolve()));
+    }
+  }, 35_000);
 
   it("keeps the complete artifact smoke inside the existing production activation transaction", async () => {
     const root = process.cwd();

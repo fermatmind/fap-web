@@ -134,7 +134,7 @@ export async function verifyLlmsFullArtifact(options) {
 
   while (Date.now() < deadlineMs) {
     try {
-      const artifactRequestTimeoutMs = Math.min(20_000, Math.max(1, deadlineMs - Date.now()));
+      const artifactRequestTimeoutMs = Math.min(60_000, Math.max(1, deadlineMs - Date.now()));
       const response = await fetch(options.url, {
         cache: "no-store",
         signal: AbortSignal.timeout(artifactRequestTimeoutMs),
@@ -174,7 +174,9 @@ export async function verifyLlmsFullArtifact(options) {
       await writeFile(options.receiptPath, `${JSON.stringify(receipt, null, 2)}\n`, { mode: 0o600 });
       return receipt;
     } catch (error) {
-      lastError = error instanceof Error ? error.message : "ARTIFACT_VERIFICATION_FAILED";
+      lastError = error instanceof Error && ["TimeoutError", "AbortError"].includes(error.name)
+        ? "REQUEST_TIMEOUT"
+        : error instanceof Error ? error.message : "ARTIFACT_VERIFICATION_FAILED";
     }
 
     if (Date.now() - lastProgressMs >= 15_000) {
