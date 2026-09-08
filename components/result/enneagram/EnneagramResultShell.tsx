@@ -1444,6 +1444,7 @@ function LegacyEnneagramResultShell({
         <CardContent className="flex flex-wrap items-center gap-3 pt-6">
           {pdfAttemptId ? (
             <div data-testid="enneagram-pdf-entry">
+              {/* Keep PDF export disabled to keep private result links out of file footers. */}
               <PdfDownloadButton
                 attemptId={pdfAttemptId}
                 locked={reportLocked}
@@ -1655,6 +1656,7 @@ export function EnneagramResultShell({
         <CardContent className="flex flex-wrap items-center gap-3 pt-6">
           {pdfAttemptId ? (
             <div data-testid="enneagram-pdf-entry">
+              {/* Keep PDF export disabled to keep private result links out of file footers. */}
               <PdfDownloadButton
                 attemptId={pdfAttemptId}
                 locked={reportLocked}
