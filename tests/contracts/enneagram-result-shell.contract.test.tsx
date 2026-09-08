@@ -1250,6 +1250,11 @@ describe("enneagram result shell contract", () => {
     await renderShell(createV2ReportResponse());
 
     const shell = screen.getByTestId("enneagram-result-shell");
+    expect(within(shell).queryByText(/page 1 result overview/i)).not.toBeInTheDocument();
+    expect(within(shell).queryByText(/^置信 ·/)).not.toBeInTheDocument();
+    expect(within(shell).queryByText("继续使用这个结果")).not.toBeInTheDocument();
+    expect(within(shell).queryByText(/PDF 导出已安全暂停/)).not.toBeInTheDocument();
+    expect(within(shell).getByRole("navigation", { name: "结果章节" })).toBeInTheDocument();
     expect(within(shell).getByRole("heading", { name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).queryByText(/你最可能是/)).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
@@ -1357,7 +1362,7 @@ describe("enneagram result shell contract", () => {
 
     expect(screen.getByTestId("enneagram-v2-all9-profile-count")).toHaveTextContent("9");
     const top3 = screen.getByTestId("enneagram-module-top3-cards");
-    expect(within(top3).getByText(/#1/)).toBeInTheDocument();
+    expect(within(top3).getByText("候选 1")).toBeInTheDocument();
     expect(within(top3).getByText("Type 6")).toBeInTheDocument();
   });
 

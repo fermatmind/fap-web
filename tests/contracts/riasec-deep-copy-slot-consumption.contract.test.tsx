@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
@@ -114,7 +113,7 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(screen.queryAllByText("Backend fixture I medium score reading.")).toHaveLength(1);
   });
 
-  it("renders one selected score interpretation per dimension with only the top three expanded", async () => {
+  it("renders one selected score interpretation per dimension with all six dimensions visible", async () => {
     const projection = clone(readProjection());
     const envelope = projection.deep_content_slots_v1 as Record<string, unknown>;
     const source = clone((envelope.slots as Array<Record<string, unknown>>)[0]);
@@ -145,18 +144,11 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(viewModel.deepContentSlots?.slots.every((slot) => Object.keys(slot.content).filter((key) => key.endsWith("score_reading") || key === "low_score_safe_reading").length === 1)).toBe(true);
 
     render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
-    const buttons = screen.getAllByRole("button", { name: /Dimension [RIASEC]/ });
-    expect(buttons).toHaveLength(6);
-    expect(buttons.slice(0, 3).every((button) => button.getAttribute("aria-expanded") === "true")).toBe(true);
-    expect(buttons.slice(3).every((button) => button.getAttribute("aria-expanded") === "false")).toBe(true);
-    const collapsedButton = buttons[3];
-    expect(collapsedButton).toHaveAccessibleName(/Dimension R/);
-    collapsedButton.focus();
-    expect(collapsedButton).toHaveFocus();
-    await userEvent.keyboard("{Enter}");
-    expect(collapsedButton).toHaveAttribute("aria-expanded", "true");
-    await userEvent.keyboard(" ");
-    expect(collapsedButton).toHaveAttribute("aria-expanded", "false");
+    expect(screen.getAllByRole("heading", { name: /Dimension [RIASEC]/ })).toHaveLength(6);
+    for (const code of ["R", "I", "A", "S", "E", "C"]) {
+      expect(screen.getByText(`Selected reading ${code}`)).toBeVisible();
+    }
+    expect(screen.queryByRole("button", { name: /Dimension [RIASEC]/ })).not.toBeInTheDocument();
   });
 
   it("fails closed for unknown, missing, pending, unavailable, or fallback-enabled slots", () => {

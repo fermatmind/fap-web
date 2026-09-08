@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { render, screen, within } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { assembleRiasecResultViewModel } from "@/lib/riasec/resultAssembler";
@@ -285,7 +284,7 @@ describe("RIASEC trusted result shell", () => {
       />
     );
 
-    expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("3 分钟结果卡");
+    expect(screen.getByTestId("riasec-trusted-result-card")).not.toHaveTextContent("3 分钟结果卡");
     expect(screen.getByTestId("riasec-trusted-result-card")).toHaveTextContent("RIA");
     expect(screen.getByTestId("riasec-measurement-boundary")).toHaveTextContent("报告快照");
     expect(screen.getByTestId("riasec-measurement-boundary")).not.toHaveTextContent("按本次题型独立解读");
@@ -342,16 +341,10 @@ describe("RIASEC trusted result shell", () => {
     expect(summary).toHaveTextContent("作答状态稳定");
     expect(summary).toHaveTextContent("15–30 分钟");
     expect(summary).toHaveTextContent("不代表能力或未来结果");
-    const deepReport = screen.getByTestId("riasec-deep-report") as HTMLDetailsElement;
-    expect(deepReport.open).toBe(false);
-    const toggle = screen.getByText("展开深度报告");
-    toggle.focus();
-    await userEvent.keyboard("{Enter}");
-    expect(deepReport.open).toBe(true);
-    expect(screen.getByText("收起深度报告")).toBeInTheDocument();
-    await userEvent.keyboard(" ");
-    expect(deepReport.open).toBe(false);
-    expect(screen.getByText("展开深度报告")).toBeInTheDocument();
+    expect(screen.getByTestId("riasec-deep-report")).toBeVisible();
+    expect(screen.getByTestId("riasec-six-dimension-map")).toBeVisible();
+    expect(screen.queryByText(/展开深度报告|收起深度报告|结果摘要（约 3 分钟）/)).not.toBeInTheDocument();
+    expect(document.querySelector("details")).toBeNull();
   });
 
   it("fails closed on cross-locale, malformed, or oversized result summaries", () => {

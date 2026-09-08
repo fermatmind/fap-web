@@ -102,7 +102,6 @@ export function RiasecResultShell({
 }) {
   const isZh = locale === "zh";
   const [shareState, setShareState] = useState<"idle" | "loading" | "copied" | "failed">("idle");
-  const [deepReportOpen, setDeepReportOpen] = useState(false);
   const trackingPayload = useMemo(
     () => buildRiasecTrustedResultTrackingPayload(viewModel, locale),
     [locale, viewModel]
@@ -228,11 +227,6 @@ export function RiasecResultShell({
         data-riasec-compiled-hash={viewModel.authority?.compiledHash}
         className="rounded-2xl border border-[var(--fm-border)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]"
       >
-        <div className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-          {viewModel.resultSummary
-            ? isZh ? "结果摘要（约 3 分钟）" : "Result summary (about 3 minutes)"
-            : isZh ? "3 分钟结果卡" : "3-minute result card"}
-        </div>
         <h1 className="mt-[var(--fm-space-2)] text-4xl font-bold text-[var(--fm-text)]">
           {viewModel.resultSummary?.headline || viewModel.interpretationState?.tieDisplay?.headline || viewModel.topCode}
         </h1>
@@ -337,25 +331,7 @@ export function RiasecResultShell({
         </div> : null}
       </section>
 
-      <details open={deepReportOpen} className="group rounded-2xl border border-[var(--fm-border)] bg-white" data-testid="riasec-deep-report">
-        <summary
-          className="cursor-pointer list-none rounded-2xl px-6 py-5 font-semibold text-[var(--fm-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-          onClick={(event) => {
-            event.preventDefault();
-            setDeepReportOpen((value) => !value);
-          }}
-          onKeyDown={(event) => {
-            if (event.key === "Enter" || event.key === " ") {
-              event.preventDefault();
-              setDeepReportOpen((value) => !value);
-            }
-          }}
-        >
-          {deepReportOpen
-            ? isZh ? "收起深度报告" : "Close deep report"
-            : isZh ? "展开深度报告" : "Open deep report"}
-        </summary>
-        <div className="space-y-[var(--fm-gap-md)] border-t border-[var(--fm-border)] p-4 md:p-6">
+      <div className="space-y-[var(--fm-gap-md)]" data-testid="riasec-deep-report">
           {viewModel.resultSummary ? (
             <Card data-testid="riasec-deep-report-controls">
               <CardContent className="space-y-4 pt-6">
@@ -521,8 +497,7 @@ export function RiasecResultShell({
           </CardContent>
         </Card>
       ) : null}
-        </div>
-      </details>
+      </div>
     </div>
   );
 }
@@ -556,7 +531,6 @@ function RiasecDeepContentSlotsSection({
 }
 
 function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot; isZh: boolean }) {
-  const [expanded, setExpanded] = useState(!slot.selection || slot.selection.isTopThree);
   const { content } = slot;
   const title = sanitizeRiasecRenderableText(content.title);
   const summary = sanitizeRiasecRenderableText(content.summary);
@@ -579,13 +553,6 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
       data-testid="riasec-deep-content-slot"
     >
       <div>
-        <button
-          type="button"
-          className="w-full cursor-pointer text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-          aria-expanded={expanded}
-          aria-controls={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`}
-          onClick={() => setExpanded((value) => !value)}
-        >
           <div className="flex flex-wrap items-start justify-between gap-2">
             <div>
               {title ? <h3 className="text-sm font-semibold text-[var(--fm-text)]">{title}</h3> : null}
@@ -599,8 +566,7 @@ function RiasecDeepContentSlotCard({ slot, isZh }: { slot: RiasecDeepContentSlot
                 : formatRiasecSlotVisibility(slot.slotVisibility, isZh ? "zh" : "en")}
             </span>
           </div>
-        </button>
-        <div id={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`} hidden={!expanded}>
+        <div id={`riasec-slot-${slot.slotId.replace(/[^a-zA-Z0-9_-]/g, "-")}`}>
         {body ? <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{body}</p> : null}
         {detailEntries.length > 0 ? (
           <div className="mt-3 grid gap-2 md:grid-cols-2">
