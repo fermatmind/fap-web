@@ -67,7 +67,7 @@ esac
         assert.notEqual(result.status, 0);
         assert.equal(receipt.status, 'failed');
         assert.equal(realpathSync(path.join(app, '.next/standalone')), realpathSync(old));
-        assert.equal(receipt.rollback, mode === 'preflight-failure' ? 'not_needed' : mode === 'rollback-failure' ? 'failed' : 'restored');
+        assert.equal(receipt.rollback, mode === 'preflight-failure' ? 'not_needed' : mode === 'rollback-failure' ? 'failed' : 'restored', result.stdout + result.stderr);
         if (mode === 'timeout') assert.equal(receipt.exit_code, 124);
         if (mode === 'signal') assert.equal(receipt.signal, 'TERM');
         if (mode === 'hangup') assert.equal(receipt.signal, 'HUP');

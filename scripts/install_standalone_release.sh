@@ -36,7 +36,7 @@ atomic_replace_link() {
   local target="$2"
 
   if mv -Tf "$source" "$target" 2>/dev/null; then
-    return
+    return 0
   fi
   mv -fh "$source" "$target"
 }
@@ -210,7 +210,7 @@ rollback_active_release() {
   local rollback_revision=""
 
   if [[ "$active_switched" != "1" ]] || [[ "$install_complete" == "1" ]]; then
-    return
+    return 0
   fi
 
   rollback_status="failed"
@@ -237,7 +237,7 @@ rollback_active_release() {
        REQUIRE_LLMS_FULL_ARTIFACT="0" \
        timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
-      return
+      return 0
     fi
     if [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" == "0" ]] \
       && APP_DIR="$APP_DIR" DEPLOY_SHA="$rollback_revision" \
@@ -248,7 +248,7 @@ rollback_active_release() {
          timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
       log "restored legacy staging LKG with its original analytics contract"
-      return
+      return 0
     fi
     log "automatic rollback reload failed; operator rollback is required"
     return 1
