@@ -34,6 +34,8 @@ CONTENT_RELEASE_REVALIDATE_LOCALE="${CONTENT_RELEASE_REVALIDATE_LOCALE:-zh-CN}"
 CONTENT_RELEASE_REVALIDATE_TYPE="${CONTENT_RELEASE_REVALIDATE_TYPE:-content_page}"
 CONTENT_RELEASE_REVALIDATE_SLUG="${CONTENT_RELEASE_REVALIDATE_SLUG:-help-privacy}"
 CONTENT_RELEASE_REVALIDATE_PATHS="${CONTENT_RELEASE_REVALIDATE_PATHS:-/help/privacy,/support}"
+PREFLIGHT_ONLY="${PREFLIGHT_ONLY:-0}"
+STANDALONE_DIR="${CANDIDATE_RELEASE_DIR:-${APP_DIR}/.next/standalone}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"
@@ -293,8 +295,8 @@ require_candidate_analytics_smoke() {
   candidate_log="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-candidate.XXXXXX")"
   candidate_base_url="http://${APP_HOST}:${CANDIDATE_APP_PORT}"
   (
-    cd .next/standalone
-    exec env NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" server.js
+    cd "$STANDALONE_DIR"
+    exec env FERMATMIND_DEPLOYED_REVISION_FILE="$STANDALONE_DIR/REVISION" NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" server.js
   ) >"$candidate_log" 2>&1 &
   candidate_pid=$!
 
@@ -325,12 +327,17 @@ require_candidate_analytics_smoke() {
   fi
 
   require_analytics_bootstrap_contract "$candidate_base_url" "candidate"
+  if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
+    require_llms_full_artifact "$candidate_base_url" "${LLMS_FULL_RECEIPT_PATH}.candidate"
+  fi
   cleanup_candidate
   trap - RETURN EXIT
 }
 
 require_llms_full_artifact() {
-  local artifact_url="${PUBLIC_BASE_URL%/}/llms-full.txt"
+  local verification_base="${1:-${PUBLIC_BASE_URL%/}}"
+  local receipt_path="${2:-$LLMS_FULL_RECEIPT_PATH}"
+  local artifact_url="${verification_base}/llms-full.txt"
 
   if [[ ! -f "$LLMS_FULL_VERIFY_SCRIPT" ]]; then
     log "llms-full verifier is missing"
@@ -347,11 +354,12 @@ require_llms_full_artifact() {
   fi
 
   log "wait for exact llms-full complete artifact"
-  "$EXPECTED_NODE_BIN" "$LLMS_FULL_VERIFY_SCRIPT" \
+  timeout --kill-after=15s "$(( (LLMS_FULL_VERIFY_TIMEOUT_MS + 999) / 1000 + 5 ))s" "$EXPECTED_NODE_BIN" "$LLMS_FULL_VERIFY_SCRIPT" \
     "--url=${artifact_url}" \
     "--site-url=${PUBLIC_BASE_URL%/}" \
     "--expected-revision=${DEPLOYED_REVISION}" \
-    "--receipt=${LLMS_FULL_RECEIPT_PATH}" \
+    "--receipt=${receipt_path}" \
+    "--revision-url=${verification_base}/revision" \
     "--timeout-ms=${LLMS_FULL_VERIFY_TIMEOUT_MS}" \
     "--poll-interval-ms=3000"
   log "llms-full complete artifact passed"
@@ -412,6 +420,7 @@ if [[ ! "$REQUIRE_LLMS_FULL_ARTIFACT" =~ ^[01]$ ]]; then
 fi
 require_bin curl
 require_bin ss
+require_bin timeout
 
 [[ "$HTTP_CONNECT_TIMEOUT_SEC" =~ ^[1-9][0-9]*$ ]] \
   || { log "HTTP_CONNECT_TIMEOUT_SEC must be a positive integer"; exit 1; }
@@ -448,11 +457,11 @@ if [[ ! "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]; then
   log "DEPLOY_SHA must be an exact lowercase 40-character commit SHA"
   exit 1
 fi
-if [[ ! -f .next/standalone/server.js ]] || [[ ! -f .next/standalone/REVISION ]]; then
+if [[ ! -f "$STANDALONE_DIR/server.js" ]] || [[ ! -f "$STANDALONE_DIR/REVISION" ]]; then
   log "verified standalone release is not active"
   exit 1
 fi
-DEPLOYED_REVISION="$(tr -d '[:space:]' < .next/standalone/REVISION)"
+DEPLOYED_REVISION="$(tr -d '[:space:]' < "$STANDALONE_DIR/REVISION")"
 if [[ ! "$DEPLOYED_REVISION" =~ ^[0-9a-f]{40}$ ]]; then
   log "active artifact revision is invalid"
   exit 1
@@ -463,6 +472,10 @@ if [[ "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
 fi
 log "active immutable release: ${DEPLOYED_REVISION:0:12}"
 require_candidate_analytics_smoke
+if [[ "$PREFLIGHT_ONLY" == "1" ]]; then
+  log "candidate preflight passed before activation"
+  exit 0
+fi
 
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   if [[ ! -f ecosystem.config.cjs ]]; then

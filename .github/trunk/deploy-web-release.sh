@@ -21,7 +21,9 @@ control="${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${
 remote_archive="$control/fap-web-${DEPLOY_SHA}.tar.gz"
 remote_llms_full_receipt="$control/llms-full-artifact-receipt.json"
 local_llms_full_receipt="${LLMS_FULL_RECEIPT_LOCAL_PATH:-${RUNNER_TEMP:?}/llms-full-artifact-receipt.json}"
-ssh_args=(-o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -p "$DEPLOY_PORT")
+remote_outcome="$control/deploy-outcome.json"
+local_outcome="${RUNNER_TEMP:?}/deploy-outcome.json"
+ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -p "$DEPLOY_PORT")
 
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
@@ -29,6 +31,7 @@ scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPL
   scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs ecosystem.config.cjs \
   "$DEPLOY_USER@$DEPLOY_HOST:$control/"
 
+set +e
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
   "chmod 700 '$control/'*.sh && install -m 0644 '$control/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && \
    APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' \
@@ -39,10 +42,31 @@ ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
    ROLLING_RELOAD_SCRIPT='$control/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='${RUN_SITEMAP_HEALTH:-1}' \
    REQUIRE_LLMS_FULL_ARTIFACT='$REQUIRE_LLMS_FULL_ARTIFACT' \
    LLMS_FULL_VERIFY_SCRIPT='$control/verify-llms-full-artifact.mjs' \
+   DEPLOY_OUTCOME_PATH='$remote_outcome' \
    LLMS_FULL_RECEIPT_PATH='$remote_llms_full_receipt' LLMS_FULL_VERIFY_TIMEOUT_MS='330000' \
    REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP='${REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP:-1}' \
    REQUIRE_CAREER_RENDERER_REVISION='${REQUIRE_CAREER_RENDERER_REVISION:-1}' \
-   CORE_PUBLIC_PATH='${CORE_PUBLIC_PATH:-/zh/personality/intj-a}' bash '$control/install_standalone_release.sh'"
+   CORE_PUBLIC_PATH='${CORE_PUBLIC_PATH:-/zh/personality/intj-a}' timeout --kill-after=360s 1800 bash '$control/install_standalone_release.sh'"
+
+transport_status=$?
+set -e
+# An interrupted SSH session is ambiguous. Reconnect only to read its exact-SHA
+# outcome; never repeat installation or switching the active release.
+for attempt in $(seq 1 24); do
+  if scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
+    "$DEPLOY_USER@$DEPLOY_HOST:$remote_outcome" "$local_outcome"; then
+    if jq -e --arg sha "$DEPLOY_SHA" '.revision == $sha and (.status == "success" or .status == "failed")' "$local_outcome" >/dev/null; then
+      break
+    fi
+  fi
+  if [ "$transport_status" -ne 255 ]; then break; fi
+  echo "deploy_reconciliation=waiting_for_remote_outcome attempt=$attempt"
+  sleep 15
+done
+[[ -s "$local_outcome" ]] || { echo "deploy_reconciliation=outcome_missing" >&2; exit 1; }
+jq -e --arg sha "$DEPLOY_SHA" '.schema_version == "fermatmind.deploy-outcome.v1" and .revision == $sha and .status == "success" and .phase == "complete" and .exit_code == 0' "$local_outcome" >/dev/null
+curl --fail --silent --show-error --connect-timeout 10 --max-time 20 "$PUBLIC_BASE_URL/revision" \
+  | jq -e --arg sha "$DEPLOY_SHA" '.revision == $sha' >/dev/null
 
 if [ "$REQUIRE_LLMS_FULL_ARTIFACT" = 1 ]; then
   scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \

@@ -58,6 +58,9 @@ require_bin mv
 require_bin ln
 require_bin realpath
 require_bin stat
+require_bin timeout
+DEPLOY_VERIFY_TIMEOUT_SECONDS="${DEPLOY_VERIFY_TIMEOUT_SECONDS:-900}"
+[[ "$DEPLOY_VERIFY_TIMEOUT_SECONDS" =~ ^[1-9][0-9]*$ ]] && (( DEPLOY_VERIFY_TIMEOUT_SECONDS <= 900 )) || fail "invalid verification deadline"
 
 [[ "$RELEASES_TO_KEEP" =~ ^[1-9][0-9]*$ ]] || fail "RELEASES_TO_KEEP must be a positive integer"
 [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" =~ ^[01]$ ]] \
@@ -94,6 +97,18 @@ previous_target=""
 legacy_release=""
 active_switched=0
 install_complete=0
+phase="unpack"
+interrupted="none"
+rollback_status="not_needed"
+DEPLOY_OUTCOME_PATH="${DEPLOY_OUTCOME_PATH:-${APP_DIR}/.deploy-outcome-${DEPLOY_SHA}.json}"
+
+write_outcome() {
+  local status="$1" code="$2"
+  printf '{"schema_version":"fermatmind.deploy-outcome.v1","revision":"%s","status":"%s","phase":"%s","exit_code":%s,"signal":"%s","rollback":"%s"}\n' \
+    "$DEPLOY_SHA" "$status" "$phase" "$code" "$interrupted" "$rollback_status" > "${DEPLOY_OUTCOME_PATH}.tmp"
+  chmod 600 "${DEPLOY_OUTCOME_PATH}.tmp"
+  mv -f "${DEPLOY_OUTCOME_PATH}.tmp" "$DEPLOY_OUTCOME_PATH"
+}
 
 cleanup_release_history() {
   local active_release
@@ -198,16 +213,18 @@ rollback_active_release() {
     return
   fi
 
+  rollback_status="failed"
   log "deployment failed; restoring previous release boundary"
   if [[ -n "$previous_target" ]]; then
-    ln -s "$previous_target" "${active_link}.rollback"
-    atomic_replace_link "${active_link}.rollback" "$active_link"
+    ln -s "$previous_target" "${active_link}.rollback" || return 1
+    atomic_replace_link "${active_link}.rollback" "$active_link" || return 1
+    [[ "$(realpath "$active_link")" == "$(realpath "$previous_target")" ]] || return 1
     if [[ -f "${active_link}/REVISION" ]]; then
       rollback_revision="$(tr -d '[:space:]' < "${active_link}/REVISION")"
     fi
   elif [[ -n "$legacy_release" && -d "$legacy_release" ]]; then
-    rm -f "$active_link"
-    mv "$legacy_release" "$active_link"
+    rm -f "$active_link" || return 1
+    mv "$legacy_release" "$active_link" || return 1
   else
     rm -f "$active_link"
   fi
@@ -218,7 +235,8 @@ rollback_active_release() {
        REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
        REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
        REQUIRE_LLMS_FULL_ARTIFACT="0" \
-       "$DEPLOY_SCRIPT" >/dev/null 2>&1; then
+       timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
+      rollback_status="restored"
       return
     fi
     if [[ "$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" == "0" ]] \
@@ -227,21 +245,37 @@ rollback_active_release() {
          REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="1" \
          REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
          REQUIRE_LLMS_FULL_ARTIFACT="0" \
-         "$DEPLOY_SCRIPT" >/dev/null 2>&1; then
+         timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
+      rollback_status="restored"
       log "restored legacy staging LKG with its original analytics contract"
       return
     fi
     log "automatic rollback reload failed; operator rollback is required"
+    return 1
   fi
 }
 
 cleanup() {
+  local code=$?
+  trap - EXIT HUP INT TERM
+  trap '' PIPE
+  set +e
   rollback_active_release
+  if [[ "$install_complete" == "1" && "$code" == "0" ]]; then
+    write_outcome success 0
+  else
+    write_outcome failed "$code"
+  fi
   if [[ -n "$incoming_dir" && -d "$incoming_dir" ]]; then
     rm -rf "$incoming_dir"
   fi
+  exit "$code"
 }
 trap cleanup EXIT
+trap 'interrupted=HUP; exit 129' HUP
+trap 'interrupted=INT; exit 130' INT
+trap 'interrupted=TERM; exit 143' TERM
+write_outcome running 0
 
 mkdir -p "$releases_dir" "$active_parent"
 incoming_dir="$(mktemp -d "${releases_dir}/.incoming.${DEPLOY_SHA}.XXXXXX")"
@@ -268,6 +302,13 @@ else
   mv "$release_source" "$release_dir"
 fi
 
+phase="preflight"
+write_outcome running 0
+PREFLIGHT_ONLY=1 CANDIDATE_RELEASE_DIR="$release_dir" \
+  timeout --kill-after=15s 600 "$DEPLOY_SCRIPT"
+phase="activate"
+write_outcome running 0
+
 if [[ -L "$active_link" ]]; then
   previous_target="$(readlink "$active_link")"
 elif [[ -e "$active_link" ]]; then
@@ -280,6 +321,8 @@ fi
 ln -s "$release_dir" "${active_link}.next"
 atomic_replace_link "${active_link}.next" "$active_link"
 active_switched=1
+phase="verify"
+write_outcome running 0
 
 APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
   ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
@@ -289,7 +332,7 @@ APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
   LLMS_FULL_VERIFY_SCRIPT="$LLMS_FULL_VERIFY_SCRIPT" \
   LLMS_FULL_RECEIPT_PATH="$LLMS_FULL_RECEIPT_PATH" \
   LLMS_FULL_VERIFY_TIMEOUT_MS="$LLMS_FULL_VERIFY_TIMEOUT_MS" \
-  "$DEPLOY_SCRIPT"
+  timeout --kill-after=15s "${DEPLOY_VERIFY_TIMEOUT_SECONDS}s" "$DEPLOY_SCRIPT"
 
 if [[ -n "$previous_target" ]]; then
   ln -s "$previous_target" "${releases_dir}/.previous.next"
@@ -297,6 +340,7 @@ if [[ -n "$previous_target" ]]; then
 fi
 
 install_complete=1
+phase="complete"
 cleanup_release_history
 cleanup_transport_history
 log "immutable release activated: sha=${DEPLOY_SHA} artifact=${ARTIFACT_DIGEST}"

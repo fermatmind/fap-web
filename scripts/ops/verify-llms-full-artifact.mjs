@@ -106,6 +106,8 @@ function parseArgs(argv) {
   const siteUrl = values.get("site-url") ?? "";
   const expectedRevision = values.get("expected-revision") ?? "";
   const receiptPath = values.get("receipt") ?? "";
+  const revisionUrl = values.get("revision-url") ?? `${siteUrl.replace(/\/$/, "")}/revision`;
+  if (!/^https?:\/\//.test(revisionUrl)) throw new Error("INVALID_REVISION_URL");
   const timeoutMs = Number.parseInt(values.get("timeout-ms") ?? "330000", 10);
   const pollIntervalMs = Number.parseInt(values.get("poll-interval-ms") ?? "3000", 10);
 
@@ -117,7 +119,7 @@ function parseArgs(argv) {
     throw new Error("INVALID_POLL_INTERVAL");
   }
 
-  return { url, siteUrl, expectedRevision, receiptPath, timeoutMs, pollIntervalMs };
+  return { url, siteUrl, revisionUrl, expectedRevision, receiptPath, timeoutMs, pollIntervalMs };
 }
 
 async function delay(milliseconds) {
@@ -128,6 +130,7 @@ export async function verifyLlmsFullArtifact(options) {
   const startedAtMs = Date.now();
   const deadlineMs = startedAtMs + options.timeoutMs;
   let lastError = "ARTIFACT_NOT_READY";
+  let lastProgressMs = 0;
 
   while (Date.now() < deadlineMs) {
     try {
@@ -145,7 +148,7 @@ export async function verifyLlmsFullArtifact(options) {
         siteUrl: options.siteUrl,
       });
       const revisionRequestTimeoutMs = Math.min(20_000, Math.max(1, deadlineMs - Date.now()));
-      const revisionResponse = await fetch(`${options.siteUrl.replace(/\/$/, "")}/revision`, {
+      const revisionResponse = await fetch(options.revisionUrl ?? `${options.siteUrl.replace(/\/$/, "")}/revision`, {
         cache: "no-store",
         signal: AbortSignal.timeout(revisionRequestTimeoutMs),
       });
@@ -174,6 +177,10 @@ export async function verifyLlmsFullArtifact(options) {
       lastError = error instanceof Error ? error.message : "ARTIFACT_VERIFICATION_FAILED";
     }
 
+    if (Date.now() - lastProgressMs >= 15_000) {
+      process.stderr.write(`[verify-llms-full-artifact] pending elapsed_ms=${Date.now() - startedAtMs} reason=${lastError.replace(/[^A-Z_]/g, "").slice(0, 80)}\n`);
+      lastProgressMs = Date.now();
+    }
     const remainingMs = deadlineMs - Date.now();
     if (remainingMs > 0) {
       await delay(Math.min(options.pollIntervalMs, remainingMs));

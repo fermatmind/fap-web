@@ -82,7 +82,7 @@ describe("same-origin deployed revision endpoint", () => {
     );
 
     expect(deployScript).toContain(
-      'DEPLOYED_REVISION="$(tr -d \'[:space:]\' < .next/standalone/REVISION)"',
+      'DEPLOYED_REVISION="$(tr -d \'[:space:]\' < "$STANDALONE_DIR/REVISION")"',
     );
     expect(deployScript).toContain('REVISION_PATH="${REVISION_PATH:-/revision}"');
     expect(deployScript).not.toContain("/api/deployment/revision");

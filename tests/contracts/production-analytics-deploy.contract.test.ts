@@ -81,7 +81,7 @@ describe("production analytics deploy contract", () => {
     expect(deployScript).not.toContain("write_systemd_runtime_env");
     expect(deployScript).not.toContain(".env.production.local");
     expect(deployScript).not.toContain("NEXT_PUBLIC_ANALYTICS_ENABLED=%s");
-    expect(deployScript).toContain('[[ ! -f .next/standalone/server.js ]]');
+    expect(deployScript).toContain('[[ ! -f "$STANDALONE_DIR/server.js" ]]');
 
     const candidateIndex = deployScript.lastIndexOf("require_candidate_analytics_smoke");
     const activeReleaseIndex = deployScript.lastIndexOf("active immutable release");

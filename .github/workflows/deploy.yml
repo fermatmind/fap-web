@@ -181,9 +181,12 @@ jobs:
         run: .github/trunk/deploy-web-release.sh
       - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: always()
         with:
           name: trunk-staging-${{ github.event.workflow_run.head_sha }}
-          path: staging-timing.json
+          path: |
+            staging-timing.json
+            ${{ runner.temp }}/deploy-outcome.json
           retention-days: 90
 
   production:
@@ -254,8 +257,8 @@ jobs:
           CI_COMPLETED_AT: ${{ github.event.workflow_run.updated_at }}
         run: |
           jq -n --arg sha "$DEPLOY_SHA" --arg pushed "$PUSHED_AT" --arg ci "$CI_COMPLETED_AT" \
-            --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_smoke_completed_at:$completed}' \
+            --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg outcome '${{ steps.activation.outcome }}' \
+            '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_finished_at:$completed,production_outcome:$outcome,production_smoke_completed_at:(if $outcome == "success" then $completed else null end)}' \
             > "$RUNNER_TEMP/trunk-delivery-timing.base.json"
           receipt='${{ steps.activation.outputs.llms_full_receipt }}'
           if [ -n "$receipt" ]; then
@@ -268,7 +271,10 @@ jobs:
         if: always()
         with:
           name: trunk-production-${{ github.event.workflow_run.head_sha }}
-          path: trunk-delivery-timing.json
+          path: |
+            trunk-delivery-timing.json
+            ${{ runner.temp }}/deploy-outcome.json
+            ${{ runner.temp }}/llms-full-artifact-receipt.json
           retention-days: 90
 
   ingress:
