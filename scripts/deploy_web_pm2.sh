@@ -15,6 +15,7 @@ SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
 SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 REVISION_PATH="${REVISION_PATH:-/revision}"
 CAREER_RENDERER_PATH="${CAREER_RENDERER_PATH:-/zh/career/jobs/accountants-and-auditors}"
+CAREER_RENDERER_TIMEOUT_SEC=60
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 HTTP_CONNECT_TIMEOUT_SEC="${HTTP_CONNECT_TIMEOUT_SEC:-5}"
 HTTP_REQUEST_TIMEOUT_SEC="${HTTP_REQUEST_TIMEOUT_SEC:-20}"
@@ -212,12 +213,17 @@ require_career_renderer_revision() {
   local body_file
 
   body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-renderer.XXXXXX")"
-  if ! curl -fsSL \
+  # Career HTML is a large streamed document; validate the complete decoded body.
+  if ! curl -fsSL --compressed \
     --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
-    --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
+    --max-time "$CAREER_RENDERER_TIMEOUT_SEC" \
     -o "$body_file" \
-    "${base_url%/}${CAREER_RENDERER_PATH}" \
-    || ! grep -Fq "data-career-renderer-release=\"${DEPLOY_SHA}\"" "$body_file"; then
+    "${base_url%/}${CAREER_RENDERER_PATH}"; then
+    rm -f "$body_file"
+    log "career renderer response download failed: phase=${phase} path=${CAREER_RENDERER_PATH}"
+    return 1
+  fi
+  if ! grep -Fq "data-career-renderer-release=\"${DEPLOY_SHA}\"" "$body_file"; then
     rm -f "$body_file"
     log "career renderer revision mismatch: phase=${phase} path=${CAREER_RENDERER_PATH}"
     return 1
