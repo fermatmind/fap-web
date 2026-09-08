@@ -21,9 +21,16 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Find your RIASEC interest profile with a free 60- or 140-question Holland Code test. Understand your three-letter code and explore work activities and careers." },
 };
 
+const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
+    title: "MBTI 免费测试：16 型人格与偏好解读",
+    description: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
+  },
+};
+
 const ZH_ENTRY_LABELS: Record<string, string> = {
-  mbti_144: "开始 144 题完整版 · 免费测试",
-  mbti_93: "开始 93 题精简版 · 免费测试",
+  mbti_144: "144 题 · 约 15 分钟 · 免费测试",
+  mbti_93: "93 题 · 约 10 分钟 · 免费测试",
   big5_120: "开始 120 题完整版 · 免费测试",
   big5_90: "开始 90 题精简版 · 免费测试",
   enneagram_likert_105: "开始 105 题 · 程度选择 · 免费测试",
@@ -61,9 +68,11 @@ const HERO_ARTWORK: Partial<Record<string, AssessmentArtwork>> = {
 export function getAssessmentLandingUi(slug: string, locale: "zh" | "en") {
   const names = Object.hasOwn(ASSESSMENT_LANDING_UI, slug) ? ASSESSMENT_LANDING_UI[slug] : undefined;
   return names ? {
-    title: names[locale],
-    seoTitle: locale === "en" ? EN_SEARCH_COPY[slug]?.title : undefined,
-    seoDescription: locale === "en" ? EN_SEARCH_COPY[slug]?.description : undefined,
+    title: locale === "zh" && slug === SCALE_CANONICAL_SLUG_MAP.MBTI
+      ? "MBTI 16 型人格免费测试"
+      : names[locale],
+    seoTitle: locale === "en" ? EN_SEARCH_COPY[slug]?.title : ZH_SEARCH_COPY[slug]?.title,
+    seoDescription: locale === "en" ? EN_SEARCH_COPY[slug]?.description : ZH_SEARCH_COPY[slug]?.description,
     entryLabels: locale === "zh" ? ZH_ENTRY_LABELS : EN_ENTRY_LABELS,
     heroArtwork: HERO_ARTWORK[slug],
   } : null;

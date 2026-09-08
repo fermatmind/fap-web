@@ -19,7 +19,23 @@ describe("English assessment search copy", () => {
     expect(en.seoTitle!.length).toBeLessThan(65);
     expect(en.seoDescription!.length).toBeLessThan(180);
     expect(en.title).toMatch(/^Free /u);
-    expect(getAssessmentLandingUi(slug, "zh")?.seoTitle).toBeUndefined();
-    expect(getAssessmentLandingUi(slug, "zh")?.seoDescription).toBeUndefined();
+    if (code !== "MBTI") {
+      expect(getAssessmentLandingUi(slug, "zh")?.seoTitle).toBeUndefined();
+      expect(getAssessmentLandingUi(slug, "zh")?.seoDescription).toBeUndefined();
+    }
+  });
+
+  it("keeps the MBTI Chinese landing copy in the product UI authority", () => {
+    const copy = getAssessmentLandingUi(SCALE_CANONICAL_SLUG_MAP.MBTI, "zh");
+
+    expect(copy).toMatchObject({
+      title: "MBTI 16 型人格免费测试",
+      seoTitle: "MBTI 免费测试：16 型人格与偏好解读",
+      seoDescription: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
+    });
+    expect(copy?.entryLabels).toMatchObject({
+      mbti_144: "144 题 · 约 15 分钟 · 免费测试",
+      mbti_93: "93 题 · 约 10 分钟 · 免费测试",
+    });
   });
 });

@@ -2,8 +2,8 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const VIEWPORTS = [
   { name: "desktop", width: 1440, height: 900 },
-  { name: "laptop", width: 1280, height: 800 },
-  { name: "mobile", width: 390, height: 844 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "mobile", width: 375, height: 812 },
 ] as const;
 
 async function expectNoHorizontalScroll(page: Page) {
@@ -60,7 +60,7 @@ test.describe("EN-PARITY-08 H1 overflow guard", () => {
       await page.setViewportSize({ width: viewport.width, height: viewport.height });
       await page.goto("/zh/tests/mbti-personality-test-16-personality-types");
 
-      const heading = page.getByRole("heading", { level: 1, name: "MBTI 性格测试【16型人格】" });
+      const heading = page.getByRole("heading", { level: 1, name: "MBTI 16 型人格免费测试" });
       await expect(heading).toBeVisible();
       await expectNoTextOverflow(heading);
       await expectLocatorInsideViewport(heading);

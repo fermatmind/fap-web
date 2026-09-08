@@ -395,15 +395,15 @@ describe("SEO core test detail availability", () => {
       source: "fresh", stale: false, updatedAt: "2026-09-07T00:00:00Z", error: null,
     });
     const metadata = await generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) });
-    expect(JSON.stringify(metadata.title)).toContain("MBTI 性格免费测试");
+    expect(JSON.stringify(metadata.title)).toContain("MBTI 免费测试：16 型人格与偏好解读");
     expect(JSON.stringify(metadata.title)).not.toContain("Stale");
     const tree = await TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) });
     const values: unknown[] = [];
     collectValues(tree, values);
     const hero = values.filter(isValidElement).find((element) => element.type === MbtiLandingIntro);
     const html = renderToStaticMarkup(hero!);
-    expect(html).toContain("<h1>MBTI 性格免费测试</h1>");
-    expect(html).toContain("开始 144 题完整版 · 免费测试");
+    expect(html).toContain("<h1>MBTI 16 型人格免费测试</h1>");
+    expect(html).toContain("144 题 · 约 15 分钟 · 免费测试");
     expect(html).not.toContain("Stale");
   });
 
