@@ -36,6 +36,7 @@ atomic_replace_link() {
   local target="$2"
 
   if mv -Tf "$source" "$target" 2>/dev/null; then
+    # Bash 5.2 can inherit the EXIT trap status from a bare return.
     return 0
   fi
   mv -fh "$source" "$target"
