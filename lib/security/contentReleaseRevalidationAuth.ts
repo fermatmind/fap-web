@@ -31,6 +31,7 @@ async function redisCommand(command: string[]): Promise<RedisCommandResult> {
     method: "POST",
     headers: { Authorization: `Bearer ${token}` },
     cache: "no-store",
+    signal: AbortSignal.timeout(5000),
   });
   if (!response.ok) {
     throw new Error(`revalidation replay store returned ${response.status}`);

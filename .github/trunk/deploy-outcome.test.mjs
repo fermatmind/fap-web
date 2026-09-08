@@ -1,3 +1,4 @@
+import { KEYS, writeConfig, readConfig } from './content-release-runtime.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
@@ -46,13 +47,18 @@ case "$TEST_MODE" in
   *) exit 7 ;;
 esac
 `, { mode: 0o700 });
+      const runtime = path.join(root, 'runtime.json');
+      const credentials = { [KEYS[0]]: 'fixture-runtime-secret-not-production', [KEYS[1]]: 'https://redis.example.test', [KEYS[2]]: 'fixture-redis-token' };
+      writeConfig(runtime, credentials);
       const outcome = path.join(root, 'outcome.json');
       const result = spawnSync('bash', ['scripts/install_standalone_release.sh'], {
         env: { ...process.env, APP_DIR: app, APP_USER: userInfo().username, DEPLOY_SHA: sha,
           ARTIFACT_DIGEST: `sha256:${'c'.repeat(64)}`, ARCHIVE_SHA256: digest(readFileSync(archive)),
           RELEASE_MANIFEST_DIGEST: `sha256:${digest('{}')}`, RELEASE_ARCHIVE: archive,
           DEPLOY_SCRIPT: deploy, ROLLING_RELOAD_SCRIPT: deploy, TEST_MODE: mode,
-          DEPLOY_OUTCOME_PATH: outcome, DEPLOY_VERIFY_TIMEOUT_SECONDS: '1' },
+          DEPLOY_OUTCOME_PATH: outcome, DEPLOY_VERIFY_TIMEOUT_SECONDS: '1',
+          REQUIRE_CONTENT_RELEASE_REVALIDATION: '1', CONTENT_RELEASE_RUNTIME_SOURCE: runtime,
+          CONTENT_RELEASE_RUNTIME_HELPER: path.resolve('.github/trunk/content-release-runtime.mjs') },
         encoding: 'utf8', timeout: 15000,
       });
       assert.equal(result.error, undefined, result.stderr);
@@ -61,6 +67,7 @@ esac
       if (mode === 'success') {
         assert.equal(result.status, 0, result.stdout + result.stderr);
         assert.equal(receipt.status, 'success');
+        assert.deepEqual(readConfig(path.join(app, '.next/standalone/.content-release-runtime.json')), credentials);
         assert.equal(receipt.phase, 'complete');
         assert.equal(realpathSync(path.join(app, 'releases/previous')), realpathSync(old));
       } else {

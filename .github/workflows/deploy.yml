@@ -249,6 +249,10 @@ jobs:
           RELEASE_MANIFEST_DIGEST: ${{ steps.artifact.outputs.manifest_digest }}
           ARTIFACT_DIGEST: ${{ needs.policy.outputs.release_digest }}
           REQUIRE_LLMS_FULL_ARTIFACT: "1"
+          REQUIRE_CONTENT_RELEASE_REVALIDATION: "1"
+          CONTENT_RELEASE_REVALIDATE_SECRET: ${{ secrets.CONTENT_RELEASE_REVALIDATE_SECRET }}
+          CONTENT_RELEASE_REVALIDATE_REDIS_URL: ${{ secrets.CONTENT_RELEASE_REVALIDATE_REDIS_URL }}
+          CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN: ${{ secrets.CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN }}
         run: .github/trunk/deploy-web-release.sh
       - name: Record end-to-end timing
         if: always()

@@ -570,4 +570,8 @@ else
   log "skip content release revalidation smoke (set RUN_CONTENT_RELEASE_REVALIDATE_SMOKE=1 when release invalidation wiring should be verified)"
 fi
 
+if [[ "${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}" == "1" ]]; then
+  log "verify signed content release authentication without invalidating content"
+  node "${CONTENT_RELEASE_RUNTIME_HELPER:?}" probe "$APP_DIR/.next/standalone/.content-release-runtime.json" "$PUBLIC_BASE_URL/api/content-release/revalidate"
+fi
 log "deploy completed"

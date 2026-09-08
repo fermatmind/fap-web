@@ -94,6 +94,8 @@ active_link="${active_parent}/standalone"
 artifact_hex="${ARTIFACT_DIGEST#sha256:}"
 release_dir="${releases_dir}/${DEPLOY_SHA}-${artifact_hex}"
 incoming_dir=""
+REQUIRE_CONTENT_RELEASE_REVALIDATION="${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}"
+[[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" =~ ^[01]$ ]] || fail "invalid runtime verification requirement"
 previous_target=""
 legacy_release=""
 active_switched=0
@@ -235,7 +237,7 @@ rollback_active_release() {
        ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
        REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
        REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
-       REQUIRE_LLMS_FULL_ARTIFACT="0" \
+       REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" \
        timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
       return 0
@@ -245,7 +247,7 @@ rollback_active_release() {
          ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
          REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="1" \
          REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
-         REQUIRE_LLMS_FULL_ARTIFACT="0" \
+         REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" \
          timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
       log "restored legacy staging LKG with its original analytics contract"
@@ -303,6 +305,11 @@ else
   mv "$release_source" "$release_dir"
 fi
 
+if [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" == "1" ]]; then
+  [[ -f "${CONTENT_RELEASE_RUNTIME_HELPER:-}" && -f "${CONTENT_RELEASE_RUNTIME_SOURCE:-}" ]] || fail "content release runtime configuration unavailable"
+  node "$CONTENT_RELEASE_RUNTIME_HELPER" install "$CONTENT_RELEASE_RUNTIME_SOURCE" "$release_dir/.content-release-runtime.json"
+  rm -f -- "$CONTENT_RELEASE_RUNTIME_SOURCE"
+fi
 phase="preflight"
 write_outcome running 0
 PREFLIGHT_ONLY=1 CANDIDATE_RELEASE_DIR="$release_dir" \

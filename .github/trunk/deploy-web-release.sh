@@ -16,6 +16,15 @@ done
 [[ "$ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
 REQUIRE_LLMS_FULL_ARTIFACT="${REQUIRE_LLMS_FULL_ARTIFACT:-0}"
 [[ "$REQUIRE_LLMS_FULL_ARTIFACT" =~ ^[01]$ ]]
+REQUIRE_CONTENT_RELEASE_REVALIDATION="${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}"
+[[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" =~ ^[01]$ ]]
+local_runtime_config=""
+if [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" == "1" ]]; then
+  runtime_tmp="$(mktemp -d "${RUNNER_TEMP:?}/content-release-runtime.XXXXXX")"
+  local_runtime_config="$runtime_tmp/input.json"
+  trap 'rm -f -- "$local_runtime_config"; rmdir -- "$runtime_tmp"' EXIT
+  node .github/trunk/content-release-runtime.mjs from-env "$local_runtime_config"
+fi
 
 control="${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${DEPLOY_SHA:0:12}"
 remote_archive="$control/fap-web-${DEPLOY_SHA}.tar.gz"
@@ -28,9 +37,13 @@ ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "$RELEASE_ARCHIVE" scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
-  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs ecosystem.config.cjs \
+  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
   "$DEPLOY_USER@$DEPLOY_HOST:$control/"
 
+if [[ -n "$local_runtime_config" ]]; then
+  scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
+    "$local_runtime_config" "$DEPLOY_USER@$DEPLOY_HOST:$control/content-release-runtime.json"
+fi
 set +e
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
   "chmod 700 '$control/'*.sh && install -m 0644 '$control/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && \
@@ -41,6 +54,9 @@ ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
    RELEASE_ARCHIVE='$remote_archive' DEPLOY_SCRIPT='$control/deploy_web_pm2.sh' \
    ROLLING_RELOAD_SCRIPT='$control/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='${RUN_SITEMAP_HEALTH:-1}' \
    REQUIRE_LLMS_FULL_ARTIFACT='$REQUIRE_LLMS_FULL_ARTIFACT' \
+   REQUIRE_CONTENT_RELEASE_REVALIDATION='$REQUIRE_CONTENT_RELEASE_REVALIDATION' \
+   CONTENT_RELEASE_RUNTIME_SOURCE='$control/content-release-runtime.json' \
+   CONTENT_RELEASE_RUNTIME_HELPER='$control/content-release-runtime.mjs' \
    LLMS_FULL_VERIFY_SCRIPT='$control/verify-llms-full-artifact.mjs' \
    DEPLOY_OUTCOME_PATH='$remote_outcome' \
    LLMS_FULL_RECEIPT_PATH='$remote_llms_full_receipt' LLMS_FULL_VERIFY_TIMEOUT_MS='330000' \
