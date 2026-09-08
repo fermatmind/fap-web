@@ -1,4 +1,4 @@
-import { llmsGeneratorFingerprint } from "./scripts/seo/llms-generator-fingerprint.mjs";
+import { llmsGeneratorFingerprint } from "./scripts/release/llms-generator-fingerprint.mjs";
 
 /** @type {import('next').NextConfig} */
 const apiOrigin = (process.env.NEXT_PUBLIC_API_URL || "https://api.fermatmind.com").replace(/\/$/, "");

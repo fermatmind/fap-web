@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { createJiti } from "jiti";
 import process from "node:process";
-import { llmsGeneratorFingerprint } from "./llms-generator-fingerprint.mjs";
+import { llmsGeneratorFingerprint } from "../release/llms-generator-fingerprint.mjs";
 process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = llmsGeneratorFingerprint();
 
 const root = process.cwd();

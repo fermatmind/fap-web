@@ -24,7 +24,7 @@ export function llmsGeneratorFingerprint(root = process.cwd()) {
     }
   };
   walk(path.join(root, "lib/seo/llmsFullRoute.ts"));
-  for (const name of ["pnpm-lock.yaml", "package.json", "tsconfig.json", "scripts/seo/llms-generator-fingerprint.mjs"]) {
+  for (const name of ["pnpm-lock.yaml", "package.json", "tsconfig.json", "scripts/release/llms-generator-fingerprint.mjs"]) {
     visited.set(name, readFileSync(path.join(root, name), "utf8"));
   }
   const hash = createHash("sha256");
