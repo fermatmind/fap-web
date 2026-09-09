@@ -126,9 +126,9 @@ recreate_from_config() {
 
 reload_existing_app() {
   log "app already aligned, performing rolling reload"
-  if ! "$PM2_BIN" reload "$APP_NAME" --update-env >/dev/null; then
+  if ! "$PM2_BIN" reload "$PM2_CONFIG" --only "$APP_NAME" --update-env >/dev/null; then
     log "reload failed, fallback to restart app=${APP_NAME}"
-    "$PM2_BIN" restart "$APP_NAME" --update-env >/dev/null
+    "$PM2_BIN" restart "$PM2_CONFIG" --only "$APP_NAME" --update-env >/dev/null
   fi
 }
 

@@ -552,7 +552,7 @@ fi
 wait_for_local_app_ready
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   log "complete PM2 restart to retire prior release workers: ${APP_NAME}"
-  pm2 restart "$APP_NAME" --update-env >/dev/null
+  pm2 restart "${APP_DIR}/ecosystem.config.cjs" --only "$APP_NAME" --update-env >/dev/null
   wait_for_local_app_ready
 fi
 if [[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]; then
