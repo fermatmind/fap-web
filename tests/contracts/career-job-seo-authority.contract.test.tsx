@@ -5,6 +5,8 @@ import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
+import pageFixture from "@/tests/fixtures/career-page/accountants-and-auditors.zh-CN.json";
+
 const SEO_TITLE = "会计师和审计师｜FermatMind 职业库";
 const SEO_DESCRIPTION =
   "会计师和审计师不是单纯处理数字的岗位。它的核心，是把组织经营活动转化为可核对、可比较、可追踪的财务信息。";
@@ -21,6 +23,7 @@ function jsonResponse(payload: unknown, status = 200): Response {
 
 function buildCareerJobBundlePayload() {
   return {
+    career_page: {...pageFixture, seo: {title: {availability: 'available', text: SEO_TITLE}, description: {availability: 'available', text: SEO_DESCRIPTION}}},
     identity: { canonical_slug: "accountants-and-auditors" },
     titles: {
       canonical_en: "Accountants and Auditors",
@@ -317,7 +320,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(job?.structuredData.occupation?.name).toBe("会计师和审计师");
   });
 
-  it("generates metadata from backend seo.surface.v1 instead of local career bundle copy", async () => {
+  it("generates metadata from the file-owned page with backend URL and index authority", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     mockCareerJobPageShell();
 
@@ -334,7 +337,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(metadata.description).not.toBe("Local bundle summary should not own SEO metadata.");
   });
 
-  it("renders backend-owned Occupation JSON-LD when the SEO surface declares it", async () => {
+  it("renders only file-owned Occupation content when SEO authority allows it", async () => {
     mockCareerJobPageShell();
 
     const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
@@ -401,7 +404,7 @@ describe("career job seo.surface.v1 authority contract", () => {
 
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
     expect(html).not.toContain('"@type":"Occupation"');
-    expect(html).not.toContain('"name":"会计师和审计师"');
+    expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
   it("lets backend SEO authority override stale locale_not_ready bundle noindex state", async () => {

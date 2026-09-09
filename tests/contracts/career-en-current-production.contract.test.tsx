@@ -199,7 +199,8 @@ describe("career English Current production renderer", () => {
 
   it("gates sidecar requests with the shared production-surface contract instead of a slug allowlist", () => {
     const route = readFileSync("app/(localized)/[locale]/career/jobs/[slug]/page.tsx", "utf8");
-    expect(route).toContain("const isProductionTemplate = isCareerProductionDisplaySurface(displaySurface);");
+    expect(route).toContain("normalizeCareerPage(raw.career_page");
+    expect(route).toContain("<CareerPageTemplate");
     expect(route).not.toContain("const isProductionTemplate = isZhProductionTemplate || job.slug === CAREER_DISPLAY_ACCOUNTANTS_SLUG;");
   });
 });

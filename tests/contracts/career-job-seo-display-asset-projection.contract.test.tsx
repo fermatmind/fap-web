@@ -6,6 +6,8 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 import { isPrCareerKg00AllowedFile } from "./helpers/currentPrScope";
 
+import emptyPage from "@/tests/fixtures/career-page/health-educators.en.json";
+
 const SLUG = "career-kg-projection-lock";
 const CANONICAL = `https://fermatmind.com/zh/career/jobs/${SLUG}`;
 const SEO_TITLE = "后端 SEO 标题｜FermatMind 职业库";
@@ -83,7 +85,14 @@ function buildDisplaySurface() {
 }
 
 function buildCareerJobBundlePayload() {
+  const content = {...emptyPage.content, locale: "zh-CN", subject: {canonical_slug: SLUG, name: "后端职业实体", summary: SEO_DESCRIPTION}, content_state: "enhanced", blocks: [
+    {id: "sources", copy_key: "career.block.sources", content_state: "enhanced", availability: "available", items: [
+      {id: "faq", copy_key: "career.item.faq-block", type: "faq", availability: "available", data: {entries: [{id: "faq-1", question_key: "career.faq.salary", question: BACKEND_FAQ_QUESTION, answer: BACKEND_FAQ_ANSWER}]}},
+      {id: "sources-1", copy_key: "career.item.published-sources", type: "sources", availability: "available", data: {entries: [{id: "source-1", name: BACKEND_SOURCE_LABEL, url: "https://www.onetonline.org/", details: [BACKEND_SOURCE_USAGE]}]}},
+    ]},
+  ]};
   return {
+    career_page: {...emptyPage, locale: "zh-CN", subject: content.subject, content, seo: {title: {availability: "available", text: SEO_TITLE}, description: {availability: "available", text: SEO_DESCRIPTION}}},
     identity: { canonical_slug: SLUG },
     titles: {
       canonical_en: "Career KG Projection Lock",
@@ -239,13 +248,14 @@ describe("PR-CAREER-KG-00 career job SEO/display asset projection contract", () 
     expect(html).toContain(BACKEND_FAQ_ANSWER);
     expect(html).not.toContain("隐藏 FAQ 不应进入 JSON-LD");
 
-    expect(html).toContain(BACKEND_CTA_LABEL);
+    expect(html).toContain("开始职业兴趣测试");
+    expect(html).not.toContain(BACKEND_CTA_LABEL);
     expect(html).not.toContain(FRONTEND_LEGACY_CTA_LABEL);
     expect(html).toContain(`/zh/tests/holland-career-interest-test-riasec`);
 
     expect(html).toContain(BACKEND_SOURCE_LABEL);
-    expect(html).not.toContain(BACKEND_SOURCE_USAGE);
-    expect(html).toContain("2026-07-02");
+    expect(html).toContain(BACKEND_SOURCE_USAGE);
+    expect(html).not.toContain("2026-07-02");
     expect(html).not.toContain("后端边界说明");
     expect(html).not.toContain("O*NET：职业定义、任务、兴趣、技能和工作场景。");
     expect(html).not.toContain("Career definitions, tasks, and interest signals reference public occupational sources");

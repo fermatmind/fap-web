@@ -675,7 +675,9 @@ export function adaptCareerJobBundle(input: AdaptCareerJobBundleInput): CareerJo
   const structuredData = buildStructuredData(raw, input.locale, slug);
   const seoAuthorityOccupation = buildSeoAuthorityOccupationJsonLd(seoAuthority, seoSurface);
   const lifecycleCompanionRaw = isRecord(raw.lifecycle_companion) ? raw.lifecycle_companion : {};
-  const displaySurfaceV1 = adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug, title);
+  const displaySurfaceV1 = Object.prototype.hasOwnProperty.call(raw, "career_page")
+    ? null
+    : adaptCareerDisplaySurface(raw.display_surface_v1, input.locale, undefined, slug, title);
 
   const adapter: CareerJobBundleAdapter = {
     authoritySource: "career_backend_bundle.v0.5",

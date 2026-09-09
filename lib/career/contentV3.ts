@@ -12,6 +12,7 @@ export type CareerContentV3Availability = "available" | "missing";
 export type CareerContentV3Item = {
   id: string;
   copyKey: string;
+  title?: string | null;
   type: CareerContentV3Primitive;
   availability: CareerContentV3Availability;
   data: Record<string, unknown>;
@@ -356,7 +357,7 @@ function normalizeItem(value: unknown): CareerContentV3Item | null {
   if (!isRecord(value) || !exactKeysWithOptional(
     value,
     ["id", "copy_key", "type", "availability", "data"],
-    ["fact_refs", "source_refs"],
+    ["fact_refs", "source_refs", "title"],
   )) return null;
   const id = key(value.id);
   const copyKey = key(value.copy_key);
@@ -370,7 +371,8 @@ function normalizeItem(value: unknown): CareerContentV3Item | null {
   if (factRefs === null || sourceRefs === null || factRefs.some((entry) => key(entry) === null) || sourceRefs.some((entry) => key(entry) === null)) {
     return null;
   }
-  return { id, copyKey, type: type as CareerContentV3Primitive, availability, data: value.data, factRefs, sourceRefs };
+  if (value.title !== undefined && value.title !== null && string(value.title) === null) return null;
+  return { id, copyKey, title: value.title as string | null | undefined, type: type as CareerContentV3Primitive, availability, data: value.data, factRefs, sourceRefs };
 }
 
 function records(value: unknown): Record<string, unknown>[] | null {
@@ -401,7 +403,7 @@ export function canRenderCareerContentV3Item(
     const seen = new Set<string>();
     return values !== null && values.every((entry) => {
       const id = key(entry.id);
-      if (!exactKeys(entry, ["id", "values"]) || !id || seen.has(id) || strings(entry.values) === null) return false;
+      if (!exactKeysWithOptional(entry, ["id", "values"], ["title"]) || (entry.title !== undefined && entry.title !== null && string(entry.title) === null) || !id || seen.has(id) || strings(entry.values) === null) return false;
       seen.add(id);
       return true;
     });
@@ -412,8 +414,8 @@ export function canRenderCareerContentV3Item(
     return values !== null && values.every((entry) => {
       const id = key(entry.id);
       const questionKey = key(entry.question_key);
-      if (!exactKeysWithOptional(entry, ["id", "question_key", "answer"], ["fact_refs", "source_refs"]) || !id || seen.has(id) || !questionKey ||
-          string(entry.answer) === null || careerContentV3QuestionCopy(questionKey, locale, careerName) === null) return false;
+      if (!exactKeysWithOptional(entry, ["id", "question_key", "answer"], ["fact_refs", "source_refs", "question"]) || !id || seen.has(id) || !questionKey ||
+          string(entry.answer) === null || (entry.question !== undefined && entry.question !== null && string(entry.question) === null) || (entry.question === undefined && careerContentV3QuestionCopy(questionKey, locale, careerName) === null)) return false;
       const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs);
       const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs);
       if (factRefs === null || sourceRefs === null || factRefs.some((ref) => key(ref) === null) || sourceRefs.some((ref) => key(ref) === null)) return false;
@@ -438,10 +440,10 @@ export function canRenderCareerContentV3Item(
   }
   if (item.type === "metrics") {
     const values = exactKeys(item.data, ["entries"]) ? records(item.data.entries) : null;
-    return values !== null && values.every((entry) => exactKeys(entry, ["key", "value"]) && key(entry.key) !== null && string(entry.value) !== null);
+    return values !== null && values.every((entry) => exactKeysWithOptional(entry, ["key", "value"], ["label"]) && (entry.label === undefined || entry.label === null || string(entry.label) !== null) && key(entry.key) !== null && string(entry.value) !== null);
   }
-  const columns = exactKeys(item.data, ["column_keys", "rows"]) ? strings(item.data.column_keys) : null;
-  return columns !== null && columns.every((column) => key(column) !== null) &&
+  const columns = exactKeysWithOptional(item.data, ["column_keys", "rows"], ["column_labels"]) ? strings(item.data.column_keys) : null;
+  return columns !== null && (item.data.column_labels === undefined || (strings(item.data.column_labels) !== null && (item.data.column_labels as string[]).length === columns.length)) && columns.every((column) => key(column) !== null) &&
     Array.isArray(item.data.rows) && item.data.rows.length > 0 &&
     item.data.rows.every((row) => strings(row) !== null && (row as string[]).length === columns.length);
 }
@@ -541,18 +543,18 @@ function normalizeBlock(value: unknown, index: number): CareerContentV3Block {
   };
 }
 
-export function normalizeCareerContentV3(value: unknown, locale: Locale): CareerContentV3 | null {
+export function normalizeCareerContentV3(value: unknown, locale: Locale, allowEmpty = false): CareerContentV3 | null {
   if (!isRecord(value) || !exactKeysWithOptional(
     value,
     ["contract_version", "locale", "subject", "content_state", "source_content_sha256", "blocks"],
-    ["fact_register"],
+    ["fact_register", "hero", "seo"],
   ) ||
       value.contract_version !== CAREER_CONTENT_V3_VERSION ||
       value.locale !== (locale === "zh" ? "zh-CN" : "en") ||
       (value.content_state !== "enhanced" && value.content_state !== "legacy") ||
       typeof value.source_content_sha256 !== "string" || !/^[a-f0-9]{64}$/.test(value.source_content_sha256) ||
       !isRecord(value.subject) || !exactKeys(value.subject, ["canonical_slug", "name", "summary"]) ||
-      !Array.isArray(value.blocks) || value.blocks.length === 0) {
+      !Array.isArray(value.blocks) || (!allowEmpty && value.blocks.length === 0)) {
     return null;
   }
   const canonicalSlug = key(value.subject.canonical_slug);

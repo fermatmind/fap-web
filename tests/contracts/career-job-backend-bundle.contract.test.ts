@@ -448,66 +448,14 @@ describe("career job backend bundle contract", () => {
     });
   });
 
-  it("career job detail page wires explainability through the dedicated fetch and panel only", () => {
-    const source = readFileSync(
-      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
-      "utf8"
-    );
-
-    expect(source).toContain("fetchCareerJobExplainability");
-    expect(source).toContain("adaptCareerJobExplainability");
-    expect(source).toContain("fetchCareerFirstWaveNextStepLinks");
-    expect(source).toContain("adaptCareerFirstWaveNextStepLinks");
-    expect(source).toContain("CareerExplainabilityPanel");
-    expect(source).toContain("CareerNextStepLinks");
-    expect(source).toContain('testId="career-job-explainability-panel"');
-    expect(source).toContain('testId="career-job-next-step-links"');
-    expect(source).not.toContain("strainRadar");
-    expect(source).not.toContain("people_friction");
-    expect(source).not.toContain("why_this_path");
-    expect(source).not.toContain("bridge_steps_90d");
-    expect(source).not.toContain("CareerTransitionPreviewCard");
-  });
-
-  it("career job detail redirects english requests when only zh-CN DOCX fallback content is available", () => {
-    const source = readFileSync(
-      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
-      "utf8"
-    );
-
-    expect(source).toContain("function shouldRedirectEnglishJobDetailToChinese");
-    expect(source).toContain('locale !== "en"');
-    expect(source).toContain('trustLocale === "zh-CN"');
-    expect(source).toContain('displayMarket === "zh-CN"');
-    expect(source).toContain('crosswalkMode === "docx_baseline"');
-    expect(source).toContain("containsCjkText(job.contentBodyMd)");
-    expect(source).toContain('permanentRedirect(buildCareerJobFrontendUrl("zh", job.slug))');
-  });
-
-  it("career job detail breadcrumb stays above both DOCX and protocol renderer branches", () => {
-    const source = readFileSync(
-      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
-      "utf8"
-    );
-
-    expect(source).toContain("<Breadcrumb");
-    expect(source).toContain('localizedPath("/career", locale)');
-    expect(source).not.toContain('label: locale === "zh" ? "职业库" : "Jobs"');
-    expect(source.indexOf("<Breadcrumb")).toBeLessThan(source.indexOf("{visibleContentBodyMd ?"));
-  });
-
-  it("keeps DOCX job detail header and fallback cells user-facing", () => {
-    const source = readFileSync(
-      path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"),
-      "utf8"
-    );
-
-    expect(source).not.toContain("职业详情页正式文案版");
-    expect(source).not.toContain("/career/jobs/{job.slug}");
-    expect(source).toContain("formatCareerJobDocumentText");
-    expect(source).toContain("formatCareerJobDocumentCell");
-    expect(source).toContain('return "暂无"');
-    expect(source).toContain("暂无额外工作经验要求");
-    expect(source).toContain("参考美国标准");
+  it("career detail consumes only the file-owned page while retaining identity and attribution", () => {
+    const source = readFileSync(path.join(process.cwd(), "app/(localized)/[locale]/career/jobs/[slug]/page.tsx"), "utf8");
+    expect(source).toContain("normalizeCareerPage(raw.career_page");
+    expect(source).toContain("<CareerPageTemplate");
+    expect(source).toContain("buildCareerAttributionPayload");
+    expect(source).toContain("permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug))");
+    expect(source).not.toContain("job.contentBodyMd");
+    expect(source).not.toContain("job.displaySurfaceV1");
+    expect(source).not.toContain("shouldRedirectEnglishJobDetailToChinese");
   });
 });
