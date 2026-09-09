@@ -37,7 +37,7 @@ ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "$RELEASE_ARCHIVE" scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
-  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
+  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
   "$DEPLOY_USER@$DEPLOY_HOST:$control/"
 
 if [[ -n "$local_runtime_config" ]]; then

@@ -1,11 +1,11 @@
 #!/usr/bin/env node
+import { parseCareerCurrentInventory, hasExactCareerPaths } from "./career-current-inventory.mjs";
 
 import { createHash } from "node:crypto";
 import { writeFile } from "node:fs/promises";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
 
-const EXPECTED_CAREER_JOB_URL_COUNT = 2088;
 const EXPECTED_BIG_FIVE_URL_COUNT = 104;
 const EXPECTED_ENNEAGRAM_URL_COUNT = 116;
 const REQUIRED_PATHS = [
@@ -28,7 +28,6 @@ const REQUIRED_PATHS = [
   "/zh/tests/eq-test-emotional-intelligence-assessment",
 ];
 const FORBIDDEN_PATH = /^\/(?:en|zh)?\/?(?:take|result|results|share|orders?|pay|payment|payments|history)(?:\/|$)/i;
-const CAREER_ALIAS_PATH = /^\/(?:en|zh)\/career\/jobs\/(?:librarians-and-media-collections-specialists|preschool-teachers)$/;
 const BIG_FIVE_LEGACY_PATH = /^\/(?:en|zh)\/personality\/big-five\/(?:high-|low-|emotional-stability(?:\/|$))/i;
 
 function sha256(value) {
@@ -54,13 +53,13 @@ function normalizedUrls(text, siteUrl) {
   return [...urls.values()];
 }
 
-export function validateLlmsFullArtifact({ text, mode, source, siteUrl }) {
+export function validateLlmsFullArtifact({ text, mode, source, siteUrl, careerPaths }) {
   if (mode !== "complete" || source !== "cache" || text.includes("Mode: degraded")) {
     throw new Error("ARTIFACT_NOT_COMPLETE_CACHE");
   }
 
   const urls = normalizedUrls(text, siteUrl);
-  if (urls.some((url) => FORBIDDEN_PATH.test(url.pathname) || BIG_FIVE_LEGACY_PATH.test(url.pathname) || CAREER_ALIAS_PATH.test(url.pathname))) {
+  if (urls.some((url) => FORBIDDEN_PATH.test(url.pathname) || BIG_FIVE_LEGACY_PATH.test(url.pathname))) {
     throw new Error("FORBIDDEN_URL_PRESENT");
   }
 
@@ -74,7 +73,7 @@ export function validateLlmsFullArtifact({ text, mode, source, siteUrl }) {
   const bigFiveUrlCount = urls.filter((url) => /^\/(?:en|zh)\/personality\/big-five(?:\/|$)/.test(url.pathname)).length;
   const enneagramUrlCount = urls.filter((url) => /^\/(?:en|zh)\/personality\/enneagram(?:\/|$)/.test(url.pathname)).length;
 
-  if (careerJobUrlCount !== EXPECTED_CAREER_JOB_URL_COUNT) {
+  if (!Array.isArray(careerPaths) || !hasExactCareerPaths(urls.filter(url => /^\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/.test(url.pathname)).map(url => url.pathname), careerPaths)) {
     throw new Error("CAREER_COHORT_MISMATCH");
   }
   if (bigFiveUrlCount !== EXPECTED_BIG_FIVE_URL_COUNT) {
@@ -142,7 +141,13 @@ export async function verifyLlmsFullArtifact(options) {
       });
       if (!response.ok) throw new Error("HTTP_STATUS_MISMATCH");
       const text = await response.text();
+      const inventoryResponse = await fetch(options.inventoryUrl ?? "https://api.fermatmind.com/api/v0.5/seo/sitemap-source", {
+        cache: "no-store", signal: AbortSignal.timeout(Math.min(20_000, Math.max(1, deadlineMs - Date.now()))),
+      });
+      if (!inventoryResponse.ok) throw new Error("CAREER_CURRENT_INVENTORY_UNAVAILABLE");
+      const inventory = parseCareerCurrentInventory(await inventoryResponse.json());
       const validation = validateLlmsFullArtifact({
+        careerPaths: inventory.paths,
         text,
         mode: response.headers.get("x-fermatmind-llms-full-mode") ?? "",
         source: response.headers.get("x-fermatmind-llms-full-source") ?? "",

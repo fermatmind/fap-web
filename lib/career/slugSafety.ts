@@ -10,5 +10,5 @@ export function normalizeCareerJobSlug(value: unknown): string | null {
 }
 
 export function isSafeCareerJobSlug(value: unknown): value is string {
-  return normalizeCareerJobSlug(value) === value;
+  return typeof value === "string" && normalizeCareerJobSlug(value) === value;
 }

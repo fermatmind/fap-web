@@ -1,3 +1,4 @@
+import { hasExactCareerPaths } from "../../scripts/ops/career-current-inventory.mjs";
 import { after, NextResponse } from "next/server";
 import { getCmsArticleWithLastKnownGood, listCmsArticlesForLlmsWithLastKnownGood } from "@/lib/cms/articles";
 import { getCareerGuideFromCmsBySlug, listCareerGuidesFromCms } from "@/lib/cms/career-guides";
@@ -95,8 +96,6 @@ const MAX_TEXT_CHARS = 360;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS = 60_000;
-// Two former job slugs are redirect-only aliases of existing canonical jobs.
-const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1044 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 104;
@@ -146,8 +145,6 @@ const LLMS_FULL_REQUIRED_IQ_ASSESSMENT_TEST_PATHS = [
   "/zh/tests/iq-test-intelligence-quotient-assessment",
 ] as const;
 const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
-  "librarians-and-media-collections-specialists",
-  "preschool-teachers",
   "software-developers",
   "digital-forensics-analysts",
   "computer-occupations-all-other",
@@ -852,7 +849,8 @@ function hasExactEnneagramLlmsFullCohort(text: string, siteUrl: string): boolean
 export function isCompleteLlmsFullText(
   text: string,
   siteUrl: string,
-  expectedMbtiPersonalityPaths?: readonly string[]
+  expectedMbtiPersonalityPaths?: readonly string[],
+  expectedCareerPaths?: readonly string[]
 ): boolean {
   if (!text.includes("# FermatMind llms-full.txt") || text.includes("Mode: degraded")) {
     return false;
@@ -919,7 +917,8 @@ export function isCompleteLlmsFullText(
   }
 
   const careerUrls = canonicalCareerJobUrlSet(text, siteUrl);
-  if (careerUrls.size < LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT) {
+  if (careerUrls.size === 0 || (expectedCareerPaths !== undefined
+    && !hasExactCareerPaths([...careerUrls].map(url => new URL(url).pathname), expectedCareerPaths))) {
     return false;
   }
 
@@ -1102,7 +1101,9 @@ export function hasRequiredTestSource(entries: readonly { path: string; llmsFull
 function hasCompleteCareerJobs(paths: readonly string[]): boolean {
   const canonical = new Set(paths.map(normalizePath));
   return (
-    canonical.size === LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT
+    canonical.size > 0
+    && canonical.size === paths.length
+    && [...canonical].every(path => canonical.has(path.replace(/^\/(en|zh)\//, (_, locale) => locale === "en" ? "/zh/" : "/en/")))
     && LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS.every((slug) =>
       canonical.has(`/en/career/jobs/${slug}`) && canonical.has(`/zh/career/jobs/${slug}`)
     )
@@ -1428,6 +1429,7 @@ async function buildLlmsFullTextInternal(
       () => withLlmsRouteBudget(
         (signal) => listBackendSitemapCareerJobPaths({
           limit: LLMS_ROUTE_LIMITS.careerJobs,
+          requireCurrentInventory: true,
           signal,
           requestTimeoutMs: llmsFullSourceTimeoutMs(
             buildProfile,
@@ -1741,8 +1743,11 @@ export async function buildAndCacheLlmsFullText(siteUrl: string, text = "", expe
   careerJobUrlCount: number;
 }> {
   const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
+  const careerPaths = shouldRequireCompleteCareerJobCohort()
+    ? await listBackendSitemapCareerJobPaths({ requireCurrentInventory: true }).catch(() => [])
+    : undefined;
   const cacheOptions = {
-    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths)
+    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths, careerPaths)
       && expectedUrls.every((url) => value.includes(url)),
   };
   const resolvedText = await getOrStartLlmsFullBuild(siteUrl,
@@ -1762,8 +1767,11 @@ export async function rebuildLlmsFullResponseCache(siteUrl: string): Promise<{
   careerJobUrlCount: number;
 }> {
   const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
+  const careerPaths = shouldRequireCompleteCareerJobCohort()
+    ? await listBackendSitemapCareerJobPaths({ requireCurrentInventory: true }).catch(() => [])
+    : undefined;
   const cacheOptions = {
-    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths),
+    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths, careerPaths),
   };
   const text = await getOrStartLlmsFullBuild(
     siteUrl,
@@ -1808,12 +1816,14 @@ export async function GET() {
   }
 
   const siteUrl = getSiteUrlOrThrow();
+  const careerPaths = shouldRequireCompleteCareerJobCohort()
+    ? await listBackendSitemapCareerJobPaths({ requireCurrentInventory: true }).catch(() => [])
+    : undefined;
   const cacheOptions = {
     // The offline writer binds the exact dynamic authority cohort before it stores
-    // the artifact. Public reads only re-run the self-contained safety gates; a
-    // trusted content-release notification clears both fresh and stale artifacts
-    // when authority changes.
-    isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl),
+    // the artifact. Public reads recheck the current manifest inventory so an
+    // obsolete alias cannot survive in either the fresh or stale artifact.
+    isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl, undefined, careerPaths),
   };
   const freshCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS, cacheOptions);
   if (freshCachedText) {

@@ -49,6 +49,19 @@ function completeArtifactText(): string {
   return [...paths].map((pathname) => `${SITE_URL}${pathname}`).join("\n");
 }
 
+const careerPaths = Array.from({ length: 1044 }, (_, index) => ["en", "zh"].map(locale => `/${locale}/career/jobs/role-${index}`)).flat();
+function inventoryPayload() {
+  return {
+    ok: true, source: "backend_sitemap_generator", count: careerPaths.length,
+    items: careerPaths.map(p => ({ loc: `${SITE_URL}${p}` })),
+    career_current_identity: {
+      manifest_sha256: "a".repeat(64), storage_count: 1046, file_count: 2092,
+      slugs: [...Array.from({ length: 1044 }, (_, i) => `role-${i}`), "old-a", "old-b"],
+      aliases: { "old-a": "role-0", "old-b": "role-1" },
+    },
+  };
+}
+
 afterEach(async () => {
   vi.unstubAllGlobals();
   await Promise.all(temporaryDirectories.splice(0).map((directory) => rm(directory, { force: true, recursive: true })));
@@ -60,7 +73,7 @@ describe("llms-full automatic recovery", () => {
       text: completeArtifactText(),
       mode: "complete",
       source: "cache",
-      siteUrl: SITE_URL,
+      siteUrl: SITE_URL, careerPaths,
     });
 
     expect(validation.body_sha256).toMatch(/^[0-9a-f]{64}$/);
@@ -73,7 +86,7 @@ describe("llms-full automatic recovery", () => {
     const complete = completeArtifactText();
     const withoutCareer = complete.replace(`${SITE_URL}/en/career/jobs/role-0\n`, "");
     expect(() =>
-      validateLlmsFullArtifact({ text: withoutCareer, mode: "complete", source: "cache", siteUrl: SITE_URL })
+      validateLlmsFullArtifact({ text: withoutCareer, mode: "complete", source: "cache", siteUrl: SITE_URL, careerPaths })
     ).toThrow("CAREER_COHORT_MISMATCH");
 
     for (const forbidden of [
@@ -87,9 +100,9 @@ describe("llms-full automatic recovery", () => {
           text: `${complete}\n${forbidden}`,
           mode: "complete",
           source: "cache",
-          siteUrl: SITE_URL,
+          siteUrl: SITE_URL, careerPaths,
         })
-      ).toThrow("FORBIDDEN_URL_PRESENT");
+      ).toThrow(forbidden.includes("/career/jobs/") ? "CAREER_COHORT_MISMATCH" : "FORBIDDEN_URL_PRESENT");
     }
   });
 
@@ -101,6 +114,7 @@ describe("llms-full automatic recovery", () => {
     let artifactRequests = 0;
     vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request) => {
       const url = String(input);
+      if (url.endsWith("/seo/sitemap-source")) return Response.json(inventoryPayload());
       if (url.endsWith("/revision")) {
         return Response.json({ revision: REVISION });
       }
@@ -123,7 +137,7 @@ describe("llms-full automatic recovery", () => {
 
     const receipt = await verifyLlmsFullArtifact({
       url: `${SITE_URL}/llms-full.txt`,
-      siteUrl: SITE_URL,
+      siteUrl: SITE_URL, careerPaths,
       expectedRevision: REVISION,
       receiptPath,
       timeoutMs: 2_000,
@@ -148,6 +162,11 @@ describe("llms-full automatic recovery", () => {
     const complete = completeArtifactText();
     let downloads = 0;
     const server = createServer((request, response) => {
+      if (request.url === "/inventory") {
+        response.setHeader("content-type", "application/json");
+        response.end(JSON.stringify(inventoryPayload()));
+        return;
+      }
       if (request.url === "/revision") {
         response.setHeader("content-type", "application/json");
         response.end(JSON.stringify({ revision: REVISION }));
@@ -166,7 +185,7 @@ describe("llms-full automatic recovery", () => {
       if (!address || typeof address === "string") throw new Error("missing test address");
       const origin = `http://127.0.0.1:${address.port}`;
       const receipt = await verifyLlmsFullArtifact({
-        url: `${origin}/llms-full.txt`, revisionUrl: `${origin}/revision`, siteUrl: SITE_URL,
+        inventoryUrl: `${origin}/inventory`, url: `${origin}/llms-full.txt`, revisionUrl: `${origin}/revision`, siteUrl: SITE_URL, careerPaths,
         expectedRevision: REVISION, receiptPath: path.join(directory, "receipt.json"),
         timeoutMs: 30_000, pollIntervalMs: 250,
       });

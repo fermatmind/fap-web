@@ -174,10 +174,10 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const generatedText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     const artifact = await route.buildAndCacheLlmsFullText(SITE_URL, generatedText);
     expect(artifact.ok).toBe(true);
-    expect(route.isCompleteLlmsFullText(`${generatedText}\n- URL: ${SITE_URL}/zh/career/jobs/preschool-teachers`, SITE_URL)).toBe(false);
+    expect(route.isCompleteLlmsFullText(`${generatedText}\n- URL: ${SITE_URL}/zh/career/jobs/preschool-teachers`, SITE_URL, undefined, fullCohortPaths())).toBe(false);
     expect(careerUrlCount(generatedText)).toBe(1044 * 2);
 
-    currentPaths = [];
+    currentPaths = fullCohortPaths();
     const cachedResponse = await route.GET();
     const cachedText = await cachedResponse.text();
     expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
@@ -197,6 +197,24 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
       expect(cachedText).toContain(`${SITE_URL}${testPath}`);
     }
   }, 30_000);
+
+  it("does not expose a cached artifact after its canonical inventory changes or becomes unavailable", async () => {
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-identity-change-"));
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    let currentPaths = fullCohortPaths();
+    mockLlmsFullDependencies(() => currentPaths);
+    const route = await import("@/lib/seo/llmsFullRoute");
+    const text = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    await expect(route.buildAndCacheLlmsFullText(SITE_URL, text)).resolves.toMatchObject({ ok: true });
+    currentPaths = currentPaths.filter(path => !path.endsWith("/preschool-teachers-except-special-education"));
+    const changed = await route.GET();
+    expect(changed.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
+    expect(await changed.text()).not.toContain("/career/jobs/preschool-teachers-except-special-education");
+    currentPaths = [];
+    const unavailable = await route.GET();
+    expect(unavailable.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
+  });
 
   it("does not cache otherwise complete artifacts when six assessment test routes are missing", async () => {
     const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-missing-tests-"));
@@ -251,7 +269,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     expect(careerUrlCount(generatedText)).toBe(1044 * 2);
 
     vi.resetModules();
-    currentPaths = [];
+    currentPaths = fullCohortPaths();
     mockLlmsFullDependencies(() => currentPaths);
     const secondModule = await import("@/lib/seo/llmsFullRoute");
     const sharedResponse = await secondModule.GET();
@@ -282,7 +300,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     fs.writeFileSync(cachePath, `${JSON.stringify(envelope)}\n`);
 
     vi.resetModules();
-    mockLlmsFullDependencies(() => []);
+    mockLlmsFullDependencies(() => fullCohortPaths());
     const reader = await import("@/lib/seo/llmsFullRoute");
     const response = await reader.GET();
 

@@ -28,7 +28,7 @@ describe("proxy boundary contract", () => {
   it.each(["en", "zh"])("returns the authoritative held status for the %s software developers route", async (locale) => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       expect(String(input)).toContain("/api/v0.5/career/jobs/software-developers");
-      expect(init?.method).toBe("HEAD");
+      expect(init?.method).toBe("GET");
       return new Response(null, { status: 404 });
     });
     vi.stubGlobal("fetch", fetchMock);
@@ -41,8 +41,27 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-robots-tag")?.toLowerCase()).toContain("noindex");
     expect(response.headers.get("cache-control")).toBe("no-store");
     expect(fetchMock).toHaveBeenCalledOnce();
-    expect(fetchMock.mock.calls[0]?.[1]?.method).toBe("HEAD");
+    expect(fetchMock.mock.calls[0]?.[1]?.method).toBe("GET");
   });
+
+  it.each(["en", "zh"])("redirects a backend-resolved alias before streaming in %s", async (locale) => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({
+      identity: { canonical_slug: "librarians" },
+    })));
+    const response = await proxyHandler(new NextRequest(
+      `https://example.com/${locale}/career/jobs/librarians-and-media-collections-specialists?utm=a`,
+    ));
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(`https://example.com/${locale}/career/jobs/librarians?utm=a`);
+  });
+
+  it.each(["librarians", "https://evil.example", "../librarians", "", null])(
+    "does not redirect a canonical or unsafe backend identity: %s", async (canonicalSlug) => {
+      vi.stubGlobal("fetch", vi.fn(async () => Response.json({ identity: { canonical_slug: canonicalSlug } })));
+      const response = await proxyHandler(new NextRequest("https://example.com/en/career/jobs/librarians"));
+      expect(response.headers.get("location")).toBeNull();
+    },
+  );
 
   it("matches content roots and machine discoverability endpoints", () => {
     expect(testing.unstable_doesMiddlewareMatch({ config, nextConfig: {}, url: "/articles" })).toBe(true);

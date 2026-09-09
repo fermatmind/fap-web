@@ -1,3 +1,4 @@
+import { parseCareerCurrentInventory } from "../../scripts/ops/career-current-inventory.mjs";
 import { buildApiUrl } from "@/lib/api-base";
 import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -14,10 +15,12 @@ type BackendSitemapSourceItem = {
 
 type BackendSitemapSourcePayload = {
   items?: BackendSitemapSourceItem[];
+  career_current_identity?: unknown;
 };
 
 type BackendSitemapCareerJobPathOptions = {
   limit?: number;
+  requireCurrentInventory?: boolean;
   signal?: AbortSignal;
   requestTimeoutMs?: number;
 };
@@ -42,7 +45,6 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "computer-occupations-all-other",
 ]);
 
-let careerJobPathCache: string[] | null = null;
 let bigFivePublicAssetPathCache: string[] | null = null;
 let enneagramPublicAssetPathCache: string[] | null = null;
 let backendSitemapSourceInFlight: {
@@ -348,20 +350,19 @@ export function extractBackendSitemapMbtiPersonalityPaths(payload: BackendSitema
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
+export async function listBackendCareerCanonicalInventory(
+  options: BackendSitemapCareerJobPathOptions = {}
+) {
+  return parseCareerCurrentInventory(await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs));
+}
+
 export async function listBackendSitemapCareerJobPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
-  const shouldUseCache = options.limit === undefined && !options.signal;
-  if (shouldUseCache && careerJobPathCache) {
-    return careerJobPathCache;
-  }
-
   const payload = await fetchBackendSitemapSource(options.signal, options.requestTimeoutMs);
-  const filteredPaths = limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
-
-  if (shouldUseCache) {
-    careerJobPathCache = filteredPaths;
-  }
+  const filteredPaths = options.requireCurrentInventory || payload.career_current_identity !== undefined
+    ? limitCareerJobCandidatePaths(parseCareerCurrentInventory(payload).paths, options.limit)
+    : limitCareerJobCandidatePaths(extractBackendSitemapCareerJobPaths(payload), options.limit);
 
   return filteredPaths;
 }

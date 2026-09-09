@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
+import { isSafeCareerJobSlug } from "@/lib/career/slugSafety";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import {
   LOCALE_COOKIE_NAME,
@@ -168,6 +169,7 @@ async function probeArticlePublicAbsence(
 
 async function probeCareerPublicAbsence(
   probe: { locale: "en" | "zh"; slug: string },
+  request: NextRequest,
 ): Promise<NextResponse | null> {
   const query = new URLSearchParams({
     locale: toApiLocale(probe.locale),
@@ -178,7 +180,7 @@ async function probeCareerPublicAbsence(
     const response = await fetch(
       buildApiUrl(`/v0.5/career/jobs/${encodeURIComponent(probe.slug)}?${query.toString()}`),
       {
-        method: "HEAD",
+        method: "GET",
         headers: {
           Accept: "application/json",
           "X-FAP-Locale": toApiLocale(probe.locale),
@@ -189,9 +191,19 @@ async function probeCareerPublicAbsence(
       },
     );
 
-    return response.status === 404 || response.status === 410
-      ? createPublicAbsenceResponse(response.status)
-      : null;
+    if (response.status === 404 || response.status === 410) {
+      return createPublicAbsenceResponse(response.status);
+    }
+    if (!response.ok) return null;
+
+    const payload = await response.json();
+    const canonicalSlug = payload?.identity?.canonical_slug;
+    if (isSafeCareerJobSlug(canonicalSlug) && canonicalSlug !== probe.slug) {
+      const target = request.nextUrl.clone();
+      target.pathname = `/${probe.locale}/career/jobs/${canonicalSlug}`;
+      return NextResponse.redirect(target, 308);
+    }
+    return null;
   } catch {
     return null;
   }
@@ -371,7 +383,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
 
     const careerProbe = resolveCareerAuthorityProbe(pathname);
     if (careerProbe) {
-      return probeCareerPublicAbsence(careerProbe).then(
+      return probeCareerPublicAbsence(careerProbe, request).then(
         (absenceResponse) => absenceResponse ?? runProxy(request, false),
       );
     }
