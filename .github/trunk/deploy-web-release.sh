@@ -87,11 +87,18 @@ curl --fail --silent --show-error --connect-timeout 10 --max-time 20 "$PUBLIC_BA
 if [ "$REQUIRE_LLMS_FULL_ARTIFACT" = 1 ]; then
   scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
     "$DEPLOY_USER@$DEPLOY_HOST:$remote_llms_full_receipt" "$local_llms_full_receipt"
-  jq -e --arg sha "$DEPLOY_SHA" '
+  expected_career_count="$(node --input-type=module <<'NODE'
+import { parseCareerCurrentInventory } from './scripts/ops/career-current-inventory.mjs';
+const response = await fetch('https://api.fermatmind.com/api/v0.5/seo/sitemap-source', { signal: AbortSignal.timeout(20000) });
+if (!response.ok) throw new Error('CAREER_CURRENT_INVENTORY_UNAVAILABLE');
+console.log(parseCareerCurrentInventory(await response.json()).paths.length);
+NODE
+  )"
+  jq -e --arg sha "$DEPLOY_SHA" --argjson career_count "$expected_career_count" '
     .schema_version == "fermatmind.llms-full-artifact-receipt.v1" and
     .revision == $sha and .mode == "complete" and .source == "cache" and
     (.body_sha256 | test("^[0-9a-f]{64}$")) and (.bytes | numbers and . > 0) and
-    .counts.career == 2088 and .counts.big_five == 104 and .counts.enneagram == 116 and
+    .counts.career == $career_count and .counts.big_five == 104 and .counts.enneagram == 116 and
     (.counts | keys | sort) == ["big_five","career","enneagram"] and
     (.duration_ms | numbers and . >= 0) and
     (keys | sort) == ["body_sha256","bytes","counts","duration_ms","mode","revision","schema_version","source","verified_at"]

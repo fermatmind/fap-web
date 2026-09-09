@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { parseCareerCurrentInventory } from '../../scripts/ops/career-current-inventory.mjs';
@@ -32,4 +33,11 @@ test('rejects missing, duplicate, substituted and stale alias URLs even at the s
     const payload = fixture(3); mutate(payload);
     assert.throws(() => parseCareerCurrentInventory(payload), /CAREER_CURRENT_/);
   }
+});
+
+ test('release receipt count uses the same validated inventory as the artifact verifier', () => {
+  const source = fs.readFileSync(new URL('./deploy-web-release.sh', import.meta.url), 'utf8');
+  assert.match(source, /parseCareerCurrentInventory\(await response.json\(\)\).paths.length/);
+  assert.match(source, /\.counts.career == \$career_count/);
+  assert.doesNotMatch(source, /\.counts.career == 2088/);
 });
