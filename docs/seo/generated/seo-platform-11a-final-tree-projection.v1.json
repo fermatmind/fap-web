@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "40717984287b112e5f38bb522fbe0b65aef27b8a",
+    "sha": "44128b27b062255f5900da26ec496f128dc10f71",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "4e768abddf8c30398ca8823a678cf1c76f6aa0654ec6c2b542956177dd00eb64"
+  "projection_self_hash": "0652169dde1b2a22f67388e1102123b9c309f574ff7bfc4b45995f86dfddcdff"
 }

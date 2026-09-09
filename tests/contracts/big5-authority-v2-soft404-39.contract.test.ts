@@ -160,7 +160,7 @@ describe("BIG5-AUTHORITY-V2-SOFT404-39", () => {
     for (const [input, init] of fetchMock.mock.calls) {
       expect(String(input)).toMatch(/^https:\/\/api\.fermatmind\.com\/api\/v0\.5\/career\/jobs\//);
       expect(String(input)).toContain("org_id=0");
-      expect(init?.method).toBe("HEAD");
+      expect(init?.method).toBe("GET");
       expect(init?.cache).toBe("no-store");
     }
   });
