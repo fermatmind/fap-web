@@ -43,3 +43,10 @@ test("mixed scope returns the validation union", () => {
 });
 
 test("refuses an indeterminate empty diff", () => assert.throws(() => classifyPaths([]), /must not be empty/));
+
+test("classifies the machine-consumed SEO projection as a release input", () => {
+  const result = classifyPaths(["docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json"]);
+  assert.equal(result.flags.deployment_infrastructure, true);
+  assert.equal(result.deploy, true);
+  assert.equal(result.flags.docs_rules_tests_only, false);
+});

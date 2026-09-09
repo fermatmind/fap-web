@@ -22,6 +22,12 @@ export function classifyPaths(inputPaths) {
 
   for (const path of paths) {
     const selected = [];
+    // This generated file is consumed by CI as an executable release input.
+    if (path === "docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json") {
+      flags.deployment_infrastructure = true;
+      reasons.deployment_infrastructure.push(path);
+      continue;
+    }
     const docsOnly = matches(path, [
       /(^|\/)AGENTS\.md$/,
       /(^|\/)README(?:\.[^/]+)?$/,
