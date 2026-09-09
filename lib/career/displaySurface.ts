@@ -17,6 +17,7 @@ import {
 } from "@/lib/career/presentationV2";
 import {
   buildCareerDossierRenderPlan,
+  isCareerRegisteredV3BlockCopyKey,
   type CareerDossierRenderPlan,
 } from "@/lib/career/dossierRenderPlan";
 import {
@@ -1473,7 +1474,6 @@ export function adaptCareerDisplaySurface(
   }
 
   const contentV3 = normalizeCareerContentV3(root.content_v3, locale);
-  if (Object.prototype.hasOwnProperty.call(root, "content_v3") && !contentV3) return null;
   if (contentV3 && contentV3.subject.canonicalSlug !== canonicalSlug) {
     return null;
   }
@@ -1505,7 +1505,9 @@ export function adaptCareerDisplaySurface(
     : null;
   const publishedComponents = normalizeCareerPublishedComponents(page, componentOrder, contentV3 !== null);
   const faqItems = contentV3
-    ? careerContentV3FaqItems(contentV3)
+    ? careerContentV3FaqItems(contentV3, (block) =>
+        !isCareerRegisteredV3BlockCopyKey(block.copyKey) || publishedComponents?.faq_block !== undefined
+      )
     : faqSection?.faqItems ?? [];
   const normalizedPresentationV1 = normalizeCareerPresentationV1(root.presentation_v1);
   const presentationV1 = locale === "zh" ? normalizedPresentationV1 : null;

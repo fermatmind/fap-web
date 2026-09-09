@@ -6,8 +6,9 @@ import { FermatDecisionCard } from "@/components/career/display/FermatDecisionCa
 import { CareerQuickAnswersBlock } from "@/components/career/display/CareerQuickAnswersBlock";
 import { OnetStructuredFieldsBlock } from "@/components/career/display/OnetStructuredFieldsBlock";
 import { CareerDossierProfile } from "@/components/career/display/CareerDossierProfile";
-import { CareerEvidenceLine, careerEvidenceTypeLabel } from "@/components/career/display/CareerEvidenceLine";
+import { CareerEvidenceLine } from "@/components/career/display/CareerEvidenceLine";
 import {
+  CareerDossierEntryDecisions,
   suppressMissingCareerEntryDecisionItem,
 } from "@/components/career/display/CareerDossierEntryDecisions";
 import {
@@ -52,6 +53,7 @@ import {
   type CareerDisplaySurfaceViewModel,
 } from "@/lib/career/displaySurface";
 import {
+  careerComponentForV3CopyKey,
   isCareerInternalV3BlockCopyKey,
   isCareerRegisteredV3BlockCopyKey,
   type CareerDossierRenderPlanBlock,
@@ -296,13 +298,12 @@ function CareerV3PrimitiveItem({ item, content }: { item: CareerContentV3Item; c
     ))}</div>;
   }
   if (item.type === "faq") {
-    return <div className="space-y-3" data-testid="career-display-faq">{(item.data.entries as Array<{ id: string; question_key: string; answer: string; fact_refs?: string[]; source_refs?: string[] }>).map((entry) => (
+    return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; answer: string }>).map((entry) => (
       <details key={entry.id} className="group rounded-xl border border-[#E5E9F2] bg-white px-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
           {careerContentV3QuestionCopy(entry.question_key, locale, content.subject.name)}
         </summary>
         <p className="m-0 pb-4 text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
-        <CareerEvidenceLine content={content} factRefs={entry.fact_refs} sourceRefs={entry.source_refs} />
       </details>
     ))}</div>;
   }
@@ -347,7 +348,6 @@ function CareerV3PrimitiveBlock({ block, content }: { block: CareerDossierRender
   const copy = careerContentV3UiCopy(content.locale);
   const groups: Array<{ copyKey: string; items: CareerContentV3Item[] }> = [];
   for (const item of block.items) {
-    if (item.availability === "missing" && suppressMissingCareerEntryDecisionItem(item.copyKey)) continue;
     const previous = groups.at(-1);
     if (previous?.copyKey === item.copyKey) previous.items.push(item);
     else groups.push({ copyKey: item.copyKey, items: [item] });
@@ -357,7 +357,7 @@ function CareerV3PrimitiveBlock({ block, content }: { block: CareerDossierRender
       {groups.map((group, groupIndex) => (
         <section className="space-y-3" key={`${group.copyKey}:${groupIndex}`}>
           <h3 className="m-0 text-lg font-bold text-[#1A2233]">{careerContentV3ItemCopy(group.copyKey, content.locale) ?? copy.additionalContent}</h3>
-          <div className="space-y-4">{group.items.map((item) => <div key={item.id} data-content-item-id={item.id}><CareerV3PrimitiveItem item={item} content={content} /><CareerEvidenceLine content={content} factRefs={item.factRefs} sourceRefs={item.sourceRefs} /></div>)}</div>
+          <div className="space-y-4">{group.items.map((item) => <CareerV3PrimitiveItem item={item} content={content} key={item.id} />)}</div>
         </section>
       ))}
     </div>
@@ -439,13 +439,6 @@ function CareerProductionHero({
   visibleSections,
   primaryCtaHref,
 }: Pick<Props, "surface" | "visibleSections" | "primaryCtaHref">) {
-  if (surface.contentV3) {
-    const content = surface.contentV3;
-    return <header className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] p-6 text-white md:p-10 ${visual.hero}`} style={{ minHeight: 0 }} data-testid="career-display-hero" data-career-api-component="hero">
-      <h1 className="m-0 text-3xl font-extrabold" data-career-api-field="content_v3.subject.name">{content.subject.name}</h1>
-      {content.subject.summary ? <p className="mb-0 mt-5 text-[15.5px] leading-7 text-white/95" data-career-api-field="content_v3.subject.summary">{content.subject.summary}</p> : null}
-    </header>;
-  }
   const published = surface.publishedComponents;
   const presentationV2 = surface.presentationV2;
   const presentationV1 = surface.presentationV1;
@@ -589,7 +582,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
               <summary className="cursor-pointer list-none pr-7 text-sm text-[#2a3346] marker:content-none">
                 <span className="block font-bold text-[#243B7A]">{source.scope ?? source.name}</span>
                 <span className="mt-1 block text-xs leading-5 text-[#657087]">
-                  {[source.publisher ?? source.name, source.market, source.period, careerEvidenceTypeLabel(source.evidenceType, surface.locale)].filter(Boolean).join("｜")}
+                  {[source.publisher ?? source.name, source.market, source.period, source.evidenceType].filter(Boolean).join("｜")}
                 </span>
               </summary>
               <div className="mt-3 border-t border-[#DCE3F0] pt-3 text-sm leading-7 text-[#2a3346]">
@@ -851,15 +844,148 @@ export function CareerProductionDisplaySurface({
     );
   };
 
-  // Current block data is the body authority, including registered component families.
-  // Compatibility presentation fields must never replace an available Current item.
-  const renderV3RichBlock = (block: CareerDossierRenderPlanBlock): ReactNode | null => {
-    if (!surface.contentV3) return null;
-    return <>
-      <CareerV3PrimitiveBlock block={block} content={surface.contentV3} />
-      {block.copyKey === "career.block.sources" && surface.contentV3.sources.length > 0
-        ? <SourceCard surface={surface} embedded /> : null}
-    </>;
+  const renderV3RichBlock = (
+    block: CareerDossierRenderPlanBlock,
+  ): ReactNode | null => {
+    if (!publishedComponents || !isCareerRegisteredV3BlockCopyKey(block.copyKey)) return null;
+    const availableComponents = new Set(
+      block.items
+        .filter((item) => item.availability === "available")
+        .map((item) => careerComponentForV3CopyKey(item.copyKey))
+        .filter((componentId): componentId is CareerDisplayComponentId => componentId !== null),
+    );
+    const declares = (...componentIds: CareerDisplayComponentId[]) => componentIds.every((componentId) => availableComponents.has(componentId));
+
+    if (block.copyKey === "career.block.quick-decision" && declares("fermat_decision_card", "fit_decision_checklist")) {
+      const decision = publishedComponents.fermat_decision_card;
+      const checklist = publishedComponents.fit_decision_checklist;
+      if (decision !== undefined && checklist !== undefined && !isPublishedComponentUnavailable(decision) && !isPublishedComponentUnavailable(checklist)) {
+        return <>
+          <ComponentFrame id="fermat_decision_card" instanceKey={block.instanceKey}>
+            <CareerDossierQuickDecisionAnswer value={decision} />
+          </ComponentFrame>
+          <ComponentFrame id="fit_decision_checklist" instanceKey={block.instanceKey}>
+            <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
+          </ComponentFrame>
+        </>;
+      }
+    }
+
+    if (block.copyKey === "career.block.profile" && declares(
+      "definition_block", "responsibilities_block", "work_context_block", "career_quick_answers_block", "onet_structured_fields_block",
+    ) && supportsStructuredCareerDossierProfile(publishedComponents)) {
+      return <CareerDossierProfile
+          definition={publishedComponents.definition_block as string}
+          responsibilities={publishedComponents.responsibilities_block as string[]}
+          workContext={publishedComponents.work_context_block as string}
+          quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+          professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
+          locale={surface.locale}
+        />;
+    }
+
+    const directionComparison = publishedComponents.adjacent_career_comparison_table;
+    if (block.copyKey === "career.block.direction-comparison" && declares("adjacent_career_comparison_table") &&
+      directionComparison !== undefined && supportsCareerDossierDirectionComparison(directionComparison)) {
+      return <ComponentFrame id="adjacent_career_comparison_table" instanceKey={block.instanceKey}>
+        <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />
+      </ComponentFrame>;
+    }
+
+    const aiImpact = publishedComponents.ai_impact_table;
+    if (block.copyKey === "career.block.ai-impact" && declares("ai_impact_table") && aiImpact !== undefined && supportsCareerDossierAiImpact(aiImpact)) {
+      return <ComponentFrame id="ai_impact_table" instanceKey={block.instanceKey}>
+        <CareerDossierAiImpact value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
+      </ComponentFrame>;
+    }
+
+    const chinaSalary = publishedComponents.career_snapshot_primary_locale;
+    if (block.copyKey === "career.block.china-salary" && declares("career_snapshot_primary_locale") && chinaSalary !== undefined && supportsCareerDossierChinaSalary(chinaSalary)) {
+      return <ComponentFrame id="career_snapshot_primary_locale" instanceKey={block.instanceKey}>
+        <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
+      </ComponentFrame>;
+    }
+
+    const usSalary = publishedComponents.career_snapshot_secondary_locale;
+    if (block.copyKey === "career.block.us-salary" && declares("career_snapshot_secondary_locale") && usSalary !== undefined && supportsCareerDossierUsSalary(usSalary)) {
+      return <ComponentFrame id="career_snapshot_secondary_locale" instanceKey={block.instanceKey}>
+        <CareerDossierUsSalary value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
+      </ComponentFrame>;
+    }
+
+    const riasec = publishedComponents.riasec_fit_block;
+    const fitCenter = publishedComponents.personality_fit_block;
+    if (block.copyKey === "career.block.fit" && declares("riasec_fit_block", "personality_fit_block") && supportsRiasecFit(riasec) && supportsCareerDossierFitCenter(fitCenter)) {
+      return <>
+        <ComponentFrame id="riasec_fit_block" instanceKey={block.instanceKey} hidden><span data-career-api-component="riasec_fit_block" /></ComponentFrame>
+        <ComponentFrame id="personality_fit_block" instanceKey={block.instanceKey}>
+          <CareerDossierFitCenter value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+        </ComponentFrame>
+      </>;
+    }
+
+    const workRisk = publishedComponents.career_risk_cards;
+    if (block.copyKey === "career.block.risk" && declares("career_risk_cards") && supportsCareerWorkRisk(workRisk)) {
+      return <ComponentFrame id="career_risk_cards" instanceKey={block.instanceKey}>
+        <CareerDossierWorkRisk value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+      </ComponentFrame>;
+    }
+
+    const progression = publishedComponents.career_path_block;
+    if (block.copyKey === "career.block.path" && declares("career_path_block") && supportsCareerProgression(progression)) {
+      return <ComponentFrame id="career_path_block" instanceKey={block.instanceKey}>
+        <CareerDossierProgression
+          value={progression as CareerPublishedProgression}
+          locale={surface.locale}
+          sectionLabel={block.title}
+          sectionLabelId={`${block.anchorId}-title`}
+          entryDecisions={surface.contentV3 ? <CareerDossierEntryDecisions items={block.items} content={surface.contentV3} /> : undefined}
+        />
+      </ComponentFrame>;
+    }
+
+    const outlook = publishedComponents.market_signal_card;
+    if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
+      return <ComponentFrame id="market_signal_card" instanceKey={block.instanceKey}>
+        <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
+      </ComponentFrame>;
+    }
+
+    if (block.copyKey === "career.block.sources") {
+      const nodes = block.declaredComponentIds.flatMap((componentId) => {
+        if (!availableComponents.has(componentId)) return [];
+        if (INTERNAL_COMPONENT_IDS.has(componentId)) return [];
+        if (publishedComponents[componentId] === undefined) return [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
+            <CareerV3Placeholder compact locale={surface.locale} />
+          </ComponentFrame>,
+        ];
+        const component = renderComponent(componentId, {
+          label: block.title,
+          labelId: `${block.anchorId}-title`,
+        });
+        return component == null ? [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>
+            <CareerV3Placeholder compact locale={surface.locale} />
+          </ComponentFrame>,
+        ] : [
+          <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
+        ];
+      });
+      const sourceRegister = surface.locale === "zh" && surface.contentV3?.sources.length &&
+        !block.declaredComponentIds.includes("source_card")
+        ? <SourceCard surface={surface} embedded />
+        : null;
+      return nodes.length > 0 ? <>{nodes}{sourceRegister}</> : null;
+    }
+
+    const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));
+    if (components.length === 0 || components.some((componentId) => publishedComponents[componentId] === undefined)) return null;
+    const nodes = components.map((componentId) => renderComponent(componentId));
+    if (nodes.some((node) => node === null)) return null;
+    return <>{nodes.map((node, index) => (
+      <ComponentFrame id={components[index]} instanceKey={block.instanceKey} key={`${components[index]}:${index}`}>{node}</ComponentFrame>
+    ))}</>;
   };
 
   if (surface.dossierRenderPlan?.source === "content_v3") {
@@ -878,9 +1004,19 @@ export function CareerProductionDisplaySurface({
       return visual.visualGroup;
     };
 
+    const missingItemPlaceholders = (block: CareerDossierRenderPlanBlock) => {
+      const missingItems = block.items.filter((item) =>
+        item.availability === "missing" && !suppressMissingCareerEntryDecisionItem(item.copyKey));
+      return missingItems.length > 0 ? (
+        <div className="mt-4 space-y-3">
+          {missingItems.map((item) => <CareerV3Placeholder compact key={item.id} locale={surface.locale} />)}
+        </div>
+      ) : null;
+    };
+
     const renderPlannedBlock = (block: CareerDossierRenderPlanBlock): ReactNode => {
       if (isCareerInternalV3BlockCopyKey(block.copyKey, surface.contentV3?.locale)) return null;
-      if (!block.renderable || block.contentState !== "enhanced") {
+      if (!block.renderable) {
         return (
           <section
             className={visual.visualGroup}
@@ -899,7 +1035,8 @@ export function CareerProductionDisplaySurface({
       const richContent = registeredSemantic ? renderV3RichBlock(block) : null;
       const usesRegisteredRenderer = richContent !== null;
       const usesQuickDecisionHeader = usesRegisteredRenderer && block.presentation === "quick-decision";
-      const ownsAccessibleTitle = false;
+      const ownsAccessibleTitle = usesRegisteredRenderer && ["profile", "direction-comparison", "ai-impact", "salary"].includes(block.presentation);
+      const labelledByComponent = usesRegisteredRenderer && ["fit", "decision-journey", "sources"].includes(block.presentation);
 
       return (
         <section
@@ -910,7 +1047,7 @@ export function CareerProductionDisplaySurface({
           data-career-v3-block-copy-key={block.copyKey}
           data-career-v3-presentation={block.presentation}
           data-content-block-id={block.id}
-          aria-labelledby={`${block.anchorId}-title`}
+          aria-labelledby={usesQuickDecisionHeader || labelledByComponent || !usesRegisteredRenderer ? `${block.anchorId}-title` : undefined}
           aria-label={ownsAccessibleTitle ? block.title : undefined}
         >
           {block.anchorId === `career-content-${block.id}` ? (
@@ -920,11 +1057,14 @@ export function CareerProductionDisplaySurface({
             <header className={visual.quickDecisionHeader}>
               <h2 className={visual.quickDecisionTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
             </header>
-          ) : (
+          ) : !usesRegisteredRenderer ? (
             <h2 className={visual.groupTitle} id={`${block.anchorId}-title`}>{block.title}</h2>
-          )}
+          ) : null}
           <div className={visual.groupStack}>
-            {richContent ?? <CareerV3PrimitiveBlock block={block} content={plan.content} />}
+            {richContent ?? (registeredSemantic
+              ? <CareerV3Placeholder locale={surface.locale} />
+              : <CareerV3PrimitiveBlock block={block} content={plan.content} />)}
+            {usesRegisteredRenderer ? missingItemPlaceholders(block) : null}
           </div>
         </section>
       );

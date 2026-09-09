@@ -8,17 +8,6 @@ type EvidenceLineProps = {
   inverse?: boolean;
 };
 
-export function careerEvidenceTypeLabel(value: string | null, locale: "zh" | "en"): string | null {
-  if (value === null) return null;
-  const labels: Record<string, [string, string]> = {
-    primary_document: ["原始资料", "Primary document"],
-    editorial_design: ["编辑设计", "Editorial design"],
-    official_guidance: ["官方指引", "Official guidance"],
-    industry_proxy: ["行业参考数据", "Industry proxy"],
-  };
-  return labels[value]?.[locale === "zh" ? 0 : 1] ?? value;
-}
-
 function compact(parts: Array<string | null | undefined>): string {
   return parts.filter((part): part is string => Boolean(part)).join("｜");
 }
@@ -60,7 +49,7 @@ export function CareerEvidenceLine({ content, factRefs = [], sourceRefs = [], cl
         source.publisher ?? source.name,
         source.market,
         source.period,
-        careerEvidenceTypeLabel(source.evidenceType, content.locale) ?? source.scope,
+        source.evidenceType ?? source.scope,
       ]),
       href: source.url,
       derivation: null,
