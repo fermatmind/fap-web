@@ -45,9 +45,10 @@ function careerPathsFor(slugs: string[]): string[] {
 }
 
 function fullCohortPaths(): string[] {
-  const fillerCount = 1046 - REQUIRED_SLUGS.length;
+  const fillerCount = 1044 - REQUIRED_SLUGS.length;
   const fillerSlugs = Array.from({ length: fillerCount }, (_, index) => `day1-cacheable-career-${index + 1}`);
 
+  fillerSlugs[0] = "preschool-teachers-except-special-education";
   return careerPathsFor([...REQUIRED_SLUGS, ...fillerSlugs]);
 }
 
@@ -173,7 +174,8 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const generatedText = await route.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     const artifact = await route.buildAndCacheLlmsFullText(SITE_URL, generatedText);
     expect(artifact.ok).toBe(true);
-    expect(careerUrlCount(generatedText)).toBe(1046 * 2);
+    expect(route.isCompleteLlmsFullText(`${generatedText}\n- URL: ${SITE_URL}/zh/career/jobs/preschool-teachers`, SITE_URL)).toBe(false);
+    expect(careerUrlCount(generatedText)).toBe(1044 * 2);
 
     currentPaths = [];
     const cachedResponse = await route.GET();
@@ -181,7 +183,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(cachedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(cachedText).toBe(generatedText);
-    expect(careerUrlCount(cachedText)).toBe(1046 * 2);
+    expect(careerUrlCount(cachedText)).toBe(1044 * 2);
 
     for (const slug of REQUIRED_SLUGS) {
       expect(cachedText).toContain(`${SITE_URL}/en/career/jobs/${slug}`);
@@ -246,7 +248,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const firstModule = await import("@/lib/seo/llmsFullRoute");
     const generatedText = await firstModule.buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
     await expect(firstModule.buildAndCacheLlmsFullText(SITE_URL, generatedText)).resolves.toMatchObject({ ok: true });
-    expect(careerUrlCount(generatedText)).toBe(1046 * 2);
+    expect(careerUrlCount(generatedText)).toBe(1044 * 2);
 
     vi.resetModules();
     currentPaths = [];
@@ -258,7 +260,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(sharedResponse.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
     expect(sharedText).toBe(generatedText);
-    expect(careerUrlCount(sharedText)).toBe(1046 * 2);
+    expect(careerUrlCount(sharedText)).toBe(1044 * 2);
   });
 
   it("serves an expired-fresh complete artifact as stale without starting a runtime rebuild", async () => {

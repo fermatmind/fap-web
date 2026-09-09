@@ -5,7 +5,7 @@ import { writeFile } from "node:fs/promises";
 import process from "node:process";
 import { pathToFileURL } from "node:url";
 
-const EXPECTED_CAREER_JOB_URL_COUNT = 2092;
+const EXPECTED_CAREER_JOB_URL_COUNT = 2088;
 const EXPECTED_BIG_FIVE_URL_COUNT = 104;
 const EXPECTED_ENNEAGRAM_URL_COUNT = 116;
 const REQUIRED_PATHS = [
@@ -28,6 +28,7 @@ const REQUIRED_PATHS = [
   "/zh/tests/eq-test-emotional-intelligence-assessment",
 ];
 const FORBIDDEN_PATH = /^\/(?:en|zh)?\/?(?:take|result|results|share|orders?|pay|payment|payments|history)(?:\/|$)/i;
+const CAREER_ALIAS_PATH = /^\/(?:en|zh)\/career\/jobs\/(?:librarians-and-media-collections-specialists|preschool-teachers)$/;
 const BIG_FIVE_LEGACY_PATH = /^\/(?:en|zh)\/personality\/big-five\/(?:high-|low-|emotional-stability(?:\/|$))/i;
 
 function sha256(value) {
@@ -59,7 +60,7 @@ export function validateLlmsFullArtifact({ text, mode, source, siteUrl }) {
   }
 
   const urls = normalizedUrls(text, siteUrl);
-  if (urls.some((url) => FORBIDDEN_PATH.test(url.pathname) || BIG_FIVE_LEGACY_PATH.test(url.pathname))) {
+  if (urls.some((url) => FORBIDDEN_PATH.test(url.pathname) || BIG_FIVE_LEGACY_PATH.test(url.pathname) || CAREER_ALIAS_PATH.test(url.pathname))) {
     throw new Error("FORBIDDEN_URL_PRESENT");
   }
 

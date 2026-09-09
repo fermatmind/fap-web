@@ -95,7 +95,8 @@ const MAX_TEXT_CHARS = 360;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS = 60_000;
-const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
+// Two former job slugs are redirect-only aliases of existing canonical jobs.
+const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1044 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 104;
@@ -145,6 +146,8 @@ const LLMS_FULL_REQUIRED_IQ_ASSESSMENT_TEST_PATHS = [
   "/zh/tests/iq-test-intelligence-quotient-assessment",
 ] as const;
 const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
+  "librarians-and-media-collections-specialists",
+  "preschool-teachers",
   "software-developers",
   "digital-forensics-analysts",
   "computer-occupations-all-other",
@@ -855,8 +858,9 @@ export function isCompleteLlmsFullText(
     return false;
   }
 
+  const emittedCareerUrls = canonicalCareerJobUrlSet(text, siteUrl);
   for (const slug of LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS) {
-    if (text.includes(`${siteUrl}/en/career/jobs/${slug}`) || text.includes(`${siteUrl}/zh/career/jobs/${slug}`)) {
+    if (emittedCareerUrls.has(`${siteUrl}/en/career/jobs/${slug}`) || emittedCareerUrls.has(`${siteUrl}/zh/career/jobs/${slug}`)) {
       return false;
     }
   }

@@ -294,8 +294,45 @@ require_candidate_analytics_smoke() {
   local attempt
 
   if ss -ltn | grep -Eq ":${CANDIDATE_APP_PORT}[[:space:]]"; then
-    log "candidate port is already in use: ${CANDIDATE_APP_PORT}"
-    exit 1
+    # Reap only abandoned preflight children of a recorded failed release.
+    # Active releases, foreign processes, and unknown outcomes remain protected.
+    APP_DIR="$APP_DIR" CANDIDATE_APP_PORT="$CANDIDATE_APP_PORT" node <<'NODE'
+const fs = require('node:fs');
+const path = require('node:path');
+const root = fs.realpathSync(process.env.APP_DIR);
+const active = fs.realpathSync(path.join(root, '.next/standalone'));
+const incoming = path.join(root, '.deploy-incoming');
+const failed = new Set(fs.readdirSync(incoming).flatMap(name => {
+  try {
+    const d = JSON.parse(fs.readFileSync(path.join(incoming, name, 'deploy-outcome.json'), 'utf8'));
+    return d.status === 'failed' && d.phase === 'preflight' && /^[a-f0-9]{40}$/.test(d.revision) ? [d.revision] : [];
+  } catch { return []; }
+}));
+for (const pid of fs.readdirSync('/proc').filter(name => /^\d+$/.test(name))) {
+  try {
+    if (fs.statSync(`/proc/${pid}`).uid !== process.getuid()) continue;
+    const cwd = fs.realpathSync(`/proc/${pid}/cwd`);
+    const directory = path.basename(cwd);
+    const revision = directory.slice(0, 40);
+    if (!/^[a-f0-9]{40}-[a-f0-9]{64}$/.test(directory) || cwd === active || cwd !== path.join(root, 'releases', directory) || !failed.has(revision)) continue;
+    const env = Object.fromEntries(fs.readFileSync(`/proc/${pid}/environ`, 'utf8').split('\0').map(item => {
+      const i = item.indexOf('='); return [item.slice(0, i), item.slice(i + 1)];
+    }));
+    if (env.PORT !== process.env.CANDIDATE_APP_PORT || env.FERMATMIND_DEPLOYED_REVISION_FILE !== path.join(cwd, 'REVISION')) continue;
+    if (env.HOSTNAME !== '127.0.0.1' || fs.readFileSync(path.join(cwd, 'REVISION'), 'utf8').trim() !== revision) continue;
+    process.kill(Number(pid), 'SIGTERM');
+    console.log('candidate_cleanup=failed_preflight_terminated');
+  } catch { /* Foreign or exited processes are not candidates. */ }
+}
+NODE
+    for attempt in $(seq 1 5); do
+      ss -ltn | grep -Eq ":${CANDIDATE_APP_PORT}[[:space:]]" || break
+      sleep 1
+    done
+    if ss -ltn | grep -Eq ":${CANDIDATE_APP_PORT}[[:space:]]"; then
+      log "candidate port is already in use: ${CANDIDATE_APP_PORT}"
+      exit 1
+    fi
   fi
 
   candidate_log="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-candidate.XXXXXX")"
@@ -307,13 +344,15 @@ require_candidate_analytics_smoke() {
   candidate_pid=$!
 
   cleanup_candidate() {
-    if kill -0 "$candidate_pid" >/dev/null 2>&1; then
-      kill "$candidate_pid" >/dev/null 2>&1 || true
-      wait "$candidate_pid" >/dev/null 2>&1 || true
+    local pid="$1" candidate_output="$2"
+    if kill -0 "$pid" >/dev/null 2>&1; then
+      kill "$pid" >/dev/null 2>&1 || true
+      wait "$pid" >/dev/null 2>&1 || true
     fi
-    rm -f "$candidate_log"
+    rm -f "$candidate_output"
   }
-  trap cleanup_candidate RETURN EXIT
+  # Capture values now: EXIT can run after this function's locals are unwound.
+  trap "cleanup_candidate $(printf '%q' "$candidate_pid") $(printf '%q' "$candidate_log")" RETURN EXIT
 
   for attempt in $(seq 1 30); do
     if curl -fsS --max-time 2 "${candidate_base_url}/zh" >/dev/null 2>&1; then
@@ -336,7 +375,7 @@ require_candidate_analytics_smoke() {
   if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
     require_llms_full_artifact "$candidate_base_url" "${LLMS_FULL_RECEIPT_PATH}.candidate"
   fi
-  cleanup_candidate
+  cleanup_candidate "$candidate_pid" "$candidate_log"
   trap - RETURN EXIT
 }
 

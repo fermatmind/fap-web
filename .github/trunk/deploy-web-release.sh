@@ -91,7 +91,7 @@ if [ "$REQUIRE_LLMS_FULL_ARTIFACT" = 1 ]; then
     .schema_version == "fermatmind.llms-full-artifact-receipt.v1" and
     .revision == $sha and .mode == "complete" and .source == "cache" and
     (.body_sha256 | test("^[0-9a-f]{64}$")) and (.bytes | numbers and . > 0) and
-    .counts.career == 2092 and .counts.big_five == 104 and .counts.enneagram == 116 and
+    .counts.career == 2088 and .counts.big_five == 104 and .counts.enneagram == 116 and
     (.counts | keys | sort) == ["big_five","career","enneagram"] and
     (.duration_ms | numbers and . >= 0) and
     (keys | sort) == ["body_sha256","bytes","counts","duration_ms","mode","revision","schema_version","source","verified_at"]

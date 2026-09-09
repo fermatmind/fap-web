@@ -35,7 +35,7 @@ function completeArtifactText(): string {
   ]);
 
   for (const locale of ["en", "zh"] as const) {
-    for (let index = 0; index < 1046; index += 1) {
+    for (let index = 0; index < 1044; index += 1) {
       paths.add(`/${locale}/career/jobs/role-${index}`);
     }
     for (let index = 0; index < 52; index += 1) {
@@ -65,7 +65,7 @@ describe("llms-full automatic recovery", () => {
 
     expect(validation.body_sha256).toMatch(/^[0-9a-f]{64}$/);
     expect(validation.bytes).toBeGreaterThan(100_000);
-    expect(validation.counts).toEqual({ career: 2092, big_five: 104, enneagram: 116 });
+    expect(validation.counts).toEqual({ career: 2088, big_five: 104, enneagram: 116 });
     expect(validation).not.toHaveProperty("urls");
   });
 
@@ -78,6 +78,8 @@ describe("llms-full automatic recovery", () => {
 
     for (const forbidden of [
       `${SITE_URL}/en/results/private-id`,
+      `${SITE_URL}/en/career/jobs/librarians-and-media-collections-specialists`,
+      `${SITE_URL}/zh/career/jobs/preschool-teachers`,
       `${SITE_URL}/zh/personality/big-five/high-openness`,
     ]) {
       expect(() =>
@@ -134,7 +136,7 @@ describe("llms-full automatic recovery", () => {
       revision: REVISION,
       mode: "complete",
       source: "cache",
-      counts: { career: 2092, big_five: 104, enneagram: 116 },
+      counts: { career: 2088, big_five: 104, enneagram: 116 },
     });
     expect(JSON.parse(await readFile(receiptPath, "utf8"))).toEqual(receipt);
     expect(await readdir(directory)).toEqual(["receipt.json"]);
