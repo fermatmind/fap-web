@@ -88,11 +88,11 @@ describe("career routing cleanup contract", () => {
   it("career job detail page exposes claim-gated protocol status and does not treat legacy vm fields as authority", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
 
-    expect(source).toContain("career-job-protocol-status");
-    expect(source).toContain("career-job-claim-gated-status");
-    expect(source).toContain("career-job-next-step-links");
-    expect(source).toContain("renderState.canRenderSalarySurface");
-    expect(source).toContain("renderState.canRenderFitSurface");
+    expect(source).toContain("normalizeCareerPage");
+    expect(source).toContain("CAREER_PAGE_CONTRACT_INVALID");
+    expect(source).toContain("buildCareerDisplayCtaHref");
+    expect(source).toContain("CareerPageTemplate");
+    expect(source).toContain("raw.career_page");
     expect(source).toContain("renderState.canRenderAnswerSurface");
     expect(source).not.toContain("CareerTransitionPreviewCard");
     expect(source).not.toContain("best next move");

@@ -515,8 +515,8 @@ describe("career jobs page authority contract", () => {
     expect(listSource).not.toContain("listCareerJobsFromCms");
     expect(detailSource).toContain("fetchCareerJobBundle");
     expect(detailSource).toContain("adaptCareerJobBundle");
-    expect(detailSource).toContain("career-job-protocol-status");
-    expect(detailSource).toContain("renderState.canRenderSalarySurface");
+    expect(detailSource).toContain("normalizeCareerPage");
+    expect(detailSource).toContain("CareerPageTemplate");
     expect(detailSource).toContain("job.seoContract.indexEligible");
     expect(detailSource).not.toContain("getCareerJobFromCmsBySlug");
     expect(detailSource).not.toContain("job.answerSurface");

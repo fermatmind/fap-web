@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const SITE_URL = "https://fermatmind.com";
@@ -26,6 +27,7 @@ function mockCareerJobBundle({
 }) {
   vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
     fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture(slug, "en"),
       identity: {
         canonical_slug: slug,
       },

@@ -92,8 +92,8 @@ describe("career launch smoke contract", () => {
     expect(familyHubPage).toContain("fetchCareerFamilyHub");
     expect(familyHubPage).toContain("generateMetadata");
     expect(jobDetailPage).toContain("job.seoContract.indexEligible");
-    expect(jobDetailPage).toContain("backendSeoAllowsIndex");
-    expect(jobDetailPage).toContain("noindex: !backendSeoAllowsIndex");
+    expect(jobDetailPage).toContain("allowsIndex");
+    expect(jobDetailPage).toContain("noindex: !allowsIndex");
     expect(jobDetailPage).not.toContain("noindex: !job.renderState.canIndexPage || shouldNoindex(job.seoContract.indexState)");
     expect(recommendationDetailPage).toContain("detail.seoContract.indexEligible");
     expect(legacySlugPage).toContain("fetchCareerJobBundle");

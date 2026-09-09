@@ -168,7 +168,7 @@
       "sourceFiles": [
         {
           "path": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
-          "requiredTokens": ["fetchCareerJobBundle", "CareerDisplaySurface", "buildPageMetadata"]
+          "requiredTokens": ["fetchCareerJobBundle", "CareerPageTemplate", "buildPageMetadata"]
         },
         {
           "path": "docs/seo/generated/url-inventory.v1.csv",

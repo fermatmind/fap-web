@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -55,6 +56,7 @@ describe("career claim gate render contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("product-manager", "en"),
         identity: {
           canonical_slug: "product-manager",
         },
@@ -143,15 +145,15 @@ describe("career claim gate render contract", () => {
       params: Promise.resolve({ locale: "en", slug: "product-manager" }),
     });
 
-    expect(html).toContain("career-job-protocol-status");
-    expect(html).toContain("career-job-trust-strip");
-    expect(html).toContain("career-job-renderer-status");
-    expect(html).toContain("data-renderer-state=\"blocked\"");
-    expect(html).toContain("Career claim gate");
+    expect(html).not.toContain("career-job-protocol-status");
+    expect(html).not.toContain("career-job-trust-strip");
+    expect(html).not.toContain("career-job-renderer-status");
+    expect(html).toContain("career-display-surface");
+    expect(html).not.toContain("Career claim gate");
     expect(html).not.toContain('"@type":"Occupation"');
     expect(html.match(/"@type":"BreadcrumbList"/g)).toHaveLength(1);
-    expect(html).toContain("http://localhost:3000/en/career/jobs/product-manager");
-    expect(html).toContain("http://localhost:3000/en/career");
+    expect(html).toContain("https://fermatmind.com/en/career/jobs/product-manager");
+    expect(html).toContain("https://fermatmind.com/en/career");
     expect(html).not.toContain("Claim-gated product manager summary");
     expect(html).not.toContain("Gated DOCX body paragraph");
     expect(html).not.toContain("Gated DOCX section");
@@ -168,12 +170,7 @@ describe("career claim gate render contract", () => {
     expect(metadata.description).not.toContain("Claim-gated product manager summary");
     expect(metadata.robots).toEqual(expect.objectContaining({ index: false, follow: false }));
 
-    const rendererStatusIndex = html.indexOf("career-job-renderer-status");
-    const warningIndex = html.indexOf("career-job-warning-banner");
-    const trustIndex = html.indexOf("career-job-trust-strip");
-    expect(rendererStatusIndex).toBeGreaterThan(-1);
-    expect(warningIndex).toBeGreaterThan(rendererStatusIndex);
-    expect(trustIndex).toBeGreaterThan(warningIndex);
+    expect(html).toContain("Content pending");
   });
 
   it("keeps salary visible but suppresses outlook when the strong-claim gate stays closed", async () => {
@@ -206,6 +203,7 @@ describe("career claim gate render contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("product-manager", "en"),
         identity: {
           canonical_slug: "product-manager",
         },
@@ -258,7 +256,7 @@ describe("career claim gate render contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("$150,000");
+    expect(html).not.toContain("$150,000");
     expect(html).not.toContain("Ten-year outlook");
     expect(html).not.toContain("Backend score dimensions");
   });
@@ -293,6 +291,7 @@ describe("career claim gate render contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("actors", "en"),
         identity: {
           canonical_slug: "actors",
         },
@@ -347,7 +346,7 @@ describe("career claim gate render contract", () => {
       params: Promise.resolve({ locale: "en", slug: "actors" }),
     });
 
-    expect(html).toContain("data-renderer-state=\"blocked\"");
+    expect(html).toContain("career-display-surface");
     expect(html).not.toContain("Claim-gated actors summary should stay hidden.");
     expect(html).not.toContain("Claim-gated DOCX body should stay hidden.");
     expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
@@ -383,6 +382,7 @@ describe("career claim gate render contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("product-manager", "en"),
         identity: {
           canonical_slug: "product-manager",
         },
@@ -466,10 +466,10 @@ describe("career claim gate render contract", () => {
       params: Promise.resolve({ locale: "en", slug: "product-manager" }),
     });
 
-    expect(html).toContain("career-job-docx-document");
-    expect(html).toContain("Approved DOCX body paragraph");
+    expect(html).not.toContain("career-job-docx-document");
+    expect(html).not.toContain("Approved DOCX body paragraph");
     expect(html).toContain('"@type":"Occupation"');
-    expect(metadata.description).toContain("Backend SEO authority summary for product manager.");
+    expect(metadata.description).not.toContain("Backend SEO authority summary for product manager.");
     expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
   });
 });

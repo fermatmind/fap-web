@@ -31,7 +31,7 @@ const read = (relativePath: string) => fs.readFileSync(path.join(ROOT, relativeP
 describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
   it("keeps HTML deployment-bound, shares the authority load, and caps render requests", () => {
     const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
-    const rendererSource = read("components/career/display/CareerProductionDisplaySurface.tsx");
+    const rendererSource = read("components/career/display/CareerPageTemplate.tsx");
 
     expect(source).toContain('export const dynamic = "force-dynamic";');
     expect(CAREER_RENDERER_RELEASE).toBe(process.env.NEXT_PUBLIC_RELEASE);
@@ -41,8 +41,8 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     expect(source).not.toMatch(/export const CAREER_(?:DETAIL|RENDERER)/);
     expect(source).toContain("const loadCareerJobBundle = cache(async");
     expect(source.match(/loadCareerJobBundle\(locale, slug\)/g)?.length).toBe(2);
-    expect(source).toContain("const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all");
-    expect(source).toContain("const [salaryAssetPreview, explainability, nextStepLinks, runtimeConfig] = await Promise.all");
+    expect(source).not.toContain("fetchCareerSalaryAssetPreview");
+    expect(source).not.toContain("fetchCareerAiImpactAssetPreview");
     expect(source).not.toContain('cache: "no-store"');
   });
 
@@ -98,7 +98,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
   it("bypasses stale projection data only for the authoritative Chinese bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
 
-    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("current-versionless-content-v3");
+    expect(CAREER_DETAIL_PROJECTION_CACHE_VERSION).toBe("career.detail.page.v1");
     expect(source).toContain("function bundleCacheOptions");
     expect(source).toContain("...bundleCacheOptions(input.locale, normalizedSlug)");
     expect(source).toContain('query.set("projection_contract", CAREER_DETAIL_PROJECTION_CACHE_VERSION)');

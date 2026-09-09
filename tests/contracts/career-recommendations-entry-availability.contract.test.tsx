@@ -48,10 +48,10 @@ describe("career recommendations entry availability contract", () => {
   });
 
   it("returns job detail navigation to the career center", () => {
-    const source = read("app/(localized)/[locale]/career/jobs/[slug]/page.tsx");
+    const source = read("components/career/display/CareerPageTemplate.tsx");
 
-    expect(source).toContain("回到职业中心");
-    expect(source).toContain("Back to career center");
+    expect(source).toContain('href: `/${content.locale}/career`');
+    expect(source).toContain("Breadcrumb");
     expect(source).not.toContain("回到职业库");
     expect(source).not.toContain("Back to job library");
   });

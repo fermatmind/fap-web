@@ -78,4 +78,3 @@ export function CareerPageItem({ item, content }: { item: CareerContentV3Item; c
     </div>
   );
 }
-

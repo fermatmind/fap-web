@@ -6,7 +6,7 @@ import { CareerEvidenceLine } from './CareerEvidenceLine';
 import { CareerPageItem, CareerPagePlaceholder } from './CareerPageItem';
 import visual from './CareerProductionVisual.module.css';
 
-export function CareerPageTemplate({page, ctaHref}: {page: CareerPage; ctaHref: string}) {
+export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: CareerPage; ctaHref: string; rendererRelease?: string}) {
   const {content, hero} = page;
   const zh = content.locale === 'zh';
   const cta = zh ? '开始职业兴趣测试' : 'Start career interest test';
@@ -25,7 +25,7 @@ export function CareerPageTemplate({page, ctaHref}: {page: CareerPage; ctaHref: 
     {m.fact ? <><span className={`block text-white/65 ${visual.heroStatSource}`}>{[m.fact.market, m.fact.period, m.fact.measure].join('｜')}</span><CareerEvidenceLine content={content} factRefs={[m.fact.factId]} inverse /></> : <span data-nosnippet="true" className={visual.heroStatSource}>{zh ? '数据待补充' : 'Data pending'}</span>}
   </div>;
   const auxiliary = content.blocks.filter(b => !(CAREER_PAGE_SECTIONS as readonly string[]).includes(b.id));
-  return <article className={`mx-auto w-full max-w-[1440px] px-5 font-sans leading-7 text-[#1A2233] sm:px-6 md:px-8 xl:px-10 ${visual.article}`} data-testid="career-display-surface" data-career-dossier-plan="career_page" data-career-content-sha={content.sourceContentSha256}>
+  return <article className={`mx-auto w-full max-w-[1440px] px-5 font-sans leading-7 text-[#1A2233] sm:px-6 md:px-8 xl:px-10 ${visual.article}`} data-career-renderer-release={rendererRelease} data-testid="career-display-surface" data-career-dossier-plan="career_page" data-career-content-sha={content.sourceContentSha256}>
     <Breadcrumb items={[{label: zh ? '首页' : 'Home', href: `/${content.locale}`}, {label: zh ? '职业' : 'Career', href: `/${content.locale}/career`}, {label: content.subject.name}]} />
     <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[224px_minmax(0,1fr)] lg:gap-6 ${visual.layout}`}>
       <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${visual.accountantsRail}`} aria-label={zh ? '页面目录' : 'Page contents'}>

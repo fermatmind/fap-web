@@ -23,7 +23,8 @@ describe("career conversion attribution contract", () => {
     expect(recommendationCompanionLinks).toContain("targetAction: \"open_support_link\"");
     expect(recommendationCompanionLinks).toContain("routeFamily: \"recommendation_detail\"");
     expect(recommendationPage).toContain("CareerRecommendationCompanionLinks");
-    expect(jobDetailPage).toContain("CareerNextStepLinks");
+    expect(jobDetailPage).toContain("buildCareerDisplayCtaHref");
+    expect(jobDetailPage).toContain("attributionParams");
 
     expect(familyHubPage).not.toContain("career_support_link_click");
     expect(familyHubPage).not.toContain("career_job_detail_cta_click");

@@ -63,9 +63,9 @@ describe("schema injection contract", () => {
     expect(source).toContain("fetchCareerJobBundle");
     expect(source).toContain("adaptCareerJobBundle");
     expect(source).toContain("JsonLd");
-    expect(source).toContain("job.structuredData.occupation");
-    expect(source).toContain("job.structuredData.breadcrumbList");
-    expect(source).toContain("career-job-protocol-status");
+    expect(source).toContain("page.content.subject.name");
+    expect(source).toContain("career-job-breadcrumb");
+    expect(source).toContain("normalizeCareerPage");
     expect(source).toContain("job.seoContract.indexEligible");
     expect(source).not.toContain("buildOccupationJsonLd");
     expect(source).not.toContain("buildBreadcrumbJsonLd");
@@ -73,7 +73,7 @@ describe("schema injection contract", () => {
     expect(source).not.toContain("Article");
     expect(source).not.toContain("getCareerJobFromCmsBySlug");
     expect(source).not.toContain("renderSimpleMarkdown");
-    expect(source).toContain("Ten-year outlook");
+    expect(source).toContain("careerPageFaq");
   });
 
   it("career family hub page injects backend collection, item list, and breadcrumb jsonld on the backend bundle path", () => {

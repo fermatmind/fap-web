@@ -36,7 +36,7 @@
     },
     {
       "source": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
-      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "structuredData.occupation", "JsonLd"],
+      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "page.content.subject.name", "JsonLd"],
       "forbiddenTokens": []
     },
     {

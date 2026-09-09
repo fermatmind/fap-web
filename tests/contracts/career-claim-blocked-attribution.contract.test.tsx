@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -77,6 +78,7 @@ describe("career claim-blocked attribution contract", () => {
 
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("data-scientists", "en"),
         identity: { canonical_slug: "data-scientists" },
         titles: { canonical_en: "Data Scientists" },
         truth_layer: {

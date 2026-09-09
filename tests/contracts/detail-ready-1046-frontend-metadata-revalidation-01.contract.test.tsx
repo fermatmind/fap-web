@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -36,6 +37,7 @@ describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("actors", "en"),
         identity: {
           canonical_slug: "actors",
         },
@@ -111,7 +113,7 @@ describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
-    expect(html).toContain('data-renderer-state="blocked"');
+    expect(html).toContain("career-display-surface");
     expect(html).not.toContain("Gated actor body should not become frontend-visible content.");
     expect(html).not.toContain("Gated DOCX content should remain hidden.");
     expect(html).not.toContain('"@type":"Occupation"');
@@ -143,6 +145,7 @@ describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
     }));
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("candidate-only-role", "en"),
         identity: {
           canonical_slug: "candidate-only-role",
         },

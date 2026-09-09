@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import type { ReactNode } from "react";
 import { render, screen } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -149,6 +150,7 @@ describe("career explainability contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("software-developer", "en"),
         identity: {
           occupation_uuid: "occ_software_developer",
           canonical_slug: "software-developer",
@@ -306,15 +308,15 @@ describe("career explainability contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-explainability-panel");
-    expect(html).toContain("Scoring explanation");
-    expect(html).toContain("career-job-strain-radar");
-    expect(html).toContain("People friction");
-    expect(html).toContain("career-job-next-step-links");
-    expect(html).toContain("Next steps");
-    expect(html).toContain("Software Engineering");
-    expect(html).toContain("Backend Architect");
+    expect(html).not.toContain("career-job-explainability-panel");
+    expect(html).not.toContain("Scoring explanation");
+    expect(html).not.toContain("career-job-strain-radar");
+    expect(html).not.toContain("People friction");
+    expect(html).not.toContain("career-job-next-step-links");
+    expect(html).not.toContain("Next steps");
+    expect(html).not.toContain("Software Engineering");
+    expect(html).not.toContain("Backend Architect");
     expect(html).not.toContain("environment_fit");
-    expect(html.indexOf("career-job-next-step-links")).toBeLessThan(html.indexOf("career-job-explainability-panel"));
+    expect(html).toContain("career-display-surface");
   });
 });

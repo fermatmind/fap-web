@@ -55,7 +55,7 @@
       "source": "app/(localized)/[locale]/career/jobs/[slug]/page.tsx",
       "authority": "backend_seo_surface_v1",
       "allowedTypes": ["Occupation", "BreadcrumbList", "FAQPage"],
-      "requiredTokens": ["job.seoSurface?.structuredDataKeys", "job.structuredData.occupation", "job.structuredData.breadcrumbList", "buildCareerDisplayFAQPageJsonLd"],
+      "requiredTokens": ["job.seoSurface?.structuredDataKeys", "page.content.subject.name", "career-job-breadcrumb", "buildFAQPageJsonLd"],
       "forbiddenTokens": ["buildOccupationJsonLd", "buildBreadcrumbJsonLd", "Dataset", "Article"]
     },
     {

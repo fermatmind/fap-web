@@ -1,3 +1,4 @@
+import { buildCareerPageFixture } from "./careerPage.fixture";
 import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -40,6 +41,7 @@ describe("career job lifecycle companion contract", () => {
     });
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
       fetchCareerJobBundle: vi.fn(async () => ({
+        career_page: buildCareerPageFixture("backend-architect", "en"),
         identity: { canonical_slug: "backend-architect" },
         titles: { canonical_en: "Backend Architect" },
         claim_permissions: {
@@ -113,8 +115,8 @@ describe("career job lifecycle companion contract", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(html).toContain("career-job-lifecycle-companion-timeline");
-    expect(html).toContain("career-job-lifecycle-companion-delta");
+    expect(html).not.toContain("career-job-lifecycle-companion-timeline");
+    expect(html).not.toContain("career-job-lifecycle-companion-delta");
     expect(html).not.toContain("career-recommendation-feedback-panel");
   });
 });
