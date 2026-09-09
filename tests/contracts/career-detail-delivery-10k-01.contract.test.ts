@@ -80,7 +80,7 @@ describe("CAREER-DETAIL-DELIVERY-10K-01", () => {
     );
     expect(source).toContain('[[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]');
     expect(source).toContain("complete PM2 restart to retire prior release workers");
-    expect(source).toContain('pm2 restart "$APP_NAME" --update-env');
+    expect(source).toContain('pm2 restart "${APP_DIR}/ecosystem.config.cjs" --only "$APP_NAME" --update-env');
     expect(source).toContain('require_career_renderer_revision "$PUBLIC_BASE_URL" "public"');
   });
 

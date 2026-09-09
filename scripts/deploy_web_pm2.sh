@@ -552,6 +552,7 @@ fi
 wait_for_local_app_ready
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   log "complete PM2 restart to retire prior release workers: ${APP_NAME}"
+  # Reload the active release environment when retiring the remaining old workers.
   pm2 restart "${APP_DIR}/ecosystem.config.cjs" --only "$APP_NAME" --update-env >/dev/null
   wait_for_local_app_ready
 fi
