@@ -150,7 +150,32 @@ function productionIsomorphicV3Fixture(locale: "en" | "zh") {
 }
 
 describe("career content v3 contract", () => {
-  it("uses the accepted production dossier components for a dual-contract response", () => {
+  it.each(["actors", "web-developers"])("renders Current prose rather than stale presentation for %s", (slug) => {
+    const fixture = surfaceFixture("zh", slug);
+    const content = v3Fixture("zh", slug);
+    content.subject.name = slug === "actors" ? "演员" : "网页开发者";
+    content.blocks = [{
+      id: "quick-decision", copy_key: "career.block.quick-decision",
+      content_state: "enhanced", availability: "available",
+      items: [{ id: "current-quick-decision", copy_key: "career.item.fit-decision-checklist",
+        type: "prose", availability: "available",
+        data: { paragraphs: ["CURRENT_ONLY：用一次具体练习验证职业选择。"] } }],
+    }];
+    fixture.content_v3 = content;
+    (fixture.presentation_v2 as { hero: { lead: string } }).hero.lead = "OLD_ONLY_STALE_HERO";
+    (fixture.page.content as Record<string, unknown>).fit_decision_checklist = {
+      fit: "OLD_ONLY_STALE_FIT", not_fit: "OLD_ONLY_STALE_BOUNDARY", how: "OLD_ONLY_STALE_PATH",
+    };
+    const surface = adaptCareerDisplaySurface(fixture, "zh");
+    expect(surface).not.toBeNull();
+    render(<CareerDisplaySurface surface={surface} />);
+    expect(screen.getByText("CURRENT_ONLY：用一次具体练习验证职业选择。")).toBeVisible();
+    expect(screen.getByTestId("career-display-hero")).toHaveTextContent(content.subject.summary);
+    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(content.subject.name);
+    expect(screen.getByTestId("career-display-surface").textContent).not.toContain("OLD_ONLY");
+  });
+
+  it("uses Current items for registered blocks in a dual-contract response", () => {
     const fixture = surfaceFixture("zh");
     fixture.content_v3 = productionIsomorphicV3Fixture("zh");
     const surface = adaptCareerDisplaySurface(fixture, "zh");
@@ -158,19 +183,20 @@ describe("career content v3 contract", () => {
 
     expect(screen.getByTestId("career-display-surface")).toHaveAttribute("data-career-dossier-plan", "content_v3");
     expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
-    expect(screen.getByTestId("career-published-fermat_decision_card")).toBeInTheDocument();
-    expect(screen.getByTestId("career-published-fit_decision_checklist")).toBeInTheDocument();
-    expect(screen.getByTestId("career-display-faq")).toHaveTextContent("Visible v3 FAQ answer.");
-    expect(screen.getByTestId("career-dossier-outlook-transitions").querySelectorAll('[data-career-api-list="market_signal_card.outlook_evidence"] > article')).toHaveLength(3);
-    expect(screen.getByTestId("career-dossier-outlook-transitions").querySelectorAll('[data-career-api-list="market_signal_card.transitions"] > a')).toHaveLength(8);
-    expect(screen.getByTestId("career-dossier-outlook-transitions").querySelectorAll('footer a')).toHaveLength(4);
+    for (const text of ["decision-1 body", "fit-check-1 body", "market-1 body"]) {
+      expect(screen.getByText(text)).toBeVisible();
+    }
+    const answer = screen.getByText("Visible v3 FAQ answer.");
+    answer.closest("details")!.open = true;
+    expect(answer).toBeVisible();
+    expect(screen.queryByTestId("career-dossier-outlook-transitions")).not.toBeInTheDocument();
     expect(document.querySelectorAll("[data-content-block-id]")).toHaveLength(11);
     expect(surface?.dossierRenderPlan?.source === "content_v3" && surface.dossierRenderPlan.blocks.some((block) => block.copyKey === "career.block.source-register")).toBe(true);
     expect(document.querySelector('[data-content-block-id="source-register"]')).toBeNull();
     expect(screen.getByTestId("career-dossier-toc").querySelector('a[href="#career-content-source-register"]')).toBeNull();
-    expect(screen.queryByRole("heading", { name: "使用边界" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "复核有效期" })).not.toBeInTheDocument();
-    expect(screen.queryByRole("heading", { name: "下一步行动" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "使用边界" })).toBeVisible();
+    expect(screen.getByText("review-1 body")).toBeVisible();
+    expect(screen.getByText("final-1 body")).toBeVisible();
     expect(screen.queryByText("Official occupational definition and work-context reference.")).not.toBeInTheDocument();
     expect(screen.queryByText("增强内容")).not.toBeInTheDocument();
     expect(screen.queryByText("Core content")).not.toBeInTheDocument();
@@ -226,7 +252,7 @@ describe("career content v3 contract", () => {
     expect(screen.getByText("Existing English navigation transport")).toBeInTheDocument();
   });
 
-  it("folds a distinct review date into the compact source disclosure once", () => {
+  it("does not borrow a review date from stale compatibility content", () => {
     const fixture = surfaceFixture("zh");
     fixture.content_v3 = productionIsomorphicV3Fixture("zh");
     fixture.page.content.review_validity_card = {
@@ -236,8 +262,9 @@ describe("career content v3 contract", () => {
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
-    expect(screen.getAllByText("2026-09-01")).toHaveLength(1);
-    expect(screen.queryByRole("heading", { name: "复核有效期" })).not.toBeInTheDocument();
+    expect(screen.queryByText("2026-09-01")).not.toBeInTheDocument();
+    expect(screen.getByText("review-1 body")).toBeVisible();
+    expect(screen.getByText("review-1 body")).toBeVisible();
   });
 
   it("renders fact-backed entry decisions without adding a top-level directory item", () => {
@@ -380,12 +407,8 @@ describe("career content v3 contract", () => {
     render(<CareerDisplaySurface surface={surface} />);
 
     expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(11);
-    expect(screen.getByRole("heading", { name: "应届生／转行者如何验证并入门", level: 3 })).toBeInTheDocument();
-    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("常见入门岗位");
-    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("考试合格不等于执业注册");
-    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("招聘信号计数");
-    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("入门案例材料");
-    expect(screen.getByTestId("career-entry-decisions")).toHaveTextContent("T20");
+    const pathBlock = document.querySelector('[data-content-block-id="path"]');
+    for (const text of ["审计助理", "考试合格不等于执业注册", "Excel", "T20"]) expect(pathBlock).toHaveTextContent(text);
     expect(screen.getAllByRole("columnheader", { name: "银行记录状态" })).toHaveLength(1);
     expect(screen.queryByText("该子内容尚未发布或暂时无法安全显示。")).not.toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: "BLS OEWS｜美国｜2025 年 5 月｜年薪中位数" }).length).toBeGreaterThan(0);
@@ -393,8 +416,6 @@ describe("career content v3 contract", () => {
     expect(screen.getByTestId("source-list").querySelectorAll("details")).toHaveLength(1);
     expect(screen.getByRole("link", { name: "查看原始资料：Accountants and Auditors" })).toHaveAttribute("href", "https://www.bls.gov/news.release/ocwage.t01.htm");
     expect(screen.getByRole("link", { name: "查看 FA01 原始职位" })).toHaveAttribute("href", "https://example.com/jobs/fa01");
-    expect(within(screen.getByTestId("career-dossier-ai-impact")).getAllByTestId("career-near-source")).toHaveLength(2);
-    expect(within(screen.getByTestId("career-dossier-outlook-transitions")).getByTestId("career-near-source")).toHaveTextContent("BLS OEWS｜美国｜2025 年 5 月｜官方工资统计");
     expect(JSON.stringify(buildCareerDisplayFAQPageJsonLd(surface))).toContain("Visible v3 FAQ answer.");
     expect(surface?.faqItems[0]?.answer).toBe("Visible v3 FAQ answer.");
   });
@@ -428,10 +449,8 @@ describe("career content v3 contract", () => {
     expect(within(toc).getAllByRole("link").map((link) => link.getAttribute("href"))).toEqual([
       "#career-content-risk-primary", "#career-content-profile", "#career-content-risk-secondary", "#career-content-faq",
     ]);
-    expect(Array.from(page.querySelectorAll('[data-career-component-id="market_signal_card"]'), (node) => node.id)).toEqual([
-      "career-component-market_signal_card-risk-primary-0",
-      "career-component-market_signal_card-risk-secondary-2",
-    ]);
+    expect(page.querySelector('[data-content-item-id="market-0"]')).toHaveTextContent("market 0");
+    expect(page.querySelector('[data-content-item-id="market-2"]')).toHaveTextContent("market 2");
   });
 
   it("renders unknown semantics through generic primitives and isolates a damaged primitive", () => {
@@ -448,10 +467,10 @@ describe("career content v3 contract", () => {
 
     expect(screen.getByText("Future block body")).toBeInTheDocument();
     expect(document.querySelector('[data-content-block-id="unknown-copy"] h2')).toHaveTextContent("Additional career information");
-    expect(document.querySelector('[data-content-block-id="unknown-item-copy"] [data-nosnippet="true"]')).not.toBeNull();
+    expect(document.querySelector('[data-content-block-id="unknown-item-copy"]')).toHaveTextContent("Deadlines and evidence review create real pressure.");
     expect(document.querySelector('[data-content-block-id="unknown-primitive"] [data-nosnippet="true"]')).not.toBeNull();
     expect(screen.getByTestId("career-dossier-toc").querySelectorAll("a")).toHaveLength(6);
-    expect(screen.queryByText("Deadlines and evidence review create real pressure.")).not.toBeInTheDocument();
+    expect(screen.getAllByText("Deadlines and evidence review create real pressure.").length).toBeGreaterThan(0);
     expect(screen.queryByText("unsafe")).not.toBeInTheDocument();
   });
 
@@ -538,19 +557,19 @@ describe("career content v3 contract", () => {
     expect(document.querySelectorAll('[data-career-v3-block-copy-key="career.block.sources"] [data-nosnippet="true"]')).toHaveLength(1);
   });
 
-  it("isolates a damaged known FAQ authority while keeping it out of JSON-LD", () => {
+  it("keeps Current FAQ visible and in JSON-LD when compatibility FAQ is damaged", () => {
     const fixture = surfaceFixture("en");
     (fixture.page.content as Record<string, unknown>).faq_block = { items: [{ question: "Broken FAQ", answer: "" }] };
     const surface = adaptCareerDisplaySurface(fixture, "en");
 
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(screen.queryByText("How much do accountants and auditors earn?")).not.toBeInTheDocument();
-    expect(buildCareerDisplayFAQPageJsonLd(surface)).toBeNull();
-    expect(document.querySelector('[data-content-block-id="faq"] [data-nosnippet="true"]')).not.toBeNull();
+    expect(screen.getByText("How much do accountants and auditors earn?")).toBeVisible();
+    expect(JSON.stringify(buildCareerDisplayFAQPageJsonLd(surface))).toContain("It is not a personal income promise.");
+    expect(document.querySelector('[data-content-block-id="faq"] [data-nosnippet="true"]')).toBeNull();
   });
 
-  it("keeps the rich known component and marks an optional missing subitem", () => {
+  it("renders Current prose and marks an optional missing subitem", () => {
     const fixture = surfaceFixture("en");
     const content = fixture.content_v3 as ReturnType<typeof v3Fixture>;
     content.blocks[0].items.push({ id: "optional-missing", copy_key: "career.item.career-risk-cards", type: "notice", availability: "missing", data: {} } as never);
@@ -558,7 +577,7 @@ describe("career content v3 contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "en")} />);
 
     expect(screen.getAllByRole("heading", { name: "Work pressure, risks and boundaries" })).toHaveLength(2);
-    expect(screen.queryByText("Deadlines and evidence review create real pressure.")).not.toBeInTheDocument();
+    expect(screen.getAllByText("Deadlines and evidence review create real pressure.").length).toBeGreaterThan(0);
     expect(document.querySelectorAll('[data-content-block-id="risk-primary"] [data-nosnippet="true"]').length).toBeGreaterThan(0);
   });
 
@@ -573,16 +592,10 @@ describe("career content v3 contract", () => {
     expect(document.querySelector('[data-content-block-id="risk-primary"] [data-nosnippet="true"]')).not.toBeNull();
   });
 
-  it("falls back to presentation v2 when the v3 root is invalid", () => {
+  it("does not fall back to stale presentation when declared Current is invalid", () => {
     const fixture = surfaceFixture("zh");
     (fixture.content_v3 as Record<string, unknown>).locale = "fr";
-    const surface = adaptCareerDisplaySurface(fixture, "zh");
-    render(<CareerDisplaySurface surface={surface} />);
-
-    expect(screen.getByTestId("career-display-surface")).toHaveAttribute("data-career-production-template", "career-production-v1");
-    expect(screen.getByTestId("career-display-surface")).not.toHaveAttribute("data-career-dossier-plan", "content_v3");
-    expect(screen.getByTestId("career-display-hero")).toBeInTheDocument();
-    expect(surface?.dossierRenderPlan?.source).toBe("presentation_v2");
+    expect(adaptCareerDisplaySurface(fixture, "zh")).toBeNull();
   });
 
   it("fails closed when both declared root contracts are invalid", () => {
