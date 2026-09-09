@@ -58,6 +58,15 @@ describe('file-owned page contract', () => {
     }
     if (raw === empty) expect(html).toContain('Content pending');
   });
+  it('uses readable source labels and excludes file-marked import controls', () => {
+    const page = normalizeCareerPage(accountants,'zh','accountants-and-auditors')!;
+    const html = renderToStaticMarkup(<CareerPageTemplate page={page} ctaHref="/zh/tests/riasec" />);
+    const root = document.createElement('div');
+    root.innerHTML = html;
+    expect(root.textContent).not.toMatch(/\bpublished\b|\bqa1\b/);
+    expect(root.querySelector('[data-source-name] a')?.textContent).not.toMatch(/^[a-z]+_[a-z_]+/);
+    expect(root.querySelectorAll('[data-source-name]').length).toBeGreaterThan(0);
+  });
   it('rejects identity, locale, broken available content and unknown fact references', () => {
     expect(normalizeCareerPage(actors,'en','actors')).toBeNull();
     expect(normalizeCareerPage(actors,'zh','accountants-and-auditors')).toBeNull();

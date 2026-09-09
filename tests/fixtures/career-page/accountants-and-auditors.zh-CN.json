@@ -6,7 +6,7 @@
     "name": "会计师和审计师",
     "summary": "把交易、凭证、报表和内控证据，转化为可核验的财务信息。它更适合重视准确性、规则、截止日期和跨部门沟通的人——而不是只会\"算数\"的人。"
   },
-  "source_content_sha256": "8db66e10a2b0437b6016f8c85c659d9e0f35f1b994a5c1cd0fedb48a2c1d787d",
+  "source_content_sha256": "a202575c27e08cf576bfa9a1589387b5aef27c161dc7c3ac32a4015ae2989e55",
   "hero": {
     "ai": {
       "availability": "missing",
@@ -233,32 +233,10 @@
             "copy_key": "career.item.career-quick-answers-block",
             "data": {
               "paragraphs": [
-                "published"
-              ]
-            },
-            "id": "career-quick-answers-block-1",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-quick-answers-block",
-            "data": {
-              "paragraphs": [
                 "会计生产财务信息，审计独立评价财务信息；两条工作线共享准则、内部控制、信息系统、职业判断、证据留痕和职业道德。"
               ]
             },
             "id": "career-quick-answers-block-2",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-quick-answers-block",
-            "data": {
-              "paragraphs": [
-                "qa3"
-              ]
-            },
-            "id": "career-quick-answers-block-3",
             "type": "prose"
           },
           {
@@ -325,17 +303,6 @@
               ]
             },
             "id": "career-quick-answers-block-9",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-quick-answers-block",
-            "data": {
-              "paragraphs": [
-                "qa2"
-              ]
-            },
-            "id": "career-quick-answers-block-10",
             "type": "prose"
           },
           {
@@ -508,17 +475,6 @@
             "copy_key": "career.item.career-quick-answers-block",
             "data": {
               "paragraphs": [
-                "qa1"
-              ]
-            },
-            "id": "career-quick-answers-block-26",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-quick-answers-block",
-            "data": {
-              "paragraphs": [
                 "判断依据包括交易实质、合同条款、权利义务及适用准则；结论会影响会计要素、确认时点、计量基础和列报分类。"
               ]
             },
@@ -648,28 +604,6 @@
           },
           {
             "availability": "available",
-            "copy_key": "career.item.career-quick-answers-block",
-            "data": {
-              "paragraphs": [
-                "career.quick_answers.v1"
-              ]
-            },
-            "id": "career-quick-answers-block-39",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.onet-structured-fields-block",
-            "data": {
-              "paragraphs": [
-                "published"
-              ]
-            },
-            "id": "onet-structured-fields-block-1",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
             "copy_key": "career.item.onet-structured-fields-block",
             "data": {
               "paragraphs": [
@@ -721,17 +655,6 @@
               ]
             },
             "id": "onet-structured-fields-block-6",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.onet-structured-fields-block",
-            "data": {
-              "paragraphs": [
-                "career.onet_structured_fields.v1"
-              ]
-            },
-            "id": "onet-structured-fields-block-7",
             "type": "prose"
           }
         ]
@@ -3927,17 +3850,6 @@
             "availability": "available",
             "copy_key": "career.item.personality-fit-block",
             "data": {
-              "paragraphs": [
-                "riasec"
-              ]
-            },
-            "id": "personality-fit-block-3",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
               "entries": [
                 "常规型兴趣：愿意按准则、流程和证据把记录整理完整。",
                 "研究型与企业型兴趣：愿意追查差异、形成判断，并向相关人员解释结论。"
@@ -3977,17 +3889,6 @@
               ]
             },
             "id": "personality-fit-block-7",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "big-five"
-              ]
-            },
-            "id": "personality-fit-block-8",
             "type": "prose"
           },
           {
@@ -4039,17 +3940,6 @@
             "availability": "available",
             "copy_key": "career.item.personality-fit-block",
             "data": {
-              "paragraphs": [
-                "mbti"
-              ]
-            },
-            "id": "personality-fit-block-13",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
               "entries": [
                 "用偏好观察：结构化流程还是开放探索，独立分析还是高频协作，哪种工作方式更省力。",
                 "把偏好分别对照总账、审计、税务、FP&A、法务会计或管理岗位，而不是只看四个字母。"
@@ -4089,17 +3979,6 @@
               ]
             },
             "id": "personality-fit-block-17",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "enneagram"
-              ]
-            },
-            "id": "personality-fit-block-18",
             "type": "prose"
           },
           {
@@ -4151,17 +4030,6 @@
             "availability": "available",
             "copy_key": "career.item.personality-fit-block",
             "data": {
-              "paragraphs": [
-                "iq"
-              ]
-            },
-            "id": "personality-fit-block-23",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
               "entries": [
                 "能读懂规则、检查前提、比较数字并清楚说明推理过程。",
                 "愿意复核计算、追查不合预期的差异，并通过课程与工具补足具体技能。"
@@ -4201,17 +4069,6 @@
               ]
             },
             "id": "personality-fit-block-27",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "eq"
-              ]
-            },
-            "id": "personality-fit-block-28",
             "type": "prose"
           },
           {
@@ -4286,17 +4143,6 @@
             "copy_key": "career.item.personality-fit-block",
             "data": {
               "paragraphs": [
-                "bookkeeping-accounting-and-auditing-clerks"
-              ]
-            },
-            "id": "personality-fit-block-35",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
                 "重复任务、集中结账期限，以及持续追要缺失原始凭证。"
               ]
             },
@@ -4323,17 +4169,6 @@
               ]
             },
             "id": "personality-fit-block-38",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "financial-examiners"
-              ]
-            },
-            "id": "personality-fit-block-39",
             "type": "prose"
           },
           {
@@ -4374,17 +4209,6 @@
             "copy_key": "career.item.personality-fit-block",
             "data": {
               "paragraphs": [
-                "tax-preparers"
-              ]
-            },
-            "id": "personality-fit-block-43",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
                 "法规持续变化、申报高峰和解释不准确带来的后果。"
               ]
             },
@@ -4411,17 +4235,6 @@
               ]
             },
             "id": "personality-fit-block-46",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "financial-analysts"
-              ]
-            },
-            "id": "personality-fit-block-47",
             "type": "prose"
           },
           {
@@ -4462,17 +4275,6 @@
             "copy_key": "career.item.personality-fit-block",
             "data": {
               "paragraphs": [
-                "fraud-examiners-investigators-and-analysts"
-              ]
-            },
-            "id": "personality-fit-block-51",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
                 "冲突、不完整信息、敏感案件和高标准书面留痕。"
               ]
             },
@@ -4499,17 +4301,6 @@
               ]
             },
             "id": "personality-fit-block-54",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "financial-managers"
-              ]
-            },
-            "id": "personality-fit-block-55",
             "type": "prose"
           },
           {
@@ -4638,43 +4429,10 @@
             "copy_key": "career.item.personality-fit-block",
             "data": {
               "paragraphs": [
-                "career.fit_decision_center.v1"
-              ]
-            },
-            "id": "personality-fit-block-67",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
                 "能整理证据、发现不一致、完成重复复核，并解释数字背后的业务含义。"
               ]
             },
             "id": "personality-fit-block-68",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "fit"
-              ]
-            },
-            "id": "personality-fit-block-69",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "positive"
-              ]
-            },
-            "id": "personality-fit-block-70",
             "type": "prose"
           },
           {
@@ -4693,54 +4451,10 @@
             "copy_key": "career.item.personality-fit-block",
             "data": {
               "paragraphs": [
-                "caution"
-              ]
-            },
-            "id": "personality-fit-block-72",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "caution"
-              ]
-            },
-            "id": "personality-fit-block-73",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
                 "核对本页的虚构报销材料，写明金额差异、待补资料和复核建议，记录核对准确性与精力感受；一次练习不能代表完整岗位能力。"
               ]
             },
             "id": "personality-fit-block-74",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "experiment"
-              ]
-            },
-            "id": "personality-fit-block-75",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.personality-fit-block",
-            "data": {
-              "paragraphs": [
-                "action"
-              ]
-            },
-            "id": "personality-fit-block-76",
             "type": "prose"
           },
           {
@@ -5028,29 +4742,6 @@
             "availability": "available",
             "copy_key": "career.item.career-risk-cards",
             "data": {
-              "entries": [
-                "onet",
-                "iesba"
-              ]
-            },
-            "id": "career-risk-cards-6",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "misstatement-compliance"
-              ]
-            },
-            "id": "career-risk-cards-7",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
               "paragraphs": [
                 "建立复核清单、证据索引和异常升级机制；把估计、判断和审批记录成可复核底稿。"
               ]
@@ -5089,29 +4780,6 @@
               ]
             },
             "id": "career-risk-cards-11",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "entries": [
-                "onet",
-                "bls"
-              ]
-            },
-            "id": "career-risk-cards-12",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "deadline-workload"
-              ]
-            },
-            "id": "career-risk-cards-13",
             "type": "prose"
           },
           {
@@ -5162,29 +4830,6 @@
             "availability": "available",
             "copy_key": "career.item.career-risk-cards",
             "data": {
-              "entries": [
-                "iesba",
-                "cicpa"
-              ]
-            },
-            "id": "career-risk-cards-18",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "independence-conflict"
-              ]
-            },
-            "id": "career-risk-cards-19",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
               "paragraphs": [
                 "识别并记录威胁，使用回避、独立复核、轮换或退出等保护措施；无法降至可接受水平时停止相关工作。"
               ]
@@ -5223,29 +4868,6 @@
               ]
             },
             "id": "career-risk-cards-23",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "entries": [
-                "onet",
-                "iesba"
-              ]
-            },
-            "id": "career-risk-cards-24",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "evidence-scope"
-              ]
-            },
-            "id": "career-risk-cards-25",
             "type": "prose"
           },
           {
@@ -5296,29 +4918,6 @@
             "availability": "available",
             "copy_key": "career.item.career-risk-cards",
             "data": {
-              "entries": [
-                "iesba",
-                "cicpa"
-              ]
-            },
-            "id": "career-risk-cards-30",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "confidentiality-access"
-              ]
-            },
-            "id": "career-risk-cards-31",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
               "paragraphs": [
                 "遵循最小权限、职责分离、访问复核和安全传输；不把敏感资料输入未获批准的工具。"
               ]
@@ -5363,29 +4962,6 @@
             "availability": "available",
             "copy_key": "career.item.career-risk-cards",
             "data": {
-              "entries": [
-                "ifac7",
-                "iesba"
-              ]
-            },
-            "id": "career-risk-cards-36",
-            "type": "list"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "competence-change"
-              ]
-            },
-            "id": "career-risk-cards-37",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
               "paragraphs": [
                 "持续专业学习，验证自动化输出，记录重大判断；遇到超出能力边界的事项应咨询或转交专家。"
               ]
@@ -5409,43 +4985,10 @@
             "copy_key": "career.item.career-risk-cards",
             "data": {
               "paragraphs": [
-                "career.work_risk.v1"
-              ]
-            },
-            "id": "career-risk-cards-40",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "onet"
-              ]
-            },
-            "id": "career-risk-cards-41",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
                 "工作情境、伦理原则与持续胜任能力"
               ]
             },
             "id": "career-risk-cards-42",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "bls"
-              ]
-            },
-            "id": "career-risk-cards-43",
             "type": "prose"
           },
           {
@@ -5464,17 +5007,6 @@
             "copy_key": "career.item.career-risk-cards",
             "data": {
               "paragraphs": [
-                "iesba"
-              ]
-            },
-            "id": "career-risk-cards-45",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
                 "工作情境、伦理原则与持续胜任能力"
               ]
             },
@@ -5486,32 +5018,10 @@
             "copy_key": "career.item.career-risk-cards",
             "data": {
               "paragraphs": [
-                "cicpa"
-              ]
-            },
-            "id": "career-risk-cards-47",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
                 "工作情境、伦理原则与持续胜任能力"
               ]
             },
             "id": "career-risk-cards-48",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-risk-cards",
-            "data": {
-              "paragraphs": [
-                "ifac7"
-              ]
-            },
-            "id": "career-risk-cards-49",
             "type": "prose"
           },
           {
@@ -6128,43 +5638,10 @@
             "copy_key": "career.item.career-path-block",
             "data": {
               "paragraphs": [
-                "career.career_progression.v1"
-              ]
-            },
-            "id": "career-path-block-14",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
-                "bls"
-              ]
-            },
-            "id": "career-path-block-15",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
                 "入行教育、专业技能、持续发展与执业边界"
               ]
             },
             "id": "career-path-block-16",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
-                "ifac3"
-              ]
-            },
-            "id": "career-path-block-17",
             "type": "prose"
           },
           {
@@ -6183,17 +5660,6 @@
             "copy_key": "career.item.career-path-block",
             "data": {
               "paragraphs": [
-                "ifac7"
-              ]
-            },
-            "id": "career-path-block-19",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
                 "入行教育、专业技能、持续发展与执业边界"
               ]
             },
@@ -6205,32 +5671,10 @@
             "copy_key": "career.item.career-path-block",
             "data": {
               "paragraphs": [
-                "cicpa"
-              ]
-            },
-            "id": "career-path-block-21",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
                 "入行教育、专业技能、持续发展与执业边界"
               ]
             },
             "id": "career-path-block-22",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
-                "corporate-accounting"
-              ]
-            },
-            "id": "career-path-block-23",
             "type": "prose"
           },
           {
@@ -6458,17 +5902,6 @@
             "copy_key": "career.item.career-path-block",
             "data": {
               "paragraphs": [
-                "external-audit"
-              ]
-            },
-            "id": "career-path-block-44",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
                 "入职资格与考试支持政策因事务所和地区而异。"
               ]
             },
@@ -6682,17 +6115,6 @@
               ]
             },
             "id": "career-path-block-64",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.career-path-block",
-            "data": {
-              "paragraphs": [
-                "internal-specialist"
-              ]
-            },
-            "id": "career-path-block-65",
             "type": "prose"
           },
           {
@@ -7045,17 +6467,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "bls"
-              ]
-            },
-            "id": "market-signal-card-8",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "5%；约 115,300 个/年"
               ]
             },
@@ -7140,17 +6551,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "wef"
-              ]
-            },
-            "id": "market-signal-card-16",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "部分会计与审计角色被列为下降方向"
               ]
             },
@@ -7228,43 +6628,10 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "ilo"
-              ]
-            },
-            "id": "market-signal-card-24",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "更可能重组工作，而非自动等同岗位消失"
               ]
             },
             "id": "market-signal-card-25",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "career.outlook_transitions.v1"
-              ]
-            },
-            "id": "market-signal-card-26",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "bls"
-              ]
-            },
-            "id": "market-signal-card-27",
             "type": "prose"
           },
           {
@@ -7283,17 +6650,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "wef"
-              ]
-            },
-            "id": "market-signal-card-29",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "就业预测、雇主预期、任务暴露和职业能力关联"
               ]
             },
@@ -7305,32 +6661,10 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "ilo"
-              ]
-            },
-            "id": "market-signal-card-31",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "就业预测、雇主预期、任务暴露和职业能力关联"
               ]
             },
             "id": "market-signal-card-32",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "onet"
-              ]
-            },
-            "id": "market-signal-card-33",
             "type": "prose"
           },
           {
@@ -7371,28 +6705,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "/zh/career/jobs/financial-managers"
-              ]
-            },
-            "id": "market-signal-card-37",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "financial-managers"
-              ]
-            },
-            "id": "market-signal-card-38",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "中等"
               ]
             },
@@ -7419,28 +6731,6 @@
               ]
             },
             "id": "market-signal-card-41",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "/zh/career/jobs/financial-analysts"
-              ]
-            },
-            "id": "market-signal-card-42",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "financial-analysts"
-              ]
-            },
-            "id": "market-signal-card-43",
             "type": "prose"
           },
           {
@@ -7481,28 +6771,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "/zh/career/jobs/budget-analysts"
-              ]
-            },
-            "id": "market-signal-card-47",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "budget-analysts"
-              ]
-            },
-            "id": "market-signal-card-48",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "较近"
               ]
             },
@@ -7529,28 +6797,6 @@
               ]
             },
             "id": "market-signal-card-51",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "/zh/career/jobs/financial-examiners"
-              ]
-            },
-            "id": "market-signal-card-52",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "financial-examiners"
-              ]
-            },
-            "id": "market-signal-card-53",
             "type": "prose"
           },
           {
@@ -7591,28 +6837,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "/zh/career/jobs/fraud-examiners-investigators-and-analysts"
-              ]
-            },
-            "id": "market-signal-card-57",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "fraud-examiners-investigators-and-analysts"
-              ]
-            },
-            "id": "market-signal-card-58",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "中等"
               ]
             },
@@ -7639,28 +6863,6 @@
               ]
             },
             "id": "market-signal-card-61",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "/zh/career/jobs/management-analysts"
-              ]
-            },
-            "id": "market-signal-card-62",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "management-analysts"
-              ]
-            },
-            "id": "market-signal-card-63",
             "type": "prose"
           },
           {
@@ -7701,28 +6903,6 @@
             "copy_key": "career.item.market-signal-card",
             "data": {
               "paragraphs": [
-                "/zh/career/jobs/bookkeeping-accounting-and-auditing-clerks"
-              ]
-            },
-            "id": "market-signal-card-67",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "bookkeeping-accounting-and-auditing-clerks"
-              ]
-            },
-            "id": "market-signal-card-68",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
                 "入门比较"
               ]
             },
@@ -7749,28 +6929,6 @@
               ]
             },
             "id": "market-signal-card-71",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "/zh/career/jobs/tax-preparers"
-              ]
-            },
-            "id": "market-signal-card-72",
-            "type": "prose"
-          },
-          {
-            "availability": "available",
-            "copy_key": "career.item.market-signal-card",
-            "data": {
-              "paragraphs": [
-                "tax-preparers"
-              ]
-            },
-            "id": "market-signal-card-73",
             "type": "prose"
           },
           {
@@ -8705,7 +7863,7 @@
         "text": "会计师和审计师"
       }
     },
-    "source_content_sha256": "8db66e10a2b0437b6016f8c85c659d9e0f35f1b994a5c1cd0fedb48a2c1d787d",
+    "source_content_sha256": "a202575c27e08cf576bfa9a1589387b5aef27c161dc7c3ac32a4015ae2989e55",
     "subject": {
       "canonical_slug": "accountants-and-auditors",
       "name": "会计师和审计师",

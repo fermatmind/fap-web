@@ -10,6 +10,9 @@ export function CareerPagePlaceholder({locale, data = false}: {locale: Locale; d
 export function CareerPageItem({ item, content }: { item: CareerContentV3Item; content: CareerContentV3 }) {
   const locale = content.locale;
   const copy = careerContentV3UiCopy(locale);
+  const linkLabel = (entity: string) => /^[a-z][a-z0-9]*_[a-z0-9_]+$/.test(entity) || entity === 'path'
+    ? (locale === 'zh' ? '相关资料' : 'Related resource') : entity;
+  const sourceLabel = (entry: {name: string; publisher?: string}) => /^[a-z][a-z0-9_]+$/.test(entry.name) ? (entry.publisher ?? entry.name) : entry.name;
   if (item.availability === "missing") return <CareerPagePlaceholder locale={locale} />;
 
   if (item.type === "prose" || item.type === "notice") {
@@ -42,18 +45,18 @@ export function CareerPageItem({ item, content }: { item: CareerContentV3Item; c
   }
   if (item.type === "links") {
     return <ul className="m-0 grid gap-2 p-0 sm:grid-cols-2">{(item.data.entries as Array<{ id: string; entity: string; url: string }>).map((entry) => (
-      <li className="list-none" key={entry.id}>{entry.url.startsWith("#") ? (
-        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{entry.entity}<span className="ml-1" aria-hidden="true">→</span></a>
+      <li className="list-none" key={entry.id} data-link-entity={entry.entity}>{entry.url.startsWith("#") ? (
+        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{linkLabel(entry.entity)}<span className="ml-1" aria-hidden="true">→</span></a>
       ) : entry.url.startsWith("/") ? (
-        <Link className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{entry.entity}<span className="ml-1" aria-hidden="true">→</span></Link>
+        <Link className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url}>{linkLabel(entry.entity)}<span className="ml-1" aria-hidden="true">→</span></Link>
       ) : (
-        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${entry.entity} (${copy.externalLink})`}>{entry.entity}<span className="ml-1" aria-hidden="true">↗</span></a>
+        <a className="inline-flex min-h-11 items-center font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${linkLabel(entry.entity)} (${copy.externalLink})`}>{linkLabel(entry.entity)}<span className="ml-1" aria-hidden="true">↗</span></a>
       )}</li>
     ))}</ul>;
   }
   if (item.type === "sources") {
     return <ul className="m-0 space-y-2 p-0">{(item.data.entries as Array<{ id: string; name: string; url: string | null; details?: string[]; publisher?: string; market?: string; period?: string; evidence_type?: string; scope?: string; limitation?: string; accessed_at?: string }>).map((entry) => (
-      <li className="list-none text-sm leading-6" key={entry.id}>{entry.url ? <a className="font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${entry.name} (${copy.externalLink})`}>{entry.name}<span className="ml-1" aria-hidden="true">↗</span></a> : <span>{entry.name}</span>}
+      <li className="list-none text-sm leading-6" key={entry.id} data-source-name={entry.name}>{entry.url ? <a className="font-semibold text-[#2C3E8C]" href={entry.url} target="_blank" rel="noreferrer" aria-label={`${sourceLabel(entry)} (${copy.externalLink})`}>{sourceLabel(entry)}<span className="ml-1" aria-hidden="true">↗</span></a> : <span>{sourceLabel(entry)}</span>}
         {[...(entry.details ?? []), entry.publisher, entry.market, entry.period, careerEvidenceLabel(entry.evidence_type, locale), careerEvidenceLabel(entry.scope, locale), entry.limitation, entry.accessed_at].filter(Boolean).map((detail, i) => <p className="m-0 mt-1 text-[#5B6678]" key={i}>{detail}</p>)}
       </li>
     ))}</ul>;
