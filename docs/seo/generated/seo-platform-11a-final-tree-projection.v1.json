@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "48f54060345e0930ebaa1415a4a87d538bd1d263",
+    "sha": "ab9f98c2cc59d8a5b59e2abbde58e915b4fcbd98",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -1136,8 +1136,8 @@
     },
     {
       "path": ".github/workflows/nightly.yml",
-      "sha256": "74e0a91b74b11b5cd52ac6f125ad56c4bc414bc6d7d5f9078b5e966b4696c6a0",
-      "byte_size": 2087,
+      "sha256": "9fa6ecdc4afc9e3d28122a00817f26a9cfef4cc21d4f39a846eee6d60b952aab",
+      "byte_size": 2188,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "27e37ec9231cb0dad70b2c41b9e47707b68d9d79cd2c753c2cfd48e8515e9765"
+  "projection_self_hash": "dfa81e2cffc38d594c08f53c417b042ed69d08184ee3bd4bc57156b6d020cdd6"
 }
