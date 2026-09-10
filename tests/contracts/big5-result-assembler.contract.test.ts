@@ -1,3 +1,5 @@
+import englishEngine from "@/tests/fixtures/big5/canonical-engine-en-120.json";
+import type { ReportResponse } from "@/lib/api/v0_3";
 import { describe, expect, it } from "vitest";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { BIG5_V1_SECTION_KEYS } from "@/lib/big5/sectionBlueprint";
@@ -6,6 +8,19 @@ import { BIG5_SOURCE_HASH, canonicalPrivateReport } from "@/tests/fixtures/big5/
 const gate = { isFreeVariant: false, modulesAllowed: new Set<string>(), modulesPreview: new Set<string>(), freeSections: null };
 
 describe("Big Five canonical private result assembler", () => {
+  it("accepts the backend English 120-question release fixture without legacy prose", () => {
+    const report = {
+      ok: true,
+      big5_private_result_authority: englishEngine._meta.big5_private_result_authority,
+      big5_report_engine_v2: englishEngine,
+      report: { scale_code: "BIG5_OCEAN", sections: [] },
+    } as ReportResponse;
+    const view = assembleBig5ResultViewModel({ locale: "en", reportData: report, gate });
+    expect(view.authority?.locale).toBe("en");
+    expect(view.plannedSections.map((section) => section.key)).toEqual([...BIG5_V1_SECTION_KEYS]);
+    expect(view.visibleSections.flatMap((section) => section.blocks).length).toBeGreaterThan(0);
+  });
+
   it("renders the exact canonical section order and preserves authority", () => {
     const view = assembleBig5ResultViewModel({ locale: "zh", reportData: canonicalPrivateReport(), gate });
     expect(view.authority?.source_hash).toBe(BIG5_SOURCE_HASH);

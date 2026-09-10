@@ -28,6 +28,9 @@ jobs:
       - run: node --test .github/trunk/*.test.mjs
       - run: pnpm verify:pr
       - run: pnpm test:e2e
+      - run: pnpm test:e2e:release
+        env:
+          NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
       - run: pnpm perf:audit:public
 
   codeql:
