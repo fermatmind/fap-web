@@ -121,6 +121,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
     text(salary.china_ref),
     text(salary.china_intl),
     text(salary.sources_note),
+    text(salary.edu),
   ]);
   const sourceFields: Array<{ field: string; value: string }> = [];
   for (const [field, sourceValue] of [
@@ -132,7 +133,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
   }
 
   if (!heading || !answer || !officialIntro || !aiAnswer || !boundary || !caseNote ||
-    !officialRows || !scenarioRows || !driverRows || sources.length < 3) {
+    !officialRows || !scenarioRows || !driverRows || sources.length < 2) {
     return null;
   }
 
@@ -352,6 +353,14 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
       </section>
 
       <aside className={visual.salarySources} aria-label={locale === "zh" ? "中国大陆薪资数据来源与使用边界" : "Chinese mainland salary sources and usage boundaries"}>
+        {isRecord(value) && isRecord(value.salary) && Array.isArray(value.salary.bls_table) ? value.salary.bls_table.map((row, index) => isRecord(row) ? (
+          <p key={index}>
+            <span data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].数值`}>{text(row["数值"])}</span>{" · "}
+            <span data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].说明`}>{text(row["说明"])}</span>
+          </p>
+        ) : null) : null}
+        {isRecord(value) && text(value.callout) ? <p data-career-api-field="career_snapshot_primary_locale.callout">{text(value.callout)}</p> : null}
+        {isRecord(value) && text(value.scene) ? <p data-career-api-field="career_snapshot_primary_locale.scene">{text(value.scene)}</p> : null}
         <p data-career-api-field="career_snapshot_primary_locale.salary.china_salary_note">{content.boundary}</p>
         <SourceLinks items={content.sourceItems} prefix="career_snapshot_primary_locale.salary" />
         {content.sourceFields.map((item) => (

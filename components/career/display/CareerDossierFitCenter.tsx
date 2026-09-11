@@ -122,6 +122,10 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
         </div>
         <h2 className={visual.fitCenterTitle} {...apiField("personality_fit_block.heading")}>{value.heading}</h2>
         <p className={visual.fitCenterAnswer} {...apiField("personality_fit_block.direct_answer")}>{value.direct_answer}</p>
+        {value.signals.map((signal, index) => <p key={signal.id} className={visual.fitCenterAnswer}>
+          <strong {...apiField(`personality_fit_block.signals[${index}].label`)}>{signal.label}：</strong>{" "}
+          <span {...apiField(`personality_fit_block.signals[${index}].body`)}>{signal.body}</span>
+        </p>)}
       </header>
 
       <section className={visual.fitCenterSection} aria-labelledby="career-fit-assessments-title">

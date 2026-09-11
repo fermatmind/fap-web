@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { cache } from "react";
 import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 import { notFound, permanentRedirect } from 'next/navigation';
+import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
+import { accountantsIdentity, restoreAccountantsSurface } from '@/lib/career/accountantsBaseline/adapter';
 import { CareerPageTemplate } from '@/components/career/display/CareerPageTemplate';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { AnalyticsPageViewTracker } from '@/hooks/useAnalytics';
@@ -28,7 +30,7 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   const raw = payload as unknown as Record<string, unknown>;
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
-  return {job, page};
+  return {job, page, restoredIdentity:job.slug === 'accountants-and-auditors' ? accountantsIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
@@ -130,12 +132,15 @@ export default async function CareerJobDetailPage({params, searchParams}: {param
   const landingPath = buildCareerJobFrontendUrl(locale, job.slug);
   const attributionParams = extractAttributionParamsFromRecord(await searchParams ?? {});
   const ctaHref = buildCareerDisplayCtaHref({locale, subjectSlug: job.slug, landingPath, attributionParams});
-  const faq = careerPageFaq(page);
+  const restoredSurface = job.slug === 'accountants-and-auditors'
+    ? restoreAccountantsSurface(page, result.restoredIdentity!, ctaHref)
+    : null;
+  const faq = restoredSurface?.faqItems ?? careerPageFaq(page);
   return <main data-evidence-page-family="career_job_detail" className="min-h-screen bg-slate-50">
     <AnalyticsPageViewTracker eventName={CAREER_TRACKING_EVENTS.jobDetailView} properties={buildCareerAttributionPayload({locale, entrySurface: 'career_job_detail', sourcePageType: 'career_job_detail', targetAction: 'view_surface', landingPath, routeFamily: 'job_detail', subjectKind: 'job_slug', subjectKey: job.slug})} />
     <JsonLd id={`career-job-breadcrumb-${job.slug}`} data={{'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:locale === 'zh' ? '职业' : 'Career',item:`https://fermatmind.com/${locale}/career`},{'@type':'ListItem',position:2,name:page.content.subject.name,item:`https://fermatmind.com${landingPath}`}]}} />
     {job.renderState.canRenderStructuredData && job.seoSurface?.structuredDataKeys.includes('Occupation') ? <JsonLd id={`career-job-occupation-${job.slug}`} data={{'@context': 'https://schema.org', '@type': 'Occupation', name: page.content.subject.name, ...(page.content.subject.summary ? {description: page.content.subject.summary} : {}), url: job.seoSurface.canonicalUrl}} /> : null}
     {faq.length ? <JsonLd id={`career-job-display-faq-${job.slug}`} data={buildFAQPageJsonLd(faq)} /> : null}
-    <CareerPageTemplate page={page} ctaHref={ctaHref} rendererRelease={CAREER_RENDERER_RELEASE} />
+    {restoredSurface ? <CareerDisplaySurface surface={restoredSurface} rendererRelease={CAREER_RENDERER_RELEASE} ctaAttributionParams={attributionParams} ctaLandingPath={landingPath} breadcrumbItems={[{label:locale === 'zh' ? '首页' : 'Home',href:`/${locale}`},{label:locale === 'zh' ? '职业' : 'Career',href:`/${locale}/career`},{label:page.content.subject.name}]} /> : <CareerPageTemplate page={page} ctaHref={ctaHref} rendererRelease={CAREER_RENDERER_RELEASE} />}
   </main>;
 }

@@ -97,6 +97,7 @@ export function CareerDossierProfile({
         data-career-published-answer={systemItem.answer}
       >
         <span className="sr-only" data-career-api-field="career_quick_answers_block.heading">{quickAnswers.heading}</span>
+        <p className={styles.directAnswer} data-career-api-field="career_quick_answers_block.items[0].answer">{systemItem.answer}</p>
         <div
           className={styles.trackFigure}
           aria-label={systemItem.question}
@@ -226,6 +227,7 @@ export function CareerDossierProfile({
               <h3 data-career-api-field="career_quick_answers_block.items[2].question">{judgmentItem.question}</h3>
             </div>
           </div>
+          <p className={styles.directAnswer} data-career-api-field="career_quick_answers_block.items[2].answer">{judgmentItem.answer}</p>
           <ol className={styles.judgmentList}>
             {judgmentItem.table.rows.map((row, index) => {
               const path = `career_quick_answers_block.items[2].table.rows[${index}]`;

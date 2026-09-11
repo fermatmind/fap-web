@@ -27,6 +27,7 @@ export function CareerDossierQuickDecisionAnswer({ value }: { value: CareerPubli
         <p className={visual.quickDecisionLeadAnswer} data-career-api-field="fermat_decision_card.summary">
           {asString(decision.summary)}
         </p>
+        <p className="m-0 mt-3 text-sm leading-7 text-[#5B6678]" data-career-api-field="fermat_decision_card.caveat">{asString(decision.caveat)}</p>
       </div>
     </section>
   );

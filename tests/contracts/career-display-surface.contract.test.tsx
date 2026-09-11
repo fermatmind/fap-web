@@ -1305,9 +1305,9 @@ describe("career display surface contract", () => {
 
     expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("做会计或审计，哪些兴趣、性格特质与能力更重要？");
     expect(document.getElementById("career-visual-group-title-fit")).toHaveTextContent("职业适配指南");
-    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("你可能更适合");
-    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("你可能需要慎重");
-    expect(screen.getByTestId("career-dossier-fit-center")).not.toHaveTextContent("30 分钟真实工作实验");
+    expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("你可能更适合");
+    expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("你可能需要慎重");
+    expect(screen.getByTestId("career-dossier-fit-center")).toHaveTextContent("30 分钟真实工作实验");
     expect(document.querySelector('[data-career-api-list="personality_fit_block.signals"]')).not.toBeInTheDocument();
     expect(document.querySelectorAll("[data-fit-assessment]")).toHaveLength(6);
     const assessmentIcons = Array.from(document.querySelectorAll("[data-fit-assessment-icon]"));

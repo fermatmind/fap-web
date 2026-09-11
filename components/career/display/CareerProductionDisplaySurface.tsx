@@ -47,6 +47,7 @@ import {
   CareerPublishedSemanticSection,
 } from "@/components/career/display/CareerPublishedSemanticSection";
 import {
+  CAREER_DISPLAY_ACCOUNTANTS_SLUG,
   CAREER_DISPLAY_SUPPORTED_COMPONENTS,
   type CareerDisplayComponentId,
   type CareerDisplaySection,
@@ -460,6 +461,8 @@ function CareerProductionHero({
       }));
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
+  const missingAccountantsAi = surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !aiExposure;
+  const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);
   const presentationCodes = (presentationV1 ? [
     presentationV1.hero.socCode ? `SOC ${presentationV1.hero.socCode}` : null,
@@ -516,11 +519,11 @@ function CareerProductionHero({
         {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={presentationField ? `${presentationField}.hero.lead` : "hero.quick_answer"}>{heroLead}</p> : null}
         {visibleAiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field={`${presentationField}.hero.ai_exposure.note`}>{visibleAiExposure.note}</p> : null}
       </div>
-      {visibleAiExposure || legacyAiImpact?.score ? (
+      {visibleAiExposure || legacyAiImpact?.score || missingAccountantsAi ? (
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
-            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? legacyAiImpact?.heading}</span>
+            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score ?? (surface.locale === "zh" ? <>暂无<br />数据</> : <abbr title={unavailableAi} className="no-underline">N/A</abbr>)}</strong>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI 任务暴露" : "AI task exposure")}</span>
             {visibleAiExposure ? <span className="sr-only" data-career-api-field={`${presentationField}.hero.ai_exposure.source_label`}>{visibleAiExposure.sourceLabel}</span> : null}
           </div>
         </div>
@@ -558,9 +561,17 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
-  const v3Sources = surface.locale === "zh"
+  const v3Sources = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
     ? surface.contentV3?.sources ?? []
     : [];
+  const rawSourceCard = surface.publishedComponents?.source_card;
+  const sourceCard = rawSourceCard && typeof rawSourceCard === "object" && !Array.isArray(rawSourceCard) ? rawSourceCard : {};
+  const rawSignals = sourceCard.eeat_signals;
+  const signals = rawSignals && typeof rawSignals === "object" && !Array.isArray(rawSignals) ? rawSignals : {};
+  const navigation = surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+    ? surface.contentV3?.blocks.find(block => block.id === "navigation")?.items.find(item => item.id === "navigation-links")
+    : undefined;
+  const secondaryLinks = (navigation?.data.entries as Array<{id:string; entity:string; url:string}> | undefined)?.filter(entry => entry.entity === "secondary_cta") ?? [];
   const sourceDetail = (value: string): { text: string; href: string | null; linkLabel: string } => {
     const match = value.match(/^(.*?)(https:\/\/\S+)$/u);
     if (!match) return { text: value, href: null, linkLabel: "" };
@@ -575,6 +586,9 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
   return (
     <Container className={embedded ? visual.sourceRegisterInline : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"}>
       <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</Heading>
+      <div className="mt-4 text-sm leading-7 text-[#2a3346]">
+        {(["author", "updated_at", "source"] as const).map(field => typeof signals[field] === "string" ? <p className="m-0" key={field} data-career-api-field={`source_card.eeat_signals.${field}`}>{signals[field]}</p> : null)}
+      </div>
       <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
         {v3Sources.length > 0 ? v3Sources.map((source) => (
           <li key={source.id} className="list-none">
@@ -625,6 +639,12 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
           </li>
         ))}
       </ul>
+      {typeof sourceCard.note === "string" ? <p className="m-0 mt-4 text-sm leading-7 text-[#5B6678]" data-career-api-field="source_card.note">{sourceCard.note}</p> : null}
+      {secondaryLinks.length ? <p className={visual.salarySourceLinks}>
+        {secondaryLinks.map((entry, index) => <span key={entry.id}>
+          {index > 0 ? " · " : null}<Link href={entry.url}>{({"navigation-2":"MBTI (English)","navigation-3":"Big Five (English)","navigation-4":"MBTI (中文)","navigation-5":"Big Five (中文)"} as Record<string,string>)[entry.id]}</Link>
+        </span>)}
+      </p> : null}
     </Container>
   );
 }
@@ -741,7 +761,7 @@ export function CareerProductionDisplaySurface({
         locale={surface.locale}
       />;
     }
-    if (componentId === "source_card") return surface.contentV3?.facts.length
+    if (componentId === "source_card") return surface.contentV3?.facts.length || (surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && surface.contentV3?.sources.length)
       ? <SourceCard surface={surface} embedded={Boolean(groupHeader)} />
       : publishedComponents
         ? <CareerPublishedSemanticSection componentId={componentId} value={publishedComponents[componentId]!} sources={surface.sources} reviewValidity={surface.reviewValidity} locale={surface.locale} />
@@ -972,11 +992,7 @@ export function CareerProductionDisplaySurface({
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
         ];
       });
-      const sourceRegister = surface.locale === "zh" && surface.contentV3?.sources.length &&
-        !block.declaredComponentIds.includes("source_card")
-        ? <SourceCard surface={surface} embedded />
-        : null;
-      return nodes.length > 0 ? <>{nodes}{sourceRegister}</> : null;
+      return nodes.length > 0 ? <>{nodes}</> : null;
     }
 
     const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));
