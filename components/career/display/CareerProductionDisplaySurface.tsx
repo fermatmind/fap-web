@@ -461,7 +461,7 @@ function CareerProductionHero({
       }));
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
-  const missingAccountantsAi = surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !aiExposure;
+  const missingAccountantsAi = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !aiExposure;
   const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);
   const presentationCodes = (presentationV1 ? [
@@ -561,7 +561,7 @@ function CareerProductionHero({
 function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfaceViewModel; embedded?: boolean }) {
   const Container = embedded ? "div" : "section";
   const Heading = embedded ? "h3" : "h2";
-  const v3Sources = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
+  const v3Sources = surface.locale === "zh"
     ? surface.contentV3?.sources ?? []
     : [];
   const rawSourceCard = surface.publishedComponents?.source_card;
@@ -589,6 +589,9 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
       <div className="mt-4 text-sm leading-7 text-[#2a3346]">
         {(["author", "updated_at", "source"] as const).map(field => typeof signals[field] === "string" ? <p className="m-0" key={field} data-career-api-field={`source_card.eeat_signals.${field}`}>{signals[field]}</p> : null)}
       </div>
+      {surface.reviewValidity?.lastReviewed && surface.reviewValidity.lastReviewed !== signals.updated_at ? (
+        <p className="m-0 mt-3 text-sm leading-7 text-[#2a3346]">{surface.locale === "zh" ? "最近复核：" : "Last reviewed: "}<strong>{surface.reviewValidity.lastReviewed}</strong></p>
+      ) : null}
       <ul className="m-0 mt-4 space-y-3 p-0" data-testid="source-list">
         {v3Sources.length > 0 ? v3Sources.map((source) => (
           <li key={source.id} className="list-none">
@@ -992,7 +995,11 @@ export function CareerProductionDisplaySurface({
           <ComponentFrame key={componentId} id={componentId} instanceKey={block.instanceKey}>{component}</ComponentFrame>,
         ];
       });
-      return nodes.length > 0 ? <>{nodes}</> : null;
+      const sourceRegister = surface.locale === "zh" && surface.contentV3?.sources.length &&
+        !block.declaredComponentIds.includes("source_card")
+        ? <SourceCard surface={surface} embedded />
+        : null;
+      return nodes.length > 0 ? <>{nodes}{sourceRegister}</> : null;
     }
 
     const components = block.declaredComponentIds.filter((componentId) => !INTERNAL_COMPONENT_IDS.has(componentId));

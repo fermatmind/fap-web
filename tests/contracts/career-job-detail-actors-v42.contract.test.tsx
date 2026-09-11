@@ -15,12 +15,22 @@ async function render(slug='actors',locale='zh',search:Record<string,string>={})
 }
 beforeEach(()=>vi.clearAllMocks());
 describe('single-source career route integration',()=>{
-  it.each(['actors','accountants-and-auditors','web-developers','registered-nurses','data-scientists','health-educators'])('uses the common file renderer for %s',async slug=>{
+  it.each(['actors','web-developers','registered-nurses','data-scientists','health-educators'])('uses the common file renderer for %s',async slug=>{
     fetchMock.mockResolvedValue(bundle(slug));
     const html=await render(slug);
     expect(html).toContain('data-career-dossier-plan="career_page"');
     expect(html.match(/data-career-visual-group=/g)).toHaveLength(11);
     expect(html).toContain('29.05美元/小时');
+  });
+  it('rejects incomplete Chinese accountant mappings before rendering',async()=>{
+    fetchMock.mockResolvedValue(bundle('accountants-and-auditors'));
+    await expect(render('accountants-and-auditors')).rejects.toThrow('ACCOUNTANTS_UI_COMPATIBILITY_INVALID');
+  });
+  it('keeps the English accountant on the common file renderer',async()=>{
+    fetchMock.mockResolvedValue(bundle('accountants-and-auditors','en'));
+    const html=await render('accountants-and-auditors','en');
+    expect(html).toContain('data-career-dossier-plan="career_page"');
+    expect(html).not.toContain('data-career-production-template="career-production-v1"');
   });
   it('keeps English identity with complete empty sections',async()=>{
     fetchMock.mockResolvedValue(bundle('actors','en'));

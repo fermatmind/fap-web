@@ -86,7 +86,7 @@ describe("career v1.2 presentation contract", () => {
     ["missing label", { label: "" }],
     ["missing source", { source_label: "" }],
     ["missing note", { note: "" }],
-  ])("hides only an invalid AI gauge slot: %s", (_label, patch) => {
+  ])("keeps the accountant gauge container unavailable for an invalid metric: %s", (_label, patch) => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -97,7 +97,8 @@ describe("career v1.2 presentation contract", () => {
 
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
-    expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+    expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("暂无数据");
+    expect(screen.getByTestId("career-production-ai-gauge")).not.toHaveTextContent(/\d+\/10/u);
     expect(screen.getByTestId("career-production-hero-stats")).toBeInTheDocument();
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent("会计与审计人员");
   });
@@ -121,7 +122,7 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.getByTestId("career-display-hero")).not.toHaveTextContent("8/10");
   });
 
-  it("keeps a valid Chinese page available when presentation_v1 is absent and hides only visual slots", () => {
+  it("keeps the Chinese accountant page and unavailable gauge when presentation_v1 is absent", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -134,12 +135,13 @@ describe("career v1.2 presentation contract", () => {
     expect(screen.getByTestId("career-display-surface")).toHaveTextContent("会计与审计人员");
     expect(screen.queryByTestId("career-production-hero-badges")).not.toBeInTheDocument();
     expect(screen.queryByTestId("career-production-hero-stats")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+    expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("暂无数据");
+    expect(screen.getByTestId("career-production-ai-gauge")).not.toHaveTextContent(/\d+\/10/u);
     expect(document.querySelectorAll("[data-career-visual-group]")).toHaveLength(12);
     expect(document.querySelector('[data-career-visual-group="overview"]')).toBeInTheDocument();
   });
 
-  it("compacts every formally optional projection slot without placeholders or empty cards", () => {
+  it("compacts optional slots while retaining the accountant unavailable gauge", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",
       locale: "zh",
@@ -163,10 +165,11 @@ describe("career v1.2 presentation contract", () => {
     render(<CareerDisplaySurface surface={adaptCareerDisplaySurface(fixture, "zh")} />);
 
     const heroElement = screen.getByTestId("career-display-hero");
-    expect(screen.queryByTestId("career-production-ai-gauge")).not.toBeInTheDocument();
+    expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("暂无数据");
+    expect(screen.getByTestId("career-production-ai-gauge")).not.toHaveTextContent(/\d+\/10/u);
     expect(screen.getByTestId("career-production-hero-badges").children).toHaveLength(2);
     expect(screen.getByTestId("career-production-hero-stats").children).toHaveLength(4);
-    expect(heroElement).not.toHaveTextContent(/O\*NET|0\/10|undefined|暂无数据|数据缺失/u);
+    expect(heroElement).not.toHaveTextContent(/O\*NET|0\/10|undefined|数据缺失/u);
     expect(document.querySelector('[data-career-api-field="presentation_v1.hero.onet_code"]')).not.toBeInTheDocument();
     expect(document.querySelectorAll('[data-career-api-component="primary_cta"]')).toHaveLength(0);
     expect(document.querySelectorAll("[data-career-component-id]")).toHaveLength(24);
@@ -234,7 +237,7 @@ describe("career v1.2 presentation contract", () => {
     const decisionCard = screen.getByTestId("career-published-fermat_decision_card");
     expect(decisionCard).toHaveTextContent("持续核对、证据留痕、集中截止日期");
     expect(decisionCard).not.toHaveTextContent("费马快速判断");
-    expect(decisionCard).not.toHaveTextContent("这是适配初筛，不是职业结论");
+    expect(decisionCard).toHaveTextContent("这是适配初筛，不是职业结论");
     expect(screen.getByRole("heading", { name: "快速判断" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "什么样的人更可能适合会计与审计人员？" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "什么情况下需要慎重选择会计与审计人员？" })).toBeInTheDocument();
@@ -394,11 +397,11 @@ describe("career v1.2 presentation contract", () => {
     expect(profile).not.toHaveTextContent("核心定义");
     expect(profile).not.toHaveTextContent("二者共同提升财务信息的决策有用性与可信度");
     expect(profile).not.toHaveTextContent("本页以企业会计和财务报表审计为主");
-    expect(profile).not.toHaveTextContent("会计生产财务信息，审计独立评价财务信息");
+    expect(profile).toHaveTextContent("会计生产财务信息，审计独立评价财务信息");
     expect(profile).not.toHaveTextContent("管理层对财务报表编制负责，审计师对独立审计意见负责");
     expect(profile).not.toHaveTextContent("按信息生产、分析和鉴证责任划分");
     expect(profile).not.toHaveTextContent("专业价值集中在规则无法直接给出唯一答案的地方");
-    expect(profile).not.toHaveTextContent("职业判断必须建立在适用准则、事实和证据之上");
+    expect(profile).toHaveTextContent("职业判断必须建立在适用准则、事实和证据之上");
     expect(profile).not.toHaveTextContent("用于职业探索，不构成会计、审计或法律意见");
     expect(profile).toHaveTextContent("会计确认与计量");
     expect(profile).toHaveTextContent("重大错报风险识别、评估与审计应对");
