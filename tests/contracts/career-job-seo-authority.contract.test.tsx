@@ -6,6 +6,7 @@ import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
 import pageFixture from "@/tests/fixtures/career-page/accountants-and-auditors.zh-CN.json";
+import englishPageFixture from "@/tests/fixtures/career-page/accountants-and-auditors.en.json";
 
 const SEO_TITLE = "会计师和审计师｜FermatMind 职业库";
 const SEO_DESCRIPTION =
@@ -351,6 +352,25 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(html).toContain('"name":"会计师和审计师"');
     expect(html).toContain(CANONICAL);
     expect(html).not.toContain("Bundle Occupation");
+    expect(html).toContain('data-career-production-template="career-production-v1"');
+  });
+
+  it("keeps the English accountant route on the current renderer", async () => {
+    mockCareerJobPageShell();
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async () => ({
+        ...buildCareerJobBundlePayload(),
+        career_page: englishPageFixture,
+      })),
+    }));
+    const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const page = await CareerJobDetailPage({
+      params: Promise.resolve({ locale: "en", slug: "accountants-and-auditors" }),
+      searchParams: Promise.resolve({}),
+    });
+    const html = renderToStaticMarkup(page as ReactNode);
+    expect(html).toContain("Accountants and auditors");
+    expect(html).not.toContain('data-career-production-template="career-production-v1"');
   });
 
   it("keeps robots on backend SEO authority when career trust gates block structured data", async () => {

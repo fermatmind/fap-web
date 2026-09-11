@@ -30,7 +30,7 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   const raw = payload as unknown as Record<string, unknown>;
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
-  return {job, page, restoredIdentity:job.slug === 'accountants-and-auditors' ? accountantsIdentity(job.slug, raw.ontology) : null};
+  return {job, page, restoredIdentity:locale === 'zh' && job.slug === 'accountants-and-auditors' ? accountantsIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
@@ -132,8 +132,8 @@ export default async function CareerJobDetailPage({params, searchParams}: {param
   const landingPath = buildCareerJobFrontendUrl(locale, job.slug);
   const attributionParams = extractAttributionParamsFromRecord(await searchParams ?? {});
   const ctaHref = buildCareerDisplayCtaHref({locale, subjectSlug: job.slug, landingPath, attributionParams});
-  const restoredSurface = job.slug === 'accountants-and-auditors'
-    ? restoreAccountantsSurface(page, result.restoredIdentity!, ctaHref)
+  const restoredSurface = result.restoredIdentity
+    ? restoreAccountantsSurface(page, result.restoredIdentity, ctaHref)
     : null;
   const faq = restoredSurface?.faqItems ?? careerPageFaq(page);
   return <main data-evidence-page-family="career_job_detail" className="min-h-screen bg-slate-50">
