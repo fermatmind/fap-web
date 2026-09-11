@@ -19,14 +19,15 @@ const page = {
 };
 const body = { identity: { canonical_slug: 'accountants-and-auditors' }, career_page: page };
 const markers = ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq'];
-const validHtml = `<main data-career-renderer-release="${sha}">${markers.map(marker => `<section data-testid="${marker}"></section>`).join('')}职业示例 7/10 标签甲 标签乙 标签丙 $123 示例概述 正文 &amp; 说明 示例问题？</main>`;
-for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'props-only']) {
+const validHtml = `<main data-career-production-template="career-production-v1" data-career-renderer-release="${sha}">${markers.map(marker => `<section data-testid="${marker}"></section>`).join('')}职业示例 7/10 标签甲 标签乙 标签丙 $123 示例概述 正文 &amp; 说明 示例问题？</main>`;
+for (const mode of ['success', 'download-failure', 'revision-mismatch', 'page-404', 'page-redirect', 'api-404', 'api-locale', 'missing-display', 'missing-score', 'wrong-template', 'props-only']) {
   test(`career renderer smoke distinguishes ${mode}`, () => {
     const root = mkdtempSync(path.join(tmpdir(), 'career-renderer-smoke-'));
     try {
       let html = validHtml;
       const api = structuredClone(body);
       if (mode === 'revision-mismatch') html = html.replace(sha, 'wrong');
+      if (mode === 'wrong-template') html = html.replace('career-production-v1', 'generic');
       if (mode === 'missing-score') html = html.replace('7/10', '暂无数据');
       if (mode === 'props-only') html = `<main data-career-renderer-release="${sha}"></main><script>${JSON.stringify(validHtml)}</script>`;
       if (mode === 'api-locale') api.career_page.locale = 'en';

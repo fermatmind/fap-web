@@ -251,6 +251,7 @@ try {
       page.hero?.badges?.length !== 3) throw new Error('API contract');
   // Exclude React transport scripts so cached props cannot masquerade as rendered content.
   const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+  if (!rendered.includes('data-career-production-template="career-production-v1"')) throw new Error('original template');
   for (const marker of ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq']) {
     if (!rendered.includes(`data-testid="${marker}"`)) throw new Error('original renderer');
   }
