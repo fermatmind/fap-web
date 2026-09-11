@@ -177,7 +177,7 @@ jobs:
           ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}
           CORE_PUBLIC_PATH: /zh/personality
           REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP: "0"
-          REQUIRE_CAREER_RENDERER_REVISION: "0"
+          REQUIRE_CAREER_RENDERER_REVISION: "1"
         run: .github/trunk/deploy-web-release.sh
       - run: jq -n --arg sha "$DEPLOY_SHA" --arg at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{sha:$sha,phase:"staging",completed_at:$at}' > staging-timing.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
