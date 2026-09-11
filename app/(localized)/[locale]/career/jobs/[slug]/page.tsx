@@ -3,7 +3,7 @@ import { cache } from "react";
 import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 import { notFound, permanentRedirect } from 'next/navigation';
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
-import { accountantsIdentity, restoreAccountantsSurface } from '@/lib/career/accountantsBaseline/adapter';
+import { careerDisplayIdentity, buildCareerPageDisplaySurface } from '@/lib/career/pageDisplay';
 import { CareerPageTemplate } from '@/components/career/display/CareerPageTemplate';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { AnalyticsPageViewTracker } from '@/hooks/useAnalytics';
@@ -30,7 +30,7 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   const raw = payload as unknown as Record<string, unknown>;
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
-  return {job, page, restoredIdentity:locale === 'zh' && job.slug === 'accountants-and-auditors' ? accountantsIdentity(job.slug, raw.ontology) : null};
+  return {job, page, restoredIdentity:locale === 'zh' && job.slug === 'accountants-and-auditors' ? careerDisplayIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();
@@ -133,7 +133,7 @@ export default async function CareerJobDetailPage({params, searchParams}: {param
   const attributionParams = extractAttributionParamsFromRecord(await searchParams ?? {});
   const ctaHref = buildCareerDisplayCtaHref({locale, subjectSlug: job.slug, landingPath, attributionParams});
   const restoredSurface = result.restoredIdentity
-    ? restoreAccountantsSurface(page, result.restoredIdentity, ctaHref)
+    ? buildCareerPageDisplaySurface(page, result.restoredIdentity, ctaHref)
     : null;
   const faq = restoredSurface?.faqItems ?? careerPageFaq(page);
   return <main data-evidence-page-family="career_job_detail" className="min-h-screen bg-slate-50">

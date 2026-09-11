@@ -479,7 +479,8 @@ function validateWorkRisk(value: unknown): boolean {
 }
 
 function validateProgression(value: unknown): boolean {
-  return hasExactKeys(value, ["boundary", "competence_ladder", "direct_answer", "heading", "locale_requirements", "schema_version", "source_links", "tracks"]) &&
+  return hasExactKeys(value, ["boundary", "competence_ladder", "direct_answer", "heading", "locale_requirements", "schema_version", "source_links", "tracks"], ["entry_heading"]) &&
+    (value.entry_heading === undefined || isNonEmptyString(value.entry_heading)) &&
     value.schema_version === "career.career_progression.v1" &&
     ["boundary", "direct_answer", "heading"].every((key) => isNonEmptyString(value[key])) &&
     hasStringFields(value.locale_requirements, ["credential_boundary", "jurisdiction", "summary"]) &&
@@ -575,7 +576,8 @@ function validateComponent(id: CareerDisplayComponentId, value: unknown): boolea
     case "related_next_pages":
       return validateRelatedNextPages(value);
     case "source_card":
-      return hasExactKeys(value, ["eeat_signals", "note"]) && isNonEmptyString(value.note) &&
+      return hasExactKeys(value, ["eeat_signals", "note"], ["secondary_links"]) &&
+        (value.secondary_links === undefined || (Array.isArray(value.secondary_links) && value.secondary_links.every(link => hasStringFields(link, ["label", "href"]) && /^\/(?:en|zh)\/[a-z0-9/-]+$/.test(link.href)))) && isNonEmptyString(value.note) &&
         hasStringFields(value.eeat_signals, ["author", "source", "updated_at"]);
     case "review_validity_card":
       return hasStringFields(value, ["last_reviewed"]);

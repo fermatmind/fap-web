@@ -24,7 +24,7 @@ describe('single-source career route integration',()=>{
   });
   it('rejects incomplete Chinese accountant mappings before rendering',async()=>{
     fetchMock.mockResolvedValue(bundle('accountants-and-auditors'));
-    await expect(render('accountants-and-auditors')).rejects.toThrow('ACCOUNTANTS_UI_COMPATIBILITY_INVALID');
+    await expect(render('accountants-and-auditors')).rejects.toThrow('CAREER_PAGE_DISPLAY_INVALID');
   });
   it('keeps the English accountant on the common file renderer',async()=>{
     fetchMock.mockResolvedValue(bundle('accountants-and-auditors','en'));

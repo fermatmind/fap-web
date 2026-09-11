@@ -1,16 +1,17 @@
-import { readFileSync } from 'node:fs';
+import { publishedCareerPage } from './publishedCareerPage';
+const currentPage = await publishedCareerPage('zh');
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, it, expect } from 'vitest';
 import { normalizeCareerPage } from '@/lib/career/careerPage';
-import { accountantsIdentity, restoreAccountantsSurface } from '@/lib/career/accountantsBaseline/adapter';
+import { careerDisplayIdentity, buildCareerPageDisplaySurface } from '@/lib/career/pageDisplay';
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
 
 describe('September 5 accountant renderer with current content', () => {
-  it.each(['zh','en'] as const)('binds and renders %s', locale => {
-    const raw=JSON.parse(readFileSync(`tests/fixtures/career-page/accountants-and-auditors.${locale==='zh'?'zh-CN':'en'}.json`,'utf8'));
+  it.each(['zh'] as const)('binds and renders %s', locale => {
+    const raw=structuredClone(currentPage);
     const page=normalizeCareerPage(raw,locale,'accountants-and-auditors')!;
     expect(page).not.toBeNull();
-    const surface=restoreAccountantsSurface(page,{slug:'accountants-and-auditors'},`/${locale}/tests/holland-career-interest-test-riasec`);
+    const surface=buildCareerPageDisplaySurface(page,{slug:'accountants-and-auditors'},`/${locale}/tests/holland-career-interest-test-riasec`);
     const html=renderToStaticMarkup(<CareerDisplaySurface surface={surface}/>);
     expect(html).toContain('career-production-v1');
     expect(html).not.toContain('问题待补充');
@@ -56,39 +57,29 @@ describe('September 5 accountant renderer with current content', () => {
   });
   it('uses current ontology codes and rejects ambiguous identities', () => {
     const ontology={crosswalks:[{source_system:'us_soc',source_code:'13-2011',mapping_type:'exact'},{source_system:'onet_soc_2019',source_code:'13-2011.00',mapping_type:'direct_match'}]};
-    expect(accountantsIdentity('accountants-and-auditors',ontology)).toEqual({slug:'accountants-and-auditors',socCode:'13-2011',onetCode:'13-2011.00'});
-    expect(()=>accountantsIdentity('accountants-and-auditors',{crosswalks:[...ontology.crosswalks,{source_system:'us_soc',source_code:'99-9999',mapping_type:'exact'}]})).toThrow('identity.us_soc');
+    expect(careerDisplayIdentity('accountants-and-auditors',ontology)).toEqual({slug:'accountants-and-auditors',socCode:'13-2011',onetCode:'13-2011.00'});
+    expect(()=>careerDisplayIdentity('accountants-and-auditors',{crosswalks:[...ontology.crosswalks,{source_system:'us_soc',source_code:'99-9999',mapping_type:'exact'}]})).toThrow('identity.us_soc');
   });
-  it('binds by ID rather than source position and never falls back to historical prose', () => {
-    const raw=JSON.parse(readFileSync('tests/fixtures/career-page/accountants-and-auditors.zh-CN.json','utf8'));
-    const page=normalizeCareerPage(raw,'zh','accountants-and-auditors')!;
-    const cta='/zh/tests/holland-career-interest-test-riasec';
-    const before=restoreAccountantsSurface(page,{slug:'accountants-and-auditors'},cta);
+  it('consumes the resolved display directly, independent of content item order', () => {
+    const page=normalizeCareerPage(structuredClone(currentPage),'zh','accountants-and-auditors')!;
+    const restore=(p:typeof page)=>buildCareerPageDisplaySurface(p,{slug:'accountants-and-auditors'},'/zh/tests/holland-career-interest-test-riasec');
+    const before=restore(page);
     page.content.blocks.forEach(block=>block.items.reverse());
-    const after=restoreAccountantsSurface(page,{slug:'accountants-and-auditors'},cta);
-    expect(after.publishedComponents).toEqual(before.publishedComponents);
-    const item=page.content.blocks.flatMap(b=>b.items).find(i=>i.id==='definition-block-1')!;
-    item.data.paragraphs=['Current authority changed this definition.'];
-    expect(restoreAccountantsSurface(page,{slug:'accountants-and-auditors'},cta).publishedComponents?.definition_block).toBe('Current authority changed this definition.');
-    expect(()=>restoreAccountantsSurface(page,{slug:'actors'},cta)).toThrow('identity');
-    page.content.blocks[0].items.push({...item,id:'unknown-public-item'});
-    expect(()=>restoreAccountantsSurface(page,{slug:'accountants-and-auditors'},cta)).toThrow('unknown-public-item');
+    expect(restore(page).publishedComponents).toEqual(before.publishedComponents);
+    const display=page.display as {components:Record<string,unknown>};
+    display.components.definition_block='Updated single-file definition from the backend.';
+    expect(restore(page).publishedComponents?.definition_block).toBe(display.components.definition_block);
+    expect(()=>buildCareerPageDisplaySurface(page,{slug:'actors'},'/zh/tests/holland-career-interest-test-riasec')).toThrow('CAREER_PAGE_DISPLAY_INVALID');
   });
-  it('rejects a missing binding, an added source link, and a cross-block swap', () => {
-    const raw=JSON.parse(readFileSync('tests/fixtures/career-page/accountants-and-auditors.zh-CN.json','utf8'));
-    const page=normalizeCareerPage(raw,'zh','accountants-and-auditors')!;
-    const restore=(p:typeof page)=>restoreAccountantsSurface(p,{slug:'accountants-and-auditors'},'/zh/tests/holland-career-interest-test-riasec');
-    const missing=structuredClone(page);
-    missing.content.blocks.find(b=>b.id==='profile')!.items=missing.content.blocks.find(b=>b.id==='profile')!.items.filter(i=>i.id!=='definition-block-1');
-    expect(()=>restore(missing)).toThrow('definition-block-1');
-    const added=structuredClone(page);
-    const links=added.content.blocks.flatMap(b=>b.items).find(i=>i.id==='ai-impact-table-114')!.data.entries as Array<Record<string,unknown>>;
-    links.push({...links[0],id:'link-unmapped'});
-    expect(()=>restore(added)).toThrow('ai-impact-table-114');
-    const moved=structuredClone(page);
-    const profile=moved.content.blocks.find(b=>b.id==='profile')!;
-    moved.content.blocks.find(b=>b.id==='fit')!.items.push(profile.items.shift()!);
-    expect(()=>restore(moved)).toThrow('definition-block-1');
+  it('rejects missing or invalid display without using a frontend content fallback', () => {
+    const page=normalizeCareerPage(structuredClone(currentPage),'zh','accountants-and-auditors')!;
+    const restore=(display:unknown)=>buildCareerPageDisplaySurface({...page,display},{slug:'accountants-and-auditors'},'/zh/tests/holland-career-interest-test-riasec');
+    const display=page.display as {contract_version:string;component_order:string[];components:Record<string,unknown>};
+    expect(()=>restore(undefined)).toThrow('CAREER_PAGE_DISPLAY_INVALID');
+    expect(()=>restore({...display,contract_version:'unknown'})).toThrow('CAREER_PAGE_DISPLAY_INVALID');
+    expect(()=>restore({...display,component_order:[...display.component_order,display.component_order[0]]})).toThrow('CAREER_PAGE_DISPLAY_INVALID');
+    const components={...display.components};
+    delete components.definition_block;
+    expect(()=>restore({...display,components})).toThrow('CAREER_PAGE_DISPLAY_INVALID');
   });
-
 });

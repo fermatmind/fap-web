@@ -6,6 +6,7 @@ export const CAREER_PAGE_SECTIONS = ['quick-decision', 'profile', 'direction-com
 export type CareerPageMetric = { key: string; label: string; availability: 'available' | 'missing'; fact: CareerContentV3Fact | null };
 export type CareerPage = {
   content: CareerContentV3;
+  display?: unknown;
   hero: { badges: string[]; metrics: CareerPageMetric[]; ai: CareerPageMetric };
   seo: { title: string | null; description: string | null };
 };
@@ -40,7 +41,7 @@ export function normalizeCareerPage(value: unknown, locale: Locale, slug: string
     if (field.availability === 'available' && text(field.text)) seo[key] = field.text;
     else if (field.availability !== 'missing' || field.text !== null) return null;
   }
-  return {content, hero: {badges: value.hero.badges as string[], metrics: metrics as CareerPageMetric[], ai}, seo};
+  return {content, ...(value.display === undefined ? {} : {display:value.display}), hero: {badges: value.hero.badges as string[], metrics: metrics as CareerPageMetric[], ai}, seo};
 }
 
 export function careerPageFaq(page: CareerPage): Array<{question: string; answer: string}> {

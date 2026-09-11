@@ -625,7 +625,7 @@ export function careerContentV3FaqItems(
         if (!isRecord(entry)) continue;
         const questionKey = key(entry.question_key);
         const answer = string(entry.answer);
-        const question = questionKey ? careerContentV3QuestionCopy(questionKey, content.locale, content.subject.name) : null;
+        const question = string(entry.question) ?? (questionKey ? careerContentV3QuestionCopy(questionKey, content.locale, content.subject.name) : null);
         const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs) ?? [];
         const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs) ?? [];
         if (question && answer) result.push({ question, answer, factRefs, sourceRefs });

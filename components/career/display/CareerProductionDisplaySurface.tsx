@@ -568,10 +568,9 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
   const sourceCard = rawSourceCard && typeof rawSourceCard === "object" && !Array.isArray(rawSourceCard) ? rawSourceCard : {};
   const rawSignals = sourceCard.eeat_signals;
   const signals = rawSignals && typeof rawSignals === "object" && !Array.isArray(rawSignals) ? rawSignals : {};
-  const navigation = surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG
-    ? surface.contentV3?.blocks.find(block => block.id === "navigation")?.items.find(item => item.id === "navigation-links")
-    : undefined;
-  const secondaryLinks = (navigation?.data.entries as Array<{id:string; entity:string; url:string}> | undefined)?.filter(entry => entry.entity === "secondary_cta") ?? [];
+  const secondaryLinks = Array.isArray(sourceCard.secondary_links)
+    ? sourceCard.secondary_links.filter((entry): entry is {label:string; href:string} => !!entry && typeof entry === 'object' && !Array.isArray(entry) && typeof entry.label === 'string' && typeof entry.href === 'string')
+    : [];
   const sourceDetail = (value: string): { text: string; href: string | null; linkLabel: string } => {
     const match = value.match(/^(.*?)(https:\/\/\S+)$/u);
     if (!match) return { text: value, href: null, linkLabel: "" };
@@ -644,8 +643,8 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
       </ul>
       {typeof sourceCard.note === "string" ? <p className="m-0 mt-4 text-sm leading-7 text-[#5B6678]" data-career-api-field="source_card.note">{sourceCard.note}</p> : null}
       {secondaryLinks.length ? <p className={visual.salarySourceLinks}>
-        {secondaryLinks.map((entry, index) => <span key={entry.id}>
-          {index > 0 ? " · " : null}<Link href={entry.url}>{({"navigation-2":"MBTI (English)","navigation-3":"Big Five (English)","navigation-4":"MBTI (中文)","navigation-5":"Big Five (中文)"} as Record<string,string>)[entry.id]}</Link>
+        {secondaryLinks.map((entry, index) => <span key={entry.href}>
+          {index > 0 ? " · " : null}<Link href={entry.href}>{entry.label}</Link>
         </span>)}
       </p> : null}
     </Container>
@@ -962,7 +961,7 @@ export function CareerProductionDisplaySurface({
           locale={surface.locale}
           sectionLabel={block.title}
           sectionLabelId={`${block.anchorId}-title`}
-          entryDecisions={surface.contentV3 ? <CareerDossierEntryDecisions items={block.items} content={surface.contentV3} /> : undefined}
+          entryDecisions={surface.contentV3 ? <CareerDossierEntryDecisions items={block.items} content={surface.contentV3} heading={typeof (progression as Record<string, unknown>).entry_heading === "string" ? String((progression as Record<string, unknown>).entry_heading) : undefined} /> : undefined}
         />
       </ComponentFrame>;
     }

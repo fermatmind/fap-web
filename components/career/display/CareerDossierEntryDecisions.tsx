@@ -51,14 +51,14 @@ function entries(item: CareerContentV3Item): Array<{ id: string; values: string[
 }
 
 function ItemTitle({ item, locale }: { item: CareerContentV3Item; locale: "zh" | "en" }) {
-  const title = careerContentV3ItemCopy(item.copyKey, locale);
+  const title = item.title ?? careerContentV3ItemCopy(item.copyKey, locale);
   return title ? <h4 className="m-0 text-lg font-bold text-[#172A60]">{title}</h4> : null;
 }
 
 function DecisionTable({ item, content }: { item: CareerContentV3Item; content: CareerContentV3 }) {
   const columns = stringArray(item.data.column_keys);
   const tableRows = rows(item);
-  const labels = columns.map((column) => careerContentV3ColumnCopy(column, content.locale) ?? column);
+  const labels = stringArray(item.data.column_labels).length ? stringArray(item.data.column_labels) : columns.map((column) => careerContentV3ColumnCopy(column, content.locale) ?? column);
   return (
     <>
       <div className="mt-4 hidden overflow-x-auto md:block">
@@ -121,12 +121,12 @@ export function careerEntryDecisionItems(items: readonly CareerContentV3Item[]):
   return items.filter((item) => item.availability === "available" && SUPPORTED_COPY_KEYS.has(item.copyKey));
 }
 
-export function CareerDossierEntryDecisions({ items, content }: { items: readonly CareerContentV3Item[]; content: CareerContentV3 }) {
+export function CareerDossierEntryDecisions({ items, content, heading: suppliedHeading }: { items: readonly CareerContentV3Item[]; content: CareerContentV3; heading?: string }) {
   const visibleItems = careerEntryDecisionItems(items);
   if (visibleItems.length === 0) return null;
-  const heading = content.locale === "zh"
+  const heading = suppliedHeading ?? (content.locale === "zh"
     ? "应届生／转行者如何验证并入门"
-    : "How graduates and career changers can validate and enter";
+    : "How graduates and career changers can validate and enter");
   return (
     <div className="mt-8 border-t border-[#E5E9F2] pt-7" data-testid="career-entry-decisions">
       <h3 className="m-0 text-xl font-bold text-[#172A60]">{heading}</h3>

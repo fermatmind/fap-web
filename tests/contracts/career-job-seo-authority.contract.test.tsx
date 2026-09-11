@@ -5,8 +5,9 @@ import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
-import pageFixture from "@/tests/fixtures/career-page/accountants-and-auditors.zh-CN.json";
-import englishPageFixture from "@/tests/fixtures/career-page/accountants-and-auditors.en.json";
+import { publishedCareerPage } from "./publishedCareerPage";
+const pageFixture = await publishedCareerPage("zh");
+const englishPageFixture = await publishedCareerPage("en");
 
 const SEO_TITLE = "会计师和审计师｜FermatMind 职业库";
 const SEO_DESCRIPTION =

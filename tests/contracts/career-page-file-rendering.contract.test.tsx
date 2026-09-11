@@ -1,3 +1,5 @@
+import {publishedCareerPage} from './publishedCareerPage';
+const accountants = await publishedCareerPage('zh');
 import {careerEvidenceLabel} from '@/lib/career/evidenceLabels';
 import {readFileSync} from 'node:fs';
 import {renderToStaticMarkup} from 'react-dom/server';
@@ -42,7 +44,6 @@ describe.skipIf(!path)('canonical file to final HTML corpus', () => {
 
 describe('file-owned page contract', () => {
   const actors = JSON.parse(readFileSync(process.cwd() + '/tests/fixtures/career-page/actors.zh-CN.json','utf8'));
-  const accountants = JSON.parse(readFileSync(process.cwd() + '/tests/fixtures/career-page/accountants-and-auditors.zh-CN.json','utf8'));
   const empty = JSON.parse(readFileSync(process.cwd() + '/tests/fixtures/career-page/health-educators.en.json','utf8'));
   it.each([actors,accountants,empty])('renders the same complete template for $subject.canonical_slug/$locale', raw => {
     const page = normalizeCareerPage(raw,raw.locale === 'en' ? 'en':'zh',raw.subject.canonical_slug)!;
