@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "687dadc7b42c429019a4dd1baee490cc99e1e91a",
+    "sha": "802c3bd33a2c6770bc3b1a4b2a3c17a082760bcd",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -92,8 +92,8 @@
     },
     {
       "path": ".agents/skills/fermatmind-frontend-deploy-sre/SKILL.md",
-      "sha256": "9ebf5e99fca50c9c63cb9360cc36e3174116b85e5055f223ce3498f7c9e5e3bb",
-      "byte_size": 6372,
+      "sha256": "ca542b5a4b24715c2aff7a787e6c190fce1c293555362aa7e1958a0275c6a176",
+      "byte_size": 6722,
       "classification": "bounded_capability"
     },
     {
@@ -122,8 +122,8 @@
     },
     {
       "path": ".agents/skills/fermatmind-scope-guard/SKILL.md",
-      "sha256": "abae94c0ba3ecfaa5996d71c6585e5ddc984d397b0067e199d574825888cafb0",
-      "byte_size": 3279,
+      "sha256": "f236be931faab659bc5dc55102b33c8d67d7d64fe617d84fc40a1486ef0291d4",
+      "byte_size": 3754,
       "classification": "bounded_capability"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "6b24961529fdd921868cde520af1196fa12e29a58ad485698a5f2a32a9bbda4b"
+  "projection_self_hash": "711b04fe81e2a349259a02bb39c0ea4e37d7154f7b4c9afc991f3bb89f8acfc4"
 }
