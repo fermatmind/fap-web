@@ -461,7 +461,10 @@ function CareerProductionHero({
       }));
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
-  const missingPublishedAi = Boolean(published) && !aiExposure;
+  const missingPublishedAi = !aiExposure && (
+    (surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG)
+    || (Boolean(published) && Boolean(surface.hero?.aiExposureLabel))
+  );
   const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);
   const presentationCodes = (presentationV1 ? [
