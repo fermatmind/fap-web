@@ -11,6 +11,12 @@ import {
 import type { TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
+vi.mock("@/components/result/mbti/clone/useMbtiTraitCatalog", async () => {
+  const { traitCatalogResponse } = await import("@/tests/fixtures/mbti-trait-catalog");
+  const { parseMbtiTraitCatalog } = await import("@/lib/cms/mbti-trait-explanations");
+  return { useMbtiTraitCatalog: (locale: string) => ({ content: locale === "zh" ? parseMbtiTraitCatalog(traitCatalogResponse()) : null, pending: false, unavailable: false }) };
+});
+
 vi.mock("@/lib/cms/personality-result-introduction", () => ({
   fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
     fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
@@ -1195,23 +1201,23 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(screen.getByTestId("mbti-traits-track-EI").style.getPropertyValue("--trait-position")).toBe("54%");
     expect(screen.getByTestId("mbti-traits-track-TF").style.getPropertyValue("--trait-position")).toBe("25%");
     expect(energyAxis).toHaveAttribute("data-state", "active");
-    expect(summaryPane).toHaveTextContent("Energy");
+    expect(summaryPane).toHaveTextContent("能量");
     expect(summaryPane).toHaveTextContent("54%");
-    expect(summaryPane).toHaveTextContent("Introverted");
-    expect(summaryPane).toHaveTextContent("当前轻微偏向Introverted");
-    expect(summaryPane).toHaveTextContent("两侧方式都可能在不同情境中被使用");
+    expect(summaryPane).toHaveTextContent("内向");
+    expect(summaryPane).toHaveTextContent("当前轻微偏向内向");
+    expect(summaryPane).toHaveTextContent("EI I 51 A");
     expect(summaryPane).not.toHaveTextContent("You prefer fewer, deeper interactions");
 
     fireEvent.mouseEnter(mindAxis);
 
     expect(mindAxis).toHaveAttribute("data-state", "active");
     expect(energyAxis).toHaveAttribute("data-state", "idle");
-    expect(summaryPane).toHaveTextContent("Mind");
+    expect(summaryPane).toHaveTextContent("心智");
     expect(summaryPane).toHaveTextContent("62%");
     expect(summaryPane).toHaveTextContent("Intuitive");
-    expect(summaryPane).toHaveTextContent("You focus on patterns and distant possibilities.");
+    expect(summaryPane).toHaveTextContent("SN N 60 A");
     expect(summaryPane).toHaveTextContent(
-      "你的直觉倾向已经比较明确。你通常会比别人更早想到模式、方向和潜在空间，而不只盯着眼前事实。",
+      "SN N 60 B",
     );
     expect(summaryPane).not.toHaveTextContent("25%");
 
@@ -1220,15 +1226,15 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     fireEvent.focus(natureAxis);
 
     expect(natureAxis).toHaveAttribute("data-state", "active");
-    expect(summaryPane).toHaveTextContent("Nature");
+    expect(summaryPane).toHaveTextContent("天性");
     expect(summaryPane).toHaveTextContent("75%");
     expect(summaryPane).toHaveTextContent("Thinking");
-    expect(summaryPane).toHaveTextContent("You lean toward clear logic and consistent principles in decisions.");
+    expect(summaryPane).toHaveTextContent("TF T 70 A");
     expect(summaryPane).toHaveTextContent(
-      "你的思考倾向非常清楚。你往往会本能地把问题拆开、排序、判断利弊，再决定行动方向；当环境过度情绪化时，你会更想把它拉回理性轨道。",
+      "TF T 70 B",
     );
     fireEvent.click(energyAxis);
     expect(energyAxis).toHaveAttribute("data-state", "active");
-    expect(summaryPane).toHaveTextContent("Energy");
+    expect(summaryPane).toHaveTextContent("能量");
   });
 });

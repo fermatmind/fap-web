@@ -8,6 +8,12 @@ import {
 } from "@/lib/cms/personality-desktop-clone";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
+vi.mock("@/components/result/mbti/clone/useMbtiTraitCatalog", async () => {
+  const { traitCatalogResponse } = await import("@/tests/fixtures/mbti-trait-catalog");
+  const { parseMbtiTraitCatalog } = await import("@/lib/cms/mbti-trait-explanations");
+  return { useMbtiTraitCatalog: (locale: string) => ({ content: locale === "zh" ? parseMbtiTraitCatalog(traitCatalogResponse()) : null, pending: false, unavailable: false }) };
+});
+
 vi.mock("@/lib/cms/personality-result-introduction", () => ({
   fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
     fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
@@ -469,8 +475,9 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(screen.queryByTestId("mbti-p0-letters-intro")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-overview")).not.toBeInTheDocument();
     expect(traitsBody).toHaveAttribute("data-body-source", "overview");
-    expect(traitsBody).toHaveTextContent("overview 1 infj-a");
-    expect(traitsBody).toHaveTextContent("overview 2 infj-a");
+    expect(traitsBody).toHaveTextContent("INFJ-A overview first");
+    expect(traitsBody).toHaveTextContent("INFJ-A overview second");
+    expect(traitsBody.querySelectorAll("p")).toHaveLength(2);
     expect(screen.queryByText("traits 1 infj-a")).not.toBeInTheDocument();
     expect(screen.queryByText("traits 2 infj-a")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-p0-career-matched-jobs")).not.toBeInTheDocument();
@@ -612,7 +619,7 @@ describe("MBTI desktop clone p0 render contract", () => {
           dominantPct: 75,
           oppositePct: 25,
           strengthBand: "clear",
-          summary: "You focus on patterns and distant possibilities.",
+          summary: "SN N 70 A",
           percent: 75,
           side: "N",
           sideLabel: "Intuitive",
@@ -627,12 +634,12 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(traitsAxis).not.toHaveTextContent("25%");
 
     const summaryPane = screen.getByTestId("mbti-traits-summary-pane");
-    expect(summaryPane).toHaveTextContent("Mind");
+    expect(summaryPane).toHaveTextContent("心智");
     expect(summaryPane).toHaveTextContent("75%");
     expect(summaryPane).toHaveTextContent("Intuitive");
-    expect(summaryPane).toHaveTextContent("You focus on patterns and distant possibilities.");
+    expect(summaryPane).toHaveTextContent("SN N 70 A");
     expect(summaryPane).toHaveTextContent(
-      "你的直觉倾向非常清楚。你天然会沿着意义、隐含结构和未来可能性去理解世界，单纯停留在表层信息里会让你很快感到局促。",
+      "SN N 70 B",
     );
   });
 
@@ -657,10 +664,10 @@ describe("MBTI desktop clone p0 render contract", () => {
     });
 
     const summaryPane = await screen.findByTestId("mbti-traits-summary-pane");
-    expect(summaryPane).toHaveTextContent("Energy");
+    expect(summaryPane).toHaveTextContent("能量");
     expect(summaryPane).toHaveTextContent("54%");
-    expect(summaryPane).toHaveTextContent("当前轻微偏向Introverted");
-    expect(summaryPane).toHaveTextContent("两侧方式都可能在不同情境中被使用");
+    expect(summaryPane).toHaveTextContent("当前轻微偏向内向");
+    expect(summaryPane).toHaveTextContent("EI I 51 A");
     expect(summaryPane).not.toHaveTextContent("You prefer to recharge quietly");
     expect(screen.queryByTestId("mbti-traits-band-nuance")).not.toBeInTheDocument();
   });

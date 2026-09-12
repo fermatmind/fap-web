@@ -11,6 +11,10 @@ import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 import type { PersonalityDesktopCloneAssetSlot } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
 import { describeMbtiAxisClarity } from "@/lib/mbti/resultScientificInterpretation";
+import { selectMbtiTraitEntry, type MbtiTraitCatalog } from "@/lib/cms/mbti-trait-explanations";
+
+const ZH_AXIS_TITLES: Record<string, string> = { EI: "能量", SN: "心智", TF: "天性", JP: "应对方式", AT: "身份特征" };
+const ZH_EI_LABELS: Record<string, string> = { E: "外向", I: "内向" };
 
 type TraitTool = {
   label: string;
@@ -33,10 +37,14 @@ type MbtiCloneTraitsSectionProps = {
   summarySlotId: MbtiDesktopCloneAssetSlotId;
   summarySlotLabel: string;
   axisExplainers?: AxisExplainers | null;
+  traitCatalog?: MbtiTraitCatalog | null;
+  traitCatalogPending?: boolean;
   paragraphs: string[];
   bodySource: "overview" | "traits";
   tools: TraitTool[];
   toolsPrompt?: string;
+  bodyPending?: boolean;
+  bodyUnavailable?: boolean;
 };
 
 function normalizeText(...values: unknown[]): string {
@@ -111,10 +119,14 @@ export function MbtiCloneTraitsSection({
   summarySlotId,
   summarySlotLabel,
   axisExplainers = null,
+  traitCatalog = null,
+  traitCatalogPending = false,
   paragraphs,
   bodySource,
   tools,
   toolsPrompt,
+  bodyPending = false,
+  bodyUnavailable = false,
 }: MbtiCloneTraitsSectionProps) {
   const [selectedAxisCode, setSelectedAxisCode] = useState<string | null>(null);
   const normalizedDimensions = dimensions
@@ -137,11 +149,11 @@ export function MbtiCloneTraitsSection({
         axisCode,
         dominantPct,
         dominantPole,
-        dominantLabel,
-        axisTitle,
+        dominantLabel: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[dominantPole] ?? dominantLabel : dominantLabel,
+        axisTitle: locale === "zh" ? ZH_AXIS_TITLES[axisCode] ?? axisTitle : axisTitle,
         summary,
-        leftPole,
-        rightPole,
+        leftPole: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[leftCode] ?? leftPole : leftPole,
+        rightPole: locale === "zh" && axisCode === "EI" ? ZH_EI_LABELS[rightCode] ?? rightPole : rightPole,
         leftCode,
         rightCode,
         strengthBand,
@@ -150,6 +162,9 @@ export function MbtiCloneTraitsSection({
     .filter((dimension) => Boolean(dimension.axisCode));
   const activeAxis =
     normalizedDimensions.find((dimension) => dimension.axisCode === selectedAxisCode) ?? normalizedDimensions[0] ?? null;
+  const traitEntry = activeAxis && locale === "zh"
+    ? selectMbtiTraitEntry(traitCatalog, activeAxis.axisCode, activeAxis.dominantPole, activeAxis.dominantPct)
+    : null;
   const summaryTitle = activeAxis?.axisTitle || summaryTitleFallback;
   const summaryValue =
     typeof activeAxis?.dominantPct === "number" ? `${Math.round(activeAxis.dominantPct)}%` : summaryValueFallback;
@@ -161,7 +176,9 @@ export function MbtiCloneTraitsSection({
       })
     : null;
   const hasCriticalClarity = locale === "zh" && Boolean(activeClarity && activeClarity.percent <= 55);
-  const summaryLabel = hasCriticalClarity
+  const summaryLabel = locale === "zh" && Math.round(activeAxis?.dominantPct ?? -1) === 50
+    ? "两侧持平"
+    : hasCriticalClarity
     ? activeClarity?.label ?? summaryLabelFallback
     : activeAxis?.dominantLabel || summaryLabelFallback;
   const summaryDescription = hasCriticalClarity
@@ -222,11 +239,17 @@ export function MbtiCloneTraitsSection({
           </div>
           <aside className={styles.summaryPane} data-testid="mbti-traits-summary-pane">
             <div key={activeAxis?.axisCode} className={styles.summaryContent}>
-              <div>
+              {locale === "zh" ? <header className={styles.traitSummaryHeader}>
+                <p className={styles.microLabel}>{summaryTitle}</p>
+                <p className={styles.traitSummaryResult}>
+                  <span style={{ color: ({ EI: "#4D9FC1", SN: "#D6A43A", TF: "#3CAA8C", JP: "#8E63B1", AT: "#E56B73" } as Record<string, string>)[activeAxis?.axisCode ?? ""] }}>{summaryValue}</span>
+                  <span>{summaryLabel}</span>
+                </p>
+              </header> : <div>
                 <p className={styles.microLabel}>{summaryTitle}</p>
                 <p className={styles.summaryValue}>{summaryValue}</p>
                 <p className={styles.summaryLead}>{summaryLabel}</p>
-              </div>
+              </div>}
               <MbtiCloneAssetSlot
                 slotId={summarySlotId}
                 assetSlots={assetSlots}
@@ -235,9 +258,17 @@ export function MbtiCloneTraitsSection({
                 labelClassName={styles.slotLabel}
                 testId="mbti-asset-slot-traits-summary"
               />
-              {summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
-              <p className={styles.summaryText}>{summaryDescription}</p>
-              {bandNuance ? (
+              {locale !== "zh" && summaryMeta ? <p className={styles.summaryMeta}>{summaryMeta}</p> : null}
+              {locale === "zh" ? (
+                <div className={styles.traitEditorial} data-testid="mbti-trait-editorial" data-content-status={traitEntry ? "ready" : traitCatalogPending ? "loading" : "unavailable"}
+                  data-content-revision={traitCatalog?.revision} data-band={traitEntry ? `${traitEntry.min}-${traitEntry.max}` : undefined}>
+                  {traitEntry ? <>
+                    <p className={styles.summaryText} data-testid="mbti-trait-a">{traitEntry.a}</p>
+                    <p className={styles.summarySupplement} data-testid="mbti-trait-b">{traitEntry.b}</p>
+                  </> : <p className={styles.summaryText} role="status">{traitCatalogPending ? "正在加载维度解读…" : "维度解读暂时不可用，请稍后重试。"}</p>}
+                </div>
+              ) : <p className={styles.summaryText}>{summaryDescription}</p>}
+              {locale !== "zh" && bandNuance ? (
                 <p className={styles.summarySupplement} data-testid="mbti-traits-band-nuance">
                   {bandNuance}
                 </p>
@@ -299,6 +330,7 @@ export function MbtiCloneTraitsSection({
         data-testid="mbti-traits-body"
         data-body-source={bodySource}
       >
+        {bodyPending || bodyUnavailable ? <p role="status">{bodyPending ? "正在加载人格解读…" : "人格解读暂时不可用，请稍后重试。"}</p> : null}
         {paragraphs.map((paragraph, index) => (
           <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>
         ))}

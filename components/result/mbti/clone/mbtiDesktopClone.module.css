@@ -900,6 +900,18 @@
   color: var(--clone-text);
 }
 
+.traitEditorial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.traitEditorial .summaryText,
+.traitEditorial .summarySupplement {
+  font-size: 14px;
+  line-height: 1.85;
+}
+
 .traitsFooter {
   border-top: 1px solid rgba(231, 234, 238, 0.9);
   padding-top: 14px;
@@ -2276,3 +2288,6 @@
 @media (prefers-reduced-motion: reduce) {
   .traitLabel { transition: none; }
 }
+
+.traitSummaryHeader { text-align: center; }
+.traitSummaryResult { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 5px; margin: 6px 0 0; font-size: 18px; font-weight: 500; line-height: 1.4; color: var(--clone-text); }

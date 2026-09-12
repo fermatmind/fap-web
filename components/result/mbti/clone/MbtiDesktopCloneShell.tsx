@@ -11,6 +11,7 @@ import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
 import { useMbtiResultIntroduction } from "@/components/result/mbti/clone/useMbtiResultIntroduction";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
+import { useMbtiTraitCatalog } from "@/components/result/mbti/clone/useMbtiTraitCatalog";
 import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
@@ -454,6 +455,7 @@ export function MbtiDesktopCloneShell({
   );
 
   const introduction = useMbtiResultIntroduction(fullCodeForStorage, locale);
+  const traitCatalog = useMbtiTraitCatalog(locale);
 
   useEffect(() => {
     if (
@@ -601,14 +603,17 @@ export function MbtiDesktopCloneShell({
     ? strictSlotsResult.slots
     : resolveMbtiDesktopCloneSlots({ ...slotInput, storageContent: null });
   const snapshotContentErrorCode =
-    snapshotMode && introduction.unavailable
+    snapshotMode && traitCatalog.unavailable
+      ? "MBTI_TRAIT_CONTENT_UNAVAILABLE"
+      : snapshotMode && introduction.unavailable
       ? "MBTI_RESULT_INTRO_UNAVAILABLE"
       : snapshotMode && snapshotContentStatus && !snapshotContentStatus.ok
       ? snapshotContentStatus.code
       : snapshotMode && !strictSlotsResult.ok
         ? strictSlotsResult.code
         : null;
-  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok && introduction.content !== null;
+  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok && introduction.content !== null
+    && (locale !== "zh" || traitCatalog.content !== null);
   const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const fullContentVisible = snapshotMode || isUnlocked || suppressUnlockSurfaces;
@@ -960,8 +965,10 @@ export function MbtiDesktopCloneShell({
   const traitsToolsPrompt = cloneLocale === "zh"
     ? "你可以继续保存、导出或查看历史结果。"
     : "You can save, export, or revisit this result.";
-  const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
-  const traitBodySource = slots.overview ? "overview" : "traits";
+  const traitBodyParagraphs = locale === "zh"
+    ? traitCatalog.content?.overviews.find((row) => row.full_code === fullCodeForStorage)?.paragraphs ?? []
+    : slots.overview?.paragraphs ?? slots.traits.body;
+  const traitBodySource = locale === "zh" ? "overview" : slots.overview ? "overview" : "traits";
   const showTopInviteProgress = !snapshotMode && !suppressUnlockSurfaces && isMobileViewport && inviteProgressDisplay.showProgressCard;
   const shouldRenderSnapshotStaticShell = snapshotMode;
   const shouldRenderFinalOffer = !snapshotMode && !suppressUnlockSurfaces;
@@ -1242,8 +1249,12 @@ export function MbtiDesktopCloneShell({
               summarySlotId={slots.traits.summaryPane.asset.slotId}
               summarySlotLabel={slots.traits.summaryPane.asset.label}
               axisExplainers={storageContent?.traits.axisExplainers ?? null}
+              traitCatalog={traitCatalog.content}
+              traitCatalogPending={traitCatalog.pending}
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}
+              bodyPending={locale === "zh" && traitCatalog.pending}
+              bodyUnavailable={locale === "zh" && traitCatalog.unavailable}
               tools={snapshotMode ? snapshotTraitsTools : traitsTools}
               toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
             />
