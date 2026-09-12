@@ -11,6 +11,18 @@ import type { CareerPublishedValue } from '@/lib/career/publishedComponentContra
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
 
 describe('September 5 accountant renderer with current content', () => {
+  it.each(['china_soc_row', 'china_class_row', 'china_open'])('exposes the published %s salary explanation to readers and assistive technology', field => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const value = surface.publishedComponents!.career_snapshot_primary_locale! as {salary: Record<string, CareerPublishedValue>};
+    const root = document.createElement('div');
+    root.innerHTML = renderToStaticMarkup(<CareerDossierChinaSalary value={value} locale="zh" />);
+    const nodes = root.querySelectorAll(`[data-career-api-field="career_snapshot_primary_locale.salary.${field}"]`);
+    expect(nodes).toHaveLength(1);
+    expect(nodes[0].textContent).toBe(value.salary[field]);
+    expect(nodes[0].closest('[aria-hidden="true"], [hidden], .sr-only, .hidden')).toBeNull();
+    expect(nodes[0].tagName).toBe('P');
+  });
   it.each(['zh'] as const)('binds and renders %s', locale => {
     const raw=structuredClone(currentPage);
     const page=normalizeCareerPage(raw,locale,'accountants-and-auditors')!;

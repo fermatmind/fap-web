@@ -322,13 +322,13 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null, inte
         <h2 data-career-api-field="career_snapshot_primary_locale.salary.china_name_row">
           <SalaryQuestion value={content.heading} />
         </h2>
-        <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_primary_locale.salary.china_soc_row">{content.answer}</span>
+        <p className={visual.salaryLead} data-career-api-field="career_snapshot_primary_locale.salary.china_soc_row">{content.answer}</p>
       </header>
 
       <section className={visual.salarySection} aria-labelledby="china-salary-official-title">
         <div className={visual.salarySectionTitle}>
           <h3 id="china-salary-official-title">{content.ui?.official_heading ?? (locale === "zh" ? "官方工资中位数" : "Official median wage")}</h3>
-          <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_primary_locale.salary.china_class_row">{content.officialIntro}</span>
+          <p data-career-api-field="career_snapshot_primary_locale.salary.china_class_row">{content.officialIntro}</p>
         </div>
         <div className={visual.salaryOfficialGrid} data-career-api-list="career_snapshot_primary_locale.salary.china_salary_table">
           {content.officialRows.map((row, index) => (
@@ -344,7 +344,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null, inte
       <section className={visual.salarySection} aria-labelledby="china-salary-10k-title">
         <div className={visual.salarySectionTitle}>
           <h3 id="china-salary-10k-title"><SalaryQuestion value={content.ui?.scenario_heading ?? (locale === "zh" ? "会计或审计月薪 1 万是什么水平？" : "How should the published salary ranges be interpreted?")} /></h3>
-          <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_primary_locale.salary.china_open">{content.caseNote}</span>
+          <p data-career-api-field="career_snapshot_primary_locale.salary.china_open">{content.caseNote}</p>
         </div>
         <div className={visual.salaryTableWrap}>
           <table className={visual.salaryTable} data-career-api-table="career_snapshot_primary_locale.salary.china_edu_table">
