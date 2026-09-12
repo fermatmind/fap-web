@@ -37,7 +37,9 @@ export function CareerDossierFitDecision({
   value,
   locale,
   subjectTitle,
+  interfaceLabels,
 }: {
+  interfaceLabels?: Record<string, string>;
   value: CareerPublishedValue;
   locale: "zh" | "en";
   subjectTitle: string;
@@ -47,19 +49,19 @@ export function CareerDossierFitDecision({
     {
       key: "suit",
       number: "01",
-      title: locale === "zh" ? `什么样的人更可能适合${subjectTitle}？` : `Who is more likely to fit ${subjectTitle}?`,
+      title: interfaceLabels?.["interface.quick_decision.suit_heading"] ?? (locale === "zh" ? `什么样的人更可能适合${subjectTitle}？` : `Who is more likely to fit ${subjectTitle}?`),
       tone: visual.quickDecisionItemFit,
     },
     {
       key: "boundary",
       number: "02",
-      title: locale === "zh" ? `什么情况下需要慎重选择${subjectTitle}？` : `When should you be cautious about choosing ${subjectTitle}?`,
+      title: interfaceLabels?.["interface.quick_decision.caution_heading"] ?? (locale === "zh" ? `什么情况下需要慎重选择${subjectTitle}？` : `When should you be cautious about choosing ${subjectTitle}?`),
       tone: visual.quickDecisionItemCaution,
     },
     {
       key: "how",
       number: "03",
-      title: locale === "zh" ? `如何用一次小实验判断自己是否适合${subjectTitle}？` : `How can a small experiment test your fit for ${subjectTitle}?`,
+      title: interfaceLabels?.["interface.quick_decision.experiment_heading"] ?? (locale === "zh" ? `如何用一次小实验判断自己是否适合${subjectTitle}？` : `How can a small experiment test your fit for ${subjectTitle}?`),
       tone: visual.quickDecisionItemExperiment,
     },
   ] as const;

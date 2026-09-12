@@ -24,6 +24,7 @@ import type {
 } from "@/lib/career/publishedComponentContract";
 
 type Props = {
+  interfaceLabels?: Record<string, string>;
   definition: string;
   responsibilities: string[];
   workContext: string;
@@ -49,6 +50,7 @@ function splitWorkFact(value: string): [string, string] {
 }
 
 export function CareerDossierProfile({
+  interfaceLabels,
   definition,
   responsibilities,
   workContext,
@@ -167,7 +169,7 @@ export function CareerDossierProfile({
           <div className={styles.tableWrap}>
             <table aria-label={boundaryItem.question}>
               <thead>
-                <tr><th>{locale === "zh" ? "维度" : "Dimension"}</th><th>{locale === "zh" ? "主要方向" : "Primary track"}</th><th>{locale === "zh" ? "比较方向" : "Comparison track"}</th></tr>
+                <tr><th>{interfaceLabels?.['interface.profile.comparison.dimension_header'] ?? (locale === "zh" ? "维度" : "Dimension")}</th><th>{interfaceLabels?.['interface.profile.comparison.primary_header'] ?? (locale === "zh" ? "主要方向" : "Primary track")}</th><th>{interfaceLabels?.['interface.profile.comparison.secondary_header'] ?? (locale === "zh" ? "比较方向" : "Comparison track")}</th></tr>
               </thead>
               <tbody>
                 {boundaryItem.table.rows.map((row, index) => {
@@ -195,7 +197,7 @@ export function CareerDossierProfile({
           data-testid="responsibilities-block"
         >
           <div className={styles.sectionHeadingCompact}>
-            <div><h3>{locale === "zh" ? "核心工作" : "Core responsibilities"}</h3></div>
+            <div><h3>{interfaceLabels?.['interface.profile.responsibilities_heading'] ?? (locale === "zh" ? "核心工作" : "Core responsibilities")}</h3></div>
           </div>
           <ol className={styles.responsibilityList} data-career-api-list="responsibilities_block">
             {responsibilities.map((item, index) => {

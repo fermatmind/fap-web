@@ -30,6 +30,12 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
     !record(display.components) || !Array.isArray(display.component_order) || !display.component_order.length ||
     display.component_order.some(id => typeof id !== 'string') || new Set(display.component_order).size !== display.component_order.length) fail('display');
   const components = display.components;
+  let interfaceLabels: Record<string, string> | undefined;
+  if (display.interface !== undefined) {
+    if (!record(display.interface) || !Object.keys(display.interface).length ||
+      Object.entries(display.interface).some(([key, value]) => !/^interface\.[a-z0-9_.]+$/.test(key) || typeof value !== 'string' || !value.trim())) fail('interface');
+    interfaceLabels = display.interface as Record<string, string>;
+  }
   const componentOrder = display.component_order as CareerDisplayComponentId[];
   if (Object.keys(components).length !== componentOrder.length) fail('components');
   const primary = components.primary_cta;
@@ -69,7 +75,7 @@ export function buildCareerPageDisplaySurface(page: CareerPage, identity: { slug
   return {
     surfaceVersion: 'display.surface.v1', assetType: 'career_job_public_display', assetRole: 'formal_pilot_master', status: 'ready_for_pilot', locale,
     subject: { canonicalSlug: identity.slug, path, title: content.subject.name, ...(identity.socCode ? {socCode:identity.socCode}:{}), ...(identity.onetCode ? {onetCode:identity.onetCode}:{}) },
-    componentOrder, publishedComponents, sections: [], hero: {h1:content.subject.name, quickAnswer:content.subject.summary ?? '',primaryCta:{label,href:ctaHref}}, faqItems,
+    componentOrder, publishedComponents, ...(interfaceLabels ? {interfaceLabels} : {}), sections: [], hero: {h1:content.subject.name, aiExposureLabel:page.hero.ai.label, quickAnswer:content.subject.summary ?? '',primaryCta:{label,href:ctaHref}}, faqItems,
     sources: content.sources.map(s => ({key:s.id,label:s.name,url:s.url ?? undefined,usage:s.details})),
     relatedNextPages:null, boundaryNotice: [], reviewValidity:null,
     claimPermissions: { integrityState:'restricted',allowStrongClaim:false,allowAiStrategy:false,allowSalaryComparison:false,allowMarketSignal:false,allowLocalProxyWage:false,blockedClaims:[],warnings:[],evidenceBasis:{salary:'missing',aiExposure:'missing',marketSignal:'missing',crosswalk:'missing'} },

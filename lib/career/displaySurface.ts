@@ -100,6 +100,7 @@ export type CareerDisplayCta = {
 
 export type CareerDisplayHeroViewModel = {
   h1: string;
+  aiExposureLabel?: string;
   subtitle?: string;
   quickAnswer: string;
   primaryCta: CareerDisplayCta;
@@ -223,6 +224,7 @@ export type CareerDisplayClaimPermissions = {
 };
 
 export type CareerDisplaySurfaceViewModel = {
+  interfaceLabels?: Record<string, string>;
   surfaceVersion: typeof CAREER_DISPLAY_SURFACE_VERSION;
   assetType: typeof DISPLAY_ASSET_TYPE;
   assetRole: typeof DISPLAY_ASSET_ROLE;

@@ -4,6 +4,10 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, it, expect } from 'vitest';
 import { normalizeCareerPage } from '@/lib/career/careerPage';
 import { careerDisplayIdentity, buildCareerPageDisplaySurface } from '@/lib/career/pageDisplay';
+import { CareerDossierChinaSalary, supportsCareerDossierChinaSalary, CareerDossierUsSalary, supportsCareerDossierUsSalary } from '@/components/career/display/CareerDossierSalaryReference';
+import { CareerDossierDirectionComparison, supportsCareerDossierDirectionComparison } from '@/components/career/display/CareerDossierDirectionComparison';
+import { normalizeCareerPublishedComponents } from '@/lib/career/publishedComponentContract';
+import type { CareerPublishedValue } from '@/lib/career/publishedComponentContract';
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
 
 describe('September 5 accountant renderer with current content', () => {
@@ -54,6 +58,64 @@ describe('September 5 accountant renderer with current content', () => {
       }
     }
     expect(missing,'Every public paragraph needs a reader-visible location in the September 5 components').toEqual([]);
+  });
+  it('renders the same comparison UI with occupation-neutral data keys', () => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const baseline = surface.publishedComponents!.adjacent_career_comparison_table!;
+    const neutral = structuredClone(baseline) as {rows: Array<Record<string, CareerPublishedValue>>};
+    for (const row of neutral.rows) {
+      row['关键区别'] = row['与会计师／审计师的关键区别'];
+      delete row['与会计师／审计师的关键区别'];
+    }
+    expect(supportsCareerDossierDirectionComparison(neutral)).toBe(true);
+    expect(normalizeCareerPublishedComponents({adjacent_career_comparison_table:neutral}, ["adjacent_career_comparison_table"])).not.toBeNull();
+    const original = document.createElement('div');
+    original.innerHTML = renderToStaticMarkup(<CareerDossierDirectionComparison value={baseline} locale="zh" />);
+    const shared = document.createElement('div');
+    shared.innerHTML = renderToStaticMarkup(<CareerDossierDirectionComparison value={neutral} locale="zh" />);
+    expect(shared.textContent).toBe(original.textContent);
+    expect(shared.querySelectorAll('tbody tr')).toHaveLength(original.querySelectorAll('tbody tr').length);
+    expect(shared.querySelector('[data-career-api-field$=".关键区别"]')).not.toBeNull();
+    neutral.rows[0]['关键区别'] = '';
+    expect(supportsCareerDossierDirectionComparison(neutral)).toBe(false);
+  });
+  it('uses supplied hourly wage cells without annualizing or injecting accountant copy', () => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const value = structuredClone(surface.publishedComponents!.career_snapshot_secondary_locale!) as Record<string, CareerPublishedValue>;
+    value.wage_column_labels = ['统计位置', '小时工资', '换算边界', '口径说明'];
+    value.industry_value_label = '小时工资中位数';
+    value.wage_tiers = ['低位', '中位', '高位'].map(label => ({label, value: '$29.05 / hour', equivalent: '不换算成年薪', interpretation: '按文件解释该统计位置。'}));
+    expect(supportsCareerDossierUsSalary(value)).toBe(true);
+    expect(normalizeCareerPublishedComponents({career_snapshot_secondary_locale:value}, ["career_snapshot_secondary_locale"])).not.toBeNull();
+    const root = document.createElement('div');
+    root.innerHTML = renderToStaticMarkup(<CareerDossierUsSalary value={value} locale="zh" />);
+    const table = root.querySelector('[data-career-api-table="career_snapshot_secondary_locale.bls_table.wages"]')!;
+    expect(table.querySelectorAll('tbody tr')).toHaveLength(3);
+    expect(table.textContent).toContain('$29.05 / hour');
+    expect(table.textContent).toContain('不换算成年薪');
+    expect(table.textContent).not.toContain('会计师');
+    expect(table.textContent).not.toContain('税前月均');
+    value.wage_tiers = [];
+    expect(supportsCareerDossierUsSalary(value)).toBe(false);
+    expect(normalizeCareerPublishedComponents({career_snapshot_secondary_locale:value}, ["career_snapshot_secondary_locale"])).toBeNull();
+  });
+  it('uses file-provided China salary questions and table labels', () => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const value = structuredClone(surface.publishedComponents!.career_snapshot_primary_locale!) as {salary: Record<string, CareerPublishedValue>};
+    value.salary.ui = {official_heading: '公开项目报价', scenario_heading: '项目日价怎么比较？', scenario_caption: '报价范围对照', scenario_role_label: '项目类型', scenario_value_label: '报价口径', scenario_interpretation_label: '范围与局限', driver_heading: '计酬条件', ai_heading: '技术与项目报酬'};
+    expect(supportsCareerDossierChinaSalary(value)).toBe(true);
+    expect(normalizeCareerPublishedComponents({career_snapshot_primary_locale:value}, ["career_snapshot_primary_locale"])).not.toBeNull();
+    const root = document.createElement('div');
+    root.innerHTML = renderToStaticMarkup(<CareerDossierChinaSalary value={value} locale="zh" />);
+    expect(root.querySelector('#china-salary-10k-title')?.textContent).toBe('项目日价怎么比较？');
+    expect(root.querySelector('#salary-ai-answer-title')?.textContent).toBe('技术与项目报酬');
+    expect(root.querySelector('[data-career-api-table] thead')?.textContent).toBe('项目类型报价口径范围与局限');
+    value.salary.ui = {official_heading: 'Partial data must not fall back'};
+    expect(supportsCareerDossierChinaSalary(value)).toBe(false);
+    expect(normalizeCareerPublishedComponents({career_snapshot_primary_locale:value}, ["career_snapshot_primary_locale"])).toBeNull();
   });
   it('uses current ontology codes and rejects ambiguous identities', () => {
     const ontology={crosswalks:[{source_system:'us_soc',source_code:'13-2011',mapping_type:'exact'},{source_system:'onet_soc_2019',source_code:'13-2011.00',mapping_type:'direct_match'}]};

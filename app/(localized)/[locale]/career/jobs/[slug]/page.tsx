@@ -30,7 +30,7 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   const raw = payload as unknown as Record<string, unknown>;
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
-  return {job, page, restoredIdentity:locale === 'zh' && job.slug === 'accountants-and-auditors' ? careerDisplayIdentity(job.slug, raw.ontology) : null};
+  return {job, page, restoredIdentity:locale === 'zh' && page.display ? careerDisplayIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
   const normalized = String(indexState ?? "").trim().toLowerCase();

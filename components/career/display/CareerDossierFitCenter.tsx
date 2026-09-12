@@ -10,6 +10,7 @@ type RiasecFit = {
 };
 
 type Props = {
+  interfaceLabels?: Record<string, string>;
   value: CareerPublishedFitDecisionCenter;
   riasec: RiasecFit;
   locale: "en" | "zh";
@@ -110,7 +111,7 @@ export function supportsCareerDossierFitCenter(value: unknown): value is CareerP
     Array.isArray(candidate.source_links) && candidate.source_links.length >= 4;
 }
 
-export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, sectionLabelId }: Props) {
+export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, sectionLabelId, interfaceLabels }: Props) {
   const isZh = locale === "zh";
 
   return (
@@ -131,7 +132,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
       <section className={visual.fitCenterSection} aria-labelledby="career-fit-assessments-title">
         <div className={visual.fitCenterSectionHeading}>
           <div>
-            <h3 id="career-fit-assessments-title">{isZh ? "不要用一个测试替你决定职业" : "Do not let one test decide your career"}</h3>
+            <h3 id="career-fit-assessments-title">{interfaceLabels?.["interface.fit.assessments_heading"] ?? (isZh ? "不要用一个测试替你决定职业" : "Do not let one test decide your career")}</h3>
           </div>
         </div>
 
@@ -139,17 +140,17 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
           <header className={visual.fitRiasecEvidenceHeader}>
             <span className={visual.fitRiasecCode} {...apiField("riasec_fit_block.riasec")}>{riasec.riasec}</span>
             <div>
-              <p>{isZh ? "O*NET 职业兴趣基线" : "O*NET occupational interest baseline"}</p>
+              <p>{interfaceLabels?.["interface.fit.interest_baseline_label"] ?? (isZh ? "O*NET 职业兴趣基线" : "O*NET occupational interest baseline")}</p>
               <strong {...apiField("riasec_fit_block.riasec_short")}>{riasec.riasec_short}</strong>
             </div>
           </header>
           <div className={visual.fitRiasecEvidenceDetails}>
             <article>
-              <h4>{isZh ? "这类工作的兴趣体验" : "What can feel rewarding in this work"}</h4>
+              <h4>{interfaceLabels?.["interface.fit.interest_experience_heading"] ?? (isZh ? "这类工作的兴趣体验" : "What can feel rewarding in this work")}</h4>
               <p {...apiField("riasec_fit_block.interest")}>{riasec.interest}</p>
             </article>
             <article>
-              <h4>{isZh ? "怎样理解 CEI" : "How to interpret CEI"}</h4>
+              <h4>{interfaceLabels?.["interface.fit.interest_code_heading"] ?? (isZh ? "怎样理解 CEI" : "How to interpret CEI")}</h4>
               <p {...apiField("riasec_fit_block.fit_interest")}>{riasec.fit_interest}</p>
             </article>
           </div>
@@ -173,7 +174,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
                 ))}
               </ul>
               <p className={visual.fitAssessmentWatchout} {...apiField(`personality_fit_block.assessments[${index}].watchout`)}>
-                <strong>{isZh ? "别这样用：" : "Do not use it this way: "}</strong>{assessment.watchout}
+                <strong>{interfaceLabels?.["interface.fit.assessment_misuse_label"] ?? (isZh ? "别这样用：" : "Do not use it this way: ")}</strong>{assessment.watchout}
               </p>
               <Link
                 href={assessment.cta_href}
@@ -192,7 +193,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
       <section className={visual.fitCenterSection} aria-labelledby="career-fit-directions-title">
         <div className={visual.fitCenterSectionHeading}>
           <div>
-            <h3 id="career-fit-directions-title">{isZh ? "你更可能适合哪条会计方向？" : "Which accounting direction may fit you better?"}</h3>
+            <h3 id="career-fit-directions-title">{interfaceLabels?.["interface.fit.directions_heading"] ?? (isZh ? "你更可能适合哪条会计方向？" : "Which accounting direction may fit you better?")}</h3>
           </div>
         </div>
         <div className={visual.fitDirectionGrid} data-career-api-list="personality_fit_block.directions">
@@ -200,11 +201,11 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
             const cardContent = (
               <>
               <h4 {...apiField(`personality_fit_block.directions[${index}].direction`)}>{direction.direction}</h4>
-              <p><strong>{isZh ? "更匹配：" : "Fits better when: "}</strong><span {...apiField(`personality_fit_block.directions[${index}].fit_signals`)}>{direction.fit_signals}</span></p>
-              <p><strong>{isZh ? "注意：" : "Watch for: "}</strong><span {...apiField(`personality_fit_block.directions[${index}].watchouts`)}>{direction.watchouts}</span></p>
+              <p><strong>{interfaceLabels?.["interface.fit.direction_match_label"] ?? (isZh ? "更匹配：" : "Fits better when: ")}</strong><span {...apiField(`personality_fit_block.directions[${index}].fit_signals`)}>{direction.fit_signals}</span></p>
+              <p><strong>{interfaceLabels?.["interface.fit.direction_caution_label"] ?? (isZh ? "注意：" : "Watch for: ")}</strong><span {...apiField(`personality_fit_block.directions[${index}].watchouts`)}>{direction.watchouts}</span></p>
               {direction.target ? (
                 <span className={visual.fitDirectionTarget} {...apiField(`personality_fit_block.directions[${index}].target.title`)}>
-                  {isZh ? "查看相关职业：" : "Explore related career: "}{direction.target.title}<span aria-hidden="true">→</span>
+                  {interfaceLabels?.["interface.fit.related_career_label"] ?? (isZh ? "查看相关职业：" : "Explore related career: ")}{direction.target.title}<span aria-hidden="true">→</span>
                 </span>
               ) : null}
               </>
@@ -232,7 +233,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
       <section className={visual.fitCenterSection} aria-labelledby="career-fit-questions-title">
         <div className={visual.fitCenterSectionHeading}>
           <div>
-            <h3 id="career-fit-questions-title">{isZh ? "职业适配常见问题" : "Career fit questions"}</h3>
+            <h3 id="career-fit-questions-title">{interfaceLabels?.["interface.fit.questions_heading"] ?? (isZh ? "职业适配常见问题" : "Career fit questions")}</h3>
           </div>
         </div>
         <div className={visual.fitQuestionList} data-career-api-list="personality_fit_block.questions">

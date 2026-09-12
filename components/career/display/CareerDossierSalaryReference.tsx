@@ -6,6 +6,7 @@ import type { CareerPublishedValue } from "@/lib/career/publishedComponentContra
 type ScalarRow = Record<string, string>;
 
 type ChinaSalaryContent = {
+  ui: Record<string, string> | null;
   heading: string;
   answer: string;
   officialIntro: string;
@@ -26,6 +27,9 @@ type UsSalaryContent = {
   directAnswer: string;
   wageHeading: string;
   wageRows: ScalarRow[];
+  suppliedWageTiers: UsWageTier[] | null;
+  wageColumnLabels: string[] | null;
+  industryValueLabel: string | null;
   interpretationHeading: string;
   interpretationRows: ScalarRow[];
   industryHeading: string;
@@ -58,6 +62,9 @@ const SALARY_SOURCE_HOSTS = new Set([
   "www.randstad.cn",
   "xahrss.xa.gov.cn",
   "www.leshan.gov.cn",
+  "www.stats.gov.cn",
+  "m.thepaper.cn",
+  "rsj.beijing.gov.cn",
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -108,6 +115,13 @@ function sourceItems(values: Array<string | null>): Array<{ label: string; href:
 function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | null {
   if (!isRecord(value) || !isRecord(value.salary)) return null;
   const salary = value.salary;
+  let ui: Record<string, string> | null = null;
+  if (Object.hasOwn(salary, "ui")) {
+    const keys = ["official_heading", "scenario_heading", "scenario_caption", "scenario_role_label", "scenario_value_label", "scenario_interpretation_label", "driver_heading", "ai_heading"];
+    if (!isRecord(salary.ui) || keys.some(key => !text((salary.ui as Record<string, unknown>)[key]))) return null;
+    ui = Object.fromEntries(keys.map(key => [key, String((salary.ui as Record<string, unknown>)[key])]));
+  }
+
   const heading = text(salary.china_name_row);
   const answer = text(salary.china_soc_row);
   const officialIntro = text(salary.china_class_row);
@@ -138,6 +152,7 @@ function parseChinaSalary(value: CareerPublishedValue): ChinaSalaryContent | nul
   }
 
   return {
+    ui,
     heading,
     answer,
     officialIntro,
@@ -175,6 +190,17 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
   const industryPeriod = text(value.industry_period) ?? `${industryHeading ?? ""} ${industryRows?.map((row) => row.note).join(" ") ?? ""}`.match(/20\d{2}/u)?.[0] ?? null;
   const outlookPeriod = text(value.outlook_period) ?? outlookRows[0]?.["指标"].match(/20\d{2}[–—-]20\d{2}/u)?.[0] ?? null;
   const sources = sourceItems([...blsRows.map((row) => row["说明"]), authoritySourcesRaw]);
+  let suppliedWageTiers: UsWageTier[] | null = null;
+  let wageColumnLabels: string[] | null = null;
+  const industryValueLabel = text(value.industry_value_label);
+  if (Object.hasOwn(value, "wage_tiers")) {
+    const supplied = rows(value.wage_tiers, ["label", "value", "equivalent", "interpretation"], 3);
+    if (!supplied || supplied.length !== 3 || !Array.isArray(value.wage_column_labels)
+      || value.wage_column_labels.length !== 4 || value.wage_column_labels.some(label => !text(label))
+      || !industryValueLabel) return null;
+    suppliedWageTiers = supplied.map(row => ({label: row.label, annual: row.value, monthly: row.equivalent, interpretation: row.interpretation, sourceIndexes: []}));
+    wageColumnLabels = value.wage_column_labels as string[];
+  }
   if (!heading || !directAnswer || !wageHeading || !interpretationHeading || !interpretationRows ||
     !industryHeading || !industryRows || !factorsHeading || !factorRows || !outlookHeading || !boundary ||
     !authoritySourcesRaw || !industryPeriod || !outlookPeriod || wageRows.length !== 5 || outlookRows.length !== 3 || sources.length < 2) return null;
@@ -183,6 +209,9 @@ function parseUsSalary(value: CareerPublishedValue): UsSalaryContent | null {
     directAnswer,
     wageHeading,
     wageRows,
+    suppliedWageTiers,
+    wageColumnLabels,
+    industryValueLabel,
     interpretationHeading,
     interpretationRows,
     industryHeading,
@@ -276,7 +305,7 @@ function SalaryQuestion({ value }: { value: string }) {
   );
 }
 
-export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null }) {
+export function CareerDossierChinaSalary({ value, locale, contentV3 = null, interfaceLabels }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null; interfaceLabels?: Record<string, string> }) {
   const content = parseChinaSalary(value);
   if (!content) return null;
 
@@ -287,7 +316,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
     >
       <header className={visual.salaryHeader} data-testid="career-published-primary-locale-china">
         <div className={visual.salaryTitleRow}>
-          <p>{locale === "zh" ? "中国大陆薪资参考" : "Chinese mainland salary reference"}</p>
+          <p>{interfaceLabels?.["interface.china_salary.section_label"] ?? (locale === "zh" ? "中国大陆薪资参考" : "Chinese mainland salary reference")}</p>
           <span aria-hidden="true" />
         </div>
         <h2 data-career-api-field="career_snapshot_primary_locale.salary.china_name_row">
@@ -298,7 +327,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
 
       <section className={visual.salarySection} aria-labelledby="china-salary-official-title">
         <div className={visual.salarySectionTitle}>
-          <h3 id="china-salary-official-title">{locale === "zh" ? "官方工资中位数" : "Official median wage"}</h3>
+          <h3 id="china-salary-official-title">{content.ui?.official_heading ?? (locale === "zh" ? "官方工资中位数" : "Official median wage")}</h3>
           <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_primary_locale.salary.china_class_row">{content.officialIntro}</span>
         </div>
         <div className={visual.salaryOfficialGrid} data-career-api-list="career_snapshot_primary_locale.salary.china_salary_table">
@@ -314,19 +343,19 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
 
       <section className={visual.salarySection} aria-labelledby="china-salary-10k-title">
         <div className={visual.salarySectionTitle}>
-          <h3 id="china-salary-10k-title"><SalaryQuestion value={locale === "zh" ? "会计或审计月薪 1 万是什么水平？" : "How should the published salary ranges be interpreted?"} /></h3>
+          <h3 id="china-salary-10k-title"><SalaryQuestion value={content.ui?.scenario_heading ?? (locale === "zh" ? "会计或审计月薪 1 万是什么水平？" : "How should the published salary ranges be interpreted?")} /></h3>
           <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_primary_locale.salary.china_open">{content.caseNote}</span>
         </div>
         <div className={visual.salaryTableWrap}>
           <table className={visual.salaryTable} data-career-api-table="career_snapshot_primary_locale.salary.china_edu_table">
-            <caption className="sr-only">{locale === "zh" ? "会计和审计月薪一万元对应的城市、企业与岗位场景" : "Role scenarios represented by published salary ranges"}</caption>
-            <thead><tr><th scope="col">{locale === "zh" ? "岗位场景" : "Role scenario"}</th><th scope="col">{locale === "zh" ? "公开薪资区间" : "Published range"}</th><th scope="col">{locale === "zh" ? "月薪 1 万怎么理解" : "Interpretation"}</th></tr></thead>
+            <caption className="sr-only">{content.ui?.scenario_caption ?? (locale === "zh" ? "会计和审计月薪一万元对应的城市、企业与岗位场景" : "Role scenarios represented by published salary ranges")}</caption>
+            <thead><tr><th scope="col">{content.ui?.scenario_role_label ?? (locale === "zh" ? "岗位场景" : "Role scenario")}</th><th scope="col">{content.ui?.scenario_value_label ?? (locale === "zh" ? "公开薪资区间" : "Published range")}</th><th scope="col">{content.ui?.scenario_interpretation_label ?? (locale === "zh" ? "月薪 1 万怎么理解" : "Interpretation")}</th></tr></thead>
             <tbody>
               {content.scenarioRows.map((row, index) => (
                 <tr key={row["学历段"]}>
-                  <th scope="row" data-label="岗位场景" data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].学历段`}>{row["学历段"]}</th>
-                  <td data-label="公开薪资区间" data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].岗位方向`}>{row["岗位方向"]}</td>
-                  <td data-label="月薪 1 万怎么理解" data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].说明`}>{row["说明"]}</td>
+                  <th scope="row" data-label={content.ui?.scenario_role_label ?? "岗位场景"} data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].学历段`}>{row["学历段"]}</th>
+                  <td data-label={content.ui?.scenario_value_label ?? "公开薪资区间"} data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].岗位方向`}>{row["岗位方向"]}</td>
+                  <td data-label={content.ui?.scenario_interpretation_label ?? "月薪 1 万怎么理解"} data-career-api-field={`career_snapshot_primary_locale.salary.china_edu_table[${index}].说明`}>{row["说明"]}</td>
                 </tr>
               ))}
             </tbody>
@@ -336,7 +365,7 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
       </section>
 
       <section className={visual.salarySection} aria-labelledby="china-salary-driver-title">
-        <div className={visual.salarySectionTitle}><h3 id="china-salary-driver-title"><SalaryQuestion value={locale === "zh" ? "哪些因素真正影响工资？" : "Which factors materially affect pay?"} /></h3></div>
+        <div className={visual.salarySectionTitle}><h3 id="china-salary-driver-title"><SalaryQuestion value={content.ui?.driver_heading ?? (locale === "zh" ? "哪些因素真正影响工资？" : "Which factors materially affect pay?")} /></h3></div>
         <div className={visual.salaryDriverGrid} data-career-api-list="career_snapshot_primary_locale.salary.china_industry_table">
           {content.driverRows.map((row, index) => (
             <article key={row["行业"]}>
@@ -348,11 +377,11 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
       </section>
 
       <section className={visual.salaryAiAnswer} aria-labelledby="salary-ai-answer-title">
-        <h3 id="salary-ai-answer-title"><SalaryQuestion value={locale === "zh" ? "AI 会让会计师和审计师工资下降吗？" : "How could AI affect pay?"} /></h3>
+        <h3 id="salary-ai-answer-title"><SalaryQuestion value={content.ui?.ai_heading ?? (locale === "zh" ? "AI 会让会计师和审计师工资下降吗？" : "How could AI affect pay?")} /></h3>
         <p data-career-api-field="career_snapshot_primary_locale.salary.china_ai_row">{content.aiAnswer}</p>
       </section>
 
-      <aside className={visual.salarySources} aria-label={locale === "zh" ? "中国大陆薪资数据来源与使用边界" : "Chinese mainland salary sources and usage boundaries"}>
+      <aside className={visual.salarySources} aria-label={interfaceLabels?.["interface.china_salary.sources_label"] ?? (locale === "zh" ? "中国大陆薪资数据来源与使用边界" : "Chinese mainland salary sources and usage boundaries")}>
         {isRecord(value) && isRecord(value.salary) && Array.isArray(value.salary.bls_table) ? value.salary.bls_table.map((row, index) => isRecord(row) ? (
           <p key={index}>
             <span data-career-api-field={`career_snapshot_primary_locale.salary.bls_table[${index}].数值`}>{text(row["数值"])}</span>{" · "}
@@ -378,10 +407,10 @@ export function CareerDossierChinaSalary({ value, locale, contentV3 = null }: { 
   );
 }
 
-export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null }) {
+export function CareerDossierUsSalary({ value, locale, contentV3 = null, interfaceLabels }: { value: CareerPublishedValue; locale: "zh" | "en"; contentV3?: CareerContentV3 | null; interfaceLabels?: Record<string, string> }) {
   const content = parseUsSalary(value);
   if (!content) return null;
-  const wageTiers = buildUsWageTiers(content.wageRows, locale);
+  const wageTiers = content.suppliedWageTiers ?? buildUsWageTiers(content.wageRows, locale);
 
   return (
     <section
@@ -391,7 +420,7 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { val
     >
       <header className={visual.salaryHeader} data-testid="career-published-career_snapshot_secondary_locale">
         <div className={visual.salaryTitleRow}>
-          <p>{locale === "zh" ? "美国薪资参考" : "U.S. salary reference"}</p>
+          <p>{interfaceLabels?.["interface.us_salary.section_label"] ?? (locale === "zh" ? "美国薪资参考" : "U.S. salary reference")}</p>
           <span aria-hidden="true" />
         </div>
         <h2><SalaryQuestion value={content.heading} /></h2>
@@ -406,19 +435,19 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { val
           <table className={visual.salaryTable} data-career-api-table="career_snapshot_secondary_locale.bls_table.wages">
             <caption className="sr-only">{content.wageHeading}</caption>
             <thead><tr>
-              <th scope="col">{locale === "zh" ? "工资位置" : "Wage position"}</th>
-              <th scope="col">{locale === "zh" ? "年工资参考" : "Annual wage"}</th>
-              <th scope="col">{locale === "zh" ? "税前月均等值（编辑换算）" : "Gross monthly equivalent"}</th>
-              <th scope="col">{locale === "zh" ? "通常怎么理解" : "How to interpret"}</th>
+              <th scope="col">{content.wageColumnLabels?.[0] ?? (locale === "zh" ? "工资位置" : "Wage position")}</th>
+              <th scope="col">{content.wageColumnLabels?.[1] ?? (locale === "zh" ? "年工资参考" : "Annual wage")}</th>
+              <th scope="col">{content.wageColumnLabels?.[2] ?? (locale === "zh" ? "税前月均等值（编辑换算）" : "Gross monthly equivalent")}</th>
+              <th scope="col">{content.wageColumnLabels?.[3] ?? (locale === "zh" ? "通常怎么理解" : "How to interpret")}</th>
             </tr></thead>
             <tbody>
-              {wageTiers.map((tier) => (
+              {wageTiers.map((tier, tierIndex) => (
                 <tr key={tier.label}>
-                  <th scope="row">{tier.label}</th>
-                  <td data-label={locale === "zh" ? "年工资参考" : "Annual wage"}>{tier.annual}</td>
-                  <td data-label={locale === "zh" ? "税前月均等值" : "Gross monthly equivalent"}>{tier.monthly}</td>
-                  <td data-label={locale === "zh" ? "通常怎么理解" : "How to interpret"}>
-                    {tier.interpretation}
+                  <th scope="row" {...(content.suppliedWageTiers ? {"data-career-api-field": `career_snapshot_secondary_locale.wage_tiers[${tierIndex}].label`} : {})}>{tier.label}</th>
+                  <td data-label={content.wageColumnLabels?.[1] ?? (locale === "zh" ? "年工资参考" : "Annual wage")} {...(content.suppliedWageTiers ? {"data-career-api-field": `career_snapshot_secondary_locale.wage_tiers[${tierIndex}].value`} : {})}>{tier.annual}</td>
+                  <td data-label={content.wageColumnLabels?.[2] ?? (locale === "zh" ? "税前月均等值" : "Gross monthly equivalent")} {...(content.suppliedWageTiers ? {"data-career-api-field": `career_snapshot_secondary_locale.wage_tiers[${tierIndex}].equivalent`} : {})}>{tier.monthly}</td>
+                  <td data-label={content.wageColumnLabels?.[3] ?? (locale === "zh" ? "通常怎么理解" : "How to interpret")}>
+                    {content.suppliedWageTiers ? <span data-career-api-field={`career_snapshot_secondary_locale.wage_tiers[${tierIndex}].interpretation`}>{tier.interpretation}</span> : tier.interpretation}
                     {tier.sourceIndexes.map((index) => {
                       const row = content.wageRows[index];
                       return (
@@ -462,16 +491,16 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { val
           <table className={visual.salaryTable} data-career-api-table="career_snapshot_secondary_locale.industry_rows">
             <caption className="sr-only">{content.industryHeading}</caption>
             <thead><tr>
-              <th scope="col">{locale === "zh" ? "行业" : "Industry"}</th>
-              <th scope="col">{locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`}</th>
-              <th scope="col">{locale === "zh" ? "怎么理解" : "How to interpret"}</th>
+              <th scope="col">{interfaceLabels?.["interface.us_salary.industry.industry_header"] ?? (locale === "zh" ? "行业" : "Industry")}</th>
+              <th scope="col">{content.industryValueLabel ?? (locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`)}</th>
+              <th scope="col">{interfaceLabels?.["interface.us_salary.industry.interpretation_header"] ?? (locale === "zh" ? "怎么理解" : "How to interpret")}</th>
             </tr></thead>
             <tbody>
               {content.industryRows.map((row, index) => (
                 <tr key={row.industry}>
                   <th scope="row" data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].industry`}>{row.industry}</th>
-                  <td data-label={locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].median`}>{row.median}</td>
-                  <td data-label={locale === "zh" ? "怎么理解" : "How to interpret"} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].note`}>{row.note}</td>
+                  <td data-label={content.industryValueLabel ?? (locale === "zh" ? `${content.industryPeriod} 年薪中位数` : `${content.industryPeriod} median annual wage`)} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].median`}>{row.median}</td>
+                  <td data-label={interfaceLabels?.["interface.us_salary.industry.interpretation_header"] ?? (locale === "zh" ? "怎么理解" : "How to interpret")} data-career-api-field={`career_snapshot_secondary_locale.industry_rows[${index}].note`}>{row.note}</td>
                 </tr>
               ))}
             </tbody>
@@ -513,7 +542,7 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null }: { val
         </div>
       </section>
 
-      <aside className={visual.salarySources} aria-label={locale === "zh" ? "美国薪资和就业数据来源" : "U.S. wage and employment sources"}>
+      <aside className={visual.salarySources} aria-label={interfaceLabels?.["interface.us_salary.sources_label"] ?? (locale === "zh" ? "美国薪资和就业数据来源" : "U.S. wage and employment sources")}>
         <p data-career-api-field="career_snapshot_secondary_locale.boundary">{content.boundary}</p>
         <SourceLinks items={content.sourceItems} prefix="career_snapshot_secondary_locale" />
         <span aria-hidden="true" className="sr-only" data-career-api-field="career_snapshot_secondary_locale.authority_sources">{content.authoritySourcesRaw}</span>

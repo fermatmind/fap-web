@@ -461,7 +461,7 @@ function CareerProductionHero({
       }));
   const aiExposure = presentationV2?.hero.aiExposure ?? presentationV1?.hero.aiExposure ?? null;
   const visibleAiExposure = aiExposure;
-  const missingAccountantsAi = surface.locale === "zh" && surface.subject.canonicalSlug === CAREER_DISPLAY_ACCOUNTANTS_SLUG && !aiExposure;
+  const missingPublishedAi = Boolean(published) && !aiExposure;
   const unavailableAi = surface.locale === "zh" ? "暂无数据" : "No data available";
   const publishedHero = Boolean(published);
   const presentationCodes = (presentationV1 ? [
@@ -519,11 +519,11 @@ function CareerProductionHero({
         {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={presentationField ? `${presentationField}.hero.lead` : "hero.quick_answer"}>{heroLead}</p> : null}
         {visibleAiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field={`${presentationField}.hero.ai_exposure.note`}>{visibleAiExposure.note}</p> : null}
       </div>
-      {visibleAiExposure || legacyAiImpact?.score || missingAccountantsAi ? (
+      {visibleAiExposure || legacyAiImpact?.score || missingPublishedAi ? (
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
             <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score ?? (surface.locale === "zh" ? <>暂无<br />数据</> : <abbr title={unavailableAi} className="no-underline">N/A</abbr>)}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI 任务暴露" : "AI task exposure")}</span>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? surface.hero?.aiExposureLabel ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI 任务暴露" : "AI task exposure")}</span>
             {visibleAiExposure ? <span className="sr-only" data-career-api-field={`${presentationField}.hero.ai_exposure.source_label`}>{visibleAiExposure.sourceLabel}</span> : null}
           </div>
         </div>
@@ -564,6 +564,11 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
   const v3Sources = surface.locale === "zh"
     ? surface.contentV3?.sources ?? []
     : [];
+  const sourceScopeKeys = new Set(["exact", "editorial_synthesis", "recruitment_proxy", "parent_occupation_proxy", "industry_proxy", "contextual"]);
+  const sourceTitle = (source: {scope?: string | null; name:string}) =>
+    source.scope && !sourceScopeKeys.has(source.scope) ? source.scope : source.name;
+  const evidenceLabel = (kind: string | null | undefined) =>
+    kind === "primary_document" ? "原始资料" : kind === "editorial_design" ? "编辑设计" : kind;
   const rawSourceCard = surface.publishedComponents?.source_card;
   const sourceCard = rawSourceCard && typeof rawSourceCard === "object" && !Array.isArray(rawSourceCard) ? rawSourceCard : {};
   const rawSignals = sourceCard.eeat_signals;
@@ -584,7 +589,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
   };
   return (
     <Container className={embedded ? visual.sourceRegisterInline : "rounded-2xl border border-[#E5E9F2] bg-white p-5 shadow-[0_2px_12px_rgba(26,34,51,.05)] md:p-8"}>
-      <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.locale === "zh" ? "资料来源" : "Sources"}</Heading>
+      <Heading className="m-0 text-2xl font-bold text-[#1A2233]">{surface.interfaceLabels?.["interface.sources.heading"] ?? (surface.locale === "zh" ? "资料来源" : "Sources")}</Heading>
       <div className="mt-4 text-sm leading-7 text-[#2a3346]">
         {(["author", "updated_at", "source"] as const).map(field => typeof signals[field] === "string" ? <p className="m-0" key={field} data-career-api-field={`source_card.eeat_signals.${field}`}>{signals[field]}</p> : null)}
       </div>
@@ -596,15 +601,15 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
           <li key={source.id} className="list-none">
             <details className="group rounded-xl border border-[#DCE3F0] bg-[#F8FAFD] px-4 py-3">
               <summary className="cursor-pointer list-none pr-7 text-sm text-[#2a3346] marker:content-none">
-                <span className="block font-bold text-[#243B7A]">{source.scope ?? source.name}</span>
+                <span className="block font-bold text-[#243B7A]">{sourceTitle(source)}</span>
                 <span className="mt-1 block text-xs leading-5 text-[#657087]">
-                  {[source.publisher ?? source.name, source.market, source.period, source.evidenceType].filter(Boolean).join("｜")}
+                  {[source.publisher ?? source.name, source.market, source.period, evidenceLabel(source.evidenceType)].filter(Boolean).join("｜")}
                 </span>
               </summary>
               <div className="mt-3 border-t border-[#DCE3F0] pt-3 text-sm leading-7 text-[#2a3346]">
                 {source.url ? (
                   <a href={source.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#2C3E8C] underline underline-offset-2">
-                    查看原始资料：{source.scope ?? source.publisher ?? source.name}
+                    {surface.interfaceLabels?.["interface.sources.original_source_link_label"] ?? "查看原始资料"}：{sourceTitle(source)}
                   </a>
                 ) : null}
                 {source.details.length > 0 ? (
@@ -618,7 +623,7 @@ function SourceCard({ surface, embedded = false }: { surface: CareerDisplaySurfa
                     })}
                   </ul>
                 ) : null}
-                {source.limitation ? <p className="m-0 mt-2 rounded-lg bg-[#FFF6E9] px-3 py-2 text-xs leading-5 text-[#6A5738]"><strong>使用限制：</strong>{source.limitation}</p> : null}
+                {source.limitation ? <p className="m-0 mt-2 rounded-lg bg-[#FFF6E9] px-3 py-2 text-xs leading-5 text-[#6A5738]"><strong>{surface.interfaceLabels?.["interface.sources.limitation_label"] ?? "使用限制"}：</strong>{source.limitation}</p> : null}
               </div>
             </details>
           </li>
@@ -887,7 +892,7 @@ export function CareerProductionDisplaySurface({
             <CareerDossierQuickDecisionAnswer value={decision} />
           </ComponentFrame>
           <ComponentFrame id="fit_decision_checklist" instanceKey={block.instanceKey}>
-            <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
+            <CareerDossierFitDecision interfaceLabels={surface.interfaceLabels} value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
           </ComponentFrame>
         </>;
       }
@@ -901,6 +906,7 @@ export function CareerProductionDisplaySurface({
           responsibilities={publishedComponents.responsibilities_block as string[]}
           workContext={publishedComponents.work_context_block as string}
           quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+          interfaceLabels={surface.interfaceLabels}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
         />;
@@ -910,28 +916,28 @@ export function CareerProductionDisplaySurface({
     if (block.copyKey === "career.block.direction-comparison" && declares("adjacent_career_comparison_table") &&
       directionComparison !== undefined && supportsCareerDossierDirectionComparison(directionComparison)) {
       return <ComponentFrame id="adjacent_career_comparison_table" instanceKey={block.instanceKey}>
-        <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />
+        <CareerDossierDirectionComparison interfaceLabels={surface.interfaceLabels} value={directionComparison} locale={surface.locale} />
       </ComponentFrame>;
     }
 
     const aiImpact = publishedComponents.ai_impact_table;
     if (block.copyKey === "career.block.ai-impact" && declares("ai_impact_table") && aiImpact !== undefined && supportsCareerDossierAiImpact(aiImpact)) {
       return <ComponentFrame id="ai_impact_table" instanceKey={block.instanceKey}>
-        <CareerDossierAiImpact value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
+        <CareerDossierAiImpact interfaceLabels={surface.interfaceLabels} value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
     const chinaSalary = publishedComponents.career_snapshot_primary_locale;
     if (block.copyKey === "career.block.china-salary" && declares("career_snapshot_primary_locale") && chinaSalary !== undefined && supportsCareerDossierChinaSalary(chinaSalary)) {
       return <ComponentFrame id="career_snapshot_primary_locale" instanceKey={block.instanceKey}>
-        <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
+        <CareerDossierChinaSalary interfaceLabels={surface.interfaceLabels} value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
     const usSalary = publishedComponents.career_snapshot_secondary_locale;
     if (block.copyKey === "career.block.us-salary" && declares("career_snapshot_secondary_locale") && usSalary !== undefined && supportsCareerDossierUsSalary(usSalary)) {
       return <ComponentFrame id="career_snapshot_secondary_locale" instanceKey={block.instanceKey}>
-        <CareerDossierUsSalary value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
+        <CareerDossierUsSalary interfaceLabels={surface.interfaceLabels} value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
@@ -941,7 +947,7 @@ export function CareerProductionDisplaySurface({
       return <>
         <ComponentFrame id="riasec_fit_block" instanceKey={block.instanceKey} hidden><span data-career-api-component="riasec_fit_block" /></ComponentFrame>
         <ComponentFrame id="personality_fit_block" instanceKey={block.instanceKey}>
-          <CareerDossierFitCenter value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+          <CareerDossierFitCenter interfaceLabels={surface.interfaceLabels} value={fitCenter as CareerPublishedFitDecisionCenter} riasec={riasec} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
         </ComponentFrame>
       </>;
     }
@@ -949,14 +955,14 @@ export function CareerProductionDisplaySurface({
     const workRisk = publishedComponents.career_risk_cards;
     if (block.copyKey === "career.block.risk" && declares("career_risk_cards") && supportsCareerWorkRisk(workRisk)) {
       return <ComponentFrame id="career_risk_cards" instanceKey={block.instanceKey}>
-        <CareerDossierWorkRisk value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
+        <CareerDossierWorkRisk interfaceLabels={surface.interfaceLabels} value={workRisk as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} />
       </ComponentFrame>;
     }
 
     const progression = publishedComponents.career_path_block;
     if (block.copyKey === "career.block.path" && declares("career_path_block") && supportsCareerProgression(progression)) {
       return <ComponentFrame id="career_path_block" instanceKey={block.instanceKey}>
-        <CareerDossierProgression
+        <CareerDossierProgression interfaceLabels={surface.interfaceLabels}
           value={progression as CareerPublishedProgression}
           locale={surface.locale}
           sectionLabel={block.title}
@@ -969,7 +975,7 @@ export function CareerProductionDisplaySurface({
     const outlook = publishedComponents.market_signal_card;
     if (block.copyKey === "career.block.market-signals" && declares("market_signal_card") && supportsCareerOutlookTransitions(outlook)) {
       return <ComponentFrame id="market_signal_card" instanceKey={block.instanceKey}>
-        <CareerDossierOutlookTransitions value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
+        <CareerDossierOutlookTransitions interfaceLabels={surface.interfaceLabels} value={outlook as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={block.title} sectionLabelId={`${block.anchorId}-title`} contentV3={surface.contentV3} />
       </ComponentFrame>;
     }
 
@@ -1106,8 +1112,8 @@ export function CareerProductionDisplaySurface({
         <div className={`mt-5 grid items-start gap-5 lg:grid-cols-[224px_minmax(0,1fr)] lg:gap-6 ${visual.layout}`} data-testid="career-source-disclosure">
           <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${visual.accountantsRail}`} aria-label={copy.pageContents}>
             <div className={visual.toc} data-testid="career-dossier-toc">
-              <div className={visual.tocHeading}><span className={visual.tocKicker}>{copy.dossier}</span></div>
-              <nav className={visual.tocNav} aria-label={copy.contents}>
+              <div className={visual.tocHeading}><span className={visual.tocKicker}>{surface.interfaceLabels?.["interface.navigation.desktop_heading"] ?? copy.dossier}</span></div>
+              <nav className={visual.tocNav} aria-label={surface.interfaceLabels?.["interface.navigation.mobile_heading"] ?? copy.contents}>
                 {successfulBlocks.map((block, index) => (
                   <a className={visual.tocLink} href={`#${block.anchorId}`} key={block.instanceKey}>
                     <span aria-hidden="true" className={visual.tocIndex}>{String(index + 1).padStart(2, "0")}</span>
@@ -1117,7 +1123,7 @@ export function CareerProductionDisplaySurface({
               </nav>
             </div>
             <section className={visual.assessmentRail} data-testid="career-production-assessment-rail">
-              <Link href={primaryCtaHref} className={visual.assessmentRailCta}>{copy.startTest}<span aria-hidden="true">→</span></Link>
+              <Link href={primaryCtaHref} className={visual.assessmentRailCta}>{surface.interfaceLabels ? surface.cta.label : copy.startTest}<span aria-hidden="true">→</span></Link>
             </section>
           </aside>
           <main className={`min-w-0 ${visual.componentStack}`}>
@@ -1227,7 +1233,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="career_snapshot_primary_locale" id="career_snapshot_primary_locale">
           {supportsCareerDossierChinaSalary(chinaSalary)
-          ? <CareerDossierChinaSalary value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
+          ? <CareerDossierChinaSalary interfaceLabels={surface.interfaceLabels} value={chinaSalary} locale={surface.locale} contentV3={surface.contentV3} />
           : <CareerPublishedSemanticSection
               key="career_snapshot_primary_locale-china"
               componentId="career_snapshot_primary_locale"
@@ -1244,7 +1250,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="career_snapshot_secondary_locale" id="career_snapshot_secondary_locale">
           {supportsCareerDossierUsSalary(usSalary)
-            ? <CareerDossierUsSalary value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
+            ? <CareerDossierUsSalary interfaceLabels={surface.interfaceLabels} value={usSalary} locale={surface.locale} contentV3={surface.contentV3} />
             : renderComponent("career_snapshot_secondary_locale")}
         </ComponentFrame>,
       ];
@@ -1256,6 +1262,7 @@ export function CareerProductionDisplaySurface({
           responsibilities={publishedComponents.responsibilities_block as string[]}
           workContext={publishedComponents.work_context_block as string}
           quickAnswers={publishedComponents.career_quick_answers_block as CareerPublishedQuickAnswersBlock}
+          interfaceLabels={surface.interfaceLabels}
           professionalBasis={publishedComponents.onet_structured_fields_block as CareerPublishedOnetStructuredFieldsBlock}
           locale={surface.locale}
         />,
@@ -1266,7 +1273,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="adjacent_career_comparison_table" id="adjacent_career_comparison_table">
           {hasDirectionComparison
-            ? <CareerDossierDirectionComparison value={directionComparison} locale={surface.locale} />
+            ? <CareerDossierDirectionComparison interfaceLabels={surface.interfaceLabels} value={directionComparison} locale={surface.locale} />
             : renderComponent("adjacent_career_comparison_table")}
         </ComponentFrame>,
       ];
@@ -1276,7 +1283,7 @@ export function CareerProductionDisplaySurface({
       componentNodes = [
         <ComponentFrame key="ai_impact_table" id="ai_impact_table">
           {supportsCareerDossierAiImpact(aiImpact)
-            ? <CareerDossierAiImpact value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
+            ? <CareerDossierAiImpact interfaceLabels={surface.interfaceLabels} value={aiImpact} locale={surface.locale} contentV3={surface.contentV3} />
             : renderComponent("ai_impact_table")}
         </ComponentFrame>,
       ];
@@ -1289,7 +1296,7 @@ export function CareerProductionDisplaySurface({
           <CareerDossierQuickDecisionAnswer value={decision} />
         </ComponentFrame>,
         <ComponentFrame key="fit_decision_checklist" id="fit_decision_checklist">
-          <CareerDossierFitDecision value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
+          <CareerDossierFitDecision interfaceLabels={surface.interfaceLabels} value={checklist} locale={surface.locale} subjectTitle={surface.subject.title} />
         </ComponentFrame>,
       ];
     } else if (
@@ -1304,7 +1311,7 @@ export function CareerProductionDisplaySurface({
           <span data-career-api-component="riasec_fit_block" />
         </ComponentFrame>,
         <ComponentFrame key="personality_fit_block" id="personality_fit_block">
-          <CareerDossierFitCenter
+          <CareerDossierFitCenter interfaceLabels={surface.interfaceLabels}
             value={fitCenter as CareerPublishedFitDecisionCenter}
             riasec={riasec}
             locale={surface.locale}
@@ -1316,19 +1323,19 @@ export function CareerProductionDisplaySurface({
     } else if (group.id === "risk" && isEnhanced && supportsCareerWorkRisk(publishedComponents.career_risk_cards)) {
       componentNodes = [
         <ComponentFrame key="career_risk_cards" id="career_risk_cards">
-          <CareerDossierWorkRisk value={publishedComponents.career_risk_cards as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+          <CareerDossierWorkRisk interfaceLabels={surface.interfaceLabels} value={publishedComponents.career_risk_cards as CareerPublishedWorkRisk} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
         </ComponentFrame>,
       ];
     } else if (group.id === "path" && isEnhanced && supportsCareerProgression(publishedComponents.career_path_block)) {
       componentNodes = [
         <ComponentFrame key="career_path_block" id="career_path_block">
-          <CareerDossierProgression value={publishedComponents.career_path_block as CareerPublishedProgression} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
+          <CareerDossierProgression interfaceLabels={surface.interfaceLabels} value={publishedComponents.career_path_block as CareerPublishedProgression} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} />
         </ComponentFrame>,
       ];
     } else if (group.id === "market-signals" && isEnhanced && supportsCareerOutlookTransitions(publishedComponents.market_signal_card)) {
       componentNodes = [
         <ComponentFrame key="market_signal_card" id="market_signal_card">
-          <CareerDossierOutlookTransitions value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} contentV3={surface.contentV3} />
+          <CareerDossierOutlookTransitions interfaceLabels={surface.interfaceLabels} value={publishedComponents.market_signal_card as CareerPublishedOutlookTransitions} locale={surface.locale} sectionLabel={visualGroupLabel(group, isZh)} sectionLabelId={`career-visual-group-title-${group.id}`} contentV3={surface.contentV3} />
         </ComponentFrame>,
       ];
     } else {
@@ -1421,7 +1428,7 @@ export function CareerProductionDisplaySurface({
         <aside className={`flex min-w-0 flex-col gap-4 lg:sticky lg:top-[84px] ${visual.rail} ${visual.accountantsRail}`} aria-label={isZh ? "页面目录" : "Page contents"}>
           <div className={visual.toc}>
             <div className={visual.tocHeading}>
-              <span className={visual.tocKicker}>{isZh ? "职业档案" : "Career dossier"}</span>
+              <span className={visual.tocKicker}>{surface.interfaceLabels?.["interface.navigation.desktop_heading"] ?? (isZh ? "职业档案" : "Career dossier")}</span>
             </div>
             <nav className={visual.tocNav}>
               {tocVisualGroups.map(({ group }, index) => (

@@ -244,13 +244,15 @@ function validatePrimarySnapshot(value: unknown): boolean {
     "china_name_row", "china_open", "china_ref", "china_salary_note", "china_salary_table", "china_soc_row",
     "us_growth", "us_median",
   ];
-  if (!hasExactKeys(salary, required, ["china_open_note", "edu", "sources_note", "fact_refs"])) {
+  if (!hasExactKeys(salary, required, ["china_open_note", "edu", "sources_note", "fact_refs", "ui"])) {
     return false;
   }
 
   const requiredStrings = ["china_intl", "china_open", "china_ref", "china_salary_note", "us_growth", "us_median"];
   const optionalStrings = ["china_open_note", "edu", "sources_note"];
-  return requiredStrings.every((key) => isNonEmptyString(salary[key])) &&
+  const uiKeys = ["official_heading", "scenario_heading", "scenario_caption", "scenario_role_label", "scenario_value_label", "scenario_interpretation_label", "driver_heading", "ai_heading"];
+  return (salary.ui === undefined || (hasExactKeys(salary.ui, uiKeys) && uiKeys.every(key => isNonEmptyString((salary.ui as Record<string, unknown>)[key])))) &&
+    requiredStrings.every((key) => isNonEmptyString(salary[key])) &&
     optionalStrings.every((key) => salary[key] === undefined || typeof salary[key] === "string") &&
     (salary.fact_refs === undefined || isStringArray(salary.fact_refs)) &&
     ["china_ai_row", "china_class_row", "china_name_row", "china_soc_row"].every((key) => isStringOrScalarRecord(salary[key])) &&
@@ -267,12 +269,19 @@ function validateSecondarySnapshot(value: unknown): boolean {
     "boundary", "authority_sources",
   ] as const;
   const periodKeys = ["industry_period", "outlook_period"] as const;
-  if (!hasExactKeys(value, ["bls_table", "growth", "median"], [...enrichedKeys, ...periodKeys]) ||
+  const suppliedKeys = ["wage_tiers", "wage_column_labels", "industry_value_label"] as const;
+  if (!hasExactKeys(value, ["bls_table", "growth", "median"], [...enrichedKeys, ...periodKeys, ...suppliedKeys]) ||
     !isNonEmptyString(value.growth) || !isNonEmptyString(value.median) ||
     !isScalarRecordArray(value.bls_table, BLS_TABLE_ROW_KEY_SETS)) {
     return false;
   }
 
+  if (suppliedKeys.some(key => key in value) && (
+    !suppliedKeys.every(key => key in value) || !isScalarRecordArray(value.wage_tiers, [["label", "value", "equivalent", "interpretation"]], 3)
+    || !Array.isArray(value.wage_tiers) || value.wage_tiers.length !== 3
+    || !isStringArray(value.wage_column_labels) || value.wage_column_labels.length !== 4
+    || !isNonEmptyString(value.industry_value_label)
+  )) return false;
   const hasEnrichedContent = enrichedKeys.some((key) => key in value);
   return !hasEnrichedContent || (
     enrichedKeys.every((key) => key in value) &&
@@ -348,7 +357,7 @@ function validateAdjacentCareerComparison(value: unknown): boolean {
       isNonEmptyString(link.label) && isNonEmptyString(link.href)) &&
     isScalarRecordArray(value.rows, [[
       "职业方向", "核心工作与产出", "与会计师／审计师的关键区别", "更适合什么选择",
-    ]], 4);
+    ], ["职业方向", "核心工作与产出", "关键区别", "更适合什么选择"]], 4);
 }
 
 function validateRelatedNextPages(value: unknown): boolean {

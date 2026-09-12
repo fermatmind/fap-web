@@ -5,6 +5,7 @@ type DirectionRow = {
   career: string;
   work: string;
   difference: string;
+  differenceField: "关键区别" | "与会计师／审计师的关键区别";
   choice: string;
 };
 
@@ -60,9 +61,10 @@ function parseDirectionComparison(value: CareerPublishedValue): DirectionCompari
     if (!isRecord(row)) return null;
     const career = text(row["职业方向"]);
     const work = text(row["核心工作与产出"]);
-    const difference = text(row["与会计师／审计师的关键区别"]);
+    const differenceField = Object.hasOwn(row, "关键区别") ? "关键区别" : "与会计师／审计师的关键区别";
+    const difference = text(row[differenceField]);
     const choice = text(row["更适合什么选择"]);
-    return career && work && difference && choice ? { career, work, difference, choice } : null;
+    return career && work && difference && choice ? { career, work, difference, differenceField, choice } : null;
   });
 
   if (!heading || !intro || !evidenceNote || evidenceLinks.length === 0 || evidenceLinks.some((link) => link === null) ||
@@ -85,9 +87,10 @@ export function supportsCareerDossierDirectionComparison(value: CareerPublishedV
   return parseDirectionComparison(value) !== null;
 }
 
-export function CareerDossierDirectionComparison({ value, locale }: { value: CareerPublishedValue; locale: "zh" | "en" }) {
+export function CareerDossierDirectionComparison({ value, locale, interfaceLabels }: { value: CareerPublishedValue; locale: "zh" | "en"; interfaceLabels?: Record<string, string> }) {
   const comparison = parseDirectionComparison(value);
   if (!comparison) return null;
+  const label = (key: string, fallback: string) => interfaceLabels?.[`interface.direction_comparison.${key}`] ?? fallback;
 
   return (
     <section
@@ -110,31 +113,31 @@ export function CareerDossierDirectionComparison({ value, locale }: { value: Car
 
       <div className={visual.directionTableWrap} data-career-table-wrap="adjacent_career_comparison_table.rows">
         <table className={visual.directionTable} data-career-api-table="adjacent_career_comparison_table.rows">
-          <caption className="sr-only">{comparison.heading}</caption>
+          <caption className="sr-only">{label("table.caption", comparison.heading)}</caption>
           <thead>
             <tr>
-              <th scope="col">{locale === "zh" ? "职业方向" : "Career direction"}</th>
-              <th scope="col">{locale === "zh" ? "核心工作与产出" : "Core work and output"}</th>
-              <th scope="col">{locale === "zh" ? "关键区别" : "Key differences"}</th>
-              <th scope="col">{locale === "zh" ? "更适合什么选择" : "Best-fit choice"}</th>
+              <th scope="col">{label("table.direction_header", locale === "zh" ? "职业方向" : "Career direction")}</th>
+              <th scope="col">{label("table.work_output_header", locale === "zh" ? "核心工作与产出" : "Core work and output")}</th>
+              <th scope="col">{label("table.distinction_header", locale === "zh" ? "关键区别" : "Key differences")}</th>
+              <th scope="col">{label("table.choice_header", locale === "zh" ? "更适合什么选择" : "Best-fit choice")}</th>
             </tr>
           </thead>
           <tbody>
             {comparison.rows.map((row, index) => (
               <tr key={row.career}>
-                <th scope="row" data-label="职业方向" data-career-api-field={`adjacent_career_comparison_table.rows[${index}].职业方向`}>
+                <th scope="row" data-label={label("table.direction_header", "职业方向")} data-career-api-field={`adjacent_career_comparison_table.rows[${index}].职业方向`}>
                   {row.career}
                 </th>
-                <td data-label="核心工作与产出" data-career-api-field={`adjacent_career_comparison_table.rows[${index}].核心工作与产出`}>{row.work}</td>
-                <td data-label="关键区别" data-career-api-field={`adjacent_career_comparison_table.rows[${index}].与会计师／审计师的关键区别`}>{row.difference}</td>
-                <td data-label="更适合什么选择" data-career-api-field={`adjacent_career_comparison_table.rows[${index}].更适合什么选择`}>{row.choice}</td>
+                <td data-label={label("table.work_output_header", "核心工作与产出")} data-career-api-field={`adjacent_career_comparison_table.rows[${index}].核心工作与产出`}>{row.work}</td>
+                <td data-label={label("table.distinction_header", "关键区别")} data-career-api-field={`adjacent_career_comparison_table.rows[${index}].${row.differenceField}`}>{row.difference}</td>
+                <td data-label={label("table.choice_header", "更适合什么选择")} data-career-api-field={`adjacent_career_comparison_table.rows[${index}].更适合什么选择`}>{row.choice}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <aside className={visual.directionEvidence} aria-label={locale === "zh" ? "职业方向比较依据" : "Evidence for the career comparison"}>
+      <aside className={visual.directionEvidence} aria-label={label("evidence_label", locale === "zh" ? "职业方向比较依据" : "Evidence for the career comparison")}>
         <p data-career-api-field="adjacent_career_comparison_table.evidence_note">{comparison.evidenceNote}</p>
         <p data-career-api-list="adjacent_career_comparison_table.evidence_links">
           {comparison.evidenceLinks.map((link, index) => (
@@ -148,7 +151,7 @@ export function CareerDossierDirectionComparison({ value, locale }: { value: Car
         </p>
       </aside>
       <section className={visual.directionConclusion} aria-labelledby="career-direction-conclusion-title">
-        <h3 id="career-direction-conclusion-title">{locale === "zh" ? "怎么选" : "How to choose"}</h3>
+        <h3 id="career-direction-conclusion-title">{label("conclusion_heading", locale === "zh" ? "怎么选" : "How to choose")}</h3>
         <p data-career-api-field="adjacent_career_comparison_table.conclusion">{comparison.conclusion}</p>
       </section>
       <p className={visual.directionTransition} data-career-api-field="adjacent_career_comparison_table.transition">
