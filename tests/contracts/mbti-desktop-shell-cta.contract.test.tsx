@@ -1,5 +1,6 @@
+import { fetchPersonalityResultIntroduction } from "@/lib/cms/personality-result-introduction";
 import type { ComponentProps } from "react";
-import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
 import { getMbtiDesktopAnchorHash, getMbtiDesktopAnchorId } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
@@ -13,6 +14,14 @@ import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 const hoisted = vi.hoisted(() => ({
   createAttemptInviteUnlock: vi.fn(),
   trackEvent: vi.fn(),
+}));
+
+
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
+    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
+    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
+  })),
 }));
 
 vi.mock("next/navigation", () => ({
@@ -305,6 +314,23 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
 }
 
 describe("MBTI desktop clone shell CTA wiring", () => {
+  it("never marks a PDF ready while the authoritative introduction is pending or failed", async () => {
+    let rejectIntro!: (error: Error) => void;
+    vi.mocked(fetchPersonalityResultIntroduction).mockReturnValueOnce(new Promise((_, reject) => { rejectIntro = reject; }));
+    const storage = createStoragePayload("snapshot");
+    renderDefaultShell({
+      snapshotMode: true,
+      snapshotContentStatus: { ok: true, source: "server-prefetched-desktop-clone", missing: [] },
+      storageManagedExternally: true,
+      storageContentOverride: storage.content,
+      storageAssetSlotsOverride: storage.assetSlots,
+    });
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-pdf-content-ready", "false");
+    await act(async () => rejectIntro(new Error("Unavailable")));
+    expect(document.querySelector('[data-pdf-error="MBTI_RESULT_INTRO_UNAVAILABLE"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-content-ready="true"]')).not.toBeInTheDocument();
+  });
+
   it("hides purchase and invite surfaces when free-full access is authoritative", () => {
     renderDefaultShell({
       suppressUnlockSurfaces: true,
@@ -621,7 +647,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       footerNode: <footer data-testid="snapshot-footer">footer</footer>,
     });
 
-    expect(await screen.findByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-pdf-content-ready", "true");
+    await waitFor(() => expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-pdf-content-ready", "true"));
     expect(screen.getByText("career intro 1 snapshot")).toBeInTheDocument();
     expect(screen.getByText("growth intro 1 snapshot")).toBeInTheDocument();
     expect(screen.getByText("rel intro 1 snapshot")).toBeInTheDocument();

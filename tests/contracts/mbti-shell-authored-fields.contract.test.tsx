@@ -12,6 +12,14 @@ const hoisted = vi.hoisted(() => ({
   trackObservableFunnelEvent: vi.fn(),
 }));
 
+
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
+    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
+    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
+  })),
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/attempt-123",
 }));
@@ -174,7 +182,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(faq).not.toHaveTextContent("问题 5");
   });
 
-  it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", () => {
+  it("keeps projection-first hero telemetry and a single clone shell while authored metadata stays available in the view model", async () => {
     const reportData = createReportFixture();
     reportData.cta = createCustomCta({
       title: "正式商业主位标题",
@@ -236,7 +244,7 @@ describe("MBTI shell authored fields contract", () => {
       "career_followthrough_loop"
     );
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-result-intro")).not.toBeInTheDocument();
+    expect(await screen.findByText("ENFP-T zh introduction one")).toBeInTheDocument();
     expect(document.title).toBe("ENFP-T MBTI 测评结果 | FermatMind");
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();

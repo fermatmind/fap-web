@@ -17,6 +17,14 @@ const hoisted = vi.hoisted(() => ({
   trackObservableFunnelEvent: vi.fn(),
 }));
 
+
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
+    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
+    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
+  })),
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/attempt-123",
 }));
@@ -319,7 +327,9 @@ describe("MBTI shell UI contract", () => {
     });
 
     expect(await screen.findByText("career public intro one")).toBeInTheDocument();
-    expect(screen.queryByTestId("mbti-result-intro")).not.toBeInTheDocument();
+    expect(await screen.findByText("ISFP-T zh introduction one")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-result-intro").querySelectorAll("p")).toHaveLength(2);
+    expect(screen.queryByTestId("mbti-result-scientific-context")).not.toBeInTheDocument();
     expect(screen.queryByText("ISFP-T public storage intro one")).not.toBeInTheDocument();
     expect(screen.getByText("growth public intro one")).toBeInTheDocument();
     expect(screen.getByText("relationships public intro one")).toBeInTheDocument();

@@ -9,7 +9,7 @@ import { MbtiCloneIdeaListBlock } from "@/components/result/mbti/clone/MbtiClone
 import { MbtiCloneNarrativeSection } from "@/components/result/mbti/clone/MbtiCloneNarrativeSection";
 import { MbtiCloneRail } from "@/components/result/mbti/clone/MbtiCloneRail";
 import { MbtiCloneRelationshipInsightBlock } from "@/components/result/mbti/clone/MbtiCloneRelationshipInsightBlock";
-import { MbtiResultScientificContext } from "@/components/result/mbti/clone/MbtiResultScientificContext";
+import { useMbtiResultIntroduction } from "@/components/result/mbti/clone/useMbtiResultIntroduction";
 import { MbtiCloneTraitsSection } from "@/components/result/mbti/clone/MbtiCloneTraitsSection";
 import {
   getMbtiDesktopAnchorHash,
@@ -453,6 +453,8 @@ export function MbtiDesktopCloneShell({
     [headline.typeCode, projectionViewModel?.displayType],
   );
 
+  const introduction = useMbtiResultIntroduction(fullCodeForStorage, locale);
+
   useEffect(() => {
     if (
       cloneLocale !== "zh"
@@ -599,12 +601,14 @@ export function MbtiDesktopCloneShell({
     ? strictSlotsResult.slots
     : resolveMbtiDesktopCloneSlots({ ...slotInput, storageContent: null });
   const snapshotContentErrorCode =
-    snapshotMode && snapshotContentStatus && !snapshotContentStatus.ok
+    snapshotMode && introduction.unavailable
+      ? "MBTI_RESULT_INTRO_UNAVAILABLE"
+      : snapshotMode && snapshotContentStatus && !snapshotContentStatus.ok
       ? snapshotContentStatus.code
       : snapshotMode && !strictSlotsResult.ok
         ? strictSlotsResult.code
         : null;
-  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok;
+  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok && introduction.content !== null;
   const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const fullContentVisible = snapshotMode || isUnlocked || suppressUnlockSurfaces;
@@ -1192,18 +1196,24 @@ export function MbtiDesktopCloneShell({
 
         <div className={styles.pageGrid}>
           <main className={styles.main}>
-            {cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses ? null : (
-              <section className={styles.introBlock} data-testid="mbti-result-intro">
-                <p>{slots.intro.paragraphs[0]}</p>
-                <p>{slots.intro.paragraphs[1]}</p>
-              </section>
-            )}
-
-            <MbtiResultScientificContext
-              locale={locale}
-              context={projectionViewModel?.scientificContext}
-              interpretation={scientificInterpretation}
-            />
+            <section
+              className={styles.introBlock}
+              data-testid="mbti-result-intro"
+              data-intro-state={introduction.pending ? "loading" : introduction.unavailable ? "unavailable" : "ready"}
+              data-intro-hash={introduction.content?.contentHash}
+              aria-busy={introduction.pending}
+            >
+              {introduction.content ? (
+                <>
+                  <p>{introduction.content.paragraphs[0]}</p>
+                  <p>{introduction.content.paragraphs[1]}</p>
+                </>
+              ) : (
+                <p role="status">{introduction.pending
+                  ? (cloneLocale === "zh" ? "正在加载人格介绍…" : "Loading your personality introduction…")
+                  : (cloneLocale === "zh" ? "人格介绍暂时无法加载，请刷新后重试。" : "Your personality introduction is unavailable. Please refresh to try again.")}</p>
+              )}
+            </section>
 
             {showTopInviteProgress ? (
               <section data-testid="mbti-invite-progress-summary-top" className={styles.mobileInviteSummary}>
