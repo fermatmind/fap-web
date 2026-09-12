@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import takeStyles from "@/components/quiz/AssessmentTake.module.css";
+import { getAssessmentTakeUi } from "@/lib/quiz/assessmentTakeUi";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
@@ -99,11 +101,13 @@ function normalizeEnneagramQuestions(
 }
 
 function ForcedChoicePairGroup({
+  focused = false,
   questionId,
   options,
   value,
   onChange,
 }: {
+  focused?: boolean;
   questionId: string;
   options: EnneagramOption[];
   value?: string;
@@ -139,7 +143,7 @@ function ForcedChoicePairGroup({
             aria-label={option.text}
             onClick={() => onChange(option.code)}
             onKeyDown={(event) => moveByArrow(index, event)}
-            className={cn(
+            className={focused ? takeStyles.pairOption : cn(
               "flex min-h-[116px] w-full flex-col justify-between rounded-xl border px-[var(--fm-pad-card-x)] py-[var(--fm-pad-card-y)] text-left transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)]",
               selected
                 ? "border-[var(--fm-trust-blue)] bg-[var(--fm-trust-blue)] text-white shadow-[var(--fm-shadow-md)]"
@@ -739,6 +743,7 @@ function EnneagramTakeInner({
 
   const optionNode = forcedChoice ? (
     <ForcedChoicePairGroup
+      focused={immersiveEnabled}
       questionId={question.question_id}
       options={questionOptions}
       value={selectedOptionId}
@@ -754,6 +759,9 @@ function EnneagramTakeInner({
   ) : (
     <div data-testid="enneagram-likert-options">
       <V2LikertScale
+        appearance={immersiveEnabled ? "cards" : "default"}
+        positiveEnd="last"
+        labelledBy={immersiveEnabled && shouldRenderQuestionTitle ? `assessment-question-${question.question_id}` : undefined}
         questionId={question.question_id}
         options={questionOptions}
         value={selectedOptionId}
@@ -789,6 +797,7 @@ function EnneagramTakeInner({
     return (
       <>
         <ImmersiveTakeLayout
+          appearance="focused"
           backHref={withLocale(`/tests/${slug}`)}
           backLabel={dict.quiz.immersive.backToDetails}
           current={currentIndex + 1}
@@ -802,7 +811,8 @@ function EnneagramTakeInner({
           isTransitioning={isTransitioning}
           headerSlot={
             <QuizTakeHeaderV2
-              brand={locale === "zh" ? "九型人格测试" : "Enneagram Test"}
+              appearance="focused"
+              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "九型人格免费测试" : "Free Enneagram Test")}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -836,11 +846,12 @@ function EnneagramTakeInner({
             )
           }
         >
-          <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+          <article className={takeStyles.question}>
             {shouldRenderQuestionTitle ? (
-              <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{question.text}</h2>
+              <h2 id={`assessment-question-${question.question_id}`} className={takeStyles.questionTitle}>{question.text}</h2>
             ) : null}
             {optionNode}
+            <div className={takeStyles.feedback}><p>{dict.quiz.answerTip}</p></div>
             {attemptError ? <p className="m-0 text-sm text-red-700">{attemptError}</p> : null}
             {submitError ? <p className="m-0 text-sm text-red-700">{submitError}</p> : null}
           </article>
@@ -857,7 +868,7 @@ function EnneagramTakeInner({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={locale === "zh" ? "九型人格测试" : "Enneagram Test"}
+        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "九型人格免费测试" : "Free Enneagram Test")}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}

@@ -1,3 +1,4 @@
+import styles from "./AssessmentTake.module.css";
 import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 
 export function QuizTakeHeaderV2({
@@ -12,6 +13,7 @@ export function QuizTakeHeaderV2({
   total,
   answered,
   showCompletedCount = true,
+  appearance = "default",
 }: {
   brand: string;
   completedPrefix: string;
@@ -24,10 +26,31 @@ export function QuizTakeHeaderV2({
   total: number;
   answered: number;
   showCompletedCount?: boolean;
+  appearance?: "default" | "focused";
 }) {
   const safeTotal = Math.max(1, total);
   const safeCurrent = Math.min(Math.max(1, current), safeTotal);
   const percent = Math.round((Math.max(0, answered) / safeTotal) * 100);
+
+  if (appearance === "focused") {
+    return (
+      <header className={styles.header}>
+        <div className={styles.headerRow}>
+          <p className={styles.testName}>{brand}</p>
+          {typeof estimatedMinutes === "number" && estimatedMinutes > 0 ? (
+            <p className={styles.time}>{estimatedTimeLabel} {estimatedMinutes} {minutesUnit}</p>
+          ) : null}
+        </div>
+        <div className={styles.progressMeta}>
+          <span>{progressText}</span>
+          <span className={styles.percent}>{percent}%</span>
+        </div>
+        <div className={styles.progress} role="progressbar" aria-label={progressText} aria-valuenow={percent} aria-valuemin={0} aria-valuemax={100}>
+          <div style={{ width: `${Math.max(0, Math.min(100, percent))}%` }} />
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-[var(--fm-border)] bg-white/95 p-[var(--fm-space-4)] shadow-[var(--fm-shadow-sm)] backdrop-blur">

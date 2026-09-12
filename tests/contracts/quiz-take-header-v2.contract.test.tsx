@@ -30,6 +30,13 @@ describe("QuizTakeHeaderV2 contract", () => {
     answered: 18,
   };
 
+  it("exposes focused progress without duplicating the question number", () => {
+    render(<QuizTakeHeaderV2 {...baseProps} appearance="focused" />);
+    expect(screen.getAllByText(baseProps.progressText)).toHaveLength(1);
+    expect(screen.getByRole("progressbar")).toHaveAttribute("aria-valuenow", "13");
+    expect(screen.queryByText("1,201,183+")).not.toBeInTheDocument();
+  });
+
   it("can hide the live completed-count row on take flows that should only show progress", () => {
     render(<QuizTakeHeaderV2 {...baseProps} showCompletedCount={false} />);
 

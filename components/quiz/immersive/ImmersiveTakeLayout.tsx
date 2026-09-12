@@ -1,3 +1,4 @@
+import styles from "../AssessmentTake.module.css";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -18,6 +19,7 @@ export function ImmersiveTakeLayout({
   headerSlot,
   hideHeader,
   footerSlot,
+  appearance = "default",
 }: {
   backHref: string;
   backLabel: string;
@@ -34,6 +36,7 @@ export function ImmersiveTakeLayout({
   headerSlot?: ReactNode;
   hideHeader?: boolean;
   footerSlot?: ReactNode;
+  appearance?: "default" | "focused";
 }) {
   const safeTotal = Math.max(1, total);
   const safeCurrent = Math.min(Math.max(1, current), safeTotal);
@@ -52,7 +55,7 @@ export function ImmersiveTakeLayout({
         : "";
 
   return (
-    <div className="space-y-[var(--fm-space-5)]">
+    <div className={appearance === "focused" ? styles.layout : "space-y-[var(--fm-space-5)]"}>
       {headerSlot ? (
         headerSlot
       ) : !hideHeader ? (
@@ -68,13 +71,13 @@ export function ImmersiveTakeLayout({
         </header>
       ) : null}
 
-      <section className="flex min-h-[62vh] items-center justify-center">
-        <div key={transitionKey} className={cn("w-full max-w-3xl", cardTransitionClass)}>
+      <section className={appearance === "focused" ? styles.stage : "flex min-h-[62vh] items-center justify-center"}>
+        <div key={transitionKey} className={cn(appearance === "focused" ? styles.questionFrame : "w-full max-w-3xl", cardTransitionClass)}>
           {children}
         </div>
       </section>
 
-      <footer className="flex min-h-[48px] items-center justify-between gap-[var(--fm-gap-sm)]">
+      <footer className={appearance === "focused" ? styles.footer : "flex min-h-[48px] items-center justify-between gap-[var(--fm-gap-sm)]"}>
         <Button type="button" variant="ghost" disabled={previousDisabled} onClick={onPrevious}>
           {previousLabel}
         </Button>

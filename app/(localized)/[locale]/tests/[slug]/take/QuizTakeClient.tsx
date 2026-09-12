@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import type { ReadonlyURLSearchParams } from "next/navigation";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import takeStyles from "@/components/quiz/AssessmentTake.module.css";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
 import { IqStemSvg } from "@/components/quiz/iq/IqStemSvg";
@@ -33,6 +34,7 @@ import { ApiError } from "@/lib/api-client";
 import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
+import { getAssessmentTakeUi } from "@/lib/quiz/assessmentTakeUi";
 import { isMbtiScaleCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
@@ -1576,10 +1578,14 @@ function QuizTakeInner({
     );
   }
 
+  const takeUi = getAssessmentTakeUi(slug, locale);
+  const focusedAssessment = Boolean(takeUi);
+
   if (immersiveEnabled) {
     return (
       <>
         <ImmersiveTakeLayout
+          appearance={focusedAssessment ? "focused" : "default"}
           backHref={withLocale(`/tests/${slug}`)}
           backLabel={dict.quiz.immersive.backToDetails}
           current={currentIndex + 1}
@@ -1593,7 +1599,8 @@ function QuizTakeInner({
           isTransitioning={isTransitioning}
           headerSlot={
             <QuizTakeHeaderV2
-              brand={quizHeaderBrand}
+              appearance={focusedAssessment ? "focused" : "default"}
+              brand={takeUi?.title ?? quizHeaderBrand}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1655,12 +1662,13 @@ function QuizTakeInner({
         >
           <article
             data-testid={isIqScale ? "iq-take-question-panel" : undefined}
-            className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]"
+            className={focusedAssessment ? takeStyles.question : "space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]"}
           >
             {!showsTitleQuizChrome ? (
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
             ) : null}
-            <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
+            <h2 id={focusedAssessment ? `assessment-question-${question.id}` : undefined} className={focusedAssessment ? takeStyles.questionTitle : "m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9"}>{question.title}</h2>
+
 
             {question.stem?.svg || question.stem?.image ? (
               <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[320px]"} />
@@ -1681,6 +1689,9 @@ function QuizTakeInner({
               />
             ) : useV2LikertScale ? (
               <V2LikertScale
+                appearance={focusedAssessment ? "cards" : "default"}
+                positiveEnd={isMbtiScaleCode(normalizedScaleCode) ? "first" : "last"}
+                labelledBy={focusedAssessment ? `assessment-question-${question.id}` : undefined}
                 questionId={question.id}
                 options={questionOptions.map((option) => ({
                   code: option.code,
@@ -1715,13 +1726,24 @@ function QuizTakeInner({
               />
             )}
 
-            {isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
+            {focusedAssessment ? (
+              <div className={takeStyles.feedback}>
+                {isTransitioning ? (
+                  <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
+                    {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
+                  </p>
+                ) : (
+                  <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
+                )}
+              </div>
+            ) : null}
+            {!focusedAssessment && isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
               <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
                 {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
               </p>
             ) : null}
 
-            {!isIqScale ? (
+            {!focusedAssessment && !isIqScale ? (
               <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.quiz.answerTip}</p>
             ) : null}
 
@@ -1756,7 +1778,7 @@ function QuizTakeInner({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={quizHeaderBrand}
+        brand={takeUi?.title ?? quizHeaderBrand}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
