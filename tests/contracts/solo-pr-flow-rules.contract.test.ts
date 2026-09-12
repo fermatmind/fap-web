@@ -52,3 +52,46 @@ describe("solo developer trunk flow rules", () => {
     expect(agents).toContain("ignored for ordinary work");
   });
 });
+
+describe("delivery closeout rules", () => {
+  const rules = readFileSync("AGENTS.md", "utf8");
+  it("runtime acceptance before cleanup", () => {
+    expect(rules).toContain("successful exact-SHA CI, staging, production, and online acceptance before closeout");
+  });
+  it("docs-only closeout without deployment", () => {
+    expect(rules).toContain("successful exact-SHA CI and deploy-skip; do not trigger staging or production");
+  });
+  it("failed releases retain diagnostic context", () => {
+    expect(rules).toContain("preserve the diagnostic worktree and necessary evidence");
+    expect(rules).toContain("do not report completion or remove the recovery context");
+  });
+  it("undelivered files are saved without blanket commits or backups", () => {
+    expect(rules).toContain("Inspect tracked changes, untracked files, and ignored local configuration");
+    expect(rules).toContain("verify the saved bytes");
+    expect(rules).toContain("Do not require every draft to be committed or every file to be backed up");
+  });
+  it("user work and dependent previews are preserved", () => {
+    expect(rules).toContain("Never delete pre-existing user changes");
+    expect(rules).toContain("Preserve user-requested previews");
+    expect(rules).toContain("still needed by another task");
+    expect(rules).toContain("never kill by port alone");
+  });
+  it("task-owned removal is verified", () => {
+    expect(rules).toContain("every task commit is contained in the latest `origin/main`");
+    expect(rules).toContain("remove its worktree and local branch from the main checkout");
+    expect(rules).toContain("Verify the final worktree/branch inventory");
+  });
+  it("completion includes autonomous cleanup reporting", () => {
+    expect(rules).toContain("applicable exact-SHA acceptance and the Delivery closeout requirements");
+    expect(rules).toContain("Ordinary closeout needs no additional user confirmation");
+    expect(rules).toContain("final report must include cleanup results and concrete reasons");
+  });
+  it("deployment and scope skills use the shared closeout contract", () => {
+    for (const name of ["fermatmind-frontend-deploy-sre", "fermatmind-scope-guard"]) {
+      const skill = readFileSync(`.agents/skills/${name}/SKILL.md`, "utf8");
+      expect(skill).toContain("../../../AGENTS.md#delivery-closeout");
+      expect(skill).toContain("acceptance -> closeout -> final report");
+      expect(skill).not.toContain("when cleanup is requested");
+    }
+  });
+});
