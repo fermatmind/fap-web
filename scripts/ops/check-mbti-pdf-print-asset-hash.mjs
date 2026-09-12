@@ -5,7 +5,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const EXPECTED_PRINT_ASSET_HASH = "sha256:5fc49baaad115a10091476eb03a9caca59ab520626548af6a54ba64d51758144";
+const EXPECTED_PRINT_ASSET_HASH = "sha256:b028c20f65c0b0a2c31be8cf847a12e954254627d4cd78c09cc9705730afa532";
 
 const PRINT_ASSET_INPUTS = [
   "app/(localized)/[locale]/(app)/result/[id]",
@@ -13,6 +13,7 @@ const PRINT_ASSET_INPUTS = [
   "components/result/RichResultReport.tsx",
   "components/result/mbti",
   "lib/result/pdfSurface.ts",
+  "lib/cms/personality-result-introduction.ts",
   "proxy.ts",
 ];
 

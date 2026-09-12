@@ -8,6 +8,13 @@ import {
 } from "@/lib/cms/personality-desktop-clone";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
+    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
+    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
+  })),
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
 }));
@@ -480,7 +487,8 @@ describe("MBTI desktop clone p0 render contract", () => {
     });
 
     const hero = await screen.findByTestId("mbti-hero");
-    const introParagraph = screen.getByText("intro 1 infj-a");
+    const introParagraph = await screen.findByText("INFJ-A zh introduction one");
+    expect(screen.queryByText("intro 1 infj-a")).not.toBeInTheDocument();
     const traitsHeading = screen.getByRole("heading", { level: 2, name: "人格特质" });
     const traitsBody = screen.getByTestId("mbti-traits-body");
     const careerHeading = screen.getByRole("heading", { level: 2, name: "职业路径" });

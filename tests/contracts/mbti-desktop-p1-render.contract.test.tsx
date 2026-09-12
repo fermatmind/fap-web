@@ -11,6 +11,13 @@ import {
 import type { TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 
+vi.mock("@/lib/cms/personality-result-introduction", () => ({
+  fetchPersonalityResultIntroduction: vi.fn(async (fullCode: string, locale: string) => ({
+    fullCode, locale: locale === "zh" ? "zh-CN" : "en", revision: 1, contentHash: "a".repeat(64),
+    paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
+  })),
+}));
+
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
 }));
@@ -645,7 +652,10 @@ async function waitForDesktopCloneStorage(typeCode: string, locale: "zh" | "en" 
     expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith(typeCode, locale);
   });
 
-  await screen.findByText(`intro 1 ${typeCode.toLowerCase()}`);
+  await waitFor(() => {
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-content-source", "storage");
+  });
+  await screen.findByText(`${typeCode} ${locale} introduction one`);
 }
 
 beforeEach(() => {
