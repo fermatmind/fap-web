@@ -307,7 +307,7 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     renderClient("riasec_140");
 
     expect(await screen.findByText("RIASEC 第 1 题")).toBeInTheDocument();
-    expect(screen.getByTestId("quiz-header")).toHaveTextContent("霍兰德职业兴趣测试");
+    expect(screen.getByTestId("quiz-header")).toHaveTextContent("霍兰德职业兴趣免费测试（RIASEC）");
 
     await answerCurrent("riasec-q1");
     expect(await screen.findByText("RIASEC 第 2 题")).toBeInTheDocument();

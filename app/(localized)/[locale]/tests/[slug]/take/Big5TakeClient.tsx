@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { QuizShell } from "@/components/quiz/QuizShell";
+import takeStyles from "@/components/quiz/AssessmentTake.module.css";
+import { getAssessmentTakeUi } from "@/lib/quiz/assessmentTakeUi";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
@@ -1177,9 +1179,11 @@ export default function Big5TakeClient({
     return (
       <>
         <ImmersiveTakeLayout
+          appearance="focused"
           headerSlot={
             <QuizTakeHeaderV2
-              brand={locale === "zh" ? "大五人格测试" : "Big Five Test"}
+              appearance="focused"
+              brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "大五人格免费测试" : "Free Big Five Test")}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
@@ -1224,11 +1228,8 @@ export default function Big5TakeClient({
             </div>
           }
         >
-          <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-              Question {currentIndex + 1} / {total}
-            </p>
-            <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
+          <article className={takeStyles.question}>
+            <h2 id={`assessment-question-${currentQuestion.question_id}`} className={takeStyles.questionTitle}>{currentQuestion.text}</h2>
 
             {milestoneHint ? (
               <div className="fm-animate-soft-fade rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface-muted)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-sm font-medium text-[var(--fm-text)]">
@@ -1237,6 +1238,9 @@ export default function Big5TakeClient({
             ) : null}
 
             <V2LikertScale
+              appearance="cards"
+              positiveEnd="last"
+              labelledBy={`assessment-question-${currentQuestion.question_id}`}
               questionId={currentQuestion.question_id}
               options={currentQuestion.options}
               value={answers[currentQuestion.question_id]}
@@ -1250,6 +1254,7 @@ export default function Big5TakeClient({
               }
             />
 
+            <div className={takeStyles.feedback}><p>{dict.quiz.answerTip}</p></div>
             {startError ? <Alert>{startError}</Alert> : null}
             {submitError ? <Alert>{submitError}</Alert> : null}
             {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
@@ -1268,7 +1273,7 @@ export default function Big5TakeClient({
   return (
     <QuizShell>
       <QuizTakeHeaderV2
-        brand={locale === "zh" ? "大五人格测试" : "Big Five Test"}
+        brand={getAssessmentTakeUi(slug, locale)?.title ?? (locale === "zh" ? "大五人格免费测试" : "Free Big Five Test")}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
