@@ -1,4 +1,5 @@
 import { fetchPersonalityResultIntroduction } from "@/lib/cms/personality-result-introduction";
+import { fetchMbtiTraitCatalog } from "@/lib/cms/mbti-trait-explanations";
 import type { ComponentProps } from "react";
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -23,6 +24,12 @@ vi.mock("@/lib/cms/personality-result-introduction", () => ({
     paragraphs: [`${fullCode} ${locale} introduction one`, `${fullCode} ${locale} introduction two`],
   })),
 }));
+
+vi.mock("@/lib/cms/mbti-trait-explanations", async (importOriginal) => {
+  const original = await importOriginal<typeof import("@/lib/cms/mbti-trait-explanations")>();
+  const { traitCatalogResponse } = await import("@/tests/fixtures/mbti-trait-catalog");
+  return { ...original, fetchMbtiTraitCatalog: vi.fn(async () => original.parseMbtiTraitCatalog(traitCatalogResponse())) };
+});
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/zh/result/test-report",
@@ -314,6 +321,20 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
 }
 
 describe("MBTI desktop clone shell CTA wiring", () => {
+  it("waits for Chinese trait content and fails the PDF explicitly if it cannot load", async () => {
+    let rejectCatalog!: (error: Error) => void;
+    vi.mocked(fetchMbtiTraitCatalog).mockReturnValueOnce(new Promise((_, reject) => { rejectCatalog = reject; }));
+    const storage = createStoragePayload("snapshot");
+    renderDefaultShell({ snapshotMode: true,
+      snapshotContentStatus: { ok: true, source: "server-prefetched-desktop-clone", missing: [] },
+      storageManagedExternally: true, storageContentOverride: storage.content, storageAssetSlotsOverride: storage.assetSlots,
+    });
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-pdf-content-ready", "false");
+    await act(async () => rejectCatalog(new Error("Unavailable")));
+    expect(document.querySelector('[data-pdf-error="MBTI_TRAIT_CONTENT_UNAVAILABLE"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-content-ready="true"]')).not.toBeInTheDocument();
+  });
+
   it("never marks a PDF ready while the authoritative introduction is pending or failed", async () => {
     let rejectIntro!: (error: Error) => void;
     vi.mocked(fetchPersonalityResultIntroduction).mockReturnValueOnce(new Promise((_, reject) => { rejectIntro = reject; }));
