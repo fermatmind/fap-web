@@ -295,6 +295,18 @@ function SourceLinks({ items, prefix }: { items: Array<{ label: string; href: st
   );
 }
 
+// A published note can contain prose or the existing label｜URL source encoding.
+// Keep every non-link chunk readable, and use the same source URL policy as SourceLinks.
+function SalaryExplanation({ value }: { value: string }) {
+  return value.split(/[；;]/).map((chunk, index) => {
+    const parts = chunk.trim().split("｜");
+    const href = parts.length === 2 ? safeSourceUrl(parts[1].trim()) : null;
+    return <span key={index}>{index > 0 ? "；" : null}{href && parts[0].trim()
+      ? <a href={href} target="_blank" rel="noopener noreferrer">{parts[0].trim()}</a>
+      : chunk}</span>;
+  });
+}
+
 function SalaryQuestion({ value }: { value: string }) {
   const hasQuestionMark = value.endsWith("？");
   return (
@@ -448,21 +460,21 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null, interfa
                   <td data-label={content.wageColumnLabels?.[2] ?? (locale === "zh" ? "税前月均等值" : "Gross monthly equivalent")} {...(content.suppliedWageTiers ? {"data-career-api-field": `career_snapshot_secondary_locale.wage_tiers[${tierIndex}].equivalent`} : {})}>{tier.monthly}</td>
                   <td data-label={content.wageColumnLabels?.[3] ?? (locale === "zh" ? "通常怎么理解" : "How to interpret")}>
                     {content.suppliedWageTiers ? <span data-career-api-field={`career_snapshot_secondary_locale.wage_tiers[${tierIndex}].interpretation`}>{tier.interpretation}</span> : tier.interpretation}
-                    {tier.sourceIndexes.map((index) => {
-                      const row = content.wageRows[index];
-                      return (
-                        <span aria-hidden="true" className="sr-only" key={row["指标"]}>
-                          <span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].指标`}>{row["指标"]}</span>
-                          <span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].数值`}>{row["数值"]}</span>
-                          <span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].说明`}>{row["说明"]}</span>
-                        </span>
-                      );
-                    })}
+
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+        <div className={visual.salarySectionTitle} data-career-api-list="career_snapshot_secondary_locale.bls_table.wage_notes">
+          {content.wageRows.map((row, index) => (
+            <p key={row["指标"]}>
+              <span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].指标`}>{row["指标"]}</span>
+              {"："}<span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].数值`}>{row["数值"]}</span>
+              {"；"}<span data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index}].说明`}><SalaryExplanation value={row["说明"]} /></span>
+            </p>
+          ))}
         </div>
         <CareerEvidenceLine content={contentV3} factRefs={content.wageRows.flatMap((row) => row.fact_ref ? [row.fact_ref] : [])} />
       </section>
@@ -535,7 +547,7 @@ export function CareerDossierUsSalary({ value, locale, contentV3 = null, interfa
                 <span aria-hidden="true" className="sr-only" data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].指标`}>{row["指标"]}</span>
               </h4>
               <strong data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].数值`}>{row["数值"]}</strong>
-              <span aria-hidden="true" className="sr-only" data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].说明`}>{row["说明"]}</span>
+              <p data-career-api-field={`career_snapshot_secondary_locale.bls_table[${index + content.wageRows.length}].说明`}><SalaryExplanation value={row["说明"]} /></p>
               <CareerEvidenceLine content={contentV3} factRefs={row.fact_ref ? [row.fact_ref] : []} />
             </article>
           ))}

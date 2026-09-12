@@ -23,6 +23,41 @@ describe('September 5 accountant renderer with current content', () => {
     expect(nodes[0].closest('[aria-hidden="true"], [hidden], .sr-only, .hidden')).toBeNull();
     expect(nodes[0].tagName).toBe('P');
   });
+  it('keeps all eight wage and employment explanations visible in their original salary sections', () => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const value = surface.publishedComponents!.career_snapshot_secondary_locale! as {bls_table: Record<string, string>[]};
+    const root = document.createElement('div');
+    root.innerHTML = renderToStaticMarkup(<CareerDossierUsSalary value={value} locale="zh" />);
+    value.bls_table.forEach((row, index) => {
+      const nodes = root.querySelectorAll(`[data-career-api-field="career_snapshot_secondary_locale.bls_table[${index}].说明"]`);
+      expect(nodes).toHaveLength(1);
+      for (const chunk of row['说明'].split(/[；;]/)) {
+        const [label, href] = chunk.trim().split('｜');
+        expect(nodes[0].textContent).toContain(label);
+        if (href) expect(Array.from(nodes[0].querySelectorAll('a')).some(a => a.getAttribute('href') === href && a.textContent === label)).toBe(true);
+      }
+      expect(nodes[0].closest('[aria-hidden="true"], [hidden], .sr-only, .hidden')).toBeNull();
+      expect(nodes[0].closest(index < 5 ? '[aria-labelledby="us-salary-distribution-title"]' : 'article')).not.toBeNull();
+    });
+    expect(root.querySelectorAll('[data-career-api-table$=".wages"] tbody tr')).toHaveLength(3);
+  });
+  it('renders source notes as readable links while retaining prose and rejecting unsafe links', () => {
+    const page = normalizeCareerPage(structuredClone(currentPage), 'zh', 'accountants-and-auditors')!;
+    const surface = buildCareerPageDisplaySurface(page, {slug: 'accountants-and-auditors'}, '/zh/tests/holland-career-interest-test-riasec');
+    const value = structuredClone(surface.publishedComponents!.career_snapshot_secondary_locale!) as {bls_table: Record<string, string>[]};
+    value.bls_table[0]['说明'] = '统计口径说明；BLS｜https://www.bls.gov/ooh/；保留尾注；不可信｜javascript:alert(1)';
+    const root = document.createElement('div');
+    root.innerHTML = renderToStaticMarkup(<CareerDossierUsSalary value={value} locale="zh" />);
+    const note = root.querySelector('[data-career-api-field="career_snapshot_secondary_locale.bls_table[0].说明"]')!;
+    expect(note.textContent).toContain('统计口径说明');
+    expect(note.textContent).toContain('保留尾注');
+    expect(note.querySelectorAll('a')).toHaveLength(1);
+    expect(note.querySelector('a')?.getAttribute('href')).toBe('https://www.bls.gov/ooh/');
+    expect(note.querySelector('a')?.textContent).toBe('BLS');
+    expect(note.textContent).not.toContain('https://www.bls.gov/ooh/');
+    expect(note.closest('[aria-hidden="true"], [hidden], .sr-only')).toBeNull();
+  });
   it.each(['zh'] as const)('binds and renders %s', locale => {
     const raw=structuredClone(currentPage);
     const page=normalizeCareerPage(raw,locale,'accountants-and-auditors')!;

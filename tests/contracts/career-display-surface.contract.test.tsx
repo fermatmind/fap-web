@@ -254,7 +254,10 @@ describe("career display surface contract", () => {
       expect(usSalary).toHaveTextContent("1,595,200 → 1,674,600 人");
       expect(usSalary).toHaveTextContent("$6,973");
       expect(usSalary).not.toHaveTextContent("fact_ref");
-      expect(usSalary.querySelectorAll("[class*='salaryOutlookGrid'] article p")).toHaveLength(0);
+      const outlookNotes = usSalary.querySelectorAll("[class*='salaryOutlookGrid'] article p");
+      expect(outlookNotes).toHaveLength(3);
+      for (const note of outlookNotes) expect(note.closest('[aria-hidden="true"], .sr-only, [hidden]')).toBeNull();
+      expect(outlookNotes[0]).toHaveTextContent("净增加 79,400 人");
       expect(screen.getByTestId("career-production-ai-gauge")).toHaveTextContent("7/10");
       expect(chinaSalary).toHaveTextContent("AI 更可能造成岗位价值分化");
       expect(screen.getByTestId("career-production-hero-stats")).toHaveTextContent("$100,000");
