@@ -84,6 +84,15 @@ describe("RIASEC interactive reading experience", () => {
     ).not.toHaveTextContent("活动建议");
   });
 
+  it("retains the independent backend summary when the activity chain is hidden", () => {
+    const vm = assembleRiasecResultViewModel({ scale_code: "RIASEC", type_code: "IAS", riasec_public_projection_v2: backendSamples["zh-CN-60"] } as unknown as ReportResponse, "zh");
+    vm.moduleVisibilityPolicy!.modules.find((item) => item.key === "hero_activity_chain")!.visibility = "hidden";
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+    expect(screen.getByTestId("riasec-result-summary")).toBeVisible();
+    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(vm.resultSummary!.rankingDisplay);
+    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(vm.resultSummary!.nextStep);
+  });
+
   it("shows allowed detailed copy directly without a disclosure button", () => {
     const vm = model();
     vm.moduleVisibilityPolicy!.modules.find(
