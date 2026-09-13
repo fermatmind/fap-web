@@ -73,6 +73,7 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).toContain('"/api/v0.5/career/recommendations/mbti/:type/explainability"');
     expect(nextConfig).toContain('"/api/v0.5/personality/:slug"');
     expect(nextConfig).toContain('"/api/v0.5/personality/mbti/trait-explanations"');
+    expect(nextConfig).toContain('"/api/v0.5/personality/:slug/result-intro"');
     expect(nextConfig).toContain('"/api/v0.5/personality/comparisons/:slug"');
     expect(nextConfig).toContain('"/api/v0.5/career/shortlist/state"');
     expect(nextConfig).not.toContain('source: "/api/v0.5/:path*"');

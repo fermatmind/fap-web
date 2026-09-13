@@ -109,12 +109,16 @@ export function MbtiCloneInfluentialTraitsCard({
                 </div>
               </header>
               <div className={styles.factorBody}>
-                <section className={styles.factorMainText}>
+                <div className={styles.factorMainText}>
+                  <section>
                   <h5>{locale === "zh" ? "日常中的表现" : "In everyday life"}</h5>
                   <p>{detailItem.expression}</p>
+                  </section>
+                  <section>
                   <h5>{fieldLabels.why}</h5>
                   <p>{detailItem.whyItMatters}</p>
-                </section>
+                  </section>
+                </div>
                 <div className={styles.factorPerspectives}>
                   <section>
                     <h5>{fieldLabels.advantage}</h5>

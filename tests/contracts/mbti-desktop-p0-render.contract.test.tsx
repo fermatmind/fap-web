@@ -1,3 +1,4 @@
+import { MbtiCloneInsightListBlock } from "@/components/result/mbti/clone/MbtiCloneInsightListBlock";
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
@@ -704,5 +705,24 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(summaryPane).toHaveTextContent("Introverted");
     expect(summaryPane).toHaveTextContent("You prefer fewer, deeper interactions and quieter spaces.");
     expect(screen.queryByTestId("mbti-traits-band-nuance")).not.toBeInTheDocument();
+  });
+});
+
+
+describe("scenario editorial reading layout", () => {
+  it("retains explanation, observation and boundaries without repeated subsection headings", () => {
+    render(<MbtiCloneInsightListBlock locale="zh" testId="scenario-sample" data={{
+      schemaVersion: "insight_list_v1", title: "情境样稿", intro: "根据经历核对",
+      items: [{ id: "sample-1", title: "任务有终点", description: "描述", body: "情境正文",
+        whyItMatters: "原因解释", signals: ["观察变化"], actions: { do: "具体动作", avoid: "适用边界" },
+        tags: ["scenario_editorial_v1"] }],
+    }} />);
+    const block = screen.getByTestId("scenario-sample");
+    for (const value of ["情境正文", "原因解释", "观察变化", "具体动作", "适用边界"]) {
+      expect(block.textContent).toContain(value);
+    }
+    expect(screen.getByRole("heading", { name: "可以试试" })).toBeInTheDocument();
+    expect(block.textContent).not.toContain("为什么重要");
+    expect(block.textContent).not.toContain("可观察信号");
   });
 });

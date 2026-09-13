@@ -29,6 +29,7 @@ const publicV05ApiProxySources = [
   "/api/v0.5/personality/comparisons/:slug",
   "/api/v0.5/personality/:slug",
   "/api/v0.5/personality/:slug/desktop-clone",
+  "/api/v0.5/personality/:slug/result-intro",
   "/api/v0.5/personality/:slug/seo",
   "/api/v0.5/support/articles",
   "/api/v0.5/support/articles/:slug",

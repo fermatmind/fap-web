@@ -36,6 +36,27 @@ export function MbtiCloneInsightListBlock({
 }: MbtiCloneInsightListBlockProps) {
   const labels = copy(locale);
 
+  const scenarioLayout = data.items.length > 0 && data.items.every((item) => item.tags.includes("scenario_editorial_v1"));
+  if (scenarioLayout) return (
+    <section className={`${styles.card} ${styles.p0Block} ${styles.scenarioBlock}`} data-testid={testId}>
+      <h3 className={styles.p0Title}>{data.title}</h3>
+      <p className={styles.p0Lead}>{data.intro}</p>
+      <div>
+        {data.items.map((item) => (
+          <article key={item.id} className={styles.scenarioItem}>
+            <h4 className={styles.scenarioTitle}>{item.title}</h4>
+            <p className={styles.scenarioExplanation}>{item.body} {item.whyItMatters}</p>
+            <div className={styles.scenarioPractice}>
+              <h5>{locale === "zh" ? "可以试试" : "Try this"}</h5>
+              <p>{item.actions.do} {item.signals.join(" ")}</p>
+              <p className={styles.scenarioBoundary}>{item.actions.avoid}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+
   return (
     <section className={`${styles.card} ${styles.p0Block}`} data-testid={testId}>
       <h3 className={styles.p0Title}>{data.title}</h3>

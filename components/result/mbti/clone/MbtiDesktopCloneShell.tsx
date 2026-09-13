@@ -167,20 +167,20 @@ function renderCanonicalFaq(
     <section
       data-testid="mbti-result-faq"
       data-section-key="faq"
-      className="space-y-5 rounded-[28px] border border-slate-200 bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.08)] md:p-6"
+      className={styles.faq}
     >
-      <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
+      <h2 >
         {locale === "zh" ? "常见问题" : section?.title}
       </h2>
-      <div className="space-y-3">
+      <div >
         {items.map((item) => (
           <article
             key={item.key}
             data-testid="mbti-result-faq-item"
-            className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4"
+            className={styles.faqItem}
           >
-            <h3 className="m-0 text-base font-semibold text-slate-950">{item.question}</h3>
-            <p className="m-0 mt-2 whitespace-pre-wrap text-sm leading-7 text-slate-700">{item.answer}</p>
+            <h3 >{item.question}</h3>
+            <p >{item.answer}</p>
           </article>
         ))}
       </div>
@@ -657,7 +657,7 @@ export function MbtiDesktopCloneShell({
   const unlockedWhatDrainsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatDrains,
-        cloneLocale === "zh" ? "什么让你精力力竭？" : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
+        cloneLocale === "zh" ? "什么会持续消耗你？" : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
       )
     : null;
   const growthPostCoreBlocks: ReactNode[] = [];
@@ -1093,7 +1093,7 @@ export function MbtiDesktopCloneShell({
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
-            zhTitle: "什么让你精力力竭？",
+            zhTitle: "什么会持续消耗你？",
             source: null,
             fallback: slots.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
