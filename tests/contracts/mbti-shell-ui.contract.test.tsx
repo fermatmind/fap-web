@@ -333,9 +333,12 @@ describe("MBTI shell UI contract", () => {
     expect(screen.queryByText("ISFP-T public storage intro one")).not.toBeInTheDocument();
     expect(screen.getByText("growth public intro one")).toBeInTheDocument();
     expect(screen.getByText("relationships public intro one")).toBeInTheDocument();
-    expect(screen.getByText("career trait one")).toBeInTheDocument();
-    expect(screen.getByText("growth trait one")).toBeInTheDocument();
-    expect(screen.getByText("relationships trait one")).toBeInTheDocument();
+    expect(screen.queryByText("career trait one")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-career-traits-lock-panel")).toBeInTheDocument();
+    expect(screen.queryByText("growth trait one")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-growth-traits-lock-panel")).toBeInTheDocument();
+    expect(screen.queryByText("relationships trait one")).not.toBeInTheDocument();
+    expect(screen.getByTestId("mbti-relationships-traits-lock-panel")).toBeInTheDocument();
 
     expect(screen.queryByText(/第一段简介用于保留桌面概览位/)).not.toBeInTheDocument();
     expect(screen.queryByText(/职业章节第一段/)).not.toBeInTheDocument();
