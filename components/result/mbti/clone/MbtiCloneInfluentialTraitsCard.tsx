@@ -1,6 +1,6 @@
 "use client";
 
-import { type MouseEvent as ReactMouseEvent, useState } from "react";
+import { type MouseEvent as ReactMouseEvent } from "react";
 import type { TraitSlot, TraitUnlockBlock } from "@/components/result/mbti/clone/mbtiDesktopClone.slots";
 import styles from "@/components/result/mbti/clone/mbtiDesktopClone.module.css";
 
@@ -17,15 +17,9 @@ type MbtiCloneInfluentialTraitsCardProps = {
   onInviteCtaClick?: (event: ReactMouseEvent<HTMLAnchorElement>) => void;
 };
 
-function normalizeTraitLetter(label: string) {
-  const normalized = label.trim();
-  return normalized ? normalized.slice(0, 1).toUpperCase() : "?";
-}
-
 export function MbtiCloneInfluentialTraitsCard({
   sectionId,
   locale,
-  traits,
   traitsUnlock = null,
   isUnlocked,
   unlockHref,
@@ -34,10 +28,7 @@ export function MbtiCloneInfluentialTraitsCard({
   unlockInviteHref,
   onInviteCtaClick,
 }: MbtiCloneInfluentialTraitsCardProps) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
   const canShowDetails = isUnlocked && traitsUnlock?.items.length === 4;
-  const activeIndex = canShowDetails ? Math.min(selectedIndex, 3) : 0;
-  const detailItem = traitsUnlock?.items[activeIndex] ?? traitsUnlock?.items[0] ?? null;
   const fieldLabels =
     locale === "zh"
       ? {
@@ -69,35 +60,14 @@ export function MbtiCloneInfluentialTraitsCard({
 
   return (
     <section className={styles.influentialCard}>
-      <p className={styles.microLabel}>{locale === "zh" ? "影响因素" : "Influential Traits"}</p>
-      <div className={styles.traitSlotRow}>
-        {traits.slice(0, 4).map((trait, index) => (
-          <button
-            type="button"
-            key={`${trait.label}-${index}`}
-            className={styles.traitSlotButton}
-            data-placeholder={trait.isPlaceholder ? "true" : "false"}
-            data-pdf-placeholder={trait.isPlaceholder ? "true" : undefined}
-            data-active={canShowDetails && index === activeIndex ? "true" : "false"}
-            data-interactive={canShowDetails ? "true" : "false"}
-            title={trait.body}
-            aria-label={trait.body ? `${trait.label}: ${trait.body}` : trait.label}
-            aria-pressed={canShowDetails ? index === activeIndex : undefined}
-            disabled={!canShowDetails}
-            onClick={() => setSelectedIndex(index)}
-          >
-            <span className={styles.traitSlot}>
-              <span className={styles.traitSlotIcon} data-color={trait.colorKey ?? "blue"}>
-                {normalizeTraitLetter(trait.label)}
-              </span>
-              <p className={styles.traitSlotLabel}>{trait.label}</p>
-            </span>
-          </button>
-        ))}
+      <div className={styles.factorNavigation}>
+      <div className={styles.influentialHeading}>
+        <h3>{locale === "zh" ? "影响因素" : "Influential Traits"}</h3>
+        <span>{locale === "zh" ? "从四个角度，理解自己的表现" : "Four perspectives on your patterns"}</span>
+      </div>
       </div>
       {!isUnlocked ? (
         <>
-          <div className={styles.unlockRule} />
           <div
             className={`${styles.unlockPanel} ${styles.unlockPanelCompact} ${styles.traitsLockPanel}`}
             data-testid={`mbti-${sectionId}-traits-lock-panel`}
@@ -127,49 +97,47 @@ export function MbtiCloneInfluentialTraitsCard({
             </div>
           </div>
         </>
-      ) : canShowDetails && detailItem ? (
-        <>
-          <div className={styles.unlockRule} />
-          <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
-            <div className={styles.traitsUnlockHeader}>
-              <h3 className={styles.traitsUnlockTitle}>{detailItem.label}</h3>
-              {sectionId === "career" ? <p className={styles.traitsUnlockIntro}>{traitsUnlock?.intro}</p> : null}
-            </div>
-            <div className={styles.traitsUnlockGrid}>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.why}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.whyItMatters}</p>
-              </article>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.expression}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.expression}</p>
-              </article>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.advantage}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.advantage}</p>
-              </article>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.overuse}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.overuseRisk}</p>
-              </article>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.signal}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.realWorldSignal}</p>
-              </article>
-              <article className={styles.traitsUnlockItem}>
-                <p className={styles.traitsUnlockItemLabel}>{fieldLabels.hint}</p>
-                <p className={styles.traitsUnlockItemBody}>{detailItem.upgradeHint}</p>
-              </article>
-            </div>
-            <div className={styles.traitsUnlockDefinition}>
-              <p className={styles.traitsUnlockItemLabel}>{locale === "zh" ? "定义" : "Definition"}</p>
-              <p className={styles.traitsUnlockItemBody}>{detailItem.definition}</p>
-            </div>
-          </div>
-        </>
-      ) : (
-        null
-      )}
+      ) : canShowDetails && traitsUnlock ? (
+        <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
+          {traitsUnlock.items.map((detailItem, index) => (
+            <article className={styles.factorReading} key={detailItem.id}>
+              <header className={styles.traitsUnlockHeader}>
+                <span className={styles.factorChapterNumber} aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h4 className={styles.traitsUnlockTitle}>{detailItem.label}</h4>
+                  <p className={styles.factorDefinition}>{detailItem.definition}</p>
+                </div>
+              </header>
+              <div className={styles.factorBody}>
+                <section className={styles.factorMainText}>
+                  <h5>{locale === "zh" ? "日常中的表现" : "In everyday life"}</h5>
+                  <p>{detailItem.expression}</p>
+                  <h5>{fieldLabels.why}</h5>
+                  <p>{detailItem.whyItMatters}</p>
+                </section>
+                <div className={styles.factorPerspectives}>
+                  <section>
+                    <h5>{fieldLabels.advantage}</h5>
+                    <p>{detailItem.advantage}</p>
+                  </section>
+                  <section>
+                    <h5>{fieldLabels.overuse}</h5>
+                    <p>{detailItem.overuseRisk}</p>
+                  </section>
+                </div>
+                <section className={styles.factorObservation}>
+                  <h5>{fieldLabels.signal}</h5>
+                  <p>{detailItem.realWorldSignal}</p>
+                </section>
+                <section className={styles.factorPractice}>
+                  <h5>{locale === "zh" ? "可以试试" : "Something to try"}</h5>
+                  <p>{detailItem.upgradeHint}</p>
+                </section>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }
