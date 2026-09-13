@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { Big5ResultPageV2Shell } from "@/components/result/big5/Big5ResultPageV2Shell";
 import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
@@ -1391,6 +1391,7 @@ export function RichResultReport({
   accessProjection,
   inviteUnlockProgress,
   printSnapshotMode = false,
+  riasecEmailRecovery,
   snapshotDesktopCloneContent = null,
   snapshotContentStatus = null,
 }: {
@@ -1399,6 +1400,7 @@ export function RichResultReport({
   accessProjection?: AttemptReportAccessView | null;
   inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
   printSnapshotMode?: boolean;
+  riasecEmailRecovery?: ReactNode;
   snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
   snapshotContentStatus?: MbtiSnapshotContentStatus | null;
 }) {
@@ -1481,6 +1483,8 @@ export function RichResultReport({
         <RiasecResultShell
           locale={locale}
           viewModel={assembleRiasecResultViewModel(reportData, locale)}
+          displayMode={printSnapshotMode ? "static" : "interactive"}
+          emailRecovery={riasecEmailRecovery}
           attemptId={typeof reportData.attempt_id === "string" ? reportData.attempt_id : null}
         />
       );

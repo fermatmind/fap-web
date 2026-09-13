@@ -2209,13 +2209,14 @@ export default function ResultClient({
   if (hasRichReport && reportData) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderOptionalEmailRecoveryCard()}
+        {resolvedScaleCode !== "RIASEC" || !hasRiasecProjection(reportData) ? renderOptionalEmailRecoveryCard() : null}
         <RichResultReport
           locale={locale}
           reportData={reportData}
           accessProjection={accessView}
           inviteUnlockProgress={inviteUnlockProgress}
           printSnapshotMode={printSnapshotContractValid}
+          riasecEmailRecovery={resolvedScaleCode === "RIASEC" && hasRiasecProjection(reportData) && !printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           snapshotDesktopCloneContent={snapshotDesktopCloneContent}
           snapshotContentStatus={snapshotContentStatus}
         />
@@ -2231,10 +2232,11 @@ export default function ResultClient({
   if (hasRiasecProjection(resultData)) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderOptionalEmailRecoveryCard()}
         <RiasecResultShell
           locale={locale}
           viewModel={assembleRiasecResultViewModel(resultData, locale)}
+          displayMode={printSnapshotContractValid ? "static" : "interactive"}
+          emailRecovery={!printSnapshotContractValid ? renderOptionalEmailRecoveryCard() : null}
           attemptId={attemptId}
         />
       </div>
