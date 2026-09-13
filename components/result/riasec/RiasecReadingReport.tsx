@@ -575,7 +575,9 @@ function ReportHeader({
   const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
   const summary = vm.resultSummary;
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
-  const heroState = getRiasecModuleVisibility(vm, "hero_activity_chain");
+  // The snapshot-bound result summary is a separate backend projection.
+  // Activity-chain visibility only governs the legacy hero fallback.
+  const heroState = summary ? "visible" : getRiasecModuleVisibility(vm, "hero_activity_chain");
   const caution = vm.trustedResultCard
     ? vm.trustedResultCard.qualityState !== "normal"
     : vm.qualityGrade !== "A" || vm.qualityFlags.length > 0;
