@@ -204,7 +204,7 @@ function cloneReport(report: ReportResponse): ReportResponse {
   return JSON.parse(JSON.stringify(report)) as ReportResponse;
 }
 
-describe("RIASEC trusted result shell", () => {
+describe("RIASEC static trusted result shell", () => {
   it("assembles the 3-minute card and six-dimension map from backend projection v2", () => {
     const viewModel = assembleRiasecResultViewModel(buildRiasecReport(), "zh");
 
@@ -277,7 +277,7 @@ describe("RIASEC trusted result shell", () => {
 
   it("renders trusted result card, dimension map, and governed activity copy from backend projection", () => {
     render(
-      <RiasecResultShell
+      <RiasecResultShell displayMode="static"
         locale="zh"
         attemptId="attempt-riasec"
         viewModel={assembleRiasecResultViewModel(buildRiasecReport(), "zh")}
@@ -311,7 +311,7 @@ describe("RIASEC trusted result shell", () => {
     expect(screen.getByTestId("riasec-governed-copy-surface")).not.toHaveTextContent("岗位匹配度");
   });
 
-  it("renders a bounded backend summary and keeps the deep report closed until keyboard activation", async () => {
+  it("renders a bounded backend summary and the full static report", async () => {
     const report = cloneReport(buildRiasecReport());
     const projection = report.riasec_public_projection_v2 as Record<string, unknown>;
     projection.result_summary_v1 = {
@@ -335,7 +335,7 @@ describe("RIASEC trusted result shell", () => {
 
     const viewModel = assembleRiasecResultViewModel(report, "zh");
     expect(viewModel.resultSummary?.highlights).toHaveLength(3);
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} />);
 
     const summary = screen.getByTestId("riasec-result-summary");
     expect(summary).toHaveTextContent("作答状态稳定");
@@ -424,7 +424,7 @@ describe("RIASEC trusted result shell", () => {
       role: { E: 42, R: 67, S: 67 },
     });
 
-    render(<RiasecResultShell locale="zh" attemptId="attempt-riasec-140" viewModel={viewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" attemptId="attempt-riasec-140" viewModel={viewModel} />);
 
     expect(screen.getByText("增强版分层结果")).toBeInTheDocument();
     expect(screen.getByText("活动兴趣")).toBeInTheDocument();
@@ -455,7 +455,7 @@ describe("RIASEC trusted result shell", () => {
       },
     };
 
-    render(<RiasecResultShell locale="zh" attemptId="attempt-quality" viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" attemptId="attempt-quality" viewModel={assembleRiasecResultViewModel(report, "zh")} />);
 
     const quality = screen.getByTestId("riasec-quality-display");
     expect(quality).toHaveTextContent("本次仅作初步线索");
@@ -494,7 +494,7 @@ describe("RIASEC trusted result shell", () => {
       },
     };
 
-    render(<RiasecResultShell locale="zh" attemptId={`attempt-${kind}`} viewModel={assembleRiasecResultViewModel(report, "zh")} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" attemptId={`attempt-${kind}`} viewModel={assembleRiasecResultViewModel(report, "zh")} />);
 
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(headline);
     if (note) {
@@ -575,7 +575,7 @@ describe("RIASEC trusted result shell", () => {
 
     const enViewModel = assembleRiasecResultViewModel(report, "en");
     expect(enViewModel.qualityDisplay).toBeNull();
-    render(<RiasecResultShell locale="en" attemptId="attempt-quality-en" viewModel={enViewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="en" attemptId="attempt-quality-en" viewModel={enViewModel} />);
     expect(screen.queryByTestId("riasec-quality-display")).not.toBeInTheDocument();
     expect(document.body).not.toHaveTextContent("idealization");
     expect(document.body).not.toHaveTextContent("不应出现在英文页");
@@ -690,7 +690,7 @@ describe("RIASEC trusted result shell", () => {
     };
 
     render(
-      <RiasecResultShell
+      <RiasecResultShell displayMode="static"
         locale="zh"
         attemptId="attempt-riasec"
         viewModel={assembleRiasecResultViewModel(report, "zh")}
@@ -775,7 +775,7 @@ describe("RIASEC trusted result shell", () => {
     };
 
     render(
-      <RiasecResultShell
+      <RiasecResultShell displayMode="static"
         locale="zh"
         attemptId="attempt-riasec"
         viewModel={assembleRiasecResultViewModel(report, "zh")}
@@ -796,7 +796,7 @@ describe("RIASEC trusted result shell", () => {
     delete (report.riasec_public_projection_v2 as Record<string, unknown>).activity_explorer_v0_1;
 
     render(
-      <RiasecResultShell
+      <RiasecResultShell displayMode="static"
         locale="zh"
         attemptId="attempt-riasec"
         viewModel={assembleRiasecResultViewModel(report, "zh")}
@@ -814,7 +814,7 @@ describe("RIASEC trusted result shell", () => {
     delete (report.riasec_public_projection_v2 as Record<string, unknown>).module_visibility_policy;
 
     render(
-      <RiasecResultShell
+      <RiasecResultShell displayMode="static"
         locale="zh"
         attemptId="attempt-riasec"
         viewModel={assembleRiasecResultViewModel(report, "zh")}

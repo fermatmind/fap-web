@@ -89,7 +89,7 @@ describe("RIASEC deep copy slot consumption", () => {
   it("renders medium_score_reading only when backend provides it", () => {
     const viewModel = assembleRiasecResultViewModel(buildReport(readProjection()), "zh");
 
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_deep_copy" />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} attemptId="attempt_riasec_deep_copy" />);
 
     expect(screen.getByTestId("riasec-deep-content-slots")).toBeInTheDocument();
     expect(screen.getAllByTestId("riasec-deep-content-slot")).toHaveLength(5);
@@ -107,7 +107,7 @@ describe("RIASEC deep copy slot consumption", () => {
     delete (firstSlot.content as Record<string, unknown>).medium_score_reading;
     const viewModelWithoutMedium = assembleRiasecResultViewModel(buildReport(projectionWithoutMedium), "zh");
 
-    render(<RiasecResultShell locale="zh" viewModel={viewModelWithoutMedium} attemptId="attempt_riasec_deep_copy_missing_medium" />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModelWithoutMedium} attemptId="attempt_riasec_deep_copy_missing_medium" />);
 
     expect(screen.getAllByTestId("riasec-deep-content-slots")).toHaveLength(2);
     expect(screen.queryAllByText("Backend fixture I medium score reading.")).toHaveLength(1);
@@ -143,7 +143,7 @@ describe("RIASEC deep copy slot consumption", () => {
     expect(viewModel.deepContentSlots?.slots).toHaveLength(6);
     expect(viewModel.deepContentSlots?.slots.every((slot) => Object.keys(slot.content).filter((key) => key.endsWith("score_reading") || key === "low_score_safe_reading").length === 1)).toBe(true);
 
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} />);
     expect(screen.getAllByRole("heading", { name: /Dimension [RIASEC]/ })).toHaveLength(6);
     for (const code of ["R", "I", "A", "S", "E", "C"]) {
       expect(screen.getByText(`Selected reading ${code}`)).toBeVisible();
@@ -206,7 +206,7 @@ describe("RIASEC deep copy slot consumption", () => {
     ]);
     expect(viewModel.deepContentSlots?.slots.at(-1)?.content).toEqual({ title: "Known content renders", medium_score_reading: "Selected reading renders" });
 
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} />);
 
     expect(screen.queryByText("Unknown backend slot should not render")).not.toBeInTheDocument();
     expect(screen.queryByText("Pending backend slot should not render")).not.toBeInTheDocument();
@@ -258,7 +258,7 @@ describe("RIASEC deep copy slot consumption", () => {
     const unsafeViewModel = assembleRiasecResultViewModel(buildReport(unsafeProjection), "zh");
     expect(unsafeViewModel.deepContentSlots).toBeNull();
 
-    render(<RiasecResultShell locale="zh" viewModel={missingViewModel} />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={missingViewModel} />);
     expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();
   });
 
