@@ -13,13 +13,16 @@ export function MbtiCloneIdeaListBlock({
   testId,
 }: MbtiCloneIdeaListBlockProps) {
   return (
-    <section className={`${styles.card} ${styles.p0Block}`} data-testid={testId}>
+    <section className={styles.readingListBlock} data-tone="idea" data-testid={testId}>
       <h3 className={styles.p0Title}>{data.title}</h3>
-      <div className={styles.p0Stack}>
+      <div className={styles.readingListGrid}>
         {data.items.map((item, index) => (
-          <article key={`${item.title}-${index}`} className={styles.p0Row}>
-            <p className={styles.p0RowTitle}>{item.title}</p>
-            <p className={styles.p0RowBody}>{item.description}</p>
+          <article key={`${item.title}-${index}`} className={styles.readingListItem}>
+            <span className={styles.readingListIcon} aria-hidden="true">↗</span>
+            <div>
+            <p className={styles.readingListTitle}>{item.title}</p>
+            <p className={styles.readingListBody}>{item.description}</p>
+            </div>
           </article>
         ))}
       </div>

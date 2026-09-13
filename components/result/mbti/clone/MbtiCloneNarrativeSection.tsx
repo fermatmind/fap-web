@@ -121,7 +121,7 @@ export function MbtiCloneNarrativeSection({
         <MbtiCloneStrengthWeaknessBlock data={strengths} testId={`mbti-p0-${id}-strengths`} />
       ) : null}
       {weaknesses ? (
-        <MbtiCloneStrengthWeaknessBlock data={weaknesses} testId={`mbti-p0-${id}-weaknesses`} />
+        <MbtiCloneStrengthWeaknessBlock tone="weakness" data={weaknesses} testId={`mbti-p0-${id}-weaknesses`} />
       ) : null}
       {matchedJobs ? <MbtiCloneMatchedJobs locale={locale} data={matchedJobs} /> : null}
       {matchedGuides ? <MbtiCloneMatchedGuides data={matchedGuides} /> : null}

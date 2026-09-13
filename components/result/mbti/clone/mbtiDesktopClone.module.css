@@ -565,6 +565,27 @@
   gap: 14px;
 }
 
+.readingListBlock { padding: 28px 24px; }
+.readingListGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 40px; margin-top: 24px; }
+.readingListItem { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: start; gap: 10px; min-width: 0; }
+.readingListIcon { display: flex; align-items: center; justify-content: center; width: 18px; height: 18px; margin-top: 3px; border: 1.3px solid currentColor; border-radius: 50%; color: #24845b; font-size: 12px; line-height: 1; }
+.readingListBlock[data-tone="weakness"] .readingListIcon { color: #b57816; }
+.readingListBlock[data-tone="idea"] .readingListIcon { color: #527e80; }
+.readingListTitle { margin: 0 0 7px; font-size: 16px; font-weight: 650; line-height: 1.55; color: var(--clone-text); }
+.readingListBody { margin: 0; font-size: 14px; line-height: 1.85; color: #4f5968; overflow-wrap: anywhere; }
+@media (max-width: 640px) {
+  .readingListBlock { padding: 24px 8px; }
+  .readingListGrid { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 20px; }
+}
+@media print {
+  .readingListBlock { padding: 4mm 0; break-inside: auto; }
+  .readingListGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4mm 6mm; margin-top: 4mm; }
+  .readingListItem { break-inside: avoid; page-break-inside: avoid; }
+  .readingListTitle { font-size: 10pt; break-after: avoid; }
+  .readingListBody { font-size: 9pt; line-height: 1.6; }
+  .readingListIcon { print-color-adjust: exact; }
+}
+
 .p0Title {
   margin: 0;
   font-size: 20px;
@@ -1069,105 +1090,25 @@
 }
 
 .influentialCard {
-  border: 1px solid var(--clone-border);
-  border-radius: var(--clone-card-radius);
-  background: var(--clone-surface);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  background: #fff;
+  border-top: 3px solid #24684f;
+  border-radius: 0;
+  min-width: 0;
 }
-
-.traitSlotRow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.traitSlotButton {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  padding: 0;
-  cursor: default;
-}
-
-.traitSlotButton[data-interactive="true"] {
-  cursor: pointer;
-}
-
-.traitSlot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
-}
-
-.traitSlotButton[data-active="true"] .traitSlotIcon {
-  box-shadow: 0 0 0 3px rgba(54, 173, 115, 0.16);
-  transform: translateY(-1px);
-}
-
-.traitSlotButton:disabled {
-  opacity: 1;
-}
-
-.traitSlot[data-placeholder="true"] .traitSlotLabel {
-  color: var(--clone-muted);
-}
-
-.traitSlotIcon {
-  width: 50px;
-  height: 50px;
-  border-radius: 999px;
-  border: 1px solid var(--clone-border);
-  background: var(--clone-surface-soft);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  line-height: 1;
-  font-weight: 700;
-  color: var(--clone-muted);
-}
-
-.traitSlotIcon[data-color="blue"] {
-  background: rgba(81, 112, 214, 0.1);
-  border-color: rgba(81, 112, 214, 0.22);
-  color: #5170d6;
-}
-
-.traitSlotIcon[data-color="gold"] {
-  background: rgba(211, 166, 70, 0.12);
-  border-color: rgba(211, 166, 70, 0.24);
-  color: #ba8a1b;
-}
-
-.traitSlotIcon[data-color="green"] {
-  background: rgba(54, 173, 115, 0.1);
-  border-color: rgba(54, 173, 115, 0.22);
-  color: var(--clone-green);
-}
-
-.traitSlotIcon[data-color="purple"] {
-  background: rgba(139, 104, 168, 0.1);
-  border-color: rgba(139, 104, 168, 0.22);
-  color: var(--clone-purple-cta);
-}
-
-.traitSlotIcon[data-color="red"] {
-  background: rgba(201, 82, 82, 0.1);
-  border-color: rgba(201, 82, 82, 0.22);
-  color: #c95252;
-}
-
-.traitSlotLabel {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.45;
-  color: var(--clone-body);
-}
+.factorNavigation { padding: 30px 36px 0; }
+.influentialHeading { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 0; }
+.influentialHeading h3 { margin: 0; font-size: 20px; font-weight: 650; color: #243d33; }
+.influentialHeading > span { color: #65736b; font-size: 12px; line-height: 1.6; }
+.traitSlotRow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; border-bottom: 1px solid #dce4de; }
+.traitSlotButton { appearance: none; border: 0; border-bottom: 2px solid transparent; background: transparent; padding: 14px 0 18px; color: #374d42; transition: color 160ms ease, border-color 160ms ease; }
+.traitSlotButton[data-interactive="true"] { cursor: pointer; }
+.traitSlotButton[data-interactive="true"]:hover { color: #16704c; border-bottom-color: #16704c; }
+.traitSlotButton:focus-visible { outline: 2px solid #21825c; outline-offset: 3px; }
+.traitSlotButton:disabled { opacity: .7; }
+.traitSlot { display: flex; gap: 8px; align-items: baseline; text-align: left; }
+.factorNumber { font-size: 11px; font-variant-numeric: tabular-nums; color: #697f72; }
+.traitSlotLabel { font-size: 15px; line-height: 1.5; font-weight: 600; }
+.factorArrow { margin-left: auto; font-size: 16px; transform: rotate(90deg); }
 
 .unlockRule {
   position: relative;
@@ -1322,87 +1263,51 @@
   color: var(--clone-body);
 }
 
-.traitsUnlockPanel {
-  border: 1px solid var(--clone-border);
-  border-radius: 12px;
-  background: linear-gradient(180deg, #fbfcfd 0%, #f6f8fa 100%);
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.traitsUnlockHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.traitsUnlockEyebrow {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.3;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clone-green);
-}
-
-.traitsUnlockTitle {
-  margin: 0;
-  font-size: 24px;
-  line-height: 1.1;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--clone-text);
-}
-
-.traitsUnlockIntro {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.7;
-  color: var(--clone-body);
-}
-
-.traitsUnlockGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.traitsUnlockItem,
-.traitsUnlockDefinition {
-  border: 1px solid var(--clone-border);
-  border-radius: 10px;
-  background: var(--clone-surface);
-  padding: 14px;
-}
-
-.traitsUnlockDefinition {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.traitsUnlockItemLabel {
-  margin: 0;
-  font-size: 11px;
-  line-height: 1.35;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--clone-muted);
-}
-
-.traitsUnlockItemBody {
-  margin: 6px 0 0;
-  font-size: 13px;
-  line-height: 1.72;
-  color: var(--clone-body);
+.traitsUnlockPanel { min-width: 0; padding: 0 36px; }
+.factorIntro { margin: 24px 0 0; font-size: 14px; line-height: 1.85; color: #647067; }
+.factorReading { max-width: 880px; margin: 0 auto; padding: 28px 0 40px; scroll-margin-top: 90px; }
+.factorReading + .factorReading { border-top: 1px solid #d8e2da; }
+.factorReading:focus { outline: none; }
+.factorReading:focus-visible { outline: 2px solid #21825c; outline-offset: 8px; }
+.traitsUnlockHeader { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px; align-items: start; }
+.factorChapterNumber { font-size: 48px; line-height: 1; font-weight: 400; letter-spacing: -.06em; color: #42886b; font-variant-numeric: tabular-nums; }
+.traitsUnlockTitle { margin: 0 0 18px; font-size: 30px; line-height: 1.3; font-weight: 650; color: #223c30; }
+.factorDefinition { margin: 0; font-size: 17px; line-height: 1.85; color: #37483f; }
+.factorBody { margin: 28px 0 0 84px; }
+.factorBody h5 { margin: 0 0 10px; font-size: 14px; line-height: 1.5; font-weight: 650; color: #365443; }
+.factorBody p { margin: 0; font-size: 16px; line-height: 1.85; color: #4c574f; overflow-wrap: anywhere; }
+.factorMainText h5:not(:first-child) { margin-top: 24px; }
+.factorPerspectives { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin: 28px 0; padding: 24px 0; border-top: 1px solid #e2e7e2; border-bottom: 1px solid #e2e7e2; }
+.factorPerspectives > section + section { padding-left: 28px; border-left: 1px solid #e2e7e2; }
+.factorPerspectives > section + section h5 { color: #886139; }
+.factorObservation { margin: 0 0 24px; }
+.factorPractice { padding: 22px 24px; background: #f0f6ef; border-left: 3px solid #6c9474; }
+.factorPractice h5 { color: #2c6245; }
+@media (prefers-reduced-motion: reduce) { .traitSlotButton { transition: none; } }
+@media (max-width: 760px) {
+  .factorNavigation { padding: 24px 22px 0; }
+  .influentialHeading { display: block; margin-bottom: 14px; }
+  .influentialHeading > span { display: block; margin-top: 6px; }
+  .traitSlotRow { gap: 8px; }
+  .traitSlot { flex-direction: column; gap: 4px; }
+  .traitSlotLabel { font-size: 13px; }
+  .factorArrow { display: none; }
+  .traitsUnlockPanel { padding: 0 22px; }
+  .factorReading { padding: 32px 0; }
+  .traitsUnlockHeader { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .factorChapterNumber { font-size: 32px; }
+  .traitsUnlockTitle { font-size: 26px; margin-bottom: 14px; }
+  .factorDefinition, .factorBody p { font-size: 16px; }
+  .factorBody { margin: 24px 0 0; }
+  .factorPerspectives { grid-template-columns: 1fr; gap: 24px; }
+  .factorPerspectives > section + section { padding: 0; border: 0; }
+  .factorPractice { padding: 18px; }
 }
 
 .traitsLockPanel {
-  margin-top: 2px;
+  width: auto;
+  margin: 32px;
+  align-self: center;
 }
 
 .twoColumnList {
@@ -2291,3 +2196,20 @@
 
 .traitSummaryHeader { text-align: center; }
 .traitSummaryResult { display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: 5px; margin: 6px 0 0; font-size: 18px; font-weight: 500; line-height: 1.4; color: var(--clone-text); }
+
+@media print {
+  .influentialCard, .traitsUnlockPanel, .factorReading { display: block; overflow: visible; break-inside: auto; page-break-inside: auto; }
+  .factorNavigation { display: none; }
+  .traitsUnlockPanel { padding: 0; }
+  .factorReading { max-width: none; padding: 5mm 0; }
+  .traitsUnlockHeader { grid-template-columns: 12mm minmax(0, 1fr); gap: 4mm; break-inside: avoid; }
+  .factorChapterNumber { font-size: 26pt; }
+  .traitsUnlockTitle { font-size: 17pt; margin-bottom: 3mm; }
+  .factorBody { margin: 4mm 0 0 16mm; }
+  .factorDefinition, .factorBody p, .factorIntro { font-size: 9.5pt; line-height: 1.6; orphans: 3; widows: 3; }
+  .factorBody h5 { font-size: 10pt; break-after: avoid; page-break-after: avoid; }
+  .factorPerspectives { display: block; margin: 4mm 0; padding: 4mm 0; }
+  .factorPerspectives > section + section { border: 0; padding: 0; margin-top: 4mm; }
+  .factorPractice { padding: 4mm; print-color-adjust: exact; }
+  .factorObservation, .factorPractice, .factorPerspectives > section { break-inside: avoid; page-break-inside: avoid; }
+}

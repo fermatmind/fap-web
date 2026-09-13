@@ -1051,23 +1051,26 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     );
   });
 
-  it("switches the unlocked traits detail panel when a different trait pill is selected", async () => {
+  it("renders all twelve factors and every explanation without interaction for reading and PDF capture", async () => {
     renderShell("INFJ-A", "zh", true);
-
     await waitForDesktopCloneStorage("INFJ-A");
 
-    const careerScoped = within(getDesktopSection("career"));
-    const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
-
-    expect(detailPanel).toHaveTextContent("career trait 1 infj-a");
-    expect(detailPanel).toHaveTextContent("career definition 1 infj-a");
-
-    fireEvent.click(careerScoped.getByRole("button", { name: "career trait 3 infj-a: body 3" }));
-
-    expect(detailPanel).toHaveTextContent("career trait 3 infj-a");
-    expect(detailPanel).toHaveTextContent("career definition 3 infj-a");
-    expect(detailPanel).toHaveTextContent("career expression 3 infj-a");
-    expect(detailPanel).toHaveTextContent("career advantage 3 infj-a");
+    for (const section of ["career", "growth", "relationships"] as const) {
+      const scoped = within(getDesktopSection(section));
+      const panel = scoped.getByTestId(`mbti-${section}-traits-unlock-panel`);
+      expect(panel.querySelectorAll("article")).toHaveLength(4);
+      expect(panel.querySelectorAll("details, [hidden]")).toHaveLength(0);
+      for (let index = 1; index <= 4; index += 1) {
+        expect(panel).toHaveTextContent(`${section} definition ${index} infj-a`);
+        expect(panel).toHaveTextContent(`${section} expression ${index} infj-a`);
+        expect(panel).toHaveTextContent(`${section} advantage ${index} infj-a`);
+        for (const field of ["why", "overuse", "signal", "hint"]) {
+          expect(panel).toHaveTextContent(`${section} ${field} ${index} infj-a`);
+        }
+        expect(scoped.queryByRole("button", { name: `${section} trait ${index} infj-a: body ${index}` })).not.toBeInTheDocument();
+        expect(panel.querySelectorAll("article")[index - 1]).toBeVisible();
+      }
+    }
   });
 
   it("keeps hero/rail/final-offer and asset slots stable after convergence", async () => {
