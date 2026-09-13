@@ -31,7 +31,7 @@ export default async function Preview({
   );
   return (
     <main
-      style={{ maxWidth: 1200, margin: "0 auto", padding: "16px 24px 48px" }}
+      className="mx-auto w-full max-w-[1320px] px-6 pb-12 pt-4 md:px-10 xl:px-12"
     >
       <RiasecResultShell
         locale={locale}

@@ -85,12 +85,25 @@ describe("RIASEC interactive reading experience", () => {
   });
 
   it("retains the independent backend summary when the activity chain is hidden", () => {
-    const vm = assembleRiasecResultViewModel({ scale_code: "RIASEC", type_code: "IAS", riasec_public_projection_v2: backendSamples["zh-CN-60"] } as unknown as ReportResponse, "zh");
-    vm.moduleVisibilityPolicy!.modules.find((item) => item.key === "hero_activity_chain")!.visibility = "hidden";
+    const vm = assembleRiasecResultViewModel(
+      {
+        scale_code: "RIASEC",
+        type_code: "IAS",
+        riasec_public_projection_v2: backendSamples["zh-CN-60"],
+      } as unknown as ReportResponse,
+      "zh",
+    );
+    vm.moduleVisibilityPolicy!.modules.find(
+      (item) => item.key === "hero_activity_chain",
+    )!.visibility = "hidden";
     render(<RiasecResultShell locale="zh" viewModel={vm} />);
     expect(screen.getByTestId("riasec-result-summary")).toBeVisible();
-    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(vm.resultSummary!.rankingDisplay);
-    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(vm.resultSummary!.nextStep);
+    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(
+      vm.resultSummary!.rankingDisplay,
+    );
+    expect(screen.getByTestId("riasec-result-summary")).toHaveTextContent(
+      vm.resultSummary!.nextStep,
+    );
   });
 
   it("shows allowed detailed copy directly without a disclosure button", () => {
@@ -188,8 +201,12 @@ describe("RIASEC interactive reading experience", () => {
     expect(screen.getByText("Backend fixture structure title")).toBeVisible();
   });
   it("restores collapse choices after browser printing", () => {
-    render(<RiasecResultShell locale="zh" viewModel={model()} />);
-    const info = screen.getByText("报告信息").closest("details")!;
+    const vm = model();
+    vm.resultSummary = null;
+    vm.moduleVisibilityPolicy!.modules.find((item) => item.key === "hero_activity_chain")!.visibility = "collapsed";
+    render(<RiasecResultShell locale="zh" viewModel={vm} />);
+    const info = document.querySelector("details")!;
+    info.open = false;
     expect(info.open).toBe(false);
     fireEvent(window, new Event("beforeprint"));
     expect(
@@ -249,4 +266,97 @@ describe("backend-generated Chinese reading samples", () => {
       expect(report).not.toHaveTextContent("当前结果没有可渲染的后端活动内容");
     },
   );
+});
+
+it("shows activity advice, occupation examples and report information without disclosure controls", () => {
+  const vm = assembleRiasecResultViewModel(
+    {
+      scale_code: "RIASEC",
+      type_code: "IAS",
+      riasec_public_projection_v2: backendSamples["zh-CN-140"],
+    } as unknown as ReportResponse,
+    "zh",
+  );
+  for (const moduleEntry of vm.moduleVisibilityPolicy!.modules) {
+    if (["activity_explorer", "occupation_examples"].includes(moduleEntry.key))
+      moduleEntry.visibility = "collapsed";
+  }
+  render(<RiasecResultShell locale="zh" viewModel={vm} />);
+  for (const label of ["查看活动建议", "职业活动例子", "报告信息"])
+    expect(screen.queryByText(label, { exact: true })).not.toBeInTheDocument();
+  for (const element of [
+    screen.getByTestId("riasec-activity-pack"),
+    ...screen.getAllByTestId("riasec-occupation-examples"),
+  ]) {
+    expect(element).toBeVisible();
+    expect(element.closest("details")).toBeNull();
+  }
+  expect(screen.queryByTestId("riasec-measurement-boundary")).not.toBeInTheDocument();
+  for (const label of ["140题增强版 · 140 题", "内容修订", "报告快照", "跨表分数对比"])
+    expect(screen.queryByText(label, { exact: true })).not.toBeInTheDocument();
+  expect(screen.getAllByText("行业研究助理").length).toBeGreaterThan(0);
+});
+
+it("keeps the interest map heading and chart expanded without a disclosure", () => {
+  const vm = model();
+  vm.moduleVisibilityPolicy!.modules.find(
+    (entry) => entry.key === "six_dimension_map",
+  )!.visibility = "collapsed";
+  render(<RiasecResultShell locale="zh" viewModel={vm} />);
+  const chart = screen.getByTestId("riasec-six-dimension-map");
+  expect(
+    within(chart).getByRole("heading", { name: "六维兴趣地图", level: 2 }),
+  ).toBeVisible();
+  expect(chart.querySelector("details")).toBeNull();
+  expect(within(chart).getAllByRole("button")).toHaveLength(6);
+  fireEvent.click(screen.getByTestId("riasec-dimension-E"));
+  expect(screen.getByTestId("riasec-dimension-insight")).toHaveTextContent(
+    "E ·",
+  );
+});
+
+
+it("shows backend highlights separately and keeps insight and context copy expanded", () => {
+  const vm = assembleRiasecResultViewModel({
+    scale_code: "RIASEC", type_code: "IAS",
+    riasec_public_projection_v2: backendSamples["zh-CN-140"],
+  } as unknown as ReportResponse, "zh");
+  render(<RiasecResultShell locale="zh" viewModel={vm} />);
+  const summary = screen.getByTestId("riasec-result-summary");
+  for (const item of vm.resultSummary!.highlights) {
+    const text = within(summary).getByText(item.text);
+    expect(text.closest("section")).toHaveTextContent(item.label);
+    const link = within(text.closest("section")!).getByRole("link");
+    expect(document.querySelector(link.getAttribute("href")!)).not.toBeNull();
+  }
+  expect(within(summary).getByText(vm.resultSummary!.nextStep)).toBeVisible();
+  const insight = screen.getByTestId("riasec-dimension-insight");
+  expect(insight.querySelector("details, summary")).toBeNull();
+  expect(within(insight).queryByText("维度洞察")).not.toBeInTheDocument();
+  expect(within(insight).queryByText("本次解读")).not.toBeInTheDocument();
+  const context = document.getElementById("riasec-context")!;
+  expect(context.querySelector("details, summary")).toBeNull();
+  expect(context.textContent!.length).toBeGreaterThan(100);
+  expect(screen.queryByText("增强版分层结果")).not.toBeInTheDocument();
+});
+
+it("keeps preference selection and removes the exercise form and navigation", () => {
+  const vm = assembleRiasecResultViewModel({ scale_code: "RIASEC", type_code: "IAS", riasec_public_projection_v2: backendSamples["zh-CN-140"] } as unknown as ReportResponse, "zh");
+  const originalScores = vm.dimensions.map((item) => item.score);
+  render(<RiasecResultShell locale="zh" viewModel={vm} />);
+  const context = document.getElementById("riasec-context")!;
+  expect(document.getElementById("riasec-notes")).toBeNull();
+  expect(document.getElementById("riasec-preference-insight")).toBeNull();
+  expect(within(context).getByText("围绕一个问题，独立查资料、比较证据。")).toBeVisible();
+  expect(screen.queryByRole("link", { name: "下一步行动" })).not.toBeInTheDocument();
+  expect(screen.queryByRole("combobox")).not.toBeInTheDocument();
+  expect(screen.queryByRole("textbox")).not.toBeInTheDocument();
+  const focus = within(context).getByRole("button", { name: "独立钻研" });
+  fireEvent.click(focus);
+  expect(focus).toHaveAttribute("aria-pressed", "true");
+  expect(within(context).queryByRole("button", { name: "清空" })).not.toBeInTheDocument();
+  expect(within(context).queryByText(/这里记录你主动选择/)).not.toBeInTheDocument();
+  fireEvent.click(focus);
+  expect(focus).toHaveAttribute("aria-pressed", "false");
+  expect(vm.dimensions.map((item) => item.score)).toEqual(originalScores);
 });

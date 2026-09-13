@@ -22,6 +22,7 @@ import {
   sanitizeRiasecRenderableText as clean,
 } from "./readingContent";
 import styles from "./RiasecReadingReport.module.css";
+import { RiasecExploration } from "./RiasecExploration";
 
 type Props = {
   viewModel: RiasecResultViewModel;
@@ -45,14 +46,11 @@ const ANCHORS = {
   combinations: "riasec-combinations",
   activities: "riasec-activities",
   context: "riasec-context",
-  notes: "riasec-notes",
 };
 
 export function RiasecReadingReport({
   viewModel: vm,
   locale,
-  formMeta,
-  boundaryRows,
   actions,
   emailRecovery,
 }: Props) {
@@ -84,12 +82,6 @@ export function RiasecReadingReport({
   );
   const contextSlots = slots.filter(
     (slot) => slot.moduleKey === "140q_context_cards",
-  );
-  const noteSlots = slots.filter(
-    (slot) =>
-      !dimensionSlots.includes(slot) &&
-      !combinationSlots.includes(slot) &&
-      !contextSlots.includes(slot),
   );
   const dimension =
     vm.dimensions.find((item) => item.code === selected) ||
@@ -124,9 +116,8 @@ export function RiasecReadingReport({
       ? [{ id: ANCHORS.activities, label: t("活动建议", "Activities") }]
       : []),
     ...(hasContext
-      ? [{ id: ANCHORS.context, label: t("工作情境", "Work contexts") }]
+      ? [{ id: ANCHORS.context, label: t("工作偏好", "Work preferences") }]
       : []),
-    { id: ANCHORS.notes, label: t("报告说明", "Report notes") },
   ];
   const chapterKey = chapters.map((chapter) => chapter.id).join(",");
 
@@ -145,7 +136,7 @@ export function RiasecReadingReport({
       let active = ids[0];
       for (const id of ids) {
         const element = document.getElementById(id);
-        if (element && element.getBoundingClientRect().top <= offset + 48)
+        if (element && element.getClientRects().length > 0 && element.getBoundingClientRect().top <= offset + 48)
           active = id;
       }
       setActiveSection(active);
@@ -223,7 +214,6 @@ export function RiasecReadingReport({
       <ReportHeader
         vm={vm}
         locale={locale}
-        formMeta={formMeta}
         actions={actions}
         emailRecovery={emailRecovery}
       />
@@ -292,10 +282,7 @@ export function RiasecReadingReport({
                 data-testid="riasec-governed-copy-surface"
               >
                 <h2>{t("职业活动探索", "Career activity explorer")}</h2>
-                <Disclosure
-                  state={activityState}
-                  title={t("查看活动建议", "Explore activities")}
-                >
+                <div className={styles.disclosureBody}>
                   <div data-testid="riasec-activity-families">
                     {vm.activityExplorer?.dimensionActivityFamilies.map(
                       (family) => (
@@ -331,30 +318,22 @@ export function RiasecReadingReport({
                           </ul>
                           {visibility("occupation_examples") !== "hidden" &&
                           activity.occupationExamples.length ? (
-                            <Disclosure
-                              state={visibility("occupation_examples")}
-                              title={t(
-                                "职业活动例子",
-                                "Occupation activity examples",
-                              )}
-                            >
-                              <div data-testid="riasec-occupation-examples">
-                                {activity.occupationExamples.map((example) => (
-                                  <article key={example.occupationExample}>
-                                    <h4>{clean(example.occupationExample)}</h4>
-                                    <p>{clean(example.displayLabel)}</p>
-                                    <ul>
-                                      {example.commonTasks
-                                        .map(formatRiasecDetailValue)
-                                        .filter(Boolean)
-                                        .map((item) => (
-                                          <li key={item}>{item}</li>
-                                        ))}
-                                    </ul>
-                                  </article>
-                                ))}
-                              </div>
-                            </Disclosure>
+                            <div data-testid="riasec-occupation-examples">
+                              {activity.occupationExamples.map((example) => (
+                                <article key={example.occupationExample}>
+                                  <h4>{clean(example.occupationExample)}</h4>
+                                  <p>{clean(example.displayLabel)}</p>
+                                  <ul>
+                                    {example.commonTasks
+                                      .map(formatRiasecDetailValue)
+                                      .filter(Boolean)
+                                      .map((item) => (
+                                        <li key={item}>{item}</li>
+                                      ))}
+                                  </ul>
+                                </article>
+                              ))}
+                            </div>
                           ) : null}
                         </article>
                       ),
@@ -368,97 +347,13 @@ export function RiasecReadingReport({
                       )}
                     </p>
                   ) : null}
-                </Disclosure>
+                </div>
               </section>
             ) : null}
-            {hasContext ? (
-              <section id={ANCHORS.context} className={styles.chapter}>
-                <h2>{t("工作情境", "Work contexts")}</h2>
-                <Disclosure
-                  state={contextState}
-                  title={t("增强版分层结果", "Enhanced form breakdown")}
-                >
-                  {contextSlots.map((slot) => (
-                    <ContentCard
-                      key={slot.slotId}
-                      slot={slot}
-                      state={contextState}
-                      zh={zh}
-                    />
-                  ))}
-                  {(["activity", "environment", "role"] as const).map(
-                    (key, index) =>
-                      Object.keys(vm.enhancedBreakdown[key]).length ? (
-                        <article key={key} className={styles.contentCard}>
-                          <h3>
-                            {
-                              [
-                                t("活动兴趣", "Activity"),
-                                t("环境偏好", "Environment"),
-                                t("角色偏好", "Role"),
-                              ][index]
-                            }
-                          </h3>
-                          <dl>
-                            {Object.entries(vm.enhancedBreakdown[key]).map(
-                              ([code, value]) => (
-                                <div className={styles.scorePair} key={code}>
-                                  <dt>{code}</dt>
-                                  <dd>{Math.round(value)}</dd>
-                                </div>
-                              ),
-                            )}
-                          </dl>
-                        </article>
-                      ) : null,
-                  )}
-                </Disclosure>
-              </section>
-            ) : null}
-            <section id={ANCHORS.notes} className={styles.chapter}>
-              <h2>{t("报告说明", "Report notes")}</h2>
-              {noteSlots.map((slot) => (
-                <ContentCard
-                  key={slot.slotId}
-                  slot={slot}
-                  state={slotState(slot)}
-                  zh={zh}
-                />
-              ))}
-              {vm.qualityDisplay &&
-              (vm.trustedResultCard
-                ? vm.trustedResultCard.qualityState !== "normal"
-                : vm.qualityGrade !== "A" || vm.qualityFlags.length > 0) ? (
-                <Disclosure
-                  state="collapsed"
-                  title={vm.qualityDisplay.headline}
-                  boundary={vm.qualityDisplay.readingBoundary}
-                >
-                  <ul>
-                    {[
-                      ...vm.qualityDisplay.reasons,
-                      ...vm.qualityDisplay.improvements,
-                    ].map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </Disclosure>
-              ) : null}
-              <Disclosure
-                state="collapsed"
-                title={t("报告信息", "Report information")}
-              >
-                <p>{formMeta}</p>
-                <dl data-testid="riasec-measurement-boundary">
-                  {boundaryRows.map(([label, value]) => (
-                    <div key={label} className={styles.scorePair}>
-                      <dt>{label}</dt>
-                      <dd>{value}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </Disclosure>
-            </section>
+            <RiasecExploration
+              locale={locale}
+              showPreferences={hasContext}
+            />
             {emailRecovery ? (
               <section id="riasec-email-recovery" className={styles.chapter}>
                 {emailRecovery}
@@ -471,7 +366,7 @@ export function RiasecReadingReport({
           className={styles.sidebar}
           data-testid="riasec-report-sidebar"
         >
-          {insight}
+          {activeSection !== ANCHORS.context ? insight : null}
           <ReportNavigation
             navRef={navRef}
             chapters={chapters}
@@ -527,9 +422,15 @@ function ContentCard({
   return (
     <article
       className={styles.contentCard}
+      id={slot.slotKey === "dimension_deep_copy" && slot.selection?.dimensionCode ? `riasec-reading-${slot.selection.dimensionCode}` : undefined}
+      data-dimension={slot.selection?.dimensionCode}
+      style={{ "--dimension-color": COLORS[slot.selection?.dimensionCode || ""] } as CSSProperties}
       data-testid="riasec-deep-content-slot"
     >
-      <h3>{title}</h3>
+      <h3 className={styles.contentTitle}>
+        {slot.selection?.dimensionCode ? <span className={styles.dimensionMark} aria-hidden="true">{slot.selection.dimensionCode}</span> : null}
+        {title}
+      </h3>
       {clean(content.summary) ? <p>{clean(content.summary)}</p> : null}
       {slot.boundaries.userVisibleBoundary ? (
         <p className={styles.boundary}>{slot.boundaries.userVisibleBoundary}</p>
@@ -546,7 +447,7 @@ function ContentCard({
                 .filter(Boolean);
               if (!label || !values.length) return null;
               return (
-                <section key={key} className={styles.detail}>
+                <section key={key} className={styles.detail} data-field={key}>
                   <h4>{label}</h4>
                   {Array.isArray(value) ? (
                     <ul>
@@ -571,13 +472,19 @@ function ReportHeader({
   locale,
   actions,
   emailRecovery,
-}: Omit<Props, "viewModel" | "boundaryRows"> & { vm: RiasecResultViewModel }) {
+}: Omit<Props, "viewModel" | "boundaryRows" | "formMeta"> & { vm: RiasecResultViewModel }) {
   const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
   const summary = vm.resultSummary;
+  const readableDimensions = getRenderableRiasecDeepContentSlots(vm).filter((slot) => {
+    const policy = vm.moduleVisibilityPolicy?.modules.find((item) => item.key === slot.moduleKey);
+    return slot.slotKey === "dimension_deep_copy" && (policy?.visibility || slot.slotVisibility) !== "hidden";
+  });
   const tieNote = summary?.tieNote || vm.interpretationState?.tieDisplay?.note;
   // The snapshot-bound result summary is a separate backend projection.
   // Activity-chain visibility only governs the legacy hero fallback.
-  const heroState = summary ? "visible" : getRiasecModuleVisibility(vm, "hero_activity_chain");
+  const heroState = summary
+    ? "visible"
+    : getRiasecModuleVisibility(vm, "hero_activity_chain");
   const caution = vm.trustedResultCard
     ? vm.trustedResultCard.qualityState !== "normal"
     : vm.qualityGrade !== "A" || vm.qualityFlags.length > 0;
@@ -603,58 +510,28 @@ function ReportHeader({
       </div>
       {heroState !== "hidden" ? (
         <SummaryContent state={heroState} locale={locale}>
-          <div
-            className={styles.highlights}
-            data-testid="riasec-result-summary"
-          >
-            <section>
-              <h2>{t("本次兴趣重点", "YOUR INTERESTS")}</h2>
-              <p className={styles.ranking}>
-                {summary?.rankingDisplay ||
-                  vm.interpretationState?.tieDisplay?.headline ||
-                  vm.topCode}
-              </p>
+          <div data-testid="riasec-result-summary">
+            <div className={styles.summaryIntro}>
+              <span>{t("本次兴趣重点", "Your interest pattern")}</span>
+              <strong>{summary?.rankingDisplay || vm.interpretationState?.tieDisplay?.headline || vm.topCode}</strong>
               {tieNote ? <p>{tieNote}</p> : null}
-              {!summary &&
-              vm.interpretationState?.tieDisplay?.alternateCodes.length ? (
-                <p>
-                  {t("可同时参考的阅读顺序", "Additional reading order")}:{" "}
-                  {vm.interpretationState.tieDisplay.alternateCodes.join(" / ")}
-                </p>
+              {!summary && vm.interpretationState?.tieDisplay?.alternateCodes.length ? (
+                <p>{t("可同时参考的阅读顺序", "Additional reading order")}: {vm.interpretationState.tieDisplay.alternateCodes.join(" / ")}</p>
               ) : null}
-            </section>
-            <section>
-              <h2>{t("阅读重点", "READING HIGHLIGHTS")}</h2>
+            </div>
+            <div className={styles.highlights}>
               {summary?.highlights.map((item) => (
-                <p key={item.dimensionCode}>
-                  <strong>
-                    {item.dimensionCode} · {item.label}
-                  </strong>{" "}
-                  — {item.text}
-                </p>
+                <section key={item.dimensionCode}>
+                  <h2>{item.dimensionCode} · {item.label}</h2>
+                  <p>{item.text}</p>
+                  {readableDimensions.some((slot) => slot.selection?.dimensionCode === item.dimensionCode) ? (
+                    <a href={`#riasec-reading-${item.dimensionCode}`}>{t("了解这个兴趣维度", "Explore this interest")} <span aria-hidden="true">↗</span></a>
+                  ) : null}
+                </section>
               ))}
-              {!summary ? (
-                <p>
-                  {t(
-                    "暂无可展示的后端阅读重点。",
-                    "No reading highlights are available.",
-                  )}
-                </p>
-              ) : null}
-            </section>
-            <section>
-              <h2>{t("下一步建议", "YOUR NEXT STEP")}</h2>
-              {summary?.nextStep ? (
-                <p>{summary.nextStep}</p>
-              ) : (
-                <p>
-                  {t(
-                    "暂无可展示的后端下一步建议。",
-                    "No next-step guidance is available.",
-                  )}
-                </p>
-              )}
-            </section>
+              {!summary ? <p>{t("暂无可展示的后端阅读重点。", "No reading highlights are available.")}</p> : null}
+            </div>
+            <p className={styles.summaryNext}><strong>{t("下一步建议", "Your next step")}</strong>{" "}{summary?.nextStep || t("暂无可展示的后端下一步建议。", "No next-step guidance is available.")}</p>
           </div>
         </SummaryContent>
       ) : null}
@@ -767,40 +644,36 @@ function DimensionChart({
       data-testid="riasec-six-dimension-map"
     >
       {tieNote ? <p className={styles.description}>{tieNote}</p> : null}
-      <Disclosure
-        state={mapState}
-        title={<h2>{t("六维兴趣地图", "Your broad interests")}</h2>}
-      >
-        <div className={styles.bars}>
-          {vm.dimensions.map((item) => (
-            <button
-              type="button"
-              key={item.code}
-              className={styles.barRow}
-              aria-pressed={selected === item.code}
-              aria-controls="riasec-selected-insight"
-              onClick={() => onSelect(item.code)}
-              data-testid={`riasec-dimension-${item.code}`}
-              style={
-                {
-                  "--dimension-color": COLORS[item.code] || COLORS.R,
-                } as CSSProperties
-              }
-            >
-              <span className={styles.dimensionBadge}>{item.code}</span>
-              <span className={styles.dimensionLabel}>{item.label}</span>
-              <span className={styles.track}>
-                <span
-                  style={{
-                    width: `${Math.max(0, Math.min(100, item.score))}%`,
-                  }}
-                />
-              </span>
-              <span className={styles.number}>{Math.round(item.score)}</span>
-            </button>
-          ))}
-        </div>
-      </Disclosure>
+      <h2>{t("六维兴趣地图", "Your broad interests")}</h2>
+      <div className={styles.bars}>
+        {vm.dimensions.map((item) => (
+          <button
+            type="button"
+            key={item.code}
+            className={styles.barRow}
+            aria-pressed={selected === item.code}
+            aria-controls="riasec-selected-insight"
+            onClick={() => onSelect(item.code)}
+            data-testid={`riasec-dimension-${item.code}`}
+            style={
+              {
+                "--dimension-color": COLORS[item.code] || COLORS.R,
+              } as CSSProperties
+            }
+          >
+            <span className={styles.dimensionBadge}>{item.code}</span>
+            <span className={styles.dimensionLabel}>{item.label}</span>
+            <span className={styles.track}>
+              <span
+                style={{
+                  width: `${Math.max(0, Math.min(100, item.score))}%`,
+                }}
+              />
+            </span>
+            <span className={styles.number}>{Math.round(item.score)}</span>
+          </button>
+        ))}
+      </div>
     </section>
   ) : null;
 }
@@ -828,7 +701,6 @@ function DimensionInsight({
       id="riasec-selected-insight"
       aria-label={t("维度洞察", "Dimension insights")}
     >
-      <p className={styles.eyebrow}>{t("维度洞察", "DIMENSION INSIGHTS")}</p>
       <h2>
         {dimension.code} · {dimension.label}
       </h2>
@@ -837,17 +709,11 @@ function DimensionInsight({
         <span>{t("本次得分", "Your score")}</span>
       </div>
       {tieNote ? <p className={styles.tie}>{tieNote}</p> : null}
-      {selectedSlot ? (
-        <Disclosure
-          key={selectedSlot.slotId}
-          state={
-            slotState === "collapsed"
-              ? "collapsed"
-              : selectedSlot.slotVisibility
-          }
-          title={t("本次解读", "Your reading")}
-          boundary={selectedSlot.boundaries.userVisibleBoundary}
-        >
+      {selectedSlot && slotState !== "hidden" ? (
+        <div className={styles.insightReading}>
+          {selectedSlot.boundaries.userVisibleBoundary ? (
+            <p className={styles.boundary}>{selectedSlot.boundaries.userVisibleBoundary}</p>
+          ) : null}
           {clean(
             selectedSlot.content.core_drive ||
               selectedSlot.content.body ||
@@ -884,7 +750,7 @@ function DimensionInsight({
               <p>{clean(selectedSlot.content.action_advice)}</p>
             </>
           ) : null}
-        </Disclosure>
+        </div>
       ) : (
         <p>
           {t(
