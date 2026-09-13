@@ -483,7 +483,10 @@ describe("RichResultReport", () => {
     expect(getDesktopHero()).not.toHaveTextContent("desktop clone hero summary");
     expect(getDesktopHero()).toHaveTextContent("主人公型");
     expect(screen.getByText("career intro 1")).toBeInTheDocument();
-    expect(screen.getAllByText("trait 1").length).toBeGreaterThan(0);
+    expect(screen.queryByText("trait 1")).not.toBeInTheDocument();
+    for (const chapter of ["career", "growth", "relationships"]) {
+      expect(screen.getByTestId(`mbti-${chapter}-traits-lock-panel`)).toBeInTheDocument();
+    }
     expect(screen.queryByText("career locked 1")).not.toBeInTheDocument();
     expect(screen.queryByText("growth locked 1")).not.toBeInTheDocument();
     expect(screen.queryByText("relationships locked 1")).not.toBeInTheDocument();
