@@ -857,7 +857,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     expect(scoped.getByText("成长优势")).toBeInTheDocument();
     expect(scoped.getByText("成长短板")).toBeInTheDocument();
     expect(scoped.getByText("什么能让你充满活力？")).toBeInTheDocument();
-    expect(scoped.getByText("什么让你精力力竭？")).toBeInTheDocument();
+    expect(scoped.getByText("什么会持续消耗你？")).toBeInTheDocument();
     expect(scoped.queryByText("Strengths")).not.toBeInTheDocument();
     expect(scoped.queryByText("Weaknesses")).not.toBeInTheDocument();
     expect(scoped.queryByText("什么让你充电")).not.toBeInTheDocument();
@@ -904,7 +904,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const nextSection = getDesktopSection("relationships");
 
     expect(scoped.getByText("什么能让你充满活力？")).toBeInTheDocument();
-    expect(scoped.getByText("什么让你精力力竭？")).toBeInTheDocument();
+    expect(scoped.getByText("什么会持续消耗你？")).toBeInTheDocument();
     expect(scoped.getByText("what energizes intro entj-t")).toBeInTheDocument();
     expect(scoped.getByText("what energizes item 1 entj-t")).toBeInTheDocument();
     expect(scoped.getByText("what energizes body 1 entj-t")).toBeInTheDocument();
