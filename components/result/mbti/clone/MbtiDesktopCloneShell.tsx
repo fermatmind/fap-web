@@ -127,6 +127,8 @@ function asRecord(value: unknown): Record<string, unknown> | null {
   return value as Record<string, unknown>;
 }
 
+const ZH_GROWTH_DRAINER_TITLE = "什么会持续消耗你？";
+
 function renderCanonicalFaq(
   projectionViewModel: MbtiResultProjectionViewModel | null | undefined,
   locale: "zh" | "en",
@@ -657,7 +659,7 @@ export function MbtiDesktopCloneShell({
   const unlockedWhatDrainsBlock = fullContentVisible
     ? withOverrideTitle(
         slots.chapters.growth.whatDrains,
-        cloneLocale === "zh" ? "什么会持续消耗你？" : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
+        cloneLocale === "zh" ? ZH_GROWTH_DRAINER_TITLE : (slots.chapters.growth.whatDrains?.title ?? "What Drains You"),
       )
     : null;
   const growthPostCoreBlocks: ReactNode[] = [];
@@ -1093,7 +1095,7 @@ export function MbtiDesktopCloneShell({
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
-            zhTitle: "什么会持续消耗你？",
+            zhTitle: ZH_GROWTH_DRAINER_TITLE,
             source: null,
             fallback: slots.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
