@@ -392,14 +392,6 @@ function resolveInviteProgressDisplay({
   };
 }
 
-function readIsMobileViewport() {
-  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
-    return false;
-  }
-
-  return window.matchMedia("(max-width: 860px)").matches;
-}
-
 export function MbtiDesktopCloneShell({
   locale,
   headline,
@@ -448,9 +440,7 @@ export function MbtiDesktopCloneShell({
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
-  const initialMobileViewport = useMemo(() => readIsMobileViewport(), []);
-  const [isMobileViewport, setIsMobileViewport] = useState(initialMobileViewport);
-  const [isDeepContentReady, setIsDeepContentReady] = useState(!initialMobileViewport);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
   const fullCodeForStorage = useMemo(
     () => normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [headline.typeCode, projectionViewModel?.displayType],
@@ -515,31 +505,6 @@ export function MbtiDesktopCloneShell({
     mediaQuery.addListener(syncViewport);
     return () => mediaQuery.removeListener(syncViewport);
   }, []);
-
-  useEffect(() => {
-    if (!isMobileViewport) {
-      setIsDeepContentReady(true);
-      return;
-    }
-
-    setIsDeepContentReady(false);
-    if (typeof window.requestAnimationFrame !== "function") {
-      const timerId = window.setTimeout(() => {
-        setIsDeepContentReady(true);
-      }, 16);
-      return () => {
-        window.clearTimeout(timerId);
-      };
-    }
-
-    const rafId = window.requestAnimationFrame(() => {
-      setIsDeepContentReady(true);
-    });
-
-    return () => {
-      window.cancelAnimationFrame(rafId);
-    };
-  }, [fullCodeForStorage, isMobileViewport]);
 
   useEffect(() => {
     let active = true;
@@ -972,21 +937,13 @@ export function MbtiDesktopCloneShell({
     : slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = locale === "zh" ? "overview" : slots.overview ? "overview" : "traits";
   const showTopInviteProgress = !snapshotMode && !suppressUnlockSurfaces && isMobileViewport && inviteProgressDisplay.showProgressCard;
-  const shouldRenderSnapshotStaticShell = snapshotMode;
   const shouldRenderFinalOffer = !snapshotMode && !suppressUnlockSurfaces;
   const shouldRenderRail = !snapshotMode;
   const shouldRenderTrailingNodes = !snapshotMode;
-  const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
   const canonicalFaqNode = snapshotMode ? null : renderCanonicalFaq(projectionViewModel, cloneLocale, storageContent?.faq ?? null);
   const narrativeTitle = (title: string) => cloneLocale === "zh" && scientificInterpretation.treatNarrativesAsHypotheses
     ? `${title}（探索假设）`
     : title;
-  const deepContentPlaceholderLabel = cloneLocale === "zh"
-    ? "正在加载详细章节..."
-    : "Loading detailed chapters...";
-  const deepContentPlaceholderHint = cloneLocale === "zh"
-    ? "首屏先展示类型、解锁状态与关键入口。"
-    : "Showing type, unlock status, and key actions first.";
   const finalOfferNode = (
     <section id={LEGACY_OFFER_SECTION_ID} data-testid="mbti-offer-full" className={styles.section}>
       <div id={getMbtiDesktopAnchorId("offerFull")}>
@@ -1261,15 +1218,9 @@ export function MbtiDesktopCloneShell({
               toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
             />
 
-            {shouldRenderFinalOffer && isMobileViewport ? finalOfferNode : null}
-            {shouldRenderDeepNarrativeSections ? deepNarrativeSectionsNode : (
-              <section data-testid="mbti-deferred-content-placeholder" className={styles.deferredContentPlaceholder}>
-                <p className={styles.deferredContentPlaceholderTitle}>{deepContentPlaceholderLabel}</p>
-                <p className={styles.deferredContentPlaceholderHint}>{deepContentPlaceholderHint}</p>
-              </section>
-            )}
-            {shouldRenderFinalOffer && !isMobileViewport ? finalOfferNode : null}
-            {shouldRenderTrailingNodes && isDeepContentReady ? trailingNodes : null}
+            {deepNarrativeSectionsNode}
+            {shouldRenderFinalOffer ? finalOfferNode : null}
+            {shouldRenderTrailingNodes ? trailingNodes : null}
             {storageMeta?.package_hash ? (
               <p className={styles.packageReceipt} data-testid="mbti-content-package-receipt">
                 内容包 {storageMeta.package_id ?? "mbti-zh-result"} · {storageMeta.package_hash} · revision {storageMeta.revision_no ?? "-"}

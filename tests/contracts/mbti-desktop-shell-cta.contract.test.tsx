@@ -1,6 +1,8 @@
 import { fetchPersonalityResultIntroduction } from "@/lib/cms/personality-result-introduction";
 import { fetchMbtiTraitCatalog } from "@/lib/cms/mbti-trait-explanations";
 import type { ComponentProps } from "react";
+import { renderToString } from "react-dom/server";
+import { hydrateRoot, type Root } from "react-dom/client";
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { MbtiDesktopCloneShell } from "@/components/result/mbti/clone/MbtiDesktopCloneShell";
@@ -295,8 +297,8 @@ beforeEach(() => {
 const INVITE_TAKE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take?invite_code=invite_mbti_001";
 const INVITE_TAKE_BASE_HREF = "/zh/tests/mbti-personality-test-16-personality-types/take";
 
-function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {}) {
-  return render(
+function defaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {}) {
+  return (
     <MbtiDesktopCloneShell
       locale="zh"
       headline={createHeadline()}
@@ -316,8 +318,12 @@ function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktop
       primaryCtaHref="/zh/pay/checkout"
       inviteUnlockAttemptId="attempt-123"
       {...overrides}
-    />,
+    />
   );
+}
+
+function renderDefaultShell(overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {}) {
+  return render(defaultShell(overrides));
 }
 
 describe("MBTI desktop clone shell CTA wiring", () => {
@@ -478,7 +484,7 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(screen.queryByTestId("mbti-offers-invite-cta")).not.toBeInTheDocument();
   });
 
-  it("keeps mobile first screen decision surface visible while deferring deep sections", async () => {
+  it("keeps mobile decision surface and complete chapters visible without an animation frame", async () => {
     const originalMatchMedia = window.matchMedia;
     const originalRequestAnimationFrame = window.requestAnimationFrame;
     const originalCancelAnimationFrame = window.cancelAnimationFrame;
@@ -524,8 +530,8 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       await waitFor(() => {
         expect(fetchPersonalityDesktopCloneContent).toHaveBeenCalledWith("INFJ-T", "zh");
         expect(screen.getByTestId("mbti-invite-progress-summary-top")).toHaveTextContent("已完成 1/2");
-        expect(screen.getByTestId("mbti-deferred-content-placeholder")).toBeInTheDocument();
-        expect(screen.queryByTestId("mbti-chapter-career")).not.toBeInTheDocument();
+        expect(screen.queryByTestId("mbti-deferred-content-placeholder")).not.toBeInTheDocument();
+        expect(screen.getByTestId("mbti-chapter-career")).toBeInTheDocument();
         expect(screen.getByTestId("mbti-offers-primary-cta")).toBeInTheDocument();
       });
 
@@ -928,4 +934,109 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     expect(writeText).toHaveBeenCalledTimes(1);
     expect(assignSpy).not.toHaveBeenCalled();
   });
+});
+
+
+describe("MBTI server markup hydration", () => {
+  for (const width of [390, 860, 861, 1440]) {
+    for (const state of ["locked", "unlocked", "snapshot", "loading", "failed"] as const) {
+      it(`hydrates ${state} at ${width}px and keeps mounted chapters through viewport changes`, async () => {
+        const storage = createStoragePayload("hydration");
+        const listeners = new Set<() => void>();
+        const media = {
+          matches: width <= 860,
+          media: "(max-width: 860px)",
+          addEventListener: vi.fn((_event: string, listener: () => void) => listeners.add(listener)),
+          removeEventListener: vi.fn((_event: string, listener: () => void) => listeners.delete(listener)),
+        };
+        Object.defineProperty(window, "matchMedia", { configurable: true, value: vi.fn(() => media) });
+        const frame = vi.spyOn(window, "requestAnimationFrame").mockReturnValue(1);
+        const onShare = vi.fn();
+        const overrides: Partial<ComponentProps<typeof MbtiDesktopCloneShell>> = {
+          isUnlocked: state === "unlocked",
+          snapshotMode: state === "snapshot",
+          snapshotContentStatus: state === "snapshot"
+            ? { ok: true, source: "server-prefetched-desktop-clone", missing: [] } : null,
+          storageManagedExternally: true,
+          storageContentOverride: state === "loading" || state === "failed" ? null : storage.content,
+          storageAssetSlotsOverride: storage.assetSlots,
+          storageContentPending: state === "loading",
+          requirePublishedContent: state === "loading" || state === "failed",
+          footerNode: <div data-testid="hydration-footer">Report footer</div>,
+          onShare,
+          inviteUnlockProgress: {
+            inviteCode: "invite_hydration",
+            inviteUrl: INVITE_TAKE_HREF,
+            status: "in_progress",
+            requiredInvitees: 2,
+            completedInvitees: 1,
+            targetAttemptId: "attempt-123",
+            unlockStage: "partial",
+            unlockSource: "invite",
+            diagnostics: null,
+          },
+        };
+        const element = defaultShell(overrides);
+        const browserWindow = Object.getOwnPropertyDescriptor(globalThis, "window")!;
+        let html: string;
+        try {
+          Object.defineProperty(globalThis, "window", { configurable: true, value: undefined });
+          html = renderToString(element);
+        } finally {
+          Object.defineProperty(globalThis, "window", browserWindow);
+        }
+        const container = document.createElement("div");
+        container.innerHTML = html;
+        document.body.append(container);
+        const chapterNodes = ["career", "growth", "relationships"].map((chapter) =>
+          container.querySelector(`[data-testid="mbti-chapter-${chapter}"]`));
+        const footer = container.querySelector('[data-testid="hydration-footer"]');
+        const offer = container.querySelector('[data-testid="mbti-offer-full"]');
+        const recoverable = vi.fn();
+        const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
+        let root: Root | undefined;
+        try {
+          await act(async () => {
+            root = hydrateRoot(container, element, { onRecoverableError: recoverable });
+          });
+          expect(recoverable).not.toHaveBeenCalled();
+          if (state === "loading" || state === "failed") {
+            expect(container.querySelector(state === "loading"
+              ? '[data-testid="mbti-desktop-clone-content-loading"]'
+              : '[data-testid="mbti-desktop-clone-snapshot-error"]')).not.toBeNull();
+          } else {
+            expect(chapterNodes.every(Boolean)).toBe(true);
+            for (const nextWidth of [1440, 390, 860, 861]) {
+              await act(async () => {
+                media.matches = nextWidth <= 860;
+                for (const listener of listeners) listener();
+              });
+              for (const [index, chapter] of ["career", "growth", "relationships"].entries()) {
+                expect(container.querySelector(`[data-testid="mbti-chapter-${chapter}"]`)).toBe(chapterNodes[index]);
+              }
+              expect(container.querySelector('[data-testid="hydration-footer"]')).toBe(footer);
+              expect(container.querySelector('[data-testid="mbti-offer-full"]')).toBe(offer);
+              expect(container.querySelector('[data-testid="mbti-deferred-content-placeholder"]')).toBeNull();
+            }
+            if (state !== "snapshot") {
+              expect(footer).not.toBeNull();
+              const share = within(container).getAllByRole("button", { name: "分享" })[0];
+              fireEvent.click(share);
+              expect(onShare).toHaveBeenCalledOnce();
+            } else {
+              expect(footer).toBeNull();
+              expect(offer).toBeNull();
+            }
+          }
+          expect(recoverable).not.toHaveBeenCalled();
+          expect(consoleError.mock.calls.filter((args) => /hydrat|didn't match|server rendered/i.test(args.map(String).join(" ")))).toEqual([]);
+          expect(frame).not.toHaveBeenCalled();
+        } finally {
+          await act(async () => root?.unmount());
+          expect(listeners.size).toBe(0);
+          container.remove();
+        }
+      });
+    }
+  }
 });

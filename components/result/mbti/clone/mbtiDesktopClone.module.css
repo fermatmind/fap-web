@@ -220,30 +220,7 @@
   text-underline-offset: 2px;
 }
 
-.deferredContentPlaceholder {
-  border: 1px dashed rgba(54, 173, 115, 0.24);
-  border-radius: var(--clone-card-radius);
-  background: rgba(255, 255, 255, 0.78);
-  padding: 14px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.deferredContentPlaceholderTitle {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.4;
-  font-weight: 700;
-  color: var(--clone-text);
-}
-
-.deferredContentPlaceholderHint {
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.5;
-  color: var(--clone-muted);
-}
 
 .rail {
   position: sticky;
@@ -2158,6 +2135,17 @@
   .main {
     gap: 48px;
   }
+
+  .main > .introBlock,
+  .main > .mobileInviteSummary,
+  .main > [data-testid="mbti-chapter-traits"] {
+    order: -2;
+  }
+
+  .main > [data-testid="mbti-offer-full"] {
+    order: -1;
+  }
+
 
   .rail {
     position: static;
