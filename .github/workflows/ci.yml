@@ -39,6 +39,7 @@ jobs:
         shell: bash
         env:
           PUSH_BEFORE: ${{ github.event.before }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           base_sha="$PUSH_BEFORE"
@@ -48,7 +49,8 @@ jobs:
           git merge-base --is-ancestor "$base_sha" "$GITHUB_SHA"
           git diff --no-renames --name-only -z "$base_sha" "$GITHUB_SHA" > "$RUNNER_TEMP/changed-paths"
           test -s "$RUNNER_TEMP/changed-paths"
-          node .github/trunk/classify-paths.mjs "$RUNNER_TEMP/changed-paths" > trunk-path-classification.json
+          node .github/trunk/classify-release.mjs > trunk-path-classification.json
+          base_sha="$(jq -r .scope.validation_base_sha trunk-path-classification.json)"
           compact="$(jq -c . trunk-path-classification.json)"
           {
             echo "base_sha=$base_sha"
