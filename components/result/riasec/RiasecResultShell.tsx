@@ -161,7 +161,7 @@ export function RiasecResultShell({
 
   if (displayMode === "interactive") {
     return <RiasecReadingReport
-      viewModel={viewModel} locale={locale} formMeta={formMeta} boundaryRows={boundaryRows}
+      viewModel={viewModel} locale={locale}
       emailRecovery={emailRecovery}
       actions={<>
         {showShareAction ? <Button type="button" variant="outline" onClick={() => void handleShare()} disabled={shareState === "loading"}>

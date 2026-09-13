@@ -136,7 +136,7 @@ describe("RIASEC V11 deep copy smoke acceptance", () => {
     });
     expect(viewModel.moduleVisibilityPolicy?.fallbackPolicy.frontendInferenceAllowed).toBe(false);
 
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_v11_smoke" />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} attemptId="attempt_riasec_v11_smoke" />);
 
     expect(screen.getByTestId("riasec-trusted-result-card")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-deep-content-slots")).toBeInTheDocument();

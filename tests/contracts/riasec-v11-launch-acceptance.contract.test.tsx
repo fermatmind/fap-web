@@ -201,7 +201,7 @@ describe("RIASEC V11 launch acceptance smoke", () => {
     );
 
     const viewModel = assembleRiasecResultViewModel(reportFrom(projection), "zh");
-    render(<RiasecResultShell locale="zh" viewModel={viewModel} attemptId="attempt_riasec_launch" />);
+    render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} attemptId="attempt_riasec_launch" />);
 
     expect(screen.getByTestId("riasec-trusted-result-card")).toBeInTheDocument();
     expect(screen.getByTestId("riasec-six-dimension-map")).toBeInTheDocument();
