@@ -423,7 +423,10 @@ describe("RIASEC personalization fixture matrix v2", () => {
       expect(viewModel.moduleVisibilityPolicy?.modules.find((moduleState) => moduleState.key === "140q_context_cards")).toMatchObject({
         visibility: "visible",
       });
-      expect(renderedTextFor(fixtureCase)).toContain("增强版分层结果");
+      const interactiveText = renderedTextFor(fixtureCase);
+      expect(interactiveText).toContain("工作偏好探索");
+      expect(interactiveText).not.toContain("增强版分层结果");
+      expect(screen.queryByText("报告说明", { exact: true })).not.toBeInTheDocument();
     }
   });
 

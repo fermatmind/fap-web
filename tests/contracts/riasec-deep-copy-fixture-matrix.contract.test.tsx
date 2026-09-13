@@ -219,7 +219,7 @@ describe("RIASEC deep copy fixture matrix", () => {
       expect(viewModel.moduleVisibilityPolicy?.fallbackPolicy.frontendInferenceAllowed).toBe(false);
       expect(viewModel.moduleVisibilityPolicy?.modules.find((module) => module.key === "unknown_future_module")).toBeUndefined();
 
-      render(<RiasecResultShell locale="zh" viewModel={viewModel} />);
+      render(<RiasecResultShell displayMode="static" locale="zh" viewModel={viewModel} />);
 
       if (matrixCase.deep_slot_ids.length === 0) {
         expect(screen.queryByTestId("riasec-deep-content-slots")).not.toBeInTheDocument();

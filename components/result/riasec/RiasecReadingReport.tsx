@@ -27,8 +27,6 @@ import { RiasecExploration } from "./RiasecExploration";
 type Props = {
   viewModel: RiasecResultViewModel;
   locale: Locale;
-  formMeta: string;
-  boundaryRows: string[][];
   actions: ReactNode;
   emailRecovery?: ReactNode;
 };
@@ -472,7 +470,7 @@ function ReportHeader({
   locale,
   actions,
   emailRecovery,
-}: Omit<Props, "viewModel" | "boundaryRows" | "formMeta"> & { vm: RiasecResultViewModel }) {
+}: Omit<Props, "viewModel"> & { vm: RiasecResultViewModel }) {
   const t = (cn: string, en: string) => (locale === "zh" ? cn : en);
   const summary = vm.resultSummary;
   const readableDimensions = getRenderableRiasecDeepContentSlots(vm).filter((slot) => {
