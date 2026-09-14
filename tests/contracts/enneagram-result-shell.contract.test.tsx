@@ -1254,7 +1254,9 @@ describe("enneagram result shell contract", () => {
     expect(within(shell).queryByText(/^置信 ·/)).not.toBeInTheDocument();
     expect(within(shell).queryByText("继续使用这个结果")).not.toBeInTheDocument();
     expect(within(shell).queryByText(/PDF 导出已安全暂停/)).not.toBeInTheDocument();
-    expect(within(shell).getByRole("navigation", { name: "结果章节" })).toBeInTheDocument();
+    expect(within(shell).queryByRole("navigation", { name: "结果章节" })).not.toBeInTheDocument();
+    expect(within(shell).queryByText("自我认知")).not.toBeInTheDocument();
+    expect(within(shell).getByRole("heading", { level: 1, name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).getByRole("heading", { name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).queryByText(/你最可能是/)).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
@@ -1328,7 +1330,7 @@ describe("enneagram result shell contract", () => {
     expect(within(moduleNode).getByText(/1 vs 6/)).toBeInTheDocument();
     expect(moduleNode).toHaveTextContent("motivation contrast");
     expect(moduleNode).not.toHaveTextContent("gap_below_threshold");
-    expect(screen.getByTestId("enneagram-v2-interpretation-scope")).toHaveTextContent("close_call");
+    expect(screen.queryByTestId("enneagram-v2-interpretation-scope")).not.toBeInTheDocument();
   });
 
   it("renders diffuse state with the diffuse boundary module", async () => {
@@ -1348,13 +1350,13 @@ describe("enneagram result shell contract", () => {
     expect(moduleNode).not.toHaveTextContent("speed_too_fast");
   });
 
-  it("uses different form badges for E105 and FC144 while keeping one shell", async () => {
+  it("omits the header form badge for both E105 and FC144", async () => {
     const firstRender = await renderShell(createV2ReportResponse({ formCode: "enneagram_likert_105" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("E105 标准版");
+    expect(screen.queryByTestId("enneagram-form-badge")).not.toBeInTheDocument();
     firstRender.unmount();
 
     await renderShell(createV2ReportResponse({ formCode: "enneagram_forced_choice_144" }));
-    expect(screen.getByTestId("enneagram-form-badge")).toHaveTextContent("FC144 深度版");
+    expect(screen.queryByTestId("enneagram-form-badge")).not.toBeInTheDocument();
   });
 
   it("renders all9 profile completeness and top3 cards", async () => {
@@ -1362,8 +1364,24 @@ describe("enneagram result shell contract", () => {
 
     expect(screen.getByTestId("enneagram-v2-all9-profile-count")).toHaveTextContent("9");
     const top3 = screen.getByTestId("enneagram-module-top3-cards");
-    expect(within(top3).getByText("候选 1")).toBeInTheDocument();
+    expect(within(top3).queryByText(/^候选 [123]$/)).not.toBeInTheDocument();
     expect(within(top3).getByText("Type 6")).toBeInTheDocument();
+  });
+
+  it("does not invent an all-nine ranking or show an empty comparison", async () => {
+    const report = createV2ReportResponse({ scope: "close_call" });
+    const v2 = report.enneagram_report_v2 as { pages: { modules: { module_key: string; content: Record<string, unknown> }[] }[] };
+    for (const reportModule of v2.pages.flatMap((page) => page.modules)) {
+      if (reportModule.module_key === "all9_profile") {
+        reportModule.content.items = Array.from({ length: 9 }, (_, index) => ({ type: String(index + 1) }));
+      }
+      if (reportModule.module_key === "close_call_card") reportModule.content.pair_entry = {};
+    }
+    await renderShell(report);
+    expect(screen.queryByTestId("enneagram-module-all9-profile")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("enneagram-module-close-call-card")).not.toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-module-top3-cards")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-v2-summary-body")).toHaveTextContent("body_for_close_call");
   });
 
   it("omits unknown modules instead of inventing a generic fallback", async () => {
@@ -1517,12 +1535,12 @@ describe("enneagram result shell contract", () => {
     expect(text).not.toContain("analyzer_close_call");
   });
 
-  it("links the technical note module to the dedicated technical note page", async () => {
+  it("omits the technical note block and its disclosure", async () => {
     await renderShell(createV2ReportResponse());
 
-    const link = screen.getByTestId("enneagram-technical-note-link");
-    expect(link).toHaveAttribute("href", "/zh/tests/enneagram-personality-test-nine-types/technical-note");
-    expect(link).toHaveTextContent("阅读技术说明");
+    expect(screen.queryByTestId("enneagram-technical-note-link")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("enneagram-module-technical-note-link")).not.toBeInTheDocument();
+    expect(screen.queryByText("查看技术说明")).not.toBeInTheDocument();
   });
 
   it("suppresses sample report preview blocks on the public result surface", async () => {
