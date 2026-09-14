@@ -19,7 +19,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
-import { resolveEnneagramTechnicalNoteHref } from "@/lib/enneagram/technicalNote";
 import type {
   EnneagramReportV2Module,
   EnneagramReportV2Page,
@@ -27,7 +26,6 @@ import type {
   EnneagramTypeRow,
 } from "@/lib/enneagram/resultAssembler";
 import type { Locale } from "@/lib/i18n/locales";
-import { SelfUnderstandingDomainBadge } from "@/components/domains/SelfUnderstandingDomainBadge";
 
 const INTERNAL_VISIBLE_TEXT_PATTERNS = [
   /\[object Object\]/i,
@@ -49,6 +47,7 @@ const INTERNAL_VISIBLE_TEXT_PATTERNS = [
   /^harmonic summary$/i,
   /^unavailable$/i,
   /^placeholder$/i,
+  /只写 P0 可上线/,
 ];
 
 const SUPPRESSED_PUBLIC_MODULE_KEYS = new Set([
@@ -104,27 +103,21 @@ function moduleArray(module: EnneagramReportV2Module | null | undefined, key: st
   return Array.isArray(value) ? value.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object")) : [];
 }
 
-function formBadgeCopy(viewModel: EnneagramResultViewModel): { label: string; body: string } | null {
-  const fromModule = viewModel.moduleMap.instant_summary?.content.form_badge;
-  if (fromModule && typeof fromModule === "object" && !Array.isArray(fromModule)) {
-    return {
-      label: safePublicText((fromModule as Record<string, unknown>).label),
-      body: safePublicText((fromModule as Record<string, unknown>).body),
-    };
-  }
-
-  return null;
-}
-
 function canonicalResultTitle(viewModel: EnneagramResultViewModel): string {
   return moduleText(viewModel.moduleMap.instant_summary, "title");
 }
 
-function nextActionHint(viewModel: EnneagramResultViewModel): string {
-  return firstSafePublicText(
+function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): string {
+  const hint = firstSafePublicText(
     viewModel.moduleMap.form_recommendation?.content.recommended_first_action,
     viewModel.moduleMap.form_recommendation?.content.recommendation_copy
   );
+  const labels: Record<string, { zh: string; en: string }> = {
+    fc144: { zh: "可通过 FC144 二选一迫选版继续探索候选差异。", en: "Explore candidate differences with the FC144 forced-choice form." },
+    do_fc144: { zh: "可通过 FC144 二选一迫选版继续探索候选差异。", en: "Explore candidate differences with the FC144 forced-choice form." },
+    retest_same_form: { zh: "在合适的时间重新完成当前题型。", en: "Retake the current form when you are ready." },
+  };
+  return labels[hint]?.[locale === "zh" ? "zh" : "en"] ?? hint;
 }
 
 function typeRefLabel(value: unknown, locale: Locale): string {
@@ -151,8 +144,8 @@ function observationGuidanceCopy(viewModel: EnneagramResultViewModel): string {
   );
 }
 
-function observationActionLabel(viewModel: EnneagramResultViewModel): string {
-  return nextActionHint(viewModel);
+function observationActionLabel(viewModel: EnneagramResultViewModel, locale: Locale): string {
+  return nextActionHint(viewModel, locale);
 }
 
 function isObservationAssigned(state: EnneagramObservationStateV1 | null): boolean {
@@ -328,7 +321,7 @@ function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module
         }
 
         return (
-          <div key={`${labelKey || "group"}-${index}`} className="rounded-xl bg-slate-50 p-4 md:p-5">
+          <div key={`${labelKey || "group"}-${index}`} className="border-l-2 border-slate-100 pl-4 md:pl-5">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{listGroupLabel(labelKey, locale)}</p>
             <div className="mt-3 grid gap-5 sm:grid-cols-2">
               {items.map((item, itemIndex) => {
@@ -381,7 +374,7 @@ function TypeDeepDiveSummaryRenderer({ module, locale }: { module: EnneagramRepo
       {moduleText(module, "short_title") ? <p className="m-0 text-sm font-semibold text-slate-800">{moduleText(module, "short_title")}</p> : null}
       <div className="grid gap-3 md:grid-cols-2">
         {cards.map((card) => (
-          <div key={card.key} className="rounded-xl bg-slate-50 p-4 md:p-5">
+          <div key={card.key} className="border-l-2 border-slate-100 pl-4 md:pl-5">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{card.label}</p>
             <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, card.key)}</p>
           </div>
@@ -401,13 +394,12 @@ function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Mod
   const typeSummary = moduleText(module, "type_summary");
   const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
   const detail = moduleText(module, "deep_dive_detail");
-  const primaryCandidate = moduleText(module, "primary_candidate");
 
   return (
     <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
       {body ? <p className="m-0">{body}</p> : null}
       {typeSummary ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{locale === "zh" ? "当前主候选对应提示" : "Primary candidate cue"}</p>
           <p className="m-0 mt-2 text-sm text-slate-700">{typeSummary}</p>
         </div>
@@ -419,7 +411,6 @@ function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Mod
         </div>
       ) : null}
       <ListGroupSections module={module} locale={locale} />
-      {primaryCandidate ? <p className="m-0 text-xs text-slate-500">{locale === "zh" ? "围绕主候选" : "Grounded in lead candidate"} · {primaryCandidate}</p> : null}
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
   );
@@ -430,26 +421,17 @@ function ValueCardRenderer({ module, locale }: { module: EnneagramReportV2Module
   const value = moduleText(module, "value");
   const detail = moduleText(module, "deep_dive_detail");
   const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
-  const typeName = locale === "zh"
-    ? moduleText(module, "type_name_cn") || moduleText(module, "type_name_en")
-    : moduleText(module, "type_name_en");
-  const primaryCandidate = moduleText(module, "primary_candidate");
 
   return (
     <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
       {value ? <p className="m-0">{value}</p> : null}
       {detail ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{detailLabel}</p>
           <p className="m-0 mt-2 text-sm text-slate-700">{detail}</p>
         </div>
       ) : null}
       <ListGroupSections module={module} locale={locale} />
-      {typeName || primaryCandidate ? (
-        <p className="m-0 text-xs text-slate-500">
-          {locale === "zh" ? "当前主候选" : "Primary candidate"} · {[typeName, primaryCandidate].filter(Boolean).join(" · ")}
-        </p>
-      ) : null}
       <ModuleProvenance module={module} locale={locale} />
     </ModuleCard>
   );
@@ -464,7 +446,7 @@ function GroupOverlayRenderer({ module, locale }: { module: EnneagramReportV2Mod
       {items.length > 0 ? (
         <div className="grid gap-3">
           {items.map((item, index) => (
-            <div key={`${firstSafePublicText(item.group_ref, item.group_key) || index}`} className="rounded-xl bg-slate-50 p-4 md:p-5">
+            <div key={`${firstSafePublicText(item.group_ref, item.group_key) || index}`} className="border-l-2 border-slate-100 pl-4 md:pl-5">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                 {safePublicText(item.group_type) || (locale === "zh" ? "分组" : "Group")} · {firstSafePublicText(item.group_key, item.group_ref)}
               </p>
@@ -492,7 +474,7 @@ function StateSpectrumRenderer({ module, locale }: { module: EnneagramReportV2Mo
     <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId={`enneagram-module-${module.moduleKey}`}>
       <div className="grid gap-3">
         {bands.map((band) => (
-          <div key={band.key} className="rounded-xl bg-slate-50 p-4 md:p-5">
+          <div key={band.key} className="border-l-2 border-slate-100 pl-4 md:pl-5">
             <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{band.label}</p>
             <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, band.key)}</p>
           </div>
@@ -511,13 +493,13 @@ function StateSpectrumRenderer({ module, locale }: { module: EnneagramReportV2Mo
         </div>
       ) : null}
       {moduleText(module, "stress_signal") ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "压力信号" : "Stress signal"}</p>
           <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "stress_signal")}</p>
         </div>
       ) : null}
       {moduleText(module, "growth_principle") ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "成长原则" : "Growth principle"}</p>
           <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "growth_principle")}</p>
         </div>
@@ -575,7 +557,7 @@ function SampleReportRenderer({ module, locale }: { module: EnneagramReportV2Mod
       </div>
       {moduleText(module, "short_summary") ? <p className="m-0">{moduleText(module, "short_summary")}</p> : null}
       {moduleText(module, "page_1_preview") ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "首页预览" : "Page 1 preview"}</p>
           <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "page_1_preview")}</p>
         </div>
@@ -867,7 +849,7 @@ function ObservationModuleRenderer({
           </div>
         ) : (
           <div className="space-y-4">
-            <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+            <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                 {isZh ? "观察进度" : "Observation progress"}
               </p>
@@ -886,7 +868,7 @@ function ObservationModuleRenderer({
               {tasks.map((task, index) => (
                 <div
                   key={`${task.day ?? index}-${task.phase ?? ""}`}
-                  className="rounded-xl bg-slate-50 p-4 md:p-5"
+                  className="border-l-2 border-slate-100 pl-4 md:pl-5"
                 >
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                     {isZh ? "第" : "Day "} {task.day ?? index + 1}
@@ -920,7 +902,7 @@ function ObservationModuleRenderer({
     <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
       {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
       <p data-testid="enneagram-observation-next-action" className="m-0">
-        {observationActionLabel(viewModel)}
+        {observationActionLabel(viewModel, locale)}
       </p>
       <div className="flex flex-wrap gap-2">
         {state?.suggested_next_action === "do_fc144" ? (
@@ -935,7 +917,7 @@ function ObservationModuleRenderer({
         ) : null}
       </div>
       {state?.user_confirmed_type ? (
-        <div className="rounded-xl bg-slate-50 p-4 md:p-5">
+        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
           <p data-testid="enneagram-observation-user-confirmed" className="m-0 text-sm text-slate-700">
             {isZh ? "你的自我观察确认" : "Your self-observation confirmation"} · {state.user_confirmed_type}
           </p>
@@ -1011,63 +993,16 @@ function renderModule(
 
   switch (module.moduleKey) {
     case "instant_summary": {
-      const badge = formBadgeCopy(viewModel);
-      const topCandidates = moduleArray(module, "top_candidates");
       return (
-        <Card
-          data-testid="enneagram-v2-instant-summary"
-          className="overflow-hidden rounded-2xl border-slate-200 bg-white shadow-none"
-        >
-          <CardContent className="space-y-5 p-6 md:p-8">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-                {isZh ? "九型人格" : "Enneagram"}
-              </span>
-              {badge?.label ? (
-                <span data-testid="enneagram-form-badge" className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-                  {badge.label}
-                </span>
-              ) : null}
-              {viewModel.formSummaryLabel ? (
-                <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-                  {viewModel.formSummaryLabel}
-                </span>
-              ) : null}
-            </div>
-
-            <div className="space-y-2">
-              <h2 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{canonicalResultTitle(viewModel)}</h2>
-              <p data-testid="enneagram-v2-summary-body" className="m-0 text-base leading-8 text-slate-700">
-                {moduleText(module, "body")}
-              </p>
-            </div>
-
-            {topCandidates.length > 0 ? (
-              <div data-testid="enneagram-v2-summary-top-candidates" className="flex flex-wrap gap-2">
-                {topCandidates.map((candidate, index) => (
-                  <span key={`${candidate.type ?? index}`} className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
-                    #{index + 1} · {safePublicText(candidate.type) || "?"}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-
-            <div className="grid gap-3 md:grid-cols-2">
-              <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "解释状态" : "Interpretation state"}</p>
-                <p data-testid="enneagram-v2-interpretation-scope" className="m-0 mt-2 text-sm text-slate-700">
-                  {moduleText(module, "interpretation_scope")}
-                </p>
-              </div>
-              {nextActionHint(viewModel) ? (
-                <div className="rounded-2xl border border-white/80 bg-white/90 p-4">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "下一步" : "Next action"}</p>
-                  <p className="m-0 mt-2 text-sm text-slate-700">{nextActionHint(viewModel)}</p>
-                </div>
-              ) : null}
-            </div>
-          </CardContent>
-        </Card>
+        <header data-testid="enneagram-v2-instant-summary" className="space-y-5 pb-8 md:pb-10">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
+            <span className="font-semibold text-[var(--fm-trust-blue)]">{isZh ? "九型人格" : "Enneagram"}</span>
+          </div>
+          <h1 className="m-0 text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-4xl">{canonicalResultTitle(viewModel)}</h1>
+          <p data-testid="enneagram-v2-summary-body" className="m-0 max-w-3xl text-base leading-8 text-slate-600">
+            {moduleText(module, "body")}
+          </p>
+        </header>
       );
     }
     case "top3_cards": {
@@ -1087,30 +1022,27 @@ function renderModule(
       }));
 
       return (
-        <ModuleCard title={isZh ? "前三候选" : "Top 3 candidates"} testId="enneagram-module-top3-cards">
+        <section aria-label={isZh ? "前三候选" : "Top 3 candidates"} data-testid="enneagram-module-top3-cards" className="pb-8 md:pb-10">
           <div className="grid gap-4 lg:grid-cols-3">
             {cards.map(({ row, coreLogic, workSummary }) => (
-              <div key={row.code} className="rounded-xl bg-slate-50 p-4 md:p-5">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                  {isZh ? `候选 ${row.rank}` : `Candidate ${row.rank}`}
-                </p>
-                <h3 className="m-0 mt-2 text-lg font-semibold text-slate-900">{row.label || row.code}</h3>
+              <div key={row.code} className="border-t-2 border-[var(--fm-trust-blue)]/25 bg-slate-50/70 px-5 py-6">
+                <h2 className="m-0 text-xl font-semibold text-slate-900"><span className="mr-2 text-[var(--fm-trust-blue)]">{row.code}</span>{row.label !== row.code ? row.label : (isZh ? "号候选" : "Candidate")}</h2>
                 {coreLogic ? <p className="m-0 mt-3 text-sm text-slate-700">{coreLogic}</p> : null}
                 {workSummary ? <p className="m-0 mt-2 text-xs text-slate-500">{workSummary}</p> : null}
               </div>
             ))}
           </div>
-        </ModuleCard>
+        </section>
       );
     }
     case "all9_profile": {
-      const items = moduleArray(module, "items").map((item, index) => ({
+      const items = moduleArray(module, "items").map((item) => ({
         code: firstSafePublicText(item.type, item.code),
         label: isZh
           ? firstSafePublicText(item.type_name_cn, item.type_name_en, item.label, item.type)
           : firstSafePublicText(item.type_name_en, item.label, item.type),
         score: null,
-        rank: typeof item.rank === "number" ? item.rank : index + 1,
+        rank: typeof item.rank === "number" ? item.rank : null,
       }));
       const rows = items.map((item) => ({
         code: item.code,
@@ -1118,6 +1050,8 @@ function renderModule(
         score: null,
         rank: item.rank,
       }));
+
+      if (!rows.some((row) => row.rank !== null)) return null;
 
       return (
         <ModuleCard title={isZh ? "九型完整轮廓" : "All 9 profile"} testId="enneagram-module-all9-profile">
@@ -1154,6 +1088,7 @@ function renderModule(
       const pairTypeB = typeRefLabel(pair?.type_b, locale);
       const coreMotivationDifference = safePublicText(pairEntry?.core_motivation_difference);
       const stressReactionDifference = safePublicText(pairEntry?.stress_reaction_difference);
+      if (!coreMotivationDifference && !stressReactionDifference) return null;
       return (
         <ModuleCard title={isZh ? "接近型辨析" : "Close-call differentiation"} testId="enneagram-module-close-call-card">
           <p className="m-0 text-sm text-slate-700">
@@ -1247,7 +1182,7 @@ function renderModule(
         <ModuleCard title={isZh ? "七天观察" : "Seven-day observation"} testId="enneagram-module-seven-day-observation">
           <div className="space-y-3">
             {steps.map((step) => (
-              <div key={firstSafePublicText(step.day, step.phase) || "step"} className="rounded-xl bg-slate-50 p-4 md:p-5">
+              <div key={firstSafePublicText(step.day, step.phase) || "step"} className="border-l-2 border-slate-100 pl-4 md:pl-5">
                 <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                   Day {safePublicText(step.day) || "?"} · {safePublicText(step.phase)}
                 </p>
@@ -1266,46 +1201,15 @@ function renderModule(
       return null;
     case "sample_report_link":
       return <SampleReportRenderer module={module} locale={locale} />;
-    case "technical_note_link": {
-      const sections = moduleArray(module, "sections");
-      const technicalNoteHref = resolveEnneagramTechnicalNoteHref(
-        moduleText(module, "href") || moduleText(module, "path") || moduleText(module, "url"),
-        locale
-      );
-      return (
-        <ModuleCard title={moduleText(module, "label") || (isZh ? "技术说明" : "Technical note")} testId="enneagram-module-technical-note-link">
-          {moduleText(module, "technical_note_version") ? (
-            <p className="m-0 text-sm text-slate-700">
-              {isZh ? "版本" : "Version"} · {moduleText(module, "technical_note_version")}
-            </p>
-          ) : null}
-          {sections.length > 0 ? (
-            <ul className="m-0 list-disc space-y-1 pl-5 text-sm text-slate-600">
-              {sections.slice(0, 4).map((section) => (
-                <li key={safePublicText(section.section_key) || safePublicText(section.title)}>
-                  {firstSafePublicText(section.title, section.section_key)}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          <Link
-            href={technicalNoteHref}
-            className={buttonVariants({ variant: "outline" })}
-            data-testid="enneagram-technical-note-link"
-          >
-            {isZh ? "阅读技术说明" : "Open Technical Note"}
-          </Link>
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    }
+    case "technical_note_link":
+      return null;
     case "form_recommendation":
       if (observation) {
         return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
       }
       return (
         <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
-          <p className="m-0">{nextActionHint(viewModel)}</p>
+          <p className="m-0">{nextActionHint(viewModel, locale)}</p>
           {moduleText(module, "recommended_first_action") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "recommended_first_action")}</p> : null}
           <ModuleProvenance module={module} locale={locale} />
         </ModuleCard>
@@ -1329,27 +1233,34 @@ function PageSection({
   locale: Locale;
   observation: ObservationSurfaceState | null;
 }) {
-  const visibleModules = page.modules.filter(
-    (module) => module.visibility === "visible" && !SUPPRESSED_PUBLIC_MODULE_KEYS.has(module.moduleKey)
-  );
+  const modules = page.modules
+    .filter((module) => module.visibility === "visible" && !SUPPRESSED_PUBLIC_MODULE_KEYS.has(module.moduleKey))
+    .map((module) => ({ module, content: renderModule(module, viewModel, locale, observation) }))
+    .filter(({ content }) => content !== null);
+  if (modules.length === 0) return null;
+  const hasSummary = modules.some(({ module }) => module.moduleKey === "instant_summary");
 
   return (
     <section
       data-testid={`enneagram-v2-page-${page.pageKey}`}
       id={`enneagram-${page.pageKey}`}
-      className="scroll-mt-24 space-y-5"
+      className={hasSummary ? "" : "border-t border-slate-200 pt-8 md:pt-10"}
     >
-      <div className="space-y-2">
-        <h2 className="m-0 text-2xl font-bold tracking-tight text-slate-950">{page.title}</h2>
-      </div>
-      <div className="divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-5 md:px-8">
-        {visibleModules.map((module) => (
+      {!hasSummary ? <h2 className="m-0 mb-2 text-2xl font-bold tracking-tight text-slate-950">{page.title}</h2> : null}
+      <div className="divide-y divide-slate-100">
+        {modules.map(({ module, content }) => (
           <div
             key={module.moduleKey}
-            className={module.moduleKey === "instant_summary" ? "py-6 [&>div]:border-0 [&>div>div]:p-0" : "empty:hidden"}
             data-testid={`enneagram-v2-page-${page.pageKey}-module-${module.moduleKey}`}
           >
-            {renderModule(module, viewModel, locale, observation)}
+            {module.moduleKey === "all9_profile" ? (
+              <details className="group py-5">
+                <summary className="cursor-pointer text-sm font-semibold text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4">
+                  {locale === "zh" ? "查看九型完整轮廓" : "View all nine types"}
+                </summary>
+                {content}
+              </details>
+            ) : content}
           </div>
         ))}
       </div>
@@ -1382,9 +1293,8 @@ function LegacyEnneagramResultShell({
       data-domain-id="self_understanding"
       data-domain-role="supporting"
       data-domain-envelope-state="metadata_only"
-      className="space-y-8"
+      className="space-y-8 rounded-2xl border border-slate-200/80 bg-white px-5 py-7 shadow-sm md:space-y-10 md:px-10 md:py-10"
     >
-      <SelfUnderstandingDomainBadge locale={locale} />
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/80 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
         <CardContent className="space-y-6 p-6 md:p-8">
           <div className="flex flex-wrap items-center gap-3">
@@ -1440,8 +1350,8 @@ function LegacyEnneagramResultShell({
 
       <LegacyTypeVector rows={viewModel.typeVector} />
 
-      <Card data-testid="enneagram-actions-card" className="border-slate-200 bg-white shadow-sm">
-        <CardContent className="flex flex-wrap items-center gap-3 pt-6">
+      <Card data-testid="enneagram-actions-card" className="rounded-none border-0 border-t border-slate-200 bg-transparent shadow-none">
+        <CardContent className="flex flex-wrap items-center gap-3 px-0 pt-6">
           {pdfAttemptId ? (
             <div data-testid="enneagram-pdf-entry">
               {/* Keep PDF export disabled to keep private result links out of file footers. */}
@@ -1633,27 +1543,14 @@ export function EnneagramResultShell({
       data-enneagram-source-hash={viewModel.sourceHash ?? undefined}
       data-enneagram-compiled-hash={viewModel.compiledHash ?? undefined}
       data-enneagram-release-id={viewModel.authority?.releaseId || undefined}
-      className="space-y-8"
+      className="space-y-8 rounded-2xl border border-slate-200/80 bg-white px-5 py-7 shadow-sm md:space-y-10 md:px-10 md:py-10"
     >
-      <SelfUnderstandingDomainBadge locale={locale} />
-      <nav aria-label={isZh ? "结果章节" : "Result sections"} className="flex flex-wrap gap-2">
-        {reportV2.pages.map((page) => (
-          <a
-            key={page.pageKey}
-            href={`#enneagram-${page.pageKey}`}
-            className="inline-flex min-h-11 items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:border-slate-400 hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4"
-          >
-            {page.title}
-          </a>
-        ))}
-      </nav>
-
       {reportV2.pages.map((page) => (
         <PageSection key={page.pageKey} page={page} viewModel={viewModel} locale={locale} observation={observation} />
       ))}
 
-      <Card data-testid="enneagram-actions-card" className="border-slate-200 bg-white shadow-sm">
-        <CardContent className="flex flex-wrap items-center gap-3 pt-6">
+      <Card data-testid="enneagram-actions-card" className="rounded-none border-0 border-t border-slate-200 bg-transparent shadow-none">
+        <CardContent className="flex flex-wrap items-center gap-3 px-0 pt-6">
           {pdfAttemptId ? (
             <div data-testid="enneagram-pdf-entry">
               {/* Keep PDF export disabled to keep private result links out of file footers. */}
