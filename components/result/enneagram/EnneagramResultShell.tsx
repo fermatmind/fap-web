@@ -1325,9 +1325,9 @@ function LegacyEnneagramResultShell({
           </div>
 
           <div className="space-y-3">
-            <h2 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
+            <h1 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
               {primaryType ? primaryType.label : isZh ? "九型人格结果" : "Enneagram result"}
-            </h2>
+            </h1>
             {primaryType?.code ? (
               <p data-testid="enneagram-primary-type" className="m-0 text-lg font-medium text-slate-700">
                 {isZh ? "主型" : "Primary type"} · {primaryType.code}

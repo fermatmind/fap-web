@@ -1246,6 +1246,24 @@ describe("enneagram result shell contract", () => {
     });
   });
 
+  it("preserves a level-one heading for immutable legacy results", () => {
+    const viewModel = assembleEnneagramResultViewModel({
+      reportData: createV2ReportResponse(),
+      locale: "zh",
+      gate: { isFreeVariant: false },
+    });
+    if (!viewModel.authority) throw new Error("Expected fixture authority");
+    render(
+      <EnneagramResultShell
+        locale="zh"
+        attemptId="attempt-v2"
+        reportLocked={false}
+        viewModel={{ ...viewModel, reportV2: null, authority: { ...viewModel.authority, mode: "immutable_legacy_snapshot" } }}
+      />
+    );
+    expect(within(screen.getByTestId("enneagram-result-shell")).getByRole("heading", { level: 1 })).toBeInTheDocument();
+  });
+
   it("renders all five V2 pages from the backend payload", async () => {
     await renderShell(createV2ReportResponse());
 
