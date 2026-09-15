@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light">
+  <title>九型人格完整报告 · 费马测试 UI 预览</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#report">跳到报告正文</a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="#top" aria-label="费马测试，返回顶部">费马测试<span>FermatMind</span></a><div class="site-menu" aria-label="网站栏目展示"><span>测试</span><span>文章</span><span>人格</span><span>职业</span><span>帮助</span></div><span class="preview-tag">设计预览</span></div></header>
+<div class="preview-context" id="top"><span><i></i>独立 UI 预览 · 全部数值及正文为示例，不是你的真实测评结果</span><label>验收场景<select id="scenario"><option value="close">8 / 3 / 9 · 需要辨析</option><option value="priority">有优先阅读候选</option><option value="tie">第二位置并列</option><option value="more">候选多于三个</option><option value="flat">九项分布较平</option><option value="scoresMissing">仅候选，缺少完整分数</option><option value="contentMissing">3 型 2.3 局部缺失</option><option value="formE105">E105 · 仅题型标签</option><option value="formFC144">FC144 · 仅题型标签</option><option value="quality">作答质量不足</option><option value="disagree">不认同当前候选</option><option value="student">没有工作或伴侣经历</option></select></label></div>
+<div class="page-layout">
+  <aside class="reader-sidebar">
+    <div class="reader-sticky">
+      <p class="eyebrow">候选深读</p><div id="reader-selector" class="reader-selector"></div>
+      <p class="reader-help">选择阅读对象，<br>不会改变测评分数。</p>
+      <button class="outline small compare-open" type="button">对照三个候选 <span>↗</span></button>
+      <nav class="chapter-nav" aria-label="报告章节"></nav>
+      <div class="reading-progress"><div><span id="progress-label">阅读进度</span><span id="progress-value">0%</span></div><div class="progress-track"><div id="progress-fill"></div></div></div>
+      <button class="text-button" id="print-current" type="button">打印当前候选阅读版 ↗</button>
+    </div>
+  </aside>
+  <div class="report-column">
+    <section class="email-tool" aria-label="邮箱找回表单预览"><div><h2>保存邮箱，随时找回这份结果</h2><p>表单外观预览 · 此处不会发送邮件</p></div><div class="email-input"><input aria-label="邮箱（展示）" type="email" placeholder="you@example.com" disabled><button disabled>保存并发送链接</button></div></section>
+    <div class="mobile-reader"><label>当前阅读<select id="mobile-type"><option value="8">8 领袖型</option><option value="3">3 成就型</option><option value="9">9 和平型</option></select></label><button class="text-button compare-open" type="button">对照 ↗</button><label class="mobile-chapter-label">目录<select id="mobile-chapter"><option value="1">01 你的九型结果</option><option value="2">02 理解核心模式</option><option value="3">03 优势与代价</option><option value="4">04 关系中的样子</option><option value="5">05 工作中的样子</option><option value="6">06 压力与恢复</option><option value="7">07 观察自己</option></select></label></div>
+    <main id="report" class="report-paper"></main>
+    <footer class="report-footer"><span class="brand footer-brand">费马测试</span><p>认识自己，带着线索走进真实生活。</p><p class="fine">原创场景与行动示例 · 仅用于前端结构验收<br>完整解释免费可读；正式内容审核与真实结果接入另行完成。</p></footer>
+  </div>
+</div>
+<dialog id="compare-dialog" aria-labelledby="compare-title"><div class="dialog-head"><div><p class="eyebrow">同一情境 · 不同解释</p><h2 id="compare-title">先看事实，再比较候选</h2></div><button class="icon-button" id="close-compare" aria-label="关闭候选对照">×</button></div><div class="dialog-body"><p class="dialog-intro">别人没有和你商量，就改变了共同安排。让你最难释怀的是什么？先用自己的话写下反应，再打开下面的解释。</p><label class="field">我的第一反应<textarea id="compare-note" rows="2" placeholder="只写事实和当时的想法，不必选择类型。"></textarea></label><div class="pair-tabs" role="group" aria-label="对照组合"><button data-pair="all" aria-pressed="true">三个候选</button><button data-pair="8-3" aria-pressed="false">8 与 3</button><button data-pair="8-9" aria-pressed="false">8 与 9</button><button data-pair="3-9" aria-pressed="false">3 与 9</button></div><div id="comparison-content"></div><div class="comparison-footer"><strong>三个解释都不够充分，也是一种有效发现。</strong><p>情境、职责、当时的负担都可能是其他原因。对照不会给你加分、重新计分或确认主型。</p><button class="outline" id="compare-to-note">把这条想法带到观察记录 ↓</button></div></div></dialog>
+<section id="copy-fallback" hidden aria-label="手动复制"><label class="field">复制失败，可手动选择以下文本<textarea id="copy-fallback-text" rows="8" readonly></textarea></label><button id="close-copy" type="button">关闭复制文本</button></section><div id="toast" role="status" aria-live="polite"></div><div class="sr-only" id="reading-announcement" aria-live="polite"></div>
+<script src="content.js"></script><script src="app.js"></script>
+</body></html>
