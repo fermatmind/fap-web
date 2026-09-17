@@ -1,4 +1,4 @@
-import { getAssessmentLandingUi } from "@/lib/tests/assessmentLandingUi";
+import { getAssessmentEditorialLayout, getAssessmentLandingUi } from "@/lib/tests/assessmentLandingUi";
 import { parseLandingFaq as parseFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiWhyChoose, MbtiFaqAnswers } from "@/components/tests/MbtiEditorialSections";
 import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntro";
@@ -517,8 +517,6 @@ type FlagshipFreeTestCopy = {
 function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "en" | "zh"): FlagshipFreeTestCopy | null {
   if (locale !== "zh") return null;
 
-  const freeBoundary = "可免费开始，基础结果免费；高级报告如有付费需提前说明。";
-
   switch (String(scaleCode ?? "").trim().toUpperCase()) {
     case "MBTI":
       return {
@@ -528,7 +526,7 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         secondaryCtaLabelByFormCode: {
           mbti_93: "开始 MBTI 快速版免费测试",
         },
-        freeBoundary,
+        freeBoundary: "两版均可免费完成并查看 16 型人格结果、四组偏好解释与后续探索建议。",
       };
     case "BIG5_OCEAN":
       return {
@@ -538,7 +536,7 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         secondaryCtaLabelByFormCode: {
           big5_90: "开始大五人格快速版免费测试",
         },
-        freeBoundary,
+        freeBoundary: "可免费开始，基础结果免费；高级报告如有付费需提前说明。",
       };
     case "ENNEAGRAM":
       return {
@@ -548,7 +546,7 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         secondaryCtaLabelByFormCode: {
           enneagram_forced_choice_144: "开始九型人格二选一版免费测试",
         },
-        freeBoundary,
+        freeBoundary: "两版均可免费完成并查看九型分布与候选类型解释。",
       };
     case "RIASEC":
       return {
@@ -558,7 +556,7 @@ function getFlagshipFreeTestCopy(scaleCode: string | null | undefined, locale: "
         secondaryCtaLabelByFormCode: {
           riasec_140: "开始霍兰德职业兴趣增强版免费测试",
         },
-        freeBoundary,
+        freeBoundary: "两版均可免费完成并查看 RIASEC 六维兴趣分布与三字代码。",
       };
     default:
       return null;
@@ -804,6 +802,7 @@ export default async function TestLandingPage({
   const { test, lookup, cmsLandingSurface } = landingData;
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const assessmentLandingUi = getAssessmentLandingUi(test.slug, locale);
+  const assessmentEditorialLayout = getAssessmentEditorialLayout(test.slug);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
@@ -1377,6 +1376,7 @@ export default async function TestLandingPage({
           {showsMbtiActions ? <MbtiLandingIntro
             locale={locale}
             title={heroHeadingTitle}
+            description={assessmentLandingUi?.heroDescription}
             heroArtwork={assessmentLandingUi?.heroArtwork}
             choices={withEntryLabels(mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices)}
             disabled={testDisabled || !canRenderStartCta}
@@ -1384,8 +1384,10 @@ export default async function TestLandingPage({
             locale={locale}
             title={heroHeadingTitle}
             heroArtwork={assessmentLandingUi?.heroArtwork}
+            description={assessmentLandingUi?.heroDescription}
             choices={withEntryLabels([...(showsIqActions ? iqBankChoices : showsEqActions ? eqVariantChoices : flagshipVariantChoices)])}
             disabled={testDisabled || !canRenderStartCta}
+            showChoiceSummaries={showsEnneagramActions || showsRiasecActions}
           /> : (
           <section id="what-it-is" className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-gradient-to-br from-white via-white to-sky-50 p-6 shadow-[var(--fm-shadow-md)]">
             <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_220px] md:items-start">
@@ -1488,7 +1490,12 @@ export default async function TestLandingPage({
             </section>
           ) : null}
 
-          {mbtiEditorial ? <MbtiWhyChoose content={mbtiEditorial} /> : null}
+          {mbtiEditorial ? <MbtiWhyChoose
+            content={mbtiEditorial}
+            itemOrder={assessmentEditorialLayout?.itemOrder}
+            methodItemIds={assessmentEditorialLayout?.methodItemIds}
+            locale={locale}
+          /> : null}
 
           {showsMentalHealthDisclaimer ? <MentalHealthDisclaimer locale={locale} /> : null}
 

@@ -7,8 +7,9 @@
 .heroCopy p { max-width:760px; margin:18px auto 0; color:var(--muted); font-size:17px; line-height:1.8; text-wrap:balance; }
 .heroActions { margin-top:30px; }
 .versionActions { display:flex; justify-content:center; gap:24px; }
-.versionAction { display:flex; flex:0 1 295px; min-width:0; }
+.versionAction { display:flex; flex:0 1 320px; min-width:0; flex-direction:column; align-items:center; }
 .versionAction > .startButton { width:100%; }
+.versionSummary { margin:12px 8px 0; color:#5f6f82; font-size:13px; line-height:1.55; text-align:center; }
 .startButton { display:flex; justify-content:center; align-items:center; gap:18px; min-height:58px; padding:16px 24px; background:#008783; border:1px solid #008783; color:white; border-radius:999px; font-size:16px; font-weight:600; transition:background .18s,transform .18s; }
 .startButton:hover { background:#006a68; transform:translateY(-2px); }
 .secondaryButton { background:transparent; color:#007b77; border-color:#75aba7; }
@@ -77,9 +78,10 @@
 @media(max-width:680px) { .content > .whyChoose h2 { font-size:28px; } .content > .whyChoose h3 { font-size:21px; } }
 
 .content > .whyChoose .whyIntro { width:100%; margin:0 0 36px; }
+.methodSection { margin-top:48px; padding-top:40px; border-top:1px solid #e6ecef; }
 .whyBody p + p { margin-top:16px; }
 
-.faqItem, .comparison { scroll-margin-top:96px; }
+.faqItem, .comparison, .whyChoose article { scroll-margin-top:96px; }
 .content > .faq .faqItem p + p { margin-top:20px; }
 .comparison { margin:20px 0; min-width:0; }
 .tableScroll { max-width:100%; overflow-x:auto; border:1px solid #dce5e8; border-radius:6px; }

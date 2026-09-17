@@ -4,7 +4,7 @@ import { AssessmentLandingIntro } from "@/components/tests/AssessmentLandingIntr
 import { trackEvent } from "@/lib/analytics";
 vi.mock("@/lib/analytics", () => ({ trackEvent: vi.fn() }));
 const choices = [
-  { key: "short", label: "90Q", href: "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90", testId: "short", eventProperties: { form_code: "big5_90" } },
+  { key: "short", label: "90Q", href: "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90", testId: "short", eventProperties: { form_code: "big5_90" }, summary: "约 10 分钟" },
   { key: "full", label: "120Q", href: "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120", testId: "full", eventProperties: { form_code: "big5_120" } },
 ];
 describe("illustrated assessment landing entry", () => {
@@ -20,7 +20,12 @@ describe("illustrated assessment landing entry", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent("大五人格");
     expect(screen.getByText("CMS hero copy")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "90 题" })).toBeInTheDocument();
+    expect(screen.queryByText("约 10 分钟")).not.toBeInTheDocument();
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+  it("shows version summaries only when the scoped landing opts in", () => {
+    render(<AssessmentLandingIntro locale="zh" title="测试" choices={choices} disabled={false} showChoiceSummaries />);
+    expect(screen.getByText("约 10 分钟")).toBeInTheDocument();
   });
   it("keeps unavailable forms out of the links", () => {
     render(<AssessmentLandingIntro locale="en" title="Test" choices={[{ ...choices[0], href: null }]} disabled={false} />);

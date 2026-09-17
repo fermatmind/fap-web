@@ -22,15 +22,17 @@ type Props = {
   heroArtwork?: AssessmentArtwork;
   choices: Choice[];
   disabled: boolean;
+  description?: string;
 };
 
-export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled }: Props) {
+export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled, description }: Props) {
   const zh = locale === "zh";
   return (
     <section id="what-it-is" className={styles.hero}>
       <div className={styles.heroInner}>
         <div className={styles.heroCopy}>
           <h1>{title}</h1>
+          {description ? <p>{description}</p> : null}
         </div>
         <div id="choose-version" className={styles.heroActions} data-testid="mbti-landing-entry-cta-group">
           {disabled || choices.length === 0 ? (
@@ -48,6 +50,7 @@ export function MbtiLandingIntro({ locale, title, heroArtwork, choices, disabled
                     {zh ? choice.label.replace(/MBTI\s*/i, "").replace(/(\d+)Q/i, "$1 题") : choice.label}
                     <ArrowRight size={19} aria-hidden />
                   </TrackedEntryCtaLink>
+                  <p className={styles.versionSummary}>{choice.summary}</p>
                 </div>
               ))}
             </div>

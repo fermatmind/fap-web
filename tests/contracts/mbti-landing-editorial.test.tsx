@@ -51,6 +51,25 @@ describe("CMS MBTI editorial", () => {
     expect(screen.getByText(/参考资料/)).toBeInTheDocument();
     expect(screen.getByText(/产品说明／延伸阅读/)).toBeInTheDocument();
   });
+  it("reorders recognized items, preserves unknown content, and exposes stable method anchors", () => {
+    const content = parseMbtiEditorial({
+      why_choose: {
+        title: "Why",
+        intro: "Intro",
+        items: [
+          { id: "method-a", title: "Method A", body: "Formula" },
+          { id: "unknown-owner-block", title: "Owner block", body: "Keep this" },
+          { id: "versions", title: "Versions", body: "Compare" },
+        ],
+      },
+    });
+    const { container } = render(<MbtiWhyChoose content={content!} itemOrder={["versions", "method-a"]} methodItemIds={["method-a"]} locale="zh" />);
+    const headings = screen.getAllByRole("heading").map((heading) => heading.textContent);
+    expect(headings.indexOf("Versions")).toBeLessThan(headings.indexOf("Owner block"));
+    expect(container.querySelector("#unknown-owner-block")).not.toBeNull();
+    expect(container.querySelector("#method-and-evidence #method-a")).not.toBeNull();
+    expect(screen.getByRole("heading", { name: "方法与证据" })).toBeInTheDocument();
+  });
 });
 
 it("renders English editorial, comparison, sources and FAQ without Chinese punctuation", () => {

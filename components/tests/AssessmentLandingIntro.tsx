@@ -10,15 +10,17 @@ export type AssessmentLandingChoice = {
   href: string | null;
   testId: string;
   eventProperties?: Record<string, string>;
+  summary?: string;
 };
 
-export function AssessmentLandingIntro({ locale, title, heroArtwork, description, choices, disabled }: {
+export function AssessmentLandingIntro({ locale, title, heroArtwork, description, choices, disabled, showChoiceSummaries = false }: {
   locale: "zh" | "en";
   title: string;
   heroArtwork?: AssessmentArtwork;
   description?: string;
   choices: AssessmentLandingChoice[];
   disabled: boolean;
+  showChoiceSummaries?: boolean;
 }) {
   const availableChoices = choices.filter((choice) => choice.href);
   return (
@@ -39,6 +41,7 @@ export function AssessmentLandingIntro({ locale, title, heroArtwork, description
                     {locale === "zh" ? choice.label.replace(/^(?:Big Five|Enneagram|RIASEC|EQ)\s*/i, "").replace(/(\d+)Q/gi, "$1 题") : choice.label}
                     <ArrowRight size={19} aria-hidden />
                   </TrackedEntryCtaLink>
+                  {showChoiceSummaries && choice.summary ? <p className={styles.versionSummary}>{choice.summary}</p> : null}
                 </div>
               ))}
             </div>

@@ -355,7 +355,11 @@ describe("SEO core test detail availability", () => {
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
-        expect(props.description).toBeUndefined();
+        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC].some((target) => target === slug)) {
+          expect(props.description).toBeDefined();
+        } else {
+          expect(props.description).toBeUndefined();
+        }
       }
       expect(strings).toContain(locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.");
       expect(strings.some((value) => value.includes(`/${locale}/tests/${slug}/take`))).toBe(true);
