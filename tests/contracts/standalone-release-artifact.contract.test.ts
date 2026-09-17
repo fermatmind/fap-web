@@ -239,7 +239,8 @@ describe("immutable standalone release artifact", () => {
     expect(ci.match(/(?:^|\s)pnpm build(?:\s|$)/gm)).toHaveLength(2);
     expect(ci).toContain('NEXT_PUBLIC_ANALYTICS_ENABLED: "true"');
     expect(ci).toMatch(/NEXT_PUBLIC_GA_MEASUREMENT_ID: G-[A-Z0-9]{4,32}/);
-    expect(ci).toMatch(/NEXT_PUBLIC_BAIDU_TONGJI_ID: [a-f0-9]{16,64}/);
+    expect(ci).toContain("NEXT_PUBLIC_BAIDU_TONGJI_ID: 29f3df62751d21041d9e1d90facea311");
+    expect(deploy).toContain("NEXT_PUBLIC_BAIDU_TONGJI_ID: 29f3df62751d21041d9e1d90facea311");
     expect(ci).not.toContain("secrets.WEB_NEXT_PUBLIC_ANALYTICS");
     expect(ci).toContain("--require-production-config");
     expect(ci).toContain("--sort=name --mtime='UTC 1970-01-01'");
