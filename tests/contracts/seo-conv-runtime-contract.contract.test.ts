@@ -151,9 +151,11 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
       MBTI_ATTRIBUTION_INGEST_ENDPOINT: process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT,
       ANALYTICS_ENDPOINT: process.env.ANALYTICS_ENDPOINT,
       EDM_ENDPOINT: process.env.EDM_ENDPOINT,
+      VERCEL_ENV: process.env.VERCEL_ENV,
     };
     process.env.TRACK_INGEST_TOKEN = "track-token";
     process.env.NEXT_PUBLIC_API_URL = "https://api.example.test";
+    process.env.VERCEL_ENV = "production";
     delete process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT;
     delete process.env.ANALYTICS_ENDPOINT;
     delete process.env.EDM_ENDPOINT;
@@ -162,7 +164,10 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
     try {
       const response = await postTrackingEvent(new NextRequest("https://fermatmind.com/api/track", {
         method: "POST",
-        headers: { "content-type": "application/json" },
+        headers: {
+          "content-type": "application/json",
+          "x-forwarded-for": "198.51.100.77",
+        },
         body: JSON.stringify({
           eventName: TRACKING_EVENTS.ARTICLE_TO_TEST_CLICK,
           anonymousId: "anon-seo-runtime",
@@ -177,6 +182,7 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
             form_id: "mbti_93",
             session_id: "seo_sess_ABCDEFGHIJKLMNOPQRSTUVWX",
           },
+          timestamp: "2026-09-18T04:30:00.000Z",
         }),
       }));
 
@@ -186,6 +192,11 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
       const [url, init] = fetchMock.mock.calls[0];
       expect(url).toBe("https://api.example.test/api/v0.5/seo/attribution/events");
       expect(init?.headers).toMatchObject({ Authorization: "Bearer track-token" });
+      expect(init?.headers).toMatchObject({
+        "X-FermatMind-IP-Day": "2026-09-18",
+        "X-FermatMind-IP-Day-Hash": expect.stringMatching(/^[a-f0-9]{64}$/),
+      });
+      expect(JSON.stringify(init?.body)).not.toContain("198.51.100.77");
       const forwardedBody = JSON.parse(String(init?.body ?? "{}")) as { eventName?: string; payload?: Record<string, unknown> };
       expect(forwardedBody.eventName).toBe(TRACKING_EVENTS.ARTICLE_TO_TEST_CLICK);
       expect(forwardedBody.payload).toMatchObject({
@@ -199,6 +210,8 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
       process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT = previousEnv.MBTI_ATTRIBUTION_INGEST_ENDPOINT;
       process.env.ANALYTICS_ENDPOINT = previousEnv.ANALYTICS_ENDPOINT;
       process.env.EDM_ENDPOINT = previousEnv.EDM_ENDPOINT;
+      if (previousEnv.VERCEL_ENV === undefined) delete process.env.VERCEL_ENV;
+      else process.env.VERCEL_ENV = previousEnv.VERCEL_ENV;
     }
   });
 

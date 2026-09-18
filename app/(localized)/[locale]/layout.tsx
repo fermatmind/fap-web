@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { notFound } from "next/navigation";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
+import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { CookieBanner } from "@/components/legal/CookieBanner";
 import { LocaleProvider } from "@/components/i18n/LocaleContext";
 import { Providers } from "@/app/providers";
@@ -113,6 +114,7 @@ export default async function LocalizedRootLayout({
         <AnalyticsScripts nonce={nonce} suppressServerBootstrap={suppressAnalyticsBootstrap} />
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
+            {!suppressAnalyticsBootstrap ? <AnalyticsPageViewTracker eventName="landing_pv" /> : null}
             {useResultPrintSnapshotShell ? (
               children
             ) : (

@@ -1,4 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { createHmac } from "node:crypto";
+import { isIP } from "node:net";
 import {
   filterTrackingPayload,
   isCareerAttributionEvent,
@@ -12,6 +14,7 @@ import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/l
 import { resolveApiOrigin } from "@/lib/api-base";
 
 const MAX_BODY_BYTES = 8 * 1024;
+const ACCESS_STATS_RULE_VERSION = "access_test_statistics.v1";
 
 export function HEAD() {
   return new NextResponse(null, { status: 200 });
@@ -32,6 +35,56 @@ function localeFromPath(path: string): "en" | "zh" {
 
 function uniqueTargets(targets: Array<string | undefined>): string[] {
   return Array.from(new Set(targets.filter((value): value is string => Boolean(value))));
+}
+
+function normalizeIp(value: string): string | undefined {
+  let candidate = value.trim().replace(/^\[|\]$/g, "").toLowerCase();
+  if (candidate.startsWith("::ffff:") && isIP(candidate.slice(7)) === 4) {
+    candidate = candidate.slice(7);
+  }
+  if (isIP(candidate) === 4) return candidate;
+  if (isIP(candidate) !== 6) return undefined;
+
+  try {
+    return new URL(`http://[${candidate}]/`).hostname.replace(/^\[|\]$/g, "").toLowerCase();
+  } catch {
+    return undefined;
+  }
+}
+
+function shanghaiDay(timestamp: string): string {
+  const parsed = new Date(timestamp);
+  const date = Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(date);
+}
+
+export function buildAccessStatsIdentityHeaders(
+  request: NextRequest,
+  timestamp: string,
+  token: string | undefined,
+  environment = process.env.VERCEL_ENV ?? process.env.NODE_ENV
+): Record<string, string> {
+  if (!token || environment !== "production") return {};
+
+  const forwarded = request.headers.get("x-vercel-forwarded-for") ?? request.headers.get("x-forwarded-for") ?? "";
+  const candidates = forwarded.split(",").map((value) => normalizeIp(value)).filter((value): value is string => Boolean(value));
+  const clientIp = candidates.at(-1);
+  if (!clientIp) return {};
+
+  const day = shanghaiDay(timestamp);
+  const digest = createHmac("sha256", token)
+    .update(`${ACCESS_STATS_RULE_VERSION}|${clientIp}`)
+    .digest("hex");
+
+  return {
+    "X-FermatMind-IP-Day": day,
+    "X-FermatMind-IP-Day-Hash": digest,
+  };
 }
 
 function resolveSeoAttributionIngestEndpoint(token?: string): string | undefined {
@@ -98,6 +151,7 @@ export async function POST(request: NextRequest) {
   };
 
   const token = process.env.TRACK_INGEST_TOKEN;
+  const identityHeaders = buildAccessStatsIdentityHeaders(request, timestamp, token);
   const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
     ? resolveSeoAttributionIngestEndpoint(token)
     : undefined;
@@ -125,6 +179,7 @@ export async function POST(request: NextRequest) {
             "Content-Type": "application/json",
             Accept: "application/json",
             "X-Request-Id": requestId,
+            ...identityHeaders,
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
           body: JSON.stringify(event),
