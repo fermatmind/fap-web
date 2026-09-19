@@ -195,9 +195,9 @@ function ModuleCard({
   testId?: string;
 }) {
   return (
-    <section data-testid={testId} className="grid gap-4 py-6 md:grid-cols-[11rem_minmax(0,1fr)] md:gap-8 md:py-8">
+    <section data-testid={testId} className="space-y-4 py-4 md:py-5">
       <h3 className="m-0 text-lg font-semibold tracking-tight text-slate-950">{title}</h3>
-      <div className="min-w-0 space-y-5 text-sm leading-7 text-slate-700">{children}</div>
+      <div className="min-w-0 space-y-5 text-base leading-8 text-slate-700 [&_p]:leading-8">{children}</div>
     </section>
   );
 }
@@ -1222,49 +1222,62 @@ function renderModule(
   }
 }
 
-function PageSection({
-  page,
-  viewModel,
-  locale,
-  observation,
-}: {
-  page: EnneagramReportV2Page;
+const READING_CHAPTERS = [
+  { id: "result", zh: "你的九型结果", en: "Your Enneagram results", keys: ["instant_summary", "top3_cards", "all9_profile", "confidence_band_card", "dominance_gap_card", "close_call_card", "diffuse_boundary", "low_quality_boundary"] },
+  { id: "core", zh: "理解你的核心模式", en: "Understanding your core pattern", keys: ["type_deep_dive_summary", "wing_hint_visual"] },
+  { id: "strengths", zh: "优势与容易付出的代价", en: "Strengths and their costs", keys: ["strength_expression", "cost_expression"] },
+  { id: "relationships", zh: "你在关系中的样子", en: "You in relationships", keys: ["relationship_need", "relationship_strengths", "misread_by_others", "conflict_script", "communication_manual"] },
+  { id: "work", zh: "你在工作中的样子", en: "You at work", keys: ["work_style_summary", "collaboration_strengths", "collaboration_friction", "workplace_trigger_points", "leadership_pattern", "managed_by_others"] },
+  { id: "pressure", zh: "压力下的变化与恢复", en: "Stress and recovery", keys: ["state_spectrum", "stress_trigger", "recovery_action"] },
+  { id: "practice", zh: "接下来如何观察自己", en: "Your next steps in self-observation", keys: ["growth_axis", "seven_day_observation", "resonance_feedback_placeholder", "form_recommendation"] },
+];
+
+function ReadingReport({ pages, viewModel, locale, observation }: {
+  pages: EnneagramReportV2Page[];
   viewModel: EnneagramResultViewModel;
   locale: Locale;
   observation: ObservationSurfaceState | null;
 }) {
-  const modules = page.modules
+  const modules = pages.flatMap((page) => page.modules
     .filter((module) => module.visibility === "visible" && !SUPPRESSED_PUBLIC_MODULE_KEYS.has(module.moduleKey))
-    .map((module) => ({ module, content: renderModule(module, viewModel, locale, observation) }))
+    .map((module) => ({ page, module, content: renderModule(module, viewModel, locale, observation) })))
     .filter(({ content }) => content !== null);
-  if (modules.length === 0) return null;
-  const hasSummary = modules.some(({ module }) => module.moduleKey === "instant_summary");
-
+  const assigned = new Set(READING_CHAPTERS.flatMap((chapter) => chapter.keys));
+  const renderEntry = ({ page, module, content }: (typeof modules)[number]) => (
+    <div key={`${page.pageKey}-${module.moduleKey}`} data-testid={`enneagram-v2-page-${page.pageKey}-module-${module.moduleKey}`}>
+      {module.moduleKey === "wing_hint_visual" ? (
+        <details className="border-y border-slate-200 py-5">
+          <summary className="cursor-pointer text-sm font-medium text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4">
+            {locale === "zh" ? "邻位倾向参考" : "Adjacent-type reference"}
+          </summary>
+          {content}
+        </details>
+      ) : content}
+    </div>
+  );
   return (
-    <section
-      data-testid={`enneagram-v2-page-${page.pageKey}`}
-      id={`enneagram-${page.pageKey}`}
-      className={hasSummary ? "" : "border-t border-slate-200 pt-8 md:pt-10"}
-    >
-      {!hasSummary ? <h2 className="m-0 mb-2 text-2xl font-bold tracking-tight text-slate-950">{page.title}</h2> : null}
-      <div className="divide-y divide-slate-100">
-        {modules.map(({ module, content }) => (
-          <div
-            key={module.moduleKey}
-            data-testid={`enneagram-v2-page-${page.pageKey}-module-${module.moduleKey}`}
-          >
-            {module.moduleKey === "all9_profile" ? (
-              <details className="group py-5">
-                <summary className="cursor-pointer text-sm font-semibold text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4">
-                  {locale === "zh" ? "查看九型完整轮廓" : "View all nine types"}
-                </summary>
-                {content}
-              </details>
-            ) : content}
-          </div>
-        ))}
-      </div>
-    </section>
+    <>
+      {READING_CHAPTERS.map((chapter, index) => {
+        const entries = chapter.keys.flatMap((key) => modules.filter(({ module }) => module.moduleKey === key));
+        if (!entries.length) return null;
+        return (
+          <section key={chapter.id} data-testid={`enneagram-reading-${chapter.id}`} className="border-b border-slate-200 pb-10 last:border-0 md:pb-14">
+            <header className="mb-7 flex items-baseline gap-4 md:mb-10">
+              <span aria-hidden="true" className="text-sm tabular-nums tracking-widest text-slate-400">{String(index + 1).padStart(2, "0")}</span>
+              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">{locale === "zh" ? chapter.zh : chapter.en}</h2>
+            </header>
+            <div className={chapter.id === "strengths" ? "grid gap-x-10 md:grid-cols-2" : "space-y-6"}>
+              {entries.map(renderEntry)}
+            </div>
+          </section>
+        );
+      })}
+      {modules.some(({ module }) => !assigned.has(module.moduleKey)) ? (
+        <aside aria-label={locale === "zh" ? "结果阅读说明" : "Reading notes"} className="border-t border-slate-200 pt-6">
+          {modules.filter(({ module }) => !assigned.has(module.moduleKey)).map(renderEntry)}
+        </aside>
+      ) : null}
+    </>
   );
 }
 
@@ -1293,7 +1306,7 @@ function LegacyEnneagramResultShell({
       data-domain-id="self_understanding"
       data-domain-role="supporting"
       data-domain-envelope-state="metadata_only"
-      className="space-y-8 rounded-2xl border border-slate-200/80 bg-white px-5 py-7 shadow-sm md:space-y-10 md:px-10 md:py-10"
+      className="space-y-10 rounded-sm border border-slate-200/80 bg-white px-6 py-8 shadow-sm md:space-y-14 md:px-14 md:py-14"
     >
       <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/80 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
         <CardContent className="space-y-6 p-6 md:p-8">
@@ -1543,11 +1556,9 @@ export function EnneagramResultShell({
       data-enneagram-source-hash={viewModel.sourceHash ?? undefined}
       data-enneagram-compiled-hash={viewModel.compiledHash ?? undefined}
       data-enneagram-release-id={viewModel.authority?.releaseId || undefined}
-      className="space-y-8 rounded-2xl border border-slate-200/80 bg-white px-5 py-7 shadow-sm md:space-y-10 md:px-10 md:py-10"
+      className="space-y-10 rounded-sm border border-slate-200/80 bg-white px-6 py-8 shadow-sm md:space-y-14 md:px-14 md:py-14"
     >
-      {reportV2.pages.map((page) => (
-        <PageSection key={page.pageKey} page={page} viewModel={viewModel} locale={locale} observation={observation} />
-      ))}
+      <ReadingReport pages={reportV2.pages} viewModel={viewModel} locale={locale} observation={observation} />
 
       <Card data-testid="enneagram-actions-card" className="rounded-none border-0 border-t border-slate-200 bg-transparent shadow-none">
         <CardContent className="flex flex-wrap items-center gap-3 px-0 pt-6">
