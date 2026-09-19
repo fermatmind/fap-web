@@ -1,6 +1,7 @@
 "use client";
 
 import { hasAnalyticsConsent } from "@/lib/consent/store";
+import { buildApiUrl } from "@/lib/api-base";
 import { buildSearchIntelligenceTrackingPayload } from "@/lib/tracking/attribution";
 import {
   filterTrackingPayload,
@@ -392,19 +393,24 @@ export async function trackClientEvent({
   dispatchBrowserAnalyticsEvent(normalizedEventName, filteredPayload, rawPayload);
 
   try {
-    await fetch("/api/track", {
+    const envelope = {
+      eventName: normalizedEventName,
+      payload: filteredPayload,
+      anonymousId,
+      path: safePath,
+      timestamp: new Date().toISOString(),
+    };
+    const endpoint = normalizedEventName === "landing_pv"
+      ? buildApiUrl("/v0.5/seo/attribution/events")
+      : "/api/track";
+
+    await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify({
-        eventName: normalizedEventName,
-        payload: filteredPayload,
-        anonymousId,
-        path: safePath,
-        timestamp: new Date().toISOString(),
-      }),
+      body: JSON.stringify(envelope),
       keepalive: true,
     });
   } catch {

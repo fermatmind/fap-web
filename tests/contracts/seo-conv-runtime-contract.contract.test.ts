@@ -45,13 +45,14 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
     initAnalytics();
 
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
-    const [, init] = fetchMock.mock.calls[0];
+    const [url, init] = fetchMock.mock.calls[0];
     const body = JSON.parse(String(init?.body ?? "{}")) as {
       eventName?: string;
       path?: string;
       payload?: Record<string, unknown>;
     };
 
+    expect(url).toBe("https://api.fermatmind.com/api/v0.5/seo/attribution/events");
     expect(body.eventName).toBe(TRACKING_EVENTS.LANDING_PV);
     expect(body.path).toBe("/zh/articles/mbti-career-path?utm_source=google&email=redacted");
     expect(body.payload).toMatchObject({
