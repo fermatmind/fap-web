@@ -248,7 +248,7 @@ function normalizeText(...values: unknown[]): string {
     }
 
     const normalized = String(value).trim();
-    if (normalized) {
+    if (normalized && !/\[object Object\]/i.test(normalized) && !/analyzer_close_call/i.test(normalized)) {
       return normalized;
     }
   }
