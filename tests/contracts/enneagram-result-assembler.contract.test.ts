@@ -8,7 +8,7 @@ describe("ENNEAGRAM seven-chapter result assembler", () => {
     const view = assembleEnneagramResultViewModel({ reportData: report, locale: "en", gate: { isFreeVariant: false } });
     expect(hasEnneagramProjection(report, "en")).toBe(true);
     expect(view.interpretationScope).toBe(scope);
-    expect(view.pages).toHaveLength(7);
+    expect(view.reportV2?.pages).toHaveLength(7);
     expect(view.distribution).toHaveLength(9);
     expect(view.candidates).toHaveLength(3);
     expect(view.candidates.every((candidate) => candidate.sections.length === 20)).toBe(true);
@@ -35,7 +35,7 @@ describe("ENNEAGRAM seven-chapter result assembler", () => {
     }
   });
 
-  it("fails closed on missing canonical content, wrong locale, and unknown sections", () => {
+  it("fails closed on missing canonical content, wrong locale, unknown sections, and unknown modules", () => {
     const missing = createSevenChapterReport();
     const missingCandidates = (missing.enneagram_report_v2 as unknown as { candidates: Array<{ sections: unknown[] }> }).candidates;
     missingCandidates[0].sections.pop();
@@ -46,6 +46,14 @@ describe("ENNEAGRAM seven-chapter result assembler", () => {
     const unknownCandidates = (unknown.enneagram_report_v2 as unknown as { candidates: Array<{ sections: Array<{ section_id: string }> }> }).candidates;
     unknownCandidates[0].sections[0].section_id = "internal.unknown";
     expect(hasEnneagramProjection(unknown, "en")).toBe(false);
+    const unknownModule = createSevenChapterReport();
+    const modules = (unknownModule.enneagram_report_v2 as unknown as { modules: Array<{ module_key: string }> }).modules;
+    modules[0].module_key = "legacy_top3_cards";
+    expect(hasEnneagramProjection(unknownModule, "en")).toBe(false);
+    const placeholderModule = createSevenChapterReport();
+    const placeholderModules = (placeholderModule.enneagram_report_v2 as unknown as { modules: Array<{ visibility: string }> }).modules;
+    placeholderModules[0].visibility = "placeholder";
+    expect(hasEnneagramProjection(placeholderModule, "en")).toBe(false);
   });
 
   it("renders localized Chinese and English canonical bodies", () => {
