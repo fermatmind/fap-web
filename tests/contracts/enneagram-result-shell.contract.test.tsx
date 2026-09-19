@@ -1277,17 +1277,20 @@ describe("enneagram result shell contract", () => {
     expect(within(shell).getByRole("heading", { level: 1, name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).getByRole("heading", { name: "即时结论" })).toBeInTheDocument();
     expect(within(shell).queryByText(/你最可能是/)).not.toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-page-page_2_work_reality")).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum")).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict")).toBeInTheDocument();
-    expect(screen.getByTestId("enneagram-v2-page-page_5_method_observation_next")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-reading-core")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-reading-work")).toBeInTheDocument();
+    expect(screen.getAllByTestId(/^enneagram-reading-/).map((node) => node.getAttribute("data-testid"))).toEqual([
+      "enneagram-reading-result", "enneagram-reading-core", "enneagram-reading-strengths",
+      "enneagram-reading-relationships", "enneagram-reading-work", "enneagram-reading-pressure", "enneagram-reading-practice",
+    ]);
+    expect(screen.getByTestId("enneagram-reading-relationships")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-reading-practice")).toBeInTheDocument();
   });
 
   it("renders page 2 scenario cards instead of falling back to the generic renderer", async () => {
     await renderShell(createV2ReportResponse());
 
-    const page = screen.getByTestId("enneagram-v2-page-page_2_work_reality");
+    const page = screen.getByTestId("enneagram-reading-work");
     expect(within(page).getByTestId("enneagram-module-workplace_trigger_points")).toHaveTextContent("工作触发点");
     expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work style scaffold");
     expect(within(page).getByTestId("enneagram-module-work_style_summary")).toHaveTextContent("work mechanism scaffold");
@@ -1303,7 +1306,7 @@ describe("enneagram result shell contract", () => {
   it("renders page 3 state spectrum and group overlays with boundary copy", async () => {
     await renderShell(createV2ReportResponse());
 
-    const page = screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum");
+    const page = screen.getByTestId("enneagram-result-shell");
     expect(within(page).getByTestId("enneagram-module-state_spectrum")).toHaveTextContent("stable expression");
     expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("stress signal scaffold");
     expect(within(page).getByTestId("enneagram-module-stress_trigger")).toHaveTextContent("early warning scaffold");
@@ -1319,7 +1322,7 @@ describe("enneagram result shell contract", () => {
   it("renders page 4 relationship and conflict cards instead of generic fallback", async () => {
     await renderShell(createV2ReportResponse());
 
-    const page = screen.getByTestId("enneagram-v2-page-page_4_relationship_conflict");
+    const page = screen.getByTestId("enneagram-reading-relationships");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship need scaffold");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("relationship script scaffold");
     expect(within(page).getByTestId("enneagram-module-relationship_need")).toHaveTextContent("partner note scaffold");
@@ -1334,7 +1337,7 @@ describe("enneagram result shell contract", () => {
   it("renders page 1 type deep dive summary", async () => {
     await renderShell(createV2ReportResponse());
 
-    const page = screen.getByTestId("enneagram-v2-page-page_1_result_overview");
+    const page = screen.getByTestId("enneagram-reading-core");
     expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("core desire scaffold");
     expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("core fear scaffold");
     expect(within(page).getByTestId("enneagram-module-type_deep_dive_summary")).toHaveTextContent("self misread scaffold");
@@ -1570,7 +1573,7 @@ describe("enneagram result shell contract", () => {
   it("suppresses placeholder modules on the public result surface", async () => {
     await renderShell(createV2ReportResponse());
 
-    const page = screen.getByTestId("enneagram-v2-page-page_5_method_observation_next");
+    const page = screen.getByTestId("enneagram-reading-practice");
     expect(within(page).queryByTestId("enneagram-module-history_share_retake_placeholder")).not.toBeInTheDocument();
     expect(within(page).queryByText("当前模块使用通用渲染。")).not.toBeInTheDocument();
   });
