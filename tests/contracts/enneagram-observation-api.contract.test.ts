@@ -67,11 +67,11 @@ describe("enneagram observation API contract", () => {
   });
 
   it("builds the assign request against the PR9A endpoint", async () => {
-    await assignEnneagramObservation({ attemptId: "attempt-obs-1" });
+    await assignEnneagramObservation({ attemptId: "attempt-obs-1", selectedActionId: "type-4-action-01" });
 
     expect(hoisted.post).toHaveBeenCalledWith(
       "/v0.3/attempts/attempt-obs-1/enneagram/observation/assign",
-      {},
+      { selected_action_id: "type-4-action-01" },
       {
         headers: {
           "X-Anon-Id": "anon_observation_contract",

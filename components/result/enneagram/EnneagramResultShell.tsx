@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { CalendarDays, UserRound } from "lucide-react";
 import {
   assignEnneagramObservation,
   fetchEnneagramObservation,
@@ -14,1405 +15,369 @@ import {
 import { PdfDownloadButton } from "@/components/big5/pdf/PdfDownloadButton";
 import { SectionRenderer } from "@/components/big5/report/SectionRenderer";
 import { Alert } from "@/components/ui/alert";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import type {
-  EnneagramReportV2Module,
-  EnneagramReportV2Page,
+  EnneagramCanonicalSection,
   EnneagramResultViewModel,
-  EnneagramTypeRow,
 } from "@/lib/enneagram/resultAssembler";
 import type { Locale } from "@/lib/i18n/locales";
+import styles from "./enneagramResult.module.css";
 
-const INTERNAL_VISIBLE_TEXT_PATTERNS = [
-  /\[object Object\]/i,
-  /analyzer_close_call/i,
-  /deferred_to_future/i,
-  /not_shipped/i,
-  /^workplace_context_mode_not_enabled$/i,
-  /^history_share_surface_not_shipped$/i,
-  /^version\s*[·:]\s*unavailable$/i,
-  /^COMMUNICATION_MANUAL$/i,
-  /^content_maturity$/i,
-  /^evidence_level$/i,
-  /^high_profile_entropy$/i,
-  /^observe_7_days$/i,
-  /^blind_spot\.type_/i,
-  /^diffuse\s+enneagram_likert_105$/i,
-  /^center summary$/i,
-  /^stance summary$/i,
-  /^harmonic summary$/i,
-  /^unavailable$/i,
-  /^placeholder$/i,
-  /只写 P0 可上线/,
+const CHAPTERS = [
+  ["chapter-1", "01", "你的九型人格测试结果", "Your Enneagram test results"],
+  ["chapter-2", "02", "理解你的核心模式", "Understanding your core pattern"],
+  ["chapter-3", "03", "优势与容易付出的代价", "Strengths and their costs"],
+  ["chapter-4", "04", "你在关系中的样子", "You in relationships"],
+  ["chapter-5", "05", "你在工作中的样子", "You at work"],
+  ["chapter-6", "06", "压力下的变化与恢复", "Stress, change and recovery"],
+  ["chapter-7", "07", "接下来如何观察自己", "What to observe next"],
+] as const;
+const CHAPTER_SECTIONS: Record<string, string[]> = {
+  "chapter-2": ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6"],
+  "chapter-3": ["3.1", "3.2", "3.3"],
+  "chapter-4": ["4.1", "4.2", "4.3"],
+  "chapter-5": ["5.1", "5.2", "5.3"],
+  "chapter-6": ["6.1", "6.2", "6.3", "6.4", "6.5"],
+};
+const COLORS = [
+  "#587aa0",
+  "#a56b92",
+  "#cc6c45",
+  "#d4953f",
+  "#839b54",
+  "#3c907c",
+  "#347da2",
+  "#595e9c",
+  "#7f628e",
 ];
 
-const SUPPRESSED_PUBLIC_MODULE_KEYS = new Set([
-  "context_mode_placeholder",
-  "history_share_retake_placeholder",
-  "arrow_growth_reference_placeholder",
-  "blind_spot_card",
-  "blind_spot_in_relationship",
-  "center_summary",
-  "stance_summary",
-  "harmonic_summary",
-  "sample_report_link",
-]);
-
-function safePublicText(value: unknown): string {
-  if (value === null || value === undefined) {
-    return "";
-  }
-
-  if (typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean") {
-    return "";
-  }
-
-  const normalized = String(value).trim();
-  if (!normalized) {
-    return "";
-  }
-
-  if (INTERNAL_VISIBLE_TEXT_PATTERNS.some((pattern) => pattern.test(normalized))) {
-    return "";
-  }
-
-  return normalized;
+function polarPoint(radius: number, angle: number) {
+  const radians = ((angle - 90) * Math.PI) / 180;
+  return { x: Math.cos(radians) * radius, y: Math.sin(radians) * radius };
 }
 
-function firstSafePublicText(...values: unknown[]): string {
-  for (const value of values) {
-    const text = safePublicText(value);
-    if (text) {
-      return text;
-    }
-  }
-
-  return "";
-}
-
-function moduleText(module: EnneagramReportV2Module | null | undefined, key: string): string {
-  return safePublicText(module?.content?.[key]);
-}
-
-function moduleArray(module: EnneagramReportV2Module | null | undefined, key: string): Record<string, unknown>[] {
-  const value = module?.content?.[key];
-  return Array.isArray(value) ? value.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object")) : [];
-}
-
-function canonicalResultTitle(viewModel: EnneagramResultViewModel): string {
-  return moduleText(viewModel.moduleMap.instant_summary, "title");
-}
-
-function nextActionHint(viewModel: EnneagramResultViewModel, locale: Locale): string {
-  const hint = firstSafePublicText(
-    viewModel.moduleMap.form_recommendation?.content.recommended_first_action,
-    viewModel.moduleMap.form_recommendation?.content.recommendation_copy
-  );
-  const labels: Record<string, { zh: string; en: string }> = {
-    fc144: { zh: "可通过 FC144 二选一迫选版继续探索候选差异。", en: "Explore candidate differences with the FC144 forced-choice form." },
-    do_fc144: { zh: "可通过 FC144 二选一迫选版继续探索候选差异。", en: "Explore candidate differences with the FC144 forced-choice form." },
-    retest_same_form: { zh: "在合适的时间重新完成当前题型。", en: "Retake the current form when you are ready." },
-  };
-  return labels[hint]?.[locale === "zh" ? "zh" : "en"] ?? hint;
-}
-
-function typeRefLabel(value: unknown, locale: Locale): string {
-  const direct = safePublicText(value);
-  if (direct) {
-    return direct;
-  }
-
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return "";
-  }
-
-  const record = value as Record<string, unknown>;
-
-  return locale === "zh"
-    ? firstSafePublicText(record.label, record.type_name_cn, record.type, record.code)
-    : firstSafePublicText(record.label, record.type_name_en, record.type, record.code);
-}
-
-function observationGuidanceCopy(viewModel: EnneagramResultViewModel): string {
-  return firstSafePublicText(
-    viewModel.moduleMap.seven_day_observation?.content.guidance,
-    viewModel.moduleMap.seven_day_observation?.content.body
-  );
-}
-
-function observationActionLabel(viewModel: EnneagramResultViewModel, locale: Locale): string {
-  return nextActionHint(viewModel, locale);
-}
-
-function isObservationAssigned(state: EnneagramObservationStateV1 | null): boolean {
-  return Boolean(state && state.status && state.status !== "initial_result");
-}
-
-function TypeChip({ type }: { type: EnneagramTypeRow }) {
-  return (
-    <span className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
-      {type.rank ? `#${type.rank} · ` : ""}
-      {type.label}
-    </span>
-  );
-}
-
-function LegacyTypeVector({ rows }: { rows: EnneagramTypeRow[] }) {
-  if (rows.length === 0) {
-    return null;
-  }
-
-  return (
-    <Card data-testid="enneagram-type-vector" className="border-slate-200 bg-white shadow-sm">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-xl text-slate-950">Type vector</CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        {rows.map((row) => {
-          return (
-            <div key={row.code} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3">
-              <div className="text-sm font-semibold text-slate-800">{row.label}</div>
-              {row.rank !== null ? <div className="text-sm text-slate-600">#{row.rank}</div> : null}
-            </div>
-          );
-        })}
-      </CardContent>
-    </Card>
-  );
-}
-
-function ModuleCard({
-  title,
-  children,
-  testId,
+function DistributionChart({
+  viewModel,
+  locale,
 }: {
-  title: string;
-  children: React.ReactNode;
-  testId?: string;
+  viewModel: EnneagramResultViewModel;
+  locale: Locale;
 }) {
+  const max = Math.max(
+    ...viewModel.distribution.map((row) => row.scoreDisplay),
+    1,
+  );
   return (
-    <section data-testid={testId} className="space-y-4 py-4 md:py-5">
-      <h3 className="m-0 text-lg font-semibold tracking-tight text-slate-950">{title}</h3>
-      <div className="min-w-0 space-y-5 text-base leading-8 text-slate-700 [&_p]:leading-8">{children}</div>
+    <figure className={styles.resultChart}>
+      <div className={styles.polarChartWrap}>
+        <svg
+          viewBox="35 50 500 390"
+          role="img"
+          aria-labelledby="enneagram-chart-title enneagram-chart-description"
+        >
+          <title id="enneagram-chart-title">
+            {locale === "zh"
+              ? "九型完整相对分布"
+              : "Full nine-type relative distribution"}
+          </title>
+          <desc id="enneagram-chart-description">
+            {locale === "zh"
+              ? "每个扇区的径向长度来自本次真实计分结果。"
+              : "Each sector radius comes from this attempt's scored result."}
+          </desc>
+          <g transform="translate(285 285)">
+            {viewModel.distribution.map((score, index) => {
+              const radius = Math.max(24, (score.scoreDisplay / max) * 250);
+              const start = polarPoint(radius, index * 40 + 0.5);
+              const end = polarPoint(radius, (index + 1) * 40 - 0.5);
+              const innerStart = polarPoint(3, index * 40 + 0.5);
+              const innerEnd = polarPoint(3, (index + 1) * 40 - 0.5);
+              const label = polarPoint(radius + 15, index * 40 + 20);
+              return (
+                <g key={score.typeId} className={styles.pieItem}>
+                  <path
+                    d={`M ${start.x} ${start.y} A ${radius} ${radius} 0 0 1 ${end.x} ${end.y} L ${innerEnd.x} ${innerEnd.y} A 3 3 0 0 0 ${innerStart.x} ${innerStart.y} Z`}
+                    fill={COLORS[index]}
+                  >
+                    <title>{`${score.typeId}: ${score.scoreDisplay}`}</title>
+                  </path>
+                  <text
+                    transform={`translate(${label.x} ${label.y})`}
+                    fill={COLORS[index]}
+                    className={styles.chartLabel}
+                  >
+                    {score.typeId}
+                  </text>
+                </g>
+              );
+            })}
+          </g>
+        </svg>
+      </div>
+      <figcaption className={styles.chartCaption}>
+        {locale === "zh"
+          ? "仅用于同一题型内的相对比较。"
+          : "For relative comparison within this form only."}
+      </figcaption>
+    </figure>
+  );
+}
+
+function Section({ section }: { section: EnneagramCanonicalSection }) {
+  return (
+    <section
+      id={`section-${section.sectionId}`}
+      data-section-id={section.sectionId}
+      className={styles.reportSection}
+    >
+      <div className={styles.sectionNumber}>{section.sectionId}</div>
+      <div className={styles.sectionBody}>
+        <h3>{section.title}</h3>
+        <p className={styles.lead}>{section.lead}</p>
+        {section.paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
+        <ul className={styles.pointList}>
+          {section.points.map((point) => (
+            <li key={point}>{point}</li>
+          ))}
+        </ul>
+        {section.levels.length === 9 ? (
+          <div className={styles.levels}>
+            <ol>
+              {section.levels.map((level) => (
+                <li key={level.level}>
+                  <span>{level.level}</span>
+                  <p>
+                    <strong>{level.title}</strong>
+                    <br />
+                    {level.description}
+                    <br />
+                    <em>{level.observationPrompt}</em>
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ) : null}
+        <div className={styles.reflection} role="note">
+          <strong>
+            {section.sectionId === "6.4"
+              ? "THEORY · NOT AN ASSIGNMENT"
+              : "REFLECTION"}
+          </strong>
+          <p>{section.reflectionQuestion}</p>
+        </div>
+      </div>
     </section>
   );
 }
 
-function localizedModuleTitle(moduleKey: string, locale: Locale): string {
-  const isZh = locale === "zh";
-  const labels: Record<string, { zh: string; en: string }> = {
-    type_deep_dive_summary: { zh: "主类型深解", en: "Type deep dive" },
-    work_style_summary: { zh: "工作方式", en: "Work style" },
-    collaboration_strengths: { zh: "协作优势", en: "Collaboration strengths" },
-    collaboration_friction: { zh: "协作摩擦点", en: "Collaboration friction" },
-    leadership_pattern: { zh: "领导模式", en: "Leadership pattern" },
-    managed_by_others: { zh: "被管理时更顺畅的方式", en: "How to manage you well" },
-    workplace_trigger_points: { zh: "工作触发点", en: "Workplace triggers" },
-    context_mode_placeholder: { zh: "情境模式占位", en: "Context-mode placeholder" },
-    history_share_retake_placeholder: { zh: "分享与历史占位", en: "Share and history placeholder" },
-    growth_axis: { zh: "成长轴", en: "Growth axis" },
-    strength_expression: { zh: "优势表达", en: "Strength expression" },
-    cost_expression: { zh: "代价表达", en: "Cost expression" },
-    stress_trigger: { zh: "压力触发点", en: "Stress trigger" },
-    recovery_action: { zh: "恢复动作", en: "Recovery action" },
-    state_spectrum: { zh: "状态光谱", en: "State spectrum" },
-    arrow_growth_reference_placeholder: { zh: "箭头参考占位", en: "Arrow reference placeholder" },
-    relationship_need: { zh: "关系需要", en: "Relationship needs" },
-    relationship_strengths: { zh: "关系优势", en: "Relationship strengths" },
-    misread_by_others: { zh: "容易被误读的地方", en: "How others may misread you" },
-    conflict_script: { zh: "冲突脚本", en: "Conflict script" },
-    communication_manual: { zh: "沟通说明书", en: "Communication manual" },
-    sample_report_link: { zh: "样例报告", en: "Sample report" },
-  };
-
-  const copy = labels[moduleKey];
-  if (!copy) {
-    return isZh ? "补充模块" : "Additional module";
-  }
-
-  return isZh ? copy.zh : copy.en;
-}
-
-function detailLabelCopy(value: string, locale: Locale): string {
-  if (locale !== "zh") {
-    return "Additional note";
-  }
-
-  switch (value) {
-    case "growth_principle":
-      return "成长原则";
-    case "work_mechanism":
-      return "工作机制";
-    case "relationship_script":
-      return "关系脚本";
-    case "conflict_pattern":
-      return "冲突模式";
-    default:
-      return "补充说明";
-  }
-}
-
-function listGroupLabel(value: string, locale: Locale): string {
-  if (locale !== "zh") {
-    return "Additional list";
-  }
-
-  switch (value) {
-    case "work_strengths":
-      return "工作优势";
-    case "work_friction_points":
-      return "工作摩擦点";
-    case "ideal_environment":
-      return "更适合的环境";
-    case "collaboration_manual":
-      return "协作说明";
-    case "managed_by_others":
-      return "被管理时更顺畅的方式";
-    case "leadership_pattern":
-      return "带人方式";
-    case "workplace_trigger_points":
-      return "工作触发点";
-    case "growth_strengths":
-      return "成长优势";
-    case "growth_costs":
-      return "成长代价";
-    case "early_warning_signs":
-      return "早期信号";
-    case "recovery_protocol":
-      return "恢复协议";
-    case "small_experiments":
-      return "小实验";
-    case "relationship_strengths":
-      return "关系优势";
-    case "relationship_traps":
-      return "关系陷阱";
-    case "conflict_trigger_points":
-      return "冲突触发点";
-    case "repair_language":
-      return "修复语言";
-    case "partner_facing_notes":
-      return "给关系另一方的提示";
-    default:
-      return "补充列表";
-  }
-}
-
-function ListGroupSections({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const groups = moduleArray(module, "list_groups");
-
-  if (groups.length === 0) {
-    return null;
-  }
-
-  return (
-    <div className="grid gap-3">
-      {groups.map((group, index) => {
-        const labelKey = safePublicText(group.label_key);
-        const items = Array.isArray(group.items)
-          ? group.items.filter((item): item is Record<string, unknown> => Boolean(item && typeof item === "object"))
-          : [];
-
-        if (items.length === 0) {
-          return null;
-        }
-
-        return (
-          <div key={`${labelKey || "group"}-${index}`} className="border-l-2 border-slate-100 pl-4 md:pl-5">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{listGroupLabel(labelKey, locale)}</p>
-            <div className="mt-3 grid gap-5 sm:grid-cols-2">
-              {items.map((item, itemIndex) => {
-                const title = safePublicText(item.title);
-                const body = safePublicText(item.body);
-                if (!title && !body) {
-                  return null;
-                }
-
-                return (
-                  <div key={`${title || "item"}-${itemIndex}`} className="space-y-1">
-                    {title ? <p className="m-0 text-sm font-semibold text-slate-800">{title}</p> : null}
-                    {body ? <p className="m-0 text-sm text-slate-700">{body}</p> : null}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function ModuleProvenance({
-  module,
+function ObservationPanel({
   locale,
-  extraHint,
-}: {
-  module: EnneagramReportV2Module;
-  locale: Locale;
-  extraHint?: string | null;
-}) {
-  void module;
-  void locale;
-  void extraHint;
-  return null;
-}
-
-function TypeDeepDiveSummaryRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const cards = [
-    { key: "core_desire", label: locale === "zh" ? "核心渴望" : "Core desire" },
-    { key: "core_fear", label: locale === "zh" ? "核心担心" : "Core fear" },
-    { key: "defense_pattern", label: locale === "zh" ? "惯性防御" : "Defense pattern" },
-    { key: "self_misread", label: locale === "zh" ? "容易对自己误读的地方" : "How you may misread yourself" },
-  ].filter((item) => moduleText(module, item.key));
-
-  return (
-    <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId="enneagram-module-type_deep_dive_summary">
-      {moduleText(module, "short_title") ? <p className="m-0 text-sm font-semibold text-slate-800">{moduleText(module, "short_title")}</p> : null}
-      <div className="grid gap-3 md:grid-cols-2">
-        {cards.map((card) => (
-          <div key={card.key} className="border-l-2 border-slate-100 pl-4 md:pl-5">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{card.label}</p>
-            <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, card.key)}</p>
-          </div>
-        ))}
-      </div>
-      {moduleText(module, "validation_hook") ? (
-        <p className="m-0 text-xs text-slate-500">{moduleText(module, "validation_hook")}</p>
-      ) : null}
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-function ScenarioCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const title = moduleText(module, "title") || localizedModuleTitle(module.moduleKey, locale);
-  const body = moduleText(module, "body");
-  const typeSummary = moduleText(module, "type_summary");
-  const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
-  const detail = moduleText(module, "deep_dive_detail");
-
-  return (
-    <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
-      {body ? <p className="m-0">{body}</p> : null}
-      {typeSummary ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{locale === "zh" ? "当前主候选对应提示" : "Primary candidate cue"}</p>
-          <p className="m-0 mt-2 text-sm text-slate-700">{typeSummary}</p>
-        </div>
-      ) : null}
-      {detail ? (
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{detailLabel}</p>
-          <p className="m-0 mt-2 text-sm text-emerald-900">{detail}</p>
-        </div>
-      ) : null}
-      <ListGroupSections module={module} locale={locale} />
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-function ValueCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const title = localizedModuleTitle(module.moduleKey, locale);
-  const value = moduleText(module, "value");
-  const detail = moduleText(module, "deep_dive_detail");
-  const detailLabel = detailLabelCopy(moduleText(module, "detail_label"), locale);
-
-  return (
-    <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
-      {value ? <p className="m-0">{value}</p> : null}
-      {detail ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{detailLabel}</p>
-          <p className="m-0 mt-2 text-sm text-slate-700">{detail}</p>
-        </div>
-      ) : null}
-      <ListGroupSections module={module} locale={locale} />
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-function GroupOverlayRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const items = moduleArray(module, "items");
-  const title = localizedModuleTitle(module.moduleKey, locale);
-
-  return (
-    <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
-      {items.length > 0 ? (
-        <div className="grid gap-3">
-          {items.map((item, index) => (
-            <div key={`${firstSafePublicText(item.group_ref, item.group_key) || index}`} className="border-l-2 border-slate-100 pl-4 md:pl-5">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {safePublicText(item.group_type) || (locale === "zh" ? "分组" : "Group")} · {firstSafePublicText(item.group_key, item.group_ref)}
-              </p>
-              {safePublicText(item.value) ? <p className="m-0 mt-2 text-sm text-slate-700">{safePublicText(item.value)}</p> : null}
-              {safePublicText(item.description) ? <p className="m-0 mt-2 text-xs text-slate-500">{safePublicText(item.description)}</p> : null}
-            </div>
-          ))}
-        </div>
-      ) : null}
-      <ListGroupSections module={module} locale={locale} />
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-function StateSpectrumRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const isZh = locale === "zh";
-  const bands = [
-    { key: "stable_expression", label: isZh ? "更稳时" : "More stable" },
-    { key: "average_expression", label: isZh ? "日常自动反应" : "Everyday pattern" },
-    { key: "strained_expression", label: isZh ? "压力叠加时" : "Under strain" },
-  ].filter((entry) => moduleText(module, entry.key));
-
-  return (
-    <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId={`enneagram-module-${module.moduleKey}`}>
-      <div className="grid gap-3">
-        {bands.map((band) => (
-          <div key={band.key} className="border-l-2 border-slate-100 pl-4 md:pl-5">
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{band.label}</p>
-            <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, band.key)}</p>
-          </div>
-        ))}
-      </div>
-      {moduleText(module, "recovery_action") ? (
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{isZh ? "恢复动作" : "Recovery action"}</p>
-          <p className="m-0 mt-2 text-sm text-emerald-900">{moduleText(module, "recovery_action")}</p>
-        </div>
-      ) : null}
-      {moduleText(module, "type_recovery_action") ? (
-        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/70 p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-emerald-700">{isZh ? "主类型恢复动作" : "Type recovery action"}</p>
-          <p className="m-0 mt-2 text-sm text-emerald-900">{moduleText(module, "type_recovery_action")}</p>
-        </div>
-      ) : null}
-      {moduleText(module, "stress_signal") ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "压力信号" : "Stress signal"}</p>
-          <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "stress_signal")}</p>
-        </div>
-      ) : null}
-      {moduleText(module, "growth_principle") ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "成长原则" : "Growth principle"}</p>
-          <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "growth_principle")}</p>
-        </div>
-      ) : null}
-      {moduleText(module, "thirty_day_experiment") ? (
-        <div className="rounded-2xl border border-sky-200 bg-sky-50/70 p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-sky-700">{isZh ? "30 天实验" : "30-day experiment"}</p>
-          <p className="m-0 mt-2 text-sm text-sky-900">{moduleText(module, "thirty_day_experiment")}</p>
-        </div>
-      ) : null}
-      <ListGroupSections module={module} locale={locale} />
-      {moduleText(module, "disclaimer") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "disclaimer")}</p> : null}
-      <ModuleProvenance
-        module={module}
-        locale={locale}
-        extraHint={isZh ? "不硬判 health level" : "Not a hard health-level judgement"}
-      />
-    </ModuleCard>
-  );
-}
-
-function PlaceholderCardRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const title = localizedModuleTitle(module.moduleKey, locale);
-  const reason = moduleText(module, "reason");
-
-  return (
-    <ModuleCard title={title} testId={`enneagram-module-${module.moduleKey}`}>
-      {reason ? <p className="m-0">{reason}</p> : null}
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-function SampleReportRenderer({ module, locale }: { module: EnneagramReportV2Module; locale: Locale }) {
-  const isZh = locale === "zh";
-  const topTypes = moduleArray(module, "top_types").length > 0
-    ? moduleArray(module, "top_types").map((item) => typeRefLabel(item, locale)).filter(Boolean)
-    : Array.isArray(module.content.top_types)
-      ? (module.content.top_types as unknown[]).map((item) => typeRefLabel(item, locale)).filter(Boolean)
-      : [];
-
-  return (
-    <ModuleCard title={localizedModuleTitle(module.moduleKey, locale)} testId="enneagram-module-sample-report-link">
-      <div className="flex flex-wrap items-center gap-2">
-        {moduleText(module, "sample_type") ? (
-          <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
-            {moduleText(module, "sample_type")}
-          </span>
-        ) : null}
-        {moduleText(module, "form_code") ? (
-          <span className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
-            {moduleText(module, "form_code")}
-          </span>
-        ) : null}
-      </div>
-      {moduleText(module, "short_summary") ? <p className="m-0">{moduleText(module, "short_summary")}</p> : null}
-      {moduleText(module, "page_1_preview") ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "首页预览" : "Page 1 preview"}</p>
-          <p className="m-0 mt-2 text-sm text-slate-700">{moduleText(module, "page_1_preview")}</p>
-        </div>
-      ) : null}
-      {topTypes.length > 0 ? (
-        <div className="flex flex-wrap gap-2">
-          {topTypes.map((typeCode) => (
-            <span key={typeCode} className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-sm font-medium text-slate-700">
-              {typeCode}
-            </span>
-          ))}
-        </div>
-      ) : null}
-      {moduleText(module, "method_boundary") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "method_boundary")}</p> : null}
-      {moduleText(module, "public_url_slug") ? <p className="m-0 text-xs text-slate-400">{moduleText(module, "public_url_slug")}</p> : null}
-      <ModuleProvenance module={module} locale={locale} />
-    </ModuleCard>
-  );
-}
-
-type ObservationRendererProps = {
-  module: EnneagramReportV2Module;
-  viewModel: EnneagramResultViewModel;
-  locale: Locale;
-  state: EnneagramObservationStateV1 | null;
-  loading: boolean;
-  error: string | null;
-  busyAction: "assign" | "day3" | "day7" | null;
-  onAssign: () => Promise<void>;
-  onSubmitDay3: (payload: EnneagramObservationDay3Payload) => Promise<void>;
-  onSubmitDay7: (payload: EnneagramObservationDay7Payload) => Promise<void>;
-};
-
-function ObservationModuleRenderer({
-  module,
-  viewModel,
-  locale,
+  attemptId,
+  selectedActionId,
   state,
   loading,
   error,
-  busyAction,
-  onAssign,
-  onSubmitDay3,
-  onSubmitDay7,
-}: ObservationRendererProps) {
-  const isZh = locale === "zh";
-  const assigned = isObservationAssigned(state);
-  const tasks =
-    state?.tasks && state.tasks.length > 0
-      ? state.tasks
-      : moduleArray(module, "steps").map((step) => ({
-          day: typeof step.day === "number" ? step.day : Number(step.day ?? Number.NaN),
-          phase: safePublicText(step.phase) || null,
-          prompt: safePublicText(step.prompt) || null,
-          suggested_next_action: safePublicText(step.suggested_next_action) || null,
-        }));
-  const progress = state?.observation_completion_rate ?? 0;
-  const currentFormRetakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
-  const fc144Href = buildEnneagramTakeHref(
-    SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
-    locale,
-    "enneagram_forced_choice_144"
-  );
-
-  const [day3Form, setDay3Form] = useState<EnneagramObservationDay3Payload>({
-    more_like: "top1",
-    evidence_sentence: "",
-    confidence_self_rating: 3,
-    scene_type: "work",
-  });
-  const [day7Form, setDay7Form] = useState<EnneagramObservationDay7Payload>({
-    final_resonance: "top1",
-    user_confirmed_type: null,
-    wants_fc144: false,
-    wants_retake_same_form: false,
-    user_disagreed_reason: null,
-  });
-  const hasSeparateFeedbackModule = Boolean(
-    viewModel.moduleMap.resonance_feedback_placeholder &&
-      viewModel.moduleMap.resonance_feedback_placeholder.visibility !== "collapsed"
-  );
-  const feedbackContent = !assigned ? (
-    <p className="m-0 text-sm text-slate-600">
-      {isZh ? "请先启动 7 天观察，再提交 Day3 与 Day7 反馈。" : "Start the 7-day observation before submitting Day 3 and Day 7 feedback."}
-    </p>
-  ) : (
-    <div className="space-y-6">
-      {state?.day3_observation_feedback ? (
-        <div data-testid="enneagram-observation-day3-summary" className="space-y-2 rounded-xl bg-slate-50 p-4 md:p-5">
-          <p className="m-0 text-sm font-semibold text-slate-800">{isZh ? "Day3 feedback 已记录" : "Day 3 feedback recorded"}</p>
-          <p className="m-0 text-sm text-slate-600">
-            {safePublicText(state.day3_observation_feedback.more_like)} · {safePublicText(state.day3_observation_feedback.scene_type)}
-          </p>
-        </div>
-      ) : (
-        <form
-          data-testid="enneagram-observation-day3-form"
-          className="space-y-3 rounded-xl bg-slate-50 p-4 md:p-5"
-          onSubmit={(event) => {
-            event.preventDefault();
-            void onSubmitDay3(day3Form);
-          }}
-        >
-          <p className="m-0 text-sm font-semibold text-slate-800">Day3 feedback</p>
-          <label className="block space-y-1 text-sm">
-            <span>{isZh ? "更像谁" : "More like"}</span>
-            <select
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-              value={day3Form.more_like}
-              onChange={(event) => setDay3Form((current) => ({ ...current, more_like: event.target.value as EnneagramObservationDay3Payload["more_like"] }))}
-            >
-              <option value="top1">top1</option>
-              <option value="top2">top2</option>
-              <option value="unclear">unclear</option>
-              <option value="other">other</option>
-            </select>
-          </label>
-          <label className="block space-y-1 text-sm">
-            <span>{isZh ? "证据句" : "Evidence sentence"}</span>
-            <textarea
-              className="min-h-24 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-              value={day3Form.evidence_sentence}
-              onChange={(event) => setDay3Form((current) => ({ ...current, evidence_sentence: event.target.value }))}
-            />
-          </label>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <label className="block space-y-1 text-sm">
-              <span>{isZh ? "自评把握度" : "Confidence self-rating"}</span>
-              <input
-                type="number"
-                min={1}
-                max={5}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-                value={day3Form.confidence_self_rating}
-                onChange={(event) =>
-                  setDay3Form((current) => ({
-                    ...current,
-                    confidence_self_rating: Number(event.target.value || 1),
-                  }))
-                }
-              />
-            </label>
-            <label className="block space-y-1 text-sm">
-              <span>{isZh ? "场景" : "Scene type"}</span>
-              <select
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-                value={day3Form.scene_type}
-                onChange={(event) => setDay3Form((current) => ({ ...current, scene_type: event.target.value as EnneagramObservationDay3Payload["scene_type"] }))}
-              >
-                <option value="work">work</option>
-                <option value="relationship">relationship</option>
-                <option value="pressure">pressure</option>
-                <option value="alone">alone</option>
-                <option value="other">other</option>
-              </select>
-            </label>
-          </div>
-          <Button type="submit" disabled={busyAction === "day3"}>
-            {busyAction === "day3" ? (isZh ? "提交中..." : "Submitting...") : "Day3 feedback"}
-          </Button>
-        </form>
-      )}
-
-      {state?.day7_resonance_feedback ? (
-        <div data-testid="enneagram-observation-day7-summary" className="space-y-3 rounded-xl bg-slate-50 p-4 md:p-5">
-          <p className="m-0 text-sm font-semibold text-slate-800">Day7 resonance feedback</p>
-          {state.user_confirmed_type ? (
-            <>
-              <p data-testid="enneagram-observation-user-confirmed" className="m-0 text-sm text-slate-700">
-                {isZh ? "你的自我观察确认" : "Your self-observation confirmation"} · {state.user_confirmed_type}
-              </p>
-              <p className="m-0 text-xs text-slate-500">
-                {isZh
-                  ? "这不会静默改写本次测量结果。它会作为你的自我观察证据记录在历史中。"
-                  : "This does not silently rewrite the measurement result. It is recorded in history as self-observation evidence."}
-              </p>
-            </>
-          ) : null}
-        </div>
-      ) : (
-        <form
-          data-testid="enneagram-observation-day7-form"
-          className="space-y-3 rounded-xl bg-slate-50 p-4 md:p-5"
-          onSubmit={(event) => {
-            event.preventDefault();
-            void onSubmitDay7(day7Form);
-          }}
-        >
-          <p className="m-0 text-sm font-semibold text-slate-800">Day7 resonance feedback</p>
-          <label className="block space-y-1 text-sm">
-            <span>{isZh ? "最终共鸣" : "Final resonance"}</span>
-            <select
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-              value={day7Form.final_resonance}
-              onChange={(event) => setDay7Form((current) => ({ ...current, final_resonance: event.target.value as EnneagramObservationDay7Payload["final_resonance"] }))}
-            >
-              <option value="top1">top1</option>
-              <option value="top2">top2</option>
-              <option value="top3">top3</option>
-              <option value="other">other</option>
-              <option value="still_uncertain">still_uncertain</option>
-            </select>
-          </label>
-          <label className="block space-y-1 text-sm">
-            <span>{isZh ? "自我观察确认号码" : "Self-observed type confirmation"}</span>
-            <select
-              className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-              value={day7Form.user_confirmed_type ?? ""}
-              onChange={(event) =>
-                setDay7Form((current) => ({
-                  ...current,
-                  user_confirmed_type: event.target.value ? event.target.value : null,
-                }))
-              }
-            >
-              <option value="">{isZh ? "暂不确认" : "Not confirming yet"}</option>
-              {Array.from({ length: 9 }, (_, index) => String(index + 1)).map((value) => (
-                <option key={value} value={value}>
-                  {value}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label className="block space-y-1 text-sm">
-            <span>{isZh ? "补充说明" : "Disagreement note"}</span>
-            <textarea
-              className="min-h-24 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm"
-              value={day7Form.user_disagreed_reason ?? ""}
-              onChange={(event) =>
-                setDay7Form((current) => ({
-                  ...current,
-                  user_disagreed_reason: event.target.value || null,
-                }))
-              }
-            />
-          </label>
-          <label className="flex items-center gap-2 text-sm text-slate-700">
-            <input
-              type="checkbox"
-              checked={day7Form.wants_fc144}
-              onChange={(event) => setDay7Form((current) => ({ ...current, wants_fc144: event.target.checked }))}
-            />
-            {isZh ? "我想补做 FC144 二选一迫选版" : "I want the FC144 follow-up"}
-          </label>
-          <label className="flex items-center gap-2 text-sm text-slate-700">
-            <input
-              type="checkbox"
-              checked={day7Form.wants_retake_same_form}
-              onChange={(event) =>
-                setDay7Form((current) => ({ ...current, wants_retake_same_form: event.target.checked }))
-              }
-            />
-            {isZh ? "我想重测同一题型" : "I want to retake the same form"}
-          </label>
-          <Button type="submit" disabled={busyAction === "day7"}>
-            {busyAction === "day7" ? (isZh ? "提交中..." : "Submitting...") : "Day7 resonance feedback"}
-          </Button>
-        </form>
-      )}
-    </div>
-  );
-
-  if (module.moduleKey === "seven_day_observation") {
-    return (
-      <ModuleCard title={isZh ? "7 天观察任务" : "7-day observation"} testId="enneagram-module-seven-day-observation">
-        <p data-testid="enneagram-observation-guidance" className="m-0">
-          {observationGuidanceCopy(viewModel)}
-        </p>
-
-        {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
-
-        {loading ? <p className="m-0 text-sm text-slate-500">{isZh ? "正在读取观察状态..." : "Loading observation state..."}</p> : null}
-
-        {!assigned ? (
-          <div className="space-y-3">
-            <p className="m-0 text-sm text-slate-600">
-              {isZh
-                ? "观察任务不会自动开始。你可以先继续阅读结果页，再决定是否启动这 7 天观察。"
-                : "The observation flow does not auto-start. You can keep reading the report and start the 7-day observation when ready."}
-            </p>
-            <Button
-              type="button"
-              onClick={() => void onAssign()}
-              disabled={busyAction === "assign"}
-              data-testid="enneagram-observation-assign"
-            >
-              {busyAction === "assign" ? (isZh ? "正在启动..." : "Starting...") : isZh ? "开始 7 天观察" : "Start 7-day observation"}
-            </Button>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {isZh ? "观察进度" : "Observation progress"}
-              </p>
-              <p data-testid="enneagram-observation-progress" className="m-0 mt-2 text-sm text-slate-800">
-                {progress}%
-              </p>
-              <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-200">
-                <div className="h-full rounded-full bg-emerald-500" style={{ width: `${Math.max(0, Math.min(100, progress))}%` }} />
-              </div>
-              {state?.status ? (
-                <p className="m-0 mt-3 text-xs uppercase tracking-[0.12em] text-slate-500">{state.status}</p>
-              ) : null}
-            </div>
-
-            <div className="space-y-3">
-              {tasks.map((task, index) => (
-                <div
-                  key={`${task.day ?? index}-${task.phase ?? ""}`}
-                  className="border-l-2 border-slate-100 pl-4 md:pl-5"
-                >
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                    {isZh ? "第" : "Day "} {task.day ?? index + 1}
-                    {isZh ? "天" : ""}
-                    {task.phase ? ` · ${task.phase}` : ""}
-                  </p>
-                  {task.prompt ? <p className="m-0 mt-2 text-sm text-slate-700">{task.prompt}</p> : null}
-                </div>
-              ))}
-            </div>
-            {!hasSeparateFeedbackModule ? <div data-testid="enneagram-observation-feedback-inline">{feedbackContent}</div> : null}
-          </div>
-        )}
-      </ModuleCard>
-    );
-  }
-
-  if (module.moduleKey === "resonance_feedback_placeholder") {
-    return (
-      <ModuleCard
-        title={isZh ? "Day3 / Day7 反馈" : "Day 3 / Day 7 feedback"}
-        testId="enneagram-module-resonance-feedback-placeholder"
-      >
-        {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
-        {feedbackContent}
-      </ModuleCard>
-    );
-  }
-
-  return (
-    <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
-      {error ? <Alert data-testid="enneagram-observation-error">{error}</Alert> : null}
-      <p data-testid="enneagram-observation-next-action" className="m-0">
-        {observationActionLabel(viewModel, locale)}
-      </p>
-      <div className="flex flex-wrap gap-2">
-        {state?.suggested_next_action === "do_fc144" ? (
-          <Link href={fc144Href} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "查看 FC144 二选一迫选版" : "Open FC144 form"}
-          </Link>
-        ) : null}
-        {state?.suggested_next_action === "retest_same_form" ? (
-          <Link href={currentFormRetakeHref} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "重测当前题型" : "Retake current form"}
-          </Link>
-        ) : null}
-      </div>
-      {state?.user_confirmed_type ? (
-        <div className="border-l-2 border-slate-100 pl-4 md:pl-5">
-          <p data-testid="enneagram-observation-user-confirmed" className="m-0 text-sm text-slate-700">
-            {isZh ? "你的自我观察确认" : "Your self-observation confirmation"} · {state.user_confirmed_type}
-          </p>
-          <p className="m-0 mt-2 text-xs text-slate-500">
-            {isZh
-              ? "这不会静默改写本次测量结果。它会作为你的自我观察证据记录在历史中。"
-              : "This does not silently rewrite the measurement result. It is recorded in history as self-observation evidence."}
-          </p>
-        </div>
-      ) : null}
-    </ModuleCard>
-  );
-}
-
-function renderScoreBars(items: EnneagramTypeRow[]) {
-  return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-      {items.map((row) => {
-        return (
-          <div key={row.code} className="flex items-center justify-between gap-3 rounded-xl bg-slate-50 px-4 py-3">
-            <div className="text-sm font-semibold text-slate-800">{row.label}</div>
-            {row.rank !== null ? <div className="text-right text-sm text-slate-600">#{row.rank}</div> : null}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function renderGenericSummary(module: EnneagramReportV2Module) {
-  const title = moduleText(module, "title");
-  const body = moduleText(module, "body");
-  const typeSummary = moduleText(module, "type_summary");
-  const value = moduleText(module, "value");
-  const status = moduleText(module, "status");
-  const reason = moduleText(module, "reason");
-  const lines = [body, typeSummary, value].filter(Boolean);
-
-  if (!title || lines.length === 0) return null;
-
-  return (
-    <ModuleCard
-      title={title}
-      testId={`enneagram-module-${module.moduleKey}`}
-    >
-      {lines.length > 0 ? lines.map((line) => <p key={line} className="m-0">{line}</p>) : null}
-      {status || reason ? (
-        <p className="m-0 text-xs text-slate-500">
-          {[status, reason].filter(Boolean).join(" · ")}
-        </p>
-      ) : null}
-    </ModuleCard>
-  );
-}
-
-type ObservationSurfaceState = {
-  state: EnneagramObservationStateV1 | null;
-  loading: boolean;
-  error: string | null;
-  busyAction: "assign" | "day3" | "day7" | null;
-  onAssign: () => Promise<void>;
-  onSubmitDay3: (payload: EnneagramObservationDay3Payload) => Promise<void>;
-  onSubmitDay7: (payload: EnneagramObservationDay7Payload) => Promise<void>;
-};
-
-function renderModule(
-  module: EnneagramReportV2Module,
-  viewModel: EnneagramResultViewModel,
-  locale: Locale,
-  observation: ObservationSurfaceState | null
-): React.ReactNode {
-  const isZh = locale === "zh";
-
-  switch (module.moduleKey) {
-    case "instant_summary": {
-      return (
-        <header data-testid="enneagram-v2-instant-summary" className="space-y-5 pb-8 md:pb-10">
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500">
-            <span className="font-semibold text-[var(--fm-trust-blue)]">{isZh ? "九型人格" : "Enneagram"}</span>
-          </div>
-          <h1 className="m-0 text-3xl font-bold leading-tight tracking-tight text-slate-950 md:text-4xl">{canonicalResultTitle(viewModel)}</h1>
-          <p data-testid="enneagram-v2-summary-body" className="m-0 max-w-3xl text-base leading-8 text-slate-600">
-            {moduleText(module, "body")}
-          </p>
-        </header>
-      );
-    }
-    case "top3_cards": {
-      const cards = moduleArray(module, "cards").map((card, index) => ({
-        row: {
-          code: safePublicText(card.type),
-          label: isZh
-            ? firstSafePublicText(card.type_name_cn, card.type_name_en, card.type)
-            : firstSafePublicText(card.type_name_en, card.type),
-          score: null,
-          rank: index + 1,
-          candidateRole: safePublicText(card.candidate_role),
-          summary: firstSafePublicText(card.core_logic, card.surface_impression),
-        } satisfies EnneagramTypeRow,
-        coreLogic: safePublicText(card.core_logic),
-        workSummary: safePublicText(card.work_summary),
-      }));
-
-      return (
-        <section aria-label={isZh ? "前三候选" : "Top 3 candidates"} data-testid="enneagram-module-top3-cards" className="pb-8 md:pb-10">
-          <div className="grid gap-4 lg:grid-cols-3">
-            {cards.map(({ row, coreLogic, workSummary }) => (
-              <div key={row.code} className="border-t-2 border-[var(--fm-trust-blue)]/25 bg-slate-50/70 px-5 py-6">
-                <h2 className="m-0 text-xl font-semibold text-slate-900"><span className="mr-2 text-[var(--fm-trust-blue)]">{row.code}</span>{row.label !== row.code ? row.label : (isZh ? "号候选" : "Candidate")}</h2>
-                {coreLogic ? <p className="m-0 mt-3 text-sm text-slate-700">{coreLogic}</p> : null}
-                {workSummary ? <p className="m-0 mt-2 text-xs text-slate-500">{workSummary}</p> : null}
-              </div>
-            ))}
-          </div>
-        </section>
-      );
-    }
-    case "all9_profile": {
-      const items = moduleArray(module, "items").map((item) => ({
-        code: firstSafePublicText(item.type, item.code),
-        label: isZh
-          ? firstSafePublicText(item.type_name_cn, item.type_name_en, item.label, item.type)
-          : firstSafePublicText(item.type_name_en, item.label, item.type),
-        score: null,
-        rank: typeof item.rank === "number" ? item.rank : null,
-      }));
-      const rows = items.map((item) => ({
-        code: item.code,
-        label: item.label || item.code,
-        score: null,
-        rank: item.rank,
-      }));
-
-      if (!rows.some((row) => row.rank !== null)) return null;
-
-      return (
-        <ModuleCard title={isZh ? "九型完整轮廓" : "All 9 profile"} testId="enneagram-module-all9-profile">
-          <div data-testid="enneagram-v2-all9-profile-count" className="hidden">
-            {rows.length}
-          </div>
-          {renderScoreBars(rows)}
-        </ModuleCard>
-      );
-    }
-    case "confidence_band_card":
-      return (
-        <ModuleCard title={isZh ? "解释稳定性" : "Confidence band"} testId="enneagram-module-confidence-band-card">
-          <div className="grid gap-3 md:grid-cols-2">
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "置信等级" : "Confidence level"}</p>
-              <p className="m-0 mt-1 text-sm text-slate-700">{moduleText(module, "confidence_label") || moduleText(module, "confidence_level") || "n/a"}</p>
-            </div>
-            <div>
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">{isZh ? "结果结构" : "Profile shape"}</p>
-              <p className="m-0 mt-1 text-sm text-slate-700">
-                {moduleText(module, "interpretation_scope")}
-              </p>
-            </div>
-          </div>
-        </ModuleCard>
-      );
-    case "dominance_gap_card":
-      return null;
-    case "close_call_card": {
-      const pair = module.content.pair as Record<string, unknown> | undefined;
-      const pairEntry = module.content.pair_entry as Record<string, unknown> | undefined;
-      const pairTypeA = typeRefLabel(pair?.type_a, locale);
-      const pairTypeB = typeRefLabel(pair?.type_b, locale);
-      const coreMotivationDifference = safePublicText(pairEntry?.core_motivation_difference);
-      const stressReactionDifference = safePublicText(pairEntry?.stress_reaction_difference);
-      if (!coreMotivationDifference && !stressReactionDifference) return null;
-      return (
-        <ModuleCard title={isZh ? "接近型辨析" : "Close-call differentiation"} testId="enneagram-module-close-call-card">
-          <p className="m-0 text-sm text-slate-700">
-            {pairTypeA || "?"} vs {pairTypeB || "?"}
-          </p>
-          {coreMotivationDifference ? <p className="m-0">{coreMotivationDifference}</p> : null}
-          {stressReactionDifference ? <p className="m-0 text-sm text-slate-600">{stressReactionDifference}</p> : null}
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    }
-    case "type_deep_dive_summary":
-      return <TypeDeepDiveSummaryRenderer module={module} locale={locale} />;
-    case "work_style_summary":
-    case "collaboration_strengths":
-    case "collaboration_friction":
-    case "leadership_pattern":
-    case "managed_by_others":
-    case "relationship_need":
-    case "conflict_script":
-    case "communication_manual":
-      return <ScenarioCardRenderer module={module} locale={locale} />;
-    case "growth_axis":
-    case "stress_trigger":
-    case "relationship_strengths":
-    case "misread_by_others":
-      return <ValueCardRenderer module={module} locale={locale} />;
-    case "strength_expression":
-    case "cost_expression":
-      return <GroupOverlayRenderer module={module} locale={locale} />;
-    case "recovery_action":
-    case "state_spectrum":
-      return <StateSpectrumRenderer module={module} locale={locale} />;
-    case "workplace_trigger_points":
-      return <ValueCardRenderer module={module} locale={locale} />;
-    case "context_mode_placeholder":
-    case "history_share_retake_placeholder":
-    case "arrow_growth_reference_placeholder":
-      return <PlaceholderCardRenderer module={module} locale={locale} />;
-    case "blind_spot_card":
-    case "blind_spot_in_relationship":
-      return null;
-    case "center_summary":
-    case "stance_summary":
-    case "harmonic_summary":
-      return null;
-    case "wing_hint_visual":
-      return (
-        <ModuleCard title={isZh ? "邻位倾向参考" : "Adjacent wing reference"} testId="enneagram-module-wing-hint-visual">
-          <p className="m-0">
-            {isZh ? "左邻位" : "Left"}: {typeRefLabel(module.content.left, locale) || "n/a"} · {isZh ? "右邻位" : "Right"}:{" "}
-            {typeRefLabel(module.content.right, locale) || "n/a"}
-          </p>
-          {moduleText(module, "strength") ? <p className="m-0">{isZh ? "强度" : "Strength"} · {moduleText(module, "strength")}</p> : null}
-          {moduleText(module, "boundary_copy") ? <p className="m-0 text-xs text-slate-500">{moduleText(module, "boundary_copy")}</p> : null}
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    case "method_boundary": {
-      const badge = module.content.form_badge as Record<string, unknown> | undefined;
-      const badgeLabel = safePublicText(badge?.label);
-      return (
-        <ModuleCard title={isZh ? "方法边界" : "Method boundary"} testId={`enneagram-module-${module.moduleKey}`}>
-          {badgeLabel ? <p className="m-0 text-sm font-semibold text-slate-800">{badgeLabel}</p> : null}
-          {moduleText(module, "methodology_copy") ? <p className="m-0">{moduleText(module, "methodology_copy")}</p> : null}
-          {moduleText(module, "score_space_boundary") ? <p className="m-0">{moduleText(module, "score_space_boundary")}</p> : null}
-          {moduleText(module, "non_diagnostic_boundary") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "non_diagnostic_boundary")}</p> : null}
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    }
-    case "diffuse_boundary":
-      return (
-        <ModuleCard title={moduleText(module, "title")} testId="enneagram-module-diffuse-boundary">
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    case "low_quality_boundary":
-      return (
-        <ModuleCard title={moduleText(module, "title")} testId="enneagram-module-low-quality-boundary">
-          {moduleText(module, "body") ? <p className="m-0">{moduleText(module, "body")}</p> : null}
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    case "seven_day_observation": {
-      if (observation) {
-        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
-      }
-      const steps = moduleArray(module, "steps");
-      return (
-        <ModuleCard title={isZh ? "七天观察" : "Seven-day observation"} testId="enneagram-module-seven-day-observation">
-          <div className="space-y-3">
-            {steps.map((step) => (
-              <div key={firstSafePublicText(step.day, step.phase) || "step"} className="border-l-2 border-slate-100 pl-4 md:pl-5">
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                  Day {safePublicText(step.day) || "?"} · {safePublicText(step.phase)}
-                </p>
-                {safePublicText(step.prompt) ? <p className="m-0 mt-2 text-sm text-slate-700">{safePublicText(step.prompt)}</p> : null}
-              </div>
-            ))}
-          </div>
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    }
-    case "resonance_feedback_placeholder":
-      if (observation) {
-        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
-      }
-      return null;
-    case "sample_report_link":
-      return <SampleReportRenderer module={module} locale={locale} />;
-    case "technical_note_link":
-      return null;
-    case "form_recommendation":
-      if (observation) {
-        return <ObservationModuleRenderer module={module} viewModel={viewModel} locale={locale} {...observation} />;
-      }
-      return (
-        <ModuleCard title={isZh ? "建议下一步" : "Recommended next step"} testId="enneagram-module-form-recommendation">
-          <p className="m-0">{nextActionHint(viewModel, locale)}</p>
-          {moduleText(module, "recommended_first_action") ? <p className="m-0 text-sm text-slate-600">{moduleText(module, "recommended_first_action")}</p> : null}
-          <ModuleProvenance module={module} locale={locale} />
-        </ModuleCard>
-      );
-    default:
-      if (module.kind === "cards_grid" || module.kind === "profile_chart" || module.kind === "summary_card" || module.kind === "metrics_card") {
-        return renderGenericSummary(module);
-      }
-      return null;
-  }
-}
-
-const READING_CHAPTERS = [
-  { id: "result", zh: "你的九型结果", en: "Your Enneagram results", keys: ["instant_summary", "top3_cards", "all9_profile", "confidence_band_card", "dominance_gap_card", "close_call_card", "diffuse_boundary", "low_quality_boundary"] },
-  { id: "core", zh: "理解你的核心模式", en: "Understanding your core pattern", keys: ["type_deep_dive_summary", "wing_hint_visual"] },
-  { id: "strengths", zh: "优势与容易付出的代价", en: "Strengths and their costs", keys: ["strength_expression", "cost_expression"] },
-  { id: "relationships", zh: "你在关系中的样子", en: "You in relationships", keys: ["relationship_need", "relationship_strengths", "misread_by_others", "conflict_script", "communication_manual"] },
-  { id: "work", zh: "你在工作中的样子", en: "You at work", keys: ["work_style_summary", "collaboration_strengths", "collaboration_friction", "workplace_trigger_points", "leadership_pattern", "managed_by_others"] },
-  { id: "pressure", zh: "压力下的变化与恢复", en: "Stress and recovery", keys: ["state_spectrum", "stress_trigger", "recovery_action"] },
-  { id: "practice", zh: "接下来如何观察自己", en: "Your next steps in self-observation", keys: ["growth_axis", "seven_day_observation", "resonance_feedback_placeholder", "form_recommendation"] },
-];
-
-function ReadingReport({ pages, viewModel, locale, observation }: {
-  pages: EnneagramReportV2Page[];
-  viewModel: EnneagramResultViewModel;
-  locale: Locale;
-  observation: ObservationSurfaceState | null;
-}) {
-  const modules = pages.flatMap((page) => page.modules
-    .filter((module) => module.visibility === "visible" && !SUPPRESSED_PUBLIC_MODULE_KEYS.has(module.moduleKey))
-    .map((module) => ({ page, module, content: renderModule(module, viewModel, locale, observation) })))
-    .filter(({ content }) => content !== null);
-  const assigned = new Set(READING_CHAPTERS.flatMap((chapter) => chapter.keys));
-  const renderEntry = ({ page, module, content }: (typeof modules)[number]) => (
-    <div key={`${page.pageKey}-${module.moduleKey}`} data-testid={`enneagram-v2-page-${page.pageKey}-module-${module.moduleKey}`}>
-      {module.moduleKey === "wing_hint_visual" ? (
-        <details className="border-y border-slate-200 py-5">
-          <summary className="cursor-pointer text-sm font-medium text-slate-600 transition-colors hover:text-slate-950 focus-visible:outline-2 focus-visible:outline-offset-4">
-            {locale === "zh" ? "邻位倾向参考" : "Adjacent-type reference"}
-          </summary>
-          {content}
-        </details>
-      ) : content}
-    </div>
-  );
-  return (
-    <>
-      {READING_CHAPTERS.map((chapter, index) => {
-        const entries = chapter.keys.flatMap((key) => modules.filter(({ module }) => module.moduleKey === key));
-        if (!entries.length) return null;
-        return (
-          <section key={chapter.id} data-testid={`enneagram-reading-${chapter.id}`} className="border-b border-slate-200 pb-10 last:border-0 md:pb-14">
-            <header className="mb-7 flex items-baseline gap-4 md:mb-10">
-              <span aria-hidden="true" className="text-sm tabular-nums tracking-widest text-slate-400">{String(index + 1).padStart(2, "0")}</span>
-              <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">{locale === "zh" ? chapter.zh : chapter.en}</h2>
-            </header>
-            <div className={chapter.id === "strengths" ? "grid gap-x-10 md:grid-cols-2" : "space-y-6"}>
-              {entries.map(renderEntry)}
-            </div>
-          </section>
-        );
-      })}
-      {modules.some(({ module }) => !assigned.has(module.moduleKey)) ? (
-        <aside aria-label={locale === "zh" ? "结果阅读说明" : "Reading notes"} className="border-t border-slate-200 pt-6">
-          {modules.filter(({ module }) => !assigned.has(module.moduleKey)).map(renderEntry)}
-        </aside>
-      ) : null}
-    </>
-  );
-}
-
-function LegacyEnneagramResultShell({
-  locale,
-  attemptId,
-  reportLocked,
-  accessProjection,
-  viewModel,
+  refresh,
 }: {
   locale: Locale;
   attemptId: string;
-  reportLocked: boolean;
-  accessProjection?: AttemptReportAccessView | null;
-  viewModel: EnneagramResultViewModel;
+  selectedActionId: string;
+  state: EnneagramObservationStateV1 | null;
+  loading: boolean;
+  error: string | null;
+  refresh: (next: EnneagramObservationStateV1 | null) => void;
 }) {
   const isZh = locale === "zh";
-  const primaryType = viewModel.primaryType;
-  const retakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
-  const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
-  const topTypes = viewModel.topTypes;
-
+  const [busy, setBusy] = useState(false);
+  const [day3, setDay3] = useState<EnneagramObservationDay3Payload>({
+    more_like: "unclear",
+    evidence_sentence: "",
+    confidence_self_rating: 3,
+    scene_type: "other",
+  });
+  const [day7, setDay7] = useState<EnneagramObservationDay7Payload>({
+    final_resonance: "still_uncertain",
+    wants_fc144: false,
+    wants_retake_same_form: false,
+  });
+  if (loading)
+    return <p>{isZh ? "正在读取观察状态…" : "Loading observation state…"}</p>;
   return (
     <div
-      data-testid="enneagram-result-shell"
-      data-domain-id="self_understanding"
-      data-domain-role="supporting"
-      data-domain-envelope-state="metadata_only"
-      className="space-y-10 rounded-sm border border-slate-200/80 bg-white px-6 py-8 shadow-sm md:space-y-14 md:px-14 md:py-14"
+      className={styles.feedbackGrid}
+      data-testid="enneagram-observation-panel"
     >
-      <Card className="overflow-hidden border-slate-200 bg-gradient-to-br from-white via-sky-50/80 to-emerald-50/60 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
-        <CardContent className="space-y-6 p-6 md:p-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-              {isZh ? "九型人格" : "Enneagram"}
-            </span>
-            {viewModel.formSummaryLabel ? (
-              <span
-                data-testid="enneagram-form-summary"
-                className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600"
-              >
-                {viewModel.formSummaryLabel}
-              </span>
-            ) : null}
-            <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-              {reportLocked ? (isZh ? "预览访问" : "Preview access") : isZh ? "正式结果" : "Formal result"}
-            </span>
-            {viewModel.qualityLevel ? (
-              <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-                {isZh ? "质量" : "Quality"} · {viewModel.qualityLevel.toUpperCase()}
-              </span>
-            ) : null}
-            {viewModel.confidenceLabel ? (
-              <span className="inline-flex rounded-full border border-white/80 bg-white px-3 py-1 text-xs font-medium text-slate-600">
-                {isZh ? "置信" : "Confidence"} · {viewModel.confidenceLabel}
-              </span>
-            ) : null}
-          </div>
-
-          <div className="space-y-3">
-            <h1 className="m-0 text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">
-              {primaryType ? primaryType.label : isZh ? "九型人格结果" : "Enneagram result"}
-            </h1>
-            {primaryType?.code ? (
-              <p data-testid="enneagram-primary-type" className="m-0 text-lg font-medium text-slate-700">
-                {isZh ? "主型" : "Primary type"} · {primaryType.code}
+      {error ? <Alert>{error}</Alert> : null}
+      <p data-testid="enneagram-observation-guidance">
+        {isZh
+          ? "前三候选与行动仅作为七天观察假设；反馈不会静默改写系统测量结果。"
+          : "The Top 3 and actions are seven-day observation hypotheses only; feedback never silently rewrites the measured result."}
+      </p>
+      {!state ? (
+        <div>
+          <strong>
+            {isZh ? "启动七天观察" : "Start seven-day observation"}
+          </strong>
+          <button
+            data-testid="enneagram-observation-assign"
+            type="button"
+            disabled={busy || selectedActionId === ""}
+            onClick={async () => {
+              setBusy(true);
+              try {
+                refresh(
+                  (await assignEnneagramObservation({ attemptId, selectedActionId }))
+                    .observation_state_v1 ?? null,
+                );
+              } finally {
+                setBusy(false);
+              }
+            }}
+          >
+            {selectedActionId === ""
+              ? isZh
+                ? "先选择一个行动"
+                : "Choose an action first"
+              : isZh
+                ? "开始 7 天观察"
+                : "Start observation"}
+          </button>
+        </div>
+      ) : (
+        <>
+          <div>
+            <strong>Day 3</strong>
+            {state.day3_observation_feedback ? (
+              <p data-testid="enneagram-observation-day3-summary">
+                {isZh ? "已记录" : "Recorded"}
               </p>
-            ) : null}
-            {viewModel.summary ? (
-              <p className="m-0 max-w-3xl whitespace-pre-wrap text-base leading-8 text-slate-700">{viewModel.summary}</p>
-            ) : null}
+            ) : (
+              <form
+                data-testid="enneagram-observation-day3-form"
+                onSubmit={async (event) => {
+                  event.preventDefault();
+                  setBusy(true);
+                  try {
+                    refresh(
+                      (
+                        await submitEnneagramObservationDay3({
+                          attemptId,
+                          payload: day3,
+                        })
+                      ).observation_state_v1 ?? null,
+                    );
+                  } finally {
+                    setBusy(false);
+                  }
+                }}
+              >
+                <label>
+                  {isZh ? "更像哪个候选" : "More like"}
+                  <select
+                    value={day3.more_like}
+                    onChange={(e) =>
+                      setDay3({
+                        ...day3,
+                        more_like: e.target
+                          .value as EnneagramObservationDay3Payload["more_like"],
+                      })
+                    }
+                  >
+                    <option value="top1">top1</option>
+                    <option value="top2">top2</option>
+                    <option value="unclear">unclear</option>
+                    <option value="other">other</option>
+                  </select>
+                </label>
+                <label>
+                  {isZh ? "证据句" : "Evidence sentence"}
+                  <textarea
+                    required
+                    value={day3.evidence_sentence}
+                    onChange={(e) =>
+                      setDay3({ ...day3, evidence_sentence: e.target.value })
+                    }
+                  />
+                </label>
+                <button disabled={busy}>
+                  {isZh ? "提交 Day 3" : "Submit Day 3"}
+                </button>
+              </form>
+            )}
           </div>
-
-          {topTypes.length > 0 ? (
-            <div data-testid="enneagram-top-types" className="flex flex-wrap gap-2">
-              {topTypes.map((type) => (
-                <TypeChip key={type.code} type={type} />
-              ))}
-            </div>
-          ) : null}
-        </CardContent>
-      </Card>
-
-      <LegacyTypeVector rows={viewModel.typeVector} />
-
-      <Card data-testid="enneagram-actions-card" className="rounded-none border-0 border-t border-slate-200 bg-transparent shadow-none">
-        <CardContent className="flex flex-wrap items-center gap-3 px-0 pt-6">
-          {pdfAttemptId ? (
-            <div data-testid="enneagram-pdf-entry">
-              {/* Keep PDF export disabled to keep private result links out of file footers. */}
-              <PdfDownloadButton
-                attemptId={pdfAttemptId}
-                locked={reportLocked}
-                accessProjection={accessProjection}
-                locale={locale}
-                filenamePrefix="enneagram-report"
-                safetyDisabled
-                safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
-              />
-            </div>
-          ) : null}
-          <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "重新测试" : "Retake test"}
-          </Link>
-        </CardContent>
-      </Card>
-
-      {viewModel.visibleSections.length > 0 ? (
-        <div data-testid="enneagram-sections" className="space-y-4">
-          {viewModel.visibleSections.map((section) => (
-            <SectionRenderer
-              key={section.key ?? section.title ?? "section"}
-              section={section}
-              locked={false}
-              locale={locale}
-              scaleCode="ENNEAGRAM"
-            />
-          ))}
-        </div>
-      ) : null}
-
-      {viewModel.lockedSections.length > 0 ? (
-        <div data-testid="enneagram-locked-sections" className="space-y-4">
-          {viewModel.lockedSections.map((section) => (
-            <SectionRenderer
-              key={section.key ?? section.title ?? "locked-section"}
-              section={section}
-              locked
-              locale={locale}
-              scaleCode="ENNEAGRAM"
-              ctaLabel={isZh ? "解锁完整报告" : "Unlock full report"}
-            />
-          ))}
-        </div>
-      ) : null}
+          <div>
+            <strong>Day 7</strong>
+            {state.day7_resonance_feedback ? (
+              <p data-testid="enneagram-observation-user-confirmed">
+                {isZh
+                  ? `已记录；自我观察确认 ${state.user_confirmed_type ?? "未定"}，系统结果保持不变。`
+                  : `Recorded; self-observation ${state.user_confirmed_type ?? "uncertain"}, measured result unchanged.`}
+              </p>
+            ) : (
+              <form
+                data-testid="enneagram-observation-day7-form"
+                onSubmit={async (event) => {
+                  event.preventDefault();
+                  setBusy(true);
+                  try {
+                    refresh(
+                      (
+                        await submitEnneagramObservationDay7({
+                          attemptId,
+                          payload: day7,
+                        })
+                      ).observation_state_v1 ?? null,
+                    );
+                  } finally {
+                    setBusy(false);
+                  }
+                }}
+              >
+                <label>
+                  {isZh ? "最终共鸣" : "Final resonance"}
+                  <select
+                    value={day7.final_resonance}
+                    onChange={(e) =>
+                      setDay7({
+                        ...day7,
+                        final_resonance: e.target
+                          .value as EnneagramObservationDay7Payload["final_resonance"],
+                      })
+                    }
+                  >
+                    <option value="top1">top1</option>
+                    <option value="top2">top2</option>
+                    <option value="top3">top3</option>
+                    <option value="still_uncertain">still uncertain</option>
+                    <option value="other">other</option>
+                  </select>
+                </label>
+                <label>
+                  {isZh ? "自我观察确认号码" : "Self-observed type"}
+                  <input
+                    value={day7.user_confirmed_type ?? ""}
+                    onChange={(e) =>
+                      setDay7({
+                        ...day7,
+                        user_confirmed_type: e.target.value || null,
+                      })
+                    }
+                  />
+                </label>
+                <button disabled={busy}>
+                  {isZh ? "提交 Day 7" : "Submit Day 7"}
+                </button>
+              </form>
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }
@@ -1430,157 +395,330 @@ export function EnneagramResultShell({
   accessProjection?: AttemptReportAccessView | null;
   viewModel: EnneagramResultViewModel;
 }) {
-  const reportV2 = viewModel.reportV2;
-  const retakeHref = buildEnneagramTakeHref(SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, locale, viewModel.formCode);
-  const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
   const isZh = locale === "zh";
-  const shouldLoadObservation = Boolean(
-    reportV2?.pages.some((page) =>
-      page.modules.some((module) =>
-        ["seven_day_observation", "resonance_feedback_placeholder", "form_recommendation"].includes(module.moduleKey)
-      )
-    )
+  const report = viewModel.reportV2;
+  const [selectedType, setSelectedType] = useState(
+    viewModel.candidates[0]?.typeId ?? "",
   );
-  const [observationState, setObservationState] = useState<EnneagramObservationStateV1 | null>(null);
-  const [observationLoading, setObservationLoading] = useState(false);
+  const [activeChapter, setActiveChapter] = useState("chapter-1");
+  const [selectedAction, setSelectedAction] = useState("");
+  const [observationState, setObservationState] =
+    useState<EnneagramObservationStateV1 | null>(null);
+  const [observationLoading, setObservationLoading] = useState(true);
   const [observationError, setObservationError] = useState<string | null>(null);
-  const [busyAction, setBusyAction] = useState<"assign" | "day3" | "day7" | null>(null);
-
+  const candidate =
+    viewModel.candidates.find((item) => item.typeId === selectedType) ??
+    viewModel.candidates[0];
+  const overview = report?.moduleMap.result_overview?.content ?? {};
+  const retakeHref = buildEnneagramTakeHref(
+    SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+    locale,
+    viewModel.formCode,
+  );
+  const pdfAttemptId = accessProjection?.attemptId ?? attemptId;
+  const chapters = useMemo(
+    () =>
+      CHAPTERS.map(([id, number, zh, en]) => ({
+        id,
+        number,
+        title: isZh ? zh : en,
+      })),
+    [isZh],
+  );
   useEffect(() => {
-    if (!shouldLoadObservation) {
-      setObservationState(null);
-      setObservationError(null);
-      setObservationLoading(false);
-      return;
-    }
-
     let active = true;
-    setObservationLoading(true);
-    setObservationError(null);
-
     void fetchEnneagramObservation({ attemptId })
       .then((response) => {
-        if (!active) {
-          return;
-        }
-        setObservationState(response.observation_state_v1 ?? null);
+        if (active) setObservationState(response.observation_state_v1 ?? null);
       })
       .catch((cause) => {
-        if (!active) {
-          return;
-        }
-        setObservationError(cause instanceof Error ? cause.message : isZh ? "观察状态读取失败。" : "Failed to load observation state.");
+        if (active)
+          setObservationError(
+            cause instanceof Error ? cause.message : String(cause),
+          );
       })
       .finally(() => {
-        if (active) {
-          setObservationLoading(false);
-        }
+        if (active) setObservationLoading(false);
       });
-
     return () => {
       active = false;
     };
-  }, [attemptId, isZh, shouldLoadObservation]);
-
-  const observation = shouldLoadObservation
-    ? {
-        state: observationState,
-        loading: observationLoading,
-        error: observationError,
-        busyAction,
-        onAssign: async () => {
-          setBusyAction("assign");
-          setObservationError(null);
-          try {
-            const response = await assignEnneagramObservation({ attemptId });
-            setObservationState(response.observation_state_v1 ?? null);
-          } catch (cause) {
-            setObservationError(cause instanceof Error ? cause.message : isZh ? "启动观察失败。" : "Failed to start observation.");
-          } finally {
-            setBusyAction(null);
-          }
-        },
-        onSubmitDay3: async (payload: EnneagramObservationDay3Payload) => {
-          setBusyAction("day3");
-          setObservationError(null);
-          try {
-            const response = await submitEnneagramObservationDay3({ attemptId, payload });
-            setObservationState(response.observation_state_v1 ?? null);
-          } catch (cause) {
-            setObservationError(cause instanceof Error ? cause.message : isZh ? "Day3 feedback 提交失败。" : "Failed to submit Day 3 feedback.");
-          } finally {
-            setBusyAction(null);
-          }
-        },
-        onSubmitDay7: async (payload: EnneagramObservationDay7Payload) => {
-          setBusyAction("day7");
-          setObservationError(null);
-          try {
-            const response = await submitEnneagramObservationDay7({ attemptId, payload });
-            setObservationState(response.observation_state_v1 ?? null);
-          } catch (cause) {
-            setObservationError(cause instanceof Error ? cause.message : isZh ? "Day7 feedback 提交失败。" : "Failed to submit Day 7 feedback.");
-          } finally {
-            setBusyAction(null);
-          }
-        },
-      }
-    : null;
-
-  if (!reportV2 || reportV2.pages.length === 0) {
-    if (viewModel.authority?.mode !== "immutable_legacy_snapshot") {
+  }, [attemptId]);
+  useEffect(() => {
+    const update = () => {
+      const line = Math.max(96, window.innerHeight * 0.12);
+      const current = chapters
+        .map((chapter) => document.getElementById(chapter.id))
+        .filter((node): node is HTMLElement => Boolean(node))
+        .filter((node) => node.getBoundingClientRect().top <= line)
+        .at(-1);
+      if (current) setActiveChapter(current.id);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, [chapters]);
+  if (!report || report.pages.length !== 7 || !candidate) {
+    if (viewModel.authority?.mode === "immutable_legacy_snapshot")
       return (
-        <Alert data-testid="enneagram-canonical-payload-unavailable">
-          {isZh ? "结果内容暂不可用，请稍后重试。" : "Result content is temporarily unavailable. Please try again later."}
-        </Alert>
+        <article data-testid="enneagram-legacy-snapshot" className="space-y-8">
+          <h1>{isZh ? "九型人格历史结果" : "Historical Enneagram result"}</h1>
+          {viewModel.visibleSections.map((section) => (
+            <SectionRenderer
+              key={section.key ?? section.title ?? "legacy"}
+              section={section}
+              locked={false}
+              locale={locale}
+              scaleCode="ENNEAGRAM"
+            />
+          ))}
+        </article>
       );
-    }
-
     return (
-      <LegacyEnneagramResultShell
-        locale={locale}
-        attemptId={attemptId}
-        reportLocked={reportLocked}
-        accessProjection={accessProjection}
-        viewModel={viewModel}
-      />
+      <Alert data-testid="enneagram-canonical-payload-unavailable">
+        {isZh
+          ? "结果内容暂不可用，请稍后重试。"
+          : "Result content is temporarily unavailable. Please try again later."}
+      </Alert>
     );
   }
-
   return (
-    <div
+    <main
+      className={styles.page}
       data-testid="enneagram-result-shell"
-      data-domain-id="self_understanding"
-      data-domain-role="supporting"
-      data-domain-envelope-state="metadata_only"
+      data-interpretation-scope={viewModel.interpretationScope}
+      data-form-variant={viewModel.formVariant}
       data-enneagram-source-hash={viewModel.sourceHash ?? undefined}
-      data-enneagram-compiled-hash={viewModel.compiledHash ?? undefined}
-      data-enneagram-release-id={viewModel.authority?.releaseId || undefined}
-      className="space-y-10 rounded-sm border border-slate-200/80 bg-white px-6 py-8 shadow-sm md:space-y-14 md:px-14 md:py-14"
     >
-      <ReadingReport pages={reportV2.pages} viewModel={viewModel} locale={locale} observation={observation} />
-
-      <Card data-testid="enneagram-actions-card" className="rounded-none border-0 border-t border-slate-200 bg-transparent shadow-none">
-        <CardContent className="flex flex-wrap items-center gap-3 px-0 pt-6">
-          {pdfAttemptId ? (
-            <div data-testid="enneagram-pdf-entry">
-              {/* Keep PDF export disabled to keep private result links out of file footers. */}
-              <PdfDownloadButton
-                attemptId={pdfAttemptId}
-                locked={reportLocked}
-                accessProjection={accessProjection}
-                locale={locale}
-                filenamePrefix="enneagram-report"
-                safetyDisabled
-                safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
-              />
+      <header className={styles.hero}>
+        <div className={styles.heroInner}>
+          <h1>
+            {isZh
+              ? "九型人格类型测评结果"
+              : "Enneagram type assessment results"}
+          </h1>
+          <hr className={styles.heroRule} />
+          <div className={styles.heroResultMeta}>
+            <span>
+              <UserRound size={20} aria-hidden="true" />
+              {isZh ? "个人测评" : "Personal assessment"}
+            </span>
+            <span>
+              <CalendarDays size={20} aria-hidden="true" />
+              {viewModel.formSummaryLabel}
+            </span>
+          </div>
+        </div>
+        <div className={styles.heroMark} aria-hidden="true">
+          <span>1</span>
+          <span>5</span>
+          <span>9</span>
+        </div>
+      </header>
+      <div className={styles.reportShell}>
+        <aside className={styles.leftRail}>
+          <nav
+            className={styles.chapterNav}
+            aria-label={isZh ? "报告章节" : "Report chapters"}
+          >
+            <p className={styles.railHeading}>
+              {isZh ? "章节导航" : "CHAPTERS"}
+            </p>
+            <div className={styles.navInner}>
+              {chapters.map((chapter) => (
+                <a
+                  key={chapter.id}
+                  href={`#${chapter.id}`}
+                  aria-current={
+                    activeChapter === chapter.id ? "location" : undefined
+                  }
+                >
+                  <span>{chapter.number}</span>
+                  {chapter.title}
+                </a>
+              ))}
             </div>
-          ) : null}
-          <Link href={retakeHref} className={buttonVariants({ variant: "outline" })}>
-            {isZh ? "重新测试" : "Retake test"}
-          </Link>
-        </CardContent>
-      </Card>
-    </div>
+          </nav>
+        </aside>
+        <article className={styles.report}>
+          <section id="chapter-1" className={styles.chapter}>
+            <header className={styles.resultOverview}>
+              <div className={styles.resultOverviewHeader}>
+                <span>01</span>
+                <div>
+                  <h2>{chapters[0].title}</h2>
+                  <p>{String(overview.body ?? "")}</p>
+                </div>
+              </div>
+              <div className={styles.resultOverviewGrid}>
+                <DistributionChart viewModel={viewModel} locale={locale} />
+                <section
+                  className={styles.aboutType}
+                  style={
+                    {
+                      "--candidate-accent":
+                        COLORS[(Number(candidate.typeId) - 1) % COLORS.length],
+                    } as CSSProperties
+                  }
+                >
+                  <div className={styles.aboutTitle}>
+                    <h3>
+                      {isZh
+                        ? `当前阅读候选：${candidate.typeName}`
+                        : `Current reading candidate: ${candidate.typeName}`}
+                    </h3>
+                  </div>
+                  <p className={styles.aboutLead}>
+                    {candidate.sectionMap["2.1"].lead}
+                  </p>
+                  <p>{candidate.sectionMap["2.1"].paragraphs[0]}</p>
+                  <dl className={styles.candidateLens}>
+                    <div>
+                      <dt>{isZh ? "有余地时" : "With capacity"}</dt>
+                      <dd>{candidate.sectionMap["3.1"].lead}</dd>
+                    </div>
+                    <div>
+                      <dt>{isZh ? "倾向过量时" : "When overused"}</dt>
+                      <dd>{candidate.sectionMap["3.2"].lead}</dd>
+                    </div>
+                    <div>
+                      <dt>
+                        {isZh ? "优先寻找的反例" : "Counter-evidence to seek"}
+                      </dt>
+                      <dd>{candidate.sectionMap["2.5"].reflectionQuestion}</dd>
+                    </div>
+                  </dl>
+                  <div className={styles.resultMethodNote} role="note">
+                    <strong>
+                      {String(overview.title ?? chapters[0].title)}
+                    </strong>
+                    <p>
+                      {String(overview.methodology_copy ?? "")}{" "}
+                      {String(overview.score_space_boundary ?? "")}
+                    </p>
+                  </div>
+                </section>
+              </div>
+            </header>
+            <div
+              className={styles.candidatePicker}
+              role="group"
+              aria-label={
+                isZh ? "切换当前阅读候选" : "Switch reading candidate"
+              }
+            >
+              {viewModel.candidates.map((item) => (
+                <button
+                  key={item.typeId}
+                  type="button"
+                  aria-pressed={item.typeId === candidate.typeId}
+                  onClick={() => {
+                    setSelectedType(item.typeId);
+                    setSelectedAction("");
+                  }}
+                  style={
+                    {
+                      "--candidate-accent":
+                        COLORS[(Number(item.typeId) - 1) % COLORS.length],
+                    } as CSSProperties
+                  }
+                >
+                  <strong>
+                    #{item.rank} · {item.typeName}
+                  </strong>
+                  <span>{item.shortTitle}</span>
+                </button>
+              ))}
+            </div>
+          </section>
+          {chapters.slice(1, 6).map((chapter) => (
+            <section
+              id={chapter.id}
+              className={styles.chapter}
+              key={`${candidate.typeId}-${chapter.id}`}
+            >
+              <header className={styles.chapterHeader}>
+                <span>{chapter.number}</span>
+                <h2>{chapter.title}</h2>
+              </header>
+              <div className={styles.typeContent}>
+                {(CHAPTER_SECTIONS[chapter.id] ?? []).map((id) => (
+                  <Section key={id} section={candidate.sectionMap[id]} />
+                ))}
+              </div>
+            </section>
+          ))}
+          <section id="chapter-7" className={styles.chapter}>
+            <header className={styles.chapterHeader}>
+              <span>07</span>
+              <h2>{chapters[6].title}</h2>
+            </header>
+            <section className={styles.reportSection}>
+              <div className={styles.sectionNumber}>7.1</div>
+              <div className={styles.sectionBody}>
+                <h3>
+                  {isZh
+                    ? "与这种模式对应的具体成长建议"
+                    : "Concrete growth actions for this pattern"}
+                </h3>
+                <p className={styles.lead}>
+                  {isZh
+                    ? "选择一个足够小、能够观察结果的行动。选择不会改写系统测量结果。"
+                    : "Choose one small action with an observable outcome. Your choice never rewrites the measured result."}
+                </p>
+              </div>
+            </section>
+            <div className={styles.actionChooser}>
+              {candidate.growthActions.map((action) => (
+                <button
+                  type="button"
+                  key={action.actionId}
+                  aria-pressed={selectedAction === action.actionId}
+                  onClick={() => setSelectedAction(action.actionId)}
+                >
+                  <span>{selectedAction === action.actionId ? "✓" : ""}</span>
+                  <strong>{action.title}</strong>
+                  <p>
+                    {action.instruction} · {action.observableOutcome}
+                  </p>
+                </button>
+              ))}
+            </div>
+            <ObservationPanel
+              locale={locale}
+              attemptId={attemptId}
+              selectedActionId={selectedAction}
+              state={observationState}
+              loading={observationLoading}
+              error={observationError}
+              refresh={setObservationState}
+            />
+          </section>
+          <footer className={styles.chapter}>
+            <div className={styles.localTools}>
+              {pdfAttemptId ? (
+                <PdfDownloadButton
+                  attemptId={pdfAttemptId}
+                  locked={reportLocked}
+                  accessProjection={accessProjection}
+                  locale={locale}
+                  filenamePrefix="enneagram-report"
+                  safetyDisabled
+                  safetyDisabledLabel={
+                    isZh ? "PDF 暂不可用" : "PDF unavailable"
+                  }
+                />
+              ) : null}
+              <Link
+                href={retakeHref}
+                className={buttonVariants({ variant: "outline" })}
+              >
+                {isZh ? "重新测试" : "Retake test"}
+              </Link>
+            </div>
+          </footer>
+        </article>
+      </div>
+    </main>
   );
 }
