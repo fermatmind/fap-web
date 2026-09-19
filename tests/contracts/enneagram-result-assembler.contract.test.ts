@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
 import { createSevenChapterReport } from "@/tests/contracts/helpers/enneagramSevenChapterFixture";
 
-describe("Enneagram seven-chapter result assembler", () => {
+describe("ENNEAGRAM seven-chapter result assembler", () => {
   it.each(["clear", "close_call", "diffuse", "low_quality"] as const)("normalizes the %s state without changing scores", (scope) => {
     const report = createSevenChapterReport({ scope });
     const view = assembleEnneagramResultViewModel({ reportData: report, locale: "en", gate: { isFreeVariant: false } });
@@ -53,7 +53,7 @@ describe("Enneagram seven-chapter result assembler", () => {
     expect(assembleEnneagramResultViewModel({ reportData: createSevenChapterReport({ locale: "en" }), locale: "en", gate: { isFreeVariant: false } }).candidates[0].typeName).toContain("Type");
   });
 
-  it("does not expose candidate sections through a preview-only entitlement", () => {
+  it("keeps previewed Enneagram V2 modules hidden without unlocking adjacent paid modules", () => {
     const view = assembleEnneagramResultViewModel({
       reportData: createSevenChapterReport(),
       locale: "en",
