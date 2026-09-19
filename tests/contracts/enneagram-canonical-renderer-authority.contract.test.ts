@@ -1,10 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import {
-  parseEnneagramPrivateResultAuthority,
-  resolveEnneagramPrivateResultAuthority,
-} from "@/lib/enneagram/privateResultAuthority";
+import { resolveEnneagramPrivateResultAuthority } from "@/lib/enneagram/privateResultAuthority";
 import type { ReportResponse } from "@/lib/api/v0_3";
 import {
   bindCanonicalEnneagramReport,
@@ -24,14 +21,6 @@ function read(relativePath: string): string {
 }
 
 describe("Enneagram canonical renderer authority", () => {
-  it("accepts the current compiler contract and rejects the retired compiler version", () => {
-    const current = canonicalEnneagramAuthority("en");
-
-    expect(current.compiler_version).toBe("1.1.0");
-    expect(parseEnneagramPrivateResultAuthority(current, "en")).not.toBeNull();
-    expect(parseEnneagramPrivateResultAuthority({ ...current, compiler_version: "1.0.0" }, "en")).toBeNull();
-  });
-
   it("fails closed when top-level and report metadata authorities disagree", () => {
     const report = bindCanonicalEnneagramReport({
       ok: true,

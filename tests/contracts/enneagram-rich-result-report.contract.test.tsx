@@ -4,7 +4,7 @@ import { RichResultReport, canRenderRichResultReport } from "@/components/result
 import type { ReportResponse } from "@/lib/api/v0_3";
 import forcedChoice144Fixture from "@/tests/fixtures/enneagram/report_forced_choice_144.projection.json";
 import likert105Fixture from "@/tests/fixtures/enneagram/report_likert_105.projection.json";
-import { createSevenChapterReport } from "@/tests/contracts/helpers/enneagramSevenChapterFixture";
+import { bindCanonicalEnneagramReport } from "@/tests/contracts/helpers/enneagramCanonicalAuthority";
 
 vi.mock("next/navigation", () => ({
   usePathname: () => "/en/result/attempt-enneagram-105",
@@ -15,9 +15,126 @@ function asReport(fixture: unknown): ReportResponse {
 }
 
 function createRestrictedV2Report(): ReportResponse {
-  const report = createSevenChapterReport();
-  Object.assign(report, { attempt_id: "attempt-enneagram-preview", scale_code: "ENNEAGRAM", locked: false, variant: "full", access_level: "full", modules_allowed: ["enneagram_core", "enneagram_full"], modules_preview: [] });
-  return report;
+  return bindCanonicalEnneagramReport({
+    ok: true,
+    locale: "en",
+    attempt_id: "attempt-enneagram-preview",
+    scale_code: "ENNEAGRAM",
+    locked: true,
+    variant: "preview",
+    access_level: "preview",
+    modules_allowed: ["enneagram_core"],
+    modules_preview: [],
+    enneagram_form_v1: {
+      form_code: "enneagram_likert_105",
+      label: "105-question Likert",
+      short_label: "105Q Likert",
+      question_count: 105,
+      estimated_minutes: 12,
+      scale_code: "ENNEAGRAM",
+    },
+    report: {
+      schema_version: "enneagram.report.v1",
+      scale_code: "ENNEAGRAM",
+      _meta: {
+        enneagram_report_v2: {
+          locale: "en",
+          schema_version: "enneagram.report.v2",
+          scale_code: "ENNEAGRAM",
+          form: {
+            form_code: "enneagram_likert_105",
+            form_kind: "likert",
+            methodology_variant: "e105_standard",
+          },
+          registry: {
+            registry_version: "enneagram_registry.v1",
+          },
+          classification: {
+            interpretation_scope: "clear",
+            confidence_level: "high_confidence",
+            interpretation_reason: "fixture",
+          },
+          pages: [
+            {
+              page_key: "page_1_result_overview",
+              title: "Result overview",
+              purpose: "preview-safe overview",
+              visibility: "visible",
+              modules: [
+                {
+                  module_key: "instant_summary",
+                  module_code: "enneagram_core",
+                  access_level: "free",
+                  kind: "summary_card",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "all",
+                  content: {
+                    locale: "en",
+                    title: "Preview summary",
+                    body: "Preview-safe Enneagram copy.",
+                  },
+                },
+                {
+                  module_key: "top3_cards",
+                  module_code: "enneagram_core",
+                  access_level: "free",
+                  kind: "cards_grid",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "all",
+                  content: {
+                    locale: "en",
+                    cards: [
+                      { type: "1", type_name_en: "Type 1" },
+                      { type: "6", type_name_en: "Type 6" },
+                      { type: "9", type_name_en: "Type 9" },
+                    ],
+                  },
+                },
+                {
+                  module_key: "method_boundary",
+                  module_code: "enneagram_core",
+                  access_level: "free",
+                  kind: "boundary_card",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "e105",
+                  content: {
+                    locale: "en",
+                    methodology_copy: "Canonical E105 method boundary.",
+                  },
+                },
+              ],
+            },
+            {
+              page_key: "page_2_work_reality",
+              title: "Work reality",
+              purpose: "paid work modules",
+              visibility: "visible",
+              modules: [
+                {
+                  module_key: "work_style_summary",
+                  module_code: "enneagram_full",
+                  access_level: "paid",
+                  kind: "summary_card",
+                  visibility: "visible",
+                  state: "clear",
+                  form_variant: "all",
+                  content: {
+                    locale: "en",
+                    title: "Paid work style",
+                    body: "Paid Enneagram work copy.",
+                  },
+                },
+              ],
+            },
+          ],
+          modules: [],
+        },
+      },
+    },
+  } as ReportResponse, "en");
 }
 
 describe("enneagram rich result report contract", () => {
@@ -69,11 +186,12 @@ describe("enneagram rich result report contract", () => {
     expect(canRenderRichResultReport(forcedChoiceReport)).toBe(false);
   });
 
-  it("routes an entitled canonical result into the production seven-chapter shell", () => {
+  it("applies the rich result access gate before rendering locked Enneagram V2 pages", () => {
     render(<RichResultReport locale="en" reportData={createRestrictedV2Report()} />);
 
     expect(screen.getByTestId("enneagram-result-shell")).toBeInTheDocument();
-    expect(screen.getByText("body_for_clear")).toBeInTheDocument();
-    expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(7);
+    expect(screen.getByText("Preview-safe Enneagram copy.")).toBeInTheDocument();
+    expect(screen.queryByText("Paid Enneagram work copy.")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("enneagram-v2-page-page_2_work_reality")).not.toBeInTheDocument();
   });
 });

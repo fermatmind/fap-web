@@ -1,5 +1,5 @@
 .page {
-  --result-content-width: 1224px;
+  --preview-content-width: 1224px;
   --ink: #092730;
   --muted: #5c6877;
   --line: #dfe4e6;
@@ -16,7 +16,7 @@
 .hero { position: relative; overflow: hidden; min-height: 334px; color: #f3c2a4; background: #276977; isolation: isolate; }
 .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 82% 18%, #cc7060 0 8%, transparent 8.5%), radial-gradient(circle at 77% 50%, #fff 0 2%, transparent 2.4%), radial-gradient(circle at 89% 61%, #fff 0 2%, transparent 2.4%), linear-gradient(115deg, transparent 56%, #327683 56% 76%, #205b69 76%); opacity: .98; }
 .hero::after { content: ""; position: absolute; width: 430px; height: 430px; right: 8%; top: -24px; border: 1px solid #fffaf23d; border-radius: 50%; z-index: -1; box-shadow: inset 0 0 0 78px #fffaf20a, inset 0 0 0 148px #fffaf20a; }
-.heroInner { display: flex; min-height: 334px; width: min(var(--result-content-width), calc(100% - 48px)); margin: 0 auto; padding: 24px 0; flex-direction: column; justify-content: center; }
+.heroInner { display: flex; min-height: 334px; width: min(var(--preview-content-width), calc(100% - 48px)); margin: 0 auto; padding: 24px 0; flex-direction: column; justify-content: center; }
 .hero h1 { max-width: 720px; margin: 0; font-family: var(--font-serif), "Songti SC", serif; font-size: 40px; line-height: 1.35; letter-spacing: -.025em; font-weight: 600; white-space: nowrap; }
 .heroRule { width: 64px; margin: 20px 0 0; border: 0; border-top: 2px solid #c6c8c7; }
 .heroResultMeta { display: flex; gap: 24px; align-items: center; margin-top: 16px; color: white; font-size: 13px; font-weight: 700; letter-spacing: .03em; }
@@ -24,7 +24,7 @@
 .heroMark { position: absolute; right: max(9vw, 48px); top: 36px; width: 290px; height: 290px; display: grid; place-items: center; border: 1px solid #fffaf22e; border-radius: 50%; font-size: 56px; font-family: var(--font-serif), serif; color: #fffaf21c; transform: rotate(-8deg); }
 .heroMark span { position: absolute; }
 .heroMark span:first-child { top: 34px; left: 75px; }.heroMark span:nth-child(2) { right: 55px; top: 130px; }.heroMark span:last-child { left: 130px; bottom: 28px; }
-.reportShell { position: relative; width: min(var(--result-content-width), calc(100% - 48px)); margin: 24px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 56px; align-items: start; }
+.reportShell { position: relative; width: min(var(--preview-content-width), calc(100% - 48px)); margin: 24px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) 210px; gap: 56px; align-items: start; }
 .leftRail { grid-column: 2; position: sticky; top: 24px; align-self: start; margin-top: 64px; padding-bottom: 32px; }
 .chapterNav { border-top: 2px solid #276977; }
 .railHeading { margin: 13px 10px 8px; color: #596773; font-size: 11px; font-weight: 750; letter-spacing: .14em; }
