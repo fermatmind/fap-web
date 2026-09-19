@@ -17,6 +17,9 @@ type ContentReleasePayload = {
     type?: string;
     slug?: string;
     locale?: string;
+    path_scope?: string;
+    published_revision_id?: number;
+    content_sha256?: string;
     publication_state?: string;
     indexable?: boolean;
   };
@@ -32,6 +35,7 @@ type PathDecision = {
 };
 
 const DEFAULT_PUBLIC_FRONTEND_ORIGINS = ["https://fermatmind.com", "https://www.fermatmind.com"];
+const ARTICLE_DETAIL_ONLY_SCOPE = "article_detail_only";
 const PUBLIC_CONTENT_PAGE_SLUGS = new Set(["about", "brand", "charter", "foundation", "careers", "policies"]);
 const PERSONALITY_CONTENT_TYPES = new Set([
   "personality_profile",
@@ -211,8 +215,9 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     .map((path) => localizedPath(path, locale));
   const type = String(payload.content?.type ?? "").trim();
   const slug = normalizeSlug(payload.content?.slug);
+  const articleDetailOnly = type === "article" && payload.content?.path_scope === ARTICLE_DETAIL_ONLY_SCOPE;
 
-  if (type === "article") {
+  if (type === "article" && !articleDetailOnly) {
     localized.push("/zh/articles", "/en/articles");
 
     if (slug) {
@@ -283,6 +288,54 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
   return { accepted, rejected };
 }
 
+function validateArticleDetailOnlyScope(
+  payload: ContentReleasePayload,
+  decisions: ReturnType<typeof collectPathDecisions>,
+  requestOrigin: string,
+): string | null {
+  if (payload.content?.path_scope !== ARTICLE_DETAIL_ONLY_SCOPE) {
+    return null;
+  }
+
+  if (payload.content?.type !== "article") {
+    return "article_detail_only_type_invalid";
+  }
+
+  const slug = normalizeSlug(payload.content.slug);
+  const rawLocale = String(payload.content.locale ?? "").trim();
+  if (!slug || !["en", "zh-CN"].includes(rawLocale)) {
+    return "article_detail_only_identity_invalid";
+  }
+
+  const publishedRevisionId = payload.content.published_revision_id;
+  const contentSha256 = String(payload.content.content_sha256 ?? "").trim();
+  if (!Number.isSafeInteger(publishedRevisionId) || Number(publishedRevisionId) <= 0 || !/^[a-f0-9]{64}$/.test(contentSha256)) {
+    return "article_detail_only_state_lock_invalid";
+  }
+
+  const requestedPaths = [
+    ...(payload.cache_signal?.paths ?? []),
+    ...(payload.cache_signal?.urls ?? []),
+  ];
+  const expectedPath = `/${normalizeLocaleToSegment(rawLocale)}/articles/${slug}`;
+  const normalizedRequestedPath = requestedPaths.length === 1
+    ? normalizePath(requestedPaths[0], requestOrigin)
+    : null;
+
+  if (
+    requestedPaths.length !== 1
+    || requestedPaths[0] !== expectedPath
+    || normalizedRequestedPath !== expectedPath
+    || decisions.rejected.length !== 0
+    || decisions.accepted.length !== 1
+    || decisions.accepted[0] !== expectedPath
+  ) {
+    return "article_detail_only_path_mismatch";
+  }
+
+  return null;
+}
+
 export async function POST(request: NextRequest) {
   const rawBody = await request.text();
   const auth = await authenticateContentReleaseRevalidation(request, rawBody);
@@ -322,6 +375,24 @@ export async function POST(request: NextRequest) {
     }
   }
   const { accepted, rejected } = collectPathDecisions(payload ?? {}, request.nextUrl.origin);
+  const articleDetailOnlyIssue = validateArticleDetailOnlyScope(
+    payload ?? {},
+    { accepted, rejected },
+    request.nextUrl.origin,
+  );
+  if (articleDetailOnlyIssue) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error_code: "ARTICLE_DETAIL_ONLY_SCOPE_INVALID",
+        issue: articleDetailOnlyIssue,
+        revalidated_paths: [],
+        rejected_paths: rejected,
+        invalidated_tags: [],
+      },
+      { status: 400 },
+    );
+  }
 
   for (const path of accepted) {
     revalidatePath(path);

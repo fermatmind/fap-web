@@ -362,6 +362,107 @@ describe("content release revalidate allowlist", () => {
     );
   });
 
+  it("revalidates only one canonical article detail and its API-derived cache tags in exact mode", async () => {
+    const slug = "career-interest-test-vs-personality-test";
+    const body = JSON.stringify({
+      content: {
+        type: "article",
+        path_scope: "article_detail_only",
+        slug,
+        locale: "en",
+        published_revision_id: 477,
+        content_sha256: "a03386aaa589020a15d07d28bae7214bb3ff7463e1421be83494f4a427d67565",
+      },
+      cache_signal: {
+        paths: [`/en/articles/${slug}`],
+      },
+    });
+
+    const response = await POST(
+      new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body,
+      }),
+    );
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated_paths).toEqual([`/en/articles/${slug}`]);
+    expect(payload.rejected_paths).toEqual([]);
+    expect(payload.invalidated_tags).toEqual([
+      `article-detail:en:${slug}`,
+      `article-seo:en:${slug}`,
+    ]);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(1);
+    expect(mocks.revalidatePath).toHaveBeenCalledWith(`/en/articles/${slug}`);
+    expect(mocks.revalidateTag).toHaveBeenCalledTimes(2);
+  });
+
+  it("fails closed before cache mutation when exact article identity or path scope drifts", async () => {
+    const slug = "career-interest-test-vs-personality-test";
+    const response = await POST(
+      new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          content: {
+            type: "article",
+            path_scope: "article_detail_only",
+            slug,
+            locale: "en",
+            published_revision_id: 477,
+            content_sha256: "a03386aaa589020a15d07d28bae7214bb3ff7463e1421be83494f4a427d67565",
+          },
+          cache_signal: {
+            paths: [`/en/articles/${slug}`, "/en/articles"],
+          },
+        }),
+      }),
+    );
+    const payload = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(payload).toMatchObject({
+      ok: false,
+      error_code: "ARTICLE_DETAIL_ONLY_SCOPE_INVALID",
+      issue: "article_detail_only_path_mismatch",
+      revalidated_paths: [],
+      invalidated_tags: [],
+    });
+    expect(mocks.revalidatePath).not.toHaveBeenCalled();
+    expect(mocks.revalidateTag).not.toHaveBeenCalled();
+  });
+
+  it("fails closed before cache mutation when exact article state locks are malformed", async () => {
+    const slug = "career-interest-test-vs-personality-test";
+    const response = await POST(
+      new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          content: {
+            type: "article",
+            path_scope: "article_detail_only",
+            slug,
+            locale: "en",
+            published_revision_id: 0,
+            content_sha256: "not-a-sha",
+          },
+          cache_signal: {
+            paths: [`/en/articles/${slug}`],
+          },
+        }),
+      }),
+    );
+    const payload = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(payload.issue).toBe("article_detail_only_state_lock_invalid");
+    expect(mocks.revalidatePath).not.toHaveBeenCalled();
+    expect(mocks.revalidateTag).not.toHaveBeenCalled();
+  });
+
   it("accepts apex and www article URLs for the same public frontend surface", () => {
     const decisions = collectPathDecisions(
       {

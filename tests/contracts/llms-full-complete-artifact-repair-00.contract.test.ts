@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { collectPathDecisions } from "@/lib/contentRelease/revalidateRoute";
 
 const ROOT = process.cwd();
 
@@ -32,10 +33,25 @@ describe("SEO-OPS-LLMS-FULL-COMPLETE-ARTIFACT-REPAIR-PR-00", () => {
     expect(route).toContain("getOrStartLlmsFullBuild");
   });
 
-  it("adds llms surfaces to article content release revalidation", () => {
-    const route = read("lib/contentRelease/revalidateRoute.ts");
+  it("keeps llms surfaces on default article revalidation but excludes them from exact detail scope", () => {
+    const defaultDecision = collectPathDecisions({
+      content: { type: "article", locale: "en", slug: "example-article" },
+      cache_signal: { paths: ["/en/articles/example-article"] },
+    });
+    const exactDecision = collectPathDecisions({
+      content: {
+        type: "article",
+        path_scope: "article_detail_only",
+        locale: "en",
+        slug: "example-article",
+        published_revision_id: 477,
+        content_sha256: "a03386aaa589020a15d07d28bae7214bb3ff7463e1421be83494f4a427d67565",
+      },
+      cache_signal: { paths: ["/en/articles/example-article"] },
+    });
 
-    expect(route).toContain('if (type === "article")');
-    expect(route).toContain('localized.push("/llms.txt", "/llms-full.txt")');
+    expect(defaultDecision.accepted).toContain("/llms.txt");
+    expect(defaultDecision.accepted).toContain("/llms-full.txt");
+    expect(exactDecision.accepted).toEqual(["/en/articles/example-article"]);
   });
 });
