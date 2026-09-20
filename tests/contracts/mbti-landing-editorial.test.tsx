@@ -3,6 +3,8 @@ import { describe, expect, it } from "vitest";
 import { parseLandingFaq, parseMbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
 import { MbtiFaqAnswers, MbtiWhyChoose } from "@/components/tests/MbtiEditorialSections";
 import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
+import { getAssessmentEditorialLayout } from "@/lib/tests/assessmentLandingUi";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 describe("CMS MBTI editorial", () => {
   it("accepts legacy question/answer and renders actual paragraphs with matching schema text", () => {
@@ -69,6 +71,32 @@ describe("CMS MBTI editorial", () => {
     expect(container.querySelector("#unknown-owner-block")).not.toBeNull();
     expect(container.querySelector("#method-and-evidence #method-a")).not.toBeNull();
     expect(screen.getByRole("heading", { name: "方法与证据" })).toBeInTheDocument();
+  });
+  it("groups the MBTI overview and both technical methods once for both locale renderings", () => {
+    const layout = getAssessmentEditorialLayout(SCALE_CANONICAL_SLUG_MAP.MBTI)!;
+    const content = parseMbtiEditorial({
+      why_choose: {
+        title: "Why",
+        intro: "Intro",
+        items: [
+          { id: "method", title: "Method overview", body: "Scope" },
+          { id: "mbti-scoring-method", title: "Scoring", body: "Formula" },
+          { id: "mbti-type-method", title: "Type assignment", body: "Threshold" },
+          { id: "versions", title: "Versions", body: "Compare" },
+        ],
+      },
+    });
+
+    for (const locale of ["zh", "en"] as const) {
+      const { container, unmount } = render(<MbtiWhyChoose content={content!} {...layout} locale={locale} />);
+      expect(container.querySelectorAll("#method-and-evidence")).toHaveLength(1);
+      for (const id of layout.methodItemIds) {
+        expect(container.querySelectorAll(`#method-and-evidence #${id}`)).toHaveLength(1);
+        expect(container.querySelectorAll(`#why-choose > div #${id}`)).toHaveLength(0);
+      }
+      expect(container.querySelector("#versions")).not.toBeNull();
+      unmount();
+    }
   });
 });
 

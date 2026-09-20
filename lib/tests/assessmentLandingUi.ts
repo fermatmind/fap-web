@@ -59,7 +59,7 @@ export type AssessmentEditorialLayout = {
 const EDITORIAL_LAYOUTS: Partial<Record<string, AssessmentEditorialLayout>> = {
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     itemOrder: ["free-results", "versions", "method", "interpretation", "applications", "mbti-scoring-method", "mbti-type-method"],
-    methodItemIds: ["mbti-scoring-method", "mbti-type-method"],
+    methodItemIds: ["method", "mbti-scoring-method", "mbti-type-method"],
   },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: {
     itemOrder: ["versions", "riasec-ranking", "riasec-scoring", "riasec-enhanced-method", "riasec-science"],
