@@ -188,6 +188,105 @@ describe("tracking activation contract", () => {
     });
   });
 
+  it("keeps the SEO correlation session out of GA4 while preserving trusted ingest", async () => {
+    grantAnalyticsConsent();
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+    const sessionId = "seo_sess_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    await trackClientEvent({
+      eventName: TRACKING_EVENTS.LANDING_PV,
+      payload: {
+        session_id: sessionId,
+        url: "/zh/tests/mbti-personality-test-16-personality-types",
+        locale: "zh",
+        utm_source: "google",
+      },
+      anonymousId: "anon-session-landing",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
+    });
+    await trackClientEvent({
+      eventName: TRACKING_EVENTS.START_TEST,
+      payload: {
+        session_id: sessionId,
+        test_type: "mbti",
+        test_version: "mbti_93",
+        locale: "zh",
+      },
+      anonymousId: "anon-session-start",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
+    });
+
+    expect(gtagMock).toHaveBeenNthCalledWith(1, "event", "page_view", expect.objectContaining({
+      event_label: TRACKING_EVENTS.LANDING_PV,
+      locale: "zh",
+      utm_source: "google",
+    }));
+    expect(gtagMock.mock.calls[0]?.[2]).not.toHaveProperty("session_id");
+    expect(gtagMock).toHaveBeenNthCalledWith(2, "event", "test_start", expect.objectContaining({
+      event_label: TRACKING_EVENTS.START_TEST,
+      test_type: "mbti",
+      test_version: "mbti_93",
+      locale: "zh",
+    }));
+    expect(gtagMock.mock.calls[1]?.[2]).not.toHaveProperty("session_id");
+
+    const envelopes = fetchMock.mock.calls.map(([, init]) =>
+      JSON.parse(String((init as RequestInit | undefined)?.body)) as {
+        eventName: string;
+        payload: Record<string, unknown>;
+      }
+    );
+    expect(envelopes).toHaveLength(2);
+    expect(envelopes[0]).toMatchObject({
+      eventName: TRACKING_EVENTS.LANDING_PV,
+      payload: {
+        session_id: sessionId,
+        url: "/zh/tests/mbti-personality-test-16-personality-types",
+        locale: "zh",
+        utm_source: "google",
+      },
+    });
+    expect(envelopes[1]).toMatchObject({
+      eventName: TRACKING_EVENTS.START_TEST,
+      payload: {
+        session_id: sessionId,
+        test_type: "mbti",
+        test_version: "mbti_93",
+        locale: "zh",
+      },
+    });
+  });
+
+  it("does not dispatch GA4 or trusted ingest without analytics consent", async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    const gtagMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    Object.defineProperty(window, "gtag", {
+      configurable: true,
+      value: gtagMock,
+    });
+
+    await trackClientEvent({
+      eventName: TRACKING_EVENTS.LANDING_PV,
+      payload: {
+        session_id: "seo_sess_ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        url: "/zh/tests/mbti-personality-test-16-personality-types",
+        locale: "zh",
+      },
+      anonymousId: "anon-without-consent",
+      path: "/zh/tests/mbti-personality-test-16-personality-types",
+    });
+
+    expect(gtagMock).not.toHaveBeenCalled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it("deduplicates repeated purchase_success conversion dispatches in the same browser tick window", async () => {
     vi.useFakeTimers();
     vi.setSystemTime(new Date("2026-06-01T00:00:00.000Z"));

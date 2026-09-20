@@ -258,12 +258,16 @@ function dispatchBrowserAnalyticsEvent(
   if (typeof window === "undefined") return;
   const analyticsWindow = window as AnalyticsWindow;
   const ga4EventName = mapTrackingEventToGa4Name(eventName);
+  const ga4Payload = { ...payload };
+  // This is FermatMind's SEO-funnel correlation ID, not GA4's native session ID.
+  // Keep it in the trusted ingest envelope without overriding GA4 session attribution.
+  delete ga4Payload.session_id;
 
   try {
     analyticsWindow.gtag?.("event", ga4EventName, {
       event_category: "funnel",
       event_label: eventName,
-      ...payload,
+      ...ga4Payload,
     });
   } catch {
     // Browser analytics must never block product flows.
