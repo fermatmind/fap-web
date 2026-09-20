@@ -20,7 +20,7 @@ describe("private result leak regression contracts", () => {
     expect(pdfButton).not.toMatch(/\b(?:access_token|result_lookup_token|privateUrl|private_url)\b/);
 
     expect(enneagramShell).toContain("safetyDisabled");
-    expect(enneagramShell).toContain("private result links out of file footers");
+    expect(enneagramShell).toContain("PDF unavailable");
 
     const big5Shell = read("components/result/big5/Big5ResultShell.tsx");
     expect(big5Shell).toContain("data-source-hash");
@@ -41,13 +41,12 @@ describe("private result leak regression contracts", () => {
   });
 
   it("keeps Enneagram public text rendering scalar-only and object-safe", () => {
-    const enneagramShell = read("components/result/enneagram/EnneagramResultShell.tsx");
+    const enneagramAssembler = read("lib/enneagram/resultAssembler.ts");
 
-    expect(enneagramShell).toContain("/\\[object Object\\]/i");
-    expect(enneagramShell).toContain("/analyzer_close_call/i");
-    expect(enneagramShell).toContain("function safePublicText(value: unknown): string");
-    expect(enneagramShell).toContain('typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean"');
-    expect(enneagramShell).toContain("function firstSafePublicText(...values: unknown[]): string");
+    expect(enneagramAssembler).toContain("/\\[object Object\\]/i");
+    expect(enneagramAssembler).toContain("/analyzer_close_call/i");
+    expect(enneagramAssembler).toContain("function normalizeText(...values: unknown[]): string");
+    expect(enneagramAssembler).toContain('typeof value !== "string" && typeof value !== "number" && typeof value !== "boolean"');
   });
 
   it("keeps print chrome suppression scoped to private result pages only", () => {
@@ -123,7 +122,7 @@ describe("private result leak regression contracts", () => {
     const printChromeContract = read("tests/contracts/result-private-print-chrome.contract.test.ts");
     const big5Contract = read("tests/contracts/big5-pdf-rendered-qa.contract.test.tsx");
     const riasecContract = read("tests/contracts/riasec-trusted-result-shell.contract.test.tsx");
-    const enneagramShell = read("components/result/enneagram/EnneagramResultShell.tsx");
+    const enneagramAssembler = read("lib/enneagram/resultAssembler.ts");
 
     for (const token of ["access_token", "private-attempt-sample", "PRIVATE_RESULT_PRINT_TITLE", "beforeprint", "afterprint"]) {
       expect(urlRedactionContract).toContain(token);
@@ -175,7 +174,7 @@ describe("private result leak regression contracts", () => {
       expect(riasecContract).toContain(token);
     }
 
-    expect(enneagramShell).toContain("/\\[object Object\\]/i");
-    expect(enneagramShell).toContain("/analyzer_close_call/i");
+    expect(enneagramAssembler).toContain("/\\[object Object\\]/i");
+    expect(enneagramAssembler).toContain("/analyzer_close_call/i");
   });
 });

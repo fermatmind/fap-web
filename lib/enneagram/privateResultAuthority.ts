@@ -5,7 +5,7 @@ const AUTHORITY_SCHEMA = "fap.enneagram.private_result_authority.v1";
 const AUTHORITY_ID = "FERMATMIND_ENNEAGRAM_PRIVATE_RESULT_CANONICAL";
 const COMPILED_SCHEMA = "fap.enneagram.private_result.compiled.v1";
 const COMPILER_SCHEMA = "fap.enneagram.private_result.compiler.v1";
-const COMPILER_VERSION = "1.0.0";
+const COMPILER_VERSION = "1.1.0";
 const RUNTIME_CONTRACT = "enneagram.report.v2";
 const HASH_PATTERN = /^[0-9a-f]{64}$/;
 

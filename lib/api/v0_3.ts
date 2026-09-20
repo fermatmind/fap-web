@@ -2139,6 +2139,7 @@ export type EnneagramObservationStateV1 = {
   interpretation_scope?: "clear" | "close_call" | "diffuse" | "low_quality" | string | null;
   close_call_pair?: Record<string, unknown> | null;
   tasks: EnneagramObservationTask[];
+  selected_action_id?: string | null;
   day3_observation_feedback?: Record<string, unknown> | null;
   day7_resonance_feedback?: Record<string, unknown> | null;
   user_confirmed_type?: string | null;
@@ -3407,15 +3408,17 @@ export async function fetchEnneagramObservation({
 
 export async function assignEnneagramObservation({
   attemptId,
+  selectedActionId,
   anonId,
 }: {
   attemptId: string;
+  selectedActionId?: string;
   anonId?: string;
 }): Promise<EnneagramObservationResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
   const response = await apiClient.post<EnneagramObservationResponse>(
     `/v0.3/attempts/${attemptId}/enneagram/observation/assign`,
-    {},
+    selectedActionId ? { selected_action_id: selectedActionId } : {},
     anonHeader(resolvedAnonId)
   );
 
