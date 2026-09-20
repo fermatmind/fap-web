@@ -21,6 +21,7 @@ import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { buildEnneagramTakeHref } from "@/lib/enneagram/forms";
 import type {
   EnneagramCanonicalSection,
+  EnneagramPairComparison,
   EnneagramResultViewModel,
 } from "@/lib/enneagram/resultAssembler";
 import type { Locale } from "@/lib/i18n/locales";
@@ -171,6 +172,52 @@ function Section({ section }: { section: EnneagramCanonicalSection }) {
           </strong>
           <p>{section.reflectionQuestion}</p>
         </div>
+      </div>
+    </section>
+  );
+}
+
+const PAIR_DIMENSION_LABELS = {
+  core_motivation: ["核心动机", "Core motivation"],
+  core_concern: ["主要担忧", "Core concern"],
+  stress_reaction: ["压力反应", "Stress response"],
+  relationship_pattern: ["关系表现", "Relationship pattern"],
+  work_pattern: ["工作表现", "Work pattern"],
+} as const;
+
+function PairComparisonCard({ comparison, locale }: { comparison: EnneagramPairComparison; locale: Locale }) {
+  const isZh = locale === "zh";
+  return (
+    <section className={styles.pairComparison} data-testid="enneagram-pair-comparison" aria-labelledby="enneagram-pair-comparison-title">
+      <header className={styles.pairHeader}>
+        <div>
+          <span>{isZh ? "接近结果辨析" : "CLOSE-CALL COMPARISON"}</span>
+          <h3 id="enneagram-pair-comparison-title">
+            {comparison.candidateOrder[0].typeName} <em>vs</em> {comparison.candidateOrder[1].typeName}
+          </h3>
+        </div>
+        <p>{comparison.shortCompareCopy}</p>
+      </header>
+      <p className={styles.pairShared}>{comparison.sharedSurfaceSimilarity}</p>
+      <div className={styles.pairDimensions}>
+        {comparison.dimensions.map((dimension) => (
+          <section key={dimension.dimensionKey}>
+            <h4>{PAIR_DIMENSION_LABELS[dimension.dimensionKey][isZh ? 0 : 1]}</h4>
+            <div>
+              {dimension.sides.map((side) => (
+                <article key={side.typeId} style={{ "--candidate-accent": COLORS[(Number(side.typeId) - 1) % COLORS.length] } as CSSProperties}>
+                  <strong>#{side.rank} · {side.typeName}</strong>
+                  <p>{side.copy}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+      <div className={styles.pairObservation} role="note">
+        <strong>{isZh ? "七天核对问题" : "Seven-day observation"}</strong>
+        <p>{comparison.sevenDayObservationQuestion}</p>
+        <small>{comparison.resonanceFeedbackPrompt}</small>
       </div>
     </section>
   );
@@ -630,6 +677,7 @@ export function EnneagramResultShell({
                 </button>
               ))}
             </div>
+            {report.pairComparison ? <PairComparisonCard comparison={report.pairComparison} locale={locale} /> : null}
           </section>
           {chapters.slice(1, 6).map((chapter) => (
             <section

@@ -13,7 +13,7 @@ import {
 } from "@/lib/enneagram/privateResultAuthority";
 import type { Locale } from "@/lib/i18n/locales";
 
-export type EnneagramModuleState = "clear" | "close_call" | "diffuse" | "low_quality" | "unknown";
+export type EnneagramModuleState = "clear" | "close_call" | "diffuse" | "low_quality" | "unavailable" | "unknown";
 export type EnneagramModuleVisibility = "visible" | "collapsed" | "placeholder" | "unavailable";
 export type EnneagramFormVariant = "all" | "e105" | "fc144";
 
@@ -96,6 +96,30 @@ export type EnneagramCandidate = {
   growthActions: EnneagramGrowthAction[];
 };
 
+export type EnneagramPairSide = {
+  typeId: string;
+  rank: number;
+  candidateRole: string;
+  typeName: string;
+  shortTitle: string;
+  copy?: string;
+};
+
+export type EnneagramPairDimension = {
+  dimensionKey: "core_motivation" | "core_concern" | "stress_reaction" | "relationship_pattern" | "work_pattern";
+  sides: [EnneagramPairSide, EnneagramPairSide];
+};
+
+export type EnneagramPairComparison = {
+  pairKey: string;
+  candidateOrder: [EnneagramPairSide, EnneagramPairSide];
+  sharedSurfaceSimilarity: string;
+  dimensions: EnneagramPairDimension[];
+  sevenDayObservationQuestion: string;
+  resonanceFeedbackPrompt: string;
+  shortCompareCopy: string;
+};
+
 export type EnneagramReportV2 = {
   schemaVersion: string;
   scaleCode: string;
@@ -124,6 +148,7 @@ export type EnneagramReportV2 = {
   pages: EnneagramReportV2Page[];
   modules: EnneagramReportV2Module[];
   moduleMap: Record<string, EnneagramReportV2Module>;
+  pairComparison: EnneagramPairComparison | null;
   provenance: {
     projectionVersion: string | null;
     reportSchemaVersion: string | null;
@@ -216,7 +241,7 @@ function normalizeSections(value: unknown): Big5ReportSection[] {
 
 function normalizeModuleState(value: unknown): EnneagramModuleState {
   const normalized = normalizeText(value).toLowerCase();
-  if (normalized === "clear" || normalized === "close_call" || normalized === "diffuse" || normalized === "low_quality") {
+  if (normalized === "clear" || normalized === "close_call" || normalized === "diffuse" || normalized === "low_quality" || normalized === "unavailable") {
     return normalized;
   }
 
@@ -373,10 +398,64 @@ const CANONICAL_PAGE_KEYS = [
 ] as const;
 const CANONICAL_MODULE_KEYS = new Set([
   "result_overview",
+  "candidate_pair_comparison",
   "candidate_chapter",
   "growth_actions",
   "seven_day_observation",
 ]);
+
+const PAIR_DIMENSION_KEYS = new Set([
+  "core_motivation",
+  "core_concern",
+  "stress_reaction",
+  "relationship_pattern",
+  "work_pattern",
+]);
+
+function normalizePairSide(value: unknown, requireCopy: boolean): EnneagramPairSide | null {
+  const row = asRecord(value);
+  if (!row) return null;
+  const typeId = normalizeText(row.type_id).replace(/^T/i, "");
+  const rank = normalizeNumber(row.rank);
+  const copy = normalizeText(row.copy);
+  const side = {
+    typeId,
+    rank: rank ?? 0,
+    candidateRole: normalizeText(row.candidate_role),
+    typeName: normalizeText(row.type_name),
+    shortTitle: normalizeText(row.short_title),
+    ...(copy ? { copy } : {}),
+  };
+  if (!/^[1-9]$/.test(typeId) || rank === null || rank < 1 || rank > 3 || !side.candidateRole || !side.typeName || !side.shortTitle || (requireCopy && !copy)) return null;
+  return side;
+}
+
+function normalizePairComparison(module: EnneagramReportV2Module | undefined): EnneagramPairComparison | null {
+  if (!module || module.moduleKey !== "candidate_pair_comparison" || module.visibility !== "visible" || module.state !== "close_call") return null;
+  const content = module.content;
+  if (content.available !== true) return null;
+  const pairKey = normalizeText(content.pair_key);
+  const candidateOrder = Array.isArray(content.candidate_order)
+    ? content.candidate_order.map((side) => normalizePairSide(side, false)).filter((side): side is EnneagramPairSide => side !== null)
+    : [];
+  const dimensions = Array.isArray(content.dimensions) ? content.dimensions.map((value) => {
+    const row = asRecord(value);
+    const dimensionKey = normalizeText(row?.dimension_key);
+    const sides = Array.isArray(row?.sides)
+      ? row.sides.map((side) => normalizePairSide(side, true)).filter((side): side is EnneagramPairSide => side !== null)
+      : [];
+    if (!PAIR_DIMENSION_KEYS.has(dimensionKey) || sides.length !== 2 || sides[0].typeId === sides[1].typeId) return null;
+    return { dimensionKey: dimensionKey as EnneagramPairDimension["dimensionKey"], sides: sides as [EnneagramPairSide, EnneagramPairSide] };
+  }).filter((dimension): dimension is EnneagramPairDimension => dimension !== null) : [];
+  const sharedSurfaceSimilarity = normalizeText(content.shared_surface_similarity);
+  const sevenDayObservationQuestion = normalizeText(content.seven_day_observation_question);
+  const resonanceFeedbackPrompt = normalizeText(content.resonance_feedback_prompt);
+  const shortCompareCopy = normalizeText(content.short_compare_copy);
+  if (!/^[1-8]_[2-9]$/.test(pairKey) || candidateOrder.length !== 2 || dimensions.length !== 5 || !sharedSurfaceSimilarity || !sevenDayObservationQuestion || !resonanceFeedbackPrompt || !shortCompareCopy) return null;
+  const normalizedKey = [...candidateOrder.map((side) => Number(side.typeId))].sort((a, b) => a - b).join("_");
+  if (normalizedKey !== pairKey || dimensions.some((dimension) => dimension.sides.map((side) => side.typeId).join("|") !== candidateOrder.map((side) => side.typeId).join("|"))) return null;
+  return { pairKey, candidateOrder: candidateOrder as [EnneagramPairSide, EnneagramPairSide], sharedSurfaceSimilarity, dimensions, sevenDayObservationQuestion, resonanceFeedbackPrompt, shortCompareCopy };
+}
 
 function normalizeDistribution(value: unknown): EnneagramDistributionRow[] {
   if (!Array.isArray(value)) return [];
@@ -497,7 +576,7 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     pages.some((page) => page.visibility !== "visible" || !page.title || !page.purpose) ||
     pages.flatMap((page) => page.sectionIds).join("|") !== CANONICAL_SECTION_IDS.join("|") ||
     modules.some((module) => !CANONICAL_MODULE_KEYS.has(module.moduleKey)) ||
-    modules.some((module) => module.visibility !== "visible" || module.provenance.contentMaturity === "scaffold") ||
+    modules.some((module) => (module.moduleKey === "candidate_pair_comparison" ? !["visible", "unavailable"].includes(module.visibility) : module.visibility !== "visible") || module.provenance.contentMaturity === "scaffold") ||
     new Set(modules.map((module) => module.moduleKey)).size !== CANONICAL_MODULE_KEYS.size ||
     !Array.from(CANONICAL_MODULE_KEYS).every((moduleKey) => moduleMap[moduleKey]) ||
     distribution.map((row) => row.typeId).join("|") !== "1|2|3|4|5|6|7|8|9" ||
@@ -506,6 +585,14 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     candidates.map((candidate) => candidate.candidateRole).join("|") !== "primary|secondary|tertiary" ||
     new Set(candidates.map((candidate) => candidate.typeId)).size !== 3
   ) return null;
+
+  const pairModule = moduleMap.candidate_pair_comparison;
+  const pairComparison = normalizePairComparison(pairModule);
+  if (normalizeModuleState(classification?.interpretation_scope) === "close_call") {
+    if (!pairComparison) return null;
+  } else if (pairModule.visibility !== "unavailable" || pairModule.state !== "unavailable" || pairModule.content.available !== false || pairComparison !== null) {
+    return null;
+  }
 
   return {
     schemaVersion: normalizeText(raw.schema_version),
@@ -535,6 +622,7 @@ function resolveReportV2(reportData: ReportResponse, locale: Locale): EnneagramR
     pages,
     modules,
     moduleMap,
+    pairComparison,
     provenance: {
       projectionVersion: normalizeText(provenance?.projection_version) || null,
       reportSchemaVersion: normalizeText(provenance?.report_schema_version) || null,
@@ -656,7 +744,7 @@ export function hasEnneagramProjection(reportData: ReportResponse | null | undef
   }
 
   const formCode = reportV2.form.formCode;
-  const requiredModules = ["result_overview", "candidate_chapter", "growth_actions", "seven_day_observation"];
+  const requiredModules = ["result_overview", "candidate_pair_comparison", "candidate_chapter", "growth_actions", "seven_day_observation"];
   if (!requiredModules.every((moduleKey) => reportV2.moduleMap[moduleKey])) {
     return false;
   }
@@ -667,6 +755,6 @@ export function hasEnneagramProjection(reportData: ReportResponse | null | undef
     Boolean(normalizeText(reportV2.moduleMap.result_overview.content.body)) &&
     reportV2.distribution.length === 9 &&
     reportV2.candidates.length === 3 &&
-    reportV2.candidates.every((candidate) => candidate.sections.length === 20 && candidate.growthActions.length >= 3)
+    reportV2.candidates.every((candidate) => candidate.sections.length === 20 && candidate.growthActions.length === 5)
   );
 }

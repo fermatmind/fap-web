@@ -22,7 +22,18 @@ describe("Enneagram production seven-chapter shell", () => {
     expect(screen.getByTestId("enneagram-result-shell")).toHaveAttribute("data-interpretation-scope", scope);
     expect(screen.getAllByRole("heading", { level: 2 })).toHaveLength(7);
     expect(screen.getByRole("img", { name: /relative distribution/i })).toBeInTheDocument();
+    expect(screen.queryByTestId("enneagram-pair-comparison")).toBe(scope === "close_call" ? screen.getByTestId("enneagram-pair-comparison") : null);
     await waitFor(() => expect(api.fetch).toHaveBeenCalled());
+  });
+
+  it("renders both close-call sides and keeps the comparison stable when the reading candidate changes", () => {
+    renderResult({ scope: "close_call", top: [8, 3, 9] });
+    const comparison = screen.getByTestId("enneagram-pair-comparison");
+    expect(comparison).toHaveTextContent("Type 8 vs Type 3");
+    expect(comparison).toHaveTextContent("core_motivation for type 8");
+    expect(comparison).toHaveTextContent("core_motivation for type 3");
+    fireEvent.click(screen.getByRole("button", { name: /#2 · Type 3/ }));
+    expect(screen.getByTestId("enneagram-pair-comparison")).toHaveTextContent("Type 8 vs Type 3");
   });
 
   it("switches the reading candidate without mutating the scored result", () => {

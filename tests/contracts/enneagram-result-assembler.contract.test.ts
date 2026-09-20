@@ -15,6 +15,14 @@ describe("ENNEAGRAM seven-chapter result assembler", () => {
     expect(view.candidates.every((candidate) => candidate.growthActions.length === 5)).toBe(true);
     expect(view.candidates[0].sectionMap["6.4"].levels).toHaveLength(9);
     expect(view.candidates[0].sectionMap["6.4"].assignmentAllowed).toBe(false);
+    expect(view.reportV2?.pairComparison === null).toBe(scope !== "close_call");
+  });
+
+  it("normalizes a canonical unordered pair while preserving ranked candidate order", () => {
+    const view = assembleEnneagramResultViewModel({ reportData: createSevenChapterReport({ scope: "close_call", top: [8, 3, 9] }), locale: "en", gate: { isFreeVariant: false } });
+    expect(view.reportV2?.pairComparison?.pairKey).toBe("3_8");
+    expect(view.reportV2?.pairComparison?.candidateOrder.map((side) => side.typeId)).toEqual(["8", "3"]);
+    expect(view.reportV2?.pairComparison?.dimensions).toHaveLength(5);
   });
 
   it.each(["enneagram_likert_105", "enneagram_forced_choice_144"] as const)("keeps the %s score space backend-owned", (formCode) => {

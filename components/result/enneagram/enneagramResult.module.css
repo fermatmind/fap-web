@@ -89,6 +89,23 @@
 .dialog nav { display: flex; gap: 8px; margin: 24px 0; }.dialog nav button { padding: 8px 14px; border: 1px solid #d7dde0; border-radius: 999px; background: transparent; cursor: pointer; }.dialog nav button[aria-pressed="true"] { border-color: #153f83; background: #153f83; color: white; }
 .situation { padding: 18px 20px; background: #f3f1eb; }.situation strong { display: block; color: #765933; font-size: 12px; }
 .compareColumns { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }.compareColumns article { padding-top: 18px; border-top: 4px solid var(--candidate-accent); }.compareColumns h3 { margin: 0; color: var(--candidate-accent); }.compareColumns dl { margin: 10px 0 0; }.compareColumns dt { margin-top: 13px; color: #7b8490; font-size: 11px; font-weight: 800; }.compareColumns dd { margin: 2px 0 0; color: #3f4b57; }.dialog footer { margin-top: 24px; padding-top: 18px; border-top: 1px solid #dfe4e4; }.dialog footer p { margin: 3px 0 0; }
+.pairComparison { margin: 30px 0 0 58px; padding: 28px; border: 1px solid #d7dde0; border-top: 5px solid #a94d2e; border-radius: 10px; background: #f9f7f1; }
+.pairHeader { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px; align-items: end; }
+.pairHeader span { color: #a94d2e; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.pairHeader h3 { margin: 4px 0 0; color: #182536; font-size: clamp(22px, 3vw, 32px); line-height: 1.2; }
+.pairHeader h3 em { color: #8b949d; font-family: serif; font-size: .7em; font-weight: 400; }
+.pairHeader > p { margin: 0; color: #53606d; }
+.pairShared { margin: 24px 0 0; padding: 16px 18px; border-left: 3px solid #a94d2e; background: #fffefb; color: #394756; }
+.pairDimensions { margin-top: 12px; }
+.pairDimensions > section { padding: 20px 0; border-bottom: 1px solid #d9dede; }
+.pairDimensions h4 { margin: 0 0 10px; color: #6c7782; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.pairDimensions > section > div { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.pairDimensions article { padding-left: 14px; border-left: 3px solid var(--candidate-accent); }
+.pairDimensions article strong { color: var(--candidate-accent); }
+.pairDimensions article p { margin: 6px 0 0; color: #3f4b57; }
+.pairObservation { margin-top: 24px; padding: 18px 20px; border-radius: 8px; background: #263c59; color: white; }
+.pairObservation p { margin: 6px 0 8px; }
+.pairObservation small { display: block; color: #dce5ef; }
 
 @media (max-width: 980px) {
   .heroMark { opacity: .45; right: -120px; }
@@ -111,6 +128,7 @@
   .resultOverviewHeader { grid-template-columns: 34px 1fr; gap: 9px; }.resultOverviewHeader h2 { font-size: 30px; }
   .resultOverviewGrid { margin: 20px 0 0 43px; }.aboutType { margin-top: 16px; padding-top: 22px; }.candidateLens { grid-template-columns: 1fr; }
   .snapshot { grid-template-columns: 1fr 1fr; }.candidatePicker, .readingSteps, .pointList, .feedbackGrid { grid-template-columns: 1fr; }.candidatePicker button { min-height: 92px; }.pointList { gap: 0; }
+  .pairComparison { margin: 26px 0 0 43px; padding: 20px 16px; }.pairHeader, .pairDimensions > section > div { grid-template-columns: 1fr; }.pairHeader { gap: 12px; }.pairDimensions > section > div { gap: 14px; }
   .scoreChart > div { grid-template-columns: 22px 58px 1fr 24px; gap: 7px; padding-inline: 4px; }
   .actionChooser, .selectedAction { margin-left: 43px; }.notesLabel { display: block; }.notesLabel span { display: block; }
   .dialogBackdrop { padding: 0; align-items: end; }.dialog { width: 100%; max-height: 92vh; padding: 22px 18px 30px; border-radius: 16px 16px 0 0; }.compareColumns { grid-template-columns: 1fr; }.dialog nav { overflow-x: auto; }.dialog nav button { flex: 0 0 auto; }
