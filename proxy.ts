@@ -1,6 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
+import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { isSafeCareerJobSlug } from "@/lib/career/slugSafety";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import {
@@ -44,6 +45,7 @@ const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
 const ARTICLE_DETAIL_PATH_RE = /^\/(en|zh)\/articles\/([^/]+)\/?$/i;
 const CAREER_DETAIL_PATH_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)\/?$/i;
 const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
+const TEST_DETAIL_PATH_RE = /^\/(en|zh)\/tests\/([^/]+)\/?$/i;
 const PUBLIC_ABSENCE_PROBE_TIMEOUT_MS = 3000;
 const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
 const DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS = ["GET", "HEAD"] as const;
@@ -131,6 +133,29 @@ function isUnknownBigFivePublicRoute(pathname: string): boolean {
     return resolveBigFivePublicRouteEntry(slugSegments) === null;
   } catch {
     return true;
+  }
+}
+
+function resolveTestDetailBoundary(pathname: string): {
+  locale: "en" | "zh";
+  requestedSlug: string;
+  canonicalSlug: string | null;
+} | null {
+  const match = pathname.match(TEST_DETAIL_PATH_RE);
+  if (!match) {
+    return null;
+  }
+
+  const locale = match[1]?.toLowerCase() === "zh" ? "zh" : "en";
+  try {
+    const requestedSlug = decodeURIComponent(match[2] ?? "").trim().toLowerCase();
+    return {
+      locale,
+      requestedSlug,
+      canonicalSlug: isKnownTestSlug(requestedSlug) ? resolveCanonicalSlug(requestedSlug) : null,
+    };
+  } catch {
+    return { locale, requestedSlug: "", canonicalSlug: null };
   }
 }
 
@@ -370,6 +395,21 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
   }
 
   if (checkPrestreamAuthority && isPublicReadMethod(request.method)) {
+    const testDetailBoundary = resolveTestDetailBoundary(pathname);
+    if (testDetailBoundary) {
+      if (!testDetailBoundary.canonicalSlug) {
+        return createPublicAbsenceResponse(404);
+      }
+      if (
+        testDetailBoundary.requestedSlug.includes("‑")
+        && testDetailBoundary.requestedSlug !== testDetailBoundary.canonicalSlug
+      ) {
+        const target = request.nextUrl.clone();
+        target.pathname = `/${testDetailBoundary.locale}/tests/${testDetailBoundary.canonicalSlug}`;
+        return NextResponse.redirect(target, 308);
+      }
+    }
+
     if (isUnknownBigFivePublicRoute(pathname)) {
       return createPublicAbsenceResponse(404);
     }

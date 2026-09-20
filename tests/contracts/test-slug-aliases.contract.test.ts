@@ -1,4 +1,9 @@
-import { SCALE_CANONICAL_SLUG_MAP, normalizeSupportedScaleCode, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
+import {
+  SCALE_CANONICAL_SLUG_MAP,
+  isKnownTestSlug,
+  normalizeSupportedScaleCode,
+  resolveCanonicalSlug,
+} from "@/lib/assessmentSlugMap";
 import { isLegacyAliasSlug, isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 
 describe("test slug alias contracts", () => {
@@ -8,6 +13,8 @@ describe("test slug alias contracts", () => {
       ["personality-mbti-test", SCALE_CANONICAL_SLUG_MAP.MBTI],
       ["big5-ocean", SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN],
       ["big-five-personality-test", SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN],
+      ["big‑five‑personality‑test‑ocean‑model", SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN],
+      ["holland‑career‑interest‑test‑riasec", SCALE_CANONICAL_SLUG_MAP.RIASEC],
       ["clinical-combo-68", SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68],
       ["depression-anxiety-combo", SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68],
       ["sds-20", SCALE_CANONICAL_SLUG_MAP.SDS_20],
@@ -24,6 +31,13 @@ describe("test slug alias contracts", () => {
     for (const [legacy, canonical] of cases) {
       expect(resolveCanonicalSlug(legacy)).toBe(canonical);
     }
+  });
+
+  it("distinguishes supported test slugs from unknown public paths", () => {
+    expect(isKnownTestSlug(SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN)).toBe(true);
+    expect(isKnownTestSlug("big‑five‑personality‑test‑ocean‑model")).toBe(true);
+    expect(isKnownTestSlug("holland‑career‑interest‑test‑riasec")).toBe(true);
+    expect(isKnownTestSlug("not-a-real-test")).toBe(false);
   });
 
   it("keeps test content lookup backend-authoritative", async () => {

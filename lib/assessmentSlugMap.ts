@@ -25,6 +25,7 @@ export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
   "big5-ocean": SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
   big5: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
   "big5-personality-test": SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
+  "big‑five‑personality‑test‑ocean‑model": SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
 
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
   "enneagram-personality-test": SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
@@ -40,6 +41,7 @@ export const TEST_SLUG_ALIAS_MAP: Record<string, string> = {
   riasec: SCALE_CANONICAL_SLUG_MAP.RIASEC,
   "riasec-test": SCALE_CANONICAL_SLUG_MAP.RIASEC,
   "career-tests-riasec": SCALE_CANONICAL_SLUG_MAP.RIASEC,
+  "holland‑career‑interest‑test‑riasec": SCALE_CANONICAL_SLUG_MAP.RIASEC,
 
   [SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68]: SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68,
   "clinical-combo-68": SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68,
@@ -73,6 +75,11 @@ export function resolveCanonicalSlug(slug: string): string {
   const key = String(slug ?? "").trim().toLowerCase();
   if (!key) return "";
   return TEST_SLUG_ALIAS_MAP[key] ?? key;
+}
+
+export function isKnownTestSlug(slug: string): boolean {
+  const key = String(slug ?? "").trim().toLowerCase();
+  return key !== "" && Object.prototype.hasOwnProperty.call(TEST_SLUG_ALIAS_MAP, key);
 }
 
 export function normalizeSupportedScaleCode(scaleCode: string | null | undefined): SupportedScaleCode | null {
