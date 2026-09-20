@@ -104,7 +104,7 @@
 }
 @media (max-width: 680px) {
   .page { padding-bottom: 16px; font-size: 16px; line-height: 1.75; }
-  .hero { min-height: 300px; }.heroInner { min-height: 300px; width: calc(100% - 36px); padding: 44px 0; }.hero h1 { font-size: clamp(27px, 8.4vw, 36px); line-height: 1.35; letter-spacing: -.045em; }.heroResultMeta { align-items: flex-start; flex-direction: column; gap: 8px; }.heroMark { display: none; }
+  .hero { min-height: 300px; }.heroInner { min-height: 300px; width: calc(100% - 36px); padding: 44px 0; }.hero h1 { font-size: clamp(27px, 8.4vw, 36px); line-height: 1.35; letter-spacing: -.045em; white-space: normal; overflow-wrap: anywhere; }.heroResultMeta { align-items: flex-start; flex-direction: column; gap: 8px; }.heroMark { display: none; }
   .chapterNav { padding-inline: 0; }.navInner { width: 100%; }.navInner a { min-width: 112px; padding-inline: 10px; }
   .reportShell { width: 100%; margin: 16px auto 0; }
   .report { box-shadow: none; }.chapter { padding: 52px 18px 20px; }.chapterHeader, .reportSection { grid-template-columns: 34px 1fr; gap: 9px; }.chapterHeader h2 { font-size: 28px; }.reportSection { padding: 33px 0; }.sectionBody h3 { font-size: 20px; }

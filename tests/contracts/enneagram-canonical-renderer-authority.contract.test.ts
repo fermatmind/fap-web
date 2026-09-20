@@ -82,6 +82,13 @@ describe("Enneagram canonical renderer authority", () => {
     }
   });
 
+  it("allows the production hero title to wrap inside a mobile viewport", () => {
+    const styles = read("components/result/enneagram/enneagramResult.module.css");
+    const mobileRules = styles.slice(styles.indexOf("@media (max-width: 680px)"));
+
+    expect(mobileRules).toMatch(/\.hero h1 \{[^}]*white-space: normal;[^}]*overflow-wrap: anywhere;/u);
+  });
+
   it("keeps retired W5 candidate, receipt, freeze, and preview paths absent", () => {
     for (const retiredPath of [
       "generated/en-content-parity/v2/W5-enneagram-private-results",
