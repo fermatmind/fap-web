@@ -93,8 +93,8 @@
 @media (max-width: 980px) {
   .heroMark { opacity: .45; right: -120px; }
   .page { padding-bottom: 20px; }
-  .reportShell { grid-template-columns: 1fr; width: min(820px, calc(100% - 32px)); margin: 20px auto 0; gap: 0; }
-  .leftRail { grid-column: 1; grid-row: 1; position: static; z-index: 3; margin: 0; padding: 0; }
+  .reportShell { grid-template-columns: minmax(0, 1fr); width: min(820px, calc(100% - 32px)); margin: 20px auto 0; gap: 0; }
+  .leftRail { grid-column: 1; grid-row: 1; min-width: 0; position: static; z-index: 3; margin: 0; padding: 0; }
   .chapterNav { margin-inline: calc(50% - 50vw); padding-inline: max(16px, calc(50vw - 410px)); border-top: 0; border-bottom: 1px solid var(--line); background: #fffefbf2; }
   .railHeading { display: none; }
   .navInner { display: flex; overflow-x: auto; scrollbar-width: none; }

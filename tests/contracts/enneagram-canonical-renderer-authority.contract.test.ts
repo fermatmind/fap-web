@@ -89,6 +89,14 @@ describe("Enneagram canonical renderer authority", () => {
     expect(mobileRules).toMatch(/\.hero h1 \{[^}]*white-space: normal;[^}]*overflow-wrap: anywhere;/u);
   });
 
+  it("allows the one-column report grid to shrink inside a mobile viewport", () => {
+    const styles = read("components/result/enneagram/enneagramResult.module.css");
+    const tabletRules = styles.slice(styles.indexOf("@media (max-width: 980px)"));
+
+    expect(tabletRules).toContain("grid-template-columns: minmax(0, 1fr)");
+    expect(tabletRules).toMatch(/\.leftRail \{[^}]*min-width: 0;/u);
+  });
+
   it("keeps retired W5 candidate, receipt, freeze, and preview paths absent", () => {
     for (const retiredPath of [
       "generated/en-content-parity/v2/W5-enneagram-private-results",
