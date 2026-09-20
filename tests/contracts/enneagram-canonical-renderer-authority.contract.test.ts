@@ -24,11 +24,12 @@ function read(relativePath: string): string {
 }
 
 describe("Enneagram canonical renderer authority", () => {
-  it("accepts the current compiler contract and rejects the retired compiler version", () => {
+  it("accepts the current and immutable historical compiler contracts and rejects retired versions", () => {
     const current = canonicalEnneagramAuthority("en");
 
-    expect(current.compiler_version).toBe("1.1.0");
+    expect(current.compiler_version).toBe("1.2.0");
     expect(parseEnneagramPrivateResultAuthority(current, "en")).not.toBeNull();
+    expect(parseEnneagramPrivateResultAuthority({ ...current, compiler_version: "1.1.0" }, "en")).not.toBeNull();
     expect(parseEnneagramPrivateResultAuthority({ ...current, compiler_version: "1.0.0" }, "en")).toBeNull();
   });
 

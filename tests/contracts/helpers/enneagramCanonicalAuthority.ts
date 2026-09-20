@@ -15,7 +15,7 @@ export function canonicalEnneagramAuthority(locale: "en" | "zh-CN" = "en") {
     compiled_hash: ENNEAGRAM_COMPILED_HASH,
     compiled_schema: "fap.enneagram.private_result.compiled.v1",
     compiler_schema: "fap.enneagram.private_result.compiler.v1",
-    compiler_version: "1.1.0",
+    compiler_version: "1.2.0",
     runtime_contract: "enneagram.report.v2",
   };
 }

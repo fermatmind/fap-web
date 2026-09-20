@@ -5,7 +5,7 @@ const AUTHORITY_SCHEMA = "fap.enneagram.private_result_authority.v1";
 const AUTHORITY_ID = "FERMATMIND_ENNEAGRAM_PRIVATE_RESULT_CANONICAL";
 const COMPILED_SCHEMA = "fap.enneagram.private_result.compiled.v1";
 const COMPILER_SCHEMA = "fap.enneagram.private_result.compiler.v1";
-const COMPILER_VERSION = "1.1.0";
+const SUPPORTED_COMPILER_VERSIONS = new Set(["1.1.0", "1.2.0"]);
 const RUNTIME_CONTRACT = "enneagram.report.v2";
 const HASH_PATTERN = /^[0-9a-f]{64}$/;
 
@@ -67,7 +67,7 @@ export function parseEnneagramPrivateResultAuthority(
     !HASH_PATTERN.test(compiledHash) ||
     text(raw.compiled_schema) !== COMPILED_SCHEMA ||
     text(raw.compiler_schema) !== COMPILER_SCHEMA ||
-    text(raw.compiler_version) !== COMPILER_VERSION ||
+    !SUPPORTED_COMPILER_VERSIONS.has(text(raw.compiler_version)) ||
     text(raw.runtime_contract) !== RUNTIME_CONTRACT
   ) {
     return null;
