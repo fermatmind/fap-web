@@ -44,20 +44,20 @@ test.describe("mobile header drawer", () => {
     const drawer = page.getByRole("dialog", { name: "Menu" });
     await expect(drawer).toBeVisible();
 
-    await expect(drawer.getByRole("link", { name: "Start", exact: true })).toBeVisible();
-    await expect(drawer.getByRole("link", { name: "Profile", exact: true })).toBeVisible();
-    await expect(drawer.getByRole("link", { name: "Search", exact: true })).toBeVisible();
+    await expect(drawer.getByRole("link", { name: "My Account", exact: true })).toBeVisible();
+    await expect(drawer.getByRole("link", { name: "Search", exact: true })).toHaveCount(0);
+    await expect(drawer.getByRole("link", { name: "Business", exact: true })).toHaveCount(0);
     await expect(drawer.getByRole("link", { name: "中文", exact: true })).toBeVisible();
 
-    await drawer.getByRole("button", { name: "Tests", exact: true }).click();
-    await expect(drawer.getByRole("link", { name: "All tests", exact: true })).toBeVisible();
+    await drawer.getByRole("button", { name: "Tests menu", exact: true }).click();
+    await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
 
-    await drawer.getByRole("button", { name: "Articles", exact: true }).click();
-    await expect(drawer.getByRole("link", { name: "All tests", exact: true })).toHaveCount(0);
-    await expect(drawer.getByRole("link", { name: "MBTI basics", exact: true })).toBeVisible();
+    await drawer.getByRole("button", { name: "Articles menu", exact: true }).click();
+    await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toHaveCount(0);
+    await expect(drawer.getByRole("menuitem", { name: "All articles", exact: true })).toBeVisible();
 
-    await drawer.getByRole("link", { name: "MBTI basics", exact: true }).click();
-    await expect(page).toHaveURL(/\/en\/articles\/mbti-basics/);
+    await drawer.getByRole("menuitem", { name: "All articles", exact: true }).click();
+    await expect(page).toHaveURL(/\/en\/articles/);
     await expect(page.getByRole("dialog", { name: "Menu" })).toHaveCount(0);
   });
 });

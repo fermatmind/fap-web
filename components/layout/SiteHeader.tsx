@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -79,7 +79,6 @@ export function SiteHeader({
     { key: "personality", href: "/personality", label: dict.header.personality },
     { key: "career", href: "/career", label: dict.header.career },
     { key: "help", href: "/support", label: dict.header.help },
-    { key: "business", href: "/business", label: dict.header.business },
   ] satisfies Array<{ key: HeaderNavKey; href: string; label: string }>;
   const visibleNavItems = navItems.filter((item) => !shouldHideNavItem(item, priorityFlags));
 
@@ -211,6 +210,7 @@ export function SiteHeader({
         <PublicNavigationPendingIndicator locale={locale} />
       </Suspense>
       <Container
+        data-testid="site-header-container"
         className="max-w-[1320px] px-6 py-2.5 md:px-10 xl:px-12"
       >
         <div className="flex items-center justify-between gap-3">
@@ -240,10 +240,10 @@ export function SiteHeader({
 
           <div
             ref={desktopNavRef}
-            className="hidden min-w-0 flex-1 items-center justify-end gap-3 xl:gap-3.5 lg:flex"
+            className="hidden min-w-0 flex-1 items-center justify-end gap-4 xl:gap-5 lg:flex"
           >
             <nav
-              className="flex min-w-0 flex-1 flex-nowrap items-center justify-end gap-2.5 xl:gap-3.5"
+              className="flex min-w-0 flex-1 flex-nowrap items-center justify-end gap-4 xl:gap-5"
             >
               {visibleNavItems.map((item) => {
                 const menuId = `header-dropdown-${item.key}`;
@@ -318,15 +318,6 @@ export function SiteHeader({
             </nav>
 
             <div className="flex shrink-0 items-center gap-2">
-              <PublicNavigationLink
-                href={withLocale("/tests?q=")}
-                prefetch={false}
-                className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)]"
-                aria-label={dict.header.search}
-                title={dict.header.search}
-              >
-                <Search className="h-4 w-4" />
-              </PublicNavigationLink>
               <LocaleSwitcher />
 
               <Link
@@ -430,16 +421,6 @@ export function SiteHeader({
                     </div>
                   );
                 })}
-
-                <PublicNavigationLink
-                  href={withLocale("/tests?q=")}
-                  prefetch={false}
-                  onClick={handleMobileLinkClick}
-                  className="mt-2 flex min-h-[44px] items-center gap-3 rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
-                >
-                  <Search className="h-4 w-4" />
-                  <span>{dict.header.search}</span>
-                </PublicNavigationLink>
 
                 {disableLocaleSwitchLinks ? null : (
                   <PublicNavigationLink
