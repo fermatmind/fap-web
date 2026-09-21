@@ -197,18 +197,6 @@
     {
       "file": "components/layout/SiteHeader.tsx",
       "rule": "no-new-half-step-utility",
-      "snippet": "gap-2.5",
-      "count": 1
-    },
-    {
-      "file": "components/layout/SiteHeader.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "gap-3.5",
-      "count": 2
-    },
-    {
-      "file": "components/layout/SiteHeader.tsx",
-      "rule": "no-new-half-step-utility",
       "snippet": "px-1.5",
       "count": 1
     },

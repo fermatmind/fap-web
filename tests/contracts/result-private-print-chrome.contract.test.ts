@@ -63,9 +63,10 @@ describe("private result print chrome contract", () => {
     const siteFooter = read("components/layout/SiteFooter.tsx");
     const globals = read("app/globals.css");
 
-    for (const labelKey of ["dict.header.tests", "dict.header.articles", "dict.header.personality", "dict.header.career", "dict.header.help", "dict.header.business"]) {
+    for (const labelKey of ["dict.header.tests", "dict.header.articles", "dict.header.personality", "dict.header.career", "dict.header.help"]) {
       expect(siteHeader).toContain(labelKey);
     }
+    expect(siteHeader).not.toContain("dict.header.business");
 
     for (const labelKey of ["footerGroupTitles.tests", "footerGroupTitles.articles", "footerGroupTitles.company", "footerGroupTitles.policies"]) {
       expect(siteFooter).toContain(labelKey);
