@@ -7,7 +7,6 @@ const primaryNavTargets = {
     ["personality", "/en/personality"],
     ["career", "/en/career"],
     ["help", "/en/support"],
-    ["business", "/en/business"],
   ],
   zh: [
     ["tests", "/zh/tests"],
@@ -15,7 +14,6 @@ const primaryNavTargets = {
     ["personality", "/zh/personality"],
     ["career", "/zh/career"],
     ["help", "/zh/support"],
-    ["business", "/zh/business"],
   ],
 } as const;
 
@@ -26,7 +24,6 @@ const primaryNavLabels = {
     personality: "Personality",
     career: "Career",
     help: "Help",
-    business: "Business",
   },
   zh: {
     tests: "测试",
@@ -34,7 +31,6 @@ const primaryNavLabels = {
     personality: "人格",
     career: "职业",
     help: "帮助",
-    business: "企业版",
   },
 } as const;
 
@@ -51,7 +47,7 @@ test("site chrome is consistent across help and articles pages", async ({ page }
   const helpMenuTrigger = page.getByRole("navigation").getByRole("button", { name: "Help menu", exact: true });
   await expect(helpMenuTrigger).toBeVisible();
   await helpMenuTrigger.click();
-  await expect(page.getByRole("menuitem", { name: "Full help center", exact: true })).toBeVisible();
+  await expect(page.getByRole("menuitem", { name: "Email & data management", exact: true })).toBeVisible();
 });
 
 test("site chrome is visible on immersive take page", async ({ page }) => {
@@ -91,10 +87,8 @@ test("english desktop header stays on a single row", async ({ page }) => {
     page.getByTestId("desktop-primary-nav-link-personality"),
     page.getByTestId("desktop-primary-nav-link-career"),
     page.getByTestId("desktop-primary-nav-link-help"),
-    page.getByTestId("desktop-primary-nav-link-business"),
-    page.getByRole("link", { name: "My Results", exact: true }),
     page.getByRole("button", { name: "Language menu", exact: true }),
-    page.getByRole("link", { name: "Start", exact: true }),
+    page.getByRole("link", { name: "My Account", exact: true }),
   ];
 
   await Promise.all(controls.map((control) => expect(control).toBeVisible()));
@@ -103,7 +97,27 @@ test("english desktop header stays on a single row", async ({ page }) => {
 
   const yPositions = boxes.map((box) => box?.y ?? 0);
   expect(Math.max(...yPositions) - Math.min(...yPositions)).toBeLessThanOrEqual(6);
+
+  const headerContainer = await page.getByTestId("site-header-container").boundingBox();
+  expect(headerContainer?.width).toBeGreaterThanOrEqual(1310);
 });
+
+for (const locale of ["en", "zh"] as const) {
+  test(`${locale} header omits business and search entries on desktop and mobile`, async ({ page }) => {
+    const isZh = locale === "zh";
+    await page.setViewportSize({ width: 1600, height: 1000 });
+    await page.goto(isZh ? "/" : "/en");
+
+    await expect(page.getByTestId("desktop-primary-nav-link-business")).toHaveCount(0);
+    await expect(page.getByRole("link", { name: isZh ? "搜索" : "Search", exact: true })).toHaveCount(0);
+
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.getByRole("button", { name: isZh ? "菜单" : "Menu", exact: true }).click();
+    const drawer = page.getByRole("dialog", { name: isZh ? "菜单" : "Menu", exact: true });
+    await expect(drawer.getByTestId("mobile-primary-nav-link-business")).toHaveCount(0);
+    await expect(drawer.getByRole("link", { name: isZh ? "搜索" : "Search", exact: true })).toHaveCount(0);
+  });
+}
 
 for (const locale of ["en", "zh"] as const) {
   test(`${locale} desktop primary header nav links have stable hrefs and navigate`, async ({ page }) => {

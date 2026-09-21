@@ -68,6 +68,22 @@ describe("SiteHeader locale link contract", () => {
   });
 
   it.each([
+    ["zh", "企业版", "搜索"],
+    ["en", "Business", "Search"],
+  ] as const)("omits business and search entries from the %s global header", (locale, businessLabel, searchLabel) => {
+    navigationState.pathname = `/${locale}`;
+    render(<LocaleProvider locale={locale}><SiteHeader /></LocaleProvider>);
+
+    expect(screen.queryByRole("link", { name: businessLabel })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: searchLabel })).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: locale === "zh" ? "菜单" : "Menu" }));
+    const drawer = screen.getByRole("dialog", { name: locale === "zh" ? "菜单" : "Menu" });
+    expect(drawer).not.toHaveTextContent(businessLabel);
+    expect(drawer).not.toHaveTextContent(searchLabel);
+  });
+
+  it.each([
     ["zh", "/"],
     ["zh", "/zh/tests/mbti-personality-test-16-personality-types"],
     ["zh", "/zh/tests"],
