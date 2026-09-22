@@ -12,7 +12,18 @@ mkdir -p "$root/bin"
 curl -fsSL --retry 3 --retry-all-errors \
   "https://gosspublic.alicdn.com/ossutil/v2/${version}/ossutil-${version}-linux-amd64.zip" -o "$archive"
 printf '%s  %s\n' "$archive_sha256" "$archive" | sha256sum -c -
-unzip -q "$archive" -d "$root/extracted"
+rm -rf -- "$root/extracted"
+mkdir -p "$root/extracted"
+if command -v unzip >/dev/null 2>&1; then
+  unzip -q "$archive" -d "$root/extracted"
+elif command -v python3 >/dev/null 2>&1; then
+  python3 -m zipfile -e "$archive" "$root/extracted"
+elif command -v bsdtar >/dev/null 2>&1; then
+  bsdtar -xf "$archive" -C "$root/extracted"
+else
+  echo "missing zip extractor: install unzip, python3, or bsdtar" >&2
+  exit 2
+fi
 install -m 0755 "$root/extracted/ossutil-${version}-linux-amd64/ossutil" "$binary"
 "$binary" version
 

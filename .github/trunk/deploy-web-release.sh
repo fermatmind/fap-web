@@ -67,12 +67,14 @@ if [[ "$RELEASE_TRANSPORT_MODE" == "oss" ]]; then
   ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
     "chmod 700 '$control/fetch-oss-release.sh' '$control/install-ossutil.sh' && \
      ossutil_bin='$APP_DIR/.deploy-tools/ossutil-2.4.0/bin/ossutil' && \
-     if [ ! -x \"\$ossutil_bin\" ]; then RUNNER_TEMP='$APP_DIR/.deploy-tools' bash '$control/install-ossutil.sh' >/dev/null; fi && \
+     export OSS_BUCKET='$OSS_BUCKET' OSS_INTERNAL_ENDPOINT='$OSS_INTERNAL_ENDPOINT' \
+       OSS_REGION='$OSS_REGION' OSS_OBJECT_KEY='$OSS_OBJECT_KEY' OSS_ECS_ROLE_NAME='$OSS_ECS_ROLE_NAME' DEPLOY_SHA='$DEPLOY_SHA' \
+       RELEASE_ARCHIVE='$remote_archive' RELEASE_ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' \
+       DEPLOY_OUTCOME_PATH='$remote_outcome' TRANSPORT_DURATION_FILE='$remote_transport_duration' && \
+     if [ ! -x \"\$ossutil_bin\" ] && ! RUNNER_TEMP='$APP_DIR/.deploy-tools' bash '$control/install-ossutil.sh' >/dev/null; then \
+       bash '$control/fetch-oss-release.sh'; exit \$?; \
+     fi && \
      export PATH=\"\$(dirname \"\$ossutil_bin\"):\$PATH\" && \
-     OSS_BUCKET='$OSS_BUCKET' OSS_INTERNAL_ENDPOINT='$OSS_INTERNAL_ENDPOINT' \
-     OSS_REGION='$OSS_REGION' OSS_OBJECT_KEY='$OSS_OBJECT_KEY' OSS_ECS_ROLE_NAME='$OSS_ECS_ROLE_NAME' DEPLOY_SHA='$DEPLOY_SHA' \
-     RELEASE_ARCHIVE='$remote_archive' RELEASE_ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' \
-     DEPLOY_OUTCOME_PATH='$remote_outcome' TRANSPORT_DURATION_FILE='$remote_transport_duration' \
      timeout --kill-after=30s 900 bash '$control/fetch-oss-release.sh'"
   transport_status=$?
   set -e
