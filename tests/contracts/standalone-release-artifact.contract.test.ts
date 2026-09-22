@@ -234,6 +234,11 @@ describe("immutable standalone release artifact", () => {
   it("keeps environment-bound CI release candidates outside deploy workflows", () => {
     const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
     const deploy = fs.readFileSync(".github/workflows/deploy.yml", "utf8");
+    const recovery = fs.readFileSync(".github/workflows/recovery.yml", "utf8");
+    const deployRelease = fs.readFileSync(".github/trunk/deploy-web-release.sh", "utf8");
+    const publishTransport = fs.readFileSync(".github/trunk/publish-release-transport.sh", "utf8");
+    const fetchTransport = fs.readFileSync(".github/trunk/fetch-oss-release.sh", "utf8");
+    const installOssutil = fs.readFileSync(".github/trunk/install-ossutil.sh", "utf8");
     const prepareArtifact = fs.readFileSync(".github/trunk/prepare-web-artifact.sh", "utf8");
 
     expect(ci.match(/(?:^|\s)pnpm build(?:\s|$)/gm)).toHaveLength(2);
@@ -253,10 +258,31 @@ describe("immutable standalone release artifact", () => {
     expect(ci).toContain("subject-digest: sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}");
     expect(ci).not.toContain("deploy_web_pm2.sh");
     expect(ci).not.toContain("ssh ");
-    expect(deploy).toContain("ARTIFACT_ID: ${{ needs.policy.outputs.staging_release_id }}");
-    expect(deploy).toContain("ARTIFACT_VARIANT: staging");
+    expect(ci).toContain("uses: aliyun/configure-aliyun-credentials-action@");
+    expect(ci).toContain("id-token: write");
+    expect(ci).toContain(".github/trunk/publish-release-transport.sh");
+    expect(ci).toContain("name: trunk-release-transport-${{ github.sha }}");
+    expect(publishTransport).toContain("api put-object");
+    expect(publishTransport).toContain("--forbid-overwrite");
+    expect(publishTransport).toContain("--mode StsToken");
+    expect(deploy).not.toContain(".github/trunk/prepare-web-artifact.sh");
+    expect(deploy).toContain("RELEASE_TRANSPORT_MODE: oss");
+    expect(deploy).toContain("OSS_INTERNAL_ENDPOINT: ${{ vars.OSS_INTERNAL_ENDPOINT }}");
+    expect(deploy).toContain("OSS_OBJECT_KEY: ${{ needs.policy.outputs.staging_release_object_key }}");
+    expect(deploy).toContain("OSS_OBJECT_KEY: ${{ needs.policy.outputs.release_object_key }}");
     expect(deploy).toContain("ARTIFACT_DIGEST: ${{ needs.policy.outputs.staging_release_digest }}");
     expect(deploy).toContain("STAGING_RELEASE_ID: ${{ steps.artifacts.outputs.staging_release_id }}");
+    expect(deployRelease).toContain('if [[ "$RELEASE_TRANSPORT_MODE" == "local" ]]');
+    expect(deployRelease).toContain('control_files=(scripts/install_standalone_release.sh');
+    expect(deployRelease).toContain('control_files=("$RELEASE_ARCHIVE" "${control_files[@]}")');
+    expect(deployRelease).toContain(".github/trunk/fetch-oss-release.sh");
+    expect(deployRelease).toContain(".github/trunk/install-ossutil.sh");
+    expect(deployRelease).toContain(".deploy-tools/ossutil-2.4.0/bin/ossutil");
+    expect(fetchTransport).toContain("--mode EcsRamRole");
+    expect(fetchTransport).toContain("X-aliyun-ecs-metadata-token");
+    expect(installOssutil).toContain("85edf66b2fb7238f5c7e25cab820cf29312319fe4935b7c86a6b8485eb434f3c");
+    expect(recovery).toContain(".github/trunk/prepare-web-artifact.sh");
+    expect(recovery).not.toContain("RELEASE_TRANSPORT_MODE: oss");
     expect(prepareArtifact).toContain('verification_flag="--require-staging-config"');
     expect(prepareArtifact).toContain('verification_flag="--require-production-config"');
     expect(prepareArtifact).toContain('release_basename="fap-web-${DEPLOY_SHA}"');

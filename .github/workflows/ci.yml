@@ -8,7 +8,6 @@ permissions:
   actions: read
   attestations: write
   contents: read
-  id-token: write
 
 concurrency:
   group: fap-web-ci-${{ github.repository }}-${{ github.sha }}
@@ -78,6 +77,11 @@ jobs:
     needs: classify
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      actions: read
+      attestations: write
+      contents: read
+      id-token: write
     concurrency:
       group: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'fap-web-production-api-read' || format('fap-web-ci-build-{0}', github.run_id) }}
       cancel-in-progress: false
@@ -195,6 +199,56 @@ jobs:
         with:
           subject-name: fap-web-standalone-staging-${{ github.sha }}.zip
           subject-digest: sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}
+      - name: Bind release variants to immutable OSS object keys
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        env:
+          OSS_PREFIX: ${{ vars.OSS_RELEASE_PREFIX }}
+        run: |
+          node .github/trunk/release-transport.mjs create \
+            --output=trunk-release-transport.json --sha="$GITHUB_SHA" --ci-run-id="$GITHUB_RUN_ID" \
+            --ci-run-attempt="$GITHUB_RUN_ATTEMPT" --prefix="$OSS_PREFIX" \
+            --staging-archive=".next/release/fap-web-staging-${GITHUB_SHA}.tar.gz" \
+            --production-archive=".next/release/fap-web-${GITHUB_SHA}.tar.gz" \
+            --staging-artifact-digest="sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}" \
+            --production-artifact-digest="sha256:${{ steps.upload-release.outputs.artifact-digest }}"
+      - name: Obtain short-lived Alibaba Cloud upload credentials
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        uses: aliyun/configure-aliyun-credentials-action@1e5248c8d5d93a8781ac344a68e19a43341e79e6 # v1
+        with:
+          role-to-assume: ${{ vars.OSS_UPLOAD_ROLE_ARN }}
+          oidc-provider-arn: ${{ vars.OSS_OIDC_PROVIDER_ARN }}
+          role-session-name: fap-web-${{ github.run_id }}
+          role-session-expiration: 1800
+          audience: github-actions
+      - name: Install checksum-pinned ossutil
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        run: .github/trunk/install-ossutil.sh
+      - name: Publish both release variants to OSS once
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        env:
+          OSS_BUCKET: ${{ vars.OSS_BUCKET }}
+          OSS_PUBLIC_ENDPOINT: ${{ vars.OSS_PUBLIC_ENDPOINT }}
+          OSS_REGION: ${{ vars.OSS_REGION }}
+          OSS_PREFIX: ${{ vars.OSS_RELEASE_PREFIX }}
+          RELEASE_TRANSPORT_RECEIPT: trunk-release-transport.json
+        run: |
+          export OSS_ACCESS_KEY_ID="$ALIBABA_CLOUD_ACCESS_KEY_ID"
+          export OSS_ACCESS_KEY_SECRET="$ALIBABA_CLOUD_ACCESS_KEY_SECRET"
+          export OSS_SESSION_TOKEN="$ALIBABA_CLOUD_SECURITY_TOKEN"
+          .github/trunk/publish-release-transport.sh
+      - id: upload-release-transport
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: trunk-release-transport-${{ github.sha }}
+          path: trunk-release-transport.json
+          if-no-files-found: error
+          retention-days: 14
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
+        uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4
+        with:
+          subject-name: trunk-release-transport-${{ github.sha }}.zip
+          subject-digest: sha256:${{ steps.upload-release-transport.outputs.artifact-digest }}
       - if: needs.classify.outputs.deploy != 'true'
         run: echo "Docs/rules/tests-only scope; build and deployment artifact intentionally skipped."
 

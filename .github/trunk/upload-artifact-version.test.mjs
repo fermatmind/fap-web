@@ -12,6 +12,6 @@ test("pins every release artifact upload to the reviewed v7 commit", () => {
     source.match(/actions\/upload-artifact@[^\s]+(?: # v\d+)?/g) ?? [],
   );
 
-  assert.equal(uploadArtifactUses.length, 6);
+  assert.equal(uploadArtifactUses.length, 7);
   assert.deepEqual(new Set(uploadArtifactUses), new Set([uploadArtifactV7]));
 });

@@ -20,8 +20,8 @@ const BLESSED_ACTIONS = {
   },
   "actions/upload-artifact": {
     repo: "actions/upload-artifact",
-    sha: "ea165f8d65b6e75b540449e92b4886f43607fa02",
-    tag: "v4",
+    sha: "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+    tag: "v7",
   },
   "actions/attest": {
     repo: "actions/attest",
@@ -47,6 +47,11 @@ const BLESSED_ACTIONS = {
     repo: "webfactory/ssh-agent",
     sha: "e83874834305fe9a4a2997156cb26c5de65a8555",
     tag: "v0.10.0",
+  },
+  "aliyun/configure-aliyun-credentials-action": {
+    repo: "aliyun/configure-aliyun-credentials-action",
+    sha: "1e5248c8d5d93a8781ac344a68e19a43341e79e6",
+    tag: "v1",
   },
 };
 

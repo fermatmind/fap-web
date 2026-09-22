@@ -17,6 +17,9 @@ REQUIRE_LLMS_FULL_ARTIFACT="${REQUIRE_LLMS_FULL_ARTIFACT:-0}"
 LLMS_FULL_VERIFY_SCRIPT="${LLMS_FULL_VERIFY_SCRIPT:-}"
 LLMS_FULL_RECEIPT_PATH="${LLMS_FULL_RECEIPT_PATH:-}"
 LLMS_FULL_VERIFY_TIMEOUT_MS="${LLMS_FULL_VERIFY_TIMEOUT_MS:-330000}"
+TRANSPORT_SOURCE="${TRANSPORT_SOURCE:-github-artifact-scp}"
+TRANSPORT_OBJECT_KEY="${TRANSPORT_OBJECT_KEY:-}"
+TRANSPORT_DURATION_FILE="${TRANSPORT_DURATION_FILE:-}"
 
 log() {
   printf '[install_standalone_release] %s\n' "$*"
@@ -48,6 +51,8 @@ atomic_replace_link() {
 [[ "$ARTIFACT_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]] || fail "ARTIFACT_DIGEST must be a SHA-256 digest"
 [[ "$ARCHIVE_SHA256" =~ ^[0-9a-f]{64}$ ]] || fail "ARCHIVE_SHA256 must be a SHA-256 digest"
 [[ "$RELEASE_MANIFEST_DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]] || fail "RELEASE_MANIFEST_DIGEST must be a SHA-256 digest"
+[[ "$TRANSPORT_SOURCE" == "oss" || "$TRANSPORT_SOURCE" == "github-artifact-scp" ]] || fail "invalid transport source"
+[[ -z "$TRANSPORT_OBJECT_KEY" || ( "$TRANSPORT_OBJECT_KEY" =~ ^[A-Za-z0-9._/-]+$ && "$TRANSPORT_OBJECT_KEY" != *..* ) ]] || fail "invalid transport object key"
 [[ -f "$RELEASE_ARCHIVE" ]] || fail "release archive is missing"
 [[ -x "$DEPLOY_SCRIPT" ]] || fail "deploy controller is missing or not executable"
 [[ -x "$ROLLING_RELOAD_SCRIPT" ]] || fail "rolling reload controller is missing or not executable"
@@ -107,8 +112,13 @@ DEPLOY_OUTCOME_PATH="${DEPLOY_OUTCOME_PATH:-${APP_DIR}/.deploy-outcome-${DEPLOY_
 
 write_outcome() {
   local status="$1" code="$2"
-  printf '{"schema_version":"fermatmind.deploy-outcome.v1","revision":"%s","status":"%s","phase":"%s","exit_code":%s,"signal":"%s","rollback":"%s"}\n' \
-    "$DEPLOY_SHA" "$status" "$phase" "$code" "$interrupted" "$rollback_status" > "${DEPLOY_OUTCOME_PATH}.tmp"
+  local transport_seconds=0
+  if [[ -n "$TRANSPORT_DURATION_FILE" && -f "$TRANSPORT_DURATION_FILE" ]]; then
+    transport_seconds="$(tr -d '[:space:]' < "$TRANSPORT_DURATION_FILE")"
+    [[ "$transport_seconds" =~ ^[0-9]+$ ]] || transport_seconds=0
+  fi
+  printf '{"schema_version":"fermatmind.deploy-outcome.v1","revision":"%s","status":"%s","phase":"%s","exit_code":%s,"signal":"%s","rollback":"%s","transport_source":"%s","transport_object_key":"%s","transport_seconds":%s,"archive_sha256":"%s"}\n' \
+    "$DEPLOY_SHA" "$status" "$phase" "$code" "$interrupted" "$rollback_status" "$TRANSPORT_SOURCE" "$TRANSPORT_OBJECT_KEY" "$transport_seconds" "$ARCHIVE_SHA256" > "${DEPLOY_OUTCOME_PATH}.tmp"
   chmod 600 "${DEPLOY_OUTCOME_PATH}.tmp"
   mv -f "${DEPLOY_OUTCOME_PATH}.tmp" "$DEPLOY_OUTCOME_PATH"
 }
