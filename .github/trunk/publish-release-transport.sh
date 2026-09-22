@@ -55,7 +55,7 @@ verify_head_output() {
     const value = JSON.parse(raw.slice(start, end + 1));
     fs.writeFileSync(process.argv[2], `${JSON.stringify(value)}\n`);
   ' "$output" "$normalized_output"
-  jq -e \
+  if ! jq -e \
     --arg expected_bytes "$expected_bytes" \
     --arg expected_archive_sha "$expected_archive_sha" \
     --arg expected_release_sha "$expected_release_sha" \
@@ -68,7 +68,11 @@ verify_head_output() {
       any($entries[]; (.key == "sha256" or .key == "xossmetasha256") and .value == $expected_archive_sha) and
       any($entries[]; (.key == "releasesha" or .key == "xossmetareleasesha") and .value == $expected_release_sha) and
       any($entries[]; (.key == "releasevariant" or .key == "xossmetareleasevariant") and .value == $expected_variant)
-    ' "$normalized_output" >/dev/null
+    ' "$normalized_output" >/dev/null; then
+    echo "OSS HeadObject response did not contain the required release identity; scalar fields:" >&2
+    jq -r '[paths(scalars) | map(tostring) | join(".")] | unique[]' "$normalized_output" >&2
+    return 1
+  fi
 }
 
 started="$(date +%s)"
