@@ -65,9 +65,9 @@ verify_head_output() {
           {key: (.key | ascii_downcase | gsub("[^a-z0-9]"; "")), value: (.value | tostring)}];
       normalized_entries as $entries |
       any($entries[]; .key == "contentlength" and .value == $expected_bytes) and
-      any($entries[]; .key == "sha256" and .value == $expected_archive_sha) and
-      any($entries[]; .key == "releasesha" and .value == $expected_release_sha) and
-      any($entries[]; .key == "releasevariant" and .value == $expected_variant)
+      any($entries[]; (.key == "sha256" or .key == "xossmetasha256") and .value == $expected_archive_sha) and
+      any($entries[]; (.key == "releasesha" or .key == "xossmetareleasesha") and .value == $expected_release_sha) and
+      any($entries[]; (.key == "releasevariant" or .key == "xossmetareleasevariant") and .value == $expected_variant)
     ' "$normalized_output" >/dev/null
 }
 
