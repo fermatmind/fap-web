@@ -415,7 +415,7 @@ export function canRenderCareerContentV3Item(
       const id = key(entry.id);
       const questionKey = key(entry.question_key);
       if (!exactKeysWithOptional(entry, ["id", "question_key", "answer"], ["fact_refs", "source_refs", "question"]) || !id || seen.has(id) || !questionKey ||
-          string(entry.answer) === null || (entry.question !== undefined && entry.question !== null && string(entry.question) === null) || (entry.question === undefined && careerContentV3QuestionCopy(questionKey, locale, careerName) === null)) return false;
+          string(entry.answer) === null || (entry.question !== undefined && entry.question !== null && typeof entry.question !== "string") || (string(entry.question) === null && careerContentV3QuestionCopy(questionKey, locale, careerName) === null)) return false;
       const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs);
       const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs);
       if (factRefs === null || sourceRefs === null || factRefs.some((ref) => key(ref) === null) || sourceRefs.some((ref) => key(ref) === null)) return false;
@@ -612,6 +612,14 @@ export function normalizeCareerContentV3(value: unknown, locale: Locale, allowEm
   };
 }
 
+export function careerContentV3FaqQuestion(
+  entry: { question?: unknown; question_key?: unknown },
+  content: Pick<CareerContentV3, "locale" | "subject">,
+): string | null {
+  const questionKey = key(entry.question_key);
+  return string(entry.question) ?? (questionKey ? careerContentV3QuestionCopy(questionKey, content.locale, content.subject.name) : null);
+}
+
 export function careerContentV3FaqItems(
   content: CareerContentV3,
   includeBlock: (block: CareerContentV3Block) => boolean = () => true,
@@ -623,9 +631,8 @@ export function careerContentV3FaqItems(
       if (item.type !== "faq" || item.availability !== "available" || !Array.isArray(item.data.entries)) continue;
       for (const entry of item.data.entries) {
         if (!isRecord(entry)) continue;
-        const questionKey = key(entry.question_key);
         const answer = string(entry.answer);
-        const question = string(entry.question) ?? (questionKey ? careerContentV3QuestionCopy(questionKey, content.locale, content.subject.name) : null);
+        const question = careerContentV3FaqQuestion(entry, content);
         const factRefs = entry.fact_refs === undefined ? [] : strings(entry.fact_refs) ?? [];
         const sourceRefs = entry.source_refs === undefined ? [] : strings(entry.source_refs) ?? [];
         if (question && answer) result.push({ question, answer, factRefs, sourceRefs });

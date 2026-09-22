@@ -1,6 +1,6 @@
 import {careerEvidenceLabel} from "@/lib/career/evidenceLabels";
 import Link from 'next/link';
-import { careerContentV3UiCopy, type CareerContentV3Item, type CareerContentV3 } from '@/lib/career/contentV3';
+import { careerContentV3FaqQuestion, careerContentV3UiCopy, type CareerContentV3Item, type CareerContentV3 } from '@/lib/career/contentV3';
 import type { Locale } from '@/lib/i18n/locales';
 
 export function CareerPagePlaceholder({locale, data = false}: {locale: Locale; data?: boolean}) {
@@ -37,7 +37,7 @@ export function CareerPageItem({ item, content }: { item: CareerContentV3Item; c
     return <div className="space-y-3">{(item.data.entries as Array<{ id: string; question_key: string; question?: string | null; answer: string }>).map((entry) => (
       <details key={entry.id} className="group rounded-xl border border-[#E5E9F2] bg-white px-4">
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between py-4 font-bold text-[#1A2233] after:text-xl after:font-normal after:text-[#2C3E8C] after:content-['+'] group-open:after:content-['−']">
-          {entry.question ?? (locale === "zh" ? "问题待补充" : "Question pending")}
+          {careerContentV3FaqQuestion(entry, content) ?? (locale === "zh" ? "问题待补充" : "Question pending")}
         </summary>
         <p className="m-0 pb-4 text-sm leading-7 text-[#2A3346]">{entry.answer}</p>
       </details>

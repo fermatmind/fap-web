@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
+import { cache, Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
@@ -32,6 +32,9 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 export const revalidate = 300;
 const CAREER_DIRECTORY_PAGE_SIZE = 50;
 const CAREER_FAMILY_HUB_NAV_TIMEOUT_MS = 1_500;
+const loadDirectory = cache((locale: "en" | "zh", page: number, family: string, query: string) =>
+  fetchCareerDirectory({ locale, page, perPage: CAREER_DIRECTORY_PAGE_SIZE, family: family || null, query: query || null }),
+);
 
 function firstQueryValue(value: string | string[] | undefined): string {
   return Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
@@ -167,11 +170,19 @@ export async function generateMetadata({
   const page = normalizePageParam(resolvedSearchParams.page);
   const pathname = locale === "zh" ? "/zh/career" : "/en/career";
   const hasDirectoryState = submittedQuery.length > 0 || family.length > 0 || page > 1;
+  let canonicalPathname = pathname;
+  if (page > 1 && !submittedQuery && !family) {
+    const directory = adaptCareerDirectory({ locale, payload: await loadDirectory(locale, page, family, submittedQuery) });
+    if (directory.state !== "unavailable" && directory.pagination.page === page
+      && page <= directory.pagination.totalPages && directory.members.length > 0) {
+      canonicalPathname = buildJobsQueryPath(pathname, { page });
+    }
+  }
 
   return buildPageMetadata({
     locale,
     pathname: buildJobsQueryPath(pathname, { query: submittedQuery, family, page }),
-    canonicalPathname: pathname,
+    canonicalPathname,
     title: locale === "zh" ? "全部职业库" : "All Occupations Library",
     description:
       locale === "zh"
@@ -202,13 +213,7 @@ export default async function CareerPage({
   const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = localizedPath("/career", locale);
   const industriesPath = localizedPath("/career/industries", locale);
-  const directoryPayload = await fetchCareerDirectory({
-    locale,
-    page,
-    perPage: CAREER_DIRECTORY_PAGE_SIZE,
-    family: selectedFamily || null,
-    query: submittedQuery || null,
-  });
+  const directoryPayload = await loadDirectory(locale, page, selectedFamily, submittedQuery);
   const directory = adaptCareerDirectory({
     locale,
     payload: directoryPayload,

@@ -2,7 +2,9 @@ import { render, screen, within } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
-import { careerContentV3QuestionCopy, isCareerContentV3LegacyPlaceholder } from "@/lib/career/contentV3";
+import { careerPageFaq } from "@/lib/career/careerPage";
+import { CareerPageItem } from "@/components/career/display/CareerPageItem";
+import { careerContentV3FaqItems, careerContentV3QuestionCopy, isCareerContentV3LegacyPlaceholder, normalizeCareerContentV3 } from "@/lib/career/contentV3";
 import { adaptCareerDisplaySurface, buildCareerDisplayFAQPageJsonLd } from "@/lib/career/displaySurface";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
 
@@ -646,6 +648,29 @@ describe("career content v3 contract", () => {
 
 
 describe("career-scoped Current FAQ and source register", () => {
+  it.each(["zh", "en"] as const)("uses the same question for generic visible FAQ and JSON-LD in %s", (locale) => {
+    const content = normalizeCareerContentV3(v3Fixture(locale, "middle-school-teachers"), locale)!;
+    content.subject.name = locale === "zh" ? "初中教师" : "Middle School Teachers";
+    const item = content.blocks.find((block) => block.id === "faq")!.items[0];
+    const cases = [
+      { id: "scoped", question_key: "career.faq.middle-school-teachers.daily-work", answer: "Reviewed classroom duties." },
+      { id: "explicit", question_key: "career.faq.middle-school-teachers.us-pay", question: "  Reviewed explicit question?  ", answer: "Reviewed pay scope." },
+      { id: "blank", question_key: "career.faq.middle-school-teachers.education-path", question: "  ", answer: "Reviewed preparation." },
+      { id: "unknown", question_key: "career.faq.middle-school-teachers.unknown-topic", answer: "Retained answer without an invented question." },
+    ];
+    item.data.entries = cases;
+    const { container } = render(<CareerPageItem item={item} content={content} />);
+    const visible = Array.from(container.querySelectorAll("summary"), (node) => node.textContent);
+    const faq = careerContentV3FaqItems(content);
+    expect(careerPageFaq({ content, hero: { badges: [], metrics: [], ai: { key: "ai", label: "AI", availability: "missing", fact: null } }, seo: { title: null, description: null } })).toEqual(faq.map(({ question, answer }) => ({ question, answer })));
+    expect(visible.slice(0, 3)).toEqual(faq.map((entry) => entry.question));
+    expect(visible[0]).toBe(careerContentV3QuestionCopy(cases[0].question_key, locale, content.subject.name));
+    expect(visible[1]).toBe("Reviewed explicit question?");
+    expect(visible[3]).toBe(locale === "zh" ? "问题待补充" : "Question pending");
+    expect(faq.map((entry) => entry.answer)).toEqual(cases.slice(0, 3).map((entry) => entry.answer));
+    expect(container).toHaveTextContent(cases[3].answer);
+  });
+
   const topics = ["daily-work", "role-comparison", "fit", "ai-impact", "china-pay", "us-pay", "education-path", "credentials", "risk-boundary", "human-control", "outlook-transition", "automatable-tasks", "career-worth"];
 
   it.each(["zh", "en"] as const)("localizes supported scoped questions in %s and rejects unknown keys", (locale) => {

@@ -4,6 +4,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { adaptCareerJobBundle } from "@/lib/career/adapters/adaptCareerJobBundle";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 import { buildSelectedCareerDisplaySurfaceFixture } from "@/tests/contracts/careerDisplaySurface.fixture";
+import emptyCareerPage from "@/tests/fixtures/career-page/health-educators.en.json";
 
 import { publishedCareerPage } from "./publishedCareerPage";
 const pageFixture = await publishedCareerPage("zh");
@@ -252,6 +253,39 @@ afterEach(() => {
 });
 
 describe("career job seo.surface.v1 authority contract", () => {
+  it.each(["empty", "unavailable", "published"] as const)("checks the actual %s alternate without revoking the current body", async (alternateState) => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
+    mockCareerJobPageShell();
+    vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
+      fetchCareerJobBundle: vi.fn(async ({ locale }: { locale: "zh" | "en" }) => {
+        const bundle = buildCareerJobBundlePayload();
+        if (locale === "zh") return bundle;
+        if (alternateState === "unavailable") return null;
+        const subject = { canonical_slug: "accountants-and-auditors", name: "Accountants and Auditors", summary: null };
+        const page = alternateState === "empty"
+          ? { ...emptyCareerPage, subject, content: { ...emptyCareerPage.content, subject } }
+          : englishPageFixture;
+        return { ...bundle, career_page: page, seo_contract: { ...bundle.seo_contract, canonical_path: "/en/career/jobs/accountants-and-auditors" },
+          seo_authority_v1: { ...bundle.seo_authority_v1, seo_surface_v1: { ...bundle.seo_authority_v1.seo_surface_v1, canonical_url: "https://fermatmind.com/en/career/jobs/accountants-and-auditors" } } };
+      }),
+    }));
+    const { generateMetadata } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({ params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }) });
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.alternates?.canonical).toBe(CANONICAL);
+    if (alternateState === "published") {
+      expect(metadata.alternates?.languages).toMatchObject({ en: "https://fermatmind.com/en/career/jobs/accountants-and-auditors", "zh-CN": CANONICAL });
+    } else {
+      expect(metadata.alternates?.languages).toBeUndefined();
+    }
+    if (alternateState === "empty") {
+      const empty = await generateMetadata({ params: Promise.resolve({ locale: "en", slug: "accountants-and-auditors" }) });
+      expect(empty.robots).toMatchObject({ index: false, follow: true });
+      expect(empty.alternates?.canonical).toBe("https://fermatmind.com/en/career/jobs/accountants-and-auditors");
+      expect(empty.alternates?.languages).toBeUndefined();
+    }
+  });
+
   it("fetches the career job SEO authority endpoint alongside the render bundle", async () => {
     const requestedUrls: string[] = [];
     vi.stubGlobal(

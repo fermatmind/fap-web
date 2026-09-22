@@ -4,6 +4,15 @@ import { extractBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSou
 type Locale = "en" | "zh";
 
 const SITE_URL = "https://fermatmind.com";
+const directoryState = vi.hoisted(() => ({ unavailable: false }));
+vi.mock("@/lib/career/api/fetchCareerDirectory", () => ({
+  fetchCareerDirectory: vi.fn(async ({ page, locale }: { page: number; locale: string }) => directoryState.unavailable
+    ? { state: "unavailable", payload: null, error: null }
+    : { state: "success", error: null, payload: {
+      pagination: { page, per_page: 50, total: 1043, total_pages: 21 },
+      items: page <= 21 ? [{ slug: "editors", title: "Editors", canonical_path: `/${locale}/career/jobs/editors`, detail_ready: true, indexable: true }] : [],
+    } }),
+}));
 
 async function metadataFor(
   locale: Locale,
@@ -18,6 +27,7 @@ async function metadataFor(
 }
 
 afterEach(() => {
+  directoryState.unavailable = false;
   vi.unstubAllEnvs();
   vi.resetModules();
 });
@@ -26,7 +36,6 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
   it.each([
     ["search", { q: "nurse" }],
     ["filter", { family: "healthcare" }],
-    ["pagination", { page: "2" }],
     ["combined state", { q: "nurse", family: "healthcare", page: "2" }],
   ])("keeps every %s state noindex,follow with the locale directory root canonical", async (_label, searchParams) => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", SITE_URL);
@@ -48,11 +57,28 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
     }
   });
 
+  it.each([2, 21, 22])("binds pure page %i canonical to current directory bounds", async (page) => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", SITE_URL);
+    for (const locale of ["en", "zh"] as const) {
+      const metadata = await metadataFor(locale, { page: String(page) });
+      expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career${page <= 21 ? `?page=${page}` : ""}`);
+      expect(metadata.robots).toMatchObject({ index: false, follow: true });
+    }
+  });
+
+  it("does not claim a valid pagination canonical when the directory is unavailable", async () => {
+    vi.stubEnv("NEXT_PUBLIC_SITE_URL", SITE_URL);
+    directoryState.unavailable = true;
+    const metadata = await metadataFor("zh", { page: "2" });
+    expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/zh/career`);
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
+  });
+
   it("keeps both unfiltered directory roots indexable and self-canonical", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", SITE_URL);
 
     for (const locale of ["en", "zh"] as const) {
-      const metadata = await metadataFor(locale, {});
+      const metadata = await metadataFor(locale, { page: "1" });
 
       expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career`);
       expect(metadata.robots).toMatchObject({

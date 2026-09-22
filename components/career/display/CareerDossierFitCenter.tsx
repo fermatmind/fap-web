@@ -193,7 +193,7 @@ export function CareerDossierFitCenter({ value, riasec, locale, sectionLabel, se
       <section className={visual.fitCenterSection} aria-labelledby="career-fit-directions-title">
         <div className={visual.fitCenterSectionHeading}>
           <div>
-            <h3 id="career-fit-directions-title">{interfaceLabels?.["interface.fit.directions_heading"] ?? (isZh ? "你更可能适合哪条会计方向？" : "Which accounting direction may fit you better?")}</h3>
+            <h3 id="career-fit-directions-title">{interfaceLabels?.["interface.fit.directions_heading"] ?? (isZh ? "你更可能适合哪些工作方向？" : "Which work directions may fit you better?")}</h3>
           </div>
         </div>
         <div className={visual.fitDirectionGrid} data-career-api-list="personality_fit_block.directions">
