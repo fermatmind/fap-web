@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-for name in OSS_BUCKET OSS_PUBLIC_ENDPOINT OSS_REGION OSS_PREFIX RELEASE_TRANSPORT_RECEIPT; do
+for name in OSS_BUCKET OSS_PUBLIC_ENDPOINT OSS_REGION OSS_PREFIX RELEASE_TRANSPORT_RECEIPT \
+  STAGING_RELEASE_ARCHIVE PRODUCTION_RELEASE_ARCHIVE; do
   [[ -n "${!name:-}" ]] || { echo "missing $name" >&2; exit 2; }
 done
 [[ "$OSS_BUCKET" =~ ^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$ ]]
@@ -9,8 +10,8 @@ done
 [[ "$OSS_REGION" =~ ^cn-[a-z0-9-]+$ ]]
 [[ "$OSS_PREFIX" =~ ^[A-Za-z0-9._/-]+$ && "$OSS_PREFIX" != *..* ]]
 
-staging_archive=".next/release/fap-web-staging-${GITHUB_SHA}.tar.gz"
-production_archive=".next/release/fap-web-${GITHUB_SHA}.tar.gz"
+staging_archive="$STAGING_RELEASE_ARCHIVE"
+production_archive="$PRODUCTION_RELEASE_ARCHIVE"
 node .github/trunk/release-transport.mjs verify \
   --receipt="$RELEASE_TRANSPORT_RECEIPT" --sha="$GITHUB_SHA" --ci-run-id="$GITHUB_RUN_ID" --prefix="$OSS_PREFIX"
 

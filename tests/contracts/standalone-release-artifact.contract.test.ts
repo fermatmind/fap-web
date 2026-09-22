@@ -253,6 +253,7 @@ describe("immutable standalone release artifact", () => {
     expect(ci).toContain("subject-name: fap-web-standalone-${{ github.sha }}.zip");
     expect(ci).toContain("subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}");
     expect(ci).toContain("name: fap-web-standalone-staging-${{ github.sha }}");
+    expect(ci).toContain("${{ runner.temp }}/fap-web-staging-${{ github.sha }}.tar.gz");
     expect(ci).toContain("NEXT_PUBLIC_API_URL: https://staging-api.fermatmind.com");
     expect(ci).toContain("--require-staging-config");
     expect(ci).toContain("subject-digest: sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}");

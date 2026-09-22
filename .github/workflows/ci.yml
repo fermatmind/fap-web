@@ -136,7 +136,7 @@ jobs:
           NEXT_PUBLIC_GOOGLE_ADS_PURCHASE_CONVERSION_LABEL: ""
           NEXT_PUBLIC_SITE_URL: https://staging.fermatmind.com
           RELEASE_DIRECTORY: .next/release/fap-web-${{ github.sha }}
-          RELEASE_ARCHIVE: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
+          RELEASE_ARCHIVE: ${{ runner.temp }}/fap-web-staging-${{ github.sha }}.tar.gz
         run: |
           set -euo pipefail
           pnpm release:package -- --source=.next/standalone --output="$RELEASE_DIRECTORY" --git-sha="$GITHUB_SHA" \
@@ -150,7 +150,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: fap-web-standalone-staging-${{ github.sha }}
-          path: .next/release/fap-web-staging-${{ github.sha }}.tar.gz
+          path: ${{ runner.temp }}/fap-web-staging-${{ github.sha }}.tar.gz
           compression-level: 0
           if-no-files-found: error
           retention-days: 14
@@ -207,7 +207,7 @@ jobs:
           node .github/trunk/release-transport.mjs create \
             --output=trunk-release-transport.json --sha="$GITHUB_SHA" --ci-run-id="$GITHUB_RUN_ID" \
             --ci-run-attempt="$GITHUB_RUN_ATTEMPT" --prefix="$OSS_PREFIX" \
-            --staging-archive=".next/release/fap-web-staging-${GITHUB_SHA}.tar.gz" \
+            --staging-archive="$RUNNER_TEMP/fap-web-staging-${GITHUB_SHA}.tar.gz" \
             --production-archive=".next/release/fap-web-${GITHUB_SHA}.tar.gz" \
             --staging-artifact-digest="sha256:${{ steps.upload-staging-release.outputs.artifact-digest }}" \
             --production-artifact-digest="sha256:${{ steps.upload-release.outputs.artifact-digest }}"
@@ -231,6 +231,8 @@ jobs:
           OSS_REGION: ${{ vars.OSS_REGION }}
           OSS_PREFIX: ${{ vars.OSS_RELEASE_PREFIX }}
           RELEASE_TRANSPORT_RECEIPT: trunk-release-transport.json
+          STAGING_RELEASE_ARCHIVE: ${{ runner.temp }}/fap-web-staging-${{ github.sha }}.tar.gz
+          PRODUCTION_RELEASE_ARCHIVE: .next/release/fap-web-${{ github.sha }}.tar.gz
         run: |
           export OSS_ACCESS_KEY_ID="$ALIBABA_CLOUD_ACCESS_KEY_ID"
           export OSS_ACCESS_KEY_SECRET="$ALIBABA_CLOUD_ACCESS_KEY_SECRET"
