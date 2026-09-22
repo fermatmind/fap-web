@@ -105,7 +105,7 @@ jobs:
         with:
           node-version: 24
       - if: needs.classify.outputs.deploy == 'true'
-        run: corepack enable && pnpm install --frozen-lockfile
+        run: .github/trunk/install-dependencies.sh
       - name: Lint changed application boundary
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: pnpm lint . --max-warnings=0
@@ -271,7 +271,7 @@ jobs:
           node-version: 24
       - name: Run contract shard ${{ matrix.shard }} of 4
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true' || needs.classify.outputs.tests_changed == 'true'
-        run: corepack enable && pnpm install --frozen-lockfile && pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}
+        run: .github/trunk/install-dependencies.sh && pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}
       - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true' && needs.classify.outputs.tests_changed != 'true'
         run: echo "Frontend contract boundary unchanged."
 
@@ -299,7 +299,7 @@ jobs:
         with:
           node-version: 24
       - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        run: corepack enable && pnpm install --frozen-lockfile && pnpm verify-big5-contract-freeze
+        run: .github/trunk/install-dependencies.sh && pnpm verify-big5-contract-freeze
       - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
         run: echo "Big Five adapter unchanged."
 
@@ -315,7 +315,7 @@ jobs:
         with:
           node-version: 24
       - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        run: corepack enable && pnpm install --frozen-lockfile && pnpm verify-enneagram-contract-freeze
+        run: .github/trunk/install-dependencies.sh && pnpm verify-enneagram-contract-freeze
       - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
         run: echo "Enneagram adapter unchanged."
 
