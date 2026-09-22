@@ -12,8 +12,12 @@ done
 
 staging_archive="$STAGING_RELEASE_ARCHIVE"
 production_archive="$PRODUCTION_RELEASE_ARCHIVE"
+staging_artifact_digest="$(jq -r '.objects.staging.github_artifact_digest' "$RELEASE_TRANSPORT_RECEIPT")"
+production_artifact_digest="$(jq -r '.objects.production.github_artifact_digest' "$RELEASE_TRANSPORT_RECEIPT")"
 node .github/trunk/release-transport.mjs verify \
-  --receipt="$RELEASE_TRANSPORT_RECEIPT" --sha="$GITHUB_SHA" --ci-run-id="$GITHUB_RUN_ID" --prefix="$OSS_PREFIX"
+  --receipt="$RELEASE_TRANSPORT_RECEIPT" --sha="$GITHUB_SHA" --ci-run-id="$GITHUB_RUN_ID" --prefix="$OSS_PREFIX" \
+  --staging-artifact-digest="$staging_artifact_digest" \
+  --production-artifact-digest="$production_artifact_digest"
 
 publish_one() {
   local variant="$1" archive="$2" key archive_sha bytes stat_output
