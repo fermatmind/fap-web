@@ -264,8 +264,10 @@ describe("immutable standalone release artifact", () => {
     expect(ci).toContain(".github/trunk/publish-release-transport.sh");
     expect(ci).toContain("name: trunk-release-transport-${{ github.sha }}");
     expect(publishTransport).toContain("api put-object");
+    expect(publishTransport).toContain("api head-object");
     expect(publishTransport).toContain("--forbid-overwrite");
     expect(publishTransport).toContain("--mode StsToken");
+    expect(publishTransport).not.toMatch(/\bstat\s+"oss:\/\//);
     expect(deploy).not.toContain(".github/trunk/prepare-web-artifact.sh");
     expect(deploy).toContain("RELEASE_TRANSPORT_MODE: oss");
     expect(deploy).toContain("OSS_INTERNAL_ENDPOINT: ${{ vars.OSS_INTERNAL_ENDPOINT }}");
