@@ -61,8 +61,9 @@ verify_head_output() {
     --arg expected_release_sha "$expected_release_sha" \
     --arg expected_variant "$expected_variant" '
       def normalized_entries:
-        [.. | objects | to_entries[]? |
-          {key: (.key | ascii_downcase | gsub("[^a-z0-9]"; "")), value: (.value | tostring)}];
+        [paths(scalars) as $path |
+          {key: (($path | map(select(type == "string")) | last) | ascii_downcase | gsub("[^a-z0-9]"; "")),
+           value: (getpath($path) | tostring)}];
       normalized_entries as $entries |
       any($entries[]; .key == "contentlength" and .value == $expected_bytes) and
       any($entries[]; (.key == "sha256" or .key == "xossmetasha256") and .value == $expected_archive_sha) and
