@@ -135,7 +135,7 @@ afterEach(() => {
 });
 
 describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAIR-01", () => {
-  it("treats backend runtime publish and release gate authority as sufficient for career detail robots metadata", async () => {
+  it("requires a real Current body in addition to runtime publish and release gate authority", async () => {
     mockCareerJobBundle({
       slug: "aerospace-engineers",
       reasonCodes: ["runtime_publish_projection", "release_gate_pass", "runtime_published_navigation_shell"],
@@ -146,7 +146,7 @@ describe("DETAIL_READY_1046_CAREER_DETAIL_METADATA_AND_LLMS_FULL_STABILITY_REPAI
       params: Promise.resolve({ locale: "en", slug: "aerospace-engineers" }),
     });
 
-    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
   });
 
   it("keeps candidate-only career details noindexed when runtime publication authority is absent", async () => {

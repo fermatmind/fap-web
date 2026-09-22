@@ -67,10 +67,12 @@ describe('single-source career route integration',()=>{
     fetchMock.mockResolvedValue(null);
     await expect(render()).rejects.toThrow('not-found');
   });
-  it('emits FAQ only when the displayed question and answer both exist',async()=>{
+  it('emits the displayed known-key FAQ and preserves explicit question precedence',async()=>{
     const payload=bundle();
     fetchMock.mockResolvedValue(payload);
-    expect(await render()).not.toContain('"@type":"FAQPage"');
+    const knownKeyHtml=await render();
+    expect(knownKeyHtml).toContain('"@type":"FAQPage"');
+    expect(knownKeyHtml).toContain('研究角色、学习台词、排练并与导演和演员合作');
     const faq=payload.career_page.content.blocks.flatMap<{type:string;data:unknown}>(b=>b.items).find(i=>i.type==='faq')!;
     const entry=(faq.data as {entries:Array<{question?:string;answer:string}>}).entries[0];
     entry.question='Explicit file question';
