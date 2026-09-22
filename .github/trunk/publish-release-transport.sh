@@ -45,6 +45,16 @@ publish_one() {
 
 verify_head_output() {
   local output="$1" expected_bytes="$2" expected_archive_sha="$3" expected_release_sha="$4" expected_variant="$5"
+  local normalized_output="${output}.normalized.json"
+  node -e '
+    const fs = require("node:fs");
+    const raw = fs.readFileSync(process.argv[1], "utf8");
+    const start = raw.indexOf("{");
+    const end = raw.lastIndexOf("}");
+    if (start < 0 || end < start) throw new Error("OSS HeadObject did not return JSON");
+    const value = JSON.parse(raw.slice(start, end + 1));
+    fs.writeFileSync(process.argv[2], `${JSON.stringify(value)}\n`);
+  ' "$output" "$normalized_output"
   jq -e \
     --arg expected_bytes "$expected_bytes" \
     --arg expected_archive_sha "$expected_archive_sha" \
@@ -58,7 +68,7 @@ verify_head_output() {
       any($entries[]; .key == "sha256" and .value == $expected_archive_sha) and
       any($entries[]; .key == "releasesha" and .value == $expected_release_sha) and
       any($entries[]; .key == "releasevariant" and .value == $expected_variant)
-    ' "$output" >/dev/null
+    ' "$normalized_output" >/dev/null
 }
 
 started="$(date +%s)"
