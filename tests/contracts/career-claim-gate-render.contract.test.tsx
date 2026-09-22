@@ -261,7 +261,7 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("Backend score dimensions");
   });
 
-  it("lets runtime-published backend SEO authority index while local claim gates still hide gated content", async () => {
+  it("keeps an empty published Current page noindex while local claim gates still hide gated content", async () => {
     mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
       default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
@@ -349,10 +349,10 @@ describe("career claim gate render contract", () => {
     expect(html).toContain("career-display-surface");
     expect(html).not.toContain("Claim-gated actors summary should stay hidden.");
     expect(html).not.toContain("Claim-gated DOCX body should stay hidden.");
-    expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
+    expect(metadata.robots).toEqual(expect.objectContaining({ index: false, follow: true }));
   });
 
-  it("renders DOCX job content and structured data after trust and claim gates pass", async () => {
+  it("does not let approved legacy DOCX content qualify an empty Current page", async () => {
     mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
       default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
@@ -470,6 +470,6 @@ describe("career claim gate render contract", () => {
     expect(html).not.toContain("Approved DOCX body paragraph");
     expect(html).toContain('"@type":"Occupation"');
     expect(metadata.description).not.toContain("Backend SEO authority summary for product manager.");
-    expect(metadata.robots).toEqual(expect.objectContaining({ index: true, follow: true }));
+    expect(metadata.robots).toEqual(expect.objectContaining({ index: false, follow: true }));
   });
 });

@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
-  it("uses backend runtime projection authority for robots while keeping gated career content hidden", async () => {
+  it("keeps an empty runtime-published body noindex while gated career content stays hidden", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -112,7 +112,7 @@ describe("DETAIL_READY_1046_FRONTEND_METADATA_REVALIDATION-01", () => {
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
-    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
     expect(html).toContain("career-display-surface");
     expect(html).not.toContain("Gated actor body should not become frontend-visible content.");
     expect(html).not.toContain("Gated DOCX content should remain hidden.");

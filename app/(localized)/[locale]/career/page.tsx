@@ -190,6 +190,7 @@ export async function generateMetadata({
         : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
     noindex: hasDirectoryState,
     noindexFollow: hasDirectoryState,
+    omitLanguageAlternates: page > 1 && !submittedQuery && !family,
     alternatesByLocale: {
       en: "/en/career",
       zh: "/zh/career",

@@ -63,6 +63,7 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
       const metadata = await metadataFor(locale, { page: String(page) });
       expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career${page <= 21 ? `?page=${page}` : ""}`);
       expect(metadata.robots).toMatchObject({ index: false, follow: true });
+      expect(metadata.alternates?.languages).toBeUndefined();
     }
   });
 
@@ -71,6 +72,7 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
     directoryState.unavailable = true;
     const metadata = await metadataFor("zh", { page: "2" });
     expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/zh/career`);
+    expect(metadata.alternates?.languages).toBeUndefined();
     expect(metadata.robots).toMatchObject({ index: false, follow: true });
   });
 
@@ -81,6 +83,7 @@ describe("CAREER-DIRECTORY-PAGINATION-FOLLOW-01", () => {
       const metadata = await metadataFor(locale, { page: "1" });
 
       expect(metadata.alternates?.canonical).toBe(`${SITE_URL}/${locale}/career`);
+      expect(metadata.alternates?.languages).toMatchObject({ en: `${SITE_URL}/en/career`, "zh-CN": `${SITE_URL}/zh/career` });
       expect(metadata.robots).toMatchObject({
         index: true,
         follow: true,
