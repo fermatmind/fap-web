@@ -10,7 +10,7 @@ import { AnalyticsPageViewTracker } from '@/hooks/useAnalytics';
 import { adaptCareerJobBundle } from '@/lib/career/adapters/adaptCareerJobBundle';
 import type { CareerJobBundleAdapter } from '@/lib/career/adapters/types';
 import { fetchCareerJobBundle } from '@/lib/career/api/fetchCareerJobBundle';
-import { normalizeCareerPage, careerPageFaq } from '@/lib/career/careerPage';
+import { normalizeCareerPage, careerPageFaq, careerPageHasPublicBody } from '@/lib/career/careerPage';
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from '@/lib/career/attribution';
 import { buildCareerDisplayCtaHref } from '@/lib/career/displaySurface';
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from '@/lib/career/urls';
@@ -112,13 +112,23 @@ export async function generateMetadata({params}: {params: Promise<Params>}): Pro
   const seoSurface = job.seoSurface ? {...job.seoSurface, title, description,
     og: {...job.seoSurface.og, title, description},
     twitter: {...job.seoSurface.twitter, title, description}} : null;
-  const allowsIndex = hasTrustedPublishedIndexAuthority(job);
+  const hasBody = careerPageHasPublicBody(page);
+  const publishedIndexAuthority = hasTrustedPublishedIndexAuthority(job);
+  const allowsIndex = publishedIndexAuthority && hasBody;
+  const bodyPendingFollow = !hasBody && (publishedIndexAuthority ||
+    (job.seoSurface?.robotsPolicy ?? '').split(',').map(value => value.trim().toLowerCase()).includes('follow'));
+  // Validate the actual paired public body during the compatible backend rollout.
+  // A failed or empty alternate never turns the current contentful page into an empty page.
+  const alternate = allowsIndex ? await loadCareerJobBundle(locale === 'zh' ? 'en' : 'zh', job.slug).catch(() => null) : null;
+  const hasEquivalentAlternate = alternate !== null && careerPageHasPublicBody(alternate.page) && hasTrustedPublishedIndexAuthority(alternate.job);
   return buildPageMetadata({
     locale,
     pathname: seoSurface?.canonicalPath ?? normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCareerJobFrontendUrl(locale, job.slug)),
     title, description, seoSurface,
     explicitIndexGate: {indexEligible: (seoSurface?.indexEligible ?? job.seoContract.indexEligible) === true && allowsIndex, indexState: seoSurface?.indexState || job.seoContract.indexState},
     noindex: !allowsIndex,
+    noindexFollow: bodyPendingFollow,
+    omitLanguageAlternates: !hasEquivalentAlternate,
     alternatesByLocale: {en: buildCareerJobFrontendUrl('en', job.slug), zh: buildCareerJobFrontendUrl('zh', job.slug), xDefault: '/'},
   });
 }

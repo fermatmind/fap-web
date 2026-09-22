@@ -1,4 +1,4 @@
-import { normalizeCareerContentV3, type CareerContentV3, type CareerContentV3Fact } from './contentV3';
+import { careerContentV3FaqItems, normalizeCareerContentV3, type CareerContentV3, type CareerContentV3Fact } from './contentV3';
 import type { Locale } from '@/lib/i18n/locales';
 
 export const CAREER_PAGE_CONTRACT = 'career.detail.page.v1';
@@ -45,8 +45,14 @@ export function normalizeCareerPage(value: unknown, locale: Locale, slug: string
 }
 
 export function careerPageFaq(page: CareerPage): Array<{question: string; answer: string}> {
-  return page.content.blocks.flatMap(block => block.items.flatMap(item => {
-    if (item.type !== 'faq' || item.availability !== 'available' || !Array.isArray(item.data.entries)) return [];
-    return item.data.entries.flatMap(entry => record(entry) && text(entry.question) && text(entry.answer) ? [{question: entry.question, answer: entry.answer}] : []);
-  }));
+  return careerContentV3FaqItems(page.content).map(({question, answer}) => ({question, answer}));
+}
+
+/** Called only after identity/hash and primitive validation; unavailable payloads are not empty pages. */
+export function careerPageHasPublicBody(page: CareerPage): boolean {
+  return page.content.contentState === 'enhanced' && page.content.blocks.some(block =>
+    block.availability === 'available' && block.items.some(item =>
+      item.availability === 'available' && item.type !== 'links' && item.type !== 'sources',
+    ),
+  );
 }

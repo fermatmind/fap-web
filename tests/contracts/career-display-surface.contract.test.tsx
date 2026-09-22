@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { CareerDisplaySurface } from "@/components/career/display/CareerDisplaySurface";
+import { CareerDossierFitCenter } from "@/components/career/display/CareerDossierFitCenter";
 import { CAREER_DISPLAY_SUPPORTED_COMPONENTS, adaptCareerDisplaySurface } from "@/lib/career/displaySurface";
 import { normalizeCareerPublishedComponents } from "@/lib/career/publishedComponentContract";
 import {
@@ -62,6 +63,26 @@ function collectPublishedScalarValues(value: unknown): string[] {
 }
 
 describe("career display surface contract", () => {
+  it.each(["zh", "en"] as const)("keeps neutral direction fallback and explicit authority copy in %s", (locale) => {
+    const props = {
+      locale, sectionLabel: "Career fit", sectionLabelId: "fit-heading",
+      riasec: { fit_interest: "Reviewed interest", interest: "Reviewed work", riasec: "ASI", riasec_short: "ASI" },
+      value: {
+        schema_version: "career.fit_decision_center.v1" as const,
+        heading: "Reviewed fit", direct_answer: "Reviewed answer", signals: [], assessments: [],
+        directions: [{ direction: "Reviewed direction", fit_signals: "Reviewed tasks", watchouts: "Reviewed boundary", target: { slug: "editors", title: "Editors", href: "/en/career/jobs/editors" } }],
+        questions: [], boundary: "Exploration only", source_links: [],
+      },
+    };
+    const { rerender } = render(<CareerDossierFitCenter {...props} />);
+    expect(document.getElementById("career-fit-directions-title")).toHaveTextContent(locale === "zh" ? "你更可能适合哪些工作方向？" : "Which work directions may fit you better?");
+    expect(screen.getByRole("link", { name: /Reviewed direction/ })).toHaveAttribute("href", "/en/career/jobs/editors");
+    const explicit = locale === "zh" ? "你更可能适合哪条会计方向？" : "Which accounting direction may fit you better?";
+    rerender(<CareerDossierFitCenter {...props} interfaceLabels={{ "interface.fit.directions_heading": explicit }} />);
+    expect(document.getElementById("career-fit-directions-title")).toHaveTextContent(explicit);
+    expect(screen.getByRole("link", { name: /Reviewed direction/ })).toHaveAttribute("href", "/en/career/jobs/editors");
+  });
+
   it("accepts fact_ref only on primary-snapshot BLS rows and rejects other unknown row fields", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "accountants-and-auditors",

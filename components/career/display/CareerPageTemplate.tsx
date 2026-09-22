@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Breadcrumb } from '@/components/breadcrumb/Breadcrumb';
-import { CAREER_PAGE_SECTIONS, type CareerPage, type CareerPageMetric } from '@/lib/career/careerPage';
+import { CAREER_PAGE_SECTIONS, careerPageHasPublicBody, type CareerPage, type CareerPageMetric } from '@/lib/career/careerPage';
 import { careerContentV3BlockCopy, type CareerContentV3Item } from '@/lib/career/contentV3';
 import { CareerEvidenceLine } from './CareerEvidenceLine';
 import { CareerPageItem, CareerPagePlaceholder } from './CareerPageItem';
@@ -39,6 +39,7 @@ export function CareerPageTemplate({page, ctaHref, rendererRelease}: {page: Care
         <header className={`relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2C3E8C] to-[#3a4fa6] text-white shadow-[0_8px_30px_rgba(44,62,140,.18)] ${visual.hero}`}>
           <div className="max-w-[640px] pr-0 lg:pr-10">
             <h1 className="m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]">{content.subject.name}</h1>
+            {!careerPageHasPublicBody(page) ? <p data-nosnippet="true" className="mt-3" data-career-body-state="pending">{zh ? '正文待补充' : 'Career content pending'}</p> : null}
             {hero.badges.length ? <div className={`flex flex-wrap ${visual.heroBadges}`}>{hero.badges.map((badge,i)=><span key={i} className={`rounded-full border border-white/25 bg-white/[.16] text-[12.5px] ${visual.heroBadge}`}>{badge}</span>)}</div> : null}
             {content.subject.summary ? <p className="m-0 mt-3 text-[15.5px] leading-7 text-white/95">{content.subject.summary}</p> : <CareerPagePlaceholder locale={content.locale} />}
           </div>
