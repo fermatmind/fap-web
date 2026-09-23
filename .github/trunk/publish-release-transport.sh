@@ -12,6 +12,8 @@ done
 
 staging_archive="$STAGING_RELEASE_ARCHIVE"
 production_archive="$PRODUCTION_RELEASE_ARCHIVE"
+ossutil_args=(-e "$OSS_PUBLIC_ENDPOINT" --region "$OSS_REGION" --mode StsToken \
+  --connect-timeout 10 --read-timeout 60 --retry-times 2)
 staging_artifact_digest="$(jq -r '.objects.staging.github_artifact_digest' "$RELEASE_TRANSPORT_RECEIPT")"
 production_artifact_digest="$(jq -r '.objects.production.github_artifact_digest' "$RELEASE_TRANSPORT_RECEIPT")"
 node .github/trunk/release-transport.mjs verify \
@@ -19,28 +21,42 @@ node .github/trunk/release-transport.mjs verify \
   --staging-artifact-digest="$staging_artifact_digest" \
   --production-artifact-digest="$production_artifact_digest"
 
+head_object() {
+  local key="$1" output="$2"
+  timeout --signal=TERM --kill-after=5s 45s ossutil "${ossutil_args[@]}" \
+    api head-object --bucket "$OSS_BUCKET" --key "$key" --output-format json > "$output" 2>/dev/null
+}
+
 publish_one() {
-  local variant="$1" archive="$2" key archive_sha bytes head_output
+  local variant="$1" archive="$2" key archive_sha bytes head_output put_status=0
   key="$(jq -r --arg variant "$variant" '.objects[$variant].object_key' "$RELEASE_TRANSPORT_RECEIPT")"
   archive_sha="$(jq -r --arg variant "$variant" '.objects[$variant].archive_sha256' "$RELEASE_TRANSPORT_RECEIPT")"
   bytes="$(jq -r --arg variant "$variant" '.objects[$variant].bytes' "$RELEASE_TRANSPORT_RECEIPT")"
   [[ "$key" == "$OSS_PREFIX/$GITHUB_SHA/$variant/fap-web-$GITHUB_SHA.tar.gz" ]]
   test "$(sha256sum "$archive" | awk '{print $1}')" = "$archive_sha"
-  test "$(stat -c %s "$archive")" = "$bytes"
+  test "$(wc -c < "$archive" | awk '{print $1}')" = "$bytes"
   head_output="$RUNNER_TEMP/oss-head-$variant.json"
-  if ossutil -e "$OSS_PUBLIC_ENDPOINT" --region "$OSS_REGION" --mode StsToken \
-    api head-object --bucket "$OSS_BUCKET" --key "$key" --output-format json > "$head_output" 2>/dev/null; then
+  echo "oss_transport_phase=check variant=$variant"
+  if head_object "$key" "$head_output"; then
     verify_head_output "$head_output" "$bytes" "$archive_sha" "$GITHUB_SHA" "$variant"
-    echo "immutable OSS object already exists with matching identity: $key"
+    echo "oss_transport_status=verified_existing variant=$variant"
     return
   fi
-  ossutil -e "$OSS_PUBLIC_ENDPOINT" --region "$OSS_REGION" --mode StsToken --retry-times 10 \
+  echo "oss_transport_phase=put variant=$variant"
+  timeout --signal=TERM --kill-after=5s 5m ossutil "${ossutil_args[@]}" \
     api put-object --bucket "$OSS_BUCKET" --key "$key" --body "file://$archive" --forbid-overwrite \
     --metadata "sha256=$archive_sha" --metadata "release-sha=$GITHUB_SHA" \
-    --metadata "release-variant=$variant"
-  ossutil -e "$OSS_PUBLIC_ENDPOINT" --region "$OSS_REGION" --mode StsToken \
-    api head-object --bucket "$OSS_BUCKET" --key "$key" --output-format json > "$head_output"
+    --metadata "release-variant=$variant" || put_status=$?
+  if (( put_status != 0 )); then
+    echo "oss_transport_status=put_uncertain variant=$variant exit_code=$put_status" >&2
+  fi
+  echo "oss_transport_phase=verify variant=$variant"
+  if ! head_object "$key" "$head_output"; then
+    echo "oss_transport_status=unverified variant=$variant" >&2
+    return 1
+  fi
   verify_head_output "$head_output" "$bytes" "$archive_sha" "$GITHUB_SHA" "$variant"
+  echo "oss_transport_status=verified variant=$variant"
 }
 
 verify_head_output() {

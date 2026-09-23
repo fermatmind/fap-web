@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { chmodSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -61,5 +61,79 @@ test("rejects drift in identity, prefix, key, and digests", () => {
     assert.throws(() => validateReceipt({ ...base, objects: { ...base.objects, production: { ...base.objects.production, archive_sha256: "bad" } } }), /archive digest/);
   } finally {
     rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("bounded OSS publishing verifies exact objects after success or an ambiguous PUT", () => {
+  const mockSource = `#!/usr/bin/env node
+const fs = require("node:fs");
+const path = require("node:path");
+const args = process.argv.slice(2);
+const operation = args[args.indexOf("api") + 1];
+const key = args[args.indexOf("--key") + 1];
+const variant = key.includes("/staging/") ? "staging" : "production";
+const marker = path.join(process.env.MOCK_OSS_ROOT, variant);
+const receipt = JSON.parse(fs.readFileSync(process.env.RELEASE_TRANSPORT_RECEIPT, "utf8"));
+const object = receipt.objects[variant];
+if (operation === "head-object") {
+  if (!fs.existsSync(marker) && process.env.MOCK_OSS_MODE !== "wrong_existing") process.exit(1);
+  process.stdout.write(JSON.stringify({
+    ContentLength: object.bytes,
+    Metadata: {
+      sha256: process.env.MOCK_OSS_MODE === "wrong_existing" ? "wrong" : object.archive_sha256,
+      "release-sha": receipt.sha,
+      "release-variant": variant,
+    },
+  }));
+  process.exit(0);
+}
+if (operation !== "put-object") process.exit(2);
+if (process.env.MOCK_OSS_MODE !== "missing_after_failure") fs.writeFileSync(marker, "committed");
+process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOCK_OSS_MODE) ? 42 : 0);
+`;
+  for (const [mode, success] of [["normal", true], ["ambiguous_put", true], ["wrong_existing", false], ["missing_after_failure", false]]) {
+    const { root, archive } = fixture();
+    try {
+      const receipt = createReceipt({
+        sha,
+        "ci-run-id": "123",
+        "ci-run-attempt": "1",
+        prefix: "fap-web/releases",
+        "staging-archive": archive,
+        "production-archive": archive,
+        "staging-artifact-digest": artifactDigest,
+        "production-artifact-digest": artifactDigest,
+      });
+      const receiptPath = path.join(root, "receipt.json");
+      writeFileSync(receiptPath, JSON.stringify(receipt));
+      const bin = path.join(root, "bin");
+      mkdirSync(bin);
+      const mock = path.join(bin, "ossutil");
+      writeFileSync(mock, mockSource);
+      chmodSync(mock, 0o755);
+      const result = spawnSync("bash", [".github/trunk/publish-release-transport.sh"], {
+        encoding: "utf8",
+        env: {
+          ...process.env,
+          PATH: `${bin}:${process.env.PATH}`,
+          GITHUB_SHA: sha,
+          GITHUB_RUN_ID: "123",
+          RUNNER_TEMP: root,
+          RELEASE_TRANSPORT_RECEIPT: receiptPath,
+          STAGING_RELEASE_ARCHIVE: archive,
+          PRODUCTION_RELEASE_ARCHIVE: archive,
+          OSS_BUCKET: "fermatmind-release-test",
+          OSS_PUBLIC_ENDPOINT: "https://oss-cn-shanghai.aliyuncs.com",
+          OSS_REGION: "cn-shanghai",
+          OSS_PREFIX: "fap-web/releases",
+          MOCK_OSS_ROOT: root,
+          MOCK_OSS_MODE: mode,
+        },
+      });
+      assert.equal(result.status === 0, success, `${mode}: ${result.stderr}`);
+      if (success) assert.match(result.stdout, /oss_publish_seconds=\d+/);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   }
 });
