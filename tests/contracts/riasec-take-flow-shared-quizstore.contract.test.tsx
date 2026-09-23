@@ -398,6 +398,57 @@ describe("RIASEC shared QuizStore take flow contract", () => {
     expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);
   });
 
+  it("opens the same RIASEC result when a durability error follows an accepted submission", async () => {
+    hoisted.search = "form=riasec_60";
+    hoisted.startAttempt.mockResolvedValue({
+      ok: true,
+      attempt_id: "attempt-start-riasec-60",
+      scale_code: "RIASEC",
+      form_code: "riasec_60",
+    });
+    hoisted.submitAttempt.mockRejectedValue(new ApiError({
+      status: 503,
+      errorCode: "SUBMISSION_DURABILITY_NOT_CONFIRMED",
+      message: "submission durability gate failed.",
+    }));
+
+    renderClient("riasec_60");
+    await answerCurrent("riasec-q1");
+    await answerCurrent("riasec-q2");
+
+    await waitFor(() => {
+      expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith({
+        attemptId: "attempt-start-riasec-60",
+        anonId: "anon_riasec_take_test",
+      });
+      expect(hoisted.routerPush).toHaveBeenCalledWith("/zh/result/attempt-start-riasec-60");
+    });
+    expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);
+  });
+
+  it("keeps a durability error visible when the same submission cannot be confirmed", async () => {
+    hoisted.search = "form=riasec_60";
+    hoisted.submitAttempt.mockRejectedValue(new ApiError({
+      status: 503,
+      errorCode: "SUBMISSION_DURABILITY_NOT_CONFIRMED",
+      message: "submission durability gate failed.",
+    }));
+    hoisted.fetchAttemptSubmission.mockRejectedValue(new ApiError({
+      status: 503,
+      errorCode: "UNAVAILABLE",
+      message: "Submission status unavailable.",
+    }));
+
+    renderClient("riasec_60");
+    await answerCurrent("riasec-q1");
+    await answerCurrent("riasec-q2");
+
+    expect(await screen.findByText("submission durability gate failed.")).toBeInTheDocument();
+    expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledTimes(1);
+    expect(hoisted.routerPush).not.toHaveBeenCalled();
+    expect(hoisted.submitAttempt).toHaveBeenCalledTimes(1);
+  });
+
   it("recovers a RIASEC draft after reload using the form-specific QuizStore key", async () => {
     const draftStore = createQuizStore({
       slug: "holland-career-interest-test-riasec",

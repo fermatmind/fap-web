@@ -1341,7 +1341,10 @@ function QuizTakeInner({
       setRetryAfterSeconds(null);
       return resultAttemptId;
     } catch (error) {
-      if (isRiasecScale && error instanceof ApiError && error.errorCode === "REQUEST_TIMEOUT") {
+      if (isRiasecScale && error instanceof ApiError && (
+        error.errorCode === "REQUEST_TIMEOUT"
+        || error.errorCode === "SUBMISSION_DURABILITY_NOT_CONFIRMED"
+      )) {
         try {
           const submission = await fetchAttemptSubmission({ attemptId: activeAttemptId, anonId });
           if (!isFlowActive(activeRunId)) {
@@ -1354,7 +1357,7 @@ function QuizTakeInner({
             return activeAttemptId;
           }
         } catch {
-          // The original timeout remains the visible failure when readback is unavailable.
+          // Keep the original submit error visible when readback is unavailable.
         }
       }
       recoveringAttemptRef.current = true;
