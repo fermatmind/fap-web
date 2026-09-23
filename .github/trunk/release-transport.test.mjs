@@ -95,7 +95,15 @@ if (process.env.MOCK_OSS_MODE === "transient_put" && count === 1) process.exit(1
 if (process.env.MOCK_OSS_MODE !== "missing_after_failure") fs.writeFileSync(marker, "committed");
 process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOCK_OSS_MODE) ? 42 : 0);
 `;
-  for (const [mode, success] of [["normal", true], ["ambiguous_put", true], ["transient_put", true], ["wrong_existing", false], ["missing_after_failure", false]]) {
+  for (const [mode, success, endpoint] of [
+    ["normal", true, "https://oss-cn-shanghai.aliyuncs.com"],
+    ["accelerated", true, "https://oss-accelerate.aliyuncs.com"],
+    ["wrong_region", false, "https://oss-cn-beijing.aliyuncs.com"],
+    ["ambiguous_put", true, "https://oss-cn-shanghai.aliyuncs.com"],
+    ["transient_put", true, "https://oss-cn-shanghai.aliyuncs.com"],
+    ["wrong_existing", false, "https://oss-cn-shanghai.aliyuncs.com"],
+    ["missing_after_failure", false, "https://oss-cn-shanghai.aliyuncs.com"],
+  ]) {
     const { root, archive } = fixture();
     try {
       const receipt = createReceipt({
@@ -127,7 +135,7 @@ process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOC
           STAGING_RELEASE_ARCHIVE: archive,
           PRODUCTION_RELEASE_ARCHIVE: archive,
           OSS_BUCKET: "fermatmind-release-test",
-          OSS_PUBLIC_ENDPOINT: "https://oss-cn-shanghai.aliyuncs.com",
+          OSS_PUBLIC_ENDPOINT: endpoint,
           OSS_REGION: "cn-shanghai",
           OSS_PREFIX: "fap-web/releases",
           MOCK_OSS_ROOT: root,
@@ -136,6 +144,11 @@ process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOC
       });
       assert.equal(result.status === 0, success, `${mode}: ${result.stderr}`);
       if (success) assert.match(result.stdout, /oss_publish_seconds=\d+/);
+      if (mode === "accelerated") assert.match(result.stdout, /oss_transport_route=accelerated/);
+      if (mode === "wrong_region") {
+        assert.match(result.stderr, /OSS endpoint does not match/);
+        assert.equal(result.stdout, "");
+      }
       if (mode === "transient_put") {
         assert.match(result.stderr, /oss_transport_status=retry_unverified variant=staging/);
         assert.equal(Number(readFileSync(path.join(root, "staging.puts"), "utf8")), 2);

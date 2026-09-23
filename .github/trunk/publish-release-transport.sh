@@ -6,8 +6,15 @@ for name in OSS_BUCKET OSS_PUBLIC_ENDPOINT OSS_REGION OSS_PREFIX RELEASE_TRANSPO
   [[ -n "${!name:-}" ]] || { echo "missing $name" >&2; exit 2; }
 done
 [[ "$OSS_BUCKET" =~ ^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$ ]]
-[[ "$OSS_PUBLIC_ENDPOINT" =~ ^https://oss-[a-z0-9-]+\.aliyuncs\.com$ ]]
 [[ "$OSS_REGION" =~ ^cn-[a-z0-9-]+$ ]]
+if [[ "$OSS_PUBLIC_ENDPOINT" == "https://oss-accelerate.aliyuncs.com" ]]; then
+  oss_transport_route=accelerated
+elif [[ "$OSS_PUBLIC_ENDPOINT" == "https://oss-$OSS_REGION.aliyuncs.com" ]]; then
+  oss_transport_route=regional
+else
+  echo "OSS endpoint does not match the release region or transfer acceleration" >&2
+  exit 2
+fi
 [[ "$OSS_PREFIX" =~ ^[A-Za-z0-9._/-]+$ && "$OSS_PREFIX" != *..* ]]
 
 staging_archive="$STAGING_RELEASE_ARCHIVE"
@@ -101,6 +108,7 @@ verify_head_output() {
 }
 
 started="$(date +%s)"
+echo "oss_transport_route=$oss_transport_route"
 publish_one staging "$staging_archive"
 publish_one production "$production_archive"
 elapsed="$(( $(date +%s) - started ))"
