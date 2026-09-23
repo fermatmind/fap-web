@@ -113,7 +113,7 @@ export function buildEqRendererContractFixture(
         ...copyFields(locale, "snapshot", ["headline", "core_judgment", "evidence_point", "top_strength", "likely_cost", "minimal_action", "share_safe_sentence", "continue_path", "do_not_overread"]),
         three_sentence_summary: [marker(locale, "snapshot.summary")],
       },
-      personalization_route: {
+      personalization_route: lowConfidence ? {} : {
         id: routeId,
         signal_signature: signalSignature,
         selected_asset_ids: selectedAssetIds,
@@ -123,7 +123,7 @@ export function buildEqRendererContractFixture(
       quality: { explanation_asset_id: `quality.${scenario}`, confidence_label: lowConfidence ? "low confidence" : "high confidence" },
       quality_confidence: {
         id: `quality.${scenario}`,
-        ...copyFields(locale, "quality", ["label", "body", "user_guidance", "retest_note", "why_this_level", "how_to_read", "do_not_overread"]),
+        ...copyFields(locale, "quality", ["label", "body", "user_guidance", "retest_note", "why_this_level", "how_to_read", ...(lowConfidence ? [] : ["do_not_overread"])]),
       },
       scientific_contract: copyFields(locale, "science", ["test_definition", "self_report_statement", "non_clinical_statement", "non_hiring_statement", "non_ability_statement", "norm_status_statement", "quality_rules_statement", "version_statement"]),
       score_system: {

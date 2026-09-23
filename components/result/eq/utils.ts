@@ -228,8 +228,9 @@ function hasRequiredEditorialAssets(payload: EqV5ReportPayload): boolean {
   const requiredScience = ["test_definition", "self_report_statement", "non_clinical_statement", "non_hiring_statement", "non_ability_statement", "norm_status_statement", "quality_rules_statement", "version_statement"];
 
   if (!assets || !requiredSnapshot.every((key) => requiredText(snapshot, key))) return false;
-  if (!["route_headline", "why_this_feels_specific", "evidence_snapshot_label", "next_best_action", "save_reason"].every((key) => requiredText(route, key))) return false;
-  if (!["label", "body", "why_this_level", "how_to_read", "do_not_overread"].every((key) => requiredText(quality, key))) return false;
+  if (!lowConfidence && !["route_headline", "why_this_feels_specific", "evidence_snapshot_label", "next_best_action", "save_reason"].every((key) => requiredText(route, key))) return false;
+  if (!["label", "body", "why_this_level", "how_to_read"].every((key) => requiredText(quality, key))) return false;
+  if (!lowConfidence && !requiredText(quality, "do_not_overread")) return false;
   if (!requiredScience.every((key) => requiredText(science, key))) return false;
   if (!["title", "one_liner", "core_claim", "development_lever", "do_not_overread"].every((key) => requiredText(formulation, key))) return false;
   if (!["id", "title", "why_this_matters", "do_today"].every((key) => requiredText(action, key))) return false;

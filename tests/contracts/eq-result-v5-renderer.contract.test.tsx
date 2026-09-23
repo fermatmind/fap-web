@@ -93,6 +93,7 @@ describe("EQ v5 pure renderer contract", () => {
 
   it("renders low-confidence explanations and retest guidance only from backend assets", () => {
     const reportData = eqReportResponseFromContractFixture(buildEqRendererContractFixture("en", "low_confidence"));
+    expect(normalizeEqV5Report(reportData, "en")).not.toBeNull();
     render(<EQResultV5 locale="en" reportData={reportData} />);
     const result = screen.getByTestId("eq-result-v5");
     expect(result).toHaveTextContent("BACKEND_COPY[en:quality.body]");
@@ -101,6 +102,12 @@ describe("EQ v5 pure renderer contract", () => {
     expect(result).not.toHaveTextContent("Responses were completed unusually quickly");
     expect(screen.queryByTestId("eq-evidence-snapshot")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-agent-entry-guard")).not.toBeInTheDocument();
+  });
+
+  it("fails closed when a low-confidence report lacks its quality explanation", () => {
+    const reportData = eqReportResponseFromContractFixture(buildEqRendererContractFixture("en", "low_confidence"));
+    ((reportData.report as Record<string, unknown>).assets as Record<string, Record<string, unknown>>).quality_confidence.body = "";
+    expect(normalizeEqV5Report(reportData, "en")).toBeNull();
   });
 
   it.each([
