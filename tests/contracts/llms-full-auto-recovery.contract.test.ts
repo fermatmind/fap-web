@@ -68,6 +68,15 @@ afterEach(async () => {
 });
 
 describe("llms-full automatic recovery", () => {
+  it("validates the exact published career subset when languages are released separately", () => {
+    const publishedPaths = ["/en/career/jobs/role-0", "/zh/career/jobs/role-0", "/zh/career/jobs/role-1"];
+    const text = completeArtifactText().split("\n").filter((line) =>
+      !line.includes("/career/jobs/") || publishedPaths.some((careerPath) => line.endsWith(careerPath))
+    ).join("\n");
+    expect(validateLlmsFullArtifact({ text, mode: "complete", source: "cache", siteUrl: SITE_URL, careerPaths: publishedPaths }).counts.career).toBe(3);
+    expect(() => validateLlmsFullArtifact({ text, mode: "complete", source: "cache", siteUrl: SITE_URL, careerPaths: [...publishedPaths, "/en/career/jobs/role-1"] })).toThrow("CAREER_COHORT_MISMATCH");
+  });
+
   it("accepts only the complete exact cohorts and returns receipt-safe aggregate evidence", () => {
     const validation = validateLlmsFullArtifact({
       text: completeArtifactText(),

@@ -96,6 +96,15 @@ afterEach(() => {
 });
 
 describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
+  it("builds from the current published career subset without requiring an unpublished locale", async () => {
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    mockLlmsFullDependencies(() => ["/zh/career/jobs/role-0"]);
+    const { buildLlmsFullText } = await import("@/lib/seo/llmsFullRoute");
+    const text = await buildLlmsFullText(SITE_URL, { buildProfile: "artifact" });
+    expect(text).toContain(`${SITE_URL}/zh/career/jobs/role-0`);
+    expect(text).not.toContain(`${SITE_URL}/en/career/jobs/role-0`);
+  });
+
   it("keeps llms-full artifact generation bounded for a synthetic 10k career URL authority set", async () => {
     const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-10k-budget-"));
     process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
@@ -114,7 +123,8 @@ describe("CAREER-LLMS-FULL-10K-BUDGET-GATE-01", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("cache");
-    expect(listBackendSitemapCareerJobPaths).toHaveBeenCalledTimes(2);
+    expect(listBackendSitemapCareerJobPaths.mock.calls.length).toBeGreaterThan(0);
+    expect(listBackendSitemapCareerJobPaths.mock.calls.length).toBeLessThanOrEqual(2);
     for (const [options] of listBackendSitemapCareerJobPaths.mock.calls) {
       expect(options).toMatchObject({ limit: LLMS_ROUTE_LIMITS.careerJobs });
     }

@@ -118,16 +118,6 @@ const LLMS_FULL_REQUIRED_PERSONALITY_PATHS = [
   ...LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS,
   ...LLMS_FULL_REQUIRED_PERSONALITY_FRESH_AGENT_PATHS,
 ] as const;
-const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
-  "accountants-and-auditors",
-  "actors",
-  "actuaries",
-  "aerospace-engineers",
-  "agricultural-and-food-scientists",
-  "administrative-law-judges-adjudicators-and-hearing-officers",
-  "acupuncturists",
-  "acute-care-nurses",
-] as const;
 const LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS = [
   "/en/tests/mbti-personality-test-16-personality-types",
   "/zh/tests/mbti-personality-test-16-personality-types",
@@ -922,12 +912,6 @@ export function isCompleteLlmsFullText(
     return false;
   }
 
-  for (const slug of LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS) {
-    if (!careerUrls.has(`${siteUrl}/en/career/jobs/${slug}`) || !careerUrls.has(`${siteUrl}/zh/career/jobs/${slug}`)) {
-      return false;
-    }
-  }
-
   return true;
 }
 
@@ -1103,10 +1087,7 @@ function hasCompleteCareerJobs(paths: readonly string[]): boolean {
   return (
     canonical.size > 0
     && canonical.size === paths.length
-    && [...canonical].every(path => canonical.has(path.replace(/^\/(en|zh)\//, (_, locale) => locale === "en" ? "/zh/" : "/en/")))
-    && LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS.every((slug) =>
-      canonical.has(`/en/career/jobs/${slug}`) && canonical.has(`/zh/career/jobs/${slug}`)
-    )
+    && [...canonical].every(path => /^\/(?:en|zh)\/career\/jobs\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path))
     && LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS.every((slug) =>
       !canonical.has(`/en/career/jobs/${slug}`) && !canonical.has(`/zh/career/jobs/${slug}`)
     )

@@ -20,8 +20,8 @@ export function parseCareerCurrentInventory(payload) {
       throw new Error('CAREER_CURRENT_ALIAS_INVALID');
     }
   }
-  const paths = [...slugs].filter(slug => !Object.hasOwn(identity.aliases, slug))
-    .flatMap(slug => ['en', 'zh'].map(locale => `/${locale}/career/jobs/${slug}`)).sort();
+  const canonicalPaths = new Set([...slugs].filter(slug => !Object.hasOwn(identity.aliases, slug))
+    .flatMap(slug => ['en', 'zh'].map(locale => `/${locale}/career/jobs/${slug}`)));
   const actual = [];
   for (const item of payload.items) {
     const url = new URL(item.loc);
@@ -30,8 +30,9 @@ export function parseCareerCurrentInventory(payload) {
       || url.search || url.hash || url.username || url.password) throw new Error('CAREER_CURRENT_URL_INVALID');
     actual.push(url.pathname);
   }
-  if (!hasExactCareerPaths(actual, paths)) throw new Error('CAREER_CURRENT_SITEMAP_MISMATCH');
-  return { manifestSha256: identity.manifest_sha256, paths };
+  if (actual.length === 0 || new Set(actual).size !== actual.length
+    || actual.some(path => !canonicalPaths.has(path))) throw new Error('CAREER_CURRENT_SITEMAP_MISMATCH');
+  return { manifestSha256: identity.manifest_sha256, paths: actual.sort() };
 }
 
 export function hasExactCareerPaths(actual, expected) {

@@ -19,12 +19,23 @@ for (const aliases of [0, 2, 3]) {
     assert.equal(result.paths.length, (1046 - aliases) * 2);
   });
 }
-test('rejects missing, duplicate, substituted and stale alias URLs even at the same count', () => {
+test('accepts the current published subset without inventing unpublished language pairs', () => {
+  const payload = fixture(3);
+  payload.items = payload.items.filter(item => item.loc.endsWith('/zh/career/jobs/role-0')
+    || item.loc.endsWith('/zh/career/jobs/role-1')
+    || item.loc.endsWith('/en/career/jobs/role-0'));
+  payload.count = payload.items.length;
+  assert.deepEqual(parseCareerCurrentInventory(payload).paths, [
+    '/en/career/jobs/role-0', '/zh/career/jobs/role-0', '/zh/career/jobs/role-1',
+  ]);
+});
+test('rejects duplicate, substituted and stale alias URLs even at the same count', () => {
   for (const mutate of [
     p => { p.items[0] = p.items[1]; },
     p => { p.items[0].loc = 'https://fermatmind.com/en/career/jobs/role-1045'; },
     p => { p.items[0].loc = 'https://fermatmind.com/en/career/jobs/not-in-manifest'; },
-    p => { p.items.pop(); p.count--; },
+    p => { p.items.push(p.items[0]); p.count++; },
+    p => { p.items = p.items.filter(item => !item.loc.includes('/career/jobs/')); p.count = 0; },
     p => { p.source = 'backend_sitemap_generator_fallback'; },
     p => { delete p.career_current_identity; },
     p => { p.career_current_identity.aliases['role-1045'] = 'role-1044'; },
