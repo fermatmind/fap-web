@@ -26,6 +26,7 @@ import {
 } from "@/lib/auth/fmToken";
 import {
   fetchScaleQuestions,
+  fetchAttemptSubmission,
   startAttempt,
   submitAttempt,
   type AttemptAttributionPayload,
@@ -1340,6 +1341,22 @@ function QuizTakeInner({
       setRetryAfterSeconds(null);
       return resultAttemptId;
     } catch (error) {
+      if (isRiasecScale && error instanceof ApiError && error.errorCode === "REQUEST_TIMEOUT") {
+        try {
+          const submission = await fetchAttemptSubmission({ attemptId: activeAttemptId, anonId });
+          if (!isFlowActive(activeRunId)) {
+            return null;
+          }
+          const state = submission.submission?.state?.toLowerCase();
+          if (submission.ok && (state === "pending" || state === "running" || state === "succeeded")) {
+            setAttemptError(null);
+            setRetryAfterSeconds(null);
+            return activeAttemptId;
+          }
+        } catch {
+          // The original timeout remains the visible failure when readback is unavailable.
+        }
+      }
       recoveringAttemptRef.current = true;
       const recovery = await recoverStaleAttemptSubmit({
         error,
