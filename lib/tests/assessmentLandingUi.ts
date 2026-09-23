@@ -36,7 +36,10 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   },
 };
 
-const HERO_DESCRIPTIONS: Partial<Record<string, Record<"zh" | "en", string>>> = {
+const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
+  [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
+    zh: "大五人格测试观察 OCEAN 五个连续维度。120 题约 15 分钟，90 题约 11 分钟；两版均可免费完成并查看结果。按可投入时间选择版本，再结合具体情境阅读分数。",
+  },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     zh: "了解你的 16 型人格结果与四组偏好。93 题约 10 分钟，144 题约 15 分钟，两版均可免费完成并查看结果，用于自我了解与沟通参考。",
     en: "See your four-letter type and the preferences behind it. Choose 93 questions in about 10 minutes or 144 in about 15. Both provide free results and preference explanations.",

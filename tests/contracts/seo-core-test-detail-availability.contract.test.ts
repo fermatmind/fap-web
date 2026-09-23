@@ -355,7 +355,8 @@ describe("SEO core test detail availability", () => {
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
-        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC].some((target) => target === slug)) {
+        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC].some((target) => target === slug)
+          || (slug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN && locale === "zh")) {
           expect(props.description).toBeDefined();
         } else {
           expect(props.description).toBeUndefined();
