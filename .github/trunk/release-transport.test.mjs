@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { execFileSync, spawnSync } from "node:child_process";
-import { chmodSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { chmodSync, mkdtempSync, mkdirSync, readFileSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -73,6 +73,7 @@ const operation = args[args.indexOf("api") + 1];
 const key = args[args.indexOf("--key") + 1];
 const variant = key.includes("/staging/") ? "staging" : "production";
 const marker = path.join(process.env.MOCK_OSS_ROOT, variant);
+const attempts = marker + ".puts";
 const receipt = JSON.parse(fs.readFileSync(process.env.RELEASE_TRANSPORT_RECEIPT, "utf8"));
 const object = receipt.objects[variant];
 if (operation === "head-object") {
@@ -88,10 +89,13 @@ if (operation === "head-object") {
   process.exit(0);
 }
 if (operation !== "put-object") process.exit(2);
+const count = (fs.existsSync(attempts) ? Number(fs.readFileSync(attempts, "utf8")) : 0) + 1;
+fs.writeFileSync(attempts, String(count));
+if (process.env.MOCK_OSS_MODE === "transient_put" && count === 1) process.exit(124);
 if (process.env.MOCK_OSS_MODE !== "missing_after_failure") fs.writeFileSync(marker, "committed");
 process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOCK_OSS_MODE) ? 42 : 0);
 `;
-  for (const [mode, success] of [["normal", true], ["ambiguous_put", true], ["wrong_existing", false], ["missing_after_failure", false]]) {
+  for (const [mode, success] of [["normal", true], ["ambiguous_put", true], ["transient_put", true], ["wrong_existing", false], ["missing_after_failure", false]]) {
     const { root, archive } = fixture();
     try {
       const receipt = createReceipt({
@@ -132,6 +136,16 @@ process.exit(["ambiguous_put", "missing_after_failure"].includes(process.env.MOC
       });
       assert.equal(result.status === 0, success, `${mode}: ${result.stderr}`);
       if (success) assert.match(result.stdout, /oss_publish_seconds=\d+/);
+      if (mode === "transient_put") {
+        assert.match(result.stderr, /oss_transport_status=retry_unverified variant=staging/);
+        assert.equal(Number(readFileSync(path.join(root, "staging.puts"), "utf8")), 2);
+      }
+      if (mode === "ambiguous_put") {
+        assert.equal(Number(readFileSync(path.join(root, "staging.puts"), "utf8")), 1);
+      }
+      if (mode === "missing_after_failure") {
+        assert.equal(Number(readFileSync(path.join(root, "staging.puts"), "utf8")), 2);
+      }
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

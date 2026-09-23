@@ -28,7 +28,7 @@ head_object() {
 }
 
 publish_one() {
-  local variant="$1" archive="$2" key archive_sha bytes head_output put_status=0
+  local variant="$1" archive="$2" key archive_sha bytes head_output put_status attempt
   key="$(jq -r --arg variant "$variant" '.objects[$variant].object_key' "$RELEASE_TRANSPORT_RECEIPT")"
   archive_sha="$(jq -r --arg variant "$variant" '.objects[$variant].archive_sha256' "$RELEASE_TRANSPORT_RECEIPT")"
   bytes="$(jq -r --arg variant "$variant" '.objects[$variant].bytes' "$RELEASE_TRANSPORT_RECEIPT")"
@@ -42,21 +42,29 @@ publish_one() {
     echo "oss_transport_status=verified_existing variant=$variant"
     return
   fi
-  echo "oss_transport_phase=put variant=$variant"
-  timeout --signal=TERM --kill-after=5s 5m ossutil "${ossutil_args[@]}" \
-    api put-object --bucket "$OSS_BUCKET" --key "$key" --body "file://$archive" --forbid-overwrite \
-    --metadata "sha256=$archive_sha" --metadata "release-sha=$GITHUB_SHA" \
-    --metadata "release-variant=$variant" || put_status=$?
-  if (( put_status != 0 )); then
-    echo "oss_transport_status=put_uncertain variant=$variant exit_code=$put_status" >&2
-  fi
-  echo "oss_transport_phase=verify variant=$variant"
-  if ! head_object "$key" "$head_output"; then
-    echo "oss_transport_status=unverified variant=$variant" >&2
-    return 1
-  fi
-  verify_head_output "$head_output" "$bytes" "$archive_sha" "$GITHUB_SHA" "$variant"
-  echo "oss_transport_status=verified variant=$variant"
+  # A timed-out PUT may have committed. Reconcile by HEAD before one bounded retry.
+  for attempt in 1 2; do
+    put_status=0
+    echo "oss_transport_phase=put variant=$variant attempt=$attempt"
+    timeout --signal=TERM --kill-after=5s 5m ossutil "${ossutil_args[@]}" \
+      api put-object --bucket "$OSS_BUCKET" --key "$key" --body "file://$archive" --forbid-overwrite \
+      --metadata "sha256=$archive_sha" --metadata "release-sha=$GITHUB_SHA" \
+      --metadata "release-variant=$variant" || put_status=$?
+    if (( put_status != 0 )); then
+      echo "oss_transport_status=put_uncertain variant=$variant attempt=$attempt exit_code=$put_status" >&2
+    fi
+    echo "oss_transport_phase=verify variant=$variant attempt=$attempt"
+    if head_object "$key" "$head_output"; then
+      verify_head_output "$head_output" "$bytes" "$archive_sha" "$GITHUB_SHA" "$variant"
+      echo "oss_transport_status=verified variant=$variant attempt=$attempt"
+      return
+    fi
+    if (( attempt == 2 )); then
+      echo "oss_transport_status=unverified variant=$variant" >&2
+      return 1
+    fi
+    echo "oss_transport_status=retry_unverified variant=$variant" >&2
+  done
 }
 
 verify_head_output() {
