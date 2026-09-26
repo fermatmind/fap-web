@@ -1142,8 +1142,8 @@
     },
     {
       "path": ".github/workflows/recovery.yml",
-      "sha256": "5b35cbca9b2bc74d3e42f73b547c3095d470f530e59d15a1392e4c85a1f5a83e",
-      "byte_size": 5746,
+      "sha256": "a6cbed7e2a92599aa93fd86ef1e2b65b6af2fc4c32a84157c23b550c059c7be1",
+      "byte_size": 6238,
       "classification": "deterministic_tool"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "797ceebc67a54dbbe803eb8e8d36a1a57deef38a8943d69432e183d1ff28bfa6"
+  "projection_self_hash": "bc4b1e2a5c8512e4396ec6d60bb33ceb9d4869fd62795767fd07ad43d5727d29"
 }
