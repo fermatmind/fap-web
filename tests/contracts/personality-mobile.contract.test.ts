@@ -33,6 +33,8 @@ describe("personality mobile contract", () => {
     expect(workbenchSource).toContain("hidden md:block");
     expect(methodologySource).toContain('data-testid="personality-methodology-more"');
     expect(faqSource).toContain('data-testid="personality-faq-mobile"');
+    expect(faqSource).toContain('locale === "zh" ? "常见问题" : "FAQ"');
+    expect(faqSource).not.toContain("在继续往下点之前，先把这几件事看清楚");
   });
 
   it("keeps the compact type directory wired on the page", () => {

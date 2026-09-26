@@ -323,17 +323,9 @@ function TypeGroupBrowse({
         data-testid="personality-hub-seo-overview"
       >
         <div className="space-y-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[#5f447e]">
-            {locale === "zh" ? "MBTI 人格目录" : "MBTI directory"}
-          </p>
           <h2 className="m-0 text-2xl font-semibold tracking-normal text-[#17112f]">
             {locale === "zh" ? "先看 16 型，再进入 32 个 A/T 人格" : "Start with 16 types, then open 32 A/T variants"}
           </h2>
-          <p className="m-0 max-w-3xl text-sm leading-7 text-[#586271]">
-            {locale === "zh"
-              ? "每个基础人格都保留 A 型与 T 型两个入口，用同一张目录连接人格解释、A/T 差异、相近人格对比和 MBTI 免费测试。"
-              : "Each base type keeps separate A and T entries so the directory can connect type profiles, A/T differences, adjacent comparisons, and the free MBTI test."}
-          </p>
           <div className="flex flex-wrap gap-2">
             <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
               {locale === "zh" ? `${baseTypeCount} 个基础人格` : `${baseTypeCount} base types`}

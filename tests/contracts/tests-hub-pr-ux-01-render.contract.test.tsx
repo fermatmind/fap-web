@@ -64,6 +64,12 @@ describe("tests hub PR-UX-01 render contract", () => {
     expect(screen.getAllByText(/大五人格测试/).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByText("霍兰德职业兴趣测试").length).toBeGreaterThanOrEqual(1);
     expect(screen.getByRole("heading", { level: 1, name: "免费测试" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "免费测试" })).toHaveClass("sr-only");
+    expect(screen.queryByText("选择合适的测试，了解你的性格特质、兴趣倾向与能力潜能。")).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "为什么选择我们的测试" })).not.toBeInTheDocument();
+    expect(screen.getAllByText("免费测试，免费结果")).toHaveLength(1);
+    expect(screen.getAllByText("科学方法，可靠专业")).toHaveLength(1);
+    expect(screen.getAllByText("适合自我探索与职业方向思考")).toHaveLength(1);
     expect(screen.getAllByRole("link", { name: "开始 MBTI 免费测试" }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole("link", { name: "开始大五人格免费测试" }).length).toBeGreaterThanOrEqual(1);
     expect(screen.getAllByRole("link", { name: "开始霍兰德职业兴趣免费测试" }).length).toBeGreaterThanOrEqual(1);
