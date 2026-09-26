@@ -120,7 +120,7 @@ export default async function HelpDetailPage({
   const canonicalPath = buildContentPagePath(page.slug, locale);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/help", locale) },
+    { name: locale === "zh" ? "帮助中心" : "Help Center", path: localizedPath("/support", locale) },
     { name: page.title, path: canonicalPath },
   ]);
   const webPageJsonLd = buildWebPageJsonLd({

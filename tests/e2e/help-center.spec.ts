@@ -356,18 +356,15 @@ test("all help detail pages render English content", async ({ page }) => {
   for (const item of helpPages) {
     await page.goto(`/en/help/${item.slug}`);
     await expect(page.getByRole("heading", { level: 1, name: item.headingEn })).toBeVisible();
-    await expect(page.getByRole("link", { name: "Back to Help Center", exact: true })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Breadcrumb" }).getByRole("link", { name: "Help Center" })).toHaveAttribute("href", "/en/support");
   }
 });
 
 test("all help detail pages render Chinese content", async ({ page }) => {
   for (const item of helpPages) {
-    if (["about", "team", "used-and-mentioned"].includes(item.slug)) {
-      continue;
-    }
     await page.goto(`/zh/help/${item.slug}`);
     await expect(page.getByRole("heading", { level: 1, name: item.headingZh })).toBeVisible();
-    await expect(page.getByRole("link", { name: "返回帮助中心", exact: true })).toBeVisible();
+    await expect(page.getByRole("navigation", { name: "Breadcrumb" }).getByRole("link", { name: "帮助中心" })).toHaveAttribute("href", "/zh/support");
   }
 });
 

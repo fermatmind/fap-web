@@ -338,28 +338,13 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/zh/help/about",
-        destination: "/zh/support",
-        permanent: true,
-      },
-      {
         source: "/help/used-and-mentioned",
         destination: "/en/support",
         permanent: true,
       },
       {
-        source: "/zh/help/used-and-mentioned",
-        destination: "/zh/support",
-        permanent: true,
-      },
-      {
         source: "/help/team",
         destination: "/en/support",
-        permanent: true,
-      },
-      {
-        source: "/zh/help/team",
-        destination: "/zh/support",
         permanent: true,
       },
       {
