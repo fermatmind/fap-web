@@ -669,3 +669,4 @@ if [[ "${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}" == "1" ]]; then
   node "${CONTENT_RELEASE_RUNTIME_HELPER:?}" probe "$APP_DIR/.next/standalone/.content-release-runtime.json" "$PUBLIC_BASE_URL/api/content-release/revalidate"
 fi
 log "deploy completed"
+exit 0

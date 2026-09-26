@@ -34,8 +34,8 @@ test("classifies career display adapter as both UI and content contract", () => 
 });
 test("classifies ingress/runtime config", () => assert.equal(has(["deploy/openresty/fap-web-public.conf"], "ingress_runtime_config"), true));
 test("classifies deployment infrastructure", () => assert.equal(has([".github/workflows/deploy.yml"], "deployment_infrastructure"), true));
-test("classifies the production smoke controller as deployment infrastructure", () => {
-  const result = classifyPaths(["scripts/deploy_web_pm2.sh"]);
+test("classifies the production smoke controller and installer as deployment infrastructure", () => {
+  const result = classifyPaths(["scripts/deploy_web_pm2.sh", "scripts/install_standalone_release.sh"]);
   assert.deepEqual(result.categories, ["deployment_infrastructure"]);
   assert.equal(result.deploy, true);
 });

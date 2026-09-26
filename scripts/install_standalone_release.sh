@@ -342,7 +342,7 @@ active_switched=1
 phase="verify"
 write_outcome running 0
 
-APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
+if APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
   ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
   REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
   REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
@@ -350,11 +350,19 @@ APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
   LLMS_FULL_VERIFY_SCRIPT="$LLMS_FULL_VERIFY_SCRIPT" \
   LLMS_FULL_RECEIPT_PATH="$LLMS_FULL_RECEIPT_PATH" \
   LLMS_FULL_VERIFY_TIMEOUT_MS="$LLMS_FULL_VERIFY_TIMEOUT_MS" \
-  timeout --kill-after=15s "${DEPLOY_VERIFY_TIMEOUT_SECONDS}s" "$DEPLOY_SCRIPT"
+  timeout --kill-after=15s "${DEPLOY_VERIFY_TIMEOUT_SECONDS}s" "$DEPLOY_SCRIPT"; then
+  log "verification controller exited successfully"
+else
+  verification_status=$?
+  log "verification controller failed: status=${verification_status}"
+  exit "$verification_status"
+fi
 
 if [[ -n "$previous_target" ]]; then
-  ln -s "$previous_target" "${releases_dir}/.previous.next"
-  atomic_replace_link "${releases_dir}/.previous.next" "${releases_dir}/previous"
+  ln -s "$previous_target" "${releases_dir}/.previous.next" || fail "previous release link staging failed"
+  atomic_replace_link "${releases_dir}/.previous.next" "${releases_dir}/previous" \
+    || fail "previous release link activation failed"
+  log "previous release link recorded"
 fi
 
 install_complete=1
