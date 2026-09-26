@@ -291,7 +291,9 @@ require_analytics_bootstrap_contract() {
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-public.XXXXXX")"
     # Public HTML can exceed 250 KB uncompressed; request the same compressed
     # representation used by the Career smoke while checking decoded HTML.
-    status="$(curl -sSL --compressed \
+    # Retry only curl's transient failures, such as a TLS connect timeout;
+    # persistent download, HTTP status, and content failures still reject the release.
+    status="$(curl -sSL --compressed --retry 2 --retry-delay 1 \
       --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
       --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
       -o "$body_file" \
@@ -324,12 +326,16 @@ require_analytics_bootstrap_contract() {
 
   for path in $ANALYTICS_PRIVATE_PATHS; do
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-private.XXXXXX")"
-    status="$(curl -sSL --compressed \
+    status="$(curl -sSL --compressed --retry 2 --retry-delay 1 \
       --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
       --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
       -o "$body_file" \
       -w '%{http_code}' \
-      "${base_url%/}${path}")"
+      "${base_url%/}${path}")" || {
+      rm -f "$body_file"
+      log "analytics private smoke download failed: phase=${phase} path=${path}"
+      return 1
+    }
     if [[ "$status" =~ ^5 ]] || grep -Eiq "$THIRD_PARTY_ANALYTICS_PATTERN" "$body_file"; then
       rm -f "$body_file"
       log "analytics private smoke failed: phase=${phase} path=${path} status=${status}"

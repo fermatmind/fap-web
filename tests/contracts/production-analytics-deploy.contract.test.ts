@@ -34,8 +34,10 @@ describe("production analytics deploy contract", () => {
     expect(deployScript).toContain("/zh/orders/lookup");
     expect(deployScript).toContain("/zh/pay/wait");
     expect(deployScript).toContain("/zh/payment/stripe/cancel");
-    expect(deployScript).toContain('status="$(curl -sSL --compressed \\');
+    expect(deployScript).toContain('status="$(curl -sSL --compressed --retry 2 --retry-delay 1 \\');
+    expect(deployScript).not.toContain("--retry-all-errors");
     expect(deployScript).toContain("analytics public smoke download failed: phase=${phase} path=${path}");
+    expect(deployScript).toContain("analytics private smoke download failed: phase=${phase} path=${path}");
 
     const candidateIndex = deployScript.lastIndexOf("require_candidate_analytics_smoke");
     const reloadIndex = deployScript.indexOf("rolling reload pm2 app");
