@@ -289,12 +289,18 @@ require_analytics_bootstrap_contract() {
 
   for path in $ANALYTICS_PUBLIC_PATHS; do
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-public.XXXXXX")"
-    status="$(curl -sSL \
+    # Public HTML can exceed 250 KB uncompressed; request the same compressed
+    # representation used by the Career smoke while checking decoded HTML.
+    status="$(curl -sSL --compressed \
       --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
       --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
       -o "$body_file" \
       -w '%{http_code}' \
-      "${base_url%/}${path}")"
+      "${base_url%/}${path}")" || {
+      rm -f "$body_file"
+      log "analytics public smoke download failed: phase=${phase} path=${path}"
+      return 1
+    }
     if [[ "$status" != "200" ]]; then
       rm -f "$body_file"
       log "analytics public smoke failed: phase=${phase} path=${path} status=${status}"
@@ -318,7 +324,7 @@ require_analytics_bootstrap_contract() {
 
   for path in $ANALYTICS_PRIVATE_PATHS; do
     body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-private.XXXXXX")"
-    status="$(curl -sSL \
+    status="$(curl -sSL --compressed \
       --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" \
       --max-time "$HTTP_REQUEST_TIMEOUT_SEC" \
       -o "$body_file" \
