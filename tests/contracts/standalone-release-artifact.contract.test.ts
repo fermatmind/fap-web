@@ -286,6 +286,21 @@ describe("immutable standalone release artifact", () => {
     expect(installOssutil).toContain("85edf66b2fb7238f5c7e25cab820cf29312319fe4935b7c86a6b8485eb434f3c");
     expect(recovery).toContain(".github/trunk/prepare-web-artifact.sh");
     expect(recovery).not.toContain("RELEASE_TRANSPORT_MODE: oss");
+    for (const key of [
+      "NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS",
+      "NEXT_PUBLIC_ANALYTICS_ENABLED",
+      "NEXT_PUBLIC_ANALYTICS_ENV",
+      "NEXT_PUBLIC_API_URL",
+      "NEXT_PUBLIC_BAIDU_TONGJI_ID",
+      "NEXT_PUBLIC_GA_MEASUREMENT_ID",
+      "NEXT_PUBLIC_SITE_URL",
+      "NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY",
+    ]) {
+      const productionConfig = deploy.match(new RegExp(`^  ${key}: .+$`, "m"))?.[0];
+      expect(productionConfig, `${key} is required in deploy.yml`).toBeDefined();
+      expect(recovery).toContain(productionConfig?.replace(/^  /, "      "));
+    }
+    expect(recovery).toContain("NEXT_PUBLIC_RELEASE: ${{ inputs.exact_sha }}");
     expect(prepareArtifact).toContain('verification_flag="--require-staging-config"');
     expect(prepareArtifact).toContain('verification_flag="--require-production-config"');
     expect(prepareArtifact).toContain('release_basename="fap-web-${DEPLOY_SHA}"');

@@ -31,6 +31,15 @@ jobs:
     env:
       MODE: ${{ inputs.mode }}
       DEPLOY_SHA: ${{ inputs.exact_sha }}
+      NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: fermatmind.com,www.fermatmind.com
+      NEXT_PUBLIC_ANALYTICS_ENABLED: "true"
+      NEXT_PUBLIC_ANALYTICS_ENV: production
+      NEXT_PUBLIC_API_URL: https://api.fermatmind.com
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: 29f3df62751d21041d9e1d90facea311
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: G-5TBDR9KBLW
+      NEXT_PUBLIC_RELEASE: ${{ inputs.exact_sha }}
+      NEXT_PUBLIC_SITE_URL: https://fermatmind.com
+      NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY: "false"
       DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
       DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
       DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
