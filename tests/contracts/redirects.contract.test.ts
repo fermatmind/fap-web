@@ -30,13 +30,14 @@ describe("legacy redirect hygiene contract", () => {
         expect.objectContaining({ source: "/en/refund", destination: "/en/support", permanent: true }),
         expect.objectContaining({ source: "/zh/refund", destination: "/zh/support", permanent: true }),
         expect.objectContaining({ source: "/help/about", destination: "/en/support", permanent: true }),
-        expect.objectContaining({ source: "/zh/help/about", destination: "/zh/support", permanent: true }),
         expect.objectContaining({ source: "/help/team", destination: "/en/support", permanent: true }),
-        expect.objectContaining({ source: "/zh/help/team", destination: "/zh/support", permanent: true }),
         expect.objectContaining({ source: "/help/used-and-mentioned", destination: "/en/support", permanent: true }),
-        expect.objectContaining({ source: "/zh/help/used-and-mentioned", destination: "/zh/support", permanent: true }),
       ])
     );
+
+    for (const slug of ["about", "team", "used-and-mentioned"]) {
+      expect(redirects.some((rule) => rule.source === `/zh/help/${slug}`)).toBe(false);
+    }
   });
 
   it("keeps GSC legacy redirects exact without cross-locale editorial substitution", async () => {

@@ -370,7 +370,7 @@ export function ContentPageTemplate({ page, locale }: { page: ContentPageReaderV
                   : locale === "zh"
                     ? "公司"
                     : "Company",
-              href: isHelp ? localizedPath("/help", locale) : undefined,
+              href: isHelp ? localizedPath("/support", locale) : undefined,
             },
             { label: page.title },
           ]}
