@@ -109,6 +109,8 @@ describe("personality type browse contract", () => {
     expect(pageSource).not.toContain("继续阅读");
     expect(pageSource).not.toContain("这些是人格内容的延伸方向");
     expect(pageSource).not.toContain("按决策场景选择入口");
+    expect(pageSource).not.toContain("MBTI 人格目录");
+    expect(pageSource).not.toContain("每个基础人格都保留 A 型与 T 型两个入口");
   });
 
   it("keeps personality detail and MBTI result pages oriented to final content and next steps", () => {

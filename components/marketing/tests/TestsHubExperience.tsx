@@ -244,50 +244,30 @@ export function TestsHubExperience({ content, locale }: { content: TestsHubConte
       aria-labelledby="tests-hub-title"
     >
       <Container className="max-w-[82rem] px-5 md:px-8">
-        <div className="relative rounded-none border border-violet-100/80 bg-[linear-gradient(135deg,#fbf8ff_0%,#f5f9ff_44%,#ffffff_100%)] px-5 py-10 shadow-[0_24px_80px_rgba(88,80,160,0.10)] md:px-8 lg:px-10">
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_23rem]">
-            <div className="space-y-6">
-              <div className="max-w-3xl">
-                <h1 id="tests-hub-title" className="m-0 text-4xl font-semibold tracking-normal text-slate-950 md:text-5xl">
-                  {locale === "zh" ? "免费测试" : "Free assessments"}
-                </h1>
-                <p className="m-0 mt-3 max-w-2xl text-base leading-7 text-slate-600 md:text-lg">
-                  {locale === "zh"
-                    ? "选择合适的测试，了解你的性格特质、兴趣倾向与能力潜能。"
-                    : "Choose an assessment to understand personality traits, interests, and practical strengths."}
-                </p>
-              </div>
-              <div className="grid gap-3 md:grid-cols-3">
-                {HUB_FEATURES.map((feature) => {
-                  const Icon = feature.icon;
+        <h1 id="tests-hub-title" className="sr-only">
+          {locale === "zh" ? "免费测试" : "Free assessments"}
+        </h1>
+        <div className="rounded-none border border-violet-100/80 bg-[linear-gradient(135deg,#fbf8ff_0%,#f5f9ff_44%,#ffffff_100%)] px-5 py-6 shadow-[0_24px_80px_rgba(88,80,160,0.10)] md:px-8 lg:px-10">
+          <div className="grid gap-3 md:grid-cols-3">
+            {HUB_FEATURES.map((feature) => {
+              const Icon = feature.icon;
 
-                  return (
-                    <div key={feature.titleEn} className="flex min-h-20 items-center gap-3 rounded-lg border border-white/80 bg-white/88 px-4 py-3 shadow-sm">
-                      <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-violet-50 text-violet-700">
-                        <Icon aria-hidden className="size-5" />
-                      </span>
-                      <span className="min-w-0">
-                        <strong className="block text-sm font-semibold leading-5 text-slate-950">
-                          {locale === "zh" ? feature.titleZh : feature.titleEn}
-                        </strong>
-                        <span className="mt-1 block text-xs leading-5 text-slate-600">
-                          {locale === "zh" ? feature.bodyZh : feature.bodyEn}
-                        </span>
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div aria-hidden className="relative hidden h-56 lg:block">
-              <div className="absolute right-9 top-2 h-36 w-36 rounded-full border-[2.1rem] border-violet-200/75 shadow-[0_24px_70px_rgba(109,93,210,0.20)]" />
-              <div className="absolute right-3 top-24 h-16 w-28 rounded-t-3xl bg-violet-100/70" />
-              <div className="absolute bottom-2 right-24 h-20 w-5 rounded-t-lg bg-violet-200/80" />
-              <div className="absolute bottom-2 right-16 h-28 w-5 rounded-t-lg bg-violet-300/70" />
-              <div className="absolute bottom-2 right-8 h-14 w-5 rounded-t-lg bg-violet-200/70" />
-              <div className="absolute right-48 top-16 h-px w-28 rotate-[-18deg] bg-violet-200" />
-              <div className="absolute right-52 top-24 h-px w-28 rotate-[22deg] bg-violet-100" />
-            </div>
+              return (
+                <div key={feature.titleEn} className="flex h-full items-start gap-3 rounded-lg border border-violet-100 bg-white px-5 py-4 shadow-sm">
+                  <span className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-violet-50 text-violet-700">
+                    <Icon aria-hidden className="size-5" />
+                  </span>
+                  <span className="min-w-0">
+                    <strong className="block text-sm font-semibold leading-6 text-slate-950">
+                      {locale === "zh" ? feature.titleZh : feature.titleEn}
+                    </strong>
+                    <span className="mt-1 block text-sm leading-5 text-slate-600">
+                      {locale === "zh" ? feature.bodyZh : feature.bodyEn}
+                    </span>
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -296,33 +276,6 @@ export function TestsHubExperience({ content, locale }: { content: TestsHubConte
             {coreTests.map((item) => (
               <TestListCard key={item.key} item={item} locale={locale} />
             ))}
-          </div>
-
-          <div className="mt-6 rounded-lg border border-violet-100 bg-[linear-gradient(135deg,#ffffff_0%,#fbfaff_100%)] p-5">
-            <h2 className="m-0 text-center text-lg font-semibold tracking-normal text-slate-950">
-              {locale === "zh" ? "为什么选择我们的测试" : "Why choose these assessments"}
-            </h2>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {HUB_FEATURES.map((feature) => {
-                const Icon = feature.icon;
-
-                return (
-                  <div key={`summary-${feature.titleEn}`} className="flex min-h-20 items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-3">
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-slate-50 text-slate-700">
-                      <Icon aria-hidden className="size-5" />
-                    </span>
-                    <span className="min-w-0">
-                      <strong className="block text-sm font-semibold leading-5 text-slate-950">
-                        {locale === "zh" ? feature.titleZh : feature.titleEn}
-                      </strong>
-                      <span className="mt-1 block text-xs leading-5 text-slate-600">
-                        {locale === "zh" ? feature.bodyZh : feature.bodyEn}
-                      </span>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
       </Container>

@@ -61,6 +61,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/tests/mbti-personality-test-16-personality-types", label: "MBTI 性格测试" },
       { href: "/tests/big-five-personality-test-ocean-model", label: "大五人格测试" },
       { href: "/tests/enneagram-personality-test-nine-types", label: "九型人格测试" },
+      { href: "/tests/holland-career-interest-test-riasec", label: "霍兰德职业兴趣测试" },
       { href: "/tests/iq-test-intelligence-quotient-assessment", label: "智商测试" },
       { href: "/tests/eq-test-emotional-intelligence-assessment", label: "情商测试" },
     ],

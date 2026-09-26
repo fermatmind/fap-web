@@ -6,6 +6,7 @@ import {
   getRiasecStartLabel,
   listRiasecFormMetas,
 } from "@/lib/riasec/forms";
+import { getHeaderDropdownMenus } from "@/lib/navigation/headerDropdownMenus";
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
@@ -14,6 +15,14 @@ function read(relPath: string): string {
 const LEGACY_RIASEC_ROUTE_SEGMENT = ["career", "tests", "riasec"].join("/");
 
 describe("riasec public IA contract", () => {
+  it("exposes the canonical RIASEC test in the Chinese tests dropdown", () => {
+    const testsMenu = getHeaderDropdownMenus("zh").find((menu) => menu.key === "tests");
+    expect(testsMenu?.items).toContainEqual({
+      href: "/tests/holland-career-interest-test-riasec",
+      label: "霍兰德职业兴趣测试",
+    });
+  });
+
   it("keeps riasec forms ordered as standard 60Q then enhanced 140Q", () => {
     expect(listRiasecFormMetas().map((form) => form.formCode)).toEqual(["riasec_60", "riasec_140"]);
     expect(getRiasecStartLabel("riasec_60", "zh")).toBe("开始标准版");
