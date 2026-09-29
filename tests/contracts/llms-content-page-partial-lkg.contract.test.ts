@@ -36,6 +36,14 @@ function contentPageRecord(slug: string, override: ContentPageOverride = {}) {
     content_html: `<h2>${slug} heading</h2><p>${slug} body.</p>`,
     seo_title: `${slug} seo`,
     meta_description: `${slug} description`,
+    ...(slug === "methodology" || slug === "source-review-policy" ? {
+      path: `/en/personality/big-five/${slug}`,
+      canonical_path: `/en/personality/big-five/${slug}`,
+      page_type: slug === "methodology" ? "methodology" : "trust",
+      status: "published", review_state: "approved", publish_allowed: true,
+      schema_enabled: false, operator_approval_required: true,
+      operator_approved_at: "2026-07-01T00:00:00Z",
+    } : {}),
   };
 }
 

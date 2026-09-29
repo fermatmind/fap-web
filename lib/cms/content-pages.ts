@@ -79,6 +79,14 @@ export type ContentPageUpdatePayload = {
 };
 
 type ContentPageApiRecord = {
+  canonical_path?: string | null;
+  page_type?: string | null;
+  status?: string | null;
+  review_state?: string | null;
+  publish_allowed?: boolean;
+  operator_approval_required?: boolean;
+  operator_approved_at?: string | null;
+  seo_description?: string | null;
   slug?: string;
   path?: string | null;
   kind?: string | null;
@@ -166,6 +174,8 @@ export const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "common-misconceptions",
   "help-faq",
   "help-contact",
+  "methodology",
+  "source-review-policy",
 ] as const;
 
 export type DiscoverableContentPageKey = (typeof DISCOVERABLE_CONTENT_PAGE_KEYS)[number];
@@ -388,11 +398,45 @@ export function listContentPageSlugs(): ContentPageSlug[] {
 }
 
 export function buildContentPagePath(slug: string, locale: Locale): string {
+  if (slug === "methodology" || slug === "source-review-policy") {
+    return localizedPath(`/personality/big-five/${slug}`, locale);
+  }
   if (slug.startsWith("help-")) {
     return localizedPath(`/help/${slug.slice(5)}`, locale);
   }
 
   return localizedPath(`/${slug}`, locale);
+}
+
+export function normalizeBigFivePolicyContentPage(
+  record: ContentPageApiRecord,
+  slug: "methodology" | "source-review-policy",
+  locale: Locale
+): ContentPage | null {
+  const expectedPath = buildContentPagePath(slug, locale);
+  const expectedType = slug === "methodology" ? "methodology" : "trust";
+  if (
+    record.slug !== slug || record.locale !== toApiLocale(locale) ||
+    record.path !== expectedPath || record.canonical_path !== expectedPath ||
+    record.page_type !== expectedType || record.status !== "published" ||
+    record.review_state !== "approved" || record.is_public !== true ||
+    typeof record.is_indexable !== "boolean" || record.publish_allowed !== true ||
+    typeof record.schema_enabled !== "boolean" ||
+    typeof record.operator_approval_required !== "boolean" ||
+    !["company", "policy", "help"].includes(record.kind ?? "") ||
+    !["company", "policy", "help"].includes(record.template ?? "") ||
+    !normalizeText(record.seo_title) || !normalizeText(record.seo_description ?? record.meta_description)
+  ) {
+    return null;
+  }
+  if (record.operator_approval_required && (
+    !record.operator_approved_at ||
+    !Number.isFinite(Date.parse(record.operator_approved_at))
+  )) {
+    return null;
+  }
+  const page = normalizeContentPage(record);
+  return page ? { ...page, metaDescription: normalizeText(record.seo_description ?? record.meta_description) } : null;
 }
 
 export async function getContentPage(slug: string, locale: Locale | string): Promise<ContentPage | null> {
@@ -415,7 +459,11 @@ export async function getContentPage(slug: string, locale: Locale | string): Pro
         ...PUBLIC_API_CACHE_OPTIONS,
       }
     );
-    const page = response.page ? normalizeContentPage(response.page) : null;
+    const page = response.page
+      ? normalizedSlug === "methodology" || normalizedSlug === "source-review-policy"
+        ? normalizeBigFivePolicyContentPage(response.page, normalizedSlug, normalizeLocale(locale))
+        : normalizeContentPage(response.page)
+      : null;
     return page?.isPublic ? page : null;
   } catch (error) {
     if (error instanceof ApiError && [404, 422].includes(error.status)) {
