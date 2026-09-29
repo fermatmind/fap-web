@@ -174,8 +174,6 @@ export const DISCOVERABLE_CONTENT_PAGE_KEYS = [
   "common-misconceptions",
   "help-faq",
   "help-contact",
-  "methodology",
-  "source-review-policy",
 ] as const;
 
 export type DiscoverableContentPageKey = (typeof DISCOVERABLE_CONTENT_PAGE_KEYS)[number];
