@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { apiClient } from "@/lib/api-client";
-import { buildContentPagePath, getContentPageWithLastKnownGood, normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
+import { DISCOVERABLE_CONTENT_PAGE_KEYS, buildContentPagePath, getContentPageWithLastKnownGood, normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
 import { clearLastKnownGoodForTests } from "@/lib/cms/last-known-good";
 import { generateBigFivePolicyMetadata, renderBigFivePolicyPage } from "@/app/(localized)/[locale]/bigFivePolicyContentPageRoute";
 import { resolveBigFivePublicRouteEntry } from "@/lib/personality/bigFivePublicRoutes";
@@ -44,6 +44,9 @@ describe("Big Five ContentPage policy routes", () => {
     expect(buildContentPagePath("source-review-policy", "en")).toBe("/en/personality/big-five/source-review-policy");
     expect(resolveBigFivePublicRouteEntry(["methodology"])).toBeNull();
     expect(resolveBigFivePublicRouteEntry(["source-review-policy"])).toBeNull();
+    // The deployed LLMS contract accepts exactly the existing 104 asset URLs.
+    expect(DISCOVERABLE_CONTENT_PAGE_KEYS).not.toContain("methodology");
+    expect(DISCOVERABLE_CONTENT_PAGE_KEYS).not.toContain("source-review-policy");
     expect(buildContentPagePath("privacy", "zh")).toBe("/zh/privacy");
   });
 
