@@ -20,6 +20,8 @@ const DISCOVERABLE_KEYS = [
   "terms",
   "support",
   "method-boundaries",
+  "methodology",
+  "source-review-policy",
   ...SCIENCE_TARGET_SLUGS,
   "help-faq",
   "help-contact",
@@ -236,6 +238,14 @@ describe("GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01", () => {
           content_html: `<h2>${slug} heading</h2><p>${slug} body.</p>`,
           seo_title: `${slug} seo title`,
           meta_description: `${slug} seo description`,
+          ...(["methodology", "source-review-policy"].includes(slug) ? {
+            path: `/en/personality/big-five/${slug}`,
+            canonical_path: `/en/personality/big-five/${slug}`,
+            page_type: slug === "methodology" ? "methodology" : "trust",
+            template: "policy", kind: "policy", status: "published", review_state: "approved",
+            publish_allowed: true, schema_enabled: false,
+            operator_approval_required: true, operator_approved_at: "2026-05-28T00:00:00Z",
+          } : {}),
         },
       };
     });

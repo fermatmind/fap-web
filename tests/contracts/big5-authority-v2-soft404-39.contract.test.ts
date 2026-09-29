@@ -85,8 +85,13 @@ describe("BIG5-AUTHORITY-V2-SOFT404-39", () => {
     }
   });
 
-  it("returns 404 for all four unknown technical-trust catch-all routes without inventing frontend authority", async () => {
-    const fetchMock = vi.fn();
+  it("returns authoritative 404 for all four withheld CMS technical-trust routes before rendering", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      expect(String(input)).toMatch(/\/api\/v0\.5\/content-pages\/(methodology|source-review-policy)\?/);
+      expect(init?.method).toBe("GET");
+      expect(init?.cache).toBe("no-store");
+      return new Response(null, { status: 404 });
+    });
     vi.stubGlobal("fetch", fetchMock);
     const technicalTrustRoutes = withheldRuntimeRecords()
       .filter((record) => record.page_family === "technical_trust")
@@ -98,7 +103,7 @@ describe("BIG5-AUTHORITY-V2-SOFT404-39", () => {
       expect(response.headers.get("x-robots-tag")?.toLowerCase(), route).toContain("noindex");
     }
 
-    expect(fetchMock).not.toHaveBeenCalled();
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
   it("preserves authoritative 410 and published controls while transient probes fall through", async () => {
@@ -186,6 +191,8 @@ describe("BIG5-AUTHORITY-V2-SOFT404-39", () => {
     expect(proxySource).toContain('method: "HEAD"');
     expect(proxySource).toContain("buildApiUrl(`/v0.5/articles/");
     expect(proxySource).not.toContain("apply-personality-research-without-overclaiming");
-    expect(proxySource).not.toContain("source-review-policy");
+    expect(proxySource).toContain("probeBigFivePolicyPublicAbsence");
+    expect(proxySource).toContain("normalizeBigFivePolicyContentPage");
+    expect(proxySource).toContain("isUnknownBigFivePublicRoute");
   });
 });
