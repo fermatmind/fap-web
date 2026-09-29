@@ -12,6 +12,7 @@ import {
 import { localizedPath, stripLocalePrefix, toApiLocale } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
 import { resolveBigFivePublicRouteEntry } from "@/lib/personality/bigFivePublicRoutes";
+import { normalizeBigFivePolicyContentPage } from "@/lib/cms/content-pages";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import {
   PRIVATE_ANALYTICS_SUPPRESSION_HEADER,
@@ -121,6 +122,7 @@ function resolveCareerAuthorityProbe(pathname: string): { locale: "en" | "zh"; s
 }
 
 function isUnknownBigFivePublicRoute(pathname: string): boolean {
+  if (resolveBigFivePolicyProbe(pathname)) return false;
   const match = pathname.match(BIG_FIVE_DETAIL_PATH_RE);
   if (!match) {
     return false;
@@ -133,6 +135,30 @@ function isUnknownBigFivePublicRoute(pathname: string): boolean {
     return resolveBigFivePublicRouteEntry(slugSegments) === null;
   } catch {
     return true;
+  }
+}
+
+function resolveBigFivePolicyProbe(pathname: string): {
+  locale: "en" | "zh"; slug: "methodology" | "source-review-policy";
+} | null {
+  const match = pathname.match(/^\/(en|zh)\/personality\/big-five\/(methodology|source-review-policy)\/?$/);
+  return match ? { locale: match[1] as "en" | "zh", slug: match[2] as "methodology" | "source-review-policy" } : null;
+}
+
+async function probeBigFivePolicyPublicAbsence(probe: NonNullable<ReturnType<typeof resolveBigFivePolicyProbe>>): Promise<NextResponse | null> {
+  const query = new URLSearchParams({ locale: toApiLocale(probe.locale), org_id: "0" });
+  try {
+    const response = await fetch(buildApiUrl(`/v0.5/content-pages/${probe.slug}?${query.toString()}`), {
+      method: "GET", headers: { Accept: "application/json", "X-FAP-Locale": toApiLocale(probe.locale) },
+      cache: "no-store", redirect: "manual", signal: AbortSignal.timeout(PUBLIC_ABSENCE_PROBE_TIMEOUT_MS),
+    });
+    if (response.status === 404 || response.status === 410) return createPublicAbsenceResponse(response.status);
+    if (!response.ok) return null;
+    const payload = await response.json();
+    return payload?.ok === true && payload.page && normalizeBigFivePolicyContentPage(payload.page, probe.slug, probe.locale)
+      ? null : createPublicAbsenceResponse(404);
+  } catch {
+    return null;
   }
 }
 
@@ -412,6 +438,13 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
 
     if (isUnknownBigFivePublicRoute(pathname)) {
       return createPublicAbsenceResponse(404);
+    }
+
+    const policyProbe = resolveBigFivePolicyProbe(pathname);
+    if (policyProbe) {
+      return probeBigFivePolicyPublicAbsence(policyProbe).then(
+        (absenceResponse) => absenceResponse ?? runProxy(request, false),
+      );
     }
 
     const articleProbe = resolveArticleAuthorityProbe(pathname);
