@@ -2,7 +2,8 @@
 
 import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
-import { toggleLocalePath, type Locale } from "@/lib/i18n/locales";
+import { type Locale } from "@/lib/i18n/locales";
+import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 
 const languageOptions: Array<{ locale: Locale; label: string; code: string }> = [
   { locale: "zh", label: "简体中文", code: "ZH" },
@@ -18,6 +19,7 @@ export default function LocaleSwitcherMenu({
   pathname: string;
   onSelect: () => void;
 }) {
+  const targetHref = useLocaleSwitchHref(pathname, locale === "zh" ? "en" : "zh");
   return (
     <div
       id="site-language-menu"
@@ -43,7 +45,7 @@ export default function LocaleSwitcherMenu({
         return (
           <PublicNavigationLink
             key={option.locale}
-            href={toggleLocalePath(pathname, option.locale)}
+            href={targetHref}
             prefetch={false}
             role="menuitem"
             className="fm-header-dropdown-link fm-locale-menu-item flex items-center justify-between gap-6"

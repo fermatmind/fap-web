@@ -39,6 +39,13 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });
 
+  it("sends an article without a verified translation to the other language article list on mobile", () => {
+    navigationState.pathname = "/zh/articles/independent-root";
+    render(<LocaleProvider locale="zh"><SiteHeader /></LocaleProvider>);
+    fireEvent.click(screen.getByRole("button", { name: "菜单" }));
+    expect(screen.getByRole("link", { name: "EN" })).toHaveAttribute("href", "/en/articles");
+  });
+
   it("does not inject live query params into the SSR-rendered locale switch href", async () => {
     render(
       <LocaleProvider locale="zh">

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
+import { useLocaleSwitchHref } from "@/components/i18n/useLocaleSwitchHref";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
 import {
@@ -15,7 +16,7 @@ import {
 } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
-import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
+import { localizedPath } from "@/lib/i18n/locales";
 import {
   getHeaderDropdownMenus,
   type HeaderNavKey,
@@ -59,7 +60,7 @@ export function SiteHeader({
   const withLocale = (path: string) => localizedPath(path, locale);
   const isHomeRoute = pathname === "/zh" || pathname === "/en" || pathname === "/";
   const targetLocale = locale === "zh" ? "en" : "zh";
-  const localeHref = toggleLocalePath(pathname, targetLocale);
+  const localeHref = useLocaleSwitchHref(pathname, targetLocale);
   const localeLabel = targetLocale === "zh" ? dict.lang.zh_label : dict.lang.en_label;
   const disableLocaleSwitchLinks = shouldDisableLocaleSwitchLinks(pathname);
   const priorityFlags: ProductPriorityEnvSnapshot = useMemo(
