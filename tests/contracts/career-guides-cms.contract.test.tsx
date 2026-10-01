@@ -590,6 +590,7 @@ describe("career guides frontend boundary contract", () => {
       "zh"
     );
     expect(normalizeCareerGuideSeoPayloadMock).toHaveBeenCalled();
+    expect(metadata.title).toEqual({ absolute: "From MBTI to Job Fit | FermatMind" });
     expect(normalizeCareerGuideSeoPayloadMock).toHaveBeenCalledWith(
       expect.anything(),
       guide,

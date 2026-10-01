@@ -20,6 +20,7 @@ import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { ARTICLE_AUTHOR_NAME } from "@/lib/seo/articleJsonLdAuthority";
+import { resolveCareerGuideMetadataTitle } from "@/lib/seo/careerGuideMetadataTitle";
 import { buildBreadcrumbJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -144,6 +145,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return {
     ...metadata,
+    title: resolveCareerGuideMetadataTitle(normalizedSeo.surface?.title || normalizedSeo.meta.title),
     alternates: {
       ...metadata.alternates,
       canonical,
