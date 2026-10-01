@@ -112,7 +112,10 @@ function stripInternalContentFieldPrefix(line: string): string {
 }
 
 function parseMarkdown(markdown: string): MarkdownBlock[] {
-  const lines = markdown.replace(/\r\n?/g, "\n").split("\n");
+  const lines = markdown
+    .replace(/<!--\s*help-service-visible-faq:(?:start|end)\s*-->/g, "")
+    .replace(/\r\n?/g, "\n")
+    .split("\n");
   const blocks: MarkdownBlock[] = [];
   let index = 0;
   let headingIndex = 0;

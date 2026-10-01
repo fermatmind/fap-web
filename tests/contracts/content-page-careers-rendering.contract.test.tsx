@@ -78,6 +78,24 @@ function makeFoundationPage(overrides: Partial<ContentPage> = {}): ContentPage {
 }
 
 describe("Careers content page rendering", () => {
+  it.each(["zh", "en"] as const)("hides help FAQ delimiters while preserving %s reader content", (locale) => {
+    const heading = locale === "zh" ? "常见问题" : "Frequently asked questions";
+    const answer = locale === "zh" ? "请先核对结果记录。" : "Check the result record first.";
+    const page = makeFoundationPage({
+      slug: "help-result-recovery",
+      path: "/help/result-recovery",
+      template: "help",
+      locale,
+      contentMd: `## Overview\n\nBody text.\n\n<!-- help-service-visible-faq:start -->\n## ${heading}\n### Recovery\n${answer}\n<!-- help-service-visible-faq:end -->`,
+    });
+    const html = renderToStaticMarkup(<ContentPageTemplate page={page} locale={locale} />);
+    expect(html).not.toContain("help-service-visible-faq");
+    expect(html).toContain("Body text.");
+    expect(html).toContain(heading);
+    expect(html).toContain(answer);
+    expect(html).toContain('id="recovery-3"');
+  });
+
   it("uses CMS job headings as the related links on Careers pages", () => {
     const html = renderToStaticMarkup(
       <ContentPageTemplate page={stripContentPageReaderMetadata(makeCareersPage())} locale="zh" />
