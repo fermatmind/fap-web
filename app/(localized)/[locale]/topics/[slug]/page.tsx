@@ -304,8 +304,8 @@ export default async function TopicDetailPage({
             </h2>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
               {locale === "zh"
-                ? "这里保持轻量，只提供类型入口与职业推荐入口，不把主题页变成长文页。"
-                : "This page stays lightweight: use it to continue into type pages or career recommendations, without turning the topic page into a long article."}
+                ? "先读模型基础与使用边界，再选择类型说明或职业探索内容；职业与专业选择还需结合兴趣、能力和现实条件。"
+                : "Read the model basics and limits first, then continue to type descriptions or career exploration. Career and major choices also require interests, skills, and real constraints."}
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
