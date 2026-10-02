@@ -357,7 +357,7 @@ function renderPlainTextWithInternalLinks(text: string, keyPrefix: string, optio
 
 function renderInlineMarkdown(text: string, keyPrefix: string, options: MarkdownRenderOptions = {}): ReactNode[] {
   const normalized = text.replace(/\n/g, "  ");
-  const pattern = /(\[[^\]]+\]\([^)]+\)|\[\^[0-9A-Za-z-]+\]|`[^`]+`|\*\*[^*]+\*\*|__[^_]+__|(?<!\w)\*[^*\n]+\*(?!\w)|(?<!\w)_[^_\n]+_(?!\w))/g;
+  const pattern = /(\[[^\]]+\]\([^)]+\)|\[\^[0-9A-Za-z-]+\]|`[^`]+`|\*\*[^*]+\*\*|(?<!_)__[^_]+__(?!_)|(?<!\w)\*[^*\n]+\*(?!\w)|(?<!\w)_[^_\n]+_(?!\w))/g;
   const parts = normalized.split(pattern).filter((part) => part.length > 0);
 
   return parts.flatMap((part, index) => {
@@ -398,14 +398,14 @@ function renderInlineMarkdown(text: string, keyPrefix: string, options: Markdown
       );
     }
 
-    const strong = part.match(/^(?:\*\*|__)(.*?)(?:\*\*|__)$/);
+    const strong = part.match(/^(?:\*\*([^*]+)\*\*|__([^_]+)__)$/);
     if (strong) {
-      return <strong key={key}>{renderCjkPunctuationText(strong[1] ?? "", `${key}-text`)}</strong>;
+      return <strong key={key}>{renderCjkPunctuationText(strong[1] ?? strong[2] ?? "", `${key}-text`)}</strong>;
     }
 
-    const emphasis = part.match(/^(?:\*|_)(.*?)(?:\*|_)$/);
+    const emphasis = part.match(/^(?:\*([^*\n]+)\*|_([^_\n]+)_)$/);
     if (emphasis) {
-      return <em key={key}>{renderCjkPunctuationText(emphasis[1] ?? "", `${key}-text`)}</em>;
+      return <em key={key}>{renderCjkPunctuationText(emphasis[1] ?? emphasis[2] ?? "", `${key}-text`)}</em>;
     }
 
     return renderPlainTextWithInternalLinks(part, key, options);

@@ -71,6 +71,31 @@ function readSource(relPath: string): string {
 }
 
 describe("CMS rich content sanitization contract", () => {
+  it("preserves repeated underscore placeholders alongside inline formatting", () => {
+    const markdown = [
+      '- “页面把这项写作____；我先确认它的方向和定义，再看它在____与____两个场景中是否有可观察的表现。”',
+      '- “这条描述目前有一个支持例：____；也有一个反例：____。我暂时把它当作____，而不是身份结论。”',
+      '> “请帮我回忆：你见过我怎样处理____？”',
+      '',
+      '- ____',
+      '',
+      '____between blanks____',
+      '',
+      '__bold__ **strong** _emphasis_ *italic* [Help](/en/help) `____`',
+    ].join("\n");
+    const html = renderToStaticMarkup(<div>{renderSimpleMarkdown(markdown)}</div>);
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+
+    expect(reader.textContent?.match(/____/g)).toHaveLength(11);
+    expect(reader.textContent).toContain("____between blanks____");
+    expect(Array.from(reader.querySelectorAll("strong"), (node) => node.textContent)).toEqual(["bold", "strong"]);
+    expect(Array.from(reader.querySelectorAll("em"), (node) => node.textContent)).toEqual(["emphasis", "italic"]);
+    expect(html).toContain('href="/en/help"');
+    expect(reader.querySelector("code")?.textContent).toBe("____");
+    expectNoExecutableCmsHtml(html);
+  });
+
   it("strips dangerous tags and attributes while preserving safe formatting", () => {
     const sanitized = sanitizeCmsHtml(CMS_RICH_HTML);
 
