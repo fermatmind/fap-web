@@ -26,8 +26,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业数据库（公开）" : "Occupations Dataset Hub",
     description:
       locale === "zh"
-        ? "342 个职业的公开数据库入口：覆盖范围、下载、使用方式与方法边界。"
-        : "Public database hub for 342 tracked occupations: coverage, download, usage, and method boundaries.",
+        ? "职业公开数据库入口：覆盖范围、下载、使用方式与方法边界。"
+        : "Public occupations database hub: coverage, download, usage, and method boundaries.",
     alternatesByLocale: {
       en: "/en/datasets/occupations",
       zh: "/zh/datasets/occupations",
@@ -67,8 +67,8 @@ export default async function DatasetOccupationsHubPage({
           title={locale === "zh" ? dataset.datasetNameZh : dataset.datasetName}
           summary={
             locale === "zh"
-              ? "覆盖 342 个职业，前置展示可公开使用的数据边界、下载入口和方法说明。"
-              : "Covers 342 tracked occupations with public-use boundaries, download access, and method notes up front."
+              ? `覆盖 ${dataset.collectionSummary.memberCount} 个职业，前置展示可公开使用的数据边界、下载入口和方法说明。`
+              : `Covers ${dataset.collectionSummary.memberCount} tracked occupations with public-use boundaries, download access, and method notes up front.`
           }
         >
           <section className="grid gap-4 md:grid-cols-4" data-testid="dataset-collection-summary">

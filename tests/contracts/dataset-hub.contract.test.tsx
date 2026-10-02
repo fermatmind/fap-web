@@ -1,6 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { renderToStaticMarkup } from "react-dom/server";
+import { describe, expect, it, vi } from "vitest";
+
+const { fetchDataset } = vi.hoisted(() => ({ fetchDataset: vi.fn() }));
+vi.mock("@/lib/career/api/fetchCareerDatasetHub", () => ({ fetchCareerDatasetHub: fetchDataset }));
+import DatasetHubPage, { generateMetadata } from "@/app/(localized)/[locale]/datasets/occupations/page";
 
 const ROOT = process.cwd();
 
@@ -9,6 +14,26 @@ function read(relPath: string): string {
 }
 
 describe("dataset hub page contract", () => {
+  it.each(["zh", "en"])("keeps %s coverage copy consistent with the live dataset count", async (locale) => {
+    fetchDataset.mockResolvedValue({
+      dataset_name: "Occupations dataset",
+      dataset_name_zh: "职业数据库",
+      collection_summary: { member_count: 1045 },
+      publication: { distribution: { download_url: "/datasets/occupations/download" } },
+    });
+    const params = Promise.resolve({ locale });
+    const html = renderToStaticMarkup(await DatasetHubPage({ params }));
+    expect(html).toContain(locale === "zh" ? "覆盖 1045 个职业" : "Covers 1045 tracked occupations");
+    expect(html).not.toContain("342");
+    const metadata = await generateMetadata({ params });
+    expect(metadata.description).not.toContain("342");
+  });
+
+  it("keeps unavailable dataset responses distinct from a coverage claim", async () => {
+    fetchDataset.mockResolvedValue(null);
+    await expect(DatasetHubPage({ params: Promise.resolve({ locale: "en" }) })).rejects.toThrow();
+  });
+
   it("renders backend dataset hub contract with dedicated structured data surface", () => {
     const source = read("app/(localized)/[locale]/datasets/occupations/page.tsx");
 
