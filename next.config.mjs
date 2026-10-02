@@ -77,6 +77,16 @@ const privateNoindexHeaders = [
 // entries in the same PR that introduces a real same-locale replacement page.
 const gscLegacyRedirects = [
   {
+    source: "/:locale(en|zh)/career/industries/design",
+    destination: "/:locale/career/industries/arts-and-design",
+    permanent: true,
+  },
+  {
+    source: "/:locale(en|zh)/career/industries/technology",
+    destination: "/:locale/career/industries/computer-and-information-technology",
+    permanent: true,
+  },
+  {
     source: "/support",
     destination: "/zh/support",
     permanent: true,

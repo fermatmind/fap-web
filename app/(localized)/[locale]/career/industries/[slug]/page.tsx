@@ -21,6 +21,17 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
+const ZH_DIRECTORY_INTRO_FAMILIES = new Set([
+  "building-and-grounds-cleaning",
+  "construction-and-extraction",
+  "education-training-and-library",
+  "food-preparation-and-serving",
+  "management",
+  "office-and-administrative-support",
+  "production",
+  "transportation-and-material-moving",
+]);
+
 export function generateStaticParams() {
   return CAREER_DATASET_FAMILY_SLUGS.flatMap((slug) => [
     { locale: "en", slug },
@@ -86,6 +97,7 @@ export default async function CareerIndustryDetailPage({
     notFound();
   }
 
+  const showDirectoryIntro = locale === "zh" && slug === familySlug && ZH_DIRECTORY_INTRO_FAMILIES.has(familySlug);
   const industryPath = localizedPath(`/career/industries/${familySlug}`, locale);
   const jobsPath = localizedPath("/career", locale);
   const visibleMembers = filterCareerDatasetMembers({
@@ -110,7 +122,17 @@ export default async function CareerIndustryDetailPage({
         </nav>
 
         <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-end">
-          <div aria-hidden="true" />
+          {showDirectoryIntro ? (
+            <div className="max-w-3xl space-y-4">
+              <h1 className="m-0 text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
+                {family.title}职业目录
+              </h1>
+              <p className="m-0 text-base leading-7 text-slate-600">
+                按站内职业分类浏览{family.title}岗位，使用搜索筛选职业，并进入已开放的详情页比较工作任务。
+                本目录不代表实时招聘，也不是完整的本地职业分类；具体岗位信息与适用范围请查看详情页注明的来源。
+              </p>
+            </div>
+          ) : <div aria-hidden="true" />}
           <div className="grid grid-cols-3 gap-3 text-center">
             <Metric label={locale === "zh" ? "职业" : "Roles"} value={String(family.count)} />
             <Metric label={locale === "zh" ? "公开" : "Public"} value={String(family.publicDetailCount)} />

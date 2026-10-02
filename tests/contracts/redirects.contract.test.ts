@@ -20,6 +20,21 @@ async function loadRedirects(): Promise<RedirectRule[]> {
 }
 
 describe("legacy redirect hygiene contract", () => {
+  it("routes industry compatibility aliases directly to the same-locale canonical directory", async () => {
+    const redirects = await loadRedirects();
+    for (const [alias, canonical] of [
+      ["design", "arts-and-design"],
+      ["technology", "computer-and-information-technology"],
+    ]) {
+      const rules = redirects.filter((rule) => rule.source === `/:locale(en|zh)/career/industries/${alias}`);
+      expect(rules).toEqual([{
+        source: `/:locale(en|zh)/career/industries/${alias}`,
+        destination: `/:locale/career/industries/${canonical}`,
+        permanent: true,
+      }]);
+    }
+  });
+
   it("routes refund and help legacy paths directly to live support destinations", async () => {
     const redirects = await loadRedirects();
 
