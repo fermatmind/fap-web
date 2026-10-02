@@ -170,7 +170,7 @@ describe("enneagram frontend API contract", () => {
 
     expect(landingSource).toContain("const showsEnneagramActions = isEnneagramScaleCode(test.scale_code)");
     expect(landingSource).toContain("listEnneagramFormMetas().map((form) => ({");
-    expect(landingSource).toContain("href: buildEnneagramTakeHref(test.slug, locale, form.formCode)");
+    expect(landingSource).toContain("href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode))");
     expect(stickySource).toContain("const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug)");
     expect(stickySource).toContain("listEnneagramFormMetas().map((form) => getEnneagramVariantLabel(form.formCode, locale))");
     expect(stickySource).toContain("href={buildEnneagramTakeHref(slug, locale, form.formCode)}");

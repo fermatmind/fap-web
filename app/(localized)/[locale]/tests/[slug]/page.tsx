@@ -999,6 +999,7 @@ export default async function TestLandingPage({
             key: form.formCode,
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
+            // Keep the selected form and forward the same bounded attribution as other assessments.
             href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode)),
             ctaLabel: getFlagshipFreeTestCtaLabel({
               scaleCode: test.scale_code,
