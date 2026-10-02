@@ -243,6 +243,7 @@ describe("enneagram take flow contract", () => {
     vi.clearAllMocks();
     window.localStorage.clear();
     hoisted.search = "";
+    hoisted.pathname = "/en/tests/enneagram-personality-test-nine-types/take";
     hoisted.routerPush.mockClear();
     hoisted.routerReplace.mockClear();
     hoisted.startEnneagramAttempt.mockResolvedValue({
@@ -337,6 +338,81 @@ describe("enneagram take flow contract", () => {
       }));
       expect(hoisted.routerPush).toHaveBeenCalledWith("/en/result/attempt_enneagram_forced");
     });
+  });
+
+  it.each([
+    ["en", "enneagram_likert_105"],
+    ["zh", "enneagram_likert_105"],
+    ["en", "enneagram_forced_choice_144"],
+    ["zh", "enneagram_forced_choice_144"],
+  ])("carries bounded article context into the real take request (%s/%s)", async (locale, formCode) => {
+    hoisted.pathname = `/${locale}/tests/enneagram-personality-test-nine-types/take`;
+    hoisted.search = new URLSearchParams({
+      form: formCode,
+      utm_source: "article",
+      utm_medium: "content",
+      utm_campaign: "enneagram-guide",
+      entry_surface: "article_detail_seo_cta",
+      source_page_type: "article_detail",
+      source_route_family: "article",
+      source_slug: "enneagram-workplace-friction-core-motivations",
+      content_id: "69",
+      target_action: "seo_cta_start_test",
+      cta_id: "article_start_test",
+      test_slug: "enneagram-personality-test-nine-types",
+      target_test_slug: "enneagram-personality-test-nine-types",
+      landing_path: `/${locale}/articles/enneagram-workplace-friction-core-motivations`,
+      token: "untrusted-query-token",
+      subject_key: "private-subject",
+    }).toString();
+    const forced = formCode === "enneagram_forced_choice_144";
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(forced ? forcedChoiceResponse() : likertResponse());
+    render(<EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode={formCode} />);
+    await waitForQuestion(forced ? "I notice what can be improved." : "I pursue high standards.");
+    await act(async () => {
+      fireEvent.click(forced
+        ? screen.getByRole("radio", { name: "I notice what can be improved." })
+        : screen.getByRole("button", { name: "Likert option" }));
+    });
+    await waitFor(() => expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1));
+    const request = hoisted.startEnneagramAttempt.mock.calls[0][0];
+    expect(request.formCode).toBe(formCode);
+    expect(request.meta).toMatchObject({
+      slug: "enneagram-personality-test-nine-types",
+      form_code: formCode,
+      question_mode: forced ? "forced_choice_144" : "likert_105",
+      entry_surface: "article_detail_seo_cta",
+      source_page_type: "article_detail",
+      source_route_family: "article",
+      source_slug: "enneagram-workplace-friction-core-motivations",
+      content_id: "69",
+      target_action: "seo_cta_start_test",
+      cta_id: "article_start_test",
+      utm_source: "article",
+      utm_medium: "content",
+      utm_campaign: "enneagram-guide",
+      landing_path: `/${locale}/articles/enneagram-workplace-friction-core-motivations`,
+    });
+    expect(request.attribution).toMatchObject({
+      utm: { source: "article", medium: "content", campaign: "enneagram-guide" },
+      landing_path: `/${locale}/articles/enneagram-workplace-friction-core-motivations`,
+    });
+    for (const key of ["token", "subject_key"]) {
+      expect(request.meta).not.toHaveProperty(key);
+      expect(request.attribution).not.toHaveProperty(key);
+    }
+  });
+
+  it("starts a direct visit with safe existing fallbacks", async () => {
+    hoisted.fetchEnneagramQuestions.mockResolvedValue(likertResponse());
+    render(<EnneagramTakeClient slug="enneagram-personality-test-nine-types" formCode="enneagram_likert_105" />);
+    await waitForQuestion("I pursue high standards.");
+    await act(async () => fireEvent.click(screen.getByRole("button", { name: "Likert option" })));
+    await waitFor(() => expect(hoisted.startEnneagramAttempt).toHaveBeenCalledTimes(1));
+    const request = hoisted.startEnneagramAttempt.mock.calls[0][0];
+    expect(request.meta).toMatchObject({ source_page_type: "tests_take_page", target_action: "start_enneagram_test", test_slug: "enneagram-personality-test-nine-types" });
+    expect(request.meta).not.toHaveProperty("source_slug");
+    expect(request.meta).not.toHaveProperty("entry_surface");
   });
 
   it("clears URL auth parameters without using them for Enneagram guest auth", async () => {

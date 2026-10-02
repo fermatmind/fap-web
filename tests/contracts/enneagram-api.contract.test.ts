@@ -215,6 +215,23 @@ describe("enneagram frontend API contract", () => {
     });
   });
 
+  it.each(["enneagram_likert_105", "enneagram_forced_choice_144"])("forwards supported attribution with the selected form (%s)", async (formCode) => {
+    await startEnneagramAttempt({
+      formCode,
+      anonId: "anon_test",
+      meta: { entry_surface: "article_detail_seo_cta", source_slug: "enneagram-guide" },
+      attribution: { utm: { source: "article", medium: "content" }, landing_path: "/en/articles/enneagram-guide" },
+    });
+
+    expect(hoisted.startAttempt).toHaveBeenCalledWith(expect.objectContaining({
+      scaleCode: "ENNEAGRAM",
+      formCode,
+      meta: { entry_surface: "article_detail_seo_cta", source_slug: "enneagram-guide" },
+      utm: { source: "article", medium: "content" },
+      landing_path: "/en/articles/enneagram-guide",
+    }));
+  });
+
   it("submits answer-only payloads without frontend scoring fields", async () => {
     const answers = buildEnneagramSubmitAnswers({
       questionIds: ["1", "2"],

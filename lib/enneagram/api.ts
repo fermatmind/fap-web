@@ -6,6 +6,7 @@ import {
   startAttempt,
   submitAttempt,
   type AttemptReportAccessResponse,
+  type AttemptAttributionPayload,
   type MeAttemptsResponse,
   type QuestionsResponse,
   type ReportResponse,
@@ -103,6 +104,7 @@ export async function startEnneagramAttempt({
   region,
   formCode,
   meta,
+  attribution,
   clientVersion,
 }: {
   anonId?: string;
@@ -110,6 +112,7 @@ export async function startEnneagramAttempt({
   region?: string;
   formCode?: string | null;
   meta?: Record<string, unknown>;
+  attribution?: AttemptAttributionPayload;
   clientVersion?: string;
 }): Promise<StartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anonId);
@@ -125,6 +128,7 @@ export async function startEnneagramAttempt({
         locale,
         region,
         meta,
+        ...attribution,
         clientPlatform: "web",
         clientVersion,
         channel: "web",

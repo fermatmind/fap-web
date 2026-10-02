@@ -36,6 +36,8 @@ import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath } from "@/lib/i18n/locales";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
+import { readStoredTrackingAttributionPayload } from "@/lib/tracking/attribution";
+import { buildSeoAttemptStartAttributionFromSearchParams } from "@/lib/tracking/seoCtaAttribution";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
 import {
   createTakeFlowController,
@@ -220,6 +222,18 @@ function EnneagramTakeInner({
   const router = useRouter();
   const searchParams = useSearchParams();
   useConstrainQuizUrlTokens({ pathname, router, searchParams });
+  const search = searchParams.toString();
+  const attributionContext = useMemo(
+    () => buildSeoAttemptStartAttributionFromSearchParams({
+      searchParams: new URLSearchParams(search),
+      currentPath: `${pathname}${search ? `?${search}` : ""}`,
+      storedAttribution: readStoredTrackingAttributionPayload(pathname),
+      fallbackTestSlug: slug,
+      fallbackSourcePageType: "tests_take_page",
+      fallbackTargetAction: "start_enneagram_test",
+    }),
+    [pathname, search, slug]
+  );
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const resolvedFormCode = normalizeEnneagramFormCode(formCode);
   const formMeta = resolveEnneagramFormMeta(resolvedFormCode);
@@ -428,7 +442,9 @@ function EnneagramTakeInner({
             slug,
             form_code: testKpiMetadata.formCode,
             question_mode: formMeta.questionMode,
+            ...attributionContext.meta,
           },
+          attribution: attributionContext.attribution,
           clientVersion: "fe-enneagram-1",
         });
         if (!isFlowActive(runId)) {
@@ -470,6 +486,7 @@ function EnneagramTakeInner({
     return pending;
   }, [
     anonId,
+    attributionContext,
     authBlockError,
     formMeta.questionMode,
     isFlowActive,
