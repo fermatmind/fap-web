@@ -289,6 +289,13 @@ describe("llms-full enrichment contract", () => {
 
     const route = await import("@/lib/seo/llmsFullRoute");
     const artifactText = await route.buildLlmsFullText("https://fermatmind.com", { buildProfile: "artifact" });
+    const articleSource = await import("@/lib/cms/articles");
+    expect(articleSource.listCmsArticlesForLlmsWithLastKnownGood).toHaveBeenCalledWith(
+      expect.objectContaining({ locale: "en", usePublicCache: false })
+    );
+    expect(articleSource.listCmsArticlesForLlmsWithLastKnownGood).toHaveBeenCalledWith(
+      expect.objectContaining({ locale: "zh", usePublicCache: false })
+    );
     await expect(route.buildAndCacheLlmsFullText("https://fermatmind.com", artifactText)).resolves.toMatchObject({
       ok: true,
     });

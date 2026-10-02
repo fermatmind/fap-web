@@ -1349,6 +1349,7 @@ async function buildLlmsFullTextInternal(
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
           pageConcurrency: LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
+          usePublicCache: buildProfile !== "artifact",
         }).then((result) => result.value),
       [],
       optionalSourceBudget(LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS)
@@ -1360,6 +1361,7 @@ async function buildLlmsFullTextInternal(
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
           pageConcurrency: LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
+          usePublicCache: buildProfile !== "artifact",
         }).then((result) => result.value),
       [],
       optionalSourceBudget(LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS)

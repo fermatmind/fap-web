@@ -298,6 +298,7 @@ export type ListCmsArticlesForLlmsParams = {
   perPage?: number;
   maxPages?: number;
   pageConcurrency?: number;
+  usePublicCache?: boolean;
 };
 
 const LLMS_ARTICLE_ENUMERATION_CACHE_TTL_MS = 60_000;
@@ -1245,6 +1246,7 @@ async function loadCmsArticlesForLlms(
       ? Math.floor(params.maxPages)
       : Number.POSITIVE_INFINITY;
   const pageConcurrency = normalizeLlmsArticlePageConcurrency(params.pageConcurrency);
+  const usePublicCache = params.usePublicCache !== false;
   const seen = new Set<string>();
   const entries: CmsArticleLlmsEntry[] = [];
 
@@ -1253,7 +1255,7 @@ async function loadCmsArticlesForLlms(
     page: 1,
     perPage,
     allowLocalFallback: false,
-    usePublicCache: true,
+    usePublicCache,
   });
   const lastPage = Math.min(Math.max(1, firstResponse.pagination.lastPage), maxPages);
   const responses = [firstResponse];
@@ -1270,7 +1272,7 @@ async function loadCmsArticlesForLlms(
           page,
           perPage,
           allowLocalFallback: false,
-          usePublicCache: true,
+          usePublicCache,
         })
       )
     );
@@ -1319,8 +1321,9 @@ export async function listCmsArticlesForLlms(
     typeof params.maxPages === "number" && params.maxPages > 0
       ? Math.floor(params.maxPages)
       : Number.POSITIVE_INFINITY;
-  const cacheKey = `articles:llms:${locale}:${perPage}:${maxPages}`;
-  const cached = readLlmsArticleEnumerationCache(cacheKey);
+  const usePublicCache = params.usePublicCache !== false;
+  const cacheKey = `articles:llms:${locale}:${perPage}:${maxPages}${usePublicCache ? "" : ":fresh"}`;
+  const cached = usePublicCache ? readLlmsArticleEnumerationCache(cacheKey) : null;
   if (cached) {
     return cached;
   }
@@ -1335,9 +1338,10 @@ export async function listCmsArticlesForLlms(
     perPage,
     maxPages,
     pageConcurrency: normalizeLlmsArticlePageConcurrency(params.pageConcurrency),
+    usePublicCache,
   })
     .then((entries) => {
-      if (entries.length > 0) {
+      if (usePublicCache && entries.length > 0) {
         llmsArticleEnumerationCache.set(cacheKey, {
           entries,
           cachedAtMs: Date.now(),
@@ -1368,10 +1372,11 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
       ? Math.floor(params.maxPages)
       : Number.POSITIVE_INFINITY;
   const pageConcurrency = normalizeLlmsArticlePageConcurrency(params.pageConcurrency);
+  const usePublicCache = params.usePublicCache !== false;
 
   return withLastKnownGood({
-    key: `articles:llms:${locale}:${perPage}:${maxPages}`,
-    load: () => listCmsArticlesForLlms({ locale, perPage, maxPages, pageConcurrency }),
+    key: `articles:llms:${locale}:${perPage}:${maxPages}${usePublicCache ? "" : ":fresh"}`,
+    load: () => listCmsArticlesForLlms({ locale, perPage, maxPages, pageConcurrency, usePublicCache }),
     isUsable: (entries) => entries.length > 0,
     useStaleOnUnusable: false,
     useStaleOnError: false,
