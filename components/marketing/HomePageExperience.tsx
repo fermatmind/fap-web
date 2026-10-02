@@ -56,8 +56,8 @@ const HOMEPAGE_HERO_COPY = {
     title: "Know yourself, move with clarity",
     subhead: "FermatMind turns self-understanding, career exploration, and ability growth into a measurable, trainable, reviewable system.",
     primaryCta: "Take a free test",
-    socialProofCount: "1200000+",
-    socialProof: "people tested",
+    socialProofCount: "",
+    socialProof: "",
   },
 } as const;
 
@@ -236,28 +236,30 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
             {heroCopy.subhead || copy.hero.subhead}
           </p>
 
-          <div className="mt-9 flex items-center justify-center gap-3 lg:justify-start">
-            <div className="flex -space-x-3">
-              {HOMEPAGE_HERO_ASSETS.users.map((src, index) => (
-                // eslint-disable-next-line @next/next/no-img-element -- Legacy external hero media is outside the product-owned Next image allowlist.
-                <img
-                  key={src}
-                  src={src}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-10 w-10 rounded-full border-2 border-white object-cover shadow-sm"
-                  style={{ zIndex: HOMEPAGE_HERO_ASSETS.users.length - index }}
-                  loading="eager"
-                />
-              ))}
+          {locale === "zh" && (
+            <div className="mt-9 flex items-center justify-center gap-3 lg:justify-start">
+              <div className="flex -space-x-3">
+                {HOMEPAGE_HERO_ASSETS.users.map((src, index) => (
+                  // eslint-disable-next-line @next/next/no-img-element -- Legacy external hero media is outside the product-owned Next image allowlist.
+                  <img
+                    key={src}
+                    src={src}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-10 w-10 rounded-full border-2 border-white object-cover shadow-sm"
+                    style={{ zIndex: HOMEPAGE_HERO_ASSETS.users.length - index }}
+                    loading="eager"
+                  />
+                ))}
+              </div>
+              <div className="text-left">
+                <p className="m-0 text-base font-bold leading-none text-[#5b5c62]">
+                  {heroCopy.socialProofCount} <span className="text-[#ff9c2f]">★</span>
+                </p>
+                <p className="m-0 mt-1 text-xs text-[#9a9aa3]">{heroCopy.socialProof}</p>
+              </div>
             </div>
-            <div className="text-left">
-              <p className="m-0 text-base font-bold leading-none text-[#5b5c62]">
-                {heroCopy.socialProofCount} <span className="text-[#ff9c2f]">★</span>
-              </p>
-              <p className="m-0 mt-1 text-xs text-[#9a9aa3]">{heroCopy.socialProof}</p>
-            </div>
-          </div>
+          )}
 
           {ctas.length > 0 ? (
             <div className="mt-9 grid gap-4 sm:grid-cols-2">
@@ -443,7 +445,9 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     href: copy.trust.methodHref,
     hrefLabel: copy.trust.methodLabel,
   };
-  const displayTrustItems = [...baseTrustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3);
+  const displayTrustItems = locale === "zh"
+    ? [...baseTrustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3)
+    : baseTrustItems.slice(0, 2);
 
   if (displayTrustItems.length === 0) return null;
 
