@@ -24,8 +24,8 @@ export async function generateMetadata({
     title: locale === "zh" ? "职业数据库方法说明" : "Occupations Dataset Method",
     description:
       locale === "zh"
-        ? "342 个职业数据库的方法、纳入/排除边界与使用说明。"
-        : "Methodology, included/excluded boundaries, and usage notes for the 342-occupation dataset.",
+        ? "职业数据库的方法、纳入/排除边界与使用说明。"
+        : "Methodology, included/excluded boundaries, and usage notes for the occupations dataset.",
     alternatesByLocale: {
       en: "/en/datasets/occupations/method",
       zh: "/zh/datasets/occupations/method",
