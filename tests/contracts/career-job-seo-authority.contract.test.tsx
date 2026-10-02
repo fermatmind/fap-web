@@ -373,6 +373,24 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(metadata.description).not.toBe("Local bundle summary should not own SEO metadata.");
   });
 
+  it.each([
+    ["zh", "数控机床操作员 | 费马测试", {absolute: "数控机床操作员 | FermatMind"}],
+    ["zh", "机械工程技师与技术员 | 费马测试 | FermatMind", {absolute: "机械工程技师与技术员 | FermatMind"}],
+    ["en", "Mechanical Engineering Technicians | FermatMind", "Mechanical Engineering Technicians | FermatMind"],
+  ])("preserves source identity while resolving %s job branding", async (locale, source, expected) => {
+    mockCareerJobPageShell();
+    const payload = buildCareerJobBundlePayload();
+    payload.career_page = {...(locale === "en" ? englishPageFixture : pageFixture), seo: {...payload.career_page.seo, title: {availability: "available", text: source}}};
+    const {fetchCareerJobBundle: mockFetch} = await import("@/lib/career/api/fetchCareerJobBundle");
+    vi.mocked(mockFetch).mockResolvedValue(payload);
+    const {generateMetadata} = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
+    const metadata = await generateMetadata({params: Promise.resolve({locale, slug: "accountants-and-auditors"})});
+    expect(metadata.title).toEqual(expected);
+    expect(metadata.description).toBe(SEO_DESCRIPTION);
+    expect(metadata.alternates?.canonical).toBe(CANONICAL);
+    expect(metadata.robots).toMatchObject({index: true, follow: true});
+  });
+
   it("renders only file-owned Occupation content when SEO authority allows it", async () => {
     mockCareerJobPageShell();
 

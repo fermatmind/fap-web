@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { cache } from "react";
+import { resolveCareerGuideMetadataTitle } from '@/lib/seo/careerGuideMetadataTitle';
 import { CAREER_RENDERER_RELEASE } from "@/lib/career/detailRuntime";
 import { notFound, permanentRedirect } from 'next/navigation';
 import { CareerDisplaySurface } from '@/components/career/display/CareerDisplaySurface';
@@ -121,7 +122,7 @@ export async function generateMetadata({params}: {params: Promise<Params>}): Pro
   // A failed or empty alternate never turns the current contentful page into an empty page.
   const alternate = allowsIndex ? await loadCareerJobBundle(locale === 'zh' ? 'en' : 'zh', job.slug).catch(() => null) : null;
   const hasEquivalentAlternate = alternate !== null && careerPageHasPublicBody(alternate.page) && hasTrustedPublishedIndexAuthority(alternate.job);
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     locale,
     pathname: seoSurface?.canonicalPath ?? normalizeCareerBundleCanonicalPath(locale, job.seoContract.canonicalPath, buildCareerJobFrontendUrl(locale, job.slug)),
     title, description, seoSurface,
@@ -131,6 +132,7 @@ export async function generateMetadata({params}: {params: Promise<Params>}): Pro
     omitLanguageAlternates: !hasEquivalentAlternate,
     alternatesByLocale: {en: buildCareerJobFrontendUrl('en', job.slug), zh: buildCareerJobFrontendUrl('zh', job.slug), xDefault: '/'},
   });
+  return locale === 'zh' ? {...metadata, title: resolveCareerGuideMetadataTitle(title)} : metadata;
 }
 
 export default async function CareerJobDetailPage({params, searchParams}: {params: Promise<Params>; searchParams?: Promise<Record<string,string|string[]|undefined>>}) {
