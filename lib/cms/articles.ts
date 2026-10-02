@@ -1072,7 +1072,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     cmsManagedMediaUrl(normalizeIsoValue(readRecordValue(nestedCoverImage, "url", "src"))) ??
     firstImageUrl(coverImageVariants.hero, coverImageVariants.card, coverImageVariants.og, coverImageVariants.thumbnail);
   const readingMinutes =
-    normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(contentHtml, contentMd, article.excerpt);
+    normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(contentHtml, contentMd);
   const testEdges = normalizeArticleTestEdges(article.test_edges);
   const relatedTestSlug = normalizeIsoValue(article.related_test_slug);
   const relatedTestSlugs = Array.from(new Set([
