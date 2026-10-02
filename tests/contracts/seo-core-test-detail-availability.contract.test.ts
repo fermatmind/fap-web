@@ -306,6 +306,55 @@ describe("SEO core test detail availability", () => {
     await expect(generateStaticParams()).resolves.toHaveLength(12);
   });
 
+  it.each(["en", "zh"] as const)("preserves bounded attribution on rendered Enneagram form links (%s)", async (locale) => {
+    const query = {
+      utm_source: "article",
+      utm_medium: "content",
+      utm_campaign: "enneagram-guide",
+      source_slug: "enneagram-workplace",
+      source_page_type: "article_detail",
+      source_route_family: "article",
+      entry_surface: "article_detail_seo_cta",
+      content_id: "69",
+      topic_id: "3",
+      target_action: "seo_cta_start_test",
+      test_slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+      cta_id: "article_start_test",
+      target_test_slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
+      landing_path: `/${locale}/articles/enneagram-workplace`,
+      entrypoint: "seo_cta",
+      form: "untrusted-form",
+      subject_kind: "career_job",
+      subject_key: "private-subject",
+      token: "private-token",
+    };
+    const tree = await TestLandingPage({
+      params: Promise.resolve({ locale, slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM }),
+      searchParams: Promise.resolve(query),
+    });
+    const values: unknown[] = [];
+    collectValues(tree, values);
+    const intro = values.filter(isValidElement).find((element) => element.type === AssessmentLandingIntro);
+    expect(intro).toBeDefined();
+    const root = document.createElement("div");
+    root.innerHTML = renderToStaticMarkup(intro!);
+    const links = [...root.querySelectorAll<HTMLAnchorElement>('a[data-testid^="test-detail-landing-cta-"]')];
+    expect(links).toHaveLength(2);
+    const forms: string[] = [];
+    for (const link of links) {
+      const href = new URL(link.getAttribute("href")!, "https://fermatmind.com");
+      expect(href.pathname).toBe(`/${locale}/tests/${SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM}/take`);
+      for (const key of ["utm_source", "utm_medium", "utm_campaign", "source_slug", "source_page_type", "source_route_family", "entry_surface", "content_id", "topic_id", "target_action", "test_slug", "cta_id", "target_test_slug", "landing_path", "entrypoint"] as const) {
+        expect(href.searchParams.get(key)).toBe(query[key]);
+      }
+      for (const key of ["subject_kind", "subject_key", "token"]) {
+        expect(href.searchParams.has(key)).toBe(false);
+      }
+      forms.push(href.searchParams.get("form")!);
+    }
+    expect(forms.sort()).toEqual(["enneagram_forced_choice_144", "enneagram_likert_105"]);
+  });
+
   it.each(CORE_ROUTE_MATRIX)(
     "renders metadata and SSR body contracts for $path",
     async ({ locale, slug }) => {

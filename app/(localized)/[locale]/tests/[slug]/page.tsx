@@ -999,7 +999,7 @@ export default async function TestLandingPage({
             key: form.formCode,
             label: getEnneagramVariantLabel(form.formCode, locale),
             summary: getEnneagramVariantSummary(form.formCode, locale),
-            href: buildEnneagramTakeHref(test.slug, locale, form.formCode),
+            href: withAttribution(buildEnneagramTakeHref(test.slug, locale, form.formCode)),
             ctaLabel: getFlagshipFreeTestCtaLabel({
               scaleCode: test.scale_code,
               formCode: form.formCode,
