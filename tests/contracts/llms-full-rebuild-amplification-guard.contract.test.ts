@@ -1,5 +1,5 @@
 import { access, mkdtemp, readFile, readdir, rm, unlink, writeFile } from "node:fs/promises";
-import { readFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
@@ -27,6 +27,37 @@ afterEach(async () => {
 });
 
 describe("llms-full rebuild amplification guard", () => {
+  it("does not let a failed previous source generation cool down its replacement", async () => {
+    await createSharedCacheDirectory();
+    const cache = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, async () => "incomplete", {
+      isCacheable: () => {
+        // A different worker can publish the next marker after the build's
+        // generation check but before it writes its failure cooldown.
+        writeFileSync(cache.getLlmsFullInvalidationMarkerPath(SITE_URL), JSON.stringify({
+          siteUrl: SITE_URL, generation: "replacement-generation",
+        }));
+        return false;
+      },
+    })).resolves.toBeNull();
+    const replacement = vi.fn(async () => "complete");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, replacement, {
+      isCacheable: (text) => text === "complete",
+    })).resolves.toBe("complete");
+    expect(replacement).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not carry a failed generator cooldown into a corrected generator", async () => {
+    await createSharedCacheDirectory();
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "a".repeat(64);
+    const cache = await import("@/lib/seo/llmsFullResponseCache");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, async () => null)).resolves.toBeNull();
+    process.env.FERMATMIND_LLMS_FULL_GENERATOR_VERSION = "b".repeat(64);
+    const corrected = vi.fn(async () => "complete");
+    await expect(cache.getOrStartLlmsFullBuild(SITE_URL, corrected)).resolves.toBe("complete");
+    expect(corrected).toHaveBeenCalledTimes(1);
+  });
+
   it("returns degraded immediately and schedules the artifact-profile rebuild after the response", () => {
     const route = readFileSync(path.join(process.cwd(), "lib/seo/llmsFullRoute.ts"), "utf8");
     const publicGet = route.slice(route.indexOf("export async function GET()"));

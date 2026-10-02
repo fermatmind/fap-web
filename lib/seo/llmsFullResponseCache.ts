@@ -16,6 +16,8 @@ type LlmsFullResponseCache = {
 
 type LlmsFullBuildCooldown = {
   siteUrl: string;
+  generation: string;
+  generatorVersion: string;
   retryAfterMs: number;
 };
 
@@ -247,13 +249,16 @@ async function hasActiveBuildCooldown(siteUrl: string): Promise<boolean> {
     const raw = await readFile(getLlmsFullBuildCooldownPath(siteUrl), "utf8");
     const payload = JSON.parse(raw) as Partial<LlmsFullBuildCooldown>;
 
-    return payload.siteUrl === siteUrl && Number(payload.retryAfterMs) > Date.now();
+    return payload.siteUrl === siteUrl &&
+      payload.generation === await readInvalidationGeneration(siteUrl) &&
+      payload.generatorVersion === generatorVersion() &&
+      Number(payload.retryAfterMs) > Date.now();
   } catch {
     return false;
   }
 }
 
-async function writeBuildCooldown(siteUrl: string): Promise<void> {
+async function writeBuildCooldown(siteUrl: string, generation: string, buildGeneratorVersion: string): Promise<void> {
   if (!isSharedLlmsFullCacheEnabled()) {
     return;
   }
@@ -267,6 +272,8 @@ async function writeBuildCooldown(siteUrl: string): Promise<void> {
     const temporary = path.join(temporaryDirectory, "cooldown.json");
     const payload: LlmsFullBuildCooldown = {
       siteUrl,
+      generation,
+      generatorVersion: buildGeneratorVersion,
       retryAfterMs: Date.now() + LLMS_FULL_BUILD_FAILURE_COOLDOWN_MS,
     };
     await writeFile(temporary, `${JSON.stringify(payload)}\n`, {
@@ -442,6 +449,7 @@ export function getOrStartLlmsFullBuild(
         }
 
         const invalidationGeneration = await readInvalidationGeneration(siteUrl);
+        const buildGeneratorVersion = generatorVersion();
         const text = await buildText(siteUrl).catch(() => null);
         if (await readInvalidationGeneration(siteUrl) !== invalidationGeneration) {
           return null;
@@ -459,7 +467,7 @@ export function getOrStartLlmsFullBuild(
           }
         }
 
-        await writeBuildCooldown(siteUrl);
+        await writeBuildCooldown(siteUrl, invalidationGeneration, buildGeneratorVersion);
         return null;
       } finally {
         await lease.release();
