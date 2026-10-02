@@ -116,21 +116,21 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
   return [
     {
       sceneKey: "career_direction",
-      title: isZh ? "职业方向：先建立匹配框架，再看岗位细节" : "Career direction: frame fit first, then evaluate roles",
+      title: isZh ? "职业方向：先核任务证据，再讨论工作偏好" : "Career direction: frame fit first, then evaluate roles",
       summary: isZh
-        ? "先明确类型偏好如何映射到岗位职责、反馈节奏与成长路径，再进入 recommendation 详情页看 primary/secondary fit。这样可以减少“只看岗位名称”的误判。"
+        ? "把类型描述作为讨论问题，分别核对岗位任务、兴趣、能力证据、反馈节奏与现实条件。推荐页的分组只能提供待检验线索，不能证明适配、能力或工作结果。"
         : "Map type preferences to role scope, feedback rhythm, and growth path before diving into recommendation detail and primary/secondary fit. This avoids title-only decisions.",
       whyTypeRelevant: isZh
-        ? "MBTI 主题页适合先做跨类型对照，快速判断哪些类型在同一职业赛道下的决策方式不同。"
+        ? "跨类型阅读可以帮助提出不同的讨论问题；是否符合你的经历，要用具体任务、行为和反例核对，不能从类型推出职业结论。"
         : "The MBTI topic hub is best for cross-type comparison before committing to one career lane.",
       links: [
         { key: "go_recommendation_hub", label: isZh ? "查看职业推荐入口" : "Open career recommendations", href: recommendationPath },
         {
           key: "go_entp_recommendation",
-          label: isZh ? "查看 ENTP 职业决策样例" : "See ENTP recommendation sample",
+          label: isZh ? "查看 ENTP 职业探索线索" : "See ENTP recommendation sample",
           href: entpBundle.recommendationPath,
         },
-        { key: "go_mbti_guide", label: isZh ? "阅读职业匹配指南" : "Read MBTI job-fit guide", href: guidePath },
+        { key: "go_mbti_guide", label: isZh ? "阅读职业探索指南" : "Read MBTI job-fit guide", href: guidePath },
         {
           key: "start_mbti_test",
           label: isZh ? "开始 MBTI 免费测试" : "Start the free MBTI test",
@@ -144,10 +144,10 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
       sceneKey: "team_collaboration",
       title: isZh ? "团队协作：把风格差异转成可执行协作规则" : "Team collaboration: convert style differences into operating rules",
       summary: isZh
-        ? "协作问题常来自信息偏好和反馈方式不一致。先看类型画像，再回到 topic 汇总协作共性，能更快形成团队沟通规则。"
+        ? "先记录协作中的具体分歧、信息缺口与反馈需求，再把类型描述作为待核对的问题。沟通约定应结合任务、角色和参与者的实际意见。"
         : "Most collaboration friction comes from mismatched information and feedback styles. Type detail plus topic-level synthesis helps teams set clear operating rules.",
       whyTypeRelevant: isZh
-        ? "同一项目里，不同类型对节奏、决策透明度和冲突处理的需求不同，必须先有结构化解释。"
+        ? "同一类型的人也可能有不同需求。先询问对方需要什么信息与支持，再观察约定是否适用于这次任务，不按类型分配角色。"
         : "Different types expect different cadence, transparency, and conflict handling. Structured interpretation is required before action.",
       links: [
         { key: "go_personality_hub", label: isZh ? "查看人格类型索引" : "Browse personality types", href: personalityPath },
@@ -167,29 +167,29 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
     },
     {
       sceneKey: "major_selection",
-      title: isZh ? "专业选择：用类型偏好校准方向，不只看热门专业" : "Major selection: use type signals, not trend-only choices",
+      title: isZh ? "专业选择：核对课程、兴趣与能力证据" : "Major selection: use type signals, not trend-only choices",
       summary: isZh
-        ? "专业选择需要同时考虑学习动机、工作环境偏好与长期投入耐受度。先用 MBTI 建立判断框架，再进入类型与职业推荐页校准方向。"
+        ? "专业选择需要核对课程任务、学习兴趣、已有能力证据与投入条件。类型说明可用于提出自我观察问题，不能代替课程体验或确定适合的专业。"
         : "Major choice should align motivation, work-environment preference, and long-term commitment. Use MBTI as the frame, then validate with type and recommendation pages.",
       whyTypeRelevant: isZh
-        ? "类型不是结论，但能提供“你为什么会持续投入或持续摩擦”的可解释线索。"
+        ? "投入或困难的原因需要结合具体经历核对。类型描述不能单独解释原因，也不能据此排除一个专业或承诺学习结果。"
         : "Type is not destiny, but it explains why some paths compound and others keep causing friction.",
       links: [
         { key: "go_topic_hub", label: isZh ? "查看 MBTI 主题框架" : "Review MBTI topic framework", href: topicPath },
         {
           key: "go_istj_profile",
-          label: isZh ? "查看 ISTJ 专业选择偏好" : "Review ISTJ major-fit profile",
+          label: isZh ? "查看 ISTJ 类型讨论线索" : "Review ISTJ major-fit profile",
           href: istjBundle.personalityPath,
         },
         {
           key: "go_isfj_profile",
-          label: isZh ? "查看 ISFJ 专业选择偏好" : "Review ISFJ major-fit profile",
+          label: isZh ? "查看 ISFJ 类型讨论线索" : "Review ISFJ major-fit profile",
           href: isfjBundle.personalityPath,
         },
         { key: "go_narrative_article", label: isZh ? "阅读类型叙事画像" : "Read narrative portrait", href: withLocale(locale, "/articles/mbti-narrative-portrait") },
         {
           key: "start_mbti_test",
-          label: isZh ? "先做测试再选方向" : "Take test before choosing path",
+          label: isZh ? "了解测试与使用边界" : "Take test before choosing path",
           href: testPath,
           kind: "start_test",
           targetAction: "start_mbti_test_scene_major_selection",
@@ -199,24 +199,24 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
     {
       sceneKey: "growth_planning",
       title: isZh
-        ? "成长建议：把类型优势转成季度可执行行动"
+        ? "成长建议：用具体行为与反例复盘"
         : "Growth planning: convert type strengths into quarter-level actions",
       summary: isZh
-        ? "第二批扩量类型（ENTP / INFJ / ENFP / ESTP / ISTJ / ISFJ）已接入成长场景深化。主题页先给你统一框架，再分流到类型和推荐页看行动优先级。"
+        ? "从一个可观察的日常问题开始，记录行为、情境与反例，再选择低风险、可退出的调整。类型与推荐内容只提供讨论线索，不替你确定行动优先级。"
         : "Growth depth is now expanded for ENTP, INFJ, ENFP, ESTP, ISTJ, and ISFJ. Use topic-level framing first, then validate action priority in type and recommendation layers.",
       whyTypeRelevant: isZh
-        ? "成长建议必须结合类型驱动方式与环境约束，否则很容易停留在“知道该做什么”但无法持续执行。"
+        ? "是否有帮助，需要根据你的任务、资源和实际观察复盘。测试结果不能保证成长或持续执行，也不用于判断能力与未来结果。"
         : "Growth guidance must align with type-specific drive patterns and constraints, otherwise execution decays after initial intent.",
       links: [
         { key: "go_growth_article", label: isZh ? "阅读 MBTI 成长指南" : "Read MBTI growth guide", href: growthGuidePath },
         {
           key: "go_enfp_recommendation",
-          label: isZh ? "查看 ENFP 成长导向推荐" : "Open ENFP growth-oriented recommendation",
+          label: isZh ? "查看 ENFP 成长讨论线索" : "Open ENFP growth-oriented recommendation",
           href: enfpBundle.recommendationPath,
         },
         {
           key: "go_infj_recommendation",
-          label: isZh ? "查看 INFJ 成长导向推荐" : "Open INFJ growth-oriented recommendation",
+          label: isZh ? "查看 INFJ 成长讨论线索" : "Open INFJ growth-oriented recommendation",
           href: infjBundle.recommendationPath,
         },
         {

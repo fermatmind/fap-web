@@ -20,7 +20,7 @@ import {
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
 import type { RelatedContentItem } from "@/lib/content";
-import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { excludeFaqCopiesInMarkdown, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -335,6 +335,12 @@ export default async function ArticleDetailPage({
 
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
+  const visibleAnswerSurface = article.answerSurface && !article.contentHtml.trim()
+    ? {
+        ...article.answerSurface,
+        faqBlocks: excludeFaqCopiesInMarkdown(article.answerSurface.faqBlocks, article.contentMd, { locale }),
+      }
+    : article.answerSurface;
   const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
   const badgeLabels = [
     article.category?.name ?? null,
@@ -409,7 +415,7 @@ export default async function ArticleDetailPage({
       </header>
 
       <AnswerSurfaceSection
-        surface={article.answerSurface}
+        surface={visibleAnswerSurface}
         locale={locale}
         testId="article-detail-answer-surface"
         hideHeading

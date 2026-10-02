@@ -3,6 +3,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { resolveArticleRuntimeContract, type CmsArticle } from "@/lib/cms/articles";
+import { excludeFaqCopiesInMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
 const answerSurfaceFixture: AnswerSurfaceViewModel = {
@@ -470,5 +471,46 @@ describe("article answer surface rendering", () => {
     expect(html).not.toContain("Back to articles");
     expect(html).not.toContain("Take the test");
     expect(html).not.toContain("article_detail_seo_cta");
+  });
+});
+
+
+describe("article FAQ body copies", () => {
+  it("removes only complete question and answer matches without mutating provider items", () => {
+    const faq = [{ question: "What helps?", answer: "Practice safely." }, { question: "What helps?", answer: "Ask for advice." }];
+    expect(excludeFaqCopiesInMarkdown(faq, "### **What helps?**\n\nPractice *safely*.\n\n---\n\n## Next"))
+      .toEqual([faq[1]]);
+    expect(faq).toHaveLength(2);
+  });
+
+  it("preserves partial answers and unsupported answer blocks", () => {
+    const faq = [{ question: "What helps?", answer: "Practice safely." }];
+    expect(excludeFaqCopiesInMarkdown(faq, "### What helps?\n\nPractice safely. More context." )).toEqual(faq);
+    expect(excludeFaqCopiesInMarkdown(faq, "### What helps?\n\n- Practice safely.")).toEqual(faq);
+  });
+
+  it("keeps the full body and different FAQ answers in the detail route", async () => {
+    const article = makeArticle({ ...answerSurfaceFixture, faqBlocks: [
+      { key: "same", question: "What helps?", answer: "Practice safely." },
+      { key: "different", question: "What helps?", answer: "Ask for advice." },
+    ] });
+    article.contentMd = "### What helps?\n\nPractice safely.\n\n## Next\n\nKeep this paragraph.";
+    const el = document.createElement("div");
+    el.innerHTML = await renderArticleDetail(article);
+    expect(el.querySelector('[data-testid="article-detail-content"]')?.textContent).toContain("Practice safely.");
+    expect(el.querySelector('[data-testid="article-detail-content"]')?.textContent).toContain("Keep this paragraph.");
+    const faq = el.querySelector('[data-evidence-block="faq"]');
+    expect(faq?.textContent).toContain("Ask for advice.");
+    expect(faq?.textContent).not.toContain("Practice safely.");
+    expect(article.answerSurface?.faqBlocks).toHaveLength(2);
+  });
+
+  it("preserves the FAQ when HTML is the authoritative displayed body", async () => {
+    const article = makeArticle();
+    article.contentHtml = "<p>Displayed HTML body.</p>";
+    article.contentMd = "### When should I use the article FAQ?\n\nUse it when you need the shortest answer before the full guide.";
+    const el = document.createElement("div");
+    el.innerHTML = await renderArticleDetail(article);
+    expect(el.querySelector('[data-evidence-block="faq"]')?.textContent).toContain("When should I use the article FAQ?");
   });
 });
