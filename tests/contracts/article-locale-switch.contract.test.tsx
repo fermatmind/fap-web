@@ -17,7 +17,7 @@ function metadata(canonical: string, alternate?: string) {
 
 afterEach(() => {
   cleanup();
-  document.head.querySelectorAll('[data-locale-test]').forEach((node) => node.remove());
+  document.querySelectorAll('[data-locale-test]').forEach((node) => node.remove());
 });
 
 describe("Article language navigation authority", () => {
@@ -50,12 +50,12 @@ describe("Article language navigation authority", () => {
     expect(onSelect).toHaveBeenCalledOnce();
   });
 
-  it("updates late metadata and rejects a previous page's counterpart during navigation", async () => {
+  it.each(["head", "body"] as const)("updates metadata streamed into %s and rejects a previous page's counterpart during navigation", async (location) => {
     const view = render(<LocaleProvider locale="en"><LocaleSwitcherMenu locale="en" pathname="/en/articles/current" onSelect={() => {}} /></LocaleProvider>);
     expect(screen.getByRole("menuitem", { name: "简体中文" })).toHaveAttribute("href", "/zh/articles");
     await act(async () => {
       for (const node of Array.from(metadata("https://fermatmind.com/en/articles/current", "https://fermatmind.com/zh/articles/translated").children)) {
-        node.setAttribute("data-locale-test", "true"); document.head.appendChild(node);
+        node.setAttribute("data-locale-test", "true"); document[location].appendChild(node);
       }
     });
     expect(screen.getByRole("menuitem", { name: "简体中文" })).toHaveAttribute("href", "/zh/articles/translated");

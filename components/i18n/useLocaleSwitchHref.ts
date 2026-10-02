@@ -28,14 +28,15 @@ export function resolveLocaleSwitchHref(pathname: string, targetLocale: Locale, 
 
 function subscribeMetadata(onChange: () => void): () => void {
   const observer = new MutationObserver(onChange);
-  observer.observe(document.head, { childList: true, subtree: true, attributes: true, attributeFilter: ["href", "hreflang", "rel"] });
+  // Next.js can stream article metadata into the body after hydration.
+  observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["href", "hreflang", "rel"] });
   return () => observer.disconnect();
 }
 
 export function useLocaleSwitchHref(pathname: string, targetLocale: Locale): string {
   return useSyncExternalStore(
     subscribeMetadata,
-    () => resolveLocaleSwitchHref(pathname, targetLocale, document.head),
+    () => resolveLocaleSwitchHref(pathname, targetLocale, document),
     () => resolveLocaleSwitchHref(pathname, targetLocale),
   );
 }
