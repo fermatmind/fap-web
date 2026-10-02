@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { isValidElement, type ReactNode } from "react";
 import { sanitizeCmsUrl, stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
@@ -577,4 +577,39 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         return null;
     }
   });
+}
+
+function renderedText(node: ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") return String(node);
+  if (Array.isArray(node)) return node.map(renderedText).join("");
+  if (isValidElement<{ children?: ReactNode }>(node)) return renderedText(node.props.children);
+  return "";
+}
+
+/** Filter only exact visible question/answer copies; the source body and FAQ authority stay intact. */
+export function excludeFaqCopiesInMarkdown<T extends { question: string; answer: string }>(
+  faqItems: readonly T[],
+  markdown: string,
+  options: MarkdownRenderOptions = {},
+): T[] {
+  const blocks = tokenizeMarkdown(normalizeLineBreaks(markdown).trim());
+  const pairs = new Map<string, Set<string>>();
+  const text = (value: string) => normalizeText(renderedText(renderInlineMarkdown(value, "faq-copy", options)));
+  blocks.forEach((block, index) => {
+    if (block.type !== "heading") return;
+    const answers: string[] = [];
+    for (let next = index + 1; next < blocks.length && blocks[next].type !== "heading"; next += 1) {
+      const answer = blocks[next];
+      if (answer.type === "hr") continue;
+      // Unsupported blocks are preserved rather than approximated as a matching answer.
+      if (answer.type !== "paragraph") return;
+      answers.push(text(answer.text));
+    }
+    if (!answers.length) return;
+    const question = text(block.text);
+    const existing = pairs.get(question) ?? new Set<string>();
+    existing.add(normalizeText(answers.join(" ")));
+    pairs.set(question, existing);
+  });
+  return faqItems.filter((item) => !pairs.get(normalizeText(item.question))?.has(normalizeText(item.answer)));
 }

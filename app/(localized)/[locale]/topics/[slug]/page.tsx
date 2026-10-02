@@ -327,7 +327,7 @@ export default async function TopicDetailPage({
                             {locale === "zh" ? "类型页" : "Personality"}
                           </Link>
                           <Link href={recommendationHref} className="fm-help-chip-link">
-                            {locale === "zh" ? "职业推荐" : "Recommendation"}
+                            {locale === "zh" ? "职业探索" : "Recommendation"}
                           </Link>
                         </div>
                       </div>
@@ -357,7 +357,7 @@ export default async function TopicDetailPage({
           heading={locale === "zh" ? "MBTI 场景深化（主题页）" : "MBTI scene depth on the topic hub"}
           subtitle={
             locale === "zh"
-              ? "先用主题页建立职业/协作/专业/成长判断框架，再进入类型与推荐页做下一步验证。"
+              ? "先整理职业、协作、专业与成长问题，再结合任务、兴趣、能力证据和实际经历检验讨论线索。"
               : "Use the topic hub as a decision frame for career, collaboration, major, and growth before validating on type and recommendation pages."
           }
         />
@@ -395,7 +395,7 @@ export default async function TopicDetailPage({
                             {locale === "zh" ? "人格画像" : "Personality hub"}
                           </Link>
                           <Link href={mbtiCareerRecommendationHubHref} className="fm-help-chip-link">
-                            {locale === "zh" ? "职业推荐" : "Career recommendations"}
+                            {locale === "zh" ? "职业探索" : "Career recommendations"}
                           </Link>
                           <Link href={mbtiTopicHubHref} className="fm-help-chip-link">
                             {locale === "zh" ? "MBTI 主题页" : "MBTI topic hub"}

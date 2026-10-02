@@ -101,7 +101,7 @@ import type {
   TestDetailCmsLandingSurfacePayload,
 } from "@/lib/tests/testLandingCmsEnrichment";
 import type { CmsLandingSurface } from "@/lib/cms/landing-surfaces";
-import { isRetryablePublicReadError } from "@/lib/public-content/readError";
+import { isPublicReadError, isRetryablePublicReadError } from "@/lib/public-content/readError";
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
@@ -689,6 +689,22 @@ export async function generateStaticParams() {
   }
 }
 
+function unavailableAssessmentCopy(locale: "en" | "zh") {
+  return locale === "zh"
+    ? { title: "测评暂不可用", body: "此测评目前无法开始，请稍后重试。", back: "返回测试中心" }
+    : { title: "Assessment temporarily unavailable", body: "This assessment cannot be started at the moment. Please try again later.", back: "Back to tests" };
+}
+
+function resolveHeldLandingFailure(error: unknown, slug: string) {
+  if (slug === SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68
+    && isClinicalDepressionPendingSlug(slug)
+    && isPublicReadError(error)
+    && error.kind === "contract") {
+    return "held-unavailable" as const;
+  }
+  throw error;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -697,7 +713,26 @@ export async function generateMetadata({
   const { locale: localeParam, slug: requestedSlug } = await params;
   const slug = resolveCanonicalSlug(requestedSlug);
   const locale = resolveLocale(localeParam);
-  const landingData = await loadTestLandingData(locale, slug);
+  const landingData = await loadTestLandingData(locale, slug).catch((error) => resolveHeldLandingFailure(error, slug));
+
+  if (landingData === "held-unavailable") {
+    const copy = unavailableAssessmentCopy(locale);
+    return buildPageMetadata({
+      locale,
+      pathname: localizedPath(`/tests/${slug}`, locale),
+      canonicalPathname: localizedPath(`/tests/${slug}`, locale),
+      canonicalRouteFamily: "test_detail",
+      title: copy.title,
+      description: copy.body,
+      noindex: true,
+      noindexFollow: true,
+      omitLanguageAlternates: true,
+      alternatesByLocale: {
+        en: localizedPath(`/tests/${slug}`, "en"),
+        zh: localizedPath(`/tests/${slug}`, "zh"),
+      },
+    });
+  }
 
   if (!landingData) {
     return {
@@ -797,7 +832,21 @@ export default async function TestLandingPage({
   }
 
   const dict = getDictSync(locale);
-  const landingData = await loadTestLandingData(locale, slug);
+  const landingData = await loadTestLandingData(locale, slug).catch((error) => resolveHeldLandingFailure(error, slug));
+  if (landingData === "held-unavailable") {
+    const copy = unavailableAssessmentCopy(locale);
+    return (
+      <main className="mx-auto w-full max-w-3xl px-[var(--fm-container-gutter)] py-16" data-testid="test-landing-held-unavailable">
+        <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-8" role="status">
+          <h1 className="m-0 font-serif text-2xl font-semibold text-[var(--fm-text)]">{copy.title}</h1>
+          <p className="mt-3 text-[var(--fm-text-muted)]">{copy.body}</p>
+          <Link href={withLocale("/tests")} className={buttonVariants({ variant: "outline", className: "mt-6" })}>
+            {copy.back}
+          </Link>
+        </section>
+      </main>
+    );
+  }
   if (!landingData) return notFound();
   const { test, lookup, cmsLandingSurface } = landingData;
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);

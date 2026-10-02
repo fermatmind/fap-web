@@ -6,6 +6,7 @@ import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import path from "node:path";
 import { isValidElement, type ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { PublicReadError } from "@/lib/public-content/readError";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
 const routeMocks = vi.hoisted(() => ({
@@ -274,6 +275,42 @@ describe("SEO core test detail availability", () => {
       error: null,
     });
     routeMocks.getIqSeoRampAuthorityForLocale.mockResolvedValue(IQ_RAMP_AUTHORITY);
+  });
+
+  it.each(["en", "zh"] as const)("renders a held clinical contract failure with explicit unavailable SSR and noindex (%s)", async (locale) => {
+    const slug = SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68;
+    routeMocks.getTestLookup.mockRejectedValue(new PublicReadError({ kind: "contract", cause: { forms: [], private_marker: "do-not-render" } }));
+    const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug }) });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
+    expect(metadata.alternates?.canonical).toBe(`https://fermatmind.com/${locale}/tests/${slug}`);
+    expect(metadata.alternates?.languages).toBeUndefined();
+    const tree = await TestLandingPage({ params: Promise.resolve({ locale, slug }), searchParams: Promise.resolve({}) });
+    const markup = renderToStaticMarkup(tree);
+    const root = document.createElement("div");
+    root.innerHTML = markup;
+    expect(root.querySelector('[data-testid="test-landing-held-unavailable"]')).not.toBeNull();
+    expect(root.querySelector("h1")?.textContent).toBe(locale === "zh" ? "测评暂不可用" : "Assessment temporarily unavailable");
+    expect(root.querySelector('[role="status"]')).not.toBeNull();
+    expect([...root.querySelectorAll("a")].map((link) => link.getAttribute("href"))).toEqual([`/${locale}/tests`]);
+    expect(markup).not.toContain("/take");
+    expect(markup).not.toContain("application/ld+json");
+    expect(markup).not.toContain("do-not-render");
+    expect(markup).not.toContain("loading");
+  });
+
+  it.each([SCALE_CANONICAL_SLUG_MAP.MBTI, "depression-screening-test-standard-edition"])("keeps out-of-scope test contract errors fail-closed (%s)", async (slug) => {
+    const error = new PublicReadError({ kind: "contract" });
+    routeMocks.getTestLookup.mockRejectedValue(error);
+    await expect(generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) })).rejects.toBe(error);
+    await expect(TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) })).rejects.toBe(error);
+  });
+
+  it.each(["forbidden", "unpublished", "network"] as const)("does not convert a held clinical %s into a valid response", async (kind) => {
+    const error = new PublicReadError({ kind });
+    routeMocks.getTestLookup.mockRejectedValue(error);
+    const slug = SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68;
+    await expect(generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) })).rejects.toBe(error);
+    await expect(TestLandingPage({ params: Promise.resolve({ locale: "zh", slug }), searchParams: Promise.resolve({}) })).rejects.toBe(error);
   });
 
   it("locks the exact twelve EN/ZH sitemap route cohort", () => {
