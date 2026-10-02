@@ -281,7 +281,7 @@ describe("homepage v1 density contract", () => {
     expect(
       screen.getAllByRole("link", { name: /开始测试/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);
-    expect(screen.getByRole("link", { name: "了解团队" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "了解项目" })).toHaveAttribute("href", "/zh/about");
     expect(screen.getByRole("link", { name: "查看公共利益" })).toHaveAttribute("href", "/zh/foundation");
     expect(document.body.textContent ?? "").not.toContain("抑郁焦虑综合症测试");
     expect(document.body.innerHTML).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
@@ -289,8 +289,8 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 2, name: "使用场景与引用" })).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 2, name: "关于 费马测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "关于 费马团队" })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "关于费马测试" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
       "href",

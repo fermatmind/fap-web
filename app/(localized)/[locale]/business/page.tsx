@@ -43,22 +43,22 @@ export default async function BusinessPage({
 
   const pillars = [
     {
-      title: isZh ? "招聘测评" : "Hiring Assessments",
+      title: isZh ? "组织使用边界" : "Organizational Use Boundaries",
       body: isZh
-        ? "为候选人提供结构化人格与行为测评，辅助岗位匹配。"
-        : "Run structured personality and behavior assessments to improve role fit.",
+        ? "人格与兴趣结果不能替代能力、工作样本和实际岗位证据，也不能作为筛选依据。"
+        : "Personality and interest results cannot replace ability, work samples or actual job evidence, and must not be used for selection.",
     },
     {
       title: isZh ? "团队画像" : "Team Mapping",
       body: isZh
-        ? "将团队成员偏好映射为协作画像，优化沟通与分工。"
-        : "Map team preference profiles to improve collaboration and role design.",
+        ? "可围绕成员自愿分享的沟通偏好讨论具体协作问题，不由类型或分数决定分工。"
+        : "Discuss specific collaboration questions using preferences that people choose to share; types and scores do not determine roles.",
     },
     {
       title: isZh ? "发展建议" : "Growth Insights",
       body: isZh
-        ? "提供可执行的发展建议与周期性对比追踪。"
-        : "Provide actionable growth insights with periodic comparison snapshots.",
+        ? "围绕个人选择的目标记录具体行动与反馈，不把跨次分数变化解释为能力提升或干预成效。"
+        : "Record actions and feedback around a personally chosen goal; score changes across assessments do not establish ability gains or intervention effects.",
     },
   ];
 
@@ -73,8 +73,8 @@ export default async function BusinessPage({
         </h1>
         <p className="m-0 max-w-3xl text-[var(--fm-text-muted)]">
           {isZh
-            ? "费马心理为企业与组织提供数据化测评流程，覆盖招聘筛选、团队协作和发展追踪。"
-            : "FermatMind provides code-driven assessment workflows for hiring, collaboration, and talent development."}
+            ? "了解组织中的自我观察与沟通探索需求。测评内容不用于招聘筛选、录用、晋升或岗位适配判断；具体可提供的服务范围请联系支持确认。"
+            : "Explore needs for voluntary self-reflection and workplace conversations. Assessment content is not used for hiring selection, promotion or role-fit judgments; contact support to confirm available services."}
         </p>
         <div className="pt-1">
           <Link href={localizedPath("/help", locale)}>

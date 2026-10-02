@@ -237,23 +237,23 @@ function TypeGroupBrowse({
   const featureItems = [
     {
       icon: Sparkles,
-      title: locale === "zh" ? "科学模型" : "Model",
-      body: locale === "zh" ? "基于荣格认知理论" : "Based on Jungian preference theory",
+      title: locale === "zh" ? "人格描述" : "Model",
+      body: locale === "zh" ? "参考四组偏好" : "Based on Jungian preference theory",
     },
     {
       icon: Network,
       title: locale === "zh" ? "32 种类型" : "32 variants",
-      body: locale === "zh" ? "A/T 双维度解析" : "A/T variant inventory",
+      body: locale === "zh" ? "A/T 阅读变体" : "A/T variant inventory",
     },
     {
       icon: Compass,
-      title: locale === "zh" ? "深度洞察" : "Deep reading",
-      body: locale === "zh" ? "全面理解自我" : "Read the full profile",
+      title: locale === "zh" ? "阅读提示" : "Deep reading",
+      body: locale === "zh" ? "结合经历与反例" : "Read the full profile",
     },
     {
       icon: Star,
       title: locale === "zh" ? "实用指引" : "Practical guide",
-      body: locale === "zh" ? "助力成长与决策" : "Support growth decisions",
+      body: locale === "zh" ? "提出探索问题" : "Support growth decisions",
     },
   ];
   const variantCount = groups.reduce((count, group) => count + group.cards.length, 0);
@@ -272,8 +272,8 @@ function TypeGroupBrowse({
               </h1>
               <p className="m-0 max-w-2xl text-base leading-8 text-[#586271]">
                 {locale === "zh"
-                  ? "基于荣格认知功能理论与 MBTI 框架的系统人格模型，理解你的思维模式，发现你的独特优势。"
-                  : "Browse the A/T personality directory built around Jungian preferences and the MBTI framework."}
+                  ? "浏览四字母人格描述与 A/T 阅读变体。A/T 标签是对四字母框架的扩展，不是官方 MBTI 测评中的额外偏好维度。"
+                  : "Browse four-letter personality descriptions and A/T reading variants. A/T labels extend the four-letter framework; they are not additional preferences in the official MBTI assessment."}
               </p>
             </div>
 

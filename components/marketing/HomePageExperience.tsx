@@ -49,8 +49,8 @@ const HOMEPAGE_HERO_COPY = {
     title: "看清自己，走好每一步",
     subhead: "费马测试把自我认知、职业探索与能力成长，做成可测量、可训练、可复盘的成长系统。",
     primaryCta: "免费测试",
-    socialProofCount: "1200000+",
-    socialProof: "累计测试人数",
+    socialProofCount: "",
+    socialProof: "",
   },
   en: {
     title: "Know yourself, move with clarity",
@@ -236,7 +236,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
             {heroCopy.subhead || copy.hero.subhead}
           </p>
 
-          {locale === "zh" && (
+          {heroCopy.socialProofCount && heroCopy.socialProof && (
             <div className="mt-9 flex items-center justify-center gap-3 lg:justify-start">
               <div className="flex -space-x-3">
                 {HOMEPAGE_HERO_ASSETS.users.map((src, index) => (
@@ -435,19 +435,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
   const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
-  const testCompletionTrustItem: TrustItem = {
-    title: locale === "zh" ? "百万人测试" : "Million-plus testers",
-    summary:
-      locale === "zh"
-        ? "单月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
-        : "In a single month, 1.2M real people completed tests, with more than 50M cumulative test interactions.",
-    paragraphs: [],
-    href: copy.trust.methodHref,
-    hrefLabel: copy.trust.methodLabel,
-  };
-  const displayTrustItems = locale === "zh"
-    ? [...baseTrustItems.slice(0, 2), testCompletionTrustItem].slice(0, 3)
-    : baseTrustItems.slice(0, 2);
+  const displayTrustItems = baseTrustItems.slice(0, 2);
 
   if (displayTrustItems.length === 0) return null;
 
@@ -711,7 +699,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
         <div className="relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16 text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
-              {locale === "zh" ? "关于 费马团队" : "About the Fermat team"}
+              {locale === "zh" ? "关于费马测试" : "About FermatMind"}
             </h2>
           </div>
         </div>
@@ -737,12 +725,12 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
                       links: [{ href: "/method-boundaries", title: locale === "zh" ? "查看方法边界" : "View method boundaries" }],
                     }
                   : {
-                      title: locale === "zh" ? "博士团队" : "Doctoral team",
+                      title: locale === "zh" ? "项目介绍" : "About FermatMind",
                       description:
                         locale === "zh"
-                          ? "专业团队参与测评方法、题目设计与边界复核。"
-                          : "A specialist team takes part in assessment methods, item design, and boundary review.",
-                      links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
+                          ? "了解 FermatMind 的项目介绍与使用边界。"
+                          : "Read about FermatMind and its intended uses and boundaries.",
+                      links: [{ href: "/about", title: locale === "zh" ? "了解项目" : "About FermatMind" }],
                     };
 
             return (

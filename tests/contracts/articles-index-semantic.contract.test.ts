@@ -157,4 +157,60 @@ describe("articles index semantic baseline", () => {
     );
     expect(html).not.toContain("col-start-");
   });
+
+  it.each([1, 2])("hides Chinese CMS badges and uses article titles for Chinese cover alt across page %i cards", async (page) => {
+    const items = articleFixtures(6).map((article) => ({
+      ...article,
+      category: { id: 1, slug: "personality", name: "人格分类" },
+      tags: [
+        { id: 1, slug: "growth", name: "成长标签" },
+        { id: 2, slug: "english", name: "English tag" },
+      ],
+      coverImageUrl: "https://api.fermatmind.com/media/articles/cover.webp",
+      coverImageAlt: "中文封面说明",
+    }));
+    const original = JSON.stringify(items);
+    const html = await renderArticlesIndex("en", items, page);
+
+    expect(html).not.toContain("人格分类");
+    expect(html).not.toContain("成长标签");
+    expect(html).not.toContain("中文封面说明");
+    expect(html).toContain(">English tag<");
+    for (const article of items) {
+      expect(html).toContain(`alt="${article.title}"`);
+      expect(html).toContain(`href="/en/articles/${article.slug}"`);
+    }
+    expect(JSON.stringify(items)).toBe(original);
+  });
+
+  it("preserves English CMS labels and alt text across every card layout", async () => {
+    const items = articleFixtures(6).map((article) => ({
+      ...article,
+      coverImageUrl: "https://api.fermatmind.com/media/articles/cover.webp",
+      coverImageAlt: `Cover for ${article.title}`,
+      tags: [{ id: 2, slug: "growth", name: "Growth" }],
+    }));
+    const html = await renderArticlesIndex("en", items);
+
+    expect(html.match(/>Personality</g)).toHaveLength(6);
+    expect(html).toContain(">Growth<");
+    for (const article of items) expect(html).toContain(`alt="${article.coverImageAlt}"`);
+  });
+
+  it("preserves Chinese CMS labels and alt text on Chinese first and later pages", async () => {
+    const items = articleFixtures(6, "zh").map((article) => ({
+      ...article,
+      category: { id: 1, slug: "personality", name: "人格分类" },
+      tags: [{ id: 1, slug: "growth", name: "成长标签" }],
+      coverImageUrl: "https://api.fermatmind.com/media/articles/cover.webp",
+      coverImageAlt: "中文封面说明",
+    }));
+    for (const page of [1, 2]) {
+      const html = await renderArticlesIndex("zh", items, page);
+      expect(html.match(/>人格分类</g)).toHaveLength(6);
+      expect(html).toContain(">成长标签<");
+      expect(html.match(/alt="中文封面说明"/g)).toHaveLength(6);
+    }
+  });
+
 });

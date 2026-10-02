@@ -257,26 +257,26 @@ function buildMethodologyBlocks(locale: Locale): MethodologyBlock[] {
   return [
     {
       key: "first-variable",
-      title: locale === "zh" ? "第一步：人格只负责缩小范围" : "Step 1: Use personality to narrow the field",
+      title: locale === "zh" ? "第一步：用人格描述提出观察问题" : "Step 1: Use personality to narrow the field",
       body:
         locale === "zh"
-          ? "这页先用 A/T 人格变体帮助你识别更可能顺手的决策方式、协作方式和长期消耗点，但它不直接代替职业判断。"
+          ? "把四字母人格描述与 A/T 阅读变体作为自我观察提示，结合实际经历与反例理解自己的偏好，不据此判断能力或职业适配。"
           : "This page uses A/T personality variants to narrow likely decision styles, collaboration patterns, and long-term friction points, but it does not replace career judgment.",
     },
     {
       key: "strain-before-fit",
-      title: locale === "zh" ? "第二步：先看结构性损耗，再看适配" : "Step 2: Check structural strain before fit",
+      title: locale === "zh" ? "第二步：了解实际工作条件" : "Step 2: Check structural strain before fit",
       body:
         locale === "zh"
-          ? "场景矩阵、工作台和职业预览优先帮助你看清什么样的工作结构会开始消耗你，再判断哪些角色只是看起来匹配。"
+          ? "了解任务、工作量、时间安排、自主空间与支持条件，再结合自己的经历和现实限制提出要核实的问题。类型标签不能预测长期负担。"
           : "The matrix, workbench, and career preview first show which work structures start to drain you, before deciding which roles merely look attractive on paper.",
     },
     {
       key: "recommendation-depth",
-      title: locale === "zh" ? "第三步：把职业推荐详情页当作第二层判断" : "Step 3: Use recommendation detail as the second decision layer",
+      title: locale === "zh" ? "第三步：结合职业信息继续探索" : "Step 3: Use recommendation detail as the second decision layer",
       body:
         locale === "zh"
-          ? "当人格方向、结构损耗和职业样板开始对齐时，再进入 recommendation 深页核对岗位、风险与继续路径，而不是在这里抢结论。"
+          ? "可以从职业目录、兴趣或真实任务体验开始探索，也可以继续阅读类型描述。职业页面帮助了解工作任务与条件，能力、资格和机会仍需分别核实。"
           : "When personality direction, structural strain, and role pattern begin to align, move into the recommendation detail route to verify jobs, risks, and next steps instead of forcing a final answer here.",
     },
   ];
@@ -288,8 +288,8 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
       question: locale === "zh" ? "这里是测试入口还是人格目录？" : "Is this the test landing or the personality directory?",
       answer:
         locale === "zh"
-          ? "这里是 A/T 人格变体发布中心。测试仍然从 MBTI landing 进入，这里负责浏览、比较与继续探索。"
-          : "This is the A/T variant release hub. Testing still starts from the MBTI landing page, while this page is for browsing, comparing, and continuing exploration.",
+          ? "这里可以浏览人格描述与类型对比。要回答测评问卷，请使用上方的测试入口。"
+          : "This directory lets you browse personality descriptions and comparisons. To answer the questionnaire, use the test entry above.",
     },
     {
       question:
@@ -298,48 +298,48 @@ function buildFaqBlocks(locale: Locale): FaqBlock[] {
           : "Why does this page not give me a final career answer directly?",
       answer:
         locale === "zh"
-          ? "因为人格只是第一层变量。这一页先帮你缩小方向，再用 recommendation 深页核对具体岗位、风险和继续路径。"
-          : "Because personality is only the first variable. This page narrows direction first, then the recommendation detail route verifies concrete roles, risks, and next steps.",
+          ? "人格描述不能证明岗位能力或适合程度。可以用它提出观察问题，再了解实际工作任务、技能要求、资格与个人限制。"
+          : "A personality description does not establish job ability or suitability. Use it to frame questions, then compare actual work tasks, skills, qualifications and personal constraints.",
     },
     {
       question:
         locale === "zh"
-          ? "为什么 recommendation 是下一步，而不是起点？"
-          : "Why is the recommendation route the next step instead of the starting point?",
+          ? "没有确定人格类型，也能探索职业吗？"
+          : "Can I explore occupations without choosing a personality type first?",
       answer:
         locale === "zh"
-          ? "因为 recommendation 需要建立在人格方向和结构损耗已经看清的前提下，否则你会把职业列表误当成结论。"
-          : "Because recommendation works best after personality direction and structural strain are already clear. Otherwise the job list becomes a premature conclusion.",
+          ? "可以。你可以从职业信息、兴趣或真实任务体验开始。类型描述只是可选的自我观察提示，不会验证职业列表，也不是探索职业的前提。"
+          : "Yes. You can start with occupations, interests or a work sample. Type descriptions are optional reflection prompts; they do not validate a job list or need to be settled first.",
     },
     {
       question:
         locale === "zh"
-          ? "为什么要先看损耗，再看适配？"
-          : "Why look at strain before fit?",
+          ? "怎样了解一个工作环境的负担？"
+          : "How can I examine the cost of a work environment?",
       answer:
         locale === "zh"
-          ? "很多角色表面上看起来适配，但长期结构会持续消耗你。先看损耗，能更早排除代价过高的路径。"
-          : "Many roles look compatible on paper while their long-term structure keeps draining you. Looking at strain first helps rule out paths with hidden long-term cost.",
+          ? "了解工作量、时间安排、自主空间与支持条件，再对照自己的经历和现实限制。类型标签不能预测长期负担，也不能替你排除或选定职业。"
+          : "Ask about workload, schedule, autonomy and support, then compare them with your own experience and constraints. A type label cannot predict long-term strain or rule a career in or out.",
     },
     {
       question:
         locale === "zh"
-          ? "/personality、类型详情页和 recommendation 深页有什么区别？"
-          : "What is the difference between /personality, a type detail page, and a recommendation detail page?",
+          ? "人格目录、类型描述和职业页面有什么区别？"
+          : "How do the directory, type descriptions and career pages differ?",
       answer:
         locale === "zh"
-          ? "/personality 负责总览、比较和继续导航；类型详情页负责解释单一人格；recommendation 深页负责把人格判断延伸到职业结构与岗位建议。"
-          : "/personality is the hub for overview, comparison, and navigation. A type detail page explains one personality. A recommendation detail page extends that judgment into work structure and job guidance.",
+          ? "人格目录提供浏览与导航，类型页面提供供自我观察的人格描述，职业页面介绍工作任务与条件。它们都不能证明你的能力或保证结果。"
+          : "The directory provides navigation, a type page offers descriptions for reflection, and career pages introduce work tasks and conditions. None establishes your abilities or guarantees an outcome.",
     },
     {
       question:
         locale === "zh"
-          ? "这里的职业预览是不是对我个人的最终真值？"
-          : "Is the career preview here a final personal truth for me?",
+          ? "职业预览能决定我应该选择什么工作吗？"
+          : "Does a career preview decide which job I should choose?",
       answer:
         locale === "zh"
-          ? "不是。这里展示的是职业样板与结构信号，用来提示下一步应该验证什么，不是对你个人的最终职业判决。"
-          : "No. The preview shows role patterns and structure signals to clarify what should be validated next, not a final career verdict for you personally.",
+          ? "不能。把示例当作待核实的问题，通过实际职业信息、任务体验和交流继续了解。技能、资格、机会与个人目标仍需分别核实。"
+          : "No. Treat examples as questions to investigate through actual job information, task experience and conversations. Skills, qualifications, opportunities and your goals still need separate evidence.",
     },
   ];
 }

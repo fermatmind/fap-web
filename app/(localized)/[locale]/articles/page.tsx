@@ -55,6 +55,15 @@ function formatArticleReadTime(minutes: number | null, locale: "en" | "zh", verb
   return `${minutes} min${verbose ? " read" : ""}`;
 }
 
+function getArticleLocalizedLabel(label: string | null | undefined, locale: "en" | "zh"): string | null {
+  if (locale === "en" && label && /[\u3400-\u9fff]/u.test(label)) return null;
+  return label ?? null;
+}
+
+function getArticleCoverAlt(article: CmsArticle, locale: "en" | "zh"): string {
+  return getArticleLocalizedLabel(article.coverImageAlt, locale) ?? article.title;
+}
+
 function ArticleArchiveCard({
   article,
   locale,
@@ -72,6 +81,7 @@ function ArticleArchiveCard({
     article.category?.name ?? null,
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ]
+    .map((label) => getArticleLocalizedLabel(label, locale))
     .filter((label): label is string => Boolean(label))
     .slice(0, 2);
 
@@ -87,7 +97,7 @@ function ArticleArchiveCard({
       >
         <ArticleResponsiveImage
           src={article.coverImageUrl}
-          alt={article.coverImageAlt ?? article.title}
+          alt={getArticleCoverAlt(article, locale)}
           width={article.coverImageWidth}
           height={article.coverImageHeight}
           variants={article.coverImageVariants}
@@ -200,6 +210,7 @@ export default async function ArticlesPage({
   const isFirstPage = currentPage === 1;
   const featuredArticles = isFirstPage ? items.slice(0, 4) : [];
   const featuredLead = featuredArticles[0] ?? null;
+  const featuredLeadCategory = getArticleLocalizedLabel(featuredLead?.category?.name, locale);
   const archiveArticles = isFirstPage ? items.slice(4) : items;
 
   return (
@@ -234,7 +245,7 @@ export default async function ArticlesPage({
                 >
                   <ArticleResponsiveImage
                     src={featuredLead.coverImageUrl}
-                    alt={featuredLead.coverImageAlt ?? featuredLead.title}
+                    alt={getArticleCoverAlt(featuredLead, locale)}
                     width={featuredLead.coverImageWidth}
                     height={featuredLead.coverImageHeight}
                     variants={featuredLead.coverImageVariants}
@@ -244,9 +255,9 @@ export default async function ArticlesPage({
                     imageClassName="transition-[opacity,transform] duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none group-hover:scale-[1.02]"
                   />
                   <div className="mt-4 flex flex-1 flex-col space-y-3">
-                    {featuredLead.category?.name ? (
+                    {featuredLeadCategory ? (
                       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                        {featuredLead.category.name}
+                        {featuredLeadCategory}
                       </p>
                     ) : null}
                     <h2 className="m-0 max-w-3xl font-serif text-3xl font-semibold leading-tight text-[var(--fm-text)] transition-colors group-hover:text-[var(--fm-accent)]">
@@ -273,6 +284,7 @@ export default async function ArticlesPage({
                   {featuredArticles.slice(1).map((article) => {
                     const publishedAt = formatArticleDate(article.publishedAt ?? article.updatedAt, locale);
                     const readTime = formatArticleReadTime(article.readingMinutes, locale);
+                    const categoryLabel = getArticleLocalizedLabel(article.category?.name, locale);
 
                     return (
                       <article
@@ -287,7 +299,7 @@ export default async function ArticlesPage({
                         >
                           <ArticleResponsiveImage
                             src={article.coverImageUrl}
-                            alt={article.coverImageAlt ?? article.title}
+                            alt={getArticleCoverAlt(article, locale)}
                             width={article.coverImageWidth}
                             height={article.coverImageHeight}
                             variants={article.coverImageVariants}
@@ -295,9 +307,9 @@ export default async function ArticlesPage({
                             imageClassName="transition-[opacity,transform] duration-300 ease-out motion-reduce:transform-none motion-reduce:transition-none group-hover:scale-[1.025]"
                           />
                           <div className="mt-3 flex min-w-0 flex-col gap-2 lg:mt-0 lg:py-1">
-                            {article.category?.name ? (
+                            {categoryLabel ? (
                               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                                {article.category.name}
+                                {categoryLabel}
                               </p>
                             ) : null}
                             <h2 className="m-0 line-clamp-3 font-serif text-lg font-semibold leading-snug text-[var(--fm-text)] transition-colors group-hover:text-[var(--fm-accent)]">
