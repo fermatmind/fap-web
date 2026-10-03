@@ -12,6 +12,13 @@ import {
 } from "@/lib/iq/renderer";
 
 describe("IQ question renderer contract", () => {
+  it.each(["desktop", "mobile"] as const)("removes repeated option captions in the %s layout while retaining accessible names", (layoutMode) => {
+    render(<IqOptionBoard questionId="IQOWNER30-Q02" options={"ABCDEF".split("").map((code) => ({ code, text: `选项 ${code}`, svg: { viewBox: "0 0 20 20", paths: [{ d: "M0 0h10v10z" }] } }))} locale="zh" layoutMode={layoutMode} noOptionsLabel="暂无选项" onChange={vi.fn()} />);
+    for (const code of "ABCDEF") {
+      expect(screen.getByRole("radio", { name: `选项 ${code}` })).toHaveTextContent(code);
+      expect(screen.queryByText(`选项 ${code}`)).not.toBeInTheDocument();
+    }
+  });
   it("renders structured SVG path arrays", () => {
     render(
       <IqVectorSvg
