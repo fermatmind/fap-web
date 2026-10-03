@@ -65,31 +65,6 @@ vi.mock("@/components/quiz/immersive/V2LikertScale", () => ({
   V2LikertScale: () => null,
 }));
 
-vi.mock("@/components/quiz/immersive/useAutoAdvanceFlow", () => ({
-  useAutoAdvanceFlow: ({
-    currentIndex,
-    total,
-    onMove,
-  }: {
-    currentIndex: number;
-    total: number;
-    onMove: (index: number) => void;
-  }) => ({
-    transitionDirection: "forward",
-    isTransitioning: false,
-    selectAndAdvance: (applySelection: () => void) => {
-      applySelection();
-    },
-    goPrevious: () => {
-      onMove(Math.max(currentIndex - 1, 0));
-    },
-    goNext: () => {
-      onMove(Math.min(currentIndex + 1, Math.max(total - 1, 0)));
-    },
-    cancelPending: () => undefined,
-  }),
-}));
-
 vi.mock("@/components/quiz/StaleDraftResetPrompt", () => ({
   StaleDraftResetPrompt: ({ message }: { message: string }) => <div>{message}</div>,
 }));
@@ -395,6 +370,45 @@ describe("IQ take lifecycle contract", () => {
     expect(await screen.findByText("Find the missing matrix tile.")).toBeInTheDocument();
   });
 
+  it("locks rapid selections, fetches the next owner question automatically, and preserves answers when going back", async () => {
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    const board = within(await screen.findByTestId("iq-option-board-desktop"));
+    const optionA = board.getByRole("radio", { name: "Option A" });
+    fireEvent.click(optionA);
+    fireEvent.click(optionA);
+    fireEvent.click(board.getByRole("radio", { name: "Option B" }));
+    expect(optionA).toBeDisabled();
+    expect(optionA).toHaveAttribute("aria-checked", "true");
+    expect(screen.getByRole("button", { name: "Next" })).toBeDisabled();
+    await screen.findByText("Choose the best continuation.");
+    const deliveredIndexes = hoisted.getIqAttemptQuestion.mock.calls.map(([args]) => args.index);
+    expect([...new Set(deliveredIndexes)]).toEqual([0, 1]);
+    expect(deliveredIndexes.filter((index) => index === 1)).toHaveLength(1);
+    fireEvent.click(screen.getByRole("button", { name: "Previous" }));
+    await screen.findByText("Find the missing matrix tile.");
+    const returned = within(screen.getByTestId("iq-option-board-desktop"));
+    expect(returned.getByRole("radio", { name: "Option A" })).toHaveAttribute("aria-checked", "true");
+    fireEvent.click(returned.getByRole("radio", { name: "Option C" }));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["C", "B"]);
+  });
+
+  it("keeps a failed automatic submission retryable without losing the final answer", async () => {
+    hoisted.submitIqAttempt.mockRejectedValueOnce(new Error("Service unavailable"));
+    renderClient();
+    fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
+    await screen.findByTestId("iq-submit-error");
+    const retryButton = await screen.findByRole("button", { name: "Retry submit" });
+    await waitFor(() => expect(retryButton).toBeEnabled());
+    fireEvent.click(retryButton);
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(2));
+    expect(hoisted.submitIqAttempt.mock.calls[1]?.[0]?.answers).toEqual(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers);
+  });
+
   it("primes attempt on first selection, advances questions, submits safe IQ answers, and redirects to the localized result path", async () => {
     renderClient();
 
@@ -415,10 +429,6 @@ describe("IQ take lifecycle contract", () => {
     });
 
     expect(hoisted.startAttempt).not.toHaveBeenCalled();
-    expect(screen.getByRole("button", { name: "Next" })).toBeEnabled();
-
-    fireEvent.click(screen.getByRole("button", { name: "Next" }));
-
     expect(await screen.findByText("Choose the best continuation.")).toBeInTheDocument();
 
     const submitButton = screen.getByRole("button", { name: "Submit" });
@@ -428,9 +438,7 @@ describe("IQ take lifecycle contract", () => {
       within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
     );
 
-    expect(screen.getByRole("button", { name: "Submit" })).toBeEnabled();
-
-    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
+    // Selecting the final answer automatically submits with that answer included.
 
     await waitFor(() => {
       expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
@@ -497,17 +505,13 @@ describe("IQ take lifecycle contract", () => {
       within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await screen.findByText("Choose the best continuation.");
 
     fireEvent.click(
       within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
     );
 
-    await waitFor(() => {
-      expect(screen.getByRole("button", { name: "Submit" })).toBeEnabled();
-    });
 
-    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
 
     expect(await screen.findByRole("button", { name: "Submitting..." })).toBeDisabled();
     expect(screen.queryByText(/score|raw score|iq estimate/i)).not.toBeInTheDocument();

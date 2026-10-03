@@ -1495,7 +1495,7 @@ function QuizTakeInner({
     onLast: handleSubmitWithOverlay,
     confirmDelayMs: 200,
     enterDurationMs: 280,
-    lockDuringTransition: isMbtiScaleCode(normalizedScaleCode),
+    lockDuringTransition: isMbtiScaleCode(normalizedScaleCode) || isIqScale,
   });
 
   useEffect(() => {
@@ -1654,12 +1654,12 @@ function QuizTakeInner({
                     onClick={() => {
                       void handleSubmitWithOverlay();
                     }}
-                    disabled={!iqCanSubmit}
+                    disabled={!iqCanSubmit || isTransitioning}
                   >
                     {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
                   </Button>
                 ) : (
-                  <Button type="button" onClick={goNext} disabled={!iqCanContinue}>
+                  <Button type="button" onClick={goNext} disabled={!iqCanContinue || isTransitioning}>
                     {dict.quiz.iq.next}
                   </Button>
                 )}
@@ -1705,7 +1705,10 @@ function QuizTakeInner({
                 value={selectedOptionId}
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
-                onChange={(code) => handleAnswerSelection(question.id, code)}
+                disabled={isTransitioning || submitting || submitOverlayVisible}
+                onChange={(code) => selectAndAdvance(() => {
+                  handleAnswerSelection(question.id, code);
+                }, { questionId: question.id, code })}
               />
             ) : useV2LikertScale ? (
               <V2LikertScale
@@ -1834,7 +1837,10 @@ function QuizTakeInner({
             value={selectedOptionId}
             locale={locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}
-            onChange={(code) => handleAnswerSelection(question.id, code)}
+            disabled={isTransitioning || submitting || submitOverlayVisible}
+            onChange={(code) => selectAndAdvance(() => {
+              handleAnswerSelection(question.id, code);
+            }, { questionId: question.id, code })}
           />
         ) : useV2LikertScale ? (
           <V2LikertScale
@@ -1930,12 +1936,12 @@ function QuizTakeInner({
                 onClick={() => {
                   void handleSubmitWithOverlay();
                 }}
-                disabled={!iqCanSubmit}
+                disabled={!iqCanSubmit || isTransitioning}
               >
                 {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
               </Button>
             ) : (
-              <Button type="button" onClick={goNext} disabled={!iqCanContinue}>
+              <Button type="button" onClick={goNext} disabled={!iqCanContinue || isTransitioning}>
                 {dict.quiz.iq.next}
               </Button>
             )}

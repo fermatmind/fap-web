@@ -122,7 +122,6 @@ export function IqOptionBoard({
               const selected = value === option.code;
               const letter = toOptionLetter(idx);
               const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
-              const subLabel = option.text && option.text !== option.code ? option.text : optionLabel;
 
               return (
                 <button
@@ -169,7 +168,6 @@ export function IqOptionBoard({
                       )}
                     </span>
 
-                    <span className="line-clamp-1 text-xs font-medium text-[var(--fm-text-muted)]">{subLabel}</span>
                   </div>
                 </button>
               );
@@ -192,7 +190,6 @@ export function IqOptionBoard({
             const selected = value === option.code;
             const letter = toOptionLetter(idx);
             const optionLabel = locale === "zh" ? `选项 ${letter}` : `Option ${letter}`;
-            const subLabel = option.text && option.text !== option.code ? option.text : optionLabel;
 
             return (
               <button
@@ -240,7 +237,6 @@ export function IqOptionBoard({
                   </span>
                 </div>
 
-                <span className="line-clamp-3 text-sm font-medium leading-6 text-[var(--fm-text)]">{subLabel}</span>
               </button>
             );
           })}
