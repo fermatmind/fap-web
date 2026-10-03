@@ -595,10 +595,13 @@ export function excludeFaqCopiesInMarkdown<T extends { question: string; answer:
   const blocks = tokenizeMarkdown(normalizeLineBreaks(markdown).trim());
   const pairs = new Map<string, Set<string>>();
   const text = (value: string) => normalizeText(renderedText(renderInlineMarkdown(value, "faq-copy", options)));
+  const isQuestion = (block: (typeof blocks)[number]) => block.type === "heading" ||
+    (block.type === "paragraph" && /^\*\*Q\d+\s*[:：].+\*\*$/.test(block.text.trim()));
   blocks.forEach((block, index) => {
-    if (block.type !== "heading") return;
+    if (block.type !== "heading" && block.type !== "paragraph") return;
+    if (!isQuestion(block)) return;
     const answers: string[] = [];
-    for (let next = index + 1; next < blocks.length && blocks[next].type !== "heading"; next += 1) {
+    for (let next = index + 1; next < blocks.length && !isQuestion(blocks[next]); next += 1) {
       const answer = blocks[next];
       if (answer.type === "hr") continue;
       // Unsupported blocks are preserved rather than approximated as a matching answer.
