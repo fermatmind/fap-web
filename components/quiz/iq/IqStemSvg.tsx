@@ -1,4 +1,9 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { fetchIqImageBlob, isAttemptBoundIqAsset } from "@/lib/iq/imageAsset";
+import { getLocaleFromPathname } from "@/lib/i18n/locales";
 import type { IqStemPayload } from "@/lib/iq/contracts";
 import {
   normalizeIqImageAsset,
@@ -56,16 +61,58 @@ export function IqImageGraphic({
   ariaLabel?: string;
 }) {
   const normalizedImage = normalizeIqImageAsset(image);
+  const source = normalizedImage?.src;
+  const protectedAsset = Boolean(source && isAttemptBoundIqAsset(source));
+  const [loaded, setLoaded] = useState<{ source: string; url?: string; failed?: boolean } | null>(null);
+
+  useEffect(() => {
+    if (!source || !protectedAsset) return;
+    const controller = new AbortController();
+    let objectUrl: string | undefined;
+    let disposed = false;
+    const timeout = setTimeout(() => controller.abort(), 15000);
+    void fetchIqImageBlob(source, controller.signal)
+      .then((blob) => {
+        if (controller.signal.aborted) return;
+        objectUrl = URL.createObjectURL(blob);
+        setLoaded({ source, url: objectUrl });
+      })
+      .catch(() => {
+        // Cleanup aborts belong to an obsolete render; timeouts remain retryable.
+        if (!disposed) setLoaded({ source, failed: true });
+      })
+      .finally(() => clearTimeout(timeout));
+    return () => {
+      disposed = true;
+      clearTimeout(timeout);
+      controller.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [source, protectedAsset]);
+
   if (!normalizedImage) {
     return null;
   }
 
   const alt = normalizedImage.alt ?? ariaLabel;
+  const current = loaded?.source === source ? loaded : null;
+  if (protectedAsset && !current?.url) {
+    const zh = typeof window !== "undefined" && getLocaleFromPathname(window.location.pathname) === "zh";
+    return current?.failed ? (
+      <span role="status" className="p-3 text-sm text-rose-700">
+        {zh ? "图片加载失败，请刷新重试" : "Image failed to load. Refresh to retry"}
+      </span>
+    ) : (
+      <span role="status" aria-label={alt} className="p-3 text-sm text-[var(--fm-text-muted)]">
+        {zh ? "图片加载中…" : "Loading image…"}
+      </span>
+    );
+  }
 
   return (
     // eslint-disable-next-line @next/next/no-img-element -- CMS IQ assets can use authority-provided hosts that are not known at build time.
     <img
-      src={normalizedImage.src}
+      src={protectedAsset ? current?.url : normalizedImage.src}
       alt={alt}
       {...(normalizedImage.width ? { width: normalizedImage.width } : {})}
       {...(normalizedImage.height ? { height: normalizedImage.height } : {})}
@@ -74,6 +121,7 @@ export function IqImageGraphic({
       loading="eager"
       decoding="async"
       draggable={false}
+      onError={protectedAsset ? () => setLoaded({ source: normalizedImage.src, failed: true }) : undefined}
     />
   );
 }
