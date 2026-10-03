@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { fetchIqImageBlob, isAttemptBoundIqAsset } from "@/lib/iq/imageAsset";
 import { getLocaleFromPathname } from "@/lib/i18n/locales";
+import { useIqImageCache } from "@/components/quiz/iq/IqImageCache";
 import type { IqStemPayload } from "@/lib/iq/contracts";
 import {
   normalizeIqImageAsset,
@@ -63,10 +64,18 @@ export function IqImageGraphic({
   const normalizedImage = normalizeIqImageAsset(image);
   const source = normalizedImage?.src;
   const protectedAsset = Boolean(source && isAttemptBoundIqAsset(source));
+  const cache = useIqImageCache();
   const [loaded, setLoaded] = useState<{ source: string; url?: string; failed?: boolean } | null>(null);
 
   useEffect(() => {
     if (!source || !protectedAsset) return;
+    if (cache) {
+      let active = true;
+      void cache.load(source)
+        .then((url) => { if (active) setLoaded({ source, url }); })
+        .catch(() => { if (active) setLoaded({ source, failed: true }); });
+      return () => { active = false; };
+    }
     const controller = new AbortController();
     let objectUrl: string | undefined;
     let disposed = false;
@@ -88,14 +97,17 @@ export function IqImageGraphic({
       controller.abort();
       if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
-  }, [source, protectedAsset]);
+  }, [source, protectedAsset, cache]);
 
   if (!normalizedImage) {
     return null;
   }
 
   const alt = normalizedImage.alt ?? ariaLabel;
-  const current = loaded?.source === source ? loaded : null;
+  const cachedUrl = source ? cache?.getUrl(source) : undefined;
+  const current: { url?: string; failed?: boolean } | null = loaded?.source === source && loaded?.failed
+    ? loaded
+    : cachedUrl ? { url: cachedUrl } : loaded?.source === source ? loaded : null;
   if (protectedAsset && !current?.url) {
     const zh = typeof window !== "undefined" && getLocaleFromPathname(window.location.pathname) === "zh";
     return current?.failed ? (

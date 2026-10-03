@@ -319,6 +319,19 @@ function createNestedOwnerRawScoreOnlyReportData(): ReportResponse {
 }
 
 describe("IQ result renderer contract", () => {
+  it.each(["en", "zh"] as const)("uses the authorized point estimate when a %s report has no interval", (locale) => {
+    const original = createOwnerClaimEligibleReportData();
+    const reportData = {
+      ...original,
+      summary: { ...(original as unknown as { summary: Record<string, unknown> }).summary, confidence_interval: null },
+    } as unknown as ReportResponse;
+    render(<IqResultShell locale={locale} reportData={reportData} resultData={null} accessView={createAccessView()} />);
+    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent(locale === "zh"
+      ? "你的智商分数大概是 145"
+      : "Your IQ score is approximately 145.");
+    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+  });
+
   it("renders the canonical IQ title, summary metrics, and three dimension cards without exposing the legacy alias", () => {
     render(
       <IqResultShell
@@ -331,7 +344,7 @@ describe("IQ result renderer contract", () => {
 
     expect(screen.getByTestId("iq-result-title")).toHaveTextContent("IQ Test");
     expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("118");
+    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("Your IQ score lies within a range of 111 up to 123.");
     expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("111 - 123 · 90%");
     expect(screen.getByTestId("iq-quality-flags")).toHaveTextContent("norm_table_pending");
     expect(screen.getByTestId("iq-stability-status")).toHaveTextContent("preliminary");
@@ -481,7 +494,7 @@ describe("IQ result renderer contract", () => {
       />
     );
 
-    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("145");
+    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("你的智商分数大概是 140.5–149.5");
     expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("99.9%");
     expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("140.5 - 149.5 · 90%");

@@ -1,7 +1,8 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { IqImageGraphic } from "@/components/quiz/iq/IqStemSvg";
-import { fetchIqImageBlob } from "@/lib/iq/imageAsset";
+import { IqImageCacheProvider } from "@/components/quiz/iq/IqImageCache";
+import { createIqImageCache, fetchIqImageBlob } from "@/lib/iq/imageAsset";
 import { setFmToken } from "@/lib/auth/fmToken";
 
 const { refresh } = vi.hoisted(() => ({ refresh: vi.fn() }));
@@ -20,6 +21,7 @@ function imageResponse() {
 }
 
 describe("attempt-bound IQ image delivery", () => {
+  afterEach(() => { vi.restoreAllMocks(); Reflect.deleteProperty(HTMLImageElement.prototype, "decode"); });
   beforeEach(() => {
     setFmToken(token);
     refresh.mockReset();
@@ -102,5 +104,70 @@ describe("attempt-bound IQ image delivery", () => {
     expect(URL.createObjectURL).toHaveBeenCalledTimes(1);
     view.unmount();
     expect(URL.revokeObjectURL).toHaveBeenCalledTimes(1);
+  });
+
+  it("shares decoded images across responsive copies and reuses them immediately on return", async () => {
+    const view = render(<IqImageCacheProvider>
+      <IqImageGraphic image={{ src: imageUrl(1), alt: "Desktop" }} />
+      <IqImageGraphic image={{ src: imageUrl(1), alt: "Mobile" }} />
+    </IqImageCacheProvider>);
+    await waitFor(() => expect(screen.getAllByRole("img")).toHaveLength(2));
+    expect(fetch).toHaveBeenCalledTimes(1);
+    view.rerender(<IqImageCacheProvider><span>Next question</span></IqImageCacheProvider>);
+    expect(URL.revokeObjectURL).not.toHaveBeenCalled();
+    view.rerender(<IqImageCacheProvider><IqImageGraphic image={{ src: imageUrl(1), alt: "Returned" }} /></IqImageCacheProvider>);
+    expect(screen.getByRole("img", { name: "Returned" })).toHaveAttribute("src", "blob:iq-fixture");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    view.unmount();
+    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(1);
+  });
+
+  it("waits for decoding before making a preload ready and deduplicates concurrent requests", async () => {
+    let finishDecode!: () => void;
+    Object.defineProperty(HTMLImageElement.prototype, "decode", { configurable: true, value: vi.fn() });
+    vi.spyOn(HTMLImageElement.prototype, "decode").mockImplementation(() => new Promise<void>((resolve) => { finishDecode = resolve; }));
+    const cache = createIqImageCache();
+    const first = cache.load(imageUrl(1));
+    expect(cache.load(imageUrl(1))).toBe(first);
+    await waitFor(() => expect(HTMLImageElement.prototype.decode).toHaveBeenCalledTimes(1));
+    expect(cache.getUrl(imageUrl(1))).toBeUndefined();
+    finishDecode();
+    await expect(first).resolves.toBe("blob:iq-fixture");
+    expect(cache.getUrl(imageUrl(1))).toBe("blob:iq-fixture");
+    expect(fetch).toHaveBeenCalledTimes(1);
+    cache.dispose();
+  });
+
+  it("shows a visible render failure even if a decoded URL remains cached", async () => {
+    const view = render(<IqImageCacheProvider><IqImageGraphic image={{ src: imageUrl(1) }} /></IqImageCacheProvider>);
+    fireEvent.error(await screen.findByRole("img"));
+    await screen.findByText(/Image failed to load|图片加载失败/);
+    expect(screen.queryByRole("img")).toBeNull();
+    view.unmount();
+  });
+
+  it("evicts failed preloads so navigation can retry and keeps attempts separate", async () => {
+    vi.mocked(fetch).mockResolvedValueOnce(new Response(null, { status: 404 }));
+    const cache = createIqImageCache();
+    await expect(cache.load(imageUrl(1))).rejects.toThrow("IQ image unavailable");
+    await expect(cache.load(imageUrl(1))).resolves.toBe("blob:iq-fixture");
+    await cache.load(imageUrl(1).replace("fixture-attempt", "another-attempt"));
+    expect(fetch).toHaveBeenCalledTimes(3);
+    cache.dispose();
+    expect(URL.revokeObjectURL).toHaveBeenCalledTimes(2);
+  });
+
+  it("aborts outstanding preloads when the take session ends and rejects late responses", async () => {
+    let finish!: (response: Response) => void;
+    vi.mocked(fetch).mockImplementationOnce(() => new Promise((resolve) => { finish = resolve; }));
+    const cache = createIqImageCache();
+    const pending = cache.load(imageUrl(1));
+    const signal = vi.mocked(fetch).mock.calls[0]?.[1]?.signal;
+    cache.dispose();
+    finish(imageResponse());
+    await expect(pending).rejects.toThrow();
+    expect(signal?.aborted).toBe(true);
+    expect(cache.getUrl(imageUrl(1))).toBeUndefined();
+    expect(URL.createObjectURL).not.toHaveBeenCalled();
   });
 });

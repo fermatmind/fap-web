@@ -132,6 +132,16 @@ export function IqResultShell({
   const betaStandardScoreNotice = locale === "zh"
     ? viewModel.betaStandardScoreNoticeZh
     : viewModel.betaStandardScoreNoticeEn;
+  const lowerIq = formatMetricValue(viewModel.confidenceInterval?.lower ?? null);
+  const upperIq = formatMetricValue(viewModel.confidenceInterval?.upper ?? null);
+  const hasIqRange = lowerIq !== null && upperIq !== null && Number.isFinite(Number(lowerIq)) && Number.isFinite(Number(upperIq)) && Number(lowerIq) < Number(upperIq);
+  const iqScoreClaim = hasIqRange
+    ? locale === "zh"
+      ? `你的智商分数大概是 ${lowerIq}–${upperIq}`
+      : `Your IQ score lies within a range of ${lowerIq} up to ${upperIq}.`
+    : locale === "zh"
+      ? `你的智商分数大概是 ${iqEstimateText}`
+      : `Your IQ score is approximately ${iqEstimateText}.`;
 
   return (
     <div className="space-y-[var(--fm-gap-md)]" data-testid="iq-result-shell">
@@ -205,7 +215,7 @@ export function IqResultShell({
                 {primaryDisplayLabel}
               </p>
               <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-iq-estimate-value">
-                {iqEstimateText}
+                {iqScoreClaim}
               </p>
             </div>
           ) : (

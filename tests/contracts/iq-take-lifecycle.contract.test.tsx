@@ -409,6 +409,44 @@ describe("IQ take lifecycle contract", () => {
     expect(hoisted.submitIqAttempt.mock.calls[1]?.[0]?.answers).toEqual(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers);
   });
 
+  it("prefetches one question ahead and keeps the answered card visible while a slow delivery is pending", async () => {
+    const nextQuestion = deferredPromise<ReturnType<typeof buildIqAttemptQuestionResponse>>();
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) =>
+      index === 1 ? nextQuestion.promise : Promise.resolve(buildIqAttemptQuestionResponse(index))
+    );
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    await screen.findByText("Find the missing matrix tile.");
+    await waitFor(() => expect(hoisted.getIqAttemptQuestion).toHaveBeenCalledWith(expect.objectContaining({ index: 1 })));
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 250)); });
+    expect(screen.getByText("Find the missing matrix tile.")).toBeInTheDocument();
+    expect(screen.queryByTestId("iq-take-loading-state")).not.toBeInTheDocument();
+    expect(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Next" })).toBeDisabled();
+    expect(hoisted.getIqAttemptQuestion.mock.calls.filter(([args]) => args.index === 1)).toHaveLength(1);
+    await act(async () => { nextQuestion.resolve(buildIqAttemptQuestionResponse(1)); });
+    await screen.findByText("Choose the best continuation.");
+    expect(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })).toBeEnabled();
+  });
+
+  it("preserves the current answer when next-question delivery fails and retries without a full-page reset", async () => {
+    const nextQuestion = deferredPromise<ReturnType<typeof buildIqAttemptQuestionResponse>>();
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) =>
+      index === 1 ? nextQuestion.promise : Promise.resolve(buildIqAttemptQuestionResponse(index))
+    );
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+    fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 250)); });
+    await act(async () => { nextQuestion.reject(new Error("Delivery unavailable")); });
+    expect(await screen.findByTestId("iq-attempt-error")).toHaveTextContent("Delivery unavailable");
+    expect(screen.getByText("Find the missing matrix tile.")).toBeInTheDocument();
+    expect(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })).toHaveAttribute("aria-checked", "true");
+    expect(screen.queryByTestId("iq-take-loading-state")).not.toBeInTheDocument();
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) => Promise.resolve(buildIqAttemptQuestionResponse(index)));
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+    await screen.findByText("Choose the best continuation.");
+  });
+
   it("primes attempt on first selection, advances questions, submits safe IQ answers, and redirects to the localized result path", async () => {
     renderClient();
 

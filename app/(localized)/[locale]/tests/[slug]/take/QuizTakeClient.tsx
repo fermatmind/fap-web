@@ -7,6 +7,8 @@ import takeStyles from "@/components/quiz/AssessmentTake.module.css";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
 import { IqStemSvg } from "@/components/quiz/iq/IqStemSvg";
+import { IqImageCacheProvider, useIqImageCache } from "@/components/quiz/iq/IqImageCache";
+import { isAttemptBoundIqAsset } from "@/lib/iq/imageAsset";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
@@ -389,17 +391,19 @@ export default function QuizTakeClient({
       formCode={resolvedFormCode ?? null}
       initialQuestionIds={questionIds}
     >
-      <QuizTakeInner
-        slug={slug}
-        testTitle={testTitle}
-        scaleCode={scaleCode}
-        formCode={resolvedFormCode}
-        estimatedMinutes={estimatedMinutes}
-        questionCount={questionCount}
-        anonId={anonId}
-        questions={questions}
-        setQuestions={setQuestions}
-      />
+      <IqImageCacheProvider>
+        <QuizTakeInner
+          slug={slug}
+          testTitle={testTitle}
+          scaleCode={scaleCode}
+          formCode={resolvedFormCode}
+          estimatedMinutes={estimatedMinutes}
+          questionCount={questionCount}
+          anonId={anonId}
+          questions={questions}
+          setQuestions={setQuestions}
+        />
+      </IqImageCacheProvider>
     </QuizStoreProvider>
   );
 }
@@ -467,6 +471,10 @@ function QuizTakeInner({
   const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const submitInFlightRef = useRef(false);
   const ownerDeliveryAttemptIdRef = useRef<string | null>(null);
+  const ownerQuestionRequestsRef = useRef(new Map<string, ReturnType<typeof getIqAttemptQuestion>>());
+  const ownerNavigationLockRef = useRef(false);
+  const [ownerNavigationPending, setOwnerNavigationPending] = useState(false);
+  const iqImageCache = useIqImageCache();
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
@@ -639,6 +647,43 @@ function QuizTakeInner({
     recoveringAttemptRef.current = false;
   }, []);
 
+  const requestOwnerQuestion = useCallback((activeAttemptId: string, index: number) => {
+    const key = `${activeAttemptId}:${index}`;
+    const existing = ownerQuestionRequestsRef.current.get(key);
+    if (existing) return existing;
+    const request = getIqAttemptQuestion({ attemptId: activeAttemptId, index, anonId, locale })
+      .catch((error: unknown) => {
+        ownerQuestionRequestsRef.current.delete(key);
+        throw error;
+      });
+    ownerQuestionRequestsRef.current.set(key, request);
+    return request;
+  }, [anonId, locale]);
+
+  const prepareOwnerQuestion = useCallback(async (activeAttemptId: string, index: number) => {
+    const response = await requestOwnerQuestion(activeAttemptId, index);
+    const deliveredQuestion = normalizeIqQuestionsForTake({ items: response.questions.items, locale })[0];
+    if (!deliveredQuestion) throw new Error(resolveUnsupportedQuestionCopy(locale));
+    const sources = [deliveredQuestion.stem?.image?.src, ...deliveredQuestion.options.map((option) => option.image?.src)]
+      .filter((source): source is string => Boolean(source && isAttemptBoundIqAsset(source)));
+    await Promise.all(sources.map((source) => iqImageCache?.load(source)));
+    if (!mountedRef.current || ownerDeliveryAttemptIdRef.current !== activeAttemptId) return;
+    setQuestions((currentQuestions) => {
+      if (currentQuestions[index]) return currentQuestions;
+      const nextQuestions = currentQuestions.slice();
+      nextQuestions[index] = deliveredQuestion;
+      return nextQuestions;
+    });
+  }, [iqImageCache, locale, requestOwnerQuestion, setQuestions]);
+
+  useEffect(() => {
+    const activeAttemptId = ownerDeliveryAttemptIdRef.current;
+    const count = ownerDeliveryQuestionCount ?? questionCount ?? 0;
+    if (!isOwnerOriginalIq || !ownerCurrentQuestionLoaded || !activeAttemptId || currentIndex + 1 >= count) return;
+    // Only the next question is requested ahead; failed preloads are retried when navigating.
+    void prepareOwnerQuestion(activeAttemptId, currentIndex + 1).catch(() => undefined);
+  }, [currentIndex, isOwnerOriginalIq, ownerCurrentQuestionLoaded, ownerDeliveryQuestionCount, prepareOwnerQuestion, questionCount]);
+
   useEffect(() => {
     let active = true;
 
@@ -648,7 +693,7 @@ function QuizTakeInner({
         return;
       }
 
-      if (!isOwnerOriginalIq && questions.length > 0) {
+      if ((!isOwnerOriginalIq && questions.length > 0) || ownerCurrentQuestionLoaded) {
         setQuestionsLoading(false);
         return;
       }
@@ -715,12 +760,9 @@ function QuizTakeInner({
             }));
           }
 
-          const response = await getIqAttemptQuestion({
-            attemptId: activeAttemptId,
-            index: currentIndex,
-            anonId,
-            locale,
-          });
+          ownerDeliveryAttemptIdRef.current = activeAttemptId;
+
+          const response = await requestOwnerQuestion(activeAttemptId, currentIndex);
           payloadBytes = estimatePayloadBytes(response);
 
           if (!active) return;
@@ -861,6 +903,7 @@ function QuizTakeInner({
     matchesSavedAttempt,
     ownerCurrentQuestionLoaded,
     questions.length,
+    requestOwnerQuestion,
     runWithAuthRetry,
     setAttemptMeta,
     setQuestions,
@@ -1491,12 +1534,34 @@ function QuizTakeInner({
   } = useAutoAdvanceFlow({
     currentIndex,
     total,
-    onMove: (index) => jump(index, total),
+    onMove: (index) => {
+      if (!isOwnerOriginalIq) {
+        jump(index, total);
+        return;
+      }
+      const activeAttemptId = ownerDeliveryAttemptIdRef.current;
+      if (!activeAttemptId || ownerNavigationLockRef.current) return;
+      ownerNavigationLockRef.current = true;
+      setOwnerNavigationPending(true);
+      setAttemptError(null);
+      void prepareOwnerQuestion(activeAttemptId, index)
+        .then(() => {
+          if (mountedRef.current && ownerDeliveryAttemptIdRef.current === activeAttemptId) jump(index, total);
+        })
+        .catch((error: unknown) => {
+          if (mountedRef.current) setAttemptError(toUiError(error, "Failed to load the next question.", locale).message);
+        })
+        .finally(() => {
+          ownerNavigationLockRef.current = false;
+          if (mountedRef.current) setOwnerNavigationPending(false);
+        });
+    },
     onLast: handleSubmitWithOverlay,
     confirmDelayMs: 200,
     enterDurationMs: 280,
     lockDuringTransition: isMbtiScaleCode(normalizedScaleCode) || isIqScale,
   });
+  const iqTransitioning = isTransitioning || ownerNavigationPending;
 
   useEffect(() => {
     cancelAutoAdvanceRef.current = cancelPending;
@@ -1612,11 +1677,11 @@ function QuizTakeInner({
           total={total}
           answered={answeredCount}
           previousLabel={dict.quiz.immersive.previous}
-          previousDisabled={currentIndex === 0 || submitting || submitOverlayVisible}
+          previousDisabled={currentIndex === 0 || submitting || submitOverlayVisible || (isIqScale && iqTransitioning)}
           onPrevious={goPrevious}
           transitionKey={question.id}
-          transitionDirection={transitionDirection}
-          isTransitioning={isTransitioning}
+          transitionDirection={isIqScale ? "none" : transitionDirection}
+          isTransitioning={!isIqScale && isTransitioning}
           headerSlot={
             <QuizTakeHeaderV2
               appearance={focusedAssessment ? "focused" : "default"}
@@ -1654,12 +1719,12 @@ function QuizTakeInner({
                     onClick={() => {
                       void handleSubmitWithOverlay();
                     }}
-                    disabled={!iqCanSubmit || isTransitioning}
+                    disabled={!iqCanSubmit || iqTransitioning}
                   >
                     {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
                   </Button>
                 ) : (
-                  <Button type="button" onClick={goNext} disabled={!iqCanContinue || isTransitioning}>
+                  <Button type="button" onClick={goNext} disabled={!iqCanContinue || iqTransitioning}>
                     {dict.quiz.iq.next}
                   </Button>
                 )}
@@ -1705,7 +1770,7 @@ function QuizTakeInner({
                 value={selectedOptionId}
                 locale={locale}
                 noOptionsLabel={dict.quiz.immersive.noOptions}
-                disabled={isTransitioning || submitting || submitOverlayVisible}
+                disabled={iqTransitioning || submitting || submitOverlayVisible}
                 onChange={(code) => selectAndAdvance(() => {
                   handleAnswerSelection(question.id, code);
                 }, { questionId: question.id, code })}
@@ -1760,7 +1825,7 @@ function QuizTakeInner({
                 )}
               </div>
             ) : null}
-            {!focusedAssessment && isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
+            {!focusedAssessment && ((isMbtiScaleCode(normalizedScaleCode) && isTransitioning) || (isIqScale && iqTransitioning)) ? (
               <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
                 {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
               </p>
@@ -1837,7 +1902,7 @@ function QuizTakeInner({
             value={selectedOptionId}
             locale={locale}
             noOptionsLabel={dict.quiz.immersive.noOptions}
-            disabled={isTransitioning || submitting || submitOverlayVisible}
+            disabled={iqTransitioning || submitting || submitOverlayVisible}
             onChange={(code) => selectAndAdvance(() => {
               handleAnswerSelection(question.id, code);
             }, { questionId: question.id, code })}
@@ -1878,7 +1943,7 @@ function QuizTakeInner({
           />
         )}
 
-        {isMbtiScaleCode(normalizedScaleCode) && isTransitioning ? (
+        {((isMbtiScaleCode(normalizedScaleCode) && isTransitioning) || (isIqScale && iqTransitioning)) ? (
           <p className="m-0 text-sm font-medium text-[var(--fm-text-muted)]" role="status" aria-live="polite">
             {locale === "zh" ? "答案已记录，正在进入下一题…" : "Answer recorded. Moving to the next question…"}
           </p>
@@ -1910,7 +1975,7 @@ function QuizTakeInner({
         <Button
           type="button"
           onClick={goPrevious}
-          disabled={currentIndex === 0 || submitting}
+          disabled={currentIndex === 0 || submitting || (isIqScale && iqTransitioning)}
           variant="outline"
         >
           {dict.quiz.immersive.previous}
@@ -1936,12 +2001,12 @@ function QuizTakeInner({
                 onClick={() => {
                   void handleSubmitWithOverlay();
                 }}
-                disabled={!iqCanSubmit || isTransitioning}
+                disabled={!iqCanSubmit || iqTransitioning}
               >
                 {resolveSubmitLabel(locale, submitting, dict.quiz.iq.submit)}
               </Button>
             ) : (
-              <Button type="button" onClick={goNext} disabled={!iqCanContinue || isTransitioning}>
+              <Button type="button" onClick={goNext} disabled={!iqCanContinue || iqTransitioning}>
                 {dict.quiz.iq.next}
               </Button>
             )}

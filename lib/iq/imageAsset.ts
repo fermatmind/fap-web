@@ -52,3 +52,61 @@ export async function fetchIqImageBlob(src: string, signal: AbortSignal): Promis
     },
   });
 }
+
+// One take-page session owns these URLs. They never enter browser storage or a global cache.
+export function createIqImageCache() {
+  const entries = new Map<string, {
+    controller: AbortController;
+    promise: Promise<string>;
+    url?: string;
+    ready: boolean;
+    timeout: ReturnType<typeof setTimeout>;
+  }>();
+
+  return {
+    getUrl(src: string): string | undefined {
+      const entry = entries.get(src);
+      return entry?.ready ? entry.url : undefined;
+    },
+    load(src: string): Promise<string> {
+      const existing = entries.get(src);
+      if (existing) return existing.promise;
+
+      const controller = new AbortController();
+      const entry = { controller, ready: false } as {
+        controller: AbortController; promise: Promise<string>; url?: string; ready: boolean;
+        timeout: ReturnType<typeof setTimeout>;
+      };
+      entry.timeout = setTimeout(() => controller.abort(), 15000);
+      entry.promise = fetchIqImageBlob(src, controller.signal)
+        .then(async (blob) => {
+          controller.signal.throwIfAborted();
+          entry.url = URL.createObjectURL(blob);
+          const image = new Image();
+          image.src = entry.url;
+          if (typeof image.decode === "function") await image.decode();
+          controller.signal.throwIfAborted();
+          entry.ready = true;
+          return entry.url;
+        })
+        .catch((error: unknown) => {
+          if (entry.url) URL.revokeObjectURL(entry.url);
+          entry.url = undefined;
+          if (entries.get(src) === entry) entries.delete(src);
+          throw error;
+        })
+        .finally(() => clearTimeout(entry.timeout));
+      entries.set(src, entry);
+      return entry.promise;
+    },
+    dispose() {
+      for (const entry of entries.values()) {
+        entry.controller.abort();
+        clearTimeout(entry.timeout);
+        if (entry.url) URL.revokeObjectURL(entry.url);
+        entry.url = undefined;
+      }
+      entries.clear();
+    },
+  };
+}
