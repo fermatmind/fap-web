@@ -286,13 +286,15 @@ function resolveSummaryMetric(
   const reportPayloadSummary = asRecord(reportPayload?.summary);
   const resultPayload = asRecord(resultData?.result);
   const topResult = asRecord(resultData);
+  const resultNormedJson = asRecord(resultPayload?.normed_json) ?? asRecord(topResult?.normed_json);
 
   return normalizeMetricValue(
     reportSummary?.[field] ??
       reportPayloadSummary?.[field] ??
       topResult?.[field] ??
       resultPayload?.[field] ??
-      reportPayload?.[field]
+      reportPayload?.[field] ??
+      resultNormedJson?.[field]
   );
 }
 
@@ -922,7 +924,12 @@ function getIqInterpretationMessage({
     : "Dimension results describe the structure of performance in this test, not total human ability.";
 }
 
-function getRawScoreOnlyMethodBoundaryMessage(locale: Locale): string {
+function getRawScoreOnlyMethodBoundaryMessage(locale: Locale, hasBetaStandardScore: boolean): string {
+  if (hasBetaStandardScore) {
+    return locale === "zh"
+      ? "当前展示本次 30 题原始推理得分和 Beta 标准分；合规常模接入前不做正式 IQ 数值或人群排名解释。"
+      : "This 30-item result shows the raw reasoning score and beta standard score; a formal IQ value or population rank requires a compliant norm table.";
+  }
   return locale === "zh"
     ? "当前仅展示本次 30 题原始推理得分；合规常模接入前不做数值化智商声明或人群排名解释。"
     : "This 30-item result currently shows only the raw reasoning score; no normed score or population-rank interpretation is shown until a compliant norm table is available.";
@@ -1041,7 +1048,7 @@ function buildReportModuleViewModel({
     suppressNormClaims,
     lockedMessage: locked ? stateCopy.message : null,
     boundaryMessage: suppressNormClaims
-      ? getRawScoreOnlyMethodBoundaryMessage(locale)
+      ? getRawScoreOnlyMethodBoundaryMessage(locale, hasBetaStandardScore)
       : getIqMethodBoundaryMessage(locale),
     interpretationMessage: suppressNormClaims
       ? getRawScoreOnlyInterpretationMessage(locale)

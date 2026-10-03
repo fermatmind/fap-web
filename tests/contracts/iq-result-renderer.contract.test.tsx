@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
-import type { ReportResponse } from "@/lib/api/v0_3";
+import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { IQ_BETA_50_BANK_ID } from "@/lib/iq/constants";
 import { buildIqResultViewModel } from "@/lib/iq/result";
@@ -319,6 +319,37 @@ function createNestedOwnerRawScoreOnlyReportData(): ReportResponse {
 }
 
 describe("IQ result renderer contract", () => {
+  it.each(["en", "zh"] as const)("shows the backend beta score from the live result normed_json shape in %s", (locale) => {
+    const resultData = {
+      ok: true,
+      result: {
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        raw_score: 3,
+        normed_json: {
+          bank_id: "IQ_OWNER_ORIGINAL_30",
+          raw_score: 3,
+          beta_standard_score: 85,
+          beta_standard_score_status: "simulation_calibrated_beta",
+          norms: { iq_estimate: null, claim_policy: { claim_eligible: false, score_claim_level: "raw_score_only" } },
+        },
+      },
+    } as unknown as ResultResponse;
+    render(<IqResultShell locale={locale} reportData={null} resultData={resultData} accessView={createAccessView()} />);
+    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("85");
+    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent(locale === "zh"
+      ? "智商测试标准分（Beta）"
+      : "IQ Test Standard Score (Beta)");
+    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("3");
+    expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+  });
+
+  it("keeps report summary scores authoritative over result normed_json", () => {
+    const resultData = { ok: true, result: { normed_json: { beta_standard_score: 85 } } } as unknown as ResultResponse;
+    const model = buildIqResultViewModel({ locale: "en", reportData: createOwnerBetaStandardScoreReportData(), resultData, accessView: createAccessView() });
+    expect(model.primaryDisplayScore).toBe(129);
+  });
+
   it.each(["en", "zh"] as const)("uses the authorized point estimate when a %s report has no interval", (locale) => {
     const original = createOwnerClaimEligibleReportData();
     const reportData = {
