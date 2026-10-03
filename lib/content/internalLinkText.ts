@@ -7,7 +7,7 @@ export type InternalLinkTextPart =
   | { type: "link"; href: string; label: string };
 
 const INTERNAL_PATH_RE =
-  /\/(?:(?:zh|en)\/)?(?:articles|tests|science|career|personality|topics|method-boundaries|reliability-validity|item-design-notes|common-misconceptions|data-privacy|help|support|business)(?:\/[A-Za-z0-9._~:/?#@!$&'*+,;=%-]+)?/g;
+  /(?<![A-Za-z0-9_./:@?=&%#-])\/(?:(?:zh|en)\/)?(?:articles|tests|science|career|personality|topics|method-boundaries|reliability-validity|item-design-notes|common-misconceptions|data-privacy|help|support|business)(?:\/[A-Za-z0-9._~:/?#@!$&'*+,;=%-]+)?/g;
 
 const TRAILING_PUNCTUATION_RE = /[。．，,、；;：:！？!?）)\]】》>]+$/;
 

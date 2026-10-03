@@ -3,6 +3,7 @@ import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
+import { extractInternalPaths, splitInternalLinkText } from "@/lib/content/internalLinkText";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 
 describe("article internal link anchor text", () => {
@@ -72,6 +73,29 @@ describe("article internal link anchor text", () => {
     expect(html).not.toContain(">/zh/articles/career-interest-vs-personality-test-differences<");
     expect(html).not.toContain(">/zh/tests/mbti-personality-test-16-personality-types<");
     expect(html).not.toContain(">/zh/method-boundaries<");
+  });
+
+  it("preserves external URL paths and slash-separated prose as text", () => {
+    const text = "https://www.themyersbriggs.com/en-us/support/mbti-facts Finance/business //example.com/support/help https://pmc.ncbi.nlm.nih.gov/articles/PMC10844202/ 10.1126/science.1234567";
+    expect(extractInternalPaths(text)).toEqual([]);
+    expect(splitInternalLinkText(text, {}, "en")).toEqual([{ type: "text", text }]);
+    const html = renderToStaticMarkup(<>{renderSimpleMarkdown(text, { locale: "en" })}</>);
+    expect(html).not.toContain("<a ");
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+    expect(reader.textContent).toBe(text);
+    expect(html).toContain("Finance/business");
+    expect(sanitizeCmsHtml(`<p>${text}</p>`, { locale: "en" })).not.toContain("<a ");
+  });
+
+  it("still links standalone root paths after punctuation and preserves explicit external links", () => {
+    expect(extractInternalPaths("阅读：/zh/articles/mbti-basics； (/en/tests/holland-career-interest-test-riasec)"))
+      .toEqual(["/zh/articles/mbti-basics", "/en/tests/holland-career-interest-test-riasec"]);
+    const html = renderToStaticMarkup(<>{renderSimpleMarkdown(
+      "[MBTI facts](https://www.themyersbriggs.com/en-us/support/mbti-facts)", { locale: "en" }
+    )}</>);
+    expect(html).toContain('<a href="https://www.themyersbriggs.com/en-us/support/mbti-facts"');
+    expect(html).not.toContain('<a href="/support/mbti-facts"');
   });
 
   it("renders bare CMS HTML internal paths as descriptive links without nesting existing anchors", () => {
