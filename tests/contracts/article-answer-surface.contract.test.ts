@@ -483,6 +483,14 @@ describe("article FAQ body copies", () => {
     expect(faq).toHaveLength(2);
   });
 
+  it("matches FAQ answers using the same visible footnote and link rendering as the body", () => {
+    const faq = [{ question: "Can traits change?", answer: "Traits can change.[^4] Read [the evidence](https://example.com/research)." }];
+    expect(excludeFaqCopiesInMarkdown(faq, "### Can traits change?\n\nTraits can change.[^4] Read [the evidence](https://example.com/research)."))
+      .toEqual([]);
+    expect(excludeFaqCopiesInMarkdown(faq, "### Can traits change?\n\nTraits cannot change.[^4] Read [the evidence](https://example.com/research)."))
+      .toEqual(faq);
+  });
+
   it("preserves partial answers and unsupported answer blocks", () => {
     const faq = [{ question: "What helps?", answer: "Practice safely." }];
     expect(excludeFaqCopiesInMarkdown(faq, "### What helps?\n\nPractice safely. More context." )).toEqual(faq);

@@ -611,5 +611,5 @@ export function excludeFaqCopiesInMarkdown<T extends { question: string; answer:
     existing.add(normalizeText(answers.join(" ")));
     pairs.set(question, existing);
   });
-  return faqItems.filter((item) => !pairs.get(normalizeText(item.question))?.has(normalizeText(item.answer)));
+  return faqItems.filter((item) => !pairs.get(text(item.question))?.has(text(item.answer)));
 }
