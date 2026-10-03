@@ -25,6 +25,10 @@ describe("canonical domain redirect contract", () => {
       destination: "https://fermatmind.com/:path*",
       permanent: true,
     });
-    expect(redirects[1]?.source).toBe("/tests");
+    expect(redirects).toContainEqual({
+      source: "/tests",
+      destination: "/en/tests",
+      permanent: true,
+    });
   });
 });

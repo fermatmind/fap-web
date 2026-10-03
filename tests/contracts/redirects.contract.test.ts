@@ -7,7 +7,8 @@ const ROOT = process.cwd();
 type RedirectRule = {
   source: string;
   destination: string;
-  permanent: boolean;
+  permanent?: boolean;
+  statusCode?: number;
 };
 
 async function loadRedirects(): Promise<RedirectRule[]> {
@@ -89,6 +90,43 @@ describe("legacy redirect hygiene contract", () => {
         }),
       ])
     );
+  });
+
+  it("migrates only the seven verified historical test URLs directly with 301 before the root locale redirect", async () => {
+    const redirects = await loadRedirects();
+    const rootFallbackIndex = redirects.findIndex((rule) => rule.source === "/tests/:path*");
+    for (const [source, slug] of [
+      ["/en/tests/mbti-personality-test-16-personality-types-MBTI", "mbti-personality-test-16-personality-types"],
+      ["/tests/mbti-personality-test-16-personality-types-MBTI", "mbti-personality-test-16-personality-types"],
+      ["/tests/big-five-personality-test-ocean-model-大五人格", "big-five-personality-test-ocean-model"],
+      ["/tests/enneagram-personality-test-nine-types-九型人格", "enneagram-personality-test-nine-types"],
+      ["/tests/eq-test-emotional-intelligence-assessment-情商测试", "eq-test-emotional-intelligence-assessment"],
+      ["/tests/holland-career-interest-test-riasec-霍兰德职业兴趣测试", "holland-career-interest-test-riasec"],
+      ["/tests/iq-test-intelligence-quotient-assessment-智商测试", "iq-test-intelligence-quotient-assessment"],
+    ]) {
+      const encodedSource = encodeURI(source);
+      expect(redirects.filter((rule) => rule.source === encodedSource)).toEqual([{
+        source: encodedSource,
+        destination: `/en/tests/${slug}`,
+        statusCode: 301,
+      }]);
+      expect(redirects.findIndex((rule) => rule.source === encodedSource)).toBeLessThan(rootFallbackIndex);
+    }
+    expect(redirects.some((rule) => rule.source.includes("tests/") && rule.source.includes("大五人格"))).toBe(false);
+    expect(redirects.some((rule) => rule.source === "/tests/:slug-:suffix")).toBe(false);
+  });
+
+  it("keeps the five historical RIASEC articles absent without an evidenced equivalent publication", async () => {
+    const redirects = await loadRedirects();
+    for (const slug of [
+      "what-is-holland-code-career-interest-test",
+      "what-is-riasec-holland-card-career-interest-test",
+      "what-is-riasec-holland-code-career-interest-filter",
+      "what-is-riasec-holland-code-career-interest-target",
+      "what-riasec-holland-code-career-interest-test",
+    ]) {
+      expect(redirects.some((rule) => rule.source === `/en/articles/${slug}`)).toBe(false);
+    }
   });
 
   it("does not redirect bot probe paths from GSC 404 samples", async () => {

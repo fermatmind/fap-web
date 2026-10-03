@@ -130,6 +130,22 @@ const bigFiveLegacyExact301Redirects = [
   }))
 );
 
+// Verified historical test identities. Root /tests has always selected English;
+// strip only these observed suffixes and redirect straight to the public detail.
+const historicalTestExact301Redirects = [
+  ["/en/tests/mbti-personality-test-16-personality-types-MBTI", "mbti-personality-test-16-personality-types"],
+  ["/tests/mbti-personality-test-16-personality-types-MBTI", "mbti-personality-test-16-personality-types"],
+  ["/tests/big-five-personality-test-ocean-model-大五人格", "big-five-personality-test-ocean-model"],
+  ["/tests/enneagram-personality-test-nine-types-九型人格", "enneagram-personality-test-nine-types"],
+  ["/tests/eq-test-emotional-intelligence-assessment-情商测试", "eq-test-emotional-intelligence-assessment"],
+  ["/tests/holland-career-interest-test-riasec-霍兰德职业兴趣测试", "holland-career-interest-test-riasec"],
+  ["/tests/iq-test-intelligence-quotient-assessment-智商测试", "iq-test-intelligence-quotient-assessment"],
+].map(([source, canonicalSlug]) => ({
+  source: encodeURI(source),
+  destination: `/en/tests/${canonicalSlug}`,
+  statusCode: 301,
+}));
+
 const nextConfig = {
   env: { FERMATMIND_LLMS_FULL_GENERATOR_VERSION: llmsGeneratorFingerprint() },
   agentRules: false,
@@ -280,6 +296,7 @@ const nextConfig = {
         destination: "https://fermatmind.com/:path*",
         permanent: true,
       },
+      ...historicalTestExact301Redirects,
       {
         source: "/tests",
         destination: "/en/tests",
