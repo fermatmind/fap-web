@@ -5,6 +5,7 @@ import { runWithGuestTokenRetry } from "@/lib/auth/authRetry";
 import { getFmToken } from "@/lib/auth/fmToken";
 
 const OWNER_ASSET_PREFIX = "/api/v0.3/iq-owner-original-30/assets/";
+const IQ_IMAGE_CONTENT_TYPES = new Set(["image/webp", "image/png", "image/jpeg"]);
 
 export function isAttemptBoundIqAsset(src: string): boolean {
   try {
@@ -32,7 +33,7 @@ export async function fetchIqImageBlob(src: string, signal: AbortSignal): Promis
       signal.throwIfAborted();
       const token = getFmToken();
       const response = await fetch(url.href, {
-        headers: { Accept: "image/webp", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+        headers: { Accept: "image/webp,image/png,image/jpeg", ...(token ? { Authorization: `Bearer ${token}` } : {}) },
         signal,
         cache: "no-store",
         redirect: "error",
@@ -44,7 +45,7 @@ export async function fetchIqImageBlob(src: string, signal: AbortSignal): Promis
           message: "IQ image unavailable.",
         });
       }
-      if (response.headers.get("Content-Type")?.split(";")[0].trim() !== "image/webp") {
+      if (!IQ_IMAGE_CONTENT_TYPES.has(response.headers.get("Content-Type")?.split(";")[0].trim().toLowerCase() ?? "")) {
         throw new Error("Invalid IQ image response.");
       }
       return response.blob();

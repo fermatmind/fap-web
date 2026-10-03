@@ -70,6 +70,15 @@ describe("attempt-bound IQ image delivery", () => {
     expect(fetch).toHaveBeenCalledWith(expect.stringContaining(window.location.origin), expect.objectContaining({ headers: expect.objectContaining({ Authorization: `Bearer ${token}` }) }));
   });
 
+  it("loads PNG stems and JPEG assets while rejecting active SVG responses", async () => {
+    for (const type of ["image/png", "image/jpeg"]) {
+      vi.mocked(fetch).mockResolvedValueOnce(new Response(new Blob([type]), { headers: { "Content-Type": type } }));
+      await expect(fetchIqImageBlob(imageUrl(8, "q8-question.png"), new AbortController().signal)).resolves.toBeInstanceOf(Blob);
+    }
+    vi.mocked(fetch).mockResolvedValueOnce(new Response("<svg />", { headers: { "Content-Type": "image/svg+xml" } }));
+    await expect(fetchIqImageBlob(imageUrl(1), new AbortController().signal)).rejects.toThrow("Invalid IQ image response");
+  });
+
   it("shows a visible failure for denied or non-image responses", async () => {
     for (const response of [new Response(null, { status: 404 }), new Response("{}", { headers: { "Content-Type": "application/json" } })]) {
       vi.mocked(fetch).mockResolvedValueOnce(response);
