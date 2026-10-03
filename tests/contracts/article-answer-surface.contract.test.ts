@@ -491,6 +491,14 @@ describe("article FAQ body copies", () => {
       .toEqual(faq);
   });
 
+  it("deduplicates numbered FAQ headings while preserving different answers", () => {
+    const faq = [{ question: "大五分数会不会变？", answer: "可能变化。" }];
+    expect(excludeFaqCopiesInMarkdown(faq, "### Q1：大五分数会不会变？\n\n可能变化。"))
+      .toEqual([]);
+    expect(excludeFaqCopiesInMarkdown(faq, "### Q1：大五分数会不会变？\n\n需要更多证据。"))
+      .toEqual(faq);
+  });
+
   it("preserves partial answers and unsupported answer blocks", () => {
     const faq = [{ question: "What helps?", answer: "Practice safely." }];
     expect(excludeFaqCopiesInMarkdown(faq, "### What helps?\n\nPractice safely. More context." )).toEqual(faq);

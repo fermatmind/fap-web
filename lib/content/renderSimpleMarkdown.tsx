@@ -606,7 +606,7 @@ export function excludeFaqCopiesInMarkdown<T extends { question: string; answer:
       answers.push(text(answer.text));
     }
     if (!answers.length) return;
-    const question = text(block.text);
+    const question = text(block.text).replace(/^Q\d+\s*[:：]\s*/i, "");
     const existing = pairs.get(question) ?? new Set<string>();
     existing.add(normalizeText(answers.join(" ")));
     pairs.set(question, existing);
