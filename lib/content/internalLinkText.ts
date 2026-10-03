@@ -9,7 +9,7 @@ export type InternalLinkTextPart =
 const INTERNAL_PATH_RE =
   /(?<![A-Za-z0-9_./:@?=&%#-])\/(?:(?:zh|en)\/)?(?:articles|tests|science|career|personality|topics|method-boundaries|reliability-validity|item-design-notes|common-misconceptions|data-privacy|help|support|business)(?:\/[A-Za-z0-9._~:/?#@!$&'*+,;=%-]+)?/g;
 
-const TRAILING_PUNCTUATION_RE = /[。．，,、；;：:！？!?）)\]】》>]+$/;
+const TRAILING_PUNCTUATION_RE = /[.。．，,、；;：:！？!?）)\]】》>]+$/;
 
 const ZH_TEST_LABELS: Record<string, string> = {
   "big-five-personality-test-ocean-model": "大五人格免费测试",

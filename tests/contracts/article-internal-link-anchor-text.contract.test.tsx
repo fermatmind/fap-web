@@ -98,6 +98,30 @@ describe("article internal link anchor text", () => {
     expect(html).not.toContain('<a href="/support/mbti-facts"');
   });
 
+  it("preserves citations beside bilingual paths and attributed test links", () => {
+    const target = "/en/tests/holland-career-interest-test-riasec?content_id=199&entrypoint=seo_cta";
+    const text = [
+      "Finance/business https://doi.org/10.1177/1745691616635612",
+      "阅读：/zh/articles/mbti-basics。",
+      "Read /en/articles/iq-test-growth-guide.",
+      `[Holland test](${target})`,
+      "[Research](https://pubmed.ncbi.nlm.nih.gov/33332604/)",
+    ].join("\n\n");
+    const html = renderToStaticMarkup(<>{renderSimpleMarkdown(text, { locale: "en" })}</>);
+    const reader = document.createElement("div");
+    reader.innerHTML = html;
+    const anchors = Array.from(reader.querySelectorAll("a"));
+
+    expect(anchors.map((anchor) => anchor.getAttribute("href"))).toEqual([
+      "/zh/articles/mbti-basics",
+      "/en/articles/iq-test-growth-guide",
+      target,
+      "https://pubmed.ncbi.nlm.nih.gov/33332604/",
+    ]);
+    expect(reader.textContent).toContain("Finance/business https://doi.org/10.1177/1745691616635612");
+    expect(reader.querySelector("a a")).toBeNull();
+  });
+
   it("renders bare CMS HTML internal paths as descriptive links without nesting existing anchors", () => {
     const html = sanitizeCmsHtml(
       [
