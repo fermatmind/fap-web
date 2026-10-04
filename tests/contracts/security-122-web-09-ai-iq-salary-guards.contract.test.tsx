@@ -261,7 +261,7 @@ describe("SECURITY-122-WEB-09 AI/IQ/salary public exposure guards", () => {
       />
     );
 
-    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30-item reasoning score: 26/30");
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("26/30");
     expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();

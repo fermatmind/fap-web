@@ -2,347 +2,172 @@
 
 import { Alert } from "@/components/ui/alert";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { IqReportModule } from "@/components/result/iq/IqReportModule";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
-import { buildIqResultViewModel, type IqResultMetricValue } from "@/lib/iq/result";
+import { buildIqResultViewModel } from "@/lib/iq/result";
+import { buildIqResultPresentation, type IqPerformanceDimension } from "@/lib/iq/presentation";
 import type { Locale } from "@/lib/i18n/locales";
 
-function formatMetricValue(value: IqResultMetricValue): string | null {
-  if (value === null || value === undefined) {
-    return null;
-  }
-
-  if (typeof value === "number") {
-    return Number.isInteger(value) ? String(value) : value.toFixed(1);
-  }
-
-  const normalized = value.trim();
-  return normalized || null;
+function percent(value: number | null): string {
+  if (value === null) return "—";
+  // Keep rare percentiles readable; 0.5 on a 0–100 scale must remain 0.5%.
+  if (value > 0 && value < 0.01) return "<0.01%";
+  if (value > 99.99 && value < 100) return ">99.99%";
+  return `${Number(value.toFixed(value < 1 || value > 99 ? 2 : 1))}%`;
 }
 
-function formatPercentValue(value: IqResultMetricValue): string | null {
-  if (value === null || value === undefined) {
-    return null;
-  }
-
-  if (typeof value === "number") {
-    const normalized = value >= 0 && value <= 1 ? value * 100 : value;
-    const rounded = Math.round(normalized * 10) / 10;
-    return `${Number.isInteger(rounded) ? rounded : rounded.toFixed(1)}%`;
-  }
-
-  const trimmed = value.trim();
-  if (!trimmed) {
-    return null;
-  }
-
-  return trimmed.includes("%") ? trimmed : `${trimmed}%`;
+function duration(value: number | null): string {
+  if (value === null) return "—";
+  const seconds = Math.floor(value / 1000);
+  return `${Math.floor(seconds / 60).toString().padStart(2, "0")}:${(seconds % 60).toString().padStart(2, "0")}`;
 }
 
-function formatConfidenceInterval({
-  lower,
-  upper,
-  level,
-}: {
-  lower: IqResultMetricValue;
-  upper: IqResultMetricValue;
-  level: string | null;
-}): string | null {
-  const lowerText = formatMetricValue(lower);
-  const upperText = formatMetricValue(upper);
-
-  if (!lowerText && !upperText && !level) {
-    return null;
-  }
-
-  const range = lowerText && upperText
-    ? `${lowerText} - ${upperText}`
-    : lowerText ?? upperText ?? "";
-
-  return level ? `${range}${range ? " · " : ""}${level}` : range;
-}
-
-function formatRawScoreClaim({
-  locale,
-  rawScore,
-  denominator,
-}: {
-  locale: Locale;
-  rawScore: string | null;
-  denominator: string | null;
-}): string {
-  const label = locale === "zh" ? "30题推理得分" : "30-item reasoning score";
-  const separator = locale === "zh" ? "：" : ": ";
-  const score = rawScore ?? "—";
-  return denominator ? `${label}${separator}${score}/${denominator}` : `${label}${separator}${score}`;
-}
-
-function renderMetricRow({
-  label,
-  value,
-  testId,
-}: {
-  label: string;
-  value: string | null;
-  testId?: string;
-}) {
-  if (!value) {
-    return null;
-  }
-
+function ScoreGauge({ score, locale }: { score: number | null; locale: Locale }) {
+  const progress = score === null ? null : (score - 55) / 90;
+  const angle = progress === null ? null : Math.PI * (1 - progress);
+  const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
   return (
-    <div className="flex flex-col items-start justify-between gap-1.5 text-sm sm:flex-row sm:items-center sm:gap-4" data-testid={testId}>
-      <dt className="text-[var(--fm-text-muted)]">{label}</dt>
-      <dd className="font-semibold text-[var(--fm-text)] sm:text-right">{value}</dd>
-    </div>
+    <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
+      aria-label={locale === "zh" ? `IQ得分：${score ?? "待估计"}，显示范围55至145` : `IQ score: ${score ?? "not available"}, display range 55 to 145`}>
+      <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
+      {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
+        stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
+        className="transition-[stroke-dasharray] duration-500 motion-reduce:transition-none" /> : null}
+      {[55, 70, 85, 100, 115, 130, 145].map((tick) => {
+        const tickAngle = Math.PI * (1 - (tick - 55) / 90);
+        return <text key={tick} x={160 + 142 * Math.cos(tickAngle)} y={165 - 142 * Math.sin(tickAngle)}
+          textAnchor="middle" fill="var(--fm-text-muted)" fontSize="11">{tick}</text>;
+      })}
+      {needle ? <g stroke="var(--fm-accent)" strokeWidth="2.5">
+        <line x1="160" y1="160" x2={needle.x} y2={needle.y} />
+        <circle cx="160" cy="160" r="5" fill="var(--fm-surface)" />
+      </g> : null}
+      <text x="160" y="218" textAnchor="middle" fill="var(--fm-text)" fontSize="46" fontWeight="650" data-testid="iq-standard-score-value">{score ?? "—"}</text>
+    </svg>
   );
 }
 
-export function IqResultShell({
-  locale,
-  reportData,
-  resultData,
-  accessView,
-}: {
+const LABELS = {
+  zh: { VSPR: "空间模式", VSI: "空间洞察", NPR: "数字规律" },
+  en: { VSPR: "Spatial patterns", VSI: "Spatial insight", NPR: "Number patterns" },
+};
+
+function point(index: number, fraction: number): [number, number] {
+  const angle = (-90 + index * 120) * Math.PI / 180;
+  return [220 + 97 * fraction * Math.cos(angle), 155 + 97 * fraction * Math.sin(angle)];
+}
+
+function polygon(fractions: number[]): string {
+  return fractions.map((fraction, index) => point(index, fraction).map((value) => value.toFixed(2)).join(",")).join(" ");
+}
+
+function PerformanceRadar({ dimensions, locale }: { dimensions: IqPerformanceDimension[]; locale: Locale }) {
+  const complete = dimensions.every((dimension) => dimension.percentCorrect !== null);
+  const labels = [[220, 27], [353, 220], [87, 220]];
+  return (
+    <svg viewBox="0 0 440 280" className="mx-auto w-full max-w-[520px]" role="img"
+      aria-label={locale === "zh" ? "三维推理表现雷达图，展示本次答题正确率" : "Three-dimension reasoning radar showing accuracy on this attempt"}>
+      {[0.25, 0.5, 0.75, 1].map((fraction) => (
+        <polygon key={fraction} points={polygon([fraction, fraction, fraction])} fill="none" stroke="var(--fm-border)" />
+      ))}
+      {dimensions.map((dimension, index) => {
+        const endpoint = point(index, 1);
+        return <g key={dimension.code}>
+          <line x1="220" y1="155" x2={endpoint[0]} y2={endpoint[1]} stroke="var(--fm-border)" />
+          <text x={labels[index][0]} y={labels[index][1]} textAnchor="middle" fill="var(--fm-text-muted)" fontSize="12">{LABELS[locale][dimension.code]}</text>
+          <text x={labels[index][0]} y={labels[index][1] + 20} textAnchor="middle" fill="var(--fm-accent)" fontSize="14" fontWeight="600">{percent(dimension.percentCorrect)}</text>
+        </g>;
+      })}
+      {complete ? <g data-testid="iq-radar-values">
+        <polygon points={polygon(dimensions.map((dimension) => dimension.percentCorrect! / 100))}
+          fill="var(--fm-accent)" fillOpacity="0.13" stroke="var(--fm-accent)" strokeWidth="2" />
+        {dimensions.map((dimension, index) => {
+          const location = point(index, dimension.percentCorrect! / 100);
+          return <circle key={dimension.code} cx={location[0]} cy={location[1]} r="3.5" fill="var(--fm-accent)" />;
+        })}
+      </g> : null}
+    </svg>
+  );
+}
+
+export function IqResultShell({ locale, reportData, resultData, accessView }: {
   locale: Locale;
   reportData: ReportResponse | null;
   resultData: ResultResponse | null;
   accessView: AttemptReportAccessView | null;
 }) {
-  const viewModel = buildIqResultViewModel({
-    locale,
-    reportData,
-    resultData,
-    accessView,
-  });
-
-  const confidenceIntervalText = viewModel.confidenceInterval
-    ? formatConfidenceInterval(viewModel.confidenceInterval)
-    : null;
-  const iqEstimateText = formatMetricValue(viewModel.iqEstimate);
-  const primaryDisplayScoreText = formatMetricValue(viewModel.primaryDisplayScore);
-  const rawScoreText = formatMetricValue(viewModel.rawScore);
-  const rawScoreDenominatorText = formatMetricValue(viewModel.claimPolicy.rawScoreDenominator);
-  const rawScoreOnly = viewModel.claimPolicy.suppressNormClaims;
-  const percentileText = formatPercentValue(viewModel.percentile);
-  const primaryDisplayLabel = locale === "zh"
-    ? viewModel.primaryDisplayLabelZh
-    : viewModel.primaryDisplayLabelEn;
-  const betaStandardScoreNotice = locale === "zh"
-    ? viewModel.betaStandardScoreNoticeZh
-    : viewModel.betaStandardScoreNoticeEn;
-  const lowerIq = formatMetricValue(viewModel.confidenceInterval?.lower ?? null);
-  const upperIq = formatMetricValue(viewModel.confidenceInterval?.upper ?? null);
-  const hasIqRange = lowerIq !== null && upperIq !== null && Number.isFinite(Number(lowerIq)) && Number.isFinite(Number(upperIq)) && Number(lowerIq) < Number(upperIq);
-  const iqScoreClaim = hasIqRange
-    ? locale === "zh"
-      ? `你的智商分数大概是 ${lowerIq}–${upperIq}`
-      : `Your IQ score lies within a range of ${lowerIq} up to ${upperIq}.`
-    : locale === "zh"
-      ? `你的智商分数大概是 ${iqEstimateText}`
-      : `Your IQ score is approximately ${iqEstimateText}.`;
+  const viewModel = buildIqResultViewModel({ locale, reportData, resultData, accessView });
+  const presentation = buildIqResultPresentation({ locale, reportData, resultData, locked: viewModel.locked });
+  const zh = locale === "zh";
+  const correctText = presentation.correct !== null && presentation.total !== null
+    ? `${presentation.correct}/${presentation.total}` : "—";
+  const shortSummary = presentation.percentile !== null
+    ? zh ? `本次表现约处于参考人群的第${percent(presentation.percentile).replace("%", "")}百分位。`
+      : `This result is approximately at percentile ${percent(presentation.percentile).replace("%", "")} in the reference population.`
+    : zh ? "IQ得分与人群位置暂未生成。" : "An IQ score and population rank are not available yet.";
 
   return (
-    <div className="space-y-[var(--fm-gap-md)]" data-testid="iq-result-shell">
-      {viewModel.lockedMessage ? (
-        <Alert>
-          <span data-testid="iq-report-locked-notice">{viewModel.lockedMessage}</span>
-        </Alert>
-      ) : null}
-
-      <Card data-testid="iq-result-summary">
-        <CardHeader className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-text-muted)]">
-            {locale === "zh" ? "测评结果" : "Assessment result"}
-          </p>
-          <CardTitle data-testid="iq-result-title">{viewModel.title}</CardTitle>
+    <div className="space-y-[var(--fm-gap-lg)]" data-testid="iq-result-shell">
+      <header>
+        <p className="text-xs font-semibold tracking-[0.16em] text-[var(--fm-text-muted)]">FermatMind</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[var(--fm-text)]" data-testid="iq-result-title">{zh ? "智商测试结果" : "IQ Test Results"}</h2>
+      </header>
+      {viewModel.lockedMessage ? <Alert><span data-testid="iq-report-locked-notice">{viewModel.lockedMessage}</span></Alert> : null}
+      {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{viewModel.bankStatus.notice}</span></Alert> : null}
+      <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
+        <Card data-testid="iq-standard-score-module">
+          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ score"}</CardTitle></CardHeader>
+          <CardContent>
+            <ScoreGauge score={presentation.standardScore} locale={locale} />
+            <p className="text-center text-sm text-[var(--fm-text-muted)]" data-testid="iq-standard-score-status">
+              {presentation.standardScore !== null ? zh ? "依据真人参考分布换算" : "Based on the human reference distribution"
+                : zh ? "暂无法估计" : "Not available yet"}
+            </p>
+          </CardContent>
+        </Card>
+        <Card data-testid="iq-result-overview">
+          <CardHeader><CardTitle>{zh ? "成绩概览" : "Result overview"}</CardTitle></CardHeader>
+          <CardContent className="space-y-[var(--fm-gap-lg)]">
+            <p className="max-w-xl text-base leading-7 text-[var(--fm-text-secondary)]">{presentation.blocked
+              ? zh ? "本次结果未完成有效评分，请重新完成测试。" : "This attempt could not be scored. Please complete the test again."
+              : shortSummary}</p>
+            <dl className="grid grid-cols-2 gap-x-[var(--fm-gap-lg)] gap-y-[var(--fm-gap-xl)]">
+              {[
+                { label: zh ? "百分位" : "Percentile", value: percent(presentation.percentile), testId: presentation.percentile !== null ? "iq-percentile" : "iq-percentile-unavailable" },
+                { label: zh ? "正确率" : "Accuracy", value: percent(presentation.percentCorrect), testId: "iq-accuracy" },
+                { label: zh ? "答对题数" : "Correct answers", value: correctText, testId: "iq-correct-count" },
+                { label: zh ? "用时" : "Time taken", value: duration(presentation.durationMs), testId: "iq-duration" },
+              ].map((metric) => <div key={metric.testId} className="border-t border-[var(--fm-border)] pt-3" data-testid={metric.testId}>
+                <dt className="text-sm text-[var(--fm-text-muted)]">{metric.label}</dt>
+                <dd className="mt-2 text-2xl font-semibold tabular-nums text-[var(--fm-text)] sm:text-3xl">{metric.value}</dd>
+              </div>)}
+            </dl>
+            {presentation.referencePopulation ? <p className="text-xs leading-5 text-[var(--fm-text-muted)]" data-testid="iq-reference-population">{zh ? "参考人群：" : "Reference population: "}{presentation.referencePopulation}</p> : null}
+            {viewModel.qualityFlags.length > 0 && !presentation.blocked ? <p className="text-xs leading-5 text-[var(--fm-text-muted)]" data-testid="iq-quality-notice">{zh ? "本次作答有质量提示，解读时请结合实际作答情况。" : "This attempt has quality indicators. Consider the conditions of your attempt when interpreting it."}</p> : null}
+          </CardContent>
+        </Card>
+      </div>
+      <Card data-testid="iq-performance-radar-module">
+        <CardHeader>
+          <CardTitle>{zh ? "推理表现" : "Reasoning performance"}</CardTitle>
+          <p className="text-sm text-[var(--fm-text-muted)]">{zh ? "各维度本次答题正确率" : "Accuracy in each dimension on this attempt"}</p>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {viewModel.summary ? (
-            <p className="text-sm leading-6 text-[var(--fm-text-muted)]">{viewModel.summary}</p>
-          ) : null}
-
-          {viewModel.bankStatus ? (
-            <div
-              className="rounded-[12px] border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 text-sm leading-6 text-[var(--fm-text-muted)]"
-              data-testid="iq-bank-placeholder-notice"
-              data-bank-id={viewModel.bankStatus.bankId}
-            >
-              <p className="font-semibold text-[var(--fm-text)]">{viewModel.bankStatus.label}</p>
-              <p className="mt-1">{viewModel.bankStatus.notice}</p>
-            </div>
-          ) : null}
-
-          {viewModel.primaryDisplayScoreKind === "beta_standard_score" && primaryDisplayScoreText ? (
-            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
-              <p
-                className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]"
-                data-testid="iq-beta-standard-score-label"
-              >
-                {primaryDisplayLabel}
-              </p>
-              <p className="mt-2 text-3xl font-semibold text-[var(--fm-text)] sm:text-4xl" data-testid="iq-beta-standard-score-value">
-                {primaryDisplayScoreText}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]" data-testid="iq-beta-standard-score-notice">
-                {betaStandardScoreNotice}
-              </p>
-              <p className="mt-3 text-sm font-semibold text-[var(--fm-text)]" data-testid="iq-beta-raw-score-claim">
-                {formatRawScoreClaim({
-                  locale,
-                  rawScore: rawScoreText,
-                  denominator: rawScoreDenominatorText,
-                })}
-              </p>
-            </div>
-          ) : viewModel.primaryDisplayScoreKind === "raw_score" ? (
-            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                {primaryDisplayLabel}
-              </p>
-              <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-raw-score-claim">
-                {formatRawScoreClaim({
-                  locale,
-                  rawScore: rawScoreText,
-                  denominator: rawScoreDenominatorText,
-                })}
-              </p>
-            </div>
-          ) : viewModel.primaryDisplayScoreKind === "formal_iq_estimate" && iqEstimateText ? (
-            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                {primaryDisplayLabel}
-              </p>
-              <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-iq-estimate-value">
-                {iqScoreClaim}
-              </p>
-            </div>
-          ) : (
-            <div
-              className="rounded-[12px] border border-dashed border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 text-sm leading-6 text-[var(--fm-text-muted)]"
-              data-testid="iq-iq-estimate-unavailable"
-            >
-              {locale === "zh"
-                ? "当前结果暂未生成完整 IQ 估计值"
-                : "The IQ estimate is not available for this result yet"}
-            </div>
-          )}
-
-          <dl className="space-y-3">
-            {renderMetricRow({
-              label: locale === "zh" ? "原始分" : "Raw score",
-              value: rawScoreText,
-              testId: "iq-raw-score",
-            })}
-            {rawScoreOnly
-              ? null
-              : renderMetricRow({
-                  label: locale === "zh" ? "百分位" : "Percentile",
-                  value: percentileText,
-                  testId: "iq-percentile",
-                })}
-            {rawScoreOnly
-              ? null
-              : renderMetricRow({
-                  label: locale === "zh" ? "置信区间" : "Confidence interval",
-                  value: confidenceIntervalText,
-                  testId: "iq-confidence-interval",
-                })}
-            {renderMetricRow({
-              label: locale === "zh" ? "结果质量" : "Quality level",
-              value: viewModel.qualityLevel,
-              testId: "iq-quality-level",
-            })}
-            {renderMetricRow({
-              label: locale === "zh" ? "稳定性状态" : "Stability status",
-              value: viewModel.stabilityStatus,
-              testId: "iq-stability-status",
-            })}
-            {renderMetricRow({
-              label: locale === "zh" ? "稳定性说明" : "Stability note",
-              value: viewModel.stabilityReason,
-              testId: "iq-stability-reason",
-            })}
-          </dl>
-
-          {viewModel.qualityFlags.length > 0 ? (
-            <div className="space-y-2" data-testid="iq-quality-flags">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "质量标记" : "Quality flags"}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {viewModel.qualityFlags.map((flag) => (
-                  <span
-                    key={flag}
-                    className="rounded-full border border-[var(--fm-border)] px-3 py-1 text-xs text-[var(--fm-text-muted)]"
-                  >
-                    {flag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ) : null}
+        <CardContent>
+          <div className="grid items-center gap-[var(--fm-gap-lg)] md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+            <PerformanceRadar dimensions={presentation.dimensions} locale={locale} />
+            <dl className="space-y-[var(--fm-gap-md)]">
+              {presentation.dimensions.map((dimension) => <div key={dimension.code} className="border-b border-[var(--fm-border)] pb-4" data-testid={`iq-performance-${dimension.code.toLowerCase()}`}>
+                <dt className="text-sm text-[var(--fm-text-secondary)]">{viewModel.dimensions.find((item) => item.code === dimension.code)?.label}</dt>
+                <dd className="mt-2 flex items-baseline justify-between gap-4">
+                  <span className="text-xl font-semibold tabular-nums text-[var(--fm-text)]">{percent(dimension.percentCorrect)}</span>
+                  <span className="text-sm tabular-nums text-[var(--fm-text-muted)]">{dimension.correct !== null && dimension.total !== null ? `${dimension.correct}/${dimension.total}` : zh ? "数据暂缺" : "Not available"}</span>
+                </dd>
+              </div>)}
+            </dl>
+          </div>
+          <p className="mt-4 text-xs leading-5 text-[var(--fm-text-muted)]">{zh ? "维度正确率描述本次题目表现，不代表人群排名。" : "Dimension accuracy describes performance on these items, rather than population rank."}</p>
         </CardContent>
       </Card>
-
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {viewModel.dimensions.map((dimension) => {
-          const rawScore = formatMetricValue(dimension.rawScore);
-          const scaledScore = rawScoreOnly ? null : formatMetricValue(dimension.scaledScore);
-          const normalizedScore = rawScoreOnly ? null : formatMetricValue(dimension.normalizedScore);
-          const percentile = rawScoreOnly ? null : formatPercentValue(dimension.percentile);
-
-          return (
-            <Card key={dimension.key} data-testid={`iq-dimension-card-${dimension.code.toLowerCase()}`}>
-              <CardHeader className="space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                  {dimension.code}
-                </p>
-                <CardTitle className="text-lg">{dimension.label}</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <dl className="space-y-3">
-                  {renderMetricRow({
-                    label: locale === "zh" ? "原始分" : "Raw score",
-                    value: rawScore,
-                  })}
-                  {renderMetricRow({
-                    label: locale === "zh" ? "缩放分" : "Scaled score",
-                    value: scaledScore,
-                  })}
-                  {renderMetricRow({
-                    label: locale === "zh" ? "标准化分" : "Normalized score",
-                    value: normalizedScore,
-                  })}
-                  {renderMetricRow({
-                    label: locale === "zh" ? "百分位" : "Percentile",
-                    value: percentile,
-                  })}
-                  {renderMetricRow({
-                    label: locale === "zh" ? "分段" : "Band",
-                    value: dimension.band,
-                  })}
-                </dl>
-
-                {dimension.insight ? (
-                  <p className="text-sm leading-6 text-[var(--fm-text-muted)] break-words">{dimension.insight}</p>
-                ) : null}
-
-                {dimension.missing ? (
-                  <p className="text-sm text-[var(--fm-text-muted)]" data-testid={`iq-dimension-missing-${dimension.code.toLowerCase()}`}>
-                    {locale === "zh"
-                      ? "该维度数据暂未生成。"
-                      : "This dimension is not available yet."}
-                  </p>
-                ) : null}
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-
-      <IqReportModule locale={locale} viewModel={viewModel.reportModule} />
     </div>
   );
 }
