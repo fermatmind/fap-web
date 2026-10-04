@@ -375,12 +375,6 @@
       "count": 1
     },
     {
-      "file": "components/result/iq/IqResultShell.tsx",
-      "rule": "no-new-half-step-utility",
-      "snippet": "gap-1.5",
-      "count": 1
-    },
-    {
       "file": "components/share/MbtiShareSummaryCard.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "space-y-1.5",
