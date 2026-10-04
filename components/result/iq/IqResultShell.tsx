@@ -28,7 +28,7 @@ function ScoreGauge({ score, locale }: { score: number | null; locale: Locale })
   const needle = angle === null ? null : { x: 160 + 89 * Math.cos(angle), y: 160 - 89 * Math.sin(angle) };
   return (
     <svg viewBox="0 0 320 245" className="mx-auto w-full max-w-[320px]" role="img"
-      aria-label={locale === "zh" ? `推理标准分：${score ?? "待估计"}，显示范围55至145` : `Reasoning standard score: ${score ?? "not available"}, display range 55 to 145`}>
+      aria-label={locale === "zh" ? `IQ得分：${score ?? "待估计"}，显示范围55至145` : `IQ score: ${score ?? "not available"}, display range 55 to 145`}>
       <path d="M 45 160 A 115 115 0 0 1 275 160" fill="none" stroke="var(--fm-border)" strokeWidth="13" strokeLinecap="round" />
       {progress !== null ? <path d="M 45 160 A 115 115 0 0 1 275 160" pathLength="100" fill="none"
         stroke="var(--fm-accent)" strokeWidth="13" strokeLinecap="round" strokeDasharray={`${progress * 100} 100`}
@@ -104,7 +104,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
   const shortSummary = presentation.percentile !== null
     ? zh ? `本次表现约处于参考人群的第${percent(presentation.percentile).replace("%", "")}百分位。`
       : `This result is approximately at percentile ${percent(presentation.percentile).replace("%", "")} in the reference population.`
-    : zh ? "推理标准分与人群位置暂未生成。" : "A standard score and population rank are not available yet.";
+    : zh ? "IQ得分与人群位置暂未生成。" : "An IQ score and population rank are not available yet.";
 
   return (
     <div className="space-y-[var(--fm-gap-lg)]" data-testid="iq-result-shell">
@@ -116,7 +116,7 @@ export function IqResultShell({ locale, reportData, resultData, accessView }: {
       {viewModel.bankStatus ? <Alert><span data-testid="iq-bank-placeholder-notice" data-bank-id={viewModel.bankStatus.bankId}>{viewModel.bankStatus.notice}</span></Alert> : null}
       <div className="grid items-stretch gap-[var(--fm-gap-lg)] lg:grid-cols-[minmax(280px,0.85fr)_minmax(0,1.4fr)]">
         <Card data-testid="iq-standard-score-module">
-          <CardHeader><CardTitle>{zh ? "推理标准分" : "Reasoning standard score"}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{zh ? "IQ得分" : "IQ score"}</CardTitle></CardHeader>
           <CardContent>
             <ScoreGauge score={presentation.standardScore} locale={locale} />
             <p className="text-center text-sm text-[var(--fm-text-muted)]" data-testid="iq-standard-score-status">
