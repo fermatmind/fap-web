@@ -5,8 +5,8 @@ import { parseCareerCurrentInventory } from '../../scripts/ops/career-current-in
 
 function fixture(aliasCount) {
   const slugs = Array.from({ length: 1046 }, (_, i) => `role-${i}`);
-  const aliases = Object.fromEntries(Array.from({ length: aliasCount }, (_, i) => [`role-${1045 - i}`, `role-${i}`]));
-  const paths = slugs.filter(slug => !Object.hasOwn(aliases, slug)).flatMap(slug => ['en', 'zh'].map(locale => `/${locale}/career/jobs/${slug}`));
+  const aliases = Object.fromEntries(Array.from({ length: aliasCount }, (_, i) => [`old-role-${i}`, `role-${i}`]));
+  const paths = slugs.flatMap(slug => ['en', 'zh'].map(locale => `/${locale}/career/jobs/${slug}`));
   return {
     ok: true, source: 'backend_sitemap_generator', count: paths.length,
     items: paths.map(path => ({ loc: `https://fermatmind.com${path}` })),
@@ -14,9 +14,9 @@ function fixture(aliasCount) {
   };
 }
 for (const aliases of [0, 2, 3]) {
-  test(`retains 1046/2092 storage while validating ${aliases} aliases against the exact canonical set`, () => {
+  test(`retains 1046/2092 independent careers while validating ${aliases} historical URL aliases outside the fixed set`, () => {
     const result = parseCareerCurrentInventory(fixture(aliases));
-    assert.equal(result.paths.length, (1046 - aliases) * 2);
+    assert.equal(result.paths.length, 1046 * 2);
   });
 }
 test('accepts the current published subset without inventing unpublished language pairs', () => {
@@ -32,14 +32,15 @@ test('accepts the current published subset without inventing unpublished languag
 test('rejects duplicate, substituted and stale alias URLs even at the same count', () => {
   for (const mutate of [
     p => { p.items[0] = p.items[1]; },
-    p => { p.items[0].loc = 'https://fermatmind.com/en/career/jobs/role-1045'; },
+    p => { p.items[0].loc = 'https://fermatmind.com/en/career/jobs/old-role-0'; },
     p => { p.items[0].loc = 'https://fermatmind.com/en/career/jobs/not-in-manifest'; },
     p => { p.items.push(p.items[0]); p.count++; },
     p => { p.items = p.items.filter(item => !item.loc.includes('/career/jobs/')); p.count = 0; },
     p => { p.source = 'backend_sitemap_generator_fallback'; },
     p => { delete p.career_current_identity; },
     p => { p.career_current_identity.aliases['role-1045'] = 'role-1044'; },
-    p => { p.career_current_identity.aliases['role-1045'] = 'missing'; },
+    p => { p.career_current_identity.aliases['old-role-0'] = 'missing'; },
+    p => { p.career_current_identity.aliases['old-role-0'] = 'old-role-1'; },
   ]) {
     const payload = fixture(3); mutate(payload);
     assert.throws(() => parseCareerCurrentInventory(payload), /CAREER_CURRENT_/);
