@@ -4,6 +4,7 @@ import { mkdtemp, readFile, readdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { parseCareerCurrentInventory } from "../../scripts/ops/career-current-inventory.mjs";
 import {
   validateLlmsFullArtifact,
   verifyLlmsFullArtifact,
@@ -56,7 +57,7 @@ function inventoryPayload() {
     items: careerPaths.map(p => ({ loc: `${SITE_URL}${p}` })),
     career_current_identity: {
       manifest_sha256: "a".repeat(64), storage_count: 1046, file_count: 2092,
-      slugs: [...Array.from({ length: 1044 }, (_, i) => `role-${i}`), "old-a", "old-b"],
+      slugs: Array.from({ length: 1046 }, (_, i) => `role-${i}`),
       aliases: { "old-a": "role-0", "old-b": "role-1" },
     },
   };
@@ -68,6 +69,23 @@ afterEach(async () => {
 });
 
 describe("llms-full automatic recovery", () => {
+  it("keeps all fixed careers independent while allowing historical URL aliases outside the inventory", () => {
+    const payload = inventoryPayload();
+    payload.career_current_identity.slugs.splice(0, 2, "preschool-teachers", "preschool-teachers-except-special-education");
+    payload.career_current_identity.aliases = {"old-a": "preschool-teachers", "old-b": "preschool-teachers-except-special-education"};
+    payload.items = ["en", "zh"].flatMap(locale => ["preschool-teachers", "preschool-teachers-except-special-education"]
+      .map(slug => ({loc: `${SITE_URL}/${locale}/career/jobs/${slug}`})));
+    payload.count = payload.items.length;
+    expect(parseCareerCurrentInventory(payload).paths).toHaveLength(4);
+    const invalid = structuredClone(payload);
+    Object.assign(invalid.career_current_identity.aliases, {"preschool-teachers": "preschool-teachers-except-special-education"});
+    expect(() => parseCareerCurrentInventory(invalid)).toThrow("CAREER_CURRENT_ALIAS_INVALID");
+    const historicalUrl = structuredClone(payload);
+    historicalUrl.items.push({loc: `${SITE_URL}/zh/career/jobs/old-a`});
+    historicalUrl.count = historicalUrl.items.length;
+    expect(() => parseCareerCurrentInventory(historicalUrl)).toThrow("CAREER_CURRENT_SITEMAP_MISMATCH");
+  });
+
   it("validates the exact published career subset when languages are released separately", () => {
     const publishedPaths = ["/en/career/jobs/role-0", "/zh/career/jobs/role-0", "/zh/career/jobs/role-1"];
     const text = completeArtifactText().split("\n").filter((line) =>

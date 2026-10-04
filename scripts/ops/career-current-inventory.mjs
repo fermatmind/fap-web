@@ -16,11 +16,11 @@ export function parseCareerCurrentInventory(payload) {
   const slugs = new Set(identity.slugs);
   if (slugs.size !== identity.storage_count) throw new Error('CAREER_CURRENT_INVENTORY_DUPLICATE');
   for (const [alias, target] of Object.entries(identity.aliases)) {
-    if (!slugs.has(alias) || !slugs.has(target) || alias === target || Object.hasOwn(identity.aliases, target)) {
+    if (!SLUG.test(alias) || slugs.has(alias) || !slugs.has(target) || Object.hasOwn(identity.aliases, target)) {
       throw new Error('CAREER_CURRENT_ALIAS_INVALID');
     }
   }
-  const canonicalPaths = new Set([...slugs].filter(slug => !Object.hasOwn(identity.aliases, slug))
+  const canonicalPaths = new Set([...slugs]
     .flatMap(slug => ['en', 'zh'].map(locale => `/${locale}/career/jobs/${slug}`)));
   const actual = [];
   for (const item of payload.items) {

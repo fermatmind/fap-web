@@ -112,6 +112,7 @@
 
 - Content adapters must normalize only documented backend variants, preserve unknown-state safety, and fail visibly or closed when required identity is missing.
 - zh-CN and en public surfaces must preserve canonical/hreflang/robots/sitemap consistency. Body-only copy changes do not authorize URL inventory or Search submission changes.
+- Career Current identity is the backend-validated fixed set of 1046 canonical slugs and their JSON files; en/zh-CN are language versions of one career. Shared O*NET/SOC references never merge or redirect fixed slugs. Career identity aliases may originate only outside that fixed inventory.
 - Historical aliases are redirect-only. They must never become canonical identifiers, sitemap entries, alternate-link targets, or newly emitted application links.
 - Static fallback content, if explicitly retained for resilience, must expose its provenance and must not outrank a valid authoritative response.
 
