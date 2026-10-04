@@ -1493,6 +1493,24 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("result-summary")).not.toBeInTheDocument();
   });
 
+  it("retains a canonical iq.report.v1 response even when the legacy rich renderer cannot render it", async () => {
+    hoisted.fetchAttemptReport.mockResolvedValue({
+      ok: true, locked: false, variant: "full",
+      report: {
+        schema_version: "iq.report.v1", scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        summary: { raw_score: 17 }, scoring: { status: "scored" },
+        dimensions: { numerical_pattern_reasoning: { correct_count: 2, item_count: 3 } },
+      },
+      meta: { scale_code: "IQ_INTELLIGENCE_QUOTIENT" },
+    } as unknown as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => expect(screen.getByTestId("iq-result-shell")).toBeInTheDocument());
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+  });
+
   it("retries report without auth but preserves anon ownership when ATTEMPT_NOT_FOUND is returned", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");

@@ -49,6 +49,7 @@ import { getFmToken, isGuestTokenRequestError } from "@/lib/auth/fmToken";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { getLocaleFromPathname, localizedPath, type Locale } from "@/lib/i18n/locales";
 import { isIqScaleCode } from "@/lib/iq/constants";
+import { isIqReportResponse } from "@/lib/iq/presentation";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import { isEnneagramPrivateResultContractInvalid } from "@/lib/enneagram/privateResultLocale";
 import { classifyApiError } from "@/lib/observability/httpError";
@@ -859,7 +860,8 @@ export default function ResultClient({
   const initialReportReady = Boolean(
     initialReportData
     && !isEnneagramPrivateResultContractInvalid(initialReportData, locale)
-    && (isEqV5ReportResponse(initialReportData) || canRenderRichResultReport(initialReportData))
+    && (isEqV5ReportResponse(initialReportData) || canRenderRichResultReport(initialReportData)
+      || (isIqReportResponse(initialReportData) && !isGeneratingReportResponse(initialReportData)))
   );
   const initialEnneagramContractInvalid = Boolean(
     initialReportData && isEnneagramPrivateResultContractInvalid(initialReportData, locale)
@@ -1648,7 +1650,8 @@ export default function ResultClient({
 
         const eqReportReady = isEqV5ReportResponse(reportResponse);
         const richReportReady = canRenderRichResultReport(reportResponse);
-        if (eqReportReady || richReportReady) {
+        const iqReportReady = isIqReportResponse(reportResponse) && !isGeneratingReportResponse(reportResponse);
+        if (eqReportReady || richReportReady || iqReportReady) {
           markReady();
           return;
         }
@@ -1795,6 +1798,7 @@ export default function ResultClient({
 
   const hasEqV5Report = reportData ? isEqV5ReportResponse(reportData) : false;
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
+  const hasIqReport = reportData ? isIqReportResponse(reportData) && !isGeneratingReportResponse(reportData) : false;
   const projectionUnavailable = isProjectionUnavailable(accessView);
   const projectionLocked = isProjectionLocked(accessView);
   const resolvedScaleCode = resolveScaleCodeForTelemetry(reportData, resultData);
@@ -1880,7 +1884,7 @@ export default function ResultClient({
   const rawViewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
-      : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
+      : status === "ready" && (hasEqV5Report || hasRichReport || hasIqReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
   const viewState: "processing" | "ready" | "failed" =

@@ -1,705 +1,189 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { axe } from "jest-axe";
+import { IqResultShell } from "@/components/result/iq/IqResultShell";
+import { buildIqResultPresentation, isIqReportResponse } from "@/lib/iq/presentation";
+import { buildIqResultViewModel } from "@/lib/iq/result";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
-import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { IQ_BETA_50_BANK_ID } from "@/lib/iq/constants";
-import { buildIqResultViewModel } from "@/lib/iq/result";
 
-function createAccessView(overrides: Partial<AttemptReportAccessView> = {}): AttemptReportAccessView {
+// Synthetic rendering fixture, not calibrated FermatMind parameters or norms.
+function fixture(overrides: Record<string, unknown> = {}): ReportResponse {
   return {
-    attemptId: "iq-result-001",
-    accessState: "ready",
-    reportState: "ready",
-    pdfState: "unavailable",
-    unlockStage: null,
-    unlockSource: null,
-    reasonCode: null,
-    accessLevel: "free",
-    variant: "free",
-    projectionVersion: 1,
-    modulesAllowed: [],
-    modulesPreview: [],
-    actions: {
-      pageHref: "/en/result/iq-result-001",
-      pdfHref: null,
-      waitHref: null,
-      historyHref: null,
-      lookupHref: null,
+    ok: true,
+    scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+    summary: { raw_score: 17, question_count: 30 },
+    scoring: { status: "scored" },
+    dimensions: {
+      visual_spatial_pattern_reasoning: { dimension_code: "VSPR", correct_count: 8, item_count: 14 },
+      visual_spatial_insight: { dimension_code: "VSI", correct_count: 7, item_count: 13 },
+      numerical_pattern_reasoning: { dimension_code: "NPR", correct_count: 2, item_count: 3 },
     },
-    meta: {
-      producedAt: null,
-      refreshedAt: null,
-    },
+    duration_ms: 192000,
+    ...overrides,
+  } as unknown as ReportResponse;
+}
+
+function syntheticNorm(overrides: Record<string, unknown> = {}) {
+  return {
+    status: "available", eligible: true,
+    standard_score: 110.1173, percentile: 75,
+    reference_population: { label_zh: "合成测试参考样本", label_en: "Synthetic reference sample" },
+    norm_table_version: "synthetic-norm-v1", model_version: "synthetic-model-v1",
     ...overrides,
   };
 }
 
-function createReportData(): ReportResponse {
-  return {
-    ok: true,
-    scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-    locked: false,
-    variant: "full",
-    summary: {
-      raw_score: 29,
-      iq_estimate: 118,
-      percentile: 84,
-      confidence_interval: {
-        lower: 111,
-        upper: 123,
-        level: "90%",
-      },
-    },
-    dimensions: {
-      visual_spatial_insight: {
-        raw_score: 10,
-        scaled_score: 119,
-        normalized_score: 84,
-        percentile: 82,
-        band: "Strong",
-        insight: "Pattern extraction is one of the stronger areas in this result.",
-      },
-      visual_spatial_pattern_reasoning: {
-        raw_score: 9,
-        scaled_score: 116,
-        normalized_score: 80,
-        percentile: 78,
-        band: "Solid",
-      },
-      numerical_pattern_reasoning: {
-        raw_score: 10,
-        scaled_score: 121,
-        normalized_score: 86,
-        percentile: 88,
-        insight: "Numeric sequence recognition stayed stable across the set.",
-      },
-    },
-    quality: {
-      level: "beta",
-      flags: ["norm_table_pending", "beta_bank"],
-    },
-    stability: {
-      status: "preliminary",
-      reason: "Norm table is still pending.",
-    },
-    report: {
-      scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-    },
-    iq_pro: {
-      narrative_sections: [
-        {
-          section_id: "overview",
-          title: "How to read this result",
-          body: "Use the interval and quality markers together when interpreting the estimate.",
-        },
-      ],
-    },
-    meta: {
-      scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-    },
-  } as unknown as ReportResponse;
+function presentation(report: ReportResponse | null, result: ResultResponse | null = null) {
+  return buildIqResultPresentation({ locale: "zh", reportData: report, resultData: result, locked: false });
 }
 
-function createOwnerRawScoreOnlyReportData(): ReportResponse {
-  return {
-    ...createReportData(),
-    summary: {
-      raw_score: 24,
-      question_count: 30,
-      iq_estimate: null,
-      percentile: null,
-      confidence_interval: null,
-      score_claim_level: "raw_score_only",
-      claim_warnings: ["no_norm_table"],
-      claim_policy: {
-        claim_eligible: false,
-        score_claim_level: "raw_score_only",
-      },
-    },
-    scoring: {
-      raw_score: 24,
-      question_count: 30,
-      score_claim_level: "raw_score_only",
-      claim_warnings: ["no_norm_table"],
-      claim_policy: {
-        claim_eligible: false,
-        score_claim_level: "raw_score_only",
-      },
-    },
-    dimensions: {
-      visual_spatial_insight: {
-        raw_score: 8,
-        scaled_score: 119,
-        normalized_score: 84,
-        percentile: 82,
-        band: "raw",
-      },
-      visual_spatial_pattern_reasoning: {
-        raw_score: 9,
-        scaled_score: 116,
-        normalized_score: 80,
-        percentile: 78,
-        band: "raw",
-      },
-      numerical_pattern_reasoning: {
-        raw_score: 7,
-        scaled_score: 121,
-        normalized_score: 86,
-        percentile: 88,
-        band: "raw",
-      },
-    },
-  } as unknown as ReportResponse;
+function show(report: ReportResponse | null, locale: "zh" | "en" = "zh", result: ResultResponse | null = null, access: AttemptReportAccessView | null = null) {
+  return render(<IqResultShell locale={locale} reportData={report} resultData={result} accessView={access} />);
 }
 
-function createOwnerBetaStandardScoreReportData(overrides: Record<string, unknown> = {}): ReportResponse {
-  return {
-    ...createOwnerRawScoreOnlyReportData(),
-    summary: {
-      raw_score: 9,
-      question_count: 30,
-      iq_estimate: null,
-      percentile: null,
-      confidence_interval: null,
-      beta_standard_score: 129,
-      beta_standard_score_status: "simulation_calibrated_beta",
-      beta_standard_score_source: "IQ_OWNER_ORIGINAL_30_RANDOM_BASELINE_STANDARD_SCORE_V1",
-      random_baseline_mean: 5.096,
-      random_baseline_sd: 2.034,
-      random_baseline_z: 1.9194,
-      above_random_baseline: true,
-      production_normed: false,
-      claim_eligible: false,
-      population_percentile_eligible: false,
-      source_kind: "random_simulation_baseline",
-      source_ref: "iq-owner-30-random-simulation-500-for-gpt.md",
-      score_claim_level: "raw_score_only",
-      claim_warnings: ["simulation_calibrated_beta", "no_production_norm"],
-      claim_policy: {
-        claim_eligible: false,
-        score_claim_level: "raw_score_only",
-        production_normed: false,
-        population_percentile_eligible: false,
-      },
-    },
-    scoring: {
-      raw_score: 9,
-      question_count: 30,
-      beta_standard_score: 129,
-      beta_standard_score_status: "simulation_calibrated_beta",
-      beta_standard_score_source: "IQ_OWNER_ORIGINAL_30_RANDOM_BASELINE_STANDARD_SCORE_V1",
-      random_baseline_mean: 5.096,
-      random_baseline_sd: 2.034,
-      random_baseline_z: 1.9194,
-      above_random_baseline: true,
-      production_normed: false,
-      claim_eligible: false,
-      population_percentile_eligible: false,
-      source_kind: "random_simulation_baseline",
-      source_ref: "iq-owner-30-random-simulation-500-for-gpt.md",
-      score_claim_level: "raw_score_only",
-      claim_warnings: ["simulation_calibrated_beta", "no_production_norm"],
-      claim_policy: {
-        claim_eligible: false,
-        score_claim_level: "raw_score_only",
-        production_normed: false,
-        population_percentile_eligible: false,
-      },
-    },
-    ...overrides,
-  } as unknown as ReportResponse;
-}
-
-function createOwnerClaimEligibleReportData(): ReportResponse {
-  return {
-    ...createReportData(),
-    summary: {
-      raw_score: 30,
-      question_count: 30,
-      iq_estimate: 145,
-      beta_standard_score: 129,
-      percentile: 99.87,
-      production_normed: true,
-      claim_eligible: true,
-      population_percentile_eligible: true,
-      confidence_interval: {
-        lower: 140.5,
-        upper: 149.5,
-        level: "90%",
-      },
-      score_claim_level: "iq_estimate",
-      claim_warnings: [],
-      claim_policy: {
-        claim_eligible: true,
-        score_claim_level: "iq_estimate",
-        production_normed: true,
-        population_percentile_eligible: true,
-      },
-    },
-    scoring: {
-      raw_score: 30,
-      question_count: 30,
-      beta_standard_score: 129,
-      production_normed: true,
-      claim_eligible: true,
-      population_percentile_eligible: true,
-      score_claim_level: "iq_estimate",
-      claim_warnings: [],
-      claim_policy: {
-        claim_eligible: true,
-        score_claim_level: "iq_estimate",
-        production_normed: true,
-        population_percentile_eligible: true,
-      },
-    },
-    dimensions: {
-      visual_spatial_insight: {
-        raw_score: 10,
-        scaled_score: 145,
-        normalized_score: 99,
-        percentile: 99.8,
-        band: "Exceptional",
-      },
-      visual_spatial_pattern_reasoning: {
-        raw_score: 10,
-        scaled_score: 143,
-        normalized_score: 98,
-        percentile: 99.5,
-        band: "Exceptional",
-      },
-      numerical_pattern_reasoning: {
-        raw_score: 10,
-        scaled_score: 144,
-        normalized_score: 99,
-        percentile: 99.7,
-        band: "Exceptional",
-      },
-    },
-  } as unknown as ReportResponse;
-}
-
-function createNestedOwnerRawScoreOnlyReportData(): ReportResponse {
-  const reportData = createOwnerRawScoreOnlyReportData() as unknown as Record<string, unknown>;
-
-  return {
-    ok: true,
-    locked: false,
-    variant: "full",
-    quality: reportData.quality,
-    stability: reportData.stability,
-    dimensions: reportData.dimensions,
-    report: {
-      scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-      summary: {
-        raw_score: 5,
-        question_count: 30,
-        iq_estimate: null,
-        percentile: null,
-        confidence_interval: null,
-        score_claim_level: "raw_score_only",
-        claim_warnings: ["no_norm_table"],
-        claim_policy: {
-          claim_eligible: false,
-          score_claim_level: "raw_score_only",
-        },
-      },
-      scoring: {
-        raw_score: 5,
-        question_count: 30,
-        score_claim_level: "raw_score_only",
-        claim_warnings: ["no_norm_table"],
-        claim_policy: {
-          claim_eligible: false,
-          score_claim_level: "raw_score_only",
-        },
-      },
-    },
-  } as unknown as ReportResponse;
-}
-
-describe("IQ result renderer contract", () => {
-  it.each(["en", "zh"] as const)("shows the backend beta score from the live result normed_json shape in %s", (locale) => {
-    const resultData = {
-      ok: true,
-      result: {
-        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
-        raw_score: 3,
-        normed_json: {
-          bank_id: "IQ_OWNER_ORIGINAL_30",
-          raw_score: 3,
-          beta_standard_score: 85,
-          beta_standard_score_status: "simulation_calibrated_beta",
-          norms: { iq_estimate: null, claim_policy: { claim_eligible: false, score_claim_level: "raw_score_only" } },
-        },
-      },
-    } as unknown as ResultResponse;
-    render(<IqResultShell locale={locale} reportData={null} resultData={resultData} accessView={createAccessView()} />);
-    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("85");
-    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent(locale === "zh"
-      ? "智商测试标准分（Beta）"
-      : "IQ Test Standard Score (Beta)");
-    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("3");
-    expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+describe("IQ three-module result presentation", () => {
+  it("recognizes only the dedicated IQ report schema with a summary and IQ identity", () => {
+    expect(isIqReportResponse(fixture({ schema_version: "iq.report.v1" }))).toBe(true);
+    expect(isIqReportResponse({ report: fixture({ schema_version: "iq.report.v1" }) } as unknown as ReportResponse)).toBe(true);
+    expect(isIqReportResponse(fixture({ schema_version: "iq.report.v1", scale_code: "MBTI" }))).toBe(false);
+    expect(isIqReportResponse(fixture({ schema_version: "iq.report.v1", summary: null }))).toBe(false);
+    expect(isIqReportResponse(fixture())).toBe(false);
+  });
+  it.each(["zh", "en"] as const)("renders the three approved modules in %s", (locale) => {
+    show(fixture({ normative_reasoning: syntheticNorm() }), locale);
+    expect(screen.getByTestId("iq-standard-score-module")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-result-overview")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-performance-radar-module")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("110");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("75%");
+    expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("56.7%");
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
+    expect(screen.getByTestId("iq-duration")).toHaveTextContent("03:12");
+    expect(screen.getByTestId("iq-reference-population")).toHaveTextContent(locale === "zh" ? "合成测试参考样本" : "Synthetic reference sample");
+    expect(screen.getAllByRole("img")).toHaveLength(2);
+    expect(screen.queryByTestId("iq-report-module")).not.toBeInTheDocument();
+    expect(screen.queryByText(/¥1\.99|¥5|certified|Mensa|IQ 估计值/i)).not.toBeInTheDocument();
   });
 
-  it("keeps report summary scores authoritative over result normed_json", () => {
-    const resultData = { ok: true, result: { normed_json: { beta_standard_score: 85 } } } as unknown as ResultResponse;
-    const model = buildIqResultViewModel({ locale: "en", reportData: createOwnerBetaStandardScoreReportData(), resultData, accessView: createAccessView() });
-    expect(model.primaryDisplayScore).toBe(129);
+  it.each([[54, 55], [55, 55], [99.49, 99], [99.5, 100], [144.5, 145], [145, 145], [160, 145]])("displays unrounded score %s as %s", (score, expected) => {
+    expect(presentation(fixture({ normative_reasoning: syntheticNorm({ standard_score: score }) })).standardScore).toBe(expected);
   });
 
-  it.each(["en", "zh"] as const)("uses the authorized point estimate when a %s report has no interval", (locale) => {
-    const original = createOwnerClaimEligibleReportData();
-    const reportData = {
-      ...original,
-      summary: { ...(original as unknown as { summary: Record<string, unknown> }).summary, confidence_interval: null },
-    } as unknown as ReportResponse;
-    render(<IqResultShell locale={locale} reportData={reportData} resultData={null} accessView={createAccessView()} />);
-    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent(locale === "zh"
-      ? "你的智商分数大概是 145"
-      : "Your IQ score is approximately 145.");
-    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+  it("preserves percentiles on a 0–100 scale, including below one", () => {
+    show(fixture({ normative_reasoning: syntheticNorm({ standard_score: 61.36, percentile: 0.5 }) }));
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("0.5%");
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("61");
   });
 
-  it("renders the canonical IQ title, summary metrics, and three dimension cards without exposing the legacy alias", () => {
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={createReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-result-title")).toHaveTextContent("IQ Test");
-    expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("Your IQ score lies within a range of 111 up to 123.");
-    expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("111 - 123 · 90%");
-    expect(screen.getByTestId("iq-quality-flags")).toHaveTextContent("norm_table_pending");
-    expect(screen.getByTestId("iq-stability-status")).toHaveTextContent("preliminary");
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-vspr")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-npr")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-report-module")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-report-sections")).toHaveTextContent("How to read this result");
-    expect(screen.queryByText(/¥1\.99|¥5/)).not.toBeInTheDocument();
+  it.each([[0.001, "<0.01%"], [99.999, ">99.99%"]])("does not round supported tail percentile %s to zero or 100", (value, expected) => {
+    show(fixture({ normative_reasoning: syntheticNorm({ percentile: value }) }));
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent(expected);
   });
 
-  it("renders the raw score fallback when iq_estimate and beta_standard_score are absent", () => {
-    const reportData = {
-      ...createReportData(),
-      summary: {
-        ...(createReportData() as unknown as { summary: Record<string, unknown> }).summary,
-        iq_estimate: null,
-      },
-    } as unknown as ReportResponse;
-
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={reportData}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30-item reasoning score: 29");
+  it("does not relabel random-baseline Beta or legacy IQ scores as reasoning standard scores", () => {
+    show(fixture({ summary: { raw_score: 17, question_count: 30, beta_standard_score: 145, iq_estimate: 110, percentile: 75, claim_eligible: true } }));
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
     expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
-  });
-
-  it("renders owner 30 raw-score-only claim policy without IQ estimate, percentile, or confidence interval claims", () => {
-    render(
-      <IqResultShell
-        locale="zh"
-        reportData={createOwnerRawScoreOnlyReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30题推理得分：24/30");
-    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
-    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("24");
-    expect(screen.getByTestId("iq-quality-level")).toHaveTextContent("beta");
-    expect(screen.getByTestId("iq-stability-status")).toHaveTextContent("preliminary");
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("原始分");
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("8");
-    expect(screen.getByTestId("iq-dimension-card-vsi")).not.toHaveTextContent("82%");
   });
 
-  it("renders backend beta_standard_score as the primary owner 30 score without IQ or population claims", () => {
-    render(
-      <IqResultShell
-        locale="zh"
-        reportData={createOwnerBetaStandardScoreReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent("智商测试标准分（Beta）");
-    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("129");
-    expect(screen.getByTestId("iq-beta-standard-score-notice")).toHaveTextContent(
-      "该分数基于当前 30 题原始得分和随机作答基线生成，仅用于 Beta 阶段结果展示，不代表正式人群常模或认证 IQ。"
-    );
-    expect(screen.getByTestId("iq-beta-raw-score-claim")).toHaveTextContent("30题推理得分：9/30");
-    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("9");
-    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
-    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/official|diagnostic|Mensa/i)).not.toBeInTheDocument();
-    expect(screen.queryByText(/¥1\.99|¥5|checkout|buy now|unlock now/i)).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-vspr")).toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-npr")).toBeInTheDocument();
+  it.each([
+    { eligible: false }, { status: "pending" }, { percentile: 0 }, { percentile: 100 },
+    { standard_score: "NaN" }, { norm_table_version: null }, { model_version: null },
+    { reference_population: {} },
+  ])("suppresses unsupported norm output for %j", (norm) => {
+    const model = presentation(fixture({ normative_reasoning: syntheticNorm(norm) }));
+    expect(model.standardScore).toBeNull();
+    expect(model.percentile).toBeNull();
   });
 
-  it("renders the beta standard score label and notice in English", () => {
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={createOwnerBetaStandardScoreReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent("IQ Test Standard Score (Beta)");
-    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("129");
-    expect(screen.getByTestId("iq-beta-standard-score-notice")).toHaveTextContent(
-      "This score is based on the current 30-item raw score and random-response baseline. It is for beta-stage result display only and is not a formal population norm or certified IQ score."
-    );
-    expect(screen.getByTestId("iq-beta-raw-score-claim")).toHaveTextContent("30-item reasoning score: 9/30");
-    expect(screen.queryByText(/IQ estimate/)).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+  it("uses one authoritative report norm snapshot instead of filling it from result norms", () => {
+    const result = { result: { normed_json: { normative_reasoning: syntheticNorm({ standard_score: 130 }) } } } as unknown as ResultResponse;
+    expect(presentation(fixture({ normative_reasoning: null }), result).standardScore).toBeNull();
+    expect(presentation(fixture({ normative_reasoning: syntheticNorm({ eligible: false }) }), result).standardScore).toBeNull();
   });
 
-  it("reads beta_standard_score from the backend payload instead of computing it from raw_score", () => {
-    const viewModel = buildIqResultViewModel({
-      locale: "en",
-      reportData: createOwnerBetaStandardScoreReportData({
-        summary: {
-          raw_score: 9,
-          question_count: 30,
-          iq_estimate: null,
-          beta_standard_score: 77,
-          production_normed: false,
-          claim_eligible: false,
-          population_percentile_eligible: false,
-          score_claim_level: "raw_score_only",
-          claim_policy: {
-            claim_eligible: false,
-            score_claim_level: "raw_score_only",
-          },
-        },
-      }),
-      resultData: null,
-      accessView: createAccessView(),
-    });
-
-    expect(viewModel.rawScore).toBe(9);
-    expect(viewModel.betaStandardScore).toBe(77);
-    expect(viewModel.primaryDisplayScoreKind).toBe("beta_standard_score");
-    expect(viewModel.primaryDisplayScore).toBe(77);
-  });
-
-  it("renders owner 30 IQ claims only when backend marks the report claim eligible", () => {
-    render(
-      <IqResultShell
-        locale="zh"
-        reportData={createOwnerClaimEligibleReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("你的智商分数大概是 140.5–149.5");
-    expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("99.9%");
-    expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("140.5 - 149.5 · 90%");
-    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("30");
-    expect(screen.queryByTestId("iq-raw-score-claim")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("百分位");
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("99.8%");
-    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("百分位");
-    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("99.8%");
-  });
-
-  it("renders owner 30 raw score from nested production report summary", () => {
-    render(
-      <IqResultShell
-        locale="zh"
-        reportData={createNestedOwnerRawScoreOnlyReportData()}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30题推理得分：5/30");
-    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("5");
-    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
-    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
-  });
-
-  it("renders a neutral locked message without showing payment CTA or offers", () => {
-    render(
-      <IqResultShell
-        locale="zh"
-        reportData={createReportData()}
-        resultData={null}
-        accessView={createAccessView({
-          accessState: "locked",
-          unlockStage: "locked",
-          unlockSource: "none",
-        })}
-      />
-    );
-
-    expect(screen.getByTestId("iq-report-locked-notice")).toHaveTextContent(
-      "当前为免费预览。完整 IQ 报告详情需后端授权解锁后展示。"
-    );
-    expect(screen.queryByRole("button", { name: /unlock|购买|解锁/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/¥1\.99|¥5/)).not.toBeInTheDocument();
-  });
-
-  it("does not fabricate missing dimension data", () => {
-    const baseReportData = createReportData() as unknown as { dimensions: Record<string, unknown> };
-    const reportData = {
-      ...createReportData(),
-      dimensions: {
-        ...baseReportData.dimensions,
+  it("reads an existing result snapshot's counts, time and dimensions when no report is available", () => {
+    const result = { result: { normed_json: {
+      status: "scored", expected_item_count: 30, correct_count: 17,
+      normative_reasoning: syntheticNorm(),
+      dimension_scores: {
+        VSPR: { correct_count: 8, item_count: 14 }, VSI: { correct_count: 7, item_count: 13 }, NPR: { correct_count: 2, item_count: 3 },
       },
-    } as unknown as ReportResponse;
-    delete (reportData as unknown as { dimensions: Record<string, unknown> }).dimensions.numerical_pattern_reasoning;
-
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={reportData}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    const missingCard = screen.getByTestId("iq-dimension-card-npr");
-    expect(missingCard).toHaveTextContent("Numerical Pattern Reasoning");
-    expect(screen.getByTestId("iq-dimension-missing-npr")).toHaveTextContent(
-      "This dimension is not available yet."
-    );
-    expect(missingCard).not.toHaveTextContent("88%");
+    }, breakdown_json: { duration_ms: 192000 } } } as unknown as ResultResponse;
+    show(null, "en", result);
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("17/30");
+    expect(screen.getByTestId("iq-duration")).toHaveTextContent("03:12");
+    expect(screen.getByTestId("iq-radar-values")).toBeInTheDocument();
   });
 
-  it("ignores null IQ dimension array entries while preserving matched cards", () => {
-    const reportData = {
-      ...createReportData(),
-      dimensions: [
-        null,
-        {
-          dimension: "visual_spatial_insight",
-          raw_score: 10,
-          normalized_score: 84,
-          percentile: 82,
-          band: "Strong",
-        },
-        undefined,
-        {
-          code: "visual_spatial_pattern_reasoning",
-          raw_score: 9,
-          normalized_score: 80,
-          percentile: 78,
-          band: "Solid",
-        },
-        {
-          id: "numerical_pattern_reasoning",
-          raw_score: 10,
-          normalized_score: 86,
-          percentile: 88,
-          band: "Strong",
-        },
-      ],
-    } as unknown as ReportResponse;
-
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={reportData}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
-
-    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("82");
-    expect(screen.getByTestId("iq-dimension-card-vspr")).toHaveTextContent("78");
-    expect(screen.getByTestId("iq-dimension-card-npr")).toHaveTextContent("88");
+  it("renders dimension accuracy from counts, never from dimension percentile or scaled scores", () => {
+    const report = fixture();
+    const record = report as unknown as { dimensions: Record<string, unknown> };
+    record.dimensions.numerical_pattern_reasoning = { correct_count: 2, item_count: 3, percentile: 99.9, normalized_score: 145 };
+    show(report);
+    expect(screen.getByTestId("iq-performance-npr")).toHaveTextContent("66.7%");
+    expect(screen.getByTestId("iq-performance-npr")).toHaveTextContent("2/3");
+    expect(screen.getByTestId("iq-performance-npr")).not.toHaveTextContent("99.9%");
   });
 
-  it("normalizes canonical and legacy IQ scale codes through the same view-model path", () => {
-    const canonical = buildIqResultViewModel({
-      locale: "en",
-      reportData: createReportData(),
-      resultData: null,
-      accessView: createAccessView(),
-    });
-
-    const legacy = buildIqResultViewModel({
-      locale: "en",
-      reportData: {
-        ...createReportData(),
-        scale_code: "IQ_RAVEN",
-        report: {
-          scale_code: "IQ_RAVEN",
-        },
-        meta: {
-          scale_code: "IQ_RAVEN",
-        },
-      },
-      resultData: null,
-      accessView: createAccessView(),
-    });
-
-    expect(canonical.title).toBe("IQ Test");
-    expect(legacy.title).toBe("IQ Test");
-    expect(legacy.scaleCode).toBe("IQ_RAVEN");
+  it("keeps missing dimensions missing and does not draw a zero-filled radar polygon", () => {
+    show(fixture({ dimensions: { visual_spatial_insight: { correct_count: 7, item_count: 13 } } }));
+    expect(screen.getByTestId("iq-performance-npr")).toHaveTextContent("数据暂缺");
+    expect(screen.queryByTestId("iq-radar-values")).not.toBeInTheDocument();
   });
 
-  it("renders beta50 as a future placeholder without exposing a take entry", () => {
-    const reportData = createReportData() as unknown as ReportResponse & {
-      bank_id: string;
-      meta: Record<string, unknown>;
-    };
-    reportData.bank_id = IQ_BETA_50_BANK_ID;
-    reportData.meta = {
-      ...(reportData.meta ?? {}),
-      bank_id: IQ_BETA_50_BANK_ID,
-    };
+  it("shows genuine zero correct answers but never treats blocked_unscored as a zero score", () => {
+    expect(presentation(fixture({ summary: { raw_score: 0, question_count: 30 } })).percentCorrect).toBe(0);
+    const blocked = fixture({ scoring: { status: "blocked_unscored" }, summary: { raw_score: 0, question_count: 30 }, normative_reasoning: syntheticNorm() });
+    show(blocked);
+    expect(screen.getByTestId("iq-correct-count")).toHaveTextContent("—");
+    expect(screen.getByTestId("iq-accuracy")).toHaveTextContent("—");
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+    expect(screen.queryByTestId("iq-radar-values")).not.toBeInTheDocument();
+  });
 
-    render(
-      <IqResultShell
-        locale="en"
-        reportData={reportData}
-        resultData={null}
-        accessView={createAccessView()}
-      />
-    );
+  it("suppresses normative output after an explicit technical failure", () => {
+    const model = presentation(fixture({ technical_failure: true, normative_reasoning: syntheticNorm() }));
+    expect(model.blocked).toBe(true);
+    expect(model.standardScore).toBeNull();
+    expect(model.percentile).toBeNull();
+  });
 
-    expect(screen.getByTestId("iq-bank-placeholder-notice")).toHaveTextContent("future 50-item beta placeholder");
+  it.each([0, null, -1])("does not present missing/invalid duration %s as elapsed time", (duration_ms) => {
+    show(fixture({ duration_ms }));
+    expect(screen.getByTestId("iq-duration")).toHaveTextContent("—");
+  });
+
+  it("keeps a locked notice and does not expose normative output or commerce calls to action", () => {
+    const access = { accessState: "locked" } as AttemptReportAccessView;
+    show(fixture({ normative_reasoning: syntheticNorm() }), "zh", null, access);
+    expect(screen.getByTestId("iq-report-locked-notice")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+    expect(screen.queryByRole("button", { name: /购买|解锁|buy|unlock/i })).not.toBeInTheDocument();
+  });
+
+  it("keeps the future bank unavailable", () => {
+    show(fixture({ bank_id: IQ_BETA_50_BANK_ID, normative_reasoning: syntheticNorm() }), "en");
     expect(screen.getByTestId("iq-bank-placeholder-notice")).toHaveAttribute("data-bank-id", IQ_BETA_50_BANK_ID);
     expect(screen.queryByRole("link", { name: /start|take/i })).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-standard-score-value")).toHaveTextContent("—");
+  });
+
+  it("has named charts and no automated accessibility violations", async () => {
+    const { container } = show(fixture({ normative_reasoning: syntheticNorm() }));
+    expect(within(screen.getByTestId("iq-performance-radar-module")).getByRole("img")).toHaveAccessibleName(/正确率/);
+    expect((await axe(container)).violations).toEqual([]);
+  });
+
+  it("preserves legacy view-model normalization for other report consumers", () => {
+    const model = buildIqResultViewModel({ locale: "en", reportData: fixture({ scale_code: "IQ_RAVEN", summary: { raw_score: 9, beta_standard_score: 77 } }), resultData: null, accessView: null });
+    expect(model.scaleCode).toBe("IQ_RAVEN");
+    expect(model.betaStandardScore).toBe(77);
+    expect(model.primaryDisplayScore).toBe(77);
   });
 });
