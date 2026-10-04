@@ -19,6 +19,20 @@ for (const aliases of [0, 2, 3]) {
     assert.equal(result.paths.length, 1046 * 2);
   });
 }
+test('the preschool identity migration retains both canonical URL pairs and rejects the old backend mapping', () => {
+  const payload = fixture(0);
+  const pair = ['preschool-teachers', 'preschool-teachers-except-special-education'];
+  payload.career_current_identity.slugs.splice(0, 2, ...pair);
+  payload.items = payload.items.map(item => ({loc: item.loc.replace(/\/role-([01])$/, (_, index) => `/${pair[Number(index)]}`)}));
+  payload.career_current_identity.aliases = {'old-preschool-teacher-url': pair[0]};
+  const inventory = parseCareerCurrentInventory(payload);
+  assert.equal(inventory.paths.length, 2092);
+  for (const slug of pair) {
+    for (const locale of ['en', 'zh']) assert.ok(inventory.paths.includes(`/${locale}/career/jobs/${slug}`));
+  }
+  payload.career_current_identity.aliases = {[pair[0]]: pair[1]};
+  assert.throws(() => parseCareerCurrentInventory(payload), /CAREER_CURRENT_ALIAS_INVALID/);
+});
 test('accepts the current published subset without inventing unpublished language pairs', () => {
   const payload = fixture(3);
   payload.items = payload.items.filter(item => item.loc.endsWith('/zh/career/jobs/role-0')
