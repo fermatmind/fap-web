@@ -1,5 +1,8 @@
 export type CareerJobBundleResponseRaw = {
+  bundle_kind?: unknown;
+  bundle_version?: unknown;
   data?: unknown;
+  career_page?: unknown;
   identity?: unknown;
   titles?: unknown;
   locale_policy?: unknown;

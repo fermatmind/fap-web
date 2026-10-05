@@ -114,13 +114,6 @@ export async function fetchCareerJobBundle(
   }
 
   try {
-    const seoAuthorityPromise =
-      input.includeSeoAuthority === true
-        ? fetchCareerJobSeoAuthority({ ...input, normalizedSlug }).then(
-            (value) => ({ status: "fulfilled" as const, value }),
-            (reason: unknown) => ({ status: "rejected" as const, reason })
-          )
-        : null;
     const bundle = await apiClient.getPublic<CareerJobBundleResponseRaw>(
       `/v0.5/career/jobs/${encodeURIComponent(normalizedSlug)}${buildQuery(input.locale)}`,
       {
@@ -130,16 +123,14 @@ export async function fetchCareerJobBundle(
         ...bundleCacheOptions(input.locale, normalizedSlug),
       }
     );
-    if (!seoAuthorityPromise) {
+    const raw = isRecord(bundle.data) ? bundle.data : bundle;
+    // Current Chinese metadata belongs to the same immutable page response.
+    // Do not start an independent SEO read that can replay a different decision.
+    if (input.includeSeoAuthority !== true ||
+        (toApiLocale(input.locale) === "zh-CN" && (Object.hasOwn(raw, "career_page") || raw.bundle_version === CAREER_DETAIL_PROJECTION_CACHE_VERSION))) {
       return bundle;
     }
-
-    const seoAuthorityResult = await seoAuthorityPromise;
-    if (seoAuthorityResult.status === "rejected") {
-      throw seoAuthorityResult.reason;
-    }
-
-    return attachSeoAuthorityToBundle(bundle, seoAuthorityResult.value);
+    return attachSeoAuthorityToBundle(bundle, await fetchCareerJobSeoAuthority({ ...input, normalizedSlug }));
   } catch (error) {
     if (isAuthoritativePublicAbsence(error)) {
       return null;

@@ -210,25 +210,26 @@ NODE
 require_career_renderer_revision() {
   local base_url="$1"
   local phase="$2"
-  local body_file api_file api_origin http_code
+  local body_file api_file headers_file api_origin http_code
   body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-renderer.XXXXXX")"
   api_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-api.XXXXXX")"
+  headers_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-headers.XXXXXX")"
   case "${PUBLIC_BASE_URL:-$base_url}" in
     https://staging.fermatmind.com) api_origin=https://staging-api.fermatmind.com ;;
     https://fermatmind.com) api_origin=https://api.fermatmind.com ;;
-    *) rm -f "$body_file" "$api_file"; log "career smoke origin invalid"; return 1 ;;
+    *) rm -f "$body_file" "$api_file" "$headers_file"; log "career smoke origin invalid"; return 1 ;;
   esac
   # Download complete decoded HTML; a redirect or a 404 cannot satisfy acceptance.
   http_code="$(curl -fsS --compressed \
     --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" --max-time "$CAREER_RENDERER_TIMEOUT_SEC" \
-    -w '%{http_code}' -o "$body_file" "${base_url%/}${CAREER_RENDERER_PATH}")" || http_code=000
+    -D "$headers_file" -w '%{http_code}' -o "$body_file" "${base_url%/}${CAREER_RENDERER_PATH}")" || http_code=000
   if [[ "$http_code" != 200 ]]; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career renderer response download failed: phase=${phase} path=${CAREER_RENDERER_PATH}"
     return 1
   fi
   if ! grep -Fq "data-career-renderer-release=\"${DEPLOY_SHA}\"" "$body_file"; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career renderer revision mismatch: phase=${phase} path=${CAREER_RENDERER_PATH}"
     return 1
   fi
@@ -236,11 +237,11 @@ require_career_renderer_revision() {
     --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" --max-time "$CAREER_RENDERER_TIMEOUT_SEC" \
     -w '%{http_code}' -o "$api_file" "${api_origin}/api/v0.5/career/jobs/accountants-and-auditors?locale=zh-CN&projection_contract=career.detail.page.v1")" || http_code=000
   if [[ "$http_code" != 200 ]]; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career API response download failed: phase=${phase}"
     return 1
   fi
-  if ! node --input-type=module - "$body_file" "$api_file" <<'NODE'
+  if ! node --input-type=module - "$body_file" "$api_file" "$headers_file" "$PUBLIC_BASE_URL" "$phase" <<'NODE'
 import { readFileSync } from 'node:fs';
 try {
   const html = readFileSync(process.argv[2], 'utf8');
@@ -251,6 +252,37 @@ try {
       page.hero?.badges?.length !== 3) throw new Error('API contract');
   // Exclude React transport scripts so cached props cannot masquerade as rendered content.
   const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
+  const seo = response.seo_contract;
+  const canonical = '/zh/career/jobs/accountants-and-auditors';
+  if (page.subject?.canonical_slug !== response.identity.canonical_slug ||
+      !/^[a-f0-9]{64}$/.test(page.source_content_sha256 ?? '') ||
+      page.content?.source_content_sha256 !== page.source_content_sha256 ||
+      seo?.metadata_fingerprint !== page.source_content_sha256 || seo.canonical_path !== canonical ||
+      seo.canonical_target !== canonical || typeof seo.index_eligible !== 'boolean') throw new Error('SEO authority');
+  const attrs = tag => Object.fromEntries([...tag.matchAll(/([\w-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g)]
+    .map(match => [match[1].toLowerCase(), match[2] ?? match[3]]));
+  const policies = [...rendered.matchAll(/<meta\b[^>]*>/gi)].map(match => attrs(match[0]))
+    .filter(meta => ['robots', 'googlebot'].includes((meta.name ?? '').toLowerCase())).map(meta => meta.content ?? '');
+  const headers = readFileSync(process.argv[4], 'utf8');
+  const headerPolicies = [...headers.matchAll(/^x-robots-tag:\s*(.*)$/gim)].map(match => match[1]);
+  const restricted = value => /(?:^|[\s,:])(?:noindex|none)(?:$|[\s,])/i.test(value);
+  const nofollow = value => /(?:^|[\s,:])(?:nofollow|none)(?:$|[\s,])/i.test(value);
+  const indexable = seo.index_eligible && ['index', 'indexable', 'indexed'].includes(seo.index_state) &&
+    seo.robots_policy === 'index,follow' && page.content.content_state === 'enhanced' && page.content.blocks.length > 0 &&
+    seo.reason_codes?.includes('runtime_publish_projection') && seo.reason_codes?.some(reason =>
+      ['release_gate_pass', 'validated_display_asset_backed_release', 'runtime_published_navigation_shell'].includes(reason));
+  if (!policies.length) throw new Error('robots missing');
+  const staging = process.argv[5] === 'https://staging.fermatmind.com';
+  if (staging) {
+    if (process.argv[6] === 'public' && !headerPolicies.some(restricted)) throw new Error('staging noindex missing');
+  } else if (indexable) {
+    if ([...policies, ...headerPolicies].some(value => restricted(value) || nofollow(value))) throw new Error('index suppressed');
+    if (!policies.some(value => /(?:^|[\s,])index(?:$|[\s,])/i.test(value))) throw new Error('index missing');
+  } else if (!policies.every(restricted)) throw new Error('noindex authority overridden');
+  const canonicals = [...rendered.matchAll(/<link\b[^>]*>/gi)].map(match => attrs(match[0]))
+    .filter(link => link.rel === 'canonical').map(link => link.href);
+  if (canonicals.length !== 1 || canonicals[0] !== `${staging ? 'https://staging.fermatmind.com' : 'https://fermatmind.com'}${canonical}`) throw new Error('canonical');
+
   if (!rendered.includes('data-career-production-template="career-production-v1"')) throw new Error('original template');
   for (const marker of ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq']) {
     if (!rendered.includes(`data-testid="${marker}"`)) throw new Error('original renderer');
@@ -272,11 +304,11 @@ try {
 }
 NODE
   then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career renderer content mismatch: phase=${phase}"
     return 1
   fi
-  rm -f "$body_file" "$api_file"
+  rm -f "$body_file" "$api_file" "$headers_file"
   log "career renderer revision passed: phase=${phase} path=${CAREER_RENDERER_PATH}; content passed"
 }
 

@@ -44,12 +44,26 @@ describe("proxy boundary contract", () => {
     expect(fetchMock.mock.calls[0]?.[1]?.method).toBe("GET");
   });
 
+  it.each(["en", "zh"])("leaves mismatched Current identities to the page contract error in %s", async locale => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({bundle_version: "career.detail.page.v1", identity: {canonical_slug: "librarians"}})));
+    const response = await proxyHandler(new NextRequest(`https://example.com/${locale}/career/jobs/librarians-and-media-collections-specialists`));
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.status).toBe(200);
+  });
+
+  it.each(["en", "zh"])("keeps same-identity Current case normalization before streaming in %s", async locale => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({bundle_version: "career.detail.page.v1", identity: {canonical_slug: "actors"}})));
+    const response = await proxyHandler(new NextRequest(`https://example.com/${locale}/career/jobs/Actors?utm=a`));
+    expect(response.status).toBe(308);
+    expect(response.headers.get("location")).toBe(`https://example.com/${locale}/career/jobs/actors?utm=a`);
+  });
+
   it.each(["en", "zh"])("redirects a backend-resolved alias before streaming in %s", async (locale) => {
     vi.stubGlobal("fetch", vi.fn(async () => Response.json({
       identity: { canonical_slug: "librarians" },
     })));
     const response = await proxyHandler(new NextRequest(
-      `https://example.com/${locale}/career/jobs/librarians-and-media-collections-specialists?utm=a`,
+      `https://example.com/${locale}/career/jobs/legacy-library-role?utm=a`,
     ));
     expect(response.status).toBe(308);
     expect(response.headers.get("location")).toBe(`https://example.com/${locale}/career/jobs/librarians?utm=a`);

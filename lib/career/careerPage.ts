@@ -1,4 +1,5 @@
 import { careerContentV3FaqItems, normalizeCareerContentV3, type CareerContentV3, type CareerContentV3Fact } from './contentV3';
+import { PublicReadError } from '@/lib/public-content/readError';
 import type { Locale } from '@/lib/i18n/locales';
 
 export const CAREER_PAGE_CONTRACT = 'career.detail.page.v1';
@@ -55,4 +56,20 @@ export function careerPageHasPublicBody(page: CareerPage): boolean {
       item.availability === 'available' && item.type !== 'links' && item.type !== 'sources',
     ),
   );
+}
+
+/** Current file body and publication metadata must identify one page version. */
+export function validateCareerPageAuthority(raw: Record<string, unknown>, page: CareerPage, locale: Locale, slug: string): void {
+  const seo = raw.seo_contract;
+  const canonical = `/${locale}/career/jobs/${slug}`;
+  if (!record(raw.identity) || raw.identity.canonical_slug !== slug ||
+      !record(raw.locale_policy) || raw.locale_policy.requested_locale !== (locale === 'zh' ? 'zh-CN' : 'en') ||
+      !record(seo) || seo.metadata_fingerprint !== page.content.sourceContentSha256 ||
+      seo.canonical_path !== canonical || seo.canonical_target !== canonical ||
+      typeof seo.index_eligible !== 'boolean' || !text(seo.index_state) || !Array.isArray(seo.reason_codes) ||
+      !seo.reason_codes.every(text) || !['index,follow', 'noindex,follow'].includes(String(seo.robots_policy)) ||
+      (seo.robots_policy === 'index,follow') !== (seo.index_eligible === true) ||
+      ['index', 'indexable', 'indexed'].includes(String(seo.index_state)) !== seo.index_eligible) {
+    throw new PublicReadError({kind: 'contract', errorCode: 'CAREER_PAGE_AUTHORITY_INVALID'});
+  }
 }

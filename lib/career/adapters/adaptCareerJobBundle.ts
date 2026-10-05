@@ -184,6 +184,8 @@ function buildSeoContract(raw: Record<string, unknown>): CareerSeoContractAdapte
   const seoContract = isRecord(raw.seo_contract) ? raw.seo_contract : {};
 
   return {
+    metadataFingerprint: normalizeString(seoContract.metadata_fingerprint),
+    robotsPolicy: normalizeString(seoContract.robots_policy),
     canonicalPath: normalizeString(seoContract.canonical_path),
     canonicalTarget: normalizeString(seoContract.canonical_target),
     indexState: normalizeString(seoContract.index_state),

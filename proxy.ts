@@ -2,7 +2,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { buildApiUrl } from "@/lib/api-base";
 import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
-import { isSafeCareerJobSlug } from "@/lib/career/slugSafety";
+import { isSafeCareerJobSlug, normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import {
   LOCALE_COOKIE_NAME,
@@ -249,7 +249,10 @@ async function probeCareerPublicAbsence(
 
     const payload = await response.json();
     const canonicalSlug = payload?.identity?.canonical_slug;
-    if (isSafeCareerJobSlug(canonicalSlug) && canonicalSlug !== probe.slug) {
+    // Current fixed identities must reach the page's request/response validator.
+    // A different Current identity is a contract failure, never an inferred alias.
+    if (isSafeCareerJobSlug(canonicalSlug) && canonicalSlug !== probe.slug &&
+        (payload?.bundle_version !== 'career.detail.page.v1' || canonicalSlug === normalizeCareerJobSlug(probe.slug))) {
       const target = request.nextUrl.clone();
       target.pathname = `/${probe.locale}/career/jobs/${canonicalSlug}`;
       return NextResponse.redirect(target, 308);

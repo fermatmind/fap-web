@@ -9,6 +9,8 @@ import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import type { PublicReview } from "@/lib/public-content/publicReview";
 
 export type CareerSeoContractAdapter = {
+  metadataFingerprint?: string | null;
+  robotsPolicy?: string | null;
   canonicalPath: string | null;
   canonicalTarget: string | null;
   indexState: string | null;
