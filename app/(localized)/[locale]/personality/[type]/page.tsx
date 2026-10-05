@@ -142,6 +142,18 @@ function buildPersonalitySectionShortcuts(
   sections: PersonalityProjection["sections"],
   testHref: string
 ): PersonalitySectionShortcut[] {
+  if (sections.some((section) => section.key === "sources_and_method")) {
+    return [
+      ...sections.filter((section) => section.key !== "quick_answer").map((section) => ({
+        key: section.key,
+        label: section.title,
+        description: section.title,
+        href: `#${section.key}`,
+        kind: "anchor" as const,
+      })),
+      { key: "take_test", label: locale === "zh" ? "开始免费测试" : "Start the free test", description: "", href: testHref, kind: "test" },
+    ];
+  }
   const sectionKeys = new Set(sections.map((section) => section.key).filter(Boolean));
   const whatHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "letters_intro", "overview");
   const traitsHref = firstAvailableSectionHref(sectionKeys, "#answer-first", "trait_overview", "overview");
@@ -670,7 +682,7 @@ function buildComparisonReaderLinks(
   return [
     { key: "overview", href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview", kind: "anchor" },
     ...(hasQuickAnswer
-      ? [{ key: "maximum-difference", href: "#comparison-quick-answer", label: locale === "zh" ? "最大区别" : "Biggest difference", kind: "anchor" as const }]
+      ? [{ key: "maximum-difference", href: "#comparison-overview", label: locale === "zh" ? "最大区别" : "Biggest difference", kind: "anchor" as const }]
       : []),
     ...(options?.hasQuickJudgment
       ? [{ key: "quick-judgment", href: "#comparison-quick-judgment", label: locale === "zh" ? "快速判断" : "Quick judgment", kind: "anchor" as const }]
@@ -1217,7 +1229,9 @@ function PersonalityComparisonPage({
   const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
   const title = comparisonSeoTitle(comparison);
   const heading = comparisonPageHeading(comparison);
-  const description = comparisonSeoDescription(comparison);
+  const description = comparison.sections.some((section) => section.sectionKey === "sources_and_method")
+    ? comparison.summary
+    : comparisonSeoDescription(comparison);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -1229,13 +1243,21 @@ function PersonalityComparisonPage({
   const assertiveLabel = comparison.variants?.a.runtimeTypeCode ?? comparison.leftType ?? "";
   const turbulentLabel = comparison.variants?.t.runtimeTypeCode ?? comparison.rightType ?? "";
   const quickAnswerBody = comparisonQuickAnswerBody(comparison);
-  const quickJudgmentRows = buildComparisonQuickJudgmentRows(comparison);
+  const hasCurrentReaderSections = comparison.sections.some((section) => section.sectionKey === "sources_and_method");
+  const quickJudgmentRows = hasCurrentReaderSections ? [] : buildComparisonQuickJudgmentRows(comparison);
   const hasDetailedCrossTypeSections =
     isCrossTypeComparison(comparison) &&
     comparison.crossTypeSections.some((section) => section.groups.length > 0 || section.items.length > 0);
-  const misreadCards = hasDetailedCrossTypeSections ? [] : buildComparisonMisreadCards(comparison);
-  const scenarioCards = hasDetailedCrossTypeSections ? [] : buildComparisonScenarioCards(comparison);
-  const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
+  const misreadCards = hasCurrentReaderSections || hasDetailedCrossTypeSections ? [] : buildComparisonMisreadCards(comparison);
+  const scenarioCards = hasCurrentReaderSections || hasDetailedCrossTypeSections ? [] : buildComparisonScenarioCards(comparison);
+  const renderedComparisonSections = renderPersonalitySections(
+    hasCurrentReaderSections ? comparison.sections.filter((section) => !["quick_answer", "faq", "sources_and_method", "related_content"].includes(section.sectionKey)) : comparison.sections,
+    locale,
+    hasCurrentReaderSections
+  );
+  const currentReaderClosingSections = hasCurrentReaderSections
+    ? renderPersonalitySections(comparison.sections.filter((section) => ["sources_and_method", "related_content"].includes(section.sectionKey)), locale)
+    : [];
   const comparisonFaqItems = buildVisibleComparisonFaqItems(comparison);
   const secondaryAnswerSurface = buildComparisonSecondaryAnswerSurface(comparison);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
@@ -1244,7 +1266,15 @@ function PersonalityComparisonPage({
         (section) => section.id === "next_reading" && section.body.length > 0
       )
     : [];
-  const readerLinks = buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody), {
+  const readerLinks = hasCurrentReaderSections ? [
+    { key: "answer", href: "#comparison-overview", label: locale === "zh" ? "直接答案" : "Direct answer", kind: "anchor" as const },
+    ...comparison.sections.filter((section) => section.sectionKey !== "quick_answer").map((section) => ({
+      key: section.sectionKey,
+      href: section.sectionKey === "faq" ? "#comparison-faq" : `#${section.sectionKey}`,
+      label: section.title,
+      kind: "anchor" as const,
+    })),
+  ] : buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody), {
     hasQuickJudgment: quickJudgmentRows.length > 0,
     hasMisreadRisks: misreadCards.length > 0,
     hasScenarioDifferences: scenarioCards.length > 0,
@@ -1279,6 +1309,15 @@ function PersonalityComparisonPage({
           <div className="max-w-3xl space-y-4">
             <h1 className="m-0 max-w-4xl font-sans text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl">{heading}</h1>
             {description ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{description}</p> : null}
+            {hasCurrentReaderSections ? (
+              <TrackedEntryCtaLink
+                href={buildMbtiEntryHref({ locale, formCode: DEFAULT_MBTI_FORM_CODE, entrySurface: "mbti_personality_comparison", sourcePageType: "personality_comparison", targetAction: "start_test", sourcePath: canonicalPath })}
+                eventProperties={{ ...mbtiEntryViewTrackingProps, target_action: "start_test" }}
+                className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#5f447e] shadow-sm transition hover:bg-white/90"
+              >
+                {locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
+              </TrackedEntryCtaLink>
+            ) : null}
           </div>
           <div className="grid min-h-40 content-center gap-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 text-white/92">
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
@@ -1304,7 +1343,7 @@ function PersonalityComparisonPage({
         </aside>
 
         <section className="w-full min-w-0 space-y-8" data-testid="personality-comparison-primary-sections">
-          {quickAnswerBody ? (
+          {quickAnswerBody && !hasCurrentReaderSections ? (
             <section
               id="comparison-quick-answer"
               className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
@@ -1324,9 +1363,9 @@ function PersonalityComparisonPage({
             locale={locale}
           />
 
-          <ComparisonMethodCard comparison={comparison} locale={locale} />
+          {!hasCurrentReaderSections ? <ComparisonMethodCard comparison={comparison} locale={locale} /> : null}
 
-          {comparison.variants ? (
+          {!hasCurrentReaderSections && (comparison.variants ? (
             <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
               <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
               <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
@@ -1336,9 +1375,9 @@ function PersonalityComparisonPage({
               {comparison.leftType ? <CrossTypeBaseCard typeCode={comparison.leftType} locale={locale} /> : null}
               {comparison.rightType ? <CrossTypeBaseCard typeCode={comparison.rightType} locale={locale} /> : null}
             </section>
-          )}
+          ))}
 
-          {hasDetailedCrossTypeSections ? (
+          {!hasCurrentReaderSections && hasDetailedCrossTypeSections ? (
             <CrossTypeDetailedSections sections={comparison.crossTypeSections} />
           ) : null}
 
@@ -1362,17 +1401,19 @@ function PersonalityComparisonPage({
             </section>
           ) : null}
 
-          <AnswerSurfaceSection
+          {!hasCurrentReaderSections ? <AnswerSurfaceSection
             surface={secondaryAnswerSurface}
             locale={locale}
             testId="personality-comparison-answer-surface"
             pageFamily="personality_detail"
             hideSummaryBlocks
             hideCompareLabel
-          />
+          /> : null}
           {/* Contract marker: comparison pages must not use frontend editorial fallback content. */}
 
           <ComparisonVisibleFaqSection items={comparisonFaqItems} locale={locale} />
+
+          {currentReaderClosingSections}
 
           {nextReadingSections.map((section) => (
             <section
@@ -1395,7 +1436,7 @@ function PersonalityComparisonPage({
             </section>
           ))}
 
-          <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
+          {!hasCurrentReaderSections ? <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} /> : null}
         </section>
 
       </div>
@@ -1584,6 +1625,7 @@ export default async function PersonalityDetailPage({
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
   const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";
+  const hasCurrentReaderSections = detail.projection.sections.some((section) => section.key === "sources_and_method");
   const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;
   const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;
   const answerSurface =
@@ -1634,7 +1676,7 @@ export default async function PersonalityDetailPage({
   const v85Sections = authoredV85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
   const filteredProjectionSections = filterProjectionSectionsForDetail(
     detail.projection.sections,
-    answerSurfaceFaqItems.length > 0,
+    !hasCurrentReaderSections && answerSurfaceFaqItems.length > 0,
     hasV85SectionAuthority
   );
   const leadingProjectionSections = hasV85SectionAuthority
@@ -1651,11 +1693,12 @@ export default async function PersonalityDetailPage({
     locale
   );
   const hasV85Sections = renderedV85Sections.length > 0;
+  const hasReaderLayout = hasV85Sections || hasCurrentReaderSections;
   const baseSceneEntryBlocks = isBaseTypeProjection
     ? answerSurface?.sceneSummaryBlocks.filter(hasCompletePersonalitySceneAuthority)
     : answerSurface?.sceneSummaryBlocks;
   const shouldRenderSceneEntry =
-    !hasV85Sections &&
+    !hasReaderLayout &&
     (!isBaseTypeProjection || Boolean(baseSceneEntryBlocks?.length));
   const hasAnswerSurfaceContent = Boolean(
     answerSurface &&
@@ -1720,7 +1763,7 @@ export default async function PersonalityDetailPage({
   const intentLinks = hasV85Sections
     ? buildV85PersonalitySectionShortcuts(locale, v85Sections)
     : legacyIntentLinks;
-  const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
+  const personalityBrowseHref = localizedPath(`/personality/${detail.canonicalTypeCode.toLowerCase()}-a-vs-${detail.canonicalTypeCode.toLowerCase()}-t`, locale);
   const baseDisplayType = detail.displayType.replace(/-[AT]$/i, "");
   const variantComparisonLabel =
     locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
@@ -1741,7 +1784,7 @@ export default async function PersonalityDetailPage({
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-jsonld-${detail.slug}`} data={normalizedSeo.jsonld} /> : null}
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-webpage-${detail.slug}`} data={webPageJsonLd} /> : null}
       {fallbackProjectionGate.canRenderPublicSchema ? <JsonLd id={`personality-breadcrumb-${detail.slug}`} data={breadcrumbJsonLd} /> : null}
-      {fallbackProjectionGate.canRenderPublicSchema && faqItems.length > 0 ? (
+      {fallbackProjectionGate.canRenderPublicSchema && !hasCurrentReaderSections && faqItems.length > 0 ? (
         <JsonLd id={`personality-faq-${detail.slug}`} data={buildFAQPageJsonLd(faqItems)} />
       ) : null}
       <Breadcrumb
@@ -1885,7 +1928,7 @@ export default async function PersonalityDetailPage({
         </div>
       </nav>
 
-      {hasV85Sections ? (
+      {hasReaderLayout ? (
         <div
           className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,48rem)_17rem] xl:items-start"
           data-testid="personality-detail-v85-reading-layout"
@@ -1932,9 +1975,9 @@ export default async function PersonalityDetailPage({
             </div>
           </aside>
           <section className="w-full min-w-0 space-y-8" data-testid="personality-detail-v85-primary-sections">
-            {renderedLeadingProjectionSections}
-            {renderedV85Sections}
-            <AnswerSurfaceSection
+            {hasCurrentReaderSections ? renderedProjectionSections : renderedLeadingProjectionSections}
+            {!hasCurrentReaderSections ? renderedV85Sections : null}
+            {!hasCurrentReaderSections ? <AnswerSurfaceSection
               surface={answerSurface}
               locale={locale}
               testId="personality-detail-v85-answer-surface"
@@ -1943,7 +1986,7 @@ export default async function PersonalityDetailPage({
               hideCompareLabel={locale === "zh"}
               hideSceneLabel={locale === "zh"}
               hideSummaryLabel={locale === "zh"}
-            />
+            /> : null}
           </section>
           <aside
             className="sticky top-24 hidden space-y-4 xl:block"
@@ -1970,12 +2013,12 @@ export default async function PersonalityDetailPage({
                         >
                           {dimension.summary || dimension.label}
                         </dt>
-                        <dd className="m-0 mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8e5ea]">
+                        {dimension.pct !== null ? <dd className="m-0 mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8e5ea]">
                           <span
                             className="block h-full rounded-full bg-[#76598d]"
-                            style={{ width: `${dimension.pct ?? 72}%` }}
+                            style={{ width: `${dimension.pct}%` }}
                           />
-                        </dd>
+                        </dd> : null}
                         {poles.length === 2 ? (
                           <dd className="m-0 mt-1 flex items-center justify-between text-[11px] font-semibold text-[#9aa39d]">
                             {poles.map((pole) => (
@@ -2010,9 +2053,9 @@ export default async function PersonalityDetailPage({
         {hasRenderableContent ? (
           <>
             {!hasV85Sections ? renderedV85Sections : null}
-            {renderedProjectionSections}
-            {renderedSupplementalSections}
-            {!hasV85Sections ? (
+            {!hasCurrentReaderSections ? renderedProjectionSections : null}
+            {!hasCurrentReaderSections ? renderedSupplementalSections : null}
+            {!hasReaderLayout ? (
               <AnswerSurfaceSection
                 surface={answerSurface}
                 locale={locale}

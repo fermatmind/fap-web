@@ -105,7 +105,8 @@ describe("personality hub contract", () => {
 
     expect(pageSource).toContain('from "@/lib/mbti/personalityHub.adapter"');
     expect(pageSource).toContain("buildItemListJsonLd");
-    expect(pageSource).toContain("buildFAQPageJsonLd");
+    expect(pageSource).not.toContain("buildFAQPageJsonLd");
+    expect(pageSource).toContain("content.sections?.find");
     expect(pageSource).toContain("buildPersonalityHubPayload({");
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-hub-seo-overview"');

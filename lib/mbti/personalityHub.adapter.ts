@@ -93,7 +93,7 @@ function buildTypeDecisionCard(params: {
     baseTypeCode: personality.baseTypeCode,
     variantCode: personality.variantCode,
     slug,
-    title: personality.title || typeCode,
+    title: personality.nickname || personality.title || typeCode,
     excerpt: personality.excerpt || personality.subtitle || groupMeta.summary,
     imageUrl: personality.heroImageUrl ?? null,
     href: localizedPath(`/personality/${slug}`, locale),

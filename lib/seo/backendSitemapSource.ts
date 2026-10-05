@@ -32,6 +32,7 @@ const BIG_FIVE_PUBLIC_ASSET_RE = /^\/(en|zh)\/personality\/big-five(?:\/(.+))?$/
 const ENNEAGRAM_PUBLIC_ASSET_RE =
   /^\/(?:en|zh)\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)|wings\/(?:1w9|1w2|2w1|2w3|3w2|3w4|4w3|4w5|5w4|5w6|6w5|6w7|7w6|7w8|8w7|8w9|9w8|9w1)|type-[1-9]\/instincts\/(?:self-preservation|social|one-to-one)))?$/i;
 const MBTI_PERSONALITY_DETAIL_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-([at])$/i;
+const MBTI_PERSONALITY_BASE_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})$/i;
 const MBTI_PERSONALITY_AT_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-([a-z]{4})-t$/i;
 const MBTI_PERSONALITY_CROSS_TYPE_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-vs-([a-z]{4})$/i;
 const MBTI_BASE_TYPES = new Set([
@@ -151,6 +152,7 @@ function shouldKeepEnneagramPublicAssetPath(path: string): boolean {
 function shouldKeepMbtiPersonalityPath(path: string): boolean {
   const normalized = normalizePath(path);
   const detail = normalized.match(MBTI_PERSONALITY_DETAIL_RE);
+  const base = normalized.match(MBTI_PERSONALITY_BASE_RE);
   const atComparison = normalized.match(MBTI_PERSONALITY_AT_COMPARISON_RE);
   const crossTypeComparison = normalized.match(MBTI_PERSONALITY_CROSS_TYPE_COMPARISON_RE);
   const hasValidType = detail
@@ -161,7 +163,7 @@ function shouldKeepMbtiPersonalityPath(path: string): boolean {
         ? MBTI_BASE_TYPES.has(crossTypeComparison[1].toLowerCase()) &&
           MBTI_BASE_TYPES.has(crossTypeComparison[2].toLowerCase()) &&
           crossTypeComparison[1].toLowerCase() !== crossTypeComparison[2].toLowerCase()
-        : false;
+        : base ? MBTI_BASE_TYPES.has(base[1].toLowerCase()) : false;
 
   return hasValidType && shouldIncludeInSitemap(normalized, {
     indexEligible: true,

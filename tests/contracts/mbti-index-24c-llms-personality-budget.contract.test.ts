@@ -36,7 +36,7 @@ describe("MBTI-INDEX-24C llms personality authority budget", () => {
     expect(route).not.toContain("withLlmsRouteBudget((signal) => listPersonalityPaths(signal)");
   });
 
-  it("accepts the exact nine promoted backend paths without inventing local coverage", () => {
+  it("includes self-canonical base profiles alongside variants and comparisons", () => {
     const payload = {
       items: [
         ...TARGET_PATHS.map((path) => ({ loc: `https://fermatmind.com${path}` })),
@@ -47,7 +47,7 @@ describe("MBTI-INDEX-24C llms personality authority budget", () => {
       ],
     };
 
-    expect(extractBackendSitemapMbtiPersonalityPaths(payload)).toEqual([...TARGET_PATHS].sort());
+    expect(extractBackendSitemapMbtiPersonalityPaths(payload)).toEqual([...TARGET_PATHS, "/zh/personality/intj"].sort());
   });
 
   it("fails closed to an empty authority set when the source exceeds its budget", async () => {

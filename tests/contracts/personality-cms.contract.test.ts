@@ -207,6 +207,20 @@ describe("personality cms adapter contract", () => {
     expect(result.pagination.total).toBe(32);
   });
 
+  it("carries Current hub copy and SEO through the list contract", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({
+      ok: true,
+      items: [{ type_code: "INTP-A", slug: "intp-a", locale: "en", title: "INTP-A Personality", nickname: "Logician" }],
+      sections: [{ section_key: "sources_and_method", title: "Sources and method limits", render_variant: "rich_text", body_md: "Source-based copy", sort_order: 40, is_enabled: true }],
+      seo_meta: { seo_title: "Current directory title", seo_description: "Current directory description", canonical_url: "https://fermatmind.com/en/personality" },
+    })));
+    const result = await listPersonalityProfiles({ locale: "en", includeVariants: true });
+    expect(result.items[0]?.nickname).toBe("Logician");
+    expect(result.sections?.[0]?.bodyMd).toBe("Source-based copy");
+    expect(result.seoMeta?.seoTitle).toBe("Current directory title");
+    expect(result.seoMeta?.canonicalUrl).toBe("https://fermatmind.com/en/personality");
+  });
+
   it("drops non-managed personality list media URLs before hub consumption", async () => {
     vi.stubGlobal(
       "fetch",

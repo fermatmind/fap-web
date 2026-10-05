@@ -26,6 +26,7 @@ const KNOWN_SECTION_KEYS = [
   "career_fit",
   "faq",
   "related_content",
+  "sources_and_method",
   "quick_answer",
   "meaning",
   "a_t_difference",
@@ -2076,12 +2077,17 @@ export function getRenderablePersonalitySections(sections: CmsPersonalitySection
   return sections.filter((section) => isKnownSectionKey(section.sectionKey) || isMbti64V85FirstClassSectionKey(section.sectionKey));
 }
 
-export function renderPersonalitySections(sections: CmsPersonalitySection[], locale: Locale): ReactNode[] {
+export function renderPersonalitySections(sections: CmsPersonalitySection[], locale: Locale, preserveBackendTitles = false): ReactNode[] {
+  const currentReader = preserveBackendTitles || sections.some((section) => section.sectionKey === "sources_and_method");
   return getRenderablePersonalitySections(sections)
     .map((section) => {
       let content: ReactNode = null;
 
-      switch (section.sectionKey) {
+      if (currentReader) {
+        content = section.renderVariant === "faq"
+          ? renderLegacyFaqSection(section, locale)
+          : renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+      } else switch (section.sectionKey) {
         case "mbti64_comparison_a_vs_t":
           content = renderMbti64ComparisonSection(section, locale);
           break;
@@ -2119,7 +2125,7 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
       }
 
       return renderSectionCard(section.sectionKey, section.title, content, locale, {
-        preserveBackendTitle: MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey),
+        preserveBackendTitle: preserveBackendTitles || sections.some((item) => item.sectionKey === "sources_and_method") || MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey),
         editorialPriority: isMbti64V85FirstClassSectionKey(section.sectionKey),
       });
     })
@@ -2185,7 +2191,9 @@ export function renderProjectionSections(
         return null;
       }
 
-      return renderSectionCard(section.key, section.title, content, locale);
+      return renderSectionCard(section.key, section.title, content, locale, {
+        preserveBackendTitle: sections.some((item) => item.key === "sources_and_method"),
+      });
     })
     .filter((section) => section !== null);
 }

@@ -10,7 +10,7 @@ type MbtiAuthorityCache = {
 
 const CACHE_FILENAME = "mbti-sitemap-authority.v1.json";
 export const MBTI_AUTHORITY_LKG_MAX_AGE_MS = 24 * 60 * 60 * 1_000;
-const MBTI_AUTHORITY_PATH_RE = /^\/(?:en|zh)\/personality\/(?:[a-z]{4}-[at]|[a-z]{4}-a-vs-[a-z]{4}-t|[a-z]{4}-vs-[a-z]{4})$/i;
+const MBTI_AUTHORITY_PATH_RE = /^\/(?:en|zh)\/personality\/(?:[a-z]{4}|[a-z]{4}-[at]|[a-z]{4}-a-vs-[a-z]{4}-t|[a-z]{4}-vs-[a-z]{4})$/i;
 const MBTI_BASE_TYPES = new Set([
   "intj", "intp", "entj", "entp", "infj", "infp", "enfj", "enfp",
   "istj", "isfj", "estj", "esfj", "istp", "isfp", "estp", "esfp",

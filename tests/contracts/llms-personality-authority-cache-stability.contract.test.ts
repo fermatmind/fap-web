@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 const AUTHORITY_PATHS = [
+  "/en/personality/intp",
   "/zh/personality/entj-vs-intj",
   "/zh/personality/intp-a-vs-intp-t",
   "/zh/personality/istj-a",

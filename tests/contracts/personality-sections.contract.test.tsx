@@ -40,6 +40,20 @@ function cmsSection(overrides: Partial<CmsPersonalitySection>): CmsPersonalitySe
 }
 
 describe("personality projection section renderer contract", () => {
+  it("keeps Current paragraph boundaries, authored headings and source links", () => {
+    render(<div>{renderPersonalitySections([
+      cmsSection({ sectionKey: "meaning", title: "The four preference pairs", bodyMd: "First preference.\n\nSecond preference." }),
+      cmsSection({ sectionKey: "sources_and_method", title: "Sources and method limits", bodyMd: "[Official facts](https://www.themyersbriggs.com/en-us/support/mbti-facts)" }),
+    ], "en")}</div>);
+    expect(screen.getByRole("heading", { name: "The four preference pairs" })).toBeTruthy();
+    const firstParagraph = screen.getByText("First preference.").closest("p");
+    const secondParagraph = screen.getByText("Second preference.").closest("p");
+    expect(firstParagraph).not.toBeNull();
+    expect(secondParagraph).not.toBeNull();
+    expect(firstParagraph).not.toBe(secondParagraph);
+    expect(screen.getByRole("link", { name: "Official facts" }).getAttribute("href")).toBe("https://www.themyersbriggs.com/en-us/support/mbti-facts");
+  });
+
   it("recognizes and renders MBTI64 V8.5 first-class sections", () => {
     render(
       <div>

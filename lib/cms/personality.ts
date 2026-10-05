@@ -53,6 +53,7 @@ type CmsPersonalityApiProfile = {
   title?: string;
   subtitle?: string | null;
   excerpt?: string | null;
+  nickname?: string | null;
   hero_kicker?: string | null;
   hero_quote?: string | null;
   hero_image_url?: string | null;
@@ -76,6 +77,8 @@ type CmsPersonalityApiSection = {
 };
 
 type CmsPersonalityListApiResponse = {
+  sections?: CmsPersonalityApiSection[];
+  seo_meta?: CmsPersonalityApiSeoMeta;
   ok?: boolean;
   items?: CmsPersonalityApiProfile[];
   landing_surface_v1?: LandingSurfaceRaw | null;
@@ -369,6 +372,7 @@ export type CmsPersonalitySection = {
 };
 
 export type CmsPersonalityProfileSummary = {
+  nickname?: string | null;
   id: number | null;
   variantId: number | null;
   profileId: number | null;
@@ -729,6 +733,8 @@ export type GetCmsPersonalityProfilesParams = {
 };
 
 export type GetCmsPersonalityProfilesResult = {
+  sections?: CmsPersonalitySection[];
+  seoMeta?: CmsPersonalitySeoMeta | null;
   items: CmsPersonalityProfileSummary[];
   pagination: CmsPersonalityPagination;
   landingSurface: LandingSurfaceViewModel | null;
@@ -826,6 +832,7 @@ function normalizeProfileSummary(profile: CmsPersonalityApiProfile): CmsPersonal
     slug: normalizedSlug,
     baseSlug: normalizePersonalitySlug(String(profile.base_slug ?? baseTypeCode)) || null,
     locale: fallbackText(profile.locale) || "en",
+    nickname: fallbackText(profile.nickname) || null,
     title: fallbackText(profile.title, profile.type_code),
     subtitle: fallbackText(profile.subtitle),
     excerpt: fallbackText(profile.excerpt, profile.subtitle),
@@ -2067,6 +2074,8 @@ export async function listPersonalityProfiles(
 
     return {
       items,
+      sections: (response.sections ?? []).map(normalizeSection).filter((section): section is CmsPersonalitySection => section !== null),
+      seoMeta: normalizeSeoMeta(response.seo_meta ?? null),
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
       pagination: {
         currentPage:
