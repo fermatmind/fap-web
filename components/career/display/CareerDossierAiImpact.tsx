@@ -35,6 +35,9 @@ const AI_SOURCE_HOSTS = new Set([
   "arxiv.org",
   "www.sagaftra.org",
   "nvlpubs.nist.gov",
+  "scjgj.gz.gov.cn",
+  "www.samr.gov.cn",
+  "fermatmind.com",
 ]);
 
 function isRecord(value: unknown): value is Record<string, unknown> {
