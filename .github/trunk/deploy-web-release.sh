@@ -51,7 +51,7 @@ ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o
 
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 control_files=(scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
-  scripts/rolling_reload_pm2.sh scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
+  scripts/rolling_reload_pm2.sh scripts/ops/verify-career-renderer.mjs lib/site.ts scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
   .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh)
 if [[ "$RELEASE_TRANSPORT_MODE" == "local" ]]; then control_files=("$RELEASE_ARCHIVE" "${control_files[@]}"); fi
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
