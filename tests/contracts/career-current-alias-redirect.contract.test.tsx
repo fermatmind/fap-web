@@ -14,12 +14,21 @@ vi.mock("@/lib/career/adapters/adaptCareerJobBundle", () => ({
 import CareerJobDetailPage, { generateMetadata } from "@/app/(localized)/[locale]/career/jobs/[slug]/page";
 import { fetchCareerJobBundle } from "@/lib/career/api/fetchCareerJobBundle";
 
-describe("manifest-resolved career aliases", () => {
+describe("legacy backend-resolved career aliases", () => {
   it.each(["en", "zh"])("redirects body and metadata in the same %s locale", async (locale) => {
-    const params = Promise.resolve({ locale, slug: "librarians-and-media-collections-specialists" });
+    const params = Promise.resolve({ locale, slug: "legacy-library-role" });
     await expect(CareerJobDetailPage({ params })).rejects.toThrow(`308:/${locale}/career/jobs/librarians`);
     await expect(generateMetadata({ params })).rejects.toThrow(`308:/${locale}/career/jobs/librarians`);
   });
+  it.each([{ bundle_version: "career.detail.page.v1" }, { career_page: null }])(
+    "does not infer a legacy alias from a damaged Current descriptor: %j", async descriptor => {
+      vi.mocked(fetchCareerJobBundle).mockResolvedValueOnce({
+        ...descriptor, identity: { canonical_slug: "librarians" },
+      });
+      await expect(CareerJobDetailPage({ params: Promise.resolve({ locale: "zh", slug: "legacy-library-role" }) }))
+        .rejects.toThrow("CAREER_PAGE_CONTRACT_INVALID");
+    },
+  );
   it("fails closed when the formal target is unavailable", async () => {
     vi.mocked(fetchCareerJobBundle).mockResolvedValueOnce(null);
     await expect(CareerJobDetailPage({ params: Promise.resolve({ locale: "zh", slug: "old-career" }) })).rejects.toThrow("404");

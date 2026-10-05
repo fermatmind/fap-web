@@ -31,6 +31,12 @@ const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   if (!job) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
   const envelope = payload as unknown as Record<string, unknown>;
   const raw = envelope.data && typeof envelope.data === 'object' ? envelope.data as Record<string, unknown> : envelope;
+  const filePageResponse = raw.bundle_version === 'career.detail.page.v1' || Object.prototype.hasOwnProperty.call(raw, 'career_page');
+  // Historical identity-only aliases redirect before requiring a destination page;
+  // Current descriptors must pass the full request/response identity check.
+  if (!filePageResponse && job.slug !== slug && normalizeCareerJobSlug(job.slug) === job.slug) {
+    permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug));
+  }
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
   const currentAuthority = locale === 'zh' || raw.bundle_version === 'career.detail.page.v1';
