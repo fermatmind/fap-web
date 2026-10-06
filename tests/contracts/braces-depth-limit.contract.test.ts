@@ -84,6 +84,18 @@ describe("braces shared recursion boundary", () => {
     rejectsDepth(() => braces.expand({ type: "root", nodes }));
   });
 
+  it("bounds nested array state reached through AST parent queues", () => {
+    const queue = (depth: number): unknown => {
+      let value: unknown = "x";
+      for (let i = 0; i < depth; i++) value = [value];
+      return value;
+    };
+    expect(braces.expand({ type: "custom", nodes: [], parent: { type: "root", queue: queue(128) } })).toEqual(["x"]);
+    rejectsDepth(() => braces.expand({ type: "custom", nodes: [], parent: { type: "root", queue: queue(129) } }));
+    const utils = rootRequire(path.join(path.dirname(locations[0]), "lib/utils.js")) as { flatten(...values: unknown[]): unknown[] };
+    expect(utils.flatten(["a", [undefined, null, false, 0, ["b"]]])).toEqual(["a", null, false, 0, "b"]);
+  });
+
   it("preserves shallow lists, ranges, literals and existing failure semantics", () => {
     expect(braces.compile("a/{b,c}/d")).toBe("a/(b|c)/d");
     expect(braces.expand("a/{b,c}/d")).toEqual(["a/b/d", "a/c/d"]);
@@ -110,6 +122,8 @@ describe("braces shared recursion boundary", () => {
       const hidden=[deep]; hidden[Symbol.iterator]=function*(){};
       assert.throws(()=>b.expand({type:'root',nodes:hidden}), {name:'SyntaxError',code:'BRACES_MAX_DEPTH_EXCEEDED'});
       for(const method of ['compile','stringify']){function* nodes(){yield deep;} assert.throws(()=>b[method]({type:'root',nodes:nodes()}),{name:'SyntaxError',code:'BRACES_MAX_DEPTH_EXCEEDED'});}
+      let queue='x'; for(let i=0;i<10000;i++)queue=[queue];
+      for(const nodes of [[],[{type:'text',value:'y'}]])assert.throws(()=>b.expand({type:'custom',nodes,parent:{type:'root',queue}}),{name:'SyntaxError',code:'BRACES_MAX_DEPTH_EXCEEDED'});
       const parent={type:'custom'}; parent.parent=parent;
       const node={type:'custom',nodes:[],parent};
       assert.throws(()=>b.expand({type:'root',nodes:[node]}), {name:'SyntaxError',code:'BRACES_MAX_DEPTH_EXCEEDED'});`;
