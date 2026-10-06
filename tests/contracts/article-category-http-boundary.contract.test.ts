@@ -66,9 +66,9 @@ describe("Blog category prestream HTTP authority", () => {
     expect((await proxy(new NextRequest("https://example.com/en/articles/category/unknown"))).headers.get("x-middleware-next")).toBe("1");
   });
 
-  it("rejects malformed category slugs without probing CMS", async () => {
+  it.each(["Bad_slug", "unknown.json", "unknown.png", "bad%2Fslug", "bad%ZZslug"])("rejects malformed category slug %s without probing CMS", async slug => {
     const fetchMock = vi.fn(); vi.stubGlobal("fetch", fetchMock);
-    expect((await proxy(new NextRequest("https://example.com/en/articles/category/Bad_slug"))).status).toBe(404);
+    expect((await proxy(new NextRequest(`https://example.com/en/articles/category/${slug}`))).status).toBe(404);
     expect(fetchMock).not.toHaveBeenCalled();
   });
 

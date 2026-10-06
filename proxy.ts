@@ -408,7 +408,7 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     return createStagingDiscoverabilityGoneResponse(pathname.includes("sitemap") ? "sitemap" : "llms");
   }
 
-  if (isStaticAsset(pathname)) {
+  if (isStaticAsset(pathname) && !(isPublicReadMethod(request.method) && ARTICLE_CATEGORY_PATH_RE.test(pathname))) {
     const response = NextResponse.next();
 
     return isStagingHost ? withStagingNoindexHeader(response) : response;
