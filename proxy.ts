@@ -4,6 +4,7 @@ import { buildApiUrl } from "@/lib/api-base";
 import { isKnownTestSlug, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { isSafeCareerJobSlug, normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
+import { normalizeBlog } from "@/lib/cms/articles";
 import {
   LOCALE_COOKIE_NAME,
   resolveCountryCodeFromHeaders,
@@ -44,6 +45,7 @@ const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
 const ARTICLE_DETAIL_PATH_RE = /^\/(en|zh)\/articles\/([^/]+)\/?$/i;
+const ARTICLE_CATEGORY_PATH_RE = /^\/(en|zh)\/articles\/category\/([^/]+)\/?$/;
 const CAREER_DETAIL_PATH_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)\/?$/i;
 const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
 const TEST_DETAIL_PATH_RE = /^\/(en|zh)\/tests\/([^/]+)\/?$/i;
@@ -214,6 +216,41 @@ async function probeArticlePublicAbsence(
   } catch {
     // A transient probe failure is not authoritative absence. Let the route's
     // classified public read reach its existing error boundary instead.
+    return null;
+  }
+}
+
+async function probeArticleCategoryPublicAbsence(
+  locale: "en" | "zh",
+  rawSlug: string,
+): Promise<NextResponse | null> {
+  let slug: string;
+  try {
+    slug = decodeURIComponent(rawSlug);
+  } catch {
+    return createPublicAbsenceResponse(404);
+  }
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) return createPublicAbsenceResponse(404);
+
+  const query = new URLSearchParams({
+    locale: toApiLocale(locale), org_id: "0", include_blog: "1", page: "1", per_page: "1",
+  });
+  try {
+    const response = await fetch(buildApiUrl(`/v0.5/articles?${query.toString()}`), {
+      method: "GET",
+      headers: { Accept: "application/json", "X-FAP-Locale": toApiLocale(locale) },
+      cache: "no-store", redirect: "manual", signal: AbortSignal.timeout(PUBLIC_ABSENCE_PROBE_TIMEOUT_MS),
+    });
+    if (!response.ok) return null;
+    const payload = await response.json();
+    if (payload?.ok !== true) return null;
+    const blog = normalizeBlog(payload.blog_v1, locale);
+    // Invalid or unavailable CMS authority must reach the page's error state.
+    // A fresh valid configuration, including explicit unconfigured, proves absence.
+    if (blog.configurationState === "invalid") return null;
+    return blog.categories.some((category) => category.slug === slug)
+      ? null : createPublicAbsenceResponse(404);
+  } catch {
     return null;
   }
 }
@@ -446,6 +483,13 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
     const policyProbe = resolveBigFivePolicyProbe(pathname);
     if (policyProbe) {
       return probeBigFivePolicyPublicAbsence(policyProbe).then(
+        (absenceResponse) => absenceResponse ?? runProxy(request, false),
+      );
+    }
+
+    const categoryMatch = pathname.match(ARTICLE_CATEGORY_PATH_RE);
+    if (categoryMatch) {
+      return probeArticleCategoryPublicAbsence(categoryMatch[1] as "en" | "zh", categoryMatch[2]).then(
         (absenceResponse) => absenceResponse ?? runProxy(request, false),
       );
     }

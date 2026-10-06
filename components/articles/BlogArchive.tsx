@@ -48,7 +48,8 @@ export async function BlogArchive({ locale, query, category = "" }: { locale: Lo
   const blog = state.data?.blog;
   const configured = blog?.configurationState === "published";
   const activeCategory = configured ? blog.categories.find((item) => item.slug === category) : undefined;
-  if (category && !state.failed && !state.stale && !activeCategory) notFound();
+  const knownConfiguration = configured || blog?.configurationState === "unconfigured";
+  if (category && knownConfiguration && !state.failed && !state.stale && !activeCategory) notFound();
   const unavailable = state.failed || Boolean(category && !activeCategory);
   const title = category ? activeCategory?.name || dict.articles.title : blog?.title || dict.articles.title;
   const visibleTitle = page > 1 ? `${title} · ${locale === "zh" ? `第 ${page} 页` : `Page ${page}`}` : title;

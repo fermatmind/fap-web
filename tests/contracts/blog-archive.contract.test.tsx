@@ -70,6 +70,18 @@ describe("Blog CMS archive and SEO boundaries", () => {
     expect(renderToStaticMarkup(await BlogArchive({ locale: "en", query: {}, category: "unknown" }))).toContain('data-testid="blog-error"');
   });
 
+  it.each(["en", "zh"] as const)("preserves invalid and missing CMS authority as visible %s errors", async locale => {
+    for (const blog of [undefined, { ...data().blog!, configurationState: "invalid" as const }]) {
+      get.mockResolvedValueOnce({ value: { ...data(), blog }, stale: false });
+      const html = renderToStaticMarkup(await BlogArchive({ locale, query: {}, category: "unknown" }));
+      expect(html).toContain('data-testid="blog-error"');
+      expect(html).not.toContain('data-testid="blog-empty"');
+    }
+    get.mockResolvedValueOnce({ value: { ...data(), blog: { ...data().blog!,
+      configurationState: "unconfigured", categories: [] } }, stale: false });
+    await expect(BlogArchive({ locale, query: {}, category: "unknown" })).rejects.toThrow("not-found");
+  });
+
   it("does not pair an English page with a nonexistent Chinese page", async () => {
     get.mockImplementation(async ({ locale }) => ({ value: { ...data(), pagination: { currentPage: 4, perPage: 20, total: 80, lastPage: locale === "en" ? 4 : 2 } }, stale: false }));
     const meta = await blogArchiveMetadata("en", { page: "4" });

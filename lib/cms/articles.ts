@@ -1173,7 +1173,7 @@ function isPublicBlogArticleRecord(value: unknown, locale: Locale | string): val
     && Number.isSafeInteger(raw.published_revision_id) && raw.published_revision_id > 0;
 }
 
-function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog {
+export function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog {
   const empty: CmsBlog = { configurationState: "invalid", isIndexable: false, title: null, description: null, categories: [], featuredItems: [] };
   if (!value || typeof value !== "object" || Array.isArray(value)) return empty;
   const raw = value as Record<string, unknown>;
