@@ -6,6 +6,7 @@ import { buildSearchIntelligenceTrackingPayload } from "@/lib/tracking/attributi
 import {
   filterTrackingPayload,
   isCanonicalSeoFunnelEvent,
+  isSeoConversionFunnelEvent,
   isTrackingEvent,
   normalizeTrackingEventName,
   type TrackingEventName,
@@ -381,7 +382,7 @@ export async function trackClientEvent({
   const normalizedEventName = normalizeTrackingEventName(eventName as TrackingEventName);
   if (shouldSuppressAnalyticsForUrl(path)) return;
   const sanitizedPath = sanitizeAnalyticsTrackingUrl(path) ?? "";
-  const safePath = normalizedEventName === "continue_exploration"
+  const safePath = normalizedEventName === "continue_exploration" || isSeoConversionFunnelEvent(normalizedEventName)
     ? sanitizedPath.split("?")[0] ?? ""
     : sanitizedPath;
   const rawPayload = enrichStandardConversionPayload(
@@ -442,7 +443,8 @@ export async function trackNetworkObservableFunnelEvent({
   }
 
   if (shouldSuppressAnalyticsForUrl(path)) return;
-  const safePath = sanitizeAnalyticsTrackingUrl(path) ?? "";
+  const sanitizedPath = sanitizeAnalyticsTrackingUrl(path) ?? "";
+  const safePath = sanitizedPath.split("?")[0] ?? "";
   const rawPayload = enrichStandardConversionPayload(
     normalizedEventName,
     enrichPayloadForSearchIntelligence(payload ?? {}, safePath)
