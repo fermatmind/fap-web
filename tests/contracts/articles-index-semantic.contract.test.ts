@@ -62,8 +62,10 @@ function articleFixtures(count: number, locale: "en" | "zh" = "en"): CmsArticle[
 async function renderArticlesIndex(
   locale: "en" | "zh",
   items: CmsArticle[] = [articleFixture],
-  currentPage = 1
+  currentPage = 1,
+  withFeatures = false
 ) {
+  vi.resetModules();
   process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
   vi.doMock("next/link", () => ({
     default: ({ href, children, ...props }: { href: string; children: ReactNode }) =>
@@ -76,6 +78,9 @@ async function renderArticlesIndex(
       ...actual,
       getCmsArticlesWithLastKnownGood: vi.fn(async () => ({
         value: {
+          blog: { configurationState: "published", isIndexable: true,
+            title: locale === "zh" ? "费马博客" : "FermatMind Blog", description: "A CMS-owned blog introduction.",
+            categories: [], featuredItems: withFeatures ? [items[3], items[1], items[0], items[2]].filter(Boolean) : [] },
           items,
           pagination: {
             currentPage,
@@ -105,8 +110,8 @@ describe("articles index semantic baseline", () => {
 
     expect(enHtml.match(/<h1\b/g)).toHaveLength(1);
     expect(zhHtml.match(/<h1\b/g)).toHaveLength(1);
-    expect(enHtml).toContain(">Articles<");
-    expect(zhHtml).toContain(">文章<");
+    expect(enHtml).toContain(">FermatMind Blog<");
+    expect(zhHtml).toContain(">费马博客<");
   });
 
   it("emits CollectionPage and BreadcrumbList JSON-LD from the visible index title and subtitle", async () => {
@@ -115,8 +120,8 @@ describe("articles index semantic baseline", () => {
     expect(html).toContain('id="articles-collection-en"');
     expect(html).toContain('"@type":"CollectionPage"');
     expect(html).toContain('"url":"https://fermatmind.com/en/articles"');
-    expect(html).toContain('"name":"Articles"');
-    expect(html).toContain("Tool explainers, growth guidance, and narrative portraits grouped by assessment.");
+    expect(html).toContain('"name":"FermatMind Blog"');
+    expect(html).toContain("A CMS-owned blog introduction.");
     expect(html).toContain('id="articles-breadcrumb-en"');
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
@@ -125,18 +130,17 @@ describe("articles index semantic baseline", () => {
     const html = await renderArticlesIndex("en", []);
 
     expect(html.match(/<h1\b/g)).toHaveLength(1);
-    expect(html).toContain(">Articles<");
+    expect(html).toContain(">FermatMind Blog<");
     expect(html).toContain("<h2");
     expect(html).toContain("No published articles yet");
   });
 
-  it("uses four editorial features and a complete four-by-four archive grid on the first full page", async () => {
-    const html = await renderArticlesIndex("en", articleFixtures(20));
+  it("uses four CMS editorial features and keeps all twenty latest articles", async () => {
+    const html = await renderArticlesIndex("en", articleFixtures(20), 1, true);
 
     expect(html).toContain('data-testid="articles-featured-grid"');
-    expect(html.match(/data-article-layout="featured-lead"/g)).toHaveLength(1);
-    expect(html.match(/data-article-layout="featured-secondary"/g)).toHaveLength(3);
-    expect(html.match(/data-article-layout="archive"/g)).toHaveLength(16);
+    expect(html.match(/data-article-layout="featured"/g)).toHaveLength(4);
+    expect(html.match(/data-article-layout="archive"/g)).toHaveLength(20);
     expect(html).toContain('data-layout-mode="first-page"');
   });
 
@@ -146,14 +150,14 @@ describe("articles index semantic baseline", () => {
     expect(html).not.toContain('data-testid="articles-featured-grid"');
     expect(html.match(/data-article-layout="archive"/g)).toHaveLength(20);
     expect(html).toContain('data-layout-mode="archive-page"');
-    expect(html).toContain(">Articles · Page 2<");
+    expect(html).toContain(">FermatMind Blog · Page 2<");
   });
 
   it("keeps a single final archive card left-aligned in normal reading order", async () => {
     const html = await renderArticlesIndex("en", articleFixtures(9), 5);
 
     expect(html).toContain(
-      'class="group flex min-h-full flex-col sm:col-span-2 lg:col-span-2"'
+      'class="group flex min-h-full flex-col"'
     );
     expect(html).not.toContain("col-start-");
   });

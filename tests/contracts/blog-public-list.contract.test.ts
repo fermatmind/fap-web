@@ -18,6 +18,10 @@ const response = (payload: unknown, status = 200) => new Response(JSON.stringify
 afterEach(() => { vi.unstubAllGlobals(); clearLastKnownGoodForTests(); });
 
 describe("blog public list CMS contract", () => {
+  it.each([undefined, false, "true", 1, true])("requires a real CMS boolean for blog discoverability (%s)", async (flag) => {
+    vi.stubGlobal("fetch", vi.fn(async () => response({ items: [], blog_v1: blog({ is_indexable: flag }), landing_surface_v1: { indexability_state: "indexable" } })));
+    expect((await getCmsArticles({ locale: "en", includeBlog: true })).blog?.isIndexable).toBe(flag === true);
+  });
   it("keeps latest pagination independent and preserves manual featured order", async () => {
     const fetchMock = vi.fn<(input: RequestInfo | URL) => Promise<Response>>(async () => response({ items: [article("newer", { id: 42, published_revision_id: 502 })], blog_v1: blog(),
       pagination: { current_page: 2, per_page: 1, total: 2, last_page: 2 } }));

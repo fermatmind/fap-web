@@ -168,7 +168,7 @@ describe("CMS rich content sanitization contract", () => {
     expect(markdownBody).not.toContain("<h1");
     expect(markdownBody).toContain("<h2");
     expect(articlePageSource).toContain("minimumHeadingLevel={2}");
-    expect(articlePageSource).toContain("renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2 })");
+    expect(articlePageSource).toContain("renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: \"article-body\" })");
   });
 
   it("does not expose internal CMS slot markers in rich content", () => {

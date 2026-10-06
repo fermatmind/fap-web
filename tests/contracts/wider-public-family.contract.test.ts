@@ -10,7 +10,10 @@ describe("wider public family contract", () => {
   it("articles index renders the article list without the landing summary panel", () => {
     const source = read("app/(localized)/[locale]/articles/page.tsx");
 
-    expect(source).toContain("const { items, pagination } = await getCmsArticlesWithLastKnownGood");
+    expect(source).toContain("BlogArchive");
+    const loader = read("lib/content/blogArchive.ts");
+    expect(loader).toContain("getCmsArticlesWithLastKnownGood");
+    expect(loader).toContain("includeBlog: true");
     expect(source).not.toContain("landingSurface?.summaryBlocks[0]");
     expect(source).not.toContain('findLandingCta(landingSurface, "featured_article")');
     expect(source).not.toContain("dict.articles.kicker");

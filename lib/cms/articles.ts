@@ -292,6 +292,7 @@ export type GetCmsArticlesParams = {
 
 export type CmsBlog = {
   configurationState: "published" | "unconfigured" | "invalid";
+  isIndexable: boolean;
   title: string | null;
   description: string | null;
   categories: { slug: string; lineKey: string; name: string; description: string; articleCount: number }[];
@@ -1173,7 +1174,7 @@ function isPublicBlogArticleRecord(value: unknown, locale: Locale | string): val
 }
 
 function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog {
-  const empty: CmsBlog = { configurationState: "invalid", title: null, description: null, categories: [], featuredItems: [] };
+  const empty: CmsBlog = { configurationState: "invalid", isIndexable: false, title: null, description: null, categories: [], featuredItems: [] };
   if (!value || typeof value !== "object" || Array.isArray(value)) return empty;
   const raw = value as Record<string, unknown>;
   if (raw.schema_version !== 1) return empty;
@@ -1201,7 +1202,7 @@ function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog {
   const featuredItems = raw.featured_items.filter((item): item is CmsArticleApiRecord => isPublicBlogArticleRecord(item, locale))
     .map(normalizeArticle).filter((article) => article.slug && article.title && isPublishedRevisionBackedArticle(article, locale))
     .filter((article) => [article.publishedAt, article.scheduledAt].every((date) => date === null || (Number.isFinite(Date.parse(date)) && Date.parse(date) <= Date.now())));
-  return { configurationState: "published", title: raw.title, description: raw.description, categories, featuredItems };
+  return { configurationState: "published", isIndexable: raw.is_indexable === true, title: raw.title, description: raw.description, categories, featuredItems };
 }
 
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {

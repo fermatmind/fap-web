@@ -36,14 +36,12 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
       ? [
           { href: "/topics", label: "主题" },
           { href: "/career/guides", label: "测评指南" },
-          { href: "/articles", label: "博客" },
-          { href: "/articles", label: "研究报告" },
+          { href: "/articles", label: dict.articles.title },
         ]
       : [
           { href: "/topics", label: "Topics" },
           { href: "/career/guides", label: "Assessment Guides" },
-          { href: "/articles", label: "Journal" },
-          { href: "/articles", label: "Research reports" },
+          { href: "/articles", label: dict.articles.title },
         ];
   const methodLinks: FooterLinkItem[] =
     locale === "zh"

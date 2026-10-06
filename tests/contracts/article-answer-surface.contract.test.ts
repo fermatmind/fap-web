@@ -106,7 +106,7 @@ function makeArticle(answerSurface: AnswerSurfaceViewModel | null = answerSurfac
     excerpt: "A visible article excerpt.",
     contentMd: "## Full guide\n\nThis is the full article body.",
     contentHtml: "",
-    authorName: null,
+    authorName: "Synthetic contract author",
   publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
     readingMinutes: 5,
     coverImageUrl: null,
@@ -293,6 +293,17 @@ describe("article answer surface rendering", () => {
     expect(html).not.toContain('"@type":"Article"');
     expect(html).not.toContain('"@type":"BreadcrumbList"');
     expect(html).not.toContain('"@type":"FAQPage"');
+  });
+
+  it("does not fabricate Article author or publication date when the legacy schema gate is enabled", async () => {
+    for (const missing of [{ authorName: null }, { publishedAt: null }]) {
+      const html = await renderArticleDetail({ ...makeArticle(), ...missing, seoMeta: {
+        schema_json: { article_schema_gate_v1: { enabled: true }, breadcrumb_schema_gate_v1: { enabled: true } },
+      } });
+      expect(html).not.toContain('id="article-jsonld-answer-surface-article"');
+      expect(html).not.toContain('"name":"Fermat Institute"');
+      expect(html).toContain('id="article-breadcrumb-answer-surface-article"');
+    }
   });
 
   it("emits Article, Breadcrumb, and FAQPage JSON-LD only when an explicit article schema gate allows it", async () => {
