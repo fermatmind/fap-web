@@ -816,6 +816,15 @@
   content: "";
 }
 
+.heroIdentity {
+  min-width: 0;
+}
+
+.heroLead {
+  width: 100%;
+  text-align: justify;
+}
+
 .heroBadge {
   padding: 4px 11px;
   line-height: 1.75;
@@ -892,6 +901,13 @@
   margin-top: -2px;
   font-size: 11px;
   line-height: 1.75;
+}
+
+.heroGaugePublished strong[data-career-ai-unavailable="true"],
+.heroGauge strong[data-career-ai-unavailable="true"] {
+  font-size: 16px;
+  line-height: 1.5;
+  white-space: nowrap;
 }
 
 .heroGaugeNote {
@@ -1753,6 +1769,11 @@
 }
 
 @media (min-width: 1024px) {
+  .heroIdentity {
+    min-height: 118px;
+    padding-right: 134px;
+  }
+
   .heroGaugePublished {
     position: absolute;
     top: 30px;
