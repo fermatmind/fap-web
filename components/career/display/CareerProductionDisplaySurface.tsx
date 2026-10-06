@@ -503,7 +503,7 @@ function CareerProductionHero({
       data-career-api-component="hero"
       data-career-published-hero={published ? "true" : undefined}
     >
-      <div className="max-w-[640px] pr-0 lg:pr-10">
+      <div className={visual.heroIdentity}>
         {heroTitle ? <h1 className={publishedHero
           ? "m-0 text-[26px] font-extrabold leading-[1.25] sm:text-[32px]"
           : "m-0 mt-2 text-3xl font-extrabold leading-tight md:text-[32px]"} data-career-api-field={presentationField ? `${presentationField}.hero.title` : "hero.h1"}>{heroTitle}</h1> : null}
@@ -519,18 +519,18 @@ function CareerProductionHero({
             ))}
           </div>
         ) : null}
-        {heroLead ? <p className="m-0 mt-2 text-[15.5px] leading-7 text-white/95" data-career-api-field={presentationField ? `${presentationField}.hero.lead` : "hero.quick_answer"}>{heroLead}</p> : null}
-        {visibleAiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field={`${presentationField}.hero.ai_exposure.note`}>{visibleAiExposure.note}</p> : null}
       </div>
       {visibleAiExposure || legacyAiImpact?.score || missingPublishedAi ? (
         <div className={published ? visual.heroGaugePublished : `mt-4 inline-flex items-center gap-3 rounded-xl px-4 py-2 lg:absolute lg:right-[30px] lg:top-[30px] lg:mt-0 lg:block lg:h-[118px] lg:w-[118px] lg:rounded-full lg:px-3 lg:pt-7 lg:text-center ${visual.heroGauge}`} data-testid="career-production-ai-gauge">
           <div>
-            <strong className="block text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score ?? (surface.locale === "zh" ? <>暂无<br />数据</> : <abbr title={unavailableAi} className="no-underline">N/A</abbr>)}</strong>
-            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? surface.hero?.aiExposureLabel ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI 任务暴露" : "AI task exposure")}</span>
+            <strong data-career-ai-unavailable={!visibleAiExposure && !legacyAiImpact?.score ? "true" : undefined} className="block text-center text-2xl leading-none lg:text-3xl" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.display_value` : undefined}>{visibleAiExposure?.displayValue ?? legacyAiImpact?.score ?? (surface.locale === "zh" ? unavailableAi : <abbr title={unavailableAi} className="no-underline">N/A</abbr>)}</strong>
+            <span className="block pt-1 text-center text-xs leading-4 text-white/85" data-career-api-field={visibleAiExposure ? `${presentationField}.hero.ai_exposure.label` : undefined}>{visibleAiExposure?.label ?? surface.hero?.aiExposureLabel ?? legacyAiImpact?.heading ?? (surface.locale === "zh" ? "AI影响" : "AI task exposure")}</span>
             {visibleAiExposure ? <span className="sr-only" data-career-api-field={`${presentationField}.hero.ai_exposure.source_label`}>{visibleAiExposure.sourceLabel}</span> : null}
           </div>
         </div>
       ) : null}
+      {heroLead ? <p className={`${visual.heroLead} m-0 mt-2 text-[15.5px] leading-7 text-white/95`} data-career-api-field={presentationField ? `${presentationField}.hero.lead` : "hero.quick_answer"}>{heroLead}</p> : null}
+      {visibleAiExposure?.note ? <p className={visual.heroGaugeNote} data-career-api-field={`${presentationField}.hero.ai_exposure.note`}>{visibleAiExposure.note}</p> : null}
       {stats.length > 0 ? (
         <div className={`grid ${visual.heroStats}`} data-testid="career-production-hero-stats">
           {stats.map((stat, index) => (
