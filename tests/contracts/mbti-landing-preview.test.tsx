@@ -17,7 +17,7 @@ describe("MBTI preview version selection", () => {
       const link = screen.getByRole("link", { name: choice.label });
       expect(link).toHaveAttribute("href", choice.href);
       expect(link).not.toHaveAttribute("aria-describedby");
-      expect(screen.queryByText(choice.summary)).not.toBeInTheDocument();
+      expect(screen.getByText(choice.summary)).toBeInTheDocument();
       link.addEventListener("click", (event) => event.preventDefault());
       fireEvent.click(link);
       expect(trackEvent).toHaveBeenLastCalledWith("start_click", choice.eventProperties);
