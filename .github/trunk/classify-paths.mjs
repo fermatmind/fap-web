@@ -36,11 +36,13 @@ export function classifyPaths(inputPaths) {
       /^(?:tests?|__tests__)\//,
       /(^|\/)__tests__\//,
       /\.test\.[cm]?[jt]sx?$/,
+      /(?:^|\/)(?:test_[^/]+|[^/]+_test)\.(?:py|sh)$/,
     ]);
     const testPath = matches(path, [
       /^(?:tests?|__tests__)\//,
       /(^|\/)__tests__\//,
       /\.test\.[cm]?[jt]sx?$/,
+      /(?:^|\/)(?:test_[^/]+|[^/]+_test)\.(?:py|sh)$/,
     ]);
     testsChanged ||= testPath;
     if (docsOnly) {

@@ -169,7 +169,10 @@ function assertRuntimeAllowlist(entries) {
     .map((entry) => entry.path)
     .filter((entryPath) => {
       const [root] = entryPath.split("/");
-      return !RUNTIME_DIRECTORY_ALLOWLIST.has(root) && !RUNTIME_FILE_ALLOWLIST.has(entryPath);
+      // next-sitemap and its braces pattern parser consume trusted build inputs only.
+      // Neither package belongs in the deployable server dependency graph.
+      return /(?:^|\/)node_modules\/(?:braces|next-sitemap)(?:\/|$)/.test(entryPath)
+        || (!RUNTIME_DIRECTORY_ALLOWLIST.has(root) && !RUNTIME_FILE_ALLOWLIST.has(entryPath));
     });
   if (forbidden.length > 0) {
     fail(`non-runtime standalone content is not permitted: ${forbidden.join(", ")}`);

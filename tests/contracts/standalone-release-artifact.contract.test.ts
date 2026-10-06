@@ -203,6 +203,19 @@ describe("immutable standalone release artifact", () => {
     expect(result.stderr).toContain("forbidden secret or private configuration files");
   });
 
+  it("excludes build-only sitemap and braces packages from the deployable runtime", () => {
+    for (const dependency of ["braces", "next-sitemap"]) {
+      const root = tempDirectory();
+      const source = createStandalone(root);
+      const dependencyPath = path.join(source, "node_modules/.pnpm/test/node_modules", dependency);
+      fs.mkdirSync(dependencyPath, { recursive: true });
+      fs.writeFileSync(path.join(dependencyPath, "package.json"), JSON.stringify({ name: dependency, version: "3.0.3" }));
+      const run = spawnSync(process.execPath, [SCRIPT, "package", `--source=${source}`, `--output=${path.join(root, "artifact")}`, `--git-sha=${SHA}`, "--build-timestamp=2026-07-29T01:02:03Z", "--workflow-run-id=12345", "--workflow-run-attempt=1"], { env: BUILD_ENV, encoding: "utf8" });
+      expect(run.status).not.toBe(0);
+      expect(run.stderr).toContain("non-runtime standalone content is not permitted");
+    }
+  });
+
   it("rejects repository-only skills, docs, and tests from the runtime artifact", () => {
     for (const forbiddenPath of [".agents/SKILL.md", "docs/runbook.md", "tests/fixture.ts"]) {
       const root = tempDirectory();

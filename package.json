@@ -73,8 +73,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
     "mime-types": "^3.0.2",
-    "next": "16.3.3",
-    "next-sitemap": "^4.2.3",
+    "next": "16.3.6",
     "qrcode": "^1.5.4",
     "react": "19.2.3",
     "react-dom": "19.2.3",
@@ -94,13 +93,19 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.3",
+    "eslint-config-next": "16.3.6",
     "jest-axe": "^10.0.0",
     "jiti": "2.6.1",
     "jsdom": "^26.1.0",
+    "next-sitemap": "4.2.3",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^3.2.4",
     "zod": "^4.3.6"
+  },
+  "pnpm": {
+    "overrides": {
+      "source-map-js": "1.2.2"
+    }
   }
 }

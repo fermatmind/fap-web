@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: trunk-deploy-${{ github.repository }}
+  group: ${{ github.event.workflow_run.name == 'CI' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.run_attempt == 1 && github.run_attempt == 1 && format('trunk-deploy-{0}', github.repository) || format('trunk-rejected-{0}', github.run_id) }}
   cancel-in-progress: false
 
 env:
@@ -38,7 +38,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      deploy: ${{ steps.receipt.outputs.deploy }}
+      release_required: ${{ steps.receipt.outputs.deploy }}
+      deploy: ${{ steps.receipt.outputs.deploy == 'true' && steps.admission.outputs.deploy == 'true' }}
       ingress: ${{ steps.receipt.outputs.ingress }}
       validation_id: ${{ steps.artifacts.outputs.validation_id }}
       validation_digest: ${{ steps.artifacts.outputs.validation_digest }}
@@ -56,6 +57,7 @@ jobs:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: 24
@@ -155,6 +157,20 @@ jobs:
             echo "deploy=$deploy"
             echo "ingress=$(jq -r .classification.flags.ingress_runtime_config "$receipt")"
           } >> "$GITHUB_OUTPUT"
+      - id: admission
+        name: Skip already accepted candidates before staging setup
+        if: steps.receipt.outputs.deploy == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: node .github/trunk/admit-release.mjs
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        if: steps.receipt.outputs.deploy == 'true' && steps.admission.outputs.deploy == 'false'
+        with:
+          name: trunk-deploy-skip-${{ github.event.workflow_run.head_sha }}
+          path: trunk-deploy-skip.json
+          if-no-files-found: error
+          retention-days: 90
 
   staging:
     name: Staging artifact activation and smoke
@@ -261,12 +277,24 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
       - id: order
         name: Refuse stale or out-of-order activation
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
         run: |
           set -euo pipefail
           active="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "tr -d '\r\n' < '$APP_DIR/.next/standalone/REVISION'")"
           [[ "$active" =~ ^[0-9a-f]{40}$ ]]
           git fetch --no-tags origin "$active"
-          if ! git merge-base --is-ancestor "$active" "$DEPLOY_SHA" || [ "$active" = "$DEPLOY_SHA" ]; then echo "skip=true" >> "$GITHUB_OUTPUT"; else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
+          ACTIVE_SHA="$active" node .github/trunk/admit-release.mjs
+          echo "active=$active" >> "$GITHUB_OUTPUT"
+      - name: Upload verified late nonactivation receipt
+        if: steps.order.outputs.skip == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: trunk-deploy-skip-${{ github.event.workflow_run.head_sha }}
+          path: trunk-deploy-skip.json
+          if-no-files-found: error
+          retention-days: 90
       - id: activation
         name: Activate production candidate; installer restores previous release on failed smoke
         if: steps.order.outputs.skip != 'true'
@@ -292,6 +320,8 @@ jobs:
             --arg completed "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --arg outcome '${{ steps.activation.outcome }}' \
             '{schema_version:"fermatmind.trunk-delivery-timing.v1",sha:$sha,pushed_at:$pushed,ci_completed_at:$ci,production_finished_at:$completed,production_outcome:$outcome,production_smoke_completed_at:(if $outcome == "success" then $completed else null end)}' \
             > "$RUNNER_TEMP/trunk-delivery-timing.base.json"
+          jq --arg repository "$GITHUB_REPOSITORY" --arg run "$GITHUB_RUN_ID" --arg ci '${{ github.event.workflow_run.id }}' '. + {repository:$repository,deploy_run_id:$run,deploy_run_attempt:1,ci_run_id:$ci}' "$RUNNER_TEMP/trunk-delivery-timing.base.json" > "$RUNNER_TEMP/timing-bound.json"
+          mv "$RUNNER_TEMP/timing-bound.json" "$RUNNER_TEMP/trunk-delivery-timing.base.json"
           receipt='${{ steps.activation.outputs.llms_full_receipt }}'
           if [ -n "$receipt" ]; then
             jq -s '.[0] + {llms_full_artifact: .[1]}' \
@@ -361,7 +391,17 @@ jobs:
 
   docs-only:
     needs: policy
-    if: needs.policy.outputs.deploy != 'true'
+    if: needs.policy.outputs.release_required == 'false'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Docs/rules/tests-only SHA validated; no application deployment."
+      - name: Write exact-SHA nonactivation receipt
+        env:
+          CI_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          jq -n --arg repository "$GITHUB_REPOSITORY" --arg sha "$DEPLOY_SHA" --arg ci "$CI_RUN_ID" --arg run "$GITHUB_RUN_ID" '{schema_version:"fermatmind.trunk-deploy-skip.v1",repository:$repository,sha:$sha,ci_run_id:$ci,deploy_run_id:$run,deploy_run_attempt:1,reason:"docs_rules_tests_only",mutation_started:false}' > trunk-deploy-skip.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: trunk-deploy-skip-${{ github.event.workflow_run.head_sha }}
+          path: trunk-deploy-skip.json
+          if-no-files-found: error
+          retention-days: 90

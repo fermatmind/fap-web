@@ -15,32 +15,34 @@ function jobBlock(start: string, end: string): string {
 }
 
 describe("CI contract shard matrix", () => {
-  it("creates exactly four isolated deterministic shard children", () => {
+  it("creates only required deterministic shard children", () => {
     const shards = jobBlock("contract-shards", "contracts");
 
     expect(shards).toContain("name: contract-shard-${{ matrix.shard }}");
     expect(shards).toContain("fail-fast: false");
-    expect(shards).toContain("shard: [1, 2, 3, 4]");
+    expect(shards).toContain("shard: ${{ fromJSON(needs.classify.outputs.shards) }}");
     expect(shards.match(/only-shard=/g)).toHaveLength(1);
     expect(shards).toContain("--shards=4 --only-shard=${{ matrix.shard }}");
     expect(shards).not.toContain("\n      - run: pnpm test:contract\n");
   });
 
   it("keeps contracts as an always-running aggregate that rejects every non-success conclusion", () => {
-    const contracts = jobBlock("contracts", "verify-big5-contract-freeze");
+    const contracts = jobBlock("contracts", "validation-receipt");
 
     expect(contracts).toContain("name: contracts");
-    expect(contracts).toContain("needs: contract-shards");
+    expect(contracts).toContain("needs: [classify, contract-shards]");
     expect(contracts).toContain("if: always()");
     expect(contracts).toContain("CONTRACT_MATRIX_RESULT: ${{ needs.contract-shards.result }}");
-    expect(contracts).toContain('if [[ "$CONTRACT_MATRIX_RESULT" != "success" ]]');
+    expect(contracts).toContain('test "$CONTRACT_MATRIX_RESULT" = success');
+    expect(contracts).toContain('test "$CONTRACT_MATRIX_RESULT" = skipped');
+    expect(contracts).toContain('CONTRACTS_REQUIRED');
     expect(contracts).toContain("exit 1");
   });
 
   it("keeps shard failures visible in retained GitHub job logs", () => {
     const shards = jobBlock("contract-shards", "contracts");
 
-    expect(shards).toContain("name: Run contract shard ${{ matrix.shard }} of 4");
+    expect(shards).toContain("name: Run selected consumer contracts once");
     expect(shards).not.toContain("continue-on-error");
   });
 });
