@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
+import { articleFeedAlternate } from "@/lib/cms/articleFeed";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -244,7 +246,7 @@ export async function generateMetadata({
   return {
     ...metadata,
     title: resolveArticleMetadataTitle(title),
-    alternates,
+    alternates: { ...alternates, types: articleFeedAlternate(locale) },
     openGraph: {
       type: "article",
       url: canonical,
@@ -415,6 +417,7 @@ export default async function ArticleDetailPage({
             ) : null}
             {article.publicReview?.lastReviewedAt ? <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" /> : null}
           </div>
+          <BlogFeedLink locale={locale} />
         </div>
       </header>
 
@@ -466,10 +469,13 @@ export default async function ArticleDetailPage({
       />
 
       <Suspense fallback={null}>
+        <AttributedCmsLinkHydrator locale={locale} sourceRouteFamily="article_detail"
+          sourceSlug={article.slug} sourcePath={canonicalPath} contentId={article.id}>
         <PublicTopicEdgeModule
           source={article.id ? { type: "article", id: article.id, locale: toApiLocale(locale) } : null}
           entrySurface="article_detail"
         />
+        </AttributedCmsLinkHydrator>
       </Suspense>
 
       <div className="space-y-6">

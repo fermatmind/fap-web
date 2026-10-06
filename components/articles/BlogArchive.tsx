@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -70,6 +71,7 @@ export async function BlogArchive({ locale, query, category = "" }: { locale: Lo
       {category ? <p className="m-0 text-sm text-[var(--fm-text-muted)]">{dict.articles.title}</p> : null}
       <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] md:text-5xl">{visibleTitle}</h1>
       {description ? <p className="m-0 text-lg leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
+      <BlogFeedLink locale={locale} />
     </header>
     {state.stale ? <p role="status" data-testid="blog-stale" className="rounded-lg border border-[var(--fm-border)] p-4 text-sm">{dict.articles.stale}</p> : null}
     {unavailable ? <div role="alert" data-testid="blog-error" className="space-y-3 rounded-lg border border-[var(--fm-border)] p-6"><p>{dict.articles.unavailable}</p><Link href={path}>{dict.articles.retry}</Link></div> : <>
