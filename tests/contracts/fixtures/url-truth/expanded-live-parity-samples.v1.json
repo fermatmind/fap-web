@@ -46,6 +46,14 @@
     {
       "source": "components/articles/BlogArchive.tsx",
       "requiredTokens": [
+        "loadBlogArchive",
+        "<BlogArchiveView"
+      ],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "components/articles/BlogArchiveView.tsx",
+      "requiredTokens": [
         "buildCollectionPageJsonLd",
         "buildBreadcrumbJsonLd",
         "JsonLd"

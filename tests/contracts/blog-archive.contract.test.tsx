@@ -4,7 +4,10 @@ import type { CmsArticle, GetCmsArticlesResult } from "@/lib/cms/articles";
 import { BlogArchive } from "@/components/articles/BlogArchive";
 import { blogArchiveMetadata, blogArchiveQuery } from "@/lib/content/blogArchive";
 
-const { get } = vi.hoisted(() => ({ get: vi.fn() }));
+const { get } = vi.hoisted(() => {
+  process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
+  return { get: vi.fn() };
+});
 vi.mock("@/lib/cms/articles", async (importOriginal) => ({ ...await importOriginal<typeof import("@/lib/cms/articles")>(), getCmsArticlesWithLastKnownGood: get }));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("not-found"); } }));
 
@@ -21,6 +24,22 @@ const data = (): GetCmsArticlesResult => ({ items: [article("newest")], paginati
 beforeEach(() => { process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com"; get.mockReset(); get.mockResolvedValue({ value: data(), source: "fresh", stale: false }); });
 
 describe("Blog CMS archive and SEO boundaries", () => {
+  it.each(["en", "zh"] as const)("renders canonical-bound collection and breadcrumb JSON-LD through the public %s archive", async locale => {
+    const html = renderToStaticMarkup(await BlogArchive({ locale, query: {} }));
+    const schemas = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)]
+      .map((match) => JSON.parse(match[1]));
+    const canonical = `https://fermatmind.com/${locale}/articles`;
+    expect(schemas).toHaveLength(2);
+    expect(schemas.find((schema) => schema["@type"] === "CollectionPage")).toMatchObject({
+      "@id": `${canonical}#collectionpage`, url: canonical, name: "FermatMind Blog",
+      description: "CMS-owned introduction", inLanguage: locale === "zh" ? "zh-CN" : "en",
+    });
+    expect(schemas.find((schema) => schema["@type"] === "BreadcrumbList")?.itemListElement).toEqual([
+      expect.objectContaining({ position: 1, item: locale === "zh" ? "https://fermatmind.com/" : "https://fermatmind.com/en" }),
+      expect.objectContaining({ position: 2, item: canonical }),
+    ]);
+  });
+
   it("keeps editorial order separate from latest and does not invent authors or publication dates", async () => {
     const html = renderToStaticMarkup(await BlogArchive({ locale: "en", query: {} }));
     expect(html.indexOf("editor-third")).toBeLessThan(html.indexOf("editor-first"));
