@@ -46,7 +46,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     career: [
       { href: "/career/recommendations", label: "Career fit" },
       { href: "/career", label: "Occupation library" },
-      { href: "/career/guides", label: "Career paths" },
+      { href: "/career/guides", label: "Career Guides" },
     ],
     help: [
       { href: "/email/preferences", label: "Email & data management" },
@@ -80,7 +80,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     career: [
       { href: "/career/recommendations", label: "职业匹配" },
       { href: "/career", label: "职业库" },
-      { href: "/career/guides", label: "职业路径" },
+      { href: "/career/guides", label: "职业指南" },
     ],
     help: [
       { href: "/email/preferences", label: "邮箱与数据管理" },

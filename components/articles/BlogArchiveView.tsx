@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { articleByline } from "@/lib/content/articleByline";
 import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
@@ -36,7 +37,7 @@ function ArchiveCard({ article, locale, featured, label }: { article: CmsArticle
         <div className="flex flex-wrap gap-2 text-xs text-[var(--fm-text-muted)]">
           {published ? <time dateTime={article.publishedAt!}>{published}</time> : null}
           {article.readingMinutes ? <span>{locale === "zh" ? `${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}</span> : null}
-          {article.authorName ? <span>{article.authorName}</span> : null}
+          <span>{articleByline(article.authorName, locale).name}</span>
         </div>
         <span className="mt-auto pt-1 text-sm font-semibold text-[var(--fm-accent)]">{label}</span>
       </div>

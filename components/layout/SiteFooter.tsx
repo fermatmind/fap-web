@@ -35,13 +35,13 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
     locale === "zh"
       ? [
           { href: "/topics", label: "主题" },
-          { href: "/career/guides", label: "测评指南" },
-          { href: "/articles", label: dict.articles.title },
+          { href: "/career/guides", label: "职业指南" },
+          { href: "/articles", label: dict.header.articles },
         ]
       : [
           { href: "/topics", label: "Topics" },
-          { href: "/career/guides", label: "Assessment Guides" },
-          { href: "/articles", label: dict.articles.title },
+          { href: "/career/guides", label: "Career Guides" },
+          { href: "/articles", label: dict.header.articles },
         ];
   const methodLinks: FooterLinkItem[] =
     locale === "zh"

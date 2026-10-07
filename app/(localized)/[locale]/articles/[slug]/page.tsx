@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ArticleByline } from "@/components/articles/ArticleByline";
+import { articleByline } from "@/lib/content/articleByline";
 import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
 import { articleFeedAlternate } from "@/lib/cms/articleFeed";
 import { notFound } from "next/navigation";
@@ -300,7 +302,7 @@ export default async function ArticleDetailPage({
   // Normalized production results always carry the projection contract. The
   // builders remain reachable only for legacy typed-test fixtures that omit it.
   const articleJsonLd = articleSchemaGate.canRenderArticleJsonLd ? (cmsArticleSeoJsonLd || (
-    articleJsonLdAuthority.canRenderJsonLd && article.authorName && article.publishedAt
+    !hasProjectedAuthorityContract && articleJsonLdAuthority.canRenderJsonLd && article.authorName && article.publishedAt
       ? buildArticleJsonLd({
         path: canonicalPath,
         title: article.title,
@@ -308,7 +310,7 @@ export default async function ArticleDetailPage({
         locale,
         datePublished: article.publishedAt,
         dateModified: article.updatedAt ?? article.publishedAt,
-        authorName: article.authorName,
+        authorName: articleByline(article.authorName, locale).name,
       })
       : null
   )) : null;
@@ -397,9 +399,9 @@ export default async function ArticleDetailPage({
           </h1>
           {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
-            {article.authorName ? <p className="m-0">
-              {locale === "zh" ? "作者" : "By"}: {article.authorName}
-            </p> : null}
+            <p className="m-0">
+              {locale === "zh" ? "作者" : "By"}: <ArticleByline authorName={article.authorName} locale={locale} />
+            </p>
             {publishedAt ? (
               <p className="m-0">
                 {locale === "zh" ? "发布于" : "Published"}: {publishedAt}

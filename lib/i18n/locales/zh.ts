@@ -5,7 +5,7 @@ const zh: SiteDictionary = {
     brand: "费马测试",
     home: "首页",
     tests: "测试",
-    articles: "费马博客",
+    articles: "博客",
     personality: "人格",
     career: "职业",
     help: "帮助",

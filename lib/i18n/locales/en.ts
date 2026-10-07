@@ -5,7 +5,7 @@ const en: SiteDictionary = {
     brand: "FermatMind",
     home: "Home",
     tests: "Tests",
-    articles: "FermatMind Blog",
+    articles: "Blog",
     personality: "Personality",
     career: "Career",
     help: "Help",
