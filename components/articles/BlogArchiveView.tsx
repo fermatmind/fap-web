@@ -6,7 +6,8 @@ import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveIm
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
-import type { CmsArticle } from "@/lib/cms/articles";
+import type { CmsArticle, CmsBlog } from "@/lib/cms/articles";
+import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { blogArchivePath } from "@/lib/content/blogArchive";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -19,11 +20,11 @@ function localizedLabel(value: string | null | undefined, locale: Locale) {
   return locale === "en" && value && /[\u3400-\u9fff]/u.test(value) ? null : value;
 }
 
-function ArchiveCard({ article, locale, featured, label }: { article: CmsArticle; locale: Locale; featured: boolean; label: string }) {
+function ArchiveCard({ article, blog, locale, featured, label }: { article: CmsArticle; blog?: CmsBlog; locale: Locale; featured: boolean; label: string }) {
   const date = article.publishedAt ? new Date(article.publishedAt) : null;
   const published = date && Number.isFinite(date.getTime())
     ? new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }).format(date) : null;
-  const badges = [article.category?.name, ...article.tags.map((tag) => tag.name)]
+  const badges = [articleCategoryLabel(article.category, blog, locale), ...article.tags.map((tag) => tag.name)]
     .map((value) => localizedLabel(value, locale)).filter((value): value is string => Boolean(value)).slice(0, 2);
   return <article data-testid={`articles-card-${article.slug}`} data-article-id={article.id ?? undefined} data-published-revision-id={article.publishedRevisionId ?? undefined} data-article-layout={featured ? "featured" : "archive"} className="group flex min-h-full flex-col">
     <Link href={localizedPath(`/articles/${article.slug}`, locale)} className="flex h-full flex-col rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--fm-focus)] focus-visible:ring-offset-4">
@@ -87,11 +88,11 @@ export function BlogArchiveView({ locale, state, category = "", page = 1, previe
       </nav> : null}
       {featured.length ? <section aria-labelledby="blog-featured-title" className="space-y-6">
         <h2 id="blog-featured-title" className="font-serif text-2xl font-semibold">{dict.articles.featured}</h2>
-        <div data-testid="articles-featured-grid" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">{featured.map((article) => <ArchiveCard key={article.slug} article={article} locale={locale} featured label={dict.articles.readArticle} />)}</div>
+        <div data-testid="articles-featured-grid" className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">{featured.map((article) => <ArchiveCard key={article.slug} article={article} blog={blog} locale={locale} featured label={dict.articles.readArticle} />)}</div>
       </section> : null}
       <section aria-labelledby="blog-latest-title" className="space-y-6" data-layout-mode={page === 1 ? "first-page" : "archive-page"}>
         <h2 id="blog-latest-title" className="font-serif text-2xl font-semibold">{category ? dict.articles.allArticles : dict.articles.latest}</h2>
-        {items.length ? <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">{items.map((article) => <ArchiveCard key={article.slug} article={article} locale={locale} featured={false} label={dict.articles.readArticle} />)}</div>
+        {items.length ? <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">{items.map((article) => <ArchiveCard key={article.slug} article={article} blog={blog} locale={locale} featured={false} label={dict.articles.readArticle} />)}</div>
           : <p data-testid="blog-empty" className="rounded-lg border border-[var(--fm-border)] p-6">{dict.articles.empty}</p>}
       </section>
       {pagination && pagination.lastPage > 1 ? <nav aria-label={dict.articles.pagination} className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--fm-border)] pt-6">
