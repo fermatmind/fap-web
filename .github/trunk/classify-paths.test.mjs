@@ -55,3 +55,5 @@ test("classifies the machine-consumed SEO projection as a release input", () => 
   assert.equal(result.deploy, true);
   assert.equal(result.flags.docs_rules_tests_only, false);
 });
+
+test('named Python and Shell tests remain tests-only and require actual native execution',()=>{ const result=classifyPaths(['scripts/test_delivery.py','scripts/deploy/test_readback.sh']); assert.equal(result.tests_changed,true); assert.equal(result.deploy,false); });

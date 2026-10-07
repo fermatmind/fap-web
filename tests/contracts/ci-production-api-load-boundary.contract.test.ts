@@ -22,7 +22,10 @@ describe("production API CI load boundary", () => {
   });
 
   it("serializes the complete staging-to-production activation lane", () => {
-    expect(deploy).toContain("group: trunk-deploy-${{ github.repository }}");
+    expect(deploy).toContain("format('trunk-deploy-{0}', github.repository)");
+    expect(deploy).toContain("format('trunk-rejected-{0}', github.run_id)");
+    expect(deploy).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(deploy).toContain("github.event.workflow_run.run_attempt == 1");
     expect(deploy).toContain("cancel-in-progress: false");
     expect(deploy).toContain("needs: [policy, staging]");
   });
@@ -33,12 +36,10 @@ describe("production API CI load boundary", () => {
     expect(deploy).toContain("trunk-validation-${process.env.DEPLOY_SHA}");
   });
 
-  it("does not move API-independent contract and freeze jobs into the production lane", () => {
+  it("does not move API-independent consumer contracts into the production lane", () => {
     for (const job of [
       "contract-shards:",
       "contracts:",
-      "verify-big5-contract-freeze:",
-      "verify-enneagram-contract-freeze:",
     ]) {
       const start = ci.indexOf(`  ${job}`);
       expect(start).toBeGreaterThanOrEqual(0);

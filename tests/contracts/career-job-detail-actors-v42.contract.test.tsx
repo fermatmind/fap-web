@@ -8,7 +8,8 @@ vi.mock('@/hooks/useAnalytics',()=>({AnalyticsPageViewTracker:()=>null}));
 vi.mock('next/navigation',()=>({notFound:()=>{throw new Error('not-found')},permanentRedirect:(url:string)=>{throw new Error(`redirect:${url}`)},usePathname:()=>'/zh/career/jobs/actors'}));
 const fetchMock=vi.mocked(fetchCareerJobBundle);
 function bundle(slug='actors', locale:'zh'|'en'='zh') {
-  return {identity:{canonical_slug:slug},career_page:buildCareerPageFixture(slug,locale),seo_contract:{canonical_path:`/${locale}/career/jobs/${slug}`,index_state:'indexable',index_eligible:true,reason_codes:['runtime_publish_projection','release_gate_pass']}};
+  const page=buildCareerPageFixture(slug,locale);
+  return {locale_policy:{requested_locale:locale==='zh'?'zh-CN':'en'},identity:{canonical_slug:slug},career_page:page,seo_contract:{metadata_fingerprint:page.source_content_sha256,robots_policy:'index,follow',canonical_target:`/${locale}/career/jobs/${slug}`,canonical_path:`/${locale}/career/jobs/${slug}`,index_state:'indexable',index_eligible:true,reason_codes:['runtime_publish_projection','release_gate_pass']}};
 }
 async function render(slug='actors',locale='zh',search:Record<string,string>={}) {
   return renderToStaticMarkup(await CareerJobDetailPage({params:Promise.resolve({locale,slug}),searchParams:Promise.resolve(search)}));
@@ -83,7 +84,7 @@ describe('single-source career route integration',()=>{
     expect(html).toContain('Explicit file answer');
   });
   it('keeps candidate metadata noindex without publication authority',async()=>{
-    const payload=bundle();payload.seo_contract.index_eligible=false;payload.seo_contract.reason_codes=[];
+    const payload=bundle();payload.seo_contract.index_eligible=false;payload.seo_contract.index_state='noindex';payload.seo_contract.robots_policy='noindex,follow';payload.seo_contract.reason_codes=[];
     fetchMock.mockResolvedValue(payload);
     expect((await generateMetadata({params:Promise.resolve({locale:'zh',slug:'actors'})})).robots).toMatchObject({index:false});
   });

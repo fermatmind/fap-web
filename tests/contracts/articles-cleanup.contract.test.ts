@@ -97,7 +97,7 @@ describe("articles cleanup contract", () => {
     expect(source).toContain('testId="article-detail-answer-surface"');
     expect(source).toContain("hideSummaryBlocks");
     expect(source).toContain("buildFAQPageJsonLd");
-    expect(source).toContain('className="w-full"');
+    expect(source).toContain('className="w-full max-w-4xl');
     expect(source).not.toContain("<aside");
     expect(source).not.toContain('id="limitations"');
     expect(source).not.toContain("normalizeStructuredDataUrls");
@@ -701,8 +701,10 @@ describe("articles cleanup contract", () => {
   });
 
   it("uses the article list page normalizer at the route boundary", () => {
-    const source = read("app/(localized)/[locale]/articles/page.tsx");
+    const route = read("app/(localized)/[locale]/articles/page.tsx");
+    const source = read("lib/content/blogArchive.ts");
 
+    expect(route).toContain("BlogArchive");
     expect(source).toContain("normalizeArticleListPage");
     expect(source).not.toContain("Number.parseInt(String(raw ?? \"1\"), 10)");
   });

@@ -91,6 +91,101 @@ function resolveSeoAttributionIngestEndpoint(token?: string): string | undefined
   return token ? `${resolveApiOrigin()}/api/v0.5/seo/attribution/events` : undefined;
 }
 
+// The native SEO ingest is strict. Request identity travels in X-Request-Id;
+// browser-only CTA detail must not broaden the backend event schema.
+const SEO_ATTRIBUTION_INGEST_FIELDS = [
+  "entry_surface",
+  "source_page_type",
+  "target_action",
+  "slug",
+  "test_slug",
+  "scaleCode",
+  "scale_code",
+  "form_code",
+  "landing_path",
+  "current_path",
+  "locale",
+  "attempt_id",
+  "attemptIdMasked",
+  "target_attempt_id",
+  "answered_count",
+  "durationMs",
+  "duration_ms",
+  "duration_bucket",
+  "order_no",
+  "orderNo",
+  "orderNoMasked",
+  "order_id",
+  "transaction_id",
+  "amount",
+  "value",
+  "price",
+  "currency",
+  "provider",
+  "pack_version",
+  "manifest_hash",
+  "norms_version",
+  "quality_level",
+  "locked",
+  "variant",
+  "sku_id",
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+  "gclid",
+  "msclkid",
+  "fbclid",
+  "referrer",
+  "session_id",
+  "url",
+  "lang",
+  "page_type",
+  "source_url",
+  "source_article",
+  "target_test",
+  "scale_id",
+  "form_id",
+  "stage",
+  "stage_detail",
+  "status_group",
+  "status_code",
+  "error_code",
+  "error_class",
+  "request_id",
+  "route",
+  "device_class",
+  "browser_class",
+  "endpoint_class",
+  "retry_bucket",
+  "source_engine",
+  "consent_state",
+  "is_internal",
+  "is_qa",
+  "is_bot",
+  "environment",
+  "traffic_quality",
+] as const;
+
+export function toSeoAttributionIngestEnvelope(event: {
+  eventName: string;
+  anonymousId: string;
+  path: string;
+  timestamp: string;
+  payload: Record<string, unknown>;
+}) {
+  return {
+    eventName: event.eventName,
+    anonymousId: event.anonymousId,
+    path: event.path.split("?")[0] ?? "",
+    timestamp: event.timestamp,
+    payload: Object.fromEntries(SEO_ATTRIBUTION_INGEST_FIELDS
+      .filter((key) => event.payload[key] !== undefined)
+      .map((key) => [key, event.payload[key]])),
+  };
+}
+
 export async function POST(request: NextRequest) {
   const contentLength = Number(request.headers.get("content-length") ?? "0");
   if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
@@ -182,7 +277,7 @@ export async function POST(request: NextRequest) {
             ...identityHeaders,
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
           },
-          body: JSON.stringify(event),
+          body: JSON.stringify(url === seoAttributionTarget ? toSeoAttributionIngestEnvelope(event) : event),
         });
 
         return response.ok;

@@ -54,7 +54,7 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
 
     expect(url).toBe("https://api.fermatmind.com/api/v0.5/seo/attribution/events");
     expect(body.eventName).toBe(TRACKING_EVENTS.LANDING_PV);
-    expect(body.path).toBe("/zh/articles/mbti-career-path?utm_source=google&email=redacted");
+    expect(body.path).toBe("/zh/articles/mbti-career-path");
     expect(body.payload).toMatchObject({
       url: "/zh/articles/mbti-career-path?utm_source=google&email=redacted",
       lang: "zh",

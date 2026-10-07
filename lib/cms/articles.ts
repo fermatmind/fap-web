@@ -82,6 +82,7 @@ type CmsArticleApiRecord = {
 };
 
 type CmsArticlesApiResponse = {
+  blog_v1?: unknown;
   ok?: boolean;
   items?: CmsArticleApiRecord[];
   landing_surface_v1?: LandingSurfaceRaw | null;
@@ -283,11 +284,23 @@ export type GetCmsArticlesParams = {
   perPage?: number;
   relatedTestSlug?: string;
   voice?: string;
+  categorySlug?: string;
+  includeBlog?: boolean;
   allowLocalFallback?: boolean;
   usePublicCache?: boolean;
 };
 
+export type CmsBlog = {
+  configurationState: "published" | "unconfigured" | "invalid";
+  isIndexable: boolean;
+  title: string | null;
+  description: string | null;
+  categories: { slug: string; lineKey: string; name: string; description: string; articleCount: number }[];
+  featuredItems: CmsArticle[];
+};
+
 export type GetCmsArticlesResult = {
+  blog?: CmsBlog;
   items: CmsArticle[];
   pagination: CmsArticlesPagination;
   landingSurface: LandingSurfaceViewModel | null;
@@ -1142,6 +1155,56 @@ function isPublishedRevisionBackedArticle(article: CmsArticle, locale: Locale | 
   );
 }
 
+// The opt-in Blog contract must prove identity before legacy normalization.
+function isPublicBlogArticleRecord(value: unknown, locale: Locale | string): value is CmsArticleApiRecord {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  const raw = value as Record<string, unknown>;
+  const requestedLocale = locale === "en" ? "en" : locale === "zh" || locale === "zh-CN" ? "zh-CN" : null;
+  return requestedLocale !== null
+    && raw.locale === requestedLocale
+    && typeof raw.id === "number" && Number.isSafeInteger(raw.id) && raw.id > 0
+    && raw.org_id === Number(DEFAULT_ORG_ID)
+    && typeof raw.slug === "string" && normalizeArticleSlug(raw.slug) === raw.slug && raw.slug !== ""
+    && typeof raw.title === "string" && raw.title.trim() !== ""
+    && raw.status === "published"
+    && raw.is_public === true
+    && typeof raw.is_indexable === "boolean"
+    && typeof raw.published_revision_id === "number"
+    && Number.isSafeInteger(raw.published_revision_id) && raw.published_revision_id > 0;
+}
+
+export function normalizeBlog(value: unknown, locale: Locale | string): CmsBlog {
+  const empty: CmsBlog = { configurationState: "invalid", isIndexable: false, title: null, description: null, categories: [], featuredItems: [] };
+  if (!value || typeof value !== "object" || Array.isArray(value)) return empty;
+  const raw = value as Record<string, unknown>;
+  if (raw.schema_version !== 1) return empty;
+  if (raw.configuration_state === "unconfigured" || raw.configuration_state === "invalid") {
+    return { ...empty, configurationState: raw.configuration_state };
+  }
+  if (raw.configuration_state !== "published" || typeof raw.title !== "string" || !raw.title.trim()
+    || typeof raw.description !== "string" || !raw.description.trim()
+    || !Array.isArray(raw.categories) || raw.categories.length > 32
+    || !Array.isArray(raw.featured_items) || raw.featured_items.length > 12) return empty;
+  const lineKeys = new Set(["personality-and-self-understanding", "career-and-learning", "communication-and-personal-growth", "research-and-methods"]);
+  const categories: CmsBlog["categories"] = [];
+  for (const value of raw.categories) {
+    if (!value || typeof value !== "object" || Array.isArray(value)) return empty;
+    const category = value as Record<string, unknown>;
+    if (typeof category.slug !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(category.slug)
+      || typeof category.line_key !== "string" || !lineKeys.has(category.line_key)
+      || typeof category.name !== "string" || !category.name.trim()
+      || typeof category.description !== "string" || !category.description.trim()
+      || typeof category.article_count !== "number" || !Number.isInteger(category.article_count) || category.article_count < 1
+      || categories.some((item) => item.slug === category.slug)) return empty;
+    categories.push({ slug: category.slug, lineKey: category.line_key, name: category.name,
+      description: category.description, articleCount: category.article_count });
+  }
+  const featuredItems = raw.featured_items.filter((item): item is CmsArticleApiRecord => isPublicBlogArticleRecord(item, locale))
+    .map(normalizeArticle).filter((article) => article.slug && article.title && isPublishedRevisionBackedArticle(article, locale))
+    .filter((article) => [article.publishedAt, article.scheduledAt].every((date) => date === null || (Number.isFinite(Date.parse(date)) && Date.parse(date) <= Date.now())));
+  return { configurationState: "published", isIndexable: raw.is_indexable === true, title: raw.title, description: raw.description, categories, featuredItems };
+}
+
 export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetCmsArticlesResult> {
   const allowLocalFallback = params.allowLocalFallback !== false;
   const requestedPage = normalizeArticleListPage(params.page);
@@ -1156,6 +1219,8 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
     org_id: DEFAULT_ORG_ID,
     related_test_slug: params.relatedTestSlug,
     voice: params.voice,
+    category: params.categorySlug,
+    include_blog: params.includeBlog ? 1 : undefined,
   });
   const cacheOptions =
     allowLocalFallback || params.usePublicCache
@@ -1193,6 +1258,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
         lastPage: visibleLastPage,
       },
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
+      ...(response.blog_v1 !== undefined ? { blog: normalizeBlog(response.blog_v1, params.locale) } : {}),
     };
   } catch (error) {
     if (allowLocalFallback && isAuthoritativePublicAbsence(error)) {
@@ -1223,9 +1289,10 @@ export async function getCmsArticlesWithLastKnownGood(
       : DEFAULT_LIST_PER_PAGE;
   const related = params.relatedTestSlug ? `:${params.relatedTestSlug}` : "";
   const voice = params.voice ? `:${params.voice}` : "";
+  const blogPartition = JSON.stringify([params.categorySlug ?? null, params.includeBlog === true]);
 
   return withLastKnownGood({
-    key: `articles:list:${locale}:${page}:${perPage}${related}${voice}`,
+    key: `articles:list:${locale}:${page}:${perPage}${related}${voice}:blog:${blogPartition}`,
     load: () => getCmsArticles({ ...params, locale, page, perPage }),
     isUsable: (result) => result.items.length > 0,
     useStaleOnUnusable: false,
@@ -1383,7 +1450,7 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
   });
 }
 
-export async function getCmsArticle(slug: string, locale: Locale | string): Promise<CmsArticle | null> {
+export async function getCmsArticle(slug: string, locale: Locale | string, usePublicCache = true): Promise<CmsArticle | null> {
   const normalizedSlug = normalizeArticleSlug(slug);
   if (!normalizedSlug) {
     return null;
@@ -1400,10 +1467,10 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
       .getPublic<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
         locale,
         skipAuth: true,
-        next: {
+        ...(usePublicCache ? { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleDetailCacheTag(apiLocale, normalizedSlug)],
-        },
+        } } : { cache: "no-store" as const }),
       })
       .then(stripArticleDetailResponseInternalSlotMarkers);
 

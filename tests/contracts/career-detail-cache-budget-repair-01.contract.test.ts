@@ -18,19 +18,17 @@ describe("CAREER-DETAIL-CACHE-BUDGET-REPAIR-01", () => {
     expect(source).not.toContain("fallback career content");
   });
 
-  it("starts SEO authority fetch in parallel with the detail bundle and keeps an explicit fetch budget", () => {
+  it("keeps an explicit fetch budget and starts compatibility SEO only after inspecting the detail bundle", () => {
     const source = read("lib/career/api/fetchCareerJobBundle.ts");
-    const seoPromiseIndex = source.indexOf("const seoAuthorityPromise");
-    const bundleFetchIndex = source.indexOf("const bundle = await apiClient.get");
-
     expect(source).toContain("const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;");
-    expect(seoPromiseIndex).toBeGreaterThan(-1);
+    const bundleFetchIndex = source.indexOf("const bundle = await apiClient.getPublic");
+    const compatibilitySeoIndex = source.indexOf("await fetchCareerJobSeoAuthority({ ...input, normalizedSlug })");
     expect(bundleFetchIndex).toBeGreaterThan(-1);
-    expect(seoPromiseIndex).toBeLessThan(bundleFetchIndex);
+    expect(compatibilitySeoIndex).toBeGreaterThan(bundleFetchIndex);
+    expect(source).toContain('toApiLocale(input.locale) === "zh-CN"');
+    expect(source).toContain('Object.hasOwn(raw, "career_page")');
     expect(source.match(/timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS/g)?.length).toBe(2);
-    expect(source).toContain('toApiLocale(locale) === "zh-CN"');
     expect(source).toContain('cache: "no-store" as const');
-    expect(source).toContain(": { ...PUBLIC_API_CACHE_OPTIONS, ...detailCacheOptions(locale, slug) }");
   });
 
   it("records safety boundaries and validation in the generated artifact", () => {

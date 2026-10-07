@@ -8,6 +8,7 @@ type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
   minimumHeadingLevel?: HeadingLevel;
+  headingIdPrefix?: string;
   internalLinkLabels?: InternalLinkLabelMap;
   locale?: Locale;
 };
@@ -414,6 +415,7 @@ function renderInlineMarkdown(text: string, keyPrefix: string, options: Markdown
 
 function renderHeading(level: HeadingLevel, text: string, key: string, options: MarkdownRenderOptions = {}) {
   level = Math.max(level, options.minimumHeadingLevel ?? 1) as HeadingLevel;
+  const id = options.headingIdPrefix ? `${options.headingIdPrefix}-${key}` : undefined;
   const content = renderInlineMarkdown(text, `${key}-inline`, options);
   const classNameByLevel: Record<HeadingLevel, string> = {
     1: "mt-0 font-serif text-3xl font-semibold text-[var(--fm-text)]",
@@ -426,18 +428,26 @@ function renderHeading(level: HeadingLevel, text: string, key: string, options: 
 
   switch (level) {
     case 1:
-      return <h1 key={key} className={classNameByLevel[level]}>{content}</h1>;
+      return <h1 key={key} id={id} className={classNameByLevel[level]}>{content}</h1>;
     case 2:
-      return <h2 key={key} className={classNameByLevel[level]}>{content}</h2>;
+      return <h2 key={key} id={id} className={classNameByLevel[level]}>{content}</h2>;
     case 3:
-      return <h3 key={key} className={classNameByLevel[level]}>{content}</h3>;
+      return <h3 key={key} id={id} className={classNameByLevel[level]}>{content}</h3>;
     case 4:
-      return <h4 key={key} className={classNameByLevel[level]}>{content}</h4>;
+      return <h4 key={key} id={id} className={classNameByLevel[level]}>{content}</h4>;
     case 5:
-      return <h5 key={key} className={classNameByLevel[level]}>{content}</h5>;
+      return <h5 key={key} id={id} className={classNameByLevel[level]}>{content}</h5>;
     default:
-      return <h6 key={key} className={classNameByLevel[level]}>{content}</h6>;
+      return <h6 key={key} id={id} className={classNameByLevel[level]}>{content}</h6>;
   }
+}
+
+export function getSimpleMarkdownHeadings(markdown: string, options: MarkdownRenderOptions = {}) {
+  return tokenizeMarkdown(normalizeLineBreaks(markdown).trim()).flatMap((block, index) => {
+    if (block.type !== "heading" || !options.headingIdPrefix) return [];
+    const text = block.text.replace(/!?\[([^\]]+)\]\([^)]*\)/g, "$1").replace(/<[^>]+>/g, "").replace(/[*_`]/g, "").trim();
+    return text ? [{ id: `${options.headingIdPrefix}-markdown-block-${index}`, text, level: Math.max(block.level, options.minimumHeadingLevel ?? 1) }] : [];
+  });
 }
 
 export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOptions = {}): ReactNode {

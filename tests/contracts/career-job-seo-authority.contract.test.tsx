@@ -26,6 +26,7 @@ function jsonResponse(payload: unknown, status = 200): Response {
 
 function buildCareerJobBundlePayload() {
   return {
+    locale_policy: {requested_locale: "zh-CN"},
     career_page: {...pageFixture, seo: {title: {availability: 'available', text: SEO_TITLE}, description: {availability: 'available', text: SEO_DESCRIPTION}}},
     identity: { canonical_slug: "accountants-and-auditors" },
     titles: {
@@ -61,7 +62,11 @@ function buildCareerJobBundlePayload() {
       quality: { complete: true, reviewed: true, stale: false, blocked_reasons: [] },
     },
     seo_contract: {
-      canonical_path: "/career/jobs/accountants-and-auditors",
+      canonical_path: "/zh/career/jobs/accountants-and-auditors",
+      canonical_target: "/zh/career/jobs/accountants-and-auditors",
+      metadata_fingerprint: pageFixture.source_content_sha256,
+      robots_policy: "index,follow",
+      reason_codes: ["runtime_publish_projection", "release_gate_pass"],
       index_state: "indexable",
       index_eligible: true,
     },
@@ -118,7 +123,8 @@ function buildSeoAuthorityPublishedWithStaleBundlePayload() {
   return {
     ...buildCareerJobBundlePayload(),
     seo_contract: {
-      canonical_path: "/zh/career/jobs/accountants-and-auditors",
+      ...buildCareerJobBundlePayload().seo_contract,
+      robots_policy: "noindex,follow",
       index_state: "locale_not_ready",
       index_eligible: false,
     },
@@ -198,7 +204,8 @@ function buildCandidateCareerJobBundlePayload() {
   return {
     ...buildCareerJobBundlePayload(),
     seo_contract: {
-      canonical_path: "/zh/career/jobs/accountants-and-auditors",
+      ...buildCareerJobBundlePayload().seo_contract,
+      robots_policy: "noindex,follow",
       index_state: "locale_not_ready",
       index_eligible: false,
     },
@@ -253,7 +260,7 @@ afterEach(() => {
 });
 
 describe("career job seo.surface.v1 authority contract", () => {
-  it.each(["empty", "unavailable", "published"] as const)("checks the actual %s alternate without revoking the current body", async (alternateState) => {
+  it.each(["empty", "unavailable", "error", "published"] as const)("checks the actual %s alternate without revoking the current body", async (alternateState) => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     mockCareerJobPageShell();
     vi.doMock("@/lib/career/api/fetchCareerJobBundle", () => ({
@@ -261,6 +268,7 @@ describe("career job seo.surface.v1 authority contract", () => {
         const bundle = buildCareerJobBundlePayload();
         if (locale === "zh") return bundle;
         if (alternateState === "unavailable") return null;
+        if (alternateState === "error") throw new Error("alternate upstream unavailable");
         const subject = { canonical_slug: "accountants-and-auditors", name: "Accountants and Auditors", summary: null };
         const page = alternateState === "empty"
           ? { ...emptyCareerPage, subject, content: { ...emptyCareerPage.content, subject } }
@@ -286,7 +294,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     }
   });
 
-  it("fetches the career job SEO authority endpoint alongside the render bundle", async () => {
+  it("retains the independent SEO endpoint for legacy bundles without Current pages", async () => {
     const requestedUrls: string[] = [];
     vi.stubGlobal(
       "fetch",
@@ -394,18 +402,22 @@ describe("career job seo.surface.v1 authority contract", () => {
   it("renders only file-owned Occupation content when SEO authority allows it", async () => {
     mockCareerJobPageShell();
 
+    const {fetchCareerJobBundle: mockFetch} = await import("@/lib/career/api/fetchCareerJobBundle");
+    const payload = buildCareerJobBundlePayload();
+    payload.career_page = {...englishPageFixture, seo: payload.career_page.seo};
+    vi.mocked(mockFetch).mockResolvedValue(payload);
     const { default: CareerJobDetailPage } = await import("@/app/(localized)/[locale]/career/jobs/[slug]/page");
     const page = await CareerJobDetailPage({
-      params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
+      params: Promise.resolve({ locale: "en", slug: "accountants-and-auditors" }),
       searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
 
     expect(html).toContain('"@type":"Occupation"');
-    expect(html).toContain('"name":"会计师和审计师"');
+    expect(html).toContain('"name":"Accountants and auditors"');
     expect(html).toContain(CANONICAL);
     expect(html).not.toContain("Bundle Occupation");
-    expect(html).toContain('data-career-production-template="career-production-v1"');
+    expect(html).toContain('data-career-dossier-plan="career_page"');
   });
 
   it("keeps the English accountant route on the current renderer", async () => {
@@ -480,7 +492,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     expect(html).toContain('"@type":"BreadcrumbList"');
   });
 
-  it("lets backend SEO authority override stale locale_not_ready bundle noindex state", async () => {
+  it("keeps Current bundle noindex despite independently cached index authority", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -523,7 +535,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     });
 
     expect(metadata.alternates?.canonical).toBe(CANONICAL);
-    expect(metadata.robots).toMatchObject({ index: true, follow: true });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
   });
 
   it("does not let robots-only SEO authority override stale bundle noindex state", async () => {
@@ -569,10 +581,10 @@ describe("career job seo.surface.v1 authority contract", () => {
     });
 
     expect(metadata.alternates?.canonical).toBe(CANONICAL);
-    expect(metadata.robots).toMatchObject({ index: false, follow: false });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
   });
 
-  it("does not treat defaulted robots as explicit career SEO index authority", async () => {
+  it("ignores independently defaulted robots when the Current bundle is indexable", async () => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -615,7 +627,7 @@ describe("career job seo.surface.v1 authority contract", () => {
     });
 
     expect(metadata.alternates?.canonical).toBe(CANONICAL);
-    expect(metadata.robots).toMatchObject({ index: false, follow: false });
+    expect(metadata.robots).toMatchObject({ index: true, follow: true });
   });
 
   it("keeps candidate zh job detail pages noindex when published SEO authority is absent", async () => {
@@ -660,6 +672,6 @@ describe("career job seo.surface.v1 authority contract", () => {
       params: Promise.resolve({ locale: "zh", slug: "accountants-and-auditors" }),
     });
 
-    expect(metadata.robots).toMatchObject({ index: false, follow: false });
+    expect(metadata.robots).toMatchObject({ index: false, follow: true });
   });
 });

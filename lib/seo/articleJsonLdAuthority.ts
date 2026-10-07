@@ -1,4 +1,4 @@
-export const ARTICLE_AUTHOR_NAME = "Fermat Institute";
+export const ARTICLE_AUTHOR_NAME = "FermatMind";
 
 function hasRootSchemaType(record: Record<string, unknown>, expectedType: string): boolean {
   const type = record["@type"];
@@ -15,6 +15,9 @@ function normalizeProjectedStructuredDataFragment(data: unknown, expectedType: s
     return null;
   }
 
+  // A stale backend fragment must not reintroduce the unverified legacy default.
+  if (expectedType === "Article" && [record.author, record.publisher].some((value) => value && typeof value === "object"
+    && !Array.isArray(value) && String((value as Record<string, unknown>).name ?? "").trim().toLowerCase() === "fermat institute")) return null;
   const structuredData = { ...record };
   delete structuredData.enabled;
 

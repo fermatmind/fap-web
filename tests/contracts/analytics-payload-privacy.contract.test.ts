@@ -267,7 +267,7 @@ describe("analytics payload privacy contract", () => {
     };
     expect(body.eventName).toBe("start_test");
     expect(body.path).toBe(
-      "/zh/tests/holland-career-interest-test-riasec/take?payment_recovery_token=redacted&utm_source=seo"
+      "/zh/tests/holland-career-interest-test-riasec/take"
     );
     expect(body.payload).toMatchObject({
       test_slug: "holland-career-interest-test-riasec",

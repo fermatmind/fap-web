@@ -5,17 +5,59 @@
   "sourceContracts": [
     {
       "source": "app/(localized)/[locale]/articles/page.tsx",
-      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildCollectionPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "requiredTokens": [
+        "blogArchiveMetadata",
+        "BlogArchive"
+      ],
       "forbiddenTokens": []
     },
     {
       "source": "app/(localized)/[locale]/topics/page.tsx",
-      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "requiredTokens": [
+        "buildPageMetadata",
+        "alternatesByLocale",
+        "buildWebPageJsonLd",
+        "buildBreadcrumbJsonLd",
+        "JsonLd"
+      ],
       "forbiddenTokens": []
     },
     {
       "source": "app/(localized)/[locale]/help/[slug]/page.tsx",
-      "requiredTokens": ["buildPageMetadata", "alternatesByLocale", "buildWebPageJsonLd", "buildBreadcrumbJsonLd", "JsonLd"],
+      "requiredTokens": [
+        "buildPageMetadata",
+        "alternatesByLocale",
+        "buildWebPageJsonLd",
+        "buildBreadcrumbJsonLd",
+        "JsonLd"
+      ],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "lib/content/blogArchive.ts",
+      "requiredTokens": [
+        "buildPageMetadata",
+        "alternatesByLocale",
+        "canonicalQuery",
+        "omitLanguageAlternates: true"
+      ],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "components/articles/BlogArchive.tsx",
+      "requiredTokens": [
+        "loadBlogArchive",
+        "<BlogArchiveView"
+      ],
+      "forbiddenTokens": []
+    },
+    {
+      "source": "components/articles/BlogArchiveView.tsx",
+      "requiredTokens": [
+        "buildCollectionPageJsonLd",
+        "buildBreadcrumbJsonLd",
+        "JsonLd"
+      ],
       "forbiddenTokens": []
     }
   ],

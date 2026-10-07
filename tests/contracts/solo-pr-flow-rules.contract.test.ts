@@ -14,8 +14,7 @@ describe("solo developer trunk flow rules", () => {
     for (const requiredJob of [
       "build:",
       "contracts:",
-      "verify-big5-contract-freeze:",
-      "verify-enneagram-contract-freeze:",
+      "contract-shards:",
     ]) {
       expect(ci).toContain(requiredJob);
     }

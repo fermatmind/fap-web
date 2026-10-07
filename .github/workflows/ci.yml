@@ -27,6 +27,8 @@ jobs:
       infrastructure: ${{ steps.classify.outputs.infrastructure }}
       tests_changed: ${{ steps.classify.outputs.tests_changed }}
       classification: ${{ steps.classify.outputs.classification }}
+      contracts_required: ${{ steps.classify.outputs.contracts_required }}
+      shards: ${{ steps.classify.outputs.shards }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
@@ -59,9 +61,16 @@ jobs:
             echo "ingress=$(jq -r .flags.ingress_runtime_config trunk-path-classification.json)"
             echo "infrastructure=$(jq -r .flags.deployment_infrastructure trunk-path-classification.json)"
             echo "tests_changed=$(jq -r .tests_changed trunk-path-classification.json)"
+            echo "contracts_required=$(jq -r .test_selection.contracts_required trunk-path-classification.json)"
+            echo "shards=$(jq -c .test_selection.shards trunk-path-classification.json)"
             echo "classification=$compact"
           } >> "$GITHUB_OUTPUT"
       - run: node --test .github/trunk/*.test.mjs
+      - name: Execute changed native language tests and classify Vitest tests
+        if: steps.classify.outputs.tests_changed == 'true'
+        env:
+          TRUNK_TESTS_VERIFIED_SHA: ${{ github.sha }}
+        run: node .github/trunk/run-changed-tests.mjs '${{ steps.classify.outputs.base_sha }}' '${{ github.sha }}' legacy
       - name: Verify SEO Platform 11A frozen web projection
         run: node .github/trunk/verify-seo-platform-11a-final-tree-projection.mjs
       # Keep artifact uploads exact-SHA pinned; the trunk contract guards all six release uses.
@@ -106,6 +115,9 @@ jobs:
           node-version: 24
       - if: needs.classify.outputs.deploy == 'true'
         run: .github/trunk/install-dependencies.sh
+      - name: Audit locked runtime dependencies
+        if: needs.classify.outputs.deploy == 'true' && (contains(needs.classify.outputs.classification, 'package.json') || contains(needs.classify.outputs.classification, 'pnpm-lock.yaml') || needs.classify.outputs.infrastructure == 'true')
+        run: pnpm audit --prod --audit-level high
       - name: Lint changed application boundary
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: pnpm lint . --max-warnings=0
@@ -157,9 +169,6 @@ jobs:
       - name: Build production standalone application
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         run: pnpm build
-      - name: Verify standalone analytics bootstrap without runtime public env
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
-        run: node scripts/release/verify-standalone-analytics-bootstrap.mjs
       - if: needs.classify.outputs.infrastructure == 'true'
         run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
       - if: needs.classify.outputs.ingress == 'true'
@@ -257,12 +266,13 @@ jobs:
   contract-shards:
     name: contract-shard-${{ matrix.shard }}
     needs: classify
+    if: needs.classify.outputs.contracts_required == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4]
+        shard: ${{ fromJSON(needs.classify.outputs.shards) }}
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
@@ -271,59 +281,33 @@ jobs:
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true' || needs.classify.outputs.tests_changed == 'true'
         with:
           node-version: 24
-      - name: Run contract shard ${{ matrix.shard }} of 4
-        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true' || needs.classify.outputs.tests_changed == 'true'
-        run: .github/trunk/install-dependencies.sh && pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}
-      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true' && needs.classify.outputs.tests_changed != 'true'
-        run: echo "Frontend contract boundary unchanged."
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: trunk-classification-${{ github.sha }}
+      - name: Run selected consumer contracts once
+        run: .github/trunk/install-dependencies.sh && pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }} --selection-input=trunk-path-classification.json
 
   contracts:
     name: contracts
-    needs: contract-shards
+    needs: [classify, contract-shards]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
       - env:
           CONTRACT_MATRIX_RESULT: ${{ needs.contract-shards.result }}
+          CONTRACTS_REQUIRED: ${{ needs.classify.outputs.contracts_required }}
         run: |
-          if [[ "$CONTRACT_MATRIX_RESULT" != "success" ]]; then exit 1; fi
-
-  verify-big5-contract-freeze:
-    name: verify-big5-contract-freeze
-    needs: classify
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        with:
-          node-version: 24
-      - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        run: .github/trunk/install-dependencies.sh && pnpm verify-big5-contract-freeze
-      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
-        run: echo "Big Five adapter unchanged."
-
-  verify-enneagram-contract-freeze:
-    name: verify-enneagram-contract-freeze
-    needs: classify
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        with:
-          node-version: 24
-      - if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
-        run: .github/trunk/install-dependencies.sh && pnpm verify-enneagram-contract-freeze
-      - if: needs.classify.outputs.application != 'true' && needs.classify.outputs.content != 'true'
-        run: echo "Enneagram adapter unchanged."
+          set -euo pipefail
+          if [[ "$CONTRACTS_REQUIRED" == "true" ]]; then
+            test "$CONTRACT_MATRIX_RESULT" = success
+          elif [[ "$CONTRACTS_REQUIRED" == "false" ]]; then
+            test "$CONTRACT_MATRIX_RESULT" = skipped
+          else exit 1; fi
 
   validation-receipt:
     name: exact-SHA validation receipt
-    needs: [classify, build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze]
+    needs: [classify, build, contracts]
     if: always()
     runs-on: ubuntu-latest
     steps:

@@ -93,6 +93,7 @@ function buildCareerJobBundlePayload() {
   ]};
   return {
     career_page: {...emptyPage, locale: "zh-CN", subject: content.subject, content, seo: {title: {availability: "available", text: SEO_TITLE}, description: {availability: "available", text: SEO_DESCRIPTION}}},
+    locale_policy: {requested_locale: "zh-CN"},
     identity: { canonical_slug: SLUG },
     titles: {
       canonical_en: "Career KG Projection Lock",
@@ -127,6 +128,9 @@ function buildCareerJobBundlePayload() {
       quality: { complete: true, reviewed: true, stale: false, blocked_reasons: [] },
     },
     seo_contract: {
+      canonical_target: `/zh/career/jobs/${SLUG}`,
+      metadata_fingerprint: emptyPage.source_content_sha256,
+      robots_policy: "index,follow",
       canonical_path: `/zh/career/jobs/${SLUG}`,
       index_state: "indexable",
       index_eligible: true,
@@ -217,7 +221,7 @@ afterEach(() => {
 });
 
 describe("PR-CAREER-KG-00 career job SEO/display asset projection contract", () => {
-  it("projects title, meta description, FAQPage, Occupation, CTA, and source disclosure from backend surfaces", async () => {
+  it("projects file metadata, FAQPage, CTA and sources without inventing Current Occupation authority", async () => {
     vi.stubEnv("NEXT_PUBLIC_SITE_URL", "https://fermatmind.com");
     mockCareerJobPageShell();
 
@@ -239,8 +243,8 @@ describe("PR-CAREER-KG-00 career job SEO/display asset projection contract", () 
     expect(metadata.robots).toMatchObject({ index: true, follow: true });
     expect(metadata.description).not.toBe("Local bundle summary should not own metadata.");
 
-    expect(html).toContain('"@type":"Occupation"');
-    expect(html).toContain('"name":"后端职业实体"');
+    expect(html).not.toContain('"@type":"Occupation"');
+    expect(html).toContain('后端职业实体');
     expect(html).not.toContain("Bundle fallback occupation must not render");
 
     expect(html).toContain('"@type":"FAQPage"');

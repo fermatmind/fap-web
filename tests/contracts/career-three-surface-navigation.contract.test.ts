@@ -10,17 +10,17 @@ function read(relPath: string): string {
 }
 
 describe("career three-surface navigation contract", () => {
-  it("keeps the career dropdown focused on fit, library, and paths in both locales", () => {
+  it("keeps the career dropdown focused on fit, library, and guides in both locales", () => {
     const expected = {
       en: [
         { href: "/career/recommendations", label: "Career fit" },
         { href: "/career", label: "Occupation library" },
-        { href: "/career/guides", label: "Career paths" },
+        { href: "/career/guides", label: "Career Guides" },
       ],
       zh: [
         { href: "/career/recommendations", label: "职业匹配" },
         { href: "/career", label: "职业库" },
-        { href: "/career/guides", label: "职业路径" },
+        { href: "/career/guides", label: "职业指南" },
       ],
     } as const;
 

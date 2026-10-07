@@ -36,6 +36,7 @@ export type BrowserAnalyticsScriptInput = {
 
 const LOCALE_SEGMENTS = new Set(["zh", "en"]);
 const PRIVATE_ANALYTICS_ROUTE_SEGMENTS = new Set([
+  "cms-preview",
   "result",
   "orders",
   "share",

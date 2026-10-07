@@ -37,6 +37,20 @@ export type SiteDictionary = {
     backToArticles: string;
     updatedLabel: string;
     groupedByTestTitle: string;
+    featured: string;
+    latest: string;
+    categories: string;
+    allArticles: string;
+    empty: string;
+    unavailable: string;
+    stale: string;
+    configurationPending: string;
+    configurationError: string;
+    retry: string;
+    pagination: string;
+    previousPage: string;
+    nextPage: string;
+    onThisPage: string;
     voiceLabels: {
       tool: string;
       growth: string;

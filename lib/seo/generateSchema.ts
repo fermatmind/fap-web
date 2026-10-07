@@ -170,10 +170,11 @@ export function buildArticleJsonLd(input: ArticleSchemaInput) {
     headline: input.title,
     description: input.description,
     inLanguage: input.locale === "zh" ? "zh-CN" : "en",
-    author: {
-      "@type": "Person",
+    ...(["FermatMind", "费马测试"].includes(input.authorName) ? { author: {
+      "@type": "Organization",
       name: input.authorName,
-    },
+      url: canonicalUrl(input.locale === "zh" ? "/zh/brand" : "/en/brand"),
+    } } : {}),
     publisher: {
       "@type": "Organization",
       name: "FermatMind",

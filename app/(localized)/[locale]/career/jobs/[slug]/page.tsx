@@ -11,10 +11,11 @@ import { AnalyticsPageViewTracker } from '@/hooks/useAnalytics';
 import { adaptCareerJobBundle } from '@/lib/career/adapters/adaptCareerJobBundle';
 import type { CareerJobBundleAdapter } from '@/lib/career/adapters/types';
 import { fetchCareerJobBundle } from '@/lib/career/api/fetchCareerJobBundle';
-import { normalizeCareerPage, careerPageFaq, careerPageHasPublicBody } from '@/lib/career/careerPage';
+import { normalizeCareerPage, careerPageFaq, careerPageHasPublicBody, validateCareerPageAuthority } from '@/lib/career/careerPage';
 import { CAREER_TRACKING_EVENTS, buildCareerAttributionPayload } from '@/lib/career/attribution';
 import { buildCareerDisplayCtaHref } from '@/lib/career/displaySurface';
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from '@/lib/career/urls';
+import { normalizeCareerJobSlug } from '@/lib/career/slugSafety';
 import { resolveLocale } from '@/lib/i18n/getDict';
 import type { Locale } from '@/lib/i18n/locales';
 import { buildPageMetadata } from '@/lib/seo/metadata';
@@ -26,11 +27,27 @@ type Params = { locale: string; slug: string };
 const loadCareerJobBundle = cache(async (locale: Locale, slug: string) => {
   const payload = await fetchCareerJobBundle({ locale, slug, includeSeoAuthority: true });
   const job = adaptCareerJobBundle({locale, requestedSlug: slug, payload});
-  if (!job || !payload) return null;
-  if (job.slug !== slug) permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug));
-  const raw = payload as unknown as Record<string, unknown>;
+  if (!payload) return null;
+  if (!job) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
+  const envelope = payload as unknown as Record<string, unknown>;
+  const raw = envelope.data && typeof envelope.data === 'object' ? envelope.data as Record<string, unknown> : envelope;
+  const filePageResponse = raw.bundle_version === 'career.detail.page.v1' || Object.prototype.hasOwnProperty.call(raw, 'career_page');
+  // Historical identity-only aliases redirect before requiring a destination page;
+  // Current descriptors must pass the full request/response identity check.
+  if (!filePageResponse && job.slug !== slug && normalizeCareerJobSlug(job.slug) === job.slug) {
+    permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug));
+  }
   const page = normalizeCareerPage(raw.career_page, locale, job.slug);
   if (!page) throw new Error('CAREER_PAGE_CONTRACT_INVALID');
+  const currentAuthority = locale === 'zh' || raw.bundle_version === 'career.detail.page.v1';
+  if (currentAuthority) validateCareerPageAuthority(raw, page, locale, normalizeCareerJobSlug(slug) ?? slug);
+  if (job.slug !== slug) permanentRedirect(buildCareerJobFrontendUrl(locale, job.slug));
+  // Ignore any transported independent SEO projection for Current Chinese pages.
+  if (locale === 'zh') job.seoSurface = null;
+  else if (currentAuthority && job.seoSurface && (job.seoSurface.metadataFingerprint !== page.content.sourceContentSha256 ||
+      ![buildCareerJobFrontendUrl(locale, job.slug), `https://fermatmind.com${buildCareerJobFrontendUrl(locale, job.slug)}`].includes(job.seoSurface.canonicalUrl ?? ''))) {
+    throw new Error('CAREER_PAGE_SEO_PAIR_INVALID');
+  }
   return {job, page, restoredIdentity:locale === 'zh' && (job.slug === 'accountants-and-auditors' || page.display !== undefined) ? careerDisplayIdentity(job.slug, raw.ontology) : null};
 });
 function isIndexableState(indexState: string | null | undefined): boolean {
@@ -116,8 +133,10 @@ export async function generateMetadata({params}: {params: Promise<Params>}): Pro
   const hasBody = careerPageHasPublicBody(page);
   const publishedIndexAuthority = hasTrustedPublishedIndexAuthority(job);
   const allowsIndex = publishedIndexAuthority && hasBody;
-  const bodyPendingFollow = !hasBody && (publishedIndexAuthority ||
-    (job.seoSurface?.robotsPolicy ?? '').split(',').map(value => value.trim().toLowerCase()).includes('follow'));
+  const bodyPendingFollow = locale === 'zh'
+    ? (job.seoContract.robotsPolicy ?? '').split(',').includes('follow')
+    : !hasBody && (publishedIndexAuthority ||
+      (job.seoSurface?.robotsPolicy ?? '').split(',').map(value => value.trim().toLowerCase()).includes('follow'));
   // Validate the actual paired public body during the compatible backend rollout.
   // A failed or empty alternate never turns the current contentful page into an empty page.
   const alternate = allowsIndex ? await loadCareerJobBundle(locale === 'zh' ? 'en' : 'zh', job.slug).catch(() => null) : null;

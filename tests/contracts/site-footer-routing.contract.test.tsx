@@ -12,7 +12,10 @@ describe("site footer routing contract", () => {
     );
 
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("Top tests");
-    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("Articles & Insights");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("FermatMind Blog");
+    expect(screen.getByRole("link", { name: "Blog" })).toHaveAttribute("href", "/en/articles");
+    expect(screen.getByRole("link", { name: "Career Guides" })).toHaveAttribute("href", "/en/career/guides");
+    expect(screen.queryByRole("link", { name: "Research reports" })).not.toBeInTheDocument();
     expect(screen.getByTestId("site-footer-group-methods")).toHaveTextContent("Research & Methods");
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("Company");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("Terms & policies");
@@ -36,7 +39,10 @@ describe("site footer routing contract", () => {
     );
 
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent("热门测评");
-    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("文章与洞察");
+    expect(screen.getByTestId("site-footer-group-articles")).toHaveTextContent("费马博客");
+    expect(screen.getByRole("link", { name: "博客" })).toHaveAttribute("href", "/zh/articles");
+    expect(screen.getByRole("link", { name: "职业指南" })).toHaveAttribute("href", "/zh/career/guides");
+    expect(screen.queryByRole("link", { name: "研究报告" })).not.toBeInTheDocument();
     expect(screen.getByTestId("site-footer-group-methods")).toHaveTextContent("研究与方法");
     expect(screen.getByTestId("site-footer-group-company")).toHaveTextContent("公司");
     expect(screen.getByTestId("site-footer-group-policies")).toHaveTextContent("条款与政策");

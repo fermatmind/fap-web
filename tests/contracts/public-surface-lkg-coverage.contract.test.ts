@@ -33,7 +33,8 @@ describe("public CMS surface LKG coverage", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("lib/seo/llmsFullRoute.ts");
 
-    expect(articleIndex).toContain("getCmsArticlesWithLastKnownGood");
+    expect(articleIndex).toContain("BlogArchive");
+    expect(read("lib/content/blogArchive.ts")).toContain("getCmsArticlesWithLastKnownGood");
     expect(articleDetail).toContain("getCmsArticleWithLastKnownGood");
     expect(articleDetail).toContain("getCmsArticleSeoWithLastKnownGood");
     expect(testDetail).toContain("getCmsArticlesWithLastKnownGood");

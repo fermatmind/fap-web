@@ -9,6 +9,7 @@ export const PRIVATE_FLOW_ROUTE_EXCLUDES = [
 ] as const;
 
 export const SHARED_DISCOVERABILITY_DENY_PATH_PATTERNS: readonly RegExp[] = [
+  /^\/cms-preview(\/|$)/i,
   /^\/api(\/|$)/i,
   /^\/og(\/|$)/i,
   /^\/history(\/|$)/i,

@@ -1,5 +1,6 @@
 import { GraduationCap, HeartHandshake, Microscope } from "lucide-react";
 import Link from "next/link";
+import { ArticleByline } from "@/components/articles/ArticleByline";
 import { ArticleResponsiveImage } from "@/components/content/ArticleResponsiveImage";
 import { CmsMediaAuthorityShell } from "@/components/marketing/CmsMediaAuthorityShell";
 import { Container } from "@/components/layout/Container";
@@ -20,7 +21,6 @@ type HomeCoreTestItem = HomeLink & {
 type TrustItem = HomePageContent["trust"]["items"][number];
 type HomeArticle = CmsArticle;
 
-const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 const PRIORITY_TEST_SLUG_GROUPS = [
   ["mbti-personality-test-16-personality-types"],
   ["big-five-personality-test-ocean-model"],
@@ -823,7 +823,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
               </Link>
               <p className="m-0 mt-5 text-sm leading-6 text-slate-500">
                 {labels.author}
-                <span className="text-slate-700">{ARTICLE_AUTHOR_NAME}</span>
+                <span className="text-slate-700"><ArticleByline authorName={article.authorName} locale={locale} /></span>
               </p>
               <p className="m-0 mt-1 text-sm text-slate-400">{getArticleDisplayDate(article, locale)}</p>
             </article>

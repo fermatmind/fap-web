@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { ArticleByline } from "@/components/articles/ArticleByline";
+import { articleByline } from "@/lib/content/articleByline";
+import { BlogFeedLink } from "@/components/articles/BlogFeedLink";
+import { articleFeedAlternate } from "@/lib/cms/articleFeed";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -20,7 +24,7 @@ import {
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
 import type { RelatedContentItem } from "@/lib/content";
-import { excludeFaqCopiesInMarkdown, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
+import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -30,7 +34,7 @@ import {
   buildFAQPageJsonLd,
 } from "@/lib/seo/generateSchema";
 import { resolveArticleHreflangGate, resolveArticleJsonLdAuthority, resolveArticleSchemaGate } from "@/lib/seo/articlePersonalityAuthority";
-import { ARTICLE_AUTHOR_NAME, normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
+import { normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
 import { buildI18nSeoPassport } from "@/lib/seo/i18nPassport";
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 
@@ -58,13 +62,14 @@ function formatArticleDate(value: string | null, locale: Locale): string | null 
 
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
-    return value;
+    return null;
   }
 
   return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en-US", {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
 
@@ -140,7 +145,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourcePath={canonicalPath}
         contentId={article.id}
       >
-        {renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2 }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+        {renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );
   }
@@ -243,7 +248,7 @@ export async function generateMetadata({
   return {
     ...metadata,
     title: resolveArticleMetadataTitle(title),
-    alternates,
+    alternates: { ...alternates, types: articleFeedAlternate(locale) },
     openGraph: {
       type: "article",
       url: canonical,
@@ -297,15 +302,15 @@ export default async function ArticleDetailPage({
   // Normalized production results always carry the projection contract. The
   // builders remain reachable only for legacy typed-test fixtures that omit it.
   const articleJsonLd = articleSchemaGate.canRenderArticleJsonLd ? (cmsArticleSeoJsonLd || (
-    articleJsonLdAuthority.canRenderJsonLd
+    !hasProjectedAuthorityContract && articleJsonLdAuthority.canRenderJsonLd && article.authorName && article.publishedAt
       ? buildArticleJsonLd({
         path: canonicalPath,
         title: article.title,
         description: article.excerpt,
         locale,
-        datePublished: article.publishedAt ?? article.updatedAt ?? article.createdAt ?? new Date().toISOString(),
-        dateModified: article.updatedAt ?? article.publishedAt ?? article.createdAt ?? new Date().toISOString(),
-        authorName: ARTICLE_AUTHOR_NAME,
+        datePublished: article.publishedAt,
+        dateModified: article.updatedAt ?? article.publishedAt,
+        authorName: articleByline(article.authorName, locale).name,
       })
       : null
   )) : null;
@@ -316,7 +321,7 @@ export default async function ArticleDetailPage({
       ? projectedBreadcrumbJsonLd
       : buildBreadcrumbJsonLd([
         { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-        { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
+        { name: dict.articles.title, path: localizedPath("/articles", locale) },
         { name: article.title, path: canonicalPath },
       ])
     : null;
@@ -348,6 +353,9 @@ export default async function ArticleDetailPage({
   ].filter((label): label is string => Boolean(label)).slice(0, 5);
 
   const articleRuntimeContract = resolveArticleRuntimeContract(article);
+  const headings = !article.contentHtml.trim()
+    ? getSimpleMarkdownHeadings(article.contentMd, { minimumHeadingLevel: 2, headingIdPrefix: "article-body" })
+    : [];
 
   const relatedArticles: RelatedContentItem[] = [];
   const relatedCareerGuides: RelatedContentItem[] = [];
@@ -362,7 +370,7 @@ export default async function ArticleDetailPage({
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
-          { label: locale === "zh" ? "文章" : "Articles", href: localizedPath("/articles", locale) },
+          { label: dict.articles.title, href: localizedPath("/articles", locale) },
           { label: article.title },
         ]}
       />
@@ -392,7 +400,7 @@ export default async function ArticleDetailPage({
           {heroSummary ? <p className="m-0 max-w-3xl text-lg leading-8 text-[var(--fm-text-muted)]">{heroSummary}</p> : null}
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-[var(--fm-text-muted)]">
             <p className="m-0">
-              {locale === "zh" ? "作者" : "By"}: {ARTICLE_AUTHOR_NAME}
+              {locale === "zh" ? "作者" : "By"}: <ArticleByline authorName={article.authorName} locale={locale} />
             </p>
             {publishedAt ? (
               <p className="m-0">
@@ -409,10 +417,39 @@ export default async function ArticleDetailPage({
                 {locale === "zh" ? `阅读时间：${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}
               </p>
             ) : null}
-            <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" />
+            {article.publicReview?.lastReviewedAt ? <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" /> : null}
           </div>
+          <BlogFeedLink locale={locale} />
         </div>
       </header>
+
+      {headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="max-w-4xl rounded-lg border border-[var(--fm-border)] p-5">
+        <h2 className="m-0 mb-3 text-lg font-semibold">{dict.articles.onThisPage}</h2>
+        <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
+          {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className="text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline">{heading.text}</a></li>)}
+        </ol>
+      </nav> : null}
+
+
+      <div className="w-full max-w-4xl [&_h2]:scroll-mt-24 [&_h3]:scroll-mt-24 [&_h4]:scroll-mt-24">
+        <article
+          id="how-it-works"
+          data-testid="article-detail-content"
+          data-article-runtime-contract={articleRuntimeContract.version}
+          data-article-runtime-page-family={articleRuntimeContract.pageFamily}
+          className="min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
+        >
+          {renderArticleBody(article, locale, canonicalPath)}
+          {article.bodyVisual?.imageUrl ? (
+            <ArticleResponsiveImage
+              src={article.bodyVisual.imageUrl}
+              alt={article.coverImageAlt ?? article.title}
+              mode="hero"
+              className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
+            />
+          ) : null}
+        </article>
+      </div>
 
       <AnswerSurfaceSection
         surface={visibleAnswerSurface}
@@ -433,31 +470,14 @@ export default async function ArticleDetailPage({
         }}
       />
 
-      <div className="w-full">
-        <article
-          id="how-it-works"
-          data-testid="article-detail-content"
-          data-article-runtime-contract={articleRuntimeContract.version}
-          data-article-runtime-page-family={articleRuntimeContract.pageFamily}
-          className="min-w-0 space-y-5 [overflow-wrap:anywhere] text-base text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_blockquote]:border-l-4 [&_blockquote]:border-[var(--fm-accent)] [&_blockquote]:bg-[var(--fm-surface-muted)] [&_blockquote]:px-5 [&_blockquote]:py-3 [&_blockquote]:text-[var(--fm-text)] [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:leading-tight [&_h3]:mt-7 [&_h3]:font-serif [&_h3]:text-xl [&_h3]:font-semibold [&_img]:rounded-lg [&_img]:border [&_img]:border-[var(--fm-border)] [&_ol]:list-decimal [&_ol]:space-y-2 [&_ol]:pl-5 [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
-        >
-          {renderArticleBody(article, locale, canonicalPath)}
-          {article.bodyVisual?.imageUrl ? (
-            <ArticleResponsiveImage
-              src={article.bodyVisual.imageUrl}
-              alt={article.coverImageAlt ?? article.title}
-              mode="hero"
-              className="aspect-[16/9] rounded-lg border border-[var(--fm-border)]"
-            />
-          ) : null}
-        </article>
-      </div>
-
       <Suspense fallback={null}>
+        <AttributedCmsLinkHydrator locale={locale} sourceRouteFamily="article_detail"
+          sourceSlug={article.slug} sourcePath={canonicalPath} contentId={article.id}>
         <PublicTopicEdgeModule
           source={article.id ? { type: "article", id: article.id, locale: toApiLocale(locale) } : null}
           entrySurface="article_detail"
         />
+        </AttributedCmsLinkHydrator>
       </Suspense>
 
       <div className="space-y-6">

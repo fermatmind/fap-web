@@ -21,6 +21,14 @@ afterEach(() => {
 });
 
 describe("Article language navigation authority", () => {
+  it("does not manufacture a category counterpart and accepts only verified bounded category pagination", () => {
+    const current = "/en/articles/category/personality";
+    expect(resolveLocaleSwitchHref(current, "zh")).toBe("/zh/articles");
+    expect(resolveLocaleSwitchHref(current, "zh", metadata(`https://fermatmind.com${current}`, "https://fermatmind.com/zh/articles/category/personality?page=2"))).toBe("/zh/articles/category/personality?page=2");
+    for (const suffix of ["?page=101", "?page=2&private=1", "#private", "?page=0"]) {
+      expect(resolveLocaleSwitchHref(current, "zh", metadata(`https://fermatmind.com${current}`, `https://fermatmind.com/zh/articles/category/personality${suffix}`))).toBe("/zh/articles");
+    }
+  });
   it("uses a published counterpart with a different slug", () => {
     expect(resolveLocaleSwitchHref("/en/articles/english-copy", "zh", metadata("https://fermatmind.com/en/articles/english-copy", "https://fermatmind.com/zh/articles/chinese-copy"))).toBe("/zh/articles/chinese-copy");
   });

@@ -4,6 +4,8 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { validateTestSelection } from '../../.github/trunk/test-consumers.mjs';
+
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, "../..");
 const DEFAULT_SHARDS = 4;
@@ -37,6 +39,7 @@ function parseArgs(argv = process.argv.slice(2)) {
     includeQuarantine: process.env.CONTRACT_INCLUDE_QUARANTINE === "1",
     onlyQuarantine: false,
     listGroups: false,
+    selectionInput: null,
     passthrough: [],
   };
 
@@ -49,6 +52,8 @@ function parseArgs(argv = process.argv.slice(2)) {
       options.timeoutMs = parsePositiveInt(arg.slice("--timeout-ms=".length), options.timeoutMs, "--timeout-ms");
     } else if (arg.startsWith("--only-shard=")) {
       options.onlyShard = parsePositiveInt(arg.slice("--only-shard=".length), options.onlyShard, "--only-shard");
+    } else if (arg.startsWith("--selection-input=")) {
+      options.selectionInput = arg.slice("--selection-input=".length);
     } else if (arg.startsWith("--group=")) {
       options.group = arg.slice("--group=".length);
     } else if (arg.startsWith("--focused-gate=")) {
@@ -310,6 +315,7 @@ function runCommand(command, args, { cwd, timeoutMs, logPath }) {
 }
 
 async function runShard(shard, options) {
+  if (!shard.files.length) throw new Error('CONTRACT_SHARD_EMPTY');
   const logPath = path.join(LOG_DIR, `shard-${shard.index}-of-${shard.total}.log`);
   const args = [
     "exec",
@@ -346,7 +352,14 @@ async function main() {
     return;
   }
 
-  const execution = resolveExecutionFiles(discoveredFiles, groupsConfig, options);
+  let execution = resolveExecutionFiles(discoveredFiles, groupsConfig, options);
+  if (options.selectionInput) {
+    const known = [...discoverContractFiles(), ...walkFiles(path.join(ROOT,'tests')).map(p=>'tests/'+p).filter(p=>/\.test\.[jt]sx?$/.test(p))];
+    const plan = validateTestSelection(JSON.parse(readFileSync(options.selectionInput,'utf8')), process.env.GITHUB_SHA, known, ROOT);
+    if (!plan.contracts_required) throw new Error('NON_APPLICABLE_SELECTION_MUST_SKIP_JOB');
+    execution = {...execution, files:plan.files, selection_mode:plan.mode, quarantine_excluded_count:0};
+  }
+  if (!execution.files.length) throw new Error('CONTRACT_SELECTION_EMPTY');
   const plan = createShardPlan(execution.files, options.shards).filter((shard) =>
     options.onlyShard == null ? true : shard.index === options.onlyShard,
   );

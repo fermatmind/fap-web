@@ -210,25 +210,26 @@ NODE
 require_career_renderer_revision() {
   local base_url="$1"
   local phase="$2"
-  local body_file api_file api_origin http_code
+  local body_file api_file headers_file api_origin http_code
   body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-renderer.XXXXXX")"
   api_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-api.XXXXXX")"
+  headers_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-career-headers.XXXXXX")"
   case "${PUBLIC_BASE_URL:-$base_url}" in
     https://staging.fermatmind.com) api_origin=https://staging-api.fermatmind.com ;;
     https://fermatmind.com) api_origin=https://api.fermatmind.com ;;
-    *) rm -f "$body_file" "$api_file"; log "career smoke origin invalid"; return 1 ;;
+    *) rm -f "$body_file" "$api_file" "$headers_file"; log "career smoke origin invalid"; return 1 ;;
   esac
   # Download complete decoded HTML; a redirect or a 404 cannot satisfy acceptance.
   http_code="$(curl -fsS --compressed \
     --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" --max-time "$CAREER_RENDERER_TIMEOUT_SEC" \
-    -w '%{http_code}' -o "$body_file" "${base_url%/}${CAREER_RENDERER_PATH}")" || http_code=000
+    -D "$headers_file" -w '%{http_code}' -o "$body_file" "${base_url%/}${CAREER_RENDERER_PATH}")" || http_code=000
   if [[ "$http_code" != 200 ]]; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career renderer response download failed: phase=${phase} path=${CAREER_RENDERER_PATH}"
     return 1
   fi
   if ! grep -Fq "data-career-renderer-release=\"${DEPLOY_SHA}\"" "$body_file"; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career renderer revision mismatch: phase=${phase} path=${CAREER_RENDERER_PATH}"
     return 1
   fi
@@ -236,47 +237,20 @@ require_career_renderer_revision() {
     --connect-timeout "$HTTP_CONNECT_TIMEOUT_SEC" --max-time "$CAREER_RENDERER_TIMEOUT_SEC" \
     -w '%{http_code}' -o "$api_file" "${api_origin}/api/v0.5/career/jobs/accountants-and-auditors?locale=zh-CN&projection_contract=career.detail.page.v1")" || http_code=000
   if [[ "$http_code" != 200 ]]; then
-    rm -f "$body_file" "$api_file"
+    rm -f "$body_file" "$api_file" "$headers_file"
     log "career API response download failed: phase=${phase}"
     return 1
   fi
-  if ! node --input-type=module - "$body_file" "$api_file" <<'NODE'
-import { readFileSync } from 'node:fs';
-try {
-  const html = readFileSync(process.argv[2], 'utf8');
-  const response = JSON.parse(readFileSync(process.argv[3], 'utf8'));
-  const page = response.career_page;
-  if (response.identity?.canonical_slug !== 'accountants-and-auditors' || page?.locale !== 'zh-CN' ||
-      page.display?.contract_version !== 'career.detail.display.v1' || page.hero?.ai?.availability !== 'available' ||
-      page.hero?.badges?.length !== 3) throw new Error('API contract');
-  // Exclude React transport scripts so cached props cannot masquerade as rendered content.
-  const rendered = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '');
-  if (!rendered.includes('data-career-production-template="career-production-v1"')) throw new Error('original template');
-  for (const marker of ['career-production-ai-gauge', 'career-production-hero-badges', 'career-dossier-toc', 'career-display-faq']) {
-    if (!rendered.includes(`data-testid="${marker}"`)) throw new Error('original renderer');
-  }
-  const decode = value => value.replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (_, code) => String.fromCodePoint(code[0].toLowerCase() === 'x' ? parseInt(code.slice(1), 16) : Number(code)))
-    .replace(/&(amp|lt|gt|quot|apos|nbsp);/g, (_, name) => ({ amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ' })[name]);
-  const normalize = value => decode(value).replace(/\s+/g, '');
-  const visible = normalize(rendered.replace(/<[^>]*>/g, ''));
-  const components = page.display.components;
-  const expected = [page.subject.name, page.hero.ai.fact?.display_value, ...page.hero.badges,
-    ...page.hero.metrics.map(metric => metric.fact?.display_value), components.hero.quick_answer,
-    components.definition_block, components.faq_block.items[0]?.question];
-  for (const value of expected) {
-    if (typeof value !== 'string' || !value.trim() || !visible.includes(normalize(value))) throw new Error('visible content');
-  }
-} catch {
-  console.error('career visible content does not match the authoritative API');
-  process.exitCode = 1;
-}
-NODE
-  then
-    rm -f "$body_file" "$api_file"
-    log "career renderer content mismatch: phase=${phase}"
+  local renderer_check="${SCRIPT_DIR}/verify-career-renderer.mjs"
+  local site_contract="${SCRIPT_DIR}/site.ts"
+  [[ -f "$renderer_check" ]] || renderer_check="${SCRIPT_DIR}/ops/verify-career-renderer.mjs"
+  [[ -f "$site_contract" ]] || site_contract="${SCRIPT_DIR}/../lib/site.ts"
+  if ! node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON "$renderer_check" "$body_file" "$api_file" "$headers_file" "$PUBLIC_BASE_URL" "$phase" "$site_contract"; then
+    rm -f "$body_file" "$api_file" "$headers_file"
+    log "career renderer validation failed: phase=${phase}"
     return 1
   fi
-  rm -f "$body_file" "$api_file"
+  rm -f "$body_file" "$api_file" "$headers_file"
   log "career renderer revision passed: phase=${phase} path=${CAREER_RENDERER_PATH}; content passed"
 }
 

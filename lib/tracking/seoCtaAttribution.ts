@@ -194,6 +194,27 @@ export function extractTargetTestSlugFromHref(href: string): string | null {
   return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) ? slug : null;
 }
 
+/** CMS-selected public reading links only; excludes careers' private/action routes. */
+export function extractPublicReadingPathFromHref(href: string, locale: Locale): string | null {
+  try {
+    const parsed = new URL(href, "https://fermatmind.com");
+    if (parsed.protocol !== "https:" || !["fermatmind.com", "www.fermatmind.com"].includes(parsed.hostname)
+      || parsed.port || parsed.username || parsed.password || parsed.search || parsed.hash) return null;
+    const prefix = `/${locale}/`;
+    if (!parsed.pathname.startsWith(prefix)) return null;
+    const path = parsed.pathname.slice(prefix.length);
+    if (/^topics\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)
+      || /^career\/(?:guides\/|jobs\/|family\/|industries\/)[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)
+      || (/^career\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(path)
+        && !["resolve", "tests", "recommendations", "guides", "jobs", "family", "industries"].includes(path.split("/")[1]))) {
+      return parsed.pathname;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export function normalizeSeoCtaPriority(value: unknown, fallback: SeoCtaPriority = "contextual"): SeoCtaPriority {
   const normalized = normalizeOptionalToken(value);
   if (normalized === "primary" || normalized === "secondary" || normalized === "tertiary") {
