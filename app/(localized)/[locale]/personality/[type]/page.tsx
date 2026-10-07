@@ -865,7 +865,7 @@ function ComparisonQuickJudgmentTable({
       <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
         {locale === "zh" ? "快速判断表" : "Quick judgment table"}
       </p>
-      <div className="mt-4 overflow-hidden rounded-xl border border-[var(--fm-border)]">
+      <div className="mt-4 overflow-x-auto rounded-xl border border-[var(--fm-border)]">
         <table className="w-full border-collapse text-left text-sm">
           <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
             <tr>
@@ -1143,7 +1143,7 @@ function ComparisonAssetNav({
 
   return (
     <nav
-      className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
+      className="sticky top-20 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
       aria-label={locale === "zh" ? "人格对比目录" : "Personality comparison navigation"}
       data-testid="personality-comparison-asset-nav"
     >
@@ -1227,7 +1227,6 @@ function PersonalityComparisonPage({
   locale: Locale;
 }) {
   const canonicalPath = buildComparisonCanonicalPath(comparison.comparisonSlug, locale);
-  const title = comparisonSeoTitle(comparison);
   const heading = comparisonPageHeading(comparison);
   const description = comparison.sections.some((section) => section.sectionKey === "sources_and_method")
     ? comparison.summary
@@ -1284,7 +1283,7 @@ function PersonalityComparisonPage({
 
   return (
     <main
-      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10"
+      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10 [&_[id]]:scroll-mt-40 lg:[&_[id]]:scroll-mt-24 [&_table]:min-w-[36rem]"
       data-testid="personality-comparison-page"
       data-authority-source="comparison_public_projection_v1"
       data-comparison-contract-version={comparison.comparisonContractVersion}
@@ -1297,7 +1296,7 @@ function PersonalityComparisonPage({
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
           { label: locale === "zh" ? "人格" : "Personality", href: localizedPath("/personality", locale) },
-          { label: title },
+          { label: heading },
         ]}
       />
 
@@ -1757,7 +1756,7 @@ export default async function PersonalityDetailPage({
   });
   const heroHeading = formatPersonalityDetailHeading(detail, locale);
   const heroHeadingSuffix = heroHeading.startsWith(detail.displayType)
-    ? heroHeading.slice(detail.displayType.length).trim()
+    ? heroHeading.slice(detail.displayType.length)
     : "";
   const legacyIntentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
   const intentLinks = hasV85Sections
@@ -1773,7 +1772,7 @@ export default async function PersonalityDetailPage({
     : null;
   return (
     <main
-      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
+      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10 [&_[id]]:scroll-mt-40 lg:[&_[id]]:scroll-mt-24"
       data-authority-source="mbti_public_projection_v1"
       data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}
       data-domain-id="self_understanding"
@@ -1805,7 +1804,7 @@ export default async function PersonalityDetailPage({
               {heroHeadingSuffix ? (
                 <>
                   <span className="font-sans tracking-tight">{detail.displayType}</span>
-                  <span className="font-sans tracking-tight"> {heroHeadingSuffix}</span>
+                  <span className="font-sans tracking-tight">{heroHeadingSuffix}</span>
                 </>
               ) : (
                 heroHeading
@@ -1900,7 +1899,7 @@ export default async function PersonalityDetailPage({
 
       <nav
         aria-label={locale === "zh" ? "人格页面章节导航" : "Personality page section navigation"}
-        className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
+        className="sticky top-20 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
         data-testid="personality-detail-sticky-local-nav"
       >
         <div className="flex min-w-max gap-2">
