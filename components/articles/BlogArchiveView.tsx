@@ -96,9 +96,11 @@ export function BlogArchiveView({ locale, state, category = "", page = 1, previe
           : <p data-testid="blog-empty" className="rounded-lg border border-[var(--fm-border)] p-6">{dict.articles.empty}</p>}
       </section>
       {pagination && pagination.lastPage > 1 ? <nav aria-label={dict.articles.pagination} className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--fm-border)] pt-6">
-        {page > 1 ? <Link onClick={navigate(category, page - 1)} rel="prev" href={blogArchivePath(locale, category, page - 1)}>{dict.articles.previousPage}</Link> : <span />}
+        {/* Public pagination loads the matching server head with the document.
+            The private preview retains its scoped onNavigate callback. */}
+        {page > 1 ? <a onClick={navigate(category, page - 1)} rel="prev" href={blogArchivePath(locale, category, page - 1)}>{dict.articles.previousPage}</a> : <span />}
         <span>{locale === "zh" ? `第 ${page} 页 / 共 ${pagination.lastPage} 页` : `Page ${page} of ${pagination.lastPage}`}</span>
-        {page < Math.min(pagination.lastPage, 100) ? <Link onClick={navigate(category, page + 1)} rel="next" href={blogArchivePath(locale, category, page + 1)}>{dict.articles.nextPage}</Link> : <span />}
+        {page < Math.min(pagination.lastPage, 100) ? <a onClick={navigate(category, page + 1)} rel="next" href={blogArchivePath(locale, category, page + 1)}>{dict.articles.nextPage}</a> : <span />}
       </nav> : null}
     </>}
   </Container>;
