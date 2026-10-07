@@ -1450,7 +1450,7 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
   });
 }
 
-export async function getCmsArticle(slug: string, locale: Locale | string): Promise<CmsArticle | null> {
+export async function getCmsArticle(slug: string, locale: Locale | string, usePublicCache = true): Promise<CmsArticle | null> {
   const normalizedSlug = normalizeArticleSlug(slug);
   if (!normalizedSlug) {
     return null;
@@ -1467,10 +1467,10 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
       .getPublic<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
         locale,
         skipAuth: true,
-        next: {
+        ...(usePublicCache ? { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleDetailCacheTag(apiLocale, normalizedSlug)],
-        },
+        } } : { cache: "no-store" as const }),
       })
       .then(stripArticleDetailResponseInternalSlotMarkers);
 
