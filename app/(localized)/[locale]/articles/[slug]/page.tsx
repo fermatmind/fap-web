@@ -24,6 +24,8 @@ import {
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
 import type { RelatedContentItem } from "@/lib/content";
+import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
+import { loadBlogArchive } from "@/lib/content/blogArchive";
 import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
 import { getDict, resolveLocale } from "@/lib/i18n/getDict";
@@ -282,7 +284,10 @@ export default async function ArticleDetailPage({
     return notFound();
   }
 
-  const seoResult = await getCmsArticleSeoWithLastKnownGood(slug, locale);
+  const [seoResult, blogState] = await Promise.all([
+    getCmsArticleSeoWithLastKnownGood(slug, locale),
+    article.category ? loadBlogArchive(locale, 1) : Promise.resolve(null),
+  ]);
   const seo = seoResult.value;
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
@@ -348,7 +353,7 @@ export default async function ArticleDetailPage({
     : article.answerSurface;
   const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
   const badgeLabels = [
-    article.category?.name ?? null,
+    articleCategoryLabel(article.category, blogState?.data?.blog, locale),
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ].filter((label): label is string => Boolean(label)).slice(0, 5);
 
