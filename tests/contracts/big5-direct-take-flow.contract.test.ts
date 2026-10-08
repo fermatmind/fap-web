@@ -16,7 +16,7 @@ describe("Big Five direct take flow", () => {
   });
 
   it("primes the server attempt on the first answer without fabricating acceptance metadata", () => {
-    expect(source).toContain("const requestMeta: Record<string, unknown> = { slug };");
+    expect(source).toContain("const requestMeta: Record<string, unknown> = { slug, ...publicArticleStartMeta };");
     expect(source).toContain("void ensureAttempt();");
     expect(source).not.toContain("accepted_version");
     expect(source).not.toContain("accepted_hash");
