@@ -41,7 +41,7 @@ export async function blogArchiveMetadata(locale: Locale, query: Record<string, 
   const exists = !state.failed && !state.stale && Boolean(state.data) && page <= (state.data?.pagination.lastPage || 1)
     && (!category || Boolean(activeCategory));
   // Public content publication does not release CMS discoverability holds.
-  const held = Boolean(category) || (blog?.configurationState === "published" && blog.isIndexable !== true);
+  const held = page > 1 || Boolean(category) || (blog?.configurationState === "published" && blog.isIndexable !== true);
   const metadata = buildPageMetadata({ locale, pathname, title, description, omitLanguageAlternates: true,
     noindex: !exists || !canonicalQuery || held || blog?.configurationState === "invalid" ? true : undefined,
     noindexFollow: true, alternatesByLocale: { en: "/en/articles", zh: "/zh/articles" } });

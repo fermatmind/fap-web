@@ -107,9 +107,22 @@ describe("Blog CMS archive and SEO boundaries", () => {
     expect(meta.alternates?.canonical).toBe("https://fermatmind.com/en/articles?page=4");
     expect(meta.alternates?.languages).toBeUndefined();
     get.mockResolvedValue({ value: { ...data(), pagination: { currentPage: 2, perPage: 20, total: 40, lastPage: 2 } }, stale: false });
-    expect((await blogArchiveMetadata("en", { page: "2" })).alternates?.languages).toEqual({ en: "https://fermatmind.com/en/articles?page=2", "zh-CN": "https://fermatmind.com/zh/articles?page=2" });
+    expect((await blogArchiveMetadata("en", { page: "2" })).alternates?.languages).toBeUndefined();
     get.mockImplementation(async ({ locale }) => ({ value: { ...data(), blog: { ...data().blog!, isIndexable: locale === "en" } }, stale: false }));
     expect((await blogArchiveMetadata("en", {})).alternates?.languages).toBeUndefined();
+  });
+
+  it.each(["en", "zh"] as const)("releases only the canonical %s homepage when CMS allows indexing", async locale => {
+    get.mockResolvedValue({ value: { ...data(), pagination: { currentPage: 1, perPage: 20, total: 40, lastPage: 2 } }, stale: false });
+    const home = await blogArchiveMetadata(locale, {});
+    expect(home.robots).toMatchObject({ index: true, follow: true });
+    expect(home.alternates?.languages).toEqual({ en: "https://fermatmind.com/en/articles", "zh-CN": "https://fermatmind.com/zh/articles" });
+    for (const query of [{ page: "2" }, { page: "1" }, { category: "arbitrary" }]) {
+      const held = await blogArchiveMetadata(locale, query);
+      expect(held.robots).toMatchObject({ index: false, follow: true });
+      expect(held.alternates?.languages).toBeUndefined();
+    }
+    expect((await blogArchiveMetadata(locale, {}, "personality")).robots).toMatchObject({ index: false, follow: true });
   });
 
   it("honors the CMS hold rather than the generated landing indexability or unchecked query", async () => {
