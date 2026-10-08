@@ -34,7 +34,10 @@ vi.mock("@/lib/cms/personality-desktop-clone", async () => ({
   fetchPersonalityDesktopCloneContent: state.cms,
 }));
 vi.mock("@/lib/cms/personality-result-introduction", () => ({ fetchPersonalityResultIntroduction: state.introduction }));
-vi.mock("@/lib/cms/personality-trait-explanations", () => ({ fetchPersonalityTraitExplanations: vi.fn(async () => null) }));
+vi.mock("@/lib/cms/mbti-trait-explanations", async () => ({
+  ...await vi.importActual<typeof import("@/lib/cms/mbti-trait-explanations")>("@/lib/cms/mbti-trait-explanations"),
+  fetchMbtiTraitCatalog: vi.fn(async () => null),
+}));
 
 function createListItems(prefix: string) {
   return [
