@@ -16,25 +16,49 @@ function installed(root) {
   const source = path.join(root, 'input.json'); writeConfig(source, values); writeFileSync(path.join(root, 'REVISION'), sha);
   const file = path.join(root, '.tracking-runtime.json'); installRelease(source, file); return file;
 }
-test('systemd guard inspects the existing entry and never performs a write or restart', () => temporary(root => {
+test('systemd guard requires explicit typed empty D-Bus metadata and never performs a write or restart', () => temporary(root => {
   const source = path.join(root, 'input.json'); writeConfig(source, values);
   const previous = { APP_DIR: process.env.APP_DIR, SYSTEMD_SERVICE: process.env.SYSTEMD_SERVICE };
   process.env.APP_DIR = root; process.env.SYSTEMD_SERVICE = 'fap-web-staging.service';
   try {
-    const base = { User: userInfo().username, Group: 'fixture-group', WorkingDirectory: `${root}/.next/standalone`, EnvironmentFiles: '', ExecStart: '{ path=/usr/bin/node ; argv[]=/usr/bin/node server.js ; ignore_errors=no ; }' };
-    for (const mode of ['valid', 'user', 'group', 'directory', 'environment-file', 'binary', 'extra-argument', 'unparsed', 'unavailable']) {
+    // systemd 252 staging omits EnvironmentFiles from systemctl even with --all.
+    const base = { User: userInfo().username, Group: 'fixture-group', WorkingDirectory: `${root}/.next/standalone`, ExecStart: '{ path=/usr/bin/node ; argv[]=/usr/bin/node server.js ; ignore_errors=no ; }' };
+    const object = '/org/freedesktop/systemd1/unit/fap_2dweb_2dstaging_2eservice';
+    const modes = ['valid-omitted-cli', 'valid-typed-whitespace', 'user', 'group', 'directory', 'binary', 'extra-argument', 'unparsed', 'unavailable',
+      'missing-User', 'missing-Group', 'missing-WorkingDirectory', 'missing-ExecStart', 'group-unavailable',
+      'unit-unavailable', 'unit-timeout', 'unit-missing', 'unit-wrong-type', 'unit-wrong-path', 'unit-trailing-data',
+      'environment-file', 'environment-file-ignored', 'environment-query-unavailable', 'environment-query-timeout',
+      'environment-property-missing', 'environment-stdout-missing', 'environment-wrong-type', 'environment-malformed-count',
+      'environment-trailing-data', 'environment-empty-array-with-entry'];
+    for (const mode of modes) {
       const fields = { ...base }; if (mode === 'user') fields.User = 'root'; if (mode === 'group') fields.Group = 'other';
-      if (mode === 'directory') fields.WorkingDirectory = `${root}/other`; if (mode === 'environment-file') fields.EnvironmentFiles = '/fixture/env';
+      if (mode.startsWith('missing-')) delete fields[mode.slice('missing-'.length)];
+      if (mode === 'directory') fields.WorkingDirectory = `${root}/other`;
       if (mode === 'binary') fields.ExecStart = fields.ExecStart.replaceAll('/usr/bin/node', '/other/node');
       if (mode === 'extra-argument') fields.ExecStart = fields.ExecStart.replace('server.js ;', 'server.js --extra ;');
       if (mode === 'unparsed') fields.ExecStart = 'not-supported';
-      const calls = []; const run = (command, args) => {
-        calls.push([command, ...args]);
-        if (command === 'id') return { status: 0, stdout: 'fixture-group\n' };
-        return { status: mode === 'unavailable' ? 1 : 0, stdout: Object.entries(fields).map(([k, v]) => `${k}=${v}`).join('\n') };
+      const calls = []; const run = (command, args, options) => {
+        calls.push([command, ...args]); assert.deepEqual(options, { encoding: 'utf8', timeout: 5000 });
+        if (command === 'systemctl') {
+          assert.deepEqual(args, ['show', 'fap-web-staging.service', '--no-pager', '--property=User,Group,WorkingDirectory,ExecStart']);
+          return { status: mode === 'unavailable' ? 1 : 0, stdout: Object.entries(fields).map(([k, v]) => `${k}=${v}`).join('\n') };
+        }
+        if (command === 'id') { assert.deepEqual(args, ['-gn']); return { status: mode === 'group-unavailable' ? 1 : 0, stdout: 'fixture-group\n' }; }
+        assert.equal(command, 'busctl');
+        if (args[1] === 'call') {
+          assert.deepEqual(args, ['--system', 'call', 'org.freedesktop.systemd1', '/org/freedesktop/systemd1', 'org.freedesktop.systemd1.Manager', 'GetUnit', 's', 'fap-web-staging.service']);
+          return { status: mode === 'unit-unavailable' ? 1 : mode === 'unit-timeout' ? null : 0,
+            stdout: mode === 'unit-missing' ? '' : mode === 'unit-wrong-type' ? `s "${object}"` : mode === 'unit-wrong-path' ? 'o "/other/unit"' : `o "${object}"${mode === 'unit-trailing-data' ? ' extra' : '\n'}` };
+        }
+        assert.deepEqual(args, ['--system', 'get-property', 'org.freedesktop.systemd1', object, 'org.freedesktop.systemd1.Service', 'EnvironmentFiles']);
+        const output = { 'valid-typed-whitespace': ' \ta(sb) 0\n', 'environment-file': 'a(sb) 1 "/fixture/env" false', 'environment-file-ignored': 'a(sb) 1 "/fixture/env" true',
+          'environment-property-missing': '', 'environment-stdout-missing': undefined, 'environment-wrong-type': 'as 0', 'environment-malformed-count': 'a(sb) -1',
+          'environment-trailing-data': 'a(sb) 0\na(sb) 0', 'environment-empty-array-with-entry': 'a(sb) 0 "/fixture/env" false' };
+        return { status: mode === 'environment-query-unavailable' ? 1 : mode === 'environment-query-timeout' ? null : 0,
+          stdout: Object.hasOwn(output, mode) ? output[mode] : 'a(sb) 0\n' };
       };
-      if (mode === 'valid') guardSystemd(source, run); else assert.throws(() => guardSystemd(source, run));
-      assert.equal(calls.some(call => call.includes('restart') || call.includes('daemon-reload')), false);
+      if (mode.startsWith('valid-')) guardSystemd(source, run); else assert.throws(() => guardSystemd(source, run), undefined, mode);
+      assert.equal(calls.some(call => call.includes('restart') || call.includes('daemon-reload') || call.includes('set-property')), false);
       assert.equal(JSON.stringify(calls).includes(token), false);
     }
   } finally { for (const [key, value] of Object.entries(previous)) { if (value === undefined) delete process.env[key]; else process.env[key] = value; } }
@@ -84,7 +108,8 @@ for (const mode of ['enabled', 'disabled', 'unsupported-unit', 'failed-preflight
     writeFileSync(path.join(packageRoot, 'REVISION'), sha); writeFileSync(path.join(packageRoot, 'server.js'), ''); writeFileSync(path.join(packageRoot, 'RELEASE_MANIFEST.json'), '{}');
     const archive = path.join(root, 'release.tar.gz'); assert.equal(spawnSync('tar', ['-czf', archive, '-C', root, `fap-web-${sha}`]).status, 0);
     const bin = path.join(root, 'bin'); mkdirSync(bin); const group = spawnSync('id', ['-gn'], { encoding: 'utf8' }).stdout.trim();
-    writeFileSync(path.join(bin, 'systemctl'), `#!/usr/bin/env bash\n[[ "$1" == show ]] || exit 92\nprintf '%s\\n' 'User=${userInfo().username}' 'Group=${group}' 'WorkingDirectory=${app}/${mode === 'unsupported-unit' ? 'wrong' : '.next/standalone'}' 'EnvironmentFiles=' 'ExecStart={ path=/usr/bin/node ; argv[]=/usr/bin/node server.js ; }'\n`, { mode: 0o700 });
+    writeFileSync(path.join(bin, 'systemctl'), `#!/usr/bin/env bash\n[[ "$1" == show ]] || exit 92\nprintf '%s\\n' 'User=${userInfo().username}' 'Group=${group}' 'WorkingDirectory=${app}/${mode === 'unsupported-unit' ? 'wrong' : '.next/standalone'}' 'ExecStart={ path=/usr/bin/node ; argv[]=/usr/bin/node server.js ; }'\n`, { mode: 0o700 });
+    writeFileSync(path.join(bin, 'busctl'), `#!/usr/bin/env bash\nset -eu\nif [[ "$2" == call ]]; then printf '%s\\n' 'o "/org/freedesktop/systemd1/unit/fap_2dweb_2dstaging_2eservice"'; elif [[ "$2" == get-property ]]; then printf '%s\\n' 'a(sb) 0'; else exit 92; fi\n`, { mode: 0o700 });
     const harness = path.join(root, 'consumer.mts'), events = path.join(root, 'consumer-events');
     writeFileSync(harness, `import { resolveTrackingRuntime } from ${JSON.stringify(path.resolve('lib/tracking/serverRuntime.ts'))};\nimport { appendFileSync, realpathSync } from 'node:fs';\nconst r=resolveTrackingRuntime(realpathSync(process.argv[2]),{});appendFileSync(process.env.CONSUMER_LOG!,JSON.stringify({revision:r.revision,configured:!!r.token,oldMatched:r.token==='old_fixture_only_not_a_live_token_123456'})+'\\n');\n`);
     const controller = path.join(root, 'controller.sh');

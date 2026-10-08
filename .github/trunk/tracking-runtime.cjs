@@ -69,15 +69,23 @@ function guardSystemd(source, run = spawnSync) {
   const service = process.env.SYSTEMD_SERVICE;
   const app = process.env.APP_DIR;
   if (!/^[A-Za-z0-9_.@-]+\.service$/.test(service || '') || !app || !path.isAbsolute(app) || path.normalize(app) !== app) throw new Error('INVALID_SYSTEMD_RUNTIME');
-  const result = run('systemctl', ['show', service, '--no-pager', '--property=User,Group,WorkingDirectory,ExecStart,EnvironmentFiles'], { encoding: 'utf8', timeout: 5000 });
+  const result = run('systemctl', ['show', service, '--no-pager', '--property=User,Group,WorkingDirectory,ExecStart'], { encoding: 'utf8', timeout: 5000 });
   if (result.status !== 0) throw new Error('SYSTEMD_RUNTIME_UNAVAILABLE');
   const fields = Object.fromEntries(result.stdout.split('\n').filter(line => line.includes('=')).map(line => { const i = line.indexOf('='); return [line.slice(0, i), line.slice(i + 1)]; }));
   const entry = fields.ExecStart?.match(/path=([^ ;]+)\s*;\s*argv\[\]=([^;]+);/);
   const args = entry ? entry[2].trim().split(/\s+/) : [];
+  // systemctl may omit empty array properties. Require an explicit typed
+  // D-Bus result instead of interpreting a missing field as an empty list.
+  const unit = run('busctl', ['--system', 'call', 'org.freedesktop.systemd1', '/org/freedesktop/systemd1', 'org.freedesktop.systemd1.Manager', 'GetUnit', 's', service], { encoding: 'utf8', timeout: 5000 });
+  const object = typeof unit.stdout === 'string' ? unit.stdout.trim().match(/^o "(\/org\/freedesktop\/systemd1\/unit\/[A-Za-z0-9_]+)"$/) : null;
+  if (unit.status !== 0 || !object) throw new Error('SYSTEMD_RUNTIME_UNAVAILABLE');
+  const files = run('busctl', ['--system', 'get-property', 'org.freedesktop.systemd1', object[1], 'org.freedesktop.systemd1.Service', 'EnvironmentFiles'], { encoding: 'utf8', timeout: 5000 });
+  if (files.status !== 0 || typeof files.stdout !== 'string') throw new Error('SYSTEMD_RUNTIME_UNAVAILABLE');
+  if (files.stdout.trim() !== 'a(sb) 0') throw new Error('UNSUPPORTED_SYSTEMD_RUNTIME');
   const group = run('id', ['-gn'], { encoding: 'utf8', timeout: 5000 });
   const working = path.join(app, '.next/standalone');
   if (fields.User !== os.userInfo().username || group.status !== 0 || fields.Group !== group.stdout.trim() || fields.WorkingDirectory !== working
-    || fields.EnvironmentFiles !== '' || entry?.[1] !== '/usr/bin/node' || args.length !== 2 || args[0] !== '/usr/bin/node'
+    || entry?.[1] !== '/usr/bin/node' || args.length !== 2 || args[0] !== '/usr/bin/node'
     || !['server.js', path.join(working, 'server.js')].includes(args[1])) throw new Error('UNSUPPORTED_SYSTEMD_RUNTIME');
 }
 async function readback(file, base, fetcher = fetch, expectedEnabled) {
