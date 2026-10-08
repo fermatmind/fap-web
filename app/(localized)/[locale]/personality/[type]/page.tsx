@@ -1283,7 +1283,7 @@ function PersonalityComparisonPage({
 
   return (
     <main
-      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10 [&_[id]]:scroll-mt-40 lg:[&_[id]]:scroll-mt-24 [&_table]:min-w-[36rem]"
+      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10 [&_[id]]:scroll-mt-[calc(var(--fm-space-30)+var(--fm-space-10))] lg:[&_[id]]:scroll-mt-24 [&_table]:min-w-[36rem]"
       data-testid="personality-comparison-page"
       data-authority-source="comparison_public_projection_v1"
       data-comparison-contract-version={comparison.comparisonContractVersion}
@@ -1772,7 +1772,7 @@ export default async function PersonalityDetailPage({
     : null;
   return (
     <main
-      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10 [&_[id]]:scroll-mt-40 lg:[&_[id]]:scroll-mt-24"
+      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10 [&_[id]]:scroll-mt-[calc(var(--fm-space-30)+var(--fm-space-10))] lg:[&_[id]]:scroll-mt-24"
       data-authority-source="mbti_public_projection_v1"
       data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}
       data-domain-id="self_understanding"

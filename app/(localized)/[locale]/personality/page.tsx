@@ -338,13 +338,13 @@ function TypeGroupBrowse({
             {locale === "zh" ? "先看 16 型，再进入 32 个 A/T 人格" : "Start with 16 types, then open 32 A/T variants"}
           </h2>
           <div className="flex flex-wrap gap-2">
-            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
               {locale === "zh" ? `${baseTypeCount} 个基础人格` : `${baseTypeCount} base types`}
             </span>
-            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
               {locale === "zh" ? `${variantCount} 个 A/T 变体` : `${variantCount} A/T variants`}
             </span>
-            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-2 text-xs font-semibold text-[#5f447e]">
               {locale === "zh" ? "人格解释与对比入口" : "Profile and comparison paths"}
             </span>
           </div>

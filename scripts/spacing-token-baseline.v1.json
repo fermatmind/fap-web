@@ -156,7 +156,7 @@
       "file": "app/(localized)/[locale]/personality/page.tsx",
       "rule": "no-new-half-step-utility",
       "snippet": "py-1.5",
-      "count": 6
+      "count": 4
     },
     {
       "file": "app/(localized)/[locale]/support/page.tsx",
