@@ -744,6 +744,8 @@ export async function getEnneagramPublicContentAsset(
   locale: Locale,
   entry: EnneagramPublicRouteEntry
 ): Promise<PersonalityPublicContentAsset | null> {
+  // Current content publishes independently of the web release. Never serve a
+  // previous publication from the framework data cache during SSR.
   if (entry.entityType === "instinctual_subtype") {
     try {
       const response = await apiClient.getPublic<PersonalityPublicContentAssetIndexResponse>(
@@ -751,7 +753,7 @@ export async function getEnneagramPublicContentAsset(
           entry.entityType
         }&per_page=100&org_id=0`,
         {
-          ...PUBLIC_API_CACHE_OPTIONS,
+          cache: "no-store",
           skipAuth: true,
           locale,
         }
@@ -792,7 +794,7 @@ export async function getEnneagramPublicContentAsset(
             toApiLocale(locale)
           )}&framework=enneagram&entity_type=${entry.entityType}&code=${encodeURIComponent(entry.code)}&org_id=0`,
           {
-            ...PUBLIC_API_CACHE_OPTIONS,
+            cache: "no-store",
             skipAuth: true,
             locale,
           }
@@ -834,7 +836,7 @@ export async function getEnneagramPublicContentAsset(
         entry.code
       )}?locale=${encodeURIComponent(toApiLocale(locale))}&org_id=0`,
       {
-        ...PUBLIC_API_CACHE_OPTIONS,
+        cache: "no-store",
         skipAuth: true,
         locale,
       }
