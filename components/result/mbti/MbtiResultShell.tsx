@@ -658,6 +658,10 @@ export function MbtiResultShell({
     ? canDownloadReportPdf(accessProjection) && Boolean(pdfHref || accessProjection.attemptId)
     : accessHub?.pdfAccess.canDownloadPdf === true && Boolean(pdfHref || accessHub?.reportAccess.attemptId);
   const publicTypeCode = normalizeText(projectionViewModel?.displayType, headline.typeCode);
+  const personalitySlug = /^[IE][NS][TF][JP](?:-[AT])?$/i.test(publicTypeCode)
+    ? publicTypeCode.toLowerCase()
+    : null;
+  const personalityHref = personalitySlug ? localizedPath(`/personality/${personalitySlug}`, locale) : null;
   const publicTitle = normalizeText(projectionViewModel?.title, headline.displayName);
   const publicSubtitle = normalizeText(projectionViewModel?.subtitle, projectionViewModel?.tagline, headline.supportingLine);
   const publicSummary = normalizeText(projectionViewModel?.summary, projectionViewModel?.heroSummary, headline.summary);
@@ -1708,6 +1712,25 @@ export function MbtiResultShell({
         storageContentPending={hasAuthoritativeAccessMode && canLoadPublicDesktopCloneStorage && !initialDesktopCloneSnapshot && desktopCloneSnapshot === null}
         requirePublishedContent={hasAuthoritativeAccessMode}
       />
+      {!printSnapshotMode && personalityHref ? (
+        <nav
+          aria-label={locale === "zh" ? "人格与观察练习" : "Personality and observation exercises"}
+          data-testid="mbti-result-personality-next-step"
+          className="mx-auto w-full max-w-5xl space-y-4 px-6 print:hidden"
+        >
+          <h2 className="text-xl font-semibold text-[var(--fm-text)]">
+            {locale === "zh" ? "继续了解与观察" : "Continue understanding and observing"}
+          </h2>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Link href={personalityHref} className={buttonVariants({ variant: "outline" })}>
+              {locale === "zh" ? `了解 ${publicTypeCode} 人格` : `Explore the ${publicTypeCode} personality`}
+            </Link>
+            <Link href={`${personalityHref}#growth_edges`} className={buttonVariants({ variant: "outline" })}>
+              {locale === "zh" ? "尝试观察练习" : "Try an observation exercise"}
+            </Link>
+          </div>
+        </nav>
+      ) : null}
     </div>
   );
 }

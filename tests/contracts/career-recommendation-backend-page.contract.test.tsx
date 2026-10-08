@@ -447,7 +447,7 @@ describe("career recommendation backend page contract", () => {
     ).rejects.toThrow("redirect:/en/career/recommendations/mbti/intj-a");
   });
 
-  it("suppresses recommendation summary surfaces when strong claims are not explicitly allowed", async () => {
+  it.each(["en", "zh"])("suppresses strong claims and localizes the %s recommendation boundary", async (locale) => {
     vi.doMock("next/link", () => ({
       default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
         <a href={href} {...props}>
@@ -469,7 +469,7 @@ describe("career recommendation backend page contract", () => {
       };
     });
     vi.doMock("@/lib/i18n/getDict", () => ({
-      resolveLocale: vi.fn(() => "en"),
+      resolveLocale: vi.fn(() => locale),
     }));
     vi.doMock("@/lib/i18n/locales", async () => {
       const actual = await vi.importActual<typeof import("@/lib/i18n/locales")>("@/lib/i18n/locales");
@@ -538,14 +538,18 @@ describe("career recommendation backend page contract", () => {
       "@/app/(localized)/[locale]/career/recommendations/mbti/[type]/page"
     );
     const page = await CareerRecommendationPage({
-      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+      params: Promise.resolve({ locale, type: "intj-a" }),
       searchParams: Promise.resolve({}),
     });
     const html = renderToStaticMarkup(page as ReactNode);
     const metadata = await generateMetadata({
-      params: Promise.resolve({ locale: "en", type: "intj-a" }),
+      params: Promise.resolve({ locale, type: "intj-a" }),
     });
 
+    expect(html).toContain(locale === "en" ? "Full page not available yet" : "暂不提供完整页面");
+    expect(html).toContain(locale === "en"
+      ? "The available information does not yet support a complete public page."
+      : "当前资料不足以支持完整公开展示。");
     expect(html).toContain("career-recommendation-trust-strip");
     expect(html).toContain("career-recommendation-protocol-status");
     expect(html).not.toContain("Strong-fit summary copy");

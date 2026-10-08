@@ -105,7 +105,7 @@ function getRecommendationRendererContractState(detail: CareerRecommendationBund
 
 function renderRecommendationBoundary(detail: CareerRecommendationBundleAdapter, locale: Locale) {
   const rendererState = getRecommendationRendererContractState(detail);
-  const stateCopy = rendererState ? getCareerV1RendererCopy(rendererState) : getCareerV1StateCopy(detail.careerDataStatus);
+  const stateCopy = rendererState ? getCareerV1RendererCopy(rendererState, locale) : getCareerV1StateCopy(detail.careerDataStatus, locale);
 
   if (!stateCopy || stateCopy.tone === "complete") {
     return null;
@@ -389,7 +389,7 @@ export default async function CareerMbtiRecommendationPage({
   ];
   const canRenderAiScore = detail.claimPermissions.allow_ai_strategy && detail.careerDataStatus !== "unavailable";
   const recommendationSubjectSlug = detail.shortlistContract.subjectSlug ?? matchedJobs[0]?.canonicalSlug ?? extractJobSlugFromCanonicalTarget(detail.seoContract.canonicalTarget);
-  const stateCopy = getCareerV1StateCopy(detail.careerDataStatus);
+  const stateCopy = getCareerV1StateCopy(detail.careerDataStatus, locale);
   const confidenceLabel = getDecisionConfidenceLabel(locale, detail.scoreBundle.confidenceScore.value);
   const companionRailItems = buildCompanionRailItems(locale, companionLinks, recommendationLandingPath, recommendationSubjectSlug);
 

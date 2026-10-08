@@ -1,3 +1,4 @@
+import type { Locale } from "@/lib/i18n/locales";
 import type { ConfidenceBoundaryTone } from "@/components/career/v1/ConfidenceBoundary";
 
 export type CareerV1StateCopy = {
@@ -74,23 +75,45 @@ const STATE_COPY: Record<string, CareerV1StateCopy> = {
   },
 };
 
-export function getCareerV1StateCopy(status: string | null | undefined): CareerV1StateCopy {
+const EN_STATE_COPY: Record<string, Pick<CareerV1StateCopy, "label" | "description">> = {
+  mature_public_launch: { label: "Information ready to use", description: "This page meets the standard for public reference and can support your next decision." },
+  public_but_conservative: { label: "Information is still being added", description: "Use this page for exploration; some stronger conclusions are not shown yet." },
+  not_yet_mature: { label: "Incomplete information; explore related careers first", description: "This career is not ready for a direct assessment. Explore related careers or career families first." },
+  family_handoff: { label: "Explore the career family first", description: "Start with the career family, then choose a specific career." },
+  explorer_only: { label: "For exploration, not a final career decision", description: "Use this content to explore directions, rather than make a final career decision." },
+  blocked: { label: "Full page not available yet", description: "The available information does not yet support a complete public page." },
+  provisional: { label: "Information is still being calibrated", description: "Conclusions are still being calibrated. Only confirmed, conservative information is shown." },
+  restricted: { label: "Some content is not shown yet", description: "Some conclusions are withheld because the available data does not yet support stronger claims." },
+  manual_only: { label: "Manual review required", description: "This content needs manual review before stronger conclusions can be shown." },
+  review_due: { label: "Review pending", description: "This content is queued for a follow-up review." },
+  available: { label: "Information ready to use", description: "This page meets the standard for public reference." },
+  trust_limited: { label: "Information is still being added", description: "Use this page for exploration; some stronger conclusions are not shown yet." },
+  unavailable: { label: "Full page not available yet", description: "The available information does not yet support a complete public page." },
+};
+
+export function getCareerV1StateCopy(status: string | null | undefined, locale: Locale = "zh"): CareerV1StateCopy {
   const normalized = String(status ?? "").trim().toLowerCase();
-  return (
+  const copy = (
     STATE_COPY[normalized] ?? {
       label: "资料仍在补充",
       description: "当前只展示已确认的信息，更多依据可在折叠区查看。",
       tone: "limited",
     }
   );
+  return locale === "en"
+    ? { ...copy, ...(EN_STATE_COPY[normalized] ?? {
+      label: "Information is still being added",
+      description: "Only confirmed information is shown. More supporting evidence is available in the expandable section.",
+    }) }
+    : copy;
 }
 
-export function getCareerV1RendererCopy(status: "blocked" | "provisional" | "restricted" | null | undefined): CareerV1StateCopy | null {
+export function getCareerV1RendererCopy(status: "blocked" | "provisional" | "restricted" | null | undefined, locale: Locale = "zh"): CareerV1StateCopy | null {
   if (!status) {
     return null;
   }
 
-  return getCareerV1StateCopy(status);
+  return getCareerV1StateCopy(status, locale);
 }
 
 export const careerV1StateCopy = STATE_COPY;

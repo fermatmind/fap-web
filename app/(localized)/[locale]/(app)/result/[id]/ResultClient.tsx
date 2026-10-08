@@ -2019,7 +2019,9 @@ export default function ResultClient({
             {locale === "zh" ? "先保存邮箱，再查看结果" : "Save an email to view this result"}
           </h1>
           <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
-            输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。
+            {locale === "zh"
+              ? "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。"
+              : "Enter your own email to view and recover results saved under that address."}
           </p>
         </div>
 

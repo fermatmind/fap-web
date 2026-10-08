@@ -354,7 +354,7 @@ vi.mock("@/lib/i18n/getDict", () => ({
 }));
 
 vi.mock("@/lib/i18n/locales", () => ({
-  getLocaleFromPathname: () => "en",
+  getLocaleFromPathname: () => hoisted.pathname.startsWith("/zh/") ? "zh" : "en",
   localizedPath: (path: string) => `/en${path.startsWith("/") ? path : `/${path}`}`,
 }));
 
@@ -890,7 +890,8 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
   });
 
-  it("shows the email gate for EMAIL_BIND_REQUIRED and reloads after binding", async () => {
+  it.each(["en", "zh"])("shows the %s email gate and resumes after a failed binding retry", async (locale) => {
+    hoisted.pathname = `/${locale}/result/attempt-123`;
     hoisted.fetchAttemptReportAccess.mockRejectedValueOnce(
       new ApiError({
         status: 428,
@@ -908,15 +909,23 @@ describe("ResultClient view-state contract", () => {
 
     await waitFor(() => {
       expect(screen.getByTestId("result-email-gate")).toHaveTextContent(
-        "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。"
+        locale === "zh"
+          ? "输入邮箱即可查看并找回该邮箱下保存的结果，请使用你自己的邮箱。"
+          : "Enter your own email to view and recover results saved under that address."
       );
     });
 
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
 
+    hoisted.bindAttemptEmail.mockRejectedValueOnce(new ApiError({ status: 503, errorCode: "RETRY", message: "Please retry." }));
     fireEvent.change(screen.getByTestId("result-email-gate-input"), {
       target: { value: "Owner@Example.Test" },
     });
+    fireEvent.submit(screen.getByTestId("result-email-gate-submit").closest("form") as HTMLFormElement);
+
+    await waitFor(() => expect(screen.getByRole("alert")).toHaveTextContent("Please retry."));
+    expect(screen.getByTestId("result-email-gate")).toBeInTheDocument();
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(1);
     fireEvent.submit(screen.getByTestId("result-email-gate-submit").closest("form") as HTMLFormElement);
 
     await waitFor(() => {
@@ -924,7 +933,7 @@ describe("ResultClient view-state contract", () => {
         attemptId: "attempt-123",
         email: "owner@example.test",
         anonId: "anon_result_test",
-        locale: "en",
+        locale,
         surface: "result_gate",
       });
     });

@@ -4,9 +4,28 @@ import { ConfidenceBoundary, ConfidenceBadge } from "@/components/career/v1/Conf
 import { DecisionPathCard } from "@/components/career/v1/DecisionPathCard";
 import { EvidenceDrawer } from "@/components/career/v1/EvidenceDrawer";
 import { NextStepRail } from "@/components/career/v1/NextStepRail";
-import { getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
+import { careerV1StateCopy, getCareerV1RendererCopy, getCareerV1StateCopy } from "@/lib/career/ui/stateCopy";
 
 describe("career V1 UI primitives", () => {
+  it.each([...Object.keys(careerV1StateCopy), "unknown", "", null, undefined])("projects %s in English while preserving Chinese state and tone", (status) => {
+    const zh = getCareerV1StateCopy(status);
+    expect(getCareerV1StateCopy(status, "zh")).toEqual(zh);
+    const en = getCareerV1StateCopy(status, "en");
+    expect(en.tone).toBe(zh.tone);
+    expect(en.label).not.toMatch(/[\u3400-\u9fff]/);
+    expect(en.description).not.toMatch(/[\u3400-\u9fff]/);
+    if (status === "blocked" || status === "unavailable") {
+      expect(en.label).toBe("Full page not available yet");
+      expect(en.description).toBe("The available information does not yet support a complete public page.");
+    }
+  });
+
+  it.each(["blocked", "provisional", "restricted"] as const)("projects the %s renderer boundary with the selected locale", (status) => {
+    expect(getCareerV1RendererCopy(status, "en")).toEqual(getCareerV1StateCopy(status, "en"));
+    expect(getCareerV1RendererCopy(status)).toEqual(getCareerV1StateCopy(status));
+    expect(getCareerV1RendererCopy(null, "en")).toBeNull();
+  });
+
   it("renders the four V1 primitives with user-facing status language", () => {
     const html = renderToStaticMarkup(
       <>
