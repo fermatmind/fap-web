@@ -1,5 +1,19 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {changedTestPlan,runChangedTests} from './run-changed-tests.mjs';
+test('localized assessment modules are product routes while named and nested tests remain selected',()=>{
+ const route='app/(localized)/[locale]/tests/[slug]/take/';
+ const contract='tests/contracts/big5-take-attempt-priming.contract.test.tsx';
+ const native=route+'reader.test.mjs';
+ const plan=changedTestPlan([{status:'M',path:route+'Big5TakeClient.tsx'},
+  {status:'M',path:contract},{status:'A',path:native}],{vitest:true});
+ assert.deepEqual(plan.vitest,[contract]);assert.deepEqual(plan.node,[native]);
+ assert.deepEqual(plan.unsupported,[]);
+ assert.throws(()=>changedTestPlan([{status:'A',path:route+'__tests__/reader.tsx'}],{vitest:true}),/Unsupported/);
+ assert.throws(()=>changedTestPlan([{status:'A',path:route+'tests/reader.tsx'}],{vitest:true}),/Unsupported/);
+ assert.throws(()=>changedTestPlan([{status:'A',path:route+'reader.test.tsx'}],{vitest:true}),/Unsupported/);
+ assert.throws(()=>changedTestPlan([{status:'A',path:route+'reader.rs'}],{vitest:true}),/Unsupported/);
+ assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
+});
 test('changed PHP JS Python Shell execute real runner commands; removed and unsupported are explicit',()=>{
  const p=changedTestPlan(['backend/tests/Feature/AmbtiTest.php','.github/trunk/x.test.mjs','backend/tests/Sre/test_a.py','backend/tests/Sre/test_a.sh'].map(path=>({status:'A',path})).concat([{status:'D',path:'backend/tests/Feature/RemovedTest.php'}]));
  assert.equal(p.removed.length,1);const calls=[];
