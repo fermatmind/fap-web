@@ -13,11 +13,22 @@ import { buildPublicTrackingServerLabels } from "@/lib/tracking/attribution";
 import { sanitizeAnalyticsTrackingUrl, shouldSuppressAnalyticsForUrl } from "@/lib/tracking/privacy";
 import { resolveApiOrigin } from "@/lib/api-base";
 
+import { resolveTrackingRuntime } from "@/lib/tracking/serverRuntime";
+
+export const dynamic = "force-dynamic";
+
 const MAX_BODY_BYTES = 8 * 1024;
 const ACCESS_STATS_RULE_VERSION = "access_test_statistics.v1";
 
 export function HEAD() {
-  return new NextResponse(null, { status: 200 });
+  try {
+    const runtime = resolveTrackingRuntime();
+    return new NextResponse(null, { status: 200, headers: {
+      "Cache-Control": "no-store",
+      "X-FermatMind-Tracking-Configured": runtime.token ? "1" : "0",
+      "X-FermatMind-Tracking-Revision": runtime.revision ?? "unmanaged",
+    } });
+  } catch { return new NextResponse(null, { status: 503, headers: { "Cache-Control": "no-store" } }); }
 }
 
 export function GET() {
@@ -87,8 +98,22 @@ export function buildAccessStatsIdentityHeaders(
   };
 }
 
-function resolveSeoAttributionIngestEndpoint(token?: string): string | undefined {
-  return token ? `${resolveApiOrigin()}/api/v0.5/seo/attribution/events` : undefined;
+function resolveNativeIngestOrigin(request: NextRequest, runtimeOrigin?: string): string | undefined {
+  const origin = runtimeOrigin || resolveApiOrigin();
+  if (!["https://api.fermatmind.com", "https://staging-api.fermatmind.com"].includes(origin)) return undefined;
+  const host = new URL(request.url).hostname;
+  if (["fermatmind.com", "www.fermatmind.com"].includes(host) && origin !== "https://api.fermatmind.com") return undefined;
+  if (host === "staging.fermatmind.com" && origin !== "https://staging-api.fermatmind.com") return undefined;
+  if (!["fermatmind.com", "www.fermatmind.com", "staging.fermatmind.com", "localhost", "127.0.0.1", "[::1]"].includes(host)) return undefined;
+  return origin;
+}
+
+function isNativeIngestTarget(target: string, origin: string): boolean {
+  try {
+    const url = new URL(target);
+    return url.origin === origin && !url.username && !url.password && !url.search && !url.hash
+      && ["/api/v0.5/seo/attribution/events", "/api/v0.3/analytics/mbti-attribution-events", "/api/v0.5/career/attribution/events"].includes(url.pathname);
+  } catch { return false; }
 }
 
 // The native SEO ingest is strict. Request identity travels in X-Request-Id;
@@ -245,10 +270,18 @@ export async function POST(request: NextRequest) {
     },
   };
 
-  const token = process.env.TRACK_INGEST_TOKEN;
+  let runtime;
+  try { runtime = resolveTrackingRuntime(); } catch {
+    return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_runtime" }, { status: 502 });
+  }
+  const token = runtime.token;
+  const nativeOrigin = token ? resolveNativeIngestOrigin(request, runtime.origin) : undefined;
+  if (token && !nativeOrigin) {
+    return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
+  }
   const identityHeaders = buildAccessStatsIdentityHeaders(request, timestamp, token);
   const seoAttributionTarget = isSeoConversionFunnelEvent(normalizedEventName)
-    ? resolveSeoAttributionIngestEndpoint(token)
+    ? (nativeOrigin ? `${nativeOrigin}/api/v0.5/seo/attribution/events` : undefined)
     : undefined;
   const targets = uniqueTargets(
     isCareerAttributionEvent(normalizedEventName)
@@ -265,11 +298,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true, requestId, forwarded: 0 });
   }
 
+  // Reject the entire fan-out before sending any credential or digest.
+  if (token && targets.some((url) => !isNativeIngestTarget(url, nativeOrigin!))) {
+    return NextResponse.json({ ok: false, requestId, error: "invalid_ingest_target" }, { status: 502 });
+  }
+
   const responses = await Promise.all(
     targets.map(async (url) => {
       try {
         const response = await fetch(url, {
           method: "POST",
+          ...(token ? { redirect: "error" as const } : {}),
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",

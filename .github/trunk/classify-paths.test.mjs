@@ -33,6 +33,12 @@ test("classifies career display adapter as both UI and content contract", () => 
   assert.equal(result.flags.content_adapter_contract, true);
 });
 test("classifies ingress/runtime config", () => assert.equal(has(["deploy/openresty/fap-web-public.conf"], "ingress_runtime_config"), true));
+test("classifies the private tracking consumer as application and controlled runtime config", () => {
+  const result = classifyPaths(["lib/tracking/serverRuntime.ts"]);
+  assert.equal(result.flags.application_ui, true);
+  assert.equal(result.flags.ingress_runtime_config, true);
+  assert.equal(result.deploy, true);
+});
 test("classifies deployment infrastructure", () => assert.equal(has([".github/workflows/deploy.yml"], "deployment_infrastructure"), true));
 test("classifies the production smoke controller and installer as deployment infrastructure", () => {
   const result = classifyPaths(["scripts/deploy_web_pm2.sh", "scripts/install_standalone_release.sh"]);

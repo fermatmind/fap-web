@@ -215,6 +215,9 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
       - name: Activate staging candidate and complete smoke
         env:
+          REQUIRE_TRACKING_INGEST_RUNTIME: ${{ vars.TRACK_INGEST_ENABLED == '1' && '1' || '0' }}
+          TRACK_INGEST_TOKEN: ${{ vars.TRACK_INGEST_ENABLED == '1' && secrets.TRACK_INGEST_TOKEN || '' }}
+          TRACK_INGEST_API_ORIGIN: https://staging-api.fermatmind.com
           RELEASE_TRANSPORT_MODE: oss
           OSS_OBJECT_KEY: ${{ needs.policy.outputs.staging_release_object_key }}
           RELEASE_ARCHIVE_SHA256: ${{ needs.policy.outputs.staging_release_archive_sha256 }}
@@ -299,6 +302,9 @@ jobs:
         name: Activate production candidate; installer restores previous release on failed smoke
         if: steps.order.outputs.skip != 'true'
         env:
+          REQUIRE_TRACKING_INGEST_RUNTIME: ${{ vars.TRACK_INGEST_ENABLED == '1' && '1' || '0' }}
+          TRACK_INGEST_TOKEN: ${{ vars.TRACK_INGEST_ENABLED == '1' && secrets.TRACK_INGEST_TOKEN || '' }}
+          TRACK_INGEST_API_ORIGIN: https://api.fermatmind.com
           RELEASE_TRANSPORT_MODE: oss
           OSS_OBJECT_KEY: ${{ needs.policy.outputs.release_object_key }}
           RELEASE_ARCHIVE_SHA256: ${{ needs.policy.outputs.release_archive_sha256 }}

@@ -62,6 +62,7 @@ export function classifyPaths(inputPaths) {
     ])) selected.push("content_adapter_contract");
     if (matches(path, [
       /^deploy\/openresty\//,
+      /^lib\/tracking\/serverRuntime\.ts$/,
       /(?:openresty|nginx|ingress|runtime-config|ecosystem\.config)/i,
     ])) selected.push("ingress_runtime_config");
     if (matches(path, [

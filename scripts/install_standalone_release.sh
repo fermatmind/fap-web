@@ -101,6 +101,8 @@ release_dir="${releases_dir}/${DEPLOY_SHA}-${artifact_hex}"
 incoming_dir=""
 REQUIRE_CONTENT_RELEASE_REVALIDATION="${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}"
 [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" =~ ^[01]$ ]] || fail "invalid runtime verification requirement"
+REQUIRE_TRACKING_INGEST_RUNTIME="${REQUIRE_TRACKING_INGEST_RUNTIME:-0}"
+[[ "$REQUIRE_TRACKING_INGEST_RUNTIME" =~ ^[01]$ ]] || fail "invalid tracking runtime requirement"
 previous_target=""
 legacy_release=""
 active_switched=0
@@ -247,7 +249,7 @@ rollback_active_release() {
        ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
        REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
        REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
-       REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" \
+       REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" REQUIRE_TRACKING_RUNTIME_READBACK="0" \
        timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
       return 0
@@ -257,7 +259,7 @@ rollback_active_release() {
          ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
          REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="1" \
          REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \
-         REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" \
+         REQUIRE_LLMS_FULL_ARTIFACT="0" REQUIRE_CONTENT_RELEASE_REVALIDATION="0" REQUIRE_TRACKING_RUNTIME_READBACK="0" \
          timeout --kill-after=15s 300 "$DEPLOY_SCRIPT"; then
       rollback_status="restored"
       log "restored legacy staging LKG with its original analytics contract"
@@ -282,6 +284,7 @@ cleanup() {
   if [[ -n "$incoming_dir" && -d "$incoming_dir" ]]; then
     rm -rf "$incoming_dir"
   fi
+  if [[ "$REQUIRE_TRACKING_INGEST_RUNTIME" == "1" ]]; then rm -f -- "${TRACKING_RUNTIME_SOURCE:?}"; fi
   exit "$code"
 }
 trap cleanup EXIT
@@ -320,9 +323,23 @@ if [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" == "1" ]]; then
   node "$CONTENT_RELEASE_RUNTIME_HELPER" install "$CONTENT_RELEASE_RUNTIME_SOURCE" "$release_dir/.content-release-runtime.json"
   rm -f -- "$CONTENT_RELEASE_RUNTIME_SOURCE"
 fi
+if [[ "$REQUIRE_TRACKING_INGEST_RUNTIME" == "1" ]]; then
+  [[ "${APP_MANAGER:-pm2}" == "pm2" || "${APP_MANAGER:-pm2}" == "systemd" ]] || fail "unsupported tracking runtime manager"
+  [[ -f "${TRACKING_RUNTIME_HELPER:-}" && -f "${TRACKING_RUNTIME_SOURCE:-}" ]] || fail "tracking runtime configuration unavailable"
+  if [[ "${APP_MANAGER:-pm2}" == "pm2" ]]; then
+    node "$TRACKING_RUNTIME_HELPER" guard-pm2 "$TRACKING_RUNTIME_SOURCE"
+  else
+    node "$TRACKING_RUNTIME_HELPER" guard-systemd "$TRACKING_RUNTIME_SOURCE"
+  fi
+  node "$TRACKING_RUNTIME_HELPER" install "$TRACKING_RUNTIME_SOURCE" "$release_dir/.tracking-runtime.json"
+  rm -f -- "$TRACKING_RUNTIME_SOURCE"
+else
+  [[ ! -e "$release_dir/.tracking-runtime.json" && ! -L "$release_dir/.tracking-runtime.json" \
+     && ! -e "$release_dir/.tracking-runtime-managed.json" && ! -L "$release_dir/.tracking-runtime-managed.json" ]] || fail "disabled candidate contains managed tracking authority"
+fi
 phase="preflight"
 write_outcome running 0
-PREFLIGHT_ONLY=1 CANDIDATE_RELEASE_DIR="$release_dir" \
+PREFLIGHT_ONLY=1 CANDIDATE_RELEASE_DIR="$release_dir" REQUIRE_TRACKING_RUNTIME_READBACK=1 \
   timeout --kill-after=15s 600 "$DEPLOY_SCRIPT"
 phase="activate"
 write_outcome running 0
@@ -342,7 +359,7 @@ active_switched=1
 phase="verify"
 write_outcome running 0
 
-if APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" \
+if APP_DIR="$APP_DIR" DEPLOY_SHA="$DEPLOY_SHA" REQUIRE_TRACKING_RUNTIME_READBACK=1 \
   ROLLING_RELOAD_SCRIPT="$ROLLING_RELOAD_SCRIPT" \
   REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP="$REQUIRE_THIRD_PARTY_ANALYTICS_BOOTSTRAP" \
   REQUIRE_CAREER_RENDERER_REVISION="$REQUIRE_CAREER_RENDERER_REVISION" \

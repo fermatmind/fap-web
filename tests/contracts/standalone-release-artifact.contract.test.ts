@@ -179,10 +179,10 @@ describe("immutable standalone release artifact", () => {
     expect(verifyArtifact(stagingArtifact, ["--require-production-config"], BUILD_ENV).status).not.toBe(0);
   });
 
-  it("rejects environment and private-key files before packaging", () => {
+  it.each([".env.production.local", ".tracking-runtime.json", ".tracking-runtime-managed.json", ".content-release-runtime.json"])("rejects private runtime input %s before packaging", (name) => {
     const root = tempDirectory();
     const source = createStandalone(root);
-    fs.writeFileSync(path.join(source, ".env.production.local"), "SECRET=value\n");
+    fs.writeFileSync(path.join(source, name), "fixture-only\n");
 
     const result = spawnSync(
       process.execPath,

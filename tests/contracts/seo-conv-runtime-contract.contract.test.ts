@@ -155,7 +155,7 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
       VERCEL_ENV: process.env.VERCEL_ENV,
     };
     process.env.TRACK_INGEST_TOKEN = "track-token";
-    process.env.NEXT_PUBLIC_API_URL = "https://api.example.test";
+    process.env.NEXT_PUBLIC_API_URL = "https://api.fermatmind.com";
     process.env.VERCEL_ENV = "production";
     delete process.env.MBTI_ATTRIBUTION_INGEST_ENDPOINT;
     delete process.env.ANALYTICS_ENDPOINT;
@@ -191,7 +191,7 @@ describe("SEO-CONV-RUNTIME-03 runtime funnel contract", () => {
       await expect(response.json()).resolves.toMatchObject({ ok: true, forwarded: 1 });
       expect(fetchMock).toHaveBeenCalledTimes(1);
       const [url, init] = fetchMock.mock.calls[0];
-      expect(url).toBe("https://api.example.test/api/v0.5/seo/attribution/events");
+      expect(url).toBe("https://api.fermatmind.com/api/v0.5/seo/attribution/events");
       expect(init?.headers).toMatchObject({ Authorization: "Bearer track-token" });
       expect(init?.headers).toMatchObject({
         "X-FermatMind-IP-Day": "2026-09-18",

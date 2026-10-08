@@ -105,6 +105,7 @@ function isForbiddenFile(relativePath) {
   const basename = path.posix.basename(relativePath).toLowerCase();
   return (
     /^\.env(?:\.|$)/.test(basename) ||
+    [".tracking-runtime.json", ".tracking-runtime-managed.json", ".content-release-runtime.json"].includes(basename) ||
     /\.(?:key|pem|p12|pfx)$/.test(basename) ||
     basename === "id_rsa" ||
     basename === "id_ed25519" ||

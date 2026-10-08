@@ -50,6 +50,7 @@ import { useConstrainQuizUrlTokens } from "@/lib/quiz/urlTokenGuard";
 import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { resolveResultAttemptId } from "@/lib/attempt/resolveResultAttemptId";
 import { buildTestKpiMetadata, buildTestKpiTrackingPayload } from "@/lib/tracking/testKpiMetadata";
+import { buildPublicArticleStartMeta } from "@/lib/tracking/publicArticleStartMeta";
 import {
   createTakeFlowController,
   recoverStaleAttemptSubmit,
@@ -88,6 +89,7 @@ export default function Big5TakeClient({
   const dict = getDictSync(locale);
   const router = useRouter();
   const searchParams = useSearchParams();
+  const publicArticleStartMeta = useMemo(() => buildPublicArticleStartMeta(searchParams, locale), [searchParams, locale]);
   useConstrainQuizUrlTokens({ pathname, router, searchParams });
   const forceNewAttemptRequested = searchParams.get("force_new_attempt") === "1";
   const anonId = useMemo(() => getOrCreateAnonId(), []);
@@ -634,7 +636,7 @@ export default function Big5TakeClient({
         setStartError(null);
 
         // The backend owns disclaimer audit metadata; the public take flow starts on the first answer.
-        const requestMeta: Record<string, unknown> = { slug };
+        const requestMeta: Record<string, unknown> = { slug, ...publicArticleStartMeta };
 
         for (let retry = 0; retry < 2; retry += 1) {
           try {
@@ -756,6 +758,7 @@ export default function Big5TakeClient({
     serverDisclaimerHash,
     serverDisclaimerVersion,
     slug,
+    publicArticleStartMeta,
     resolvedFormCode,
     setAttemptMeta,
     buildEventPayload,

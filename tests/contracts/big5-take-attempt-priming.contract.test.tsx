@@ -347,6 +347,18 @@ describe("Big Five take attempt priming", () => {
     });
   });
 
+  it("passes validated public article source metadata only on the first real answer", async () => {
+    const meta = { source_page_type: "article_detail", source_slug: "big-five-vs-riasec-personality-traits-and-career-interests", content_id: "240",
+      landing_path: "/en/articles/big-five-vs-riasec-personality-traits-and-career-interests" };
+    renderClient("big5_90", new URLSearchParams({ form: "big5_90", ...meta,
+      landing_path: meta.landing_path + "?utm_source=legacy_qa&token=fixture-private" }).toString());
+    await waitForFirstQuestion();
+    expect(hoisted.startBig5Attempt).not.toHaveBeenCalled();
+    fireEvent.click(await screen.findByRole("button", { name: "Answer current" }));
+    await waitFor(() => expect(hoisted.startBig5Attempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.startBig5Attempt).toHaveBeenCalledWith(expect.objectContaining({ meta: { slug: "big-five-personality-test-ocean-model", ...meta } }));
+  });
+
   afterEach(() => {
     useBig5AttemptStore.getState().resetAll();
     window.localStorage.clear();

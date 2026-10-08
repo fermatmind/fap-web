@@ -15,6 +15,24 @@ if (fs.existsSync(runtimeFile)) {
   for (const key of runtimeKeys) runtimeEnv[key] = values[key];
 }
 
+// Tracking remains disabled for old releases. Never retain a newer token on LKG.
+const trackingKeys = ["TRACK_INGEST_TOKEN", "TRACK_INGEST_API_ORIGIN"];
+const trackingEnv = Object.fromEntries(trackingKeys.map(key => [key, ""]));
+const trackingFile = path.join(__dirname, ".next/standalone/.tracking-runtime.json");
+if (fs.existsSync(trackingFile)) {
+  try {
+    const stat = fs.lstatSync(trackingFile);
+    if (!stat.isFile() || stat.isSymbolicLink() || (stat.mode & 0o077) !== 0 || stat.uid !== process.getuid() || stat.size > 16384) throw new Error("Unsafe tracking runtime configuration");
+    const values = JSON.parse(fs.readFileSync(trackingFile, "utf8"));
+    if (Object.keys(values).length !== trackingKeys.length || typeof values.TRACK_INGEST_TOKEN !== "string"
+      || values.TRACK_INGEST_TOKEN.length < 32 || values.TRACK_INGEST_TOKEN.length > 8192 || !/^[A-Za-z0-9_-]+$/.test(values.TRACK_INGEST_TOKEN)
+      || !["https://api.fermatmind.com", "https://staging-api.fermatmind.com"].includes(values.TRACK_INGEST_API_ORIGIN)) throw new Error("Invalid tracking runtime configuration");
+    for (const key of trackingKeys) trackingEnv[key] = values[key];
+  } catch {
+    throw new Error("Invalid or unsafe tracking runtime configuration");
+  }
+}
+
 function resolveDefaultInstances() {
   if (typeof os.availableParallelism === "function") {
     return Math.max(2, os.availableParallelism());
@@ -39,6 +57,7 @@ module.exports = {
       instances: APP_INSTANCES,
       env: {
         ...runtimeEnv,
+        ...trackingEnv,
         NODE_ENV: "production",
         PORT: "3000",
       },

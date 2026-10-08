@@ -613,7 +613,7 @@ describe("tracking whitelist contract", () => {
     for (const key of TRACKING_ENV_KEYS) {
       delete process.env[key];
     }
-    process.env.ANALYTICS_ENDPOINT = "https://analytics.example.test/ingest";
+    process.env.ANALYTICS_ENDPOINT = "https://api.fermatmind.com/api/v0.3/analytics/mbti-attribution-events";
     process.env.TRACK_INGEST_TOKEN = "track-token";
     process.env.VERCEL_ENV = "production";
 
@@ -654,7 +654,7 @@ describe("tracking whitelist contract", () => {
       expect(fetchMock).toHaveBeenCalledTimes(2);
       expect(fetchMock.mock.calls.map(([url]) => url)).toEqual([
         "https://api.fermatmind.com/api/v0.5/seo/attribution/events",
-        "https://analytics.example.test/ingest",
+        "https://api.fermatmind.com/api/v0.3/analytics/mbti-attribution-events",
       ]);
       const [, init] = fetchMock.mock.calls[1];
       const forwarded = JSON.parse(String(init?.body)) as {

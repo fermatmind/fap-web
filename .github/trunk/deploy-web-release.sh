@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+set +x
 
 for name in DEPLOY_HOST DEPLOY_USER DEPLOY_PORT APP_DIR APP_NAME APP_PORT PUBLIC_BASE_URL DEPLOY_SHA \
   RELEASE_ARCHIVE_SHA256 RELEASE_MANIFEST_DIGEST ARTIFACT_DIGEST; do
@@ -33,13 +34,52 @@ REQUIRE_LLMS_FULL_ARTIFACT="${REQUIRE_LLMS_FULL_ARTIFACT:-0}"
 REQUIRE_CONTENT_RELEASE_REVALIDATION="${REQUIRE_CONTENT_RELEASE_REVALIDATION:-0}"
 [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" =~ ^[01]$ ]]
 local_runtime_config=""
+local_tracking_config=""
+remote_tracking_config=""
+installer_started=0
+installer_terminal=0
+cleanup_private_inputs() {
+  local code=$?
+  trap - EXIT HUP INT TERM
+  set +e
+  if [[ -n "$local_runtime_config" ]]; then rm -f -- "$local_runtime_config"; rmdir -- "$(dirname "$local_runtime_config")" || true; fi
+  if [[ -n "$local_tracking_config" ]]; then rm -f -- "$local_tracking_config"; rmdir -- "$(dirname "$local_tracking_config")" || true; fi
+  if [[ -n "$remote_tracking_config" ]]; then
+    if [[ "$installer_started" == 0 || "$installer_terminal" == 1 ]]; then
+      # Before installer entry no remote process consumes this input. After
+      # entry, only a terminal exact-SHA receipt makes reconnect cleanup safe.
+      if ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "rm -f -- '$remote_tracking_config'" >/dev/null 2>&1; then
+        echo "tracking_input_cleanup=removed"
+      else
+        echo "tracking_input_cleanup=unconfirmed" >&2
+        if [[ "$code" == 0 ]]; then code=1; fi
+      fi
+    else
+      echo "tracking_input_cleanup=deferred_until_exact_sha_terminal_outcome" >&2
+    fi
+  fi
+  exit "$code"
+}
+trap cleanup_private_inputs EXIT
+trap 'exit 129' HUP
+trap 'exit 130' INT
+trap 'exit 143' TERM
 if [[ "$REQUIRE_CONTENT_RELEASE_REVALIDATION" == "1" ]]; then
   runtime_tmp="$(mktemp -d "${RUNNER_TEMP:?}/content-release-runtime.XXXXXX")"
   local_runtime_config="$runtime_tmp/input.json"
-  trap 'rm -f -- "$local_runtime_config"; rmdir -- "$runtime_tmp"' EXIT
   node .github/trunk/content-release-runtime.mjs from-env "$local_runtime_config"
 fi
+REQUIRE_TRACKING_INGEST_RUNTIME="${REQUIRE_TRACKING_INGEST_RUNTIME:-0}"
+[[ "$REQUIRE_TRACKING_INGEST_RUNTIME" =~ ^[01]$ ]]
+if [[ "$REQUIRE_TRACKING_INGEST_RUNTIME" == "1" ]]; then
+  tracking_tmp="$(mktemp -d "${RUNNER_TEMP:?}/tracking-runtime.XXXXXX")"
+  local_tracking_config="$tracking_tmp/input.json"
+  node .github/trunk/tracking-runtime.cjs from-env "$local_tracking_config"
+fi
+# The runner's value is no longer inherited by generic commands or children.
+unset TRACK_INGEST_TOKEN
 
+[[ "${GITHUB_RUN_ID:-}" =~ ^[0-9]+$ && "${GITHUB_RUN_ATTEMPT:-}" =~ ^[0-9]+$ ]]
 control="${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}-${DEPLOY_SHA:0:12}"
 remote_archive="$control/fap-web-${DEPLOY_SHA}.tar.gz"
 remote_llms_full_receipt="$control/llms-full-artifact-receipt.json"
@@ -52,7 +92,7 @@ ssh_args=(-o ServerAliveInterval=15 -o ServerAliveCountMax=4 -o BatchMode=yes -o
 ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$control' && chmod 700 '$control'"
 control_files=(scripts/install_standalone_release.sh scripts/deploy_web_pm2.sh \
   scripts/rolling_reload_pm2.sh scripts/ops/verify-career-renderer.mjs lib/site.ts scripts/ops/verify-llms-full-artifact.mjs scripts/ops/career-current-inventory.mjs ecosystem.config.cjs .github/trunk/content-release-runtime.mjs \
-  .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh)
+  .github/trunk/fetch-oss-release.sh .github/trunk/install-ossutil.sh .github/trunk/tracking-runtime.cjs)
 if [[ "$RELEASE_TRANSPORT_MODE" == "local" ]]; then control_files=("$RELEASE_ARCHIVE" "${control_files[@]}"); fi
 scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
   "${control_files[@]}" "$DEPLOY_USER@$DEPLOY_HOST:$control/"
@@ -60,6 +100,12 @@ scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPL
 if [[ -n "$local_runtime_config" ]]; then
   scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
     "$local_runtime_config" "$DEPLOY_USER@$DEPLOY_HOST:$control/content-release-runtime.json"
+fi
+if [[ -n "$local_tracking_config" ]]; then
+  # Arm precise cleanup before SCP, which may fail after creating a partial file.
+  remote_tracking_config="$control/tracking-runtime.json"
+  scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
+    "$local_tracking_config" "$DEPLOY_USER@$DEPLOY_HOST:$remote_tracking_config"
 fi
 transport_status=0
 if [[ "$RELEASE_TRANSPORT_MODE" == "oss" ]]; then
@@ -81,6 +127,7 @@ if [[ "$RELEASE_TRANSPORT_MODE" == "oss" ]]; then
 fi
 
 if [[ "$transport_status" -eq 0 ]]; then
+  installer_started=1
   set +e
   ssh "${ssh_args[@]}" "$DEPLOY_USER@$DEPLOY_HOST" \
   "chmod 700 '$control/'*.sh && install -m 0644 '$control/ecosystem.config.cjs' '$APP_DIR/ecosystem.config.cjs' && \
@@ -96,6 +143,9 @@ if [[ "$transport_status" -eq 0 ]]; then
    REQUIRE_CONTENT_RELEASE_REVALIDATION='$REQUIRE_CONTENT_RELEASE_REVALIDATION' \
    CONTENT_RELEASE_RUNTIME_SOURCE='$control/content-release-runtime.json' \
    CONTENT_RELEASE_RUNTIME_HELPER='$control/content-release-runtime.mjs' \
+   REQUIRE_TRACKING_INGEST_RUNTIME='$REQUIRE_TRACKING_INGEST_RUNTIME' \
+   TRACKING_RUNTIME_SOURCE='$control/tracking-runtime.json' \
+   TRACKING_RUNTIME_HELPER='$control/tracking-runtime.cjs' \
    LLMS_FULL_VERIFY_SCRIPT='$control/verify-llms-full-artifact.mjs' \
    DEPLOY_OUTCOME_PATH='$remote_outcome' \
    LLMS_FULL_RECEIPT_PATH='$remote_llms_full_receipt' LLMS_FULL_VERIFY_TIMEOUT_MS='330000' \
@@ -110,7 +160,8 @@ fi
 for attempt in $(seq 1 24); do
   if scp -q -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -P "$DEPLOY_PORT" \
     "$DEPLOY_USER@$DEPLOY_HOST:$remote_outcome" "$local_outcome"; then
-    if jq -e --arg sha "$DEPLOY_SHA" '.revision == $sha and (.status == "success" or .status == "failed")' "$local_outcome" >/dev/null; then
+    if jq -e --arg sha "$DEPLOY_SHA" '.schema_version == "fermatmind.deploy-outcome.v1" and .revision == $sha and (.status == "success" or .status == "failed")' "$local_outcome" >/dev/null; then
+      installer_terminal=1
       break
     fi
   fi

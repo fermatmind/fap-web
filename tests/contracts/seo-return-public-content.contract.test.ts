@@ -167,7 +167,7 @@ describe("SEO-PLATFORM-06 public return event", () => {
     const previousToken = process.env.TRACK_INGEST_TOKEN;
     const previousApiUrl = process.env.NEXT_PUBLIC_API_URL;
     process.env.TRACK_INGEST_TOKEN = "track-token";
-    process.env.NEXT_PUBLIC_API_URL = "https://api.example.test";
+    process.env.NEXT_PUBLIC_API_URL = "https://api.fermatmind.com";
     const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(null, { status: 204 }));
 
     try {
@@ -193,7 +193,7 @@ describe("SEO-PLATFORM-06 public return event", () => {
       expect(response.status).toBe(200);
       await expect(response.json()).resolves.toMatchObject({ ok: true, forwarded: 1 });
       const [url, init] = fetchMock.mock.calls[0];
-      expect(url).toBe("https://api.example.test/api/v0.5/seo/attribution/events");
+      expect(url).toBe("https://api.fermatmind.com/api/v0.5/seo/attribution/events");
       const forwarded = JSON.parse(String(init?.body ?? "{}"));
       expect(forwarded).toMatchObject({
         eventName: TRACKING_EVENTS.RETURN_PUBLIC_CONTENT,

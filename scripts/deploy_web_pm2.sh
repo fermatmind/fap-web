@@ -373,7 +373,10 @@ NODE
   candidate_base_url="http://${APP_HOST}:${CANDIDATE_APP_PORT}"
   (
     cd "$STANDALONE_DIR"
-    exec env FERMATMIND_DEPLOYED_REVISION_FILE="$STANDALONE_DIR/REVISION" NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" server.js
+    if [[ -f "$STANDALONE_DIR/.tracking-runtime.json" ]]; then
+      exec env FERMATMIND_DEPLOYED_REVISION_FILE="$STANDALONE_DIR/REVISION" NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" serve "$STANDALONE_DIR/.tracking-runtime.json" server.js
+    fi
+    exec env -u TRACK_INGEST_TOKEN -u TRACK_INGEST_API_ORIGIN FERMATMIND_DEPLOYED_REVISION_FILE="$STANDALONE_DIR/REVISION" NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" server.js
   ) >"$candidate_log" 2>&1 &
   candidate_pid=$!
 
@@ -406,11 +409,25 @@ NODE
   fi
 
   require_analytics_bootstrap_contract "$candidate_base_url" "candidate"
+  require_tracking_runtime_readback "$candidate_base_url"
   if [[ "$REQUIRE_LLMS_FULL_ARTIFACT" == "1" ]]; then
     require_llms_full_artifact "$candidate_base_url" "${LLMS_FULL_RECEIPT_PATH}.candidate"
   fi
   cleanup_candidate "$candidate_pid" "$candidate_log"
   trap - RETURN EXIT
+}
+
+require_tracking_runtime_readback() {
+  local base="$1" required="${REQUIRE_TRACKING_RUNTIME_READBACK:-0}" enabled="${REQUIRE_TRACKING_INGEST_RUNTIME:-0}"
+  if [[ -e "$STANDALONE_DIR/.tracking-runtime.json" || -L "$STANDALONE_DIR/.tracking-runtime.json" \
+     || -e "$STANDALONE_DIR/.tracking-runtime-managed.json" || -L "$STANDALONE_DIR/.tracking-runtime-managed.json" ]]; then
+    required=1
+    # On LKG reload, its own managed configuration overrides the failed intent.
+    if [[ "${REQUIRE_TRACKING_RUNTIME_READBACK:-0}" == 0 ]]; then enabled=1; fi
+  fi
+  if [[ "$required" == 1 ]]; then
+    "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" readback "$STANDALONE_DIR/.tracking-runtime.json" "$base" "$enabled"
+  fi
 }
 
 require_llms_full_artifact() {
@@ -551,6 +568,10 @@ if [[ "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
 fi
 log "active immutable release: ${DEPLOYED_REVISION:0:12}"
 require_candidate_analytics_smoke
+if [[ -e "$STANDALONE_DIR/.tracking-runtime.json" || -L "$STANDALONE_DIR/.tracking-runtime.json" \
+   || -e "$STANDALONE_DIR/.tracking-runtime-managed.json" || -L "$STANDALONE_DIR/.tracking-runtime-managed.json" ]]; then
+  "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" auth-probe "$STANDALONE_DIR/.tracking-runtime.json"
+fi
 if [[ "$PREFLIGHT_ONLY" == "1" ]]; then
   log "candidate preflight passed before activation"
   exit 0
@@ -568,8 +589,17 @@ if [[ "$APP_MANAGER" == "pm2" ]]; then
   fi
 
   log "rolling reload pm2 app ${APP_NAME}"
+  if [[ -f "$STANDALONE_DIR/.tracking-runtime.json" ]]; then
+    "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" guard-pm2 "$STANDALONE_DIR/.tracking-runtime.json"
+  fi
   APP_DIR="$APP_DIR" PM2_BIN="pm2" PM2_CONFIG="${APP_DIR}/ecosystem.config.cjs" "$ROLLING_RELOAD_SCRIPT" "$APP_NAME"
-  pm2 save
+  if [[ -f "$STANDALONE_DIR/.tracking-runtime.json" ]]; then
+    "$EXPECTED_NODE_BIN" "${TRACKING_RUNTIME_HELPER:?}" guard-pm2 "$STANDALONE_DIR/.tracking-runtime.json"
+    (umask 077; pm2 save)
+    "$EXPECTED_NODE_BIN" "$TRACKING_RUNTIME_HELPER" guard-pm2 "$STANDALONE_DIR/.tracking-runtime.json"
+  else
+    pm2 save
+  fi
 else
   log "restart systemd service ${SYSTEMD_SERVICE}"
   sudo -n systemctl restart "$SYSTEMD_SERVICE"
@@ -578,10 +608,10 @@ fi
 log "runtime checks"
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   pm2 status
-  pm2 logs "$APP_NAME" --lines 80 --nostream || true
+  if [[ ! -f "$STANDALONE_DIR/.tracking-runtime.json" ]]; then pm2 logs "$APP_NAME" --lines 80 --nostream || true; fi
 else
   systemctl is-active --quiet "$SYSTEMD_SERVICE"
-  systemctl status "$SYSTEMD_SERVICE" --no-pager -l | sed -n '1,80p'
+  systemctl show "$SYSTEMD_SERVICE" --no-pager --property=ActiveState,SubState,MainPID
 fi
 wait_for_local_app_ready
 if [[ "$APP_MANAGER" == "pm2" ]]; then
@@ -590,6 +620,7 @@ if [[ "$APP_MANAGER" == "pm2" ]]; then
   pm2 restart "${APP_DIR}/ecosystem.config.cjs" --only "$APP_NAME" --update-env >/dev/null
   wait_for_local_app_ready
 fi
+require_tracking_runtime_readback "http://${APP_HOST}:${APP_PORT}"
 if [[ "$REQUIRE_CAREER_RENDERER_REVISION" == "1" ]]; then
   require_career_renderer_revision "http://${APP_HOST}:${APP_PORT}" "local"
 else
