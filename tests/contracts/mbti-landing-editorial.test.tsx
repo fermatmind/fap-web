@@ -109,3 +109,27 @@ it("renders English editorial, comparison, sources and FAQ without Chinese punct
   expect(container.textContent).not.toMatch(/[：；]/u);
   expect(screen.getByRole("link", { name: "Methods" })).toHaveAttribute("href", "/en/method-boundaries");
 });
+
+
+it("renders opted-in IQ teaching tables and links without interpreting unsafe markup", () => {
+  const body = "| Count | Direction |\n|---|---|\n| 5 | Down |\n\n[Read the guide](/en/articles/iq-test-tool-guide)\n\n[Unsafe](javascript:alert)\n\n<script>unsafe()</script>";
+  const content = { title: "Reasoning", intro: "Original example", items: [{ id: "iq-example", title: "Check both rules", body }] };
+  const { container, unmount } = render(<MbtiWhyChoose content={content} richBody locale="en" />);
+  expect(screen.getByRole("table")).toBeInTheDocument();
+  expect(screen.getByRole("cell", { name: "Down" })).toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "Read the guide" })).toHaveAttribute("href", "/en/articles/iq-test-tool-guide");
+  expect(screen.queryByRole("link", { name: "Unsafe" })).not.toBeInTheDocument();
+  expect(container.querySelector("script")).toBeNull();
+  unmount();
+  render(<MbtiWhyChoose content={content} />);
+  expect(screen.queryByRole("table")).not.toBeInTheDocument();
+});
+
+it("keeps bilingual IQ FAQ answer paragraphs and actionable links", () => {
+  for (const locale of ["zh", "en"] as const) {
+    const { container, unmount } = render(<MbtiFaqAnswers locale={locale} richBody items={[{ id: "faq-iq-next", q: "Next?", a: `First paragraph.\n\n[Guide](/${locale}/articles/iq-test-tool-guide)` }]} />);
+    expect(container.querySelectorAll("#faq-iq-next p")).toHaveLength(2);
+    expect(screen.getByRole("link", { name: "Guide" })).toHaveAttribute("href", `/${locale}/articles/iq-test-tool-guide`);
+    unmount();
+  }
+});

@@ -167,7 +167,12 @@ export default async function TopicDetailPage({
     { name: locale === "zh" ? "主题" : "Topics", path: localizedPath("/topics", locale) },
     { name: topic.title, path: canonicalPath },
   ]);
-  const renderedSections = renderTopicSections(topic.sections, locale);
+  const isIqEqTopic = topic.slug === "iq-eq";
+  const renderedSections = renderTopicSections(topic.sections, locale, { scrollableTables: isIqEqTopic });
+  // The IQ/EQ editorial comparison already lives in the authored body.
+  const answerSurface = isIqEqTopic && topic.answerSurface
+    ? { ...topic.answerSurface, summaryBlocks: [], compareBlocks: [] }
+    : topic.answerSurface;
   const renderedEntryGroups = renderTopicEntryGroups(topic.entryGroups, locale);
   const isMbtiTopic =
     String(topic.topicCode || "").toLowerCase() === "mbti" || String(topic.slug || "").toLowerCase() === "mbti";
@@ -254,7 +259,7 @@ export default async function TopicDetailPage({
         ) : null}
         <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{topic.title}</h1>
         {topic.subtitle ? <p className="m-0 text-lg text-[var(--fm-text)]">{topic.subtitle}</p> : null}
-        {topic.excerpt ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
+        {topic.excerpt && (!isIqEqTopic || topic.excerpt !== topic.subtitle) ? <p className="m-0 text-[var(--fm-text-muted)]">{topic.excerpt}</p> : null}
         {isMbtiTopic ? (
           <div className="flex flex-wrap items-center gap-3 pt-1" data-testid="mbti-topic-detail-entry-cta-group">
             <TrackedEntryCtaLink
@@ -275,7 +280,7 @@ export default async function TopicDetailPage({
             </Link>
           </div>
         ) : null}
-        {landingSurface?.summaryBlocks.length ? (
+        {!isIqEqTopic && landingSurface?.summaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="topic-detail-landing-summary">
             {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
               <div key={block.key}>
@@ -371,10 +376,10 @@ export default async function TopicDetailPage({
       </Suspense>
 
       <div className="grid gap-4 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
-        <div className="space-y-4">
+        <div className={isIqEqTopic ? "min-w-0 space-y-4" : "space-y-4"}>
           {renderedSections}
           <AnswerSurfaceSection
-            surface={topic.answerSurface}
+            surface={answerSurface}
             locale={locale}
             testId="topic-detail-answer-surface"
             pageFamily="topic_detail"

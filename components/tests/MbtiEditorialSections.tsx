@@ -1,4 +1,5 @@
 import type { EditorialLink, LandingFaq, MbtiEditorial } from "@/lib/tests/mbtiLandingEditorial";
+import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import styles from "./mbti-preview.module.css";
 
 function LinkGroup({ label, links, locale }: { label: string; links?: EditorialLink[]; locale: "zh" | "en" }) {
@@ -23,10 +24,10 @@ function orderItems(content: MbtiEditorial, itemOrder: string[]) {
     .map(({ item }) => item);
 }
 
-function EditorialItems({ content, items }: { content: MbtiEditorial; items: MbtiEditorial["items"] }) {
+function EditorialItems({ content, items, richBody, locale }: { content: MbtiEditorial; items: MbtiEditorial["items"]; richBody: boolean; locale: "zh" | "en" }) {
   return <div>{items.map((item) => <article id={item.id} key={item.id}>
     <h3>{item.title}</h3>
-    <div>{item.body.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
+    <div>{richBody ? renderSimpleMarkdown(item.body, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale }) : item.body.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}</div>
     {item.id === "versions" && content.comparison ? <div id="version-comparison" className={styles.comparison}>
       <div className={styles.tableScroll} role="region" aria-label={content.comparison.caption} tabIndex={0}>
         <table>
@@ -41,11 +42,12 @@ function EditorialItems({ content, items }: { content: MbtiEditorial; items: Mbt
   </article>)}</div>;
 }
 
-export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], locale = "en" }: {
+export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], locale = "en", richBody = false }: {
   content: MbtiEditorial;
   itemOrder?: string[];
   methodItemIds?: string[];
   locale?: "zh" | "en";
+  richBody?: boolean;
 }) {
   const orderedItems = orderItems(content, itemOrder);
   const methodIds = new Set(methodItemIds);
@@ -55,18 +57,18 @@ export function MbtiWhyChoose({ content, itemOrder = [], methodItemIds = [], loc
   return <section id="why-choose" className={styles.whyChoose} aria-labelledby="why-choose-title">
     <h2 id="why-choose-title">{content.title}</h2>
     <p className={styles.whyIntro}>{content.intro}</p>
-    <EditorialItems content={content} items={overviewItems} />
+    <EditorialItems content={content} items={overviewItems} richBody={richBody} locale={locale} />
     {methodItems.length > 0 ? <section id="method-and-evidence" className={styles.methodSection} aria-labelledby="method-and-evidence-title">
       <h2 id="method-and-evidence-title">{locale === "zh" ? "方法与证据" : "Methods and limits"}</h2>
-      <EditorialItems content={content} items={methodItems} />
+      <EditorialItems content={content} items={methodItems} richBody={richBody} locale={locale} />
     </section> : null}
   </section>;
 }
 
-export function MbtiFaqAnswers({ items, locale }: { items: LandingFaq[]; locale: "zh" | "en" }) {
+export function MbtiFaqAnswers({ items, locale, richBody = false }: { items: LandingFaq[]; locale: "zh" | "en"; richBody?: boolean }) {
   return <>{items.map((item, index) => <article id={item.id} key={item.id ?? index} className={styles.faqItem}>
     <h3>{item.q}</h3>
-    {item.a.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+    {richBody ? renderSimpleMarkdown(item.a, { allowImages: false, scrollableTables: true, minimumHeadingLevel: 4, locale }) : item.a.split(/\n\s*\n/u).map((paragraph, index) => <p key={index}>{paragraph}</p>)}
     <LinkGroup locale={locale} label={locale === "zh" ? "参考资料" : "References"} links={item.references} />
     <LinkGroup locale={locale} label={locale === "zh" ? "产品说明／延伸阅读" : "Product information / further reading"} links={item.related_links} />
   </article>)}</>;

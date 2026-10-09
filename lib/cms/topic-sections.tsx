@@ -85,7 +85,7 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
-function renderRichTextSection(section: CmsTopicSection, locale: Locale) {
+function renderRichTextSection(section: CmsTopicSection, locale: Locale, scrollableTables = false) {
   if (section.bodyHtml.trim()) {
     return (
       <SanitizedCmsHtml
@@ -97,7 +97,7 @@ function renderRichTextSection(section: CmsTopicSection, locale: Locale) {
   }
 
   if (section.bodyMd.trim()) {
-    return renderSimpleMarkdown(section.bodyMd, { locale, minimumHeadingLevel: 3 });
+    return renderSimpleMarkdown(section.bodyMd, { locale, minimumHeadingLevel: 3, scrollableTables });
   }
 
   return null;
@@ -233,7 +233,8 @@ export function getRenderableTopicSections(sections: CmsTopicSection[]): CmsTopi
 
 export function renderTopicSections(
   sections: CmsTopicSection[],
-  locale: Locale
+  locale: Locale,
+  options: { scrollableTables?: boolean } = {}
 ): ReactNode[] {
   return getRenderableTopicSections(sections)
     .flatMap((section) => {
@@ -253,7 +254,7 @@ export function renderTopicSections(
         case "callout":
         case "rich_text":
         default:
-          content = renderRichTextSection(section, locale);
+          content = renderRichTextSection(section, locale, options.scrollableTables);
           break;
       }
 

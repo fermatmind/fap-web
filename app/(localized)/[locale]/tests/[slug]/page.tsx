@@ -1542,6 +1542,7 @@ export default async function TestLandingPage({
 
           {mbtiEditorial ? <MbtiWhyChoose
             content={mbtiEditorial}
+            richBody={test.slug === "iq-test-intelligence-quotient-assessment"}
             itemOrder={assessmentEditorialLayout?.itemOrder}
             methodItemIds={assessmentEditorialLayout?.methodItemIds}
             locale={locale}
@@ -1642,7 +1643,7 @@ export default async function TestLandingPage({
             >
               <h2 className="text-2xl font-bold tracking-tight text-slate-900">{showsMbtiActions ? (locale === "zh" ? "MBTI 测试常见问题" : "MBTI test FAQ") : usesIllustratedLanding ? (locale === "zh" ? "常见问题" : "Frequently asked questions") : "FAQ"}</h2>
               <div data-evidence-block="faq">
-                {usesIllustratedLanding ? <MbtiFaqAnswers items={mergedFaq} locale={locale} /> : <FAQAccordion items={mergedFaq} />}
+                {usesIllustratedLanding ? <MbtiFaqAnswers items={mergedFaq} locale={locale} richBody={test.slug === "iq-test-intelligence-quotient-assessment"} /> : <FAQAccordion items={mergedFaq} />}
               </div>
             </section>
           ) : null}

@@ -42,6 +42,14 @@ import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@
 
 export const dynamic = "force-dynamic";
 
+const IQ_PUBLIC_ARTICLE_SLUGS = new Set([
+  "iq-test-score-and-limits-explained",
+  "iq-test-tool-guide",
+  "iq-test-narrative-portrait",
+  "iq-test-growth-guide",
+  "what-is-iq-and-how-it-is-measured",
+]);
+
 type ArticleMetadataImage = {
   url: string;
   alt?: string;
@@ -147,7 +155,7 @@ function renderArticleBody(article: CmsArticle, locale: Locale, canonicalPath: s
         sourcePath={canonicalPath}
         contentId={article.id}
       >
-        {renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body" }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
+        {renderSimpleMarkdown(article.contentMd, { locale, minimumHeadingLevel: 2, headingIdPrefix: "article-body", scrollableTables: IQ_PUBLIC_ARTICLE_SLUGS.has(article.slug) }) ?? <div className="whitespace-pre-wrap">{article.contentMd}</div>}
       </AttributedCmsLinkHydrator>
     );
   }
@@ -345,12 +353,18 @@ export default async function ArticleDetailPage({
 
   const publishedAt = formatArticleDate(article.publishedAt, locale);
   const updatedAt = formatArticleDate(article.updatedAt, locale);
-  const visibleAnswerSurface = article.answerSurface && !article.contentHtml.trim()
+  const answerSurfaceWithVisibleFaq = article.answerSurface && !article.contentHtml.trim()
     ? {
         ...article.answerSurface,
         faqBlocks: excludeFaqCopiesInMarkdown(article.answerSurface.faqBlocks, article.contentMd, { locale }),
       }
     : article.answerSurface;
+  const visibleAnswerSurface = locale === "en" && IQ_PUBLIC_ARTICLE_SLUGS.has(slug) && answerSurfaceWithVisibleFaq
+    ? {
+        ...answerSurfaceWithVisibleFaq,
+        compareBlocks: answerSurfaceWithVisibleFaq.compareBlocks.filter((block) => block.key !== "article_category"),
+      }
+    : answerSurfaceWithVisibleFaq;
   const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
   const badgeLabels = [
     articleCategoryLabel(article.category, blogState?.data?.blog, locale),
@@ -431,7 +445,7 @@ export default async function ArticleDetailPage({
       {headings.length > 1 ? <nav aria-label={dict.articles.onThisPage} data-testid="article-toc" className="max-w-4xl rounded-lg border border-[var(--fm-border)] p-5">
         <h2 className="m-0 mb-3 text-lg font-semibold">{dict.articles.onThisPage}</h2>
         <ol className="m-0 grid list-none gap-2 p-0 sm:grid-cols-2">
-          {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className="text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline">{heading.text}</a></li>)}
+          {headings.map((heading) => <li key={heading.id} className={heading.level > 2 ? "pl-4" : undefined}><a href={`#${heading.id}`} className={`${IQ_PUBLIC_ARTICLE_SLUGS.has(slug) ? "block " : ""}text-sm leading-6 text-[var(--fm-accent)] underline-offset-4 hover:underline`}>{heading.text}</a></li>)}
         </ol>
       </nav> : null}
 

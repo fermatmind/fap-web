@@ -353,6 +353,23 @@ describe("topics cms helpers", () => {
     ]);
   });
 
+  it("preserves complete topic table cells in an optional keyboard scroll region", () => {
+    const sections = [{
+      sectionKey: "overview", title: "Comparison", renderVariant: "rich_text",
+      bodyMd: "| Method | Tasks | Interpretation |\n| --- | --- | --- |\n| Visual reasoning | Original questions | Raw performance |",
+      bodyHtml: "", payloadJson: null, sortOrder: 0, isEnabled: true,
+    }];
+    const { unmount } = render(<>{renderTopicSections(sections, "en", { scrollableTables: true })}</>);
+    const region = screen.getByRole("region", { name: "Horizontally scrollable table" });
+    expect(region).toHaveAttribute("tabindex", "0");
+    expect(screen.getByRole("cell", { name: "Raw performance" })).toBeVisible();
+    expect(screen.getByRole("table")).toHaveStyle({ minWidth: "480px", tableLayout: "fixed" });
+    unmount();
+    render(<>{renderTopicSections(sections, "en")}</>);
+    expect(screen.queryByRole("region")).toBeNull();
+    expect(screen.getByRole("table")).not.toHaveAttribute("style");
+  });
+
   it("topic detail page wires breadcrumb, canonical cluster, faq schema, and remains indexable", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 

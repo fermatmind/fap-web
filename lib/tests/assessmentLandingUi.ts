@@ -7,7 +7,7 @@ const ASSESSMENT_LANDING_UI: Partial<Record<string, Record<"zh" | "en", string>>
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { zh: "大五人格免费测试（Big Five）", en: "Free Big Five Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { zh: "九型人格免费测试（Enneagram）", en: "Free Enneagram Personality Test" },
   [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { zh: "IQ智商免费测试", en: "Free IQ Test" },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "情商免费测试（EQ）", en: "Free Emotional Intelligence Test (EQ)" },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "免费情商测试：60题情绪与关系自评", en: "Free EQ Test: 60-Item Emotional Intelligence Self-Report" },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { zh: "霍兰德职业兴趣免费测试（RIASEC）", en: "Free Holland Code Career Interest Test (RIASEC)" },
 };
 
@@ -16,12 +16,17 @@ const EN_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: { title: "Free MBTI Personality Test: 16 Types & Preferences", description: "Explore your four-letter type and four preference pairs. Choose 93 questions (about 10 minutes) or 144 (about 15), with free results and explanations." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: { title: "Free Big Five Personality Test: OCEAN Traits", description: "Explore five OCEAN personality traits and 30 facets with a free 90- or 120-question Big Five test. Compare versions and understand scores and percentiles." },
   [SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM]: { title: "Free Enneagram Test: Explore Your 9-Type Profile", description: "Explore your nine-type profile with a free Enneagram test. Rate 105 statements in about 12 minutes, or make 144 paired choices in about 18 minutes." },
-  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Matrix Reasoning Questions", description: "Try 30 original visual reasoning questions for free. Review pattern-recognition performance and learn how raw scores differ from normed IQ results." },
-  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: Emotional Intelligence Self-Assessment", description: "Explore emotional awareness, regulation, empathy and relationship management with a free 60-question EQ self-assessment. Learn how to interpret your scores." },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: { title: "Free IQ Test: 30 Original Visual Reasoning Questions", description: "Try 30 original visual reasoning questions for free in about 20 minutes. Understand raw results and the simulated Beta indicator, with a worked example and clear next steps." },
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "Free EQ Test: 60-Item Emotional Intelligence Self-Report", description: "Take 60 self-report items in about 10 minutes. View free EQ-60 results and learn about four dimensions, provisional references and evidence limits." },
   [SCALE_CANONICAL_SLUG_MAP.RIASEC]: { title: "Free Holland Code Career Test: RIASEC Interests", description: "Explore the work activities you enjoy with a free Holland Code test. Choose 60 or 140 questions and view your six RIASEC scores and three-letter code." },
 };
 
 const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: string }>> = {
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { title: "免费情商测试：60题情绪与关系自评", description: "费马EQ-60为60题自评，约10分钟，当前测试与结果免费。了解四维倾向、计分、阶段性参照和科学边界，再决定是否参加。" },
+  [SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN]: {
+    title: "免费智商测试：30题原创视觉推理练习",
+    description: "免费体验费马30题原创视觉推理练习，预计约20分钟。了解原始成绩、正确率与随机Beta指标的区别，结合具体推理示例选择复盘与阅读路径。",
+  },
   [SCALE_CANONICAL_SLUG_MAP.MBTI]: {
     title: "MBTI 免费测试：16 型人格与偏好解读",
     description: "免费完成 MBTI 性格测试，93 题约 10 分钟，144 题约 15 分钟。查看 16 型人格、四组偏好解释与后续探索建议，用于自我了解与沟通参考。",
@@ -37,6 +42,7 @@ const ZH_SEARCH_COPY: Partial<Record<string, { title: string; description: strin
 };
 
 const HERO_DESCRIPTIONS: Partial<Record<string, Partial<Record<"zh" | "en", string>>>> = {
+  [SCALE_CANONICAL_SLUG_MAP.EQ_60]: { zh: "约10分钟完成60题自评，当前测试与结果免费。查看自我觉察、情绪调节、共情理解和关系管理的四维结果，再结合具体事件与反馈阅读；结果反映本次自我描述。", en: "Complete 60 self-report items in about 10 minutes. The current test and results are free. Explore Self-Awareness, Emotion Regulation, Empathy and Relationship Management, then compare your answers with real events and feedback." },
   [SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN]: {
     zh: "大五人格测试观察 OCEAN 五个连续维度。120 题约 15 分钟，90 题约 11 分钟；两版均可免费完成并查看结果。按可投入时间选择版本，再结合具体情境阅读分数。",
   },
@@ -84,7 +90,7 @@ const ZH_ENTRY_LABELS: Record<string, string> = {
   riasec_60: "开始 60 题标准版 · 免费测试",
   riasec_140: "开始 140 题扩展版 · 免费测试",
   owner_original_30: "开始 30 题免费测试",
-  eq_60: "开始 60 题免费测试",
+  eq_60: "开始60题自评 · 约10分钟 · 免费",
 };
 
 const EN_ENTRY_LABELS: Record<string, string> = {
@@ -97,7 +103,7 @@ const EN_ENTRY_LABELS: Record<string, string> = {
   riasec_60: "Start free 60-question test",
   riasec_140: "Start free 140-question test",
   owner_original_30: "Start free 30-question test",
-  eq_60: "Start free 60-question test",
+  eq_60: "Start free 60-item self-report",
 };
 
 export type AssessmentArtwork = "mbti" | "big-five" | "enneagram" | "iq" | "eq" | "riasec";

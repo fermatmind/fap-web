@@ -7,6 +7,7 @@ import type { Locale } from "@/lib/i18n/locales";
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
   allowImages?: boolean;
+  scrollableTables?: boolean;
   minimumHeadingLevel?: HeadingLevel;
   headingIdPrefix?: string;
   internalLinkLabels?: InternalLinkLabelMap;
@@ -546,8 +547,12 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
         );
       case "table":
         return (
-          <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]">
-            <table className="w-full border-collapse text-left text-sm">
+          <div key={key} className="overflow-x-auto rounded-xl border border-[var(--fm-border)]"
+            role={options.scrollableTables ? "region" : undefined}
+            aria-label={options.scrollableTables ? (options.locale === "zh" ? "可横向滚动的表格" : "Horizontally scrollable table") : undefined}
+            tabIndex={options.scrollableTables ? 0 : undefined}>
+            <table className="w-full border-collapse text-left text-sm"
+              style={options.scrollableTables ? { minWidth: Math.max(480, block.headers.length * 160), tableLayout: "fixed" } : undefined}>
               <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
                 <tr>
                   {block.headers.map((header, headerIndex) => (

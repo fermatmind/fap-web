@@ -7,19 +7,19 @@ describe("English assessment search copy", () => {
     ["MBTI", "16 Types", "four preference pairs"],
     ["BIG5_OCEAN", "OCEAN", "30 facets"],
     ["ENNEAGRAM", "9-Type", "paired choices"],
-    ["IQ_RAVEN", "Matrix Reasoning", "raw scores differ from normed IQ"],
-    ["EQ_60", "Self-Assessment", "empathy"],
+    ["IQ_RAVEN", "Original Visual Reasoning", "simulated Beta indicator"],
+    ["EQ_60", "Self-Report", "provisional references"],
     ["RIASEC", "Holland Code", "three-letter code"],
   ] as const)("gives %s a distinct English search title and an accurate description", (code, term, explanation) => {
     const slug = SCALE_CANONICAL_SLUG_MAP[code];
     const en = getAssessmentLandingUi(slug, "en")!;
     expect(en.seoTitle).toContain(term);
     expect(en.seoDescription).toContain(explanation);
-    expect(en.seoTitle).not.toEqual(en.title);
+    if (code !== "EQ_60") expect(en.seoTitle).not.toEqual(en.title);
     expect(en.seoTitle!.length).toBeLessThan(65);
     expect(en.seoDescription!.length).toBeLessThan(180);
     expect(en.title).toMatch(/^Free /u);
-    if (!["MBTI", "RIASEC", "ENNEAGRAM"].includes(code)) {
+    if (!["MBTI", "RIASEC", "ENNEAGRAM", "IQ_RAVEN", "EQ_60"].includes(code)) {
       expect(getAssessmentLandingUi(slug, "zh")?.seoTitle).toBeUndefined();
       expect(getAssessmentLandingUi(slug, "zh")?.seoDescription).toBeUndefined();
     }
@@ -30,6 +30,8 @@ describe("English assessment search copy", () => {
     ["MBTI", "en", "Free MBTI-Style Personality Test", "Free MBTI Personality Test: 16 Types & Preferences", "See your four-letter type and the preferences behind it."],
     ["RIASEC", "zh", "霍兰德职业兴趣免费测试（RIASEC）", "霍兰德职业兴趣免费测试（RIASEC）", "了解你更喜欢哪些工作活动"],
     ["RIASEC", "en", "Free Holland Code Career Interest Test (RIASEC)", "Free Holland Code Career Test: RIASEC Interests", "Explore the work activities you enjoy."],
+    ["EQ_60", "zh", "免费情商测试：60题情绪与关系自评", "免费情商测试：60题情绪与关系自评", "约10分钟完成60题自评"],
+    ["EQ_60", "en", "Free EQ Test: 60-Item Emotional Intelligence Self-Report", "Free EQ Test: 60-Item Emotional Intelligence Self-Report", "Complete 60 self-report items in about 10 minutes."],
     ["ENNEAGRAM", "zh", "九型人格免费测试（Enneagram）", "九型人格免费测试（Enneagram）", "了解你的九型分布与候选类型。"],
     ["ENNEAGRAM", "en", "Free Enneagram Personality Test", "Free Enneagram Test: Explore Your 9-Type Profile", "Explore your nine-type profile and compare the patterns that fit your experience."],
   ] as const)("keeps the approved %s %s H1, search title and hero introduction", (code, locale, title, seoTitle, heroStart) => {
