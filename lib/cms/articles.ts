@@ -18,6 +18,15 @@ import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurf
 import { canonicalUrl } from "@/lib/site";
 
 const DEFAULT_ORG_ID = "0";
+// These controlled IQ articles must reflect publication and withdrawal on every
+// detail/SEO read across Next workers. Their LKG wrappers already fail closed.
+const IQ_AUTHORITATIVE_ARTICLE_SLUGS = new Set([
+  "iq-test-score-and-limits-explained",
+  "iq-test-tool-guide",
+  "iq-test-narrative-portrait",
+  "iq-test-growth-guide",
+  "what-is-iq-and-how-it-is-measured",
+]);
 const DEFAULT_LIST_PER_PAGE = 20;
 const DEFAULT_ENUMERATION_PER_PAGE = 100;
 export const MAX_ARTICLE_LIST_PAGE = 100;
@@ -1467,7 +1476,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string, usePu
       .getPublic<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
         locale,
         skipAuth: true,
-        ...(usePublicCache ? { next: {
+        ...(usePublicCache && !IQ_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleDetailCacheTag(apiLocale, normalizedSlug)],
         } } : { cache: "no-store" as const }),
@@ -1529,10 +1538,10 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
       {
         locale,
         skipAuth: true,
-        next: {
+        ...(IQ_AUTHORITATIVE_ARTICLE_SLUGS.has(normalizedSlug) ? { cache: "no-store" as const } : { next: {
           revalidate: PUBLIC_API_REVALIDATE_SECONDS,
           tags: [articleSeoCacheTag(apiLocale, normalizedSlug)],
-        },
+        } }),
       }
     );
 
