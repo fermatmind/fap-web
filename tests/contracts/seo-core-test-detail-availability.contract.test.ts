@@ -433,15 +433,27 @@ describe("SEO core test detail availability", () => {
       const heroProps = illustratedIntro!.props as {
         title: string; heroArtwork: string; choices: { label: string }[];
       };
-      expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
+      if (slug === SCALE_CANONICAL_SLUG_MAP.EQ_60) {
+        expect(heroProps.title).toBe(locale === "zh"
+          ? "免费情商测试：60题情绪与关系自评"
+          : "Free EQ Test: 60-Item Emotional Intelligence Self-Report");
+      } else {
+        expect(heroProps.title).toContain(locale === "zh" ? "免费测试" : "Free");
+      }
       expect(["mbti", "big-five", "enneagram", "iq", "eq", "riasec"]).toContain(heroProps.heroArtwork);
       for (const choice of heroProps.choices) {
-        expect(choice.label).toContain(locale === "zh" ? "免费测试" : "free");
+        if (slug === SCALE_CANONICAL_SLUG_MAP.EQ_60) {
+          expect(choice.label).toBe(locale === "zh"
+            ? "开始60题自评 · 约10分钟 · 免费"
+            : "Start free 60-item self-report");
+        } else {
+          expect(choice.label).toContain(locale === "zh" ? "免费测试" : "free");
+        }
       }
       const intro = elements.find((element) => element.type === AssessmentLandingIntro);
       if (intro) {
         const props = intro.props as { description?: string };
-        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC].some((target) => target === slug)
+        if ([SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM, SCALE_CANONICAL_SLUG_MAP.RIASEC, SCALE_CANONICAL_SLUG_MAP.EQ_60].some((target) => target === slug)
           || (slug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN && locale === "zh")) {
           expect(props.description).toBeDefined();
         } else {
