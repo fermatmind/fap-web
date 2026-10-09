@@ -1,11 +1,62 @@
+// @vitest-environment-options {"url":"https://fermatmind.com"}
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { POST, toSeoAttributionIngestEnvelope } from "@/app/api/track/route";
 import { NextRequest } from "next/server";
 import { trackClientEvent } from "@/lib/tracking/client";
+import { buildSeoCtaTrackingPayload } from "@/lib/tracking/seoCtaAttribution";
 
-afterEach(() => { localStorage.clear(); vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.restoreAllMocks(); });
+afterEach(() => { localStorage.clear(); sessionStorage.clear(); window.history.replaceState(null, "", "/"); vi.unstubAllGlobals(); vi.unstubAllEnvs(); vi.restoreAllMocks(); });
 
 describe("blog native attribution ingest", () => {
+  it.each(["en", "zh"] as const)("carries the public Big Five scale through a %s article click to native ingest", async (locale) => {
+    localStorage.setItem("fm_consent_v1", JSON.stringify({ analytics: "granted" }));
+    const sourceSlug = "big-five-vs-riasec-personality-traits-and-career-interests";
+    const path = `/${locale}/articles/${sourceSlug}`;
+    const browserFetch = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", browserFetch);
+    vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENABLED", "true");
+    vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENV", "production");
+    window.history.replaceState(null, "", path);
+    vi.resetModules();
+    const { trackEvent } = await import("@/lib/analytics");
+    trackEvent("article_to_test_click", buildSeoCtaTrackingPayload({ locale, sourceRouteFamily: "article_detail",
+      sourceSlug, sourcePath: path, href: `/${locale}/tests/big-five-personality-test-ocean-model`, ctaId: "take_test" }));
+    await vi.waitFor(() => expect(browserFetch).toHaveBeenCalledTimes(1));
+    expect(browserFetch).toHaveBeenCalledTimes(1);
+    const browserEnvelope = JSON.parse(browserFetch.mock.calls[0][1].body);
+    expect(browserEnvelope.payload.scale_code).toBe("BIG5_OCEAN");
+    vi.stubEnv("TRACK_INGEST_TOKEN", "test-ingest-identity");
+    for (const key of ["ANALYTICS_ENDPOINT", "MBTI_ATTRIBUTION_INGEST_ENDPOINT", "EDM_ENDPOINT"]) vi.stubEnv(key, "");
+    const nativeFetch = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 202 }));
+    vi.stubGlobal("fetch", nativeFetch);
+    const response = await POST(new NextRequest("https://fermatmind.com/api/track", { method: "POST", body: JSON.stringify(browserEnvelope) }));
+    expect(response.status).toBe(200);
+    expect(nativeFetch).toHaveBeenCalledTimes(1);
+    const nativeEnvelope = JSON.parse(nativeFetch.mock.calls[0][1].body);
+    expect(nativeEnvelope.payload).toMatchObject({ scale_code: "BIG5_OCEAN", source_article: sourceSlug,
+      source_url: path, page_type: "article_detail", target_test: "big-five-personality-test-ocean-model", locale });
+    expect(nativeEnvelope.payload).not.toHaveProperty("source_slug");
+    expect(nativeEnvelope.payload).not.toHaveProperty("article_slug");
+  });
+
+  it.each([
+    ["external", "https://other.example/en/tests/big-five-personality-test-ocean-model", "big-five-personality-test-ocean-model", "article_detail"],
+    ["private take", "/en/tests/big-five-personality-test-ocean-model/take", "big-five-personality-test-ocean-model", "article_detail"],
+    ["unknown", "/en/tests/unknown-test", "unknown-test", "article_detail"],
+    ["conflicting target", "/en/tests/big-five-personality-test-ocean-model", "mbti-personality-test-16-personality-types", "article_detail"],
+    ["different source family", "/en/tests/big-five-personality-test-ocean-model", "big-five-personality-test-ocean-model", "topic_detail"],
+  ] as const)("does not derive a scale from %s", (_name, href, targetTestSlug, sourceRouteFamily) => {
+    const payload = buildSeoCtaTrackingPayload({ locale: "en", sourceRouteFamily, sourceSlug: "source",
+      sourcePath: "/en/articles/source", href, targetTestSlug, ctaId: "take_test" });
+    expect(payload).not.toHaveProperty("scale_code");
+  });
+
+  it("preserves an explicit caller scale instead of replacing its authority", () => {
+    const payload = buildSeoCtaTrackingPayload({ locale: "en", sourceRouteFamily: "article_detail", sourceSlug: "source",
+      sourcePath: "/en/articles/source", href: "/en/tests/big-five-personality-test-ocean-model", ctaId: "take_test", scaleCode: "BIG_FIVE_OCEAN_MODEL" });
+    expect(payload.scale_code).toBe("BIG_FIVE_OCEAN_MODEL");
+  });
+
   it("forwards the real route's strict SEO envelope and keeps request identity in the header", async () => {
     vi.stubEnv("TRACK_INGEST_TOKEN", "test-ingest-identity");
     for (const key of ["ANALYTICS_ENDPOINT", "MBTI_ATTRIBUTION_INGEST_ENDPOINT", "EDM_ENDPOINT"]) vi.stubEnv(key, "");

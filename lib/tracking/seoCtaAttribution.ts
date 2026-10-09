@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/locales";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import {
   appendAttributionParamsToHref,
   buildTrackingAttributionPayload,
@@ -449,6 +450,14 @@ export function buildSeoCtaTrackingPayload({
   const normalizedTargetAction = normalizeToken(targetAction, `seo_cta_${normalizedCtaId}`);
   const sourcePathname = sanitizeSeoPath(sourcePath);
   const entrySurface = `${sourceRouteFamily}_seo_cta`;
+  const resolvedScaleCode = scaleCode || (
+    sourceRouteFamily === "article_detail"
+    && destinationPath
+    && extractTargetTestSlugFromHref(destinationPath) === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN
+    && resolvedTargetTestSlug === SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN
+      ? "BIG5_OCEAN"
+      : undefined
+  );
 
   return {
     ...(attributionPayload ?? {}),
@@ -461,7 +470,7 @@ export function buildSeoCtaTrackingPayload({
     ...(sourcePathname ? { source_path: sourcePathname } : {}),
     ...(destinationPath ? { destination_path: destinationPath } : {}),
     ...(formCode ? { form_code: formCode } : {}),
-    ...(scaleCode ? { scale_code: scaleCode } : {}),
+    ...(resolvedScaleCode ? { scale_code: resolvedScaleCode } : {}),
     entry_surface: entrySurface,
     source_page_type: sourceRouteFamily,
     source_route_family: normalizeRouteFamily(sourceRouteFamily),
