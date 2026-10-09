@@ -20,6 +20,7 @@ import {
   readTestLandingLastKnownGood,
   writeTestLandingLastKnownGood,
 } from "@/lib/tests/testLandingLastKnownGood";
+import { IQ_PUBLIC_ENTRY_SLUG, readIqEntryLkgGeneration } from "@/lib/tests/iqEntryLastKnownGoodGeneration";
 
 const TEST_LANDING_LKG_SCHEMA_VERSION = "v1";
 const TEST_LANDING_LOOKUP_CONTRACT_VERSION = "v0.3";
@@ -69,14 +70,17 @@ function lkgMaxAgeMs(): number {
   return Math.min(24 * 60 * 60 * 1_000, configuredMs);
 }
 
-function lkgKey(locale: Locale, slug: string): string {
-  return [
+async function lkgKey(locale: Locale, slug: string): Promise<{ key: string; generation?: string }> {
+  const key = [
     "test-landing-lookup-lkg",
     TEST_LANDING_LKG_SCHEMA_VERSION,
     TEST_LANDING_LOOKUP_CONTRACT_VERSION,
     locale,
     slug,
   ].join(":");
+  if (slug !== IQ_PUBLIC_ENTRY_SLUG) return { key };
+  const generation = await readIqEntryLkgGeneration(locale);
+  return { key: `${key}:${generation}`, generation };
 }
 
 function localeMatches(responseLocale: string, locale: Locale): boolean {
@@ -198,12 +202,14 @@ export async function loadTestLandingDataUncached(
     return null;
   }
 
-  const key = lkgKey(locale, slug);
+  // Capture before lookup. A publication/rollback during the read cannot fill
+  // the new generation with a previously fetched body.
+  const { key, generation } = await lkgKey(locale, slug);
   const loadCms = dependencies.loadCms ?? loadTestLandingCmsEnrichment;
   const cmsPromise = loadCms(slug, locale);
 
   try {
-    const lookup = await (dependencies.lookup ?? getTestLookup)(slug, locale);
+    const lookup = await (dependencies.lookup ?? getTestLookup)(slug, locale, generation);
     if (!lookup) {
       await clearTestLandingLastKnownGood(key);
       return null;
@@ -216,6 +222,9 @@ export async function loadTestLandingDataUncached(
       isUsable: isUsableSnapshot,
     });
     const cms = await cmsPromise;
+    if (key !== (await lkgKey(locale, slug)).key) {
+      throw new PublicReadError({ kind: "transient", errorCode: "IQ_ENTRY_AUTHORITY_CHANGED" });
+    }
 
     return {
       ...snapshot,
@@ -240,6 +249,7 @@ export async function loadTestLandingDataUncached(
       throw error;
     }
     const cms = await cmsPromise;
+    if (key !== (await lkgKey(locale, slug)).key) throw error;
 
     return {
       ...snapshot,

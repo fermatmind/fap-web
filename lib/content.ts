@@ -300,15 +300,20 @@ export async function getTestBySlug(slug: string, locale: Locale = "en"): Promis
   return tests.find((test) => test.slug === normalizedSlug) ?? null;
 }
 
-export async function getTestLookup(slug: string, locale: Locale = "en"): Promise<TestLookup | null> {
+export async function getTestLookup(slug: string, locale: Locale = "en", publicCopyGeneration?: string): Promise<TestLookup | null> {
   const normalizedSlug = resolveCanonicalSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
+  // Bind the two IQ public entry reads to their shared LKG generation. Another
+  // worker's still-cached fetch cannot refill a restored generation with old copy.
+  const generationQuery = normalizedSlug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN
+    && publicCopyGeneration && /^(?:baseline|[a-f0-9]{64})$/.test(publicCopyGeneration)
+    ? `&public_copy_generation=${publicCopyGeneration}` : "";
 
   try {
     const payload = await apiClient.getPublic<Record<string, unknown>>(
-      `/v0.3/scales/lookup?slug=${encodeURIComponent(normalizedSlug)}&locale=${locale}`,
+      `/v0.3/scales/lookup?slug=${encodeURIComponent(normalizedSlug)}&locale=${locale}${generationQuery}`,
       {
         locale,
         skipAuth: true,
