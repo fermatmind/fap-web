@@ -664,7 +664,7 @@ export async function getTopicBySlug(
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...(normalizedSlug === "iq-eq" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
@@ -712,7 +712,7 @@ export async function getTopicSeoBySlug(
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...(normalizedSlug === "iq-eq" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
