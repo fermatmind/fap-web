@@ -8,13 +8,14 @@ function read(relPath: string): string {
 
 describe("public api cache contract", () => {
   it("keeps hot public lookup and cms fetches on a shared revalidate policy", () => {
+    // The fixed iq-eq detail/SEO exception and unrelated Topic caching are
+    // exercised through the real fetch client by iq-eq-topic-authoritative-read.
     const files = [
       "lib/content.ts",
       "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
       "lib/career/api/fetchCareerRecommendationIndex.ts",
       "lib/career/api/fetchCareerRecommendationBundle.ts",
       "lib/career/api/fetchCareerTransitionPreview.ts",
-      "lib/cms/topics.ts",
       "lib/cms/personality.ts",
       "lib/cms/career-jobs.ts",
       "lib/cms/career-guides.ts",
