@@ -14,6 +14,18 @@ test('localized assessment modules are product routes while named and nested tes
  assert.throws(()=>changedTestPlan([{status:'A',path:route+'reader.rs'}],{vitest:true}),/Unsupported/);
  assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
 });
+test('assessment component and helper directories distinguish product sources from actual tests',()=>{
+ const sources=['components/tests/AssessmentLandingIntro.tsx','components/tests/MbtiEditorialSections.tsx','lib/tests/assessmentLandingUi.ts'];
+ assert.deepEqual(changedTestPlan(sources.map(path=>({status:'M',path})),{vitest:true}).unsupported,[]);
+ for(const root of ['components/tests/','lib/tests/']){
+  const native=root+'reader.test.mjs';
+  assert.deepEqual(changedTestPlan([{status:'A',path:native}],{vitest:true}).node,[native]);
+  assert.deepEqual(changedTestPlan([{status:'D',path:native}],{vitest:true}).removed,[native]);
+  for(const suffix of ['__tests__/reader.tsx','tests/reader.tsx','reader.test.tsx','reader.rs']){
+   assert.throws(()=>changedTestPlan([{status:'A',path:root+suffix}],{vitest:true}),/Unsupported/);
+  }
+ }
+});
 test('changed PHP JS Python Shell execute real runner commands; removed and unsupported are explicit',()=>{
  const p=changedTestPlan(['backend/tests/Feature/AmbtiTest.php','.github/trunk/x.test.mjs','backend/tests/Sre/test_a.py','backend/tests/Sre/test_a.sh'].map(path=>({status:'A',path})).concat([{status:'D',path:'backend/tests/Feature/RemovedTest.php'}]));
  assert.equal(p.removed.length,1);const calls=[];

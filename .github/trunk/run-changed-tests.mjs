@@ -3,10 +3,10 @@ import {writeFileSync} from 'node:fs';
 export function changedTestPlan(changes, {vitest=false}={}) {
  const plan={php:[],node:[],python:[],shell:[],removed:[],vitest:[],unsupported:[]};
  for(const {status,path} of changes){
-  // The localized assessment route is product code; named/nested tests still enter the fail-closed test plan.
-  const assessmentRoute='app/(localized)/[locale]/tests/';
-  if(path.startsWith(assessmentRoute) && /\.[jt]sx?$/.test(path)
-    && !/(?:^|\/)(?:tests?|__tests__)\/|\.test\.[cm]?[jt]sx?$/.test(path.slice(assessmentRoute.length)))continue;
+  // Assessment routes, components, and helpers are product code; named/nested tests remain fail-closed.
+  const productRoot=['app/(localized)/[locale]/tests/','components/tests/','lib/tests/'].find(root=>path.startsWith(root));
+  if(productRoot && /\.[jt]sx?$/.test(path)
+    && !/(?:^|\/)(?:tests?|__tests__)\/|\.test\.[cm]?[jt]sx?$/.test(path.slice(productRoot.length)))continue;
   if(!/(?:^|\/)(?:tests?|__tests__)\/|(?:Test\.php|\.test\.[cm]?[jt]sx?|(?:test_[^/]+|[^/]+_test)\.(?:py|sh))$/.test(path))continue;
   if(/(?:fixtures|snapshots)\//.test(path)||/\.(?:json|md|xml|yaml|yml|snap|csv|png)$/.test(path))continue;
   if(status==='D'){plan.removed.push(path);continue;}
