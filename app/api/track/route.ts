@@ -101,7 +101,19 @@ export function buildAccessStatsIdentityHeaders(
 function resolveNativeIngestOrigin(request: NextRequest, runtimeOrigin?: string): string | undefined {
   const origin = runtimeOrigin || resolveApiOrigin();
   if (!["https://api.fermatmind.com", "https://staging-api.fermatmind.com"].includes(origin)) return undefined;
-  const host = new URL(request.url).hostname;
+  let host = new URL(request.url).hostname;
+  const hostHeader = request.headers.get("host");
+  if (hostHeader) {
+    // Standalone Next.js builds request.url from its internal listener. The
+    // canonical ingress supplies Host; forwarded-host is not an authority.
+    if (!/^[A-Za-z0-9.:[\]-]+$/.test(hostHeader)) return undefined;
+    let authority;
+    try { authority = new URL(`http://${hostHeader}`); } catch { return undefined; }
+    if (authority.username || authority.password || authority.pathname !== "/" || authority.search || authority.hash) return undefined;
+    const internalListener = ["localhost", "127.0.0.1", "[::1]", "0.0.0.0", "[::]"].includes(host);
+    if (!internalListener && host !== authority.hostname) return undefined;
+    host = authority.hostname;
+  }
   if (["fermatmind.com", "www.fermatmind.com"].includes(host) && origin !== "https://api.fermatmind.com") return undefined;
   if (host === "staging.fermatmind.com" && origin !== "https://staging-api.fermatmind.com") return undefined;
   if (!["fermatmind.com", "www.fermatmind.com", "staging.fermatmind.com", "localhost", "127.0.0.1", "[::1]"].includes(host)) return undefined;
