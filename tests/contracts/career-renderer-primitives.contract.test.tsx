@@ -36,7 +36,7 @@ describe("career shared renderer primitives", () => {
       />
     );
 
-    expect(screen.getByTestId("trust-strip")).toHaveTextContent("Human review completed");
+    expect(screen.getByTestId("trust-strip")).toHaveTextContent("Content review completed");
     expect(screen.getByTestId("trust-strip")).toHaveTextContent("index_state: indexable");
     expect(screen.getByTestId("trust-strip")).toHaveTextContent("reason_codes: publish_ready");
   });

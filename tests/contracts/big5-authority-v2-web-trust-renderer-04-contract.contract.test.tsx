@@ -225,7 +225,7 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
     render(<PublicContentAssetRenderer asset={asset!} locale="en" />);
 
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("FermatMind Editorial Team");
-    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Human review completed");
+    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Content review completed");
     expect(screen.getByTestId("editorial-authority")).not.toHaveTextContent("Named Reviewer");
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Jul 12, 2026");
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Jul 13, 2026");

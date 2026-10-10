@@ -370,7 +370,7 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     expect(screen.getByTestId("visible-authority-evidence")).toHaveTextContent(
       "Evidence does not establish a fixed identity or future result."
     );
-    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Human review completed");
+    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Content review completed");
     expect(screen.getByTestId("editorial-authority")).not.toHaveTextContent("Named Backend Reviewer");
     expect(screen.getByText("Backend supplied public body.")).toBeInTheDocument();
     expect(screen.getByText("Backend supplied HTML body.")).toBeInTheDocument();
