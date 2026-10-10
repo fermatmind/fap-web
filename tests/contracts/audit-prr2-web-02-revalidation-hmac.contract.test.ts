@@ -92,6 +92,8 @@ describe("AUDIT-PRR2-WEB-02 revalidation HMAC boundary", () => {
     vi.mocked(createClient).mockReturnValue({ on: vi.fn(), connect: vi.fn().mockResolvedValue(undefined), sendCommand, destroy, isOpen: true } as unknown as ReturnType<typeof createClient>);
     await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ ok: true });
     expect(destroy).toHaveBeenCalledTimes(3);
+    expect(vi.mocked(createClient).mock.calls[0][0]).toMatchObject({ username: "fm-staging-revalidation", password: "redis-token", socket: { host: "127.0.0.1", port: 6379, reconnectStrategy: false } });
+    expect(vi.mocked(createClient).mock.calls[0][0]).not.toHaveProperty("url");
     expect(sendCommand.mock.calls.map(call => call[0][0])).toEqual(["SET", "INCR", "EXPIRE"]);
     sendCommand.mockResolvedValueOnce(null);
     await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ errorCode: "REPLAY_DETECTED" });

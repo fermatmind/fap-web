@@ -32,7 +32,7 @@ async function redisCommand(command: string[], runtime: ContentReleaseRuntime): 
   const endpoint = new URL(url);
   if (endpoint.protocol === "redis:") {
     if (endpoint.hostname !== "127.0.0.1" || endpoint.port !== "6379" || endpoint.username !== "fm-staging-revalidation" || endpoint.pathname !== "/0" || endpoint.password || endpoint.search || endpoint.hash) throw new Error("invalid local replay store");
-    const client = createClient({ url, password: token, disableOfflineQueue: true, disableClientInfo: true, socket: { connectTimeout: 1500, reconnectStrategy: false } });
+    const client = createClient({ username: endpoint.username, password: token, database: 0, disableOfflineQueue: true, disableClientInfo: true, socket: { host: endpoint.hostname, port: Number(endpoint.port), connectTimeout: 1500, reconnectStrategy: false } });
     client.on("error", () => {}); // Caller emits only the sanitized fail-closed response.
     let timeout: ReturnType<typeof setTimeout> | undefined;
     try {
