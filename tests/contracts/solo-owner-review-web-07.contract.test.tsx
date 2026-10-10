@@ -59,7 +59,11 @@ describe("SOLO-OWNER-REVIEW-WEB-07 public review contract", () => {
     });
     const { rerender } = render(<PublicReviewStatus review={approved} locale="zh" testId="review" />);
 
-    expect(screen.getByTestId("review")).toHaveTextContent("人工审核完成");
+    expect(screen.getByTestId("review")).toHaveTextContent("内容审核完成");
+    expect(screen.getByTestId("review")).not.toHaveTextContent("人工审核完成");
+    rerender(<PublicReviewStatus review={approved} locale="en" testId="review" />);
+    expect(screen.getByTestId("review")).toHaveTextContent("Content review completed");
+    expect(screen.getByTestId("review")).not.toHaveTextContent("Human review completed");
     expect(screen.getByTestId("review")).not.toHaveTextContent("Reviewer");
 
     for (const reviewState of ["pending", "rejected", "unknown"] as const) {

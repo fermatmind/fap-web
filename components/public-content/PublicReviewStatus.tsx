@@ -23,7 +23,7 @@ export function PublicReviewStatus({
 
   return (
     <span data-testid={testId}>
-      {locale === "zh" ? "人工审核完成" : "Human review completed"}
+      {locale === "zh" ? "内容审核完成" : "Content review completed"}
       {review?.lastReviewedAt ? ` · ${formatReviewDate(review.lastReviewedAt, locale)}` : null}
     </span>
   );
