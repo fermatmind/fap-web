@@ -20,7 +20,7 @@ import {
   readTestLandingLastKnownGood,
   writeTestLandingLastKnownGood,
 } from "@/lib/tests/testLandingLastKnownGood";
-import { IQ_PUBLIC_ENTRY_SLUG, readIqEntryLkgGeneration } from "@/lib/tests/iqEntryLastKnownGoodGeneration";
+import { IQ_PUBLIC_ENTRY_SLUG, EQ_PUBLIC_ENTRY_SLUG, readIqEntryLkgGeneration, readEqEntryLkgGeneration } from "@/lib/tests/iqEntryLastKnownGoodGeneration";
 
 const TEST_LANDING_LKG_SCHEMA_VERSION = "v1";
 const TEST_LANDING_LOOKUP_CONTRACT_VERSION = "v0.3";
@@ -78,8 +78,8 @@ async function lkgKey(locale: Locale, slug: string): Promise<{ key: string; gene
     locale,
     slug,
   ].join(":");
-  if (slug !== IQ_PUBLIC_ENTRY_SLUG) return { key };
-  const generation = await readIqEntryLkgGeneration(locale);
+  if (slug !== IQ_PUBLIC_ENTRY_SLUG && slug !== EQ_PUBLIC_ENTRY_SLUG) return { key };
+  const generation = await (slug === IQ_PUBLIC_ENTRY_SLUG ? readIqEntryLkgGeneration(locale) : readEqEntryLkgGeneration(locale));
   return { key: `${key}:${generation}`, generation };
 }
 
@@ -223,7 +223,7 @@ export async function loadTestLandingDataUncached(
     });
     const cms = await cmsPromise;
     if (key !== (await lkgKey(locale, slug)).key) {
-      throw new PublicReadError({ kind: "transient", errorCode: "IQ_ENTRY_AUTHORITY_CHANGED" });
+      throw new PublicReadError({ kind: "transient", errorCode: slug === EQ_PUBLIC_ENTRY_SLUG ? "EQ_ENTRY_AUTHORITY_CHANGED" : "IQ_ENTRY_AUTHORITY_CHANGED" });
     }
 
     return {

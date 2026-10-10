@@ -9,7 +9,7 @@ import { rebuildLlmsFullResponseCache, scheduleLlmsFullResponseCacheRebuild } fr
 import { invalidateLlmsFullResponseCache, synchronizeLlmsFullAuthority } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 import { getSiteUrlOrThrow } from "@/lib/site";
-import { IQ_PUBLIC_ENTRY_PATHS, IQ_PUBLIC_ENTRY_SLUG, invalidateIqEntryLkgGenerations } from "@/lib/tests/iqEntryLastKnownGoodGeneration";
+import { IQ_PUBLIC_ENTRY_PATHS, IQ_PUBLIC_ENTRY_SLUG, invalidateIqEntryLkgGenerations, EQ_EXISTING_PUBLIC_PATHS, invalidateEqEntryLkgGenerations } from "@/lib/tests/iqEntryLastKnownGoodGeneration";
 
 type ContentReleasePayload = {
   operation?: "refresh_llms_full";
@@ -406,6 +406,16 @@ export async function POST(request: NextRequest) {
     // This shared generation also invalidates another worker's process Map.
     // A failed rotation cannot produce a successful cache receipt.
     await invalidateIqEntryLkgGenerations();
+  }
+
+  if (payload?.content?.type === "eq_existing_public_pages") {
+    if (JSON.stringify(payload.cache_signal?.paths) !== JSON.stringify(EQ_EXISTING_PUBLIC_PATHS)
+      || (payload.cache_signal?.urls?.length ?? 0) !== 0
+      || JSON.stringify(accepted) !== JSON.stringify(EQ_EXISTING_PUBLIC_PATHS)
+      || rejected.length !== 0) {
+      return NextResponse.json({ ok: false, error_code: "EQ_ENTRY_SCOPE_INVALID" }, { status: 400 });
+    }
+    await invalidateEqEntryLkgGenerations();
   }
 
   for (const path of accepted) {

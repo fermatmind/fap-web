@@ -739,7 +739,7 @@ export async function getCareerGuideFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...(normalizedSlug === "iq-eq-balance-at-work" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 
@@ -778,7 +778,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
       {
         locale,
         skipAuth: true,
-        ...PUBLIC_API_CACHE_OPTIONS,
+        ...(normalizedSlug === "iq-eq-balance-at-work" ? { cache: "no-store" as const } : PUBLIC_API_CACHE_OPTIONS),
       }
     );
 

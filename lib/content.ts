@@ -305,9 +305,10 @@ export async function getTestLookup(slug: string, locale: Locale = "en", publicC
   if (!normalizedSlug) {
     return null;
   }
-  // Bind the two IQ public entry reads to their shared LKG generation. Another
+  // Bind the IQ/EQ public entry reads to their shared LKG generation. Another
   // worker's still-cached fetch cannot refill a restored generation with old copy.
-  const generationQuery = normalizedSlug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN
+  const generationQuery = (normalizedSlug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN
+    || normalizedSlug === SCALE_CANONICAL_SLUG_MAP.EQ_60)
     && publicCopyGeneration && /^(?:baseline|[a-f0-9]{64})$/.test(publicCopyGeneration)
     ? `&public_copy_generation=${publicCopyGeneration}` : "";
 
