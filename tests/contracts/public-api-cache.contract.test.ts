@@ -1,15 +1,21 @@
 import fs from "node:fs";
 import path from "node:path";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { getCareerGuideFromCmsBySlug, getCareerGuideSeoFromCmsBySlug } from "@/lib/cms/career-guides";
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(process.cwd(), relPath), "utf8");
 }
 
+afterEach(() => {
+  vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+});
+
 describe("public api cache contract", () => {
   it("keeps hot public lookup and cms fetches on a shared revalidate policy", () => {
-    // The fixed iq-eq detail/SEO exception and unrelated Topic caching are
-    // exercised through the real fetch client by iq-eq-topic-authoritative-read.
+    // Exact Topic and guide exceptions are checked through their real fetch
+    // client; the remaining hot readers retain the common cache policy.
     const files = [
       "lib/content.ts",
       "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
@@ -18,7 +24,6 @@ describe("public api cache contract", () => {
       "lib/career/api/fetchCareerTransitionPreview.ts",
       "lib/cms/personality.ts",
       "lib/cms/career-jobs.ts",
-      "lib/cms/career-guides.ts",
       "lib/cms/career-recommendations.ts",
     ];
 
@@ -26,6 +31,38 @@ describe("public api cache contract", () => {
       const source = read(file);
       expect(source).toContain("PUBLIC_API_CACHE_OPTIONS");
       expect(source).not.toContain('cache: "no-store"');
+    }
+  });
+
+  it.each(["en", "zh"] as const)("bounds the live guide exception without weakening neighboring cache policy (%s)", async (locale) => {
+    const liveSlug = "iq-eq-balance-at-work";
+    const slugs = [liveSlug, `${liveSlug}-related`, "unrelated-guide"];
+    const fetcher = vi.fn(async (input: RequestInfo | URL, options?: RequestInit) => {
+      void options;
+      const url = new URL(String(input));
+      const slug = url.pathname.split("/")[4];
+      const payload = url.pathname.endsWith("/seo")
+        ? { meta: { title: "Guide metadata", description: "Current limits" } }
+        : { guide: { id: 1, slug, locale: locale === "zh" ? "zh-CN" : "en",
+          title: "Current guide", body_md: "Current guide body", is_public: true } };
+      return new Response(JSON.stringify(payload), { headers: { "Content-Type": "application/json" } });
+    });
+    vi.stubGlobal("fetch", fetcher);
+    for (const slug of slugs) {
+      expect(await getCareerGuideFromCmsBySlug(slug, locale)).toMatchObject({ slug, bodyMd: "Current guide body" });
+      expect((await getCareerGuideSeoFromCmsBySlug(slug, locale))?.meta.title).toBe("Guide metadata");
+    }
+    expect(fetcher).toHaveBeenCalledTimes(6);
+    expect(fetcher.mock.calls.filter(([input]) => new URL(String(input)).pathname.split("/")[4] === liveSlug)).toHaveLength(2);
+    for (const [input, options] of fetcher.mock.calls as [RequestInfo | URL, RequestInit & { next?: { revalidate?: number } }][]) {
+      const selected = new URL(String(input)).pathname.split("/")[4] === liveSlug;
+      if (selected) {
+        expect(options.cache).toBe("no-store");
+        expect(options.next).toBeUndefined();
+      } else {
+        expect(options.cache).toBeUndefined();
+        expect(options.next?.revalidate).toBe(300);
+      }
     }
   });
 
