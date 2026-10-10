@@ -28,4 +28,21 @@ describe("release-bound revalidation credentials for systemd and PM2", () => {
       expect(() => resolveContentReleaseRuntime(root, values)).toThrow("REJECTED");
     } finally { rmSync(root, { recursive: true, force: true }); }
   });
+  it("rejects writable or redirected release authority even with valid private credentials", () => {
+    const root = mkdtempSync(path.join(tmpdir(), "revalidation-authority-"));
+    const revision = path.join(root, "REVISION");
+    try {
+      writeFileSync(revision, "a".repeat(40));
+      writeFileSync(path.join(root, ".content-release-runtime.json"), JSON.stringify(values), { mode: 0o600 });
+      chmodSync(root, 0o770);
+      expect(() => resolveContentReleaseRuntime(root, values)).toThrow("REJECTED");
+      chmodSync(root, 0o700);
+      chmodSync(revision, 0o664);
+      expect(() => resolveContentReleaseRuntime(root, values)).toThrow("REJECTED");
+      rmSync(revision);
+      writeFileSync(path.join(root, "other-revision"), "a".repeat(40));
+      symlinkSync(path.join(root, "other-revision"), revision);
+      expect(() => resolveContentReleaseRuntime(root, values)).toThrow("REJECTED");
+    } finally { rmSync(root, { recursive: true, force: true }); }
+  });
 });
