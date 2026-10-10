@@ -57,12 +57,21 @@ test('live authentication smoke signs the exact bytes and never invalidates cont
     await assert.rejects(probe(file, 'https://example.test/api/content-release/revalidate', async () => Response.json({ ok: true, revalidated_paths: ['/llms-full.txt'], rejected_paths: [], invalidated_tags: [] })), /CONTRACT/);
   } finally { rmSync(root, { recursive: true, force: true }); }
 });
-test('only the existing production activation receives credentials; builds and staging remain independent', () => {
+test('staging and production activation receive environment-scoped credentials; builds do not', () => {
   const workflow = readFileSync('.github/workflows/deploy.yml', 'utf8');
+  const staging = workflow.split('\n  staging:')[1].split('\n  production:')[0];
   const production = workflow.split('\n  production:')[1];
-  for (const key of KEYS) {
-    assert.ok(production.includes(`secrets.${key}`));
-    assert.equal(workflow.split('\n  production:')[0].includes(`secrets.${key}`), false);
+  for (const activation of [staging, production]) {
+    for (const key of KEYS) assert.ok(activation.includes(`secrets.${key}`));
+    assert.ok(activation.includes('REQUIRE_CONTENT_RELEASE_REVALIDATION: "1"'));
   }
-  assert.ok(production.includes('REQUIRE_CONTENT_RELEASE_REVALIDATION: "1"'));
+  const ci = readFileSync('.github/workflows/ci.yml', 'utf8');
+  for (const key of KEYS) assert.equal(ci.includes(`secrets.${key}`), false);
+});
+test('local replay storage is limited to the staging loopback ACL identity', () => {
+  const local = 'redis://fm-staging-revalidation@127.0.0.1:6379/0';
+  assert.equal(validate({ ...values, [KEYS[1]]: local })[KEYS[1]], local);
+  for (const url of [local.replace('127.0.0.1', 'redis.example.test'), local.replace('/0', '/1'), local.replace('fm-staging-revalidation', 'default'), local + '?x=1', local.replace('redis:', 'http:')]) {
+    assert.throws(() => validate({ ...values, [KEYS[1]]: url }), /URL/);
+  }
 });

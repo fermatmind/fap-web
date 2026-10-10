@@ -12,7 +12,8 @@ export function validate(values) {
   }
   if (values[KEYS[0]].length < 24) throw new Error('INVALID_RUNTIME_SECRET');
   const url = new URL(values[KEYS[1]]);
-  if (url.protocol !== 'https:' || !url.hostname || url.username || url.password || url.hash) throw new Error('INVALID_REPLAY_STORE_URL');
+  const local = url.protocol === 'redis:' && url.hostname === '127.0.0.1' && url.port === '6379' && url.username === 'fm-staging-revalidation' && url.pathname === '/0' && !url.password && !url.hash && !url.search;
+  if (!local && (url.protocol !== 'https:' || !url.hostname || url.username || url.password || url.hash)) throw new Error('INVALID_REPLAY_STORE_URL');
   return Object.fromEntries(KEYS.map(key => [key, values[key]]));
 }
 export function readConfig(file) {

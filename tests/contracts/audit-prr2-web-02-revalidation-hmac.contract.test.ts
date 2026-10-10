@@ -1,5 +1,7 @@
 import { createHmac } from "node:crypto";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createClient } from "@redis/client";
+vi.mock("@redis/client", () => ({ createClient: vi.fn() }));
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 
 const NOW = 1_800_000_000;
@@ -82,4 +84,24 @@ describe("AUDIT-PRR2-WEB-02 revalidation HMAC boundary", () => {
     process.env.CONTENT_RELEASE_REVALIDATE_SECRET = SECRET;
     await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ ok: false, status: 503 });
   });
+  it("uses only the local ACL identity and closes every bounded Redis command", async () => {
+    configure();
+    process.env.CONTENT_RELEASE_REVALIDATE_REDIS_URL = "redis://fm-staging-revalidation@127.0.0.1:6379/0";
+    const sendCommand = vi.fn().mockResolvedValueOnce("OK").mockResolvedValueOnce(1).mockResolvedValueOnce(1);
+    const destroy = vi.fn();
+    vi.mocked(createClient).mockReturnValue({ on: vi.fn(), connect: vi.fn().mockResolvedValue(undefined), sendCommand, destroy, isOpen: true } as unknown as ReturnType<typeof createClient>);
+    await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ ok: true });
+    expect(destroy).toHaveBeenCalledTimes(3);
+    expect(sendCommand.mock.calls.map(call => call[0][0])).toEqual(["SET", "INCR", "EXPIRE"]);
+    sendCommand.mockResolvedValueOnce(null);
+    await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ errorCode: "REPLAY_DETECTED" });
+    const before = vi.mocked(createClient).mock.calls.length;
+    process.env.CONTENT_RELEASE_REVALIDATE_REDIS_URL = "redis://fm-staging-revalidation@remote.example.test:6379/0";
+    await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ status: 503 });
+    expect(vi.mocked(createClient).mock.calls.length).toBe(before);
+    process.env.CONTENT_RELEASE_REVALIDATE_REDIS_URL = "redis://fm-staging-revalidation@127.0.0.1:6379/0";
+    vi.mocked(createClient).mockReturnValue({ on: vi.fn(), connect: vi.fn().mockRejectedValue(new Error("offline")), destroy, isOpen: false } as unknown as ReturnType<typeof createClient>);
+    await expect(authenticateContentReleaseRevalidation(request(), BODY, NOW)).resolves.toMatchObject({ status: 503 });
+  });
+
 });

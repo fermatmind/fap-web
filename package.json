@@ -70,6 +70,7 @@
     "perf:audit:public": "node scripts/performance/audit-public-performance.mjs"
   },
   "dependencies": {
+    "@redis/client": "6.3.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
     "mime-types": "^3.0.2",
