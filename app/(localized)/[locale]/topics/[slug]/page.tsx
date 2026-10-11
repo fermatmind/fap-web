@@ -151,10 +151,11 @@ export default async function TopicDetailPage({
       }))
     : extractTopicFaqItems(topic.sections);
   const landingSurface = topic.landingSurface;
+  const isReviewedBigFive = locale === "en" && topic.slug === "big-five";
+  const heroTexts = new Set([topic.title, topic.subtitle, topic.excerpt].map((text) => text.trim()));
   const summaryBlocks = landingSurface?.summaryBlocks.slice(0, 2) ?? [];
-  const visibleSummaryBlocks = locale === "en" && topic.slug === "big-five"
+  const visibleSummaryBlocks = isReviewedBigFive
     ? summaryBlocks.map((block) => {
-        const heroTexts = new Set([topic.title, topic.subtitle, topic.excerpt].map((text) => text.trim()));
         return {
           ...block,
           title: heroTexts.has(block.title.trim()) ? "" : block.title,
@@ -392,6 +393,7 @@ export default async function TopicDetailPage({
           <AnswerSurfaceSection
             surface={answerSurface}
             locale={locale}
+            hideSummaryBlocks={isReviewedBigFive && (answerSurface?.summaryBlocks.every((block) => heroTexts.has(block.title.trim()) && heroTexts.has(block.body.trim())) ?? false)}
             testId="topic-detail-answer-surface"
             pageFamily="topic_detail"
           />

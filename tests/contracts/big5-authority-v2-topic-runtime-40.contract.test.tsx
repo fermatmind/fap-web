@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { normalizeTopicProfileDetail, type CmsTopicProfile } from "@/lib/cms/topics";
 import { normalizeLandingSurface } from "@/lib/landing/landingSurface";
+import { normalizeAnswerSurface } from "@/lib/answer/answerSurface";
 
 const ROOT = process.cwd();
 
@@ -92,14 +93,20 @@ describe("BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40", () => {
     topic.landingSurface = normalizeLandingSurface({
       summary_blocks: [{ key: "intro", title: topic.title, body, kind: "content_summary" }],
     });
+    topic.answerSurface = normalizeAnswerSurface({
+      summary_blocks: [{ key: "topic_summary", title: topic.title, body, kind: "answer_first" }],
+    });
     const originalSummary = topic.landingSurface?.summaryBlocks;
     const { page } = await importTopicPage({ topic });
     const html = renderToStaticMarkup(await page.default({ params: Promise.resolve({ locale, slug: "big-five" }) }));
     expect(html.includes('data-testid="topic-detail-landing-summary"')).toBe(hasSummary);
+    expect(html.includes('data-testid="topic-detail-answer-surface"')).toBe(hasSummary);
     expect(html).toContain(topic.title);
     expect(html).toContain(body);
     if (locale === "en" && hasSummary) {
-      expect(html).not.toContain(`<p class="m-0 text-sm font-medium text-[var(--fm-text)]">${topic.title}</p>`);
+      const root = document.createElement("div");
+      root.innerHTML = html;
+      expect(root.querySelector('[data-testid="topic-detail-landing-summary"]')?.textContent).not.toContain(topic.title);
     }
     expect(topic.landingSurface?.summaryBlocks).toEqual(originalSummary);
   });
