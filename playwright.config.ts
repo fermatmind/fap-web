@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === "1";
 const productionServerMode = process.env.PLAYWRIGHT_SERVER_MODE === "production";
+const diagnosticsDirectory = `test-results/${productionServerMode ? "release" : "default"}`;
 const localApiOrigin =
   process.env.NEXT_PUBLIC_API_URL?.trim() ||
   (productionServerMode ? "https://api.fermatmind.com" : "http://127.0.0.1:8000");
@@ -18,6 +19,11 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   retries: process.env.CI ? 1 : 0,
+  outputDir: diagnosticsDirectory,
+  reporter: [
+    ["list"],
+    ["json", { outputFile: `${diagnosticsDirectory}/results.json` }],
+  ],
   use: {
     baseURL: "http://127.0.0.1:3000",
     colorScheme: "light",
