@@ -45,7 +45,7 @@ test('changed E2E helpers select their transitive browser consumers and execute 
   const helper='tests/e2e/helpers/api.ts',bridge='tests/e2e/helpers/flow.ts',spec='tests/e2e/iq.spec.ts';
   writeFileSync(root+'/'+helper,'export const api=true;');
   writeFileSync(root+'/'+bridge,"export {api} from './api';");
-  writeFileSync(root+'/'+spec,"import {api} from './helpers/flow';");
+  writeFileSync(root+'/'+spec,"import {api} from './helpers/flow';\ntest('unlabelled required business scenario',()=>{});");
   writeFileSync(root+'/tests/e2e/other.spec.ts','export {};');
   const plan=changedTestPlan([{status:'M',path:helper}],{vitest:true,root});
   assert.deepEqual(plan.e2e,[spec]);
@@ -54,7 +54,7 @@ test('changed E2E helpers select their transitive browser consumers and execute 
   for(const mode of ['e2e','e2e-release']){
    const calls=[];
    runChangedTests(plan,{mode,root,run:(cmd,args)=>{calls.push({cmd,args});return {status:0};}});
-   assert.deepEqual(calls,[{cmd:'pnpm',args:['exec','playwright','test',spec,...(mode==='e2e-release'?['--grep','@release']:[])]}]);
+   assert.deepEqual(calls,[{cmd:'pnpm',args:['exec','playwright','test',spec]}]);
    assert.throws(()=>runChangedTests(plan,{mode,root,run:()=>({status:1})}),/execution failed/);
   }
   const unused='tests/e2e/helpers/unused.ts';writeFileSync(root+'/'+unused,'export {};');

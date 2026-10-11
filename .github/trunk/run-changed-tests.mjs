@@ -67,7 +67,9 @@ sys.exit(0 if unittest.TextTestRunner().run(suite).wasSuccessful() else 1)`,path
   for(const path of plan.shell)execute('bash',[path],'.');
  }
  if(mode==='e2e'||mode==='e2e-release'){
-  if(plan.e2e.length)execute('pnpm',['exec','playwright','test',...plan.e2e,...(mode==='e2e-release'?['--grep','@release']:[])],'.');
+  // The changed-file plan is already bounded. Every selected scenario must
+  // execute against production too, including files without an @release tag.
+  if(plan.e2e.length)execute('pnpm',['exec','playwright','test',...plan.e2e],'.');
  }else if(mode!=='legacy')throw new Error('UNKNOWN_CHANGED_TEST_MODE');
  if(mode==='legacy'&&plan.php.length)execute('php',['artisan','test',...plan.php.map(p=>p.replace(/^backend\//,'')),'--no-ansi'],'backend');
  return calls;
