@@ -401,8 +401,8 @@ const HOMEPAGE_FREE_TRUST_TITLE = {
 } as const;
 
 const HOMEPAGE_FREE_TRUST_SUMMARY = {
-  zh: "我们的测评结合心理学理论与测评方法设计。你可以免费完成测试，获得清晰易懂的结果。",
-  en: "Our assessments draw on psychological theory and assessment methods. Take tests for free and get clear, easy-to-understand results.",
+  zh: "我们的测评结合科学理论与测评方法，注重结构完整、逻辑清晰和多维度分析。免费完成测试，获得全面、易懂的结果解读。",
+  en: "Our assessments draw on scientific theory and assessment methods, combining complete test structures, clear logic, and multidimensional analysis. Take tests for free and get comprehensive, easy-to-understand results.",
 } as const;
 
 function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
