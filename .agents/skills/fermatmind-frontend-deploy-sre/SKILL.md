@@ -1,6 +1,6 @@
 ---
 name: fermatmind-frontend-deploy-sre
-description: Verify, deploy, diagnose, and roll back FermatMind fap-web releases through the protected GitHub exact-SHA control plane. Use for staging or production web deployment readiness, standalone artifact and staging-receipt verification, PM2/OpenResty health, curl --resolve origin checks, post-deploy smoke, or read-only deployment incident assessment on the Alibaba three-node topology.
+description: Verify, deploy, diagnose, and roll back FermatMind fap-web releases through the protected GitHub exact-SHA control plane. Use for staging or production web deployment readiness, standalone artifact and staging evidence verification, PM2/OpenResty health, curl --resolve origin checks, post-deploy smoke, or read-only deployment incident assessment on the Alibaba three-node topology.
 ---
 
 # FermatMind Frontend Deploy SRE
@@ -20,7 +20,7 @@ Operate `fap-web` through the four-workflow trunk control plane. Keep DNS/certif
 - Resolve and bind one full 40-character pushed SHA. Never substitute a newer `main` SHA while that activation is in flight.
 - Use an isolated worktree from `origin/main` for source inspection or changes. Do not touch an active dirty worktree.
 - Bind the exact `ci.yml` receipt, classifier result, and attested artifact; the main ruleset does not carry required checks.
-- Use only the exact-SHA standalone artifact produced by CI and the unexpired staging receipt bound to it.
+- Use only the exact-SHA standalone artifact produced by CI and the successful staging result from the same deploy workflow.
 - Deploy production only through `deploy.yml`; every pushed SHA uses its successful exact-SHA CI artifact and staging result. Never copy Tencent artifacts, build on production, edit `current`, or run direct PM2 promotion.
 - Apply changed OpenResty public ingress only through the post-production ingress job in `deploy.yml`.
 - Treat SSH as read-only outside the exact deployment or incident-recovery job that owns the bounded write.
@@ -33,18 +33,18 @@ Operate `fap-web` through the four-workflow trunk control plane. Keep DNS/certif
 1. Fetch `origin` and record `origin/main` plus the requested deployment SHA.
 2. Prove the SHA is `origin/main` or an explicitly selected ancestor contained in `main`.
 3. Resolve the exact push and CI receipt for the SHA.
-4. Require the path-aware CI result and artifact attestation to be successful.
-5. Verify the exact-SHA CI artifact, digest/attestation, successful staging deployment, and unexpired staging receipt.
+4. Before requiring an application artifact or staging evidence, resolve the release classifier union of pushed paths and unreleased runtime differences. A pure docs/rules change with no pending runtime requires exact-SHA CI and deploy-skip only; report staging/production as not applicable and finish closeout. Do not infer deploy-skip from the current diff alone.
+5. For runtime-selected releases, require successful path-aware CI and verify its exact-SHA artifact digest/attestation and transport binding, the successful staging job in the same deploy workflow, staging-timing.json, and installer deploy-outcome.json.
 6. Run `NEXT_PUBLIC_API_URL="$API_PUBLIC_HOST" pnpm check:cms-api` when the release consumes backend CMS/API data.
 7. Confirm no conflicting production mutation workflow is active.
 8. With read-only SSH authorization, verify public `/revision`, active release identity, PM2 state, and origin health.
-9. Classify the delta as `runtime-impacting`, `skill-docs-only`, `generated-static`, or `unknown`. Skip production for a docs-only delta unless explicitly requested.
+9. Keep the classifier-selected scope through activation and closeout. A chat request does not bypass that classification.
 
 ## Staging
 
 - Let successful exact-SHA `ci.yml` trigger staging inside `deploy.yml`; no manual staging path exists.
 - Require the workflow to consume the CI standalone artifact; do not build or copy an application on the host.
-- Verify the staging receipt binds repository, SHA, CI run/attempt, artifact digest, environment, revision, and smoke result.
+- Verify the policy job binds the exact CI run/attempt and artifact/transport digests; the staging job must succeed for that SHA in the same deploy workflow. Read staging-timing.json and deploy-outcome.json for the actual activation and smoke outcome. The standalone staging-receipt.mjs script is not called by the current workflow; do not require an invented receipt or expiry proof.
 - Verify staging Web/API, login entry, MBTI, static chunks, and CMS-backed pages before production eligibility.
 
 ## Automatic production
@@ -74,7 +74,7 @@ Use `curl --resolve` before DNS changes. A successful application deploy does no
 
 - If transfer fails before promotion, preserve the resumable partial artifact and stop. Repair with a new commit; its successful exact-SHA CI starts a fresh automatic run.
 - If promotion or connection state is ambiguous, switch to `incident`; inspect revision, active release, receipt, PM2, and workflow checkpoints read-only.
-- If smoke fails after activation, the installer restores the prior immutable LKG in the same attempt; enter manual recovery only if that restoration fails.
+- For smoke inside installer phase=verify before install_complete, inspect the same-attempt prior-LKG restore and recovery verification. A later outer receipt/revision check after install_complete is a different boundary: do not assume it restored the release. Diagnose current health read-only; use incident recovery only for a real incident after applicable automatic restoration failed.
 - Never unlock, restart, terminate, edit, or roll back during diagnosis.
 
 ## Validation for Skill changes
@@ -91,4 +91,4 @@ Follow [AGENTS.md — Delivery closeout](../../../AGENTS.md#delivery-closeout): 
 
 ## Output
 
-Report exact SHA, ruleset evidence, CI artifact and staging receipt identity, production run ID, deployed revision, PM2 and smoke status, actions performed or skipped, rollback readiness, and remaining risks. Mention a PR only for the one-time transition or when the user explicitly requests one. Do not print infrastructure secrets or raw connection values.
+Report exact SHA, ruleset evidence, CI artifact and actual staging evidence identity, production run ID, deployed revision, PM2 and smoke status, actions performed or skipped, rollback readiness, and remaining risks. Mention a PR only for the one-time transition or when the user explicitly requests one. Do not print infrastructure secrets or raw connection values.

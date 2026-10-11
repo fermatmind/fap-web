@@ -1,6 +1,6 @@
 # Topology and control plane
 
-Last verified: 2026-08-10.
+Deployment roles below must be checked against the exact candidate workflow and current Environment inputs.
 
 ## Runtime roles
 
@@ -21,18 +21,13 @@ The repository has exactly four entrypoints:
 
 Historical task-specific deployment workflow names are not authority after trunk cutover.
 
-- `.github/workflows/ci.yml`: exact-SHA standalone artifact and attestations.
-- `.github/workflows/deploy-staging.yml`: exact latest-main staging deployment and receipt.
-- `.github/workflows/deploy-production.yml`: exact-SHA production application deployment; merged-PR promotion uses `production-web-auto`, while manual recovery approval remains on protected `production`.
-- `.github/workflows/web-public-ingress.yml`: protected OpenResty ingress preflight/apply/rollback.
-
-Read these files at execution time. Workflow source overrides examples in this reference.
+Read these four files at the exact candidate SHA. Retired deploy-staging/deploy-production/web-public-ingress workflows, required-check lists and merged-PR promotion are historical records, not ordinary entrypoints.
 
 ## Configuration authority
 
 - Deployment connection material belongs only to GitHub `staging`, `production-web-auto`, or `production` Environments.
 - `production-web-auto` contains only application-deployment connection material and has no required reviewer. It must not receive ingress, DNS, CMS, content-release, llms artifact, database, or rollback credentials.
-- `production` remains protected and owns manual recovery plus the existing separately controlled ingress, DNS, CMS, content-release, llms artifact, and rollback operations.
+- `production` holds the existing classifier-selected post-production ingress job and incident recovery boundary. Ordinary ingress applies only the exact repository candidate after same-SHA production smoke; DNS, certificates, CMS/data and other unselected mutations are not implied.
 - Non-secret topology values belong in Environment variables.
 - SSH keys, known-host material, tokens, and sensitive ingress data belong in Environment secrets.
 - Local operations use configured aliases such as `WEB_NODE1_SSH_ALIAS`; never paste key paths or passwords into chat.
@@ -42,14 +37,14 @@ Read these files at execution time. Workflow source overrides examples in this r
 
 ```text
 main SHA
-  -> required checks
+  -> path-aware exact-SHA CI receipt
   -> attested standalone artifact
-  -> successful staging deployment + receipt
+  -> same-workflow staging success + timing + installer outcome
   -> approval-free production-web-auto application promotion
   -> immutable production release + receipt
   -> public revision and product smoke
 ```
 
-Every commit in the promoted range must map unambiguously to a merged PR. A failed or ambiguous deployment is terminal: the workflow does not rerun, redispatch, or roll back automatically.
+Require main containment and the exact successful CI/artifact/staging binding, not a merged PR. Pre-activation failure leaves production unchanged; smoke failure in the installer's verify phase before install_complete invokes its same-attempt bounded LKG restoration. Checks after install_complete require their own outcome and current health readback; do not infer rollback from a failed outer job. Diagnose ambiguity read-only, repair with a new commit, and reserve recovery.yml for a real incident after automatic restoration failed.
 
-An ingress config-set, certificate action, DNS change, database change, CMS publication, content release, llms artifact operation, or manual recovery is not part of this automatic chain and needs its existing protected control.
+Classifier-selected ingress runs inside deploy.yml after production smoke and retains atomic rollback of the ingress candidate. Certificate/DNS changes, CMS/data publication and manual recovery keep their own authority; application activation does not authorize them.

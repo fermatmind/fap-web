@@ -18,7 +18,7 @@
   },
   "source_repository_snapshot": {
     "repository": "fap-web",
-    "sha": "13f3625f7363695b20870691aa8aee6237975305",
+    "sha": "f2d1c26c398fb76768c5e141bfc05b5b3089f957",
     "evidence_state": "verified_worktree"
   },
   "fixed_boundaries": {
@@ -92,8 +92,8 @@
     },
     {
       "path": ".agents/skills/fermatmind-frontend-deploy-sre/SKILL.md",
-      "sha256": "ca542b5a4b24715c2aff7a787e6c190fce1c293555362aa7e1958a0275c6a176",
-      "byte_size": 6722,
+      "sha256": "761135fd262d2f7ddfb35e022c79791a2e153b231e3df8d7b345288742f7b464",
+      "byte_size": 7621,
       "classification": "bounded_capability"
     },
     {
@@ -104,14 +104,14 @@
     },
     {
       "path": ".agents/skills/fermatmind-frontend-deploy-sre/references/incident-and-rollback.md",
-      "sha256": "bc61440890055a67c9cb066fd03d4d537ecb427ac7836f6b3b45c0f219c0ea94",
-      "byte_size": 1730,
+      "sha256": "9edf330b90006fd20fd8d6a9c3f6fc7cd7c99fe29b1c65b265e625e089a27d33",
+      "byte_size": 2269,
       "classification": "bounded_capability"
     },
     {
       "path": ".agents/skills/fermatmind-frontend-deploy-sre/references/topology-and-control-plane.md",
-      "sha256": "f6b23b5711afa1eafc62b5205a9de11cc8aa299443c3ed5379522e14970fe943",
-      "byte_size": 3378,
+      "sha256": "778e913875253e4667f695ccc9ce2dbccd4912cc0a422cc542da3664e814d684",
+      "byte_size": 3643,
       "classification": "bounded_capability"
     },
     {
@@ -2953,5 +2953,5 @@
       "classification": "contract_only"
     }
   ],
-  "projection_self_hash": "01ad96292903a98b4d415b548708f537d37cddcab79f63f0b690be79958e7b4d"
+  "projection_self_hash": "3b5c6c582d151600364072bf7a9a7e0d338b8ff7c0b58ba6145e765d56025335"
 }
