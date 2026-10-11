@@ -701,8 +701,7 @@ function unavailableAssessmentCopy(locale: "en" | "zh") {
 }
 
 function resolveHeldLandingFailure(error: unknown, slug: string) {
-  if (slug === SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68
-    && isClinicalDepressionPendingSlug(slug)
+  if (isClinicalDepressionPendingSlug(slug)
     && isPublicReadError(error)
     && error.kind === "contract") {
     return "held-unavailable" as const;

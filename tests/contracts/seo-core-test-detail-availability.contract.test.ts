@@ -277,8 +277,9 @@ describe("SEO core test detail availability", () => {
     routeMocks.getIqSeoRampAuthorityForLocale.mockResolvedValue(IQ_RAMP_AUTHORITY);
   });
 
-  it.each(["en", "zh"] as const)("renders a held clinical contract failure with explicit unavailable SSR and noindex (%s)", async (locale) => {
-    const slug = SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68;
+  it.each((["en", "zh"] as const).flatMap((locale) =>
+    [SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68, SCALE_CANONICAL_SLUG_MAP.SDS_20].map((slug) => ({ locale, slug }))
+  ))("renders a held $slug contract failure with unavailable SSR and noindex ($locale)", async ({ locale, slug }) => {
     routeMocks.getTestLookup.mockRejectedValue(new PublicReadError({ kind: "contract", cause: { forms: [], private_marker: "do-not-render" } }));
     const metadata = await generateMetadata({ params: Promise.resolve({ locale, slug }) });
     expect(metadata.robots).toMatchObject({ index: false, follow: true });
@@ -298,7 +299,7 @@ describe("SEO core test detail availability", () => {
     expect(markup).not.toContain("loading");
   });
 
-  it.each([SCALE_CANONICAL_SLUG_MAP.MBTI, "depression-screening-test-standard-edition"])("keeps out-of-scope test contract errors fail-closed (%s)", async (slug) => {
+  it.each([SCALE_CANONICAL_SLUG_MAP.MBTI, SCALE_CANONICAL_SLUG_MAP.EQ_60])("keeps non-held test contract errors fail-closed (%s)", async (slug) => {
     const error = new PublicReadError({ kind: "contract" });
     routeMocks.getTestLookup.mockRejectedValue(error);
     await expect(generateMetadata({ params: Promise.resolve({ locale: "zh", slug }) })).rejects.toBe(error);
