@@ -1,4 +1,3 @@
-import { UserRound } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
 
 export function AboutTeamSection({ locale }: { locale: Locale }) {
@@ -15,20 +14,15 @@ export function AboutTeamSection({ locale }: { locale: Locale }) {
         {roles.map((role, index) => (
           <article
             key={`${role}-${index}`}
-            className={`flex gap-5 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 ${index === 0 ? "flex-col sm:flex-row md:col-span-2" : "flex-col"}`}
+            className={`flex flex-col gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 ${index === 0 ? "md:col-span-2" : ""}`}
           >
-            <div className="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-[var(--fm-bg-soft)] text-[var(--fm-text-muted)]" aria-hidden>
-              <UserRound className="h-9 w-9" strokeWidth={1.5} />
-            </div>
-            <div className="flex flex-col gap-3">
-              <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
-              <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
-                {names[index]}
-              </h3>
-              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
-                {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
-              </p>
-            </div>
+            <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
+            <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
+              {names[index]}
+            </h3>
+            <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
+              {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
+            </p>
           </article>
         ))}
       </div>
