@@ -148,6 +148,7 @@ function createRiasecTechnicalNoteResponse() {
     scale_code: "RIASEC",
     technical_note_v1: {
       schema_version: "riasec.technical_note.v1",
+      canonical_locale: "zh-CN",
       scale_code: "RIASEC",
       technical_note_version: "riasec_technical_note.v0.1",
       measurement_contract_version: "riasec.measurement_contract.v1",
@@ -397,4 +398,44 @@ describe("enneagram technical note page contract", () => {
     expect(page).not.toHaveTextContent("success prediction");
     expect(page).not.toHaveTextContent("recommended career");
   });
+  it("requests English and keeps loading, success and failure copy in English", async () => {
+    let finish!: (value: ReturnType<typeof createTechnicalNoteResponse>) => void;
+    hoisted.fetchEnneagramTechnicalNote.mockImplementationOnce(() => new Promise((resolve) => { finish = resolve; }));
+    const view = render(<EnneagramTechnicalNotePage locale="en" testSlug="enneagram-personality-test-nine-types" testTitle="Enneagram" />);
+    expect(screen.getByTestId("enneagram-technical-note-loading")).not.toHaveTextContent(/\p{Script=Han}/u);
+    expect(hoisted.fetchEnneagramTechnicalNote).toHaveBeenCalledWith("en");
+    const response = createTechnicalNoteResponse();
+    response.technical_note_v1.canonical_locale = "en";
+    response.technical_note_v1.sections = response.technical_note_v1.sections.map((section) => ({...section, title: `${section.section_key} method`, body: "A bounded observation, not a diagnosis."}));
+    response.technical_note_v1.method_boundaries.same_model_not_same_score_space = {label:"Separate score spaces", copy:"Do not compare forms.", evidence_level:"descriptive",content_maturity:"p0_ready"};
+    response.technical_note_v1.metric_definitions = response.technical_note_v1.metric_definitions.map((metric) => ({...metric,description:"Aggregate metric.",minimum_sample_guidance:"Wait for a suitable sample.",privacy_notes:"Aggregated only."}));
+    response.technical_note_v1.disclaimers = [];
+    finish(response);
+    expect(await screen.findByTestId("enneagram-technical-note-meta")).toBeInTheDocument();
+    expect(screen.getByTestId("enneagram-technical-note-page")).not.toHaveTextContent(/\p{Script=Han}/u);
+    view.unmount();
+    hoisted.fetchEnneagramTechnicalNote.mockResolvedValueOnce(createTechnicalNoteResponse());
+    render(<EnneagramTechnicalNotePage locale="en" testSlug="enneagram-personality-test-nine-types" testTitle="Enneagram" />);
+    expect(await screen.findByTestId("enneagram-technical-note-error")).not.toHaveTextContent(/\p{Script=Han}/u);
+    expect(screen.queryByTestId("enneagram-technical-note-meta")).not.toBeInTheDocument();
+  });
+
+  it("renders RIASEC in English and rejects a Chinese response for an English request", async () => {
+    const response = createRiasecTechnicalNoteResponse();
+    response.technical_note_v1.canonical_locale = "en";
+    response.technical_note_v1.sections = response.technical_note_v1.sections.map((section) => ({...section,title:`${section.section_key} method`,body:"Interest is not ability or job fit."}));
+    response.technical_note_v1.method_boundaries.content_examples_not_registry_match = {label:"Examples only",copy:"An example is not a job match.",evidence_level:"content_boundary",content_maturity:"v0.1"};
+    response.technical_note_v1.method_boundaries.feedback_no_score_mutation = {label:"Feedback limits",copy:"Feedback does not change scores.",evidence_level:"method_boundary",content_maturity:"v0.1"};
+    response.technical_note_v1.disclaimers = response.technical_note_v1.disclaimers.map((entry) => ({...entry,label:"Use boundary",copy:"No personnel decisions."}));
+    hoisted.fetchRiasecTechnicalNote.mockResolvedValueOnce(response);
+    const view = render(<RiasecTechnicalNotePage locale="en" testSlug="holland-career-interest-test-riasec" testTitle="RIASEC" />);
+    expect(await screen.findByTestId("riasec-technical-note-meta")).toBeInTheDocument();
+    expect(hoisted.fetchRiasecTechnicalNote).toHaveBeenCalledWith("en");
+    expect(screen.getByTestId("riasec-technical-note-page")).not.toHaveTextContent(/\p{Script=Han}/u);
+    view.unmount();
+    hoisted.fetchRiasecTechnicalNote.mockResolvedValueOnce(createRiasecTechnicalNoteResponse());
+    render(<RiasecTechnicalNotePage locale="en" testSlug="holland-career-interest-test-riasec" testTitle="RIASEC" />);
+    expect(await screen.findByTestId("riasec-technical-note-error")).not.toHaveTextContent(/\p{Script=Han}/u);
+  });
+
 });

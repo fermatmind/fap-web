@@ -509,9 +509,9 @@ function getCoreTestAccessibleTitle(locale: Locale, item: HomeCoreTestItem): str
   return getCoreTestKey(item) === IQ_PUBLIC_SLUG ? "IQ 智商测试" : undefined;
 }
 
-function RecommendationStars() {
+function RecommendationStars({ locale }: { locale: Locale }) {
   return (
-    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label="推荐指数 5 星">
+    <span className="flex shrink-0 items-center gap-0.5 text-sm text-[#f2a03a]" aria-label={locale === "en" ? "Recommended: 5 out of 5 stars" : "推荐指数 5 星"}>
       {Array.from({ length: 5 }).map((_, index) => (
         <span key={index} aria-hidden>
           ★
@@ -655,7 +655,7 @@ function TestFeatureCard({ locale, item, priority, index }: { locale: Locale; it
           <h3 aria-label={accessibleTitle} className="m-0 text-lg font-semibold leading-6 tracking-normal text-[#007c9b] underline underline-offset-4 transition group-hover:text-slate-950">
             {title}
           </h3>
-          <RecommendationStars />
+          <RecommendationStars locale={locale} />
         </div>
         <p className="m-0 mt-5 text-base font-normal leading-7 tracking-normal text-slate-700">
           {intro.card}{" "}

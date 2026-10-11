@@ -189,6 +189,12 @@ const EXPECTED_ZH_CARDS = [
 ];
 
 describe("homepage v1 core grid contract", () => {
+  it("localizes recommendation stars on the English homepage", async () => {
+    render(<HomePageExperience locale="en" copy={await getHomePageContent("en")} />);
+    expect(screen.getAllByLabelText("Recommended: 5 out of 5 stars")).toHaveLength(6);
+    expect(screen.queryByLabelText("推荐指数 5 星")).not.toBeInTheDocument();
+  });
+
   it("renders exactly six core test cards with four fields each", async () => {
     render(<HomePageExperience locale="zh" copy={await getHomePageContent("zh")} />);
     const gridHeading = screen.getByRole("heading", { level: 2, name: "热门测评" });
