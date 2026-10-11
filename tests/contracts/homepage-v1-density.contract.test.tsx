@@ -206,6 +206,17 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByText("可以先匿名开始，再决定是否保存。")).not.toBeInTheDocument();
   });
 
+  it.each([
+    ["zh", "博士团队", "专业团队参与测评方法、题目设计与边界复核。", "了解团队"],
+    ["en", "Doctoral team", "A specialist team takes part in assessment methods, item design, and boundary review.", "Meet the team"],
+  ] as const)("restores the %s doctoral team introduction and localized link", (locale, title, description, linkLabel) => {
+    render(<HomePageExperience locale={locale} copy={homeCopy} />);
+
+    const card = screen.getByRole("heading", { level: 3, name: title }).closest("article");
+    expect(card).toHaveTextContent(description);
+    expect(screen.getByRole("link", { name: linkLabel })).toHaveAttribute("href", `/${locale}/about`);
+  });
+
   it("does not import form-version helpers or heavy result preview in the homepage component", () => {
     const source = read("components/marketing/HomePageExperience.tsx");
 
@@ -353,7 +364,7 @@ describe("homepage v1 density contract", () => {
     expect(
       screen.getAllByRole("link", { name: /开始测试/ }).some((link) => link.getAttribute("href") === "/zh/tests")
     ).toBe(true);
-    expect(screen.getByRole("link", { name: "了解项目" })).toHaveAttribute("href", "/zh/about");
+    expect(screen.getByRole("link", { name: "了解团队" })).toHaveAttribute("href", "/zh/about");
     expect(screen.getByRole("link", { name: "查看公共利益" })).toHaveAttribute("href", "/zh/foundation");
     expect(document.body.textContent ?? "").not.toContain("抑郁焦虑综合症测试");
     expect(document.body.innerHTML).not.toContain("clinical-depression-anxiety-assessment-professional-edition");

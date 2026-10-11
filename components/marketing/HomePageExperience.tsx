@@ -766,12 +766,12 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
                       links: [{ href: "/method-boundaries", title: locale === "zh" ? "查看方法边界" : "View method boundaries" }],
                     }
                   : {
-                      title: locale === "zh" ? "项目介绍" : "About FermatMind",
+                      title: locale === "zh" ? "博士团队" : "Doctoral team",
                       description:
                         locale === "zh"
-                          ? "了解 FermatMind 的项目介绍与使用边界。"
-                          : "Read about FermatMind and its intended uses and boundaries.",
-                      links: [{ href: "/about", title: locale === "zh" ? "了解项目" : "About FermatMind" }],
+                          ? "专业团队参与测评方法、题目设计与边界复核。"
+                          : "A specialist team takes part in assessment methods, item design, and boundary review.",
+                      links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
                     };
 
             return (
