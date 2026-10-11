@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { normalizeTopicProfileDetail, type CmsTopicProfile } from "@/lib/cms/topics";
+import { normalizeLandingSurface } from "@/lib/landing/landingSurface";
 
 const ROOT = process.cwd();
 
@@ -82,6 +83,27 @@ afterEach(() => {
 });
 
 describe("BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40", () => {
+  it.each([
+    ["en", "Backend excerpt", false],
+    ["en", "A distinct reader boundary.", true],
+    ["zh", "后端摘要", true],
+  ] as const)("avoids only repeated English Big Five hero copy (%s, %s)", async (locale, body, hasSummary) => {
+    const topic = publishedTopic(locale === "zh" ? "zh-CN" : "en");
+    topic.landingSurface = normalizeLandingSurface({
+      summary_blocks: [{ key: "intro", title: topic.title, body, kind: "content_summary" }],
+    });
+    const originalSummary = topic.landingSurface?.summaryBlocks;
+    const { page } = await importTopicPage({ topic });
+    const html = renderToStaticMarkup(await page.default({ params: Promise.resolve({ locale, slug: "big-five" }) }));
+    expect(html.includes('data-testid="topic-detail-landing-summary"')).toBe(hasSummary);
+    expect(html).toContain(topic.title);
+    expect(html).toContain(body);
+    if (locale === "en" && hasSummary) {
+      expect(html).not.toContain(`<p class="m-0 text-sm font-medium text-[var(--fm-text)]">${topic.title}</p>`);
+    }
+    expect(topic.landingSurface?.summaryBlocks).toEqual(originalSummary);
+  });
+
   it("opts Topic detail out of static/ISR HTML while retaining the bounded backend data cache", () => {
     const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
 

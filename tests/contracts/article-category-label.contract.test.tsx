@@ -21,6 +21,26 @@ const data = (name: string) => ({ blog: blog(name), items: [article], landingSur
 
 afterEach(() => { vi.doUnmock("@/lib/cms/articles"); vi.resetModules(); });
 describe("article badges use published CMS category labels", () => {
+  it.each([
+    ["en", "gaokao-major-adjustment-unacceptable-major-checklist", true],
+    ["zh", "gaokao-major-adjustment-unacceptable-major-checklist", false],
+    ["en", article.slug, false],
+  ] as const)("keeps the reviewed checklist table readable without widening other articles (%s, %s)", async (locale, slug, scrollable) => {
+    vi.resetModules();
+    const contentMd = "| Sequence | Do not ask first | Check first | Output |\n| --- | --- | --- | --- |\n| 1 | Is this school worth applying for? | Check the application model | A verified list |";
+    vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: { ...article, locale, slug, contentMd }, source: "fresh" })),
+      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null, source: "fresh" })),
+      getCmsArticlesWithLastKnownGood: vi.fn(async () => ({ value: data("Career and learning choices"), source: "fresh", stale: false })),
+    }));
+    const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
+    const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale, slug }) }));
+    expect(html.includes('role="region"')).toBe(scrollable);
+    expect(html.includes('min-width:640px')).toBe(scrollable);
+    if (scrollable) expect(html).toContain('aria-label="Horizontally scrollable table" tabindex="0"');
+    expect(html).toContain("A verified list");
+  });
+
   it.each(["Career and learning choices", "职业探索"])("uses locale authority for EQ category comparison cards: %s", async (name) => {
     vi.resetModules();
     const compareBlocks = [

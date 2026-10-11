@@ -151,6 +151,17 @@ export default async function TopicDetailPage({
       }))
     : extractTopicFaqItems(topic.sections);
   const landingSurface = topic.landingSurface;
+  const summaryBlocks = landingSurface?.summaryBlocks.slice(0, 2) ?? [];
+  const visibleSummaryBlocks = locale === "en" && topic.slug === "big-five"
+    ? summaryBlocks.map((block) => {
+        const heroTexts = new Set([topic.title, topic.subtitle, topic.excerpt].map((text) => text.trim()));
+        return {
+          ...block,
+          title: heroTexts.has(block.title.trim()) ? "" : block.title,
+          body: heroTexts.has(block.body.trim()) ? "" : block.body,
+        };
+      }).filter((block) => block.title || block.body)
+    : summaryBlocks;
   const topicRuntimeAuthority = resolveTopicRuntimeAuthority({
     slug: topic.slug,
     hasLandingSurfaceCtaBundle: Boolean(landingSurface?.ctaBundle.length),
@@ -280,9 +291,9 @@ export default async function TopicDetailPage({
             </Link>
           </div>
         ) : null}
-        {!isIqEqTopic && landingSurface?.summaryBlocks.length ? (
+        {!isIqEqTopic && visibleSummaryBlocks.length ? (
           <div className="space-y-2 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4" data-testid="topic-detail-landing-summary">
-            {landingSurface.summaryBlocks.slice(0, 2).map((block) => (
+            {visibleSummaryBlocks.map((block) => (
               <div key={block.key}>
                 {block.title ? <p className="m-0 text-sm font-medium text-[var(--fm-text)]">{block.title}</p> : null}
                 {block.body ? <p className="m-0 mt-1 text-sm leading-7 text-[var(--fm-text-muted)]">{block.body}</p> : null}
