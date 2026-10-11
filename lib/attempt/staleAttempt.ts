@@ -100,12 +100,14 @@ export function shouldBlockInvalidDraftOnTakePage({
   answeredCount,
   totalQuestions,
   attemptId,
+  attemptStarting = false,
 }: {
   answeredCount: number;
   totalQuestions: number;
   attemptId?: string | null;
+  attemptStarting?: boolean;
 }): boolean {
-  return isDraftNearComplete(answeredCount, totalQuestions) && String(attemptId ?? "").trim().length === 0;
+  return !attemptStarting && isDraftNearComplete(answeredCount, totalQuestions) && String(attemptId ?? "").trim().length === 0;
 }
 
 export function resolveStaleDraftResetMessage(locale: SupportedTakeLocale): string {

@@ -114,6 +114,12 @@ describe("stale attempt recovery", () => {
     expect(isStaleAttemptSubmitError(buildNotFoundError())).toBe(true);
   });
 
+  it("allows a completed live answer while attempt creation is pending, then blocks an orphan after failure", () => {
+    expect(shouldBlockInvalidDraftOnTakePage({ answeredCount: 1, totalQuestions: 1, attemptId: null, attemptStarting: true })).toBe(false);
+    expect(shouldBlockInvalidDraftOnTakePage({ answeredCount: 1, totalQuestions: 1, attemptId: null, attemptStarting: false })).toBe(true);
+    expect(shouldBlockInvalidDraftOnTakePage({ answeredCount: 3, totalQuestions: 3, attemptId: "created-attempt", attemptStarting: false })).toBe(false);
+  });
+
   it("treats different-answer resubmit conflicts as recoverable stale submit errors", async () => {
     const clearAttemptState = vi.fn();
     const startFreshAttempt = vi.fn().mockResolvedValue("attempt-fresh-conflict-001");

@@ -61,6 +61,19 @@ describe("MBTI auto-advance input lock contract", () => {
     expect(onComplete).toHaveBeenCalledTimes(1);
   });
 
+  it("uses the latest completion callback after the pending attempt becomes available", async () => {
+    const beforeAttemptReady = vi.fn();
+    const afterAttemptReady = vi.fn();
+    const { rerender } = render(<MbtiAutoAdvanceHarness onComplete={beforeAttemptReady} />);
+    fireEvent.click(screen.getByRole("button", { name: "answer" }));
+    await act(async () => vi.advanceTimersByTimeAsync(200));
+    fireEvent.click(screen.getByRole("button", { name: "answer" }));
+    rerender(<MbtiAutoAdvanceHarness onComplete={afterAttemptReady} />);
+    await act(async () => vi.advanceTimersByTimeAsync(200));
+    expect(beforeAttemptReady).not.toHaveBeenCalled();
+    expect(afterAttemptReady).toHaveBeenCalledTimes(1);
+  });
+
   it("keeps the production completion counter bound to the recorded answer map", () => {
     const source = readFileSync(
       "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",

@@ -1,3 +1,4 @@
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
@@ -267,7 +268,8 @@ test("ready and purchased compare pages render public-safe compare data without 
   await expect(page.getByTestId("mbti-compare-summary-card")).toContainText("Shared chemistry and friction points");
 });
 
-test("take flow submit lands on the compare page when compare_invite_id is present", async ({ page }) => {
+for (const scenario of [{ count: 1, startDelay: 0, name: "take flow submit lands on the compare page when compare_invite_id is present" }, { count: 3, startDelay: 1200, name: "delayed attempt creation preserves the final answer and compare attribution" }]) {
+test(scenario.name, async ({ page }) => {
   const inviteId = "invite-redirect-001";
   const startBodies: Array<Record<string, unknown>> = [];
   const submitBodies: Array<Record<string, unknown>> = [];
@@ -324,19 +326,17 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
         ok: true,
         scale_code: "MBTI",
         questions: {
-          items: [
-            {
-              question_id: "q1",
-              order: 1,
-              text: "Question 1",
+          items: Array.from({ length: scenario.count }, (_, index) => ({
+              question_id: `q${index + 1}`,
+              order: index + 1,
+              text: `Question ${index + 1}`,
               options: [
                 { code: "A", text: "Option A" },
                 { code: "B", text: "Option B" },
                 { code: "C", text: "Option C" },
                 { code: "D", text: "Option D" },
               ],
-            },
-          ],
+          })),
         },
       }),
     });
@@ -344,6 +344,7 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
 
   await page.route("**/api/v0.3/attempts/start", async (route) => {
     startBodies.push(route.request().postDataJSON() as Record<string, unknown>);
+    if (scenario.startDelay) await new Promise(resolve => setTimeout(resolve, scenario.startDelay));
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -378,6 +379,10 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
   await page.goto(`/en/tests/mbti-personality-test-16-personality-types/take?share_id=share-123&compare_invite_id=${inviteId}&share_click_id=click-123&entrypoint=share_compare_invite&landing_path=%2Fen%2Fshare%2Fshare-123&referrer=https%3A%2F%2Fexample.com%2Fen%2Fshare%2Fshare-123&utm_source=wechat&utm_medium=organic&utm_campaign=pr07b&compare_intent=true`);
   await expect(page.getByRole("heading", { name: "Question 1" })).toBeVisible({ timeout: 15000 });
 
+  for (let index = 1; index < scenario.count; index += 1) {
+    await page.getByRole("radio").first().click();
+    await expect(page.getByRole("heading", { name: `Question ${index + 1}`, exact: true })).toBeVisible();
+  }
   const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
     page,
     option: page.getByRole("radio").first(),
@@ -386,6 +391,8 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
   });
 
   expect(submitResponse.status()).toBe(200);
+  expect(submitBodies[0].answers).toHaveLength(scenario.count);
+  expect(startBodies).toHaveLength(1);
   await expect(page.getByTestId("mbti-compare-invite-view")).toBeVisible();
   await expect(page.getByTestId("mbti-compare-summary-card")).toContainText("Shared chemistry and friction points");
 
@@ -394,8 +401,8 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
     compare_invite_id: inviteId,
     share_click_id: "click-123",
     entrypoint: "share_compare_invite",
-    landing_path: "/en/share/share-123",
-    referrer: "https://example.com/en/share/share-123",
+    landing_path: "private_route:share",
+    referrer: "private_route:share",
     utm: {
       source: "wechat",
       medium: "organic",
@@ -409,8 +416,8 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
     compare_invite_id: inviteId,
     share_click_id: "click-123",
     entrypoint: "share_compare_invite",
-    landing_path: "/en/share/share-123",
-    referrer: "https://example.com/en/share/share-123",
+    landing_path: "private_route:share",
+    referrer: "private_route:share",
     utm: {
       source: "wechat",
       medium: "organic",
@@ -420,3 +427,10 @@ test("take flow submit lands on the compare page when compare_invite_id is prese
     },
   });
 });
+
+}
+
+// Server-rendered catalog/rollout requests require a real local HTTP fixture.
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

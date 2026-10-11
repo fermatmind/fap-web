@@ -28,6 +28,7 @@ export function useAutoAdvanceFlow({
 
   const indexRef = useRef(currentIndex);
   const totalRef = useRef(total);
+  const onLastRef = useRef(onLast);
   const confirmTimerRef = useRef<number | null>(null);
   const settleTimerRef = useRef<number | null>(null);
   const transitionLockRef = useRef(false);
@@ -39,6 +40,10 @@ export function useAutoAdvanceFlow({
   useEffect(() => {
     totalRef.current = total;
   }, [total]);
+
+  useEffect(() => {
+    onLastRef.current = onLast;
+  }, [onLast]);
 
   const clearConfirmTimer = () => {
     if (confirmTimerRef.current) {
@@ -99,7 +104,7 @@ export function useAutoAdvanceFlow({
         }
 
         if (idx >= safeTotal - 1) {
-          void onLast(selection);
+          void onLastRef.current(selection);
           setTransitionDirection("none");
           return;
         }
@@ -110,7 +115,7 @@ export function useAutoAdvanceFlow({
 
       return true;
     },
-    [confirmDelayMs, lockDuringTransition, onLast, onMove, settleToIdle]
+    [confirmDelayMs, lockDuringTransition, onMove, settleToIdle]
   );
 
   const goPrevious = useCallback(() => {

@@ -1133,6 +1133,7 @@ function QuizTakeInner({
     answeredCount,
     totalQuestions: total,
     attemptId,
+    attemptStarting: Boolean(ensureAttemptPromiseRef.current),
   });
 
   const compareRedirectInviteId =
