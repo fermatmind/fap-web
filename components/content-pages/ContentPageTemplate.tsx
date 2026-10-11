@@ -297,11 +297,19 @@ function buildRelatedLinks(page: ContentPageReaderView, locale: Locale, blocks: 
       { slug: "help-contact", label: locale === "zh" ? "联系方式" : "Contact" },
     ];
 
-    return helpLinks.filter((item) => item.slug !== page.slug).map((item) => ({
+    const lifecycleLinks: RelatedLink[] = ["help-faq", "help-contact"].includes(page.slug)
+      ? [
+          { key: "order-lookup", label: locale === "zh" ? "订单查询与报告找回" : "Order lookup and report recovery", href: localizedPath("/orders/lookup", locale) },
+          { key: "email-preferences", label: locale === "zh" ? "邮件偏好" : "Email preferences", href: localizedPath("/email/preferences", locale) },
+          { key: "email-unsubscribe", label: locale === "zh" ? "退订邮件" : "Unsubscribe", href: localizedPath("/email/unsubscribe", locale) },
+        ]
+      : [];
+
+    return [...lifecycleLinks, ...helpLinks.filter((item) => item.slug !== page.slug).map((item) => ({
       key: item.slug,
       label: item.label,
       href: buildContentPagePath(item.slug, locale),
-    }));
+    }))];
   }
 
   const companyLinks = [

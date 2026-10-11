@@ -62,6 +62,18 @@ describe("HELP-SUPPORT-CONTACT-RUNTIME-01", () => {
     expect(html).not.toMatch(/(?:orderNo|order_no|payment_id|transaction_id|token)=/i);
   });
 
+  it.each((["en", "zh"] as const).flatMap((locale) =>
+    ["help-faq", "help-contact"].map((slug) => ({ locale, slug }))
+  ))("keeps formal recovery and email controls reachable from $slug ($locale)", ({ locale, slug }) => {
+    const html = renderToStaticMarkup(
+      <ContentPageTemplate page={stripContentPageReaderMetadata(makeHelpPage({ slug, supportContact: null }))} locale={locale} />
+    );
+    for (const path of ["/orders/lookup", "/email/preferences", "/email/unsubscribe"]) {
+      expect(html).toContain(`href="/${locale}${path}"`);
+    }
+    expect(html).not.toMatch(/(?:orderNo|order_no|payment_id|transaction_id|token)=/i);
+  });
+
   it("keeps the Support hub contact runtime CMS-backed instead of hardcoding the address", () => {
     const source = readSource("app/(localized)/[locale]/support/page.tsx");
 
