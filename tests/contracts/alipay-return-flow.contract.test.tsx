@@ -1,3 +1,5 @@
+import { StrictMode } from "react";
+import { writePendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { render, waitFor } from "@testing-library/react";
@@ -175,6 +177,21 @@ describe("alipay return flow contract", () => {
         "/en/pay/wait?order_no=ord_return_alipay_4"
       );
     });
+  });
+
+  it.each(["en", "zh"] as const)("retains the same recovered destination during repeated mount effects (%s)", async (locale) => {
+    const href = `/${locale}/pay/wait?order_no=ord_strict_return&payment_recovery_token=recovery_strict_return`;
+    writePendingOrder({
+      orderNo: "ord_strict_return",
+      provider: "stripe",
+      waitUrl: href,
+      paymentRecoveryToken: "recovery_strict_return",
+    });
+    render(<StrictMode><OrderReturnFallbackClient locale={locale} /></StrictMode>);
+    await waitFor(() => expect(hoisted.routerReplace).toHaveBeenCalledWith(href));
+    expect(hoisted.routerReplace.mock.calls.length).toBeGreaterThanOrEqual(2);
+    expect(hoisted.routerReplace.mock.calls.every(([destination]) => destination === href)).toBe(true);
+    expect(readPendingOrder()).toBeNull();
   });
 
   it("degrades to order lookup when no wait recovery metadata is available", async () => {

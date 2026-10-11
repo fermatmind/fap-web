@@ -1,3 +1,4 @@
+import reportReadyMbtiProjectionFixture from "../fixtures/report_ready.mbti.projection.json";
 import { expect, test, type Page } from "@playwright/test";
 
 async function mockCommonApis(page: Page) {
@@ -104,10 +105,12 @@ test("provider return query params restore the tokenized wait flow without sessi
   await expect(page.getByRole("button", { name: "Open payment page" })).toBeVisible();
 });
 
-test("wait flow prefers result_url when payment becomes paid", async ({ page }) => {
+test("paid wait flow enters the exact result only after report access is ready", async ({ page }) => {
   const orderNo = "ord_paid_wait_1";
   const paymentRecoveryToken = "recovery_paid_wait_1";
   const resultUrl = "/en/result/attempt-paid-wait-1?from=payment";
+  let reportReady = false;
+  let accessReads = 0;
 
   await mockCommonApis(page);
   await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
@@ -129,21 +132,35 @@ test("wait flow prefers result_url when payment becomes paid", async ({ page }) 
     });
   });
 
-  await page.route("**/api/v0.3/attempts/attempt-paid-wait-1/report*", async (route) => {
+  await page.route("**/api/v0.3/attempts/attempt-paid-wait-1/report-access*", async (route) => {
+    accessReads += 1;
     await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
+      json: {
         ok: true,
-        id: "attempt-paid-wait-1",
-        scale_code: "MBTI",
-        locked: false,
-        variant: "full",
-      }),
+        attempt_id: "attempt-paid-wait-1",
+        access_state: reportReady ? "ready" : "locked",
+        report_state: "ready",
+        pdf_state: "ready",
+        projection_version: 1,
+        actions: reportReady ? { page_href: resultUrl } : {},
+      },
     });
+  });
+
+  await page.route(/\/api\/v0\.3\/attempts\/attempt-paid-wait-1\/report(?:\?.*)?$/, async (route) => {
+    expect(reportReady).toBe(true);
+    await route.fulfill({ json: {
+      ...structuredClone(reportReadyMbtiProjectionFixture),
+      locked: false, variant: "full", access_level: "paid",
+    }});
   });
 
   await page.goto(`/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`);
 
-  await expect(page).toHaveURL(resultUrl);
+  await expect.poll(() => accessReads).toBeGreaterThan(0);
+  await expect(page).toHaveURL(`/en/pay/wait?order_no=${orderNo}&payment_recovery_token=${paymentRecoveryToken}`);
+  reportReady = true;
+  await expect(page).toHaveURL(resultUrl, { timeout: 15000 });
+  expect(accessReads).toBeGreaterThanOrEqual(2);
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 });

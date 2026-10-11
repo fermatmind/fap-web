@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { normalizeCommerceWaitPath } from "@/lib/commerce/redirectUrls";
-import { clearPendingOrder, readPendingOrder } from "@/lib/commerce/pendingOrder";
+import { clearPendingOrder, readPendingOrder, type PendingOrderContext } from "@/lib/commerce/pendingOrder";
 import { localizedPath, stripLocalePrefix, type Locale } from "@/lib/i18n/locales";
 import { recoverAlipayReturnContext } from "@/lib/api/v0_3";
 
@@ -52,9 +52,13 @@ export function OrderReturnFallbackClient({
   returnParams?: Record<string, string | null | undefined>;
 }) {
   const router = useRouter();
+  const recoveredPendingOrderRef = useRef<PendingOrderContext | null | undefined>(undefined);
 
   useEffect(() => {
-    const pendingOrder = readPendingOrder();
+    if (recoveredPendingOrderRef.current === undefined) {
+      recoveredPendingOrderRef.current = readPendingOrder();
+    }
+    const pendingOrder = recoveredPendingOrderRef.current;
     const explicitOrderNo = normalizeText(orderNo) ?? normalizeText(outTradeNo);
     const explicitPaymentRecoveryToken = normalizeText(paymentRecoveryToken);
     const explicitWaitHref = normalizeWaitHref(locale, waitUrl);
