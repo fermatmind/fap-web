@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -26,4 +26,15 @@ test("allows legacy entries only during transition", () => {
   const root = fixture(true);
   assert.equal(validateWorkflowSet(root, "transition").valid, true);
   assert.equal(validateWorkflowSet(root, "final").valid, false);
+});
+
+
+test("every selected contract shard installs pinned Node before dependencies", () => {
+  const ci = readFileSync(new URL("../workflows/ci.yml", import.meta.url), "utf8");
+  const shard = ci.split("  contract-shards:\n")[1].split("\n  contracts:\n")[0];
+  assert.match(shard, /if: needs\.classify\.outputs\.contracts_required == 'true'/);
+  const nodeStep = shard.match(/      - uses: actions\/setup-node[^\n]*\n([\s\S]*?)(?=      - )/)[1];
+  assert.match(nodeStep, /node-version: 24/);
+  assert.doesNotMatch(nodeStep, /\bif:/, "docs-only selected contracts also need Node 24");
+  assert.ok(shard.indexOf("actions/setup-node") < shard.indexOf("install-dependencies.sh"));
 });
