@@ -466,16 +466,19 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   // database statistics on 2026-10-11; no repeat verification is required.
   // Keep this card outside the generic CMS social-proof filter. Current-system
   // successful attempts are a different metric, not evidence against these figures.
-  const displayTrustItems: TrustItem[] = locale === "zh"
-    ? [...baseTrustItems, {
-        title: "百万人测试",
-        summary: "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。",
-        sourceNote: "备注：真实服务器数据统计",
-        paragraphs: [],
-        href: copy.trust.methodHref,
-        hrefLabel: copy.trust.methodLabel,
-      }]
-    : baseTrustItems;
+  const displayTrustItems: TrustItem[] = [
+    ...baseTrustItems,
+    {
+      title: locale === "zh" ? "百万人测试" : "Million-plus testers",
+      summary: locale === "zh"
+        ? "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
+        : "In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.",
+      sourceNote: locale === "zh" ? "备注：真实服务器数据统计" : "Note: Actual server statistics.",
+      paragraphs: [],
+      href: copy.trust.methodHref,
+      hrefLabel: copy.trust.methodLabel,
+    },
+  ];
 
   if (displayTrustItems.length === 0) return null;
 

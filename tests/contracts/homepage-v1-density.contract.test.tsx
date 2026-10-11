@@ -144,14 +144,26 @@ describe("homepage v1 density contract", () => {
     expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
   });
 
-  it("keeps the restored historical statistics limited to the Chinese homepage", () => {
+  it("shows all three localized English cards when CMS trust copy is empty", () => {
     render(<HomePageExperience locale="en" copy={{ ...homeCopy, trust: { ...homeCopy.trust, items: [] } }} />);
 
     expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 3, name: "Million-plus testers" })).toBeInTheDocument();
+    expect(screen.getByText("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.")).toBeInTheDocument();
+    expect(screen.getByText("Note: Actual server statistics.")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "Free and trustworthy" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "Your privacy is our priority" })).toBeInTheDocument();
     expect(screen.getByText("FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.")).toBeInTheDocument();
     expect(screen.queryByText("备注：真实服务器数据统计")).not.toBeInTheDocument();
+  });
+
+  it("preserves the English server statistics card alongside CMS-supplied cards", () => {
+    render(<HomePageExperience locale="en" copy={homeCopy} />);
+
+    const statistics = screen.getByRole("heading", { level: 3, name: "Million-plus testers" }).closest("article");
+    expect(statistics).toHaveTextContent("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.");
+    expect(statistics).toHaveTextContent("Note: Actual server statistics.");
+    expect(statistics?.parentElement?.querySelectorAll("article")).toHaveLength(3);
   });
 
   it("removes homepage version selection and heavy legacy surfaces", async () => {
