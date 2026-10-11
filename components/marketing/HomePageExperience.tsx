@@ -363,10 +363,8 @@ function TrustCard({ item, index }: { item: TrustItem; index: number }) {
       <h3 className="m-0 mt-8 text-xl font-semibold leading-7 tracking-normal text-slate-950">{item.title}</h3>
       <p className="m-0 mt-4 max-w-[22rem] text-base font-normal leading-7 tracking-normal text-slate-600">
         {item.summary}
+        {item.sourceNote && <span className="text-sm">{item.sourceNote}</span>}
       </p>
-      {item.sourceNote && (
-        <p className="m-0 mt-3 text-sm leading-6 text-slate-600">{item.sourceNote}</p>
-      )}
     </article>
   );
 }
@@ -473,7 +471,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
       summary: locale === "zh"
         ? "2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
         : "In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.",
-      sourceNote: locale === "zh" ? "备注：真实服务器数据统计" : "Note: Actual server statistics.",
+      sourceNote: locale === "zh" ? "（真实服务器数据统计）" : " (Actual server statistics)",
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,

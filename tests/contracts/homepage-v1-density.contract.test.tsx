@@ -141,7 +141,7 @@ describe("homepage v1 density contract", () => {
     expect(screen.getByRole("heading", { level: 3, name: "高度重视你的隐私" })).toBeInTheDocument();
     expect(screen.getByText("费马测试重视你的隐私。无需注册账号，你可以匿名完成测试，再自行决定是否保存结果。")).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
-    expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）")).toBeInTheDocument();
   });
 
   it("shows all three localized English cards when CMS trust copy is empty", () => {
@@ -150,11 +150,14 @@ describe("homepage v1 density contract", () => {
     expect(screen.queryByRole("heading", { level: 3, name: "百万人测试" })).not.toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "Million-plus testers" })).toBeInTheDocument();
     expect(screen.getByText("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.")).toBeInTheDocument();
-    expect(screen.getByText("Note: Actual server statistics.")).toBeInTheDocument();
+    expect(screen.getByText("(Actual server statistics)")).toBeInTheDocument();
+    expect(screen.getByText("(Actual server statistics)").parentElement).toBe(
+      screen.getByText("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.")
+    );
     expect(screen.getByRole("heading", { level: 3, name: "Free and trustworthy" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "Your privacy is our priority" })).toBeInTheDocument();
     expect(screen.getByText("FermatMind respects your privacy. No registration is required: take tests anonymously and choose whether to save your results.")).toBeInTheDocument();
-    expect(screen.queryByText("备注：真实服务器数据统计")).not.toBeInTheDocument();
+    expect(screen.queryByText("（真实服务器数据统计）")).not.toBeInTheDocument();
   });
 
   it("preserves the English server statistics card alongside CMS-supplied cards", () => {
@@ -162,7 +165,7 @@ describe("homepage v1 density contract", () => {
 
     const statistics = screen.getByRole("heading", { level: 3, name: "Million-plus testers" }).closest("article");
     expect(statistics).toHaveTextContent("In April 2026, 1.2 million people took tests. Cumulative test interactions exceeded 50 million.");
-    expect(statistics).toHaveTextContent("Note: Actual server statistics.");
+    expect(statistics).toHaveTextContent("(Actual server statistics)");
     expect(statistics?.parentElement?.querySelectorAll("article")).toHaveLength(3);
   });
 
@@ -360,7 +363,10 @@ describe("homepage v1 density contract", () => {
     expect(screen.getByRole("heading", { level: 2, name: "热门测评" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 3, name: "百万人测试" })).toBeInTheDocument();
     expect(screen.getByText("2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。")).toBeInTheDocument();
-    expect(screen.getByText("备注：真实服务器数据统计")).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）")).toBeInTheDocument();
+    expect(screen.getByText("（真实服务器数据统计）").parentElement).toBe(
+      screen.getByText("2026年4月真人测试人数达 120 万，累计测试交互超过 5000 万次。")
+    );
     expect(screen.getByRole("heading", { level: 2, name: "关于费马测试" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { level: 2, name: "推荐阅读" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /你的性格如何塑造你对人工智能的态度？/ })).toHaveAttribute(
