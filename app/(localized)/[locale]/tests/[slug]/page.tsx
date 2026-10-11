@@ -118,6 +118,11 @@ import {
 import { getIqSeoRampAuthorityForLocale } from "@/lib/seo/iqSeoRampAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
 
+// Render request-specific search parameters and the nonce-aware layout on demand,
+// including when an unavailable build-time catalog produces no static params.
+// Public API reads retain their explicit revalidate cache policy.
+export const revalidate = 0;
+
 async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
   try {
     const { items } = await getCmsArticlesWithLastKnownGood({
@@ -871,9 +876,8 @@ export default async function TestLandingPage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
-    // This route is statically generated. Request-scoped headers would force a
-    // dynamic render at serve time and make the prebuilt core entry fail.
-    // The take route performs the request-specific rollout check before use.
+    // Public landing rollout is neutral; the take route performs the
+    // request-specific eligibility check before the assessment starts.
     identitySeed: null,
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
