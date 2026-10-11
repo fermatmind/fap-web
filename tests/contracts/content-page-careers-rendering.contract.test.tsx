@@ -78,6 +78,30 @@ function makeFoundationPage(overrides: Partial<ContentPage> = {}): ContentPage {
 }
 
 describe("Careers content page rendering", () => {
+  it.each(["zh", "en"] as const)("reserves three team profiles after the %s About introduction with a contents link", (locale) => {
+    const firstHeading = locale === "zh" ? "我们是谁" : "Who we are";
+    const nextHeading = locale === "zh" ? "我们为什么存在" : "Why we exist";
+    const teamHeading = locale === "zh" ? "创始人与博士顾问团队" : "Founder and doctoral advisors";
+    const page = makeFoundationPage({
+      slug: "about",
+      path: "/about",
+      template: "company",
+      locale,
+      contentMd: `## ${firstHeading}\n\nOriginal introduction.\n\n## ${nextHeading}\n\nOriginal mission.`,
+    });
+    const html = renderToStaticMarkup(<ContentPageTemplate page={page} locale={locale} />);
+    const root = document.createElement("div");
+    root.innerHTML = html;
+    const team = root.querySelector('[data-testid="about-team-section"]');
+
+    expect(team?.querySelectorAll("article")).toHaveLength(3);
+    expect(team?.querySelector("h2")?.textContent).toBe(teamHeading);
+    expect(root.querySelector('nav a[href="#team"]')?.textContent).toBe(teamHeading);
+    expect(html.indexOf("Original introduction.")).toBeLessThan(html.indexOf('id="team"'));
+    expect(Array.from(root.querySelectorAll("h2"), (heading) => heading.textContent)).toEqual([firstHeading, teamHeading, nextHeading]);
+    expect(html).toContain("Original mission.");
+  });
+
   it.each(["zh", "en"] as const)("hides help FAQ delimiters while preserving %s reader content", (locale) => {
     const heading = locale === "zh" ? "常见问题" : "Frequently asked questions";
     const answer = locale === "zh" ? "请先核对结果记录。" : "Check the result record first.";
@@ -109,6 +133,7 @@ describe("Careers content page rendering", () => {
     expect(html).toContain(">产品与品牌设计师</a>");
     expect(html).toContain(">全栈产品工程师</a>");
     expect(html).not.toContain(">关于我们</a>");
+    expect(html).not.toContain('data-testid="about-team-section"');
     expect(html).not.toContain(">我们的宪章</a>");
     expect(html).not.toContain(">基金会</a>");
     expect(html).not.toContain(">品牌</a>");
