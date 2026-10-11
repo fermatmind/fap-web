@@ -301,7 +301,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
 }
 
 function TrustIcon({ index }: { index: number }) {
-  const iconClassName = "h-8 w-8";
+  const iconClassName = "h-12 w-12";
   const commonProps = {
     viewBox: "0 0 80 80",
     fill: "none",
@@ -315,7 +315,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 1) {
     return (
-      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <path d="M40 8 64 17v18c0 17.5-10.5 29.5-24 36-13.5-6.5-24-18.5-24-36V17l24-9Z" />
           <path d="M30 37v-6c0-6 4-10 10-10s10 4 10 10v6" />
@@ -328,7 +328,7 @@ function TrustIcon({ index }: { index: number }) {
 
   if (index === 2) {
     return (
-      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
         <svg {...commonProps}>
           <circle cx="40" cy="25" r="9" />
           <path d="M25 64v-8c0-9 6-16 15-16s15 7 15 16v8" />
@@ -342,7 +342,7 @@ function TrustIcon({ index }: { index: number }) {
   }
 
   return (
-    <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+    <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
       <svg {...commonProps}>
         <rect x="15" y="24" width="50" height="36" rx="2.5" />
         <path d="M30 24v-7h20v7" />
