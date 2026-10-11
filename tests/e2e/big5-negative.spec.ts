@@ -72,7 +72,10 @@ async function mockLookup(
 ) {
   const enabledInProd = payload.enabledInProd ?? true;
   const paywallMode = payload.paywallMode ?? "full";
-  publicApiFixtureState.lookup = {
+  // SSR public data stays immutable across the suite's shared Next.js cache.
+  // Isolated route contracts cover the backend-off SSR boundary; browser
+  // overrides below still exercise client rollout and legacy access failures.
+  const browserLookup = {
     ok: true,
     primary_slug: "big-five-personality-test-ocean-model",
     slug: "big-five-personality-test-ocean-model",
@@ -101,7 +104,7 @@ async function mockLookup(
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(publicApiFixtureState.lookup),
+      body: JSON.stringify(browserLookup),
     });
   });
 }

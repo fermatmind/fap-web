@@ -48,6 +48,10 @@ for (const locale of ["en", "zh"] as const) {
       const response = await page.goto(`/${locale}/tests/${slug}`);
       expect(response?.status()).toBe(200);
       await expect(page.locator("main h1")).toBeVisible();
+      // A preceding backend-off scenario must not poison this published entry.
+      await expect(page.locator("main").getByRole("status").filter({
+        hasText: /temporarily unavailable|暂不可用|暂停开放/i,
+      })).toHaveCount(0);
       const entry = page.locator(`main a[href^="/${locale}/tests/${slug}/take"]`).first();
       await expect(entry).toBeVisible();
       await expect(page.getByRole("button", { name: /unlock (?:full |the )?report|buy now|checkout|解锁报告|立即购买|支付解锁/i })).toHaveCount(0);
