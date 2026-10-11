@@ -4,6 +4,7 @@ import type { Locale } from "@/lib/i18n/locales";
 export function AboutTeamSection({ locale }: { locale: Locale }) {
   const isZh = locale === "zh";
   const roles = isZh ? ["创始人", "博士顾问", "博士顾问"] : ["Founder", "Doctoral advisor", "Doctoral advisor"];
+  const names = isZh ? ["刘福威", "贾睿璇", "姓名待补充"] : ["Liu Fuwei", "Jia Ruixuan", "Name to follow"];
 
   return (
     <section aria-labelledby="team" className="pt-7" data-testid="about-team-section">
@@ -22,7 +23,7 @@ export function AboutTeamSection({ locale }: { locale: Locale }) {
             <div className="flex flex-col gap-3">
               <p className="m-0 text-sm font-medium text-[#008aa3]">{role}</p>
               <h3 className="m-0 text-xl font-semibold text-[var(--fm-text)]">
-                {isZh ? "姓名待补充" : "Name to follow"}
+                {names[index]}
               </h3>
               <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
                 {isZh ? "个人背景与参与工作介绍待补充。" : "Background and contributions to follow."}
