@@ -400,12 +400,17 @@ const HOMEPAGE_FREE_TRUST_TITLE = {
   en: "Free and trustworthy",
 } as const;
 
+const HOMEPAGE_FREE_TRUST_SUMMARY = {
+  zh: "我们的测评结合心理学理论与测评方法设计。你可以免费完成测试，获得清晰易懂的结果。",
+  en: "Our assessments draw on psychological theory and assessment methods. Take tests for free and get clear, easy-to-understand results.",
+} as const;
+
 function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): TrustItem[] {
   if (locale === "zh") {
     return [
       {
         title: HOMEPAGE_FREE_TRUST_TITLE.zh,
-        summary: "核心测评围绕自我认知、职业判断与能力成长设计，并提供清晰结果。",
+        summary: HOMEPAGE_FREE_TRUST_SUMMARY.zh,
         paragraphs: [],
         href: copy.trust.methodHref,
         hrefLabel: copy.trust.methodLabel,
@@ -423,7 +428,7 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
   return [
     {
       title: HOMEPAGE_FREE_TRUST_TITLE.en,
-      summary: "Core assessments are designed around self-understanding, career judgment, and ability growth, with clear result summaries.",
+      summary: HOMEPAGE_FREE_TRUST_SUMMARY.en,
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
@@ -443,7 +448,11 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
   const baseTrustItems = (trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy))
-    .map((item, index) => index === 0 ? { ...item, title: HOMEPAGE_FREE_TRUST_TITLE[locale] } : item);
+    .map((item, index) => index === 0 ? {
+      ...item,
+      title: HOMEPAGE_FREE_TRUST_TITLE[locale],
+      summary: HOMEPAGE_FREE_TRUST_SUMMARY[locale],
+    } : item);
   // The product owner confirmed these figures as real Tencent Cloud server and
   // database statistics on 2026-10-11; no repeat verification is required.
   // Keep this card outside the generic CMS social-proof filter. Current-system

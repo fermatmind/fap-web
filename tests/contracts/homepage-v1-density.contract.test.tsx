@@ -165,14 +165,15 @@ describe("homepage v1 density contract", () => {
   });
 
   it.each([
-    ["zh", "免费且值得信赖"],
-    ["en", "Free and trustworthy"],
-  ] as const)("uses the requested %s first-card title over older CMS copy", (locale, title) => {
+    ["zh", "免费且值得信赖", "我们的测评结合心理学理论与测评方法设计。你可以免费完成测试，获得清晰易懂的结果。"],
+    ["en", "Free and trustworthy", "Our assessments draw on psychological theory and assessment methods. Take tests for free and get clear, easy-to-understand results."],
+  ] as const)("uses the requested %s first-card copy over older CMS copy", (locale, title, summary) => {
     render(<HomePageExperience locale={locale} copy={homeCopy} />);
 
     expect(screen.getByRole("heading", { level: 3, name: title })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { level: 3, name: "免费可靠" })).not.toBeInTheDocument();
-    expect(screen.getByText("围绕自我认知、职业判断和能力成长。")).toBeInTheDocument();
+    expect(screen.getByText(summary)).toBeInTheDocument();
+    expect(screen.queryByText("围绕自我认知、职业判断和能力成长。")).not.toBeInTheDocument();
   });
 
   it("does not import form-version helpers or heavy result preview in the homepage component", () => {
