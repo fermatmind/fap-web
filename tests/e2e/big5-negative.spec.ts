@@ -84,6 +84,9 @@ async function mockLookup(
     is_indexable: true,
     forms: [{ form_code: "big5_120", question_count: 120 }],
     capabilities: { enabled_in_prod: enabledInProd, paywall_mode: paywallMode },
+    commercial: paywallMode === "free_only"
+      ? { price_tier: "FREE", report_unlock_sku: null, upgrade_sku: null, offers: [] }
+      : undefined,
     content_i18n_json: {
       en: {
         title: "Big Five Personality Test",
@@ -98,15 +101,7 @@ async function mockLookup(
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        slug: "big-five-personality-test-ocean-model",
-        scale_code: "BIG5_OCEAN",
-        capabilities: {
-          enabled_in_prod: enabledInProd,
-          paywall_mode: paywallMode,
-        },
-      }),
+      body: JSON.stringify(publicApiFixtureState.lookup),
     });
   });
 }
@@ -260,7 +255,7 @@ test("BIG5 auto-advance does not submit before last question", async ({ page }) 
   let submitCalls = 0;
 
   await mockTrack(page);
-  await mockLookup(page, { paywallMode: "full" });
+  await mockLookup(page, { paywallMode: "free_only" });
   await mockQuestions(page, 5);
 
   await page.route("**/api/v0.3/attempts/start", async (route) => {
@@ -301,7 +296,7 @@ test("@release BIG5 429 start error returns bounded retry guidance", async ({ pa
   let submitCalls = 0;
 
   await mockTrack(page);
-  await mockLookup(page, { paywallMode: "full" });
+  await mockLookup(page, { paywallMode: "free_only" });
   await mockQuestions(page, 5);
 
   await page.route("**/api/v0.3/attempts/start*", async (route) => {
@@ -354,7 +349,7 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
   const attemptId = "44444444-4444-4444-4444-444444444444";
 
   await mockTrack(page);
-  await mockLookup(page, { paywallMode: "full" });
+  await mockLookup(page, { paywallMode: "free_only" });
   await mockQuestions(page, 3);
 
   await page.route("**/api/v0.3/attempts/start*", async (route) => {
