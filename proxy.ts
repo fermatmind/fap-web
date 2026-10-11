@@ -49,6 +49,7 @@ const ARTICLE_CATEGORY_PATH_RE = /^\/(en|zh)\/articles\/category\/([^/]+)\/?$/;
 const CAREER_DETAIL_PATH_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)\/?$/i;
 const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
 const TEST_DETAIL_PATH_RE = /^\/(en|zh)\/tests\/([^/]+)\/?$/i;
+const TEST_TAKE_PATH_RE = /^\/(en|zh)\/tests\/([^/]+)\/take\/?$/i;
 const PUBLIC_ABSENCE_PROBE_TIMEOUT_MS = 3000;
 const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
 const DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS = ["GET", "HEAD"] as const;
@@ -466,13 +467,22 @@ function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextR
       if (!testDetailBoundary.canonicalSlug) {
         return createPublicAbsenceResponse(404);
       }
-      if (
-        testDetailBoundary.requestedSlug.includes("‑")
-        && testDetailBoundary.requestedSlug !== testDetailBoundary.canonicalSlug
-      ) {
+      if (testDetailBoundary.requestedSlug !== testDetailBoundary.canonicalSlug) {
         const target = request.nextUrl.clone();
         target.pathname = `/${testDetailBoundary.locale}/tests/${testDetailBoundary.canonicalSlug}`;
-        return NextResponse.redirect(target, 308);
+        const response = NextResponse.redirect(target, 308);
+        return isStagingHost ? withStagingNoindexHeader(response) : response;
+      }
+    }
+
+    const takeMatch = pathname.match(TEST_TAKE_PATH_RE);
+    if (takeMatch) {
+      const takeBoundary = resolveTestDetailBoundary(`/${takeMatch[1]}/tests/${takeMatch[2]}`);
+      if (takeBoundary?.canonicalSlug && takeBoundary.requestedSlug !== takeBoundary.canonicalSlug) {
+        const target = request.nextUrl.clone();
+        target.pathname = `/${takeBoundary.locale}/tests/${takeBoundary.canonicalSlug}/take`;
+        const response = NextResponse.redirect(target, 308);
+        return isStagingHost ? withStagingNoindexHeader(response) : response;
       }
     }
 
