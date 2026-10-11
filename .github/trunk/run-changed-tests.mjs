@@ -1,7 +1,33 @@
 import {execFileSync, spawnSync} from 'node:child_process';
-import {writeFileSync} from 'node:fs';
-export function changedTestPlan(changes, {vitest=false}={}) {
- const plan={php:[],node:[],python:[],shell:[],removed:[],vitest:[],unsupported:[]};
+import {existsSync, readFileSync, readdirSync, writeFileSync} from 'node:fs';
+import path from 'node:path';
+export function selectE2eTests(inputs,root=process.cwd()) {
+ const directory=path.join(root,'tests/e2e');
+ const files=existsSync(directory)?readdirSync(directory,{recursive:true}).filter(file=>/\.[jt]s$/.test(file)).map(file=>'tests/e2e/'+file):[];
+ const known=new Set(files),edges=new Map();
+ for(const file of files){
+  const body=readFileSync(path.join(root,file),'utf8');
+  const dependencies=[];
+  for(const match of body.matchAll(/(?:from\s*|import\s*\(|require\s*\()(['"])(\.[^'"]+)\1/g)){
+   const base=path.posix.normalize(path.posix.join(path.posix.dirname(file),match[2]));
+   const resolved=[base,base+'.ts',base+'.js',base+'/index.ts'].find(value=>known.has(value));
+   if(resolved)dependencies.push(resolved);
+  }
+  edges.set(file,dependencies);
+ }
+ const selected=[];const consumed=new Set();
+ for(const file of files.filter(file=>/\.spec\.[jt]s$/.test(file))){
+  const closure=new Set([file]),pending=[file];
+  while(pending.length)for(const dependency of edges.get(pending.pop())??[])if(!closure.has(dependency)){closure.add(dependency);pending.push(dependency);}
+  const matches=inputs.filter(input=>closure.has(input));
+  if(matches.length){selected.push(file);for(const input of matches)consumed.add(input);}
+ }
+ if(inputs.some(input=>!consumed.has(input)))throw new Error('CHANGED_E2E_CONSUMER_SELECTION_EMPTY');
+ return selected.sort();
+}
+export function changedTestPlan(changes, {vitest=false,root=process.cwd()}={}) {
+ const plan={php:[],node:[],python:[],shell:[],removed:[],vitest:[],e2e:[],unsupported:[]};
+ const e2eInputs=[];
  for(const {status,path} of changes){
   // Assessment routes, components, and helpers are product code; named/nested tests remain fail-closed.
   const productRoot=['app/(localized)/[locale]/tests/','components/tests/','lib/tests/'].find(root=>path.startsWith(root));
@@ -11,12 +37,14 @@ export function changedTestPlan(changes, {vitest=false}={}) {
   if(/(?:fixtures|snapshots)\//.test(path)||/\.(?:json|md|xml|yaml|yml|snap|csv|png)$/.test(path))continue;
   if(status==='D'){plan.removed.push(path);continue;}
   if(/Test\.php$/.test(path))plan.php.push(path);
+  else if(vitest && /^tests\/e2e\/(?:.*\.spec\.[jt]s|helpers\/.*\.[jt]s)$/.test(path))e2eInputs.push(path);
   else if(vitest && /^tests\/.*\.test\.[jt]sx?$/.test(path))plan.vitest.push(path);
   else if(/\.test\.[cm]?js$/.test(path))plan.node.push(path);
   else if(/(?:^|\/)(?:test_[^/]+|[^/]+_test)\.py$/.test(path))plan.python.push(path);
   else if(/\.sh$/.test(path))plan.shell.push(path);
   else plan.unsupported.push(path);
  }
+ if(e2eInputs.length)plan.e2e=selectE2eTests(e2eInputs,root);
  for(const key of Object.keys(plan))plan[key]=[...new Set(plan[key])].sort();
  if(plan.unsupported.length)throw new Error(`Unsupported changed tests: ${plan.unsupported.join(',')}`);
  return plan;
@@ -38,7 +66,10 @@ if suite.countTestCases()==0: raise RuntimeError('CHANGED_PYTHON_TEST_SELECTION_
 sys.exit(0 if unittest.TextTestRunner().run(suite).wasSuccessful() else 1)`,path],'.');
   for(const path of plan.shell)execute('bash',[path],'.');
  }
- if(plan.php.length)execute('php',['artisan','test',...plan.php.map(p=>p.replace(/^backend\//,'')),'--no-ansi'],'backend');
+ if(mode==='e2e'||mode==='e2e-release'){
+  if(plan.e2e.length)execute('pnpm',['exec','playwright','test',...plan.e2e,...(mode==='e2e-release'?['--grep','@release']:[])],'.');
+ }else if(mode!=='legacy')throw new Error('UNKNOWN_CHANGED_TEST_MODE');
+ if(mode==='legacy'&&plan.php.length)execute('php',['artisan','test',...plan.php.map(p=>p.replace(/^backend\//,'')),'--no-ansi'],'backend');
  return calls;
 }
 if(import.meta.url===`file://${process.argv[1]}`){

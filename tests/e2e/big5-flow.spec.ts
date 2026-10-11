@@ -205,7 +205,7 @@ test("@release BIG5 flow: answer -> submit -> canonical result", async ({ page }
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
-  const firstQuestion = page.getByText("Question 1 / 120");
+  const firstQuestion = page.getByRole("heading", { name: "Question 1", exact: true });
   await expect(firstQuestion).toBeVisible({ timeout: 15000 });
   await expect(page.getByRole("button", { name: "Agree and start" })).toHaveCount(0);
 
@@ -213,7 +213,7 @@ test("@release BIG5 flow: answer -> submit -> canonical result", async ({ page }
   for (let i = 0; i < 119; i += 1) {
     await firstRadio.focus();
     await firstRadio.press("Space");
-    await expect(page.getByText(`Question ${i + 2} / 120`)).toBeVisible();
+    await expect(page.getByRole("heading", { name: `Question ${i + 2}`, exact: true })).toBeVisible();
   }
 
   const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({

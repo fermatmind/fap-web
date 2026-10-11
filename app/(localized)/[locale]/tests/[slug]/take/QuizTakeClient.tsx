@@ -1119,9 +1119,12 @@ function QuizTakeInner({
 
   useEffect(() => {
     const takeFlow = takeFlowRef.current;
+    mountedRef.current = true;
     return () => {
       mountedRef.current = false;
-      takeFlow.dispose();
+      // Cancel this mount's callbacks without permanently disposing the shared
+      // ref: React can replay setup after cleanup on the same component instance.
+      takeFlow.cancelCurrentRun();
       submitInFlightRef.current = false;
       recoveringAttemptRef.current = false;
     };

@@ -24,7 +24,7 @@ import {
   type CmsArticleSeoPayload,
 } from "@/lib/cms/articles";
 import type { RelatedContentItem } from "@/lib/content";
-import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
+import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 import { loadBlogArchive } from "@/lib/content/blogArchive";
 import { excludeFaqCopiesInMarkdown, getSimpleMarkdownHeadings, renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { renderCjkPunctuationText } from "@/lib/content/textPunctuation";
@@ -359,15 +359,16 @@ export default async function ArticleDetailPage({
         faqBlocks: excludeFaqCopiesInMarkdown(article.answerSurface.faqBlocks, article.contentMd, { locale }),
       }
     : article.answerSurface;
-  const visibleAnswerSurface = locale === "en" && IQ_PUBLIC_ARTICLE_SLUGS.has(slug) && answerSurfaceWithVisibleFaq
+  const categoryLabel = articleCategoryLabel(article.category, blogState?.data?.blog, locale);
+  const visibleAnswerSurface = answerSurfaceWithVisibleFaq
     ? {
         ...answerSurfaceWithVisibleFaq,
-        compareBlocks: answerSurfaceWithVisibleFaq.compareBlocks.filter((block) => block.key !== "article_category"),
+        compareBlocks: articleCategoryCompareBlocks(answerSurfaceWithVisibleFaq.compareBlocks, categoryLabel, locale),
       }
     : answerSurfaceWithVisibleFaq;
   const heroSummary = article.landingSurface?.summaryBlocks[0]?.body || article.excerpt;
   const badgeLabels = [
-    articleCategoryLabel(article.category, blogState?.data?.blog, locale),
+    categoryLabel,
     ...article.tags.map((tag) => tag.name).filter(Boolean),
   ].filter((label): label is string => Boolean(label)).slice(0, 5);
 

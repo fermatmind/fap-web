@@ -1,6 +1,11 @@
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 import { buildEqRendererContractFixture } from "../fixtures/eq/v5/eq60RendererContractFixture";
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
 const standardEqFixture = buildEqRendererContractFixture("en", "standard");
 const standardEqZhFixture = buildEqRendererContractFixture("zh-CN", "standard");
@@ -294,14 +299,12 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
           ok: true,
           scale_code: "EQ_60",
           questions: {
-            items: [
-              {
-                question_id: "1",
-                order: 1,
-                text: "I can identify my emotions clearly.",
-                options: [],
-              },
-            ],
+            items: Array.from({ length: 3 }, (_, index) => ({
+              question_id: String(index + 1),
+              order: index + 1,
+              text: `EQ anchor question ${index + 1}`,
+              options: [],
+            })),
           },
           meta: {
             option_anchors: [
@@ -330,6 +333,10 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   });
 
   await page.route("**/api/v0.3/attempts/submit", async (route) => {
+    expect(route.request().postDataJSON()).toMatchObject({
+      attempt_id: attemptId,
+      answers: [1, 2, 3].map((id) => ({ question_id: String(id), code: "E" })),
+    });
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -350,11 +357,17 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
 
   await page.goto("/en/tests/eq-test-emotional-intelligence-assessment/take?force_new_attempt=1");
   await expect(page.getByRole("radio", { name: "Strongly Disagree" })).toBeVisible();
-  await page.waitForTimeout(250);
+  for (let index = 1; index < 3; index += 1) {
+    await expect(page.getByRole("heading", { name: `EQ anchor question ${index}` })).toBeVisible();
+    await page.getByRole("radio", { name: "Strongly Agree" }).click();
+    await expect(page.getByRole("heading", { name: `EQ anchor question ${index + 1}` })).toBeVisible();
+  }
 
-  await page.getByRole("radio", { name: "Strongly Agree" }).click();
-  await expect(page.getByRole("radio", { name: "Strongly Agree" })).toHaveAttribute("aria-checked", "true");
-  await page.goto(`/en/result/${attemptId}`);
+  await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio", { name: "Strongly Agree" }),
+    targetUrl: new RegExp(`/en/result/${attemptId}`),
+  });
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
   await expect(
     page
@@ -375,7 +388,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByTestId("eq-sjt-bridge")).toHaveCount(0);
   await expect(page.getByText(/Future Scenario Module|Planned, not available yet/i)).toHaveCount(0);
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
-  await page.getByRole("button", { name: /Ask (assistant|the Agent|the result assistant)/i }).click();
+  await page.getByRole("button", { name: "BACKEND_COPY[en:agent_entry.cta_label]", exact: true }).click();
   await expect(page.getByTestId("eq-agent-runtime-drawer")).toBeVisible();
   await expect(page.getByTestId("eq-agent-entry-ready")).toBeVisible();
   await expect(page.getByText("Start with one real situation from this report.")).toBeVisible();
@@ -458,7 +471,8 @@ test("EQ standard report renders backend-declared dimensions without derived tie
   await page.goto(`/en/result/${attemptId}`);
   const evidence = page.getByTestId("eq-evidence-snapshot");
   await expect(evidence).toBeVisible();
-  await expect(evidence.getByText("BACKEND_COPY[en:snapshot.evidence_point]")).toBeVisible();
+  await expect(evidence.getByText("BACKEND_COPY[en:route.evidence_snapshot_label]")).toBeVisible();
+  await expect(evidence.getByText("BACKEND_COPY[en:route.route_headline]")).toBeVisible();
   await expect(evidence).not.toContainText(/Four-way tie|No single practice focus/);
 });
 
@@ -482,11 +496,12 @@ test("EQ Chinese result localizes technical labels on mobile and desktop viewpor
   await page.goto(`/zh/result/${attemptId}`);
   const result = page.getByTestId("eq-result-v5");
   await expect(result).toBeVisible();
-  await expect(result.getByText("下一步练习重点", { exact: true }).first()).toBeVisible();
+  await expect(result.getByText("最小行动", { exact: true }).first()).toBeVisible();
+  await expect(result.getByText("BACKEND_COPY[zh-CN:route.next_best_action]", { exact: true })).toBeVisible();
   await expect(result.getByText("常模状态", { exact: true }).first()).toBeVisible();
   await expect(result.getByText("计分版本", { exact: true })).toBeVisible();
   await expect(result.getByText("内容版本", { exact: true })).toBeVisible();
-  await expect(result.getByText("BACKEND_COPY[zh-CN:route.route_headline]", { exact: true })).toBeVisible();
+  await expect(result.getByRole("heading", { name: "BACKEND_COPY[zh-CN:route.route_headline]", exact: true })).toBeVisible();
   await expect(result).not.toContainText(
     /CORE INSIGHT HERO|EVIDENCE SNAPSHOT|REALITY TRANSLATION|Key Finding|Supporting Scores|Situation Review|Next Practice Focus|proficient|foundational|stable|integrated|provisional|preliminary|planned|SPEEDING|INCONSISTENT|LONGSTRING|EXTREME_RESPONSE_BIAS|NEUTRAL_RESPONSE_BIAS/
   );
@@ -621,7 +636,11 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
         ok: true,
         locked: false,
         variant: "full",
-        summary: "IQ report summary",
+        schema_version: "iq.report.v1",
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        summary: { raw_score: 1, question_count: 1 },
+        scoring: { status: "scored" },
+        duration_ms: 1000,
         report: {
           scale_code: "IQ_RAVEN",
           sections: [],
@@ -635,25 +654,21 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
   await expect(page.getByTestId("iq-stem-svg").first()).toBeVisible();
   await expect(page.getByRole("button", { name: "Submit answers" })).toBeDisabled();
 
-  await page.getByRole("radio", { name: "Option A" }).first().click();
-  await expect(page.getByRole("button", { name: "Submit answers" })).toBeEnabled();
-  await page.waitForTimeout(400);
   expect(submitCalls).toBe(0);
-  await expect(page).toHaveURL(/\/en\/tests\/iq-test-intelligence-quotient-assessment\/take/);
-
-  const submitResponsePromise = page.waitForResponse(
-    (response) =>
-      response.request().method() === "POST" &&
-      response.url().includes("/api/v0.3/attempts/submit"),
-    { timeout: 30000 }
-  );
-
-  await page.getByRole("button", { name: "Submit answers" }).click();
-  const submitResponse = await submitResponsePromise;
-  await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}`), { timeout: 30000 });
+  const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
+    page,
+    option: page.getByRole("radio", { name: "Option A" }).first(),
+    targetUrl: new RegExp(`/en/result/${attemptId}`),
+  });
+  expect(submitResponse.request().postDataJSON()).toMatchObject({
+    attempt_id: attemptId,
+    answers: [{ question_id: "MATRIX_Q01", code: "A" }],
+  });
   expect(submitCalls).toBe(1);
   expect(submitResponse.status()).toBe(200);
-  await expect(page.getByText("IQ report summary")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "IQ Test Results", exact: true })).toBeVisible();
+  await expect(page.getByText("An IQ score and population rank are not available yet.", { exact: true })).toBeVisible();
+  await expect(page.getByText("Correct answers", { exact: true }).locator("..")).toContainText("1");
 });
 
 test("result page falls back to attempts/{id}/result when report is unavailable", async ({ page }) => {
@@ -909,8 +924,10 @@ test("clinical questions request retries once after 401 with bootstrap token pre
   await mockScaleLookup(page);
 
   let questionCalls = 0;
+  const questionTokens: string[] = [];
   await page.route("**/api/v0.3/scales/SDS_20/questions*", async (route) => {
     questionCalls += 1;
+    questionTokens.push(route.request().headers().authorization ?? "");
     if (questionCalls === 1) {
       await route.fulfill({
         status: 401,
@@ -962,13 +979,19 @@ test("clinical questions request retries once after 401 with bootstrap token pre
       contentType: "application/json",
       body: JSON.stringify({
         ok: true,
-        fm_token: "fm_clinical_retry_token_123456",
+        fm_token: `fm_clinical_retry_token_${guestTokenCalls}_123456`,
       }),
     });
   });
 
   await page.goto("/en/tests/depression-screening-test-standard-edition/take");
   await expect(page.getByText("Please review and accept informed consent.")).toBeVisible();
-  expect(questionCalls).toBe(2);
-  expect(guestTokenCalls).toBe(2);
+  // Development StrictMode may replay the question effect once in addition to
+  // the single 401 retry. Prove the retry consumed a refreshed token and stayed
+  // bounded, rather than requiring one particular effect subscription count.
+  expect(questionCalls).toBeGreaterThanOrEqual(2);
+  expect(questionCalls).toBeLessThanOrEqual(3);
+  expect(guestTokenCalls).toBeGreaterThanOrEqual(2);
+  expect(guestTokenCalls).toBeLessThanOrEqual(3);
+  expect(questionTokens.slice(1)).toContain(`Bearer fm_clinical_retry_token_${guestTokenCalls}_123456`);
 });

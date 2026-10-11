@@ -110,10 +110,10 @@ jobs:
           fetch-depth: 0
       - run: git diff --check ${{ needs.classify.outputs.base_sha }} ${{ github.sha }}
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
-        if: needs.classify.outputs.deploy == 'true'
+        if: needs.classify.outputs.deploy == 'true' || contains(needs.classify.outputs.classification, 'tests/e2e/')
         with:
           node-version: 24
-      - if: needs.classify.outputs.deploy == 'true'
+      - if: needs.classify.outputs.deploy == 'true' || contains(needs.classify.outputs.classification, 'tests/e2e/')
         run: .github/trunk/install-dependencies.sh
       - name: Audit locked runtime dependencies
         if: needs.classify.outputs.deploy == 'true' && (contains(needs.classify.outputs.classification, 'package.json') || contains(needs.classify.outputs.classification, 'pnpm-lock.yaml') || needs.classify.outputs.infrastructure == 'true')
@@ -124,6 +124,15 @@ jobs:
       - name: Typecheck changed application boundary
         if: needs.classify.outputs.application == 'true' || needs.classify.outputs.content == 'true'
         run: pnpm typecheck
+      - name: Execute changed browser tests and their helper consumers
+        if: contains(needs.classify.outputs.classification, 'tests/e2e/')
+        env:
+          NEXT_PUBLIC_API_URL: http://127.0.0.1:8000
+        run: |
+          set -euo pipefail
+          pnpm exec playwright install --with-deps chromium
+          node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e
+          PLAYWRIGHT_SERVER_MODE=production node .github/trunk/run-changed-tests.mjs '${{ needs.classify.outputs.base_sha }}' '${{ github.sha }}' e2e-release
       - name: Build staging standalone application
         if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.classify.outputs.deploy == 'true'
         env:

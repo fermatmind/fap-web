@@ -289,9 +289,9 @@ test("BIG5 auto-advance does not submit before last question", async ({ page }) 
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
-  await expect(page.getByText("Question 1 / 5")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1", exact: true })).toBeVisible();
   await page.getByRole("radio").first().click();
-  await expect(page.getByText("Question 2 / 5")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 2", exact: true })).toBeVisible();
   expect(submitCalls).toBe(0);
 });
 
@@ -331,7 +331,7 @@ test("@release BIG5 429 start error returns bounded retry guidance", async ({ pa
   });
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await expect(page.getByText("Question 1 / 5")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1", exact: true })).toBeVisible();
   const startResponsePromise = page.waitForResponse(
     (response) => response.url().includes("/api/v0.3/attempts/start")
   );
@@ -391,11 +391,11 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
 
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
 
-  await expect(page.getByText("Question 1 / 3")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1", exact: true })).toBeVisible();
 
   for (let i = 0; i < 2; i += 1) {
     await page.getByRole("radio").first().click();
-    await expect(page.getByText(`Question ${i + 2} / 3`)).toBeVisible();
+    await expect(page.getByRole("heading", { name: `Question ${i + 2}`, exact: true })).toBeVisible();
   }
 
   const submitResponse = await clickLastOptionAndWaitForSubmit({
@@ -409,7 +409,7 @@ test("@release BIG5 submit 5xx keeps draft after refresh", async ({ page }) => {
 
   await page.reload();
 
-  await expect(page.getByText("Question 3 / 3")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 3", exact: true })).toBeVisible();
   await expect(page.locator('[role="radio"][aria-checked="true"]:visible')).toHaveCount(1);
 });
 

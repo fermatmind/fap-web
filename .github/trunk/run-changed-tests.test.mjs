@@ -38,6 +38,30 @@ test('changed PHP JS Python Shell execute real runner commands; removed and unsu
 
 import {mkdtempSync,mkdirSync,writeFileSync,rmSync,readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
+test('changed E2E helpers select their transitive browser consumers and execute both server modes',()=>{
+ const root=mkdtempSync(tmpdir()+'/changed-e2e-');
+ try{
+  mkdirSync(root+'/tests/e2e/helpers',{recursive:true});
+  const helper='tests/e2e/helpers/api.ts',bridge='tests/e2e/helpers/flow.ts',spec='tests/e2e/iq.spec.ts';
+  writeFileSync(root+'/'+helper,'export const api=true;');
+  writeFileSync(root+'/'+bridge,"export {api} from './api';");
+  writeFileSync(root+'/'+spec,"import {api} from './helpers/flow';");
+  writeFileSync(root+'/tests/e2e/other.spec.ts','export {};');
+  const plan=changedTestPlan([{status:'M',path:helper}],{vitest:true,root});
+  assert.deepEqual(plan.e2e,[spec]);
+  assert.deepEqual(changedTestPlan([{status:'M',path:spec}],{vitest:true,root}).e2e,[spec]);
+  assert.equal(runChangedTests(plan,{root,run:()=>{throw new Error('must defer browser execution');}}).length,0);
+  for(const mode of ['e2e','e2e-release']){
+   const calls=[];
+   runChangedTests(plan,{mode,root,run:(cmd,args)=>{calls.push({cmd,args});return {status:0};}});
+   assert.deepEqual(calls,[{cmd:'pnpm',args:['exec','playwright','test',spec,...(mode==='e2e-release'?['--grep','@release']:[])]}]);
+   assert.throws(()=>runChangedTests(plan,{mode,root,run:()=>({status:1})}),/execution failed/);
+  }
+  const unused='tests/e2e/helpers/unused.ts';writeFileSync(root+'/'+unused,'export {};');
+  assert.throws(()=>changedTestPlan([{status:'M',path:unused}],{vitest:true,root}),/CONSUMER_SELECTION_EMPTY/);
+  assert.throws(()=>changedTestPlan([{status:'M',path:helper}],{root}),/Unsupported/);
+ }finally{rmSync(root,{recursive:true,force:true});}
+});
 test('language fixtures really execute assertions and propagate failures',()=>{
  const root=mkdtempSync(tmpdir()+'/changed-runners-');
  try {

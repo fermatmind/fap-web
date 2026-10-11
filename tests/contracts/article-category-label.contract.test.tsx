@@ -1,7 +1,8 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { CmsArticle, CmsBlog } from "@/lib/cms/articles";
-import { articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
+import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
+import { articleCategoryCompareBlocks, articleCategoryLabel } from "@/lib/content/articleCategoryLabel";
 
 vi.hoisted(() => { process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com"; });
 const category = { id: 11, slug: "career-exploration", name: "职业探索" };
@@ -20,6 +21,33 @@ const data = (name: string) => ({ blog: blog(name), items: [article], landingSur
 
 afterEach(() => { vi.doUnmock("@/lib/cms/articles"); vi.resetModules(); });
 describe("article badges use published CMS category labels", () => {
+  it.each(["Career and learning choices", "职业探索"])("uses locale authority for EQ category comparison cards: %s", async (name) => {
+    vi.resetModules();
+    const compareBlocks = [
+      { key: "article_category", title: "Content category", body: "职业探索", href: null, kind: "content_compare" },
+      { key: "other", title: "Evidence", body: "Reader evidence retained", href: null, kind: "content_compare" },
+    ];
+    const surface: AnswerSurfaceViewModel = {
+      version: "answer.surface.v1", answerContractVersion: "answer.surface.v1", answerFingerprint: "fixture", answerScope: "public_detail",
+      surfaceType: "article_public_detail", summaryBlocks: [], faqBlocks: [], compareBlocks, sceneSummaryBlocks: [], nextStepBlocks: [], answerBundle: [],
+      evidenceRefs: [], publicSafetyState: null, indexabilityState: "noindex", attributionScope: "article_detail", seoSurfaceRef: null, landingSurfaceRef: null,
+      publicSurfaceRef: null, primaryContentRef: null, relatedSurfaceKeys: [], runtimeArtifactRef: null,
+    };
+    vi.doMock("@/lib/cms/articles", async (original) => ({ ...await original<typeof import("@/lib/cms/articles")>(),
+      getCmsArticleWithLastKnownGood: vi.fn(async () => ({ value: { ...article, slug: "eq-models-measurement", answerSurface: surface }, source: "fresh" })),
+      getCmsArticleSeoWithLastKnownGood: vi.fn(async () => ({ value: null, source: "fresh" })),
+      getCmsArticlesWithLastKnownGood: vi.fn(async () => ({ value: data(name), source: "fresh", stale: false })),
+    }));
+    const { default: Page } = await import("@/app/(localized)/[locale]/articles/[slug]/page");
+    const html = renderToStaticMarkup(await Page({ params: Promise.resolve({ locale: "en", slug: "eq-models-measurement" }) }));
+    expect(html).not.toContain("职业探索");
+    expect(html).toContain("Reader evidence retained");
+    if (name === "职业探索") expect(html).not.toContain("Content category");
+    else expect(html).toContain("Content category");
+    expect(surface.compareBlocks).toEqual(compareBlocks);
+    expect(articleCategoryCompareBlocks(compareBlocks, null, "zh")).toEqual(compareBlocks);
+    expect(articleCategoryCompareBlocks([{ ...compareBlocks[0], body: "Valid English" }], null, "en")[0].body).toBe("Valid English");
+  });
   it.each([["en", "Career and learning choices"], ["zh", "职业与学习选择"]] as const)("renders the %s label in detail and archive without altering taxonomy", async (locale, name) => {
     vi.resetModules();
     const getBlog = vi.fn(async () => ({ value: data(name), source: "fresh", stale: false }));

@@ -1,10 +1,11 @@
-import type { ReactNode } from "react";
+import { StrictMode, type ReactNode } from "react";
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import QuizTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient";
 import { IQ_OWNER_ORIGINAL_30_BANK_ID } from "@/lib/iq/constants";
 
 const hoisted = vi.hoisted(() => ({
+  realFlowController: false,
   pathname: "/en/tests/iq-test-intelligence-quotient-assessment/take",
   search: "",
   routerPush: vi.fn(),
@@ -167,22 +168,25 @@ vi.mock("@/lib/attempt/resolveResultAttemptId", () => ({
   ) => response.attempt_id ?? fallbackAttemptId,
 }));
 
-vi.mock("@/lib/attempt/staleAttempt", () => ({
-  createTakeFlowController: () => ({
-    beginRun: () => 1,
-    isActive: () => true,
-    cancelCurrentRun: () => undefined,
-    schedule: (callback: () => void) => {
-      callback();
-      return 0;
-    },
-    wait: async () => true,
-    dispose: () => undefined,
-  }),
-  recoverStaleAttemptSubmit: vi.fn(async () => ({ kind: "not_recoverable" })),
-  resolveStaleDraftResetMessage: () => "Draft reset required.",
-  shouldBlockInvalidDraftOnTakePage: () => false,
-}));
+vi.mock("@/lib/attempt/staleAttempt", async () => {
+  const actual = await vi.importActual<typeof import("@/lib/attempt/staleAttempt")>("@/lib/attempt/staleAttempt");
+  return {
+    createTakeFlowController: () => hoisted.realFlowController ? actual.createTakeFlowController() : ({
+      beginRun: () => 1,
+      isActive: () => true,
+      cancelCurrentRun: () => undefined,
+      schedule: (callback: () => void) => {
+        callback();
+        return 0;
+      },
+      wait: async () => true,
+      dispose: () => undefined,
+    }),
+    recoverStaleAttemptSubmit: vi.fn(async () => ({ kind: "not_recoverable" })),
+    resolveStaleDraftResetMessage: () => "Draft reset required.",
+    shouldBlockInvalidDraftOnTakePage: () => false,
+  };
+});
 
 function buildIqQuestionResponse() {
   return {
@@ -257,8 +261,8 @@ function buildIqAttemptQuestionResponse(index: number) {
   };
 }
 
-function renderClient({ formCode }: { formCode?: string } = {}) {
-  return render(
+function renderClient({ formCode, strict = false }: { formCode?: string; strict?: boolean } = {}) {
+  const client = (
     <QuizTakeClient
       slug="iq-test-intelligence-quotient-assessment"
       testTitle="IQ Test"
@@ -268,6 +272,7 @@ function renderClient({ formCode }: { formCode?: string } = {}) {
       questionCount={2}
     />
   );
+  return render(strict ? <StrictMode>{client}</StrictMode> : client);
 }
 
 function deferredPromise<T>() {
@@ -284,6 +289,7 @@ function deferredPromise<T>() {
 describe("IQ take lifecycle contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.realFlowController = false;
     window.localStorage.clear();
     hoisted.pathname = "/en/tests/iq-test-intelligence-quotient-assessment/take";
     hoisted.search = "";
@@ -393,6 +399,21 @@ describe("IQ take lifecycle contract", () => {
     fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
     await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
     expect(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["C", "B"]);
+  });
+
+  it("keeps the attempt and submission alive after StrictMode effect replay, but cancels navigation on unmount", async () => {
+    hoisted.realFlowController = true;
+    const client = renderClient({ strict: true });
+    fireEvent.click(within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" }));
+    await waitFor(() => expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1));
+    await screen.findByText("Choose the best continuation.");
+    fireEvent.click(within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" }));
+    await waitFor(() => expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1));
+    expect(hoisted.submitIqAttempt.mock.calls[0]?.[0]?.answers.map((answer: { option_code: string }) => answer.option_code)).toEqual(["A", "B"]);
+    client.unmount();
+    await act(async () => { await new Promise((resolve) => setTimeout(resolve, 2300)); });
+    expect(hoisted.routerPush).not.toHaveBeenCalled();
+    expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
   });
 
   it("keeps a failed automatic submission retryable without losing the final answer", async () => {
