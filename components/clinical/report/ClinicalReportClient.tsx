@@ -871,9 +871,20 @@ export default function ClinicalReportClient({
             refresh: true,
           });
           if (!active) return;
+          const accessResponse = await fetchAttemptReportAccess({ attemptId, anonId });
+          if (!active) return;
+          const nextAccess = normalizeAttemptReportAccess(accessResponse, locale);
+          if (!nextAccess || nextAccess.attemptId !== attemptId) {
+            throw new Error("Invalid clinical report access projection.");
+          }
 
+          const accessReady = nextAccess.accessState === "ready" && nextAccess.reportState === "ready";
+          // A transport payload cannot unlock the view ahead of its authority.
+          if (next.locked === false && !accessReady) continue;
+
+          setAccessView(nextAccess);
           setReportData(next);
-          if (next.locked === false) {
+          if (next.locked === false && accessReady) {
             try {
               window.localStorage.removeItem(pendingUnlockStorageKey);
             } catch {
@@ -912,7 +923,7 @@ export default function ClinicalReportClient({
     return () => {
       active = false;
     };
-  }, [attemptId, locale, locked, pendingUnlockStorageKey, reportData, scaleCode]);
+  }, [anonId, attemptId, locale, locked, pendingUnlockStorageKey, reportData, scaleCode]);
 
   const handlePay = async () => {
     if (!scaleCode || !firstOffer) {

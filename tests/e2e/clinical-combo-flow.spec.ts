@@ -1,3 +1,4 @@
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
@@ -98,7 +99,7 @@ test("CC68 flow: module transition, crisis ordering, paid sections hidden", asyn
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -195,6 +196,14 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
   const attemptId = "cc68-attempt-unlock";
   const pendingUnlockStorageKey = `fm_clinical_pending_unlock_v1_${attemptId}`;
   let reportCalls = 0;
+  let unlocked = false;
+
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({
+      ok: true, attempt_id: attemptId, access_state: unlocked ? "ready" : "locked",
+      report_state: "ready", pdf_state: "ready", projection_version: 1, actions: {},
+    }) });
+  });
 
   await page.addInitScript((storageKey) => {
     window.localStorage.setItem(storageKey, "ord_cc68_unlock_1");
@@ -208,9 +217,8 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     reportCalls += 1;
-    const unlocked = reportCalls >= 3;
 
     await route.fulfill({
       status: 200,
@@ -263,6 +271,8 @@ test("CC68 report unlock is only reflected after locked=false", async ({ page })
   );
   await expect(page.getByTestId("locked-insight-mask")).toBeVisible();
   await expect(page.getByTestId("locked-insight-lock")).toBeVisible();
+  await expect(page.getByText("Deep paid content", { exact: true })).toHaveCount(0);
+  unlocked = true;
 
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0, {
     timeout: 20000,
@@ -288,7 +298,7 @@ test("CC68 report retries short 404 before showing paywall", async ({ page }) =>
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     reportCalls += 1;
 
     if (reportCalls < 3) {
@@ -364,7 +374,7 @@ test("CC68 checkout pay.qr enters order wait and carries region header", async (
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -426,7 +436,7 @@ test("CC68 checkout pay.qr enters order wait and carries region header", async (
     });
   });
 
-  await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+  await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -448,4 +458,23 @@ test("CC68 checkout pay.qr enters order wait and carries region header", async (
   await expect(page).toHaveURL(new RegExp(`order_no=${orderNo}`));
   await expect(page).toHaveURL(new RegExp("pay_type=qr"));
   await expect(page.getByText("Scan this QR code in your payment app to complete checkout.")).toBeVisible();
+});
+
+// Server-rendered catalog/rollout requests require a real local HTTP fixture.
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
+
+// These clinical scenarios start with a valid anonymous assessment session.
+test.beforeEach(async ({ page }) => {
+  await page.route("**/api/v0.3/attempts/*/report-access*", async (route) => {
+    const attemptId = new URL(route.request().url()).pathname.split("/").at(-2);
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({
+      ok: true, attempt_id: attemptId, access_state: "locked", report_state: "ready",
+      pdf_state: "ready", projection_version: 1, actions: {},
+    }) });
+  });
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, fm_token: "fm_clinical_e2e_guest_session" }) });
+  });
 });

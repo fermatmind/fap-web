@@ -7,6 +7,7 @@ const assessments = [
   { slug: "iq-test-intelligence-quotient-assessment", scale_code: "IQ_RAVEN", title: "IQ Test" },
   { slug: "eq-test-emotional-intelligence-assessment", scale_code: "EQ_60", title: "EQ Test" },
   { slug: "mbti-personality-test-16-personality-types", scale_code: "MBTI", title: "MBTI Test" },
+  { slug: "clinical-depression-anxiety-assessment-professional-edition", scale_code: "CLINICAL_COMBO_68", title: "Depression & Anxiety Assessment" },
   { slug: "depression-screening-test-standard-edition", scale_code: "SDS_20", title: "Depression Screening" },
 ];
 

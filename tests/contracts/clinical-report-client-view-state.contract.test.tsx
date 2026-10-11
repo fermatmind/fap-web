@@ -1,5 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ClinicalReportClient from "@/components/clinical/report/ClinicalReportClient";
 import pilotEnvelope from "@/tests/fixtures/big5/result_page_v2/pilot_o59_staging_payload_v0_1.payload.json";
@@ -387,4 +387,48 @@ describe("ClinicalReportClient view-state contract", () => {
     expect(screen.queryByTestId("offer-card")).not.toBeInTheDocument();
     expect(screen.queryByTestId("unlock-cta")).not.toBeInTheDocument();
   });
+  for (const refreshedAccess of ["ready", "locked", "unavailable", "invalid", "error"] as const) {
+    it(`refreshes permission authority during pending unlock: ${refreshedAccess}`, async () => {
+      let phase = "initial";
+      const pendingKey = "fm_clinical_pending_unlock_v1_attempt-456";
+      window.localStorage.setItem(pendingKey, "ord_pending_clinical");
+      hoisted.fetchAttemptReportAccess.mockImplementation(async () => {
+        if (phase === "poll" && refreshedAccess === "error") throw new Error("Access unavailable");
+        return createAccessProjection({
+          attempt_id: phase === "poll" && refreshedAccess === "invalid" ? "other-attempt" : "attempt-456",
+          access_state: phase === "initial" ? "locked" : refreshedAccess,
+        });
+      });
+      hoisted.fetchClinicalReport.mockImplementation(async () => ({
+        ok: true,
+        locked: phase === "initial",
+        variant: phase === "initial" ? "free" : "full",
+        report: { scale_code: "CLINICAL_COMBO_68", sections: [] },
+        offers: [{ sku: "CC68_FULL", title: "Full report", price_cents: 1299, currency: "USD" }],
+      }));
+      vi.useFakeTimers();
+      const view = render(<ClinicalReportClient attemptId="attempt-456" rolloutEnv={{} as never} />);
+      await act(async () => { await vi.advanceTimersByTimeAsync(0); });
+      expect(screen.getByTestId("unlock-cta")).toBeInTheDocument();
+      const accessReads = hoisted.fetchAttemptReportAccess.mock.calls.length;
+      const reportReads = hoisted.fetchClinicalReport.mock.calls.length;
+      phase = "poll";
+      try {
+        await act(async () => { await vi.advanceTimersByTimeAsync(3100); });
+        expect(hoisted.fetchClinicalReport.mock.calls.length).toBeGreaterThan(reportReads);
+        expect(hoisted.fetchAttemptReportAccess.mock.calls.length).toBeGreaterThan(accessReads);
+        if (refreshedAccess === "ready") {
+          expect(screen.queryByTestId("unlock-cta")).not.toBeInTheDocument();
+          expect(window.localStorage.getItem(pendingKey)).toBeNull();
+        } else {
+          expect(screen.getByTestId("unlock-cta")).toBeInTheDocument();
+          expect(window.localStorage.getItem(pendingKey)).toBe("ord_pending_clinical");
+        }
+      } finally {
+        view.unmount();
+        vi.useRealTimers();
+      }
+    });
+  }
+
 });
