@@ -3463,16 +3463,16 @@ export async function submitEnneagramObservationDay7({
   return assertApiOk(response, "Failed to submit Day 7 resonance feedback.");
 }
 
-export async function fetchEnneagramTechnicalNote(): Promise<EnneagramTechnicalNoteResponse> {
-  const response = await apiClient.get<EnneagramTechnicalNoteResponse>("/v0.3/scales/ENNEAGRAM/technical-note", {
+export async function fetchEnneagramTechnicalNote(locale?: "en" | "zh"): Promise<EnneagramTechnicalNoteResponse> {
+  const response = await apiClient.get<EnneagramTechnicalNoteResponse>(`/v0.3/scales/ENNEAGRAM/technical-note${locale ? `?locale=${locale === "zh" ? "zh-CN" : "en"}` : ""}`, {
     skipAuth: true,
   });
 
   return assertApiOk(response, "Failed to load Enneagram Technical Note.");
 }
 
-export async function fetchRiasecTechnicalNote(): Promise<RiasecTechnicalNoteResponse> {
-  const response = await apiClient.get<RiasecTechnicalNoteResponse>("/v0.3/scales/RIASEC/technical-note", {
+export async function fetchRiasecTechnicalNote(locale?: "en" | "zh"): Promise<RiasecTechnicalNoteResponse> {
+  const response = await apiClient.get<RiasecTechnicalNoteResponse>(`/v0.3/scales/RIASEC/technical-note${locale ? `?locale=${locale === "zh" ? "zh-CN" : "en"}` : ""}`, {
     skipAuth: true,
   });
 

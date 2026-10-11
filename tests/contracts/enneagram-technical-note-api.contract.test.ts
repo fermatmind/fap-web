@@ -63,4 +63,11 @@ describe("enneagram technical note API contract", () => {
       skipAuth: true,
     });
   });
+  it("sends the explicit locale while retaining legacy no-argument callers", async () => {
+    await fetchEnneagramTechnicalNote("en");
+    expect(hoisted.get).toHaveBeenLastCalledWith("/v0.3/scales/ENNEAGRAM/technical-note?locale=en", {skipAuth:true});
+    await fetchRiasecTechnicalNote("zh");
+    expect(hoisted.get).toHaveBeenLastCalledWith("/v0.3/scales/RIASEC/technical-note?locale=zh-CN", {skipAuth:true});
+  });
+
 });

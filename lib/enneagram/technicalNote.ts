@@ -31,8 +31,9 @@ export function resolveEnneagramTechnicalNoteHref(candidate: string | null | und
   return normalized.startsWith(`/${locale}/`) ? normalized : localizedPath(normalized, locale);
 }
 
-export function getEnneagramTechnicalNoteStatusLabel(status: string | null | undefined): string {
+export function getEnneagramTechnicalNoteStatusLabel(status: string | null | undefined, locale: Locale = "zh"): string {
   const normalized = String(status ?? "").trim();
+  if (locale === "en") return ({ currently_operational: "Currently operational", collecting_data: "Collecting data", pending_sample: "Awaiting samples", partial: "Partially available", planned: "Planned", unavailable: "Unavailable", not_claimed: "Not claimed" } as Record<string, string>)[normalized] ?? (normalized || "Unavailable");
   if (ENNEAGRAM_TECHNICAL_NOTE_STATUS_LABELS[normalized]) {
     return ENNEAGRAM_TECHNICAL_NOTE_STATUS_LABELS[normalized];
   }
@@ -40,8 +41,9 @@ export function getEnneagramTechnicalNoteStatusLabel(status: string | null | und
   return normalized || ENNEAGRAM_TECHNICAL_NOTE_STATUS_LABELS.unavailable;
 }
 
-export function getEnneagramTechnicalNoteNotClaimedLabel(key: string | null | undefined): string {
+export function getEnneagramTechnicalNoteNotClaimedLabel(key: string | null | undefined, locale: Locale = "zh"): string {
   const normalized = String(key ?? "").trim();
+  if (locale === "en") return ({ clinical_validity: "Clinical validity", hiring_screening_suitability: "Hiring or screening suitability", cross_form_numeric_equivalence: "Numerical equivalence across forms", ability: "Ability", personality: "Personality", values: "Values", career_success_probability: "Career success probability", job_fit: "Job fit", career_registry_match: "Occupation registry matching", cross_form_raw_score_delta: "Raw score changes across forms" } as Record<string, string>)[normalized] ?? normalized.replaceAll("_", " ");
   return ENNEAGRAM_TECHNICAL_NOTE_NOT_CLAIMED_LABELS[normalized] ?? normalized;
 }
 

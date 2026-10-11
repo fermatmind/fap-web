@@ -29,7 +29,8 @@ export async function generateMetadata({
   const title = test ? resolveTestTitleByLocale(test, locale) : "Technical Note";
 
   return {
-    title: `${title} - Technical Note`,
+    title: `${title} - ${locale === "en" ? "Technical Note" : "技术说明"}`,
+    description: locale === "en" ? `Methods, score interpretation, evidence status, and use boundaries for ${title}.` : `${title}的方法、分数解释、证据状态与使用边界。`,
     alternates: {
       canonical: localizedPath(`/tests/${slug}/technical-note`, locale),
     },
