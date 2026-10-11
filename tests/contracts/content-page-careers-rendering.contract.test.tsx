@@ -96,7 +96,7 @@ describe("Careers content page rendering", () => {
 
     expect(team?.querySelectorAll("article")).toHaveLength(3);
     expect(Array.from(team?.querySelectorAll("h3") ?? [], (heading) => heading.textContent)).toEqual(
-      locale === "zh" ? ["刘福威", "贾睿璇", "姓名待补充"] : ["Liu Fuwei", "Jia Ruixuan", "Name to follow"]
+      locale === "zh" ? ["刘福威", "贾睿璇", "李琛"] : ["Liu Fuwei", "Jia Ruixuan", "Li Chen"]
     );
     expect(team?.querySelector("h2")?.textContent).toBe(teamHeading);
     expect(root.querySelector('nav a[href="#team"]')?.textContent).toBe(teamHeading);
