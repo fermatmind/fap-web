@@ -141,6 +141,10 @@ export default function ShareClient({
   const [shareClickStatus, setShareClickStatus] = useState<"idle" | "pending" | "ready" | "error">("idle");
   const [compareInvitePending, setCompareInvitePending] = useState(false);
   const [compareInviteError, setCompareInviteError] = useState<string | null>(null);
+  const shareClickRequestRef = useRef<{
+    key: string;
+    promise: ReturnType<typeof trackShareClick>;
+  } | null>(null);
   const carryoverImpressionTrackedRef = useRef(false);
   const widgetImpressionTrackedRef = useRef(false);
 
@@ -254,18 +258,24 @@ export default function ShareClient({
     const anonId = getOrCreateAnonId().trim();
     setShareClickStatus("pending");
 
-    void trackShareClick({
-      shareId,
-      anonId,
-      locale,
-      meta: {
-        entrypoint: "share_page",
-        landing_path: safeLandingPath,
-        referrer: safePageReferrer,
-        ...(utm ? { utm } : {}),
-        compare_intent: false,
-      },
-    })
+    if (shareClickRequestRef.current?.key !== dedupKey) {
+      shareClickRequestRef.current = {
+        key: dedupKey,
+        promise: trackShareClick({
+          shareId,
+          anonId,
+          locale,
+          meta: {
+            entrypoint: "share_page",
+            landing_path: safeLandingPath,
+            referrer: safePageReferrer,
+            ...(utm ? { utm } : {}),
+            compare_intent: false,
+          },
+        }),
+      };
+    }
+    void shareClickRequestRef.current.promise
       .then((response) => {
         const trackedShareClickId = response.id?.trim();
         if (!trackedShareClickId) {

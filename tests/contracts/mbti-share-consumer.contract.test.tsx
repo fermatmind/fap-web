@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
+import { StrictMode } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
@@ -557,6 +558,32 @@ describe("MBTI share consumer contract", () => {
       take_path: "/en/tests/mbti-personality-test-16-personality-types/take",
       compare_path: "/en/compare/mbti/invite-456",
     });
+  });
+
+  it("reuses one pending share-click write during StrictMode effect replay", async () => {
+    const pending = deferred<{ ok: boolean; id: string }>();
+    hoisted.trackShareClick.mockReturnValue(pending.promise);
+    render(<StrictMode><ShareClient locale="en" shareId="share-123" /></StrictMode>);
+    await waitFor(() => expect(hoisted.trackShareClick).toHaveBeenCalledTimes(1));
+    pending.resolve({ ok: true, id: "strict-click" });
+    await waitFor(() => expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeEnabled());
+    fireEvent.click(screen.getByRole("button", { name: "Invite a friend to compare" }));
+    await waitFor(() => expect(hoisted.createMbtiCompareInvite).toHaveBeenCalledWith(expect.objectContaining({ shareClickId: "strict-click" })));
+  });
+
+  it("keeps distinct landing campaigns separate while an earlier write is pending", async () => {
+    const first = deferred<{ ok: boolean; id: string }>();
+    const second = deferred<{ ok: boolean; id: string }>();
+    hoisted.trackShareClick.mockReturnValueOnce(first.promise).mockReturnValueOnce(second.promise);
+    const view = render(<ShareClient locale="en" shareId="share-123" />);
+    hoisted.search = "utm_source=email&utm_campaign=new";
+    view.rerender(<ShareClient locale="en" shareId="share-123" />);
+    await waitFor(() => expect(hoisted.trackShareClick).toHaveBeenCalledTimes(2));
+    second.resolve({ ok: true, id: "new-campaign-click" });
+    first.resolve({ ok: true, id: "old-campaign-click" });
+    await waitFor(() => expect(screen.getByRole("button", { name: "Invite a friend to compare" })).toBeEnabled());
+    fireEvent.click(screen.getByRole("button", { name: "Invite a friend to compare" }));
+    await waitFor(() => expect(hoisted.createMbtiCompareInvite).toHaveBeenCalledWith(expect.objectContaining({ shareClickId: "new-campaign-click" })));
   });
 
   it("renders the lightweight public summary, consumes projection dimensions, and keeps paid content hidden", async () => {
