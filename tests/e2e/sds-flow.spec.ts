@@ -1,3 +1,4 @@
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
@@ -176,7 +177,13 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({
+      ok: true, attempt_id: attemptId, access_state: "locked", report_state: "ready",
+      pdf_state: "ready", projection_version: 1, actions: {},
+    }) });
+  });
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -275,5 +282,17 @@ test("SDS flow: consent gate, submit, crisis banner, paywall hidden, locale cont
   expect(payload.consent).toMatchObject({
     accepted: true,
     version: "SDS20_CONSENT_v1",
+  });
+});
+
+// Server-rendered catalog/rollout requests require a real local HTTP fixture.
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
+
+// These clinical scenarios start with a valid anonymous assessment session.
+test.beforeEach(async ({ page }) => {
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ ok: true, fm_token: "fm_clinical_e2e_guest_session" }) });
   });
 });

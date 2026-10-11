@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
 test.describe("mobile header drawer", () => {
@@ -52,7 +53,7 @@ test.describe("mobile header drawer", () => {
     await drawer.getByRole("button", { name: "Tests menu", exact: true }).click();
     await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toBeVisible();
 
-    await drawer.getByRole("button", { name: "Articles menu", exact: true }).click();
+    await drawer.getByRole("button", { name: "Blog menu", exact: true }).click();
     await expect(drawer.getByRole("menuitem", { name: "Tests hub", exact: true })).toHaveCount(0);
     await expect(drawer.getByRole("menuitem", { name: "All articles", exact: true })).toBeVisible();
 
@@ -61,3 +62,7 @@ test.describe("mobile header drawer", () => {
     await expect(page.getByRole("dialog", { name: "Menu" })).toHaveCount(0);
   });
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

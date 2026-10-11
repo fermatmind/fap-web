@@ -29,6 +29,7 @@ export function classifyPaths(inputPaths) {
       /(^|\/)README(?:\.[^/]+)?$/,
       /^(?:docs|\.agents)\//,
       /^\.github\/trunk\/classify-paths(?:\.test)?\.mjs$/,
+      /^playwright\.config\.ts$/,
       /^(?:tests?|__tests__)\//,
       /(^|\/)__tests__\//,
       /\.test\.[cm]?[jt]sx?$/,

@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 
 const primaryNavTargets = {
@@ -20,14 +21,14 @@ const primaryNavTargets = {
 const primaryNavLabels = {
   en: {
     tests: "Tests",
-    articles: "Articles",
+    articles: "Blog",
     personality: "Personality",
     career: "Career",
     help: "Help",
   },
   zh: {
     tests: "测试",
-    articles: "文章",
+    articles: "博客",
     personality: "人格",
     career: "职业",
     help: "帮助",
@@ -35,7 +36,7 @@ const primaryNavLabels = {
 } as const;
 
 async function expectSiteChromeVisible(page: Page) {
-  await expect(page.getByRole("link", { name: /^(FermatMind|费马测试)$/ })).toBeVisible();
+  await expect(page.getByTestId("site-header-container").getByRole("link", { name: /^(FermatMind|费马测试)$/ })).toBeVisible();
 }
 
 test("site chrome is consistent across help and articles pages", async ({ page }) => {
@@ -51,8 +52,20 @@ test("site chrome is consistent across help and articles pages", async ({ page }
 });
 
 test("site chrome is visible on immersive take page", async ({ page }) => {
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({ json: { ok: true, fm_token: "fm_navigation_take_guest" } });
+  });
+  await page.route("**/api/v0.3/scales/MBTI/questions*", async (route) => {
+    await route.fulfill({ json: { ok: true, scale_code: "MBTI", questions: { items: [{
+      question_id: "1", order: 1, text: "Navigation fixture question",
+      options: [{ code: "A", text: "Agree" }, { code: "B", text: "Disagree" }],
+    }] } } });
+  });
   await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
-  await expectSiteChromeVisible(page);
+  await expect(page.getByRole("heading", { name: "Navigation fixture question", exact: true })).toBeVisible();
+  await expect(page.getByRole("banner").getByRole("link", { name: "FermatMind", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Back to assessment", exact: true })).toHaveAttribute("href", "/en/tests/mbti-personality-test-16-personality-types");
+  await expect(page.getByRole("navigation", { name: "Assessment information" }).getByRole("link", { name: "Privacy", exact: true })).toHaveAttribute("href", "/en/privacy");
 });
 
 test("site chrome is visible on order lookup page", async ({ page }) => {
@@ -146,11 +159,17 @@ for (const locale of ["en", "zh"] as const) {
         name: `${primaryNavLabels[locale][key]} menu`,
         exact: true,
       });
-      await trigger.click();
+      await trigger.focus();
+      await page.keyboard.press("Enter");
       await expect(trigger).toHaveAttribute("aria-expanded", "true");
       await expect(page.getByRole("menu")).toBeVisible();
       await expect(page.getByRole("menuitem").first()).toBeVisible();
       await page.keyboard.press("Escape");
+      await expect(trigger).toHaveAttribute("aria-expanded", "false");
+      await page.mouse.move(0, 0);
+      await trigger.hover();
+      await expect(trigger).toHaveAttribute("aria-expanded", "true");
+      await trigger.click();
       await expect(trigger).toHaveAttribute("aria-expanded", "false");
     }
   });
@@ -173,3 +192,7 @@ for (const locale of ["en", "zh"] as const) {
     }
   });
 }
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

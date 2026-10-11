@@ -1,12 +1,25 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
-test("test detail page has code visual hero and CTA", async ({ page }) => {
-  await page.goto("/en/tests/big-five-personality-test-ocean-model");
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
-  await expect(page.getByRole("heading", { name: /Big Five Personality Test.*OCEAN Model/ })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Start test" })).toBeVisible();
-  const hero = page.locator("main section").first();
-  await expect(
-    hero.getByRole("img", { name: "Five rising bars representing OCEAN personality traits." })
-  ).toBeVisible();
-});
+for (const locale of ["en", "zh"] as const) {
+  test(`${locale} Big Five landing exposes both free versions and the illustrated OCEAN hero`, async ({ page }) => {
+    const slug = "big-five-personality-test-ocean-model";
+    await page.goto(`/${locale}/tests/${slug}`);
+    const hero = page.locator("main section#what-it-is");
+    await expect(hero.getByRole("heading", { level: 1, name: locale === "en" ? "Free Big Five Personality Test" : "大五人格免费测试（Big Five）", exact: true })).toBeVisible();
+    for (const [count, form] of [[120, "big5_120"], [90, "big5_90"]] as const) {
+      const link = hero.getByRole("link", { name: new RegExp(`${count}.*${locale === "en" ? "question" : "题"}`) });
+      await expect(link).toBeVisible();
+      await expect(link).toHaveAttribute("href", `/${locale}/tests/${slug}/take?form=${form}`);
+    }
+    const artwork = hero.getByTestId("assessment-hero-artwork");
+    await expect(artwork).toBeVisible();
+    await expect(artwork).toHaveAttribute("data-theme", "big-five");
+    await expect(artwork).toHaveAttribute("aria-hidden", "true");
+    expect((await artwork.textContent())?.replace(/\s/g, "")).toContain("OCEAN");
+  });
+}

@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 
 async function mockCommonApis(page: Page) {
@@ -107,15 +108,21 @@ test("help and footer discoverability both reach the email preferences surfaces"
   await mockCommonApis(page);
 
   await page.goto("/en/help");
-  await expect(page.getByRole("button", { name: "Manage email preferences" })).toBeVisible();
-  await page.getByRole("button", { name: "Manage email preferences" }).click();
+  await expect(page.getByTestId("support-quick-tools").locator('a[href="/en/email/preferences"]')).toBeVisible();
+  await page.getByTestId("support-quick-tools").locator('a[href="/en/email/preferences"]').click();
   await expect(page).toHaveURL("/en/email/preferences");
   await expect(page.getByRole("heading", { level: 3, name: "Manage email preferences" })).toBeVisible();
 
   await page.goto("/en");
   const footer = page.locator("footer").first();
   await footer.scrollIntoViewIfNeeded();
-  await footer.getByRole("link", { name: "Unsubscribe from emails" }).click();
+  await footer.locator('a[href="/en/support"]').click();
+  await expect(page).toHaveURL("/en/support");
+  await page.getByTestId("support-quick-tools").locator('a[href="/en/email/unsubscribe"]').click();
   await expect(page).toHaveURL("/en/email/unsubscribe");
   await expect(page.getByRole("heading", { level: 3, name: "Unsubscribe from emails" })).toBeVisible();
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

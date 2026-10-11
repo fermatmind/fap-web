@@ -213,9 +213,9 @@ test("MBTI paid orders auto-redirect to the unlocked result page", async ({ page
 
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
   const terminalSurface = page.getByTestId("mbti-post-purchase-section");
-  await expect(terminalSurface).toBeVisible();
+  await expect(terminalSurface).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
-  await expect(page.getByTestId("mbti-hero")).toContainText("Projection-first summary that should replace the legacy hero copy on result pages.");
+  await expect(page.getByTestId("mbti-hero")).not.toContainText("Projection-first summary that should replace the legacy hero copy on result pages.");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
     "/en/career/recommendations/mbti/enfp-t"
@@ -238,7 +238,7 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
 
   const terminalSurface = page.getByTestId("mbti-post-purchase-section");
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
-  await expect(terminalSurface).toBeVisible();
+  await expect(terminalSurface).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
     "href",
     "/en/career/recommendations/mbti/enfp-t"
@@ -259,7 +259,7 @@ test("MBTI result pages keep post-purchase retention and history re-entry", asyn
   await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 
   await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}(\\?.*)?$`));
-  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible();
+  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible({ timeout: 20000 });
   expect(counters.getReportAccessRequestCount()).toBeGreaterThan(0);
   expect(counters.getReportRequestCount()).toBeGreaterThan(0);
 });

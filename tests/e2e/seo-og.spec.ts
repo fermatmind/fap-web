@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
 test("public seo pages keep canonical and og metadata without private noindex pollution", async ({ request }) => {
@@ -52,7 +53,7 @@ test("share and compare OG routes return images", async ({ request }) => {
   expect((compareResponse.headers()["content-type"] || "").includes("image/")).toBeTruthy();
 });
 
-test("share and compare pages stay noindex while exposing route-specific og:image tags", async ({ request }) => {
+test("share metadata strips private IDs and compare metadata stays noindex", async ({ request }) => {
   const shareId = "seo-share-001";
   const inviteId = "seo-invite-001";
 
@@ -62,7 +63,10 @@ test("share and compare pages stay noindex while exposing route-specific og:imag
   expect(shareHtml.toLowerCase()).toContain("noindex");
   expect(shareHtml).toContain('property="og:image"');
   expect(shareHtml).toContain('name="twitter:image"');
-  expect(shareHtml).toContain(`/og/share/${shareId}`);
+  expect(shareHtml).toContain("/static/share/mbti_wide_1200x630.png");
+  const metadataTags = shareHtml.match(/<(?:meta|link)\b[^>]*>/g) ?? [];
+  expect(metadataTags.join("\n")).not.toContain(shareId);
+  expect(shareHtml).toContain('rel="canonical" href="https://fermatmind.com/en/share"');
 
   const comparePage = await request.get(`/en/compare/mbti/${inviteId}`);
   expect(comparePage.ok()).toBeTruthy();
@@ -72,3 +76,7 @@ test("share and compare pages stay noindex while exposing route-specific og:imag
   expect(compareHtml).toContain('name="twitter:image"');
   expect(compareHtml).toContain(`/og/compare/mbti/${inviteId}`);
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

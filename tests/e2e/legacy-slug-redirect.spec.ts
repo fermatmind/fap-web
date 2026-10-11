@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
 const LEGACY_MODE = process.env.FAP_LEGACY_PATH_MODE === "gone" ? "gone" : "redirect";
@@ -148,7 +149,7 @@ test("legacy slug redirect: root /quiz index is explicit by mode", async ({ page
   await expect(page).toHaveURL(/\/en\/tests\?utm=a$/);
 });
 
-test("legacy slug redirect: root /quiz slug preserves query before locale redirect", async ({ page, request }) => {
+test("legacy slug redirect: root /quiz slug preserves query before canonical landing redirect", async ({ page, request }) => {
   const path = "/quiz/mbti-test?utm=a";
 
   if (LEGACY_MODE === "gone") {
@@ -161,13 +162,13 @@ test("legacy slug redirect: root /quiz slug preserves query before locale redire
 
   const response = await request.get(path, { maxRedirects: 0 });
   expect(response.status()).toBe(308);
-  expect(response.headers().location).toContain("/en/quiz/mbti-test?utm=a");
+  expect(response.headers().location).toContain("/en/tests/mbti-test?utm=a");
 
   await page.goto(path);
-  await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types\/take\?utm=a$/);
+  await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types\?utm=a$/);
 });
 
-test("legacy slug redirect: /quiz alias take respects mode and preserves query", async ({ page, request }) => {
+test("legacy slug redirect: /quiz alias landing respects mode and preserves query", async ({ page, request }) => {
   const path = "/en/quiz/mbti-test?utm=a";
 
   if (LEGACY_MODE === "gone") {
@@ -181,9 +182,13 @@ test("legacy slug redirect: /quiz alias take respects mode and preserves query",
   const response = await request.get(path, { maxRedirects: 0 });
   expect(response.status()).toBe(308);
   expect(response.headers().location).toContain(
-    "/en/tests/mbti-personality-test-16-personality-types/take?utm=a"
+    "/en/tests/mbti-personality-test-16-personality-types?utm=a"
   );
 
   await page.goto(path);
-  await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types\/take\?utm=a$/);
+  await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types\?utm=a$/);
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

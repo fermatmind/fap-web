@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 import reportReadyMbtiFreeFixture from "../fixtures/report_ready.mbti.free.json";
 
@@ -66,19 +67,19 @@ async function mockHistory(page: Page, items: Array<Record<string, unknown>>) {
 }
 
 test.describe("MBTI history account-center entry", () => {
-  test("header My Results entry routes into MBTI history for both locales", async ({ page }) => {
+  test("header account entry recovers results by email for both locales", async ({ page }) => {
     await mockCommonApis(page);
     await mockHistory(page, []);
 
     await page.goto("/en");
-    await page.getByRole("link", { name: "My Results", exact: true }).click();
-    await expect(page).toHaveURL("/en/history/mbti");
-    await expect(page.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeVisible();
+    await page.getByRole("link", { name: "My Account", exact: true }).click();
+    await expect(page).toHaveURL("/en/results/lookup");
+    await expect(page.getByRole("heading", { level: 1, name: "Find saved results" })).toBeVisible();
 
     await page.goto("/zh");
-    await page.getByRole("link", { name: "我的结果", exact: true }).click();
-    await expect(page).toHaveURL("/zh/history/mbti");
-    await expect(page.getByRole("heading", { level: 1, name: "MBTI Workspace Lite" })).toBeVisible();
+    await page.getByRole("link", { name: "我的账户", exact: true }).click();
+    await expect(page).toHaveURL("/zh/results/lookup");
+    await expect(page.getByRole("heading", { level: 1, name: "找回结果" })).toBeVisible();
   });
 
   test("history hero keeps recovery while the latest full row exposes workspace-lite re-entry and PDF", async ({ page }) => {
@@ -302,20 +303,20 @@ test.describe("MBTI history account-center entry", () => {
     await expect(page.getByTestId("mbti-history-open-attempt-history-syncing-1")).toHaveText("Status syncing");
   });
 
-  test("history empty state shows both take-test and purchased-report recovery actions", async ({ page }) => {
+  test("history empty state shows both free-test and email recovery actions", async ({ page }) => {
     await mockCommonApis(page);
     await mockHistory(page, []);
 
     await page.goto("/en/history/mbti");
 
     await expect(page.getByTestId("mbti-history-empty")).toBeVisible();
-    await expect(page.getByTestId("mbti-history-empty-start")).toHaveText("Take the MBTI test");
+    await expect(page.getByTestId("mbti-history-empty-start")).toHaveText("Start the free MBTI test");
     await expect(page.getByTestId("mbti-history-empty-start")).toHaveAttribute(
       "href",
       "/en/tests/mbti-personality-test-16-personality-types/take"
     );
-    await expect(page.getByTestId("mbti-history-empty-recovery")).toHaveText("Recover a purchased report");
-    await expect(page.getByTestId("mbti-history-empty-recovery")).toHaveAttribute("href", "/en/orders/lookup");
+    await expect(page.getByTestId("mbti-history-empty-recovery")).toHaveText("Recover by email");
+    await expect(page.getByTestId("mbti-history-empty-recovery")).toHaveAttribute("href", "/en/results/lookup");
   });
 
   test("history list items still route into the existing result page", async ({ page }) => {
@@ -359,7 +360,7 @@ test.describe("MBTI history account-center entry", () => {
         }),
       });
     });
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+    await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
@@ -369,7 +370,7 @@ test.describe("MBTI history account-center entry", () => {
 
     await page.goto(`/en/history/mbti?${journeyQuery}`);
     await expect(page.getByTestId(`mbti-history-open-${attemptId}`)).toBeVisible();
-    await expect(page.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover a purchased report through order lookup.")).toBeVisible();
+    await expect(page.getByText("This is now your MBTI Workspace Lite entry: continue from saved results here, or recover saved results by email.")).toBeVisible();
     await expect(page.getByTestId("mbti-history-open-attempt-history-open-1")).toHaveText("Open full result");
     await expect(page.getByTestId("mbti-history-journey-context")).toContainText(
       "Refine the current focus after feedback"
@@ -382,6 +383,11 @@ test.describe("MBTI history account-center entry", () => {
     await page.getByTestId(`mbti-history-open-${attemptId}`).click();
 
     await expect(page).toHaveURL(new RegExp(`/en/result/${attemptId}\\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate`));
-    await expect(page.getByRole("heading", { level: 1, name: "Your assessment result" })).toBeVisible();
+    await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
+    await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
   });
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

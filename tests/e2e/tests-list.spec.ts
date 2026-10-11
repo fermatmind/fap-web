@@ -1,49 +1,29 @@
 import { expect, test } from "@playwright/test";
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 
-test("tests list keeps card titles visible and aligned in EN", async ({ page }) => {
-  await page.goto("/en/tests");
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
-  await expect(page.getByRole("heading", { name: "Tests" })).toBeVisible();
-  const grid = page.getByTestId("tests-list-grid-section");
-  const cards = grid.locator('[role="img"][aria-label]');
-  await expect(cards.first()).toBeVisible();
-
-  const cardCount = await cards.count();
-  expect(cardCount).toBeGreaterThan(2);
-
-  await expect(page.getByText("Type axis synthesis")).toHaveCount(0);
-  await expect(page.getByText("Trait distribution profile")).toHaveCount(0);
-  await expect(page.getByText("Multidomain screening")).toHaveCount(0);
-
-  const clinicalHeading = grid.locator(
-    'h3[title="Clinical Depression & Anxiety Assessment 【Professional Edition】"]'
-  );
-  await expect(clinicalHeading).toHaveCount(0);
-
-  const topRowRatings = grid.getByTestId("tests-grid-card-rating");
-  const firstRow = [0, 1, 2];
-  const boxes = await Promise.all(firstRow.map(async (idx) => topRowRatings.nth(idx).boundingBox()));
-  expect(boxes.every((box) => box !== null)).toBeTruthy();
-  const yValues = boxes.map((box) => box?.y ?? 0);
-  const maxY = Math.max(...yValues);
-  const minY = Math.min(...yValues);
-  expect(maxY - minY).toBeLessThanOrEqual(1);
-});
-
-test("tests list keeps zh core titles on one line without truncation", async ({ page }) => {
-  await page.goto("/zh/tests");
-
-  const grid = page.getByTestId("tests-list-grid-section");
-  await expect(grid).toBeVisible();
-
-  await expect(grid.locator('h3[title="MBTI 性格测试【16型人格】"]')).toBeVisible();
-  await expect(grid.locator('h3[title="大五人格测试【OCEAN 模型】"]')).toBeVisible();
-  await expect(grid.locator('h3[title="抑郁焦虑综合检测【学术专业版】"]')).toHaveCount(0);
-
-  const headingTexts = await grid.locator("h3").allTextContents();
-  expect(headingTexts.some((text) => text.includes("...") || text.includes("…"))).toBe(false);
-
-  await expect(page.getByText("类型轴线综合")).toHaveCount(0);
-  await expect(page.getByText("特质分布画像")).toHaveCount(0);
-  await expect(page.getByText("多维筛查")).toHaveCount(0);
-});
+for (const locale of ["en", "zh"] as const) {
+  test(`${locale} tests hub keeps its complete assessment cards readable and aligned`, async ({ page }) => {
+    await page.goto(`/${locale}/tests`);
+    const hub = page.locator('main section[aria-labelledby="tests-hub-title"]');
+    await expect(hub.getByRole("heading", { level: 1, name: locale === "en" ? "Free assessments" : "免费测试" })).toBeVisible();
+    const cards = hub.locator("article");
+    await expect(cards).toHaveCount(6);
+    for (const card of await cards.all()) {
+      await expect(card.getByRole("heading", { level: 2 })).toBeVisible();
+      await expect(card.getByRole("link")).toHaveAttribute("href", new RegExp(`^/${locale}/tests/`));
+    }
+    const texts = await cards.getByRole("heading", { level: 2 }).allTextContents();
+    expect(texts.every((text) => text.trim() && !text.includes("…") && !text.includes("..."))).toBe(true);
+    await expect(hub.locator('a[href*="clinical-depression"],a[href*="depression-screening"]')).toHaveCount(0);
+    const boxes = await Promise.all([0, 1, 2].map((i) => cards.nth(i).boundingBox()));
+    expect(boxes.every(Boolean)).toBe(true);
+    const positions = boxes.map((box) => box!.y);
+    expect(Math.max(...positions) - Math.min(...positions)).toBeLessThanOrEqual(1);
+    const metrics = await page.evaluate(() => [document.documentElement.clientWidth, document.documentElement.scrollWidth]);
+    expect(metrics[1]).toBeLessThanOrEqual(metrics[0] + 1);
+  });
+}

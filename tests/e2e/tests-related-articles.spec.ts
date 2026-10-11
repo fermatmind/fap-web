@@ -1,53 +1,45 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
+const illustratedSlugs = [
+  "mbti-personality-test-16-personality-types",
+  "big-five-personality-test-ocean-model",
+  "iq-test-intelligence-quotient-assessment",
+  "eq-test-emotional-intelligence-assessment",
+];
+const clinicalSlug = "clinical-depression-anxiety-assessment-professional-edition";
+const sdsSlug = "depression-screening-test-standard-edition";
 
-const EXPECTED_PLACEMENT: Record<string, [string, string, string]> = {
-  "mbti-personality-test-16-personality-types": [
-    "mbti-basics",
-    "mbti-growth-guide",
-    "mbti-narrative-portrait",
-  ],
-  "big-five-personality-test-ocean-model": [
-    "big-five-tool-guide",
-    "big-five-growth-guide",
-    "big-five-narrative-portrait",
-  ],
-  "clinical-depression-anxiety-assessment-professional-edition": [
-    "clinical-depression-anxiety-pro-tool-guide",
-    "clinical-depression-anxiety-pro-growth-guide",
-    "clinical-depression-anxiety-pro-narrative-portrait",
-  ],
-  "depression-screening-test-standard-edition": [
-    "depression-screening-standard-tool-guide",
-    "depression-screening-standard-growth-guide",
-    "depression-screening-standard-narrative-portrait",
-  ],
-  "iq-test-intelligence-quotient-assessment": [
-    "iq-test-tool-guide",
-    "iq-test-growth-guide",
-    "iq-test-narrative-portrait",
-  ],
-  "eq-test-emotional-intelligence-assessment": [
-    "eq-test-tool-guide",
-    "eq-test-growth-guide",
-    "eq-test-narrative-portrait",
-  ],
-};
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
 
-test("each test detail page exposes exactly three mapped related articles", async ({ page }) => {
-  for (const locale of ["en", "zh"] as const) {
-    for (const [testSlug, articleSlugs] of Object.entries(EXPECTED_PLACEMENT)) {
-      await page.goto(`/${locale}/tests/${testSlug}`);
-
-      const section = page.getByTestId("tests-related-articles-section");
-      await expect(section).toBeVisible();
-
-      const links = section.locator('a[href*="/articles/"]');
-      await expect(links).toHaveCount(3);
-
-      const hrefs = await links.evaluateAll((nodes) =>
-        nodes.map((node) => (node as HTMLAnchorElement).getAttribute("href") || "")
-      );
-      expect(hrefs).toEqual(articleSlugs.map((slug) => `/${locale}/articles/${slug}`));
-    }
+for (const locale of ["en", "zh"] as const) {
+  for (const slug of illustratedSlugs) {
+    test(`${locale} ${slug} keeps editorial, references and FAQ in its illustrated landing`, async ({ page }) => {
+      const response = await page.goto(`/${locale}/tests/${slug}`);
+      expect(response?.status()).toBe(200);
+      await expect(page.locator("main #what-it-is h1")).toBeVisible();
+      await expect(page.locator("#why-choose")).toBeVisible();
+      await expect(page.locator("#why-choose article").first()).toBeVisible();
+      await expect(page.locator("#faq article").first()).toBeVisible();
+      await expect(page.locator("#faq article p").first()).not.toBeEmpty();
+      if (slug !== "iq-test-intelligence-quotient-assessment") {
+        await expect(page.locator("#faq a").first()).toBeVisible();
+      }
+      await expect(page.locator('#what-it-is a[href*="/take"]')).not.toHaveCount(0);
+      await expect(page.getByTestId("tests-related-articles-section")).toHaveCount(0);
+    });
   }
-});
+  for (const slug of [clinicalSlug, sdsSlug]) {
+    test(`${locale} held ${slug} remains unavailable without fabricated related articles`, async ({ page }) => {
+      const response = await page.goto(`/${locale}/tests/${slug}`);
+      expect(response?.status()).toBe(200);
+      await expect(page.getByRole("status")).toContainText(locale === "en"
+        ? "Assessment temporarily unavailable" : "测评暂不可用");
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", /noindex/);
+      await expect(page.getByTestId("tests-related-articles-section")).toHaveCount(0);
+      await expect(page.locator('main a[href*="/articles/"]')).toHaveCount(0);
+      await expect(page.locator('main a[href*="/take"]')).toHaveCount(0);
+    });
+  }
+}

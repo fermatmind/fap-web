@@ -48,7 +48,8 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
 
   await page.route(reportAccessPattern, async (route) => {
     reportAccessRequestCount += 1;
-    expect(route.request().url()).toContain(`access_token=${accessToken}`);
+    expect(route.request().headers()["x-result-access-token"]).toBe(accessToken);
+    expect(new URL(route.request().url()).searchParams.has("access_token")).toBe(false);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -76,7 +77,8 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
 
   await page.route(reportPattern, async (route) => {
     reportRequestCount += 1;
-    expect(route.request().url()).toContain(`access_token=${accessToken}`);
+    expect(route.request().headers()["x-result-access-token"]).toBe(accessToken);
+    expect(new URL(route.request().url()).searchParams.has("access_token")).toBe(false);
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -86,7 +88,7 @@ test("MBTI result page stays on the access-first rich report path", async ({ pag
 
   await page.goto(`/en/result/${attemptId}?access_token=${accessToken}`);
 
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-hero")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
   await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();

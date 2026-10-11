@@ -1,3 +1,4 @@
+import { immutableBig5Authority } from "./helpers/big5-public-api-fixture";
 import { expect, test } from "@playwright/test";
 
 test("Big Five share page exposes only the public-safe acquisition surface", async ({ page }) => {
@@ -36,7 +37,7 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
     });
   });
 
-  await page.route(`**/api/v0.3/shares/${shareId}`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/shares/${shareId}(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -46,6 +47,7 @@ test("Big Five share page exposes only the public-safe acquisition surface", asy
         share_url: `http://127.0.0.1:3000/en/share/${shareId}`,
         id: shareId,
         scale_code: "BIG5_OCEAN",
+        big5_private_result_authority: immutableBig5Authority(),
         locale: "en",
         type_code: "BIG5",
         type_name: "Big Five personality",

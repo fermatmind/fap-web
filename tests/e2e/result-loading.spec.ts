@@ -1,3 +1,4 @@
+import { immutableBig5Authority } from "./helpers/big5-public-api-fixture";
 import { expect, test } from "@playwright/test";
 
 test("result page shows anticipation skeleton while loading", async ({ page }) => {
@@ -30,6 +31,7 @@ test("result page shows anticipation skeleton while loading", async ({ page }) =
         report_state: "ready",
         pdf_state: "ready",
         reason_code: "report_ready",
+        payload: { scale_code: "BIG5_OCEAN" },
         projection_version: 1,
         actions: {
           page_href: `/en/result/${attemptId}`,
@@ -52,6 +54,7 @@ test("result page shows anticipation skeleton while loading", async ({ page }) =
       body: JSON.stringify({
         ok: true,
         locked: false,
+        big5_private_result_authority: immutableBig5Authority(),
         variant: "full",
         quality: { level: "A" },
         offers: [],
@@ -87,8 +90,12 @@ test("result page shows anticipation skeleton while loading", async ({ page }) =
 
   await page.goto(`/en/result/${attemptId}`);
 
-  await expect(page.getByText("Matching evidence profile models...")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Your assessment result" })).toBeVisible();
+  const processing = page.getByTestId("result-processing-wait");
+  await expect(processing.getByRole("status")).toContainText("Generating your assessment result...");
+  await expect(processing.getByRole("progressbar")).toBeVisible();
+  await expect(page.getByText("done", { exact: true })).toHaveCount(0);
+  await expect(page.getByText("done", { exact: true })).toBeVisible({ timeout: 20000 });
+  await expect(processing).toHaveCount(0);
   expect(reportAccessRequestCount).toBeGreaterThan(0);
   expect(reportRequestCount).toBeGreaterThan(0);
 });

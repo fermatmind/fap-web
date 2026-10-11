@@ -6,6 +6,7 @@ import { MbtiLandingIntro } from "@/components/tests/MbtiLandingIntro";
 import path from "node:path";
 import { isValidElement, type ReactNode } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { resetTestLandingLastKnownGoodForTests } from "@/lib/tests/testLandingLastKnownGood";
 import { PublicReadError } from "@/lib/public-content/readError";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 
@@ -243,6 +244,7 @@ function collectValues(value: unknown, output: unknown[], seen = new Set<unknown
 
 describe("SEO core test detail availability", () => {
   beforeEach(() => {
+    resetTestLandingLastKnownGoodForTests();
     process.env.NEXT_PUBLIC_SITE_URL = "https://fermatmind.com";
     routeMocks.getAllTests.mockReset();
     routeMocks.getTestBySlug.mockReset();
@@ -297,6 +299,26 @@ describe("SEO core test detail availability", () => {
     expect(markup).not.toContain("application/ld+json");
     expect(markup).not.toContain("do-not-render");
     expect(markup).not.toContain("loading");
+  });
+
+  it.each((["en", "zh"] as const).flatMap((locale) =>
+    [false, true].map((empty) => ({ locale, empty }))
+  ))("renders related articles for an isolated complete-form legacy scenario ($locale, empty=$empty)", async ({ locale, empty }) => {
+    // Rendering scenarios are isolated from the real public lookup/cache authority.
+    const slug = SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68;
+    routeMocks.getTestBySlug.mockResolvedValue({ ...testFor(SCALE_CANONICAL_SLUG_MAP.MBTI, locale), slug, scale_code: "CLINICAL_COMBO_68", questions_count: 68 });
+    routeMocks.getTestLookup.mockResolvedValue({ ...lookupFor(SCALE_CANONICAL_SLUG_MAP.MBTI, locale), slug, primary_slug: slug, requested_slug: slug, scale_code: "CLINICAL_COMBO_68", forms: [{ form_code: "clinical_combo_68", question_count: 68 }] });
+    const slugs = ["scenario-tool-guide", "scenario-growth-guide", "scenario-narrative-portrait"];
+    routeMocks.getCmsArticlesWithLastKnownGood.mockResolvedValue({ value: { items: empty ? [] : slugs.map((articleSlug) => ({ slug: articleSlug, title: articleSlug, excerpt: "Isolated rendering scenario." })) } });
+    const html = renderToStaticMarkup(await TestLandingPage({ params: Promise.resolve({ locale, slug }), searchParams: Promise.resolve({}) }));
+    expect(html).toContain('data-testid="tests-related-articles-section"');
+    if (empty) {
+      expect(html).toContain(locale === "en" ? "No related articles are configured for this test yet." : "该测评暂未配置相关文章。");
+      expect(html).not.toContain(`/${locale}/articles/`);
+    } else {
+      const links = [...html.matchAll(/href="([^"]*\/articles\/[^"]*)"/g)].map((match) => match[1]);
+      expect(links).toEqual(slugs.map((articleSlug) => `/${locale}/articles/${articleSlug}`));
+    }
   });
 
   it.each([SCALE_CANONICAL_SLUG_MAP.MBTI, SCALE_CANONICAL_SLUG_MAP.EQ_60])("keeps non-held test contract errors fail-closed (%s)", async (slug) => {

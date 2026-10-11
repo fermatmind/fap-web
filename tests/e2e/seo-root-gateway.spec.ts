@@ -1,3 +1,4 @@
+import { startPublicContentApiFixture } from "./helpers/public-content-api-fixture";
 import { expect, test } from "@playwright/test";
 
 test("root path serves the chinese home without a locale redirect", async ({ request }) => {
@@ -9,7 +10,7 @@ test("root path serves the chinese home without a locale redirect", async ({ req
   });
   expect(zhResponse.status()).toBe(200);
   expect(zhResponse.headers().location).toBeFalsy();
-  expect(await zhResponse.text()).toContain("先了解自己，再决定下一步。");
+  expect((await zhResponse.text()).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, "")).toBe("看清自己，走好每一步");
 
   const enResponse = await request.get("/", {
     headers: {
@@ -19,7 +20,7 @@ test("root path serves the chinese home without a locale redirect", async ({ req
   });
   expect(enResponse.status()).toBe(200);
   expect(enResponse.headers().location).toBeFalsy();
-  expect(await enResponse.text()).toContain("先了解自己，再决定下一步。");
+  expect((await enResponse.text()).match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/)?.[1].replace(/<[^>]+>/g, "")).toBe("看清自己，走好每一步");
 });
 
 test("root canonical and hreflang keep chinese home on the bare domain", async ({ request }) => {
@@ -65,7 +66,7 @@ test("unknown path returns a hard 404 or 410", async ({ request }) => {
   expect([404, 410]).toContain(response.status());
 });
 
-test("llms endpoints are reachable", async ({ request }) => {
+test("llms endpoints expose complete or explicitly bounded degraded responses", async ({ request }) => {
   const shortRes = await request.get("/llms.txt");
   expect(shortRes.status()).toBe(200);
   const shortBody = await shortRes.text();
@@ -80,7 +81,18 @@ test("llms endpoints are reachable", async ({ request }) => {
   const fullBody = await fullRes.text();
   expect(fullBody).toContain("Citation Policy");
   expect(fullBody).toContain("## Personality");
-  expect(fullBody).toContain("## Help");
+  const mode = fullRes.headers()["x-fermatmind-llms-full-mode"];
+  expect(["complete", "degraded"]).toContain(mode);
+  if (mode === "complete") {
+    expect(fullBody).toContain("## Help");
+    expect(fullBody).not.toContain("Mode: degraded");
+  } else {
+    expect(fullBody).toContain("Mode: degraded");
+    expect(fullRes.headers()["x-fermatmind-llms-full-source"]).toBe("degraded");
+    expect(fullBody).toContain("## Canonical Entrypoints");
+    expect(fullBody).toContain("## Sitemap");
+  }
+  expect(fullBody).not.toMatch(/https:\/\/fermatmind\.com\/(?:en|zh)\/(?:result|share|compare|pay|attempts)\//);
 });
 
 test("matcher exclusions bypass proxy side effects for static seo endpoints", async ({ request }) => {
@@ -99,3 +111,7 @@ test("sitemap locale aliases still redirect without proxy cookie side effects", 
     expect(response.headers()["set-cookie"], pathname).toBeFalsy();
   }
 });
+
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startPublicContentApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });

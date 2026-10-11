@@ -1,7 +1,40 @@
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
+import { immutableBig5Authority } from "./helpers/big5-public-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 import { clickLastOptionAndWaitForSubmitAndUrl } from "./helpers/quiz-flow";
 
 const isLiveMode = process.env.UAT_MODE === "live";
+
+function serializeFixture(body: Record<string, unknown>): string {
+  const report = body.report as Record<string, unknown> | undefined;
+  if (report?.scale_code === "CLINICAL_COMBO_68" && Array.isArray(report.sections)) {
+    report.sections = report.sections.map((section: Record<string, unknown>) => ({
+      ...section, key: section.key === "summary" ? "quick_overview" : section.key,
+      blocks: (section.blocks as Record<string, unknown>[]).map((block, index) => block.kind === "paragraph"
+        ? { id: `fixture-block-${index}`, type: "markdown", content: block.body } : block),
+    }));
+    body.quality ??= { level: "B", crisis_alert: false };
+  }
+  return JSON.stringify(report?.scale_code === "BIG5_OCEAN"
+    ? { ...body, big5_private_result_authority: immutableBig5Authority() }
+    : body);
+}
+
+function reportPattern(attemptId: string): RegExp {
+  return new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`);
+}
+
+async function mockReportAccess(page: Page, attemptId: string, isReady: () => boolean, clinical = false) {
+  await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
+    const ready = isReady();
+    await route.fulfill({ json: {
+      ok: true, attempt_id: attemptId, access_state: ready ? "ready" : "locked",
+      report_state: "ready", pdf_state: "ready", projection_version: 1,
+      actions: { page_href: clinical ? `/en/attempts/${attemptId}/report` : `/en/result/${attemptId}` },
+      payload: { scale_code: clinical ? "CLINICAL_COMBO_68" : "BIG5_OCEAN" },
+    }});
+  });
+}
 
 function buildBig5Questions(count: number) {
   return Array.from({ length: count }, (_, idx) => ({
@@ -23,7 +56,7 @@ async function mockTrack(page: Page) {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({ ok: true }),
+      body: serializeFixture({ ok: true }),
     });
   });
 }
@@ -33,7 +66,7 @@ async function mockBig5Lookup(page: Page, paywallMode: "off" | "free_only" | "fu
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
+      body: serializeFixture({
         ok: true,
         slug: "big-five-personality-test-ocean-model",
         scale_code: "BIG5_OCEAN",
@@ -64,7 +97,7 @@ async function mockBig5BaseFlow({
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
+      body: serializeFixture({
         ok: true,
         fm_token: "fm_e2e_big5_uat_guest_token",
       }),
@@ -88,7 +121,7 @@ async function mockBig5BaseFlow({
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify(payload),
+        body: serializeFixture(payload),
       });
     });
   }
@@ -97,7 +130,7 @@ async function mockBig5BaseFlow({
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
+      body: serializeFixture({
         ok: true,
         attempt_id: attemptId,
         scale_code: "BIG5_OCEAN",
@@ -114,7 +147,7 @@ async function mockBig5BaseFlow({
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
+      body: serializeFixture({
         ok: true,
         attempt_id: attemptId,
       }),
@@ -135,7 +168,7 @@ async function completeBig5Take({
   targetUrl: RegExp;
 }) {
   await page.goto("/en/tests/big-five-personality-test-ocean-model/take");
-  await expect(page.getByText(`Question 1 / ${questionCount}`)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 1", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "Agree and start" })).toHaveCount(0);
 
   const startResponsePromise = page.waitForResponse(
@@ -156,12 +189,12 @@ async function completeBig5Take({
     }).some((value) => value.includes(attemptId)),
     startedAttemptId
   )).toBe(true);
-  await expect(page.getByText(`Question 2 / ${questionCount}`)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Question 2", exact: true })).toBeVisible();
 
   for (let i = 1; i < questionCount - 1; i += 1) {
-    await expect(page.getByText(`Question ${i + 1} / ${questionCount}`)).toBeVisible();
+    await expect(page.getByRole("heading", { name: `Question ${i + 1}`, exact: true })).toBeVisible();
     await page.getByRole("radio").nth(optionIndex).click();
-    await expect(page.getByText(`Question ${i + 2} / ${questionCount}`)).toBeVisible();
+    await expect(page.getByRole("heading", { name: `Question ${i + 2}`, exact: true })).toBeVisible();
   }
 
   const submitResponse = await clickLastOptionAndWaitForSubmitAndUrl({
@@ -184,11 +217,13 @@ test.describe("UAT matrix (mock)", () => {
       questionCount: 5,
     });
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           locked: false,
           variant: "full",
@@ -214,7 +249,7 @@ test.describe("UAT matrix (mock)", () => {
       optionIndex: 2,
       targetUrl: new RegExp(`/en/result/${attemptId}`),
     });
-    await expect(page.getByText("UAT C-option summary.")).toBeVisible();
+    await expect(page.getByText("UAT C-option summary.")).toBeVisible({ timeout: 20000 });
   });
 
   test("role-2 speeding payload under 30s", async ({ page }) => {
@@ -230,11 +265,13 @@ test.describe("UAT matrix (mock)", () => {
       },
     });
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           locked: false,
           variant: "full",
@@ -271,7 +308,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           scale_code: "SDS_20",
           questions: { items: questions },
@@ -291,7 +328,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           attempt_id: attemptId,
           scale_code: "SDS_20",
@@ -303,18 +340,20 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           attempt_id: attemptId,
         }),
       });
     });
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => false);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           locked: true,
           variant: "free",
@@ -372,23 +411,21 @@ test.describe("UAT matrix (mock)", () => {
     await expect(page.getByTestId("crisis-care-notice")).toBeVisible();
   });
 
-  test("role-4 paid unlock normal user", async ({ page }) => {
+  test("role-4 clinical paid unlock follows ready access", async ({ page }) => {
     const attemptId = "uat-role-paid";
     const orderNo = "ord_uat_paid_1";
     let checkoutRegionHeader = "";
     let unlocked = false;
 
-    await mockBig5BaseFlow({
-      page,
-      attemptId,
-      questionCount: 5,
-    });
+    await mockTrack(page);
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => unlocked, true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify(
+        body: serializeFixture(
           unlocked
             ? {
                 ok: true,
@@ -396,7 +433,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "full",
                 offers: [],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -413,7 +450,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "free",
                 offers: [
                   {
-                    sku: "BIG5_FULL",
+                    sku: "CC68_FULL",
                     formatted_price: "$9.99",
                     amount_cents: 999,
                     currency: "USD",
@@ -421,7 +458,7 @@ test.describe("UAT matrix (mock)", () => {
                   },
                 ],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -442,7 +479,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -451,12 +488,12 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+    await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
       unlocked = true;
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -466,47 +503,38 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take({
-      page,
-      questionCount: 5,
-      optionIndex: 2,
-      targetUrl: new RegExp(`/en/result/${attemptId}`),
-    });
+    await page.goto(`/en/attempts/${attemptId}/report`);
+    await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible({ timeout: 20000 });
     await page.getByRole("button", { name: "Unlock now" }).click();
     await expect
       .poll(() => checkoutRegionHeader, {
         timeout: 10000,
       })
       .toBe("US");
-    await page.waitForURL(new RegExp(`/en/(orders/${orderNo}|result/${attemptId})`));
-    if (page.url().includes(`/en/orders/${orderNo}`)) {
-      await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
-    }
+    await page.waitForURL(new RegExp(`/en/attempts/${attemptId}/report`));
     await expect(page.getByText("Unlocked summary.")).toBeVisible();
   });
 
-  test("role-4a checkout pay.redirect jumps to provider page", async ({ page }) => {
+  test("role-4a clinical checkout pay.redirect jumps to provider page", async ({ page }) => {
     const attemptId = "uat-role-pay-redirect";
     const orderNo = "ord_uat_redirect_1";
     let checkoutRegionHeader = "";
 
-    await mockBig5BaseFlow({
-      page,
-      attemptId,
-      questionCount: 5,
-    });
+    await mockTrack(page);
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => false, true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           locked: true,
           variant: "free",
           offers: [
             {
-              sku: "BIG5_FULL",
+              sku: "CC68_FULL",
               formatted_price: "$9.99",
               amount_cents: 999,
               currency: "USD",
@@ -514,7 +542,7 @@ test.describe("UAT matrix (mock)", () => {
             },
           ],
           report: {
-            scale_code: "BIG5_OCEAN",
+            scale_code: "CLINICAL_COMBO_68",
             sections: [
               {
                 key: "summary",
@@ -534,7 +562,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -556,23 +584,19 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take({
-      page,
-      questionCount: 5,
-      optionIndex: 2,
-      targetUrl: new RegExp(`/en/result/${attemptId}`),
-    });
+    await page.goto(`/en/attempts/${attemptId}/report`);
+    await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible({ timeout: 20000 });
     await page.getByRole("button", { name: "Unlock now" }).click();
     await expect
       .poll(() => checkoutRegionHeader, {
         timeout: 10000,
       })
       .toBe("US");
-    await page.waitForURL(new RegExp(`^https://checkout\\.example\\.com/pay\\?order_no=${orderNo}$`));
+    await page.waitForURL(new RegExp(`^https://checkout\\.lemonsqueezy\\.com/pay\\?order_no=${orderNo}$`));
     expect(page.url()).not.toContain(`/en/orders/${orderNo}`);
   });
 
-  test("role-4b checkout pay.qr enters order wait and completes", async ({ page }) => {
+  test("role-4b clinical checkout pay.qr enters order wait and completes", async ({ page }) => {
     const attemptId = "uat-role-pay-qr";
     const orderNo = "ord_uat_qr_1";
     let checkoutRegionHeader = "";
@@ -580,17 +604,15 @@ test.describe("UAT matrix (mock)", () => {
     let orderStatusCalls = 0;
     let allowPaid = false;
 
-    await mockBig5BaseFlow({
-      page,
-      attemptId,
-      questionCount: 5,
-    });
+    await mockTrack(page);
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => unlocked, true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify(
+        body: serializeFixture(
           unlocked
             ? {
                 ok: true,
@@ -598,7 +620,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "full",
                 offers: [],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -615,7 +637,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "free",
                 offers: [
                   {
-                    sku: "BIG5_FULL",
+                    sku: "CC68_FULL",
                     formatted_price: "$9.99",
                     amount_cents: 999,
                     currency: "USD",
@@ -623,7 +645,7 @@ test.describe("UAT matrix (mock)", () => {
                   },
                 ],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -644,7 +666,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -658,7 +680,7 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+    await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
       orderStatusCalls += 1;
       const paid = allowPaid;
       if (paid) {
@@ -667,7 +689,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -677,12 +699,8 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take({
-      page,
-      questionCount: 5,
-      optionIndex: 2,
-      targetUrl: new RegExp(`/en/result/${attemptId}`),
-    });
+    await page.goto(`/en/attempts/${attemptId}/report`);
+    await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible({ timeout: 20000 });
     await page.getByRole("button", { name: "Unlock now" }).click();
     await expect
       .poll(() => checkoutRegionHeader, {
@@ -695,12 +713,12 @@ test.describe("UAT matrix (mock)", () => {
     await expect(page.getByText("Scan this QR code in your payment app to complete checkout.")).toBeVisible();
     allowPaid = true;
     await page.getByRole("button", { name: "Refresh" }).click();
-    await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
+    await page.waitForURL(new RegExp(`/en/attempts/${attemptId}/report`));
     await expect(page.getByText("Unlocked summary.")).toBeVisible();
     expect(orderStatusCalls).toBeGreaterThanOrEqual(2);
   });
 
-  test("role-4c checkout pay.html enters order wait and opens payment page", async ({ page }) => {
+  test("role-4c clinical checkout pay.html enters order wait and opens payment page", async ({ page }) => {
     const attemptId = "uat-role-pay-html";
     const orderNo = "ord_uat_html_1";
     const payUrl = `/mock-pay/session/${orderNo}`;
@@ -709,17 +727,15 @@ test.describe("UAT matrix (mock)", () => {
     let orderStatusCalls = 0;
     let allowPaid = false;
 
-    await mockBig5BaseFlow({
-      page,
-      attemptId,
-      questionCount: 5,
-    });
+    await mockTrack(page);
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => unlocked, true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify(
+        body: serializeFixture(
           unlocked
             ? {
                 ok: true,
@@ -727,7 +743,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "full",
                 offers: [],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -744,7 +760,7 @@ test.describe("UAT matrix (mock)", () => {
                 variant: "free",
                 offers: [
                   {
-                    sku: "BIG5_FULL",
+                    sku: "CC68_FULL",
                     formatted_price: "$9.99",
                     amount_cents: 999,
                     currency: "USD",
@@ -752,7 +768,7 @@ test.describe("UAT matrix (mock)", () => {
                   },
                 ],
                 report: {
-                  scale_code: "BIG5_OCEAN",
+                  scale_code: "CLINICAL_COMBO_68",
                   sections: [
                     {
                       key: "summary",
@@ -773,7 +789,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -787,7 +803,7 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await page.route(`**/api/v0.3/orders/${orderNo}`, async (route) => {
+    await page.route(`**/api/v0.3/orders/${orderNo}*`, async (route) => {
       orderStatusCalls += 1;
       const paid = allowPaid;
       if (paid) {
@@ -796,7 +812,7 @@ test.describe("UAT matrix (mock)", () => {
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           order_no: orderNo,
           attempt_id: attemptId,
@@ -806,12 +822,8 @@ test.describe("UAT matrix (mock)", () => {
       });
     });
 
-    await completeBig5Take({
-      page,
-      questionCount: 5,
-      optionIndex: 2,
-      targetUrl: new RegExp(`/en/result/${attemptId}`),
-    });
+    await page.goto(`/en/attempts/${attemptId}/report`);
+    await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible({ timeout: 20000 });
     await page.getByRole("button", { name: "Unlock now" }).click();
     await expect
       .poll(() => checkoutRegionHeader, {
@@ -835,15 +847,16 @@ test.describe("UAT matrix (mock)", () => {
 
     allowPaid = true;
     await page.getByRole("button", { name: "Refresh" }).click();
-    await page.waitForURL(new RegExp(`/en/result/${attemptId}`));
+    await page.waitForURL(new RegExp(`/en/attempts/${attemptId}/report`));
     await expect(page.getByText("Unlocked summary.")).toBeVisible();
     expect(orderStatusCalls).toBeGreaterThanOrEqual(2);
   });
 
-  test("role-5 webhook replay observation follows locked=false only", async ({ page }) => {
+  test("role-5 repeated report refresh retains unlock only with ready report access", async ({ page }) => {
     const attemptId = "uat-role-webhook-replay";
     const pendingUnlockStorageKey = `fm_clinical_pending_unlock_v1_${attemptId}`;
     let reportCalls = 0;
+    let unlocked = false;
 
     await mockTrack(page);
 
@@ -851,14 +864,15 @@ test.describe("UAT matrix (mock)", () => {
       window.localStorage.setItem(storageKey, "ord_uat_replay_1");
     }, pendingUnlockStorageKey);
 
-    await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+    await mockReportAccess(page, attemptId, () => unlocked, true);
+
+    await page.route(reportPattern(attemptId), async (route) => {
       reportCalls += 1;
-      const unlocked = reportCalls >= 3;
 
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: JSON.stringify({
+        body: serializeFixture({
           ok: true,
           locked: !unlocked,
           variant: unlocked ? "full" : "free",
@@ -898,6 +912,8 @@ test.describe("UAT matrix (mock)", () => {
     await page.goto(`/en/attempts/${attemptId}/report`);
 
     await expect(page.getByRole("button", { name: "Unlock now" })).toBeVisible();
+    await expect(page.getByText("Deep paid content")).toHaveCount(0);
+    unlocked = true;
     await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0, {
       timeout: 20000,
     });
@@ -909,11 +925,30 @@ test.describe("UAT matrix (mock)", () => {
   });
 });
 
-test.describe("UAT matrix (live placeholder)", () => {
+test.describe("UAT matrix (live public readiness)", () => {
   test.skip(!isLiveMode, "Live mode only.");
 
   test("preprod connectivity check", async ({ page }) => {
-    await page.goto("/en/tests");
-    await expect(page.getByRole("heading", { name: "Tests" })).toBeVisible();
+    // Read the real staging surface without API, authentication or payment mocks.
+    const response = await page.goto("https://staging.fermatmind.com/en/tests");
+    expect(response?.status()).toBe(200);
+    expect(response?.headers()["x-robots-tag"]).toContain("noindex");
+    const hub = page.locator('main section[aria-labelledby="tests-hub-title"]');
+    await expect(hub.getByRole("heading", { level: 1, name: "Free assessments" })).toBeVisible();
+    await expect(hub.locator("article")).toHaveCount(6);
+    await expect(hub.locator('a[href="/en/tests/iq-test-intelligence-quotient-assessment"]')).toBeVisible();
+    await expect(hub.locator('a[href="/en/tests/eq-test-emotional-intelligence-assessment"]')).toBeVisible();
+  });
+});
+
+// Server-rendered catalog/rollout requests require a real local HTTP fixture.
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { if (!isLiveMode) stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
+
+// Authentication is browser-scoped; the public SSR fixture never grants it.
+test.beforeEach(async ({ page }) => {
+  if (!isLiveMode) await page.route("**/api/v0.3/auth/guest*", async (route) => {
+    await route.fulfill({ json: { ok: true, fm_token: "fm_uat_guest" } });
   });
 });

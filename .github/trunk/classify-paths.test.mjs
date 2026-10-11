@@ -20,6 +20,17 @@ test("classifies docs-only without deployment", () => {
   assert.equal(result.tests_changed, true);
 });
 test("classifies application/UI", () => assert.equal(has(["app/[locale]/page.tsx"], "application_ui"), true));
+test("browser-only configuration and scenario repairs do not deploy product code", () => {
+  const result = classifyPaths(["playwright.config.ts", "tests/e2e/seo-og.spec.ts"]);
+  assert.deepEqual(result.categories, ["docs_rules_tests_only"]);
+  assert.equal(result.tests_changed, true);
+  assert.equal(result.deploy, false);
+});
+test("browser configuration never hides a mixed runtime release", () => {
+  const result = classifyPaths(["playwright.config.ts", "app/(localized)/[locale]/tests/[slug]/page.tsx"]);
+  assert.equal(result.deploy, true);
+  assert.equal(result.flags.application_ui, true);
+});
 test("does not mistake an application tests route for tests-only scope", () => {
   const result = classifyPaths(["app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx"]);
   assert.deepEqual(result.categories, ["application_ui"]);

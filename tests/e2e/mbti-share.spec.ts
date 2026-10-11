@@ -393,7 +393,7 @@ test("MBTI result share flow uses /share/{id} and compare CTA routes into take f
   });
 
   await page.goto(`/en/result/${attemptId}`);
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 
   const stickyRail = page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail");
   await stickyRail.getByRole("button", { name: "Share result" }).click();

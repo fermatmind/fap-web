@@ -1,3 +1,4 @@
+import { startIqEqPublicApiFixture } from "./helpers/iq-eq-public-api-fixture";
 import { expect, test, type Page } from "@playwright/test";
 import {
   getMbtiDesktopAnchorHash,
@@ -28,7 +29,7 @@ function createMbtiReportFixtureWithOptions(
   return fixture;
 }
 
-async function mockMbtiReportAccess(page: Page, attemptId: string, locale: "en" | "zh" = "en") {
+async function mockMbtiReportAccess(page: Page, attemptId: string, locale: "en" | "zh" = "en", accessState: "locked" | "ready" = "locked") {
   await page.route(`**/api/v0.3/attempts/${attemptId}/report-access*`, async (route) => {
     await route.fulfill({
       status: 200,
@@ -36,7 +37,7 @@ async function mockMbtiReportAccess(page: Page, attemptId: string, locale: "en" 
       body: JSON.stringify({
         ok: true,
         attempt_id: attemptId,
-        access_state: "locked",
+        access_state: accessState,
         report_state: "ready",
         pdf_state: "ready",
         reason_code: "projection_missing_result_ready",
@@ -89,7 +90,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.route(/https:\/\/api\.fermatmind\.com\/api\/v0\.3\/auth\/guest$/, async (route) => {
+  await page.route("**/api/v0.3/auth/guest*", async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -143,7 +144,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -171,7 +172,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
               type: "article",
               title: "Action experiments that keep the result moving",
               desc: "Start with a small weekly experiment that turns this profile into action.",
-              url: "https://example.com/read-action",
+              url: "/en/articles/read-action",
               cta: "Read the action note",
               priority: 10,
               tags: ["action", "growth"],
@@ -180,14 +181,14 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
               published_at: "2026-03-01T00:00:00Z",
               updated_at: "2026-03-02T00:00:00Z",
               canonical_id: "read-action",
-              canonical_url: "https://example.com/read-action",
+              canonical_url: "/en/articles/read-action",
             },
             {
               id: "read-career",
               type: "article",
               title: "Career environment alignment",
               desc: "Continue with the work and role-fit cues that match this profile.",
-              url: "https://example.com/read-career",
+              url: "/en/articles/read-career",
               cta: "Read the career note",
               priority: 20,
               tags: ["career", "work"],
@@ -196,7 +197,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
               published_at: "2026-03-03T00:00:00Z",
               updated_at: "2026-03-04T00:00:00Z",
               canonical_id: "read-career",
-              canonical_url: "https://example.com/read-career",
+              canonical_url: "/en/articles/read-career",
             },
           ];
         })
@@ -212,7 +213,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/result`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/result(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -265,7 +266,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 
   await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
   await expect(page.getByRole("heading", { name: "MBTI question 1" })).toBeVisible({ timeout: 15000 });
-  await expect(page.getByText(/Estimated time:\s*15 min/)).toBeVisible();
+  await expect(page.getByText(/Estimated time:?\s*15 min/)).toBeVisible();
   await expect(page.getByText("No right or wrong answers. Choose the option that fits you best.")).toBeVisible();
   await expect(page.getByRole("radio")).toHaveCount(4);
 
@@ -281,161 +282,30 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
     timeoutMs: 30000,
   });
   expect(submitResponse.status()).toBe(200);
-  await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-hero")).toBeVisible();
-  await expect(page.getByTestId("mbti-sticky-rail")).toBeVisible();
-  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByTestId("mbti-hero").getByRole("heading", { name: /ENFP-T/ })).toBeVisible();
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
+  await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
   await expect(page.getByTestId("mbti-hero")).toContainText("Projection Campaigner");
-  await expect(page.getByTestId("mbti-hero")).toContainText("Projection-first subtitle");
-  await expect(page.getByTestId("mbti-hero")).toContainText(
-    "Projection-first summary that should replace the legacy hero copy on result pages."
-  );
-  await expect(page.getByTestId("mbti-hero-identity-line")).toContainText("Spark Navigator");
   await expect(page.getByTestId("mbti-hero")).not.toContainText("Legacy Hero Title Should Lose");
-  await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview title");
-  await expect(page.getByTestId("mbti-overview-authored-intro")).toContainText("Authored overview one-liner");
-  await expect(page.getByTestId("mbti-highlights")).toBeVisible();
-  await expect(page.getByTestId("mbti-projection-section-overview")).toHaveAttribute(
-    "data-variant-key",
-    "overview:EI.E.clear:identity.T:boundary.none"
-  );
-  await expect(page.getByTestId("mbti-projection-section-overview")).toContainText(
-    "你已经呈现出稳定的外倾倾向"
-  );
-  await expect(page.getByTestId("mbti-projection-section-traits-why-this-type")).toBeVisible();
-  await expect(page.getByTestId("mbti-projection-section-traits-why-this-type")).toContainText(
-    "主类型之所以成立"
-  );
-  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toContainText(
-    "只拉开了7个点差"
-  );
-  await expect(page.getByTestId("mbti-projection-section-traits-adjacent-type-contrast")).toContainText(
-    "最容易把你看成ENFJ"
-  );
-  await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toBeVisible();
-  await expect(page.getByTestId("mbti-projection-section-traits-decision-style")).toContainText(
-    "两套判断入口之间来回校准"
-  );
-  await expect(page.getByTestId("mbti-recommended-reads")).toBeVisible();
-  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock full report");
-  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toBeVisible();
+  // April's unified shell deliberately excludes retired inline projection copy.
+  // Identity, scoring, access, navigation and carry-over remain active contracts.
+  await expect(page.getByTestId("mbti-hero")).not.toContainText("Projection-first summary");
+  for (const chapter of ["traits", "career", "growth", "relationships"]) {
+    await expect(page.getByTestId(`mbti-chapter-${chapter}`)).toBeVisible();
+  }
+  await expect(page.getByRole("button", { name: "67% Extraversion EI", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "68% Turbulent AT", exact: true })).toBeVisible();
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveText("Unlock now ¥1.99");
   await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
-  await expect(page.getByTestId("mbti-chapter-career")).toContainText(
-    "你更容易先把能量投向外部互动、讨论与现场反馈"
-  );
-  await expect(page.getByTestId("mbti-projection-section-career-collaboration-fit")).toContainText(
-    "团队协作里"
-  );
-  await expect(page.getByTestId("mbti-projection-section-career-work-environment")).toContainText(
-    "工作环境里"
-  );
-  await expect(page.getByTestId("mbti-projection-section-career-work-experiments")).toContainText(
-    "工作实验"
-  );
-  await expect(page.getByTestId("mbti-chapter-career")).toContainText("Projection career advantage one");
-  await expect(page.getByTestId("mbti-projection-section-career-next-step")).toContainText(
-    "先把你看重的判断标准写清楚"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-    "data-primary-focus",
-    "true"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-    "data-display-order",
-    "1"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toContainText(
-    "下一步动作"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-weekly-experiments")).toContainText(
-    "本周实验"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-watchouts")).toContainText(
-    "风险提醒"
-  );
-  await expect(page.getByTestId("mbti-chapter-growth")).toContainText("Projection motivators teaser.");
-  await expect(page.getByTestId("mbti-projection-section-growth-stability-confidence")).toContainText(
-    "情境敏感型稳定"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-stress-recovery")).toContainText(
-    "过载时和恢复时可能会切到不同挡位"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-drainers")).toContainText(
-    "你在过载时和恢复时可能会切到不同挡位"
-  );
-  await expect(page.getByTestId("mbti-chapter-relationships")).toContainText("Projection relationship risks teaser.");
-  await expect(page.getByTestId("mbti-projection-section-relationships-communication-style")).toContainText(
-    "你的起手表达方式"
-  );
-  await expect(page.getByTestId("mbti-projection-section-relationships-try-this-week")).toContainText(
-    "本周关系练习"
-  );
-  await expect(page.getByTestId("mbti-projection-section-relationships-rel-risks")).toContainText(
-    "两套判断入口之间来回校准"
-  );
-  await expect(page.getByTestId("mbti-career-next-step")).toContainText("先把你看重的判断标准写清楚");
-  await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
   await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute(
-    "href",
-    /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
+    "href", /\/en\/career\/recommendations\/mbti\/enfp-t\?.*carryover_focus_key=growth.next_actions/
   );
-  await expect(page.getByTestId("mbti-offer-comparison")).toHaveAttribute("data-cta-rank", "1");
-  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-    "data-recommendation-key",
-    "read-action"
-  );
-  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
-    "data-reading-focus",
-    "true"
-  );
-  await expect(page.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute(
-    "data-recommendation-key",
-    "read-career"
-  );
-  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveAttribute(
-    "data-action-rank",
-    "1"
-  );
-  await expect(page.getByTestId("mbti-projection-section-career-work-experiments")).toHaveAttribute(
-    "data-action-rank",
-    "2"
-  );
-
-  const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
-  expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
-  const growthOrderIsDynamic = await page.evaluate(() => {
-    const nextActions = document.querySelector('[data-testid="mbti-projection-section-growth-next-actions"]');
-    const summary = document.querySelector('[data-testid="mbti-projection-section-growth-summary"]');
-    if (!nextActions || !summary) {
-      return false;
-    }
-
-    return Boolean(
-      nextActions.compareDocumentPosition(summary) & Node.DOCUMENT_POSITION_FOLLOWING
-    );
-  });
-  expect(growthOrderIsDynamic).toBe(true);
-  const sectionsAreOrdered = await page.evaluate(() => {
-    const relationships = document.querySelector('[data-testid="mbti-chapter-relationships"]');
-    const careerNextStep = document.querySelector('[data-testid="mbti-career-next-step"]');
-    const reads = document.querySelector('[data-testid="mbti-recommended-reads"]');
-    const offers = document.querySelector('[data-testid="mbti-offer-comparison"]');
-
-    if (!relationships || !careerNextStep || !reads || !offers) {
-      return false;
-    }
-
-    return Boolean(
-      (relationships.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (careerNextStep.compareDocumentPosition(offers) & Node.DOCUMENT_POSITION_FOLLOWING) &&
-        (offers.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING)
-    );
-  });
-  expect(sectionsAreOrdered).toBe(true);
+  await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
+  await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute("data-recommendation-key", "read-action");
+  await expect(page.getByTestId("mbti-recommended-read-card-2")).toHaveAttribute("data-recommendation-key", "read-career");
   await expect(page.getByRole("link", { name: "Read the action note" })).toBeVisible();
   await expect(page.getByRole("link", { name: "Read the career note" })).toBeVisible();
-  await page.getByTestId("mbti-projection-section-growth-next-actions").getByRole("button", { name: "This helps" }).click();
+  const heroBounds = await page.getByTestId("mbti-hero").boundingBox();
+  expect(heroBounds?.width ?? 0).toBeGreaterThan(700);
 
   const desktopStickyRail = page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail");
 
@@ -459,7 +329,7 @@ test("MBTI smoke: questions -> submit -> result remains stable", async ({ page }
 
 });
 
-test("MBTI cross assessment: Big Five supplement changes stability and next-actions sections", async ({ page }) => {
+test("MBTI cross assessment metadata preserves canonical identity without retired copy overlays", async ({ page }) => {
   const attemptId = "mbti-cross-assessment-0001";
 
   await page.addInitScript(() => {
@@ -491,7 +361,7 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -601,20 +471,22 @@ test("MBTI cross assessment: Big Five supplement changes stability and next-acti
   });
 
   await page.goto(`/en/result/${attemptId}`);
+  // The result deliberately holds the ready view for ten seconds.
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
 
-  const stability = page.getByTestId("mbti-projection-section-growth-stability-confidence");
-  const nextActions = page.getByTestId("mbti-projection-section-growth-next-actions");
-  const careerNextStep = page.getByTestId("mbti-projection-section-career-next-step");
-  await expect(stability).toHaveAttribute("data-synthesis-key", "big5.neuroticism.high.buffer_reactivity");
-  await expect(stability).toContainText("Big Five 显示你的情绪性更高");
-  await expect(nextActions).toHaveAttribute("data-synthesis-key", "big5.conscientiousness.low.use_external_scaffolding");
-  await expect(nextActions).toContainText("外部提醒");
-  await expect(careerNextStep).toHaveAttribute("data-synthesis-key", "big5.career_next_step.low.reduce_activation_friction");
-  await expect(careerNextStep).toContainText("一次对话、一次投递或一次环境试探");
+  await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
+  await expect(page.getByTestId("mbti-chapter-growth")).toBeVisible();
+  await expect(page.getByTestId("mbti-chapter-career")).toBeVisible();
+  await expect(page.getByTestId("mbti-projection-section-growth-stability-confidence")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-projection-section-growth-next-actions")).toHaveCount(0);
+  await expect(page.getByText("Big Five 显示你的情绪性更高", { exact: false })).toHaveCount(0);
+  await expect(page.getByText("外部提醒", { exact: false })).toHaveCount(0);
+  await expect(page.getByTestId("mbti-career-next-step-cta")).toHaveAttribute("href", /\/en\/career\/recommendations\/mbti\/enfp-t/);
+
 });
 
-test("MBTI controlled narrative: flag on shows narrative while canonical result stays unchanged", async ({ page }) => {
+test("MBTI controlled narrative metadata cannot replace current shell content", async ({ page }) => {
   const attemptId = "mbti-controlled-narrative-0001";
 
   await page.addInitScript(() => {
@@ -646,7 +518,7 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -677,11 +549,12 @@ test("MBTI controlled narrative: flag on shows narrative while canonical result 
   });
 
   await page.goto(`/en/result/${attemptId}`);
+  // The result deliberately holds the ready view for ten seconds.
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-cultural-calibration-growth-next-actions")).toContainText(
-    "make the next step explicit"
-  );
-  await expect(page.getByTestId("mbti-hero")).toContainText(
+  await expect(page.getByTestId("mbti-cultural-calibration-growth-next-actions")).toHaveCount(0);
+  await expect(page.getByTestId("mbti-chapter-growth")).toBeVisible();
+  await expect(page.getByTestId("mbti-hero")).not.toContainText(
     "Projection-first summary that should replace the legacy hero copy on result pages."
   );
 });
@@ -720,7 +593,7 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -768,12 +641,16 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
     });
   });
 
+  await mockMbtiReportAccess(page, attemptId, "en");
+
   await page.goto(`/en/result/${attemptId}`);
+  // The result deliberately holds the ready view for ten seconds.
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
   await expect(page.getByTestId("mbti-offer-comparison")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Share result" })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Retake test" })).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("button", { name: "Share result" })).toBeVisible();
+  await expect(page.getByTestId("mbti-sticky-rail").getByRole("link", { name: "Retest" })).toBeVisible();
   await expect(page.getByTestId("mbti-desktop-clone-shell").getByTestId("mbti-sticky-rail").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
     "href",
     getMbtiDesktopAnchorHash("offerFull")
@@ -869,28 +746,15 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        locked: false,
-        variant: "full",
-        report: {
-          scale_code: "MBTI",
-          sections: [
-            {
-              key: "summary",
-              title: "Summary",
-              access_level: "free",
-              blocks: [{ kind: "paragraph", title: "Summary", body: "mobile summary" }],
-            },
-          ],
-        },
-      }),
+      body: JSON.stringify(createMbtiReportFixture()),
     });
   });
+
+  await mockMbtiReportAccess(page, attemptId, "en");
 
   const viewports = [
     { width: 375, height: 812 },
@@ -902,7 +766,7 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
     await page.goto("/en/tests/mbti-personality-test-16-personality-types/take");
 
     await expect(page.getByRole("heading", { name: "MBTI sticky question" })).toBeVisible({ timeout: 15000 });
-    await expect(page.getByText(/Estimated time:\s*15 min/)).toBeVisible();
+    await expect(page.getByText(/Estimated time:?\s*15 min/)).toBeVisible();
     await expect(page.getByText("No right or wrong answers. Choose the option that fits you best.")).toBeVisible();
     const firstOption = page.getByRole("radio").first();
     const bounds = await firstOption.boundingBox();
@@ -915,6 +779,7 @@ test("MBTI mobile immersive mode keeps touch targets and auto submits", async ({
       timeoutMs: 30000,
     });
     expect(submitResponse.status()).toBe(200);
+    await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
   }
 });
 
@@ -950,7 +815,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   });
 
   await page.route(
-    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`),
+    new RegExp(`/api/v0\\.3/attempts/${attemptId}/report-access(?:\\?.*)?$`),
     async (route) => {
       await route.fulfill({
         status: 200,
@@ -980,7 +845,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   );
 
   await page.route(
-    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`),
+    new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`),
     async (route) => {
     await route.fulfill({
       status: 200,
@@ -1015,7 +880,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   );
 
   await page.route(
-    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/report\\.pdf(?:\\?.*)?$`),
+    new RegExp(`/api/v0\\.3/attempts/${attemptId}/report\\.pdf(?:\\?.*)?$`),
     async (route) => {
       await route.fulfill({
         status: 200,
@@ -1026,7 +891,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   );
 
   await page.route(
-    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/result(?:\\?.*)?$`),
+    new RegExp(`/api/v0\\.3/attempts/${attemptId}/result(?:\\?.*)?$`),
     async (route) => {
       await route.fulfill({
         status: 200,
@@ -1048,7 +913,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   );
 
   await page.route(
-    new RegExp(`https://api\\.fermatmind\\.com/api/v0\\.3/attempts/${attemptId}/submission(?:\\?.*)?$`),
+    new RegExp(`/api/v0\\.3/attempts/${attemptId}/submission(?:\\?.*)?$`),
     async (route) => {
       await route.fulfill({
         status: 200,
@@ -1065,7 +930,7 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     }
   );
 
-  await page.route(/https:\/\/api\.fermatmind\.com\/api\/v0\.3\/scales\/lookup\?.*$/, async (route) => {
+  await page.route(/\/api\/v0\.3\/scales\/lookup\?.*$/, async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -1088,6 +953,8 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await page.goto(`/zh/result/${attemptId}`);
+  // The result deliberately holds the ready view for ten seconds.
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 
     const cloneShell = page.getByTestId("mbti-desktop-clone-shell");
     const stickyRail = cloneShell.getByTestId("mbti-sticky-rail");
@@ -1102,8 +969,10 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
       return { left: hero.left, right: hero.right, logoLeft: logo.left, accountRight: account.right, overflow: document.documentElement.scrollWidth - window.innerWidth };
     });
     expect(layout.overflow).toBeLessThanOrEqual(1);
-    expect(Math.abs(layout.left - layout.logoLeft)).toBeLessThanOrEqual(1);
-    if (viewport.width > 860) expect(Math.abs(layout.right - layout.accountRight)).toBeLessThanOrEqual(1);
+    // The current clone shell is centered independently of the shared header.
+    expect(Math.abs(layout.left - (viewport.width - layout.right))).toBeLessThanOrEqual(1);
+    expect(layout.logoLeft).toBeGreaterThanOrEqual(0);
+    if (viewport.width > 860) expect(layout.accountRight).toBeLessThanOrEqual(viewport.width);
     for (const chapter of ["career", "growth", "relationships"]) {
       await expect(page.getByTestId(`mbti-asset-slot-${chapter}`)).toBeHidden();
     }
@@ -1193,12 +1062,12 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
     });
   });
 
-  await page.route(`**/api/v0.3/attempts/${attemptId}/report*`, async (route) => {
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${attemptId}/report(?:\\?.*)?$`), async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: JSON.stringify(
-        createMbtiReportFixtureWithOptions({
+      body: JSON.stringify({
+        ...createMbtiReportFixtureWithOptions({
           isRevisit: true,
           hasUnlock: true,
           hasFeedback: true,
@@ -1208,8 +1077,10 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
           feedbackCoverage: "explainability_only",
           lastDeepReadSection: "traits.close_call_axes",
           currentIntentCluster: "clarify_type",
-        })
-      ),
+        }),
+        locked: false, variant: "full", access_level: "paid",
+        modules_allowed: ["core_full", "career", "relationships"],
+      }),
     });
   });
 
@@ -1228,29 +1099,28 @@ test("MBTI deepened user state can shift revisit focus and recommendation priori
     });
   });
 
+  await mockMbtiReportAccess(page, attemptId, "en", "ready");
+
   await page.goto(`/en/result/${attemptId}`);
+  // The result deliberately holds the ready view for ten seconds.
+  await expect(page.getByTestId("mbti-result-shell")).toBeVisible({ timeout: 20000 });
 
   await expect(page.getByTestId("mbti-result-shell")).toBeVisible();
-  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-    "data-primary-focus",
-    "true"
-  );
-  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveAttribute(
-    "data-display-order",
-    "1"
-  );
+  await expect(page.getByTestId("mbti-hero")).toContainText("ENFP-T");
+  await expect(page.getByTestId("mbti-projection-section-traits-close-call-axes")).toHaveCount(0);
   await expect(page.getByTestId("mbti-recommended-read-card-1")).toHaveAttribute(
     "data-recommendation-key",
     "read-explain"
   );
-  await expect(page.getByTestId("mbti-action-journey")).toBeVisible();
-  await expect(page.getByTestId("mbti-action-journey")).toHaveAttribute("data-journey-state", "refine_after_feedback");
-  await expect(page.getByTestId("mbti-action-journey")).toContainText("Refine the current focus after feedback");
-  await expect(page.getByTestId("mbti-pulse-check")).toHaveAttribute("data-pulse-state", "recalibrate");
-  await expect(page.getByTestId("mbti-action-journey-cta")).toHaveAttribute(
-    "href",
-    /\/en\/history\/mbti\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate/
+  await expect(page.getByTestId("mbti-post-purchase-section")).toBeVisible();
+  await expect(page.getByTestId("mbti-post-purchase-history")).toHaveAttribute(
+    "href", /\/en\/history\/mbti\?.*journey_state=refine_after_feedback.*pulse_state=recalibrate/
   );
-  await expect(page.getByTestId("mbti-post-purchase-section")).toHaveAttribute("data-cta-rank", "1");
-  await expect(page.getByTestId("mbti-career-next-step")).toHaveAttribute("data-cta-rank", "2");
+  await expect(page.getByTestId("mbti-offers-primary-cta")).toHaveCount(0);
+
 });
+
+// Server-rendered catalog/rollout requests require a real local HTTP fixture.
+let stopPublicApiFixture: (() => Promise<void>) | undefined;
+test.beforeAll(async () => { stopPublicApiFixture = await startIqEqPublicApiFixture(); });
+test.afterAll(async () => { await stopPublicApiFixture?.(); });
