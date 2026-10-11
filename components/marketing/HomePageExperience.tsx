@@ -374,8 +374,8 @@ function AboutIcon({ index }: { index: number }) {
   const Icon = icons[index] ?? HeartHandshake;
 
   return (
-    <span className="grid h-16 w-16 place-items-center rounded-full border border-[#008aa3] bg-white text-[#008aa3] shadow-[0_12px_28px_rgba(0,138,163,0.10)]" aria-hidden>
-      <Icon className="h-8 w-8" strokeWidth={1.8} />
+    <span className="grid h-[4.5rem] w-[4.5rem] shrink-0 place-items-center rounded-full border-2 border-[#008aa3] bg-white text-[#008aa3]" aria-hidden>
+      <Icon className="h-12 w-12" strokeWidth={1.35} />
     </span>
   );
 }
