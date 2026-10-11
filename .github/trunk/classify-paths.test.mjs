@@ -55,11 +55,26 @@ test("mixed scope returns the validation union", () => {
 
 test("refuses an indeterminate empty diff", () => assert.throws(() => classifyPaths([]), /must not be empty/));
 
-test("classifies the machine-consumed SEO projection as a release input", () => {
-  const result = classifyPaths(["docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json"]);
+test("generated inventory and Skill synchronization remains docs-only", () => {
+  const result = classifyPaths([
+    ".agents/skills/fermatmind-frontend-deploy-sre/SKILL.md",
+    "docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json",
+  ]);
+  assert.deepEqual(result.categories, ["docs_rules_tests_only"]);
+  assert.equal(result.deploy, false);
+  assert.equal(result.flags.deployment_infrastructure, false);
+});
+
+test("inventory synchronization preserves real mixed runtime deployment", () => {
+  const result = classifyPaths([
+    "docs/seo/generated/seo-platform-11a-final-tree-projection.v1.json",
+    ".github/workflows/ci.yml",
+    "lib/content/articleCategoryLabel.ts",
+  ]);
+  assert.equal(result.flags.docs_rules_tests_only, true);
   assert.equal(result.flags.deployment_infrastructure, true);
+  assert.equal(result.flags.application_ui, true);
   assert.equal(result.deploy, true);
-  assert.equal(result.flags.docs_rules_tests_only, false);
 });
 
 test('named Python and Shell tests remain tests-only and require actual native execution',()=>{ const result=classifyPaths(['scripts/test_delivery.py','scripts/deploy/test_readback.sh']); assert.equal(result.tests_changed,true); assert.equal(result.deploy,false); });
