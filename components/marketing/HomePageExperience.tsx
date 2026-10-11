@@ -438,7 +438,8 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     (item) => !containsUnverifiedSocialProofText(item.title, item.summary) && !isRemovedHomepageTrustItem(item)
   );
   const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
-  // The product owner confirmed these historical server statistics on 2026-10-11.
+  // The product owner confirmed these figures as real Tencent Cloud server and
+  // database statistics on 2026-10-11; no repeat verification is required.
   // Keep this card outside the generic CMS social-proof filter. Current-system
   // successful attempts are a different metric, not evidence against these figures.
   const displayTrustItems: TrustItem[] = locale === "zh"
